@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
-ms.openlocfilehash: 5f2d23b3fe33691d37dc00b2d4e79036293252d9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132878"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79202142"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Schéma des événements Azure Event Grid pour Azure Machine Learning
 
@@ -30,6 +30,7 @@ Azure Machine Learning émet les types d’événements suivants :
 | Microsoft.MachineLearningServices.ModelDeployed | Déclenché lorsque le ou les modèles ont été déployés avec succès sur un point de terminaison. |
 | Microsoft.MachineLearningServices.RunCompleted | Déclenché lorsqu’une exécution s’est terminée avec succès. |
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Déclenché lorsqu’un superviseur de dérive de données détecte une dérive. |
+| Microsoft.MachineLearningServices.RunStatusChanged | Déclenché quand un état d’exécution passe à « failed ». |
 
 ## <a name="the-contents-of-an-event-response"></a>Le contenu d’une réponse à un événement
 
@@ -148,6 +149,46 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
 }]
 ```
 
+### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Événement Microsoft.MachineLearningServices.RunStatusChanged
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "experiments/0fa9dfaa-cba3-4fa7-b590-23e48548f5c1/runs/AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+  "eventType": "Microsoft.MachineLearningServices.RunCompleted",
+  "eventTime": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "ExperimentName": "automl-local-regression",
+    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "RunType": null,
+    "RunTags": {},
+    "RunProperties": {
+        "runTemplate": "automl_child",
+        "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
+        "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
+        "training_percent": "100",
+        "predicted_cost": "0.062226144097381045",
+        "iteration": "5",
+        "run_template": "automl_child",
+        "run_preprocessor": "StandardScalerWrapper",
+        "run_algorithm": "LassoLars",
+        "conda_env_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/conda_env_v_1_0_0.yml",
+        "model_name": "AutoMLad912b2d65",
+        "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
+        "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
+    },
+   "RunStatus": "failed"
+   },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+```
+
+
+
+
 ## <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
@@ -170,7 +211,7 @@ L’objet de données comporte les propriétés suivantes pour chaque type d’�
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | ModelName | string | Le nom du modèle qui a été inscrit. |
-| ModelVersion | int | La version du modèle qui a été inscrit. |
+| ModelVersion | string | La version du modèle qui a été inscrit. |
 | ModelTags | object | Les balises du modèle qui a été inscrit. |
 | ModelProperties | object | Propriétés du modèle qui a été inscrit. |
 
@@ -178,7 +219,7 @@ L’objet de données comporte les propriétés suivantes pour chaque type d’�
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| ServiceName | string | Nom du service déployé. |
+| NomService | string | Nom du service déployé. |
 | ServiceComputeType | string | Type de calcul (par exemple ACI, AKS) du service déployé. |
   | ModelIds | string | Liste d’ID de modèles séparés par des virgules. Les ID des modèles déployés dans le service. |
 | ServiceTags | object | Balises du service déployé. |
@@ -205,9 +246,20 @@ L’objet de données comporte les propriétés suivantes pour chaque type d’�
 | BaseDatasetId | string | ID du jeu de données de base utilisé pour détecter la dérive. |
 | TargetDatasetId | string | ID du jeu de données cible utilisé pour détecter la dérive. |
 | DriftCoefficient | double | Résultat du coefficient qui a déclenché l’événement. |
-| StartTime | datetime | Heure de début de la série chronologique du jeu de données cible qui a entraîné la détection de dérive.  |
-| EndTime | datetime | Heure de fin de la série chronologique du jeu de données cible qui a entraîné la détection de dérive. |
+| StartTime | DATETIME | Heure de début de la série chronologique du jeu de données cible qui a entraîné la détection de dérive.  |
+| EndTime | DATETIME | Heure de fin de la série chronologique du jeu de données cible qui a entraîné la détection de dérive. |
 
+### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft.MachineLearningServices.RunStatusChanged
+
+| Propriété | Type | Description |
+| -------- | ---- | ----------- |
+| ExperimentId | string | ID de l’expérience à laquelle l’exécution appartient. |
+| ExperimentName | string | Nom de l’expérience à laquelle l’exécution appartient. |
+| RunId | string | ID de l’exécution qui a été effectuée. |
+| RunType | string | Type d’exécution de l’exécution terminée. |
+| RunTags | object | Balises de l’exécution terminée. |
+| RunProperties | object | Propriétés de l’exécution terminée. |
+| RunStatus | string | État de l’exécution. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

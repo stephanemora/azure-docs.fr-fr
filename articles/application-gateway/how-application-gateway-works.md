@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d9d7ae3bc321f1f000fac1a875589df352077f33
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 84a7bdfb9f8f7c741140cbe2086149dff90db211
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129806"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132981"
 ---
 # <a name="how-an-application-gateway-works"></a>Fonctionnement d’une passerelle d’application
 
@@ -46,7 +46,7 @@ Quand la passerelle d’application sélectionne le pool de back-ends, elle envo
 
 Une fois que la passerelle d’application a sélectionné le back-end, elle ouvre une nouvelle session TCP auprès du back-end en fonction des paramètres HTTP. Les paramètres HTTP spécifient le protocole, le port et les autres paramètres de routage nécessaires à l’établissement d’une nouvelle session auprès du back-end.
 
-Le port et le protocole utilisés dans les paramètres HTTP permettent de déterminer si le trafic entre la passerelle d’application et les back-ends est chiffré (chiffrement SSL de bout en bout) ou non chiffré.
+Le port et le protocole utilisés dans les paramètres HTTP permettent de déterminer si le trafic entre la passerelle d’application et les back-ends est chiffré (chiffrement TLS de bout en bout) ou non chiffré.
 
 Quand une passerelle d’application envoie la requête d’origine au back-end, elle respecte la configuration personnalisée définie dans les paramètres HTTP associés au remplacement du nom d’hôte, du chemin et du protocole. Cette action permet de conserver l’affinité de session basée sur les cookies, le drainage de connexion, la sélection du nom d’hôte à partir du back-end, etc.
 

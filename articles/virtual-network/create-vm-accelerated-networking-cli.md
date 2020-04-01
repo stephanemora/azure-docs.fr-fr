@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 05f8430efa31b39d49025fb8456108da229d3d71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793323"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239828"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée à l’aide d’Azure CLI
 
 Ce didacticiel explique comment créer une machine virtuelle Linux avec mise en réseau accélérée. Pour créer une machine virtuelle Windows avec accélération réseau, consultez [Créer une machine virtuelle Windows avec accélération réseau](create-vm-accelerated-networking-powershell.md). Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d’une racine unique (SR-IOV) sur une machine virtuelle, ce qui améliore considérablement les performances de mise en réseau. Cette voie hautement performante court-circuite l’hôte à partir du chemin d’accès aux données, réduisant ainsi la latence, l’instabilité et l’utilisation du processeur pour servir les charges de travail réseau les plus exigeantes sur les types de machines virtuelles pris en charge. L’illustration suivante montre la communication entre deux machines virtuelles avec ou sans mise en réseau accélérée :
 
-![Opérateurs de comparaison](./media/create-vm-accelerated-networking/accelerated-networking.png)
+![Comparaison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
 Sans mise en réseau accélérée, tout le trafic réseau en direction et en provenance de la machine virtuelle doit transiter par l’hôte et le commutateur virtuel. Le commutateur virtuel fournit au trafic réseau toutes les stratégies, telles que les groupes de sécurité réseau, les listes de contrôle d’accès, l’isolation et d’autres services de réseau virtualisé. Pour plus d’informations sur les commutateurs virtuels, voir [Vue d’ensemble de la virtualisation de réseau Hyper-V](https://technet.microsoft.com/library/jj945275.aspx).
 
@@ -74,13 +74,13 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Activation de la mise en réseau accélérée sur une machine virtuelle en cours d’exécution
 Cette fonctionnalité peut être activée sur une machine virtuelle sans mise en réseau accélérée uniquement si la machine virtuelle a une taille prise en charge et si elle est arrêtée/libérée.  
 ### <a name="deployment-through-azure-resource-manager"></a>Déploiement par le biais d’Azure Resource Manager
-Aucun déploiement des machines virtuelles (classiques) n’est possible avec la mise en réseau accélérée.
+Le déploiement de machines virtuelles (classiques) avec mise en réseau accélérée n’est pas possible.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée Azure
 ## <a name="portal-creation"></a>Création de portail
 Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide de l’interface CLI d’Azure, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Lorsque vous créez une machine virtuelle dans le portail, dans le panneau **Créer une machine virtuelle**, choisissez l’onglet **Mise en réseau**.  Dans cet onglet, il existe une option de **Mise en réseau accélérée**.  Si vous avez choisi un [système d’exploitation pris en charge](#supported-operating-systems) et une [taille de machine virtuelle](#supported-vm-instances), cette option est automatiquement définie sur « Activé ».  Dans le cas contraire, l’option est définie sur « Désactivé » pour la Mise en réseau accélérée et l’utilisateur est informé de la raison pour laquelle elle ne peut pas être activée.   
 
-* *Remarque :* Seuls les systèmes d’exploitation pris en charge peuvent être activés via le portail.  Si vous utilisez une image personnalisée, et que votre image prend en charge la Mise en réseau accélérée, créez votre machine virtuelle à l’aide de CLI ou Powershell. 
+* *Remarque :* Seuls les systèmes d’exploitation pris en charge peuvent être activés via le portail.  Si vous utilisez une image personnalisée, et que votre image prend en charge la Mise en réseau accélérée, créez votre machine virtuelle à l’aide de CLI ou PowerShell. 
 
 Une fois la machine virtuelle créée, vous pouvez confirmer l’activation de la Mise en réseau accélérée en suivant les instructions de la section [Confirmer l’activation de la Mise en réseau accélérée](#confirm-that-accelerated-networking-is-enabled).
 
@@ -177,7 +177,7 @@ Pour obtenir la liste de toutes les tailles de machine virtuelle et leurs caract
 
 Une fois que la machine virtuelle est créée, une sortie similaire à la sortie suivante est renvoyée. Veuillez noter **publicIpAddress**. Cette adresse sera utilisée pour accéder à la machine virtuelle dans les étapes suivantes.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -208,7 +208,7 @@ ssh azureuser@<your-public-ip-address>
 
 Utilisez la commande `lspci` pour confirmer que l’appareil Mellanox VF est exposé à la machine virtuelle. Le résultat renvoyé ressemble à la sortie suivante :
 
-```bash
+```output
 0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)
 0000:00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 01)
 0000:00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
@@ -219,7 +219,7 @@ Utilisez la commande `lspci` pour confirmer que l’appareil Mellanox VF est exp
 
 Utilisez la commande `ethtool -S eth0 | grep vf_` pour rechercher l’activité sur VF (fonction virtuelle). Si vous recevez une sortie semblable à l’exemple suivant, la mise en réseau accélérée est donc activée et elle fonctionne.
 
-```bash
+```output
 vf_rx_packets: 992956
 vf_rx_bytes: 2749784180
 vf_tx_packets: 2656684
@@ -300,7 +300,7 @@ az vmss start \
     --resource-group myrg
 ```
 
-Après redémarrage, attendez que les mises à niveau se terminent, mais une fois cela fait, la fonction virtuelle s’affiche à l’intérieur de la machine virtuelle.  (Vérifiez que vous utilisez un système d’exploitation et des tailles de machine virtuelle pris en charge.)
+Après le redémarrage, attendez que les mises à niveau se terminent. Vous voyez alors la carte VF apparaître sur la machine virtuelle.  (Vérifiez que vous utilisez un système d’exploitation et des tailles de machine virtuelle pris en charge.)
 
 ### <a name="resizing-existing-vms-with-accelerated-networking"></a>Redimensionnement des machines virtuelles existantes avec mise en réseau accélérée
 

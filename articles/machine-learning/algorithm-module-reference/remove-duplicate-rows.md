@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 429ddd62cccb8657aa18ec844968cc12df778f55
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 490d3305abcbcd906a0f727d736db8cab7e4287e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153789"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456019"
 ---
 # <a name="remove-duplicate-rows-module"></a>Module Supprimer les lignes en double
 
@@ -69,7 +69,7 @@ Lorsque vous exécutez le module, il crée un jeu de données candidat et envoie
     + Si cette option est sélectionnée, la première ligne est renvoyée, et les autres sont ignorées. 
     + Si vous désélectionnez cette option, la dernière ligne en double est conservée dans les résultats, et les autres sont ignorées. 
 
-5. Exécuter le pipeline.
+5. Envoyez le pipeline.
 
 6. Pour examiner les résultats, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**. 
 

@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 45648170f69d513b15e79cdd76f56e66bbc88bfa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298647"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332081"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prérequis pour le provisionnement cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser l’approvisionnement cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -53,7 +53,7 @@ Exécutez l’[outil IdFix](https://docs.microsoft.com/office365/enterprise/prep
 
         | Numéro de port | Utilisation |
         | --- | --- |
-        | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL.  |
+        | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat TLS/SSL.  |
         | **443** | Gère toutes les communications sortantes avec le service. |
         | **8080** (facultatif) | Les agents signalent leur état toutes les 10 minutes sur le port 8080, si le port 443 n’est pas disponible. Cet état est affiché sur le portail Azure AD. |
      

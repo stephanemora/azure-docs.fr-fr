@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 96f71306c060a6a533a3ab1c0c54b49d74e5cd82
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298392"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294388"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec Visual Studio
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -47,7 +47,7 @@ Lorsque vous utilisez Visual Studio 2017 version 15.4 et les versions antérieur
    > [!Note]
    > Les certificats dont vous avez besoin pour une connexion Bureau à distance sont différents de ceux que vous utilisez pour d'autres opérations Azure. Le certificat de l'accès à distance doit avoir une clé privée.
 
-5. Sélectionnez un certificat dans la liste ou choisissez  **&lt;Créer... &gt;** . Si vous créez un nouveau certificat, entrez un nom convivial pour le nouveau certificat lorsque vous y êtes invité, puis sélectionnez **OK**. Le nouveau certificat s’affiche dans la liste déroulante.
+5. Sélectionnez un certificat dans la liste ou choisissez **&lt;Créer... &gt;** . Si vous créez un nouveau certificat, entrez un nom convivial pour le nouveau certificat lorsque vous y êtes invité, puis sélectionnez **OK**. Le nouveau certificat s’affiche dans la liste déroulante.
 
 6. Créez un nom d’utilisateur et un mot de passe. Vous ne pouvez pas utiliser un compte existant. Ne spécifiez pas « Administrateur » comme nom d’utilisateur pour le nouveau compte.
 
@@ -65,7 +65,7 @@ Si vous travaillez dans le cadre d’une équipe, vous devez activer à la place
 
 Cette recommandation est due à une modification de la façon dont Visual Studio 2017 15.5 et versions ultérieures communiquent avec la machine virtuelle du service cloud. Lorsque vous activez le Bureau à distance via l’Assistant de publication, les versions antérieures de Visual Studio communiquent avec la machine virtuelle via ce qu’on appelle le « plug-in RDP ». Au lieu de cela, Visual Studio 2017 15.5 et versions ultérieures communiquent en utilisant l’extension « RDP » qui est plus sécurisée et plus souple. Ce changement permet également de s’aligner avec les méthodes du portail Azure et de PowerShell, qui utilisent aussi l’extension RDP pour activer le Bureau à distance.
 
-Lorsque Visual Studio communique avec l’extension RDP, il transmet un mot de passe en texte brut via le protocole SSL. Toutefois, les fichiers de configuration du projet stockent uniquement un mot de passe chiffré, qui peut être déchiffré en texte brut uniquement avec le certificat local qui a servi à chiffrer au départ.
+Lorsque Visual Studio communique avec l’extension RDP, il transmet un mot de passe en texte brut via le protocole TLS. Toutefois, les fichiers de configuration du projet stockent uniquement un mot de passe chiffré, qui peut être déchiffré en texte brut uniquement avec le certificat local qui a servi à chiffrer au départ.
 
 Si vous déployez le projet de service cloud à partir du même ordinateur de développement à chaque fois, alors ce certificat local est disponible. Dans ce cas, vous pouvez toujours utiliser l’option **Activer le Bureau à distance pour tous les rôles** ans l’Assistant publication.
 

@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment restaurer des données stocké
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 25ca8eecaeb615f071340188a23fae7978ddb75c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450028"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409811"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurer les fichiers dans Windows à l’aide du modèle de déploiement Resource Manager
 
@@ -144,4 +144,6 @@ Ces étapes incluent la terminologie suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).
+* Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).
+
+* Recherchez [Questions courantes sur la sauvegarde de fichiers et de dossiers](backup-azure-file-folder-backup-faq.md).

@@ -7,25 +7,24 @@ metadata:
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 278dc182b682615d621bfd8a891cc77591a511f1
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 87e698c2a9b09b54c6015293b5be26ea2006a786
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562776"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415170"
 landingContent:
-- title: Bien démarrer
+- title: À propos de la reconnaissance de l’intention
   linkLists:
   - linkListType: quickstart
     links:
     - text: Reconnaître la voix, les intentions et les entités
       url: quickstarts/intent-recognition.md
-- title: Guides pas à pas
+- title: Développer avec la reconnaissance de l’intention
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -41,5 +40,5 @@ landingContent:
       url: ../luis/developer-reference-resource.md
     - text: Support multilingue
       url: ../luis/luis-language-support.md#languages-supported
-    - text: Tarifs
+    - text: Tarification de la reconnaissance de l’intention
       url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services

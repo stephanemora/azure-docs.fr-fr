@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 03/24/2020
 ms.author: anzaman
-ms.openlocfilehash: 7205b5f3049773545d78c3a3e3423450779b78c5
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4821f2eb694a36cf0570008b3e62ce39999c58d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150967"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239745"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>À propos du routage VPN point à site
 
@@ -24,11 +24,11 @@ Actuellement, Azure prend en charge deux protocoles pour l’accès à distance,
 > Cet article s’applique uniquement à IKEv2.
 >
 
-## <a name="diagrams"></a>À propos des diagrammes
+## <a name="about-the-diagrams"></a><a name="diagrams"></a>À propos des diagrammes
 
 Vous trouverez différents diagrammes dans cet article. Chaque section présente une topologie ou une configuration différente. Dans le cadre de cet article, les connexions site à site (S2S) et réseau virtuel à réseau virtuel fonctionnent de la même façon parce que les deux sont des tunnels IPsec. Toutes les passerelles VPN de cet article sont basées sur le routage.
 
-## <a name="isolatedvnet"></a>Un réseau virtuel isolé
+## <a name="one-isolated-vnet"></a><a name="isolatedvnet"></a>Un réseau virtuel isolé
 
 La connexion de passerelle VPN point à site de cet exemple est pour un réseau virtuel qui n’est connecté ni appairé à aucun autre réseau virtuel (VNet1). Dans cet exemple, les clients peuvent accéder à VNet1.
 
@@ -44,15 +44,15 @@ La connexion de passerelle VPN point à site de cet exemple est pour un réseau 
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Accès
 
 * Les clients Windows peuvent accéder à VNet1
 
 * Les clients non-Windows peuvent accéder à VNet1
 
-## <a name="multipeered"></a>Plusieurs réseaux virtuels appairés
+## <a name="multiple-peered-vnets"></a><a name="multipeered"></a>Plusieurs réseaux virtuels appairés
 
-Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 est appairé à VNet2. VNet2 est appairé à VNet3. VNet1 est appairé à VNet4. Il n’existe aucun peering direct entre VNet1 et VNet3. VNet1 a « Autoriser le transit par passerelle » activé, tandis que VNet2 a « Utiliser des passerelles distantes » activé.
+Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 est appairé à VNet2. VNet2 est appairé à VNet3. VNet1 est appairé à VNet4. Il n’existe aucun peering direct entre VNet1 et VNet3. VNet1 a l’option « Autoriser le transit par passerelle » activée, tandis que VNet2 et VNet4 ont l’option « Utiliser des passerelles distantes » activée.
 
 Les clients utilisant Windows peuvent accéder directement aux réseaux virtuels appairés, mais le client VPN doit être retéléchargé si des changements sont apportés au peering du réseau virtuel ou à la topologie du réseau. Les clients non-Windows peuvent accéder directement aux réseaux virtuels appairés. L’accès n’est pas transitif et est limité aux réseaux virtuels directement appairés uniquement.
 
@@ -74,13 +74,13 @@ Les clients utilisant Windows peuvent accéder directement aux réseaux virtuels
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Accès
 
 * Les clients Windows peuvent accéder à VNet1, VNet2 et VNet4, mais le client VPN doit être retéléchargé pour que les changements de topologie prennent effet.
 
 * Les clients non-Windows peuvent accéder à VNet1, VNet2 et VNet4.
 
-## <a name="multis2s"></a>Plusieurs réseaux virtuels connectés avec un VPN S2S
+## <a name="multiple-vnets-connected-using-an-s2s-vpn"></a><a name="multis2s"></a>Plusieurs réseaux virtuels connectés avec un VPN S2S
 
 Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 est connecté à VNet2 avec une connexion VPN site à site. VNet2 est connecté à VNet3 avec une connexion VPN site à site. Il n’existe aucun peering direct ni aucune connexion VPN site à site entre VNet1 et VNet3. Toutes les connexions site à site n’exécutent pas BGP pour le routage.
 
@@ -102,13 +102,13 @@ Les clients utilisant Windows ou un autre système d’exploitation pris en char
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Accès
 
 * Les clients Windows peuvent accéder à VNet1 uniquement
 
 * Les clients non-Windows peuvent accéder à VNet1 uniquement
 
-## <a name="multis2sbgp"></a>Plusieurs réseaux virtuels connectés avec un VPN S2S (BGP)
+## <a name="multiple-vnets-connected-using-an-s2s-vpn-bgp"></a><a name="multis2sbgp"></a>Plusieurs réseaux virtuels connectés avec un VPN S2S (BGP)
 
 Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 est connecté à VNet2 avec une connexion VPN site à site. VNet2 est connecté à VNet3 avec une connexion VPN site à site. Il n’existe aucun peering direct ni aucune connexion VPN site à site entre VNet1 et VNet3. Toutes les connexions site à site exécutent BGP pour le routage.
 
@@ -130,13 +130,13 @@ Les clients utilisant Windows ou un autre système d’exploitation pris en char
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Accès
 
 * Les clients Windows peuvent accéder à VNet1, VNet2 et VNet3, mais les routes vers VNet2 et VNet3 doivent être ajoutées manuellement.
 
 * Les clients non-Windows peuvent accéder à VNet1, VNet2 et VNet3.
 
-## <a name="vnetbranch"></a>Un réseau virtuel et une filiale
+## <a name="one-vnet-and-a-branch-office"></a><a name="vnetbranch"></a>Un réseau virtuel et une filiale
 
 Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 n’est connecté / appairé à aucun autre réseau virtuel, mais est connecté à un site local via une connexion VPN site à site qui n’exécute pas BGP.
 
@@ -156,13 +156,13 @@ Les clients Windows et non-Windows peuvent uniquement accéder à VNet1.
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Accès
 
 * Les clients Windows peuvent accéder à VNet1 uniquement
 
 * Les clients non-Windows peuvent accéder à VNet1 uniquement
 
-## <a name="vnetbranchbgp"></a>Un réseau virtuel et une filiale (BGP)
+## <a name="one-vnet-and-a-branch-office-bgp"></a><a name="vnetbranchbgp"></a>Un réseau virtuel et une filiale (BGP)
 
 Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 n’est connecté ni appairé à aucun autre réseau virtuel, mais est connecté à un site local (Site1) via une connexion VPN site à site qui exécute BGP.
 
@@ -182,14 +182,14 @@ Les clients Windows peuvent accéder au réseau virtuel et à la filiale (Site1)
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Accès
 
 * Les clients Windows peuvent accéder à VNet1 et à Site1, mais les routes vers Site1 doivent être ajoutées manuellement.
 
 * Les clients non-Windows peuvent accéder à VNet1 et à Site1.
 
 
-## <a name="multivnets2sbranch"></a>Plusieurs réseaux virtuels connectés avec S2S et une filiale
+## <a name="multiple-vnets-connected-using-s2s-and-a-branch-office"></a><a name="multivnets2sbranch"></a>Plusieurs réseaux virtuels connectés avec S2S et une filiale
 
 Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 est connecté à VNet2 avec une connexion VPN site à site. VNet2 est connecté à VNet3 avec une connexion VPN site à site. Il n’existe aucun peering direct ni aucun tunnel VPN site à site entre les réseaux VNet1 et VNet3. VNet3 est connecté à une filiale (Site1) avec une connexion VPN site à site. Toutes les connexions VPN n’exécutent pas BGP.
 
@@ -213,13 +213,13 @@ Tous les clients peuvent accéder à VNet1 uniquement.
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Accès
 
 * Les clients Windows peuvent accéder à VNet1 uniquement
 
 * Les clients non-Windows peuvent accéder à VNet1 uniquement
 
-## <a name="multivnets2sbranchbgp"></a>Plusieurs réseaux virtuels connectés avec S2S et une filiale (BGP)
+## <a name="multiple-vnets-connected-using-s2s-and-a-branch-office-bgp"></a><a name="multivnets2sbranchbgp"></a>Plusieurs réseaux virtuels connectés avec S2S et une filiale (BGP)
 
 Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 est connecté à VNet2 avec une connexion VPN site à site. VNet2 est connecté à VNet3 avec une connexion VPN site à site. Il n’existe aucun peering direct ni aucun tunnel VPN site à site entre les réseaux VNet1 et VNet3. VNet3 est connecté à une filiale (Site1) avec une connexion VPN site à site. Toutes les connexions VPN exécutent BGP.
 
@@ -243,7 +243,7 @@ Les clients utilisant Windows peuvent accéder aux réseaux virtuels et aux site
 
 * Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>Accès
 
 * Les clients Windows peuvent accéder à VNet1, VNet2, VNet3 et Site1, mais les routes vers VNet2, VNet3 et Site1 doivent être ajoutées manuellement dans le client.
 

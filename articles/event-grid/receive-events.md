@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
 ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60803759"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recevoir des événements sur un point de terminaison HTTP
@@ -28,7 +28,7 @@ Vous avez besoin d’une application de fonction avec une fonction déclenchée 
 
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
-Si vous développez dans .NET, [ajoutez une dépendance](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à votre fonction pour le [package Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) `Microsoft.Azure.EventGrid`. Les exemples de cet article nécessitent la version 1.4.0 ou ultérieure.
+Si vous développez dans .NET, [ajoutez une dépendance](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à votre fonction pour le `Microsoft.Azure.EventGrid` [package Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Les exemples de cet article nécessitent la version 1.4.0 ou ultérieure.
 
 Des Kits de développement logiciel (SDK) pour d’autres langues sont disponibles via la référence [Kits SDK de publication](./sdk-overview.md#data-plane-sdks). Ces packages incluent les modèles des types d’événement natif comme `EventGridEvent`, `StorageBlobCreatedEventData` et `EventHubCaptureFileCreatedEventData`.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 29d837446960b7535b26284efdfab7a1c59ea968
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262858"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132494"
 ---
 # <a name="http-features"></a>Fonctionnalités HTTP
 
@@ -41,11 +41,11 @@ Consultez l’[article sur les API HTTP](durable-functions-http-api.md) pour obt
 
 La [liaison du client d’orchestration](durable-functions-bindings.md#orchestration-client) expose les API qui peuvent générer des charges utiles de réponse HTTP appropriées. Par exemple, elle peut créer une réponse contenant des liens vers des API de gestion pour une instance d’orchestration spécifique. Les exemples suivants présentent une fonction de déclencheur HTTP qui montre comment utiliser cette API pour une nouvelle instance d’orchestration :
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index.js**
 
@@ -114,7 +114,7 @@ Depuis Durable Functions 2.0, les orchestrations sont en mesure de consommer en
 
 L’exemple de code suivant montre une fonction d’orchestrateur C# qui exécute une requête HTTP sortante :
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -172,7 +172,7 @@ Durable Functions prend en charge en mode natif l’appel d’API qui acceptent 
 
 Le code suivant est un exemple de fonction d’orchestrateur .NET. La fonction qui effectue des appels authentifiés pour redémarrer une machine virtuelle à l’aide de l’[API REST Machines virtuelles](https://docs.microsoft.com/rest/api/compute/virtualmachines) d’Azure Resource Manager.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -258,7 +258,7 @@ Si l’une de ces limitations risque d’avoir un impact sur votre cas d’utili
 
 La personnalisation du comportement du client HTTP interne de l’orchestration est possible par [injection de dépendances .NET Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Cette possibilité peut s’avérer utile pour effectuer des changements de comportement minimes. Elle peut également s’avérer utile pour le test unitaire du client HTTP en injectant des objets fictifs.
 
-L’exemple suivant illustre l’utilisation de l’injection de dépendances pour désactiver la validation de certificat SSL pour des fonctions d’orchestrateur qui appellent des points de terminaison HTTP externes.
+L’exemple suivant illustre l’utilisation de l’injection de dépendances pour désactiver la validation de certificat TLS/SSL pour des fonctions d’orchestrateur qui appellent des points de terminaison HTTP externes.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -276,7 +276,7 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 {
     public HttpMessageHandler CreateHttpMessageHandler()
     {
-        // Disable SSL certificate validation (not recommended in production!)
+        // Disable TLS/SSL certificate validation (not recommended in production!)
         return new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback =

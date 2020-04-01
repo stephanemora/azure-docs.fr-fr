@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593240"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225961"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN de Verizon Premium
 
@@ -173,14 +173,14 @@ Nom | Objectif
 
 **Objectif** : Détermine si un en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
 
-Valeur|Résultat
+Valeur|Résultats
 --|--
 activé | L’en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
 Désactivé | L’en-tête de réponse Age est exclu de la réponse envoyée au demandeur.
 
 **Comportement par défaut** : Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -192,14 +192,14 @@ Désactivé | L’en-tête de réponse Age est exclu de la réponse envoyée au 
 
 Les paramètres de limitation de bande passante déterminent si le taux de transfert de données pour une requête du client est limité à un taux personnalisé.
 
-Valeur|Résultat
+Valeur|Résultats
 --|--
 activé|Permet aux points de présence d’honorer les requêtes de limitation de bande passante.
 Désactivé|Force les points de présence à ignorer les paramètres de limitation de bande passante. Le contenu demandé est pris en charge normalement (c’est-à-dire, sans limitation de bande passante).
 
 **Comportement par défaut :** activé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -218,7 +218,7 @@ Secondes prebuf|Définissez cette option sur le nombre de secondes que doivent a
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -228,7 +228,7 @@ Secondes prebuf|Définissez cette option sur le nombre de secondes que doivent a
 
 **Objectif :** Détermine si la requête doit contourner la mise en cache.
 
-Valeur|Résultat
+Valeur|Résultats
 --|--
 activé|Force toutes les requêtes à passer par le serveur d’origine, même si le contenu a été précédemment mis en cache sur les points de présence.
 Désactivé|Force les points de présence à mettre les ressources en cache selon la stratégie de cache définie dans ses en-têtes de réponse.
@@ -242,7 +242,7 @@ Désactivé|Force les points de présence à mettre les ressources en cache selo
 
 --->
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -260,7 +260,7 @@ Informations essentielles :
 
 **Comportement par défaut :** seules les réponses GET sont mises en cache.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -284,7 +284,7 @@ Informations essentielles :
 
 **Comportement par défaut :** 14 Ko
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -296,16 +296,16 @@ Informations essentielles :
 
 Pour obtenir ce type de configuration le plus simple consiste à placer les fonctionnalités Âge maximal externe et En-tête de contrôle de cache dans la même instruction.
 
-Valeur|Résultat
+Valeur|Résultats
 --|--
 Remplacer|Garantit que les actions suivantes se produisent :<br/> - Remplacement de l’en-tête `Cache-Control` généré par le serveur d’origine. <br/>- Ajout de l’en-tête `Cache-Control` généré par la fonctionnalité External Max-Age à la réponse.
-Transmettre directement|Permet de garantir que l’en-tête `Cache-Control` généré par la fonctionnalité External Max-Age ne soit jamais ajouté à la réponse. <br/> Si le serveur d’origine génère un en-tête `Cache-Control`, celui-ci est transmis directement à l’utilisateur final. <br/> Si le serveur d’origine ne génère pas d’en-tête `Cache-Control`, l’en-tête de réponse risque de ne pas contenir d’en-tête `Cache-Control`.
+Transfert direct|Permet de garantir que l’en-tête `Cache-Control` généré par la fonctionnalité External Max-Age ne soit jamais ajouté à la réponse. <br/> Si le serveur d’origine génère un en-tête `Cache-Control`, celui-ci est transmis directement à l’utilisateur final. <br/> Si le serveur d’origine ne génère pas d’en-tête `Cache-Control`, l’en-tête de réponse risque de ne pas contenir d’en-tête `Cache-Control`.
 Ajouter si manquant|Si aucun en-tête `Cache-Control` n’a été transmis par le serveur d’origine, cette option ajoute l’en-tête `Cache-Control` généré par la fonctionnalité External Max-Age. Cette option est utile pour garantir que toutes les ressources reçoivent un en-tête `Cache-Control`.
 Supprimer| Cette option permet de garantir qu’aucun en-tête `Cache-Control` ne soit inclus dans la réponse de l’en-tête. Si un en-tête `Cache-Control` a déjà été attribué, il est supprimé de la réponse de l’en-tête.
 
 **Comportement par défaut :** remplacer.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -338,7 +338,7 @@ Pour dupliquer le comportement de mise en cache de la chaîne de requête « no
 
 L’exemple d’utilisation suivant inclut un exemple de requête et la clé de cache par défaut :
 
-- **Exemple de requête :** http://wpc.0001.&lt ;Domaine&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Exemple de requête :** http://wpc.0001.&lt ;Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Clé de cache par défaut :** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Inclure
@@ -383,7 +383,7 @@ Ce type de configuration génère la clé de cache de paramètre de chaîne de r
 
     /800001/Origin/folder/asset.htm
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -404,7 +404,7 @@ Nouveau chemin d’accès|Permet de définir le chemin d’accès relatif pour l
 
 **Comportement par défaut :** la clé de cache d’une requête est déterminée par l’URI de requête.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -422,7 +422,7 @@ Informations essentielles :
 - Utilisez uniquement des caractères alphanumériques.
 - Cette fonctionnalité n’affecte pas le comportement de la règle. Il est simplement destiné à proposer une zone dans laquelle vous pouvez fournir des informations afin de pouvoir vous y référer ultérieurement, ou qui peuvent vous aider lors du dépannage de la règle.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -441,7 +441,7 @@ Une absence de cache partielle se produit généralement après qu’un utilisat
 
 Conservez la configuration par défaut pour la plateforme HTTP Large, car cela réduit la charge sur le serveur d’origine de votre client et augmente la vitesse à laquelle vos clients téléchargent votre contenu.
 
-Valeur|Résultat
+Valeur|Résultats
 --|--
 activé|Restaure le comportement par défaut. Le comportement par défaut consiste à forcer le point de présence à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Après quoi, la ressource se trouvera dans le cache local du point de présence.
 Désactivé|Empêche un point de présence d’effectuer une récupération en arrière-plan pour la ressource. Le résultat est tel que la requête suivante pour cette ressource à partir de cette région force un point de présence à la demander à partir du serveur d’origine du client.
@@ -470,7 +470,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Caractère générique de requête d’URL
 - Paramètre de requête d’URL
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -487,8 +487,8 @@ Type de média Internet|Description
 texte/brut|Fichiers de texte brut
 texte/html| Fichiers HTML
 texte/css|Cascading Style Sheets (CSS)
-application/x-javascript|JavaScript
-application/javascript|JavaScript
+application/x-javascript|Javascript
+application/javascript|Javascript
 
 Informations essentielles :
 
@@ -498,7 +498,7 @@ Informations essentielles :
 - Les caractères génériques, tels que des astérisques, ne sont pas pris en charge.
 - Avant d’ajouter cette fonctionnalité à une règle, veillez à définir l’option de désactivation de la compression sur la page Compression pour la plateforme à laquelle cette règle est appliquée.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -529,7 +529,7 @@ Informations essentielles :
 
 **Valeur par défaut :**  -
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -551,14 +551,14 @@ Des en-têtes de réponse de cache de débogage peuvent être demandés en inclu
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-Valeur|Résultat
+Valeur|Résultats
 -|-
 activé|Les requêtes des en-têtes de réponse de cache de débogage renvoient une réponse qui inclut l’en-tête X-EC-Debug.
 Désactivé|L’en-tête de réponse X-EC-Debug est exclu de la réponse.
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -602,7 +602,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Caractère générique de requête d’URL
 - Paramètre de requête d’URL
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -612,7 +612,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 
 **Objectif** : Détermine si toutes les requêtes sont rejetées avec une réponse 403 Interdit.
 
-Valeur | Résultat
+Valeur | Résultats
 ------|-------
 activé| Entraîne le rejet de toutes les demandes qui répondent aux critères avec une réponse 403 Interdit.
 Désactivé| Restaure le comportement par défaut. Le comportement par défaut consiste à autoriser le serveur d’origine à déterminer le type de réponse qui sera renvoyée.
@@ -622,7 +622,7 @@ Désactivé| Restaure le comportement par défaut. Le comportement par défaut c
 > [!TIP]
    > Une utilisation possible de cette fonctionnalité consiste à l’associer à une condition de correspondance d’en-tête de requête pour bloquer l’accès aux référents HTTP qui utilisent des liens incorporés vers votre contenu.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -634,16 +634,16 @@ Désactivé| Restaure le comportement par défaut. Le comportement par défaut c
 
 La manière la plus simple d’atteindre ce type de configuration consiste à placer les fonctionnalités Âge maximal externe et Expiration du traitement d’en-tête dans la même instruction.
 
-Valeur|Résultat
+Valeur|Résultats
 --|--
 Remplacer|Garantit que les actions suivantes auront lieu :<br/>- Remplacement de l’en-tête `Expires` généré par le serveur d’origine.<br/>- Ajout de l’en-tête `Expires` généré par la fonctionnalité External Max-Age à la réponse.
-Transmettre directement|Permet de garantir que l’en-tête `Expires` généré par la fonctionnalité External Max-Age ne soit jamais ajouté à la réponse. <br/> Si le serveur d’origine génère un en-tête `Expires`, celui-ci est transmis directement à l’utilisateur final. <br/>Si le serveur d’origine ne génère pas d’en-tête `Expires`, l’en-tête de réponse risque de ne pas contenir d’en-tête `Expires`.
+Transfert direct|Permet de garantir que l’en-tête `Expires` généré par la fonctionnalité External Max-Age ne soit jamais ajouté à la réponse. <br/> Si le serveur d’origine génère un en-tête `Expires`, celui-ci est transmis directement à l’utilisateur final. <br/>Si le serveur d’origine ne génère pas d’en-tête `Expires`, l’en-tête de réponse risque de ne pas contenir d’en-tête `Expires`.
 Ajouter si manquant| Si aucun en-tête `Expires` n’a été transmis par le serveur d’origine, cette option ajoute l’en-tête `Expires` généré par la fonctionnalité External Max-Age. Cette option est utile pour garantir que toutes les ressources reçoivent un en-tête `Expires`.
 Supprimer| Garantit qu’aucun en-tête `Expires` n’est inclus dans la réponse de l’en-tête. Si un en-tête `Expires` a déjà été attribué, il est supprimé de la réponse de l’en-tête.
 
 **Comportement par défaut :** Remplacer
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -664,7 +664,7 @@ Informations essentielles :
 
 **Comportement par défaut :** Off
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -678,14 +678,14 @@ Informations essentielles :
 
 - Les requêtes peuvent uniquement être redirigées vers les URL CNAME Edge qui correspondent à la même plateforme.
 
-Valeur|Résultat
+Valeur|Résultats
 -|-
 activé|Les requêtes peuvent être redirigées.
 Désactivé|Les requêtes ne seront pas redirigées.
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -729,7 +729,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Caractère générique de requête d’URL
 - Paramètre de requête d’URL
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -746,7 +746,7 @@ Informations essentielles :
 
 **Comportement par défaut :** le téléchargement progressif HTTP prend en charge les formats multimédia MP4 et F4V par défaut.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -758,7 +758,7 @@ Informations essentielles :
 
 Une demande non-cache se produit lorsque le client HTTP envoie un en-tête `Cache-Control: no-cache` et/ou `Pragma: no-cache` dans la requête HTTP.
 
-Valeur|Résultat
+Valeur|Résultats
 --|--
 activé|Permet de transmettre une requête non cache d’un client HTTP au serveur d’origine. Le serveur d’origine retourne alors les en-têtes et le corps de la réponse via le point de présence au client HTTP.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à éviter la transmission des requêtes non cache au serveur d’origine.
@@ -769,7 +769,7 @@ L’état du cache qui est signalé pour une requête, dont le transfert vers un
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -813,7 +813,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Caractère générique de requête d’URL
 - Paramètre de requête d’URL
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -825,14 +825,14 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 
 Par défaut, ce code d’état est retourné lorsque la requête de plage d’octets spécifiée ne peut pas être satisfaite par un point de présence et qu’un champ d’en-tête de requête If-Range n’a pas été spécifié.
 
-Valeur|Résultat
+Valeur|Résultats
 -|-
 activé|Empêche les points de présence de répondre à une requête de plage d’octets non valide avec un code d’état 416 Plage demandée non satisfaisante. Au lieu de cela, les serveurs fournissent la ressource demandée et retournent le code 200 - OK au client.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à respecter le code d’état 416 Plage demandée non satisfaisante.
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -881,7 +881,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Caractère générique de requête d’URL
 - Paramètre de requête d’URL
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -891,14 +891,14 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 
 **Objectif :** Détermine si une chaîne de requête est stockée avec l’URL dans les journaux d’activité d’accès.
 
-Valeur|Résultat
+Valeur|Résultats
 -|-
 activé|Permet le stockage des chaînes de requête lors de l’enregistrement des URL dans un journal d’accès. Si une URL ne contient pas de chaîne de requête, cette option n’aura pas d’effet.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à ignorer les chaînes de requête lors de l’enregistrement des URL dans un journal d’accès.
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -917,7 +917,7 @@ Informations essentielles :
 
 **Valeur par défaut :** 10 000 requêtes
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -934,11 +934,11 @@ Les requêtes transmises à un serveur d’origine reflètent les modifications 
 
 Une des actions suivantes peut être effectuée sur un en-tête de requête :
 
-Option|Description|Exemples
+Option|Description|Exemple
 -|-|-
-Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de requête (client) :**<br/>Value1<br/>**Valeur d’en-tête de requête (moteur de règles) :**<br/>Value2 <br/>**Nouvelle valeur d’en-tête de requête :** <br/>Value1Value2
+Ajouter|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de requête (client) :**<br/>Value1<br/>**Valeur d’en-tête de requête (moteur de règles) :**<br/>Value2 <br/>**Nouvelle valeur d’en-tête de requête :** <br/>Value1Value2
 Remplacer|La valeur d’en-tête de requête est définie sur la valeur spécifiée.|**Valeur d’en-tête de requête (client) :**<br/>Value1<br/>**Valeur d’en-tête de requête (moteur de règles) :**<br/>Value2<br/>**Nouvelle valeur d’en-tête de requête :**<br/> Value2 <br/>
-Supprimer|Supprime l’en-tête de requête spécifié.|**Valeur d’en-tête de requête (client) :**<br/>Value1<br/>**Modifier la configuration de l’en-tête de requête client :**<br/>supprime l’en-tête de requête en question.<br/>**Résultat :**<br/>l’en-tête de requête spécifié ne sera pas transféré vers le serveur d’origine.
+DELETE|Supprime l’en-tête de requête spécifié.|**Valeur d’en-tête de requête (client) :**<br/>Value1<br/>**Modifier la configuration de l’en-tête de requête client :**<br/>supprime l’en-tête de requête en question.<br/>**Résultat :**<br/>l’en-tête de requête spécifié ne sera pas transféré vers le serveur d’origine.
 
 Informations essentielles :
 
@@ -953,11 +953,11 @@ Informations essentielles :
     - forwarded
     - host
     - via
-    - Avertissement
+    - avertissement
     - x-forwarded-for
     - Tous les noms d’en-tête commençant par « x-ec » sont réservés.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -974,11 +974,11 @@ Par défaut, les valeurs d’en-tête de réponse sont définies par un serveur 
 
 Une des actions suivantes peut être effectuée sur un en-tête de réponse :
 
-Option|Description|Exemples
+Option|Description|Exemple
 -|-|-
-Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (client) :**<br />Value1<br/>**Valeur d’en-tête de réponse (moteur de règles) :**<br/>Value2<br/>**Nouvelle valeur d’en-tête de réponse :**<br/>Value1Value2
+Ajouter|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (client) :**<br />Value1<br/>**Valeur d’en-tête de réponse (moteur de règles) :**<br/>Value2<br/>**Nouvelle valeur d’en-tête de réponse :**<br/>Value1Value2
 Remplacer|La valeur d’en-tête de réponse est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (client) :**<br/>Value1<br/>**Valeur d’en-tête de réponse (moteur de règles) :**<br/>Value2 <br/>**Nouvelle valeur d’en-tête de réponse :**<br/>Value2 <br/>
-Supprimer|Supprime l’en-tête de réponse spécifiée.|**Valeur d’en-tête de réponse (client) :**<br/>Value1<br/>**Modifier la configuration de l’en-tête de réponse client :**<br/>supprime l’en-tête de réponse en question.<br/>**Résultat :**<br/>l’en-tête de réponse spécifié ne sera pas transféré vers le demandeur.
+DELETE|Supprime l’en-tête de réponse spécifiée.|**Valeur d’en-tête de réponse (client) :**<br/>Value1<br/>**Modifier la configuration de l’en-tête de réponse client :**<br/>supprime l’en-tête de réponse en question.<br/>**Résultat :**<br/>l’en-tête de réponse spécifié ne sera pas transféré vers le demandeur.
 
 Informations essentielles :
 
@@ -995,17 +995,17 @@ Informations essentielles :
     - content-encoding
     - content-length
     - content-range
-    - date
-    - serveur
+    - Date
+    - server
     - trailer
     - transfer-encoding
-    - mettre à niveau
+    - upgrade
     - vary
     - via
-    - Avertissement
+    - avertissement
     - Tous les noms d’en-tête commençant par « x-ec » sont réservés.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1017,14 +1017,14 @@ Informations essentielles :
 
 Ce cache partiel peut ensuite être utilisé pour répondre aux nouvelles requêtes de ce contenu jusqu’à ce que le contenu demandé soit entièrement mis en cache.
 
-Valeur|Résultat
+Valeur|Résultats
 -|-
 activé|Les requêtes peuvent générer du contenu partiellement mis en cache.
 Désactivé|Les requêtes peuvent uniquement générer une version entièrement mise en cache du contenu demandé.
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1042,7 +1042,7 @@ Informations essentielles :
 
 **Comportement par défaut :** désactivé. La revalidation peut uniquement avoir lieu après l’expiration de la durée de vie du contenu mis en cache.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1069,7 +1069,7 @@ Les en-têtes HTTP suivants sont inclus dans la liste par défaut :
 
 **Comportement par défaut :** tous les en-têtes de requête propres à CDN sont transmis au serveur d’origine.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1081,7 +1081,7 @@ Les en-têtes HTTP suivants sont inclus dans la liste par défaut :
 
 Les valeurs autorisées sont :
 
-Valeur|Résultat
+Valeur|Résultats
 --|--
 activé|Force le point de présence à récupérer de nouveau la ressource à partir du serveur d’origine.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à fournir des ressources de cache valides sur requête.
@@ -1090,7 +1090,7 @@ Cette fonctionnalité n’est pas requise pour la mise en cache correcte et la d
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1112,7 +1112,7 @@ Informations essentielles :
 
 **Comportement par défaut :** la mise en cache est activée uniquement pour les réponses qui génèrent un code d’état 200 OK.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1134,11 +1134,11 @@ Assurez-vous que le nom d’en-tête spécifié ne correspond pas à un des noms
     - host
     - vary
     - via
-    - Avertissement
+    - avertissement
     - x-forwarded-for
     - Tous les noms d’en-tête commençant par « x-ec » sont réservés.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1148,14 +1148,14 @@ Assurez-vous que le nom d’en-tête spécifié ne correspond pas à un des noms
 
 **Objectif :** Détermine si du contenu mis en cache qui a expiré est remis quand une erreur se produit pendant la revalidation du cache ou l’extraction du contenu demandé à partir du serveur d’origine du client.
 
-Valeur|Résultat
+Valeur|Résultats
 -|-
 activé|Le contenu est rendu obsolète pour le demandeur lorsqu’une erreur se produit lors d’une connexion à un serveur d’origine.
 Désactivé|L’erreur du serveur d’origine est transférée au demandeur.
 
 **Comportement par défaut :** Désactivé
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1174,7 +1174,7 @@ Informations essentielles :
 
 **Comportement par défaut :** désactivé. La revalidation doit intervenir avant que le contenu demandé puisse être traité.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1192,7 +1192,7 @@ La clé de chiffrement qui est utilisée pour chiffrer et déchiffrer des valeur
 
 Cette fonctionnalité est prioritaire sur la plupart des fonctionnalités à l’exception de la fonctionnalité de réécriture d’URL.
 
-Valeur | Résultat
+Valeur | Résultats
 ------|---------
 activé | Protège le contenu demandé avec l’authentification basée sur les jetons. Seules les demandes des clients qui fournissent un jeton valide et répondent aux exigences seront respectées. Les transactions FTP sont exclues de l’authentification basée sur les jetons.
 Désactivé| Restaure le comportement par défaut. Le comportement par défaut consiste à permettre à votre configuration d’authentification basée sur les jetons de déterminer si une demande sera sécurisée.
@@ -1201,7 +1201,7 @@ Désactivé| Restaure le comportement par défaut. Le comportement par défaut c
 
 N’utilisez pas Token Auth avec une condition de correspondance Always.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1240,7 +1240,7 @@ La redirection des URL est uniquement applicable pour les codes de réponse 3xx.
 
 L’option de valeur d’en-tête facultative prend en charge les caractères alphanumériques, les guillemets et les espaces.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Authentification
 
 Cette fonctionnalité prend en charge la capacité à inclure l’en-tête WWW-Authenticate lors de la réponse à une demande non autorisée pour un contenu protégé par l’authentification basée sur les jetons. Si l’en-tête WWW-Authenticate a été défini sur « de base » dans votre configuration, l’utilisateur non autorisé est invité à entrer des informations d’identification de compte.
 
@@ -1252,7 +1252,7 @@ La configuration ci-dessus peut être obtenue en effectuant les opérations suiv
 
 L’en-tête WWW-Authenticate est uniquement applicable pour les codes de réponse 401.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1270,14 +1270,14 @@ Les paramètres affectés par cette fonction sont :
 
 Les valeurs autorisées sont :
 
-Valeur|Résultat
+Valeur|Résultats
 ---|----
 activé|Force le point de présence à ignorer la casse lors de la comparaison des URL pour les paramètres d’authentification basée sur les jetons.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut pour les comparaisons d’URL pour l’authentification du jeton consiste à respecter la casse.
 
 **Comportement par défaut :** Désactivé.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1293,14 +1293,14 @@ Informations essentielles :
 - L’option Valeur ne peut pas être définie sur « ec_token ».
 - Assurez-vous que le nom défini dans l’option Valeur contient uniquement des caractères d’URL valides.
 
-Valeur|Résultat
+Valeur|Résultats
 ----|----
 activé|L’option Valeur définit le nom de paramètre de chaîne de requête par le biais duquel les jetons doivent être définis.
 Désactivé|Un jeton peut être spécifié comme un paramètre de chaîne de requête non défini dans l’URL de requête.
 
 **Comportement par défaut :** Désactivé. Un jeton peut être spécifié comme un paramètre de chaîne de requête non défini dans l’URL de requête.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1344,7 +1344,7 @@ Cette redirection d’URL peut être obtenue via la configuration suivante : ![
 - La variable Request Scheme (%{scheme}) est utilisée dans l’option Destination, qui garantit que le schéma de la requête reste inchangé après la redirection.
 - Les segments d’URL qui ont été capturés à partir de la requête sont ajoutés à la nouvelle URL via « $1 ».
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1405,7 +1405,7 @@ Cette fonctionnalité inclut des critères de correspondance devant être rempli
 - Expression régulière de requête d’URL
 - Caractère générique de requête d’URL
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 
@@ -1415,7 +1415,7 @@ Cette fonctionnalité inclut des critères de correspondance devant être rempli
 
 **Objectif :** À usage interne uniquement.
 
-[Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
+[Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
 
 </br>
 

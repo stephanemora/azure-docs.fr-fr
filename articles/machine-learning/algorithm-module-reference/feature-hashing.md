@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912203"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456248"
 ---
 # <a name="feature-hashing-module-reference"></a>Informations de référence sur le module de hachage des caractéristiques
 
@@ -94,7 +94,7 @@ Les sorties numériques permettent également d’utiliser des méthodes d’app
 
     Par exemple, si vous entrez 3, des unigrammes, des digrammes et des trigrammes sont créés.
 
-1. Exécuter le pipeline.
+1. Envoyez le pipeline.
 
 ## <a name="results"></a>Résultats
 

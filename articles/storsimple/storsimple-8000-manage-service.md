@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965459"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232177"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Après avoir créé le service, vous pouvez l’utiliser pour gérer tous les appareils qui y sont connectés à partir d’un emplacement central unique, ce qui réduit la charge administrative.
 
@@ -103,7 +103,7 @@ Vous devez régénérer une clé d’inscription du service si vous êtes amené
 Procédez comme suit pour régénérer une clé d’inscription du service.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Pour régénérer la clé d’inscription du service
-1. Dans le panneau **Instance de StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
+1. Dans le panneau **StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
     
     ![Panneau Clés](./media/storsimple-8000-manage-service/regenregkey2.png)
 
@@ -129,7 +129,7 @@ La modification de la clé de chiffrement est un processus en 3 étapes :
 2. Utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service.
 3. Si vous avez plusieurs périphériques StorSimple, mettez à jour la clé de chiffrement des données sur les autres périphériques.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Étape 1 : Utiliser un script Windows PowerShell pour autoriser un appareil à modifier la clé de chiffrement des données de service
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Étape 1 : Utiliser un script Windows PowerShell pour autoriser un appareil à modifier la clé de chiffrement des données de service
 En règle générale, l’administrateur de l’appareil demande que l’administrateur du service autorise un appareil à modifier les clés de chiffrement des données du service. Ensuite, l’administrateur du service autorise l’appareil à modifier la clé.
 
 Cette étape est effectuée en utilisant le script basé sur Azure Resource Manager. L’administrateur de services fédérés peut sélectionner un appareil pouvant être autorisé. Après cela, l’appareil est autorisé à démarrer le processus de modification de la clé de chiffrement des données du service. 
@@ -145,7 +145,7 @@ Un appareil doit respecter les critères suivants avant d’être autorisé à d
 * Vous ne pouvez pas autoriser un appareil alors que la substitution de la clé de chiffrement des données du service est en cours.
 * Vous pouvez autoriser un appareil lorsque certains appareils inscrits auprès du service ont substitué le chiffrement tandis que d’autres ne l’ont pas fait. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Étape 2 : Utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Étape 2 : Utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service
 Cette étape s’effectue dans l’interface Windows PowerShell pour StorSimple, sur l’appareil StorSimple autorisé.
 
 > [!NOTE]
@@ -191,24 +191,24 @@ Seuls les appareils StorSimple exécutant Update 5.0 et des versions ultérieur
 
 | Opération                                                                                                                       | Prise en charge      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Inscrire un appareil                                                                                                               | OUI            |
-| Configurer les paramètres d’un appareil, tels que les paramètres généraux, réseau et de sécurité                                                                | OUI            |
-| Analyser, télécharger et installer des mises à jour                                                                                             | OUI            |
-| Désactiver un appareil                                                                                                               | OUI            |
-| Supprimer un appareil                                                                                                                   | OUI            |
+| Inscrire un appareil                                                                                                               | Oui            |
+| Configurer les paramètres d’un appareil, tels que les paramètres généraux, réseau et de sécurité                                                                | Oui            |
+| Analyser, télécharger et installer des mises à jour                                                                                             | Oui            |
+| Désactiver un appareil                                                                                                               | Oui            |
+| Supprimer un appareil                                                                                                                   | Oui            |
 | Créer, modifier et supprimer un conteneur de volumes                                                                                   | Non             |
 | Créer, modifier et supprimer un volume                                                                                             | Non             |
 | Créer, modifier et supprimer une stratégie de sauvegarde                                                                                      | Non             |
 | Exécuter une sauvegarde manuelle                                                                                                            | Non             |
 | Exécuter une sauvegarde planifiée                                                                                                         | Non applicable |
 | Restaurer à partir d’un jeu de sauvegarde                                                                                                        | Non             |
-| Cloner vers un appareil exécutant Update 3.0 et versions ultérieures <br> L’appareil source exécute une version antérieure à Update 3.0.                                | OUI            |
+| Cloner vers un appareil exécutant Update 3.0 et versions ultérieures <br> L’appareil source exécute une version antérieure à Update 3.0.                                | Oui            |
 | Cloner vers un appareil exécutant des versions antérieures à Update 3.0                                                                          | Non             |
-| Basculer en tant qu’appareil source <br> (à partir d’un appareil exécutant une version antérieure à Update 3.0 vers un appareil exécutant Update 3.0 et versions ultérieures)                                                               | OUI            |
+| Basculer en tant qu’appareil source <br> (à partir d’un appareil exécutant une version antérieure à Update 3.0 vers un appareil exécutant Update 3.0 et versions ultérieures)                                                               | Oui            |
 | Basculer en tant qu’appareil cible <br> (vers un appareil exécutant une version logicielle antérieure à Update 3.0)                                                                                   | Non             |
-| Supprimer une alerte                                                                                                                  | OUI            |
-| Afficher les stratégies de sauvegarde, le catalogue de sauvegarde, les volumes, les conteneurs de volumes, les graphiques de surveillance, les travaux et les alertes créés dans le portail classique | OUI            |
-| Activer et désactiver des contrôleurs d’appareils                                                                                              | OUI            |
+| Supprimer une alerte                                                                                                                  | Oui            |
+| Afficher les stratégies de sauvegarde, le catalogue de sauvegarde, les volumes, les conteneurs de volumes, les graphiques de surveillance, les travaux et les alertes créés dans le portail classique | Oui            |
+| Activer et désactiver des contrôleurs d’appareils                                                                                              | Oui            |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

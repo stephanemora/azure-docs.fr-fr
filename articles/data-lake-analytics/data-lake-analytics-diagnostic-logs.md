@@ -9,10 +9,10 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60616493"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
@@ -42,7 +42,7 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
      * Sélectionnez **Stream to an Event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Utilisez cette option si vous disposez d’un pipeline de traitement en aval qui analyse les journaux d’activité entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
      * Sélectionnez __Envoyer à Log Analytics__ pour envoyer les données au service Azure Monitor. Utilisez cette option si vous souhaitez utiliser les journaux Azure Monitor pour recueillir et analyser les journaux.
-   * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.  Un journal des requêtes capture chaque demande d’API. Un journal d’audit enregistre toutes les opérations qui sont déclenchées par cette demande d’API.
+   * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux d’activité de demande ou les deux.  Un journal des requêtes capture chaque demande d’API. Un journal d’audit enregistre toutes les opérations qui sont déclenchées par cette demande d’API.
 
    * Pour __Archiver dans un compte de stockage__, spécifiez le nombre de jours pendant lesquels conserver les données.
 
@@ -125,28 +125,28 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 
 #### <a name="request-log-schema"></a>Schéma du journal de requête
 
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
-| time |Chaîne |L’horodatage (heure UTC) du journal. |
-| resourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
-| category |Chaîne |La catégorie du journal. Par exemple, **Demandes**. |
-| operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, GetAggregatedJobHistory. |
-| resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
-| callerIpAddress |Chaîne |L’adresse IP du client qui a effectué la demande. |
-| correlationId |Chaîne |L’identificateur du journal. Cette valeur peut être utilisée pour regrouper un ensemble d’entrées de journal associées. |
+| time |String |L’horodatage (heure UTC) du journal. |
+| resourceId |String |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
+| catégorie |String |La catégorie du journal. Par exemple, **Demandes**. |
+| operationName |String |Le nom de l’opération qui est journalisée. Par exemple, GetAggregatedJobHistory. |
+| resultType |String |L’état de l’opération. Par exemple, 200. |
+| callerIpAddress |String |L’adresse IP du client qui a effectué la demande. |
+| correlationId |String |L’identificateur du journal. Cette valeur peut être utilisée pour regrouper un ensemble d’entrées de journal associées. |
 | identité |Object |L’identité qui a généré le journal. |
 | properties |JSON |Consultez la section suivante (Schéma des propriétés de journal de demande) pour plus d’informations |
 
 #### <a name="request-log-properties-schema"></a>Schéma des propriétés de journal de demande
 
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
-| HttpMethod |Chaîne |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
-| path |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
+| HttpMethod |String |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
+| Path |String |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 | RequestContentLength |int |La longueur du contenu de la demande HTTP. |
-| ClientRequestId |Chaîne |L’identificateur qui identifie de façon unique cette demande. |
-| StartTime |Chaîne |L’heure à laquelle le serveur a reçu la demande. |
-| EndTime |Chaîne |L’heure à laquelle le serveur a envoyé une réponse. |
+| ClientRequestId |String |L’identificateur qui identifie de façon unique cette demande. |
+| StartTime |String |L’heure à laquelle le serveur a reçu la demande. |
+| EndTime |String |L’heure à laquelle le serveur a envoyé une réponse. |
 
 ### <a name="audit-logs"></a>Journaux d’audit
 
@@ -177,15 +177,15 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 #### <a name="audit-log-schema"></a>Schéma du journal d’audit
 
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
-| time |Chaîne |L’horodatage (heure UTC) du journal. |
-| resourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
-| category |Chaîne |La catégorie du journal. Par exemple, **Audit**. |
-| operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, JobSubmitted. |
-| resultType |Chaîne |Un sous-état de l’état de la tâche (operationName). |
-| resultSignature |Chaîne |Informations supplémentaires sur l’état de la tâche (operationName). |
-| identité |Chaîne |L’utilisateur qui a demandé l’opération. Par exemple : susan@contoso.com. |
+| time |String |L’horodatage (heure UTC) du journal. |
+| resourceId |String |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
+| catégorie |String |La catégorie du journal. Par exemple, **Audit**. |
+| operationName |String |Le nom de l’opération qui est journalisée. Par exemple, JobSubmitted. |
+| resultType |String |Un sous-état de l’état de la tâche (operationName). |
+| resultSignature |String |Informations supplémentaires sur l’état de la tâche (operationName). |
+| identité |String |L’utilisateur qui a demandé l’opération. Par exemple : susan@contoso.com. |
 | properties |JSON |Consultez la section suivante (Schéma des propriétés de journal d’audit) pour plus d’informations |
 
 > [!NOTE]
@@ -195,15 +195,15 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 #### <a name="audit-log-properties-schema"></a>Schéma des propriétés de journal d’audit
 
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
-| JobId |Chaîne |L’ID affecté à la tâche. |
-| JobName |Chaîne |Le nom fourni pour la tâche. |
-| JobRunTime |Chaîne |Le runtime utilisé pour traiter la tâche. |
-| SubmitTime |Chaîne |L’heure (UTC) à laquelle la tâche a été envoyée. |
-| StartTime |Chaîne |L’heure à laquelle l’exécution de la tâche a commencé après la soumission (UTC). |
-| EndTime |Chaîne |L’heure à laquelle la tâche s’est terminée. |
-| Parallélisme |Chaîne |Le nombre d’unités Data Lake Analytics demandées pour cette tâche pendant la soumission. |
+| JobId |String |L’ID affecté à la tâche. |
+| JobName |String |Le nom fourni pour la tâche. |
+| JobRunTime |String |Le runtime utilisé pour traiter la tâche. |
+| SubmitTime |String |L’heure (UTC) à laquelle la tâche a été envoyée. |
+| StartTime |String |L’heure à laquelle l’exécution de la tâche a commencé après la soumission (UTC). |
+| EndTime |String |L’heure à laquelle la tâche s’est terminée. |
+| Parallélisme |String |Le nombre d’unités Data Lake Analytics demandées pour cette tâche pendant la soumission. |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** et **Parallélisme** fournissent des informations sur une opération. Ces entrées ne contiennent une valeur que si cette opération a démarré ou est terminée. Par exemple, **SubmitTime** contient uniquement une valeur après que **operationName** a la valeur **JobSubmitted**.

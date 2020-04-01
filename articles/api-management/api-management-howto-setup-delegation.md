@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: a69babdf2fffb4cb9d963f1806f3c85755e50294
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74454362"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
@@ -26,7 +26,7 @@ La délégation vous permet d’utiliser votre site web existant pour gérer les
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"></a>Délégation de la connexion et de l’inscription des développeurs
+## <a name="delegating-developer-sign-in-and-sign-up"></a><a name="delegate-signin-up"> </a>Délégation de la connexion et de l’inscription des développeurs
 
 Pour déléguer la connexion et l’inscription des développeurs à votre site web existant, vous devez créer un point de terminaison de délégation spécifique sur votre site. Il doit faire office de point d’entrée pour toute demande initiée à partir du portail des développeurs Gestion des API.
 
@@ -92,7 +92,7 @@ Vous devez transmettre les paramètres de requête suivants pour les opérations
 * **salt**: chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
 * **sig**: code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
 
-## <a name="delegate-product-subscription"></a>Délégation de l’abonnement aux produits
+## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Délégation de l’abonnement aux produits
 La délégation de l’abonnement aux produits fonctionne de la même manière que la délégation de la connexion/inscription d’un utilisateur. Le processus final se présente comme suit :
 
 1. Le développeur sélectionne un produit dans le portail des développeurs Gestion des API, puis clique sur le bouton d’abonnement.
@@ -131,7 +131,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 3. Traitez l’abonnement au produit en fonction du type d’opération demandé dans **operation** (par exemple, facturation, autres questions, etc.).
 4. Après avoir correctement abonné l’utilisateur au produit de votre côté, abonnez l’utilisateur au produit Gestion des API en [appeler l’API REST pour les abonnements].
 
-## <a name="delegate-example-code"></a> Exemple de Code
+## <a name="example-code"></a><a name="delegate-example-code"> </a> Exemple de code
 
 Les exemples de code vous montrent comment effectuer les opérations suivantes :
 

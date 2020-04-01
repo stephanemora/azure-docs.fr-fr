@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/10/2020
-ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920346"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455976"
 ---
 # <a name="score-svd-recommender"></a>Noter le générateur de recommandations SVD
 
@@ -53,7 +53,7 @@ Lorsque vous prédisez des notations, le modèle calcule la manière dont un uti
 
    Le jeu de données peut contenir une troisième colonne de notations facultative pour la paire utilisateur-élément figurant dans les première et deuxième colonnes. Mais la troisième colonne sera ignorée pendant la prédiction.
 
-4. Exécuter le pipeline.
+4. Envoyez le pipeline.
 
 ### <a name="results-for-rating-predictions"></a>Résultats des prédictions de notation 
 
@@ -99,7 +99,7 @@ Pour recommander des éléments pour les utilisateurs, vous fournissez une liste
 
     Pour appliquer ce filtre, connectez le jeu de données d’entraînement d’origine au port d’entrée.
 
-8. Exécuter le pipeline.
+8. Envoyez le pipeline.
 
 ### <a name="results-of-item-recommendation"></a>Résultats de la recommandation d’élément
 
