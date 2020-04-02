@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f4be3343f090c4d31ccb85eba8e99f22a3b1fcae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271932"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529473"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -59,7 +59,7 @@ Le [stockage Azure](https://azure.microsoft.com/services/storage/blobs/) a des o
 
 Stockage Azure a plusieurs types d’objets blob.  Un *blob d’ajout* est idéal pour le stockage de fichiers journaux d’activité web ou de données de capteur.  
 
-Plusieurs blobs peuvent être répartis sur plusieurs serveurs afin d’offrir un accès horizontal. Toutefois, un blob donné ne peut être servi que par un seul serveur. Si les blobs peuvent être regroupés de manière logique dans des conteneurs, ce regroupement n’a aucune incidence sur le partitionnement.
+Plusieurs blobs peuvent être répartis sur plusieurs serveurs afin d’effectuer un scale-out de l’accès à ceux-ci. Toutefois, un blob donné ne peut être servi que par un seul serveur. Si les blobs peuvent être regroupés de manière logique dans des conteneurs, ce regroupement n’a aucune incidence sur le partitionnement.
 
 Stockage Azure a également une couche API WebHDFS pour le stockage d’objets blob.  Tous les services dans HDInsight peuvent accéder aux fichiers dans Stockage Blob Azure pour le nettoyage et le traitement des données, de la même façon que ces services utilisent le système HDFS (Hadoop Distributed Files System).
 
@@ -85,7 +85,7 @@ Pour le chargement de jeux de données représentant plusieurs téraoctets, la l
 
 Azure SQL DW est un choix idéal pour stocker les résultats nettoyés et préparés pour de futures analytiques.  Azure HDInsight peut servir à exécuter ces services pour Azure SQL DW.
 
-Azure SQL Data Warehouse (SQL DW) est un magasin de base de données relationnelle optimisé pour les charges de travail d’analytique.  Azure SQL DW se met à l’échelle en fonction de tables partitionnées.  Les tables peuvent être partitionnées entre plusieurs nœuds.  Les nœuds Azure SQL DW sont sélectionnés au moment de la création.  Ils peuvent être mis à l’échelle après coup, mais il s’agit alors d’un processus actif qui peut nécessiter le déplacement de données. Pour plus d’informations, consultez [SQL Data Warehouse - Gérer le calcul](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Azure SQL Data Warehouse (SQL DW) est un magasin de base de données relationnelle optimisé pour les charges de travail d’analytique.  Azure SQL DW se met à l’échelle en fonction de tables partitionnées.  Les tables peuvent être partitionnées entre plusieurs nœuds.  Les nœuds Azure SQL DW sont sélectionnés au moment de la création.  Ils peuvent être mis à l’échelle après coup, mais il s’agit alors d’un processus actif qui peut nécessiter le déplacement de données. Pour plus d’informations, consultez [SQL Data Warehouse - Gérer le calcul](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7652ab72fb972230d98913c2d7e2601737982532
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74924349"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Transfert de données à partir d’un HDFS local à l’aide d’Azure Data Factory
@@ -47,7 +47,7 @@ Bien qu’il soit possible d’installer la passerelle sur le même ordinateur l
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’une source HDFS à l’aide de différents outils/API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
 Vous pouvez également utiliser les outils suivants pour créer un pipeline : **portail Azure**, **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **API .NET** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -66,12 +66,12 @@ Un service lié lie un magasin de données à une fabrique de données. Vous cr�
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété type doit être définie sur : **Hdfs** |OUI |
-| url |URL vers le système HDFS |OUI |
-| authenticationType |Anonyme ou Windows. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |OUI |
+| type |La propriété type doit être définie sur : **Hdfs** |Oui |
+| url |URL vers le système HDFS |Oui |
+| authenticationType |Anonyme ou Windows. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |Oui |
 | userName |Nom d’utilisateur de l’authentification Windows Pour l’authentification Kerberos, spécifiez `<username>@<domain>.com`. |Oui (pour l’authentification Windows) |
-| password |Mot de passe de l’authentification Windows |Oui (pour l’authentification Windows) |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. |OUI |
+| mot de passe |Mot de passe de l’authentification Windows |Oui (pour l’authentification Windows) |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. |Oui |
 | encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) des informations d’accès. |Non |
 
 ### <a name="using-anonymous-authentication"></a>Utilisation de l’authentification anonyme
@@ -93,7 +93,7 @@ Un service lié lie un magasin de données à une fabrique de données. Vous cr�
 }
 ```
 
-### <a name="using-windows-authentication"></a>Utilisation de l’authentification Windows
+### <a name="using-windows-authentication"></a>Avec l’authentification Windows
 
 ```JSON
 {
@@ -119,7 +119,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| folderPath |Chemin d'accès au dossier. Exemple : `myfolder`<br/><br/>Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Par exemple : pour dossier\sous-dossier, spécifiez dossier\\\\sous-dossier et pour d:\dossier d’exemple, spécifiez d:\\\\dossier d’exemple.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |OUI |
+| folderPath |Chemin d'accès au dossier. Exemple : `myfolder`<br/><br/>Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Par exemple : pour dossier\sous-dossier, spécifiez dossier\\\\sous-dossier et pour d:\dossier d’exemple, spécifiez d:\\\\dossier d’exemple.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |Oui |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : <br/><br/>`Data.<Guid>.txt` (par exemple : : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | partitionedBy |partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Exemple : folderPath peut être paramétré pour toutes les heures de données. |Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
@@ -350,16 +350,16 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser ce
 
 ## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Utilisation de l’authentification Kerberos pour le connecteur HDFS
 Il existe deux options de configuration de l’environnement local afin d’utiliser l’authentification Kerberos dans le connecteur HDFS. Vous pouvez choisir celle qui correspond mieux à votre situation.
-* Option 1 : [Joindre l’ordinateur de la passerelle au domaine Kerberos](#kerberos-join-realm)
-* Option 2 : [Activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos](#kerberos-mutual-trust)
+* Option 1 : [Joindre l’ordinateur de la passerelle au domaine Kerberos](#kerberos-join-realm)
+* Option n°2 : [Activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Option 1 : Joindre l’ordinateur de la passerelle au domaine Kerberos
+### <a name="option-1-join-gateway-machine-in-kerberos-realm"></a><a name="kerberos-join-realm"></a>Option 1 : Joindre l’ordinateur de la passerelle au domaine Kerberos
 
 #### <a name="requirement"></a>Condition :
 
 * L’ordinateur de passerelle doit rejoindre le domaine Kerberos et ne peut rejoindre aucun domaine Windows.
 
-#### <a name="how-to-configure"></a>Procédure de configuration :
+#### <a name="how-to-configure"></a>Pour effectuer la configuration :
 
 **Sur l’ordinateur de la passerelle :**
 
@@ -383,13 +383,13 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
 * Configurez le connecteur HDFS à l’aide de l’**authentification Windows** avec votre nom principal Kerberos et le mot de passe pour vous connecter à la source de données HDFS. Vérifiez les détails de configuration dans la section sur les [propriétés du service lié HDFS](#linked-service-properties).
 
-### <a name="kerberos-mutual-trust"></a>Option 2 : Activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos
+### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Option 2 : Activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos
 
 #### <a name="requirement"></a>Condition :
 *   L’ordinateur de passerelle doit rejoindre un domaine Windows.
 *   Vous avez besoin d’autorisations pour mettre à jour les paramètres du contrôleur de domaine.
 
-#### <a name="how-to-configure"></a>Procédure de configuration :
+#### <a name="how-to-configure"></a>Pour effectuer la configuration :
 
 > [!NOTE]
 > Remplacez REALM.COM et AD.COM dans le didacticiel suivant par votre propre domaine et contrôleur de domaine respectifs en fonction des besoins.
@@ -489,7 +489,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 * Configurez le connecteur HDFS à l’aide de l’**authentification Windows** avec votre compte de domaine ou le principal Kerberos pour vous connecter à la source de données HDFS. Vérifiez les détails de configuration dans la section sur les [propriétés du service lié HDFS](#linked-service-properties).
 
 > [!NOTE]
-> Pour savoir comment mapper des colonnes d’un jeu de données source à des colonnes d’un jeu de données récepteur, consultez [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mappage des colonnes des jeux de données dans Azure Data Factory).
+> Pour savoir comment mapper des colonnes d’un jeu de données source sur des colonnes d’un jeu de données récepteur, consultez [Mappage de colonnes des jeux de données dans Azure Data Factory](data-factory-map-columns.md).
 
 
 ## <a name="performance-and-tuning"></a>Performances et réglage

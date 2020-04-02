@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: 75100b47ddf8f36ed9a22ff3073c439f8ad9040b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083294"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Créer une topologie Apache Storm en Java
@@ -77,7 +77,7 @@ Ouvrez `pom.xml` en entrant la commande ci-dessous :
 notepad pom.xml
 ```
 
-Ajoutez ensuite le texte XML qui suit après la ligne `<url> https://maven.apache.org</url>` :
+Ajoutez ensuite le texte XML qui suit après la ligne `<url>https://maven.apache.org</url>` :
 
 ```xml
 <repositories>
