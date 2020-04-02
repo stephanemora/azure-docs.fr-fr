@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789894"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gérer les enregistrements Dynamics 365 avec Azure Logic Apps
@@ -51,10 +51,10 @@ Tout d’abord, ajoutez un déclencheur Dynamics 365 qui se déclenche quand un
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de l’organisation** | OUI | Nom de l’instance de Dynamics 365 de votre organisation à superviser, par exemple, « Contoso » |
-   | **Nom de l’entité** | OUI | Nom de l’entité à superviser, par exemple, « Leads » (Prospects) | 
-   | **Fréquence** | OUI | Unité de temps, avec intervalles, à utiliser pour vérifier l’existence de mises à jour pour le déclencheur |
-   | **Intervalle** | OUI | Nombre de secondes, de minutes, d’heures, de jours, de semaines ou de mois qui doivent s’écouler avant la recherche suivante |
+   | **Nom de l’organisation** | Oui | Nom de l’instance de Dynamics 365 de votre organisation à superviser, par exemple, « Contoso » |
+   | **Nom de l’entité** | Oui | Nom de l’entité à superviser, par exemple, « Leads » (Prospects) | 
+   | **Fréquence** | Oui | Unité de temps, avec intervalles, à utiliser pour vérifier l’existence de mises à jour pour le déclencheur |
+   | **Intervalle** | Oui | Nombre de secondes, de minutes, d’heures, de jours, de semaines ou de mois qui doivent s’écouler avant la recherche suivante |
    ||| 
 
    ![Détails du déclencheur](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -73,8 +73,8 @@ Ajoutez maintenant l’action Dynamics 365 qui crée un enregistrement de tâch
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de l’organisation** | OUI | Instance de Dynamics 365 où vous souhaitez créer l’enregistrement ; bien que cette instance puisse différer de l’instance de votre déclencheur, elle porte le nom « Contoso » dans cet exemple. |
-   | **Nom de l’entité** | OUI | Entité où vous souhaitez créer l’enregistrement, par exemple, « Tasks » (Tâches) |
+   | **Nom de l’organisation** | Oui | Instance de Dynamics 365 où vous souhaitez créer l’enregistrement ; bien que cette instance puisse différer de l’instance de votre déclencheur, elle porte le nom « Contoso » dans cet exemple. |
+   | **Nom de l’entité** | Oui | Entité où vous souhaitez créer l’enregistrement, par exemple, « Tasks » (Tâches) |
    | | |
 
    ![Détails de l’action](./media/connectors-create-api-crmonline/action-details.png)
@@ -121,7 +121,7 @@ Ce tableau décrit certains des types de champs et les types de données requis 
 
 | Type de champ | Type de données requis | Description | 
 |------------|--------------------|-------------|
-| Champs de texte | Ligne de texte unique | Ces champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui a le type texte. <p><p>*Champs de l’exemple* : **Description** et **Catégorie** | 
+| Champs de texte | Ligne de texte unique | Ces champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui a le type texte. <p><p>*Exemples de champs* : **Description** et **Catégorie** | 
 | Champs de type entier | Nombre entier | Certains champs nécessitent un entier ou un contenu dynamique qui a le type entier. <p><p>*Exemples de champs* : **Pourcentage d’achèvement** et **Durée** | 
 | Champs de date | Date et heure | Certains champs nécessitent une date au format mm/jj/aaaa ou un contenu dynamique qui a le type date. <p><p>*Exemples de champs* : **Créé le**, **Date de début**, **Début réel**, **Fin réelle** et **Date d’échéance** | 
 | Champs nécessitant à la fois un ID d’enregistrement et un type de recherche | Clé primaire | Certains champs qui font référence à un autre enregistrement d’entité nécessitent un ID d’enregistrement et un type de recherche. | 
@@ -186,7 +186,7 @@ Pour plus d’informations sur la résolution des problèmes relatifs aux applic
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/dynamicscrmonline/).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, voir la [page de référence du connecteur](/connectors/dynamicscrmonline/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

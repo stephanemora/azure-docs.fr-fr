@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 2cd76afa9412e89c57cfb6c357eb164ce5d3d1c4
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75830426"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copier des données depuis HDFS à l’aide d’Azure Data Factory
@@ -38,7 +38,7 @@ Plus précisément, ce connecteur HDFS prend en charge ce qui suit :
 - Copie de fichiers en utilisant le protocole **webhdfs** ou la prise en charge de **DistCp intégré**.
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -61,7 +61,7 @@ Les propriétés prises en charge pour le service lié HDFS sont les suivantes 
 | url |URL vers le système HDFS |Oui |
 | authenticationType | Les valeurs autorisées sont les suivantes : **Anonyme**  ou **Windows**. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |Oui |
 | userName |Nom d’utilisateur de l’authentification Windows Pour l’authentification Kerberos, spécifiez `<username>@<domain>.com`. |Oui (pour l’authentification Windows) |
-| password |Mot de passe de l’authentification Windows Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui (pour l’authentification Windows) |
+| mot de passe |Mot de passe de l’authentification Windows Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui (pour l’authentification Windows) |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple : utilisation d’une authentification anonyme**
@@ -233,7 +233,7 @@ Cette section décrit le comportement résultant de l’utilisation de filtres d
 
 L’activité de copie prend en charge l’utilisation de DistCp pour copier des fichiers en l’état vers un objet blob Azure (y compris une [copie intermédiaire](copy-activity-performance.md)) ou Azure Data Lake Store, auquel cas elle peut tirer pleinement parti de la puissance de votre cluster au lieu de s’exécuter sur le runtime d’intégration auto-hébergé. Le débit de la copie est ainsi amélioré, en particulier si votre cluster est très puissant. Selon votre configuration dans Azure Data Factory, l’activité de copie construit automatiquement une commande distcp, l’envoie à votre cluster Hadoop et surveille l’état de la copie.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Pour utiliser DistCp pour copier des fichiers en l’état de HDFS vers un objet blob Azure (y compris une copie intermédiaire) ou Azure Data Lake Store, assurez-vous que votre cluster Hadoop présente la configuration requise suivante :
 
@@ -257,7 +257,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 * Option 1 : [Joindre un ordinateur exécutant le runtime d’intégration auto-hébergé dans le domaine Kerberos](#kerberos-join-realm)
 * Option n°2 : [Activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Option 1 : Joindre un ordinateur exécutant le runtime d’intégration auto-hébergé dans le domaine Kerberos
+### <a name="option-1-join-self-hosted-integration-runtime-machine-in-kerberos-realm"></a><a name="kerberos-join-realm"></a>Option 1 : Joindre un ordinateur exécutant le runtime d’intégration auto-hébergé dans le domaine Kerberos
 
 #### <a name="requirements"></a>Spécifications
 
@@ -287,7 +287,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
 * Configurez le connecteur HDFS à l’aide de l’**authentification Windows** avec votre nom principal Kerberos et le mot de passe pour vous connecter à la source de données HDFS. Vérifiez les détails de configuration dans la section sur les [propriétés du service lié HDFS](#linked-service-properties).
 
-### <a name="kerberos-mutual-trust"></a>Option 2 : Activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos
+### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Option 2 : Activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos
 
 #### <a name="requirements"></a>Spécifications
 

@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
 ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887204"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Échec du démarrage d’Apache HBase Master (HMaster) dans Azure HDInsight
@@ -24,7 +24,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Fichiers inattendus identifiés au cours du processus de démarrage.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Pendant le processus de démarrage, HMaster effectue de nombreuses étapes d’initialisation, notamment le déplacement des données du dossier temporaire (. tmp) vers le dossier de données. HMaster examine également le dossier de journaux d’activité WAL (write-ahead log) pour voir s’il existe des serveurs régionaux ne répondant pas.
 
@@ -46,7 +46,7 @@ Après avoir exécuté ces commandes, HMaster devrait démarrer immédiatement.
 
 Vous pouvez voir un message indiquant que la table `hbase: meta` n’est pas en ligne. L’exécution de `hbck` peut indiquer `hbase: meta table replicaId 0 is not found on any region.` Dans les journaux d’activité HMaster, vous pouvez voir le message: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 HMaster n’a pas pu être initialisé après le redémarrage de HBase.
 
@@ -77,7 +77,7 @@ HMaster n’a pas pu être initialisé après le redémarrage de HBase.
 
 HMaster arrive à expiration avec une exception irrécupérable similaire à `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Vous pourriez rencontrer ce problème si plusieurs tables et régions n’ont pas été vidées lors du redémarrage de vos services HMaster. Le délai d’attente est un défaut connu de HMaster. Les tâches générales de démarrage du cluster peuvent prendre beaucoup de temps. HMaster s’arrête si la table namespace n’a pas encore été affectée. Les tâches de démarrage fastidieuses se produisent quand une grande quantité de données n’a pas été vidée et qu’un délai d’attente de cinq minutes est insuffisant.
 
@@ -105,7 +105,7 @@ Les nœuds redémarrent périodiquement. Dans les journaux des serveurs régiona
 2017-05-09 17:45:07,683 WARN  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 31000ms
 ```
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Longue pause de nettoyage de la mémoire de machine virtuelle Java de `regionserver`. La pause entraîne l’absence de réponse de `regionserver` et l’impossibilité d’envoyer une pulsation à HMaster dans les 40 secondes de délai d’expiration de la session zk. HMaster estime que `regionserver` est inactif et l’abandonne, puis redémarre.
 
@@ -131,7 +131,7 @@ Modifiez le délai d’expiration de la session Zookeeper ; non seulement le pa
 
 HMaster n’apparaît pas sur un cluster HBase.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Paramètres HDFS et HBase mal configurés pour un compte de stockage secondaire.
 

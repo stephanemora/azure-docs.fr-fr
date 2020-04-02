@@ -4,10 +4,10 @@ description: Apprenez à mieux estimer les coûts induits par l’exécution de 
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76963986"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimation des coûts d’un plan Consommation
@@ -78,7 +78,7 @@ Utilisez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-gett
       
     |Paramètre  |Valeur suggérée  |Description  |
     |---------|---------|---------|
-    | Subscription    |  Votre abonnement  | Abonnement contenant votre application de fonction.  |
+    | Abonnement    |  Votre abonnement  | Abonnement contenant votre application de fonction.  |
     | Resource group     | Votre groupe de ressources  | Groupe de ressources qui contient votre application de fonction.   |
     | Type de ressource     |  App Services | Les applications de fonction s’affichent sous forme d’instances App Services dans Monitor. |
     | Ressource     |  Votre application de fonction  | Application de fonction à superviser.        |
@@ -237,5 +237,5 @@ customMetrics
 > [!div class="nextstepaction"]
 > [En savoir plus sur la supervision des applications de fonction](functions-monitoring.md)
 
-[Page des tarifs]: https://azure.microsoft.com/pricing/details/functions/
+[Page des tarifs]:https://azure.microsoft.com/pricing/details/functions/
 [Azure portal]: https://portal.azure.com
