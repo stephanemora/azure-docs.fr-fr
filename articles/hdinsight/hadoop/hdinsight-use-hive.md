@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 20fdafc3077d1017c17d1055596dab150dffec72
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206637"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471351"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
 
 [Apache Hive](https://hive.apache.org/) est un système d’entrepôt de données pour Apache Hadoop. Hive permet la synthèse, l’interrogation et l’analyse des données. Les requêtes Hive sont écrites dans le langage HiveQL, qui est un langage de requête semblable à SQL.
 
-Hive vous permet de concevoir une structure sur des données largement structurées. Une fois que vous avez défini la structure, vous pouvez utiliser HiveQL pour interroger les données sans connaître Java ou MapReduce.
+Hive vous permet de concevoir une structure sur des données largement non structurées. Une fois que vous avez défini la structure, vous pouvez utiliser HiveQL pour interroger les données sans connaître Java ou MapReduce.
 
 HDInsight fournit plusieurs types de cluster adaptés à des charges de travail spécifiques. Voici les types de cluster les plus souvent utilisés pour les requêtes Hive :
 
@@ -134,10 +134,10 @@ Dans l’exemple précédent, les instructions HiveQL effectuent les opérations
 |. |Description |
 |---|---|
 |DROP TABLE|Si la table existe déjà, supprimez-la.|
-|CREATE EXTERNAL TABLE|Crée une table **externe dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l’emplacement d’origine, dans le format d’origine.|
+|CREATE EXTERNAL TABLE|Crée une table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l’emplacement d’origine, dans le format d’origine.|
 |ROW FORMAT|indique à Hive la façon dont les données sont mises en forme. Dans ce cas, les champs de chaque journal sont séparés par un espace.|
 |STORED AS TEXTFILE LOCATION|Indique à Hive où sont stockées les données (répertoire `example/data`) et qu’elles sont stockées sous forme de texte. Les données peuvent être dans un seul fichier ou réparties sur plusieurs fichiers dans le répertoire.|
-|SELECT|Sélectionne toutes les lignes où la colonne **t4**contient la valeur**[ERROR]. Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.|
+|SELECT|Sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]** . Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.|
 |INPUT__FILE__NAME LIKE '%.log'|Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.|
 
 > [!NOTE]  
@@ -168,7 +168,7 @@ Ces instructions effectuent les opérations suivantes :
 |---|---|
 |CREATE TABLE IF NOT EXISTS|Si la table n’existe pas, créez-la. Étant donné que le mot clé **EXTERNAL** n’est pas utilisé, cette instruction crée une table interne. La table est stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.|
 |STORED AS ORC|Stocke les données dans un format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.|
-|INSERT OVERWRITE ... SELECT|Sélectionne des lignes de la table **log4jLogs**qui contient**[ERROR] **, puis insère les données dans la table** errorLogs.|
+|INSERT OVERWRITE ... SELECT|Sélectionne des lignes de la table **log4jLogs** qui contient **[ERROR]** , puis insère les données dans la table **errorLogs**.|
 
 > [!NOTE]  
 > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.

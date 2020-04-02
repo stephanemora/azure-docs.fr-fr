@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: d73dcb89739395e4dd52b1ef4d39c41ad6125666
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3471bd7297118dc75fb97390c4601179f61e6416
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457161"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497545"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -227,7 +227,7 @@ Vous pouvez configurer des [règles de routage](iot-hub-devguide-messages-read-c
 SASL PLAIN est un protocole utilisé par le protocole AMQP pour transférer des jetons de sécurité.
 
 ## <a name="service-rest-api"></a>API REST du service
-Vous pouvez utiliser [l’API REST du service](https://docs.microsoft.com/rest/api/iothub/service) à partir du backend de la solution pour gérer vos appareils. L’API vous permet de récupérer et de mettre à jour les propriétés de [jumeau d’appareil](#device-twin), d’appeler des [méthodes directes](#direct-method) et de planifier des [travaux](#job). En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels concernant IoT Hub.
+Vous pouvez utiliser [l’API REST du service](https://docs.microsoft.com/rest/api/iothub/service/configuration) à partir du backend de la solution pour gérer vos appareils. L’API vous permet de récupérer et de mettre à jour les propriétés de [jumeau d’appareil](#device-twin), d’appeler des [méthodes directes](#direct-method) et de planifier des [travaux](#job). En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels concernant IoT Hub.
 
 ## <a name="shared-access-signature"></a>Signature d’accès partagé
 Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Une authentification par SAP comporte deux composants : une _stratégie d’accès partagé_ et une _signature d’accès partagé_ (souvent appelée jeton). Un appareil utilise une SAP pour s’authentifier auprès d’un hub IoT. Les [applications principales](#back-end-app) utilisent également une SAP pour s’authentifier auprès des points de terminaison visibles par le service sur un hub IoT. En règle générale, vous incluez le jeton SAP dans la [chaîne de connexion](#connection-string) qu’une application utilise pour établir une connexion à un hub IoT.
@@ -241,7 +241,7 @@ Pour des raisons pratiques, bon nombre des didacticiels sur IoT Hub utilisent de
 ## <a name="solution"></a>Solution
 Une _solution_ peut être une solution Visual Studio incluant un ou plusieurs projets. Une _solution_ peut également être une solution IoT incluant des éléments tels que des appareils, [des applications pour appareil](#device-app), un hub IoT, d’autres services Azure et des [applications principales](#back-end-app).
 
-## <a name="subscription"></a>Subscription
+## <a name="subscription"></a>Abonnement
 L’abonnement est le mode de facturation d’Azure. Chaque ressource ou service Azure que vous créez ou utilisez est associé à un abonnement unique. De nombreux quotas s’appliquent également au niveau d’un abonnement.
 
 ## <a name="system-properties"></a>Propriétés système

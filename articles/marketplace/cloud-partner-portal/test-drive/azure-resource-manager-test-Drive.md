@@ -1,20 +1,18 @@
 ---
 title: Version d’évaluation d’Azure Resource Manager | Place de marché Azure
 description: Générer une version d’évaluation de la Place de marché à l’aide d’Azure Resource Manager
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Patrick .Butler
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 8b2a24b6f2d7df92f1c8ea1b22432471aa432011
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.author: dsindona
+ms.openlocfilehash: 6125aa010d8676518b84f866343b01f95246160f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644900"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275932"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
@@ -90,7 +88,7 @@ Il est également important de noter que **tous les paramètres sont facultatifs
 | **mot de passe**    | chaîne sécurisée    | Nouveau mot de passe aléatoire | Lp!ACS\^2kh     |
 | **ID de la session**   | string          | ID de session unique de la version d’évaluation (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>username
+#### <a name="baseuri"></a>baseuri
 
 La version d’évaluation initialise ce paramètre avec un **URI de base** de votre package de déploiement, vous pouvez donc utiliser ce paramètre pour construire l’URI de tous les fichiers inclus dans votre package.
 
@@ -141,7 +139,7 @@ Exemple de valeur :
 
 Vous pouvez utiliser des noms d’utilisateur aléatoires ou constants pour votre solution.
 
-#### <a name="password"></a>password
+#### <a name="password"></a>mot de passe
 
 La version d’évaluation initialise ce paramètre avec un nouveau mot de passe aléatoire :
 

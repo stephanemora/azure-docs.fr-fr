@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
 ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543101"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225149"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
 
@@ -49,16 +49,16 @@ Lorsque vous créez une machine virtuelle par le biais du portail Azure, ce dern
 
     |Paramètre|Requis ?|Détails|
     |---|---|---|
-    |Name|Oui|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné. Au fil du temps, vous accumulerez probablement plusieurs interfaces réseau dans votre abonnement Azure. Pour obtenir des suggestions lors de la création d’une convention d’affectation de noms et ainsi faciliter la gestion de plusieurs interfaces réseau, consultez [Conventions d’affectation de noms](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). Il est impossible de modifier le nom une fois que l’interface réseau a été créée.|
+    |Nom|Oui|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné. Au fil du temps, vous accumulerez probablement plusieurs interfaces réseau dans votre abonnement Azure. Pour obtenir des suggestions lors de la création d’une convention d’affectation de noms et ainsi faciliter la gestion de plusieurs interfaces réseau, consultez [Conventions d’affectation de noms](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). Il est impossible de modifier le nom une fois que l’interface réseau a été créée.|
     |Réseau virtuel|Oui|Sélectionnez le réseau virtuel pour l’interface réseau. Vous pouvez uniquement attribuer une interface réseau à un réseau virtuel qui existe dans le même abonnement et le même emplacement que l’interface réseau. Après la création d’une interface réseau, vous ne pouvez pas modifier le réseau virtuel auquel elle est assignée. La machine virtuelle à laquelle vous ajoutez l’interface réseau doit également exister dans le même emplacement et le même abonnement que l’interface réseau.|
     |Subnet|Oui|Sélectionnez un sous-réseau dans le réseau virtuel que vous avez sélectionné. Vous pouvez modifier le sous-réseau auquel l’interface réseau est assignée après sa création.|
     |Affectation d’adresses IP privées|Oui| Dans ce paramètre, vous choisissez la méthode d’affectation de l’adresse IPv4. Choisissez parmi les méthodes d’affectation suivantes : **Dynamique :** quand vous sélectionnez cette option, Azure affecte automatiquement une adresse disponible de l’espace d’adressage du sous-réseau sélectionné. **Statique :** quand vous sélectionnez cette option, vous devez affecter manuellement une adresse IP disponible de l’espace d’adressage du sous-réseau sélectionné. Les adresses statiques et dynamiques ne changent que si vous les modifiez ou si l’interface réseau est supprimée. Vous pouvez modifier la méthode d’affectation après la création de l’interface réseau. Le serveur DHCP Azure assigne cette adresse à l’interface réseau au sein du système d’exploitation de la machine virtuelle.|
     |Groupe de sécurité réseau|Non| Conservez la valeur **Aucune**, puis sélectionnez un [groupe de sécurité réseau](security-overview.md) ou [créez un groupe de sécurité réseau](tutorial-filter-network-traffic.md). Les groupes de sécurité réseau vous permettent de filtrer le trafic réseau entrant et sortant d’une interface réseau. Vous pouvez appliquer zéro ou un groupe de sécurité réseau à une interface réseau. Zéro ou un groupe de sécurité réseau peut également être appliqué au sous-réseau auquel l’interface réseau est assignée. Lorsqu’un groupe de sécurité réseau est appliqué à une interface réseau et au sous-réseau auquel l’interface réseau est assignée, des résultats inattendus peuvent se produire. Pour résoudre les problèmes relatifs aux groupes de sécurité réseau appliqués aux interfaces réseau et aux sous-réseaux, consultez l’article [Résoudre les problèmes relatifs aux groupes de sécurité réseau](diagnose-network-traffic-filter-problem.md).|
-    |Subscription|Oui|Sélectionnez l’un de vos [abonnements](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) Azure. La machine virtuelle à laquelle vous attachez une interface réseau et le réseau virtuel auquel vous la connectez doivent être dans le même abonnement.|
+    |Abonnement|Oui|Sélectionnez l’un de vos [abonnements](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) Azure. La machine virtuelle à laquelle vous attachez une interface réseau et le réseau virtuel auquel vous la connectez doivent être dans le même abonnement.|
     |Adresse IP privée (IPv6)|Non| Si vous cochez cette case, une adresse IPv6 est assignée à l’interface réseau, en plus de l’adresse IPv4 assignée à l’interface réseau. Consultez la section IPv6 de cet article pour obtenir des informations importantes sur l’utilisation du protocole IPv6 avec des interfaces réseau. Vous ne pouvez pas sélectionner de méthode d’attribution pour l’adresse IPv6. Si vous choisissez d’assigner une adresse IPv6, c’est la méthode dynamique qui est sélectionnée.
     |Nom IPv6 (apparaît uniquement lorsque la case **Adresse IP privée (IPv6)** est cochée) |Oui, si la case **Adresse IP privée (IPv6)** est cochée.| Ce nom est assigné à une configuration IP secondaire pour l’interface réseau. Pour en savoir plus sur les configurations IP, consultez la section [Afficher les paramètres d’interface réseau](#view-network-interface-settings).|
     |Resource group|Oui|Sélectionnez un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou créez-en un. Une interface réseau peut se trouver ou non dans le même groupe de ressources que celui de la machine virtuelle à laquelle vous l’attachez ou du réseau virtuel auquel vous la connectez.|
-    |Location|Oui|La machine virtuelle à laquelle vous attachez une interface réseau et le réseau virtuel auquel vous la connectez doivent être dans le même [emplacement](https://azure.microsoft.com/regions), également appelé région.|
+    |Emplacement|Oui|La machine virtuelle à laquelle vous attachez une interface réseau et le réseau virtuel auquel vous la connectez doivent être dans le même [emplacement](https://azure.microsoft.com/regions), également appelé région.|
 
 Le portail ne permet pas d’assigner une adresse IP publique à l’interface réseau lorsque vous la créez, bien qu’il crée une adresse IP publique et l’assigne à une interface réseau lorsque vous créez une machine virtuelle à l’aide du portail. Pour savoir comment ajouter une adresse IP publique à l’interface réseau après sa création, consultez l’article [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md). Si vous souhaitez créer une interface réseau avec une adresse IP publique, vous devez utiliser l’interface de ligne de commande ou PowerShell pour la créer.
 
@@ -251,7 +251,7 @@ La fonctionnalité de tronçon suivant d’Azure Network Watcher peut également
 
 Pour effectuer des tâches sur des interfaces réseau, votre compte doit posséder le rôle de [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées qui sont répertoriées dans le tableau suivant :
 
-| Action                                                                     | Name                                                      |
+| Action                                                                     | Nom                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft.Network/networkInterfaces/read                                   | Obtenir l’interface réseau                                     |
 | Microsoft.Network/networkInterfaces/write                                  | Création ou mise à jour d’une interface réseau                        |

@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 6fec85c028e992c15fb9503ffb599023e668c58f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459937"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Ajout de notifications Push à votre application Android
@@ -21,7 +21,7 @@ ms.locfileid: "77459937"
 
 Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide Android] afin qu'une notification Push soit envoyée chaque fois qu'un enregistrement est inséré.
 
-Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
+Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez la section [Travailler avec le kit de développeent logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d''informations.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -85,4 +85,4 @@ Maintenant que vous avez terminé ce didacticiel, vous pouvez passer à l’un d
 
 <!-- URLs -->
 [Démarrage rapide Android]: app-service-mobile-android-get-started.md
-[Ajouter Firebase à votre projet Android]: https://firebase.google.com/docs/android/setup
+[Ajouter Firebase à votre projet Android]:https://firebase.google.com/docs/android/setup

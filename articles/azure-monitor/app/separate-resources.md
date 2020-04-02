@@ -4,10 +4,10 @@ description: Télémétrie directe de différentes ressources pour les tampons d
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671458"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production
@@ -28,7 +28,7 @@ En général, vous choisissez d’utiliser des ressources séparées ou une ress
 * Test A | B : utilisez une seule ressource. Créez un TelemetryInitializer pour ajouter une propriété à la télémétrie, qui identifie les variantes.
 
 
-## <a name="dynamic-ikey"></a> Clé d'instrumentation dynamique
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Clé d'instrumentation dynamique
 
 Pour faciliter la modification de l’ikey à mesure que le code se déplace entre les phases de production, définissez-la dans le code plutôt que dans le fichier de configuration.
 
@@ -69,7 +69,7 @@ Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressou
 
 ![Cliquez sur Nouveau > Application Insights](./media/separate-resources/01-new.png)
 
-* **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics ExplorerMicrosoft Azure. Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web.
+* **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md)Microsoft Azure. Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web.
 * **Groupe de ressources** facilite la gestion des propriétés telles que le [contrôle d’accès](../../azure-monitor/app/resources-roles-access-control.md). Vous pouvez utiliser des groupes de ressources distincts pour le développement, le test et la production.
 * **Abonnement** est votre compte de paiement dans Azure.
 * **Emplacement** correspond à l’endroit où nous conservons vos données. Actuellement, il n’est pas possible de le modifier. 

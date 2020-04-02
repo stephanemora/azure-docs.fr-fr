@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
 ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72001669"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 ==================================================
 
-<a name="overview"></a>Vue d'ensemble
+<a name="overview"></a>Vue d’ensemble
 --------
 
 Par défaut, Azure Application Gateway sonde les serveurs back-end afin de vérifier leur état d’intégrité et leur disponibilité pour traiter les requêtes. Les utilisateurs peuvent également créer des sondes personnalisées pour indiquer le nom d’hôte, le chemin à sonder et les codes d’état à considérer comme sains. Dans les deux cas, si le serveur back-end ne répond pas, Application Gateway marque le serveur comme Non sain et arrête la transmission des requêtes au serveur. Quand le serveur répond de nouveau, Application Gateway reprend la transmission des requêtes.
@@ -83,7 +83,7 @@ Le message affiché dans la colonne **Détails** fournit des insights plus déta
 > [!NOTE]
 > La demande de sondage par défaut est envoyée au format \<protocole\>://127.0.0.1:\<port\>/. Par exemple, http://127.0.0.1:80 pour une sonde HTTP sur le port 80. Seuls les codes d’état HTTP de 200 à 399 sont considérés comme sains. Le protocole et le port de destination sont hérités des paramètres HTTP. Si vous souhaitez qu’Application Gateway sonde sur un autre protocole, nom d’hôte ou chemin et reconnaisse un autre code d’état comme sain, configurez une sonde personnalisée et associez-la aux paramètres HTTP.
 
-<a name="error-messages"></a>messages d'erreur
+<a name="error-messages"></a>Messages d’erreur
 ------------------------
 #### <a name="backend-server-timeout"></a>Délai d’attente dépassé pour le serveur back-end
 

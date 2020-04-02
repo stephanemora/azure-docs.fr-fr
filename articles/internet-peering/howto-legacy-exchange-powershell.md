@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: aa11f329cf0a0cb27d58b940b42731a2ec41c272
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774000"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-azure-resource-using-powershell"></a>Convertir un Peering Exchange hérité en ressource Azure à l’aide de PowerShell
@@ -32,7 +32,7 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-l
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Vous connecter à votre compte Azure et sélectionner votre abonnement
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name= get></a>Obtenir le Peering Exchange hérité pour la conversion
+### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Obtenir le Peering Exchange hérité pour la conversion
 Vous trouverez ci-dessous un exemple pour obtenir un Peering Exchange hérité à l’emplacement de Peering Seattle :
 
 ```powershell

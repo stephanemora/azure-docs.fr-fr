@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: fb1e32d9f67febb09eadfb5d31221db33504eb05
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289473"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127673"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -74,7 +74,7 @@ Nous disposons d’une machine virtuelle locale avec quatre cœurs et huit Go d
 
 -  Si l’évaluation est définie sur **Localement**, il est recommandé d’utiliser une référence SKU de machine virtuelle Azure avec 4 cœurs et 8 Go de mémoire.
 - Si l’évaluation est basée sur les performancess, d’après l’utilisation effective de l’UC et de la mémoire (50 % de 4 cœurs * 1,3 = 2,6 cœurs et 50 % de 8 Go de mémoire * 1,3 = 5,3 Go de mémoire), la référence SKU de machine virtuelle la moins coûteuse avec quatre cœurs (nombre de cœurs pris en charge le plus proche) et huit Go de mémoire (taille de mémoire prise en charge la plus proche) est celle qui est recommandée.
-- [En savoir](concepts-assessment-calculation.md#assessments-in-server-assessment) plus sur le dimensionnement de l’évaluation.
+- [En savoir](concepts-assessment-calculation.md#types-of-assessments) plus sur le dimensionnement de l’évaluation.
 
 ## <a name="azure-disk-skus-bigger-than-on-premises"></a>Références SKU de disque Azure supérieures aux locales
 
