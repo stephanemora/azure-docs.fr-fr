@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75fdc59b9110c3bfc29fe52be917a7d6e6636b8a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: afb295ca561bfa69805362182dc60ce908e1f206
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963204"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331154"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -113,10 +113,10 @@ Nous avons résolu un bogue dans l’utilitaire de compression des erreurs de sy
 - Prévention d’une erreur de configuration du filtrage de groupe par les filtres de domaine et d’UO. Le filtrage de groupe affiche une erreur lorsque le domaine ou l’unité d’organisation du groupe entré est déjà filtré et empêche l’utilisateur de poursuivre tant que le problème n’est pas résolu.
 - Les utilisateurs ne peuvent plus créer de connecteur pour Active Directory Domain Services ou Windows Azure Active Directory dans l’interface utilisateur Synchronization Service Manager.
 - Résolution du problème d’accessibilité des contrôles d’interface utilisateur personnalisés dans Synchronization Service Manager.
-- Activation de six tâches de gestion de la fédération pour toutes les méthodes de connexion dans Azure AD Connect.  (Auparavant, seule la tâche « Mettre à jour le certificat SSL AD FS » était disponible pour l’ensemble des connexions.)
+- Activation de six tâches de gestion de la fédération pour toutes les méthodes de connexion dans Azure AD Connect.  (Auparavant, seule la tâche « Mettre à jour le certificat TLS/SSL AD FS » était disponible pour l'ensemble des connexions.)
 - Ajout d’un avertissement lors de la modification de la méthode de connexion, qui passe de la fédération à la synchronisation de hachage de mot de passe (PHS) ou à l’authentification directe (PTA), convertissant tous les utilisateurs et domaines Azure AD en authentification managée.
 - Suppression des certificats de signature de jeton dans la tâche « Réinitialiser Azure AD et l’approbation AD FS » et ajout d’une sous-tâche distincte pour mettre à jour ces certificats.
-- Ajout d’une nouvelle tâche de gestion de la fédération appelée « Gérer les certificats », qui contient des sous-tâches permettant de mettre à jour les certificats de signature de jeton ou les certificats SSL de la batterie de serveurs AD FS.
+- Ajout d'une nouvelle tâche de gestion de fédération appelée « Gérer les certificats » qui comporte des sous-tâches permettant de mettre à jour les certificats de signature de jeton ou les certificats TLS de la batterie de serveurs AD FS.
 - Ajout d’une nouvelle sous-tâche de gestion de la fédération appelée « Spécifier le serveur principal », qui permet aux administrateurs de préciser un nouveau serveur principal pour la batterie de serveurs AD FS.
 - Ajout d’une nouvelle tâche de gestion de la fédération appelée « Gérer les serveurs », qui comporte des sous-tâches permettant de déployer un serveur AD FS, un serveur proxy d’application web et de spécifier le serveur principal.
 - Ajout d’une nouvelle tâche de gestion de la fédération appelée « Afficher la configuration de la fédération », qui affiche les paramètres AD FS actuels.  (En raison de cet ajout, les paramètres AD FS ont été supprimés de la page « Vérification de votre solution ».)
@@ -489,14 +489,14 @@ Une amélioration a été ajoutée à Azure AD Connect version 1.1.654.0 (et ult
 >[!NOTE]
 >Cette version supprime la vulnérabilité uniquement pour les nouvelles installations d’Azure AD Connect où le compte de service est créé par le processus d’installation. Pour les installations existantes, ou dans les cas où vous fournissez vous-même le compte, vous devez vous assurer que cette vulnérabilité n’existe pas.
 
-#### <a name="lock"></a>Verrouiller l’accès au compte AD DS
+#### <a name="lock-down-access-to-the-ad-ds-account"></a><a name="lock"></a>Verrouiller l’accès au compte AD DS
 Verrouillez l’accès au compte AD DS en implémentant les changements d’autorisations suivants dans l’annuaire AD local :  
 
 *   Désactivez l’héritage sur l’objet spécifié
 *   Supprimez toutes les entrées de contrôle d'accès sur l’objet spécifique, à l’exception de celles propres à SELF. Il faut conserver les autorisations par défaut intactes quand il s’agit de SELF.
 *   Attribuez ces autorisations spécifiques :
 
-Type     | Name                          | Accès               | S'applique à
+Type     | Nom                          | Accès               | S'applique à
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | Contrôle total         | Cet objet  |
 Allow    | Administrateurs de l’entreprise             | Contrôle total         | Cet objet  |
@@ -1013,7 +1013,7 @@ Synchronisation d’Azure AD Connect
 * Le dossier de destination pour les journaux d’activité d’installation et de configuration d’Azure Connect AD a été déplacé de %localappdata%\AADConnect à %programdata%\AADConnect pour améliorer l’accessibilité aux fichiers journaux.
 
 Gestion AD FS.
-* Prise en charge supplémentaire de la mise à jour du certificat SSL de batterie de serveurs AD FS.
+* Ajout de la prise en charge de la mise à jour du certificat TLS/SSL de batterie de serveurs AD FS.
 * Prise en charge ajoutée pour la gestion de serveurs AD FS 2016.
 * Vous pouvez maintenant spécifier un gMSA (compte de service géré de groupe) existant lors de l’installation d’AD FS.
 * Vous pouvez maintenant configurer SHA-256 comme algorithme de hachage de signature pour l’approbation de partie de confiance Azure AD.
