@@ -3,20 +3,20 @@ title: Personnaliser l’interface utilisateur de votre application avec une str
 titleSuffix: Azure AD B2C
 description: Apprenez à personnaliser une interface utilisateur à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.author: marsma
+ms.date: 03/16/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8bb65e07a8360c434f73ff826ed21f380b036604
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373080"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396381"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnal
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. Modifier le fichier d’extensions
+### <a name="4-modify-the-extensions-file"></a>4. Modifier le fichier d’extensions
 
 Pour configurer la personnalisation de l’interface utilisateur, copiez l’élément **ContentDefinition** et ses éléments enfants du fichier de base vers le fichier d’extension.
 
@@ -60,9 +60,9 @@ Pour configurer la personnalisation de l’interface utilisateur, copiez l’él
 
 1. Enregistrez le fichier d’extensions.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Téléchargez et testez votre stratégie personnalisée mise à jour
+### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Téléchargez et testez votre stratégie personnalisée mise à jour
 
-### <a name="51-upload-the-custom-policy"></a>5.1 Charger la stratégie personnalisée
+#### <a name="51-upload-the-custom-policy"></a>5.1 Charger la stratégie personnalisée
 
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 1. Recherchez et sélectionnez **Azure AD B2C**.
@@ -70,7 +70,7 @@ Pour configurer la personnalisation de l’interface utilisateur, copiez l’él
 1. Sélectionnez **Charger une stratégie personnalisée**.
 1. Chargez le fichier d’extensions que vous avez modifié précédemment.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Tester la stratégie personnalisée en utilisant **Exécuter maintenant**
+#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Tester la stratégie personnalisée en utilisant **Exécuter maintenant**
 
 1. Sélectionnez la stratégie que vous avez téléchargée, puis sélectionnez **Exécuter maintenant**.
 1. Vous devriez pouvoir vous inscrire avec une adresse e-mail.

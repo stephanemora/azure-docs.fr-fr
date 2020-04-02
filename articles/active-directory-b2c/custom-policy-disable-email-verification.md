@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8ec60f694000985f51db25db621e5814df62cdb3
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126810"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136140"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Désactiver la vérification par e-mail lors de l’inscription cliente au moyen d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -28,8 +28,11 @@ Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnal
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Ajouter les métadonnées au profil technique autodéclaré
 
-Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](self-asserted-technical-profile.md) ; il est appelé pendant le déroulement de l’inscription. Pour désactiver la vérification par e-mail, définissez les métadonnées `EnforceEmailVerification` sur false. Remplacez les profils techniques LocalAccountSignUpWithLogonEmail dans le fichier d’extension. Recherchez l’élément `ClaimsProviders`. Ajoutez le fournisseur de revendications suivant à l’élément `ClaimsProviders` :
+Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](self-asserted-technical-profile.md) ; il est appelé pendant le déroulement de l’inscription. Pour désactiver la vérification par e-mail, définissez les métadonnées `EnforceEmailVerification` sur false. Remplacez les profils techniques LocalAccountSignUpWithLogonEmail dans le fichier d’extension. 
 
+1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+1. Recherchez l’élément `ClaimsProviders`. Si l’élément n’existe pas, ajoutez-le.
+1. Ajoutez le fournisseur de revendications suivant à l’élément `ClaimsProviders` :
 
 ```XML
 <ClaimsProvider>
