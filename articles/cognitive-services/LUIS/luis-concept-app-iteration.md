@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: diberry
 ms.openlocfilehash: c1c1b2df301634a435b610c395a1a58aa5573da3
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74422590"
 ---
 # <a name="iterative-app-design-for-luis"></a>Conception d’application itérative pour LUIS
@@ -26,7 +26,7 @@ Une application Language Understanding (LUIS) apprend et fonctionne le plus effi
 * Modifiez le schéma d’application LUIS. notamment :
     * Intentions avec des exemples d’énoncés
     * Entités
-    * Caractéristiques
+    * Fonctionnalités
 * Effectuer l’apprentissage, tester et publier
     * Tester l’apprentissage actif au niveau d’un point de terminaison de prédiction
 * Collecter des données à partir de requêtes de point de terminaison
@@ -72,7 +72,7 @@ Dans chaque exemple d’énoncé, les **données requises pour extraire** doiven
 
 |Élément clé|Objectif|
 |--|--|
-|Intention|**Classer** les énoncés utilisateur en une seule intention ou action. Exemples : `BookFlight` et `GetWeather`.|
+|Intentionnel|**Classer** les énoncés utilisateur en une seule intention ou action. Exemples : `BookFlight` et `GetWeather`.|
 |Entité|**Extraire** des données de l’énoncé requis pour terminer l’intention. Les exemples incluent la date et l’heure du voyage et l’emplacement.|
 
 Une application LUIS peut être conçue de façon à ignorer les énoncés qui ne sont pas pertinents dans le domaine d’une application en attribuant l’énoncé à l’intention **None**.

@@ -1,27 +1,25 @@
 ---
 title: Qu'est-ce qu'une version d'évaluation ? | Place de marché Azure
 description: Description de la fonctionnalité Version d’évaluation de la Place de marché
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a6826657a4af74276e363acd585e80d101cc1459
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bdfadf359195464c4024b28c5e597c571305481a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278227"
 ---
 <a name="what-is-test-drive"></a>Qu'est-ce qu'une version d'évaluation ?
 ===================
 
 Une version d'évaluation vous permet de présenter votre offre à vos clients potentiels en leur donnant la possibilité de l'\'essayer avant de l'acheter\', ce qui se traduit par une hausse du taux de conversion et par la génération de prospects hautement qualifiés.
 
-Après avoir fourni leurs coordonnées, les clients peuvent accéder à votre version d'évaluation prédéfinie : une version d'évaluation pratique et auto-guidée qui présente, dans un scénario d'implémentation réel, les principales fonctionnalités et les avantages de votre produit.
+Après avoir fourni leurs coordonnées, les clients peuvent accéder à votre version d\'évaluation prédéfinie : une version d'évaluation pratique et auto-guidée qui présente, dans un scénario d'implémentation réel, les principales fonctionnalités et les avantages de votre produit.
 
 Une version d'évaluation permet de donner vie à votre produit et de générer des prospects hautement qualifiés.
 
