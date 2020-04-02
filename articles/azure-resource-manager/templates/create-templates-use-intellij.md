@@ -4,16 +4,16 @@ description: Découvrez comment créer votre premier modèle Azure Resource Mana
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1046c942e6bec4ded332027b7856110238b8f2d7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153350"
 ---
-# <a name="create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Créer et déployer des modèles Azure Resource Manager avec IntelliJ IDEA
+# <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Créer et déployer des modèles Resource Manager à l’aide d’IntelliJ IDEA
 
-Découvrez comment déployer un modèle Resource Manager sur Azure avec IntelliJ IDEA et comment le modifier et le mettre à jour directement à partir de l’environnement de développement intégré. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, consultez [Vue d’ensemble du déploiement de modèles](overview.md).
+Découvrez comment déployer un modèle Resource Manager sur Azure à l’aide d’IntelliJ IDEA, ainsi que le modifier et le mettre à jour directement à partir de l’environnement de développement intégré (IDE). Les modèles Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires pour déployer votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, consultez [Vue d’ensemble du déploiement de modèles](overview.md).
 
 ![Schéma du portail de modèle Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -21,7 +21,7 @@ Après avoir suivi le tutoriel, vous déployez un compte de Stockage Azure. Le m
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
@@ -31,7 +31,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="deploy-a-quickstart-template"></a>Déployer un modèle de démarrage rapide
 
-Au lieu de créer un modèle à partir de zéro, ouvrez un modèle à partir de [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Le référentiel Modèles de démarrage rapide Azure contient les modèles Resource Manager. Le modèle utilisé dans cet article se nomme [Créer un compte de stockage standard](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Il définit une ressource de compte de stockage Azure.
+Au lieu de créer un modèle à partir de zéro, ouvrez un modèle à partir de [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Le référentiel Modèles de démarrage rapide Azure contient les modèles ARM. Le modèle utilisé dans cet article se nomme [Créer un compte de stockage standard](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Il définit une ressource de compte de stockage Azure.
 
 1. Cliquez avec le bouton droit et enregistrez [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) et [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) sur votre ordinateur local.
 

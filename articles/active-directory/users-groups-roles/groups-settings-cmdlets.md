@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 03/20/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984946"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80048156"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -63,7 +63,7 @@ Les étapes ci-après permettent de créer des paramètres au niveau du réperto
    ```
    Cet appel d’applet de commande retourne tous les modèles disponibles :
   
-   ```powershell
+   ``` PowerShell
    Id                                   DisplayName         Description
    --                                   -----------         -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -77,7 +77,7 @@ Les étapes ci-après permettent de créer des paramètres au niveau du réperto
   
    ```powershell
    $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
-   $Template = Get-AzureADDirectorySettingTemplate -Id $TemplateId
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ
    ```
 3. Ensuite, créez un nouvel objet Settings basé sur ce modèle :
   
@@ -150,19 +150,19 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
 | **Paramètre** | **Description** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>Tapez : Boolean<li>Valeur par défaut : True |Indicateur spécifiant si la création de groupes Office 365 est autorisée dans le répertoire par les utilisateurs non administrateurs. Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Tapez : String<li>Valeur par défaut : “” |GUID du groupe de sécurité pour lequel les membres sont autorisés à créer des groupes Office 365 même lorsque EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Tapez : String<li>Valeur par défaut : “” |Lien vers les instructions d’utilisation du groupe. |
-|  <ul><li>ClassificationDescriptions<li>Tapez : String<li>Valeur par défaut : “” | Liste séparée par des virgules des descriptions de classification. La valeur de ClassificationDescriptions est uniquement valide au format suivant :<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>où Classification correspond aux chaînes dans ClassificationList.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
-|  <ul><li>DefaultClassification<li>Tapez : String<li>Valeur par défaut : “” | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Tapez : String<li>Valeur par défaut : “” | Chaîne d’une longueur maximale de 64 caractères qui définit la convention d’affectation de noms configurée pour les groupes Office 365. Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Tapez : String<li>Valeur par défaut : “” | Chaîne d’expressions séparées par des virgules que les utilisateurs ne seront pas autorisés à employer dans les noms ou alias de groupe. Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Tapez : Boolean<li>Valeur par défaut : false | À ne pas utiliser
+|  <ul><li>GroupCreationAllowedGroupId<li>Tapez : String<li>Par défaut : "" |GUID du groupe de sécurité pour lequel les membres sont autorisés à créer des groupes Office 365 même lorsque EnableGroupCreation == false. |
+|  <ul><li>UsageGuidelinesUrl<li>Tapez : String<li>Par défaut : "" |Lien vers les instructions d’utilisation du groupe. |
+|  <ul><li>ClassificationDescriptions<li>Tapez : String<li>Par défaut : "" | Liste séparée par des virgules des descriptions de classification. La valeur de ClassificationDescriptions est uniquement valide au format suivant :<br>$setting["ClassificationDescriptions"] ="Classification:Description,Classification:Description"<br>où Classification correspond à une entrée dans ClassificationList.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
+|  <ul><li>DefaultClassification<li>Tapez : String<li>Par défaut : "" | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.<br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tapez : String<li>Par défaut : "" | Chaîne d’une longueur maximale de 64 caractères qui définit la convention d’affectation de noms configurée pour les groupes Office 365. Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Tapez : String<li>Par défaut : "" | Chaîne d’expressions séparées par des virgules que les utilisateurs ne seront pas autorisés à employer dans les noms ou alias de groupe. Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)](groups-naming-policy.md). |
+| <ul><li>EnableMSStandardBlockedWords<li>Tapez : Boolean<li>Valeur par défaut : « False » (faux) | À ne pas utiliser
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tapez : Boolean<li>Valeur par défaut : False | Valeur booléenne indiquant si un utilisateur invité peut être ou non un propriétaire de groupes. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tapez : Boolean<li>Valeur par défaut : True | Valeur booléenne indiquant si un utilisateur invité peut avoir ou non accès au contenu des groupes Office 365.  Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Tapez : String<li>Valeur par défaut : “” | URL d’un lien vers les instructions d’utilisation de l’invité. |
-|  <ul><li>AllowToAddGuests<li>Tapez : Boolean<li>Valeur par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire. <br>Ce paramètre peut être remplacé et devenir en lecture seule si *EnableMIPLabels* est défini sur *True* et qu’une stratégie invité est associée à l’étiquette de sensibilité attribuée au groupe. |
-|  <ul><li>ClassificationList<li>Tapez : String<li>Valeur par défaut : “” |Liste de valeurs de classification valides séparées par des virgules qui peuvent être appliquées à des groupes Office 365. <br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
-|  <ul><li>EnableMIPLabels<li>Tapez : Boolean<li>Valeur par défaut : false |Indicateur qui spécifie si les étiquettes de sensibilité publiées dans Microsoft 365 Compliance Center peuvent être appliquées aux Groupes Office 365. Pour plus d’informations, consultez [Attribuer des étiquettes de sensibilité pour les groupes Office 365](groups-assign-sensitivity-labels.md). |
+|  <ul><li>GuestUsageGuidelinesUrl<li>Tapez : String<li>Par défaut : "" | URL d’un lien vers les instructions d’utilisation de l’invité. |
+|  <ul><li>AllowToAddGuests<li>Tapez : Boolean<li>Valeur par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire. <br>Ce paramètre peut être remplacé et devenir en lecture seule si *EnableMIPLabels* est défini sur *True* et qu’une stratégie invité est associée à l’étiquette de sensibilité attribuée au groupe.<br>Si le paramètre AllowToAddGuests a la valeur False au niveau du locataire, tout paramètre AllowToAddGuests au niveau du groupe est ignoré. Si vous ne souhaitez activer l’accès invité que pour quelques groupes, vous devez définir AllowToAddGuests sur True au niveau du locataire, puis le désactiver de manière sélective pour des groupes spécifiques. |
+|  <ul><li>ClassificationList<li>Tapez : String<li>Par défaut : "" | Liste de valeurs de classification valides séparées par des virgules qui peuvent être appliquées à des groupes Office 365. <br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
+|  <ul><li>EnableMIPLabels<li>Tapez : Boolean<li>Valeur par défaut : « False » (faux) |Indicateur qui spécifie si les étiquettes de sensibilité publiées dans Microsoft 365 Compliance Center peuvent être appliquées aux Groupes Office 365. Pour plus d’informations, consultez [Attribuer des étiquettes de sensibilité pour les groupes Office 365](groups-assign-sensitivity-labels.md). |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exemple : Configurer une stratégie d’invité pour les groupes au niveau de l’annuaire
 1. Obtenez tous les modèles de paramètre :
@@ -171,7 +171,7 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
    ```
 2. Pour définir la stratégie d’invité pour les groupes au niveau de l’annuaire, vous avez besoin du modèle Group.Unified.
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "62375ab9-6b52-47ed-826b-58e47e0e304b" -EQ
    ```
 3. Ensuite, créez un nouvel objet Settings basé sur ce modèle :
   
@@ -262,7 +262,7 @@ Les étapes suivantes permettent de supprimer les paramètres au niveau du répe
    ```
 2. Récupérez l’objet de modèle pour le modèle Groups.Unified.Guest :
    ```powershell
-   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "08d542b9-071f-4e16-94b0-74abb372e3d9" -EQ
    ```
 3. Créez un nouvel objet settings à partir du modèle :
    ```powershell

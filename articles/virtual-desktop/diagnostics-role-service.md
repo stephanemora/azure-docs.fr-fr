@@ -5,14 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 03/10/2020
 ms.author: helohr
-ms.openlocfilehash: 9c907052f10fa7d1cfd1ff79e981fdccef874ee5
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: ce85fb70e1480ad285eee78fe20faa8d77b9a147
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367344"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228017"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identifier et diagnostiquer les problèmes
 
@@ -22,7 +23,7 @@ Windows Virtual Desktop offre une fonctionnalité de diagnostic qui permet à l�
 * Activités de connexion : l’utilisateur déclenche ces activités à chaque fois qu’il essaie de se connecter à un bureau ou RemoteApp via des applications Bureau à distance Microsoft.
 * Activités de gestion : l’administrateur déclenche ces activités à chaque fois qu’il effectue des opérations de gestion sur le système, telles que la création de pools d’hôte, l’attribution d’utilisateurs à des groupes d’applications et la création d’attributions de rôles.
   
-Les connexions qui n’atteignent pas Windows Virtual Desktop n’apparaîtront pas dans les résultats de diagnostic, car le service de rôle de diagnostics lui-même fait partie de Windows Virtual Desktop. Des problèmes de connexion à Windows Virtual Desktop peuvent survenir lorsque l’utilisateur rencontre des problèmes de connectivité au réseau.
+Les connexions qui n’atteignent pas Windows Virtual Desktop ne figureront pas dans les résultats de diagnostic, car le service de rôle de diagnostics fait partie de Windows Virtual Desktop. Des problèmes de connexion à Windows Virtual Desktop peuvent survenir lorsque l’utilisateur rencontre des problèmes de connectivité au réseau.
 
 Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) à utiliser dans votre session PowerShell. Exécutez ensuite l’applet de commande suivante pour vous connecter à votre compte :
 
@@ -34,23 +35,66 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 Windows Virtual Desktop Diagnostics utilise une seule cmdlet PowerShell mais contient de nombreux paramètres facultatifs pour aider à limiter et isoler les problèmes. Les sections suivantes répertorient les cmdlets que vous pouvez exécuter pour diagnostiquer les problèmes. La plupart des filtres peuvent être appliqués ensemble. Les valeurs figurant entre crochets, comme `<tenantName>`, doivent être remplacées par les valeurs qui s’appliquent à votre situation.
 
-### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Récupérer les activités de diagnostic dans votre locataire
+>[!IMPORTANT]
+>La fonctionnalité de diagnostic est destinée à la résolution des problèmes d’un seul utilisateur. Toutes les requêtes utilisant PowerShell doivent inclure l’un des paramètres *-UserName* ou *-ActivityID*. Pour les fonctionnalités de surveillance, utilisez Log Analytics. Pour plus d’informations sur l’envoi de données de diagnostic à votre espace de travail, voir [Utiliser Log Analytics pour la fonctionnalité de diagnostic](diagnostics-log-analytics.md). 
 
-Vous pouvez récupérer les activités de diagnostic en exécutant la cmdlet **Get-RdsDiagnosticActivities**. L’exemple de cmdlet suivant retourne une liste d’activités de diagnostic, triées de la plus récente à la plus ancienne.
+### <a name="filter-diagnostic-activities-by-user"></a>Filtrer les activités de diagnostic par utilisateur
 
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName>
-```
-
-Comme pour les autres cmdlets PowerShell Windows Virtual Desktop, vous devez utiliser le paramètre **-TenantName** pour spécifier le nom de l’abonné que vous voulez utiliser pour votre requête. Le nom du locataire est applicable à presque toutes les requêtes d’activité de diagnostic.
-
-### <a name="retrieve-detailed-diagnostic-activities"></a>Récupérer des activités de diagnostics détaillées
-
-Le paramètre **-Detailed** fournit des informations supplémentaires pour chaque activité de diagnostic retournée. Le format de chaque activité varie en fonction de son type d’activité. Le paramètre **-Detailed** peut être ajouté à n’importe quelle requête **Get-RdsDiagnosticActivities**, comme montré dans l’exemple suivant.
+Le paramètre **-UserName** retourne une liste d’activités de diagnostic initiées par l’utilisateur spécifié, comme montré dans l’exemple de cmdlet suivant.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
 ```
+
+Le paramètre **-UserName** peut aussi être combiné à d’autres paramètres de filtrage facultatifs.
+
+### <a name="filter-diagnostic-activities-by-time"></a>Filtrer les activités de diagnostic par période
+
+Vous pouvez filtrer la liste des activités de diagnostic avec les paramètres **-StartTime** et **-EndTime**. Le paramètre **-StartTime** retourne une liste des activités de diagnostic à partir d’une date spécifique, comme montré dans l’exemple suivant.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018"
+```
+
+Le paramètre **-EndTime** peut être ajouté à une cmdlet avec le paramètre **-StartTime** pour spécifier une période pour laquelle vous souhaitez recevoir des résultats. L’exemple de cmdlet suivant retourne une liste d’activités de diagnostic entre le 1er août et le 10 août.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018" -EndTime "08/10/2018"
+```
+
+Les paramètres **-StartTime** et **-EndTime** peuvent aussi être combinés à d’autres paramètres de filtrage facultatifs.
+
+### <a name="filter-diagnostic-activities-by-activity-type"></a>Filtrer les activités de diagnostic par type d’activité
+
+Vous pouvez aussi filtrer les activités de diagnostic par type d’activité avec le paramètre **-ActivityType**. La cmdlet suivante retourne une liste de connexions d’utilisateur :
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -ActivityType Connection
+```
+
+La cmdlet suivante retourne une liste de tâches de gestion d’administrateur :
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
+```
+
+La cmdlet **Get-RdsDiagnosticActivities** ne prend actuellement pas en charge la spécifications de Feed (Flux) comme ActivityType (type d’activité).
+
+### <a name="filter-diagnostic-activities-by-outcome"></a>Filtrer les activités de diagnostic par résultat
+
+Vous pouvez filtrer la liste des activités de diagnostic par résultat avec le paramètre **-Outcome**. L’exemple de cmdlet suivant retourne une liste d’activités de diagnostic réussies.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -Outcome Success
+```
+
+L’exemple de cmdlet suivant retourne une liste d’activités de diagnostic échouées.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
+```
+
+Le paramètre **-Outcome** peut aussi être combiné à d’autres paramètres de filtrage facultatifs.
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Récupérer une activité de diagnostic spécifique par ID d’activité
 
@@ -68,63 +112,13 @@ Pour afficher les messages d’erreur relatifs à une activité ayant échoué, 
 Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
 ```
 
-### <a name="filter-diagnostic-activities-by-user"></a>Filtrer les activités de diagnostic par utilisateur
+### <a name="retrieve-detailed-diagnostic-activities"></a>Récupérer des activités de diagnostics détaillées
 
-Le paramètre **-UserName** retourne une liste d’activités de diagnostic initiées par l’utilisateur spécifié, comme montré dans l’exemple de cmdlet suivant.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
-```
-
-Le paramètre **-UserName** peut aussi être combiné à d’autres paramètres de filtrage facultatifs.
-
-### <a name="filter-diagnostic-activities-by-time"></a>Filtrer les activités de diagnostic par période
-
-Vous pouvez filtrer la liste des activités de diagnostic avec les paramètres **-StartTime** et **-EndTime**. Le paramètre **-StartTime** retourne une liste des activités de diagnostic à partir d’une date spécifique, comme montré dans l’exemple suivant.
+Le paramètre **-Detailed** fournit des informations supplémentaires pour chaque activité de diagnostic retournée. Le format de chaque activité varie en fonction de son type d’activité. Le paramètre **-Detailed** peut être ajouté à n’importe quelle requête **Get-RdsDiagnosticActivities**, comme montré dans l’exemple suivant.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018"
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> -Detailed
 ```
-
-Le paramètre **-EndTime** peut être ajouté à une cmdlet avec le paramètre **-StartTime** pour spécifier une période pour laquelle vous souhaitez recevoir des résultats. L’exemple de cmdlet suivant retourne une liste d’activités de diagnostic entre le 1er août et le 10 août.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018" -EndTime "08/10/2018"
-```
-
-Les paramètres **-StartTime** et **-EndTime** peuvent aussi être combinés à d’autres paramètres de filtrage facultatifs.
-
-### <a name="filter-diagnostic-activities-by-activity-type"></a>Filtrer les activités de diagnostic par type d’activité
-
-Vous pouvez aussi filtrer les activités de diagnostic par type d’activité avec le paramètre **-ActivityType**. La cmdlet suivante retourne une liste de connexions d’utilisateur :
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Connection
-```
-
-La cmdlet suivante retourne une liste de tâches de gestion d’administrateur :
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
-```
-
-La cmdlet **Get-RdsDiagnosticActivities** ne prend actuellement pas en charge Feed (Flux) comme ActivityType (type d’activité).
-
-### <a name="filter-diagnostic-activities-by-outcome"></a>Filtrer les activités de diagnostic par résultat
-
-Vous pouvez filtrer la liste des activités de diagnostic par résultat avec le paramètre **-Outcome**. L’exemple de cmdlet suivant retourne une liste d’activités de diagnostic réussies.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Success
-```
-
-L’exemple de cmdlet suivant retourne une liste d’activités de diagnostic échouées.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
-```
-
-Le paramètre **-Outcome** peut aussi être combiné à d’autres paramètres de filtrage facultatifs.
 
 ## <a name="common-error-scenarios"></a>Scénarios d’erreur courants
 
@@ -153,7 +147,7 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 |6000|AppGroupNotFound|Le nom du groupe d’applications que vous avez saisi ne correspond à aucun groupe d’applications existant. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez.|
 |6022|RemoteAppNotFound|Le nom de l’application RemoteApp que vous avez saisi ne correspond à aucune application RemoteApp. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez.|
 |6010|PublishedItemsExist|Le nom de la ressource que vous tentez de publier est identique à une ressource existante. Changez le nom de la ressource, puis réessayez.|
-|7002|NameNotValidWhiteSpace|N’utilisez pas d’espace blanc dans le nom.|
+|7002|NameNotValidWhiteSpace|N’insérez pas d’espace blanc dans le nom.|
 |8000|InvalidAuthorizationRoleScope|Le nom du rôle que vous avez saisi ne correspond à aucun nom de rôle existant. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez. |
 |8001|UserNotFound |Le nom d’utilisateur que vous avez saisi ne correspond à aucun nom d’utilisateur existant. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez.|
 |8005|UserNotFoundInAAD |Le nom d’utilisateur que vous avez saisi ne correspond à aucun nom d’utilisateur existant. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez.|

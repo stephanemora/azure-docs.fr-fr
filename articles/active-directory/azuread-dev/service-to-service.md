@@ -2,26 +2,23 @@
 title: Applications service à service dans Azure Active Directory
 description: Décrit les applications service à service, ainsi que les principes de base sur le flux de protocole, l’inscription et l’expiration du jeton pour ce type d’application.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ff27ada23e45f2bbbb09e47af9458c1f83af277a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154761"
 ---
 # <a name="service-to-service-apps"></a>Applications service à service
 
@@ -45,16 +42,16 @@ Les applications service à service peuvent être une application démon ou serv
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identité d’application avec octroi d’informations d’identification client OAuth 2.0
 
-1. Tout d’abord, l’application serveur doit s’authentifier auprès d’Azure AD avec sa propre identité, sans intervention humaine par le biais d’une boîte de dialogue interactive d’ouverture de session par exemple. Elle envoie une demande au point de terminaison de jeton d’Azure AD, avec les informations d’identification, l’ID d’application et l’URI ID d’application.
+1. Tout d’abord, l’application serveur doit s’authentifier auprès d’Azure AD avec sa propre identité, sans intervention humaine par le biais d’une boîte de dialogue interactive d’ouverture de session par exemple. Elle envoie une demande au point de terminaison de jeton du service Azure AD, avec les informations d’identification, l’ID d’application et un URI ID d’application.
 1. Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.
-1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « porteur » dans l’en-tête d’autorisation de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
+1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « Bearer » (Porteur) dans l’en-tête « Authorization » (Autorisation) de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
 
 ### <a name="delegated-user-identity-with-oauth-20-on-behalf-of-draft-specification"></a>Identité d’utilisateur délégué avec spécification préliminaire « Au nom de » OAuth 2.0
 
 Le flux présenté ci-après part du principe qu’un utilisateur a été authentifié auprès d’une autre application (telle qu’une application native) et que son identité d’utilisateur a été utilisée pour obtenir un jeton d’accès à l’API web de premier niveau.
 
 1. L’application native envoie le jeton d’accès à l’API web de premier niveau.
-1. L’API web de premier niveau envoie une demande au point de terminaison de jeton d’Azure AD, en fournissant son ID d’application et ses informations d’identification, ainsi que le jeton d’accès de l’utilisateur. La demande est également envoyée avec un paramètre on_behalf_of, qui indique que l’API web demande de nouveaux jetons pour appeler une API web en aval au nom de l’utilisateur d’origine.
+1. L’API web de premier niveau envoie une demande au point de terminaison de jeton du service Azure AD, en fournissant son ID d’application et ses informations d’identification, ainsi que le jeton d’accès de l’utilisateur. La demande est également envoyée avec un paramètre on_behalf_of, qui indique que l’API web demande de nouveaux jetons pour appeler une API web en aval au nom de l’utilisateur d’origine.
 1. Azure AD vérifie que l’API web de premier niveau est autorisée à accéder à l’API web de deuxième niveau et valide la demande en renvoyant un jeton d’accès JWT et un jeton d’actualisation JWT à l’API web de premier niveau.
 1. Sur HTTPS, l’API web de premier niveau appelle ensuite l’API web de deuxième niveau en ajoutant la chaîne de jeton dans l’en-tête d’autorisation de la demande. L’API web de premier niveau peut continuer à appeler l’API web de deuxième niveau tant que le jeton d’accès et les jetons d’actualisation sont valides.
 
@@ -64,7 +61,7 @@ Consultez les exemples de code pour les scénarios du type application démon ou
 
 ## <a name="app-registration"></a>Inscription d'application
 
-* Application avec locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application démon ou serveur doit être inscrite dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application démon ou serveur à ses ressources. Si un type d’identité utilisateur délégué est utilisé, l’application serveur doit sélectionner les autorisations souhaitées. Dans la page **Autorisation d’API** de l’inscription d’application, après avoir sélectionné **Ajouter une autorisation** et choisi la famille d’API, choisissez **Autorisations déléguées**, puis sélectionnez vos autorisations. Cette étape n’est pas requise si une identité d’application est utilisée.
+* Application avec locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application démon ou serveur doit être inscrite dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès du démon ou du serveur à ses ressources. Si un type d’identité utilisateur délégué est utilisé, l’application serveur doit sélectionner les autorisations souhaitées. Dans la page **Autorisation d’API** de l’inscription d’application, après avoir sélectionné **Ajouter une autorisation** et choisi la famille d’API, choisissez **Autorisations déléguées**, puis sélectionnez vos autorisations. Cette étape n’est pas requise si une identité d’application est utilisée.
 * Application mutualisée : tout d’abord, l’application démon ou serveur est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, les deux API web sont inscrites dans son annuaire.
 
 ## <a name="token-expiration"></a>Expiration du jeton

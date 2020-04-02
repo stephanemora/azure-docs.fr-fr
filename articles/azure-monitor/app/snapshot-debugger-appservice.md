@@ -4,20 +4,20 @@ description: Activer le Débogueur de capture instantanée pour les applications
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
-ms.date: 03/07/2019
+ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c23da585034e74d85be5a3c41b124f00408a0f4a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671424"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298270"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
 
 Le Débogueur de capture instantanée fonctionne actuellement pour les applications ASP.NET et ASP.NET Core s’exécutant sur Azure App Service sur des plans de service Windows.
 
-## <a id="installation"></a> Activer le Débogueur de capture instantanée
+## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Activer le Débogueur de capture instantanée
 Pour activer le Débogueur de capture instantanée pour une application, suivez les instructions ci-dessous. Si vous exécutez un autre type de service Azure, voici les instructions à suivre pour activer le Débogueur de capture instantanée sur d’autres plateformes prises en charge :
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -45,6 +45,48 @@ Le Débogueur de capture instantanée Application Insights est préinstallé dan
 
 Suivez les mêmes étapes que pour **Activer le Débogueur de capture instantanée**, mais basculez les deux commutateurs du Débogueur de capture instantanée sur **Off** (Désactivé).
 Nous vous recommandons d’avoir le Débogueur de capture instantanée activé sur toutes vos applications afin de faciliter le diagnostic des exceptions d’application.
+
+## <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
+
+Pour un service Azure App Service, vous pouvez définir des paramètres d’application dans un modèle Resource Manager pour activer le Débogueur de capture instantanée et le Profileur. Vous ajoutez une ressource de configuration contenant les paramètres de l’application en tant que ressource enfant du site web :
+
+```json
+{
+  "apiVersion": "2015-08-01",
+  "name": "[parameters('webSiteName')]",
+  "type": "Microsoft.Web/sites",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[variables('hostingPlanName')]"
+  ],
+  "tags": { 
+    "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "empty",
+    "displayName": "Website"
+  },
+  "properties": {
+    "name": "[parameters('webSiteName')]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-08-01",
+      "name": "appsettings",
+      "type": "config",
+      "dependsOn": [
+        "[parameters('webSiteName')]",
+        "[concat('AppInsights', parameters('webSiteName'))]"
+      ],
+      "properties": {
+        "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(resourceId('Microsoft.Insights/components', concat('AppInsights', parameters('webSiteName'))), '2014-04-01').InstrumentationKey]",
+        "APPINSIGHTS_PROFILERFEATURE_VERSION": "1.0.0",
+        "APPINSIGHTS_SNAPSHOTFEATURE_VERSION": "1.0.0",
+        "DiagnosticServices_EXTENSION_VERSION": "~3",
+        "ApplicationInsightsAgent_EXTENSION_VERSION": "~2"
+      }
+    }
+  ]
+},
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

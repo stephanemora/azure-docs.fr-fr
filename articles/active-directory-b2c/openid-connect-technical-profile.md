@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e8a56fdfd57b44677cf5459eb1a4e6e46e6bdae
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: e259a57a9cd6b24362862ffd6cb738157ca912d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332759"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenID Connect dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -91,6 +91,16 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | MarkAsFailureOnStatusCode5xx | Non | Indique si une demande adressée à un service externe doit être marquée comme un échec si le code d’état HTTP s’inscrit dans la plage 5xx. Par défaut, il s’agit de `false`. |
 | DiscoverMetadataByTokenIssuer | Non | Indique si les métadonnées OIDC doivent être découvertes à l’aide de l’émetteur dans le jeton JSON Web Token. |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
+
+### <a name="ui-elements"></a>Éléments d’interface utilisateur
+ 
+Les paramètres suivants peuvent être utilisés pour configurer le message d’erreur affiché en cas d’échec. Les métadonnées doivent être configurées dans le profil technique OpenID Connect. Les messages d’erreur peuvent être [localisés](localization-string-ids.md#sign-up-or-sign-in-error-messages).
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| UserMessageIfClaimsPrincipalDoesNotExist | Non | Message à afficher à l’utilisateur si un compte avec le nom d’utilisateur fourni est introuvable dans l’annuaire. |
+| UserMessageIfInvalidPassword | Non | Message à afficher à l’utilisateur si le mot de passe est incorrect. |
+| UserMessageIfOldPasswordUsed| Non |  Message à afficher à l’utilisateur si le mot de passe utilisé est ancien.|
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

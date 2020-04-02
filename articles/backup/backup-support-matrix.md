@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505865"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233865"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -32,10 +32,10 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 --- | ---
 **Coffres dans l’abonnement** | Jusqu’à 500 coffres Recovery Services dans un même abonnement.
 **Machines dans un coffre** | Jusqu’à 1 000 machines virtuelles Azure dans un même coffre.<br/><br/> Jusqu’à 50 serveurs MABS peuvent être inscrits dans un seul coffre.
-**Source de données dans le stockage du coffre** | Au maximum 54 400 Go. Le nombre des sauvegardes de machines virtuelles Azure n’est pas limité.
+**Sources de données** | La taille maximale d'une [source de données](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) est de 54 400 Go. La limite ne s'applique pas aux sauvegardes de machines virtuelles Azure. Aucune limite ne s'applique au volume total de données que vous pouvez sauvegarder dans le coffre.
 **Sauvegardes dans le coffre** | **Machines virtuelles Azure :** Une fois par jour.<br/><br/>**Machines protégées par DPM/MABS :** Deux fois par jour.<br/><br/> **Machines sauvegardées directement à l’aide de l’agent MARS :** Trois fois par jour.
 **Sauvegardes entre les coffres** | La sauvegarde s’effectue dans une région.<br/><br/> Vous avez besoin d’un coffre dans chaque région Azure qui contient les machines virtuelles que vous souhaitez sauvegarder. Vous ne pouvez pas sauvegarder vers une autre région.
-**Déplacer les coffres** | Vous pouvez [déplacer les coffres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre des abonnements ou entre des groupes de ressources dans le même abonnement. Toutefois, le déplacement de coffres entre régions n’est pas pris en charge.
+**Déplacer les coffres** | Vous pouvez [déplacer les coffres](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre des abonnements ou entre des groupes de ressources dans le même abonnement. En revanche, le déplacement de coffres entre régions n’est pas pris en charge.
 **Déplacer des données entre des coffres** | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
 **Modifier le type de stockage de coffre** | Vous pouvez modifier le type de réplication de stockage (stockage géoredondant ou stockage localement redondant) pour un coffre avant le stockage des sauvegardes. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
 
@@ -84,7 +84,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines Linux :
 
 ## <a name="daylight-saving-time-support"></a>Prise en charge de l’heure d’été
 
-Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Modifiez les stratégies de sauvegarde manuellement selon les besoins.
+Le service Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Il ne déplace pas l’heure de la sauvegarde vers l’avant ou vers l’arrière. Pour vous assurer que la sauvegarde s’exécute à l’heure souhaitée, modifiez les stratégies de sauvegarde manuellement en fonction des besoins.
 
 ## <a name="disk-deduplication-support"></a>Prise en charge de la déduplication de disque
 
@@ -155,8 +155,6 @@ La sauvegarde Azure a ajouté la fonctionnalité de restauration inter-régions 
 | Agent MARS/En local | Non                                                           | N/A               |
 | SQL /SAP HANA          | Non                                                           | N/A               |
 | AFS                    | Non                                                           | N/A               |
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

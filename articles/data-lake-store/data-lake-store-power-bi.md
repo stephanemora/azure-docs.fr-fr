@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65603212"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analyser des données dans Azure Data Lake Storage Gen1 à l’aide de Power BI
@@ -26,7 +26,7 @@ Dans cet article, vous allez apprendre à utiliser Power BI Desktop pour analy
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un compte Data Lake Storage Gen1**. Suivez les instructions de [prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md). Cet article suppose que vous avez déjà créé un compte Data Lake Storage Gen1 appelé **myadlsg1** et chargé un exemple de fichier de données (**Drivers.txt**) sur le compte. Cet exemple de fichier est disponible au téléchargement à partir du [référentiel Git d’Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Un compte Data Lake Storage Gen1**. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md). Cet article suppose que vous avez déjà créé un compte Data Lake Storage Gen1 appelé **myadlsg1** et chargé un exemple de fichier de données (**Drivers.txt**) sur le compte. Cet exemple de fichier est disponible au téléchargement à partir du [référentiel Git d’Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 * **Power BI Desktop**. Vous pouvez le télécharger à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Création d’un rapport dans Power BI Desktop
@@ -40,13 +40,13 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
     ![URL de Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL de Data Lake Storage Gen1")
 5. Dans la boîte de dialogue suivante, cliquez sur **Se connecter** pour vous connecter au compte Data Lake Storage Gen1. Vous êtes redirigé vers la page de connexion de votre organisation. Suivez les instructions de l’invite pour vous connecter au compte.
    
-    ![Se connecter à Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Se connecter à Data Lake Storage Gen1")
+    ![S’authentifier auprès de Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "S’authentifier auprès de Data Lake Storage Gen1")
 6. Une fois que vous vous êtes connecté, cliquez sur **Connexion**.
    
     ![Se connecter à Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Se connecter à Data Lake Storage Gen1")
 7. La boîte de dialogue suivante montre le fichier que vous avez téléchargé dans votre compte Data Lake Storage Gen1. Vérifiez les informations, puis cliquez sur **Charger**.
    
-    ![Charger des données à partir de Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Charger des données à partir de Data Lake Storage Gen1")
+    ![Charger des données de Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Charger des données de Data Lake Storage Gen1")
 8. Une fois que les données ont été chargées correctement dans Power BI, les champs suivants s’affichent dans l’onglet **Champs** .
    
     ![Champs importés](./media/data-lake-store-power-bi/imported-fields.png "Champs importés")
@@ -58,19 +58,19 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
     Dans les étapes suivantes, nous mettrons à jour la requête pour convertir les données importées dans le format souhaité.
 9. À partir du ruban **Accueil**, cliquez sur **Modifier les requêtes**.
    
-    ![Modifier des requêtes](./media/data-lake-store-power-bi/edit-queries.png "Modifier des requêtes")
+    ![Modifier les requêtes](./media/data-lake-store-power-bi/edit-queries.png "Modifier les requêtes")
 10. Dans l’éditeur de requête, sous la colonne **Contenu**, cliquez sur **Binaire**.
     
-    ![Modifier des requêtes](./media/data-lake-store-power-bi/convert-query1.png "Modifier des requêtes")
+    ![Modifier les requêtes](./media/data-lake-store-power-bi/convert-query1.png "Modifier les requêtes")
 11. Une icône de fichier s’affiche. Elle représente le fichier **Drivers.txt** que vous avez chargé. Cliquez avec le bouton droit sur le fichier, puis cliquez sur **CSV**.    
     
-    ![Modifier des requêtes](./media/data-lake-store-power-bi/convert-query2.png "Modifier des requêtes")
+    ![Modifier les requêtes](./media/data-lake-store-power-bi/convert-query2.png "Modifier les requêtes")
 12. Une sortie comme celle illustrée ci-dessous doit s’afficher. Vos données sont désormais disponibles dans un format que vous pouvez utiliser pour créer des visualisations.
     
-    ![Modifier des requêtes](./media/data-lake-store-power-bi/convert-query3.png "Modifier des requêtes")
+    ![Modifier les requêtes](./media/data-lake-store-power-bi/convert-query3.png "Modifier les requêtes")
 13. À partir du ruban **Accueil**, cliquez sur **Fermer et appliquer**, puis cliquez sur **Fermer et appliquer**.
     
-    ![Modifier des requêtes](./media/data-lake-store-power-bi/load-edited-query.png "Modifier des requêtes")
+    ![Modifier les requêtes](./media/data-lake-store-power-bi/load-edited-query.png "Modifier les requêtes")
 14. Une fois que la requête est mise à jour, l’onglet **Champs** affiche les nouveaux champs disponibles pour la visualisation.
     
     ![Champs mis à jour](./media/data-lake-store-power-bi/updated-query-fields.png "Champs mis à jour")

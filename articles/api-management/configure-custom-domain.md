@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 887019bbdb92807d49c09af3a83313470f334a52
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 4587909ad6fca6cdf21d54d11d89f797bbb29833
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649538"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335830"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
@@ -40,7 +40,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 -   Une instance APIM. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
 -   Un nom de domaine personnalisé qui vous appartient ou à votre organisation. Cette rubrique ne fournit aucune instruction sur l’approvisionnement d’un nom de domaine personnalisé.
 -   Un enregistrement CNAME hébergé sur un serveur DNS qui mappe le nom de domaine personnalisé au nom de domaine par défaut de votre instance Gestion des API. Cette rubrique ne fournit aucune instruction sur l’hébergement d’un enregistrement CNAME.
--   Vous devez disposer d’un certificat valide et d’une clé publique et privée (.PFX). L’objet ou l’autre nom de l’objet (SAN) doit correspondre au nom du domaine. Cela permet à l’instance APIM d’exposer des URL de manière sécurisée, via SSL.
+-   Vous devez disposer d’un certificat valide et d’une clé publique et privée (.PFX). Le sujet ou l’autre nom du sujet (SAN) doit correspondre au nom de domaine. Cela permet à l’instance de Gestion des API d’exposer les URL de manière sécurisée sur TSL.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Utiliser le portail Azure pour définir un nom de domaine personnalisé
 
@@ -72,9 +72,9 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
     > [!TIP]
     > Nous vous recommandons d’utiliser Azure Key Vault pour gérer les certificats et les définir sur Rotation automatique.
-    > Si vous utilisez Azure Key Vault pour gérer le certificat SSL de domaine personnalisé, assurez-vous que le certificat est inséré dans Key Vault [comme un _certificat_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), et non un _secret_.
+    > Si vous utilisez Azure Key Vault pour gérer le certificat TLS/SSL de domaine personnalisé, assurez-vous que le certificat est inséré dans Key Vault [en tant que _certificat_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), pas en tant que _secret_.
     >
-    > Pour extraire un certificat SSL, Gestion des API doit disposer de la liste et des autorisations nécessaires pour obtenir les secrets sur le coffre de clés Azure Key Vault contenant le certificat. Lorsque vous utilisez le portail Azure, toutes les étapes nécessaires pour la configuration sont effectuées automatiquement. Lorsque vous utilisez les outils de ligne de commande ou APIM, ces autorisations doivent être accordées manuellement. Cette opération comprend deux étapes. Utilisez tout d’abord la page Identités managées sur votre instance APIM pour vous assurer que l’identité managée est activée. Notez aussi l’ID du principal qui s’affiche sur cette page. Ensuite, sur le coffre de clés Azure Key Vault contenant le certificat, fournissez la liste des autorisations à cet ID du principal et accordez-lui les autorisations nécessaires pour obtenir les secrets.
+    > Pour extraire un certificat TLS/SSL, le service Gestion des API doit disposer des autorisations nécessaires pour répertorier et obtenir les secrets sur l’Azure Key Vault contenant le certificat. Lorsque vous utilisez le portail Azure, toutes les étapes nécessaires pour la configuration sont effectuées automatiquement. Lorsque vous utilisez les outils de ligne de commande ou APIM, ces autorisations doivent être accordées manuellement. Cette opération comprend deux étapes. Utilisez tout d’abord la page Identités managées sur votre instance APIM pour vous assurer que l’identité managée est activée. Notez aussi l’ID du principal qui s’affiche sur cette page. Ensuite, sur le coffre de clés Azure Key Vault contenant le certificat, fournissez la liste des autorisations à cet ID du principal et accordez-lui les autorisations nécessaires pour obtenir les secrets.
     >
     > Si le certificat est défini sur Rotation automatique, APIM utilisera automatiquement la dernière version sans que le service ne rencontre le moindre temps d’arrêt (si votre niveau d’APIM comprend un contrat de niveau de service, c’est-à-dire tous les niveaux sauf le niveau Développeur).
 
@@ -93,7 +93,7 @@ Lorsque vous configurez DNS pour votre nom de domaine personnalisé, vous avez l
 -   Configurer un enregistrement A qui pointe vers l’adresse IP de votre passerelle de gestion des API.
 
 > [!NOTE]
-> Bien que l’adresse IP de l’instance de gestion des API soit statique, elle peut changer dans quelques scénarios. Pour cette raison, il est recommandé d’utiliser CNAME lors de la configuration d’un domaine personnalisé. Tenez-en compte lorsque vous choisissez la méthode de configuration DNS. Pour plus d’informations, consultez le [FAQ sur la gestion des API](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Bien que l’adresse IP de l’instance de gestion des API soit statique, elle peut changer dans quelques scénarios. Pour cette raison, il est recommandé d’utiliser CNAME lors de la configuration d’un domaine personnalisé. Tenez-en compte lorsque vous choisissez la méthode de configuration DNS. Pour plus d’informations, voir l’[article de la documentation IP](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) et le [Forum aux questions sur la Gestion des API](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

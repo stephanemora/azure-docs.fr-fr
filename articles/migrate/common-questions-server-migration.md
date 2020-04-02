@@ -3,16 +3,16 @@ title: Questions fréquentes (FAQ) sur Azure Migrate Server Migration
 description: Obtenez des réponses aux questions courantes sur l’utilisation d’Azure Migrate Server Migration pour migrer des machines.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 4d3638e930b4e12a29df4ab189ffb24ab248582b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939200"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127797"
 ---
-# <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate Server Migration : Questions courantes
+# <a name="azure-migrate-server-migration-common-questions"></a>Migration de serveur Azure Migrate : Questions courantes
 
-Cet article répond à des questions courantes sur l’outil Azure Migrate: Server Migration. Si vous avez d’autres questions, consultez les ressources suivantes :
+Cet article répond à des questions courantes sur la migration de serveur Azure Migrate d’Azure Migrate. Si vous avez d’autres questions, consultez les ressources suivantes :
 
 - [Questions générales](resources-faq.md) sur Azure Migrate.
 - Questions sur l’[appliance Azure Migrate](common-questions-appliance.md)
@@ -74,6 +74,14 @@ Non. Azure Migrate prend en charge la migration uniquement vers des disques mana
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Combien de machines virtuelles puis-je répliquer en même temps avec la migration sans agent ?
 
 Actuellement, vous pouvez migrer simultanément 100 machines virtuelles par instance de vCenter Server. Procédez à une migration par lots de 10 machines virtuelles.
+
+## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Comment faire pour limiter la réplication lors de l’utilisation de l’appliance Azure Migrate pour une réplication VMware sans agent ?  
+
+Vous pouvez limiter l’utilisation de NetQosPolicy. Par exemple :
+
+L’AppNamePrefix à utiliser dans NetQosPolicy est « GatewayWindowsService.exe ». Vous pouvez créer une stratégie sur l’appliance Azure Migrate pour limiter le trafic de réplication de l’appliance en créant une stratégie telle que celle-ci :
+ 
+New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
 
 ## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Quand dois-je migrer des machines en tant que serveurs physiques ?
 

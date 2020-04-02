@@ -1,20 +1,20 @@
 ---
-title: Recevoir des appels HTTPS et y répondre
-description: Gérer les requêtes et les événements HTTPS en temps réel à l’aide d’Azure Logic Apps
+title: Recevoir des appels et y répondre à l’aide du protocole HTTPS
+description: Gérer des requêtes HTTPS entrantes en provenance de services externes à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900266"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297291"
 ---
-# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recevoir et répondre aux appels HTTPS entrants à l’aide d’Azure Logic Apps
+# <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
 Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur de requête intégré ou l’action Réponse, vous pouvez créer des tâches et des workflows automatisés qui reçoivent et répondent aux requêtes HTTP entrantes. Par exemple, vous pouvez appliquer les actions suivantes à votre application logique :
 
@@ -36,7 +36,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -202,6 +202,19 @@ Voici plus d’informations sur les sorties du déclencheur de requête :
 Vous pouvez utiliser l’action Réponse pour répondre avec une charge utile (données) à une requête HTTPS entrante, mais uniquement dans une application logique qui est déclenchée par une requête HTTPS. Vous pouvez ajouter l’action Réponse à n’importe quelle phase de votre workflow. Pour plus d’informations sur la définition JSON sous-jacente pour ce déclencheur, consultez [Type d’action de réponse](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Votre application logique garde la requête entrante ouverte seulement pendant une minute. En supposant que votre flux de travail d’application logique inclue une action Réponse, si l’application logique ne renvoie pas de réponse une fois ce délai écoulé, votre application logique renvoie un `504 GATEWAY TIMEOUT` à l’appelant. Dans le cas contraire, si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement une réponse `202 ACCEPTED` à l’appelant.
+
+> [!IMPORTANT]
+> Si une action Réponse contient les en-têtes ci-dessous, Logic Apps les supprime du message de réponse généré sans afficher d’avertissement ou d’erreur :
+>
+> * `Allow`
+> * `Content-*` à ces exceptions près : `Content-Disposition`, `Content-Encoding` et `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Last-Modified`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Si Logic Apps ne vous empêche pas d’enregistrer des applications logiques ayant une action Réponse contenant ces en-têtes, le service les ignore.
 
 1. Pour le Concepteur d'application logique, sous l’étape où vous souhaitez ajouter l'action Réponse, sélectionnez **Nouvelle étape**.
 

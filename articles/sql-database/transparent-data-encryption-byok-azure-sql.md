@@ -1,22 +1,22 @@
 ---
 title: Chiffrement transparent des données (TDE, Transparent Data Encryption) managé par le client
-description: Bring Your Own Key (BYOK) prend en charge le chiffrement transparent des données (TDE, Transparent Data Encryption) avec Azure Key Vault pour SQL Database et Data Warehouse. Vue d'ensemble de TDE avec BYOK, avantages, fonctionnement, considérations et recommandations.
+description: Bring Your Own Key (BYOK) prend en charge le chiffrement transparent des données (TDE, Transparent Data Encryption) avec Azure Key Vault pour SQL Database et Azure Synapse. Vue d'ensemble de TDE avec BYOK, avantages, fonctionnement, considérations et recommandations.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/12/2020
-ms.openlocfilehash: 8e91bb9223f3e6ccd4c76614d75db8591dbed045
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/18/2020
+ms.openlocfilehash: 462326fb16663a6f25ff4b51ea11791201086fd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201512"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528726"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 
@@ -24,7 +24,7 @@ ms.locfileid: "77201512"
 
 Dans ce scénario, la clé utilisée pour le chiffrement de la Clé de chiffrement (DEK) de la base de données, appelée protecteur TDE, est une clé asymétrique managée par le client, stockée dans un système de gestion des clés externes informatique [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) appartenant au client et managé par le client. Key Vault fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, éventuellement sauvegardé par les modules de sécurité matériels validés FIPS 140-2 niveau 2 (HSM). Il n’autorise pas l’accès direct à une clé stockée, mais fournit des services de chiffrement/déchiffrement à l’aide de la clé aux entités autorisées. La clé peut être générée par le coffre de clés, importée ou [transférée vers le coffre de clés à partir d’un dispositif HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
-Pour Azure SQL Database et Data Warehouse Azure SQL, le protecteur TDE est défini au niveau du serveur logique et est hérité par toutes les bases de données chiffrées associées à ce serveur. Pour Azure SQL Managed Instance, le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données chiffrées sur cette instance. Le terme *serveur* fait référence à la fois au serveur logique et à l’instance gérée SQL Database tout au long de ce document, sauf indication contraire.
+Pour Azure SQL Database et Azure Synapse, le protecteur TDE est défini au niveau du serveur logique et est hérité par toutes les bases de données chiffrées associées à ce serveur. Pour Azure SQL Managed Instance, le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données chiffrées sur cette instance. Le terme *serveur* fait référence à la fois au serveur logique et à l’instance gérée SQL Database tout au long de ce document, sauf indication contraire.
 
 > [!IMPORTANT]
 > Pour ceux qui utilisent le TDE géré par le service et qui souhaitent commencer à utiliser le TDE géré par le client, les données restent chiffrées pendant le processus de basculement et il n’y a pas de temps d’arrêt ni de rechiffrement des fichiers de base de données. Le basculement d’une clé managée par le service à une clé managée par le client nécessite uniquement de rechiffrement de la clé de chiffrement (DEK), une opération rapide et en ligne.
@@ -73,7 +73,7 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 - Le coffre de clés et SQL Database/instance gérée doivent appartenir au même abonné Azure Active Directory. Les interactions entre un serveur et un coffre de clés inter-abonnés ne sont pas prises en charge. Pour déplacer des ressources par la suite, vous devez reconfigurer TDE avec AKV. En savoir plus sur le [déplacement des ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
-- La fonctionnalité [suppression réversible](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de *récupération* et de *vidage* ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. La fonctionnalité de suppression réversible est désactivée par défaut et peut être activée via [PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) ou [CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete). Elle ne peut pas être activée via le Portail Azure.  
+- La fonctionnalité [suppression réversible](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de *récupération* et de *vidage* ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. La fonctionnalité de suppression réversible désactivée par défaut peut être activée via [PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) ou [CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete). Elle ne peut pas être activée via le Portail Azure.  
 
 - Accordez l’accès du serveur SQL Database ou à l’instance gérée au coffre de clés (get, wrapKey, unwrapKey) à l’aide de son identité Azure Active Directory. Lors de l’utilisation du Portail Azure, l’identité Azure AD est créée automatiquement. En utilisant PowerShell ou CLI, l’identité Azure AD doit être explicitement créée et sa saisie vérifiée. Consultez [Configurer TDE avec BYOK](transparent-data-encryption-byok-azure-sql-configure.md) et [Configure TDE with BYOK for Managed Instance](https://aka.ms/sqlmibyoktdepowershell) (Configurer TDE avec BYOK pour Managed Instance) pour obtenir des instructions détaillées lors de l’utilisation de PowerShell.
 
@@ -99,7 +99,7 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 - Activer l’audit et la création de rapports sur toutes les clés de chiffrement : Le coffre de clés fournit des journaux d’activité faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité. Operations Management Suite [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) est un exemple de service déjà intégré.
 
-- Reliez chaque serveur à deux coffres de clés résidant dans des régions différentes et détenant le même matériau clé pour garantir la haute disponibilité des bases de données chiffrées. Marquez uniquement la clé du coffre de clés dans la même région qu’un protecteur TDE. Le système utilisera
+- Reliez chaque serveur à deux coffres de clés résidant dans des régions différentes et détenant le même matériau clé pour garantir la haute disponibilité des bases de données chiffrées. Marquez uniquement la clé du coffre de clés dans la même région qu’un protecteur TDE. Le système bascule automatiquement vers le coffre de clés dans la région distante en cas de panne affectant le coffre situé dans la même région.
 
 ### <a name="recommendations-when-configuring-tde-protector"></a>Suggestions lors de la configuration du protecteur TDE
 - Conservez une copie du protecteur TDE à un emplacement sécurisé ou déposez-le au service de dépôt.
@@ -163,7 +163,7 @@ Si la clé nécessaire à la restauration d’une sauvegarde n’est plus dispon
 
 Pour l’atténuer, exécutez la cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) pour le serveur logique de SQL Database cible ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) pour l’instance gérée cible afin de retourner la liste des clés disponibles et d’identifier celles qui sont manquantes. Pour garantir la restauration possible de toutes les sauvegardes, vérifiez que le serveur cible pour la sauvegarde dispose d’un accès à toutes les clés nécessaires. Ces clés n’ont pas besoin d’être marquées comme protecteur TDE.
 
-Pour en savoir plus sur la récupération d’une sauvegarde de base de données SQL, consultez [Récupérer une base de données Azure SQL](sql-database-recovery-using-backups.md). Pour en savoir plus sur la récupération d’une sauvegarde pour SQL Data Warehouse, consultez [Récupérer une Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md). Pour la sauvegarde/restauration native de SQL Server avec instance gérée, consultez [Démarrage rapide : Restaurer une base de données sur Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
+Pour en savoir plus sur la récupération d’une sauvegarde de base de données SQL, consultez [Récupérer une base de données Azure SQL](sql-database-recovery-using-backups.md). Pour en savoir plus sur la récupération d’une sauvegarde de pool SQL, consultez [Récupérer un pool SQL](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Pour la sauvegarde/restauration native de SQL Server avec instance gérée, consultez [Démarrage rapide : Restaurer une base de données sur Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Attention particulière pour les fichiers journaux : Les fichiers journaux sauvegardés restent chiffrés avec le protecteur TDE d’origine, même s’il a subi une rotation et si la base de données utilise maintenant un nouveau protecteur TDE.  Lors d’une restauration, les deux clés seront nécessaires pour restaurer la base de données.  Si le fichier journal utilise un protecteur TDE stocké dans Azure Key Vault, cette clé sera nécessaire lors de la restauration, même si entretemps la base de données est passée à un TDE managé par le service.
 
