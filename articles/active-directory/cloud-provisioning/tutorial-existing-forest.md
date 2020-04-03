@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa14b45235f2a62f05e84efafc41b899dc531d49
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: aa612ad30ae0faa42071613be15c1d91fb96b8f6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74868675"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332263"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Intégrer une forêt existante et une nouvelle forêt à un seul locataire Azure AD
 
@@ -43,7 +43,7 @@ Dans ce scénario, une forêt existante est synchronisée sur un locataire Azure
 
      | Numéro de port | Utilisation |
      | --- | --- |
-     | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL |
+     | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat TLS/SSL |
      | **443** | Gère toutes les communications sortantes avec le service |
      | **8080** (facultatif) | Les agents signalent leur état toutes les 10 minutes sur le port 8080, si le port 443 n’est pas disponible. Cet état est affiché sur le portail Azure AD. |
      

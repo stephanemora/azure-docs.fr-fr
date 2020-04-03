@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: d7cd068722a1dcc99b909020fa5bae34ae4a4768
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 25ed59b73f3b508fd29a964bb6b981049957143f
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441383"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365661"
 ---
 # <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Obtenir le débit (RU/s) d’une base de données ou d’une collection pour Azure Cosmos DB - API MongoDB
 
@@ -38,8 +38,9 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-|**Ressources Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crée une ressource. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBMongoDBDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Obtient la valeur de débit de la base de données d’API MongoDB spécifiée. |
+| [Get-AzCosmosDBMongoDBCollectionThroughput](hhttps://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Obtient la valeur de débit de la collection d’API MongoDB spécifiée. |
 |**Groupes de ressources Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
