@@ -81,14 +81,10 @@
           href: howto-create-personal-dashboards.md
         - name: Exécuter une tâche
           href: howto-run-a-job.md
-        - name: Modèle d’appareil de version
-          href: howto-version-device-template.md
     - name: Transformer
       items:
         - name: Exporter des données vers des destinations dans Azure
           href: howto-export-data.md
-        - name: Explorer les API IoT Central
-          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
         - name: Créer des webhooks sur des règles
           href: howto-create-webhooks.md
         - name: Connecter des groupes d’actions Azure Monitor sur des règles

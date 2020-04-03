@@ -37,8 +37,10 @@
       href: logic-apps-serverless-overview.md
     - name: Intégration B2B et traitement EDI
       href: logic-apps-enterprise-integration-overview.md
-    - name: Accéder aux Réseaux virtuels Azure
+    - name: Accéder aux réseaux virtuels Azure
       href: connect-virtual-network-vnet-isolated-environment-overview.md
+    - name: Continuité d’activité et reprise d’activité
+      href: business-continuity-disaster-recovery-guidance.md
 - name: Guides pratiques
   items:
     - name: Développer
@@ -327,7 +329,7 @@
           href: logic-apps-create-azure-resource-manager-templates.md
         - name: Déployer des modèles d’application logique
           href: logic-apps-deploy-azure-resource-manager-templates.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Surveiller les applications logiques
           href: monitor-logic-apps.md
