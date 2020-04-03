@@ -24,17 +24,11 @@
           href: quickstarts/ruby.md
         - name: Utilisation de Go
           href: quickstarts/go.md
-    - name: Kit SDK
+    - name: Bibliothèque cliente
       expanded: true
       items:
-        - name: 'Utilisation de C#'
-          href: visual-search-sdk-c-sharp.md
-        - name: Utilisation de Node.js
-          href: visual-search-sdk-node.md
-        - name: Utilisation de Python
-          href: visual-search-sdk-python.md
-        - name: Utilisation de Java
-          href: visual-search-sdk-java.md
+        - name: Bibliothèques de client Recherche visuelle Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
     - name: Chargement d’une image

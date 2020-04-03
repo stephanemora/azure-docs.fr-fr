@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 251f72ab4f4d53fc2c836f06c78a1faa291b3a8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b3919a016613da2470c14995663acc9c5415e483
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74276072"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382849"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Démarrage rapide : Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle - Azure CLI
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.28 d’Azure CLI, ou une version ultérieure. Pour trouver la version installée, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Après avoir vérifié la version CLI, exécutez `az login` pour créer une connexion avec Azure. Les commandes CLI dans ce guide de démarrage rapide sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
+Si vous choisissez d’installer et d’utiliser Azure CLI localement, vous devez exécuter Azure CLI version 2.0.28 ou ultérieure pour ce guide de démarrage rapide. Pour trouver la version installée, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Après avoir vérifié la version d’Azure CLI, exécutez `az login` pour créer une connexion à Azure. Les commandes Azure CLI dans ce guide de démarrage rapide sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -53,7 +53,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La création de la machine virtuelle ne nécessite que quelques minutes. Ne passez pas aux étapes restantes avant que la machine virtuelle ne soit créée et que l’interface de ligne de commande ne retourne la sortie.
+La création de la machine virtuelle ne nécessite que quelques minutes. Ne passez pas aux étapes restantes avant que la machine virtuelle ne soit créée et qu’Azure CLI ne retourne la sortie.
 
 ## <a name="test-network-communication"></a>Tester la communication réseau
 
@@ -134,7 +134,7 @@ az network nic list-effective-nsg \
 
 La sortie renvoyée contient le texte suivant pour la règle **AllowInternetOutbound** qui a autorisé un accès sortant vers www.bing.com à l’étape [Utiliser la vérification des flux IP](#use-ip-flow-verify) :
 
-```azurecli
+```
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -175,7 +175,7 @@ Dans la sortie précédente, vous pouvez voir que **destinationAddressPrefix** a
 
 Lorsque vous avez exécuté la commande `az network watcher test-ip-flow` pour tester la communication sortante vers l’adresse 172.131.0.100 dans [Utiliser la vérification des flux IP](#use-ip-flow-verify), la sortie vous a informé que la règle **DefaultOutboundDenyAll** a refusé la communication. La règle **DefaultOutboundDenyAll** équivaut à la règle **DenyAllOutBound** répertoriée dans la sortie suivante de la commande `az network nic list-effective-nsg` :
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -208,7 +208,7 @@ La règle répertorie **0.0.0.0/0** comme **destinationAddressPrefix**. La règl
 
 Lorsque vous avez exécuté la commande `az network watcher test-ip-flow` à l’étape [Utiliser la vérification des flux IP](#use-ip-flow-verify) pour tester la communication entrante à partir l’adresse 172.131.0.100, la sortie vous a informé que la règle **DefaultInboundDenyAll** a refusé la communication. La règle **DefaultInboundDenyAll** équivaut à la règle **DenyAllInBound** répertoriée dans la sortie suivante de la commande `az network nic list-effective-nsg` :
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},

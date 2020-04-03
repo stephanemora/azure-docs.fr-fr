@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Fédérer un environnement de forêt AD unique dans Azure | Microsoft Docs'
+title: 'Tutoriel : Fédérer un environnement de forêt AD unique dans Azure | Microsoft Docs'
 description: Montre comment configurer un environnement d’identité hybride à l’aide de la fédération.
 services: active-directory
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a123a85d653415f7b067e0c144c90ed79f2d081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60296577"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80330990"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Didacticiel : Fédérer un environnement de forêt AD unique dans le cloud
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutoriel : Fédérer un environnement de forêt AD unique dans le cloud
 
 ![Créer](media/tutorial-federation/diagram.png)
 
 Ce didacticiel vous guidera dans la création d’un environnement d’identité hybride à l’aide de la fédération.  Cet environnement peut ensuite servir à des fins de test ou pour se familiariser avec le fonctionnement d’une identité hybride.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Voici les conditions préalables requises pour suivre ce didacticiel.
 - Un ordinateur où [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) est installé.  Il est recommandé d’utiliser [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Un [abonnement Azure](https://azure.microsoft.com/free)
@@ -88,7 +88,7 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 5. Cliquez sur **Installer maintenant**.
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
-8. Sélectionnez **Personnalisé : installer Windows uniquement (avancé)** .
+8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**
 9. Cliquez sur **Suivant**.
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 
@@ -184,7 +184,7 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 ```
 
 ## <a name="create-a-certificate-for-ad-fs"></a>Créer un certificat pour AD FS
-Nous allons maintenant créer un certificat SSL qui sera utilisé par AD FS.  Il s’agira d’un certificat auto-signé, destiné uniquement aux tests.  Microsoft ne recommande pas à l’utilisation d’un certificat auto-signé dans un environnement de production. Effectuez les actions suivantes :
+Nous allons maintenant créer un certificat TLS/SSL qui sera utilisé par AD FS.  Il s’agira d’un certificat auto-signé, destiné uniquement aux tests.  Microsoft ne recommande pas à l’utilisation d’un certificat auto-signé dans un environnement de production. Effectuez les actions suivantes :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
 2. Exécutez le script suivant.

@@ -7,18 +7,20 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: 24015810a295ef88b7d3e63bfc464ddddef6b55f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73939635"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388914"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
 
-Cet article explique comment migrer des machines locales vers Azure à l’aide d’[Azure Site Recovery](site-recovery-overview.md). En règle générale, Site Recovery permet de gérer et d’orchestrer la reprise d’activité des machines locales et des machines virtuelles Azure. Toutefois, vous pouvez également l’utiliser à des fins de migration. La migration utilise les mêmes étapes que la reprise d’activité, à une exception près. Dans une migration, la dernière étape consiste à effectuer le basculement des machines de votre site local. Contrairement à la reprise d’activité, vous ne pouvez pas effectuer de restauration automatique sur un site local dans un scénario de migration.
+Cet article explique comment migrer des machines locales vers Azure à l’aide d’[Azure Site Recovery](site-recovery-overview.md). 
+
+> [!TIP]
+> Vous devez maintenant utiliser Azure Migrate, et non le service Azure Site Recovery, pour migrer des machines locales vers Azure. [Plus d’informations](../migrate/migrate-services-overview.md)
 
 
 Ce didacticiel vous montre comment migrer des machines virtuelles locales et des serveurs physiques vers Azure. Vous allez apprendre à effectuer les actions suivantes :
@@ -36,7 +38,7 @@ Ce didacticiel vous montre comment migrer des machines virtuelles locales et des
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Notez que les appareils exportés par les pilotes paravirtualized ne sont pas pris en charge.
+Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
 
 
 ## <a name="prepare-azure-and-on-premises"></a>Préparer Azure et les serveurs locaux
@@ -51,9 +53,9 @@ Sélectionnez les éléments à répliquer et l’emplacement de la réplication
 1. Cliquez sur **Coffres Recovery Services** > coffre.
 2. Dans le menu Ressource, cliquez sur **Site Recovery** > **Préparer l’infrastructure** > **Objectif de protection**.
 3. Dans **Objectif de protection**, sélectionnez les composants à migrer.
-    - **VMware** : sélectionnez **Vers Azure** > **Oui, avec hyperviseur vSphere VMWare**.
-    - **Machine physique** : sélectionnez **Vers Azure** > **Non virtualisé / Autre**.
-    - **Hyper-V** : sélectionnez **Vers Azure** > **Oui, avec Hyper-V**. Si des machines virtuelles Hyper-V sont gérées par VMM, sélectionnez **Oui**.
+    - **VMware** : sélectionnez **Vers Azure** > **Oui, avec hyperviseur vSphere VMWare**.
+    - **Machine physique** : sélectionnez **Vers Azure** > **Non virtualisé / Autre**.
+    - **Hyper-V** : sélectionnez **Vers Azure** > **Oui, avec Hyper-V**. Si des machines virtuelles Hyper-V sont gérées par VMM, sélectionnez **Oui**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
@@ -115,7 +117,7 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 
 
 > [!WARNING]
-> **N’annulez pas un basculement en cours** : la réplication de la machine virtuelle est arrêtée avant que le basculement démarre. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
+> **N’annulez pas un basculement en cours** : la réplication de la machine virtuelle est arrêtée avant le démarrage du basculement. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
 
 Dans certains scénarios, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes. Vous constaterez peut-être des délais de basculement plus longs pour les serveurs physiques, les machines virtuelles VMware Linux, les machines virtuelles VMware pour lesquelles le service DHCP n’est pas activé, et les machines virtuelles VMware qui ne disposent pas des pilotes de démarrage suivants : storvsc, vmbus, storflt, intelide, atapi.
 
@@ -136,8 +138,8 @@ Certaines étapes peuvent être automatisées dans le cadre du processus de migr
     - Si vous migrez des machines virtuelles Hyper-V vers Azure, installez l’agent de machine virtuelle Azure sur la machine virtuelle Azure après la migration.
 - Supprimez manuellement de la machine virtuelle les éventuels fournisseurs/agents Site Recovery. Si vous migrez des machines virtuelles VMware ou des serveurs physiques, désinstallez le service Mobilité de la machine virtuelle.
 - Pour une meilleure résilience :
-    - Sécurisez les données en sauvegardant les machines virtuelles Azure avec le service Sauvegarde Azure. [En savoir plus]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
-    - Conservez les charges de travail en cours d’exécution et disponibles en continu en répliquant des machines virtuelles Azure vers une région secondaire avec Site Recovery. [En savoir plus](azure-to-azure-quickstart.md).
+    - Sécurisez les données en sauvegardant les machines virtuelles Azure avec le service Sauvegarde Azure. [Plus d’informations]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal)
+    - Conservez les charges de travail en cours d’exécution et disponibles en continu en répliquant des machines virtuelles Azure vers une région secondaire avec Site Recovery. [Plus d’informations](azure-to-azure-quickstart.md)
 - Pour renforcer la sécurité :
     - Verrouillez et limitez l’accès du trafic entrant avec [l’administration juste-à-temps]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) d’Azure Security Center.
     - Limitez le trafic réseau vers les points de terminaison de gestion avec des [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview).

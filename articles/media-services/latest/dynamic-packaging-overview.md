@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/23/2020
+ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: 3984f33cd97ada9b3d5301e45fe3506966880848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ae049d7486007696d8038eb4e6593cf996df659e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719668"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372609"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetage dynamique dans Media Services v3
 
@@ -27,7 +27,10 @@ Microsoft Azure Media Services peut être utilisé pour encoder de nombreux form
 
 Dans Media Services, un [point de terminaison de streaming](streaming-endpoint-concept.md) représente un empaquetage dynamique (juste-à-temps) et un service d’origine qui permet de transmettre votre contenu en direct et à la demande directement à une application de lecteur cliente. Il utilise un des protocoles de diffusion multimédia en continu courants mentionnés dans la section suivante. L’empaquetage dynamique est une fonctionnalité standard sur tous les points de terminaison de streaming (Standard ou Premium).
 
-## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Pour préparer vos fichiers sources en vue de leur diffusion
+> [!NOTE]
+> Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [actifs multimédias](assets-concept.md) v3 et obtenir des informations sur l’accès aux API. Pour toutes les autres tâches de gestion (par exemple les transformations et travaux), utilisez l’[API REST](https://docs.microsoft.com/rest/api/media/), l’[interface de ligne de commande](https://aka.ms/ams-v3-cli-ref) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
+
+## <a name="to-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Pour préparer vos fichiers sources en vue de leur diffusion
 
 Pour tirer parti de l’empaquetage dynamique, vous devez [encoder](encoding-concept.md) votre fichier mezzanine (source) en un ensemble de fichiers MP4 à vitesse de transmission multiple (format ISO de base pour les fichiers médias 14496-12). Vous devez avoir un [actif multimédia](assets-concept.md) avec les fichiers MP4 encodés et les fichiers de configuration de streaming requis par l’empaquetage dynamique Media Services. À partir de cet ensemble de fichiers MP4, vous pouvez utiliser l’empaquetage dynamique pour diffuser de la vidéo avec les protocoles de streaming multimédia décrits ci-dessous.
 
@@ -68,11 +71,14 @@ Votre client de streaming peut spécifier les formats Smooth Streaming suivants�
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
 |Smooth Streaming 2.0 (manifeste hérité)|Par défaut, le manifeste Smooth Streaming contient la balise de répétition (r-tag). Toutefois, certains lecteurs ne prennent pas en charge la balise `r-tag`. Les clients disposant de ces lecteurs peuvent utiliser un format qui désactive la balise r-tag :<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
+> [!NOTE]
+> Smooth Streaming nécessite la présence d’audio et de vidéo dans votre flux.
+
 ## <a name="on-demand-streaming-workflow"></a>Workflow du streaming à la demande
 
 Les étapes qui suivent présentent un workflow de streaming Media Services courant dans lequel l’empaquetage dynamique est utilisé avec l’encodeur standard dans Azure Media Services.
 
-1. Téléchargez un fichier d’entrée, tel qu’un fichier QuickTime/MOV ou MXF. On parle également dans ce cas de fichier source ou mezzanine. Pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par Media Encoder Standard](media-encoder-standard-formats.md).
+1. Téléchargez un fichier d’entrée, tel qu’un fichier QuickTime/MOV ou MXF. On parle également dans ce cas de fichier source ou mezzanine. Pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par l’encodeur standard](media-encoder-standard-formats.md).
 1. [Encodez](#encode-to-adaptive-bitrate-mp4s) votre fichier mezzanine en un ensemble de fichiers MP4 à vitesse de transmission adaptative H.264/AAC.
 1. Publier l’élément multimédia de sortie qui contient le fichier au débit adaptatif MP4 défini. Vous publiez en créant un localisateur de streaming.
 1. Générez des URL qui ciblent différents formats (HLS, MPEG-DASH et Smooth Streaming). Le **point de terminaison de streaming** s’occupe de distribuer le manifeste approprié et les demandes pour tous ces différents formats.
@@ -89,11 +95,11 @@ Les articles suivants donnent des exemples de l’[encodage d’une vidéo avec 
 * [Encoder un fichier local à l’aide de préréglages intégrés](job-input-from-local-file-how-to.md).
 * [Créer un préréglage intégré pour les besoins de votre scénario ou votre appareil](customize-encoder-presets-how-to.md).
 
-Consultez la liste des [codecs et formats](media-encoder-standard-formats.md) de Media Encoder Standard.
+Consultez la liste des [formats et codecs](media-encoder-standard-formats.md) de l’encodeur standard.
 
 ## <a name="live-streaming-workflow"></a>Workflow de streaming en direct
 
-Un événement en direct peut être de deux types : transfert direct ou encodage en temps réel. 
+Un événement en direct peut être défini sur *Pass-through* (un encodeur live local envoie un flux à débit binaire multiple) ou sur *Live Encoding* (un encodeur live local envoie un flux à débit binaire unique). 
 
 Voici un workflow courant pour le streaming en direct avec l’empaquetage dynamique :
 
@@ -120,7 +126,7 @@ L’empaquetage dynamique prend en charge les fichiers MP4 contenant de la vidé
 > [!NOTE]
 > Des résolutions allant jusqu’à 4K et des fréquences d’images allant jusqu’à 60 images/seconde ont été testées avec l’empaquetage dynamique. L’[encodeur Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) prend en charge l’encodage en H.265 via les API v2 existantes.
 
-## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Codecs audio pris en charge par l’empaquetage dynamique
+## <a name="audio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Codecs audio pris en charge par l’empaquetage dynamique
 
 L’empaquetage dynamique prend en charge les données audio encodées avec les protocoles suivants :
 
@@ -302,7 +308,4 @@ Vous pouvez ouvrir un ticket de support en accédant à [Nouvelle demande de sup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
-
-Découvrez comment [charger, encoder et diffuser des vidéos en continu](stream-files-tutorial-with-api.md).
+[Charger, encoder et diffuser des vidéos en continu](stream-files-tutorial-with-api.md)

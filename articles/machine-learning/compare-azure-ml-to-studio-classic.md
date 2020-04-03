@@ -1,58 +1,56 @@
 ---
 title: Azure Machine Learning et Machine Learning Studio (classique)
-description: Différences entre Azure Machine Learning et Machine Learning Studio (classique)
+description: Quelles sont les différences entre Azure Machine Learning et Machine Learning Studio (classique) ?
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/29/2019
-ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/25/2020
+ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76311459"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371835"
 ---
-# <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Différences entre Azure Machine Learning et Machine Learning Studio (classique)
+# <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning et Machine Learning Studio (classique)
 
-Cet article compare les caractéristiques, les fonctionnalités et l’interface d’Azure Machine Learning à Machine Learning Studio (classique). 
+Cet article examine les différences entre Azure Machine Learning et Machine Learning Studio (classique). 
 
-## <a name="about-machine-learning-studio-classic"></a>À propos de Machine Learning Studio (classique)
-[Machine Learning Studio (classique)](studio/what-is-ml-studio.md) est un espace de travail visuel collaboratif par glisser-déplacer dans lequel vous pouvez générer, tester et déployer des solutions de machine learning sans avoir à écrire du code. Il s’appuie sur des algorithmes de machine learning et des modules de traitement des données prédéfinis et préconfigurés, mais aussi sur une plateforme de calcul propriétaire.
+Azure Machine Learning fournit des kits SDK Python et R **et** un concepteur de type « glisser-déposer » pour générer et déployer des modèles Machine Learning. Studio (classique) offre uniquement une expérience de type « glisser-déposer » autonome.
 
-## <a name="about-azure-machine-learning"></a>À propos d'Azure Machine Learning
+Nous recommandons aux utilisateurs débutants de choisir Azure Machine Learning pour bénéficier de la plus vaste gamme d’outils de pointe dans le domaine du Machine Learning.
 
-[Azure Machine Learning](overview-what-is-azure-ml.md) propose également une interface web appelée le concepteur (préversion) **et** plusieurs Kits de développement logiciel (SDK) et interface CLI pour préparer rapidement les données, entraîner et déployer des modèles Machine Learning. Avec Azure Machine Learning, vous bénéficiez d’une mise à l’échelle, d’une prise en charge de plusieurs infrastructures, de fonctionnalités de ML avancées, telles que le Machine Learning automatisé et la prise en charge de pipeline.
+## <a name="quick-comparison"></a>Comparaison rapide
 
-Le concepteur Azure Machine Learning offre une expérience de glisser-déplacer similaire à Studio (classique). Cependant, contrairement à la plateforme de calcul propriétaire de Studio (classique), le concepteur utilise vos propres ressources de calcul, est évolutif, et est entièrement intégré à Azure Machine Learning.  
+Le tableau suivant récapitule quelques-unes des principales différences entre Azure Machine Learning et Studio (classique) :
 
-> [!TIP]
-> Les clients qui utilisent ou évaluent actuellement Machine Learning Studio (classique) sont encouragés à essayer le [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) (préversion), qui fournit des modules ML par glisser-déposer __plus__ l’extensibilité, la gestion de versions et la sécurité de l’entreprise.
-
-## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Comparaison : Azure Machine Learning et Machine Learning Studio (classique)
-
-Voici une comparaison rapide.
-
-||  Concepteur Azure Machine Learning|Studio (classique) |
+| | Machine Learning Studio (classique) | Azure Machine Learning |
 |---| --- | --- |
-||Le concepteur est en préversion, Azure Machine Learning est en disponibilité générale|Disponibilité générale (GA) | 
-|Interface de glisser-déposer| Oui | Oui|
-|Expérience| Mise à l’échelle avec cible de calcul|Mise à l’échelle (limite de données d’entraînement de 10 Go) | 
-|Modules pour l’interface| [Nombreux modules populaires](algorithm-module-reference/module-reference.md) | Divers |
-|Cibles de calcul d’entraînement| Calcul AML (GPU/processeur)|Cible de calcul propriétaire, processeur uniquement|
-|Inférence des cibles de calcul| Azure Kubernetes Service pour l’inférence en temps réel <br/>Calcul AML pour l’inférence par lot|Format de service web propriétaire, non personnalisable | 
-|Pipeline ML| Création de pipeline <br/> Pipeline publié <br/> Point de terminaison de pipeline <br/> [En savoir plus sur le pipeline ML](concept-ml-pipelines.md)|Non pris en charge | 
-|Opérations ML| Déploiement configurable, gestion de versions des modèles et pipelines|Gestion et déploiement des modèles de base | 
-|Modèle| Format standard, différent, dépend du travail d’entraînement|Format propriétaire non portable.| 
-|Apprentissage automatisé des modèles|Pas encore dans le concepteur, mais possible via l’interface et les Kits de développement logiciel (SDK).| Non | 
+| Interface de glisser-déplacer | Prise en charge | Prise en charge - [Concepteur Azure Machine Learning (préversion)](concept-designer.md) | 
+| Expérience | Évolutive (limite de 10 Go de données de formation) | Mise à l’échelle avec cible de calcul |
+| Cibles de calcul d’entraînement | Cible de calcul propriétaire, prise en charge CPU uniquement | Vaste gamme de [cibles de calcul d’entraînement](concept-compute-target.md#train) personnalisables. Processeurs et processeurs graphiques pris en charge | 
+| Cibles de calcul de déploiement | Format de service web propriétaire, non personnalisable | Vaste gamme de [cibles de calcul de déploiement](concept-compute-target.md#deploy) personnalisables. Processeurs et processeurs graphiques pris en charge |
+| Pipeline ML | Non pris en charge | Création de [pipelines](concept-ml-pipelines.md) modulaires et flexibles pour automatiser les workflows |
+| MLOps | Gestion et déploiement des modèles de base | Gestion de versions des entités (modèle, données, workflows), automatisation des workflows, intégration aux outils CICD, [etc.](concept-model-management-and-deployment.md) |
+| Format de modèle | Format propriétaire, Studio (classique) uniquement | Plusieurs formats pris en charge selon le type de tâche d’entraînement |
+| Entraînement de modèle automatisé et optimisation des hyperparamètres |  Non pris en charge | [Pris en charge dans le SDK et l’espace de travail virtuel](concept-automated-ml.md) | 
+| Détection de la dérive de données | Non pris en charge | [Prise en charge dans le SDK et l’espace de travail virtuel](how-to-monitor-datasets.md) |
+
+
+## <a name="migrate-from-machine-learning-studio-classic"></a>Migrer à partir de Machine Learning Studio (classique)
+
+Il n’existe actuellement aucun moyen de migrer des actifs Studio (classique) vers le concepteur Azure Machine Learning (préversion). Les utilisateurs actuels de Studio (classique) peuvent continuer à utiliser leurs actifs de Machine Learning. Toutefois, nous encourageons tous les utilisateurs à utiliser le concepteur, celui-ci offrant une expérience « glisser-déposer » familière, un workflow amélioré **plus** les avantages suivants : scalabilité, gestion de versions et sécurité d’entreprise.
 
 ## <a name="get-started-with-azure-machine-learning"></a>Prise en main d’Azure Machine Learning
 
-Les ressources suivantes peuvent vous aider dans la prise en main d’Azure Machine Learning
+Les ressources suivantes peuvent vous aider à vous familiariser avec Azure Machine Learning. 
 
-- Lire la [Vue d’ensemble d’Azure Machine Learning](tutorial-first-experiment-automated-ml.md) 
+- Lisez la [vue d’ensemble d’Azure Machine Learning](overview-what-is-azure-ml.md).
+
+- Créez votre [première expérience avec le SDK Python](tutorial-1st-experiment-sdk-setup.md).
 
 - [Créez votre premier pipeline de concepteur](tutorial-designer-automobile-price-train-score.md) pour prédire des tarifs automatiques.
 
@@ -63,6 +61,6 @@ Les ressources suivantes peuvent vous aider dans la prise en main d’Azure Mach
 En plus des fonctionnalités de glisser-déplacer dans le concepteur, Azure Machine Learning a d’autres outils :  
   + [Utiliser des notebooks Python pour entraîner et déployer des modèles ML](tutorial-1st-experiment-sdk-setup.md)
   + [Utiliser R Markdown pour entraîner et déployer des modèles ML](tutorial-1st-r-experiment.md) 
-  + [Utiliser le Machine Learning automatisé pour entraîner et déployer des modèles ML](tutorial-designer-automobile-price-train-score.md) 
+  + [Utiliser le Machine Learning automatisé pour entraîner et déployer des modèles ML](tutorial-first-experiment-automated-ml.md)  
   + [Utiliser l’interface CLI Machine Learning pour entraîner et déployer un modèle](tutorial-train-deploy-model-cli.md)
 

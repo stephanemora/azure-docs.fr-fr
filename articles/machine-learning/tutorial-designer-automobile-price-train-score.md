@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/30/2020
-ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/12/2020
+ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623630"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389424"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutoriel : Prédire le prix de voitures avec le concepteur (version préliminaire)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -103,7 +103,7 @@ Vous pouvez visualiser les données pour comprendre le jeu de données que vous 
 
 1. Sélectionnez le module **Automobile price data (Raw)** .
 
-1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Outputs** (Sorties).
+1. Dans le volet de détails du module à droite du canevas, sélectionnez **Sorties + journaux**.
 
 1. Sélectionnez l’icône de graphique pour visualiser les données.
 
@@ -168,6 +168,12 @@ Il manque encore des valeurs dans votre jeu de données après la suppression de
 
 1. Sélectionnez le module **Clean Missing Data**.
 
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Edit Column** (Modifier une colonne).
+
+1. Dans la fenêtre **Columns to be cleaned** (Colonnes à nettoyer) qui s’affiche, développez le menu déroulant en regard d’**Include** (inclure). Sélectionnez **All columns** (Toutes les colonnes).
+
+1. Sélectionnez **Enregistrer**.
+
 1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Remove entire row** (Supprimer la ligne entière) sous **Cleaning mode** (Mode de nettoyage).
 
 1. Dans le volet d’informations du module à droite du canevas, sélectionnez la zone de texte **Comment** (Commentaire) et entrez *Supprimer les lignes avec des valeurs manquantes*. 
@@ -213,9 +219,11 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
 
 1. Sélectionnez **Regression** > **Linear Regression** (Régression > Régression linéaire), puis faites glisser le module vers le canevas du pipeline.
 
-1. Recherchez et faites glisser le module **Entraîner le modèle** jusqu’au canevas du pipeline. 
-
 1. Connectez la sortie du module **Linear Regression** (Régression linéaire) à l’entrée gauche du module **Train model** (Entraîner le modèle).
+
+1. Dans la palette des modules, développez la section **Module training** (Entraînement de module), puis faites glisser le module **Train Model** (Entraîner le modèle) vers le canevas.
+
+1. Sélectionnez le module **Train Model** (Entraîner le modèle) et faites-le glisser jusqu’au canevas du pipeline.
 
 1. Connectez la sortie des données d’entraînement (port de gauche) du module **Fractionner les données** à l’entrée droite du module **Entraîner le modèle**.
     
@@ -224,8 +232,6 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
 
     ![Capture d’écran montrant la configuration correcte du module Entraîner le modèle Le module Régression linéaire se connecte au port gauche du module Entraîner le modèle et le module Fractionner les données se connecte au port droit du module Entraîner le modèle.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
-1. Dans la palette des modules, développez la section **Module training** (Entraînement de module), puis faites glisser le module **Train Model** (Entraîner le modèle) vers le canevas.
-
 1. Sélectionnez le module **Entraîner le modèle**.
 
 1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Edit column** (Modifier une colonne).
@@ -233,6 +239,9 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
 1. Dans la boîte de dialogue **Label column** (Étiqueter une colonne), développez le menu déroulant, puis sélectionnez **Column names** (Noms de colonnes). 
 
 1. Dans la zone de texte, entrez *price* pour spécifier la valeur que votre modèle va prédire.
+
+    >[!IMPORTANT]
+    > Veillez à entrer le nom de colonne tel qu’indiqué. Ne mettez pas **price** en majuscules. 
 
     Votre pipeline doit se présenter comme suit :
 
@@ -258,22 +267,24 @@ Utilisez le module **Evaluate Model** (Évaluer le modèle) pour évaluer le sco
 
     ![Capture d’écran montrant la configuration correcte du pipeline](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-## <a name="run-the-pipeline"></a>Exécuter le pipeline
+## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
-Quand vous avez terminé la configuration de votre pipeline, vous pouvez lancer son exécution pour entraîner le modèle Machine Learning. Vous pouvez lancer l’exécution d’un pipeline à tout moment quand vous créez des pipelines dans le concepteur. Ceci vous permet de vérifier votre travail au fur et à mesure et de vous assurer que le pipeline fonctionne comme prévu.
+Quand vous avez terminé la configuration de votre pipeline, vous pouvez lancer son exécution pour entraîner le modèle Machine Learning. Vous pouvez à tout moment envoyer une exécution de pipeline valide qui peut être utilisée pour examiner les modifications apportées à votre pipeline pendant le développement.
 
-1. En haut du canevas, sélectionnez **Run** (Exécuter).
+1. En haut du canevas, sélectionnez **Envoyer**.
 
-1. Dans la boîte de dialogue **Set up pipeline run** (Configurer l’exécution du pipeline), sélectionnez **+ Nouvelle expérience** pour **Expérience**.
+1. Dans la boîte de dialogue **Configurer une exécution de pipeline**, sélectionnez **Créer**.
 
     > [!NOTE]
     > Les expériences regroupent les exécutions de pipeline similaires. Si vous exécutez un pipeline plusieurs fois, vous pouvez sélectionner la même expérience pour les exécutions successives.
 
-    1. Entrez un nom descriptif pour le **Nom d’expérience**.
+    1. Entrez un nom descriptif pour le **Nom de la nouvelle expérience**.
 
-    1. Sélectionnez **Exécuter**.
+    1. Sélectionnez **Envoyer**.
     
     Vous pouvez voir l’état et les détails de l’exécution en haut à droite du canevas.
+    
+    La première fois, l’exécution de votre pipeline peut prendre jusqu’à 20 minutes. Les paramètres de calcul par défaut ont une taille de nœud minimale de 0, ce qui signifie que le concepteur doit allouer des ressources après une période d’inactivité. Les exécutions de pipeline répétées prennent moins de temps dans la mesure où les ressources de calcul sont déjà allouées. Par ailleurs, le concepteur utilise les résultats mis en cache pour chaque module afin d’améliorer l’efficacité.
 
 ### <a name="view-scored-labels"></a>Afficher les étiquettes de score
 
@@ -281,7 +292,7 @@ Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécu
 
 1. Sélectionnez le module **Score Model** pour afficher sa sortie.
 
-1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Outputs** (Sorties) > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
+1. Dans le volet de détails du module à droite du canevas, sélectionnez **Sorties + journaux** > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
 
     Vous pouvez voir ici les prix prédits et les prix réels des données à partir des données de test.
 
@@ -293,7 +304,7 @@ Utilisez **Evaluate Model** pour voir ce que donne le modèle entraîné sur le 
 
 1. Sélectionnez le module **Evaluate Model** pour afficher sa sortie.
 
-1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Output** (Sortie) > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
+1. Dans le volet de détails du module à droite du canevas, sélectionnez **Sorties + journaux** > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
 
 Les statistiques suivantes s’affichent pour votre modèle :
 

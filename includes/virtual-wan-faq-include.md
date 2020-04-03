@@ -1,20 +1,56 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 09fe8396b6f0033a2c01d1ef056060a855b23d0a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761459"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80386091"
 ---
+### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>L’utilisateur doit-il disposer d’une architecture hub-and-spoke avec des appareils SD-WAN/VPN pour utiliser Azure Virtual WAN ?
+
+Virtual WAN propose de nombreuses fonctionnalités regroupées dans un seul écran, notamment : connectivité VPN site/site à site, connectivité utilisateur/P2S, connectivité ExpressRoute, connectivité Réseau virtuel, interconnectivité VPN ExpressRoute, connectivité transitive de réseau virtuel à réseau virtuel, routage centralisé, sécurité avec le Pare-feu Azure et le gestionnaire de pare-feu, supervision, chiffrement ExpressRoute, etc. Il n’est pas nécessaire d’avoir tous ces cas d’usage pour commencer à utiliser Virtual WAN. Vous pouvez simplement commencer avec un seul cas d’usage. Virtual WAN repose sur une architecture hub-and-spoke avec des fonctionnalités de mise à l’échelle et de performances intégrées. Les branches (appareils VPN/SD-WAN), les utilisateurs (clients Azure VPN, openVPN ou IKEv2), les circuits ExpressRoute et les réseaux virtuels sont les spokes (« rayons ») du ou des hubs (« moyeux ») virtuels. Tous les hubs sont connectés selon un maillage complet dans un réseau étendu virtuel standard, ce qui permet à l’utilisateur d’utiliser facilement le réseau principal Microsoft pour se connecter à n’importe quel spoke. Pour l’architecture hub-and-spoke avec des appareils SD-WAN/VPN, les utilisateurs peuvent soit la configurer manuellement dans le portail Azure Virtual WAN, soit utiliser le Virtual WAN Partner CPE (SD-WAN/VPN) pour configurer la connectivité à Azure. Les partenaires Virtual WAN assurent l’automatisation de la connectivité, c’est-à-dire la capacité d’exporter les informations sur l’appareil dans Azure, de télécharger la configuration Azure et d’établir la connectivité avec le hub Azure Virtual WAN. Pour la connectivité VPN point à site/utilisateur, nous prenons en charge le [client Azure VPN](https://go.microsoft.com/fwlink/?linkid=2117554), le client OpenVPN ou le client IKEv2. 
+
+### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Quel client le VPN utilisateur Virtual WAN Azure (point à site) prend en charge ?
+
+Virtual WAN prend en charge le [client Azure VPN](https://go.microsoft.com/fwlink/?linkid=2117554), le client OpenVPN ou tout client IKEv2. L’authentification Azure AD est prise en charge avec Azure VPN Client. Le système d’exploitation client doit être au minimum Windows 10 version 17763.0.  Un ou plusieurs clients OpenVPN peuvent prendre en charge l’authentification basée sur les certificats. Une fois l’authentification basée sur les certificats sélectionnée dans la passerelle, vous voyez le fichier .ovpn à télécharger sur votre appareil. L’authentification basée sur les certificats et l’authentification RADIUS sont prises en charge avec IKEv2. 
+
+### <a name="for-user-vpn-point-to-site--why-is-the-p2s-client-pool-split-into-two-routes"></a>Pour un VPN utilisateur (point à site), pourquoi le pool de clients P2S est divisé en deux routes ?
+
+Chaque passerelle ayant deux instances, la division se produit de telle sorte que chaque instance de passerelle puisse allouer indépendamment les adresses IP des clients pour les clients connectés et que le trafic provenant du réseau virtuel soit redirigé vers l’instance de passerelle appropriée afin d’éviter un saut d’instance inter-passerelle.
+
+### <a name="how-do-i-add-dns-servers-for-p2s-clients"></a>Comment ajouter des serveurs DNS pour les clients P2S ?
+
+Il existe deux options pour ajouter des serveurs DNS pour les clients P2S.
+
+1. Ouvrez un ticket de support pour demander à Microsoft d’ajouter vos serveurs DNS au hub.
+2. Ou, si vous utilisez le client VPN Azure pour Windows 10, vous pouvez modifier le fichier XML du profil téléchargé et ajouter les balises **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** avant de l’importer.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Pour un VPN utilisateur (point à site), combien de clients sont pris en charge ?
+
+Chaque passerelle P2S VPN utilisateur compte deux instances, chacune d’elles prenant en charge un certain nombre d’utilisateurs à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-10 5 000 connexions et l’unité d’échelle 11+ jusqu’à 10 000 connexions. Supposons que l’utilisateur choisisse l’unité d’échelle 1. Chaque unité d’échelle implique le déploiement d’une passerelle active-active. Dans ce cas, chacune des 2 instances prend en charge jusqu’à 500 connexions. Étant donné que vous pouvez obtenir 500 connexions * 2 par passerelle, cela ne signifie pas que vous devez planifier 1 000 connexions au lieu des 500 pour cette unité d’échelle. En effet, il peut être nécessaire de réparer les instances, ce qui peut entraîner l’interruption de la connectivité pour les 500 connexions supplémentaires si vous dépassez le nombre recommandé.
+
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Quelle est la différence entre une passerelle de réseau virtuel Azure (passerelle VPN) et une passerelle VPN Azure Virtual WAN ?
 
 WAN virtuel fournit une connectivité de site à site à grande échelle et est conçu pour le débit, l’évolutivité et la facilité d’utilisation. Lorsque vous connectez un site à une passerelle VPN Virtual WAN, il est différent d’une passerelle de réseau virtuel normale qui utilise le type de passerelle « VPN ». De même, lorsque vous connectez un circuit ExpressRoute à un hub Virtual WAN, il utilise une ressource différente pour la passerelle ExpressRoute que la passerelle de réseau virtuel normale utilisant le type de passerelle « ExpressRoute ». Virtual WAN prend en charge un débit agrégé pouvant atteindre 20 Gbits/s pour VPN et ExpressRoute. Virtual WAN dispose également d’une automatisation pour la connectivité avec un écosystème de partenaires d’appareils de branche CPE. Les appareils de branche CPE intègrent une automatisation qui provisionne et se connecte automatiquement à Azure Virtual WAN. Ces périphériques sont disponibles à partir d’un écosystème croissant des partenaires SD-WAN et VPN. Consultez la [liste des partenaires préférés](../articles/virtual-wan/virtual-wan-locations-partners.md).

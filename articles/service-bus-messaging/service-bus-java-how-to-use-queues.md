@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
+ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 71afce335910e4d42fb3d67f6d443510a6599b8b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ac6bc8f78bd3d526e68dba3e81825a28a9ac47f7
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918320"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294127"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Démarrage rapide : Utiliser des files d’attente Azure Service Bus avec Java pour envoyer et recevoir des messages
 
@@ -41,9 +41,12 @@ Dans ce tutoriel, vous allez apprendre à créer des applications Java afin d’
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
-Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java] avant de créer cet exemple. Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][Azure Toolkit for Eclipse] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet :
+Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java] avant de créer cet exemple. 
+
+Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][Azure Toolkit for Eclipse] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet. Si vous utilisez IntelliJ, consultez [Installer Azure Toolkit for IntelliJ](/azure/java/intellij/azure-toolkit-for-intellij-installation). 
 
 ![Ajouter les bibliothèques Microsoft Azure pour Java à votre projet Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+
 
 Ajoutez les instructions `import` suivantes au début du fichier Java :
 
@@ -126,7 +129,7 @@ Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une opérat
 
 En mode **PeekLock**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant **complete()** pour le message reçu. Lorsque Service Bus voit l’appel **complete()** , il marque le message comme consommé et le supprime de la file d’attente. 
 
-L’exemple suivant montre comment les messages peuvent être reçus et traités à l’aide du mode **PeekLock** (qui n’est pas le mode par défaut). L’exemple ci-dessous utilise le modèle de rappel avec un gestionnaire de messages inscrit et traite les messages à mesure qu’ils arrivent dans notre `TestQueue`. Ce mode appelle **complete()** automatiquement quand le rappel est retourné normalement et appelle **abandon()** si le rappel lève une exception. 
+L’exemple suivant montre comment les messages peuvent être reçus et traités à l’aide du mode **PeekLock** (qui n’est pas le mode par défaut). L’exemple ci-dessous utilise le modèle de rappel avec un gestionnaire de messages inscrit, et traite les messages dès leur arrivée dans notre `TestQueue`. Ce mode appelle **complete()** automatiquement quand le rappel est retourné normalement et appelle **abandon()** si le rappel lève une exception. 
 
 ```java
     public void run() throws Exception {

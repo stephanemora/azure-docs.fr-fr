@@ -22,6 +22,8 @@
       href: Quickstarts/quickstart-sdk.md
 - name: Tutoriels
   items:
+    - name: Intégrer à l’agent virtuel Power BI
+      href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Tester avec un fichier de commandes
       href: Quickstarts/batch-testing.md
 - name: Concepts

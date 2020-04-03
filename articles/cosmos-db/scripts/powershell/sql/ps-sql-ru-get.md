@@ -1,20 +1,20 @@
 ---
-title: Script PowerShell pour obtenir le débit provisionné (RU/s) pour l’API SQL (Core) Azure Cosmos DB
-description: Script Azure PowerShell - Azure Cosmos DB - Obtenir le débit provisionné (RU/s) pour l’API SQL (Core)
+title: Script PowerShell pour obtenir le débit (RU/s) pour un conteneur ou une base de données d’API SQL Azure Cosmos DB
+description: Script Azure PowerShell pour obtenir le débit (RU/s) pour un conteneur ou une base de données d’API SQL Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9b4450e18aa2666806faf2c0baed8af2285e69dc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f471b1d41314728a6c6f0c5d2ab981891e2caa87
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441345"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365610"
 ---
-# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Obtenir le débit provisionné (RU/s) d’une base de données ou d’un conteneur pour Azure Cosmos DB - API SQL (Core)
+# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Obtenir le débit (RU/s) pour un conteneur ou une base de données d’API SQL Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441345"
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput for a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput (RU/s) for Azure Cosmos DB SQL API database or container")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -38,8 +38,9 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-|**Ressources Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crée une ressource. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Obtient le débit provisionné sur une base de données d’API SQL Azure Cosmos DB. |
+| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Obtient le débit provisionné sur un conteneur d’API SQL Azure Cosmos DB. |
 |**Groupes de ressources Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||

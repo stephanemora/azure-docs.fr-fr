@@ -1,20 +1,19 @@
 ---
-title: Script PowerShell pour obtenir le débit (RU/s) pour l’API Table Azure Cosmos DB
-description: Script Azure PowerShell - Obtention du débit (RU/s) Azure Cosmos DB pour l’API Table
+title: Script PowerShell pour mettre à jour les régions d’un compte Azure Cosmos
+description: Exemple de script Azure PowerShell – Mettre à jour les régions d’un compte Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 03/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0129b03e578d00689f085281d0499830e6ba37c2
+ms.openlocfilehash: 4a8e24b4445e2bf29b35e87600de260c523d4376
 ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365571"
+ms.locfileid: "80367172"
 ---
-# <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Obtenir le débit (RU/s) d’une table pour Azure Cosmos DB - API Table
+# <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Mettre à jour les régions d’un compte Azure Cosmos à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +21,12 @@ ms.locfileid: "80365571"
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-get.ps1 "Get throughput on a table for Table API")]
+> [!NOTE]
+> Vous ne pouvez pas modifier des régions et changer d’autres propriétés de compte Cosmos dans la même opération. Ces opérations doivent être effectuées séparément.
+> [!NOTE]
+> Cet exemple illustre l’utilisation d’un compte d’API SQL (Core). Pour utiliser cet exemple pour d’autres API, copiez les propriétés associées et appliquez-les à votre script propre à l’API.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -38,8 +42,8 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-|**Azure Cosmos DB**| |
-| [Get-AzCosmosDBTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Obtient la valeur de débit de la table d’API Table spécifiée. |
+|**Ressources Azure**| |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Met à jour une ressource. |
 |**Groupes de ressources Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 4/30/2019
+ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: c6d4d290493bbd234ab048e613b88f8857513cc8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1cfa2ab1d8bf096b1821f7473d9808801b47c547
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78299553"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371180"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Nouveautés d’Azure Application Gateway
 
@@ -27,6 +27,7 @@ Azure Application Gateway est mis à jour en continu. Pour vous informer des dé
 
 |Fonctionnalité  |Description  |Date de l’ajout  |
 |---------|---------|---------|
+| Routes définies par l’utilisateur (UDR) sur v2 (préversion) |Les routes définies par l’utilisateur sont désormais pris en charge dans certains scénarios sur les références SKU Application Gateway v2. Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Mars 2020 |
 |Modifications du cookie d’affinité |Quand l’affinité basée sur les cookies est activée, Application Gateway injecte un autre cookie identique appelé *ApplicationGatewayAffinityCORS* en plus du cookie ApplicationGatewayAffinity existant. *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés (*SameSite=None; Secure*) afin que les sessions persistantes soient conservées même pour les requêtes cross-origin. Pour plus d’informations, consultez [Affinité basée sur les cookies dans Application Gateway](configuration-overview.md#cookie-based-affinity). |Février 2020 |
 |Améliorations de la sonde |Grâce aux améliorations de la sonde personnalisées dans la référence SKU Application Gateway v2, nous avons simplifié la [configuration de la sonde](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), facilité les [tests d’intégrité principale à la demande](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) et ajouté [des informations de diagnostic](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) pour vous aider à résoudre des problèmes d’intégrité principale.  |2 octobre 2019 |
 |Métriques supplémentaires |Nous avons ajouté les nouvelles métriques suivantes pour vous aider à superviser votre référence SKU Application Gateway v2 : [Métriques liées au minutage](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), État de la réponse du back-end, Octets reçus, Octets envoyés, Protocole TLS du client et Unités de calcul actuelles. Consultez [Métriques prises en charge par le SKU Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Août 2019 |

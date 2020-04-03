@@ -56,7 +56,7 @@
     - name: Personnalisation
       items:
         - name: Préparer des données pour Custom Speech
-          href: how-to-custom-speech-test-data.md
+          href: how-to-custom-speech-test-and-train.md
         - name: Inspecter des données Custom Speech
           href: how-to-custom-speech-inspect-data.md
         - name: Évaluer la précision de Custom Speech
@@ -67,10 +67,6 @@
           href: how-to-custom-speech-deploy-model.md
         - name: Créer des transcriptions étiquetées par l’homme
           href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Instructions de nommage des mots clés personnalisés
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Détection de mots-clés personnalisés
-          href: speech-devices-sdk-create-kws.md
     - name: Informations de référence
       items:
         - name: API du SDK Speech
@@ -448,6 +444,10 @@
         - name: Conteneurs Speech sur des instances de conteneur Azure
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
+    - name: Ressources
+      items:
+        - name: Questions fréquentes (FAQ) sur les conteneurs
+          href: speech-container-faq.md
 - name: Kit de développement logiciel (SDK) de reconnaissance vocale
   items:
     - name: Vue d’ensemble

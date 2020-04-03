@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77913816"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371456"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migrer un service web à partir de Google Maps
 
@@ -75,7 +75,7 @@ Le tableau suivant référence de manière croisée les paramètres de l’API G
 Vous trouverez [ici](how-to-search-for-address.md) un exemple d’utilisation du service de recherche. Veillez à consulter les [bonnes pratiques pour la recherche](how-to-use-best-practices-for-search.md).
 
 > [!TIP]
-> Les API de géocodage d’adresses en forme libre et de recherche approximative peuvent être utilisées en mode autocomplétion en ajoutant `&amp;typeahead=true` à l’URL de la requête. Cela indiquera au serveur que le texte entré est probablement partiel, et la recherche passera en mode prédictif.
+> Les API de géocodage d’adresses en forme libre et de recherche approximative peuvent être utilisées en mode autocomplétion en ajoutant `&typeahead=true` à l’URL de la requête. Cela indiquera au serveur que le texte entré est probablement partiel, et la recherche passera en mode prédictif.
 
 ## <a name="reverse-geocode-a-coordinate"></a>Géocodage inverse d’une coordonnée
 
@@ -126,7 +126,7 @@ Azure Maps fournit plusieurs API de recherche de points d'intérêt :
 Actuellement, Azure Maps ne propose pas d’API comparable à l’API de recherche de texte de Google Maps.
 
 > [!TIP]
-> Les API de recherche de points d’intérêt, de catégorie de points d’intérêt et de recherche approximative peuvent être utilisées en mode autocomplétion en ajoutant `&amp;typeahead=true` à l’URL de la requête. Cela indiquera au serveur que le texte entré est probablement partiel. L’API effectuera la recherche en mode prédictif.
+> Les API de recherche de points d’intérêt, de catégorie de points d’intérêt et de recherche approximative peuvent être utilisées en mode autocomplétion en ajoutant `&typeahead=true` à l’URL de la requête. Cela indiquera au serveur que le texte entré est probablement partiel. L’API effectuera la recherche en mode prédictif.
 
 Consultez la documentation [Bonnes pratiques pour la recherche](how-to-use-best-practices-for-search.md).
 
@@ -221,6 +221,8 @@ L’API d’itinéraire Azure Maps offre certaines fonctionnalités supplémenta
 - Spécifiez la vitesse maximale du véhicule.
 
 De plus, le service Route dans Azure Maps prend en charge le [calcul des plages d’itinéraires](https://docs.microsoft.com/rest/api/maps/route/getrouterange). Le calcul des plages d’itinéraires est également appelé isochrones. Cela implique la génération d’un polygone couvrant une zone qui peut être parcourue dans n’importe quelle direction à partir d’un point d’origine, tout ceci dans un laps de temps ou une quantité de carburant spécifié(e).
+
+Consultez la documentation sur les [bonnes pratiques en matière de routage](how-to-use-best-practices-for-routing.md).
 
 ## <a name="retrieve-a-map-image"></a>Récupérer une image de carte
 
@@ -437,6 +439,8 @@ Le tableau suivant référence de manière croisée les paramètres de l’API G
 > [!TIP]
 > Toutes les options d’itinéraire avancées disponibles dans l’API de route Azure Maps sont prises en charge dans l’API de matrice des distances Azure Maps. Les options d’itinéraire avancées comprennent notamment les itinéraires pour camions et les caractéristiques du moteur.
 
+Consultez la documentation sur les [bonnes pratiques en matière de routage](how-to-use-best-practices-for-routing.md).
+
 ## <a name="get-a-time-zone"></a>Obtenir un fuseau horaire
 
 Azure Maps fournit une API pour récupérer le fuseau horaire d’une coordonnée. L'API de fuseau horaire d’Azure Maps est comparable à l'API de fuseau horaire de Google Maps :
@@ -476,6 +480,7 @@ Voici des documents et ressources supplémentaires pour les services REST Azure 
 
 - [Bonnes pratiques pour la recherche](how-to-use-best-practices-for-search.md)
 - [Rechercher une adresse](how-to-search-for-address.md)
+- [Bonne pratiques en matière de routage](how-to-use-best-practices-for-routing.md)
 - [Documentation de référence sur l’API de service REST Azure Maps](https://docs.microsoft.com/rest/api/maps/)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -486,7 +491,10 @@ En savoir plus sur les services REST Azure Maps.
 > [Meilleures pratiques pour l'utilisation du service de recherche](how-to-use-best-practices-for-search.md)
 
 > [!div class="nextstepaction"]
-> [Comment utiliser le module de services (SDK web)](how-to-use-services-module.md)
+> [Bonnes pratiques en matière d’utilisation du service de routage](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Comment utiliser le module de services (SDK web)](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
 > [Exemples de code](https://docs.microsoft.com/samples/browse/?products=azure-maps)

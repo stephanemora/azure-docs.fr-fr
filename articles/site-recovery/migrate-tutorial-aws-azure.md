@@ -9,16 +9,21 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789390"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388965"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
-Ce tutoriel vous montre comment migrer des machines virtuelles Amazon Web Services (AWS) vers des machines virtuelles Azure à l’aide d’Azure Site Recovery. Durant la migration d’instances AWS EC2 vers Azure, les machines virtuelles sont traitées comme des ordinateurs locaux physiques. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment migrer des machines virtuelles Amazon Web Services (AWS) vers des machines virtuelles Azure à l’aide d’Azure Site Recovery. Durant la migration d’instances AWS EC2 vers Azure, les machines virtuelles sont traitées comme des ordinateurs locaux physiques. Dans ce tutoriel, vous allez apprendre à :
+
+
+> [!TIP]
+> Vous devez maintenant utiliser le service Azure Migrate, et non le service Azure Site Recovery, pour migrer des machines virtuelles AWS vers Azure. [Plus d’informations](../migrate/tutorial-migrate-physical-virtual-machines.md)
+
 
 > [!div class="checklist"]
 > * Vérifier la configuration requise
@@ -32,11 +37,8 @@ Ce tutoriel vous montre comment migrer des machines virtuelles Amazon Web Servic
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 
-> [!NOTE]
-> Vous pouvez maintenant utiliser le service Azure Migrate pour migrer des instances AWS vers Azure. [Plus d’informations](../migrate/tutorial-migrate-physical-virtual-machines.md)
-
 ## <a name="prerequisites"></a>Prérequis
-- Assurez-vous que les machines virtuelles que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les versions prises en charge incluent : 
+- Assurez-vous que les machines virtuelles que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les versions prises en charge sont les suivantes : 
   - Windows Server 2016 
   - Windows Server 2012 R2
   - Windows Server 2012 
@@ -109,7 +111,7 @@ Quand les machines virtuelles Azure sont créées après la migration (basculeme
 
 Dans la page de votre coffre dans le portail Azure, dans la section **Bien démarrer**, sélectionnez **Site Recovery** puis sélectionnez sur **Préparer l’infrastructure**. Effectuez ensuite les tâches suivantes.
 
-### <a name="1-protection-goal"></a>1: Objectif de protection
+### <a name="1-protection-goal"></a>1 : Objectif de protection
 
 Dans la page **Objectif de protection**, sélectionnez les valeurs suivantes :
 
@@ -177,7 +179,7 @@ Activez la réplication pour chaque machine virtuelle que vous voulez migrer. Qu
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Dans la page correspondant à votre coffre, sous **Bien démarrer**, sélectionnez **Site Recovery**.
 2. Sous **Pour les ordinateurs locaux et les machines virtuelles Azure**, sélectionnez **Étape 1 : Répliquer l’application**. Remplissez les pages de l’Assistant avec les informations suivantes. Sélectionnez **OK** sur chaque page lorsque vous avez terminé :
-   - 1: Configurer la source
+   - 1 : Configurer la source
 
      |  |  |
      |-----|-----|
@@ -231,7 +233,7 @@ Dans le portail, effectuez le test de basculement :
 2. Sélectionnez un point de récupération à utiliser pour le basculement :
     - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par Site Recovery. L’horodatage est affiché. Cette option, avec laquelle aucun temps n’est passé à traiter les données, offre un objectif de délai de récupération faible (RTO).
     - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
-    - **Personnalisé** : sélectionnez n’importe quel point de récupération.
+    - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 
 3. Dans **Tester le basculement**, sélectionnez le réseau Azure cible auquel les machines virtuelles Azure seront connectées après le basculement. Il doit s’agir du réseau que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).
 4. Sélectionnez **OK** pour commencer le basculement. Pour suivre la progression, sélectionnez la machine virtuelle pour afficher ses propriétés. Ou vous pouvez sélectionner le travail **Test de basculement** sur la page de votre coffre. Pour ce faire, sélectionnez **Analyse et rapports** > **Travaux** >  **Travaux Site Recovery**.

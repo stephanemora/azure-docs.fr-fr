@@ -1,19 +1,19 @@
 ---
-title: Script PowerShell pour créer un compte Azure Cosmos avec pare-feu IP
-description: Exemple de script Azure PowerShell - Créer un compte Azure Cosmos avec pare-feu IP
+title: Script PowerShell pour créer un compte Azure Cosmos DB avec un pare-feu IP
+description: Exemple de script Azure PowerShell – Créer un compte Azure Cosmos DB avec un pare-feu IP
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6f018815bb8afd50bd9f21f8c088fd688ace1174
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f01e8e818a1b3cf4f999afa1e0801b2341ede2bf
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445085"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365669"
 ---
-# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>Créer un compte Azure Cosmos avec pare-feu IP
+# <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Créer un compte Azure Cosmos DB avec un pare-feu IP
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -40,10 +40,9 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-|**Ressources Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crée une ressource. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Crée un compte Cosmos DB. |
 |**Groupes de ressources Azure**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 

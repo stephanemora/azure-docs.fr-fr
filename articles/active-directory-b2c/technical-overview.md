@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1aed1b0a13482bc932024a9d2a131ec5f1d948ba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78186894"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332546"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -195,7 +195,7 @@ Vous pouvez ajouter un appel d’API REST à n’importe quelle étape du parcou
 * après la création par Azure AD B2C d’un compte dans l’annuaire ;
 * avant l’émission d’un jeton d’accès par Azure AD B2C.
 
-Pour savoir comment utiliser les stratégies personnalisées qui permettent l’intégration de l’API RESTful dans Azure AD B2C, consultez [Intégrer les échanges de revendications d’API REST dans votre parcours utilisateur Azure AD B2C](rest-api-claims-exchange-dotnet.md).
+Pour savoir comment utiliser les stratégies personnalisées qui permettent l’intégration de l’API RESTful dans Azure AD B2C, consultez [Intégrer les échanges de revendications d’API REST dans votre stratégie personnalisée Azure AD B2C](custom-policy-rest-api-intro.md).
 
 ## <a name="protect-customer-identities"></a>Protéger les identités des clients
 

@@ -1,73 +1,75 @@
 ---
 title: Configurer la récupération d’urgence Azure VM vers une région secondaire avec Azure Site Recovery
 description: Configurez rapidement la récupération d’urgence vers une autre région Azure pour une machine virtuelle Azure à l'aide du service Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.author: raynew
+ms.date: 03/27/2020
 ms.custom: mvc
-ms.openlocfilehash: de4d3ce11e23d7ec4f6ad26852e7d7d01eebe590
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e26c2a1f24a88dc979f4ec68de65afc618740c00
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75780009"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371861"
 ---
-# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurer la récupération d’urgence vers une région Azure secondaire pour une machine virtuelle Azure
+# <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Démarrage rapide : Configurer la récupération d’urgence vers une région Azure secondaire pour une machine virtuelle Azure
 
-Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
+Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de continuité d’activité et de reprise d’activité en maintenant vos applications métier en ligne pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la reprise d’activité des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
-Ce démarrage rapide explique comment configurer la récupération d’urgence pour une machine virtuelle Azure en la répliquant vers une autre région.
+Ce guide de démarrage rapide explique comment configurer la reprise d’activité pour une machine virtuelle Azure en la répliquant vers une région Azure secondaire. En général, les paramètres par défaut sont utilisés pour activer la réplication.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
 
-> [!NOTE]
-> Cet article sert de procédure pas à pas rapide pour les nouveaux utilisateurs. Il propose la méthode la plus rapide avec les options par défaut et une personnalisation minimale. Pour une procédure pas à pas complète, accédez au tutoriel [Activer la réplication](azure-to-azure-tutorial-enable-replication.md).
+Pour suivre ce tutoriel, vous avez besoin d’un abonnement Azure et d’une machine virtuelle.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+- Si vous n’avez pas de compte Azure avec un abonnement actif, vous pouvez [créer un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Nous recommandons une machine virtuelle avec au moins 1 Go de RAM. [Découvrez-en plus](/azure/virtual-machines/windows/quick-create-portal) sur la création d’une machine virtuelle.
+
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Activer la réplication des machines virtuelles Azure
 
-1. Dans le menu du portail Azure, sélectionnez **Machines virtuelles**, ou recherchez et sélectionnez *Machines virtuelles* sur n’importe quelle page. Sélectionnez la machine virtuelle à répliquer.
-2. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
-3. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous allez effectuer la réplication.
-4. Pour ce démarrage rapide, acceptez les autres paramètres par défaut.
-5. Sélectionnez **Réviser + lancer la réplication**. Ensuite, sélectionnez **Démarrer la réplication** pour démarrer un travail afin d’activer la réplication pour la machine virtuelle.
+Effectuez les étapes suivantes pour répliquer une machine virtuelle dans un emplacement secondaire.
 
-   ![activer la réplication](media/azure-to-azure-quickstart/enable-replication1.png)
+1. Dans le portail Azure, accédez au menu **Accueil** > **Machines virtuelles**, puis sélectionnez une machine virtuelle à répliquer.
+1. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
+1. Dans **De base** > **Région cible**, sélectionnez la région cible.
+1. Pour voir les paramètres de réplication, sélectionnez **Examiner + démarrer la réplication**. Si vous avez besoin de changer des valeurs par défaut, sélectionnez **Paramètres avancés**.
+1. Pour démarrer le travail qui active la réplication de la machine virtuelle, sélectionnez **Démarrer la réplication**.
+
+   :::image type="content" source="media/azure-to-azure-quickstart/enable-replication1.png" alt-text="Activez la réplication.":::
 
 ## <a name="verify-settings"></a>Vérifier les paramètres
 
 Une fois le travail de réplication terminé, vous pouvez vérifier l’état de la réplication, modifier les paramètres de réplication et tester le déploiement.
 
-1. Dans le menu du portail Azure, sélectionnez **Machines virtuelles**, ou recherchez et sélectionnez *Machines virtuelles* sur n’importe quelle page. Sélectionnez la machine virtuelle que vous souhaitez vérifier.
-2. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
+1. Dans le menu du portail Azure, sélectionnez **Machines virtuelles**, puis la machine virtuelle que vous avez répliquée.
+1. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
+1. Pour voir les détails de réplication à partir de la **Vue d’ensemble**, sélectionnez **Bases**. Vous trouverez plus de détails dans les sections **Intégrité et état** et **Disponibilité du basculement** ainsi que dans la carte **Affichage de l’infrastructure**.
 
-   Vous pouvez vérifier l’intégrité de la réplication, les points de récupération qui ont été créés ainsi que les régions sources et cibles sur la carte.
-
-   ![État de la réplication](media/azure-to-azure-quickstart/replication-status.png)
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="État de la réplication.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-La réplication de la machine virtuelle dans la région principale cesse quand vous désactivez la réplication pour cette machine :
+Pour arrêter la réplication de la machine virtuelle dans la région primaire, vous devez désactiver la réplication :
 
-- Les paramètres de réplication source sont automatiquement nettoyés. L’extension Site Recovery installée sur la machine virtuelle dans le cadre de la réplication n’est pas supprimée et doit être supprimée manuellement.
+- Les paramètres de réplication source sont automatiquement nettoyés.
+- L’extension Site Recovery installée sur la machine virtuelle pendant la réplication n’est pas supprimée.
 - La facturation Site Recovery pour la machine virtuelle cesse.
 
-Arrêtez la réplication comme suit :
+Pour désactiver la réplication, effectuez les étapes suivantes :
 
-1. Dans le menu du portail Azure, sélectionnez **Machines virtuelles**, ou recherchez et sélectionnez *Machines virtuelles* sur n’importe quelle page. Sélectionnez la machine virtuelle que vous souhaitez modifier.
-2. Dans **Récupération d’urgence**, sélectionnez **Désactiver la réplication**.
+1. Dans le menu du portail Azure, sélectionnez **Machines virtuelles**, puis la machine virtuelle que vous avez répliquée.
+1. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
+1. Dans la **Vue d’ensemble**, sélectionnez **Désactiver la réplication**.
+1. Pour désinstaller l’extension Site Recovery, accédez à la machine virtuelle et sélectionnez **Paramètres** > **Extensions**.
 
-   ![Désactiver la réplication](media/azure-to-azure-quickstart/disable2-replication.png)
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Désactivez la réplication":::.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez répliqué une seule machine virtuelle vers une région secondaire. À présent, réessayez la réplication de plusieurs machines virtuelles Azure à l’aide d’un plan de récupération.
+Dans ce démarrage rapide, vous avez répliqué une seule machine virtuelle vers une région secondaire. Ensuite, configurez la réplication pour plusieurs machines virtuelles Azure.
 
 > [!div class="nextstepaction"]
 > [Configurer la récupération d’urgence pour les machines virtuelles Azure](azure-to-azure-tutorial-enable-replication.md)

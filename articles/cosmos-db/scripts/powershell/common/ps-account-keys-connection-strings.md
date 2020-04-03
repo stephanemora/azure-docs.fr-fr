@@ -1,19 +1,19 @@
 ---
-title: Script PowerShell pour obtenir des opérations de clé et de chaîne de connexion pour un compte Azure Cosmos
-description: Exemple de script Azure PowerShell - Opérations de clé de compte et de chaîne de connexion pour un compte Azure Cosmos
+title: Script PowerShell pour obtenir des opérations de clé et de chaîne de connexion pour un compte Azure Cosmos DB
+description: Exemple de script Azure PowerShell – Opérations de clé de compte et de chaîne de connexion pour un compte Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 96be5f09cddf5eefec6b471d30cf87d0f687485d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6dd9d1290ea9d18fc6a5f18196585926b2ab91a
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441534"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366097"
 ---
-# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Opérations de clé de compte et de chaîne de connexion pour un compte Cosmos à l’aide de PowerShell
+# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-db-account-using-powershell"></a>Opérations de clé de compte et de chaîne de connexion pour un compte Azure Cosmos DB en utilisant PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441534"
 ## <a name="sample-script"></a>Exemple de script
 
 > [!NOTE]
-> Cet exemple illustre l’utilisation d’un compte d’API SQL (Core). Pour utiliser cet exemple pour d’autres API, copiez les propriétés associées et appliquez-les à votre script propre à l’API.
+> Cet exemple illustre l’utilisation d’un compte d’API SQL. Pour utiliser cet exemple avec d’autres API, copiez les propriétés afférentes et appliquez-les au script propre à votre API.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 
@@ -40,8 +40,9 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-|**Ressources Azure**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Appelle une action sur une ressource. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccountKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) | Obtient la chaîne de connexion ou la clé (en lecture-écriture ou en lecture seule) pour un compte Cosmos DB. |
+| [New-AzCosmosDBAccountKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccountkey) | Regénère la clé spécifiée pour un compte Cosmos DB. |
 |**Groupes de ressources Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||

@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer un blueprint dans le portail'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts via le portail Azure.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 457f4f9c53f45077129b291c904bc1580b6d965e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356818"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282050"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Démarrage rapide : Définir et affecter un blueprint dans le portail
 
@@ -29,6 +29,8 @@ La première étape de la définition d’un modèle standard à des fins de con
    Vous pouvez également sélectionner **Créer** dans la page **Démarrage** pour accéder directement à la création d’un blueprint.
 
    ![Créer un blueprint à partir de la page de définitions de blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
+
+1. Sélectionnez **Commencer par un blueprint vide** à partir de la carte dans la partie supérieure de la liste des blueprints intégrés.
 
 1. Dans **Nom du blueprint**, fournissez un nom tel que **MyBlueprint** (vous pouvez utiliser jusqu’à 48 lettres et chiffres, mais pas d’espaces ni de caractères spéciaux). Laissez le champ **Description du blueprint** vide pour l’instant.
 

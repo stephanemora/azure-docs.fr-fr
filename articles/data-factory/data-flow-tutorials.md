@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/04/2020
-ms.openlocfilehash: bb996b0abc16a3d6171c8f7ab2ac0e64dd0c1075
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.date: 03/24/2020
+ms.openlocfilehash: cc0feff48e7da35535e30c6741994f48750d931a
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096801"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80293505"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
@@ -107,6 +107,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 
 [Journalisation et audit](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
+[Optimiser dynamiquement la taille du cluster de flux de données au moment de l’exécution](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+
 ## <a name="mapping-data-flow-scenarios"></a>Scénarios de flux de données de mappage
 
 [Recherches floues](http://youtu.be/7gdwExjHBbw)
@@ -148,3 +150,5 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Fractionner des tableaux et une instruction case](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
 
 [Interpolation de chaîne et paramètres](https://youtu.be/hb3-cn2CMgM)
+
+[Introduction aux scripts de flux de données : copier, coller, extraits de code](https://www.youtube.com/watch?v=3_1I4XdoBKQ)

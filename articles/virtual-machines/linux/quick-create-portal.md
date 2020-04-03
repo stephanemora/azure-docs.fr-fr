@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bc1dd56cd024ee65e29f227f4ec11cde436e388d
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216127"
+ms.locfileid: "80294774"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux sur le Portail Azure
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux dans le portail Azure
 
 Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Le portail Azure est une interface utilisateur basée sur un navigateur permettant de créer des ressources Azure. Ce démarrage rapide explique comment utiliser le portail Azure pour déployer une machine virtuelle Linux exécutant Ubuntu 18.04 LTS. Pour voir votre machine virtuelle en action, vous établissez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
 
@@ -89,7 +89,7 @@ Créez une connexion SSH avec la machine virtuelle.
     ssh azureuser@10.111.12.123
     ```
 
-3. Avec le même interpréteur de commandes Bash que celui utilisé pour créer votre paire de clés SSH (vous pouvez rouvrir Cloud Shell en sélectionnant `>_` à nouveau ou en accédant à https://shell.azure.com/bash) ), collez la commande de connexion SSH dans l’interpréteur de commandes pour créer une session SSH.
+3. Avec le même interpréteur de commandes Bash que celui utilisé pour créer votre paire de clés SSH (vous pouvez rouvrir Cloud Shell en resélectionnant `>_` ou en accédant à `https://shell.azure.com/bash`), collez la commande de connexion SSH dans l’interpréteur de commandes pour créer une session SSH.
 
 ## <a name="install-web-server"></a>Installer le serveur web
 

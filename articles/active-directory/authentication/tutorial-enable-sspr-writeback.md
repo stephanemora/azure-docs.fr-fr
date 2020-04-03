@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccc64fb8dd8bd8abc198d9bfc9d643ef618188ea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f3578cb1326ebd701c3f00618c19a501a1476372
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967783"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332137"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutoriel : Activer la réécriture de la réinitialisation du mot de passe en libre-service Azure Active Directory dans un environnement local
 
@@ -51,10 +51,9 @@ Azure AD Connect vous permet de synchroniser utilisateurs, groupes et informatio
 Pour fonctionner correctement avec la réécriture SSPR, le compte spécifié dans Azure AD Connect doit disposer des autorisations et options appropriées définies. Si vous ne savez pas quel compte est actuellement utilisé, ouvrez Azure AD Connect et sélectionnez l’option **Afficher la configuration actuelle**. Le compte auquel vous devez ajouter des autorisations est listé sous **Annuaires synchronisés**. Les autorisations et options suivantes doivent être définies sur le compte :
 
 * **Réinitialiser le mot de passe**
-* **Modifier le mot de passe**
 * **Autorisations en écriture** sur `lockoutTime`
 * **Autorisations en écriture** sur `pwdLastSet`
-* **Droits étendus** sur l’un ou l’autre des éléments suivants :
+* **Droits étendus** pour « Ne pas faire expirer le mot de passe » sur, au choix :
    * L’objet racine de *chaque domaine* dans cette forêt
    * Les unités d’organisation utilisateur (UO) que vous souhaitez utiliser pour rester dans le cadre de la réinitialisation des mots de passe en libre-service
 
@@ -69,7 +68,6 @@ Afin de configurer les autorisations appropriées pour l’écriture différée 
 1. Pour **Principal**, sélectionnez le compte auquel les autorisations doivent être appliquées (compte utilisé par Azure AD Connect).
 1. Dans la liste déroulante **S’applique à**, sélectionnez **Objets utilisateur descendants**.
 1. Sous *Autorisations*, cochez les cases correspondant aux options suivantes :
-    * **Modifier le mot de passe**
     * **Réinitialiser le mot de passe**
 1. Sous *Propriétés*, cochez les cases correspondant aux options suivantes. Vous devez faire défiler la liste pour rechercher ces options qui peuvent être déjà définies par défaut :
     * **Écrire lockoutTime**
@@ -81,9 +79,12 @@ Afin de configurer les autorisations appropriées pour l’écriture différée 
 
 Lorsque vous mettez à jour des autorisations, la réplication de ces autorisations pour tous les objets de l’annuaire peut durer une heure ou plus.
 
-Les stratégies de mot de passe dans l’environnement AD DS local peuvent empêcher le traitement correct des réinitialisations de mot de passe. Pour que la réécriture du mot de passe fonctionne correctement, la stratégie de groupe pour *Âge minimal du mot de passe* doit être définie sur 0. Ce paramètre se trouve sous **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Stratégies de compte** dans `gpedit.msc`.
+Les stratégies de mot de passe dans l’environnement AD DS local peuvent empêcher le traitement correct des réinitialisations de mot de passe. Pour que la réécriture du mot de passe fonctionne le plus efficacement possible, la stratégie de groupe pour *Âge minimal du mot de passe* doit être définie sur 0. Ce paramètre se trouve sous **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Stratégies de compte** dans `gpedit.msc`. 
 
 Si vous mettez à jour la stratégie de groupe, attendez la réplication de la stratégie mise à jour ou utilisez la commande `gpupdate /force`.
+
+> [!Note]
+> Pour que les mots de passe soient modifiés immédiatement, la réécriture du mot de passe doit être définie sur 0. Toutefois, si les utilisateurs adhèrent aux stratégies locales et que le paramètre *Âge minimal du mot de passe* est défini sur une valeur supérieure à zéro, la réécriture du mot de passe fonctionnera encore une fois les stratégies locales évaluées. 
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Activer la réécriture du mot de passe dans Azure AD Connect
 

@@ -1,16 +1,16 @@
 ---
-title: 'Didacticiel : Exemple de blueprint dans un nouvel environnement'
+title: 'Tutoriel : Exemple de blueprint dans un nouvel environnement'
 description: Dans ce tutoriel, vous utilisez un exemple de blueprint pour créer une définition de blueprint qui définit jusqu’à deux groupes de ressources et configure une attribution de rôle pour chacun.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321734"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80282016"
 ---
-# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Didacticiel : Créer un nouvel environnement à partir d’un exemple de blueprint
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutoriel : Créer un nouvel environnement à partir d’un exemple de blueprint
 
 Les exemples de blueprint illustrent ce qui est réalisable à l’aide d’Azure Blueprints. Chaque exemple a été conçu avec une intention ou un but spécifique, mais ne permet pas de créer un environnement complet à lui seul. Chacun d’eux est conçu comme base d’exploration d’Azure Blueprints avec diverses combinaisons d’artefacts, de conceptions et de paramètres.
 
@@ -18,7 +18,7 @@ Le didacticiel suivant utilise l’exemple de blueprint **Groupes de ressources 
 
 > [!div class="checklist"]
 > - Créer une définition de blueprint à partir de l’exemple
-> - Marquez la copie de l’exemple en tant que **Publié**
+> - Marquer la copie de l’exemple en tant que **Publié**
 > - Affecter votre copie du blueprint à un abonnement existant
 > - Examiner les ressources déployées pour l’affectation
 > - Annuler l’affectation du blueprint afin de retirer les verrous
@@ -35,7 +35,7 @@ Tout d’abord, implémentez l’exemple de blueprint. L’importation crée un 
 
 1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
-1. Recherchez l’exemple de blueprint **Groupes de ressources avec RBAC** sous _Autres exemples_ et sélectionnez **Utiliser cet exemple**.
+1. Recherchez l’exemple de blueprint **Groupes de ressources avec RBAC** sous _Autres exemples_, puis sélectionnez-le.
 
 1. Entrez les _Fonctions de base_ de l’exemple de blueprint :
 
@@ -48,7 +48,7 @@ Tout d’abord, implémentez l’exemple de blueprint. L’importation crée un 
 
 1. Sélectionnez **Enregistrer comme brouillon** lorsque vous avez terminé de passer en revue l’exemple de blueprint.
 
-Cette étape crée une copie de l’exemple de définition de blueprint dans le groupe d’administration ou l’abonnement sélectionné. La définition de blueprint sauvegardée est gérée comme n’importe quel blueprint créé à partir de zéro. Vous pouvez sauvegarder l’exemple dans votre groupe d’administration ou votre abonnement autant de fois que nécessaire. Toutefois, chaque copie doit porter un nom unique.
+Cette étape crée une copie de l’exemple de définition de blueprint dans le groupe d’administration ou l’abonnement sélectionné. La définition de blueprint enregistrée est gérée comme n’importe quel blueprint créé à partir de zéro. Vous pouvez enregistrer l’exemple dans votre groupe d’administration ou votre abonnement autant de fois que nécessaire. Toutefois, chaque copie doit porter un nom unique.
 
 Dès que la notification **Définition de blueprint enregistrée** apparaît dans le portail, passez à l’étape suivante.
 
@@ -81,10 +81,10 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
    - Concepts de base
 
      - **Abonnements** : Sélectionnez un ou plusieurs des abonnements qui font partie du groupe d’administration où vous avez enregistré votre copie de l’exemple de blueprint. Si vous sélectionnez plusieurs abonnements, une affectation est créée pour chacun d’eux à l’aide des paramètres saisis.
-     - **Nom de l’affectation** : Le nom est pré-rempli automatiquement en fonction du nom de la définition du blueprint.
+     - **Nom de l’affectation** : Le nom est prérempli automatiquement en fonction du nom de la définition du blueprint.
      - **Emplacement** : Sélectionnez une région dans laquelle créer l’identité managée. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Pour ce didacticiel, sélectionnez _USA Est 2_.
-     - **Version de définition du blueprint** : Choisissez la version **Published** _1.0_ de votre copie de l’exemple de blueprint.
+     - **Version de définition du blueprint** : Choisissez la version **Published**_1.0_ de votre copie de l’exemple de blueprint.
 
    - Verrouiller l'affectation
 
@@ -101,10 +101,10 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
      |Nom de l’artefact|Type d’artefact|Nom du paramètre|Valeur|Description|
      |-|-|-|-|-|
      |Groupe de ressources ProdRG|Resource group|Nom|ProductionRG|Définit le nom du premier groupe de ressources.|
-     |Groupe de ressources ProdRG|Resource group|Location|USA Ouest 2|Définit l’emplacement du premier groupe de ressources.|
+     |Groupe de ressources ProdRG|Resource group|Emplacement|USA Ouest 2|Définit l’emplacement du premier groupe de ressources.|
      |Contributeur|Attribution de rôle|Utilisateur ou groupe|{Votre ID}|Définit l’utilisateur ou le groupe auquel attribuer le rôle _Contributeur_ dans le premier groupe de ressources.|
      |Groupe de ressources PreProdRG|Resource group|Nom|PreProductionRG|Définit le nom du deuxième groupe de ressources.|
-     |Groupe de ressources PreProdRG|Resource group|Location|USA Ouest|Définit l’emplacement du deuxième groupe de ressources.|
+     |Groupe de ressources PreProdRG|Resource group|Emplacement|USA Ouest|Définit l’emplacement du deuxième groupe de ressources.|
      |Propriétaire|Attribution de rôle|Utilisateur ou groupe|{Votre ID}|Définit l’utilisateur ou le groupe auquel attribuer le rôle _Propriétaire_ dans le deuxième groupe de ressources.|
      |Lecteurs|Attribution de rôle|Utilisateur ou groupe|{Votre ID}|Définit l’utilisateur ou le groupe auquel attribuer le rôle _Lecteurs_ dans le deuxième groupe de ressources.|
 
@@ -173,7 +173,7 @@ Du point de vue de la sécurité, les affectations de rôles restent déployées
 
 Dès que la notification **Affectation de blueprint supprimée** apparaît dans le portail, passez à l’étape suivante.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois le didacticiel terminé, supprimez les ressources suivantes :
 

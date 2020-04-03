@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
-ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/04/2020
+ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129668"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366522"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -53,7 +53,7 @@ Vous créez un espace de travail par le biais du portail Azure, une console web 
 
 Vous effectuez les étapes de configuration et d’exécution d’expérience suivantes par le biais d’Azure Machine Learning, accessible à l’adresse https://ml.azure.com. Cette interface web centralisée comprend des outils de machine learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétence. Cette interface n’est pas prise en charge par les navigateurs Internet Explorer.
 
-1. Connectez-vous à Azure Machine Learning à l’adresse https://ml.azure.com.
+1. Connectez-vous à [Azure Machine Learning](https://ml.azure.com).
 
 1. Sélectionnez votre abonnement et l’espace de travail que vous avez créé.
 
@@ -201,9 +201,9 @@ Les fichiers de déploiement sont plus volumineux que les fichiers de données e
 
 ### <a name="delete-the-deployment-instance"></a>Supprimer l’instance de déploiement
 
-Supprimez uniquement l’instance de déploiement d’Azure Machine Learning (accessible à l’adresse https://ml.azure.com/ ) si vous souhaitez conserver le groupe de ressources et l’espace de travail pour d’autres tutoriels et à des fins d’exploration. 
+Supprimez uniquement l’instance de déploiement d’Azure Machine Learning (accessible sur https:\//ml.azure.com/) si vous souhaitez conserver le groupe de ressources et l’espace de travail pour d’autres tutoriels et à des fins d’exploration. 
 
-1. Accédez à Azure Machine Learning à l’adresse https://ml.azure.com/. Accédez à votre espace de travail et, à gauche dans le volet **Ressources**, sélectionnez **Points de terminaison**. 
+1. Accéder à [Azure Machine Learning](https://ml.azure.com/). Accédez à votre espace de travail et, à gauche dans le volet **Ressources**, sélectionnez **Points de terminaison**. 
 
 1. Sélectionnez le déploiement à supprimer et sélectionnez **Supprimer**. 
 

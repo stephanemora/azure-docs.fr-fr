@@ -1,6 +1,6 @@
 ---
 title: Exemple de modèle - Créer une instance managée dans Azure SQL Database
-description: Exemple de script Azure PowerShell afin de créer une instance managée dans Azure SQL Database
+description: Utilisez cet exemple de script Azure PowerShell pour créer une instance managée dans Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: be6aa73fe72568e9762e5b7249bedc2e8c7d3bf7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a349be9ada756742f5fd5ba4819caa1d2a2d3268
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73691442"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80373165"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Utiliser PowerShell avec un modèle Azure Resource Manager pour créer une instance managée dans Azure SQL Database
 
@@ -38,7 +38,7 @@ Les commandes Azure PowerShell peuvent démarrer le déploiement à l’aide du 
 
 Les éléments que vous ne pouvez pas modifier ultérieurement sont le nom de l’instance, le nom d’utilisateur de l’administrateur SQL, le réseau virtuel et le sous-réseau. Les autres propriétés d’instance peuvent être modifiées.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet exemple suppose que vous avez [créé un environnement réseau valide](../sql-database-managed-instance-create-vnet-subnet.md) ou [modifié un réseau virtuel existant](../sql-database-managed-instance-configure-vnet-subnet.md) pour votre instance gérée. L’exemple utilise les applets de commande [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) et [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork). Vous devez donc vérifier que vous avez installé les modules PowerShell suivants :
 

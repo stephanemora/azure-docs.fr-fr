@@ -1,22 +1,19 @@
 ---
 title: Évaluer des machines virtuelles Hyper-V pour la migration vers Azure avec Azure Migrate | Microsoft Docs
-description: Décrit comment évaluer des machines virtuelles Hyper-V locales pour la migration vers Azure avec Azure Migrate.
+description: Décrit comment évaluer des machines virtuelles Hyper-V locales pour la migration vers Azure avec Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 01/23/2020
+ms.date: 03/23/2020
 ms.custom: mvc
-ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cb3c29e01b7917a6d639b6b2a53fc2842efc2172
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222006"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336772"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
-Cet article vous montre comment évaluer des machines virtuelles Hyper-V locales avec l’outil Azure Migrate : Server Assessment.
-
-[Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers.
-
+Cet article vous montre comment évaluer des machines virtuelles Hyper-V locales à l’aide de l’outil [Azure Migrate Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
 
 Ce tutoriel est le deuxième d’une série qui montre comment évaluer et migrer des machines virtuelles Hyper-V vers Azure. Dans ce tutoriel, vous allez apprendre à :
@@ -38,9 +35,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 - [Effectuez](tutorial-prepare-hyper-v.md) le premier tutoriel de cette série. Si vous ne le faites pas, les instructions de ce tutoriel ne fonctionneront pas.
 - Voici ce que vous avez dû faire dans le premier tutoriel :
-    - [Configurer des autorisations Azure](tutorial-prepare-hyper-v.md#prepare-azure) pour Azure Migrate.
-    - [Préparer les clusters, les hôtes et les machines virtuelles Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) pour l’évaluation.
-    - [Préparez le déploiement](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) de l’appliance Azure Migrate utilisée pour la détection et l’évaluation des machines virtuelles Hyper-V.
+    - [Préparer Azure](tutorial-prepare-hyper-v.md#prepare-azure) pour qu’il fonctionne avec Azure Migrate.
+    - [Préparer l’évaluation](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) des machines virtuelles et des hôtes Hyper-V.
+    - [Vérifier](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) ce dont vous avez besoin pour déployer l’appliance Azure Migrate dans le cadre de l’évaluation d’Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurer un projet Azure Migrate
 
@@ -52,22 +49,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 4. Dans **Bien démarrer**, cliquez sur **Ajouter des outils**.
 5. Sous l’onglet **Projet de migration**, sélectionnez votre abonnement Azure, puis créez un groupe de ressources si vous n’en avez pas.
-6. Dans **Détails du projet**, spécifiez le nom du projet et la région où vous voulez créer le projet.
-
-
-    ![Créer un projet Azure Migrate](./media/tutorial-assess-hyper-v/migrate-project.png)
-
-    Vous pouvez créer un projet Azure Migrate dans ces régions.
-
-    **Zone géographique** | **Région**
-    --- | ---
-    Asia  | Asie Sud-Est
-    Europe | Europe Nord ou Europe Ouest
-    Royaume-Uni |  Royaume-Uni Sud ou Royaume-Uni Ouest
-    États-Unis | USA Est, USA Ouest 2 ou USA Centre-Ouest
+6. Dans **Détails du projet**, spécifiez le nom du projet et la région où vous voulez créer le projet. [Passez en revue](migrate-support-matrix.md#supported-geographies) les régions dans lesquelles vous pouvez créer un projet Azure Migrate.
 
     - La région du projet est utilisée seulement pour stocker les métadonnées collectées à partir des machines virtuelles locales.
     - Vous pouvez sélectionner une autre région cible Azure quand vous migrez les machines virtuelles. Toutes les régions Azure sont prises en charge pour la cible de migration.
+
+    ![Créer un projet Azure Migrate](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. Cliquez sur **Suivant**.
 8. Dans **Sélectionner un outil d’évaluation**, sélectionnez **Azure Migrate : Server Assessment** > **Suivant**.
@@ -78,18 +65,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 10. Dans **Vérifier + ajouter des outils**, passez en revue les paramètres, puis cliquez sur **Ajouter des outils**.
 11. Attendez quelques minutes, le temps nécessaire au déploiement du projet Azure Migrate. Vous êtes dirigé vers la page du projet. Si vous ne voyez pas le projet, vous pouvez y accéder à partir de **Serveurs** dans le tableau de bord Azure Migrate.
 
+## <a name="set-up-the-azure-migrate-appliance"></a>Configurer l’appliance Azure Migrate
 
+Azure Migrate Server Assessment utilise une appliance Azure Migrate légère. L’appliance effectue la découverte des machines virtuelles, puis envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate.
+- L’appliance peut être configurée sur une machine virtuelle Hyper-V au moyen d’un disque dur virtuel Hyper-V téléchargé. Vous pouvez également configurer l’appliance sur une machine virtuelle ou physique à l’aide d’un script d’installation PowerShell.
+- Ce tutoriel utilise le disque dur virtuel. Passez en revue [cet article](deploy-appliance-script.md) si vous souhaitez configurer l’appliance à l’aide d’un script.
 
-
-## <a name="set-up-the-appliance-vm"></a>Configurer la machine virtuelle de l’appliance
-
-Azure Migrate Server Assessment exécute une appliance de machine virtuelle Hyper-V légère.
-
-- Cette appliance effectue la découverte des machines virtuelles, et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate : Server Assessment.
-- Pour configurer l’appliance, vous devez :
-    - Téléchargez un disque dur virtuel Hyper-V compressé à partir du portail Azure.
-    - Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
-    - Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
+Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment, configurez-la pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
 ### <a name="download-the-vhd"></a>Télécharger le disque dur virtuel
 
@@ -150,6 +132,9 @@ Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL A
 ### <a name="configure-the-appliance"></a>Configurer l’appliance
 
 Configurez l’appliance pour la première fois.
+
+> [!NOTE]
+> Si vous configurez l’appliance à l’aide d’un [script PowerShell](deploy-appliance-script.md) au lieu du disque dur virtuel téléchargé, ne tenez pas compte des deux premières étapes de cette procédure.
 
 1. Dans Gestionnaire Hyper-V> **Machines virtuelles**, cliquez avec le bouton droit sur la machine virtuelle > **Se connecter**.
 2. Spécifiez la langue, le fuseau horaire et le mot de passe pour l’appliance.
@@ -252,7 +237,7 @@ Exécutez une évaluation comme suit :
 
     ![Propriétés de l’évaluation](./media/tutorial-assess-hyper-v/assessment-properties.png)
 
-3. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer** et spécifiez un nom de groupe. Un groupe rassemble une ou plusieurs machines virtuelles à évaluer.
+3. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer**, puis spécifiez un nom de groupe. Un groupe rassemble une ou plusieurs machines virtuelles à évaluer.
 4. Dans **Ajouter des machines au groupe**, sélectionnez les machines virtuelles à ajouter au groupe.
 5. Cliquez sur **Créer une évaluation** pour créer le groupe, puis exécutez l’évaluation.
 
