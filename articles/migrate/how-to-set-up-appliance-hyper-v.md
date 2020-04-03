@@ -2,29 +2,27 @@
 title: Configurer une appliance Azure Migrate pour Hyper-V
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles Hyper-V.
 ms.topic: article
-ms.date: 11/19/2019
-ms.openlocfilehash: 8199525a118ffca2cfc03734283eb26facba8483
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/23/2020
+ms.openlocfilehash: 80db2c1d4f5482604ca1507174b127c150f76044
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598338"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336814"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurer une appliance pour les machines virtuelles Hyper-V
 
-Cet article explique comment configurer l’appliance Azure Migrate si vous évaluez des machines virtuelles Hyper-V avec l’outil Azure Migrate Server Assessment ou si vous migrez des machines virtuelles VMware vers Azure à l’aide de l’outil de migration de serveur Azure Migrate.
+Cet article explique comment configurer l'appliance Azure Migrate pour l'évaluation des machines virtuelles Hyper-V à l'aide de l'outil [Azure Migrate : Évaluation de serveurs](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
-L’appliance de machines virtuelles Hyper-V est une appliance légère utilisée par Azure Migrate Server Assessment/Migration pour effectuer les opérations suivantes :
+L'[appliance Azure Migrate](migrate-appliance.md) est une appliance légère utilisée par Azure Migrate : Évaluation/Migration de serveurs pour découvrir les machines virtuelles Hyper-V locales et envoyer les métadonnées/données de performances des machines virtuelles à Azure.
 
-- Découvrir des machines virtuelles Hyper-V locales.
-- Envoyer des métadonnées et des données de performances pour les machines virtuelles découvertes à Azure Migrate Server Assessment/Migration.
-
-[En savoir plus](migrate-appliance.md) sur les appliances d’Azure Migrate.
+Vous pouvez configurer l'appliance Azure Migrate pour l'évaluation des machines virtuelles Hyper-V à l'aide d'un modèle VHD que vous téléchargez ou à l'aide d'un script d'installation PowerShell. Cet article explique comment configurer l'appliance à l'aide du modèle VHD. Si vous souhaitez configurer l'appliance à l'aide du script, suivez les instructions fournies dans [cet article](deploy-appliance-script.md).
 
 
-## <a name="appliance-deployment-steps"></a>Étapes de déploiement d’appliance
+## <a name="appliance-deployment-vhd"></a>Déploiement d'appliance (VHD)
 
-Pour configurer l’appliance, vous devez :
+Pour configurer l'appliance à l'aide d'un modèle VHD :
+
 - Téléchargez un disque dur virtuel Hyper-V compressé à partir du portail Azure.
 - Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
 - Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
@@ -79,7 +77,7 @@ Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL A
 
 ## <a name="configure-the-appliance"></a>Configurer l’appliance
 
-Configurez l’appliance pour la première fois.
+Configurez l’appliance pour la première fois. Si vous déployez l'appliance à l'aide d'un script au lieu d'un modèle VHD, les deux premières étapes de la procédure ne s'appliquent pas.
 
 1. Dans Gestionnaire Hyper-V> **Machines virtuelles**, cliquez avec le bouton droit sur la machine virtuelle > **Se connecter**.
 2. Spécifiez la langue, le fuseau horaire et le mot de passe pour l’appliance.

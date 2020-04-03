@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c754f33ab5f4346413b6603ca2cd404acac5443f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662398"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371601"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -110,6 +110,19 @@ Pour contrôler la plage de l’axe des y, utilisez le menu du graphique « ... 
 
 > [!WARNING]
 > En général, pour verrouiller les limites de l’axe y pour les graphiques qui effectuent le suivi de nombres ou de sommes différents sur une période (et par conséquent, utilisent les agrégations de compte, somme, minimum ou maximum), vous devez spécifier une granularité temporelle fixe plutôt que de conserver les valeurs définies automatiquement par défaut. En effet, les valeurs des graphiques changent lorsque la granularité temporelle est modifiée automatiquement par l’utilisateur qui redimensionne sa fenêtre de navigation ou qui change de résolution d’écran. La modification de la granularité temporelle qui en découle affecte l’apparence du graphique et invalide la sélection actuelle de la plage de l’axe y.
+
+## <a name="change-colors-of-chart-lines"></a>Modifier les couleurs des lignes des graphiques
+
+Une fois les graphiques configurés, une couleur est automatiquement attribuée à leurs lignes à partir d'une palette par défaut. Vous pouvez modifier ces couleurs.
+
+Pour changer la couleur d'une ligne, cliquez sur la barre de couleur dans la légende qui correspond au graphique. La boîte de dialogue du sélecteur de couleurs s'ouvre. Utilisez le sélecteur de couleurs pour configurer la couleur de la ligne.
+
+Une fois configurées, les couleurs sont conservées lorsque vous épinglez le graphique sur un tableau de bord. La section suivante explique comment épingler un graphique.
+
+> [!NOTE]
+> En raison de contraintes liées à notre calendrier de mise en production et de publication, la modification des couleurs des lignes des graphiques nécessite temporairement la transmission d'un paramètre spécial **?feature.colorpicker=true** au démarrage du portail Azure [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). Cette limitation sera supprimée prochainement. 
+
+![image de métrique](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Épingler des graphiques à des tableaux de bord
 

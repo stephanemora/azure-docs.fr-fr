@@ -1,20 +1,20 @@
 ---
 title: Méthodes d’authentification | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir l’authentification Azure Active Directory (Azure AD) et l’authentification par clé partagée. Les deux sont utilisées pour les services Microsoft Azure Maps. Découvrez comment obtenir une clé d’abonnement Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 171219c001f43137a52f29b282fb1705b3d836aa
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 21d29cba85adfc147ec9deb6ab362a5da943bf10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649821"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335698"
 ---
 # <a name="authentication-with-azure-maps"></a>Authentification avec Azure Maps
 
@@ -25,7 +25,7 @@ Azure Maps prend en charge deux méthodes pour authentifier les requêtes : Aut
 
 ## <a name="shared-key-authentication"></a>Authentification par clé partagée
 
- Les clés primaires et secondaires sont générées après la création du compte Azure Maps. Nous vous encourageons à utiliser la clé primaire comme clé d’abonnement lors de l’appel d’Azure Maps à l’aide de l’authentification par clé partagée. L’authentification par clé partagée transmet une clé générée par un compte Azure Maps à un service Azure Maps. Pour chaque requête envoyée aux services Azure Maps, ajoutez la *clé d’abonnement* à l’URL en tant que paramètre. La clé secondaire peut être utilisée dans des scénarios tels que le roulement des changements de clés.  
+ Les clés primaires et secondaires sont générées après la création du compte Azure Maps. Nous vous encourageons à utiliser la clé primaire comme clé d’abonnement lors de l’appel d’Azure Maps à l’aide de l’authentification par clé partagée. L’authentification par clé partagée transmet une clé générée par un compte Azure Maps à un service Azure Maps. Pour chaque requête envoyée aux services Azure Maps, ajoutez la *clé d’abonnement* à l’URL en tant que paramètre. La clé secondaire peut être utilisée dans des scénarios tels que le roulement des changements de clés.  
 
 Pour plus d’informations sur l’affichage de vos clés dans le portail Azure, consultez [Gérer l’authentification](https://aka.ms/amauthdetails).
 

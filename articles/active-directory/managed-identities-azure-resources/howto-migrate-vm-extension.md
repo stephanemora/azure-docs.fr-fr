@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 3440713c287967655678e1cde2c000a6ed28b900
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 01b8e1dbc290bed86ccfc3c7016e8bd9168e427a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183954"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049067"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Comment cesser d’utiliser l’extension de machine virtuelle pour les identités managées et commencer à utiliser Azure Instance Metadata Service
 
@@ -123,7 +123,7 @@ Metadata: true
 | ------- | ----------- |
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
 | `http://localhost:50342/oauth2/token` | Le point de terminaison d’identités managées pour ressources Azure, où 50342 est le port par défaut configurable. |
-| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, https://management.azure.com/. |
+| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, `https://management.azure.com/`. |
 | `Metadata` | Un champ d’en-tête de requête HTTP, requis par les identités managées pour ressources Azure afin d’atténuer une attaque par falsification de requête côté serveur (SSRF). Cette valeur doit être définie sur « true », en minuscules.|
 | `object_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément object_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
 | `client_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément client_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
@@ -172,7 +172,7 @@ Où :
 
 #### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Le « Script d’automatisation » échoue lors de la tentative d’exportation de schéma pour l’extension des entités managées pour ressources Azure
 
-Lorsque des identités managées pour ressources Azure sont activées sur une machine virtuelle, l’erreur suivante s’affiche en cas de tentative d’utilisation de la fonctionnalité « Script d’automatisation » pour la machine virtuelle ou son groupe de ressources :
+Lorsque des identités managées pour ressources Azure sont activées sur une machine virtuelle, le message d'erreur suivant s'affiche en cas de tentative d'utilisation de la fonctionnalité « Script d'automatisation » pour la machine virtuelle ou son groupe de ressources :
 
 ![Erreur d’exportation de script d’automatisation d’identités managées pour ressources Azure](./media/howto-migrate-vm-extension/automation-script-export-error.png)
 

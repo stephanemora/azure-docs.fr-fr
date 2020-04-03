@@ -16,12 +16,12 @@ ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 59bf7ae5914f5cc886d95f25b36abccfdf09c4a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096060"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331285"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
@@ -75,7 +75,7 @@ Si la réécriture du mot de passe n’est pas configurée pour un utilisateur s
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Qu’est-ce que les agents de l’authentification directe communiquent via les ports 80 et 443 ?
 
 - Les agents d’authentification établissent les requêtes HTTPS sur le port 443 pour toutes les opérations de fonctionnalité.
-- Les agents d’authentification établissent des requêtes HTTP sur le port 80 pour télécharger des listes de révocations de certificats SSL (CRL).
+- Les agents d'authentification établissent des requêtes HTTP sur le port 80 pour télécharger les listes de révocations de certificats TLS/SSL (CRL).
 
      >[!NOTE]
      >Dans les mises à jour récentes, le nombre de ports requis par la fonctionnalité a été diminué. Si vous disposez de versions antérieures d’Azure AD Connect ou de l’agent d’authentification, laissez ces ports également ouverts : 5671, 8080, 9090, 9091, 9350, 9352 et 10100-10120.

@@ -9,18 +9,20 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: c4f5650e333c209d3b5f342c1f1c61ec1ca5cf47
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5ee3b97eb835322a0ad6c8a69c20776a243713fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264286"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415111"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extension Windows de capture instantanée de machine virtuelle pour la Sauvegarde Azure
 
 La Sauvegarde Azure fournit une prise en charge permettant de sauvegarder les charges de travail depuis l’environnement local vers le cloud, et les ressources cloud dans le coffre Recovery Services. La Sauvegarde Azure se sert d’une extension de capture instantanée de machine virtuelle pour récupérer une sauvegarde cohérente des applications de la machine virtuelle Azure, sans nécessiter l’arrêt de la machine virtuelle. L’extension de capture instantanée de machine virtuelle est publiée et prise en charge par Microsoft dans le cadre du service de Sauvegarde Azure. La Sauvegarde Azure installe l’extension lors de la première sauvegarde planifiée qui est déclenchée après l’activation du service de sauvegarde. Ce document présente les plateformes, configurations et options de déploiement qui sont prises en charge pour l’extension de capture instantanée de machine virtuelle.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+L'extension VMSnapshot n'apparaît sur le portail Azure que pour les machines virtuelles non gérées.
+
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 Pour obtenir la liste des systèmes d’exploitation pris en charge, reportez-vous à [Systèmes d’exploitation pris en charge par la Sauvegarde Azure](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -57,7 +59,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de capture instant
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Name | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | Date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |

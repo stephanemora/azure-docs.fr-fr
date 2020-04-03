@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 227dfaff211eb60c5c2b25b5c76ecc82b6ce3edc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773544"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240789"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métriques Azure Service Bus dans Azure Monitor
 
@@ -87,6 +87,13 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 | Messages de lettres mortes| Nombre de messages de lettres mortes dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/>Dimension : EntityName |
 | Messages planifiés| Nombre de messages planifiés dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average  <br/> Dimension : EntityName |
 
+> [!NOTE]
+> Les valeurs des métriques suivantes sont des valeurs à un moment donné. Les messages entrants consommés immédiatement après ce moment peuvent ne pas apparaître dans ces métriques. 
+> - Messages
+> - Messages actifs 
+> - Messages de lettres mortes 
+> - Messages planifiés 
+
 ## <a name="connection-metrics"></a>Métriques de connexion
 
 | Nom de métrique | Description |
@@ -97,6 +104,10 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 
 > [!NOTE] 
 > Les métriques suivantes sont disponibles uniquement avec le niveau **Premium**. 
+> 
+> Les principales métriques à surveiller en cas d'interruption pour un espace de noms du niveau Premium sont les suivantes : **Utilisation du processeur par espace de noms** et **Taille de la mémoire par espace de noms**. [Configurer des alertes](../azure-monitor/platform/alerts-metric.md) pour ces métriques à l'aide d'Azure Monitor.
+> 
+> Vous pouvez également surveiller la métrique suivante : **Requêtes limitées**. Mais cela ne doit pas poser de problème tant que l'espace de noms reste dans les limites de sa mémoire, de son processeur et des connexions réparties. Pour plus d'informations, consultez [Limitation au niveau Premium d'Azure Service Bus](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier).
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
@@ -125,7 +136,7 @@ Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans
         ![Sélectionnez un espace de noms](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Sélectionnez **Ajouter des critères**, puis effectuez les actions suivantes dans la page **Configurer la logique du signal** :
     1. Sélectionnez **Métriques** comme **Type de signal**. 
-    2. Sélectionnez un signal. Par exemple :  **Erreurs de service**. 
+    2. Sélectionnez un signal. Par exemple : **Erreurs de service**. 
 
         ![Sélectionnez Erreurs de serveur](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Sélectionnez **Supérieur à** sous **Condition**.

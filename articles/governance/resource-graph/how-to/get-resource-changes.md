@@ -4,10 +4,10 @@ description: Découvrez comment savoir quand une ressource a été modifiée, ob
 ms.date: 10/09/2019
 ms.topic: how-to
 ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873027"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
@@ -40,8 +40,8 @@ La première étape pour voir ce qui a changé sur une ressource consiste à rec
 
 Le point de terminaison **resourceChanges** accepte les paramètres suivants dans le corps de la requête :
 
-- **resourceId** \[obligatoire\] : ressource Azure sur laquelle rechercher des modifications.
-- **interval** \[obligatoire\] : propriété avec dates de _début_ et de _fin_ pour le contrôle d’un événement de modification à l’aide de **Zulu fuseau horaire (Z)** .
+- **resourceId** \[requis\] : ressource Azure sur laquelle rechercher des modifications.
+- **interval** \[requis\] : propriété avec dates de _début_ et de _fin_ pour le contrôle d’un événement de modification à l’aide de **Zulu fuseau horaire (Z)** .
 - **fetchPropertyChanges** (facultatif) : propriété booléenne qui définit si l’objet de réponse comprend des modifications de propriété.
 
 Exemple de corps de requête :

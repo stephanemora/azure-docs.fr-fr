@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6bb57a60b2ed3b39bf83154d3afea88071efbac
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f43db805ccbb7d4e546c51bbe39350f4bbba2efb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672418"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049981"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
@@ -43,7 +43,7 @@ Utilisez l’éditeur Active Directory Services Interfaces Editor (ADSI Edit) po
 1. Lancez l’application de bureau **ADSI Edit** à partir d’un poste de travail d’administration ou d’un contrôleur de domaine en tant qu’administrateur d’entreprise.
 1. Connectez-vous au **contexte d’appellation de configuration** de votre domaine.
 1. Accédez à **CN=Configuration,DC=contoso,DC=com** > **CN=Services** > **CN=Device Registration Configuration**.
-1. Cliquez avec le bouton droit sur l’objet Nœud terminal sous **CN=Device Registration Configuration** et sélectionnez **Properties** (Propriétés).
+1. Cliquez avec le bouton droit sur l'objet Nœud terminal **CN=62a0ff2e-97b9-4513-943f-0d221bd30080** et sélectionnez **Propriétés**.
    1. Sélectionnez **keywords** (Mots clés) à partir de la fenêtre **Éditeur d’attributs** et cliquez sur **Modifier**.
    1. Sélectionnez les valeurs de **azureADId** et **azureADName** (une à la fois) et cliquez sur **Supprimer**.
 1. Fermez **ADSI Edit**.

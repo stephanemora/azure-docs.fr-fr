@@ -3,29 +3,29 @@ title: Emplacement de la ressource de modèle
 description: Décrit comment définir un emplacement de ressource dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 24d278df8f71fecfaec4f0fa3a84172bf1db942b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122404"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156427"
 ---
-# <a name="set-resource-location-in-resource-manager-template"></a>Définir l’emplacement des ressources dans un modèle Resource Manager
+# <a name="set-resource-location-in-arm-template"></a>Définir l'emplacement des ressources dans un modèle Resource Manager
 
-Lorsque vous déployez un modèle, vous devez fournir un emplacement pour chaque ressource. L’emplacement n’a pas à être le même que celui du groupe de ressources.
+Lorsque vous déployez un modèle Azure Resource Manager (ARM), vous devez fournir un emplacement pour chaque ressource. L’emplacement n’a pas à être le même que celui du groupe de ressources.
 
 ## <a name="get-available-locations"></a>Obtenir les emplacements disponibles
 
 Différents types de ressources sont pris en charge à différents emplacements. Pour obtenir les emplacements pris en charge pour un type de ressource, utilisez Azure PowerShell ou Azure CLI.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes `
   | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az provider show \
@@ -96,4 +96,4 @@ L’exemple suivant illustre le déploiement d’un compte de stockage dans un e
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles Azure Resource Manager](template-functions.md).
-* Pour plus d’informations sur les fichiers de modèle, voir [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+* Pour plus d'informations sur les fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).

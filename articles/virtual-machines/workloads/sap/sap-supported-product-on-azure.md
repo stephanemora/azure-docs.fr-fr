@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 03/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08852a9421d714b601d724c5309153a028c960bb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f0aaa13ff4d3331378cc17cd0cde29be43822397
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599566"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460787"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Logiciels SAP dont le déploiement est pris en charge sur Azure
 Cet article explique comment identifier les logiciels SAP dont le déploiement est pris en charge sur Azure, ainsi que les versions de système d’exploitation ou système de gestion de base de données nécessaires.
@@ -94,6 +94,9 @@ Pour l’exécution de SAP HANA, SAP doit remplir des besoins d’infrastructure
 > [!NOTE]
 > Les unités qui commencent par la lettre « S » sont des unités de [grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
 
+> [!NOTE]
+> Aucune certification SAP spécifique ne dépend des versions majeures de SAP HANA. Contrairement à une idée reçue au sujet de la colonne **Scénario de certification** des [plateformes IaaS certifiées HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure), la colonne ne comprend **aucune instruction sur la version majeure ou mineure HANA certifiée**. Vous devez partir du principe que toutes les unités répertoriées peuvent être utilisées pour HANA 1.0 et HANA 2.0 tant que les versions certifiées du système d'exploitation des unités spécifiques sont également prises en charge par les versions HANA 1.0. 
+
 Pour l’utilisation de SAP HANA, les versions minimales de système d’exploitation applicables peuvent différer de celles appropriées pour les cas généraux NetWeaver. Vous devez vérifier individuellement les systèmes d’exploitation pris en charge pour chaque unité, car ils peuvent varier. Pour ce faire, cliquez sur chaque unité. Cela a pour effet d’afficher des détails supplémentaires. Parmi ces détails figurent les différents systèmes d’exploitation pris en charge pour cette unité spécifique.
 
 > [!NOTE]
@@ -108,7 +111,7 @@ Lorsque vous connaissez les versions de HANA spécifiques que vous pouvez exécu
 
 
 ## <a name="certified-azure-vms-and-hana-large-instance-units-and-business-transaction-throughput"></a>Machines virtuelles Azure certifiées, unités de grande instance HANA et débit de transactions
-Outre l’évaluation des versions de système d’exploitation prises en charge, des versions de SGBD et des versions de logiciels SAP de support qui en dépendent pour les unités d’infrastructure Azure, vous devez qualifier ces unités par le débit de transactions exprimé dans l’unité « SAP » par SAP. Tout le dimensionnement de SAP tourne autour des SAP. En évaluant les systèmes SAP existants, vous pouvez généralement, avec l’aide de votre fournisseur d’infrastructure, calculer les SAP des unités. Pour la couche SGBD, ainsi que pour la couche application. Dans d’autres cas où de nouvelles fonctionnalités sont créées, un exercice de dimensionnement avec SAP peut révéler les chiffres de SAP requis pour la couche application et la couche SGBD. En tant que fournisseur d’infrastructure, Microsoft est tenu de fournir les caractéristiques de débit SAP des différentes unités certifiées NetWeaver et/ou HANA.
+Outre l’évaluation des versions de système d’exploitation prises en charge, des versions de SGBD et des versions de logiciels SAP de support qui en dépendent pour les unités d’infrastructure Azure, vous devez qualifier ces unités par le débit de transactions exprimé dans l’unité « SAP » par SAP. Le dimensionnement SAP dépend intégralement des calculs SAP. En évaluant les systèmes SAP existants, vous pouvez généralement, avec l’aide de votre fournisseur d’infrastructure, calculer les SAP des unités. Pour la couche SGBD, ainsi que pour la couche application. Dans d’autres cas où de nouvelles fonctionnalités sont créées, un exercice de dimensionnement avec SAP peut révéler les chiffres de SAP requis pour la couche application et la couche SGBD. En tant que fournisseur d’infrastructure, Microsoft est tenu de fournir les caractéristiques de débit SAP des différentes unités certifiées NetWeaver et/ou HANA.
 
 Pour des machines virtuelles Azure, ces chiffres de débit SAP figurent dans la [Note de support SAP n°1928533](https://launchpad.support.sap.com/#/notes/1928533). Pour les unités de grande instance Azure HANA, les chiffres de débit SAP figurent dans la [Note de support SAP n°2316233](https://launchpad.support.sap.com/#/notes/2316233)
 
@@ -128,7 +131,7 @@ Pour les services de données Business Objects, la [Note de support SAP n°22288
 > [!NOTE]
 > Comme indiqué dans la note de support SAP, vous devez consulter le PAM SAP afin d’identifier le niveau de package de support correct qu’Azure doit prendre en charge.
 
-La prise en charge de SAP DataHub/vora par Azure Kubernetes Service (AKS) est détaillée dans la [Note de support SAP n°2464722](https://launchpad.support.sap.com/#/notes/2464722)
+La prise en charge de SAP DataHub/Vora par Azure Kubernetes Service (AKS) est détaillée dans la [Note de support SAP n°2464722](https://launchpad.support.sap.com/#/notes/2464722)
 
 La prise en charge de SAP BPC 10.1 SP08 est décrite dans la [Note de support SAP n°2451795](https://launchpad.support.sap.com/#/notes/2451795)
 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: ceb2626a43ed44338bb0faad475ae2333af2de9e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67177295"
 ---
 Vérifiez que vous avez déjà [créé un espace de noms de relais][namespace-how-to].
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Toutes les ressources**.
 3. Sélectionnez l’espace de noms dans lequel vous souhaitez créer la connexion hybride. Dans ce cas, il s’agit de **mynewns**.  
 4. Sous **Espace de noms de relais**, sélectionnez **Connexions hybrides**.
@@ -26,6 +26,6 @@ Vérifiez que vous avez déjà [créé un espace de noms de relais][namespace-ho
 6. Sous **Créer une connexion hybride**, saisissez une valeur comme nom de la connexion hybride. Conservez les autres valeurs par défaut.
    
     ![Sélectionner Nouveau](./media/relay-create-hybrid-connection-portal/create-hc-3.png)
-7. Sélectionnez **Créer**.
+7. Sélectionnez **Create** (Créer).
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 

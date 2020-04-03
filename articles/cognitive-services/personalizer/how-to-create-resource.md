@@ -2,13 +2,13 @@
 title: Créer une ressource Personalizer
 description: La configuration du service porte sur la façon dont le service traite les récompenses, la fréquence à laquelle le service effectue une exploration, la fréquence à laquelle le modèle est réentraîné et la quantité de données stockées.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: cb14415f3a5950ad1534d9eb8da94198a41f4f91
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/26/2020
+ms.openlocfilehash: adb97db53d1fc0b6f0cdb14b697c82ec52501b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77624183"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336061"
 ---
 # <a name="create-a-personalizer-resource"></a>Création d’une ressource Personalizer
 
@@ -29,20 +29,24 @@ Créez une ressource Personalizer pour chaque boucle de rétroaction.
 
 1. Sélectionnez **Créer** pour créer la ressource.
 
-1. Une fois votre ressource Personalizer déployée, sélectionnez le bouton **Accéder à la ressource** pour y accéder. Accédez à la page **Configuration** de la nouvelle ressource pour [configurer la boucle d’apprentissage](how-to-settings.md).
+1. Une fois votre ressource Personalizer déployée, sélectionnez le bouton **Accéder à la ressource** pour y accéder.
+
+1. Sélectionnez la page **Démarrage rapide** de votre ressource, puis copiez les valeurs de votre point de terminaison et de votre clé. Le point de terminaison et la clé de la ressource sont tous deux nécessaires pour utiliser les API de classement et de récompense.
+
+1. Sélectionnez la page **Configuration** de la nouvelle ressource pour [configurer la boucle d'apprentissage](how-to-settings.md).
 
 ## <a name="create-a-resource-with-the-azure-cli"></a>Création d’une ressource avec Azure CLI
 
 1. Connectez-vous à Azure CLI avec la commande suivante :
 
-    ```bash
+    ```azurecli-interactive
     az login
     ```
 
 1. Créez un groupe de ressources, regroupement logique permettant de gérer toutes les ressources Azure que vous avez l’intention d’utiliser avec la ressource Personalizer.
 
 
-    ```bash
+    ```azurecli-interactive
     az group create \
         --name your-personalizer-resource-group \
         --location westus2
@@ -50,7 +54,7 @@ Créez une ressource Personalizer pour chaque boucle de rétroaction.
 
 1. Créez une ressource Personalizer, la _boucle d’apprentissage_, avec la commande suivante pour un groupe de ressources existant.
 
-    ```bash
+    ```azurecli-interactive
     az cognitiveservices account create \
         --name your-personalizer-learning-loop \
         --resource-group your-personalizer-resource-group \
@@ -59,6 +63,19 @@ Créez une ressource Personalizer pour chaque boucle de rétroaction.
         --location westus2 \
         --yes
     ```
+
+    Cette opération renvoie un objet JSON qui comprend le **point de terminaison de votre ressource**.
+
+1. Pour obtenir la **clé de votre ressource**, utilisez la commande Azure CLI suivante.
+
+    ```azurecli-interactive
+        az cognitiveservices account keys list \
+        --name your-personalizer-learning-loop \
+        --resource-group your-personalizer-resource-group
+    ```
+
+    Le point de terminaison et la clé de la ressource sont tous deux nécessaires pour utiliser les API de classement et de récompense.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configuration](how-to-settings.md) de la boucle d’apprentissage Personalizer

@@ -11,17 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 52057477fdba9757be2737c223d569b9e9a3e749
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 3c72e04ff7a08fecc2ef352a5879898c4c6d41c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137450"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062277"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide d’Azure PowerShell
+
+> [!IMPORTANT]
+> La fonctionnalité d'ajout d'un groupe d'administration à `AssignableScopes` est actuellement disponible en préversion.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment lister, créer, mettre à jour ou supprimer des rôles personnalisés à l’aide d’Azure PowerShell.
 
@@ -29,7 +34,7 @@ Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé,
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour créer des rôles personnalisés, vous avez besoin des éléments suivants :
 
@@ -74,7 +79,7 @@ Si l’abonnement sélectionné ne se trouve pas dans le `AssignableScopes` du r
 Pour lister une définition de rôle personnalisé, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Il s’agit de la même commande que vous utiliseriez pour un rôle intégré.
 
 ```azurepowershell
-Get-AzRoleDefinition <role name> | ConvertTo-Json
+Get-AzRoleDefinition <role_name> | ConvertTo-Json
 ```
 
 ```Example
@@ -109,7 +114,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 L’exemple suivant liste seulement les actions du rôle :
 
 ```azurepowershell
-(Get-AzRoleDefinition <role name>).Actions
+(Get-AzRoleDefinition <role_name>).Actions
 ```
 
 ```Example
@@ -295,6 +300,42 @@ NotActions       : {}
 AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
+```
+
+L'exemple suivant ajoute un groupe d'administration à la propriété `AssignableScopes` du rôle personnalisé *Opérateur de machine virtuelle* . La fonctionnalité d'ajout d'un groupe d'administration à `AssignableScopes` est actuellement disponible en préversion.
+
+```azurepowershell
+Get-AzManagementGroup
+
+$role = Get-AzRoleDefinition "Virtual Machine Operator"
+$role.AssignableScopes.Add("/providers/Microsoft.Management/managementGroups/{groupId1}")
+Set-AzRoleDefinition -Role $role
+```
+
+```Example
+PS C:\> Get-AzManagementGroup
+
+Id          : /providers/Microsoft.Management/managementGroups/marketing-group
+Type        : /providers/Microsoft.Management/managementGroups
+Name        : marketing-group
+TenantId    : 99999999-9999-9999-9999-999999999999
+DisplayName : Marketing group
+
+PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
+PS C:\> $role.AssignableScopes.Add("/providers/Microsoft.Management/managementGroups/marketing-group")
+PS C:\> Set-AzRoleDefinition -Role $role
+
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111,
+                   /subscriptions/22222222-2222-2222-2222-222222222222,
+                   /providers/Microsoft.Management/managementGroups/marketing-group}
 ```
 
 ### <a name="update-a-custom-role-with-a-json-template"></a>Mettre à jour un rôle personnalisé avec un modèle JSON

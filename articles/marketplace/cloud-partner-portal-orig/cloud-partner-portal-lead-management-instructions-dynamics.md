@@ -1,19 +1,18 @@
 ---
 title: Dynamics CRM | Place de marché Azure
 description: Configurez la gestion des prospects pour Dynamics CRM.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 4ccc8b85e72a4da3b0e640abcc70d24b7cdc54af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825257"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280301"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurez la gestion des prospects pour Dynamics CRM Online.
 
@@ -142,5 +141,5 @@ L’étape finale consiste à permettre à l’utilisateur que vous avez créé 
 
 Terminez la configuration de Dynamics CRM pour la gestion des prospects en ajoutant les informations de compte générées sur le Portail Microsoft Cloud Partner. Par exemple :
 
--   **Azure Active Directory** - **ID d’application** (exemple : *23456052-aaaa-bbbb-8662-1234df56788f*), **ID de répertoire** (exemple : *12345678-8af1-4asf-1234-12234d01db47*), et **clé d’application** (exemple : *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
--   **Office 365** - **Url** (exemple : *https://contoso.crm4.dynamics.com* ), **nom d’utilisateur** (exemple : *contoso\@ contoso.onmicrosoft.com*), et **mot de passe** (exemple : *P\@ ssw0rd*).
+-   **ID d'application** - **Azure Active Directory** (exemple : *23456052-aaaa-bbbb-8662-1234df56788f*), **ID de répertoire** (exemple : *12345678-8af1-4asf-1234-12234d01db47*), et **clé d’application** (exemple : *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
+-   **Office 365** - **URL** (exemple : *https://contoso.crm4.dynamics.com* ),  **Nom d'utilisateur** (exemple : *contoso\@ contoso.onmicrosoft.com*) et **Mot de passe** (exemple : *P\@ ssw0rd*).

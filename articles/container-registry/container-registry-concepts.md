@@ -3,12 +3,12 @@ title: À propos des dépôts et des images
 description: Introduction aux concepts clés des registres de conteneurs Azure, des référentiels et des images conteneur.
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455291"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225801"
 ---
 # <a name="about-registries-repositories-and-images"></a>À propos des registres, des dépôts et des images
 
@@ -24,9 +24,7 @@ En plus des images conteneur Docker, Azure Container Registry prend en charger l
 
 L’adressage d’un artefact dans un registre de conteneurs Azure inclut les éléments suivants. 
 
-```
-[loginUrl]/[namespace]/[artifact:][tag]
-```
+`[loginUrl]/[namespace]/[artifact:][tag]`
 
 * **loginUrl** - nom complet de l’hôte de registre. L’hôte de registre dans un registre de conteneurs Azure est au format *myregistry*. azurecr.io (tout en minuscules). Vous devez spécifier le loginUrl lors de l’utilisation de Docker ou d’autres outils de client pour les artefacts de tirage (pull) ou d’envoi (push) à un registre de conteneurs Azure. 
 * **espace de noms** - regroupement logique d’images ou d’artefacts apparentés, par exemple, pour un groupe de travail ou une application
@@ -36,9 +34,7 @@ L’adressage d’un artefact dans un registre de conteneurs Azure inclut les é
 
 Par exemple, le nom complet d’une image dans un registre de conteneurs Azure peut se présenter comme :
 
-```
-myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
-```
+*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
 
 Pour plus d’informations sur ces éléments, consultez les sections suivantes.
 
@@ -46,21 +42,18 @@ Pour plus d’informations sur ces éléments, consultez les sections suivantes.
 
 Les registres de conteneurs gèrent des *référentiels*, qui sont des collections d’images conteneur ou d’autres artefacts ayant le même nom, mais des étiquettes différentes. Par exemple, les trois images suivantes se trouvent dans le référentiel « acr-helloworld » :
 
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
+
+- *acr-helloworld:latest*
+- *acr-helloworld:v1*
+- *acr-helloworld:v2*
 
 Les noms des référentiels peuvent également comprendre des [espaces de noms](container-registry-best-practices.md#repository-namespaces). Les espaces de noms permettent de grouper des images à l'aide de noms de référentiels délimités par des barres obliques, par exemple :
 
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
+- *marketing/campaign10-18/web:v2*
+- *marketing/campaign10-18/api:v3*
+- *marketing/campaign10-18/email-sender:v2*
+- *product-returns/web-submission:20180604*
+- *product-returns/legacy-integrator:20180715*
 
 ## <a name="image"></a>Image
 
@@ -92,8 +85,11 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName>
 
 Par exemple, voici la liste des manifestes pour le référentiel « acr-helloworld » :
 
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
+```azurecli
+az acr repository show-manifests --name myregistry --repository acr-helloworld
+```
+
+```output
 [
   {
     "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
@@ -128,9 +124,7 @@ Vous pouvez tirer (pull) une image à partir du registre en spécifiant son code
 
 Voici un exemple de tirage d’une image à partir du référentiel « acr-helloworld » en fonction du code de hachage du manifeste :
 
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
+`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
 
 > [!IMPORTANT]
 > Si vous envoyez plusieurs fois des images modifiées ayant une même étiquette, vous risquez de créer des images orphelines (c’est-à-dire sans étiquette), mais qui occupent toujours de l’espace dans votre registre. Lorsque vous répertoriez les images par étiquette, les images sans étiquette ne s’affichent pas dans Azure CLI ni dans le portail Azure. Toutefois, leurs calques se trouvent toujours dans le registre et consomment de l’espace de stockage. La suppression d’une image sans balise libère de l’espace dans le Registre lorsque le manifeste est le seul ou le dernier à pointer vers une couche particulière. Pour plus d’informations sur la libération d’espace utilisé par les images non balisées, consultez [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).

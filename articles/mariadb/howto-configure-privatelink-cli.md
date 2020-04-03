@@ -1,19 +1,19 @@
 ---
-title: Méthode de configuration via l’interface CLI de Private Link pour Azure Database for MariaDB (préversion)
+title: Private Link - Azure CLI - Azure Database for MariaDB
 description: Découvrez comment configurer une instance Private Link pour Azure Database for MariaDB à partir d’Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: b2d9fb9d4dc8268c0be45f8a6f24759a7be58427
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c28c5494c1cff2c198a94ea6b92003ae74ee2c8e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561797"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371696"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Créer et gérer Private Link pour Azure Database for MariaDB (préversion) à l’aide de l’interface CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Créer et gérer Private Link pour Azure Database for MariaDB à l'aide de l'interface CLI
 
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans cet article, vous apprendrez à utiliser Azure CLI pour créer une machine virtuelle dans un réseau virtuel Azure et un serveur Azure Database for MariaDB avec un point de terminaison privé Azure.
 

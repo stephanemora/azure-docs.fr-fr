@@ -1,19 +1,18 @@
 ---
 title: Gestion des prospects pour Dynamics 365 for Customer Engagement | Place de marché Azure
 description: Configurez la gestion des prospects pour Dynamics 365 for Customer Engagement.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.author: evansma
-ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812305"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288816"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurer la gestion des prospects pour Dynamics 365 for Customer Engagement
 
@@ -94,7 +93,7 @@ Pour configurer Azure Active Directory pour Dynamics 365 for Customer Engagement
 10. Dès que la clé secrète client est correctement créée, **copiez sa valeur**. Vous ne pourrez pas récupérer la valeur une fois que vous aurez quitté la page. Enregistrez cette valeur, car il s’agit de la valeur *Clé secrète client* que vous devez fournir dans le portail de publication afin recevoir des prospects pour votre offre de la Place de marché. 
 11. Dans le volet de navigation gauche de l’application, sélectionnez **Autorisations de l’API**, puis sélectionnez **Ajouter une autorisation**.
 12. Sélectionnez API Microsoft, puis l’API **Dynamics CRM**.
-13. Sous *Quel type d’autorisation votre application nécessite-t-elle ?* , assurez-vous que l’option **Autorisations déléguées** est sélectionnée. Pour **user_impersonation**, activez l’autorisation *Access Common Data Service as organization users* (Accéder à Common Data Service en tant qu’utilisateurs de l’organisation). Sélectionnez **Ajouter des autorisations**.
+13. Sous *Quel type d’autorisation votre application nécessite-t-elle ?* , assurez-vous que l’option **Autorisations déléguées** est sélectionnée. Pour **user_impersonation**, activez l'autorisation *Accéder à Common Data Service en tant qu'utilisateurs de l'organisation*. Sélectionnez **Ajouter des autorisations**.
 
     ![Ajout d’autorisations](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
@@ -169,10 +168,10 @@ L’étape finale consiste à permettre à l’utilisateur que vous avez créé 
 
 ## <a name="configure-your-offer-to-send-leads-to-dynamics-365-for-customer-engagement"></a>Configurer votre offre pour envoyer des prospects à Dynamics 365 for Customer Engagement
 
-Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre dans le portail de publication, procédez comme suit :
+Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre sur le portail de publication, procédez comme suit :
 
 1. Accédez à la page **Configuration de l'offre** de votre offre.
-2. Sélectionnez **Se connecter** dans la section Gestion des prospects.
+2. Sélectionnez **Connexion** dans la section Gestion des prospects.
 
     ![Se connecter à Gestion des prospects](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)
 
@@ -191,4 +190,4 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
     ![Détails de la connexion – Nom d’utilisateur](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
 >[!Note]
->Pour recevoir des prospects pour l’offre, vous devez terminer la configuration du reste de l’offre et la publier.
+>Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.

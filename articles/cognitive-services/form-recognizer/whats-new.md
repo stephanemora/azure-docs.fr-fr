@@ -7,23 +7,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 2109d25d3962063c711dcab491855d9ebf1cf694
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 7f20244906581dd2869bbc7fcd997d5245540eda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901883"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155169"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Nouveautés de Form Recognizer
 
-Cet article présente les modifications principales apportées aux nouvelles versions de l’API Form Recognizer.
+Le service Form Recognizer est régulièrement mis à jour. Lisez cet article pour vous tenir informé des améliorations de fonctionnalités, des correctifs et des mises à jour de la documentation.
 
 > [!NOTE]
-> Les démarrages rapides et les guides dans cet ensemble de documentations utilisent toujours la dernière version de l’API, sauf si indiqué différemment.
+> Sauf indication contraire, les démarrages rapides et les guides relatifs à Form Recognizer utilisent toujours la dernière version de l'API.
 
-## <a name="form-recognizer-20-preview"></a>Form Recognizer 2.0 (préversion)
+## <a name="march-2020"></a>Mars 2020 
+
+### <a name="extraction-enhancements"></a>Améliorations apportées à l'extraction
+
+Cette version comprend des améliorations en termes d'extraction et de précision, avec notamment la possibilité d'étiqueter et d'extraire plusieurs paires clé/valeur sur la même ligne de texte. 
+ 
+### <a name="form-recognizer-sample-labeling-tool-is-now-open-source"></a>L'outil d'étiquetage des exemples Form Recognizer est désormais open source
+
+L'outil d'étiquetage des exemples Form Recognizer est désormais disponible sous forme de projet open source. Vous pouvez l'intégrer à vos solutions et y apporter des modifications pour qu'il réponde à vos besoins.
+
+Pour plus d'informations sur l'outil d'étiquetage des exemples Form Recognizer, consultez la documentation disponible sur [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+
+### <a name="labeling-value-types"></a>Étiquetage des types valeur
+
+Les types valeur peuvent désormais être utilisés avec l'outil d'étiquetage des exemples Form Recognizer. Les types valeur suivants sont actuellement pris en charge : 
+
+* String
+* Number 
+* Integer
+* Date 
+* Temps
+
+Cette image illustre la sélection d'un type valeur dans l'outil d'étiquetage des exemples Form Recognizer :
+
+> [!div class="mx-imgBorder"]
+> ![Sélection d'un type valeur avec l'outil d'étiquetage des exemples](./media/whats-new/formre-value-type.png)
+
+La table extraite est disponible dans la sortie JSON de `pageResults`.
+
+### <a name="table-visualization"></a>Visualisation de la table 
+
+L'outil d'étiquetage des exemples Form Recognizer affiche désormais les tables reconnues dans le document. Cela vous permet de visualiser les tables qui ont été reconnues et extraites du document, avant l'étiquetage et l'analyse à l'aide de l'outil d'étiquetage des exemples Form Recognizer. Cette fonctionnalité peut être activée/désactivée à l'aide de l'option couches. 
+
+L'exemple suivant illustre la façon dont les tables sont reconnues et extraites :
+
+> [!div class="mx-imgBorder"]
+> ![Visualisation de table à l'aide de l'outil d'étiquetage des exemples](./media/whats-new/formre-table-viz.png)
+
+> [!IMPORTANT]
+> L'étiquetage des tables n'est pas pris en charge. Si les tables ne sont pas reconnues et extraites automatiquement, vous ne pouvez les étiqueter qu'en tant que paires clé/valeur. Lorsque vous étiquetez des tables en tant que paires clé/valeur, étiquetez chaque cellule en tant que valeur.
+
+### <a name="tls-12-enforcement"></a>Application de TLS 1.2
+
+* La sécurité TLS 1.2 est maintenant appliquée pour toutes les requêtes HTTP adressées à ce service. Pour plus d'informations, consultez [Sécurité Azure Cognitive Services](../cognitive-services-security.md).
+
+## <a name="january-2020"></a>Janvier 2020
+
+Cette version introduit Form Recognizer 2.0 (préversion). Les sections ci-dessous contiennent des informations sur les nouvelles fonctionnalités, améliorations et modifications. 
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 

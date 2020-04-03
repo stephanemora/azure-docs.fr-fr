@@ -3,16 +3,16 @@ title: Fonctions de modèle – Chaîne
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des chaînes.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356358"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156274"
 ---
-# <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
+# <a name="string-functions-for-arm-templates"></a>Fonctions de chaîne pour les modèles Resource Manager
 
-Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
+Resource Manager fournit les fonctions ci-dessous pour vous permettre d'utiliser des chaînes dans vos modèles Azure Resource Manager (ARM) :
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)

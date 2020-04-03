@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4ca4fa8699d9bd4b35f26983f2f7004c63da180f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f5cc4339d7d6dce6d49c8d3eb744fca7fa5774d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441538"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240432"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
 
@@ -62,19 +62,19 @@ Une suppression ou modification accidentelle des données peut se produire dans 
 
 * Une base de données d’offre partagée ou des conteneurs au sein d’une base de données d’offre partagée sont supprimés ou endommagés
 
-Azure Cosmos DB peut restaurer les données dans tous les scénarios ci-dessus. Le processus de restauration crée toujours un compte Azure Cosmos pour stocker les données restaurées. Le nom du nouveau compte, s’il n’est pas spécifié, aura le format `<Azure_Cosmos_account_original_name>-restored1`. Le dernier chiffre est incrémenté si plusieurs tentatives de restauration sont effectuées. Vous ne pouvez pas restaurer les données dans un compte Azure Cosmos créé au préalable.
+Azure Cosmos DB peut restaurer les données dans tous les scénarios ci-dessus. Le processus de restauration crée toujours un compte Azure Cosmos pour stocker les données restaurées. Le nom du nouveau compte, s’il n’est pas spécifié, aura le format `<Azure_Cosmos_account_original_name>-restored1`. Le dernier chiffre est incrémenté si plusieurs tentatives de restauration sont effectuées. Vous ne pouvez pas restaurer les données sur un compte Azure Cosmos créé au préalable.
 
-Quand un compte Azure Cosmos est supprimé, nous pouvons restaurer les données dans un compte portant le même nom, à condition que le nom du compte ne soit pas en cours d’utilisation. Dans ce cas, nous vous recommandons de ne pas recréer le compte après la suppression, car non seulement cela empêche les données restaurées d’utiliser le même nom, mais cela rend également plus difficile la découverte du compte correct à restaurer. 
+Quand un compte Azure Cosmos est supprimé, nous pouvons restaurer les données dans un compte portant le même nom, à condition que le nom du compte ne soit pas en cours d’utilisation. Dans ce cas, nous vous recommandons de ne pas recréer le compte après la suppression, car non seulement cela empêche les données restaurées d'utiliser le même nom, mais cela rend également plus difficile la découverte du compte à restaurer. 
 
 Quand une base de données Azure Cosmos est supprimée, il est possible de restaurer la base de données entière ou un sous-ensemble des conteneurs au sein de cette base de données. Il est également possible de sélectionner des conteneurs parmi différentes bases de données et de les restaurer tous. Toutes les données restaurées sont alors placées dans un nouveau compte Azure Cosmos.
 
-Quand un ou plusieurs éléments dans un conteneur sont supprimés ou modifiés accidentellement (altération des données), vous devez spécifier le point dans le temps auquel effectuer la restauration. Ce point dans le temps a une importance cruciale. Le conteneur étant en ligne, la sauvegarde est toujours en cours d’exécution. Par conséquent, si vous attendez au-delà de la période de rétention (la valeur par défaut est de huit heures) les sauvegardes seront remplacées. Dans le cas des suppressions, vos données ne sont plus stockées, car elles ne seront pas remplacées par le cycle de sauvegarde. Les sauvegardes des bases de données ou conteneurs supprimés sont conservées pendant 30 jours.
+Quand un ou plusieurs éléments dans un conteneur sont supprimés ou modifiés accidentellement (altération des données), vous devez spécifier le point dans le temps auquel effectuer la restauration. Ce point dans le temps a une importance cruciale. Le conteneur étant en ligne, la sauvegarde est toujours en cours d’exécution. Par conséquent, si vous attendez au-delà de la période de rétention (la valeur par défaut est de huit heures) les sauvegardes seront remplacées. Dans le cas des suppressions, vos données ne sont plus stockées car elles ne seront pas remplacées par le cycle de sauvegarde. Les sauvegardes des bases de données ou conteneurs supprimés sont conservées pendant 30 jours.
 
 Si vous provisionnez le débit au niveau de la base de données (autrement dit, quand un ensemble de conteneurs partagent le débit provisionné), le processus de sauvegarde et de restauration se produit au niveau de la base de données entière et non au niveau des conteneurs individuels. Dans ce cas, la sélection d’un sous-ensemble de conteneurs à restaurer n’est pas une option.
 
 ## <a name="migrating-data-to-the-original-account"></a>Migration des données vers le compte d’origine
 
-L’objectif principal de la restauration des données est d’offrir un moyen de récupérer toutes les données que vous avez supprimées ou modifiées accidentellement. Nous recommandons donc d’inspecter d’abord le contenu des données restaurées, afin de vous assurer qu’il correspond à vos attentes. Ensuite, procédez à la migration des données vers le compte principal. Bien qu’il soit possible d’utiliser le compte restauré en tant que compte actif, cette option n’est pas recommandée si vous avez des charges de travail de production.  
+L’objectif principal de la restauration des données est d’offrir un moyen de récupérer toutes les données que vous avez supprimées ou modifiées accidentellement. Nous recommandons donc d’inspecter d’abord le contenu des données restaurées, afin de vous assurer qu’il correspond à vos attentes. Ensuite, procédez à la migration des données vers le compte principal. Bien qu'il soit possible d'utiliser le compte restauré en tant que compte actif, cette option n'est pas recommandée si vous avez des charges de travail de production.  
 
 Voici différentes méthodes pour migrer les données vers le compte Azure Cosmos d’origine :
 

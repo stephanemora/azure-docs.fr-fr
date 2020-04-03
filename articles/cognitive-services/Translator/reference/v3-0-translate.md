@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184804"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052391"
 ---
 # <a name="translator-text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
 
@@ -54,7 +54,7 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
   <th width="20%">Paramètre de requête.</th>
   <th>Description</th>
   <tr>
-    <td>from</td>
+    <td>de</td>
     <td><em>Paramètre facultatif</em>.<br/>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant <a href="./v3-0-languages.md">langues prises en charge</a> à l’aide de l’étendue <code>translation</code>. Si le paramètre <code>from</code> n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source. <br/><br/>Vous devez utiliser le paramètre <code>from</code> au lieu de la détection automatique lors de l’utilisation de la fonctionnalité de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dictionnaire dynamique</a>.</td>
   </tr>  
   <tr>
@@ -62,7 +62,7 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
     <td><em>Paramètre facultatif</em>.<br/>Définit si le texte en cours de traduction est au format texte brut ou HTML. Tout code HTML doit être un élément bien formé et complet. Les valeurs possibles sont : <code>plain</code> (par défaut) ou <code>html</code>.</td>
   </tr>
   <tr>
-    <td>category</td>
+    <td>catégorie</td>
     <td><em>Paramètre facultatif</em>.<br/>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec <a href="../customization.md">Custom Translator</a>. Ajoutez l’ID de catégorie de vos <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">détails de projet</a> Custom Translator à ce paramètre pour utiliser votre système personnalisé déployé. La valeur par défaut est <code>general</code>.</td>
   </tr>
   <tr>
@@ -119,7 +119,7 @@ Les en-têtes de demande sont les suivants :
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td><em>Facultative</em>.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé <code>ClientTraceId</code>.</td>
+    <td><em>Facultatif</em>.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé <code>ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -202,7 +202,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Vous avez réussi !</td>
+    <td>Réussite.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -366,7 +366,7 @@ Si vous souhaitez éviter toute vulgarité dans la traduction, indépendamment d
   <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Il s’agit du comportement par défaut. La vulgarité de la source est reflétée dans la cible.<br/><br/>
+    <td>Il s'agit du comportement par défaut. La vulgarité de la source est reflétée dans la cible.<br/><br/>
     <strong>Exemple de source (japonais)</strong> : 彼はジャッカスです。<br/>
     <strong>Exemple de traduction (français)</strong> : Il est un imbécile.
     </td>
@@ -479,7 +479,7 @@ La réponse est la suivante :
 Les informations d’alignement commencent par `0:2-0:1`, ce qui signifie que les trois premiers caractères dans le texte source (`The`) mappent aux deux premiers caractères dans le texte traduit (`La`).
 
 #### <a name="limitations"></a>Limites
-Notez que les restrictions suivantes s’appliquent :
+L'obtention des informations d'alignement est une fonctionnalité expérimentale dédiée au prototypage de la recherche et des expériences avec des mappages de phrases potentiels. Nous pourrions décider de ne plus la prendre en charge à l'avenir. Voici quelques restrictions notables pour lesquelles les alignements ne sont pas pris en charge :
 
 * L’alignement n’est pas disponible pour du texte au format HTML, par exemple textType=html
 * L’alignement est renvoyé uniquement pour un sous-ensemble de paires de langues :
@@ -487,6 +487,7 @@ Notez que les restrictions suivantes s’appliquent :
   - de toute langue vers l’anglais, à l’exception du chinois simplifié, du chinois traditionnel et du letton vers anglais ;
   - du japonais au coréen ou inversement.
 * Vous ne recevrez pas d’alignement si la phrase est une traduction définie. Des traductions définies sont, par exemple, « Ceci est un test », « Je t’aime » et d’autres phrases extrêmement fréquentes.
+* L'alignement n'est pas possible lorsque vous appliquez l'une des approches visant à empêcher la traduction comme décrit [ici](../prevent-translation.md)
 
 ### <a name="obtain-sentence-boundaries"></a>Obtenir les limites de longueur de phrase
 

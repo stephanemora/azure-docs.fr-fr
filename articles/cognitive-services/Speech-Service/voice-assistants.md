@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 9219c9a72ce9e1cfba3504b0b8e16ade77f8a5e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812912"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79369894"
 ---
-# <a name="about-voice-assistants"></a>À propos des assistants vocaux
+# <a name="what-is-a-voice-assistant"></a>Qu’est-ce qu’un Assistant vocal ?
 
 Les assistants vocaux qui utilisent le service Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences.
 
@@ -46,7 +46,7 @@ Nous recommandons [Direct Line Speech](direct-line-speech.md) comme meilleur cho
 
 Que vous choisissiez [Direct Line Speech](direct-line-speech.md) ou [Commandes personnalisées (préversion)](custom-commands.md) pour créer les interactions de votre Assistant, vous pouvez utiliser un ensemble complet de fonctionnalités de personnalisation pour personnaliser votre Assistant avec votre marque, votre produit et votre personnalité.
 
-| Category | Caractéristiques |
+| Category | Fonctionnalités |
 |----------|----------|
 |[Mot clé personnalisé](speech-devices-sdk-create-kws.md) | Les utilisateurs peuvent engager des conversations avec les assistants au moyen de mots clés personnalisés, tels que « Bonjour Contoso ». Une application effectue cette action avec un moteur de mot clé personnalisé dans le SDK Speech, qui peut être configuré avec un mot déclencheur personnalisé [que vous pouvez générer ici](speech-devices-sdk-create-kws.md). Les assistants vocaux peuvent utiliser la vérification des mots clés côté service pour améliorer la précision de l’activation des mots clés (par rapport à l’appareil seul).
 |[Reconnaissance vocale](speech-to-text.md) | Les assistants vocaux convertissent en temps réel le contenu audio en texte écrit à l’aide de la [Reconnaissance vocale](speech-to-text.md) du service Speech. Lors de sa transcription, ce texte est disponible pour l’implémentation de votre assistant et votre application cliente.
@@ -58,16 +58,16 @@ Nous proposons des guides de démarrage rapide conçus pour vous permettre d’e
 
 | Démarrage rapide | Plateforme | Informations de référence sur l'API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [Parcourir](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Parcourir](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Parcourir](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Exemple de code
 
 Un exemple de code pour la création d’un assistant vocal est disponible sur GitHub. Ces exemples couvrent l’application cliente pour la connexion à votre assistant dans plusieurs langages de programmation populaires.
 
-* [Exemples d’assistant vocal (SDK)](https://aka.ms/csspeech/samples)
-* [Tutoriel : Activer les fonctions vocales sur votre assistant avec le SDK Speech, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Exemples d’assistant vocal (Kit de développement logiciel [SDK])](https://aka.ms/csspeech/samples)
+* [Tutoriel : Activer les fonctions vocales sur votre assistant avec le SDK Speech, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="tutorial"></a>Didacticiel
 

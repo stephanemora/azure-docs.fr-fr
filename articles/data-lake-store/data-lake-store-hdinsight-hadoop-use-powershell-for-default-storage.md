@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66161411"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Créer des clusters HDInsight avec Data Lake Storage Gen1 comme stockage par défaut à l’aide de PowerShell
@@ -125,7 +125,7 @@ Pour configurer l’authentification Active Directory pour Data Lake Storage Gen
 ### <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 Assurez-vous que le [SDK Windows](https://dev.windows.com/en-us/downloads) est installé avant de suivre la procédure décrite dans cette section. Vous devez également avoir créé un répertoire, comme *C:\mycertdir*, où sera créé le certificat.
 
-1. Dans la fenêtre PowerShell, accédez à l’emplacement où vous avez installé le Kit de développement logiciel (SDK) Windows (en général, *C:\Program Files (x86)\Windows Kits\10\bin\x86*) et utilisez l’utilitaire [MakeCert][makecert] pour créer un certificat auto-signé et une clé privée. Utilisez les commandes suivantes :
+1. Dans la fenêtre PowerShell, accédez à l'emplacement où vous avez installé le Kit de développement logiciel (SDK) Windows (en général, *C:\Program Files (x86)\Windows Kits\10\bin\x86*) et utilisez l'utilitaire [MakeCert][makecert] pour créer un certificat auto-signé et une clé privée. Utilisez les commandes suivantes :
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
@@ -133,7 +133,7 @@ Assurez-vous que le [SDK Windows](https://dev.windows.com/en-us/downloads) est i
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     Vous devrez entrer le mot de passe de la clé privée. Une fois la commande exécutée avec succès, **CertFile.cer** et **mykey.pvk** apparaissent dans le répertoire du certificat que vous avez spécifié.
-2. Utilisez l’utilitaire [Pvk2Pfx][pvk2pfx] pour convertir en un fichier .pfx les fichiers .pvk et .cer créés par MakeCert. Exécutez la commande suivante :
+2. Servez-vous de l’utilitaire [Pvk2Pfx][pvk2pfx] pour convertir en un fichier .pfx les fichiers .pvk et .cer créés par MakeCert. Exécutez la commande suivante :
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
@@ -240,7 +240,7 @@ Dans cette section, vous établissez une connexion SSH (Secure Shell) au cluster
     >
 
 ## <a name="access-data-lake-storage-gen1-by-using-hdfs-commands"></a>Accéder à Data Lake Storage Gen1 avec les commandes HDFS
-Une fois que vous avez configuré le cluster HDInsight pour qu’il utilise Data Lake Storage Gen1, vous pouvez utiliser les commandes de l’interpréteur de commandes HDFS (Hadoop Distributed File System) pour accéder au magasin.
+Une fois que vous avez configuré le cluster HDInsight pour qu’il utilise Data Lake Storage Gen1, vous pouvez utiliser les commande de l’interpréteur de commandes HDFS (Hadoop Distributed File System) pour accéder au magasin.
 
 Dans cette section, vous établissez une connexion SSH au cluster HDInsight Linux que vous avez créé, puis vous exécutez les commandes HDFS.
 

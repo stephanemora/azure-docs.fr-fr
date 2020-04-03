@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 55ed849b6083435e70d0943a359c83793ca0842d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 64cd93acc78f4cb5b7ebc4266e7359aec662890c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705902"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295416"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Diffusion en continu Widevine hors connexion pour Android avec Media Services v3
 
@@ -42,7 +42,7 @@ L’article répond également à certaines questions fréquentes sur la diffusi
 > [!NOTE]
 > DRM hors connexion est uniquement facturé pour une requête unique de licence lorsque vous téléchargez le contenu. Les erreurs ne sont pas facturées.
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 
 Avant de mettre en œuvre la DRM hors connexion pour Widevine sur des appareils Android, vous devez, tout d’abord :
 
@@ -98,7 +98,7 @@ Pour activer le mode **hors connexion** pour les licences Widevine, vous devez c
 
 ## <a name="configuring-the-android-player-for-offline-playback"></a>Configuration du lecteur Android pour la lecture hors connexion
 
-Le moyen le plus simple de développer une application de lecteur natif pour les appareils Android est d’utiliser le [Kit de développement logiciel (SDK) Google ExoPlayer](https://github.com/google/ExoPlayer), un kit de développement logiciel du lecteur vidéo open source. ExoPlayer prend en charge les fonctionnalités non actuellement prises en charge par les API MediaPlayer native d’Android, y compris les protocoles de remise MPEG-DASH et Microsoft Smooth Streaming.
+Le moyen le plus simple de développer une application de lecteur natif pour les appareils Android est d’utiliser le [Kit de développement logiciel (SDK) Google ExoPlayer](https://github.com/google/ExoPlayer), un kit de développement logiciel du lecteur vidéo open source. ExoPlayer prend en charge des fonctionnalités qui ne sont actuellement pas prises en charge par l'API MediaPlayer native d'Android, notamment les protocoles de remise MPEG-DASH et Microsoft Smooth Streaming.
 
 ExoPlayer version 2.6 et version supérieure inclut de nombreuses classes qui prennent en charge la lecture de la DRM de Widevine hors connexion. En particulier, la classe OfflineLicenseHelper fournit des fonctions utilitaires pour faciliter l’utilisation de la DefaultDrmSessionManager pour le téléchargement, le renouvellement et la libération des licences hors connexion. Les classes fournies dans le dossier du kit de développement logiciel "library/core/src/main/java/com/google/android/exoplayer2/offline/" prennent en charge le téléchargement du contenu vidéo hors connexion.
 
@@ -147,7 +147,7 @@ Si vous mettez à niveau votre navigateur Chrome mobile sur la v62 (ou version u
 
 L’application PWA open source ci-dessus a été créée dans Node.js. Si vous souhaitez héberger votre propre version sur un serveur Ubuntu, tenez compte des problèmes fréquemment rencontrés suivants qui peuvent empêcher la lecture :
 
-1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : https://biograf-155113.appspot.com (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l’erreur HTTP suivante : Impossible de charger https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: Aucun en-tête « Access-Control-Allow-Origin » n’est présent sur la ressource demandée. L’accès à l’adresse ’https:\//13.85.80.81:8080’ d’origine n’est donc pas autorisé. Si une réponse opaque répond à vos besoins, définissez le mode de la requête sur « no-cors » pour extraire la ressource avec CORS désactivé.
+1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : `https://biograf-155113.appspot.com` (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l'erreur HTTP suivante : `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Problème de certificat : À partir de Chrome v58, EME pour Widevine nécessite HTTPS. Par conséquent, vous devez héberger l’exemple d’application via le protocole HTTPS avec un certificat X509. Les certificats de test habituels ne fonctionnent pas en raison des exigences suivantes : Vous devez obtenir un certificat répondant aux exigences minimales suivantes :
     - Chrome et Firefox exige que le paramètre Nom alternatif de l’objet SAN existe dans le certificat
     - Le certificat doit avoir une certification approuvée et un certificat auto-signé de développement ne fonctionne pas
@@ -162,19 +162,19 @@ Comment puis-je remettre des licences persistantes (activées en mode hors conne
 ### <a name="answer"></a>Réponse
 Étant donné que Media Services v3 permet à un actif multimédia d’avoir plusieurs StreamingLocators, vous pouvez avoir :
 
-1.  Un ContentKeyPolicy avec license_type = "persistent", ContentKeyPolicyRestriction avec claim sur "persistent" ainsi que son StreamingLocator
-2.  Un autre ContentKeyPolicy avec license_type = "nonpersistent", ContentKeyPolicyRestriction avec claim sur "nonpersistent" ainsi que son StreamingLocator
-3.  Les deux StreamingLocators ont un ContentKey différent.
+1.    Un ContentKeyPolicy avec license_type = "persistent", ContentKeyPolicyRestriction avec claim sur "persistent" ainsi que son StreamingLocator
+2.    Un autre ContentKeyPolicy avec license_type = "nonpersistent", ContentKeyPolicyRestriction avec claim sur "nonpersistent" ainsi que son StreamingLocator
+3.    Les deux StreamingLocators ont un ContentKey différent.
 
 En fonction de la logique métier du service d’émission de jeton de sécurité personnalisé, différentes revendications peuvent être émises dans le jeton JWT. Avec le jeton, seule la licence correspondante peut être obtenue et seule l’URL correspondante peut être lue.
 
 ### <a name="question"></a>Question
 
-Pour les niveaux de sécurité Widevine dans la documentation [doc Vue d’ensemble de l’architecture DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) de Google, il définit trois différents niveaux de sécurité. Toutefois, dans [Documentation Azure Media Services sur le modèle de licence Widevine](widevine-license-template-overview.md), cinq niveaux de sécurité différents sont soulignés. Quelle est la relation ou le mappage entre les deux différents ensembles de niveaux de sécurité ?
+Pour les niveaux de sécurité Widevine, la documentation « Vue d'ensemble de l'architecture DRM Widevine » de Google définit trois niveaux de sécurité différents. Toutefois, dans [Documentation Azure Media Services sur le modèle de licence Widevine](widevine-license-template-overview.md), cinq niveaux de sécurité différents sont soulignés. Quelle est la relation ou le mappage entre les deux différents ensembles de niveaux de sécurité ?
 
 ### <a name="answer"></a>Réponse
 
-Dans la [Vue d’ensemble de l’architecture DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) de Google, il définit les trois niveaux de sécurité suivants :
+La documentation « Vue d'ensemble de l'architecture DRM Widevine » de Google définit les trois niveaux de sécurité suivants :
 
 1.  Niveau de sécurité 1 : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de la sécurité peut être effectué dans différentes puces.
 2.  Niveau de sécurité 2 : effectue le chiffrement (mais pas le traitement vidéo) dans l’environnement TEE : les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par le biais d’un matériel ou d’un logiciel vidéo distinct. Au niveau 2, toutefois, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.

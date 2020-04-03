@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 42362a170f493afd51a5d4ee139620ad25b54e79
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246546"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367361"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks enfants dans Azure Automation
 
@@ -35,13 +35,13 @@ Quels types de runbook peuvent s’appeler mutuellement ?
 
 * Un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) et un [runbook graphique](automation-runbook-types.md#graphical-runbooks) peuvent s’appeler mutuellement inlined, car ils se basent tous les deux sur PowerShell.
 * Un [runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) et un runbook PowerShell Workflow graphique peuvent s’appeler mutuellement inlined, car ils se basent tous les deux sur PowerShell Workflow.
-* Les types PowerShell et workflow PowerShell ne peuvent pas s’appeler mutuellement inlined et doivent utiliser **Start-AzAutomationRunbook**.
+* Les types PowerShell et Workflow PowerShell ne peuvent pas s'appeler mutuellement inlined et doivent utiliser `Start-AzAutomationRunbook`.
 
 Quand l’ordre de publication est-il important ?
 
 L’ordre de publication des runbooks importe uniquement pour les runbooks PowerShell Workflow et les runbooks PowerShell Workflow graphiques.
 
-Lorsque votre runbook appelle un runbook enfant graphique ou PowerShell Workflow avec une exécution inlined, il utilise le nom du runbook. Ce nom doit commencer par **.\\** pour spécifier que le script se trouve dans le répertoire local.
+Lorsque votre runbook appelle un runbook enfant graphique ou PowerShell Workflow avec une exécution inlined, il utilise le nom du runbook. Ce nom doit commencer par `.\\` pour spécifier que le script se trouve dans le répertoire local.
 
 ### <a name="example"></a>Exemple
 
@@ -62,15 +62,15 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 ## <a name="starting-a-child-runbook-using-a-cmdlet"></a>Démarrage d’un runbook enfant à l’aide d’une cmdlet
 
 > [!IMPORTANT]
-> Si votre runbook appelle un runbook enfant avec la cmdlet **Start-AzAutomationRunbook** avec le paramètre *Wait* et que le runbook enfant produit un objet comme résultat, l’opération peut rencontrer une erreur. Pour contourner l’erreur, consultez [Runbooks enfants avec une sortie objet](troubleshoot/runbooks.md#child-runbook-object) afin de savoir comment implémenter la logique pour interroger les résultats à l’aide de la cmdlet [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord).
+> Si votre runbook appelle un runbook enfant à l'aide de la cmdlet `Start-AzAutomationRunbook` avec le paramètre `Wait` et que le runbook enfant produit un objet comme résultat, l'opération peut rencontrer une erreur. Pour contourner l’erreur, consultez [Runbooks enfants avec une sortie objet](troubleshoot/runbooks.md#child-runbook-object) afin de savoir comment implémenter la logique pour interroger les résultats à l’aide de la cmdlet [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord).
 
-Vous pouvez utiliser **Start-AzAutomationRunbook** pour démarrer un runbook, comme décrit dans [Démarrage d’un runbook avec Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Il existe deux modes d’utilisation pour cette applet de commande. Dans un mode, l’applet de commande retourne l’ID de la tâche quand la tâche est créée pour le runbook enfant. Dans l’autre mode, que votre script active en spécifiant le paramètre *Wait*, la cmdlet attend que la tâche enfant se termine et retourne la sortie du runbook enfant.
+Vous pouvez utiliser `Start-AzAutomationRunbook` pour démarrer un runbook, comme décrit dans [Démarrage d'un runbook avec Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Il existe deux modes d’utilisation pour cette applet de commande. Dans un mode, l’applet de commande retourne l’ID de la tâche quand la tâche est créée pour le runbook enfant. Dans l’autre mode, que votre script active en spécifiant le paramètre *Wait*, la cmdlet attend que la tâche enfant se termine et retourne la sortie du runbook enfant.
 
 Le tâche d’un runbook enfant démarrée avec une applet de commande s’exécute séparément de celle du runbook parent. Ce comportement génère davantage de tâches que le démarrage de runbook inlined et rend leur suivi plus complexe. Le parent peut démarrer plusieurs runbooks enfants de façon asynchrone, sans attendre la fin de leur exécution. Pour cette exécution parallèle qui appelle des runbooks enfants inlined, le runbook parent doit utiliser le [mot clé parallèle](automation-powershell-workflow.md#parallel-processing).
 
-La sortie des runbooks enfants n’est pas retournée au runbook parent de manière fiable en raison du timing. En outre, les variables comme *$VerbosePreference*, *$WarningPreference*, parmi d’autres, peuvent ne pas se propager aux runbooks enfants. Pour éviter ces problèmes, vous pouvez démarrer les runbooks enfants comme des tâches Automation distinctes à l’aide de **Start-AzAutomationRunbook** avec le paramètre *Wait*. Cette technique bloque le runbook parent jusqu’à ce que l’exécution du runbook enfant soit terminée.
+La sortie des runbooks enfants n’est pas retournée au runbook parent de manière fiable en raison du timing. En outre, les variables comme `$VerbosePreference` et `$WarningPreference`, entre autres, peuvent ne pas se propager aux runbooks enfants. Pour éviter ces problèmes, vous pouvez démarrer les runbooks enfants en tant que travaux Automation distincts à l'aide de `Start-AzAutomationRunbook` avec le paramètre `Wait`. Cette technique bloque le runbook parent jusqu’à ce que l’exécution du runbook enfant soit terminée.
 
-Si vous ne voulez pas que le runbook parent se bloque durant l’attente, vous pouvez démarrer le runbook enfant à l’aide de **Start-AzAutomationRunbook** sans le paramètre *Wait*. Dans ce cas, votre runbook doit utiliser [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) pour attendre la fin de la tâche. Il doit également utiliser [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) et [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) pour récupérer les résultats.
+Si vous ne voulez pas que le runbook parent se bloque durant l'attente, vous pouvez démarrer le runbook enfant à l'aide de `Start-AzAutomationRunbook` sans le paramètre `Wait`. Dans ce cas, votre runbook doit utiliser [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) pour attendre la fin de la tâche. Il doit également utiliser [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) et [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) pour récupérer les résultats.
 
 Les paramètres d’un runbook enfant démarré avec une applet de commande sont fournis sous forme de table de hachage, comme décrit dans [Paramètres de runbook](start-runbooks.md#runbook-parameters). Seuls les types de données simples peuvent être utilisés. Si le Runbook possède un paramètre avec un type de données complexe, il doit être appelé en ligne.
 
@@ -80,7 +80,7 @@ Si des tâches au sein du même compte Automation utilisent plusieurs abonnement
 
 ### <a name="example"></a>Exemple
 
-Dans l’exemple suivant, un runbook enfant avec paramètres est démarré et exécuté à l’aide de la cmdlet **Start-AzAutomationRunbook** avec le paramètre *Wait*. Une fois l’exécution terminée, l’exemple collecte la sortie de la cmdlet issue du runbook enfant. Pour utiliser **Start-AzAutomationRunbook**, le script doit s’authentifier auprès de votre abonnement Azure.
+Dans l'exemple suivant, un runbook enfant avec paramètres est démarré et exécuté à l'aide de la cmdlet `Start-AzAutomationRunbook` avec le paramètre `Wait`. Une fois l’exécution terminée, l’exemple collecte la sortie de la cmdlet issue du runbook enfant. Pour utiliser `Start-AzAutomationRunbook`, le script doit s'authentifier auprès de votre abonnement Azure.
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
