@@ -15,22 +15,26 @@
     - name: Gérer un compte d’identification Automation
       href: manage-runas-account.md
       displayName: certificate renewal
-    - name: Configurer l’authentification avec AWS
-      href: automation-config-aws-account.md
-    - name: Chiffrement des ressources sécurisées dans Azure Automation
-      href: automation-secure-asset-encryption.md
     - name: Contrôle d’accès en fonction du rôle Azure
       href: automation-role-based-access-control.md
       displayName: RBAC
+    - name: Utiliser Azure AD dans Azure Automation pour l’authentification auprès d’Azure
+      href: automation-use-azure-ad.md
+    - name: Gérer les services Office 365 à l’aide d’Azure Automation
+      href: manage-office-365.md
+    - name: Configurer l’authentification avec AWS
+      href: automation-config-aws-account.md
+    - name: Chiffrer les ressources sécurisées dans Azure Automation
+      href: automation-secure-asset-encryption.md
     - name: Déplacer votre compte Automation vers un autre abonnement
       href: how-to/move-account.md
     - name: Automatiser l’intégration des services Automation
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
-    - name: Régions prises en charge pour les correspondances d’espace de travail Log Analytics
-      href: how-to/region-mappings.md
     - name: "Gestion des données Azure\_Automation"
       href: automation-managing-data.md
       displayName: backup
+    - name: Régions prises en charge pour les correspondances d’espace de travail Log Analytics
+      href: how-to/region-mappings.md
     - name: Dépanner
       items:
         - name: Résolution des problèmes relatifs aux comptes Automation
@@ -56,7 +60,15 @@
     - name: Guides pratiques
       items:
         - name: Démarrer/arrêter des machines virtuelles pendant les heures creuses
-          href: automation-solution-vm-management.md
+          items:
+            - name: Vue d’ensemble
+              href: automation-solution-vm-management.md
+            - name: Activer la solution
+              href: automation-solution-vm-management-enable.md
+            - name: Configurer la solution
+              href: automation-solution-vm-management-config.md
+            - name: Analyser des données avec des requêtes de journal
+              href: automation-solution-vm-management-logs.md
         - name: Gérer des runbooks
           href: manage-runbooks.md
         - name: Création de runbooks
@@ -317,9 +329,9 @@
       href: shared-resources/credentials.md
     - name: Modules PowerShell
       items:
-        - name: Modules
+        - name: Gérer les modules dans Azure Automation
           href: shared-resources/modules.md
-        - name: Utilisation de modules Az dans Azure Automation
+        - name: Prise en charge de modules Az dans Azure Automation
           href: az-modules.md
         - name: Mettre à jour les modules Azure PowerShell
           href: automation-update-azure-modules.md
@@ -350,7 +362,7 @@
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
     - name: Créer et planifier un runbook Azure Automation qui démarre/arrête Azure-SSIS Integration Runtime
       href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
-- name: Moniteur
+- name: Superviser
   items:
     - name: Transférer des données de travaux Azure Automation à Log Analytics
       href: automation-manage-send-joblogs-log-analytics.md

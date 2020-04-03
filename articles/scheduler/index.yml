@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: Documentation d’Azure Scheduler
+summary: Azure Logic Apps remplace Azure Scheduler, qui est en phase de mise hors service. Pour poursuivre les travaux que vous avez configurés dans Scheduler, effectuez une migration vers Azure Logic Apps dès que possible.
+metadata:
+  title: Documentation d’Azure Scheduler
+  description: Créez, planifiez et exécutez des travaux automatisés dans le cloud, notamment des actions d’application récurrentes et de la maintenance courante. Azure Logic Apps remplace Azure Scheduler, qui est en phase de mise hors service. Pour poursuivre les travaux que vous avez configurés dans Scheduler, effectuez une migration vers Azure Logic Apps dès que possible.
+  services: scheduler
+  ms.service: scheduler
+  ms.topic: landing-page
+  author: derek1ee
+  ms.author: estfan
+  ms.date: 03/30/2020
+  ms.openlocfilehash: 04be683d3bd3d874efb44685b0d40b8c2d5a9698
+  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/31/2020
+  ms.locfileid: "80422976"
+landingContent:
+- title: Migrer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation d’Azure Scheduler
+      url: scheduler-intro.md
+    - text: Qu’est-ce qu’Azure Logic Apps ?
+      url: ../logic-apps/logic-apps-overview.md
+  - linkListType: get-started
+    links:
+    - text: Migrer des travaux Azure Scheduler vers Azure Logic Apps
+      url: migrate-from-scheduler-to-logic-apps.md
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/scheduler/
+    - text: PowerShell
+      url: scheduler-powershell-reference.md

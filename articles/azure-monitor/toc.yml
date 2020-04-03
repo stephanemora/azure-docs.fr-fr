@@ -15,7 +15,7 @@
     - name: Surveillance des machines virtuelles
       items:
         - name: Machines virtuelles Azure
-          href: learn/quick-collect-azurevm.md
+          href: learn/quick-monitor-azure-vm.md
         - name: Ordinateur Linux
           href: learn/quick-collect-linux-computer.md
         - name: Ordinateur Windows
@@ -303,10 +303,6 @@
             - name: Corrélation des données de télémétrie
               href: app/correlation.md
               displayname: 'correlation headers, w3c, distributed tracing, tracing'
-            - name: Redirecteur local
-              href: app/opencensus-local-forwarder.md
-            - name: Go
-              href: app/opencensus-go.md
         - name: Flux de métriques en temps réel
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
@@ -488,9 +484,17 @@
             - name: Vue d’ensemble
               displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/platform-logs-overview.md
-            - name: Afficher le journal d’activité
-              displayName: Platform logs
-              href: platform/activity-log-view.md
+            - name: Journal d’activité
+              items:
+                - name: Affichage dans le portail Azure
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-view.md
+                - name: Collecter et analyser
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-collect.md
+                - name: Exporter (hérité)
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
             - name: Envoyer aux destinations
               items:
                 - name: Espace de travail Log Analytics
@@ -502,20 +506,6 @@
                 - name: Event Hubs
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-stream-event-hubs.md
-            - name: Collecte des journaux d’activité existants
-              items:
-                - name: Vue d’ensemble
-                  displayName: Resource logs
-                  href: platform/diagnostic-settings-legacy.md
-                - name: Collecter et analyser
-                  displayname: Activity log
-                  href: platform/activity-log-collect.md
-                - name: Collecter auprès des locataires
-                  displayname: Activity log
-                  href: platform/activity-log-collect-tenants.md
-                - name: Exporter
-                  displayname: Activity log
-                  href: platform/activity-log-export.md
         - name: Paramètres de diagnostic
           items:
             - name: Créer un paramètre de diagnostic
@@ -531,6 +521,8 @@
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Superviser les machines virtuelles et l’OS invité
       items:
+        - name: Superviser des machines virtuelles Azure
+          href: insights/monitor-vm-azure.md
         - name: Agents
           items:
             - name: Vue d’ensemble des agents
@@ -636,12 +628,10 @@
           items:
             - name: Vue d’ensemble
               href: insights/vminsights-overview.md
-            - name: Problèmes connus
-              href: insights/vminsights-known-issues.md
             - name: Questions fréquentes (FAQ) sur la disponibilité générale
               href: insights/vminsights-ga-release-faq.md
             - name: Questions fréquentes (FAQ)
-              href: 'faq.md#azure-monitor-for-vms-preview'
+              href: 'faq.md#azure-monitor-for-vms'
             - name: Activer la supervision
               items:
                 - name: Vue d’ensemble de l’activation de la supervision
@@ -654,18 +644,16 @@
                   href: insights/vminsights-enable-at-scale-powershell.md
                 - name: Activer pour un environnement hybride
                   href: insights/vminsights-enable-hybrid-cloud.md
-                - name: Intégration avec Operations Manager
-                  href: insights/service-map-scom.md
-            - name: Surveiller l’intégrité
-              href: insights/vminsights-health.md
             - name: Mapper des dépendances
               href: insights/vminsights-maps.md
             - name: Superviser les performances
               href: insights/vminsights-performance.md
-            - name: Utilisation de classeurs
-              href: insights/vminsights-workbooks.md
             - name: Analyser des données avec des requêtes de journal
               href: insights/vminsights-log-search.md
+            - name: Visualiser des données dans des classeurs
+              href: insights/vminsights-workbooks.md
+            - name: Créer des règles d'alerte
+              href: insights/vminsights-alerts.md
             - name: Mettre à niveau l’agent de dépendances
               href: insights/vminsights-dependency-agent-maintenance.md
             - name: Désactiver l’analyse
@@ -680,6 +668,8 @@
               href: insights/wire-data.md
             - name: Solution Service Map
               href: insights/service-map.md
+            - name: Service Map et Operations Manager
+              href: insights/service-map-scom.md
         - name: Groupes d’ordinateurs
           href: platform/computer-groups.md
     - name: Analyser les conteneurs
@@ -708,6 +698,8 @@
               href: insights/container-insights-analyze.md
             - name: Surveiller l’intégrité
               href: insights/container-insights-health.md
+            - name: Superviser les performances du GPU
+              href: insights/container-insights-gpu-monitoring.md
             - name: Consulter les données en direct
               items:
                 - name: Vue d’ensemble de Données en direct (préversion)
@@ -896,13 +888,11 @@
                   href: log-query/query-optimization.md
                 - name: Analyser les données de texte
                   href: log-query/parse-text.md
-        - name: Flow / Logic Apps
+        - name: Logic Apps
           items:
-            - name: Connecteur Flow avec des journaux
-              href: platform/flow-tutorial.md
-            - name: Connecteur Flow avec des applications
-              href: app/automate-with-flow.md
-            - name: Logic Apps avec des applications
+            - name: Connecteur des journaux Azure Monitor
+              href: platform/logicapp-flow-connector.md
+            - name: Connecteur Application Insights
               href: app/automate-with-logic-apps.md
         - name: API REST
           displayname: 'metrics, analyze'
@@ -975,6 +965,8 @@
           href: platform/grafana-plugin.md
     - name: Génération d’alertes
       items:
+        - name: Résoudre les problèmes liés aux alertes
+          href: platform/alerts-troubleshoot.md
         - name: Règles d’alerte d’application
           items:
             - name: Disponibilité
@@ -999,7 +991,7 @@
               href: platform/alerts-log-query.md
             - name: Actions de webhook
               href: platform/alerts-log-webhook.md
-            - name: Dépannage
+            - name: Résoudre les problèmes liés aux alertes de journal
               href: platform/alert-log-troubleshoot.md
         - name: Règles d’alerte de journal d’activité
           items:
@@ -1219,13 +1211,13 @@
           href: /powershell/module/az.operationalinsights
     - name: API REST
       items:
-        - name: Moniteur
+        - name: Superviser
           href: /rest/api/monitor/
         - name: Journaux d’activité
           href: /rest/api/loganalytics
     - name: Modèle Resource Manager
       items:
-        - name: Moniteur
+        - name: Superviser
           href: /azure/templates/microsoft.insights/allversions
         - name: Journaux d’activité
           href: /azure/templates/microsoft.operationalinsights/allversions
@@ -1263,8 +1255,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: Notes de publication du Kit de développement logiciel (SDK)
           href: app/release-notes.md
-    - name: Windows Analytics
-      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Videos

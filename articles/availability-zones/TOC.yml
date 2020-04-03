@@ -85,6 +85,10 @@
           items:
             - name: Créer une instance Azure Active Directory Domain Services
               href: ../active-directory-domain-services/tutorial-create-instance.md
+    - name: Documentation Edge Zones
+      items:
+        - name: "Qu’est-ce que Edge Zones\_?"
+          href: ../networking/edge-zones-overview.md
 - name: Récupération d’urgence
   items:
     - name: Utiliser Azure Site Recovery

@@ -1,5 +1,5 @@
-- name: Documentation SQL Server Stretch Database
-  href: index.md
+- name: Documentation Azure SQL Server Stretch Database
+  href: index.yml
 - name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Stretch Database\_?"

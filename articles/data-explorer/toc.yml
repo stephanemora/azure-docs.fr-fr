@@ -67,7 +67,13 @@
     - name: Réception de données
       items:
         - name: Ingestion en un clic
-          href: ingest-data-one-click.md
+          items:
+            - name: Vue d’ensemble de l’ingestion en un clic
+              href: ingest-data-one-click.md
+            - name: Ingestion en un clic dans une nouvelle table
+              href: one-click-ingestion-new-table.md
+            - name: Ingestion en un clic dans une table existante
+              href: one-click-ingestion-existing-table.md
         - name: Ingestion de streaming
           href: ingest-data-streaming.md
         - name: Utilisation de LightIngest
@@ -188,6 +194,8 @@
               href: customer-managed-keys-csharp.md
             - name: "Modèle Azure\_Resource\_Manager"
               href: customer-managed-keys-resource-manager.md
+        - name: Créez une application Azure AD
+          href: provision-azure-ad-app.md
     - name: Gérer
       items:
         - name: Cluster
@@ -208,6 +216,8 @@
                   href: cluster-principal-python.md
                 - name: "Modèle Azure\_Resource\_Manager"
                   href: cluster-principal-resource-manager.md
+            - name: Gérer les extensions de langage de cluster
+              href: language-extensions.md
         - name: Base de données
           items:
             - name: Bases de données d’abonné
@@ -234,12 +244,14 @@
               href: delete-data.md
             - name: Gérer des données en double
               href: dealing-with-duplicates.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Utiliser des journaux de diagnostic pour superviser l’ingestion
           href: using-diagnostic-logs.md
         - name: Utiliser des métriques pour superviser l’intégrité du cluster
           href: using-metrics.md
+        - name: Utiliser Resource Health pour superviser l’intégrité du cluster
+          href: monitor-with-resource-health.md
     - name: Intégrer aux autres outils
       items:
         - name: Azure Data Factory
@@ -264,6 +276,8 @@
           href: connect-from-databricks.md
         - name: Analyser des données dans Jupyter Notebook et Kqlmagic
           href: kqlmagic.md
+        - name: Analyser des données dans Azure Notebooks
+          href: azure-notebooks.md
         - name: Azure Pipelines
           href: devops.md
     - name: Dépanner

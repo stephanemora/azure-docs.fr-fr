@@ -1,5 +1,5 @@
-- name: Documentation Scheduler
-  href: index.md
+- name: Documentation d’Azure Scheduler
+  href: index.yml
 - name: Vue d’ensemble
   items:
     - name: Présentation d’Azure Scheduler

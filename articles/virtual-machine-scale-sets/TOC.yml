@@ -13,11 +13,13 @@
       href: quick-create-cli.md
     - name: Créer avec Azure PowerShell
       href: quick-create-powershell.md
-    - name: Créer avec un modèle
+    - name: Créer avec un modèle ARM
       items:
         - name: Groupe identique Linux
+          displayName: 'ARM, resource manager'
           href: quick-create-template-linux.md
         - name: Groupe identique Windows
+          displayName: 'ARM, resource manager'
           href: quick-create-template-windows.md
 - name: Tutoriels
   items:

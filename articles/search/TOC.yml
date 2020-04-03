@@ -23,6 +23,9 @@
           href: knowledge-store-create-portal.md
         - name: Exécuter des requêtes avec l’Explorateur de recherche
           href: search-explorer.md
+    - name: Modèle ARM
+      displayName: Resource Manager
+      href: search-get-started-arm.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -77,14 +80,6 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: Exemples REST
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
-- name: Entrainement
-  items:
-    - name: Introduction (Microsoft Learn)
-      href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
-    - name: Ajouter la recherche dans les applications (Pluralsight)
-      href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
-    - name: Cours pour développeurs (Pluralsight)
-      href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: Concepts
   items:
     - name: Recherche en texte intégral
@@ -233,7 +228,7 @@
           href: search-query-simple-examples.md
         - name: Utiliser la syntaxe Lucene complète
           href: search-query-lucene-examples.md
-        - name: Caractères spéciaux et termes partiels
+        - name: Termes partiels et caractères spéciaux
           href: search-query-partial-matching.md
         - name: Interroger des données à partir de Power Apps
           href: search-howto-powerapps.md
@@ -261,7 +256,7 @@
           href: search-example-adventureworks-multilevel-faceting.md
     - name: Résultats
       items:
-        - name: Fonctionnalités relatives aux pages
+        - name: Utiliser les résultats
           href: search-pagination-page-layout.md
         - name: Réglage de la pertinence (profils de scoring)
           href: index-add-scoring-profiles.md
@@ -327,7 +322,7 @@
           href: search-manage-powershell.md
         - name: Déplacer un service d’une région à l’autre
           href: search-howto-move-across-regions.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Notions de base
           href: search-monitor-usage.md
@@ -460,6 +455,14 @@
           href: 'https://aka.ms/azjobsdemo'
         - name: Recherche des cas d’utilisation
           href: 'https://searchsamples.azurewebsites.net/'
+    - name: Entrainement
+      items:
+        - name: Introduction (Microsoft Learn)
+          href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
+        - name: Ajouter la recherche dans les applications (Pluralsight)
+          href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
+        - name: Cours pour développeurs (Pluralsight)
+          href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
     - name: Questions fréquentes (FAQ)
       href: search-faq-frequently-asked-questions.md
     - name: Tarifs

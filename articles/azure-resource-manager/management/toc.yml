@@ -52,18 +52,24 @@
           href: region-move-support.md
         - name: Services
           items:
+            - name: Azure IoT Hub
+              href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/toc.json
             - name: Machines virtuelles Azure
               href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
             - name: Stockage Azure
               href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
             - name: Azure SQL
               href: ../../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
-            - name: Réseau virtuel
-              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: "Logic\_Apps"
+              href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Configuration du contrôle de maintenance
+              href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/toc.json
             - name: Groupe de sécurité réseau
               href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
             - name: Adresses IP publiques
               href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Réseau virtuel
+              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
     - name: Balises
       items:
         - name: Guide de décision

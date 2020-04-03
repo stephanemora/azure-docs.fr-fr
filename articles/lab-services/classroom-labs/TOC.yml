@@ -102,6 +102,8 @@
               href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Préparer une machine virtuelle de modèle Windows
           href: how-to-prepare-windows-template.md
+        - name: Contrôler le comportement d’arrêt de Windows
+          href: how-to-windows-shutdown.md
         - name: Consulter des informations de support (formateur)
           href: lab-creator-support-information.md
     - name: Se connecter à des machines virtuelles dans des laboratoires de classe (étudiant)
