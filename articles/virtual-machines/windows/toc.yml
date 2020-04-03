@@ -90,7 +90,7 @@
           items:
             - name: Chiffrer une machine virtuelle et ses disques de données
               href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
-        - name: Moniteur
+        - name: Superviser
           items:
             - name: Azure Monitor
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
@@ -134,7 +134,7 @@
           items:
             - name: Chiffrer une machine virtuelle et ses disques de données
               href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
-            - name: Moniteur
+            - name: Superviser
               items:
                 - name: Azure Monitor
                   href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
@@ -254,6 +254,7 @@
               href: reserved-vm-instance-size-flexibility.md
         - name: Machines virtuelles Spot
           href: spot-vms.md
+          displayName: 'pre-empt, preempt'
         - name: Générations précédentes
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           displayName: D-series Ds-series A-series Basic

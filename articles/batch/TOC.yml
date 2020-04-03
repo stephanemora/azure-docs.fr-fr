@@ -69,6 +69,8 @@
   items:
     - name: Gestion des comptes Batch
       items:
+        - name: Gérer votre compte
+          href: batch-manage-account-basics.md
         - name: Gérer des comptes Batch avec le portail
           href: batch-account-create-portal.md
         - name: Gérer les comptes Batch avec Batch Management .NET
@@ -83,8 +85,12 @@
           href: batch-aad-auth-management.md
         - name: Accéder de façon sécurisée à Key Vault avec Batch
           href: credential-access-key-vault.md
+    - name: Utilisation de packages d’application
+      href: batch-application-packages.md
     - name: Copier des fichiers et des applications dans les nœuds d’un pool
       items:
+        - name: Copie d’applications et de données dans des nœuds de pool
+          href: batch-applications-to-pool-nodes.md
         - name: Utilisation de packages d’application
           href: batch-application-packages.md
         - name: Créer des fichiers de ressources

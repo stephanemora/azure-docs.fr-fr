@@ -204,7 +204,7 @@
           items:
             - name: Portail Azure
               href: howto-configure-audit-logs-portal.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Créer des alertes sur les mesures
           href: howto-alert-on-metric.md
@@ -246,6 +246,8 @@
       items:
         - name: Portail Azure
           href: howto-data-encryption-portal.md
+        - name: Azure CLI
+          href: howto-data-encryption-cli.md
     - name: Intégration Azure AD
       items:
         - name: Configurer l’intégration d’Azure AD

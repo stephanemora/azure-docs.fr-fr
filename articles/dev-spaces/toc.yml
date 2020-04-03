@@ -3,7 +3,7 @@
   items:
     - name: Vue d’ensemble
       items:
-        - name: À propos d’Azure Dev Spaces
+        - name: "Qu’est-ce qu’Azure Dev Spaces\_?"
           href: about.md
     - name: Démarrages rapides
       items:

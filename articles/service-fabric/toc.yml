@@ -404,8 +404,6 @@
           items:
             - name: Déployer un exécutable invité
               href: service-fabric-deploy-existing-app.md
-            - name: Déploiement de plusieurs exécutables invités
-              href: service-fabric-deploy-multiple-apps.md
         - name: Générer un service de conteneur
           items:
             - name: Docker Compose (préversion)
