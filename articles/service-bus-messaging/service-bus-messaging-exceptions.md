@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 37f316af68bc0b20f21eb606e2abc8232f29ce32
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: fb27befadcf8e6d201d020e758cfd1ef9b695f41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759361"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240804"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guide de dépannage pour Azure Service Bus
 Cet article indique certaines des exceptions .NET générées par les API .NET Framework Service Bus et fournit également d’autres conseils pour la résolution des problèmes. 
@@ -51,7 +51,7 @@ Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs ca
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Le service n’est pas en mesure de traiter la demande pour l’instant. |Le client peut attendre pendant une période de temps, puis recommencer l'opération. |Le client peut réessayer après un certain temps. Si une nouvelle tentative provoque une exception différente, vérifiez le comportement de nouvelle tentative de cette exception. |
 | [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception) |Le jeton de verrouillage associé au message a expiré ou le jeton de verrouillage est introuvable. |Supprimez le message. |La nouvelle tentative ne résout pas le problème. |
 | [SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception) |Le verrou associé à cette session est perdu. |Abandonnez l’objet [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) . |La nouvelle tentative ne résout pas le problème. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Exception de messagerie générique qui peut être levée dans les cas suivants :<br /> une tentative est effectuée pour créer un [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) à l’aide d’un nom ou d’un chemin d’accès qui appartient à un autre type d’entité (par exemple, une rubrique).<br />  Une tentative est effectuée pour envoyer un message de taille supérieure à 256 Ko. Le serveur ou le service a rencontré une erreur lors du traitement de la demande. Consultez le message de l'exception pour obtenir plus d'informations. Il s’agit généralement d’une exception temporaire. |Vérifiez le code et assurez-vous que seuls les objets sérialisables sont utilisés dans le corps du message (ou utilisez un sérialiseur personnalisé). Consultez la documentation pour connaître les types de valeurs des propriétés pris en charge et utilisez uniquement les types pris en charge. Vérifiez la propriété [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si sa valeur est **true**, vous pouvez réessayer d’effectuer l’opération. |Le comportement de la nouvelle tentative n'est pas défini et peut ne pas être utile. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Exception de messagerie générique qui peut être levée dans les cas suivants :<p>une tentative est effectuée pour créer un [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) à l’aide d’un nom ou d’un chemin d’accès qui appartient à un autre type d’entité (par exemple, une rubrique).</p><p>Une tentative est effectuée pour envoyer un message de taille supérieure à 256 Ko. </p>Le serveur ou le service a rencontré une erreur lors du traitement de la demande. Consultez le message de l'exception pour obtenir plus d'informations. Il s’agit généralement d’une exception temporaire.</p><p>La demande a été arrêtée parce que l’entité est limitée. Code d’erreur : 50001, 50002, 50008. </p> | Vérifiez le code et assurez-vous que seuls les objets sérialisables sont utilisés dans le corps du message (ou utilisez un sérialiseur personnalisé). <p>Consultez la documentation pour connaître les types de valeurs des propriétés pris en charge et utilisez uniquement les types pris en charge.</p><p> Vérifiez la propriété [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si sa valeur est **true**, vous pouvez réessayer d’effectuer l’opération. </p>| Si l’exception est due à une limitation, attendez quelques secondes, puis réessayez l’opération. Le comportement de la nouvelle tentative n’est pas défini et peut ne pas être utile dans d’autres scénarios.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Tentative de création d'une entité dont le nom est déjà utilisé par une autre entité de l'espace de noms de ce service. |Supprimez l'entité existante ou choisissez un autre nom pour l'entité à créer. |La nouvelle tentative ne résout pas le problème. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |L’entité de messagerie a atteint sa taille maximale autorisée, ou le nombre maximal de connexions à un espace de noms a été dépassé. |Créez de l’espace dans l’entité en recevant des messages à partir de l’entité ou de ses files d’attente secondaires. Consultez [QuotaExceededException](#quotaexceededexception). |Une nouvelle tentative peut aider si des messages ont été supprimés entre-temps. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |Service Bus renvoie cette exception si vous essayez de créer une action de règle non valide. Service Bus associe cette exception à un message désactivé si une erreur se produit lors du traitement de l'action de règle pour ce message. |Vérifiez que l'action de règle est correcte. |La nouvelle tentative ne résout pas le problème. |
@@ -72,7 +72,7 @@ Pour les files d’attente et les rubriques, il s’agit souvent de la taille de
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
-Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
+Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xxx-xxx'. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
 1073741824..TrackingId:xxxxxxxxxxxxxxxxxxxxxxxxxx, TimeStamp:3/15/2013 7:50:18 AM
 ```
@@ -146,6 +146,15 @@ Aidez-vous des étapes suivantes pour résoudre les problèmes de connectivité,
     Vous pouvez utiliser des commandes équivalentes dans d’autres outils, par exemple `tnc`, `ping`, etc. 
 - Si les étapes précédentes n’ont pas résolu le problème, obtenez une trace réseau et analysez-la à l’aide d’un outil tel que [Wireshark](https://www.wireshark.org/). Contactez le [support Microsoft](https://support.microsoft.com/) si nécessaire. 
 
+## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problèmes qui peuvent se produire avec les mises à niveau/redémarrages du service
+Les mises à niveau et redémarrages du service principal peuvent avoir l’impact suivant sur vos applications :
+
+- Les demandes peuvent être momentanément limitées.
+- Il peut y avoir une chute des messages/demandes entrants.
+- Le fichier journal peut contenir des messages d’erreur.
+- Les applications peuvent être déconnectées du service pendant quelques secondes.
+
+Si le code d’application utilise le kit de développement logiciel (SDK), la stratégie de nouvelle tentative est déjà intégrée et active. L’application se reconnectera sans que cela ait un impact significatif sur l’application/le flux de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

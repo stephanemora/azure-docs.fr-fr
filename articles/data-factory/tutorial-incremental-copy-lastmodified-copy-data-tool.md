@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 1/24/2019
-ms.openlocfilehash: 291a991542f9d535d2450dfd465196b755c623ac
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 3/18/2020
+ms.openlocfilehash: 743f9dd8f7998178a75d716f4da22efee2b3bc79
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982635"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131040"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copier les fichiers nouveaux et modifiés selon LastModifiedDate à l’aide de l’outil Copier des données de façon incrémentielle
 
@@ -35,7 +35,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > * Utiliser l’outil Copier les données pour créer un pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte de stockage Azure** : Utilisez le stockage d’objets blob comme magasins de données _source_ et _récepteur_. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-account-create.md).
@@ -72,15 +72,11 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
 5. Sous **Version**, sélectionnez **V2**.
 6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) qu’utilise votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
-7. Sélectionnez **Épingler au tableau de bord**.
 8. Sélectionnez **Create** (Créer).
-9. Sur le tableau de bord, consultez la vignette **Déploiement de Data Factory** pour afficher l’état du processus.
-
-    ![Vignette Déploiement de Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
-10. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
+9. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
+10. Pour ouvrir l’interface utilisateur d’Azure Data Factory dans un onglet séparé, cliquez sur la vignette **Créer et surveiller**.
 
     ![Page d’accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
-11. Pour ouvrir l’interface utilisateur d’Azure Data Factory dans un onglet séparé, cliquez sur la vignette **Créer et surveiller**.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utiliser l’outil Copier les données pour créer un pipeline
 
@@ -108,15 +104,11 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
     a. Sélectionnez **+ Créer une connexion** pour ajouter une connexion.
 
-    ![Page Magasin de données sources](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
-
     b. Sélectionnez **Stockage Blob Azure** à partir de la galerie, puis sélectionnez **Continuer**.
 
     ![Page Magasin de données sources](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    c. Sur la page **Nouveau service lié**, sélectionnez votre compte de stockage dans la liste **Nom du compte de stockage**, puis cliquez sur **Terminer**.
-
-    ![Page Magasin de données sources](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
+    c. Dans la page **Nouveau service lié (Stockage Blob Azure)** , sélectionnez votre compte de stockage dans la liste **Nom du compte de stockage**. Testez la connexion, puis sélectionnez **Créer**.
 
     d. Sélectionnez le service lié nouvellement créé, puis sélectionnez **Suivant**.
 
@@ -130,15 +122,11 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
     b. Sous **Comportement du chargement de fichier**, sélectionnez **Chargement incrémentiel : LastModifiedDate**.
 
-    ![Choisir le fichier ou le dossier d’entrée](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
-
     c. Cochez la case **Copie binaire** et sélectionnez **Suivant**.
 
      ![Choisir le fichier ou le dossier d’entrée](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. Sur la page **Banque de données de destination**, sélectionnez **AzureBlobStorage**. Il s’agit du même compte de stockage que la banque de données source. Sélectionnez ensuite **Suivant**.
-
-    ![Page Magasin de données de destination](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page-select-linkedservice.png)
+5. Sur la page **Banque de données de destination**, sélectionnez le stockage **AzureBlobStorage** que vous avez créé. Il s’agit du même compte de stockage que la banque de données source. Sélectionnez ensuite **Suivant**.
 
 6. Sur la page **Choisir le fichier ou le dossier de sortie**, procédez comme suit :
 
@@ -148,11 +136,7 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
     b. Sélectionnez **Suivant**.
 
-     ![Choisir le fichier ou le dossier de sortie](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/click-next-after-output-folder.png)
-
 7. Sur la page **Paramètres**, cliquez sur **Suivant**.
-
-    ![Page Paramètres](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/settings-page.png)
 
 8. Sur la page **Résumé**, vérifiez les paramètres, puis sélectionnez **Suivant**.
 
@@ -162,11 +146,11 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
     ![Page Déploiement](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
 
-10. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. La colonne **Actions** comprend les liens permettant d’afficher les détails de l’exécution d’activité et de réexécuter le pipeline. Sélectionnez **Actualiser** pour actualiser la liste, puis sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**.
+10. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. L’application bascule vers l’onglet **Surveiller**. Vous voyez l’état du pipeline. Sélectionnez **Actualiser** pour actualiser la liste. Cliquez sur le lien en dessous de **Nom du pipeline** pour afficher les détails de l’exécution de l’activité ou réexécuter le pipeline. 
 
     ![Actualiser la liste et sélectionner Afficher les exécutions d'activités](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
 
-11. Il n’y a qu’une seule activité (l’activité de copie) dans le pipeline ; vous ne voyez donc qu’une seule entrée. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**.
+11. Il n’y a qu’une seule activité (l’activité de copie) dans le pipeline ; vous ne voyez donc qu’une seule entrée. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **NOM DE L’ACTIVITÉ**. Pour plus d’informations sur les propriétés, consultez [Vue d’ensemble de l’activité de copie](copy-activity-overview.md). 
 
     ![L’activité de copie se trouve dans le pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
 
@@ -182,19 +166,15 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
     ![Sélectionner Toutes les exécutions de pipelines](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 
-14. Sélectionnez **Afficher l’exécution d’activités** pour la seconde exécution de pipeline lorsqu’elle s’affiche. Passez ensuite en revue les informations de la même façon que pour la première exécution de pipeline.  
+14. Une fois la deuxième exécution du pipeline terminée, suivez les étapes mentionnées ci-dessus pour passer en revue les détails de l’exécution de l’activité.  
 
-    ![Sélectionner Afficher l’exécution d'activités et passer en revue les informations](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
-
-    Vous constatez qu’un fichier texte (file1.txt) a été copié depuis le conteneur **source** vers le conteneur **destination** de votre compte de stockage Blob.
+    Vous pouvez constater qu’un fichier texte (file1.txt) a été copié du conteneur **source** vers le conteneur **destination** de votre compte de stockage d’objets blob.
 
     ![Fichier file1.txt copié depuis le conteneur source vers le conteneur destination](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
 
 15. Créez un autre fichier texte vide et nommez-le **file2.txt**. Chargez le fichier texte dans le conteneur **source** de votre compte de stockage Blob.
 
 16. Répérez les étapes 13 et 14 pour ce second fichier texte. Vous constatez que seul le nouveau fichier texte (file2.txt) a été copié depuis le conteneur **source** vers le conteneur **destination** de votre compte de stockage dans l’exécution du pipeline suivant.  
-
-    ![Fichier file2.txt copié depuis le conteneur source vers le conteneur destination](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
     Vous pouvez également vérifier cela à l’aide de l’[Explorateur Stockage Azure](https://storageexplorer.com/) pour analyser les fichiers.
 
