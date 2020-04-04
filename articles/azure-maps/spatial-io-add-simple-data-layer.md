@@ -1,19 +1,19 @@
 ---
 title: Ajouter une couche de données simple | Microsoft Azure Maps
 description: Découvrez comment ajouter une couche de données simple à l’aide du module d’E/S spatiales, fourni par le Kit de développement logiciel (SDK) web Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3fa54e3227496c11fcafc2f42e980daa5c716365
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 7671d07a468a9f67a4851ec828fe18896d7a6c66
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370376"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334281"
 ---
 # <a name="add-a-simple-data-layer"></a>Ajouter une couche de données simple
 
@@ -23,17 +23,73 @@ Outre les fonctionnalités de style, `SimpleDataLayer` fournit une fonctionnalit
 
 La classe `SimpleDataLayer` est destinée à être utilisée sur des jeux de données volumineux avec de nombreux types de géométrie et de nombreux styles appliqués aux fonctionnalités. En cas d’utilisation, cette classe ajoute une surcharge de six couches contenant des expressions de style. Dans certains cas, il est plus efficace d’utiliser les couches de rendu principales. Par exemple, utilisez une couche de base pour restituer quelques types de géométrie et quelques styles sur une fonctionnalité.
 
+## <a name="use-a-simple-data-layer"></a>Utiliser une couche de données simple
+
+La classe `SimpleDataLayer` est utilisée comme les autres couches de rendu. Le code ci-dessous montre comment utiliser une couche de données simple dans une carte :
+
+```javascript
+//Create a data source and add it to the map.
+var datasource = new atlas.source.DataSource();
+map.sources.add(datasource);
+
+//Add a simple data layer for rendering data.
+var layer = new atlas.layer.SimpleDataLayer(datasource);
+map.layers.add(layer);
+```
+
+Ajoutez des fonctionnalités à la source de données. Ensuite, la couche de données simple déterminera la meilleure façon d’afficher les fonctionnalités. Les styles des fonctionnalités individuelles peuvent être définis en tant que propriétés sur la fonctionnalité. Le code suivant montre une fonctionnalité de point GeoJSON avec une propriété `color` définie sur `red`. 
+
+```json
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [0, 0]
+    },
+    "properties": {
+        "color": "red"
+    }
+}
+```
+
+Le code suivant restitue la fonctionnalité de point ci-dessus à l’aide de la couche de données simple. 
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Utiliser la couche de données simple" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Le véritable pouvoir de la couche de données simple quand :
+
+- il existe différents types de fonctionnalités dans une source de données ;
+- plusieurs propriétés de style sont définies individuellement sur les fonctionnalités du jeu de données ; ou
+- vous ne savez pas exactement ce que contient le jeu de données.
+
+Par exemple, lors de l’analyse de flux de données XML, vous pouvez ne pas connaître les styles et les types de géométrie exacts des fonctionnalités. L’exemple suivant illustre la puissance de la couche de données simple en restituant les fonctionnalités d’un fichier KML. Il illustre également les différentes options fournies par la classe de la couche de données simple.
+
+<br/>
+
+<iframe height="700" style="width: 100%;" scrolling="no" title="Options de la couche de données simple" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+
+> [!NOTE]
+> Cette couche de données simple utilise la classe [modèle de fenêtre contextuelle](map-add-popup.md#add-popup-templates-to-the-map) pour afficher des bulles KML ou des propriétés de fonctionnalité sous forme de tableau. Par défaut, tout le contenu affiché dans la fenêtre contextuelle est placé dans un bac à sable (sandbox) à l’intérieur d’un IFrame en tant que fonctionnalité de sécurité. Toutefois, des limitations s’appliquent :
+>
+> - Les scripts, les formulaires, le verrou de pointeur et la fonctionnalité de navigation supérieure sont désactivés. Les liens sont autorisés à s’ouvrir dans un nouvel onglet en cas de clic. 
+> - Les navigateurs plus anciens qui ne prennent pas en charge le paramètre `srcdoc` sur Iframes sont limités au rendu d’une petite quantité de contenu.
+> 
+> Si vous avez confiance dans les données chargées dans les fenêtres contextuelles et souhaitez potentiellement que ces scripts chargés dans les fenêtres contextuelles puissent accéder à votre application, vous pouvez désactiver ce comportement en définissant l’option `sandboxContent` des modèles de fenêtre contextuelle sur la valeur False. 
+
 ## <a name="default-supported-style-properties"></a>Propriétés de style prises en charge par défaut
 
 Comme indiqué précédemment, la couche de données simple enveloppe plusieurs des couches de rendu principales : bulle, symbole, ligne, polygone et polygone extrudé. Elle utilise ensuite des expressions pour rechercher des propriétés de style valides sur des fonctionnalités individuelles.
 
 Les propriétés de style Azure Maps et GitHub sont les deux principaux ensembles de noms de propriétés pris en charge. La plupart des noms de propriété des différentes options de couche Azure Maps sont pris en charge en tant que propriétés de style des fonctionnalités dans la couche de données simple. Des expressions ont été ajoutées à certaines options de couche pour prendre en charge les noms de propriété de style couramment utilisés par GitHub. Ces noms de propriétés sont définis par le [support cartographique GeoJSON de GitHub](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github), et ils sont utilisés pour styliser les fichiers GeoJSON qui sont stockés et rendus au sein de la plateforme. Toutes les propriétés de style de GitHub sont prises en charge dans la couche de données simple, à l’exception des propriétés de style `marker-symbol`.
 
-Si le lecteur rencontre une propriété de style moins courante, il la convertit en propriété de style Azure Maps la plus proche. En outre, les expressions de style par défaut peuvent être remplacées à l’aide de la fonction `getLayers` de la couche de données simple et de la mise à jour des options sur l’une des couches.
+Si le lecteur rencontre une propriété de style moins courante, il la convertit dans la propriété de style Azure Maps la plus proche. En outre, les expressions de style par défaut peuvent être remplacées à l’aide de la fonction `getLayers` de la couche de données simple et de la mise à jour des options sur l’une des couches.
 
 La section suivante fournit des détails sur les propriétés de style par défaut qui sont prises en charge par la couche de données simple. L’ordre du nom de propriété pris en charge représente également la priorité de la propriété. Si deux propriétés de style sont définies pour la même option de couche, la première dans la liste a une priorité plus élevée.
-
-## <a name="simple-data-layer-options"></a>Options de la couche de données simple
 
 ### <a name="bubble-layer-style-properties"></a>Propriétés de style de la couche de bulles
 
@@ -113,56 +169,6 @@ Si la fonctionnalité est un `Polygon` ou un `MultiPolygon` et qu’elle a une p
 | `base` | `base` | `0` |
 | `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
 | `height` | `height` | `0` |
-
-## <a name="use-a-simple-data-layer"></a>Utiliser une couche de données simple
-
-La classe `SimpleDataLayer` est utilisée comme les autres couches de rendu. Le code ci-dessous montre comment utiliser une couche de données simple dans une carte :
-
-```javascript
-//Create a data source and add it to the map.
-var datasource = new atlas.source.DataSource();
-map.sources.add(datasource);
-
-//Add a simple data layer for rendering data.
-var layer = new atlas.layer.SimpleDataLayer(datasource);
-map.layers.add(layer);
-```
-
-Ajoutez des fonctionnalités à la source de données. Ensuite, la couche de données simple déterminera la meilleure façon d’afficher les fonctionnalités. Les styles des fonctionnalités individuelles peuvent être définis en tant que propriétés sur la fonctionnalité. Le code suivant montre une fonctionnalité de point GeoJSON avec une propriété `color` définie sur `red`. 
-
-```json
-{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [0, 0]
-    },
-    "properties": {
-        "color": "red"
-    }
-}
-```
-
-Le code suivant restitue la fonctionnalité de point ci-dessus à l’aide de la couche de données simple. 
-
-<br/>
-
-<iframe height="500" style="width: 100%;" scrolling="no" title="Utiliser la couche de données simple" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Le véritable pouvoir de la couche de données simple quand :
-
-- il existe différents types de fonctionnalités dans une source de données ;
-- plusieurs propriétés de style sont définies individuellement sur les fonctionnalités du jeu de données ; ou
-- vous ne savez pas exactement ce que contient le jeu de données.
-
-Par exemple, lors de l’analyse de flux de données XML, vous pouvez ne pas connaître les styles et les types de géométrie exacts des fonctionnalités. L’exemple suivant illustre la puissance de la couche de données simple en restituant les fonctionnalités d’un fichier KML. Il illustre également les différentes options fournies par la classe de la couche de données simple.
-
-<br/>
-
-<iframe height="700" style="width: 100%;" scrolling="no" title="Options de la couche de données simple" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: b7562ab6c7ec9c6234ed3fbb867361307b80a638
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673063"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Installer et utiliser en toute sécurité votre Azure Data Box Heavy
@@ -20,7 +20,7 @@ ms.locfileid: "67673063"
 Cet article contient les informations de sécurité pour votre Azure Data Box Heavy.
 
 ![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png)
-![Icône Lire l’avis de sécurité](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Lire toutes les instructions avant de commencer**
+![Icône de lecture de l’avis de sécurité](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png)**Lire toutes les instructions avant de commencer**
 
 Lisez l’ensemble des informations de sécurité contenues dans cet article avant d’utiliser Azure Data Box Heavy. Le non-respect des instructions peut entraîner un incendie ou une dégradation de vos biens et être à l’origine d’électrocutions ou d’autres types de blessures.
 
@@ -29,37 +29,37 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 
 | Icône | Description |
 |:--- |:--- |
-| ![Icône danger](./media/data-box-heavy-safety/warning-icon.png)**DANGER !** |Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. Ce terme d’avertissement est réservé aux situations extrêmement dangereuses. |
-| ![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png) **AVERTISSEMENT !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. |
-| ![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png) **ATTENTION !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner des blessures légères ou moyennement graves. |
-| ![Icône d’avis](./media/data-box-heavy-safety/notice-icon.png)**AVIS :** |Signale des informations considérées comme importantes, mais non associées à un danger. |
-| ![Icône risque d’électrocution](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)**Risque d’électrocution** |Haute tension. |
-| ![Icône objet lourd](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png)**Objet lourd** | |
-| ![Icône aucune pièce remplaçable par l’utilisateur](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png)**Aucune pièce remplaçable par l’utilisateur** |Accès réservé au personnel formé à cet effet. |
-| ![Icône Lire l’avis de sécurité](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Lire toutes les instructions avant de commencer** | |
-| ![Icône risque de basculement](./media/data-box-heavy-safety/tip-hazard-icon.png)**Risque de basculement** | |
-| ![Icône d’info-bulle de risque de surcharge](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) **Info-bulle de risque de surcharge** | |
-| ![Icône plusieurs sources d’alimentation](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **Plusieurs sources d’alimentation** | |
+| ![Icône Danger](./media/data-box-heavy-safety/warning-icon.png) **DANGER !** |Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. Ce terme d’avertissement est réservé aux situations extrêmement dangereuses. |
+| ![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) **AVERTISSEMENT !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. |
+| ![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) **ATTENTION !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner des blessures légères ou moyennement graves. |
+| ![Icône Avis](./media/data-box-heavy-safety/notice-icon.png) **AVIS :** |Signale des informations considérées comme importantes, mais non associées à un danger. |
+| ![Icône Risque d’électrocution](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **Risque d’électrocution** |Haute tension. |
+| ![Icône Objet lourd](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **Objet lourd** | |
+| ![Icône Aucune pièce réparable par l’utilisateur](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **Aucune pièce réparable par l’utilisateur** |Accès réservé au personnel formé à cet effet. |
+| ![Icône Lire l’avertissement de sécurité](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Lire toutes les instructions avant de commencer** | |
+| ![Icône Risque de renversement](./media/data-box-heavy-safety/tip-hazard-icon.png)**Risque de renversement** | |
+| ![Icône Risque de surcharge](./media/data-box-heavy-safety/overload-tip-hazard-icon.png)**Risque de surcharge** | |
+| ![Icône Plusieurs sources d’alimentation](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **Plusieurs sources d’alimentation** | |
 
 ## <a name="handling-precautions"></a>Précautions relatives à la manipulation
 
-![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png)**AVERTISSEMENT !**
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) **AVERTISSEMENT !**
 
 * L’équipement approprié (par exemple, un transpalette) et l’équipement de protection individuelle (par exemple, des gants) doivent être utilisés pour déplacer et manipuler la caisse.
 * La rampe doit être fixée à la caisse à l’aide des boulons fournis avant de retirer l’appareil pour éviter des blessures ou des dommages matériels.
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png)![Icône risque de basculement](./media/data-box-heavy-safety/tip-hazard-icon.png)**Risque de basculement**
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) ![Icône Risque de renversement](./media/data-box-heavy-safety/tip-hazard-icon.png) **Risque de renversement**
 
 * Placez l’équipement sur une surface plane, dure et stable pour éviter tout risque de basculement ou d’écrasement.
 * Vérifiez que les roulettes sont verrouillés avant d’inspecter, d’activer et d’utiliser l’équipement.
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png) ![Icône risque d’électrocution](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)![Icône aucune pièce remplaçable par l’utilisateur](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **ATTENTION !** 
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) ![Icône Risque d’électrocution](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)![Icône Aucune pièce réparable par l’utilisateur](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png)**ATTENTION !** 
 
 * Inspectez l’appareil *à réception* pour identifier les dommages éventuels. Si le boîtier de l’appareil est endommagé, contactez le [Support Microsoft](data-box-disk-contact-microsoft-support.md) pour bénéficier d’un remplacement. N’essayez pas d’utiliser l’appareil. 
 * L’appareil est équipé de vis inviolables. Si vous pensez que l’appareil est défectueux, contactez le [Support Microsoft](data-box-disk-contact-microsoft-support.md) pour bénéficier d’un remplacement. N’essayez pas de réparer l’appareil. 
 * L’appareil ne contient aucune pièce remplaçable par l’utilisateur. L’intérieur de l’appareil présente des niveaux de tension, de courant et d’énergie dangereux. N’ouvrez pas l’appareil. Retournez l’appareil à Microsoft pour toute réparation.
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png)![Icône objet lourd](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png)**AVERTISSEMENT !** 
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) ![Icône Objet lourd](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **AVERTISSEMENT !** 
 
 * Un boîtier complet peut peser jusqu’à 326 kg (719 lb). N’essayez pas de le soulever seul.
 * N’essayez pas de soulever l’équipement sans l’aide mécanique appropriée. Sachez que toute tentative de soulever ce poids peut entraîner des blessures graves.
@@ -67,11 +67,11 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 * Utilisez une assistance mécanique ou toute autre assistance appropriée lors du déplacement et du levage de l’équipement.
 
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png) ![Icône conseil en matière de risque de surcharge](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) ![Icône conseil en matière de risque](./media/data-box-heavy-safety/tip-hazard-icon.png)![Icône objet lourd](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png)![Icône Risque de surcharge](./media/data-box-heavy-safety/overload-tip-hazard-icon.png)![Icône Risque de renversement](./media/data-box-heavy-safety/tip-hazard-icon.png)![Icône Objet lourd](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png)**AVERTISSEMENT !**
 * Data Box Heavy ne doit pas être utilisé comme table ou espace de travail. L’ajout de n’importe quel type de charge peut créer un risque potentiel, ce qui peut entraîner des blessures ou des dommages.
 * Un équipement monté en rack ne pas doit pas être utilisé en tant qu’étagère ou espace de travail. Ne placez pas la Data Box Heavy au-dessus d’un équipement monté en rack. L’ajout d’une charge de quelque nature que ce soit sur une unité montée en rack extraite peut entraîner un risque de basculement et mener à des blessures potentiellement mortelles ou endommager le produit.
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png) **AVERTISSEMENT !**
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) **AVERTISSEMENT !**
 
 * Le système est conçu pour fonctionner dans un environnement de bureaux classique. Choisissez un site qui est :
 
@@ -88,7 +88,7 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 
 ## <a name="electrical-precautions"></a>Consignes de sécurité électrique
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png)![Icône risque d’électrocution](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)**AVERTISSEMENT !**
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) ![Icône Risque d’électrocution](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **AVERTISSEMENT !**
 
 * Fournissez un raccordement à la masse sûr pour le cordon d’alimentation. Le cordon CA est doté d’une fiche de terre à trois fils (fiche présentant une broche de mise à la terre). Cette fiche convient uniquement aux prises secteur mises à la terre. Veillez à ne pas compromettre le rôle de la broche de mise à la terre.
 * La fiche du cordon d’alimentation étant le moyen principal de débrancher l’alimentation, assurez-vous que les prises de courant sont situées à proximité de l’appareil et facilement accessibles.
@@ -109,17 +109,17 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
     - Le cordon d’alimentation doit avoir un calibre électrique supérieur à celui du courant électrique indiqué sur le produit.
     - Le cordon d’alimentation doit être muni d’une broche de mise à la terre de sécurité ou d’un contact adapté à la prise électrique.
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png)![Icône risque d’électrocution](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) ![Icône plusieurs sources d’alimentation](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **AVERTISSEMENT !**
+![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png)![Icône Risque d’électrocution](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) ![Icône Plusieurs sources d’alimentation](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **AVERTISSEMENT !**
 
 * Débranchez tous les cordons d’alimentation AC pour débrancher complètement l’alimentation AC de l’équipement.
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png) **ATTENTION !**
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) **ATTENTION !**
 
 * Cet appareil contient des batteries boutons. N’essayez pas de réparer l’appareil. Les batteries de cet appareil ne sont pas remplaçables par l’utilisateur. 
 * **Pour le personnel de maintenance uniquement** : risque d’explosion si la batterie est remplacée par une batterie de type incorrect. Éliminez les batteries usagées conformément aux instructions.
 * Les périphériques ou appareils laser sont présents. Pour éviter tout risque d’exposition aux rayonnements et/ou de blessures corporelles, n’ouvrez pas le boîtier d’un périphérique ou d’un appareil laser. Les périphériques ou appareils laser ne sont pas remplaçables. N’utilisez que des produits certifiés et homologués Laser Classe I pour les émetteurs-récepteurs optiques.
 
-![Icône d’avis](./media/data-box-heavy-safety/notice-icon.png)**AVIS :**
+![Icône Avis](./media/data-box-heavy-safety/notice-icon.png) **AVIS :**
 
 Pour garantir le bon fonctionnement de votre appareil et éviter tout endommagement du produit :
 
@@ -141,13 +141,13 @@ Cet appareil est :
 
 Pour les caractéristiques d’alimentation électrique, reportez-vous à la plaque signalétique de l’appareil fournie avec l’unité. 
 
-![Icône d’avis](./media/data-box-heavy-safety/notice-icon.png)**AVIS :** 
+![Icône Avis](./media/data-box-heavy-safety/notice-icon.png) **AVIS :** 
 
 Les changements ou modifications apportés à l’appareil qui ne sont pas expressément approuvés par Microsoft peuvent annuler l’autorisation de l’utilisateur à se servir de l’appareil.
 
 **Canada et États-Unis :**
 
-![Icône d’avis](./media/data-box-heavy-safety/notice-icon.png)**AVIS :** 
+![Icône Avis](./media/data-box-heavy-safety/notice-icon.png) **AVIS :** 
 
 Cet équipement a été testé et déclaré conforme aux limites applicables aux appareils numériques de classe A, selon la section 15 des règlements de la FCC. Ces limites sont conçues pour offrir une protection raisonnable contre les interférences nuisibles lorsque l’équipement est utilisé dans un environnement commercial. Cet appareil génère, utilise et peut émettre une énergie de fréquence radio. S’il n’est pas installé et utilisé conformément au manuel d’instructions, il peut être source d’interférences nuisibles pour les communications radio. L’utilisation de cet appareil dans une zone résidentielle est susceptible de causer des interférences nuisibles, auquel cas l’utilisateur sera tenu d’y remédier à ses propres frais.
 
@@ -165,7 +165,7 @@ CAN ICES-3(A)/NMB-3(A) Microsoft Corporation, One Microsoft Way, Redmond, WA 980
 
 [Requête](mailto:CSI_Compliance@microsoft.com) une copie de la déclaration de conformité de l’Union européenne.
 
-![Icône d’avertissement](./media/data-box-heavy-safety/warning-icon.png) **AVERTISSEMENT !** 
+![Icône Avertissement](./media/data-box-heavy-safety/warning-icon.png) **AVERTISSEMENT !** 
 
 Cet appareil est un produit de classe A. Dans un environnement domestique, ce produit peut provoquer des interférences radio, auquel cas l’utilisateur peut être tenu de prendre les mesures adéquates.
 

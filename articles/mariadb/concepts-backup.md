@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 3e10c23aaaef6315e072348d879d5f077e16382a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 3/27/2020
+ms.openlocfilehash: c4d5a9ca85237bde1277904a478a0b8828fc2b08
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623652"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369236"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Sauvegarde et restauration dans Azure Database for MariaDB
 
@@ -21,7 +21,7 @@ Azure Database for MariaDB crée automatiquement des sauvegardes de serveur et l
 
 Azure Database for MariaDB accepte les sauvegardes complètes, différentielles et de journal des transactions. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
 
-Ces fichiers de sauvegarde ne peuvent pas être exportés. Les sauvegardes ne peuvent être utilisées que pour des opérations de restauration dans Azure Database for MariaDB. Vous pouvez utiliser [mysqldump](howto-migrate-dump-restore.md) pour copier une base de données.
+Ces fichiers de sauvegarde ne sont pas exposés à l’utilisateur et ne peuvent pas être exportés. Ces sauvegardes ne peuvent être utilisées que pour des opérations de restauration dans Azure Database for MariaDB. Vous pouvez utiliser [mysqldump](howto-migrate-dump-restore.md) pour copier une base de données.
 
 ### <a name="backup-frequency"></a>Fréquence de sauvegarde
 
@@ -44,12 +44,12 @@ Pour plus d’informations sur le coût du stockage de sauvegarde, visitez la [p
 
 ## <a name="restore"></a>Restaurer
 
-Dans Azure Database for MariaDB, l’exécution d’une restauration crée un serveur à partir de sauvegardes du serveur d’origine.
+Dans Azure Database for MariaDB, l’exécution d’une restauration crée un serveur à partir de sauvegardes du serveur d’origine, et restaure toutes les bases de données contenues dans le serveur.
 
 Deux types de restauration sont disponibles :
 
-- La **restauration à un point dans le temps** est disponible avec l’option de redondance de sauvegarde et crée un serveur dans la même région que votre serveur d’origine.
-- La **géorestauration** est disponible uniquement si vous avez configuré votre serveur pour le stockage géoredondant ; elle vous permet de restaurer votre serveur dans une autre région.
+- La **restauration à un point dans le temps** est disponible avec l’option de redondance de sauvegarde, et crée un serveur dans la même région que votre serveur d’origine en utilisant la combinaison de sauvegarde complète et de sauvegarde du journal des transactions.
+- La **géorestauration** est disponible uniquement si vous avez configuré votre serveur pour le stockage géoredondant. Elle vous permet de restaurer votre serveur dans une autre région en utilisant la sauvegarde la plus récente.
 
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
@@ -66,7 +66,7 @@ Vous devez peut-être attendre la prochaine sauvegarde du journal des transactio
 
 ### <a name="geo-restore"></a>La géorestauration
 
-Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. La géorestauration constitue l’option de récupération par défaut lorsque votre serveur est indisponible en raison d’un incident dans la région où il est hébergé. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données.
+Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. La géorestauration constitue l’option de récupération par défaut lorsque votre serveur est indisponible en raison d’un incident dans la région où il est hébergé. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. La géorestauration utilise la sauvegarde la plus récente du serveur. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données.
 
 Pendant la géorestauration, les configurations de serveur qui peuvent être changées incluent la génération de calcul, les vCores, la période de conservation des sauvegardes et les options de redondance de sauvegarde. Le changement de niveau tarifaire (De base, Usage général ou Mémoire optimisée) ou de la taille du stockage pendant la géorestauration n’est pas pris en charge.
 
@@ -75,14 +75,12 @@ Pendant la géorestauration, les configurations de serveur qui peuvent être cha
 Après une restauration à l’aide d’un de ces mécanismes de récupération, vous devez effectuer les tâches suivantes afin que les utilisateurs et les applications soient de nouveau opérationnels :
 
 - Si le nouveau serveur est destiné à remplacer le serveur d’origine, redirigez les clients et les applications clientes vers le nouveau serveur
-- Vérifiez que les règles de pare-feu appropriées au niveau du serveur sont en place pour permettre aux utilisateurs de se connecter
+- Vérifiez que les règles de réseau virtuel appropriées sont en place pour permettre aux utilisateurs de se connecter. Ces règles ne sont pas copiées à partir du serveur d’origine.
 - Assurez-vous que les connexions et les autorisations appropriées au niveau de la base de données sont en place
 - Configurer les alertes, selon les besoins
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la continuité d’activité, consultez la  [vue d’ensemble de la continuité d’activité](concepts-business-continuity.md).
-- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Restauration d’une base de données à un point dans le temps à l’aide du portail Azure](howto-restore-server-portal.md).
- 
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).-->
+- Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Restaurer un serveur à un point dans le temps à l’aide du portail Azure](howto-restore-server-portal.md).
+- Pour effectuer une restauration à un point dans le temps à l’aide d’Azure CLI, consultez  [Restaurer un serveur à un point dans le temps à l’aide d’Azure CLI](howto-restore-server-cli.md).

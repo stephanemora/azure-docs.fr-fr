@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770983"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231297"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -50,7 +50,15 @@ Oui. Un circuit ExpressRoute, une fois configuré, vous permet d’accéder simu
 
 ### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>Comment les réseaux virtuels sont-ils publiés pour le peering privé ExpressRoute ?
 
-La passerelle ExpressRoute publie l’*espace d’adressage* du réseau virtuel Azure. Vous ne pouvez pas configurer d’inclusions ou d’exclusions au niveau du sous-réseau. En effet, c’est toujours l’espace d’adressage du réseau virtuel qui est publié. En outre, si le peering des réseaux virtuels est utilisé et si l’option « Utiliser la passerelle distante » est activée pour le réseau virtuel appairé, l’espace d’adressage du réseau virtuel appairé sera également publié.
+La passerelle ExpressRoute publie le ou les *espaces d’adressage* du réseau virtuel Azure. Vous ne pouvez pas configurer d’inclusions ou d’exclusions au niveau du sous-réseau. En effet, c’est toujours l’espace d’adressage du réseau virtuel qui est publié. En outre, si le peering des réseaux virtuels est utilisé et si l’option « Utiliser la passerelle distante » est activée pour le réseau virtuel appairé, l’espace d’adressage du réseau virtuel appairé sera également publié.
+
+### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Combien de préfixes peuvent être publiés d’un réseau virtuel vers un serveur local sur un Peering privé ExpressRoute ?
+
+Au maximum 200 préfixes publiés sur une connexion ExpressRoute unique, ou via VNET Peering utilisent le transit de passerelle. Par exemple, si vous avez 199 espaces d’adressage sur un seul réseau virtuel connecté à un circuit ExpressRoute, tous ces préfixes sont publiés localement. Ou bien, si vous avez un réseau virtuel activé pour autoriser le transit par passerelle avec 1 espace d’adressage et 150 réseaux virtuels spoke activés à l’aide de l’option « Autoriser la passerelle distante », le réseau virtuel déployé avec la passerelle publie 151 préfixes localement.
+
+### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>Que se passe-t-il si je dépasse la limite de préfixes sur une connexion ExpressRoute ?
+
+La connexion entre le circuit ExpressRoute et la passerelle (et les réseaux virtuels homologués utilisant le transit de la passerelle, le cas échéant) est interrompue. Elle se rétablit lorsque la limite de préfixes n’est plus dépassée.  
 
 ### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>Puis-je filtrer les routes qui proviennent de mon réseau local ?
 
@@ -164,7 +172,7 @@ Vous devez implémenter l’attribut *Préférence Locale* sur votre ou vos rout
 
 Pour en savoir plus sur la sélection du chemin BGP et les configurations de routeur courantes, veuillez cliquer [ici](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) sur la. 
 
-### <a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d’un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ?
+### <a name="if-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d’un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ?
 
 Vous n’avez besoin que d’une seule connexion physique si votre fournisseur de services peut établir deux circuits virtuels Ethernet via la connexion physique. La connexion physique (par exemple, une fibre optique) se termine sur un appareil de couche 1 (L1) (voir l’image). Les deux circuits virtuels Ethernet sont marqués avec des ID de VLAN différents, l’un pour le circuit principal et l’autre pour le circuit secondaire. Ces ID de VLAN se trouvent dans l’en-tête Ethernet 802.1Q externe. L’en-tête Ethernet 802.1Q interne (non illustré) est mappé à un [domaine de routage ExpressRoute](expressroute-circuit-peerings.md)spécifique.
 
@@ -293,7 +301,7 @@ ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-desso
     *  Sur le peering Microsoft, les préfixes d’autres régions géopolitiques sont publiés de sorte que vous pouvez vous connecter, par exemple, à SQL Azure en Europe de l’Ouest à partir d’un circuit situé dans la Silicon Valley.
 
 
-### <a name="limits"></a>Combien de réseaux virtuels et de connexions ExpressRoute Global Reach puis-je activer sur un circuit ExpressRoute si j’ai activé ExpressRoute Premium ?
+### <a name="how-many-vnets-and-expressroute-global-reach-connections-can-i-enable-on-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a><a name="limits"></a>Combien de réseaux virtuels et de connexions ExpressRoute Global Reach puis-je activer sur un circuit ExpressRoute si j’ai activé ExpressRoute Premium ?
 
 Les tableaux suivants indiquent les limites d’ExpressRoute et le nombre de réseaux virtuels et de connexions ExpressRoute Global Reach par circuit ExpressRoute :
 
@@ -399,10 +407,10 @@ Votre circuit existant continuera à publier des préfixes pour Office 365. Si 
 
 * Le peering Microsoft des circuits ExpressRoute qui sont configurés le 1er août 2017 ou après n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été attaché au circuit. Aucun préfixe par défaut ne s’affichera.
 
-## <a name="expressRouteDirect"></a>ExpressRoute Direct
+## <a name="expressroute-direct"></a><a name="expressRouteDirect"></a>ExpressRoute Direct
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
-## <a name="globalreach"></a>Global Reach
+## <a name="global-reach"></a><a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
