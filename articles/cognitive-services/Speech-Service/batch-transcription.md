@@ -1,36 +1,45 @@
 ---
-title: Guide pratique sur l’utilisation de la transcription par lots – Service Speech
+title: Qu’est-ce que la transcription par lots – Service Speech
 titleSuffix: Azure Cognitive Services
 description: La transcription Batch est idéale pour transcrire une grande quantité de données audio stockées dans des objets blob Azure, par exemple. Avec l’API REST dédiée, vous pouvez pointer vers des fichiers audio à l’aide d’un URI de signature d’accès partagé (SAS) et recevoir les transcriptions de manière asynchrone.
 services: cognitive-services
-author: PanosPeriorellis
+author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: panosper
-ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.date: 03/18/2020
+ms.author: wolfma
+ms.openlocfilehash: ee7fbddade055c11f5870aa5a588a2fd02f10a23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500015"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131603"
 ---
-# <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
+# <a name="what-is-batch-transcription"></a>Qu’est-ce que la transcription par lots ?
 
-La transcription par lots est idéale pour la transcription d’importants volumes de données audio. Avec l’API REST dédiée, vous pouvez pointer vers des fichiers audio à l’aide d’un URI de signature d’accès partagé (SAS) et recevoir les résultats de la transcription de manière asynchrone.
+La transcription par lots est un ensemble d’opérations d’API REST qui vous permet de transcrire une grande quantité de données audio dans un stockage. Vous pouvez pointer vers des fichiers audio à l’aide d’un URI de signature d’accès partagé (SAP) et recevoir les résultats de la transcription de manière asynchrone.
 
-L’API offre une transcription de parole en texte asynchrone ainsi que des fonctionnalités supplémentaires. Vous pouvez utiliser l’API REST afin d’exposer des méthodes pour :
+La asynchrone transcription de parole en texte n’est que l’une des fonctionnalités. Vous pouvez utiliser des API REST de transcription par lots pour appeler les méthodes suivantes :
 
-- Créer une demande de traitement par lots
-- Interroger l’état
-- Télécharger les résultats de la transcription
-- Supprimer les informations relatives à la transcription du service
 
-L’API détaillée est disponible sous forme de [document Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A) intitulé `Custom Speech transcriptions`.
 
-Les travaux de transcription par lots sont planifiés en faisant au mieux selon les circonstances. Aucune estimation concernant le passage d’une tâche à l’état d’exécution n’est disponible pour le moment. Dans une charge de système normale, l’exécution doit survenir au bout de quelques minutes. Une fois en cours d’exécution, la transcription réelle est traitée plus rapidement que le temps réel de l’audio.
+|    Opération de transcription par lots                                             |    Méthode    |    Appel d’API REST                                   |
+|------------------------------------------------------------------------------|--------------|----------------------------------------------------|
+|    Crée une transcription.                                              |    POST      |    api/speechtotext/v2.0/transcriptions            |
+|    Récupère une liste de transcriptions pour l’abonnement authentifié.    |    GET       |    api/speechtotext/v2.0/transcriptions            |
+|    Obtient la liste des paramètres régionaux pris en charge pour les transcriptions hors connexion.              |    GET       |    api/speechtotext/v2.0/transcriptions/locales    |
+|    Met à jour les détails mutables de la transcription identifiée par son ID.    |    PATCH     |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Supprime la tâche de transcription spécifiée.                                 |    Suppression    |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Obtient la transcription identifiée par l’ID donné.                        |    GET       |    api/speechtotext/v2.0/transcriptions/{id}       |
+
+
+
+
+Vous pouvez examiner et tester l’API détaillée, disponible sous forme de [document Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A) intitulé `Custom Speech transcriptions`.
+
+Les travaux de transcription par lots sont planifiés en faisant au mieux selon les circonstances. Il n’existe actuellement aucune estimation concernant le passage d’une tâche à l’état d’exécution. Dans une charge de système normale, l’exécution doit survenir au bout de quelques minutes. Une fois en cours d’exécution, la transcription réelle est traitée plus rapidement que le temps réel de l’audio.
 
 En plus de l’API facile à utiliser, il n’est pas nécessaire de déployer des points de terminaison personnalisés, ni de respecter des exigences en matière de concurrence.
 
@@ -53,11 +62,11 @@ Si vous souhaitez personnaliser des modèles acoustiques ou de langage, suivez l
 
 L’API de transcription Batch prend en charge les formats suivants :
 
-| Format | Codec | Bitrate | Échantillonnage |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16 bits | 8 kHz ou 16 kHz, mono ou stéréo |
-| MP3 | PCM | 16 bits | 8 kHz ou 16 kHz, mono ou stéréo |
-| OGG | OPUS | 16 bits | 8 kHz ou 16 kHz, mono ou stéréo |
+| Format | Codec | Bitrate | Échantillonnage                     |
+|--------|-------|---------|---------------------------------|
+| WAV    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou stéréo |
+| MP3    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou stéréo |
+| OGG    | OPUS  | 16 bits  | 8 kHz ou 16 kHz, mono ou stéréo |
 
 Dans le cas des flux audio stéréo, les canaux gauche et droit sont fractionnés lors de la transcription. Un fichier de résultat JSON est créé pour chaque canal. Les timestamps générés par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement.
 
@@ -120,7 +129,7 @@ Utilisez les propriétés facultatives suivantes pour configurer la transcriptio
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Spécifie le sentiment devant être ajouté à l’énoncé. Les valeurs acceptées sont `true` pour activer un sentiment par énoncé et `false` (valeur par défaut) pour le désactiver.
+      Spécifie si l’analyse des sentiments doit être appliquée à l’énoncé. Les valeurs acceptées sont `true` pour l’activer et `false` (valeur par défaut) pour la désactiver.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -147,7 +156,7 @@ Pour les fichiers audio d’entrée mono, un fichier de résultat de transcripti
 
 ```json
 {
-  "AudioFileResults":[ 
+  "AudioFileResults":[
     {
       "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
       "AudioFileUrl": null                                  'always null'
@@ -209,12 +218,12 @@ Pour les fichiers audio d’entrée mono, un fichier de résultat de transcripti
 
 Le résultat contient les formes suivantes :
 
-|Formulaire|Contenu|
-|-|-|
-|`Lexical`|Les mots réels sont reconnus.
-|`ITN`|Forme « normalisation du texte inversée » du texte reconnu. Abréviations (« Docteur Smith » en « Dr Smith »), numéros de téléphone, et d’autres transformations sont appliquées.
-|`MaskedITN`|Forme « normalisation du texte inversée » avec masquage des termes vulgaires appliqué.
-|`Display`|Forme d’affichage du texte reconnu. Inclut les signes de ponctuation et les majuscules ajoutés.
+| Formulaire        | Contenu                                                                                                                                                  |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Lexical`   | Les mots réels sont reconnus.                                                                                                                             |
+| `ITN`       | Forme « normalisation du texte inversée » du texte reconnu. Abréviations (« Docteur Smith » en « Dr Smith »), numéros de téléphone, et d’autres transformations sont appliquées. |
+| `MaskedITN` | Forme « normalisation du texte inversée » avec masquage des termes vulgaires appliqué.                                                                                                             |
+| `Display`   | Forme d’affichage du texte reconnu. Des signes de ponctuation et des majuscules ajoutés sont inclus.                                                             |
 
 ## <a name="speaker-separation-diarization"></a>Séparation des orateurs (diarisation)
 
@@ -250,7 +259,7 @@ La fonctionnalité de sentiment évalue le sentiment exprimé dans l’audio. Le
 - Identifier pourquoi un appel négatif a pris une orientation positive
 - Identifier ce que les clients aiment et ce qu’ils n’aiment pas dans un produit ou service
 
-Le sentiment est évalué par segment audio en fonction de la forme lexicale. L’intégralité du texte au sein du segment audio est utilisée pour calculer les sentiments. Aucun sentiment d’agrégat n’est calculé pour l’intégralité de la transcription.
+Le sentiment est évalué par segment audio en fonction de la forme lexicale. L’intégralité du texte au sein du segment audio est utilisée pour calculer les sentiments. Aucun sentiment d’agrégat n’est calculé pour l’intégralité de la transcription. Actuellement, l’analyse des sentiments est disponible uniquement pour la langue anglaise.
 
 Un exemple de sortie JSON se présente comme suit :
 
@@ -290,11 +299,14 @@ Un exemple de sortie JSON se présente comme suit :
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
-Le service de transcription peut traiter un grand nombre de transcriptions envoyées. Vous pouvez interroger l’état de vos transcriptions par une opération `GET` sur la [méthode de transcription](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Conservez les informations renvoyées dans une taille raisonnable en spécifiant le paramètre `take` (quelques centaines). [Supprimez régulièrement des transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) du service une fois que vous avez récupéré les résultats afin de garantir une réponse rapide de la part des appels de gestion des transcriptions.
+Le service de transcription peut traiter un grand nombre de transcriptions envoyées. Vous pouvez interroger l’état de vos transcriptions par une opération `GET` sur la [méthode de transcription](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Conservez les informations renvoyées dans une taille raisonnable en spécifiant le paramètre `take` (quelques centaines). [Supprimez régulièrement des transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) du service une fois que vous avez récupéré les résultats. Cela garantit des réponses rapides des appels de gestion des transcriptions.
 
 ## <a name="sample-code"></a>Exemple de code
 
 Des exemples complets sont disponibles dans le [dépôt d’exemples GitHub](https://aka.ms/csspeech/samples) à l’intérieur du sous-répertoire `samples/batch`.
+
+> [!NOTE]
+> La fonctionnalité de transcription par lots est exposée via l’API REST décrite ci-dessus. La transcription par lots peut donc être utilisée dans pratiquement n’importe quel langage ou environnement de programmation prenant en charge REST. Les exemples ci-dessous et les exemples dans GitHub sont parfaitement représentatifs et **ne suggèrent pas** de limites quant à l’emplacement où l’API peut être utilisée.
 
 Vous devez personnaliser l’exemple de code avec vos informations d’abonnement, la région du service, le pointage SAS URI vers le fichier audio à transcrire et les ID du modèle si vous souhaitez utiliser un modèle acoustique ou de langage personnalisé.
 
@@ -319,4 +331,4 @@ Vous trouverez l’exemple dans le répertoire `samples/batch` du [référentiel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)

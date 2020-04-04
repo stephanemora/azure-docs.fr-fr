@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-ms.date: 04/16/2019
-ms.openlocfilehash: 1b5a48a686a238d724680e806daaed431107ec72
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/17/2020
+ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894819"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481097"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans Azure SQL Database
 
@@ -87,15 +87,16 @@ Pour répondre aux exigences de gestion et de sécurité des clients, l’instan
 
 Avec la configuration de sous-réseau assistée par service, l’utilisateur contrôle totalement le trafic de données (TDS), tandis que Managed Instance assume la responsabilité de garantir un flux ininterrompu du trafic de gestion afin de respecter le contrat de niveau de service.
 
+La configuration de sous-réseau assistée par le service s’appuie sur la fonctionnalité de [délégation de sous-réseau](../virtual-network/subnet-delegation-overview.md) de réseau virtuel pour fournir une gestion automatique de la configuration du réseau et activer les points de terminaison de service. Des points de terminaison de service pourraient être utilisés pour configurer des règles de pare-feu de réseau virtuel sur des comptes de stockage qui conservent des sauvegardes/journaux d’audit.
+
 ### <a name="network-requirements"></a>Configuration requise pour le réseau 
 
 Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du réseau virtuel. Le sous-réseau doit disposer des caractéristiques suivantes :
 
 - **Sous-réseau dédié :** le sous-réseau d’instance gérée ne doit contenir aucun autre service cloud qui lui est associé et ne doit pas être un sous-réseau de passerelle. L’instance gérée est la seule ressource que le sous-réseau doit contenir et vous ne pouvez pas ajouter d’autres types de ressources au sous-réseau ultérieurement.
 - **Délégation de sous-réseau :** Le sous-réseau de l’instance managée doit être délégué à un fournisseur de ressources `Microsoft.Sql/managedInstances`.
-- **Groupe de sécurité réseau :** Un groupe de sécurité réseau (NSG) doit être associé au sous-réseau de l’instance managée. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance gérée en filtrant le trafic sur les ports 1433 et 11000 à 11999 lorsque l’instance gérée est configurée pour rediriger les connexions. Le service ajoute automatiquement les [règles](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) requises pour permettre un flux ininterrompu du trafic de gestion.
-- **Table d’itinéraire défini par l’utilisateur (UDR) :** Une table UDR doit être associée au sous-réseau de l’instance managée. Vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA) pour ajouter des entrées à la table d’itinéraires pour acheminer le trafic disposant de plages d’adresses IP privées locales en tant que destination. Le service ajoute automatiquement les [entrées](#user-defined-routes-with-service-aided-subnet-configuration) requises pour permettre un flux ininterrompu du trafic de gestion.
-- **Points de terminaison de service :** Les points de terminaison de service peuvent être utilisés pour configurer des règles de réseau virtuel sur les comptes de stockage qui maintiennent les sauvegardes/journaux d’audit.
+- **Groupe de sécurité réseau :** Un groupe de sécurité réseau (NSG) doit être associé au sous-réseau de l’instance managée. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance gérée en filtrant le trafic sur les ports 1433 et 11000 à 11999 lorsque l’instance gérée est configurée pour rediriger les connexions. Le service approvisionne et conserve automatiquement les [règles](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) actuelles requises pour permettre un flux ininterrompu du trafic de gestion.
+- **Table d’itinéraire défini par l’utilisateur (UDR) :** Une table UDR doit être associée au sous-réseau de l’instance managée. Vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA) pour ajouter des entrées à la table d’itinéraires pour acheminer le trafic disposant de plages d’adresses IP privées locales en tant que destination. Le service approvisionne et conserve automatiquement les [entrées](#user-defined-routes-with-service-aided-subnet-configuration) actuelles requises pour permettre un flux ininterrompu du trafic de gestion.
 - **Nombre d’adresses IP suffisant :** le sous-réseau de l’instance gérée doit disposer d’au moins 16 adresses IP. Il est recommandé d’avoir au moins 32 adresses IP. Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour les instances gérées](sql-database-managed-instance-determine-size-vnet-subnet.md). Vous pouvez déployer des instances gérées dans [le réseau existant](sql-database-managed-instance-configure-vnet-subnet.md) une fois que vous l’avez configuré de manière à satisfaire les [exigences réseau pour les instances gérées](#network-requirements). Sinon, créez un [nouveau réseau et sous-réseau](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
@@ -103,53 +104,55 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Règles de sécurité du trafic entrant obligatoires avec configuration du sous-réseau assistée par le service 
 
-| Name       |Port                        |Protocol|Source           |Destination|Action|
+| Nom       |Port                        |Protocol|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestion  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SOUS-RÉSEAU MI  |Allow |
 |            |9000, 9003                  |TCP     |CorpNetSaw       |SOUS-RÉSEAU MI  |Allow |
-|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|SOUS-RÉSEAU MI  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetPublic    |SOUS-RÉSEAU MI  |Allow |
 |mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |Allow |
 |health_probe|Quelconque                         |Quelconque     |AzureLoadBalancer|SOUS-RÉSEAU MI  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Règles de sécurité du trafic sortant obligatoires avec configuration du sous-réseau assistée par le service 
 
-| Name       |Port          |Protocol|Source           |Destination|Action|
+| Nom       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestion  |443, 12000    |TCP     |SOUS-RÉSEAU MI        |AzureCloud |Allow |
 |mi_subnet   |Quelconque           |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |Allow |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Itinéraires définis par l’utilisateur avec configuration de sous-réseau assistée par le service 
 
-|Name|Préfixe de l’adresse|Tronçon suivant|
+|Nom|Préfixe de l’adresse|Tronçon suivant|
 |----|--------------|-------|
 |subnet-to-vnetlocal|SOUS-RÉSEAU MI|Réseau virtuel|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
 |mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
+|mi-20-33-16-nexthop-internet|20.33.0.0/16|Internet|
 |mi-20-34-15-nexthop-internet|20.34.0.0/15|Internet|
 |mi-20-36-14-nexthop-internet|20.36.0.0/14|Internet|
 |mi-20-40-13-nexthop-internet|20.40.0.0/13|Internet|
+|mi-20-48-12-nexthop-internet|20.48.0.0/12|Internet|
+|mi-20-64-10-nexthop-internet|20.64.0.0/10|Internet|
 |mi-20-128-16-nexthop-internet|20.128.0.0/16|Internet|
+|mi-20-135-16-nexthop-internet|20.135.0.0/16|Internet|
+|mi-20-136-16-nexthop-internet|20.136.0.0/16|Internet|
 |mi-20-140-15-nexthop-internet|20.140.0.0/15|Internet|
+|mi-20-143-16-nexthop-internet|20.143.0.0/16|Internet|
 |mi-20-144-14-nexthop-internet|20.144.0.0/14|Internet|
 |mi-20-150-15-nexthop-internet|20.150.0.0/15|Internet|
 |mi-20-160-12-nexthop-internet|20.160.0.0/12|Internet|
 |mi-20-176-14-nexthop-internet|20.176.0.0/14|Internet|
 |mi-20-180-14-nexthop-internet|20.180.0.0/14|Internet|
 |mi-20-184-13-nexthop-internet|20.184.0.0/13|Internet|
+|mi-20-192-10-nexthop-internet|20.192.0.0/10|Internet|
 |mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
 |mi-51-4-15-nexthop-internet|51.4.0.0/15|Internet|
 |mi-51-8-16-nexthop-internet|51.8.0.0/16|Internet|
 |mi-51-10-15-nexthop-internet|51.10.0.0/15|Internet|
-|mi-51-12-15-nexthop-internet|51.12.0.0/15|Internet|
 |mi-51-18-16-nexthop-internet|51.18.0.0/16|Internet|
 |mi-51-51-16-nexthop-internet|51.51.0.0/16|Internet|
 |mi-51-53-16-nexthop-internet|51.53.0.0/16|Internet|
 |mi-51-103-16-nexthop-internet|51.103.0.0/16|Internet|
 |mi-51-104-15-nexthop-internet|51.104.0.0/15|Internet|
-|mi-51-107-16-nexthop-internet|51.107.0.0/16|Internet|
-|mi-51-116-16-nexthop-internet|51.116.0.0/16|Internet|
-|mi-51-120-16-nexthop-internet|51.120.0.0/16|Internet|
-|mi-51-124-16-nexthop-internet|51.124.0.0/16|Internet|
 |mi-51-132-16-nexthop-internet|51.132.0.0/16|Internet|
 |mi-51-136-15-nexthop-internet|51.136.0.0/15|Internet|
 |mi-51-138-16-nexthop-internet|51.138.0.0/16|Internet|
@@ -187,6 +190,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
 |mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
 |mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
+|mi-131-107-16-nexthop-internet|131.107.0.0/16|Internet|
 |mi-131-253-1-24-nexthop-internet|131.253.1.0/24|Internet|
 |mi-131-253-3-24-nexthop-internet|131.253.3.0/24|Internet|
 |mi-131-253-5-24-nexthop-internet|131.253.5.0/24|Internet|
@@ -220,6 +224,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
 |mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
 |mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
+|mi-167-105-16-nexthop-internet|167.105.0.0/16|Internet|
 |mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
 |mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
 |mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
@@ -228,8 +233,6 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
 |mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
 |mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
 |mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
 |mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
 |mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
@@ -275,13 +278,34 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
 |mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
+|mi-51-13-17-nexthop-internet|51.13.0.0/17|Internet|
+|mi-51-107-16-nexthop-internet|51.107.0.0/16|Internet|
+|mi-51-116-16-nexthop-internet|51.116.0.0/16|Internet|
+|mi-51-120-16-nexthop-internet|51.120.0.0/16|Internet|
+|mi-51-120-128-17-nexthop-internet|51.120.128.0/17|Internet|
+|mi-51-124-16-nexthop-internet|51.124.0.0/16|Internet|
+|mi-102-37-18-nexthop-internet|102.37.0.0/18|Internet|
+|mi-102-133-16-nexthop-internet|102.133.0.0/16|Internet|
+|mi-199-30-16-20-nexthop-internet|199.30.16.0/20|Internet|
+|mi-204-79-180-24-nexthop-internet|204.79.180.0/24|Internet|
 ||||
 
-\* SOUS-RÉSEAU MI fait référence à la plage d’adresses IP du sous-réseau sous la forme 10.x.x.x/y. Ces informations sont disponibles sur le portail Azure, dans les propriétés du sous-réseau.
+\* SOUS-RÉSEAU MI fait référence à la plage d’adresses IP du sous-réseau sous la forme x.x.x.x/y. Ces informations sont disponibles sur le portail Azure, dans les propriétés du sous-réseau.
 
 En outre, vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA) pour ajouter des entrées à la table d’itinéraires pour acheminer le trafic disposant de plages d’adresses IP privées locales en tant que destination.
 
 Si le réseau virtuel comprend un DNS personnalisé, le serveur DNS personnalisé doit pouvoir résoudre les enregistrements DNS publics. Des résolutions de FQDN additionnels peuvent être nécessaires si vous utilisez des fonctionnalités supplémentaires comme Azure AD Authentication. Pour plus d’informations, consultez [Configurer un système DNS personnalisé](sql-database-managed-instance-custom-dns.md).
+
+### <a name="networking-constraints"></a>Contraintes de mise en réseau
+
+**TLS 1.2 est appliqué aux connexions sortantes** : En janvier 2020, Microsoft a appliqué TLS 1.2 pour le trafic intra-service dans tous les services Azure. Pour l’instance gérée Azure SQL Database, cela a eu pour effet que TLS 1.2 était appliqué aux connexions sortantes utilisées pour la réplication, et les connexions de serveur lié à SQL Server. Si vous utilisez des versions de SQL Server antérieures à 2016 avec Managed Instance, vérifiez que les [mises à jour spécifiques de TLS 1.2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) ont été appliquées.
+
+Les fonctionnalités de réseau virtuel suivantes ne sont actuellement pas prises en charge avec Managed Instance :
+- **Homologation Microsoft** : L’activation de l’[homologation Microsoft](../expressroute/expressroute-faqs.md#microsoft-peering) sur des circuits ExpressRoute homologués, directement ou transitivement, avec un réseau virtuel dans lequel Managed Instance réside, affecte le flux de trafic entre les composants Managed Instance au sein du réseau virtuel et les services dont il dépend, ce qui engendre des problèmes de disponibilité. Des déploiements de Managed Instance sur un réseau virtuel avec une homologation Microsoft déjà activée sont supposés échouer.
+- **Homologation de réseau virtuel mondial** : La connectivité d’[homologation de réseau virtuel](../virtual-network/virtual-network-peering-overview.md) entre régions Azure ne fonctionne pas pour Managed Instance en raison de [contraintes d’équilibreur de charge documentées](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+- **AzurePlatformDNS** : L’utilisation de la [balise de service](../virtual-network/service-tags-overview.md) AzurePlatformDNS pour bloquer la résolution DNS de plateforme rendrait Managed Instance indisponible. Même si Managed Instance prend en charge le DNS défini par le client pour la résolution DNS à l’intérieur le moteur, il existe une dépendance sur le DNS de plateforme pour les opérations de plateforme.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Déconseillé] Configuration réseau requise sans la configuration de sous-réseau assistée par le service
 
@@ -298,7 +322,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="mandatory-inbound-security-rules"></a>Règles de sécurité du trafic entrant obligatoires
 
-| Name       |Port                        |Protocol|Source           |Destination|Action|
+| Nom       |Port                        |Protocol|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestion  |9000, 9003, 1438, 1440, 1452|TCP     |Quelconque              |SOUS-RÉSEAU MI  |Allow |
 |mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |Allow |
@@ -306,7 +330,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="mandatory-outbound-security-rules"></a>Règles de sécurité du trafic sortant obligatoires
 
-| Name       |Port          |Protocol|Source           |Destination|Action|
+| Nom       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestion  |443, 12000    |TCP     |SOUS-RÉSEAU MI        |AzureCloud |Allow |
 |mi_subnet   |Quelconque           |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |Allow |
@@ -314,27 +338,66 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 > [!IMPORTANT]
 > Vérifiez qu’il n’existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440 et 1452 et une seule règle de trafic sortant pour les ports 443 et 12000. L’approvisionnement des instances gérées via les déploiements Azure Resource Manager échouera si les règles de trafic entrant et sortant sont configurées individuellement sur chaque port. Si ces ports sont inclus dans des règles distinctes, le déploiement échouera et afficher le code d’erreur `VnetSubnetConflictWithIntendedPolicy`.
 
-\* SOUS-RÉSEAU MI fait référence à la plage d’adresses IP du sous-réseau sous la forme 10.x.x.x/y. Ces informations sont disponibles sur le portail Azure, dans les propriétés du sous-réseau.
+\* SOUS-RÉSEAU MI fait référence à la plage d’adresses IP du sous-réseau sous la forme x.x.x.x/y. Ces informations sont disponibles sur le portail Azure, dans les propriétés du sous-réseau.
 
 > [!IMPORTANT]
 > Bien que les règles de sécurité de trafic entrant obligatoires autorisent le trafic à partir de _n’importe quelle_ source sur les ports 9000, 9003, 1438, 1440 et 1452, ces derniers sont protégés par un pare-feu intégré. Pour plus d’informations, consultez [Déterminer l’adresse du point de terminaison de gestion](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+
 > [!NOTE]
 > Si vous utilisez la réplication transactionnelle dans une instance gérée et une base de données d’instance en tant que serveur de publication ou de distribution, ouvrez le port 445 (TCP sortant) dans les règles de sécurité du sous-réseau. Ce port autorise l’accès au partage de fichiers Azure.
 
 ### <a name="user-defined-routes"></a>itinéraires définis par l’utilisateur
 
-|Name|Préfixe de l’adresse|Tronçon suivant|
+|Nom|Préfixe de l’adresse|Tronçon suivant|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SOUS-RÉSEAU MI|Réseau virtuel|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
-|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
 |mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
-|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
-|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-20-33-16-nexthop-internet|20.33.0.0/16|Internet|
+|mi-20-34-15-nexthop-internet|20.34.0.0/15|Internet|
+|mi-20-36-14-nexthop-internet|20.36.0.0/14|Internet|
+|mi-20-40-13-nexthop-internet|20.40.0.0/13|Internet|
+|mi-20-48-12-nexthop-internet|20.48.0.0/12|Internet|
+|mi-20-64-10-nexthop-internet|20.64.0.0/10|Internet|
+|mi-20-128-16-nexthop-internet|20.128.0.0/16|Internet|
+|mi-20-135-16-nexthop-internet|20.135.0.0/16|Internet|
+|mi-20-136-16-nexthop-internet|20.136.0.0/16|Internet|
+|mi-20-140-15-nexthop-internet|20.140.0.0/15|Internet|
+|mi-20-143-16-nexthop-internet|20.143.0.0/16|Internet|
+|mi-20-144-14-nexthop-internet|20.144.0.0/14|Internet|
+|mi-20-150-15-nexthop-internet|20.150.0.0/15|Internet|
+|mi-20-160-12-nexthop-internet|20.160.0.0/12|Internet|
+|mi-20-176-14-nexthop-internet|20.176.0.0/14|Internet|
+|mi-20-180-14-nexthop-internet|20.180.0.0/14|Internet|
+|mi-20-184-13-nexthop-internet|20.184.0.0/13|Internet|
+|mi-20-192-10-nexthop-internet|20.192.0.0/10|Internet|
 |mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
-|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
-|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
-|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
+|mi-51-4-15-nexthop-internet|51.4.0.0/15|Internet|
+|mi-51-8-16-nexthop-internet|51.8.0.0/16|Internet|
+|mi-51-10-15-nexthop-internet|51.10.0.0/15|Internet|
+|mi-51-18-16-nexthop-internet|51.18.0.0/16|Internet|
+|mi-51-51-16-nexthop-internet|51.51.0.0/16|Internet|
+|mi-51-53-16-nexthop-internet|51.53.0.0/16|Internet|
+|mi-51-103-16-nexthop-internet|51.103.0.0/16|Internet|
+|mi-51-104-15-nexthop-internet|51.104.0.0/15|Internet|
+|mi-51-132-16-nexthop-internet|51.132.0.0/16|Internet|
+|mi-51-136-15-nexthop-internet|51.136.0.0/15|Internet|
+|mi-51-138-16-nexthop-internet|51.138.0.0/16|Internet|
+|mi-51-140-14-nexthop-internet|51.140.0.0/14|Internet|
+|mi-51-144-15-nexthop-internet|51.144.0.0/15|Internet|
+|mi-52-96-12-nexthop-internet|52.96.0.0/12|Internet|
+|mi-52-112-14-nexthop-internet|52.112.0.0/14|Internet|
+|mi-52-125-16-nexthop-internet|52.125.0.0/16|Internet|
+|mi-52-126-15-nexthop-internet|52.126.0.0/15|Internet|
+|mi-52-130-15-nexthop-internet|52.130.0.0/15|Internet|
+|mi-52-132-14-nexthop-internet|52.132.0.0/14|Internet|
+|mi-52-136-13-nexthop-internet|52.136.0.0/13|Internet|
+|mi-52-145-16-nexthop-internet|52.145.0.0/16|Internet|
+|mi-52-146-15-nexthop-internet|52.146.0.0/15|Internet|
+|mi-52-148-14-nexthop-internet|52.148.0.0/14|Internet|
+|mi-52-152-13-nexthop-internet|52.152.0.0/13|Internet|
+|mi-52-160-11-nexthop-internet|52.160.0.0/11|Internet|
+|mi-52-224-11-nexthop-internet|52.224.0.0/11|Internet|
 |mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
 |mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
 |mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
@@ -343,7 +406,9 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
 |mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
 |mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
-|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|mi-103-25-156-24-nexthop-internet|103.25.156.0/24|Internet|
+|mi-103-25-157-24-nexthop-internet|103.25.157.0/24|Internet|
+|mi-103-25-158-23-nexthop-internet|103.25.158.0/23|Internet|
 |mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
 |mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
 |mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
@@ -352,7 +417,23 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
 |mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
 |mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
-|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
+|mi-131-107-16-nexthop-internet|131.107.0.0/16|Internet|
+|mi-131-253-1-24-nexthop-internet|131.253.1.0/24|Internet|
+|mi-131-253-3-24-nexthop-internet|131.253.3.0/24|Internet|
+|mi-131-253-5-24-nexthop-internet|131.253.5.0/24|Internet|
+|mi-131-253-6-24-nexthop-internet|131.253.6.0/24|Internet|
+|mi-131-253-8-24-nexthop-internet|131.253.8.0/24|Internet|
+|mi-131-253-12-22-nexthop-internet|131.253.12.0/22|Internet|
+|mi-131-253-16-23-nexthop-internet|131.253.16.0/23|Internet|
+|mi-131-253-18-24-nexthop-internet|131.253.18.0/24|Internet|
+|mi-131-253-21-24-nexthop-internet|131.253.21.0/24|Internet|
+|mi-131-253-22-23-nexthop-internet|131.253.22.0/23|Internet|
+|mi-131-253-24-21-nexthop-internet|131.253.24.0/21|Internet|
+|mi-131-253-32-20-nexthop-internet|131.253.32.0/20|Internet|
+|mi-131-253-61-24-nexthop-internet|131.253.61.0/24|Internet|
+|mi-131-253-62-23-nexthop-internet|131.253.62.0/23|Internet|
+|mi-131-253-64-18-nexthop-internet|131.253.64.0/18|Internet|
+|mi-131-253-128-17-nexthop-internet|131.253.128.0/17|Internet|
 |mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
 |mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
 |mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
@@ -370,6 +451,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
 |mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
 |mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
+|mi-167-105-16-nexthop-internet|167.105.0.0/16|Internet|
 |mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
 |mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
 |mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
@@ -378,8 +460,6 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
 |mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
 |mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
 |mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
 |mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
 |mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
@@ -425,6 +505,18 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
 |mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
+|mi-51-13-17-nexthop-internet|51.13.0.0/17|Internet|
+|mi-51-107-16-nexthop-internet|51.107.0.0/16|Internet|
+|mi-51-116-16-nexthop-internet|51.116.0.0/16|Internet|
+|mi-51-120-16-nexthop-internet|51.120.0.0/16|Internet|
+|mi-51-120-128-17-nexthop-internet|51.120.128.0/17|Internet|
+|mi-51-124-16-nexthop-internet|51.124.0.0/16|Internet|
+|mi-102-37-18-nexthop-internet|102.37.0.0/18|Internet|
+|mi-102-133-16-nexthop-internet|102.133.0.0/16|Internet|
+|mi-199-30-16-20-nexthop-internet|199.30.16.0/20|Internet|
+|mi-204-79-180-24-nexthop-internet|204.79.180.0/24|Internet|
 ||||
 
 ## <a name="next-steps"></a>Étapes suivantes

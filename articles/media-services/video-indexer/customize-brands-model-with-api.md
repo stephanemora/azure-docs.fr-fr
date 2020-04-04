@@ -1,7 +1,7 @@
 ---
-title: Azure Video Indexer permet de personnaliser le modèle de marques
+title: Personnaliser un modèle de marques avec l’API Video Indexer
 titleSuffix: Azure Media Services
-description: Cet article explique comment utiliser Azure Video Indexer pour personnaliser un modèle de marques.
+description: Découvrez comment personnaliser un modèle de marques avec l’API Video Indexer.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
-ms.openlocfilehash: 81ba4cc7be5f9361d21aaea2ba78d0fd6f0f8c95
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289915"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127988"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personnaliser un modèle de marques avec l’API Video Indexer
 
@@ -27,15 +27,15 @@ Vous pouvez utiliser les API Video Indexer pour créer, utiliser et modifier des
 
 ## <a name="create-a-brand"></a>Créer une marque
 
-Le [créer une marque](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) API crée une marque personnalisée et l’ajoute au modèle de marques personnalisées pour le compte spécifié. 
+Le [créer une marque](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) API crée une marque personnalisée et l’ajoute au modèle de marques personnalisées pour le compte spécifié.
 
 > [!NOTE]
-> Si vous affectez la valeur true à **activée** (dans le corps), la recherche est placée dans la *inclure* la liste afin que Video Indexer la détecte. La définition du paramètre **enabled** sur false place la marque dans la liste *Exclude* afin que Video Indexer ne la détecte pas.
+> L’affectation de la valeur true à `enabled` (dans le corps) a pour effet de placer la marque dans la liste *Include* pour permettre à Video Indexer de la détecter. L’affectation de la valeur false à `enabled` a pour effet de placer la marque dans la liste *Exclude* pour empêcher Video Indexer de la détecter.
 
 D’autres paramètres que vous pouvez définir dans le corps :
 
-* La valeur **referenceUrl** peut correspondre à n’importe quel site web de référence de la marque, comme un lien vers sa page Wikipédia.
-* La valeur **tags** est une liste d’étiquettes pour la marque. Elle apparaît dans le champ *Category* (Catégorie) de la marque sur le site web Video Indexer. Par exemple, la marque « Azure » peut être étiquetée ou classée dans la catégorie « Cloud ».
+* La valeur `referenceUrl` peut correspondre à n’importe quel site web de référence de la marque, comme un lien vers sa page Wikipédia.
+* La valeur `tags` est une liste d’étiquettes pour la marque. Elle apparaît dans le champ *Catégorie* de la marque sur le site web Video Indexer. Par exemple, la marque « Azure » peut être étiquetée ou classée dans la catégorie « Cloud ».
 
 ### <a name="response"></a>response
 
@@ -61,7 +61,7 @@ La réponse fournit des informations sur la marque que vous venez de créer au f
 
 ## <a name="delete-a-brand"></a>Supprimer une marque
 
-L’ [supprimer une marque](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) API supprime une marque du modèle de marques personnalisées pour le compte spécifié. Le compte est spécifié dans le paramètre **accountId**. Une fois le paramètre appelé, la marque disparaît des listes *Include* ou *Exclude*.
+L’ [supprimer une marque](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) API supprime une marque du modèle de marques personnalisées pour le compte spécifié. Le compte est spécifié dans le paramètre `accountId`. Une fois le paramètre appelé, la marque disparaît des listes *Include* ou *Exclude*.
 
 ### <a name="response"></a>response
 
@@ -94,7 +94,7 @@ La réponse fournit des informations sur la marque que vous avez recherchée (à
 ```
 
 > [!NOTE]
-> Si **enabled** est défini sur **true**, cela signifie que la marque se trouve dans la liste *Include* et que Video Indexer la détectera, et si **enabled** est défini sur false, cela signifie que la marque figure dans la liste *Exclude* et que Video Indexer ne la détectera pas.
+> Si `enabled` est défini sur `true`, cela signifie que la marque figure dans la liste *Include* de sorte que Video Indexer la détecte, et si `enabled` est défini sur *, cela signifie que la marque figure dans la liste* Exclude de sorte que Video Indexer ne la détecte pas.
 
 ## <a name="update-a-specific-brand"></a>Mettre à jour une marque spécifique
 
@@ -160,11 +160,11 @@ La réponse renvoie une liste de toutes les marques de votre compte et les déta
 ```
 
 > [!NOTE]
-> La marque *Example* se trouve dans la liste *Include*, indiquant à Video Indexer de la détecter, et de la marque *Example2* figure dans la liste *Exclude*, indiquant à Video Indexer de ne pas la détecter.
+> La marque *Example* figure dans la liste *Include* pour que Video Indexer puisse la détecter, et la marque *Example2* figure dans la liste *Exclude* pour que Video Indexer ne puisse pas la détecter.
 
 ## <a name="get-brands-model-settings"></a>Obtenir les paramètres du modèle de marques
 
-Les [ obtiennent des paramètres de marques](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) API retourne les paramètres du modèle de marques dans le compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détectera uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
+Les [ obtiennent des paramètres de marques](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) API retourne les paramètres du modèle de marques dans le compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détecte uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
 
 ### <a name="response"></a>response
 
@@ -178,13 +178,13 @@ La réponse indique si les marques de Bing sont activées au format de l’exemp
 ```
 
 > [!NOTE]
-> Si **useBuiltIn** est défini sur true, les marques de Bing sont activées. Si *useBuiltin* est défini sur false, les marques de Bing sont désactivées. La valeur **state** peut être ignorée, car elle est désormais déconseillée.
+> Si `useBuiltIn` est défini sur true, les marques de Bing sont activées. Si `useBuiltin` est défini sur false, les marques de Bing sont désactivées. Il se peut que la valeur `state` soit ignorée parce qu’elle est déconseillée.
 
 ## <a name="update-brands-model-settings"></a>Mettre à jour les paramètres du modèle de marques
 
-La [mises à jour de marques](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) met à jour les paramètres de modèle de marques dans le compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détectera uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
+L’API [mises à jour de marques](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) met à jour les paramètres du modèle de marques dans le compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détecte uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
 
-L’indicateur **useBuiltIn** défini sur true indique que les marques Bing sont activées. Si *useBuiltin* est défini sur false, les marques de Bing sont désactivées.
+L’indicateur `useBuiltIn` défini sur true indique que les marques Bing sont activées. Si `useBuiltin` est défini sur false, les marques Bing sont désactivées.
 
 ### <a name="response"></a>response
 
