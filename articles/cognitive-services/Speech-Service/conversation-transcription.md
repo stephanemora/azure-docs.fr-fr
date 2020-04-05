@@ -1,23 +1,23 @@
 ---
-title: À propos de la transcription de conversation (préversion) - Service de reconnaissance vocale
+title: Transcription de conversation (préversion) - Service Speech
 titleSuffix: Azure Cognitive Services
-description: La transcription de conversation est une solution de reconnaissance vocale qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé « diarization ») pour fournir une transcription en temps réel et/ou asynchrone de toute conversation.
+description: La transcription de conversation est une solution pour les réunions, qui combine la reconnaissance, l’ID de l’orateur et la diarisation pour fournir la transcription de toute conversation.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/16/2020
 ms.author: dapine
-ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ba56c7fb989658195f6394c7390c4f83027c7c96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561066"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479737"
 ---
-# <a name="about-conversation-transcription-preview"></a>À propos de la transcription de conversation (préversion)
+# <a name="what-is-conversation-transcription-in-meetings-preview"></a>Qu’est-ce que la transcription de conversation dans les réunions (préversion) ?
 
 La transcription de conversation est une solution de [reconnaissance vocale](speech-to-text.md) qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé _diarization_) pour fournir une transcription en temps réel et/ou asynchrone de toute conversation. La transcription de conversation distingue les orateurs d’une conversation pour déterminer qui a dit quoi et quand, et permet aux développeurs d’ajouter facilement la reconnaissance vocale à leurs applications qui effectuent une « diarization » à plusieurs orateurs.
 

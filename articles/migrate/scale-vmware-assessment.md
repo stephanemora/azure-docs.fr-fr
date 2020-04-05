@@ -1,18 +1,14 @@
 ---
-title: Évaluer un grand nombre de machines virtuelles VMware pour la migration vers Azure avec Azure Migrate | Microsoft Docs
+title: Évaluer un grand nombre de machines virtuelles VMware pour la migration vers Azure avec Azure Migrate
 description: Décrit comment évaluer de grands nombres de machines virtuelles VMware pour les migrer vers Azure à l’aide du service Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 07/12/2019
-ms.author: hamusa
-ms.openlocfilehash: f76134ffc6a7becb9b5719dcb3d826130b7cfa86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.topic: how-to
+ms.date: 03/23/2020
+ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453276"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336853"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Évaluer de grands nombres de machines virtuelles VMware pour les migrer vers Azure
 
@@ -69,7 +65,7 @@ Si vous planifiez un environnement multilocataire, vous pouvez définir l’éte
 
 - Vous pouvez définir l’étendue de découverte de l’appliance sur des centres de données, des clusters ou un dossier de clusters, des hôtes ou un dossier d’hôtes, ou des machines virtuelles individuelles vCenter Server.
 - Si votre environnement est partagé entre plusieurs locataires et que vous souhaitez découvrir chaque locataire séparément, vous pouvez accéder au compte vCenter que l'appliance utilise pour la découverte. 
-    - Vous pouvez également définir l’étendue sur des dossiers de machines virtuelles si les locataires partagent des hôtes. Azure Migrate ne peut pas découvrir les machines virtuelles si le compte vCenter s’est vu octroyer un accès au niveau du dossier de machine virtuelle vCenter. Si vous souhaitez définir l’étendue de la découverte en fonction de dossiers de machines virtuelles, vous pouvez le faire en vérifiant que le compte vCenter dispose d’un accès en lecture seule affecté au niveau de la machine virtuelle. Pour en savoir plus sur la définition de l’étendue de la découverte, cliquez [ici](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+    - Vous pouvez également définir l’étendue sur des dossiers de machines virtuelles si les locataires partagent des hôtes. Azure Migrate ne peut pas découvrir les machines virtuelles si le compte vCenter s’est vu octroyer un accès au niveau du dossier de machine virtuelle vCenter. Si vous souhaitez définir l’étendue de la découverte en fonction de dossiers de machines virtuelles, vous pouvez le faire en vérifiant que le compte vCenter dispose d’un accès en lecture seule affecté au niveau de la machine virtuelle. [Plus d’informations](set-discovery-scope.md)
 
 ## <a name="prepare-for-assessment"></a>Préparer pour l’évaluation
 

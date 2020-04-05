@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e0a282be9b8a20c64cd3e74e7860a289baa5aec6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183803"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332508"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -120,6 +120,8 @@ La revendication `age` dans la stratégie de base n’est plus présentée à l�
 
 L’élément **OutputClaims** contient une liste de revendications à renvoyer lors de la prochaine étape d’orchestration. L’attribut **DefaultValue** prend effet uniquement si la revendication n’a encore jamais été définie. Si elle a déjà été définie lors d’une étape d’orchestration précédente, la valeur par défaut ne prend pas effet même si l’utilisateur laisse la valeur vide. Pour forcer l’utilisation d’une valeur par défaut, affectez la valeur `true` à l’attribut **AlwaysUseDefaultValue**.
 
+Pour des raisons de sécurité, une valeur de revendication de mot de passe (`UserInputType` défini sur `Password`) est uniquement disponible pour les profils techniques de validation du profil technique auto-déclaré. Vous ne pouvez pas utiliser la revendication de mot de passe lors des prochaines étapes d’orchestration. 
+
 > [!NOTE]
 > Dans les versions précédentes d’Identity Experience Framework (IEF), les revendications de sortie étaient utilisées pour recueillir des données auprès de l’utilisateur. Pour recueillir des données auprès de l’utilisateur, utilisez plutôt une collection **DisplayClaims**.
 
@@ -129,7 +131,7 @@ L’élément **OutputClaimsTransformations** peut contenir une collection d’�
 
 Dans un profil technique autodéclaré, la collection de revendications de sortie renvoie les revendications à l’étape d’orchestration suivante.
 
-Vous devez utiliser des revendications de sortie dans les cas suivants :
+Utilisez les revendications de sortie dans les cas suivants :
 
 - **Génération de revendications par le biais d’une transformation des revendications de sortie**.
 - **Définition d’une valeur par défaut dans une revendication de sortie** sans recueillir de données de l’utilisateur ou retourner les données à partir du profil technique de validation. Le profil technique autodéclaré `LocalAccountSignUpWithLogonEmail` définit la revendication **executed-SelfAsserted-Input** sur `true`.
@@ -175,7 +177,7 @@ Dans l’exemple suivant, le profil technique autodéclaré utilise à la fois d
 
 ## <a name="persist-claims"></a>Conserver les revendications
 
-Si l’élément **PersistedClaims** est absent, le profil technique autodéclaré ne conserve pas les données dans Azure AD B2C. Au lieu de cela, un appel est effectué à un profil technique de validation qui est responsable de la persistance des données. Par exemple, la stratégie d’inscription utilise le profil technique autodéclaré `LocalAccountSignUpWithLogonEmail` pour recueillir le nouveau profil utilisateur. Le profil technique `LocalAccountSignUpWithLogonEmail` appelle le profil technique de validation pour créer le compte dans Azure AD B2C.
+L’élément PersistedClaims n’est pas utilisé. Le profil technique autodéclaré ne conserve pas les données dans Azure AD B2C. Au lieu de cela, un appel est effectué à un profil technique de validation qui est responsable de la persistance des données. Par exemple, la stratégie d’inscription utilise le profil technique autodéclaré `LocalAccountSignUpWithLogonEmail` pour recueillir le nouveau profil utilisateur. Le profil technique `LocalAccountSignUpWithLogonEmail` appelle le profil technique de validation pour créer le compte dans Azure AD B2C.
 
 ## <a name="validation-technical-profiles"></a>Profils techniques de validation
 
@@ -199,6 +201,7 @@ Vous pouvez également appeler un profil technique d’API REST avec votre logiq
 | setting.showContinueButton | Non | Affiche le bouton Continuer. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.showSignupLink <sup>2</sup>| Non | Affiche le bouton d’inscription. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.forgotPasswordLinkLocation <sup>2</sup>| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterInput` (par défaut) où le lien est affiché en bas de la page ou `None` supprime le lien du mot de passe oublié.|
+| setting.enableRememberMe <sup>2</sup>| Non| Affiche la case à cocher [Rester connecté](custom-policy-keep-me-signed-in.md). Valeurs possibles : `true` ou `false` (par défaut). |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 Remarques :

@@ -3,16 +3,16 @@ title: Définir plusieurs instances d’une variable
 description: Utilisez l’opération copy dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors de la création d’une variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ea4caf3553b3cd14eec194b8cef0db59499a4f4c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622882"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153299"
 ---
-# <a name="variable-iteration-in-azure-resource-manager-templates"></a>Itération de variables dans des modèles Azure Resource Manager
+# <a name="variable-iteration-in-arm-templates"></a>Itération de variable dans les modèles ARM
 
-Cet article explique comment créer plusieurs valeurs pour une variable dans votre modèle Azure Resource Manager. En ajoutant l’élément **copy** dans la section variables de votre modèle, vous pouvez définir dynamiquement le nombre d’éléments pour une variable pendant le déploiement. Cela vous évite également de répéter la syntaxe du modèle.
+Cet article explique comment créer plusieurs valeurs pour une variable dans votre modèle Azure Resource Manager (ARM). En ajoutant l’élément **copy** dans la section variables de votre modèle, vous pouvez définir dynamiquement le nombre d’éléments pour une variable pendant le déploiement. Cela vous évite également de répéter la syntaxe du modèle.
 
 Vous pouvez également utiliser l’élément copy avec des [ressources](copy-resources.md), des [propriétés dans une ressource](copy-properties.md) et des [sorties](copy-outputs.md).
 
@@ -312,11 +312,11 @@ Les exemples suivants illustrent des scénarios courants de création de plusieu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour effectuer un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles Resource Manager](template-tutorial-create-multiple-instances.md).
-* Pour les autres utilisations de l’élément copy, voir :
-  * [Itération de ressources dans des modèles Azure Resource Manager](copy-resources.md)
-  * [Itération de propriétés dans des modèles Azure Resource Manager](copy-properties.md)
-  * [Itération de sorties dans des modèles Azure Resource Manager](copy-outputs.md)
-* Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
-* Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](deploy-powershell.md).
+* Pour effectuer un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles ARM](template-tutorial-create-multiple-instances.md).
+* Pour connaître les autres utilisations de l’élément copy, consultez :
+  * [Itération de ressource dans les modèles ARM](copy-resources.md)
+  * [Itération de propriété dans les modèles ARM](copy-properties.md)
+  * [Itération de sortie dans les modèles ARM](copy-outputs.md)
+* Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles ARM](template-syntax.md).
+* Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle ARM](deploy-powershell.md).
 

@@ -14,16 +14,16 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f690d23ac4d8c452d731c2f6fd4ae67dc281639
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 20ec1d1909a53a9de29e12be33957acfd1643698
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805521"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128823"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences dans le portail Azure Active Directory
 
-De nombreux services Azure Active Directory (Azure AD) nécessitent que vous assigniez une licence à chacun de vos utilisateurs ou groupes (et à leurs membres associés) pour ce service. Seuls les utilisateurs disposant de licences actives seront en mesure d’accéder aux services Azure AD sous licence pour lesquels cela est vrai, et de les utiliser .
+De nombreux services Azure Active Directory (Azure AD) nécessitent que vous assigniez une licence à chacun de vos utilisateurs ou groupes (et à leurs membres associés) pour ce service. Seuls les utilisateurs disposant de licences actives seront en mesure d’accéder aux services Azure AD sous licence pour lesquels cela est vrai, et de les utiliser . Les licences sont appliquées par locataire et ne sont pas transférées à d’autres locataires. 
 
 ## <a name="available-license-plans"></a>Plans de licence disponibles
 
@@ -136,6 +136,9 @@ Vous pouvez supprimer une licence de la page d’utilisateur Azure AD d’un ut
 1. Sélectionnez **Supprimer la licence**.
 
     ![Page Groupes sous licence, avec l’option Supprimer une licence en surbrillance](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    
+    > [!NOTE]
+    > Lorsqu’un compte d’utilisateur local synchronisé avec Azure AD est hors de portée pour la synchronisation ou lorsque la synchronisation est supprimée, l’utilisateur est supprimé de manière réversible dans Azure AD. Lorsque cela se produit, les licences attribuées directement à l’utilisateur ou via des licences basées sur des groupes sont marquées comme **suspendues** plutôt que **supprimées**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

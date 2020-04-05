@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 243086ddaae47eba20eea6877fe6d7f8f9889290
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117487"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79203489"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -182,14 +182,13 @@ L’API Analyse de texte est sans état. Aucune donnée n’est stockée dans vo
 
 Toutes les demandes POST retournent une réponse au format JSON avec les ID et les propriétés des entités détectées.
 
-La sortie est retournée immédiatement. Vous pouvez diffuser en continu les résultats dans une application qui accepte le code JSON ou enregistrer la sortie dans un fichier sur le système local, puis l’importer dans une application qui vous permet de trier, rechercher et manipuler les données.
-
+La sortie est retournée immédiatement. Vous pouvez diffuser en continu les résultats dans une application qui accepte le code JSON ou enregistrer la sortie dans un fichier sur le système local, puis l’importer dans une application qui vous permet de trier, rechercher et manipuler les données. En raison de la prise en charge multilingue et des émojis, la réponse peut contenir des décalages de texte. Pour plus d’informations, consultez le [guide pratique pour traiter les décalages de texte](../concepts/text-offsets.md).
 
 #### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Exemples de réponses NER v3
 
-La version 3 fournit des points de terminaison distincts pour la liaison d’entités et NER. Les réponses pour les deux opérations figurent ci-dessous.
+La version 3 fournit des points de terminaison distincts pour la liaison d’entités et NER. Les réponses pour les deux opérations figurent ci-dessous. 
 
 #### <a name="example-ner-response"></a>Exemple de réponse NER
 

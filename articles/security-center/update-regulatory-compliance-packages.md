@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cfa39799e44cee0a2d36efccd454ccf8ca15157f
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 4080825bbb1f6c274f5b5aafd28e8c672148b98f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603223"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159283"
 ---
 # <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>Mise à jour des packages de conformité dynamique dans votre tableau de bord de conformité réglementaire (préversion)
 
@@ -51,6 +51,9 @@ Les étapes suivantes expliquent comment ajouter le package dynamique pour la su
 
 1. Si vous le souhaitez, cliquez sur **Ajouter d’autres normes** pour ouvrir la page **Ajouter des normes de conformité réglementaire**. À partir de là, vous pouvez effectuer une recherche manuelle pour **Azure CIS 1.1.0 (nouveau)** et des packages dynamiques pour d’autres normes de conformité, comme **NIST SP 800-53 R4**, **SWIFT CSP CSCF-v2020**, **UKO et UK NHS**, et **Canada PBMM**.
     
+    > [!TIP]
+    > Seuls les utilisateurs qui sont propriétaires ou contributeurs de stratégie disposent des autorisations nécessaires pour ajouter des normes de conformité. 
+
     ![Ajout de packages réglementaires au tableau de bord de conformité réglementaire d’Azure Security Center](./media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-additional-standards.png)
 
 

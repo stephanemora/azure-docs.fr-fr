@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
-ms.openlocfilehash: be6fd633f026c98e8f75467dc8661e695e121721
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841265"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477440"
 ---
 # <a name="summarize-data"></a>Totaliser les données
 
@@ -40,7 +40,7 @@ Le module calcule les scores importants de chaque colonne et retourne une ligne 
 
 1. Aucun paramètre supplémentaire n’est nécessaire. Par défaut, le module analyse toutes les colonnes fournies en entrée et, en fonction du type des valeurs dans les colonnes, génère un ensemble de statistiques pertinent, comme décrit dans la section [Résultats](#results).
 
-1. Exécuter le pipeline.
+1. Envoyez le pipeline.
 
 ## <a name="results"></a>Résultats
 

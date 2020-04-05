@@ -2,13 +2,13 @@
 title: Ressources Azure – QnA Maker
 description: QnA Maker utilise plusieurs sources Azure, dont chacune a un objectif différent. Comprendre comment elles sont utilisées individuellement vous permet de planifier et de sélectionner le niveau tarifaire approprié ou de savoir quand modifier celui-ci. Comprendre comment elles sont utilisées en combinaison vous permet d’épingler et de résoudre des problèmes quand ils se produisent.
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.openlocfilehash: 77aced459c7731a2cac432538cfc66ed9ce83f9d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 03/25/2020
+ms.openlocfilehash: 8a5cc0f4889e31470514015035a92d230c40ed43
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902067"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284243"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -30,7 +30,9 @@ Prévoyez d’avoir une ressource QnA Maker unique contenant toutes les bases de
 
 En général, il existe trois paramètres dont vous devez tenir compte :
 
-* **Débit dont vous avez besoin à partir du service** : sélectionnez le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) approprié en fonction de vos besoins. Vous pouvez faire [monter en puissance](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou faire descendre en puissance l’application. Ceci doit également influencer votre sélection de la référence SKU de la Recherche cognitive Azure. Consultez plus d’informations [ici](https://docs.microsoft.com/azure/search/search-sku-tier).
+* **Débit dont vous avez besoin à partir du service** :
+    * sélectionnez le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) approprié en fonction de vos besoins. Vous pouvez faire [monter en puissance](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou faire descendre en puissance l’application.
+    * Ceci doit également influencer votre sélection de la référence SKU de la [Recherche cognitive](https://docs.microsoft.com/azure/search/search-sku-tier) Azure. Voir **ici** pour plus d’informations. En outre, vous devrez peut-être ajuster la [capacité](../../../search/search-capacity-planning.md) de la Recherche cognitive capacité avec des réplicas.
 
 * **Taille et nombre de bases de connaissances** : Choisissez la [référence SKU Recherche Azure](https://azure.microsoft.com/pricing/details/search/) adaptée à votre scénario. En règle générale, vous fixez le nombre de bases de connaissances dont vous avez besoin en fonction du nombre de domaines différents. Un domaine (pour une langue) doit se trouver dans une base de connaissances.
 
@@ -53,7 +55,7 @@ Le tableau suivant vous donne des indications d’ordre général.
 |Mettre à niveau|Motif|
 |--|--|
 |[Mise à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) de la référence SKU de gestion de QnA Maker|Vous souhaitez avoir plus d’ensembles de questions-réponses ou sources de documents dans votre base de connaissances.|
-|[Mettre à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) la référence SKU d’App Service|Votre base de connaissances doit traiter plus de demandes de votre application cliente, comme un bot de conversation.|
+|[Mettre à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) la référence SKU App Service et vérifier le niveau de la Recherche cognitive et [créer des réplicas de Recherche cognitive](../../../search/search-capacity-planning.md)|Votre base de connaissances doit traiter plus de demandes de votre application cliente, comme un bot de conversation.|
 |[Mettre à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) le service Recherche cognitive Azure|Vous envisagez de disposer de nombreuses bases de connaissances.|
 
 Procurez-vous les dernières mises à jour du runtime en [mettant à jour votre App Service dans le portail Azure](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
@@ -114,7 +116,7 @@ Le deuxième classement applique des filtres intelligents qui peuvent inclure de
 
 #### <a name="qna-maker-resource-configuration-settings"></a>Paramètres de configuration de ressources QnA Maker
 
-Lorsque vous créez une base de connaissances dans le [portail QnA Maker](https://qnamaker.ai), le paramètre **Langue** est le seul appliqué au niveau de la ressource. Vous sélectionnez la langue lorsque vous créez la première base de connaissances pour la ressource. 
+Lorsque vous créez une base de connaissances dans le [portail QnA Maker](https://qnamaker.ai), le paramètre **Langue** est le seul appliqué au niveau de la ressource. Vous sélectionnez la langue lorsque vous créez la première base de connaissances pour la ressource.
 
 ### <a name="app-service-and-app-service-plan"></a>App service et plan App service
 
@@ -160,7 +162,7 @@ Utilisez ces clés lorsque vous adressez des demandes au service via des API.
 
 ![Gestion des clés](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Name|Location|Objectif|
+|Nom|Emplacement|Objectif|
 |--|--|--|
 |Clé de création|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
 |Clé de point de terminaison de requête|[Portail QnA Maker](https://www.qnamaker.ai)|Ces clés sont utilisées pour interroger le point de terminaison de base de connaissances publié afin d’obtenir une réponse à une question d’utilisateur. En général, vous utilisez ce point de terminaison de requête dans votre bot conversationnel ou dans le code de l’application cliente qui se connecte au service QnA Maker. Ces clés sont créées lorsque vous publiez votre base de connaissances QnA Maker.<br><br>Recherchez ces clés dans la page **Paramètres du service**. Recherchez cette page à partir du menu de l’utilisateur en haut à droite de la page dans le menu déroulant.|

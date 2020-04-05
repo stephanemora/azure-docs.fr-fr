@@ -1,23 +1,23 @@
 ---
-title: Guide pratique pour effectuer des commandes personnalisées sur le client avec le SDK Speech
+title: Comment effectuer des commandes à partir d’un client avec le Kit de développement logiciel (SDK) Speech
 titleSuffix: Azure Cognitive Services
-description: Dans cet article, nous expliquons comment gérer des activités de commandes personnalisées sur le client avec le kit de développement logiciel (SDK) Speech.
+description: Dans cet article, nous expliquons comment gérer des activités de commandes personnalisées sur un client avec le Kit de développement logiciel (SDK) Speech.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/12/2020
 ms.author: donkim
-ms.openlocfilehash: b55bb1c8379cf0a80a95aa0ba1a29297154d5831
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156503"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367736"
 ---
-# <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Procédure : Effectuer des commandes sur le client avec le Kit de développement logiciel (SDK) Speech (préversion)
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Effectuer des commandes à partir d’un client avec le Kit de développement logiciel (SDK) Speech (préversion)
 
 Pour effectuer des tâches à l’aide d’une application de commandes personnalisées, vous pouvez envoyer des charges utiles personnalisées à un appareil client connecté.
 
@@ -26,7 +26,7 @@ Dans cet article, vous allez :
 - Définir et envoyer une charge utile JSON personnalisée à partir de votre application de commandes personnalisées
 - Recevoir et visualiser le contenu de la charge utile JSON personnalisée d’une application cliente du Kit de développement logiciel (SDK) Speech UWP C#
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - Clé d’abonnement Azure pour le service Speech

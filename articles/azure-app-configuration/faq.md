@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 25187fd055f40e8b32d840ead2a9c54882446b88
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523490"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348784"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration – Questions fréquentes (FAQ)
 
@@ -59,13 +59,15 @@ Il existe une limite de 10 Ko pour un seul élément de clé-valeur.
 
 Vous contrôlez qui peut accéder à App Configuration au niveau de chaque magasin. Utilisez un magasin distinct pour chaque environnement qui nécessite des autorisations différentes. Il s’agit de l’approche qui offre la meilleure isolation sur le plan de la sécurité.
 
+Si vous n’avez pas besoin d’un isolement de sécurité entre les environnements, vous pouvez utiliser des étiquettes pour différencier les valeurs de configuration. La rubrique [Utilisation d’étiquettes pour permettre différentes configurations selon les environnements](./howto-labels-aspnet-core.md) fournit un exemple complet.
+
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quels sont les modes d’utilisation recommandés d’App Configuration ?
 
 Prenez connaissance des [bonnes pratiques](./howto-best-practices.md).
 
 ## <a name="how-much-does-app-configuration-cost"></a>Quel est le coût d’App Configuration ?
 
-Il existe deux niveaux tarifaires : 
+Il existe deux niveaux tarifaires :
 
 - Niveau Gratuit
 - Niveau standard.
@@ -96,6 +98,25 @@ Voici quelques considérations relatives au choix d'un niveau.
 Vous pouvez à tout moment passer du niveau Gratuit au niveau Standard.
 
 En revanche, vous ne pouvez pas passer un magasin du niveau Standard au niveau Gratuit. Au niveau Gratuit, vous pouvez créer un magasin, puis [importer des données de configuration dans ce magasin](howto-import-export-data.md).
+
+## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>Est-ce qu’il y a des limites au nombre de requêtes adressées à App Configuration ?
+
+Les magasins de configuration dans le niveau Gratuit sont limités à 1 000 requêtes par jour. Les magasins de configuration dans le niveau Standard peuvent subir une limitation temporaire lorsque le taux de requêtes dépasse 20 000 requêtes par heure.
+
+Lorsqu’un magasin atteint sa limite, il renvoie le code d’état HTTP 429 pour toutes les requêtes effectuées jusqu’à l’expiration de la période. L’en-tête `retry-after-ms` dans la réponse indique un délai d’attente suggéré (en millisecondes) avant d’effectuer une nouvelle tentative de requête.
+
+Si votre application rencontre régulièrement des réponses du code d’état HTTP 429, envisagez de la reconcevoir pour réduire le nombre de requêtes effectuées. Pour plus d’informations, consultez [Réduire les requêtes adressées à la App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
+
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>Mon application reçoit des réponses de code d’état HTTP 429. Pourquoi ?
+
+Vous allez recevoir une réponse de code d’état HTTP 429 dans les circonstances suivantes :
+
+* Dépassement du nombre limite de requêtes quotidiennes pour un magasin dans le niveau Gratuit.
+* Limitation temporaire en raison d’un taux de requêtes élevé pour un magasin au niveau Standard.
+* Utilisation excessive de la bande passante.
+* Tentative de création ou de modification d’une clé lorsque le quota de stockage est dépassé.
+
+Examinez le corps de la réponse 429 connaître pour la raison spécifique de l’échec de la requête.
 
 ## <a name="how-can-i-receive-announcements-on-new-releases-and-other-information-related-to-app-configuration"></a>Comment puis-je recevoir des annonces sur les nouvelles versions et d’autres informations relatives à App Configuration ?
 

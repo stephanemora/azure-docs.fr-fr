@@ -1,0 +1,24 @@
+---
+title: Fichier include
+description: Fichier include
+services: cognitive-services
+author: erindormier
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 03/11/2020
+ms.author: egeaney
+ms.custom: include
+ms.openlocfilehash: a4b8fcaab93144bb73c1a118d266dd871728a6c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79372018"
+---
+### <a name="regional-availability"></a>Disponibilité régionale
+
+Les clés gérées par le client sont actuellement disponibles dans les régions suivantes :
+
+* USA Centre Sud
+* USA Ouest 2
+* USA Est

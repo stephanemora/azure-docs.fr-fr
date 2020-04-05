@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 60f9209129c75e329b283045d19b4b5140b40ec2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 5e16f1fb948ddb435c5002c16125b36fa61d50a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268196"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336241"
 ---
-# <a name="recommended-on-premises-live-streaming-encoders"></a>Encodeurs de streaming en direct locaux recommandés
+# <a name="tested-on-premises-live-streaming-encoders"></a>Encodeurs de streaming en direct locaux testés
 
 Dans Azure Media Services, un [Événement en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) (canal) représente un pipeline de traitement du contenu de streaming en direct. L’Événement en temps réel reçoit les flux d’entrée en direct de l’une des deux manières suivantes.
 
@@ -24,10 +24,12 @@ Dans Azure Media Services, un [Événement en temps réel](https://docs.microsof
 
     Si vous utilisez des flux multidébits pour l’événement en direct pass-through, la taille de la vidéo GOP et les fragments vidéo sur différentes vitesses de transmission doivent être synchronisés pour éviter un comportement inattendu côté lecture.
 
-  > [!NOTE]
+  > [!TIP]
   > L’utilisation d’une méthode pass-through est le moyen le plus économique de diffuser une vidéo en flux continu.
  
 * Un encodeur live local envoie un flux à débit unique à l'Événement en temps réel activé pour effectuer un encodage en temps réel avec Media Services dans l'un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). L'Événement en temps réel procède ensuite à l'encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif).
+
+Cet article traite des encodeurs de streaming en direct testés. Pour obtenir des instructions sur la vérification de votre encodeur live local, consultez [Vérifier votre encodeur local.](become-on-premises-encoder-partner.md)
 
 Pour des informations détaillées sur l’encodage en temps réel avec Media Services, voir [Streaming en direct avec Media Services v3](live-streaming-overview.md).
 
@@ -96,11 +98,18 @@ Pour pouvoir lire le contenu, un flux audio et un flux vidéo doivent être pré
 - Lors de l’utilisation d’encodeurs logiciels, fermez tous les programmes inutiles.
 - La modification de la configuration de votre encodeur a des effets négatifs sur l’événement lorsque celui-ci a commencé à effectuer des transmissions de type push. Les modifications de configuration peuvent entraîner de l’instabilité. 
 - Prévoyez suffisamment de temps pour configurer votre événement. Pour les événements à grande échelle, nous recommandons d’entamer la configuration une heure à l’avance.
+- Utilisez la vidéo H.264 et la sortie du codec audio AAC.
+- Assurez-vous qu’il existe une image clé ou un alignement temporel de groupe d’images sur les qualités vidéo.
+- Assurez-vous qu’il existe un nom de flux unique pour chaque qualité vidéo.
+- Utilisez l’encodage CBR strict recommandé pour optimiser les performances de débit adaptatif.
+
+> [!IMPORTANT]
+> Regardez la condition physique de l’ordinateur (UC/mémoire, etc.), car le chargement de fragments dans le cloud implique des opérations d’UC et d’E/S. Si vous modifiez des paramètres dans l’encodeur, vous devez réinitialiser les canaux/l’événement en direct pour que la modification prenne effet.
 
 ## <a name="see-also"></a>Voir aussi
 
-[Devenir partenaire d’encodeur local](become-on-premises-encoder-partner.md)
+[Streaming en direct avec Media Services v3](live-streaming-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Streaming en direct avec Media Services v3](live-streaming-overview.md)
+[Comment vérifier votre encodeur](become-on-premises-encoder-partner.md)

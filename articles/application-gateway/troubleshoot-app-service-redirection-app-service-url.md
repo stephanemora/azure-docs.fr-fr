@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: d43efd6dbd344f666c23b1ad4414ceb29992e996
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 961ed17bcef19b445c2546a557725bb6bd8653cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074492"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293536"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Résoudre les problèmes d’App Service dans Application Gateway
 
 Découvrez comment diagnostiquer et résoudre les problèmes que vous pouvez rencontrer quand Azure App Service est utilisé comme cible de back-end avec Azure Application Gateway.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article explique comment résoudre les problèmes suivants :
 
@@ -45,7 +45,7 @@ En outre, lorsque vous utilisez des App Services derrière une passerelle d’ap
 - Paramètres HTTP : **Choisir le nom d’hôte à partir de l’adresse du serveur principal** activé
 - Sonde : **Choisir le nom d’hôte à partir des paramètres HTTP** activé
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Le nom de domaine par défaut des App Services, *.azurewebsites.net (par exemple, contoso.azurewebsites.net), est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). 
 

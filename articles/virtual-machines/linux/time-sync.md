@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1e459e96c128e20f44f1a5adcb18c5b1824c3bf5
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c3571d9ba94e1803259457d473ed3f1669ea67ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534119"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330579"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Linux dans Azure
 
@@ -31,7 +31,7 @@ Azure est soutenu par une infrastructure exécutant Windows Server 2016. Windo
 >
 > Pour plus d’informations, consultez la rubrique [Précision de l’heure sur Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La précision de l’horloge de l’ordinateur est évaluée en fonction de la proximité de l’horloge de l’ordinateur par rapport à la norme de temps universel coordonné (UTC). L’heure UTC est définie par l’exemple multinational des horloges atomiques précises qui ne peuvent être décalées que d’une seconde en 300 ans. Toutefois, la lecture directe de l’heure UTC requiert du matériel spécialisé. Au lieu de cela, les serveurs de temps sont synchronisés à l’heure UTC et sont accessibles depuis d’autres ordinateurs dans un souci d’évolutivité et de fiabilité. Chaque ordinateur possède un service de synchronisation d’heure en cours d’exécution qui sait quels serveurs de temps utiliser et vérifie régulièrement si l’horloge de l’ordinateur doit être corrigée, et ajuste l’heure si nécessaire. 
 
@@ -41,9 +41,9 @@ Sur un matériel autonome, le système d’exploitation Linux lit uniquement l�
 
 Les interactions de la machine virtuelle avec l’hôte peuvent également influer sur l’horloge. Au cours de la [maintenance avec préservation de la mémoire](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 pendant 28 secondes. Une fois que la machine virtuelle reprend, l’horloge affiche toujours 10:00:00 et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
 
-Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
+Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
 
-- L’authentification échoue. Les protocoles de sécurité, comme Kerberos, ou les technologies dépendantes du certificat reposent sur la précision de l’heure entre les systèmes.
+- L’authentification échoue. Les protocoles de sécurité, comme Kerberos, ou les technologies dépendantes d’un certificat reposent sur la précision de l’heure entre les systèmes.
 - Il est très difficile de déterminer ce qu’il peut se passer dans un système si l’heure des journaux d’activité (ou d’autres données) diffère. Un même événement peut avoir l’air de s’être produit à différents moments, rendant la corrélation difficile.
 - Si l’horloge est désactivée, la facturation peut être calculée de manière incorrecte.
 
@@ -133,34 +133,35 @@ Le résultat renvoyé doit être **hyperv**.
 
 ### <a name="chrony"></a>chrony
 
-Sur Red Hat Enterprise Linux et CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) est configuré pour utiliser une horloge de source PTP. Le démon NTP (Network Time Protocol) ne prend pas en charge les sources PTP. Par conséquent, il est recommandé d’utiliser **chronyd**. Pour activer PTP, mettez à jour **chrony.conf**.
+Sur Ubuntu 19.10 et versions ultérieures, Red Hat Enterprise Linux et CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) est configuré pour utiliser une horloge de source PTP. Au lieu de Chrony, les versions antérieures de Linux utilisent le démon ntpd (Network Time Protocol Daemon), qui ne prend pas en charge les sources PTP. Pour activer PTP dans ces versions, chrony doit être installé et configuré manuellement (dans chrony.conf) à l’aide du code suivant :
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-Pour plus d’informations sur Red Hat et NTP, consultez la [configuration NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+Pour plus d’informations sur Ubuntu et NTP, consultez [Synchronisation temporelle](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-Pour plus d’informations sur chrony, consultez [l’utilisation de chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+Pour plus d’informations sur Red Hat et NTP, consultez [Configurer NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+
+Pour plus d’informations sur chrony, consultez [Utilisation de chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
 
 Si les sources chrony et TimeSync sont activées simultanément, vous pouvez en marquer une comme **favorite**, l’autre devenant alors la source de secours. Étant donné que les services NTP ne mettent pas à jour l’horloge pour les grands décalages, sauf après une longue période, la source VMICTimeSync permet de récupérer l’horloge à partir d’événements de machine virtuelle en pause beaucoup plus rapidement que les outils NTP seuls.
 
-Par défaut, chronyd accélère ou ralentit l’horloge système pour corriger toute dérive temporelle. En cas de dérive trop importante, chrony ne sera pas capable de la résoudre. Pour surmonter cela, le paramètre `makestep` dans **/etc/chrony.conf** peut être modifié pour forcer un TimeSync si la dérive dépasse le seuil spécifié.
+Par défaut, chronyd accélère ou ralentit l’horloge système pour corriger toute dérive temporelle. En cas de dérive trop importante, chrony n’est pas capable de la résoudre. Pour surmonter cela, le paramètre `makestep` dans **/etc/chrony.conf** peut être modifié pour forcer un TimeSync si la dérive dépasse le seuil spécifié.
+
  ```bash
 makestep 1.0 -1
 ```
-Ici, chrony force une mise à jour temporelle si la dérive est supérieure à 1 seconde. Pour appliquer les modifications, redémarrez le service chronyd.
+
+Ici, chrony force une mise à jour temporelle si la dérive est supérieure à 1 seconde. Pour appliquer les modifications, redémarrez le service chronyd :
 
 ```bash
 systemctl restart chronyd
 ```
 
-
 ### <a name="systemd"></a>systemd 
 
-Sur Ubuntu et SUSE, la synchronisation de l’heure est configurée à l’aide de [systemd](https://www.freedesktop.org/wiki/Software/systemd/). Pour plus d’informations sur Ubuntu, consultez la [synchronisation de l’heure](https://help.ubuntu.com/lts/serverguide/NTP.html). Pour plus d’informations sur SUSE, consultez la section 4.5.8 des [notes de publication de SUSE Linux Enterprise Server 12 SP3](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
-
-
+Sur les versions SUSE et Ubuntu antérieures à 19.10, la synchronisation de l’heure est configurée à l’aide de [systemd](https://www.freedesktop.org/wiki/Software/systemd/). Pour plus d’informations sur Ubuntu, consultez [Synchronisation de l’heure](https://help.ubuntu.com/lts/serverguide/NTP.html). Pour plus d’informations sur SUSE, consultez la section 4.5.8 des [notes de publication de SUSE Linux Enterprise Server 12 SP3](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -18,16 +18,16 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245708"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331720"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gérer l’approbation AD FS avec Azure AD à l’aide d’Azure AD Connect
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure AD Connect peut gérer la fédération entre le service de fédération Active Directory (AD FS) local et Azure AD. Cet article fournit une vue d’ensemble des éléments suivants :
 
@@ -56,15 +56,15 @@ Azure AD Connect ne met pas à jour la totalité des paramètres de l’approbat
 
 | Flux d’exécution | Paramètres affectés |
 | :--- | :--- |
-| Installation au premier passage (rapide) | Aucun |
+| Installation au premier passage (rapide) | None |
 | Installation au premier passage (nouvelle batterie de serveurs AD FS) | Une nouvelle batterie de serveurs AD FS est créée, et une approbation avec Azure AD est créée à partir de zéro. |
 | Installation au premier passage (batterie de serveurs AD FS existante, approbation Azure AD existante) | Azure AD trust identifier (Identificateur d’approbation Azure AD), Règles de transformation d’émission, Points de terminaison Azure AD, Alternate-id (Alternate-id) (si nécessaire), Automatic metadata update (Mise à jour automatique des métadonnées) |
 | Réinitialiser l’approbation Azure AD | Certificat de signature de jetons, Token signing algorithm (Algorithme de signature de jetons), Azure AD trust identifier (Identificateur d’approbation Azure AD), Règles de transformation d’émission, Points de terminaison Azure AD, Alternate-id (Alternate-id) (si nécessaire), Automatic metadata update (Mise à jour automatique des métadonnées) |
-| Ajouter un serveur de fédération | Aucun |
-| Ajouter un serveur WAP | Aucun |
+| Ajouter un serveur de fédération | None |
+| Ajouter un serveur WAP | None |
 | Options de l’appareil | Règles de transformation d’émission, Authentification Windows intégrée pour l’inscription d’appareils |
 | Ajouter un domaine fédéré | Si le domaine est ajouté pour la première fois, autrement dit, si la configuration évolue d’une fédération de domaine unique vers une fédération multidomaine, Azure AD Connect recrée l’approbation à partir de zéro. Si l’approbation avec Azure AD est déjà configurée pour plusieurs domaines, seules les règles de transformation d’émission sont modifiées. |
-| Mettre à jour SSL | Aucun |
+| Mettre à jour TLS | None |
 
 Dans le cadre de toutes les opérations au cours desquelles un paramètre est modifié, Azure AD Connect sauvegarde les paramètres d’approbation actuels à l’emplacement **%ProgramData%\AADConnect\ADFS**.
 

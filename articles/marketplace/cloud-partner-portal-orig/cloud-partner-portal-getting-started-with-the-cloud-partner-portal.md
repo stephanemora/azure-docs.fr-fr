@@ -1,19 +1,18 @@
 ---
 title: Prise en main | Place de marché Azure
 description: Prise en main du portail Microsoft Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 6065f0485b03a53fa55ae700831869998d9453cc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d7c317463dbf6d2b78390a90c412031ce10a01ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818372"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280267"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Prise en main du portail Microsoft Cloud Partner
 
@@ -34,7 +33,7 @@ Utilisez la barre de menus pour obtenir plus d’informations sur chacun des él
 
 - **Nouvelle offre** : lancez une nouvelle offre ici.
 - **Toutes les offres** : vérifiez l’état et le statut de toutes vos offres en cours.
-- **Utilisateurs** - [gérez et contrôlez l’accès pour votre société](./cloud-partner-portal-manage-users.md).
+- **Utilisateurs** : -[gérez et contrôlez l’accès pour votre société](./cloud-partner-portal-manage-users.md).
 - **Apprendre** : démarrez votre apprentissage et tenez-vous informé des nouveautés sur le portail Microsoft Cloud Partner.
 - **Informations** : recueillez des informations sur l’utilisation de vos produits et sur vos clients en visitant le portail Insights.
 

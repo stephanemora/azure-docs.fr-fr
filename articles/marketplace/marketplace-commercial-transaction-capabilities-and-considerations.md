@@ -2,19 +2,18 @@
 title: Considérations et fonctionnalités relatives aux transactions commerciales ‎dans la Place de marché | Azure
 description: Cet article expose diverses considérations ayant trait à la tarification, la facturation et le paiement pour le type d’offre Transaction.
 services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
-author: yijenj
-manager: nuno costa
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: dsindona
+ms.openlocfilehash: de93a3c48e0b0aceb447e54e11190f487d1aa2d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279825"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions dans la Place de marché commerciale
 
@@ -94,7 +93,7 @@ Cette option tarifaire peut être supérieure ou inférieure à l'offre disponib
 
 ### <a name="examples"></a>Exemples
 
-**Pay-As-You-Go** 
+**Paiement à l’utilisation** 
 
 * Si vous activez l’option Paiement à l’utilisation, vous obtenez la structure de coûts suivante.
 
@@ -130,7 +129,7 @@ Cette option tarifaire peut être supérieure ou inférieure à l'offre disponib
 **Abonnement Application SaaS**
 
 Cette option doit être configurée pour la vente via Microsoft et peut être facturée mensuellement ou annuellement à un tarif fixe ou par utilisateur.
-•   Si vous activez l’option Vendre via Microsoft pour une offre SaaS, vous obtenez la structure de coûts suivante.
+*    Si vous activez l’option Vendre via Microsoft pour une offre SaaS, vous obtenez la structure de coûts suivante.
 
 |Coût de votre licence       | 100 $/mois  |
 |--------------|---------|

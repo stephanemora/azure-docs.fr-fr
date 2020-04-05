@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
 ms.openlocfilehash: b6802d97b964b8863f6c2fce0cebfe16782b46fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822012"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232617"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
  
@@ -77,7 +77,7 @@ Dans l’application Wingtip Tickets, chaque base de données de locataire inclu
 Tout d’abord, examinez les types de lieux inclus dans chaque base de données client. Connectez-vous à l’une des bases de données client dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requêtes du portail Azure, auquel vous avez accès par la page de la base de données. 
 
 1. Ouvrez SSMS et connectez-vous au serveur client : *tenants1-dpt-&lt;utilisateur&gt;.database.windows.net*
-1. Pour confirmer que *Motorcycle Racing* et *Swimming Club* **ne sont pas** déjà inclus, accédez à la base de données _contosoconcerthall_ sur le serveur *tenants1-dpt-&lt;user&gt;* et interrogez la table *VenueTypes*.
+1. Pour confirmer que *Motorcycle Racing* et *Swimming Club* **ne sont pas** déjà inclus, accédez à la base de données _contosoconcerthall_ sur le serveur *tenants1-dpt-&lt;utilisateur&gt;* et interrogez la table *VenueTypes*.
 
 Maintenant, nous allons créer un travail pour mettre à jour la table *VenueTypes* dans toutes les bases de données de locataire pour ajouter les nouveaux types de lieux.
 
@@ -126,7 +126,7 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-Ensuite, consultez le [didacticiel de création de rapports Ad hoc](saas-tenancy-cross-tenant-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données de locataire.
+Ensuite, consultez le [didacticiel de génération d’états ad hoc](saas-tenancy-cross-tenant-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données de locataire.
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

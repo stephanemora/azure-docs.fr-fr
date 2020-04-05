@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: f038293b48956ac89314e426df3f5dc491954df3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037121"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064221"
 ---
 # <a name="execute-r-script"></a>Exécuter un script R
 
@@ -97,13 +97,16 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-Une fois le pipeline soumis avec succès, vous pouvez afficher un aperçu de l'image dans le panneau de droite du module ![Uploaded-image](media/module/upload-image-in-r-script.png) (Image téléchargée).
+Une fois l’exécution du pipeline terminée, vous pouvez afficher un aperçu de l’image dans le panneau de droite du module
+
+> [!div class="mx-imgBorder"]
+> ![Image chargée](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Comment configurer le module Exécuter un script R
 
 Le module **Exécuter un script R** contient un exemple de code que vous pouvez utiliser comme point de départ. Pour configurer le module **Exécuter un script R**, indiquez un ensemble d’entrées et du code à exécuter.
 
-![R-module](media/module/upload-image-in-r-script.png)
+![R-module](media/module/execute-r-script.png)
 
 Les jeux de données stockés dans le concepteur sont automatiquement convertis en trame de données R quand ils sont chargés avec ce module.
 
@@ -123,25 +126,25 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
 
     Pour vous aider à commencer, la zone de texte **Script R** est préremplie avec un exemple de code, que vous pouvez modifier ou remplacer.
     
-```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main
+    # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
+    # The entry point function can contain up to two input arguments:
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
 
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
+    # If a zip file is connected to the third input port, it is
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
 
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
 
  * Le script doit contenir une fonction nommée `azureml_main` qui est le point d’entrée pour ce module.
 
@@ -155,7 +158,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1.  **Valeur de départ aléatoire** : Tapez une valeur à utiliser dans l’environnement R en tant que valeur de départ aléatoire. Ce paramètre revient à appeler `set.seed(value)` dans le code R.  
 
-1. Exécuter le pipeline.  
+1. Envoyez le pipeline.  
 
 ## <a name="results"></a>Résultats
 
@@ -174,9 +177,9 @@ Il existe de nombreuses façons d’étendre votre pipeline à l’aide d’un s
 
 Le module **Exécuter un script R** prend en charge des fichiers de script R arbitraires en tant qu’entrées. Pour ce faire, ils doivent être chargés sur votre espace de travail en tant que partie du fichier ZIP.
 
-1. Pour charger un fichier ZIP contenant du code R sur votre espace de travail, cliquez sur **Nouveau**, sur **Jeu de données**, puis sélectionnez **Depuis un fichier local** et l’option **Fichier zip**.  
+1. Pour charger un fichier ZIP contenant du code R sur votre espace de travail, accédez à la page de ressource **Jeux de données**, cliquez sur **Créer un jeu de données**, puis sélectionnez **Depuis un fichier local** et l’option de type de jeu de données **Fichier**.  
 
-1. Vérifiez que le fichier compressé est disponible dans la liste **Jeux de données enregistrés**.
+1. Vérifiez que le fichier compressé est disponible dans la liste **Mes jeux de données** sous la catégorie **Jeux de données** dans l’arborescence du module de gauche.
 
 1.  Connectez le jeu de données au port d’entrée **ScriptBundle**.
 

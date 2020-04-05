@@ -7,16 +7,16 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: 516e327cca1aa6a691a1d932c5f48c9108d818b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510186"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475822"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Règles personnalisées pour le pare-feu d’applications web avec Azure Front Door
 
-Le Pare-feu d’applications web Azure (WAF) doté du service Front Door vous permet de contrôler l’accès à vos applications web en fonction des conditions que vous définissez. Une règle WAF personnalisée se compose d’un numéro de priorité, d’un type de règle, de conditions de correspondance et d’une action. Il existe deux types de règles personnalisées : les règles de correspondance et les règles de limite de taux. Une règle de correspondance contrôle un accès en fonction de conditions de correspondance, alors qu’une règle de limite de taux contrôle d’accès basée sur la correspondance des conditions et les taux de requêtes entrantes. Vous pouvez désactiver une règle personnalisée pour l’empêcher d’être évaluée, tout en conservant la configuration. 
+Le Pare-feu d’applications web Azure (WAF) doté de Front Door vous permet de contrôler l’accès à vos applications web en fonction des conditions que vous définissez. Une règle WAF personnalisée se compose d’un numéro de priorité, d’un type de règle, de conditions de correspondance et d’une action. Il existe deux types de règles personnalisées : les règles de correspondance et les règles de limite de taux. Une règle de correspondance contrôle un accès en fonction de conditions de correspondance, alors qu’une règle de limite de taux contrôle d’accès basée sur la correspondance des conditions et les taux de requêtes entrantes. Vous pouvez désactiver une règle personnalisée pour l’empêcher d’être évaluée, tout en conservant la configuration. 
 
 ## <a name="priority-match-conditions-and-action-types"></a>Priorité, conditions de correspondance et les types d’action
 
@@ -43,7 +43,7 @@ Vous pouvez contrôler l’accès à l’aide d’une règle WAF personnalisée 
   - **Opérateur :**
     - Any : souvent utilisé pour définir l’action par défaut si aucune règle n’est mise en correspondance. Any est un opérateur qui fait correspondre tous les éléments.
     - Égal à
-    - Contains
+    - Contient
     - LessThan : contrainte de taille
     - GreaterThan : contrainte de taille
     - LessThanOrEqual : contrainte de taille
@@ -69,7 +69,7 @@ Vous pouvez contrôler l’accès à l’aide d’une règle WAF personnalisée 
   - **Transformation [facultatif] :** Liste de chaînes avec les noms des transformations à effectuer avant la tentative de la mise en correspondance. Il peut s’agir des transformations suivantes :
      - Majuscules 
      - Minuscules
-     - Trim
+     - SupprEspace
      - RemoveNulls
      - UrlDecode
      - UrlEncode
@@ -79,7 +79,7 @@ Vous pouvez contrôler l’accès à l’aide d’une règle WAF personnalisée 
      - POST
      - PUT
      - HEAD
-     - SUPPRIMER
+     - Suppression
      - LOCK
      - UNLOCK
      - PROFILE

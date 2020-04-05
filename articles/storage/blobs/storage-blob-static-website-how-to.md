@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: e312cc0dc6c58bb33a737e1fc28dd6eb3578b764
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 056e23f0f0cf1a3a1c70042cef3c92dd41f14f82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330258"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247008"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -239,11 +239,15 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 Une fois les métriques activées, les statistiques de trafic relatives aux fichiers du conteneur **$web** sont signalées dans le tableau de bord des métriques.
 
-1. Cliquez sur **Paramètres** > **Surveillance** > **Métriques**.
+1. Cliquez sur **Métriques** sous la section **Moniteur** du menu compte de stockage.
 
-   Les données de métriques sont générées par raccordement aux différentes API de métriques. Le portail affiche uniquement les membres d’API utilisés dans un délai d’exécution donné afin de se focaliser exclusivement sur les membres qui renvoient des données. Pour garantir votre capacité à sélectionner le membre d’API nécessaire, la première étape consiste à étendre le délai d’exécution.
+   > [!div class="mx-imgBorder"]
+   > ![Lien de métriques](./media/storage-blob-static-website/metrics-link.png)
 
-2. Cliquez sur le bouton de délai d’exécution, sélectionnez **Dernières 24 heures**, puis cliquez sur **Appliquer**.
+   > [!NOTE]
+   > Les données de métriques sont générées par raccordement aux différentes API de métriques. Le portail affiche uniquement les membres d’API utilisés dans un délai d’exécution donné afin de se focaliser exclusivement sur les membres qui renvoient des données. Pour garantir votre capacité à sélectionner le membre d’API nécessaire, la première étape consiste à étendre le délai d’exécution.
+
+2. Cliquez sur le bouton de délai d’exécution, choisissez un délai d'exécution, puis cliquez sur **Appliquer**.
 
    ![Intervalle de temps des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
@@ -266,6 +270,9 @@ Une fois les métriques activées, les statistiques de trafic relatives aux fich
 7. Cochez la case en regard de **GetWebContent** dans le sélecteur *Valeurs* pour remplir le rapport des métriques.
 
    ![Valeur GetWebContent des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
+
+   >[!NOTE]
+   > La case à cocher **GetWebContent** s’affiche uniquement si ce membre d’API a été utilisé dans un délai d'exécution donné. Le portail affiche uniquement les membres d’API utilisés dans un délai d’exécution donné afin de se focaliser exclusivement sur les membres qui renvoient des données. Si vous ne trouvez pas un membre d’API spécifique dans cette liste, développez le délai d’exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

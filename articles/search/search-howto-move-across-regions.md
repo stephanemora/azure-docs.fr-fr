@@ -8,32 +8,32 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/06/2020
-ms.openlocfilehash: 183a937a232dbd28962bb7d6ef42b0d78b8a81fd
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.date: 03/24/2020
+ms.openlocfilehash: 00f16d11f7a9cd276772eda5e91d6e117ada8c9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78850684"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246300"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Déplacer votre service Recherche cognitive Azure vers une autre région Azure
 
-Parfois, les clients se renseignent sur le déplacement d’un service de recherche existant vers une autre région. Il n’existe aucun mécanisme ou outil intégré pour vous aider dans cette tâche. Elle demeure un processus manuel, présenté ci-dessous dans cet article.
+Parfois, les clients demandent à déplacer un service de recherche vers une autre région. Actuellement, il n’existe aucun mécanisme ou outil intégré pour faciliter cette tâche, mais cet article peut vous aider à comprendre les étapes manuelles permettant d’obtenir le même résultat.
 
 > [!NOTE]
 > Dans le portail Azure, tous les services ont une commande **Exporter le modèle**. Dans le cas de la Recherche cognitive Azure, cette commande produit une définition de base d’un service (nom, localisation, niveau, réplica et nombre de partitions), mais ne reconnaît pas le contenu de votre service, pas plus que les clés, les rôles ou les journaux. Bien que la commande existe, nous vous déconseillons de l’utiliser pour déplacer un service de recherche.
 
-## <a name="steps-for-moving-a-service"></a>Étapes pour déplacer un service
+## <a name="guidance-for-moving-a-service"></a>Aide pour déplacer un service
 
-Si vous avez besoin de déplacer un service de recherche vers une autre région, votre approche devrait ressembler aux étapes ci-après :
+1. Identifiez les dépendances et les services associés pour comprendre l’impact complet du déplacement d’un service, au cas où vous devriez déplacer plus que simplement la Recherche cognitive Azure.
 
-1. Identifiez les services associés pour comprendre l’impact complet du déplacement d’un service. Vous utilisez peut-être le Stockage Azure pour la journalisation, la base de connaissances ou une source de données externe. Vous utilisez peut-être Cognitive Services pour l’enrichissement par IA. L’accès aux services dans d’autres régions est courant, mais il est fourni avec des frais de bande passante supplémentaires. Cognitive Services et la Recherche cognitive Azure doivent se trouver dans la même région si vous utilisez l’enrichissement par IA.
+   Le stockage Azure est utilisé pour la journalisation, la création d’une base de connaissances et est une source de données externe couramment utilisée pour l’enrichissement et l’indexation par IA. Cognitive Services est une dépendance dans l’enrichissement par IA. Cognitive Services et votre service de recherche doivent se trouver dans la même région si vous utilisez l’enrichissement par IA.
 
-1. Inventoriez votre service existant pour obtenir une liste complète des objets sur le service. Si vous avez activé la journalisation, créez et archivez les rapports dont vous pouvez avoir besoin pour un enregistrement historique.
+1. Créez un inventaire de tous les objets sur le service afin de savoir ce qu’il faut déplacer : les index, les cartes de synonymes, les indexeurs, les sources de données, les ensembles de compétences. Si vous avez activé la journalisation, créez et archivez les rapports dont vous pouvez avoir besoin pour un enregistrement historique.
 
-1. Vérifiez les tarifs et la disponibilité dans la nouvelle région pour garantir la disponibilité de la Recherche cognitive Azure ainsi que des services associés que vous pouvez souhaiter créer dans la même région. Vérifiez la parité des fonctionnalités. Certaines fonctionnalités d’évaluation ont une disponibilité limitée.
+1. Vérifiez les tarifs et la disponibilité dans la nouvelle région pour garantir la disponibilité de la Recherche cognitive Azure ainsi que tous les services associés dans la même région. La majorité des fonctionnalités sont disponibles dans toutes les régions, mais certaines fonctionnalités d’évaluation ont une disponibilité limitée.
 
-1. Créez un service dans la nouvelle région et republiez à partir du code source les index, indexeurs, sources de données, ensembles de compétences, bases de connaissances et mappages de synonymes existants. Les noms de service doivent être uniques afin que vous ne puissiez pas réutiliser le nom existant.
+1. Créez un service dans la nouvelle région et republiez à partir du code source les index, les cartes de synonymes, les indexeurs, les sources de données et les ensembles de compétences. N’oubliez pas que les noms de service doivent être uniques afin que vous ne puissiez pas réutiliser le nom existant. Vérifiez chaque ensemble de compétences pour voir si les connexions à Cognitive Services sont toujours valides dans le cadre de la spécification de la même région. En outre, si vous créez des bases de connaissances, vérifiez les chaînes de connexion pour le stockage Azure si vous utilisez un autre service.
 
 1. Rechargez les index et les bases de connaissances, le cas échéant. Vous allez utiliser du code d’application pour envoyer (push) des données JSON à un index ou réexécuter des indexeurs pour tirer (pull) des documents de sources externes. 
 
@@ -45,6 +45,9 @@ Si vous avez besoin de déplacer un service de recherche vers une autre région,
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+Les liens suivants peuvent vous aider à trouver plus d’informations lorsque vous effectuez les étapes décrites ci-dessus.
+
++ [Tarifs et régions Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/)
 + [Choisir un niveau](search-sku-tier.md)
 + [Créer un service de recherche](search-create-service-portal.md)
 + [Charger les documents de recherche](search-what-is-data-import.md)
@@ -123,7 +126,7 @@ To obtain region location codes, see [Azure Locations](https://azure.microsoft.c
     "resources": [
         {
             "type": "Microsoft.Search/searchServices",
-            "apiVersion": "2015-08-19",
+            "apiVersion": "2020-03-13",
             "name": "[parameters('searchServices_target_region_search_name')]",
             "location": "centralus",
             "sku": {
