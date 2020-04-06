@@ -16,11 +16,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74025949"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231717"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -43,7 +43,7 @@ Par exemple, vous pouvez créer un groupe dynamique pour un jeu de produits que 
 
 Les licences sont attribuées aux utilisateurs peu de temps après leur ajout au groupe. En cas de modification de son attribut, l’utilisateur quitte les groupes et les licences sont supprimées.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Considérez l’exemple d’une solution locale de gestion des identités, qui détermine quels utilisateurs doivent pouvoir accéder aux services web Microsoft. Elle utilise **extensionAttribute1** pour stocker une valeur de chaîne représentant les licences que l’utilisateur doit avoir. Azure AD Connect la synchronise avec Azure AD.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7003dc19a7bfc405809de91534028aba8e0416c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913240"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136848"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Créer votre première fonction Azure avec Java et IntelliJ
 
@@ -46,7 +46,7 @@ Pour développer une fonction avec Java et IntelliJ, installez les logiciels sui
 1. Dans la fenêtre **Add Archetype** (Ajouter un archétype), renseignez les champs comme suit :
     - _GroupId_ : com.microsoft.azure
     - _ArtifactId_ : azure-functions-archetype
-    - _Version_ : utilisez la version la plus récente **1.22** du [dépôt central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - _Version_ : Vérifier et utiliser la version la plus récente à partir du [dépôt central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Créer un projet Maven à partir d’un archétype dans IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Sélectionnez **OK**, puis **Suivant**.
 1. Entrez les détails de votre projet en cours et sélectionnez **Finish** (Terminer).

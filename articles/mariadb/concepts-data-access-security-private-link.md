@@ -1,21 +1,21 @@
 ---
-title: Private Link pour Azure Database for MariaDB (préversion)
+title: Private Link - Azure Database for MariaDB
 description: Découvrez le fonctionnement de Private Link pour Azure Database for MariaDB (préversion).
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 92d7522c8382ded182c5f482df3f3d917b4b3a14
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/10/2020
+ms.openlocfilehash: b05a202537492fe54a76cf40a3b15987e099a7e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982380"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367718"
 ---
-# <a name="private-link-for-azure-database-for-mariadb-preview"></a>Private Link pour Azure Database for MariaDB (préversion)
+# <a name="private-link-for-azure-database-for-mariadb"></a>Private Link pour Azure Database for MariaDB
 
-Private Link vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un point de terminaison privé. Azure Private Link intègre essentiellement les services Azure à votre Réseau virtuel privé. Vous pouvez accéder aux ressources PaaS à l’aide de l’adresse IP privée, comme toute autre ressource dans le réseau virtuel.
+Private Link vous permet de créer des points de terminaison privés pour Azure Database for MariaDB et de placer les services Azure à l’intérieur de votre réseau virtuel privé (VNet). Le point de terminaison privé expose une adresse IP privée que vous pouvez utiliser pour vous connecter à votre serveur de base de données Azure Database for MariaDB, comme n’importe quelle autre ressource du réseau virtuel.
 
 Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Private Link, consultez la [documentation](https://docs.microsoft.com/azure/private-link/index) de Private Link. Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) et d’un sous-réseau spécifiques.
 
@@ -58,10 +58,7 @@ Des points de terminaison privés sont requis pour activer Private Link. Pour ce
 
 ### <a name="approval-process"></a>Processus d’approbation
 
-Une fois que l’administrateur réseau a créé le point de terminaison privé (PE), l’administrateur peut gérer la connexion de point de terminaison privé (PEC) à Azure Database for MariaDB.
-
-> [!NOTE]
-> Actuellement, Azure Database for MariaDB prend uniquement en charge l’approbation automatique pour le point de terminaison privé.
+Une fois que l’administrateur réseau a créé le point de terminaison privé (PE), l’administrateur peut gérer la connexion de point de terminaison privé (PEC) à Azure Database for MariaDB. Cette séparation des tâches entre l’administrateur réseau et l’administrateur de bases de données facilite la gestion de la connectivité Azure Database for MariaDB. 
 
 * Accédez à la ressource de serveur Azure Database for MariaDB dans le portail Azure. 
     * Sélectionner les connexions de point de terminaison privé dans le volet gauche
@@ -110,6 +107,19 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 * Si vous configurez un trafic public ou un point de terminaison de service et que vous créez des points de terminaison privés, différents types de trafic entrant sont alors autorisés par le type de règle de pare-feu correspondant.
 
 * Si vous ne configurez aucun trafic public ni point de terminaison de service et que vous créez des points de terminaison privés, Azure Database for MariaDB est alors uniquement accessible via les points de terminaison privés. Si vous ne configurez aucun trafic public ni point de terminaison de service, après le rejet ou la suppression de tous les points de terminaison privés approuvés, aucun trafic ne sera en mesure d’accéder à Azure Database for MariaDB.
+
+## <a name="deny-public-access-for-azure-database-for-mariadb"></a>Refuser l’accès public pour Azure Database for MariaDB
+
+Si vous souhaitez uniquement vous fier entièrement aux points de terminaison privés pour accéder à leur base de données Azure Database for MariaDB, vous pouvez désactiver la définition de tous les points de terminaison publics ([règles de pare-feu](concepts-firewall-rules.md) et [points de terminaison de service de réseau virtuel](concepts-data-access-security-vnet.md)) en définissant la configuration **Refuser l’accès au réseau public** sur le serveur de base de données. 
+
+Lorsque ce paramètre est défini sur *OUI*, seules les connexions via des points de terminaison privés sont autorisées vers votre base de données Azure Database for MariaDB. Lorsque ce paramètre est défini sur *NON*, les clients peuvent se connecter à votre base de données Azure Database for MariaDB en fonction des paramètres des points de terminaison de votre service de pare-feu ou de réseau virtuel. En outre, une fois que la valeur de l’accès au réseau privé est définie, vous ne pouvez pas ajouter et/ou mettre à jour les règles existantes des points de terminaison de votre service de pare-feu ou de réseau virtuel.
+
+> [!Note]
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL - Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
+>
+> Ce paramètre n’a aucun impact sur les configurations SSL et TLS pour votre base de données Azure Database for MariaDB.
+
+Pour savoir comment définir l’option **Refuser l’accès au réseau public** pour votre base de données Azure Database for MariaDB à partir du portail Azure, consultez [Configurer Refuser l’accès au réseau public](howto-deny-public-network-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

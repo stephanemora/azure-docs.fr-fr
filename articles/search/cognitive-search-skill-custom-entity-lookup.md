@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79369775"
 ---
-#    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Compétence cognitive Recherche d'entité personnalisée (préversion)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Compétence cognitive Recherche d'entité personnalisée (préversion)
 
 > [!IMPORTANT] 
 > Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
@@ -38,9 +38,9 @@ Les paramètres respectent la casse.
 
 | Nom du paramètre     | Description |
 |--------------------|-------------|
-| entitiesDefinitionUri | Chemin d'accès à un fichier JSON ou CSV contenant tout le texte cible à comparer. Cette définition d'entité est lue au début de l'exécution d'un indexeur ; les mises à jour de ce fichier à mi-parcours ne seront pas réalisées avant l'exécution suivante. Cette configuration doit être accessible via HTTPS. Reportez-vous à la section Format de [définition d'entité personnalisée](#custom-entity-definition-format) ci-dessous pour en savoir plus sur le schéma CSV ou JSON attendu.|
+| entitiesDefinitionUri    | Chemin d'accès à un fichier JSON ou CSV contenant tout le texte cible à comparer. Cette définition d'entité est lue au début de l'exécution d'un indexeur ; les mises à jour de ce fichier à mi-parcours ne seront pas réalisées avant l'exécution suivante. Cette configuration doit être accessible via HTTPS. Reportez-vous à la section Format de [définition d'entité personnalisée](#custom-entity-definition-format) ci-dessous pour en savoir plus sur le schéma CSV ou JSON attendu.|
 |inlineEntitiesDefinition | Définitions d'entités JSON au format inline. Ce paramètre remplace le paramètre entitiesDefinitionUri s'il est présent. Un maximum de 10 Ko de configuration peut être fourni au format inline. Reportez-vous à la section [Définition d'entité personnalisée](#custom-entity-definition-format) ci-dessous pour en savoir plus sur le schéma JSON attendu. |
-|defaultLanguageCode |  (Facultatif) Code langue du texte d'entrée utilisé pour « tokeniser » et délimiter le texte. Langues prises en charge : `da, de, en, es, fi, fr, it, ko, pt`. La langue par défaut est l'anglais (`en`). Si vous utilisez un format codelangue-codepays, seule la partie codelangue du format est utilisée.  |
+|defaultLanguageCode |    (Facultatif) Code langue du texte d'entrée utilisé pour « tokeniser » et délimiter le texte. Langues prises en charge : `da, de, en, es, fi, fr, it, ko, pt`. La langue par défaut est l'anglais (`en`). Si vous utilisez un format codelangue-codepays, seule la partie codelangue du format est utilisée.  |
 
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
@@ -48,13 +48,13 @@ Les paramètres respectent la casse.
 | Nom d’entrée      | Description                   |
 |---------------|-------------------------------|
 | text          | Texte à analyser.          |
-| languageCode  | facultatif. La valeur par défaut est `"en"`.  |
+| languageCode    | facultatif. La valeur par défaut est `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 
 
-| Nom de sortie     | Description                   |
+| Nom de sortie      | Description                   |
 |---------------|-------------------------------|
 | entities | Groupe d'objets contenant des informations sur les correspondances trouvées et les métadonnées associées. Chacune des entités identifiées peut contenir les champs suivants :  <ul> <li> *nom* : entité de niveau supérieur identifiée. L'entité représente la forme « normalisée ». </li> <li> *ID* :  identificateur unique de l'entité, tel que défini par l'utilisateur dans le « Format de définition d'entité personnalisée ».</li> <li> *description* : description de l'entité telle que définie par l'utilisateur dans le « Format de définition d'entité personnalisée ». </li> <li> *type :* type de l'entité tel que défini par l'utilisateur dans le « Format de définition d'entité personnalisée ».</li> <li> *subtype :* sous-type de l'entité, tel que défini par l'utilisateur dans le « Format de définition d'entité personnalisée ».</li>  <li> *matches* : collection qui décrit chacune des correspondances de cette entité sur le texte source. Chaque correspondance comportera les membres suivants : </li> <ul> <li> *text* : correspondance en texte brut issue du document source. </li> <li> *offset* : emplacement où la correspondance a été trouvée dans le texte. </li> <li> *length* :  longueur du texte de la correspondance. </li> <li> *matchDistance* : nombre de caractères séparant cette correspondance du nom ou de l'alias de l'entité d'origine.  </li> </ul> </ul>
   |
@@ -168,7 +168,7 @@ Les tableaux ci-dessous décrivent plus en détail les différents paramètres d
 Dans certains cas, il est plus facile de fournir directement dans la définition de la compétence la liste des entités personnalisées à comparer au format inline. Vous pouvez alors utiliser un format JSON semblable à celui décrit ci-dessus, mais il est « inlined » (inclus) dans la définition de la compétence.
 Seules les configurations dont la taille est inférieure à 10 Ko (taille sérialisée) peuvent être définies au format inline. 
 
-##  <a name="sample-definition"></a>Exemple de définition
+##    <a name="sample-definition"></a>Exemple de définition
 
 Voici un exemple de définition de compétence utilisant un format inline :
 
@@ -231,7 +231,7 @@ Par ailleurs, si vous décidez de fournir un pointeur vers le fichier de défini
 
 ```
 
-##  <a name="sample-input"></a>Exemple d’entrée
+##    <a name="sample-input"></a>Exemple d’entrée
 
 ```json
 {
@@ -248,7 +248,7 @@ Par ailleurs, si vous décidez de fournir un pointeur vers le fichier de défini
 }
 ```
 
-##  <a name="sample-output"></a>Exemple de sortie
+##    <a name="sample-output"></a>Exemple de sortie
 
 ```json
   { 
@@ -295,6 +295,12 @@ Par ailleurs, si vous décidez de fournir un pointeur vers le fichier de défini
     ] 
   } 
 ```
+
+## <a name="errors-and-warnings"></a>Erreurs et avertissements
+
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Avertissement : la capacité maximale a été atteinte pour les correspondances, et toutes les correspondances en double ont été ignorées.
+
+Cet avertissement s’affiche si le nombre de correspondances détectées est supérieur au nombre maximal autorisé. Dans ce cas, les correspondances en double ne seront pas incluses. Si cela ne vous contient pas, veuillez soumettre un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support) afin que nous puissions vous aider dans votre cas d’utilisation spécifique.
 
 ## <a name="see-also"></a>Voir aussi
 

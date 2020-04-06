@@ -4,10 +4,10 @@ description: Apprenez à concevoir des workflows pour déployer vos définitions
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74267277"
 ---
 # <a name="design-policy-as-code-workflows"></a>Concevoir des workflows de type Policy as Code
@@ -87,7 +87,7 @@ Comme pour les définitions de stratégies, à l’ajout ou la mise à jour d’
 
 Maintenant que l’automatisation s’est occupée des définitions de stratégies ou d’initiatives créées ou mises à jour et a effectué la mise à jour sur l’objet dans Azure, il est temps de tester les modifications apportées. La stratégie ou la (ou les) initiative(s) à laquelle (auxquelles) elle appartient doit ensuite être affectée aux ressources de l’environnement le plus éloigné de la production, généralement _Dev_.
 
-L’affectation doit utiliser [enforcementMode](./assignment-structure.md#enforcement-mode) _disabled_ afin que la création et la mise à jour des ressources ne soient pas bloquées, mais que la conformité des ressources existantes à la définition de stratégie mise à jour soit toujours auditée. Même avec enforcementMode, il est recommandé que l’étendue d’affectation soit un groupe de ressources ou un abonnement servant spécialement à valider des stratégies.
+L’affectation doit utiliser [enforcementMode](./assignment-structure.md#enforcement-mode)_disabled_ afin que la création et la mise à jour des ressources ne soient pas bloquées, mais que la conformité des ressources existantes à la définition de stratégie mise à jour soit toujours auditée. Même avec enforcementMode, il est recommandé que l’étendue d’affectation soit un groupe de ressources ou un abonnement servant spécialement à valider des stratégies.
 
 > [!NOTE]
 > Si enforcementMode est utile, il ne remplace pas pour autant un test rigoureux d’une définition de stratégie dans différentes conditions. La définition de stratégie doit être testée avec des appels d’API REST `PUT` et `PATCH`, des ressources conformes et non conformes, ainsi que des cas limites comme une propriété manquantes dans la ressource.
@@ -111,7 +111,7 @@ Le fait de tester à la fois les résultats de l’évaluation de la stratégie 
 
 ### <a name="update-to-enforced-assignments"></a>Mettre à jour pour appliquer les affectations
 
-Une fois toutes les épreuves de validation effectuées, mettez à jour l’affectation pour utiliser **enforcementMode** _enabled_. Cette modification doit de préférence être effectuée au départ dans le même environnement éloigné de la production. Après vérification que cet environnement fonctionne comme prévu, la modification doit être étendue de façon à inclure l’environnement suivant, et ainsi de suite jusqu’à ce que la stratégie soit déployée sur les ressources de production.
+Une fois toutes les épreuves de validation effectuées, mettez à jour l’affectation pour utiliser **enforcementMode**_enabled_. Cette modification doit de préférence être effectuée au départ dans le même environnement éloigné de la production. Après vérification que cet environnement fonctionne comme prévu, la modification doit être étendue de façon à inclure l’environnement suivant, et ainsi de suite jusqu’à ce que la stratégie soit déployée sur les ressources de production.
 
 ## <a name="process-integrated-evaluations"></a>Traiter les évaluations intégrées
 

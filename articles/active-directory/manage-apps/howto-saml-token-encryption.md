@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73148645"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365864"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Activation Configurer le chiffrement des jetons SAML Azure AD (préversion)
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procédure : Configurer le chiffrement de jeton SAML Azure AD
 
 > [!NOTE]
 > Le chiffrement des jetons est une fonctionnalité Azure Active Directory (Azure AD) Premium. Pour en savoir plus sur les éditions, les fonctionnalités et les tarifs d’Azure AD, consultez [Tarification Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -123,26 +123,21 @@ Quand vous configurez une valeur keyCredential à l’aide de Graph, de PowerShe
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>Pour configurer le chiffrement des jetons à l’aide de PowerShell
 
-Cette fonctionnalité sera bientôt disponible. 
+1. Utilisez le dernier module Azure AD PowerShell pour vous connecter à votre locataire.
 
-<!--
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
-
-1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
+1. Définissez les paramètres de chiffrement de jeton à l’aide de la commande **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Read the token encryption settings using the following commands.
+1. Lisez les paramètres de chiffrement de jeton à l’aide des commandes suivantes.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
-
--->
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Pour configurer le chiffrement des jetons à l’aide du manifeste d’application
 

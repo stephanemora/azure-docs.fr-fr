@@ -10,29 +10,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
-ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360988"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214726"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installer .NET sur des rôles d’Azure Cloud Services
 Cet article décrit comment installer des versions de .NET Framework qui ne sont fournies avec le SE invité Azure. Vous pouvez utiliser .NET sur le SE invité pour configurer vos rôles web et rôles de travail de Cloud Services.
 
-Par exemple, vous pouvez installer .NET 4.6.2 sur la famille de systèmes d’exploitation invités 4, qui n’est fournie avec aucune version de .NET 4.6. (La famille de SE invités 5 est fournie avec .NET 4.6.) Pour obtenir les dernières informations sur les versions de SE invité Azure, consultez les [Actualités concernant les versions de SE invité Azure](cloud-services-guestos-update-matrix.md). 
+Par exemple, vous pouvez installer .NET Framework 4.6.2 sur la famille de SE invités 4, qui n’est fournie avec une version de .NET Framework 4.6. (La famille de SE invités 5 est fournie avec .NET Framework 4.6.) Pour obtenir les dernières informations sur les versions de SE invité Azure, consultez les [Actualités concernant les versions de SE invité Azure](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->Azure SDK 2.9 contient une restriction sur le déploiement de .NET 4.6 sur la famille de SE invités 4 ou version antérieure. Un correctif pour la restriction est disponible sur le site [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
+>Azure SDK 2.9 contient une restriction sur le déploiement de .NET Framework 4.6 sur la famille de SE invités 4 ou version antérieure. Un correctif pour la restriction est disponible sur le site [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 Pour installer .NET sur vos rôles web et rôles de travail, incluez le programme d’installation web de .NET dans le cadre de votre projet de service cloud. Démarrez le programme d’installation dans le cadre des tâches de démarrage des rôles. 
 
 ## <a name="add-the-net-installer-to-your-project"></a>Ajouter le programme d'installation de .NET à votre projet
 Pour télécharger le programme d'installation web de .NET Framework, sélectionnez la version à installer :
 
-* [Programme d’installation web de.NET 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
-* [Programme d’installation web de.NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [Programme d’installation web de.NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
+* [Programme d’installation web du .NET Framework 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
+* [Programme d’installation web du .NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
+* [Programme d’installation web du .NET Framework 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Pour ajouter le programme d’installation pour un rôle *web* :
   1. Dans l’**Explorateur de solutions**, dans votre projet de service cloud, sous **Rôles**, cliquez avec le bouton droit sur votre rôle *web*, puis sélectionnez **Ajouter** > **Nouveau dossier**. Créez un dossier intitulé **bin**.
@@ -44,7 +44,7 @@ Pour ajouter le programme d’installation pour un rôle *de travail* :
 Les fichiers ajoutés de cette façon dans le dossier de contenu du rôle sont automatiquement ajoutés à votre package de service cloud et déployés dans un emplacement similaire sur la machine virtuelle. Répétez ce processus pour chaque rôle web et chaque rôle de travail de service cloud afin que tous les rôles disposent d'une copie du programme d'installation.
 
 > [!NOTE]
-> Même si votre application cible .NET 4.6, nous vous conseillons d’installer .NET 4.6.2 sur votre rôle de service cloud. Le SE invité inclut les mises à jour [ 3098779](https://support.microsoft.com/kb/3098779) et [3097997](https://support.microsoft.com/kb/3097997) de la base de connaissances. L’installation de NET 4.6 en plus de ces mises à jour peut causer des problèmes lors de l’exécution de vos applications .NET. Pour éviter ces problèmes, installez .NET 4.6.2 au lieu de la version 4.6. Pour plus d’informations, consultez les [articles sur la base de connaissances 3118750](https://support.microsoft.com/kb/3118750) et [4340191](https://support.microsoft.com/kb/4340191).
+> Même si votre application cible .NET Framework 4.6.2, nous vous conseillons d’installer .NET Framework 4.6 sur votre rôle de service cloud. Le SE invité inclut les mises à jour [ 3098779](https://support.microsoft.com/kb/3098779) et [3097997](https://support.microsoft.com/kb/3097997) de la base de connaissances. L’installation de .NET Framework 4.6 en plus de ces mises à jour peut causer des problèmes lors de l’exécution de vos applications .NET. Pour éviter ces problèmes, installez .NET Framework 4.6.2 au lieu de la version 4.6. Pour plus d’informations, consultez les [articles sur la base de connaissances 3118750](https://support.microsoft.com/kb/3118750) et [4340191](https://support.microsoft.com/kb/4340191).
 > 
 > 
 
@@ -82,7 +82,7 @@ Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations av
 
 2. Créez un fichier nommé **install.cmd** et ajoutez le script d’installation suivant au fichier.
 
-   Le script vérifie si la version de .NET Framework spécifiée est déjà installée sur l'ordinateur en interrogeant le Registre. Si la version de .NET n'est pas installée, le programme d'installation web de .NET est lancé. Pour résoudre les éventuels problèmes, le script enregistre toutes les activités dans le fichier startuptasklog-(date et heures actuelles).txt qui est conservé dans le stockage local **InstallLogs**.
+   Le script vérifie si la version de .NET Framework spécifiée est déjà installée sur l'ordinateur en interrogeant le Registre. Si la version de .NET Framework n'est pas installée, le programme d'installation web de .NET Framework est lancé. Pour résoudre les éventuels problèmes, le script enregistre toutes les activités dans le fichier startuptasklog-(date et heures actuelles).txt qui est conservé dans le stockage local **InstallLogs**.
    
    > [!IMPORTANT]
    > Utilisez un éditeur de texte de base tel que le Bloc-notes de Windows pour créer le fichier install.cmd. Si vous utilisez Visual Studio pour créer un fichier texte dont vous changez ensuite l’extension à .cmd, le fichier risque de toujours contenir une marque d’ordre d’octet UTF-8 qui pourrait générer une erreur lors de l’exécution de la première ligne du script. Pour éviter cette erreur, assurez-vous que la première ligne du script est une instruction REM qui peut être ignorée par le traitement de la marque d’ordre d’octet. 

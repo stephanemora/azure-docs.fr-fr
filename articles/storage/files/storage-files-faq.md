@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5cbb819ef1300f16a40dbdd0da52a35bdf578e59
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598185"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232301"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -81,6 +81,9 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
   **Je souhaite vraiment qu’une fonctionnalité soit ajoutée à Azure Files. Pouvez vous ajouter ?**  
     L’équipe Azure Files est à l’écoute de tous vos commentaires sur notre service. Veuillez voter pour les demandes de fonctionnalités sur le [forum UserVoice consacré à Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). Nous sommes impatients de mettre à votre disposition de nombreuses nouvelles fonctionnalités.
 
+  **Azure Files prend-il en charge le verrouillage de fichiers ?**  
+    Oui, Azure Files prend entièrement en charge le verrouillage de fichiers SMB/Windows, [voir les détails](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
+    
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -179,12 +182,12 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="ad-support-rest-apis"></a>
 **Existe-t-il des API REST pour prendre en charge les ACL NTFS de répertoire/fichier Get/Set/Copy ?**
 
-    Oui, nous prenons en charge les API REST qui obtiennent, définissent ou copient des ACL NTFS pour des répertoires ou des fichiers lors de l’utilisation de l’API REST [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) (ou version ultérieure).
+    Oui, nous prenons en charge les API REST qui obtiennent, définissent ou copient des ACL NTFS pour des répertoires ou des fichiers lors de l’utilisation de l’API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou version ultérieure).
 
 * <a id="ad-vm-subscription"></a>
 **Puis-je accéder à Azure Files avec des informations d’identification Azure AD à partir d’une machine virtuelle sous un autre abonnement ?**
 
-    Si l’abonnement sous lequel est déployé le partage de fichiers est associé au même locataire Azure AD que le déploiement Azure AD Domain Services auquel la machine virtuelle est jointe, vous pouvez accéder à Azure Files avec les mêmes informations d’identification Azure AD. La limitation est imposée non pas sur l’abonnement, mais sur le locataire Azure AD associé.    
+    Si l’abonnement sous lequel est déployé le partage de fichiers est associé au même locataire Azure AD que le déploiement Azure AD Domain Services auquel la machine virtuelle est jointe, vous pouvez accéder à Azure Files avec les mêmes informations d’identification Azure AD. La limitation est imposée non pas sur l’abonnement, mais sur le locataire Azure AD associé.
     
 * <a id="ad-support-subscription"></a>
 **Puis-je activer l’authentification AD ou Azure AD DS pour Azure Files avec un locataire Azure AD autre que le locataire principal auquel le partage de fichiers est associé ?**
@@ -211,6 +214,11 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
     Oui, vous pouvez activer l’authentification AD ou Azure AD DS sur un partage de fichiers géré par Azure File Sync. Les modifications apportées aux ACL NTFS de répertoire/fichier sur les serveurs de fichiers locaux seront hiérarchisées vers Azure Files et vice versa.
 
+* <a id="ad-aad-smb-files"></a>
+**Comment puis-je vérifier si j'ai activé l'authentification AD sur mon compte de stockage et les informations du domaine AD ?**
+
+    Vous pouvez consulter les instructions fournies [ici](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) pour vérifier si l’authentification Azure Files AD est activée sur votre compte de stockage et récupérer les informations du domaine Active Directory.
+    
 * <a id="encryption-at-rest"></a>
 **Comment puis-je m’assurer que mon partage de fichiers Azure est chiffré au repos ?**  
 

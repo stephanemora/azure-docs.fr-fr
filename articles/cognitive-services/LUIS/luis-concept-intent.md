@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280883"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219159"
 ---
 # <a name="intents-in-your-luis-app"></a>Intentions dans votre application LUIS
 
@@ -29,7 +29,7 @@ Intentions de l’application de voyage   |   Exemples d’énoncés   |
  RéserverVol     |   « Réserve-moi un vol pour Rio la semaine prochaine » <br/> « Emmène-moi à Rio le 24 » <br/> « J’ai besoin d’un billet d’avion pour Rio de Janeiro dimanche prochain »    |
  Salutations     |   « Salut » <br/>« Bonjour » <br/>« Bonsoir »  |
  BulletinMétéo | « Quel temps fait-il à Boston ? » <br/> « Montre-moi les prévisions pour ce week-end » |
- Aucun         | « Trouve-moi une recette de cookies »<br>« Les Lakers ont-ils gagné ? » |
+ None         | « Trouve-moi une recette de cookies »<br>« Les Lakers ont-ils gagné ? » |
 
 Toutes les applications s’accompagnent de l’intention prédéfinie « [None](#none-intent) », qui correspond à l’intention de secours. 
 
@@ -53,7 +53,7 @@ L’intention correspond à l’action que l’application doit effectuer pour l
 
 Créez une intention lorsque le _but_ de l’utilisateur doit déclencher une action dans votre application cliente, comme un appel à la fonction checkweather(). Ensuite, créez des entités afin de représenter les paramètres requis pour exécuter l’action. 
 
-|Intention   | Entité | Exemple d’énoncé   | 
+|Intentionnel   | Entité | Exemple d’énoncé   | 
 |------------------|------------------------------|------------------------------|
 | BulletinMétéo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "demain","resolution":"2018-05-23" } | « Quel temps fait-il à `Seattle` `tomorrow` ? » |
 | BulletinMétéo | { "type": "date_range", "entity": "ce weekend" } | Montre-moi les prévisions pour `this weekend` | 

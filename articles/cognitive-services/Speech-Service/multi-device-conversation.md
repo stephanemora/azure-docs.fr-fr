@@ -1,5 +1,5 @@
 ---
-title: À propos de la conversation multi-appareil (préversion) - Service de reconnaissance vocale
+title: Conversation multi-appareil (préversion) - Service Speech
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560811"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371356"
 ---
-# <a name="about-multi-device-conversation-preview"></a>À propos de la conversation multi-appareil (préversion)
+# <a name="what-is-multi-device-conversation-preview"></a>Qu'est-ce que la conversation multi-appareil (préversion) ?
 
 La **conversation multi-appareil** permet de lancer facilement une conversation vocale ou textuelle entre plusieurs clients et de coordonner les messages envoyés.
 
@@ -75,8 +75,8 @@ Chaque client peut envoyer des messages audio ou des messages instantanés. Le s
 Une **conversation** est une session lancée par un utilisateur pour permettre aux autres participants de la rejoindre. Tous les clients se connectent à la conversation à l'aide d'un **code de conversation** en cinq lettres.
 
 Chaque conversation crée des métadonnées qui incluent ce qui suit :
--   Horodatages de début et de fin de conversation
--   Liste de tous les participants - celle-ci comprend le surnom choisi par chaque utilisateur ainsi que sa langue principale pour l'entrée vocale ou l'entrée de texte
+-    Horodatages de début et de fin de conversation
+-    Liste de tous les participants - celle-ci comprend le surnom choisi par chaque utilisateur ainsi que sa langue principale pour l'entrée vocale ou l'entrée de texte
 
 
 Deux types d'utilisateurs participent à une conversation : l'**hôte** et les **participants**.

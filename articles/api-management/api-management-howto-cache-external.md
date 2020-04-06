@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: apimpm
 ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072506"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure
@@ -47,13 +47,13 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 + [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 + Comprendre la [mise en cache dans Gestion des API Azure](api-management-howto-cache.md)
 
-## <a name="create-cache"> </a> Créer un Cache Azure pour Redis
+## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Créer un cache Azure pour Redis
 
 Cette section explique comment créer un Cache Azure pour Redis dans Azure. Si vous disposez déjà d’un Cache Azure pour Redis, dans ou en dehors d’Azure, vous pouvez <a href="#add-external-cache">passer</a> à la section suivante.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="add-external-cache"> </a> Ajouter un cache externe
+## <a name="add-an-external-cache"></a><a name="add-external-cache"> </a> Ajouter un cache externe
 
 Suivez les étapes ci-dessous pour ajouter un Cache Azure pour Redis externe dans Gestion des API Azure.
 
@@ -87,7 +87,7 @@ Suivez les étapes ci-dessous pour ajouter un Cache Azure pour Redis externe dan
 
 Une fois le cache externe configuré dans Gestion des API Azure, il peut être utilisé par le biais des stratégies de mise en cache. Pour les instructions détaillées, consultez [Ajouter une mise en cache pour améliorer les performances de Gestion des API Azure](api-management-howto-cache.md).
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"> </a>Étapes suivantes
 
 * Pour plus d’informations sur les stratégies de mise en cache, voir la section [Stratégies de mise en cache][Caching policies] dans [Référence de stratégie de Gestion des API][API Management policy reference].
 * Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).

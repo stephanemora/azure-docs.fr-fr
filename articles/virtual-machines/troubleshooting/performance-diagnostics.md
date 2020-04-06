@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70080600"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostics de performances pour les machines virtuelles Azure
@@ -79,10 +79,10 @@ Les scénarios d’analyse suivants sont disponibles à partir du portail Azure.
 * **Analyse des performances**  
     Inclut toutes les vérifications de l’analyse rapide des performances et supervise la consommation élevée des ressources. Utilisez cette version pour résoudre les problèmes de performances d’ordre général, notamment l’utilisation élevée du processeur, de la mémoire et du disque. Cette analyse prend de 30 secondes à 15 minutes, selon la durée sélectionnée. En savoir plus sur [Windows](https://aka.ms/perfinsights/vmslow) ou [Linux](https://aka.ms/perfinsightslinux/vmslow)
 
-* **Analyse avancée des performances**`*`  
+* **Analyse avancée des performances** `*`  
     Inclut toutes les vérifications de l’analyse des performances et collecte une ou plusieurs des traces, comme indiqué dans les sections suivantes. Ce scénario permet de résoudre les problèmes complexes qui nécessitent des traces supplémentaires. L’exécution de ce scénario sur de plus longues périodes augmente la taille globale de la sortie de diagnostics, selon la taille de la machine virtuelle et les options de trace sélectionnées. L’exécution de cette analyse prend de 30 secondes à 15 minutes, selon la durée sélectionnée. [En savoir plus](https://aka.ms/perfinsights/advanced)
 
-* **Analyse Azure Files**`*`  
+* **Analyse Azure Files** `*`  
     Inclut toutes les vérifications de l’analyse des performances et capture une trace réseau et des compteurs SMB. Utilisez ce scénario pour résoudre les problèmes de performances des fichiers Azure. L’exécution de cette analyse prend de 30 secondes à 15 minutes, selon la durée sélectionnée. [En savoir plus](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
@@ -158,7 +158,7 @@ Vous pouvez désinstaller les diagnostics de performances d’une machine virtue
 
 ![Capture d’écran de la barre d’outils du panneau Diagnostics de performances avec le bouton Désinstaller mis en surbrillance](media/performance-diagnostics/uninstal-button.png)
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Où sont stockées les données de diagnostic de ma machine virtuelle
 

@@ -5,21 +5,25 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 1d91813e0f39207bcf7768de89600a6bdee0fc53
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 03/11/2020
+ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792623"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237229"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gérez votre environnement de service d’intégration dans Azure Logic Apps
 
-Pour vérifier l’intégrité du réseau pour votre [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, Integration Service Environment) et gérer les applications logiques, les connexions, les comptes d’intégration et les connecteurs de votre environnement ISE, suivez les étapes décrites dans cette rubrique. Pour ajouter ces artefacts à votre environnement ISE, consultez [Ajouter des artefacts à votre environnement de service d’intégration](../logic-apps/add-artifacts-integration-service-environment-ise.md).
+Cet article explique comment effectuer des tâches de gestion pour votre [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), par exemple :
+
+* gérer les ressources telles que les applications logiques, les connexions, les comptes d’intégration et les connecteurs dans votre ISE.
+* Vérifier l’intégrité du réseau de votre ISE.
+* Pour augmenter la capacité, redémarrer votre ISE, ou supprimer votre ISE, suivez les étapes de cette rubrique. Pour ajouter ces artefacts à votre environnement ISE, consultez [Ajouter des artefacts à votre environnement de service d’intégration](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## <a name="view-your-ise"></a>Voir votre environnement ISE
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans la zone de recherche du portail, entrez « environnements de service d’intégration », puis sélectionnez **Environnements de service d’intégration**.
 
@@ -97,6 +101,83 @@ Vous pouvez voir et gérer les connecteurs personnalisés que vous avez déploy�
 
 1. Pour supprimer des comptes d’intégration de votre environnement ISE quand vous n’en avez plus besoin, sélectionnez-les, puis sélectionnez **Supprimer**.
 
+<a name="add-capacity"></a>
+
+## <a name="add-ise-capacity"></a>Ajouter de la capacité à l’ISE
+
+L’unité de base d’ISE Premium dispose d’une capacité fixe ; si vous avez besoin de davantage de débit, vous pouvez ajouter des unités d’échelle, pendant la création ou après. La référence SKU Développeur n’inclut pas la capacité à ajouter des unités d’échelle.
+
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre ISE.
+
+1. Pour consulter les mesures de performances et d’utilisation pour votre environnement de service d’intégration (ISE), sélectionnez **Vue d’ensemble** dans le menu de votre ISE.
+
+   ![Afficher l’utilisation pour l’ISE](./media/ise-manage-integration-service-environment/integration-service-environment-usage.png)
+
+1. Sous **Paramètres**, sélectionnez **Scale-out**. Dans le volet **configurer**, opérez une sélection parmi les options suivantes :
+
+   * [**Mise à l’échelle manuelle**](#manual-scale) : Mettez à l’échelle en fonction du nombre d’unités de traitement que vous voulez utiliser.
+   * [**Mise à l’échelle automatique personnalisée**](#custom-autoscale) : Mettez à l’échelle en fonction des métriques de performances en opérant une sélection parmi différents critères et en spécifiant des conditions de seuil pour remplir ceux-ci.
+
+   ![Sélectionner le type de mise à l’échelle souhaité](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+
+<a name="manual-scale"></a>
+
+### <a name="manual-scale"></a>Mise à l’échelle manuelle
+
+1. Après avoir sélectionné **Mise à l’échelle manuelle**, pour **Capacité supplémentaire**, sélectionnez le nombre d’unités d’échelle que vous souhaitez utiliser.
+
+   ![Sélectionner le type de mise à l’échelle souhaité](./media/ise-manage-integration-service-environment/select-manual-scale-out-units.png)
+
+1. Quand vous avez terminé, sélectionnez **Enregistrer**.
+
+<a name="custom-autoscale"></a>
+
+### <a name="custom-autoscale"></a>Mise à l’échelle automatique personnalisée
+
+1. Après avoir sélectionné **Mise à l’échelle automatique personnalisée**, pour **Nom du paramètre de mise à l’échelle automatique**, entrez un nom pour votre paramètre et, le cas échéant, sélectionnez le groupe de ressources Azure auquel le paramètre appartient.
+
+   ![Fournir un nom pour le paramètre de mise à l’échelle automatique et sélectionner un groupe de ressources](./media/ise-manage-integration-service-environment/select-custom-autoscale.png)
+
+1. Pour la condition **Par défaut**, sélectionnez soit **Mettre à l’échelle selon une métrique** soit **Mettre à l’échelle d’un nombre d’instances spécifique**.
+
+   * Si vous choisissez la mise à l’échelle basée sur les instances, entrez un nombre d’unités de traitement, soit une valeur comprise entre 0 et 10.
+
+   * Si vous choisissez la méthode basée sur les mesures, procédez comme suit :
+
+     1. Dans la section **Règles**, sélectionnez **+Ajouter une règle**.
+
+     1. Dans le volet **Règle de mise à l’échelle**, configurez vos critères et l’action à effectuer lorsque la règle se déclenche.
+
+     1. Pour **Limites d’instance**, spécifiez les valeurs suivantes :
+
+        * **Minimale** : Nombre minimal d’unités de traitement à utiliser
+        * **Maximum** : Nombre maximal d’unités de traitement à utiliser
+        * **Par défaut** : Si des problèmes surviennent lors de la lecture des métriques de ressources et que la capacité actuelle est inférieure à la capacité par défaut, la mise à l’échelle automatique augmente le nombre par défaut d’unités de traitement. En revanche, si la capacité actuelle dépasse la capacité par défaut, la mise à l’échelle automatique n’effectue pas de scale-in.
+
+1. Pour ajouter une autre condition, sélectionnez **Ajouter une condition de mise à l’échelle**.
+
+1. Lorsque vous avez terminé de configurer vos paramètres de mise à l’échelle, enregistrez vos modifications.
+
+<a name="restart-ISE"></a>
+
+## <a name="restart-ise"></a>Redémarrer l’ISE
+
+Si vous changez votre serveur DNS ou modifiez ses paramètres, vous devez redémarrer votre ISE afin qu’il prenne en compte ces modifications. Le redémarrage d’un ISE de référence SKU Premium ne provoque pas de temps d’arrêt en raison de la redondance et des composants qui redémarrent un par un pendant le recyclage. En revanche, un ISE de référence SKU Développeur connaît un temps d’arrêt, car il n’existe aucune redondance. Pour plus d’informations, consultez [Références SKU d’ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre ISE.
+
+1. Dans le menu ISE, sélectionnez **Vue d’ensemble**. Dans la barre d’outils Vue d’ensemble, sélectionnez **Redémarrer**.
+
+   ![Redémarrer l’environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
+
+<a name="delete-ise"></a>
+
+## <a name="delete-ise"></a>Supprimer un environnement ISE
+
+Avant de supprimer un environnement ISE dont vous n’avez plus besoin ou un groupe de ressources Azure qui contient un environnement ISE, vérifiez que vous n’avez pas de stratégies ni de verrous sur le groupe de ressources Azure qui contient ces ressources ou sur votre réseau virtuel Azure, car ces éléments peuvent bloquer la suppression.
+
+Après avoir supprimé votre environnement ISE, vous devrez peut-être attendre jusqu’à 9 heures avant de tenter de supprimer votre réseau virtuel Azure ou vos sous-réseaux.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrir comment [se connecter à des réseaux virtuels à partir d’applications logiques isolées](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Ajouter des ressources à des environnements de service d'intégration](../logic-apps/add-artifacts-integration-service-environment-ise.md)

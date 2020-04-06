@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715215"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232129"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Résolution des problèmes de déploiement d’un appareil StorSimple
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article fournit des conseils de dépannage utiles pour votre déploiement de Microsoft Azure StorSimple. Il décrit les problèmes courants, les causes possibles et les étapes recommandées pour vous aider à résoudre les problèmes que vous pouvez rencontrer lorsque vous configurez StorSimple. 
 
 Ces informations s’appliquent à l’appareil physique StorSimple série 8000 et à l’appliance cloud StorSimple.
@@ -75,8 +75,8 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 2 |Invoke-HcsSetupWizard : Appareil pas prêt. |Il existe des problèmes liés à la connectivité réseau sur DATA 0. |Vérifiez la connectivité réseau physique sur DATA 0. |
 | 3 |Invoke-HcsSetupWizard : il existe un conflit d’adresses IP avec un autre système sur le réseau (exception de HRESULT : 0x80070263). |L’adresse IP fournie pour DATA 0 était déjà utilisée par un autre système. |Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation. |
 | 4 |Invoke-HcsSetupWizard : échec d’une ressource de cluster. (Exception de HRESULT : 0x800713AE). |Adresse IP virtuelle en double. L’adresse IP fournie est déjà en cours d’utilisation. |Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation. |
-| 5\. |Invoke-HcsSetupWizard : adresse IPv4 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv4][1]. |
-| 6\. |Invoke-HcsSetupWizard : adresse IPv6 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2]. |
+| 5 |Invoke-HcsSetupWizard : adresse IPv4 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv4][1]. |
+| 6 |Invoke-HcsSetupWizard : adresse IPv6 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2]. |
 | 7 |Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison. (Exception de HRESULT : 0x800706D9) |La fonctionnalité de cluster ne fonctionne pas. |[contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) . |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erreurs pendant la configuration des paramètres de proxy web facultatifs
@@ -86,7 +86,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 2 |Invoke-HcsSetupWizard : Serveur RPC non disponible (Exception de HRESULT : 0x800706ba) |La cause première est l’une des suivantes :<ol><li>Le cluster n’est pas disponible.</li><li>Le contrôleur passif ne peut pas communiquer avec le contrôleur actif et la commande est exécutée à partir du contrôleur passif.</li></ol> |Suivant la cause première :<ol><li>[Contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour vous assurer que le cluster est disponible.</li><li>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez [contacter le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) si cette connectivité est interrompue.</li></ol> |
 | 3 |Invoke-HcsSetupWizard : Échec de l’appel RPC (Exception de HRESULT : 0x800706be) |Le cluster est arrêté. |[Contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour vous assurer que le cluster est disponible. |
 | 4 |Invoke-HcsSetupWizard : Ressource de cluster introuvable (Exception de HRESULT : 0x8007138f) |Impossible de trouver la ressource de cluster. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement. |Vous devrez peut-être rétablir les paramètres par défaut d’origine de l’appareil. [Contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour créer une ressource de cluster. |
-| 5\. |Invoke-HcsSetupWizard : Ressource de cluster hors ligne (Exception de HRESULT : 0x8007138c) |Les ressources de cluster ne sont pas en ligne. |[contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) . |
+| 5 |Invoke-HcsSetupWizard : Ressource de cluster hors ligne (Exception de HRESULT : 0x8007138c) |Les ressources de cluster ne sont pas en ligne. |[contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) . |
 
 ## <a name="errors-related-to-device-administrator-password"></a>Erreurs liées au mot de passe Administrateur de l’appareil
 Le mot de passe par défaut de l’appareil est **Password1**. Ce mot de passe expire après la première session. Vous devez donc utiliser l’Assistant Installation pour le modifier. Vous devez fournir un nouveau mot de passe Administrateur de l’appareil lorsque vous inscrivez l’appareil pour la première fois. 
@@ -109,11 +109,11 @@ Vous pouvez rencontrer une ou plusieurs des erreurs suivantes lorsque vous confi
 | 2 |Le mot de passe ne respecte pas la longueur requise. |Votre mot de passe administrateur d’appareil doit comprendre entre 8 et 15 caractères.|
 | 3 |Le mot de passe doit contenir des caractères en minuscules. |Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. Assurez-vous que votre mot de passe répond à ces exigences. |
 | 4 |Le mot de passe doit contenir des caractères numériques. |Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. Assurez-vous que votre mot de passe répond à ces exigences. |
-| 5\. |Le mot de passe doit contenir des caractères spéciaux. |Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. Assurez-vous que votre mot de passe répond à ces exigences. |
-| 6\. |Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. |Votre mot de passe ne contient pas les types de caractères requis. Assurez-vous que votre mot de passe répond à ces exigences. |
+| 5 |Le mot de passe doit contenir des caractères spéciaux. |Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. Assurez-vous que votre mot de passe répond à ces exigences. |
+| 6 |Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. |Votre mot de passe ne contient pas les types de caractères requis. Assurez-vous que votre mot de passe répond à ces exigences. |
 | 7 |Le paramètre ne correspond pas à la confirmation. |Assurez-vous que votre mot de passe répond à toutes les exigences et que vous l’avez entré correctement. |
 | 8 |Votre mot de passe ne peut pas correspondre au mot de passe par défaut. |Le mot de passe par défaut est *Password1*. Vous devez modifier ce mot de passe après votre première connexion. |
-| 9\. |Le mot de passe que vous avez entré ne correspond pas au mot de passe de l’appareil. Retapez le mot de passe. |Vérifiez le mot de passe et retapez-le. |
+| 9 |Le mot de passe que vous avez entré ne correspond pas au mot de passe de l’appareil. Retapez le mot de passe. |Vérifiez le mot de passe et retapez-le. |
 
 Les mots de passe sont collectés avant l’inscription de l’appareil, mais appliqués seulement une fois que l’inscription a réussi. Le flux de travail de récupération de mot de passe nécessite que l’appareil soit inscrit.
 
@@ -132,14 +132,14 @@ Vous utilisez le service StorSimple Device Manager en cours d’exécution dans 
 | 2 |Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | |Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [Obtenir la clé d’inscription de service.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
 | 3 |Erreur 350063 : L’authentification auprès du service StorSimple Device Manager a réussi, mais l’inscription a échoué. Veuillez réessayer l’opération après un certain temps. |Cette erreur indique que l’authentification avec ACS a réussi, mais que l’appel pour l’inscription au service a échoué. Cela peut résulter d’un problème réseau sporadique. |Si le problème persiste, contactez le [support technique Microsoft](storsimple-8000-contact-microsoft-support.md). |
 | 4 |Erreur 350049 : Le service n’a pas pu être atteint lors de l’inscription. |Lorsque l’appel au service est effectué, une exception web est reçue. Dans certains cas, ce problème peut être résolu en effectuant une nouvelle tentative ultérieurement. |Vérifiez votre adresse IP et le nom DNS, puis réessayez l’opération. Si le problème persiste, [contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) |
-| 5\. |Erreur 350031 : L’appareil a déjà été inscrit. | |Aucune action requise. |
-| 6\. |Erreur 350016 : Échec de l’inscription de l’appareil. | |Vérifiez que la clé d’inscription est correcte. |
+| 5 |Erreur 350031 : L’appareil a déjà été inscrit. | |Aucune action requise. |
+| 6 |Erreur 350016 : Échec de l’inscription de l’appareil. | |Vérifiez que la clé d’inscription est correcte. |
 | 7 |Invoke-HcsSetupWizard : Une erreur s’est produite lors de l’inscription de votre appareil ; cela peut être dû à une adresse IP ou un nom DNS incorrect. Vérifiez vos paramètres réseau et réessayez. Si le problème persiste, [contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md). (Erreur 350050) |Assurez-vous que votre appareil peut tester le réseau externe (avec une commande ping). Si vous n’avez pas de connectivité vers le réseau externe, l’inscription peut échouer avec cette erreur. Cette erreur peut être une combinaison d’un ou plusieurs des éléments suivants :<ul><li>IP incorrecte</li><li>Sous-réseau incorrect</li><li>Passerelle incorrecte</li><li>Paramètres DNS incorrects</li></ul> |Pour les étapes, consultez la page [Exemple de résolution de problème pas à pas](#step-by-step-storsimple-troubleshooting-example). |
 | 8 |Invoke-HcsSetupWizard : Échec de l’opération en cours en raison d’une erreur de service interne [0x1FBE2]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |Il s’agit d’une erreur générique levée pour toutes les erreurs du service ou de l’agent invisibles pour l’utilisateur. La raison la plus courante est un échec de l’authentification ACS. Une cause possible de l’échec est l’existence de problèmes avec la configuration du serveur NTP et un paramétrage incorrect de l’heure sur l’appareil. |Corrigez l’heure (s’il existe des problèmes), puis réessayez l’opération d’inscription. Si vous utilisez la commande Set-HcsSystem - Fuseau horaire pour ajuster le fuseau horaire, mettez chaque mot du fuseau horaire en majuscule (par exemple « Pacifique »).  Si le problème persiste, contactez le [support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour les étapes suivantes. |
 | 9 |Avertissement : Impossible d’activer l’appareil. Les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple n’ont pas été modifiés. |Si l’inscription échoue, les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple ne sont pas modifiés. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Outils de résolution des problèmes de déploiement de StorSimple
-StorSimple comprend plusieurs outils que vous pouvez utiliser pour résoudre les problèmes de votre solution StorSimple. Il s’agit des actions suivantes :
+StorSimple comprend plusieurs outils que vous pouvez utiliser pour résoudre les problèmes de votre solution StorSimple. notamment :
 
 * Packages de prise en charge et journaux d’activité d’appareil.
 * Applets de commande conçues spécialement pour la résolution des problèmes.
@@ -173,7 +173,7 @@ Utilisez les applets de commande Windows PowerShell suivantes pour détecter les
 * `Test-Connection`: utilisez cette applet de commande pour vérifier la connectivité réseau à l’intérieur et à l’extérieur du réseau.
 * `Test-HcsmConnection`: utilisez cette applet de commande pour vérifier la connectivité d’un appareil correctement inscrit.
 * `Sync-HcsTime`: utilisez cette applet de commande pour afficher l’heure de l’appareil et forcer une synchronisation avec le serveur NTP.
-* `Enable-HcsPing` et `Disable-HcsPing` : utilisez ces applets de commande pour autoriser les hôtes à effectuer un test ping sur les interfaces réseau de votre appareil StorSimple. Par défaut, les interfaces réseau de StorSimple ne répondent pas aux requêtes ping.
+* `Enable-HcsPing` et `Disable-HcsPing` : utilisez ces applets de commande pour autoriser les hôtes à effectuer un test ping sur les interfaces réseau de votre appareil StorSimple. Par défaut, les interfaces réseau de StorSimple ne répondent pas aux requêtes ping.
 * `Trace-HcsRoute`: Utilisez cette applet de commande comme un outil de suivi d’itinéraire. Elle envoie des paquets à chaque routeur jusqu’à une destination finale pendant une période donnée, puis calcule les résultats en fonction des paquets renvoyés par chaque tronçon. Comme l’applet de commande `Trace-HcsRoute` indique le degré de perte de paquets au niveau d’un routeur ou d’un lien donné, vous pouvez identifier les routeurs ou liens susceptibles de provoquer des problèmes de réseau.
 * `Get-HcsRoutingTable`: utilisez cette applet de commande pour afficher la table de routage IP locale.
 

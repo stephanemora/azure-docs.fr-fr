@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3dfe0f8788275dd4403b6c9cad99a8eb09e479b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d23849df75d1ab239eb269b462abb21df196e7e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274714"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79138499"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Modifier le nom ou le logo d’une application d’entreprise dans Azure Active Directory
 
@@ -42,12 +42,12 @@ Il est facile de modifier le nom ou le logo d’une application d’entreprise p
 7. Dans le sélecteur de fichiers, sélectionnez le fichier à utiliser en tant que nouveau logo. Le nom du fichier apparaît dans la zone située sous l’image du logo actuel.
 
    > [!NOTE]
-   > Dans Azure, l’image du logo doit être un fichier PNG. Azure applique des limites sur la largeur, la hauteur et la taille de fichier.
+   > Dans Azure, l’image du logo doit être un fichier PNG. Azure applique des limites sur la largeur, la hauteur et la taille de fichier. Les logos personnalisés doivent avoir exactement une taille de 215 &times; 215 pixels et être au format PNG. Nous vous recommandons d’utiliser un arrière-plan de couleur unie et sans transparence dans le logo de votre application afin qu’il soit bien visible pour les utilisateurs.
 8. Sélectionnez **Enregistrer**. Si vous avez choisi un nouveau logo, l’image du champ **Logo** change afin de refléter le nouveau fichier de logo.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Afficher les membres et groupes de votre organisation dans Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Démarrage rapide : Afficher les membres et groupes de votre organisation dans Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](assign-user-or-group-access-portal.md)
-* [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](remove-user-or-group-access-portal.md)
+* [Suppression d’une affectation d’utilisateur ou de groupe à partir d’une application d’entreprise](remove-user-or-group-access-portal.md)
 * [Désactiver les connexions utilisateur pour une application d’entreprise](disable-user-sign-in-portal.md)

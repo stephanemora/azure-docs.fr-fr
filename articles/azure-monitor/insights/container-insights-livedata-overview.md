@@ -3,12 +3,12 @@ title: Voir Live Data (préversion) avec Azure Monitor pour conteneurs | Microso
 description: Cet article décrit la vue en temps réel des journaux, métriques de pod et événements Kubernetes, sans l’utilisation de kubectl, dans Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404755"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79216539"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel
 
@@ -84,7 +84,7 @@ Une fois l’authentification réussie, le volet de la console Live Data (préve
     
 Si l’objet que vous avez sélectionné était un conteneur, sélectionnez l’option **Événements** dans le volet. Si vous avez sélectionné un nœud, un pod ou un contrôleur, l’affichage des événements est automatiquement sélectionné. 
 
-    ![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.png)  
+![Événements d’affichage du volet Propriétés du contrôleur](./media/container-insights-livedata-overview/controller-properties-live-event.png)  
 
 Le titre du volet indique le nom du pod avec lequel le conteneur est groupé.
 

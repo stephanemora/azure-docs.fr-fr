@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70073606"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Guide pratique pour ajouter un certificat d’autorité de certification personnalisé dans la Gestion des API Azure
@@ -29,7 +29,7 @@ Cet article montre comment gérer les certificats d’autorité de certification
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>Charger un certificat d’autorité de certification
+## <a name="upload-a-ca-certificate"></a><a name="step1"> </a>Charger un certificat d’autorité de certification
 
 ![Ajouter des certificats d’autorité de certification](media/api-management-howto-ca-certificates/00.png)
 
@@ -54,7 +54,7 @@ Suivez les étapes ci-dessous pour charger un nouveau certificat d’autorité d
 > [!NOTE]
 > Vous pouvez charger un certificat d’autorité de certification à l’aide de la commande Powershell `New-AzApiManagementSystemCertificate`.
 
-## <a name="step1a"></a>Suppression d’un certificat client
+## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Supprimer un certificat client
 
 Pour supprimer un certificat, cliquez sur le menu contextuel **...** , puis sélectionnez **Supprimer** à côté du certificat.
 

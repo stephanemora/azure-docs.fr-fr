@@ -1,5 +1,5 @@
 ---
-title: 'Authentification de service à service : Azure Data Lake Storage Gen1 avec Azure Active Directory | Microsoft Docs'
+title: 'Authentification de service à service : Azure Data Lake Storage Gen1 avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment procéder à une authentification de service à service auprès de Data Lake Storage Gen1 en utilisant Azure Active Directory.
 services: data-lake-store
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66241376"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory
@@ -27,7 +27,7 @@ ms.locfileid: "66241376"
 
 Azure Data Lake Storage Gen1 utilise Azure Active Directory pour l’authentification. Avant de créer une application qui fonctionne avec Data Lake Storage Gen1, vous devez déterminer la manière dont vous voulez authentifier votre application auprès d’Azure Active Directory (Azure AD). Les deux options principales disponibles sont :
 
-* Authentification de l’utilisateur final 
+* Authentification des utilisateurs finaux 
 * Authentification de service à service (cet article) 
 
 En raison de ces deux options, votre application est fournie avec un jeton OAuth 2.0, qui est attaché à chaque demande adressée à Data Lake Storage Gen1.
@@ -37,7 +37,7 @@ Cet article traite de la création d’une **application web Azure AD pour l’a
 ## <a name="prerequisites"></a>Prérequis
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="step-1-create-an-active-directory-web-application"></a>Étape 1 : Créer une application web Active Directory
+## <a name="step-1-create-an-active-directory-web-application"></a>Étape 1 : Créer une application web Active Directory
 
 Créez et configurez une application web Azure AD pour l’authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory. Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -45,7 +45,7 @@ Si vous suivez les instructions du lien précédent, veillez à sélectionner le
 
 ![Créer une application web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Créer une application web")
 
-## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Étape 2 : Obtenir un ID d’application, une clé d’authentification et un ID de locataire
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Étape 2 : Obtenir un ID d’application, une clé d’authentification et un ID de locataire
 Quand vous vous connectez par programmation, vous avez besoin de l’ID de votre application. Si l’application s’exécute sous ses propres informations d’identification, vous avez également besoin d’une clé d’authentification.
 
 * Pour obtenir des instructions afin de récupérer l’ID de l’application et la clé d’authentification (également appelée clé secrète client), consultez la page [Obtenir la clé d’authentification et l’ID d’une application](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
@@ -93,11 +93,11 @@ Quand vous vous connectez par programmation, vous avez besoin de l’ID de votre
 
 3. En haut du panneau Inscriptions des applications, cliquez sur **Points de terminaison**.
 
-    ![Point de terminaison de jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Point de terminaison de jeton OAuth")
+    ![Point de terminaison du jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Point de terminaison du jeton OAuth")
 
 4. Dans la liste des points de terminaison, copiez le point de terminaison de jeton OAuth 2.0.
 
-    ![Point de terminaison de jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Point de terminaison de jeton OAuth")   
+    ![Point de terminaison du jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Point de terminaison du jeton OAuth")   
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez créé une application web Azure AD et recueilli les informations nécessaires dans les applications clientes que vous créez à l’aide du SDK .NET, Java, Python, API REST, etc. Vous pouvez à présent passer aux articles suivants qui traitent de l’utilisation de l’application native Azure AD, d’abord pour vous authentifier auprès de Data Lake Storage Gen1, et ensuite pour effectuer d’autres opérations sur le magasin.

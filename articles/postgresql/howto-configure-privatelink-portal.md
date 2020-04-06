@@ -1,19 +1,19 @@
 ---
-title: Méthode d’installation du service Azure Private Link pour Azure Database pour PostgreSQL – Serveur unique (préversion) via le portail
+title: Private Link - Portail Azure - Azure Database pour PostgreSQL - Serveur unique
 description: Découvrez comment configurer Private Link pour Azure Database pour PostgreSQL – Serveur unique à partir du Portail Azure
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 187fa7cf52193d94b932d9021749917fa4f9b1dc
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 72dcf95c8ae8d8da34532fa96e3bf0371f5112fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562596"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370914"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Créer et gérer le service Azure Private Link pour Azure Database pour PostgreSQL – Serveur unique (préversion) à l’aide du Portail Azure
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Créer et gérer le service Azure Private Link pour Azure Database pour PostgreSQL – Serveur unique à l’aide du Portail Azure
 
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.  Dans cet article, vous apprendrez à utiliser le Portail Azure pour créer une machine virtuelle dans un Réseau virtuel Microsoft Azure et un serveur unique Azure Database pour PostgreSQL avec un point de terminaison privé Azure.
 
@@ -126,12 +126,12 @@ Dans cette section, vous allez créer un serveur Azure Database pour PostgreSQL 
 
 Dans cette section, vous allez créer un serveur PostgreSQL et lui ajouter un point de terminaison privé. 
 
-1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Centre de liaisons privées (préversion)** .
+1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Liaison privée**.
 2. Dans **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de **générer une connexion privée à un service**, sélectionnez **Démarrer**.
 
     ![Présentation de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. Dans **Créer un point de terminaison privé (préversion) - Concepts de base**, entrez ou sélectionnez les informations suivantes :
+1. Dans **Créer un point de terminaison privé - Concepts de base**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -154,7 +154,7 @@ Dans cette section, vous allez créer un serveur PostgreSQL et lui ajouter un po
     |Sous-ressource cible |Sélectionnez *postgresqlServer*.|
     |||
 7. Sélectionnez **Suivant : Configuration**.
-8. Dans **Créer un point de terminaison privé (préversion) - Configuration**, entrez ou sélectionnez les informations suivantes :
+8. Dans **Créer un point de terminaison privé - Configuration**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |

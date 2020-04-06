@@ -9,16 +9,16 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 6baf9d4edba9ba8db008c5c6a8d7af6832ba3273
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 578d076dfc2fc383051c0c3a8528cdbb0fbcdb15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591232"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79208781"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-microsoft-azure-sql-database"></a>Résolution des problèmes de connectivité et autres erreurs avec Microsoft Azure SQL Database
 
-En cas d’échec de la connexion à Azure SQL Database, vous recevez des messages d’erreur. Ces problèmes de connexion peuvent être dus à une reconfiguration d’Azure SQL Database, aux paramètres du pare-feu, à l’expiration de la connexion, à des informations de connexion incorrectes ou à l’impossibilité d’appliquer les bonnes pratiques et les règles de conception lors du processus de [conception de l’application] (sql-database-develop-overview.md). En outre, vous ne pourrez plus vous connecter à Azure SQL Database si la limite de certaines de ses ressources est atteinte.
+En cas d’échec de la connexion à Azure SQL Database, vous recevez des messages d’erreur. Ces problèmes de connexion peuvent être dus à une reconfiguration d’Azure SQL Database, aux paramètres du pare-feu, à l’expiration de la connexion, à des informations de connexion incorrectes ou à l’impossibilité d’appliquer les bonnes pratiques et les règles de conception lors du processus de [conception de l’application](sql-database-develop-overview.md). En outre, vous ne pourrez plus vous connecter à Azure SQL Database si la limite de certaines de ses ressources est atteinte.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Messages d’erreur pour les erreurs temporaires (40197, 40613 et autres)
 

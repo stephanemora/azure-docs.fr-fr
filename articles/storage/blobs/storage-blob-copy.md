@@ -8,16 +8,16 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 9b3dba0041b38d9d59a10eaf80592bab91f65b98
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599907"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79135885"
 ---
 # <a name="copy-a-blob-with-net"></a>Copier un objet blob avec .NET
 
-Cet article explique comment copier un objet blob avec un compte de stockage Azure. Il montre également comment abandonner une opération de copie asynchrone. L’exemple de code utilise la [bibliothèque cliente de stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client).
+Cet article explique comment copier un objet blob avec un compte de stockage Azure. Il montre également comment abandonner une opération de copie asynchrone. L’exemple de code utilise la [bibliothèque cliente de stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-copying-blobs"></a>À propos de la copie d’objets blob
 

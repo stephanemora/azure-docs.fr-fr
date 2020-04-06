@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 207a3a6c59012154d547bbd224782b90e1046c6a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597964"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136903"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -43,6 +43,14 @@ Si des règles de pare-feu et de réseau virtuel sont configurées sur le compte
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
 Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Cause 3 : Les autorisations au niveau du partage sont incorrectes lors de l’utilisation de l’authentification basée sur l’identité
+
+Si les utilisateurs accèdent au partage de fichiers Azure à l’aide de l’authentification Active Directory (AD) ou Azure Active Directory Domain Services (Azure AD DS), l’accès au partage de fichiers échoue avec l’erreur « Accès refusé » si les autorisations au niveau du partage sont incorrectes. 
+
+### <a name="solution-for-cause-3"></a>Solution pour la cause 3
+
+Pour mettre à jour les autorisations au niveau du partage, consultez [Assigner des autorisations d’accès à une identité](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Les messages « Erreur 53 », « Erreur 67 » ou « Erreur 87 » s’affichent lorsque vous montez ou démontez un partage de fichiers Azure
@@ -121,7 +129,7 @@ Rétablissez la valeur **LmCompatibilityLevel** à la valeur par défaut 3 dans
 <a id="error1816"></a>
 ## <a name="error-1816-not-enough-quota-is-available-to-process-this-command-when-you-copy-to-an-azure-file-share"></a>Le message Erreur 1816 « Quota disponible insuffisant pour effectuer cette commande » s’affiche lorsque vous copiez vers un partage de fichiers Azure.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 L’erreur 1816 se produit lorsque vous atteignez la limite autorisée de descripteurs ouverts simultanément pour un fichier sur l’ordinateur où le partage de fichiers est monté.
 
@@ -161,7 +169,7 @@ Lorsque vous tentez de supprimer un fichier, il se peut que le message d’erreu
 
 La ressource spécifiée est marquée pour suppression par un client SMB.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 Ce problème se produit généralement quand le fichier ou le répertoire a un descripteur ouvert. 
 
 ### <a name="solution"></a>Solution
@@ -206,7 +214,7 @@ Si le correctif logiciel est installé, la sortie suivante s’affiche :
 
 Si vous mappez un partage de fichiers Azure en tant qu’administrateur via Net use, le partage n’apparaît pas.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Par défaut, l’Explorateur Windows ne s’exécute pas en tant qu’administrateur. Si vous exécutez Net use depuis une invite de commandes administrateur, vous mappez le lecteur réseau en tant qu’administrateur. Étant donné que les lecteurs mappés sont centrés sur l’utilisateur, le compte d’utilisateur qui est connecté n’affiche pas les lecteurs s’ils sont montés sous un compte d’utilisateur différent.
 
@@ -216,7 +224,7 @@ Montez le partage à partir d’une ligne de commande non administrateur. Vous p
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>La commande Net use échoue si le compte de stockage contient une barre oblique
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 La commande Net use interprète une barre oblique (/) comme une option de ligne de commande. Si le nom de votre compte utilisateur commence par une barre oblique, le mappage du lecteur échoue.
 
@@ -237,7 +245,7 @@ Vous pouvez utiliser l’une des étapes suivantes pour contourner le problème�
 <a id="cannotaccess"></a>
 ## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>L’application ou service ne peut pas accéder à un lecteur Azure Files monté
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les lecteurs sont montés par l’utilisateur. Si vous n’exécutez pas l’application ou service depuis le compte utilisateur ayant monté le lecteur, l’application ou service ne verra pas le lecteur.
 
@@ -261,7 +269,7 @@ Après avoir suivi ces instructions, vous pouvez recevoir le message d’erreur 
 
 Lorsqu’un fichier est copié sur le réseau, le fichier est déchiffré sur l’ordinateur source, transmis en clair, puis de nouveau chiffré une fois à destination. Toutefois, vous pouvez voir l’erreur suivante quand vous essayez de copier un fichier chiffré : « Vous copiez le fichier vers une destination qui ne prend pas en charge le chiffrement. »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 Ce problème peut se survenir si vous utilisez le système de fichiers EFS (Encrypting File System). Les fichiers chiffrés BitLocker peuvent être copiés vers Azure Files. Toutefois, Azure Files ne prend pas en charge le système de fichiers EFS NTFS.
 
 ### <a name="workaround"></a>Solution de contournement
@@ -278,7 +286,7 @@ Notez bien que la définition de la clé de Registre affecte toutes les opérati
 
 ## <a name="slow-enumeration-of-files-and-folders"></a>Lenteur de l’énumération des fichiers et dossiers
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème peut se produire quand il n’y a pas suffisamment de mémoire cache sur la machine cliente pour les grands répertoires.
 
@@ -295,7 +303,7 @@ Par exemple, spécifiez la valeur 0x100000 pour voir si les performances sont me
 
 ## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Erreur AadDsTenantNotFound active l’authentification du service de domaine Active Directory (AAD DS) pour Azure Files « Impossible de localiser des abonnés actifs avec l’ID aad-tenant-id »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 L’erreur AadDsTenantNotFound se produit lorsque vous tentez d’[activer l’authentification Azure Active Directory Domain Services (Azure AD DS) pour Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) sur un compte de stockage où [AAD Domain Services (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) n’est pas créé sur le locataire AAD de l’abonnement associé.  
 
@@ -307,7 +315,7 @@ Activez AAD DS sur le locataire AAD de l’abonnement sur lequel votre compte de
 
 ## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>L’erreur Erreur système 1359 est survenue. Une erreur interne est survenue lors de l’accès SMB aux partages de fichiers avec l’authentification de Service de domaine Azure Active Directory (AAD DS) activée
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 L’erreur Erreur système 1359 est survenue. Une erreur interne se produit lorsque vous essayez de vous connecter à votre partage de fichiers avec l’authentification AAD DS activée sur un AAD DS avec un nom de domaine DNS commençant par un caractère numérique. Par exemple, si le nom de domaine DNS AAD DS est « 1domain », vous obtiendrez cette erreur lors de la tentative de montage du partage de fichiers à l’aide des informations d’identification AAD. 
 

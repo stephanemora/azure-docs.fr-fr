@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
 ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72429031"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemple : Comment extraire des phrases clés avec l’Analyse de texte
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemple : Comment extraire des phrases clés avec l’Analyse de texte
 
 L’[API Extraction de phrases clés](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) évalue un texte non structuré puis, pour chaque document JSON, retourne une liste d’expressions clés.
 
@@ -68,7 +68,7 @@ La taille des documents doit être égale ou inférieure à 5 120 caractères pa
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
+## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
 
 Pour en savoir plus sur la définition de la requête, voir [Comment appeler l’API REST Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
@@ -83,7 +83,7 @@ Pour en savoir plus sur la définition de la requête, voir [Comment appeler l�
 > [!Tip]
 > Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) pour structurer une demande et la publier dans le service.
 
-## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
+## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
 L’analyse est effectuée à la réception de la demande. Pour connaître la taille et le nombre de requêtes que vous pouvez envoyer par minute et par seconde, consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble.
 

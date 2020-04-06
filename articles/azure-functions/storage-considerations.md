@@ -3,12 +3,12 @@ title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3bacc93ad6c1851d9165e8efb7d27b427050e6f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358176"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234885"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -56,6 +56,25 @@ Plusieurs applications de fonction peuvent partager le même compte de stockage 
 Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
 
 Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour plus de contrôle sur les clés de chiffrement, vous pouvez fournir des clés gérées par le client à utiliser pour le chiffrement des données de fichiers et d’objets blob. Ces clés doivent être présentes dans Azure Key Vault pour que Functions puisse accéder au compte de stockage. Pour en savoir plus, consultez [Configurer des clés gérées par le client avec Azure Key Vault en utilisant le Portail Azure](../storage/common/storage-encryption-keys-portal.md).  
+
+## <a name="mount-file-shares-linux"></a>Monter des partages de fichiers (Linux)
+
+Vous pouvez monter des partages Azure Files existants dans vos applications de fonction Linux. Monter un partage vers votre application de fonction Linux vous permet d’accéder à des modèles Machine Learning existants ou à d’autres données dans vos fonctions. Vous pouvez utiliser la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) pour monter un partage existant dans votre application de fonction Linux. 
+
+Dans cette commande, `share-name` est le nom du partage Azure Files existant, et `custom-id` peut représenter n’importe quelle chaîne qui définit de façon unique le partage lorsqu’il est monté sur l’application de fonction. En outre, `mount-path` est le chemin d’accès à partir duquel le partage est accessible dans votre application de fonction. `mount-path` doit être au format `/dir-name`, et ne peut pas commencer par `/home`.
+
+Pour obtenir un exemple complet, consultez les scripts dans [Créer une application de fonction Python et monter un partage Azure Files](scripts/functions-cli-mount-files-storage-linux.md). 
+
+Actuellement, seul un stockage `storage-type` de type `AzureFiles` est pris en charge. Vous pouvez uniquement monter cinq partages sur une application de fonction donnée. Le montage d’un partage de fichiers peut augmenter le temps de démarrage à froid d’au moins 200 à 300 ms voire plus si le compte de stockage se trouve dans une autre région.
+
+Le partage monté est disponible pour votre code de fonction à l’emplacement `mount-path` spécifié. Par exemple, lorsque `mount-path` est `/path/to/mount`, vous pouvez accéder au répertoire cible à l’aide des API du système de fichiers, comme dans l’exemple Python suivant :
+
+```python
+import os
+...
+
+files_in_share = os.listdir("/path/to/mount")
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

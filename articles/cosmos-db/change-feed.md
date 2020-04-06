@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: bf36c0697b5e30c77610d30475be20adc18810cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 898dfe7a619981b93af98effa942fdecbeb42dde
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445588"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368126"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
@@ -47,6 +47,10 @@ Aujourd’hui, vous pouvez voir toutes les opérations dans le flux de modificat
 ### <a name="sort-order-of-items-in-change-feed"></a>Ordre de tri des éléments du flux de modification
 
 Les éléments du flux de modification figurent dans l’ordre où ils ont été modifiés. Cet ordre de tri est garanti par clé de partition logique.
+
+### <a name="consistency-level"></a>Niveau de cohérence
+
+Lorsque vous utilisez le flux de modification dans un niveau de cohérence éventuelle, il peut y avoir des événements en double entre les opérations de lecture de flux de modification suivantes (le dernier événement d’une opération de lecture apparaît comme le premier événement de la prochaine opération).
 
 ### <a name="change-feed-in-multi-region-azure-cosmos-accounts"></a>Flux de modification dans les comptes Azure Cosmos multirégions
 

@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes de protection par mot de passe - Azure Active Directory
-description: Comprendre la résolution de problèmes courants de protection par mot de passe Azure AD
+title: Résoudre les problèmes de protection par mot de passe Azure AD en local
+description: Découvrez comment résoudre les problèmes de protection par mot de passe Azure AD dans un environnement Active Directory Domain Services local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd609eb1f289c0a104bddaa08a60e7dc6202acee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847658"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230905"
 ---
-# <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
+# <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Résoudre les problèmes : Protection par mot de passe Azure AD en local
 
 Après déploiement de la protection par mot de passe Azure AD, il peut s’avérer nécessaire de résoudre des problèmes. Cet article entre dans les détails pour vous aider à comprendre certaines étapes de la résolution des problèmes courants.
 
@@ -82,9 +82,9 @@ Ce problème peut avoir plusieurs causes.
 
 1. Les agents de votre contrôleur de domaine ne peuvent pas télécharger une stratégie ou déchiffrer des stratégies existantes. Recherchez les causes possibles dans les rubriques ci-dessus.
 
-1. Le mode d’application de la stratégie de mot de passe est toujours défini sur Audit. Si c’est le cas, reconfigurez-le pour l’appliquer via le portail de protection par mot de passe Azure AD. Voir [Activer la protection par mot de passe](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. Le mode d’application de la stratégie de mot de passe est toujours défini sur Audit. Si c’est le cas, reconfigurez-le pour l’appliquer via le portail de protection par mot de passe Azure AD. Pour plus d’informations, consultez [Modes de fonctionnement](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
-1. La stratégie de mot de passe a été désactivée. Si c’est le cas, reconfigurez-le pour l’activer via le portail de protection par mot de passe Azure AD. Voir [Activer la protection par mot de passe](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. La stratégie de mot de passe a été désactivée. Si c’est le cas, reconfigurez-le pour l’activer via le portail de protection par mot de passe Azure AD. Pour plus d’informations, consultez [Modes de fonctionnement](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 1. Vous n’avez pas installé le logiciel de l’agent du contrôleur de domaine sur tous les contrôleurs de domaine dans le domaine. Dans ce cas, il est difficile de s’assurer que les clients Windows distants ciblent un contrôleur de domaine particulier pendant une opération de modification de mot de passe. Si vous pensez avoir ciblé avec succès un contrôleur de domaine particulier sur lequel le logiciel de l’agent du contrôleur de domaine est installé, vous pouvez examiner attentivement le journal des événements d’administration de l’agent du contrôleur de domaine. Quel que soit le résultat, il y aura au moins un événement pour expliquer le résultat du processus de validation du mot de passe. En l’absence d’événement en relation avec l’utilisateur dont le mot de passe a changé, la modification du mot de passe a probablement été traitée par un autre contrôleur de domaine.
 
@@ -189,13 +189,13 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 Le logiciel proxy de protection par mot de passe Azure AD n’est limité dans le temps dans aucune version. Microsoft recommande toujours de mettre à niveau les agents de contrôleur de domaine et de proxy vers les dernières versions à mesure que celles-ci sont publiées. La cmdlet `Get-AzureADPasswordProtectionProxy` permet de rechercher des agents proxy qui nécessitent des mises à niveau, comme dans l’exemple ci-dessus pour les agents du contrôleur de domaine.
 
-Pour plus d’informations sur les procédures de mise à niveau spécifiques, consultez [Mise à niveau de l’agent du contrôleur de domaine](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) et [Mise à niveau de l’agent proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent).
+Pour plus d’informations sur les procédures de mise à niveau spécifiques, consultez [Mise à niveau de l’agent du contrôleur de domaine](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) et [Mise à niveau du service proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service).
 
 ## <a name="emergency-remediation"></a>Correction d’urgence
 
 Si le service d’agent DC cause des problèmes, vous devez l’arrêter immédiatement. La DLL de filtre de mot de passe d’agent DC tente encore d’appeler le service non exécuté et enregistrera des événements d’avertissement (10012, 10013), mais tous les mots de passe entrants sont acceptés pendant ce temps. Le service d’agent DC peut également être configuré via le Gestionnaire de contrôle des services Windows avec un type de démarrage « Désactivé » en fonction des besoins.
 
-Une autre mesure de correction consisterait à définir le mode d’activation sur Non dans le portail de la protection par mot de passe Azure AD. Une fois la stratégie mise à jour téléchargée, chaque service d’agent du contrôleur de domaine passe en mode inactif où tous les mots de passe sont acceptés tels quels. Pour plus d’informations, voir [Mode d’application](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Une autre mesure de correction consisterait à définir le mode d’activation sur Non dans le portail de la protection par mot de passe Azure AD. Une fois la stratégie mise à jour téléchargée, chaque service d’agent du contrôleur de domaine passe en mode inactif où tous les mots de passe sont acceptés tels quels. Pour plus d’informations, consultez [Modes de fonctionnement](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 ## <a name="removal"></a>Suppression
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5f4435ca213584fff84f3ddad9bda6f7e06628a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190651"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236909"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implémentation de la navigation par facettes dans la Recherche cognitive Azure
 
@@ -34,7 +34,7 @@ Dans le développement de votre application, l’écriture du code qui construit
 ## <a name="sample-code-and-demo"></a>Exemple de code et démonstration
 Cet article prend l’exemple d’un portail de recrutement. L’exemple est implémenté en tant qu’application ASP.NET MVC.
 
-- Consultez et testez la [démonstration en ligne du portail de recrutement de la Recherche cognitive Azure](http://azjobsdemo.azurewebsites.net/).
+- Consultez et testez la [démonstration en ligne du portail de recrutement de la Recherche cognitive Azure](https://aka.ms/azjobsdemo).
 
 - Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -78,7 +78,7 @@ Les expressions de recherche complexes diminuent les performances de la requête
 Pour mieux comprendre comment un filtre ajoute plus de précision, comparez une expression de recherche complexe à une expression qui contient une expression de filtre :
 
 -   `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
--   `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
+-   `GET /indexes/hotel/docs?search=lodging&$filter=City eq 'Seattle' and Parking and Type ne 'motel'`
 
 Les deux requêtes sont valides, mais la seconde est préférable si vous cherchez des établissements autres que des « motels » avec stationnement à Seattle.
 -   La première requête repose sur ces mots spécifiques étant mentionnés ou non mentionnés dans des champs de type chaîne comme Nom, Description et tout autre champ contenant des données pouvant faire l'objet d'une recherche.
@@ -139,7 +139,7 @@ Vous trouverez ci-dessous une partie du schéma de l’exemple d’application d
 }
 ```
 
-Conformément à l’exemple de schéma, l’option `Facetable` est désactivée pour les champs de chaîne qui ne doivent pas être utilisés comme facettes, tels que les valeurs d’ID. Le fait de désactiver les facettes inutiles permet de conserver une taille d’index réduite, ce qui améliore généralement les performances.
+Conformément à l’exemple de schéma, l’option `Facetable` est désactivée pour les champs de chaîne qui ne doivent pas être utilisés comme facettes, par exemple les valeurs d’ID. Le fait de désactiver les facettes inutiles permet de conserver une taille d’index réduite, ce qui améliore généralement les performances.
 
 > [!TIP]
 > Nous vous recommandons d'inclure l'ensemble des attributs d'index pour chaque champ. Bien que l'option `Facetable` soit activée par défaut pour presque tous les champs, le fait de configurer volontairement chaque attribut peut vous aider à réfléchir aux implications de chaque décision au sein du schéma. 
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Un paramètre de requête à facettes est défini sur un champ et, selon le type de données, peut être davantage paramétré par une liste délimitée par des virgules qui inclut `count:<integer>`, `sort:<>`, `interval:<integer>` et `values:<list>`. Une liste de valeurs est prise en charge pour les données numériques lors de la définition de plages. Consultez [Rechercher des documents (API de Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir des détails sur l’utilisation.
 
-En plus des facettes, la requête formulée par votre application doit également créer des filtres pour limiter le jeu de documents candidats basés sur une sélection de valeur de facette. Pour un magasin de vélos, la navigation à facettes fournit des indications aux questions du type *Quels sont les couleurs, fabricants et types de vélos disponibles ?* . Le filtrage permet de répondre à des questions du type *Quels sont les vélos de type VTT et de couleur rouge dans cette gamme de prix ?* . Lorsque vous cliquez sur « Rouge » pour indiquer que seuls les produits de couleur rouge doivent s’afficher, la requête suivante envoyée par l’application inclut `$filter=Color eq ‘Red’`.
+En plus des facettes, la requête formulée par votre application doit également créer des filtres pour limiter le jeu de documents candidats basés sur une sélection de valeur de facette. Pour un magasin de vélos, la navigation à facettes fournit des indications aux questions du type *Quels sont les couleurs, fabricants et types de vélos disponibles ?* . Le filtrage permet de répondre à des questions du type *Quels sont les vélos de type VTT et de couleur rouge dans cette gamme de prix ?* . Lorsque vous cliquez sur « Rouge » pour indiquer que seuls les produits de couleur rouge doivent s’afficher, la requête suivante envoyée par l’application inclut `$filter=Color eq 'Red'`.
 
 L’extrait de code suivant tiré de la page `JobsSearch.cs` ajoute la Fonction sélectionnée au filtre si vous sélectionnez une valeur de la facette Fonction.
 
@@ -297,7 +297,7 @@ En général, si vous trouvez que les résultats de la facette sont toujours tro
 
 Pour chaque champ à facettes dans l'arborescence de navigation, il existe une limite par défaut de 10 valeurs. Cette valeur par défaut est judicieuse pour les structures de navigation, car elle permet de conserver une taille gérable pour la liste des valeurs. Vous pouvez remplacer la valeur par défaut en affectant une valeur à compter.
 
-* `&facet=city,count:5` spécifie que seules les cinq premières villes trouvées dans les résultats en tête du classement sont renvoyées en tant que résultat de la facette. Imaginez un exemple de requête affichant le terme de recherche « aéroport » et 32 correspondances. Si la requête spécifie `&facet=city,count:5`, seules les cinq premières villes uniques avec le plus de documents dans les résultats de la recherche sont incluses dans les résultats de la facette.
+* `&facet=city,count:5` spécifie que seules les cinq premières villes trouvées dans les résultats en tête du classement sont renvoyées en tant que résultat de la facette. Imaginez un exemple de requête affichant le terme de recherche « aéroport » et 32 correspondances. Si la requête spécifie `&facet=city,count:5`, seules les cinq premières villes uniques avec le plus de documents dans les résultats de la recherche sont incluses dans les résultats de la facette.
 
 Notez la différence entre les résultats de la recherche et les résultats de la facette. Les résultats de la recherche sont tous les documents qui correspondent à la requête. Les résultats de la facette sont les correspondances pour chaque valeur de facette. Dans l’exemple, les résultats de la recherche incluent des noms de villes qui ne se trouvent pas dans la liste de classification de la facette (5, dans notre exemple). Les résultats filtrés par le biais de la navigation à facettes deviennent visibles lorsque vous effacez les facettes ou choisissez d’autres facettes en plus de Ville. 
 
@@ -371,7 +371,7 @@ Vous trouverez des exemples de filtres dans [Syntaxe d’expression OData (Reche
 ## <a name="try-the-demo"></a>Essayer la démonstration
 La démonstration du portail de recrutement de la Recherche cognitive Azure contient les exemples référencés dans cet article.
 
--   Consultez et testez la [démonstration en ligne du portail de recrutement de la Recherche cognitive Azure](https://azjobsdemo.azurewebsites.net/).
+-   Consultez et testez la [démonstration en ligne du portail de recrutement de la Recherche cognitive Azure](https://aka.ms/azjobsdemo).
 
 -   Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
