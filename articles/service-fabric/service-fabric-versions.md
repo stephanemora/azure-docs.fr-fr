@@ -3,12 +3,12 @@ title: Versions de cluster prises en charge dans Azure Service Fabric
 description: Découvrez les versions de cluster dans Azure Service Fabric, notamment un lien vers les versions les plus récentes à partir du blog de l’équipe Service Fabric.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: ea2dcc3da2f59aa00b12aedd181dc27df00e9d58
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252725"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385042"
 ---
 # <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
 
@@ -36,8 +36,11 @@ Le tableau suivant répertorie les versions de Service Fabric et leurs dates de 
 | 6.2.* | 6.0.232.* |Inférieure ou égale à la version 3.1 |26 octobre 2018   |
 | 6.3.* | 6.1.480.* |Inférieure ou égale à la version 3.2 |31 mars 2019  |
 | 6.4.* | 6.2.301.* |Inférieure ou égale à la version 3.3 |15 septembre 2019 |
-| 6.5.* | 6.4.617.* |Inférieure ou égale à la version 3.4 |1 mai 2020 |
-| 7.0.* | 6.4.664.# |Inférieure ou égale à la version 4.0 |Version actuelle ; par conséquent, pas de date de fin |
+| 6.5.* | 6.4.617.* |Inférieure ou égale à la version 3.4 |1er août 2020 |
+| 7.0.466.* | 6.4.664.* |Inférieure ou égale à la version 4.0|Version actuelle ; par conséquent, pas de date de fin |
+| 7.0.466.* | 6.5.* |Inférieure ou égale à la version 4.0|Version actuelle ; par conséquent, pas de date de fin |
+| 7.0.470.* | 7.0.466.* |Inférieure ou égale à la version 4.0 |Version actuelle ; par conséquent, pas de date de fin |
+
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 Le tableau suivant répertorie les systèmes d’exploitation pris en charge pour les versions prises en charge de Service Fabric.

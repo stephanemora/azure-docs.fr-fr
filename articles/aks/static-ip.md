@@ -4,12 +4,12 @@ description: Découvrez comment créer et utiliser une adresse IP statique avec 
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 32889dbbcafd9510f8d04cb9c602d4802c6d1a1a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 6c219976db21fb05ea1ad313b4effdf95906f986
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943582"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047965"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP publique statique et une étiquette DNS avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 
@@ -70,6 +70,8 @@ az role assignment create \
     --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
+
+Vous pouvez également utiliser l’identité managée affectée par le système pour les autorisations au lieu du principal du service. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
 
 Pour créer un service *LoadBalancer* avec l’adresse IP publique statique, ajoutez la propriété `loadBalancerIP` et la valeur de l’adresse IP publique statique au manifeste YAML. Créez un fichier nommé `load-balancer-service.yaml` et copiez-y le YAML suivant. Spécifiez votre propre adresse IP publique créée à l’étape précédente. L’exemple suivant définit aussi l’annotation pour le groupe de ressources nommé *myResourceGroup*. Indiquez le nom de votre propre groupe de ressources.
 

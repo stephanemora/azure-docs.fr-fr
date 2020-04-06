@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect - mettre à jour le certificat SSL pour une batterie de serveurs AD FS | Microsoft Docs
-description: Ce document détaille les étapes permettant de mettre à jour le certificat SSL d’une batterie de serveurs AD FS à l’aide d’Azure AD Connect.
+title: Azure AD Connect - Mettre à jour le certificat TLS/SSL pour une batterie de serveurs AD FS | Microsoft Docs
+description: Ce document détaille les étapes permettant de mettre à jour le certificat TLS/SSL d’une batterie de serveurs AD FS à l’aide d’Azure AD Connect.
 services: active-directory
 manager: daveba
 editor: billmath
@@ -16,19 +16,19 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fcdf75586de9621bd0e42cba6fa9c80e5d30817
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8cc768162d98402fe52b52b2826a9dbf2840a581
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595214"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331733"
 ---
-# <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)
+# <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Mettre à jour le certificat TLS/SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)
 
-## <a name="overview"></a>Vue d'ensemble
-Cet article explique comment utiliser Azure AD Connect pour mettre à jour le certificat SSL d’une batterie de serveurs Active Directory Federation Services (AD FS). Vous pouvez utiliser l’outil Azure AD Connect pour une mise à jour facile du certificat SSL pour la batterie de serveurs AD FS même si la méthode d’authentification sélectionnée n’est pas AD FS.
+## <a name="overview"></a>Vue d’ensemble
+Cet article explique comment utiliser Azure AD Connect pour mettre à jour le certificat TLS/SSL d’une batterie de serveurs Active Directory Federation Services (AD FS). Vous pouvez utiliser l’outil Azure AD Connect qui permet de facilement mettre à jour le certificat TLS/SSL pour la batterie de serveurs AD FS, même si la méthode de connexion utilisateur sélectionnée n’est pas AD FS.
 
-Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certificat SSL pour la batterie de serveurs AD FS sur l’ensemble des serveurs de fédération et Proxy d’application Web (WAP) en trois étapes simples :
+Vous pouvez effectuer l’intégralité de l’opération de mise à jour du certificat TLS/SSL pour la batterie de serveurs AD FS sur l’ensemble des serveurs proxy d’application web et de fédération en trois étapes simples :
 
 ![Trois étapes](./media/how-to-connect-fed-ssl-update/threesteps.png)
 
@@ -41,15 +41,15 @@ Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certific
 * **Batterie de serveurs AD FS** : assurez-vous que votre batterie AD FS est basée sur Windows Server 2012 R2 ou version ultérieure.
 * **Azure AD Connect** : vérifiez qu'Azure AD Connect correspond à la version 1.1.553.0 ou ultérieure. Vous utiliserez la tâche **Mettre à jour le certificat SSL AD FS**.
 
-![Mettre à jour la tâche SSL](./media/how-to-connect-fed-ssl-update/updatessltask.png)
+![Mettre à jour la tâche TLS](./media/how-to-connect-fed-ssl-update/updatessltask.png)
 
-## <a name="step-1-provide-ad-fs-farm-information"></a>Étape 1 : Fournir les informations sur la batterie de serveurs AD FS
+## <a name="step-1-provide-ad-fs-farm-information"></a>Étape 1 : Fournir les informations sur la batterie de serveurs AD FS
 
 Azure AD Connect tente d’obtenir automatiquement les informations sur la batterie de serveurs AD FS en effectuant les opérations suivantes :
 1. Interrogez les informations de la batterie à partir d’AD FS (Windows Server 2016 ou version ultérieure).
 2. Référencer les informations obtenues à partir d’exécutions précédentes stockées localement avec Azure AD Connect.
 
-Vous pouvez modifier la liste des serveurs affichés en ajoutant ou en supprimant des serveurs afin de refléter la configuration actuelle de la batterie de serveurs AD FS. Dès que les informations de serveur sont fournies, Azure AD Connect affiche la connectivité et l’état actuel du certificat SSL.
+Vous pouvez modifier la liste des serveurs affichés en ajoutant ou en supprimant des serveurs afin de refléter la configuration actuelle de la batterie de serveurs AD FS. Dès que les informations de serveur sont fournies, Azure AD Connect affiche la connectivité et l’état actuel du certificat TLS/SSL.
 
 ![Informations du serveur AD FS](./media/how-to-connect-fed-ssl-update/adfsserverinfo.png)
 
@@ -60,11 +60,11 @@ Si la liste contient un serveur qui ne fait plus partie de la batterie de serveu
 >[!NOTE]
 > La suppression d’un serveur dans la liste des serveurs de la batterie de serveurs AD FS dans Azure AD Connect est une opération locale qui met à jour les informations relatives à la batterie de serveurs AD FS qu’Azure AD Connect tient à jour localement. Azure AD Connect ne modifie pas la configuration AD FS pour refléter la modification.    
 
-## <a name="step-2-provide-a-new-ssl-certificate"></a>Étape 2 : Fournir un nouveau certificat SSL
+## <a name="step-2-provide-a-new-tlsssl-certificate"></a>Étape 2 : Fournir un nouveau certificat TLS/SSL
 
-Une fois que vous avez confirmé les informations sur les serveurs de la batterie de serveurs AD FS, Azure AD Connect demande le nouveau certificat SSL. Fournissez un certificat PFX protégé par mot de passe pour poursuivre l’installation.
+Une fois que vous avez confirmé les informations sur les serveurs de la batterie de serveurs AD FS, Azure AD Connect demande le nouveau certificat TLS/SSL. Fournissez un certificat PFX protégé par mot de passe pour poursuivre l’installation.
 
-![Certificat SSL](./media/how-to-connect-fed-ssl-update/certificate.png)
+![Certificat TLS/SSL](./media/how-to-connect-fed-ssl-update/certificate.png)
 
 Une fois que vous fournissez le certificat, Azure AD Connect passe par une série de conditions préalables. Vérifiez le certificat pour vous assurer qu’il est correct pour la batterie de serveurs AD FS :
 
@@ -75,7 +75,7 @@ Une fois que vous fournissez le certificat, Azure AD Connect passe par une séri
 
 ## <a name="step-3-select-servers-for-the-update"></a>Étape 3 : Sélectionner les serveurs concernés par la mise à jour
 
-Dans l’étape suivante, sélectionnez les serveurs qui ont besoin d’avoir le certificat SSL mis à jour. Il est impossible de sélectionner les serveurs qui sont hors connexion pour la mise à jour.
+Dans l’étape suivante, sélectionnez les serveurs qui ont besoin d’une mise à jour du certificat TLS/SSL. Il est impossible de sélectionner les serveurs qui sont hors connexion pour la mise à jour.
 
 ![Sélectionnez les serveurs à mettre à jour](./media/how-to-connect-fed-ssl-update/selectservers.png)
 
@@ -85,7 +85,7 @@ Après avoir terminé la configuration, Azure AD Connect affiche le message qui 
 
 ## <a name="faqs"></a>FAQ
 
-* **Quel doit être le nom de sujet du nouveau certificat SSL AD FS ?**
+* **Quel doit être le nom de l’objet du nouveau certificat TLS/SSL AD FS ?**
 
     Azure AD Connect vérifie si le nom de sujet/l’autre nom de sujet du certificat contient le nom du service de fédération. Par exemple, si le nom de votre service de fédération est fs.contoso.com, le nom de sujet/l’autre nom de sujet doit être fs.contoso.com.  Les certificats à caractères génériques sont également acceptés.
 
@@ -97,7 +97,7 @@ Après avoir terminé la configuration, Azure AD Connect affiche le message qui 
 
     Azure AD Connect ne peut effectuer aucune opération si le serveur est hors connexion. Si le serveur fait partie de la batterie de serveurs AD FS, vérifiez la connectivité au serveur. Une fois que vous avez résolu le problème, appuyez sur l’icône d’actualisation pour mettre à jour l’état de l’assistant. Si le serveur faisait déjà partie de la batterie de serveurs et qu’il n’existe plus, cliquez sur **Supprimer** pour le supprimer de la liste des serveurs qu’Azure AD Connect tient à jour. La suppression du serveur de la liste dans Azure AD Connect n’altère pas la configuration AD FS elle-même. Si vous utilisez AD FS dans Windows Server 2016 ou une version ultérieure, le serveur reste dans les paramètres de configuration et s’affiche à nouveau la prochaine fois que la tâche est exécutée.
 
-* **Puis-je mettre à jour une partie des serveurs de ma batterie de serveurs avec le nouveau certificat SSL ?**
+* **Puis-je mettre à jour une partie des serveurs de ma batterie de serveurs avec le nouveau certificat TLS/SSL ?**
 
     Oui. Vous pouvez toujours exécuter la tâche **Mettre à jour le certificat SSL** pour mettre à jour les serveurs restants. Sur la page **Sélectionner des serveurs pour la mise à jour du certificat SSL**, vous pouvez trier la liste des serveurs sur **Date d’expiration SSL** pour accéder facilement aux serveurs qui ne sont pas encore mis à jour.
 

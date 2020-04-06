@@ -1,14 +1,14 @@
 ---
 title: Intégrer un client dans la gestion des ressources déléguées Azure
 description: Découvrez comment intégrer un client à la gestion des ressources déléguées Azure, permettant ainsi que ses ressources soient accessibles et gérables via votre propre locataire.
-ms.date: 01/20/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33cf880098e174c2c230a3d78e125ad8df7d894a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 6a5f4ce03f762b5903e8b3d6f10810819e02e422
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649787"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246872"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -22,9 +22,6 @@ Pour suivre votre impact sur les engagements client et recevoir une reconnaissan
 > Les clients peuvent également être intégrés quand ils achètent une offre de services managés (publics ou privés) que vous avez publiée sur la Place de marché Azure. Pour plus d’informations, voir [Publier des offres de services managés sur la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici en même temps qu’une offre publiée sur la Place de marché Azure.
 
 Le processus d’intégration requiert d’exécuter des actions tant dans le locataire du fournisseur de services que dans le locataire du client. Toutes ces étapes sont décrites dans cet article.
-
-> [!IMPORTANT]
-> Actuellement, vous ne pouvez pas intégrer un abonnement (ou un groupe de ressources au sein d’un abonnement) pour la gestion des ressources déléguées Azure si l’abonnement utilise Azure Databricks. De même, si un abonnement a été inscrit pour une intégration avec le fournisseur de ressources **Microsoft.ManagedServices**, vous ne pouvez pas actuellement créer d’espace de travail Databricks pour cet abonnement.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Collecter les détails du locataire et de l’abonnement
 
@@ -69,6 +66,9 @@ En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieu
 
 Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle, ce qui vous permet d’ajouter ou de supprimer des utilisateurs dans le groupe au lieu d’attribuer directement des autorisations aux utilisateurs. Vous pouvez également attribuer des rôles à un principal de service. Veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour plus de recommandations et d’informations sur les rôles pris en charge, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
 
+> [!IMPORTANT]
+> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être **Sécurité** et non **Office 365**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
 Pour définir des autorisations, vous devez connaître les valeurs d’ID pour chaque utilisateur, groupe d’utilisateurs ou principal de service dans le locataire du fournisseur de services auquel vous souhaitez accorder l’accès. Vous aurez également besoin de l’ID de définition de rôle pour chaque rôle intégré que vous souhaitez attribuer. Si vous ne les avez pas déjà, vous pouvez les récupérer en exécutant les commandes ci-dessous à partir du locataire du fournisseur de services.
 
 ### <a name="powershell"></a>PowerShell
@@ -98,7 +98,7 @@ Pour définir des autorisations, vous devez connaître les valeurs d’ID pour c
 az ad group list --query "[?displayName == '<yourGroupName>'].objectId" --output tsv
 
 # To retrieve the objectId for an Azure AD user
-az ad user show --upn-or-object-id "<yourUPN>" –-query "objectId" --output tsv
+az ad user show --id "<yourUPN>" --query "objectId" --output tsv
 
 # To retrieve the objectId for an SPN
 az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output tsv

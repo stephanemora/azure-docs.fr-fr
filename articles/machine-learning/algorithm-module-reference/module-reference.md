@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: 334cf69db70e8a1e0c2994c492f15ff44505af0d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c24c7ce1d47a4734d79d7e17e9fb4b3a2d4d70e0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673372"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064138"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning (préversion)
 
@@ -24,7 +24,7 @@ Chaque module représente un ensemble de code qui peut s’exécuter indépendam
 
 Pour savoir quels algorithmes choisir, consultez 
 * [Comment sélectionner des algorithmes](../how-to-select-algorithms.md)
-* [Aide-mémoire d’algorithme Azure Machine Learning](../algorithm-cheat-sheet.md)
+* [Aide-mémoire d’algorithme Azure Machine Learning](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md)
 
 > [!TIP]
 > Quel que soit le pipeline dans le concepteur, vous pouvez obtenir des informations sur un module spécifique. Sélectionnez le module, puis sélectionnez le lien **Plus d’aide** dans le volet **Aide rapide**.
@@ -55,8 +55,9 @@ Pour savoir quels algorithmes choisir, consultez
 | Scoring et évaluation d’un modèle | Mesurez la précision du modèle entraîné. | [Appliquer une transformation](apply-transformation.md) <br/> [Attribuer des données à des clusters](assign-data-to-clusters.md) <br/> [Modèle de validation croisée](cross-validate-model.md) <br/> [Évaluer le modèle](evaluate-model.md) <br/> [Noter le modèle](score-model.md) |
 | Langage Python | Écrivez du code et incorporez-le dans un module pour intégrer Python à votre pipeline. | [Créer un modèle Python](create-python-model.md) <br/> [Exécuter un script Python](execute-python-script.md) |
 | Langage R | Écrivez du code et incorporez-le dans un module pour intégrer R à votre pipeline. | [Exécuter un script R](execute-r-script.md) |
-| Analyse de texte | Fournissez des outils de calcul spécialisés pour travailler avec du texte structuré et non structuré. | [Extraire les caractéristiques de n-grammes du texte](extract-n-gram-features-from-text.md) <br/> [Hachage des caractéristiques](feature-hashing.md) <br/> [Pré-traiter le texte](preprocess-text.md) |
+| Analyse de texte | Fournissez des outils de calcul spécialisés pour travailler avec du texte structuré et non structuré. | [Extraire les caractéristiques de n-grammes du texte](extract-n-gram-features-from-text.md) <br/> [Hachage des caractéristiques](feature-hashing.md) <br/> [Pré-traiter le texte](preprocess-text.md) <br/> [Allocation de Dirichlet latente](latent-dirichlet-allocation.md) |
 | Recommandation | Génération de modèles de recommandation. | [Évaluer le générateur de recommandations](evaluate-recommender.md) <br/> [Noter le générateur de recommandations SVD](score-svd-recommender.md) <br/> [Entraîner le générateur de recommandations SVD](train-SVD-recommender.md) |
+| Détection des anomalies | Créez des modèles de détection des anomalies. | [Détection des anomalies basée sur l'analyse en composantes principales (ACP)](pca-based-anomaly-detection.md) <br/> [Former le modèle de détection des anomalies](train-anomaly-detection-model.md) |
 
 
 ## <a name="error-messages"></a>Messages d’erreur

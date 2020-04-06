@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: c8d58180b11c12afb256dc888406c7c0d58fb119
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314315"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455908"
 ---
 # <a name="select-columns-transform"></a>Transformation de sélection de colonnes
 
-Cet article décrit comment utiliser le module Transformation de sélection de colonnes dans le concepteur Azure Machine Learning. L’objectif du module Transformation de sélection de colonnes consiste à s’assurer qu’un ensemble de colonnes prévisible et cohérent est utilisé dans les opérations de machine learning en aval.
+Cet article décrit comment utiliser le module Transformation de sélection de colonnes dans le concepteur Azure Machine Learning (préversion). L’objectif du module Transformation de sélection de colonnes consiste à s’assurer qu’un ensemble de colonnes prévisible et cohérent est utilisé dans les opérations de machine learning en aval.
 
 Ce module est utile pour des tâches telles que le scoring, qui nécessitent des colonnes spécifiques. Les modifications apportées aux colonnes disponibles peuvent rompre le pipeline ou changer les résultats.
 
@@ -48,7 +48,7 @@ Ce scénario suppose que vous souhaitez utiliser la sélection de caractéristiq
 
    > [!IMPORTANT]
    > Vous ne pouvez pas escompter les mêmes résultats si vous appliquez le module [Sélection de caractéristiques par filtrage](filter-based-feature-selection.md) au jeu de données de scoring. Comme la sélection des caractéristiques est basée sur des valeurs, elle peut choisir un autre ensemble de colonnes, ce qui entraînerait l’échec de l’opération de scoring.
-7. Exécuter le pipeline.
+7. Envoyez le pipeline.
 
 Ce processus d’enregistrement, puis d’application d’une sélection de colonnes garantit que le même schéma de données est disponible pour l’entraînement et le scoring.
 

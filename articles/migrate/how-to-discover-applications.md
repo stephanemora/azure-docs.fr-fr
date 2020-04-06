@@ -2,13 +2,13 @@
 title: Découvrir les applications, rôles et fonctionnalités sur des serveurs locaux avec Azure Migrate
 description: Apprenez à découvrir les applications, rôles et fonctionnalités sur des serveurs locaux à l’aide d’Azure Migrate Server Assessment.
 ms.topic: article
-ms.date: 11/20/2019
-ms.openlocfilehash: 7c3a6360e051b8cb694393695e75578ce2c135ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/12/2020
+ms.openlocfilehash: e8ce279afc845ebf37ad4ab8b2ce7236cb18137a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846318"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79453580"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Détection des applications, des rôles et des fonctionnalités de la machine
 
@@ -17,7 +17,7 @@ Cet article décrit comment découvrir les applications, rôles et fonctionnalit
 La découverte de l’inventaire des applications et des rôles/fonctionnalités sur vos machines locales vous aide à identifier et planifier votre migration vers Azure en prenant en compte vos charges de travail.
 
 > [!NOTE]
-> La détection d’applications est actuellement prise en charge pour les machines virtuelles VMware uniquement et est limitée à la détection uniquement. Nous n’offrons pas encore d’évaluation basée sur les applications. Évaluation basée sur des ordinateurs pour les machines virtuelles VMware, les machines virtuelles Hyper-V et les serveurs physiques locaux.
+> La détection d’applications est actuellement en préversion pour les machines virtuelles VMware uniquement et est limitée à la seule détection. Nous n’offrons pas encore d’évaluation basée sur les applications. Évaluation basée sur des ordinateurs pour les machines virtuelles VMware, les machines virtuelles Hyper-V et les serveurs physiques locaux.
 
 La découverte d’applications à l’aide de l’évaluation de serveur d’Azure Migrate est sans agent. Rien n’a besoin d’être installé sur les ordinateurs et machines virtuelles. L’évaluation de serveur utilise l’appliance Azure Migrate pour effectuer la détection avec les informations d’identification de l’invité de l’ordinateur. L’appliance accède à distance aux machines VMware à l’aide des API VMware.
 

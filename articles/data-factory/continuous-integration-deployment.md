@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 7c9f22d27351b0f57c5a0158821f347073ae60b4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 8bbb11a8811582bea26e784636564eb5d5a4d284
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187813"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384328"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -60,7 +60,7 @@ Vous trouverez ci-dessous une vue d’ensemble du cycle de vie d’intégration 
 
    ![Créer votre propre modèle](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Sélectionnez **Charger le fichier**, puis sélectionnez le modèle Resource Manager généré.
+1. Sélectionnez **Charger le fichier**, puis sélectionnez le modèle Resource Manager généré. Il s’agit du fichier **arm_template.json** situé dans le fichier .zip exporté à l’étape 1.
 
    ![Modifier un modèle](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -171,7 +171,7 @@ Il existe deux moyens de gérer les secrets :
 
     Le fichier de paramètres doit également être dans la branche de publication.
 
--  Ajoutez une [tâche Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) avant la tâche de déploiement d’Azure Resource Manager décrite dans la section précédente :
+1. Ajoutez une [tâche Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) avant la tâche de déploiement d’Azure Resource Manager décrite dans la section précédente :
 
     1.  Dans l’onglet **Tâches**, créez une nouvelle tâche. Recherchez **Azure Key Vault** et ajoutez-le.
 
@@ -179,9 +179,9 @@ Il existe deux moyens de gérer les secrets :
 
     ![Ajouter une tâche Key Vault](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-   #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Accorder des autorisations à l’agent Azure Pipelines
+#### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Accorder des autorisations à l’agent Azure Pipelines
 
-   La tâche Azure Key Vault peut échouer avec une erreur d’accès refusé si les autorisations appropriées ne sont pas définies. Téléchargez les journaux de la version, puis recherchez le fichier .ps1 contenant la commande pour accorder des autorisations à l’agent Azure Pipelines. Vous pouvez exécuter directement la commande. Vous pouvez aussi copier l’ID du principal à partir du fichier et ajouter manuellement la stratégie d’accès dans le Portail Azure. `Get` et `List` sont les autorisations minimales requises.
+La tâche Azure Key Vault peut échouer avec une erreur d’accès refusé si les autorisations appropriées ne sont pas définies. Téléchargez les journaux de la version, puis recherchez le fichier .ps1 contenant la commande pour accorder des autorisations à l’agent Azure Pipelines. Vous pouvez exécuter directement la commande. Vous pouvez aussi copier l’ID du principal à partir du fichier et ajouter manuellement la stratégie d’accès dans le Portail Azure. `Get` et `List` sont les autorisations minimales requises.
 
 ### <a name="update-active-triggers"></a>Mettre à jour les déclencheurs actifs
 
@@ -214,7 +214,7 @@ Lors de l’exécution d’un script de post-déploiement, vous devez spécifier
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Tâche Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Voici le script qui peut être utilisé avant et après le déploiement. Il prend en compte les ressources supprimées et les références de ressources.
 
@@ -366,7 +366,13 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Disabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
@@ -459,7 +465,13 @@ else {
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Enabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
@@ -471,7 +483,10 @@ Si vous êtes en mode GIT, vous pouvez remplacer les propriétés par défaut da
 * Vous utilisez CI/CD automatisé et souhaitez modifier certaines propriétés pendant le déploiement de Resource Manager, mais les propriétés ne sont pas paramétrables par défaut.
 * Votre fabrique est si volumineuse que le modèle Resource Manager par défaut n’est pas valide car il dépasse le nombre maximum autorisé de paramètres (256).
 
-Dans ces conditions, pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé arm-template-parameters-definition.json dans le dossier racine pour l’intégration du git de la fabrique de données. Vous devez utiliser ce nom de fichier exact. Data Factory lit ce fichier à partir de la branche dans laquelle vous vous trouvez actuellement dans le portail Azure Data Factory, et pas uniquement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications en sélectionnant **Exporter le modèle ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration. Si aucun fichier n’est trouvé, le modèle par défaut est utilisé.
+Dans ces conditions, pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé **arm-template-parameters-definition.json** dans le dossier racine pour l’intégration du git de la fabrique de données. Vous devez utiliser ce nom de fichier exact. Data Factory lit ce fichier à partir de la branche dans laquelle vous vous trouvez actuellement dans le portail Azure Data Factory, et pas uniquement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications en sélectionnant **Exporter le modèle ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration. Si aucun fichier n’est trouvé, le modèle par défaut est utilisé.
+
+> [!NOTE]
+> Un modèle de paramétrage personnalisé ne change pas la limite de 256 paramètres du modèle ARM. Il vous permet de choisir et de diminuer le nombre de propriétés paramétrées.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Syntaxe d’un fichier de paramètres personnalisés
 
@@ -657,7 +672,7 @@ Vous trouverez ci-après le modèle de paramétrage par défaut actuel. Si vous 
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -821,25 +836,25 @@ Si vous n’avez pas configuré Git, vous pouvez accéder aux modèles liés via
 
 Si vous déployez une fabrique en production et détectez un bogue qui doit être corrigé immédiatement, mais que vous ne pouvez pas déployer la branche de collaboration actuelle, vous devrez peut-être déployer un correctif logiciel. Cette approche est également connue sous le nom de QFE (Quick-Fix Engineering).
 
-1.  Dans Azure DevOps, accédez à la version qui a été déployée en production. Recherchez la dernière validation qui a été déployée.
+1.    Dans Azure DevOps, accédez à la version qui a été déployée en production. Recherchez la dernière validation qui a été déployée.
 
-2.  À partir du message de validation, obtenez l’ID de validation de la branche de collaboration.
+2.    À partir du message de validation, obtenez l’ID de validation de la branche de collaboration.
 
-3.  Créez une nouvelle branche de correctifs logiciels à partir de cette validation.
+3.    Créez une nouvelle branche de correctifs logiciels à partir de cette validation.
 
-4.  Accédez à l’expérience utilisateur Azure Data Factory et basculez vers cette branche de correctifs logiciels.
+4.    Accédez à l’expérience utilisateur Azure Data Factory et basculez vers cette branche de correctifs logiciels.
 
-5.  Corrigez le bogue en utilisant l’expérience utilisateur Azure Data Factory. Tester vos modifications.
+5.    Corrigez le bogue en utilisant l’expérience utilisateur Azure Data Factory. Tester vos modifications.
 
-6.  Une fois le correctif vérifié, sélectionnez **Exporter le modèle ARM** pour obtenir le modèle Resource Manager du correctif logiciel.
+6.    Une fois le correctif vérifié, sélectionnez **Exporter le modèle ARM** pour obtenir le modèle Resource Manager du correctif logiciel.
 
-7.  Archivez manuellement cette build dans la branche adf_publish.
+7.    Archivez manuellement cette build dans la branche adf_publish.
 
-8.  Si vous avez configuré votre pipeline de mise en production pour qu’il se déclenche automatiquement en fonction des archivages adf_publish, une nouvelle version démarre automatiquement. Sinon, créez manuellement une file d'attente de versions.
+8.    Si vous avez configuré votre pipeline de mise en production pour qu’il se déclenche automatiquement en fonction des archivages adf_publish, une nouvelle version démarre automatiquement. Sinon, créez manuellement une file d'attente de versions.
 
-9.  Déployez la version avec correctif logiciel dans les fabriques de test et de production. Cette version contient la charge utile de production précédente ainsi que la correction apportée à l’étape 5.
+9.    Déployez la version avec correctif logiciel dans les fabriques de test et de production. Cette version contient la charge utile de production précédente ainsi que la correction apportée à l’étape 5.
 
-10. Ajoutez les modifications issues du correctif logiciel dans la branche de développement pour que les versions ultérieures n’incluent pas le même bogue.
+10.    Ajoutez les modifications issues du correctif logiciel dans la branche de développement pour que les versions ultérieures n’incluent pas le même bogue.
 
 ## <a name="best-practices-for-cicd"></a>Meilleures pratiques pour CI/CD
 

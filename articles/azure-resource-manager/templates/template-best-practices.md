@@ -3,16 +3,16 @@ title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager. Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207483"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156410"
 ---
-# <a name="azure-resource-manager-template-best-practices"></a>Meilleures pratiques relatives aux modèles Azure Resource Manager
+# <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
-Cet article fournit des suggestions sur la façon de construire votre modèle Resource Manager. Celles-ci vous aident à éviter des problèmes qui se produisent couramment lors de l’utilisation d’un modèle pour déployer une solution.
+Cet article donne des recommandations sur la façon de construire votre modèle Azure Resource Manager (ARM). Celles-ci vous aident à éviter des problèmes qui se produisent couramment en cas d’utilisation d’un modèle ARM pour déployer une solution.
 
 Pour obtenir des suggestions sur la façon de gérer vos abonnements Azure, consultez [Structure d’entreprise Azure : gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
@@ -279,5 +279,5 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la structure du fichier de modèle Resource Manager, voir [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
-* Pour obtenir des suggestions sur la création de modèles qui fonctionnent dans tous les environnements cloud Azure, voir [Développer des modèles Azure Resource Manager de cohérence du cloud](templates-cloud-consistency.md).
+* Pour plus d’informations sur la structure du fichier de modèle, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir des recommandations sur la création de modèles qui fonctionnent dans tous les environnements cloud Azure, consultez [Développer des modèles ARM pour la cohérence cloud](templates-cloud-consistency.md).

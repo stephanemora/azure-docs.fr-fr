@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 8f2de656473d52c7a40bef83237bf2aed563e111
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 73b958149d9d6d907785fe1c2c56b8198bb91f70
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566163"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351106"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux
 
@@ -27,14 +27,14 @@ ms.locfileid: "77566163"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -86,15 +86,10 @@ Pour obtenir une haute disponibilité, SAP NetWeaver nécessite stockage partag�
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. Nous vous recommandons d’utiliser [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
 
-> [!IMPORTANT]
-> Le clustering multi-SID de SAP ASC/ERS avec Red Hat Linux comme système d’exploitation invité des machines virtuelles Azure n’est **PAS pris en charge**. Le clustering multi-SID décrit l’installation de plusieurs instances de SAP ASCS/ERS avec des SID différents dans un cluster Pacemaker.
-
 ### <a name="ascs"></a>(A)SCS
 
 * Configuration du frontend
   * Adresse IP : 10.0.0.7
-* Configuration du backend
-  * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
   * Port 620<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
@@ -112,8 +107,6 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 
 * Configuration du frontend
   * Adresse IP : 10.0.0.8
-* Configuration du backend
-  * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
   * Port 621<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
@@ -124,6 +117,9 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
     * TCP 5<strong>&lt;nr&gt;</strong>13
     * TCP 5<strong>&lt;nr&gt;</strong>14
     * TCP 5<strong>&lt;nr&gt;</strong>16
+
+* Configuration du backend
+  * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 
 ## <a name="setting-up-glusterfs"></a>Configuration de GlusterFS
 
@@ -158,7 +154,7 @@ La Place de marché Azure contient une image de Red Hat Enterprise Linux que vou
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Déployer manuellement Linux via le portail Azure
 
-Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la suite, vous créez un équilibreur de charge et utilisez les machines virtuelles dans les pools principaux.
+Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la suite, vous créez un équilibreur de charge et utilisez les machines virtuelles dans le pool de back-ends.
 
 1. Création d’un groupe de ressources
 1. Création d'un réseau virtuel
@@ -180,17 +176,14 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
          1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.7**)
          1. Cliquez sur OK
       1. Adresse IP 10.0.0.8 pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple **10.0.0.8** et **nw1-aers-backend**)
-   1. Créer les pools principaux
-      1. Créer un pool principal pour l’instance ASCS
-         1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-         1. Entrer le nom du nouveau pool principal (par exemple **nw1-ascs-backend**)
-         1. Cliquer sur Ajouter une machine virtuelle
-         1. Sélectionnez une machine virtuelle.
-         1. Sélectionnez les machines virtuelles du cluster (A)SCS et leurs adresses IP.
-         1. Cliquez sur Ajouter.
-      1. Créer un pool principal pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour créer un pool principal pour l’instance ERS (par exemple **nw1-aers-backend**)
+         * Répétez les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple, **10.0.0.8** et **nw1-aers-frontend**)
+   1. Créer le pool principal
+      1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
+      1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
+      1. Cliquer sur Ajouter une machine virtuelle
+      1. Sélectionnez une machine virtuelle.
+      1. Sélectionnez les machines virtuelles du cluster (A)SCS et leurs adresses IP.
+      1. Cliquez sur Ajouter.
    1. Créer les sondes d’intégrité
       1. Port 620**00** pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
@@ -203,7 +196,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
       1. Règles d’équilibreur de charge pour ASCS
          1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
          1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-ascs**)
-         1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-ascs-frontend**, **nw1-ascs-backend** et **nw1-ascs-hp**)
+         1. Sélectionnez l’adresse IP du front-end, le pool de back-ends et la sonde d’intégrité créée précédemment (par exemple, **nw1-ascs-frontend**, **nw1-backend** et **nw1-ascs-hp**)
          1. Sélectionnez **Ports haute disponibilité**
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
@@ -217,17 +210,14 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
          1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.7**)
          1. Cliquez sur OK
       1. Adresse IP 10.0.0.8 pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple **10.0.0.8** et **nw1-aers-backend**)
-   1. Créer les pools principaux
-      1. Créer un pool principal pour l’instance ASCS
-         1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-         1. Entrer le nom du nouveau pool principal (par exemple **nw1-ascs-backend**)
-         1. Cliquer sur Ajouter une machine virtuelle
-         1. Sélectionner le groupe à haute disponibilité créé précédemment
-         1. Sélectionner les machines virtuelles du cluster (A)SCS
-         1. Cliquez sur OK
-      1. Créer un pool principal pour les instances ASCS ERS
-         * Répéter les étapes ci-dessus pour créer un pool principal pour l’instance ERS (par exemple **nw1-aers-backend**)
+         * Répétez les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple, **10.0.0.8** et **nw1-aers-frontend**)
+   1. Créer le pool principal
+      1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
+      1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
+      1. Cliquer sur Ajouter une machine virtuelle
+      1. Sélectionner le groupe à haute disponibilité créé précédemment
+      1. Sélectionner les machines virtuelles du cluster (A)SCS
+      1. Cliquez sur OK
    1. Créer les sondes d’intégrité
       1. Port 620**00** pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
@@ -639,7 +629,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo firewall-cmd --zone=public --add-port=5<b>02</b>16/tcp
    </code></pre>
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Préparation du serveur d’applications SAP NetWeaver
+## <a name="sap-netweaver-application-server-preparation"></a><a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Préparation du serveur d’applications SAP NetWeaver
 
 Certaines bases de données exigent que l’installation de l’instance de base de données soit exécutée sur un serveur d’applications. Préparez les machines virtuelles de serveur d’applications pour pouvoir les utiliser dans ce cas de figure.
 
@@ -1053,6 +1043,7 @@ Suivez ces étapes pour installer un serveur d’applications SAP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Guide de haute disponibilité pour SAP NW sur les machines virtuelles Azure sur RHEL pour les applications SAP multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 * [Planification et implémentation de machines virtuelles Azure pour SAP][planning-guide]
 * [Déploiement de machines virtuelles Azure pour SAP][deployment-guide]
 * [Déploiement SGBD de machines virtuelles Azure pour SAP][dbms-guide]

@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273769"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298819"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
 
@@ -102,7 +102,7 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 <sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
 
 > [!IMPORTANT]
-> Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
+> Vérifiez que le pare-feu ne modifie ou ne déchiffre pas le trafic TLS entre l’appareil StorSimple et Azure.
 > 
 > 
 

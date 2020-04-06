@@ -6,13 +6,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: f061f9cc6d3f03acf01995e2632b229aaea5ab8f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 26a6ac4412f1dff450cc087382dc9b0fce443f0b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772860"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532193"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Gestion des erreurs de connectivité temporaires pour la base de données Azure Database pour MariaDB
 
@@ -36,7 +36,7 @@ Le premier et le deuxième cas sont assez simples à gérer. Essayez d’ouvrir 
 * Pour chaque nouvelle tentative suivante, augmentez l’attente de façon exponentielle, jusqu’à 60 secondes.
 * Définissez un nombre maximal de tentatives au-delà duquel votre application considère que l’opération a échoué.
 
-Lorsqu’une connexion échoue avec une transaction active, il est plus difficile de gérer correctement la récupération. Il existe deux cas : Si la transaction était en lecture seule par nature, vous pouvez rouvrir la connexion et relancer la transaction. Toutefois, si la transaction a également été écrite dans la base de données, vous devez déterminer si la transaction a été annulée ou si elle a réussi avant que l’erreur temporaire se produise. Dans ce cas, il se peut que vous n’ayez tout simplement pas reçu l’accusé de réception de validation du serveur de base de données.
+Lorsqu’une connexion échoue avec une transaction active, il est plus difficile de gérer correctement la récupération. Il existe deux cas : Si la transaction était en lecture seule par nature, vous pouvez rouvrir la connexion et relancer la transaction. Toutefois, si la transaction a également été écrite dans la base de données, vous devez déterminer si la transaction a été annulée ou si elle a réussi avant que l’erreur temporaire se produise. Dans ce cas, vous n’avez peut-être pas reçu l’accusé de réception de validation du serveur de base de données.
 
 Une façon d’y remédier est de générer un identifiant unique sur le client qui est utilisé pour toutes les tentatives. Vous transmettez cet ID unique dans le cadre de la transaction au serveur et vous le stockez dans une colonne avec une contrainte unique. Ainsi, vous pouvez retenter la transaction en toute sécurité. Elle aboutit si la transaction précédente a été restaurée et que l’ID unique généré par le client n’existe pas encore dans le système. Elle échoue et indique une violation de clé en double si l’ID unique a été précédemment stocké, car la transaction précédente s’est correctement terminée.
 

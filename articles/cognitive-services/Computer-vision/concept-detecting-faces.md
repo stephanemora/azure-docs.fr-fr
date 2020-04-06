@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945243"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244698"
 ---
 # <a name="face-detection-with-computer-vision"></a>Détection des visages avec Vision par ordinateur
 
@@ -111,6 +111,9 @@ L'exemple suivant montre la réponse JSON renvoyée pour une image contenant plu
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="use-the-api"></a>Utilisation de l’API
 
-Consultez la documentation de référence [Analyser l'image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pour en savoir plus sur l’utilisation de la fonctionnalité de détection des visages.
+La fonctionnalité de détection des visages fait partie de l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Incluez `Faces` dans le paramètre de requête **visualFeatures**. Ensuite, lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"faces"`.
+
+* [Démarrage rapide : SDK .NET Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

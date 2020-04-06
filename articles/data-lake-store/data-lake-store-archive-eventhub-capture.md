@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879525"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231525"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Utiliser Azure Data Lake Storage Gen1 pour capturer des données Event Hubs
 
@@ -47,11 +47,11 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
 
     a. Cliquez sur **Explorateur de données**, sélectionnez la racine du compte Data Lake Storage Gen1, puis cliquez sur **Accès**.
 
-    ![Affecter des autorisations pour la racine de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Affecter des autorisations pour la racine de Data Lake Storage Gen1")
+    ![Attribuer des autorisations à la racine de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Attribuer des autorisations à la racine de Data Lake Storage Gen1")
 
     b. Sous **Accès**, cliquez sur **Ajouter**, cliquez sur **Sélectionner un utilisateur ou un groupe**, puis recherchez `Microsoft.EventHubs`. 
 
-    ![Affecter des autorisations pour la racine de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Affecter des autorisations pour la racine de Data Lake Storage Gen1")
+    ![Attribuer des autorisations à la racine de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Attribuer des autorisations à la racine de Data Lake Storage Gen1")
     
     Cliquez sur **Sélectionner**.
 
@@ -60,7 +60,7 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
     > [!IMPORTANT]
     > Lorsque vous créez une nouvelle hiérarchie de dossiers pour la capture des données reçues par Azure Event Hubs, cela permet d’accéder facilement au dossier de destination.  Toutefois, l’ajout d’autorisations à tous les enfants d’un dossier de niveau supérieur avec de nombreux fichiers et dossiers enfants peut prendre beaucoup de temps.  Si votre dossier racine contient un grand nombre de fichiers et dossiers, il peut être plus rapide d’ajouter des autorisations **Execute** pour `Microsoft.EventHubs` individuellement dans chaque dossier dans le chemin d’accès à votre dossier de destination finale. 
 
-    ![Affecter des autorisations pour la racine de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Affecter des autorisations pour la racine de Data Lake Storage Gen1")
+    ![Attribuer des autorisations à la racine de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Attribuer des autorisations à la racine de Data Lake Storage Gen1")
 
     Cliquez sur **OK**.
 
@@ -68,17 +68,17 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
 
     a. Cliquez sur **Explorateur de données**, sélectionnez le dossier du compte Data Lake Storage Gen1, puis cliquez sur **Accès**.
 
-    ![Affecter des autorisations pour le dossier Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Affecter des autorisations pour le dossier Data Lake Storage Gen1")
+    ![Attribuer des autorisations au dossier de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Attribuer des autorisations au dossier de Data Lake Storage Gen1")
 
     b. Sous **Accès**, cliquez sur **Ajouter**, cliquez sur **Sélectionner un utilisateur ou un groupe**, puis recherchez `Microsoft.EventHubs`. 
 
-    ![Affecter des autorisations pour le dossier Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Affecter des autorisations pour le dossier Data Lake Storage Gen1")
+    ![Attribuer des autorisations au dossier de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Attribuer des autorisations au dossier de Data Lake Storage Gen1")
     
     Cliquez sur **Sélectionner**.
 
     c. Sous **Affecter des autorisations**, cliquez sur **Sélectionner des autorisations**. Définissez **Autorisations** sur **Lecture, écriture** et **exécution**. Définissez **Ajouter à** sur **Ce dossier et tous ses enfants**. Enfin, définissez **Ajouter en tant que** sur **Une entrée d’autorisation d’accès et une entrée d’autorisation par défaut**.
 
-    ![Affecter des autorisations pour le dossier Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Affecter des autorisations pour le dossier Data Lake Storage Gen1")
+    ![Attribuer des autorisations au dossier de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Attribuer des autorisations au dossier de Data Lake Storage Gen1")
     
     Cliquez sur **OK**. 
 
@@ -88,11 +88,11 @@ Dans cette section, vous allez créer un Event Hub dans un espace de noms Event 
 
 1. Dans le volet **Vue d’ensemble** de l’espace de noms Event Hubs, cliquez sur **+ Event Hub**.
 
-    ![Créer un Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Créer un Event Hub")
+    ![Créer un hub d’événements](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Créer un hub d’événements")
 
 1. Fournissez les valeurs suivantes pour configurer Event Hubs de manière à capturer des données et à les envoyer vers Data Lake Storage Gen1.
 
-    ![Créer un Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Créer un Event Hub")
+    ![Créer un hub d’événements](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Créer un hub d’événements")
 
     a. Donnez un nom à l’Event Hub.
     

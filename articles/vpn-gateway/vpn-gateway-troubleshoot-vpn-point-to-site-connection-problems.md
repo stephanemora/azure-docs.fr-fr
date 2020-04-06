@@ -6,14 +6,14 @@ services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/30/2019
+ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 2c5e8b344cad6928ee586dc5a5b69095f0b14552
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 119f9c28b5413b8d2db5fa14ea839d1743f3d64a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863646"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297625"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -27,7 +27,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 **Impossible de trouver un certificat qui peut être utilisé avec le protocole EAP (Extensible Authentication Protocol). (Erreur 798)**
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème se produit si le certificat client est absent de **Certificats - Utilisateur actuel\Personnel\Certificats**.
 
@@ -39,7 +39,7 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
 
 2. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Location |
+    | Certificat | Emplacement |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | AzureRoot.cer    | Ordinateur local\Autorités de certification racines de confiance|
@@ -59,7 +59,7 @@ Lorsque vous essayez de vous connecter à une passerelle de réseau virtuel Azur
 
 **La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie parce que le serveur distant ne répond pas**
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
  
  Ce problème se produit lorsqu’une version de Windows ne prend pas en charge la fragmentation IKE.
  
@@ -88,7 +88,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 **Le message reçu était inattendu ou formaté de façon incorrecte. (Erreur 0x80090326)**
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème se produit si l’une des conditions suivantes est vraie :
 
@@ -115,7 +115,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 1. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Location |
+    | Certificat | Emplacement |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
@@ -131,7 +131,7 @@ Vous recevez le message d’erreur suivant :
 
 **Erreur de téléchargement du fichier. L’URI cible n’est pas spécifié.**
 
-### <a name="cause"></a>Cause : 
+### <a name="cause"></a>Cause 
 
 Ce problème se produit lorsque le type de passerelle est incorrecte. 
 
@@ -147,7 +147,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 **Échec du script personnalisé (pour mettre à jour votre table de routage) (Erreur 8007026f)**
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème peut se produire si vous essayez d’ouvrir la connexion VPN de point à site à l’aide d’un raccourci.
 
@@ -157,7 +157,7 @@ Ouvrez directement le package VPN au lieu de l’ouvrir à partir d’un raccour
 
 ## <a name="cannot-install-the-vpn-client"></a>Impossible d’installer le client VPN
 
-### <a name="cause"></a>Cause : 
+### <a name="cause"></a>Cause 
 
 Afin de faire confiance à la passerelle VPN pour votre réseau virtuel, un certificat supplémentaire est nécessaire. Le certificat est inclus dans le package de configuration du client VPN, généré à partir du portail Azure.
 
@@ -180,7 +180,7 @@ Lorsque vous essayez d’enregistrer les modifications apportées à la passerel
 
 **Échec de l’enregistrement de la passerelle de réseau virtuel &lt;*nom de la passerelle*&gt;. Les données du certificat &lt;*ID de certificat*&gt; ne sont pas valides.**
 
-### <a name="cause"></a>Cause : 
+### <a name="cause"></a>Cause 
 
 Ce problème peut se produire si la clé publique de certificat racine que vous avez téléchargée contient un caractère non valide, comme un espace.
 
@@ -215,7 +215,7 @@ Lorsque vous essayez d’enregistrer les modifications apportées à la passerel
 
 **Échec de l’enregistrement de la passerelle de réseau virtuel &lt;*nom de la passerelle*&gt;. Le nom de la ressource &lt;*nom du certificat à télécharger*&gt; n’est pas valide**.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème se produit car le nom du certificat contient un caractère non valide, comme un espace. 
 
@@ -233,7 +233,7 @@ Cette erreur peut être due à un problème réseau temporaire. Patientez quelqu
 
 ## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Mise à niveau de la passerelle VPN Azure : aucun client point à site ne peut se connecter
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Si le certificat a atteint plus de 50 % de sa durée de vie, il est restauré.
 
@@ -251,7 +251,7 @@ Le nombre de connexions maximal est atteint. Vous pouvez voir le nombre total de
 
 Le client VPN s’est connecté au réseau virtuel Azure. Toutefois, le client ne peut pas accéder aux partages réseau.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le protocole SMB est utilisé pour l’accès au partage de fichiers. Au moment où la connexion est établie, le client VPN ajoute les informations d’identification de la session et l’échec se produit. Une fois la connexion établie, le client est forcé d’utiliser les informations d’identification en cache pour l’authentification Kerberos. Ce processus lance les requêtes sur le centre de distribution de clés (un contrôleur de domaine) afin d’obtenir un jeton. Étant donné que le client se connecte à partir d’Internet, il n’est peut-être pas en mesure d’atteindre le contrôleur de domaine. Par conséquent, le client ne peut pas basculer de Kerberos à NTLM. 
 
@@ -280,7 +280,7 @@ Pour résoudre le problème, supprimez les anciens fichiers de configuration du 
 
 Lorsque le client se connecte à Azure à l’aide d’une connexion VPN de point à site, il ne peut pas résoudre le nom de domaine complet des ressources de votre domaine local.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le client VPN de point à site utilise des serveurs Azure DNS configurés dans le réseau virtuel Azure. Les serveurs Azure DNS sont prioritaires sur les serveurs DNS locaux qui sont configurés dans le client, de sorte que toutes les requêtes DNS sont envoyées aux serveurs Azure DNS. Si les serveurs Azure DNS ne disposent pas des enregistrements pour les ressources locales, la requête échoue.
 
@@ -290,7 +290,7 @@ Pour résoudre le problème, assurez-vous que les serveurs Azure DNS utilisés s
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>La connexion VPN de point à site est établie, mais vous ne pouvez toujours pas vous connecter aux ressources Azure 
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème peut se produire si le client VPN n’obtient pas les itinéraires à partir de la passerelle VPN Azure.
 
@@ -309,7 +309,7 @@ Vérifiez les paramètres du serveur proxy, assurez-vous que le client peut acc�
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Erreur du client VPN : la connexion a été empêchée en raison d’une stratégie configurée sur votre serveur RAS/VPN. (Erreur 812)
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Cette erreur se produit si le serveur RADIUS utilisé pour l’authentification du client VPN comporte des paramètres incorrects ou si Azure ne parvient pas à contacter le serveur Radius.
 
@@ -319,13 +319,13 @@ Assurez-vous que le serveur RADIUS est configuré correctement. Pour plus d’in
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>« Erreur 405 » lorsque vous téléchargez le certificat racine à partir de la passerelle VPN
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le certificat racine n’a pas été installé. Le certificat racine est installé dans le magasin **Certificats de confiance** du client.
 
 ## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Erreur du client VPN : la connexion à distance n’a pas été établie car les tunnels VPN essayés ont échoué. (Erreur 800) 
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le pilote de carte d’interface réseau est obsolète.
 
@@ -339,9 +339,22 @@ Mettre à jour le pilote de carte d’interface réseau :
 4. Si Windows ne trouve pas de nouveau pilote, recherchez-en un sur le site Web du fabricant de l’appareil et suivez ses instructions.
 5. Redémarrez l’ordinateur et réessayez de vous connecter.
 
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Erreur du client VPN : Numérotation de la connexion VPN <VPN Connection Name>, Status = La plateforme VPN n’a pas déclenché la connexion
+
+Vous pouvez également voir l’erreur suivante dans l’observateur d’événements à partir de RasClient : « L’utilisateur <User> a composé le numéro de la connexion <VPN Connection Name>. La connexion a échoué. Code d’erreur retourné : 1460. »
+
+### <a name="cause"></a>Cause
+
+Azure VPN Client ne dispose pas de l’autorisation d’application « Applications en arrière-plan » activée dans les paramètres d’application pour Windows.
+
+### <a name="solution"></a>Solution
+
+1. Dans Windows, accédez à Paramètres -> Confidentialité -> Applications en arrière-plan
+2. Basculer l’option « Autoriser les applications à s’exécuter en arrière-plan » sur Activé
+
 ## <a name="error-file-download-error-target-uri-is-not-specified"></a>Erreur : « Erreur de téléchargement du fichier. L’URI cible n’est pas spécifiée »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le type de passerelle configuré est incorrect.
 
@@ -351,7 +364,7 @@ Le type de passerelle VPN Azure doit être défini sur la valeur VPN, tandis que
 
 ## <a name="vpn-package-installer-doesnt-complete"></a>L’installation du package VPN ne se termine pas
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème peut être provoqué par des installations précédentes du client VPN. 
 

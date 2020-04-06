@@ -6,20 +6,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/25/2020
 ms.author: memildin
-ms.openlocfilehash: 34dbace304ccf70891ef53dd768de60d87e26967
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: c709890ae6c57a001c6a0e9df4e973bd3bd24602
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666633"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258258"
 ---
-# <a name="using-custom-security-policies-preview"></a>Utilisation de stratégies de sécurité personnalisées (préversion)
+# <a name="using-custom-security-policies"></a>Utilisation de stratégies de sécurité personnalisées
 
 Pour vous aider à sécuriser vos systèmes et votre environnement, Azure Security Center génère des recommandations de sécurité. Ces recommandations sont basées sur les meilleures pratiques du secteur, qui sont incorporées à la stratégie de sécurité par défaut générique fournie à tous les clients. Elles peuvent également provenir des connaissances que Security Center a des normes et réglementations du secteur.
 
-Avec cette fonctionnalité en préversion, vous pouvez ajouter vos propres initiatives *personnalisées*. Vous recevez ensuite des recommandations si votre environnement ne suit pas les stratégies que vous créez. Toutes les initiatives personnalisées que vous créez apparaîtront à côté des initiatives intégrées dans le tableau de bord de conformité à la réglementation décrit dans le tutoriel [Améliorer votre conformité aux normes](security-center-compliance-dashboard.md).
+Avec cette fonctionnalité, vous pouvez ajouter vos propres initiatives *personnalisées*. Vous recevez ensuite des recommandations si votre environnement ne suit pas les stratégies que vous créez. Toutes les initiatives personnalisées que vous créez apparaîtront à côté des initiatives intégrées dans le tableau de bord de conformité à la réglementation décrit dans le tutoriel [Améliorer votre conformité aux normes](security-center-compliance-dashboard.md).
 
 Comme nous l’avons vu [ici](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) dans la documentation Azure Policy, quand vous spécifiez un emplacement pour votre initiative personnalisée, il doit correspondre à un groupe d’administration ou à un abonnement. 
 
@@ -36,7 +36,7 @@ Comme nous l’avons vu [ici](https://docs.microsoft.com/azure/governance/policy
     >
     > Lorsque vous ajoutez une norme personnalisée, elle attribue une *initiative* à cette étendue. Nous vous recommandons donc de sélectionner l’étendue la plus vaste requise pour cette attribution.
 
-1. Dans la page Stratégie de sécurité, sous vos initiatives personnalisées (préversion), cliquez sur **Ajouter une initiative personnalisée**.
+1. Dans la page Stratégie de sécurité, sous vos initiatives personnalisées, cliquez sur **Ajouter une initiative personnalisée**.
 
     [![Cliquez sur *Ajouter une initiative personnalisée*](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 

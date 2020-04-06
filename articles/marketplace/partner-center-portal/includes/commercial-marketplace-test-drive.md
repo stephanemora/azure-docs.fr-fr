@@ -1,26 +1,20 @@
 ---
-title: Fichier Include
-description: Fichier Include
-services: commercial marketplace
+title: Fichier include
+description: Fichier include
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-manager: evansma
-editor: ''
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 08/13/2019
-ms.author: v-qiwe
+ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 831e3330126d82795cece128c28cb96b7199d69a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f2446a924ceed37c51779efc9d9e94c0252a2067
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825526"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80321775"
 ---
 L’onglet **Version d’évaluation** vous permet de configurer une démonstration (ou « version d’évaluation ») qui permettra à des clients d’essayer votre offre avant de s’engager et l’acheter. Pour en savoir, consultez l’article [Qu’est-ce qu’une version d’évaluation ?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Si vous ne souhaitez plus fournir une version d’évaluation de votre offre, retournez sur la page **Configuration de l’offr** et décochez **Activer la version d’évaluation**.
 
@@ -56,9 +50,9 @@ Microsoft peut retirer la complexité de la configuration d’une version d’é
 
 - **Durée d’une version d’évaluation** (obligatoire) : Saisissez la durée d’activité de la version d’évaluation, en indiquant le nombre d’heures. Passée cette durée, la session prendra fin et aucune de vos licences ne sera plus utilisée. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Vous ne pouvez définir la durée qu’en nombre d’heures complètes (par exemple, « 2 » heures ; « 1,5 » n’est pas valide).  L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
 
-- **URL de l’instance** (obligatoire) : L’URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés (par exemple, https://testdrive.crm.dynamics.com) ).
+- **URL de l’instance** (obligatoire) : L’URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 exécutant votre application et où les exemples de données sont installés (par exemple `https://testdrive.crm.dynamics.com`).
 
-- **URL d’API web de l’instance** (obligatoire): Récupérez l’URL d’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en allant dans **Paramètres** \&gt; **Personnalisation** \&gt; **Ressources développeur** \&gt; **API web de l’instance (URL racine de service)** , copiez l’URL trouvée ici (par exemple, https://testdrive.crm.dynamics.com/api/data/v9.0) ).
+- **URL d’API web de l’instance** (obligatoire): Récupérez l’URL de l’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en accédant à **Paramètres** \&gt; **Personnalisation** \&gt; **Ressources développeur** \&gt; **API web de l’instance (URL racine du service)** , et copiez l’URL trouvée ici (par exemple `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Nom de rôle** (obligatoire).: Renseignez le nom du rôle de sécurité que vous avez défini dans votre version d’évaluation personnalisée de Dynamics 365. Il sera attribué à l’utilisateur lors de la version d’évaluation (par exemple, test-drive-role).
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 640900458eccc36afe58cb148ffd7b94b43be879
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 75890efebc42b74c56fb95ed1803152b516588b9
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934913"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385212"
 ---
 # <a name="develop-a-secure-web-app"></a>Développer une application web sécurisée
 
@@ -46,6 +46,7 @@ Après avoir développé et déployé cette application, vous aurez configuré l
 ![Exemple d’application web](./media/secure-web-app/demo-app.png)
 
 ## <a name="architecture"></a>Architecture
+
 L’application est une application multiniveau type présentant trois niveaux. Le serveur frontal, le back end et la couche de base de données avec composants de surveillance et de gestion des secrets intégrés sont présentés ici :
 
 ![Architecture d’application](./media/secure-web-app/architecture.png)
@@ -59,6 +60,7 @@ L’architecture est constituée des composants suivants :
 - [Azure Security Center](../../security-center/index.yml) et [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Fournit une surveillance et des alertes sur le fonctionnement de l'application.
 
 ## <a name="threat-model"></a>Modèle de menace
+
 La modélisation des menaces est le processus d’identification des menaces de sécurité potentielles pour votre entreprise et votre application, puis de vérification qu'un plan d'atténuation approprié, est en place.
 
 Cet exemple a utilisé [Microsoft Threat Modeling Tool](threat-modeling-tool.md) pour implémenter la modélisation des menaces pour l’exemple d’application sécurisée. En reconstituant les composants et les flux de données, vous pouvez identifier les problèmes et menaces dès le début du processus de développement. Cela permet d’économiser ensuite du temps et de l’argent.
@@ -76,6 +78,7 @@ Par exemple, l’injection de code SQL dans la sortie du modèle de menace préc
 Les développeurs améliorent la sécurité globale du système en atténuant chacune des menaces dans la sortie du modèle de menace.
 
 ## <a name="deployment"></a>Déploiement
+
 Les options suivantes vous permettent d’exécuter Linux sur Azure App Service :
 
 - Choisissez un conteneur dans la liste des conteneurs Microsoft prédéfinis sur Azure et créés avec des technologies prises en charge (Python, Ruby, PHP, Java, Node.js, .NET Core).
@@ -91,7 +94,7 @@ Il existe de nombreuses manières de déployer des applications sur Azure, notam
 
 - Modèles Microsoft Azure Resource Manager
 - PowerShell
-- D’Azure CLI
+- Azure CLI
 - Portail Azure
 - Azure DevOps
 
@@ -104,6 +107,7 @@ Cette application a utilisé :
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 
 ### <a name="network"></a>Réseau
+
 L’exemple d’application utilise le chiffrement SSL de bout en bout pour le flux de données en transit vers et depuis le réseau. La passerelle est configurée avec un certificat auto-signé.
 > [!IMPORTANT]
 > Un certificat auto-signé est utilisé dans cette démonstration. Dans un environnement de production, vous devez obtenir les certificats auprès d’une autorité de certification vérifiée(CA).
@@ -112,6 +116,7 @@ Le pare-feu d’application inspecte également le trafic entrant et avertit les
 Application Gateway atténue les possibles menaces par déni de service distribué et injection de code SQL dans le modèle de menace.
 
 ### <a name="identity"></a>Identité
+
 Pour se connecter au portail, l’exemple d’application utilise Multi-Factor Authentication pour les administrateurs Azure Active Directory (Azure AD) qui ont accès aux ressources.
 L’exemple d’application utilise des identités managées pour être autorisée à lire et à récupérer les secrets à partir d'Azure Key Vault, ce qui lui évite de devoir recourir à des informations d’identification et jetons codés en dur. Azure AD crée automatiquement les principaux de service dont l’application a besoin pour lire et modifier les secrets lorsque des identités managées sont utilisées.
 
@@ -119,22 +124,27 @@ Grâce aux identités managées pour ressources Azure et MFA, les pirates ont pl
 L’application utilise OAuth, qui permet aux utilisateurs inscrits dans l’application OAuth de se connecter à l’application.
 
 ### <a name="storage"></a>Stockage
+
 Les données de la base de données PostgreSQL sont automatiquement chiffrées au repos par Azure Database pour PostgreSQL. La base de données autorise les adresses IP App Service. Ainsi, seule l'application web App Service déployée peut accéder aux ressources de base de données avec les informations d’identification appropriées.
 
 ### <a name="logging-and-auditing"></a>Journalisation et audit
+
 L’application implémente la journalisation à l’aide d'Application Insights pour suivre les métriques, les journaux et les exceptions qui se produisent. Cette journalisation fournit suffisamment de métadonnées d’application pour informer les développeurs et les membres de l’équipe des opérations de l’état de l’application. Elle fournit également suffisamment de données pour revenir en arrière en cas d’incidents de sécurité.
 
 ## <a name="cost-considerations"></a>Considérations relatives au coût
+
 Si vous n'avez pas encore de compte Azure, vous pouvez en créer un gratuitement. Pour commencer, accédez à la [page de compte gratuit](https://azure.microsoft.com/free/), voyez ce que vous pouvez faire avec un compte Azure gratuit et découvrez les produits gratuits pendant 12 mois.
 
 Pour déployer les ressources dans l’exemple d’application avec les fonctionnalités de sécurité, vous devez payer certaines fonctionnalités Premium. À mesure que l'application évolue et que les niveaux et essais gratuits offerts par Azure doivent être mis à niveau pour répondre aux besoins de l’application, les coûts sont susceptibles d'augmenter. Utiliser la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts.
 
 ## <a name="deploy-the-solution"></a>Déployer la solution
+
 ### <a name="prerequisites"></a>Prérequis
+
 Pour permettre le bon fonctionnement de l'application, vous devez installer les outils suivants :
 
 - Un éditeur de code pour modifier et afficher le code de l’application. [Visual Studio Code](https://code.visualstudio.com/) est une option open source.
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) sur votre ordinateur de développement.
+- [Azure CLI](/cli/azure/install-azure-cli) sur votre ordinateur de développement.
 - [Git](https://git-scm.com/) sur votre système. Git est utilisé pour cloner le code source localement.
 - [jq](https://stedolan.github.io/jq/) est un outil UNIX pour interroger JSON de manière conviviale.
 
@@ -143,22 +153,24 @@ Vous devez disposer d’un abonnement Azure pour déployer les ressources de l�
 Après avoir installé ces outils, vous êtes prêt à déployer l’application sur Azure.
 
 ### <a name="environment-setup"></a>Configuration de l’environnement
+
 Exécutez les scripts de déploiement pour configurer l’environnement et l’abonnement :
 
 1. Pour cloner le référentiel de code source, utilisez la commande git suivante :
 
-   ``` git
+   ```shell
    git clone https://github.com/Azure-Samples/sample-linux-python-app tutorial-project
    ```
+
 2. Pour vous déplacer dans le répertoire, utilisez la commande suivante :
 
-   ```
+   ```shell
    cd tutorial-project/scripts
    ```
 
-3. Le dossier des scripts contient des fichiers spécifiques à la plateforme que vous utilisez (Windows ou Linux). L'interface de ligne de commande Azure étant déjà installée, connectez-vous au compte Azure à l’invite de commandes en exécutant la commande CLI suivante :
+3. Le dossier des scripts contient des fichiers spécifiques à la plateforme que vous utilisez (Windows ou Linux). L’interface de ligne de commande Azure étant déjà installée, connectez-vous au compte Azure à l’invite de commandes en exécutant la commande Azure CLI suivante :
 
-   ``` azurecli
+   ```azurecli-interactive
    az login
    ```
 
@@ -173,6 +185,7 @@ Pour déployer la solution :
 Les exemples suivants montrent les extraits de code des composants clés. Vous pouvez déployer les exemples individuellement ou avec le reste des composants en exécutant les fichiers de déploiement.
 
 ### <a name="implementation-guidance"></a>Conseils d’implémentation
+
 Le script de déploiement peut être divisé en quatre phases. Chaque phase déploie et configure une ressource Azure présente dans le [diagramme d'architecture](#architecture).
 
 Ces quatre phases sont les suivantes :
@@ -187,6 +200,7 @@ Chaque phase s’appuie sur la précédente en utilisant la configuration des re
 Pour mener à bien la procédure d’implémentation, vérifiez que vous avez installé les outils répertoriés sous [Conditions préalables](#prerequisites).
 
 #### <a name="deploy-azure-key-vault"></a>Déployer Azure Key Vault
+
 Dans cette section, vous allez créer et déployer une instance Azure Key Vault utilisée pour stocker les secrets et certificats.
 
 Au terme du déploiement, vous disposerez d’une instance Azure Key Vault déployée sur Azure.
@@ -198,7 +212,7 @@ Pour déployer Azure Key Vault à l’aide d'Azure CLI :
 3. Créez le groupe de ressources de l'instance.
 4. Créez l’instance Azure Key Vault dans le groupe de ressources créé à l’étape 3.
 
-   ``` azurecli
+   ```powershell-interactive
 
     function Get-Hash() {
         return (New-Guid).Guid.Split('-')[4]
@@ -233,9 +247,11 @@ Pour déployer Azure Key Vault à l’aide d'Azure CLI :
        --verbose
 
    ```
+
 Il est recommandé d’utiliser des identités managées pour les ressources Azure des applications utilisant Key Vault afin d'accéder aux ressources. Votre niveau de sécurité est renforcé lorsque les clés d’accès Key Vault ne sont pas stockées dans le code ou la configuration.
 
 #### <a name="deploy-azure-database-for-postgresql"></a>Déployer Azure Database pour PostgreSQL
+
 Azure Database pour PostgreSQL fonctionne de la manière suivante ; commencez par créer le serveur de base de données, puis la base de données dans laquelle stocker le schéma et les données.
 
 Une fois le déploiement terminé, vous disposez d’un serveur et d’une base de données PostgreSQL s’exécutant sur Azure.
@@ -250,7 +266,7 @@ Pour déployer Azure Database pour PostgreSQL à l’aide d’Azure CLI :
 
 Le code ci-dessous s’appuie sur les secrets PGUSERNAME et PGPASSWORD stockés dans Azure Key Vault lors de l'étape de déploiement de KeyVault ci-dessus.
 
-   ``` azurecli
+   ```powershell-interactive
    $pgUsername = $(az keyvault secret show --name PGUSERNAME --vault-name $kvName --query value) -replace '"',''
    $pgPassword = $(az keyvault secret show --name PGPASSWORD --vault-name $kvName --query value) -replace '"',''
 
@@ -309,13 +325,13 @@ Si vous utilisez Cloud Shell plutôt que l'outil psql local, sélectionnez **Aut
 Connectez-vous ensuite à l’instance en exécutant la commande psql ci-dessous avec les paramètres de chaîne de connexion de l’onglet **Chaînes de connexion** de l’instance PostgreSQL sur le portail Azure.
 Remplacez les accolades vides par les paramètres du panneau Chaîne de connexion de la base de données et le mot de passe par le mot de passe Azure Key Vault.
 
-```sql
+```shell
 psql "host={} port=5432 dbname=hellodb user={} password=PGPASSWORD sslmode=require"
 ```
 
 Exécutez le script PL/pgSQL suivant après avoir vérifié que vous êtes bien connecté à la base de données. Le script crée les fonctions stockées utilisées pour insérer des données dans la base de données.
 
-```sql
+```shell
 CREATE OR REPLACE FUNCTION insert_visitor(country VARCHAR(40), browser VARCHAR(40), operating_system VARCHAR(40)) RETURNS void AS $$
 BEGIN
     INSERT INTO visitor(
@@ -332,7 +348,6 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
-
 CREATE OR REPLACE FUNCTION insert_azure_document(title VARCHAR(40), url VARCHAR(100), category VARCHAR(40)) RETURNS void AS $$
 BEGIN
     INSERT INTO azure_document(
@@ -348,29 +363,29 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-
-Pour plus d’informations sur la configuration de la vérification SSL et de l’autorité de certification pour PostgreSQL, consultez [Configurer la connectivité SSL dans Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
+Pour plus d’informations sur la configuration de la vérification SSL et de l’autorité de certification pour PostgreSQL, consultez [Configurer la connectivité SSL dans Azure Database pour PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
 
 Un certificat racine est inclus dans le conteneur. Pour obtenir le certificat, procédez comme suit :
 
 1. Téléchargez le fichier de certificat émis par l’[autorité de certification](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Téléchargez et installez OpenSSL sur l'ordinateur](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
+2. [Téléchargez et installez OpenSSL sur l'ordinateur](/azure/postgresql/concepts-ssl-connection-security).
 3. Décodez le fichier de certificat :
 
-   ```powershell
+   ```shell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Pour plus d’informations sur la configuration de la sécurité SSL pour PostgreSQL, consultez [Configurer la sécurité de la connexion SSL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
+Pour plus d’informations sur la configuration de la sécurité SSL pour PostgreSQL, consultez [Configurer la sécurité de la connexion SSL](/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Déployer Azure Web Apps sur Linux
+
 Vous pouvez facilement créer des services Linux sur Azure App Service car Azure fournit plusieurs conteneurs et images prédéfinis destinés aux langages courants tels que Python, Ruby, C# et Java. Azure prend également en charge les conteneurs personnalisés, qui permettent l'exécution de la plupart des langages de programmation sur la plateforme Azure App Service.
 
 L’application déployée est une application Python simple qui s’exécute sur la dernière distribution Ubuntu Linux. Elle se connecte aux instances Azure Key Vault et PostgreSQL créées dans les sections précédentes, respectivement pour la gestion des informations d’identification et le stockage des données.
 
 Le fichier Docker suivant est fourni dans le dossier racine de l’application :
 
-``` docker
+```dockerfile
 # Docker file for the basic web app
 # Using the latest Alpine Linux
 
@@ -431,7 +446,7 @@ Le code ci-dessous :
 4. Active la journalisation pour le conteneur d’application web.
 5. Définit plusieurs configurations d'application dans les paramètres d’application du conteneur.
 
-   ```
+   ```powershell-interactive
    Write-Host "Retrieving the Azure Key Vault URL"
    $kvURI = $(az keyvault show --name $kvName --query properties.vaultUri)
 
@@ -500,7 +515,6 @@ Le code ci-dessous :
            --end-ip-address $outboundIps[$i] `
            --verbose
    }
-
    ```
 
 Ce script crée une identité attribuée pour l'instance App Service et celle-ci peut être utilisée avec MSI pour interagir avec Azure Key Vault, sans coder en dur les secrets dans le code ou la configuration.
@@ -517,6 +531,7 @@ L’application devant uniquement récupérer des clés, sélectionnez l'autoris
 Enregistrez la stratégie d’accès, puis enregistrez la nouvelle modification dans l'onglet **Stratégies d'accès** pour mettre à jour les stratégies.
 
 #### <a name="deploy-application-gateway-with-web-application-firewall-enabled"></a>Déployer Application Gateway avec le pare-feu d’applications web
+
 Dans les applications web, il est déconseillé d'exposer publiquement les services sur Internet.
 L’équilibrage de charge et les règles de pare-feu offrent plus de sécurité et de contrôle sur le trafic entrant et en facilitent la gestion.
 
@@ -529,7 +544,7 @@ Pour déployer une instance Application Gateway :
 5. Approvisionnez la passerelle Application Gateway.
 6. Activez le pare-feu d’applications web sur la passerelle.
 
-   ``` azurecli
+   ```powershell-interactive
    az keyvault certificate create --vault-name $kvName `
        --name $certName `
        --policy `@policy.json `
@@ -564,7 +579,7 @@ Le script précédent :
 
 Cette section déploie la passerelle Application Gateway :
 
-```powershell
+```powershell-interactive
 # Create a virtual network required by the gateway
 Write-Host "Creating the Azure Virtual Network: $($vnetName)"
 az network vnet create --name $vnetName `
@@ -677,6 +692,7 @@ Les instances App Service peuvent être intégrées aux réseaux virtuels. Cette
    ![Intégration du nouveau réseau virtuel](./media/secure-web-app/app-vnet-menu.png)
 
     *Intégration d’un nouveau réseau virtuel pour App Service*
+
 1. Sur la page suivante, sélectionnez **Ajouter un réseau virtuel (préversion)** .
 
 1. Dans le menu suivant, sélectionnez le réseau virtuel créé lors du déploiement er commençant par `hello-vnet`. Vous pouvez créer un sous-réseau ou sélectionner un sous-réseau existant.
@@ -735,14 +751,13 @@ Une fois l'intégration au réseau virtuel activée, vous pouvez ajouter des gro
    *Ajouter une règle pour autoriser les connexions sortantes PostgreSQL*
 
 Pour limiter la surface d’attaque, modifiez les paramètres réseau App Service afin d'autoriser uniquement la passerelle Application Gateway à accéder à l’application.
-Pour ce faire, accédez à l’onglet réseau App Service, sélectionnez l'onglet **Restrictions d'adresse IP**, puis créez une règle qui autorise uniquement l’adresse IP de la passerelle Application Gateway à accéder directement au service.
+Pour ce faire, accédez à l’onglet réseau App Service, sélectionnez l’onglet **Restrictions d’adresse IP**, puis créez une règle qui autorise uniquement l’adresse IP de la passerelle d’application à accéder directement au service.
 
 Vous pouvez récupérer l’adresse IP de la passerelle à partir de sa page Vue d'ensemble. Dans l'onglet **CIDR d'adresse IP**, entrez l’adresse IP au format suivant : `<GATEWAY_IP_ADDRESS>/32`.
 
 ![Autoriser uniquement la passerelle](./media/secure-web-app/app-allow-gw-only.png)
 
 *Autoriser uniquement l’adresse IP de la passerelle à accéder à App Service*
-
 
 #### <a name="implement-azure-active-directory-oauth"></a>Implémenter OAuth Azure Active Directory
 
@@ -760,7 +775,7 @@ Dans le portail Azure, configurez l’application pour utiliser les informations
    *Créer une inscription d’application Azure AD*
 
 3. Sur la page suivante, entrez le nom de l'application. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
-    Sous **URI de redirection**, entrez le domaine de base sur lequel l’application s’exécutera, de même qu'avec le point de terminaison de jeton. Par exemple :  *GATEWAY_HASH*.cloudapp.net/token.
+    Sous **URI de redirection**, entrez le domaine de base sur lequel l’application s’exécutera, de même qu'avec le point de terminaison de jeton. Par exemple : *GATEWAY_HASH*.cloudapp.net/token.
 
    ![Configurer l’inscription d'application Azure AD](./media/secure-web-app/ad-auth-type.png)
 
@@ -813,6 +828,7 @@ Pour l’exemple d’application de base, après avoir créé l’instance Appli
 Dans Key Vault, définissez un secret `APPINSIGHTSKEY` et définissez sa valeur en tant que clé d’instrumentation. Ainsi, l'application sera autorisée à envoyer des journaux et des métriques à Application Insights.
 
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implémenter Multi-Factor Authentication pour Azure Active Directory
+
 Les administrateurs doivent s’assurer que les comptes d’abonnement du portail sont protégés. L'abonnement gérant les ressources que vous créez, il est vulnérable aux attaques. Pour protéger l’abonnement, activez Multi-Factor Authentication dans l'onglet **Azure Active Directory** correspondant.
 
 Azure AD fonctionne selon les stratégies appliquées à un utilisateur ou à des groupes d’utilisateurs répondant à certains critères.
@@ -847,8 +863,9 @@ Pour activer la stratégie, cochez la case située en haut de l'écran ou utilis
 Une stratégie de base requiert l’authentification multifacteur pour tous les administrateurs Azure. Vous pouvez l’activer immédiatement dans le portail. L’activation de cette stratégie peut invalider la session active et vous obliger à vous reconnecter.
 
 Si la stratégie de ligne de base n’est pas activée :
-1.  Sélectionnez **Demander l’authentification multifacteur pour les administrateurs**.
-2.  Sélectionnez **Utiliser la stratégie immédiatement**.
+
+1. Sélectionnez **Demander l’authentification multifacteur pour les administrateurs**.
+2. Sélectionnez **Utiliser la stratégie immédiatement**.
 
    ![Sélectionner Utiliser la stratégie immédiatement](./media/secure-web-app/ad-mfa-conditional-enable.png)
 
@@ -916,6 +933,7 @@ Pour créer cet espace de travail :
 Une fois les métriques configurées, Azure Sentinel dispose de données à analyser.
 
 ## <a name="evaluate-and-verify"></a>Évaluer et vérifier
+
 Après avoir développé et déployé l’architecture, vous devez vous assurer que le code et les services déployés répondent aux normes de sécurité. Voici quelques étapes à suivre pour vérifier le logiciel :
 
 - Analyse du code statique
@@ -925,6 +943,7 @@ Après avoir développé et déployé l’architecture, vous devez vous assurer 
 Il s’agit des blocs de construction de base relevant des meilleures pratiques en matière développement sécurisé.
 
 ### <a name="static-code-analysis"></a>Analyse du code statique
+
 Pour l’exemple d’application, une vérification avec les outils d'analyse statique consiste à détecter les vulnérabilités du code d'application à l’aide de techniques telles que la vérification de teinte et l'analyse de flux de données. Les outils d’analyse statique Python vous rassurent sur le fait que votre application est sécurisée.
 
 **Linting**
@@ -950,6 +969,7 @@ Après avoir corrigé certaines erreurs de code détectées par les outils de li
 *Après PyLint*
 
 ### <a name="vulnerability-scanning"></a>Analyse des vulnérabilités
+
 L'outil [ZAP d'OWASP](https://www.zaproxy.org/) est un analyseur de vulnérabilité destiné aux applications web open source que vous pouvez utiliser pour rechercher des vulnérabilités dans l'exemple d'application. L’exécution de cet outil sur l’exemple d’application révèle de possibles erreurs et vecteurs d’attaque.
 
 ![Outil ZAP](./media/secure-web-app/zap-tool.png)
@@ -957,6 +977,7 @@ L'outil [ZAP d'OWASP](https://www.zaproxy.org/) est un analyseur de vulnérabili
 *Outil ZAP*
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Rechercher et corriger les vulnérabilités dans les dépendances d’application
+
 Pour rechercher et corriger les dépendances d'application, vous pouvez utiliser l'outil [Vérification de dépendance OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
 
 Safety est une application similaire qui vérifie les dépendances. Elle est disponible sur [GitHub](https://github.com/pyupio/safety). Safety analyse les vulnérabilités détectées par rapport à des bases de données de vulnérabilités bien connues.
@@ -966,6 +987,7 @@ Safety est une application similaire qui vérifie les dépendances. Elle est dis
 *Safety*
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Les articles suivants peuvent vous aider à concevoir, développer et déployer des applications sécurisées.
 
 - [Conception](secure-design.md)

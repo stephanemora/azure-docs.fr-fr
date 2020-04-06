@@ -3,16 +3,16 @@ title: Fonctions et déploiement du modèle
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des informations de déploiement.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 86a1d3d7e05fedacd7a3c044ecab241ca9d059c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78354930"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156325"
 ---
-# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
+# <a name="deployment-functions-for-arm-templates"></a>Fonctions de déploiement pour les modèles ARM 
 
-Resource Manager offre les fonctions ci-après pour l’obtention de valeurs associées au déploiement actuel :
+Resource Manager fournit les fonctions suivantes pour obtenir des valeurs liées au déploiement actuel de votre modèle Azure Resource Manager (ARM) :
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -392,7 +392,7 @@ En général, vous utilisez les variables pour simplifier votre modèle en créa
         "var4": {
             "property1": "value1",
             "property2": "value2"
-        }
+          }
     },
     "resources": [],
     "outputs": {

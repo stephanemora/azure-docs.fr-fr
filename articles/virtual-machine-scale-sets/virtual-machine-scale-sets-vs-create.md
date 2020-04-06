@@ -1,7 +1,7 @@
 ---
 title: Déployer un jeu de mise à l’échelle de machines virtuelles à l’aide de Visual Studio
 description: Déployer des jeux de mise à l'échelle de machines virtuelles à l'aide de Visual Studio et d’un modèle Resource Manager
-ms.custom: H1Hack27Feb2017
+ms.custom: vs-azure, H1Hack27Feb2017
 ms.workload: azure-vs
 author: mayanknayar
 tags: azure-resource-manager
@@ -10,12 +10,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: manayar
-ms.openlocfilehash: 0d0dc3fbb7e48b1f7e6936cfb65473dba882b776
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c49b4f42bc726c68880bdd4d6f58956936e83177
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274236"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066973"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Création d’un jeu de mise à l’échelle de machines virtuelles avec Visual Studio
 
@@ -25,7 +25,7 @@ Les [groupes de machines virtuelles identiques Azure](https://azure.microsoft.co
 
 Les déploiements de groupe de ressources Azure vous permettent de regrouper et de publier un ensemble de ressources Azure connexes dans une même opération de déploiement. Pour plus d’informations, voir [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer le déploiement de groupes de machines virtuelles identiques dans Visual Studio, les conditions préalables suivantes doivent être réunies :
 
@@ -35,7 +35,7 @@ Pour commencer le déploiement de groupes de machines virtuelles identiques dans
 >[!NOTE]
 >Cet article utilise Visual Studio 2019 avec le [Kit de développement logiciel (SDK) Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-## Créer un projet <a name="creating-a-project"></a> 
+## <a name="create-a-project"></a>Créer un projet <a name="creating-a-project"></a> 
 
 1. Ouvrez Visual Studio et sélectionnez **Créer un projet**.
 
@@ -83,7 +83,7 @@ Déployez le modèle Azure Resource Manager pour créer la ressource du groupe d
 
    ![La sortie affiche les résultats](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
-## Explorer de votre groupe de machines virtuelles identiques <a name="exploring-your-virtual-machine-scale-set"></a>
+## <a name="explore-your-virtual-machine-scale-set"></a>Explorer de votre groupe de machines virtuelles identiques <a name="exploring-your-virtual-machine-scale-set"></a>
 
 Sélectionnez **Afficher** > **Cloud Explorer** pour afficher le nouveau groupe de machines virtuelles identiques. Si nécessaire, utilisez **Actualiser tout**.
 
@@ -95,4 +95,4 @@ Sélectionnez **Afficher** > **Cloud Explorer** pour afficher le nouveau groupe 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois les groupes de machines virtuelles identiques déployés avec succès via Visual Studio, vous pouvez personnaliser davantage votre projet en fonction des besoins de votre application. Par exemple, configurez la mise à l’échelle automatique en ajoutant une ressource **Insights**. Vous pouvez ajouter à votre modèle une infrastructure telle que des machines virtuelles autonomes, ou déployer des applications à l’aide de l’extension de script personnalisé. Vous trouverez de bons exemples de modèles dans le dépôt GitHub [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) (Modèles de démarrage rapide Azure). Recherchez `vmss`.
+Une fois que vous avez réussi à déployer Virtual Machine Scale Sets via Visual Studio, vous pouvez encore personnaliser votre projet pour répondre aux besoins de votre application. Par exemple, configurez la mise à l’échelle automatique en ajoutant une ressource **Insights**. Vous pouvez ajouter à votre modèle une infrastructure telle que des machines virtuelles autonomes, ou déployer des applications à l’aide de l’extension de script personnalisé. Vous trouverez de bons exemples de modèles dans le dépôt GitHub [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) (Modèles de démarrage rapide Azure). Recherchez `vmss`.

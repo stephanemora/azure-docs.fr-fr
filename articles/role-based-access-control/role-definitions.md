@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e4e4ac1b0a867130dd7b9e276db52e1ca1e72976
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981013"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062144"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Comprendre les définitions de rôle relatives aux ressources Azure
 
@@ -176,13 +176,14 @@ Pour afficher et utiliser les opérations de données dans l’API REST, vous de
 
 L’autorisation `Actions` spécifie les opérations d’administration que le rôle autorise. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Voici quelques exemples d’opérations de gestion qui peuvent être utilisées dans `Actions`.
 
-| Chaîne d’opération    | Description         |
-| ------------------- | ------------------- |
-| `*/read` | Accorde l’accès aux opérations de lecture pour tous les types de ressources de l’ensemble des fournisseurs de ressources Azure.|
-| `Microsoft.Compute/*` | Accorde l’accès à l’ensemble des opérations pour tous les types de ressources dans le fournisseur de ressources Microsoft.Compute.|
-| `Microsoft.Network/*/read` | Accorde l’accès aux opérations de lecture pour tous les types de ressources dans le fournisseur de ressources Microsoft.Network d’Azure.|
-| `Microsoft.Compute/virtualMachines/*` | Accorde l’accès à toutes les opérations des machines virtuelles et à leurs types de ressources enfants.|
-| `microsoft.web/sites/restart/Action` | Accorde l’accès au redémarrage d’une application web.|
+> [!div class="mx-tableFixed"]
+> | Chaîne d’opération    | Description         |
+> | ------------------- | ------------------- |
+> | `*/read` | Accorde l’accès aux opérations de lecture pour tous les types de ressources de l’ensemble des fournisseurs de ressources Azure.|
+> | `Microsoft.Compute/*` | Accorde l’accès à l’ensemble des opérations pour tous les types de ressources dans le fournisseur de ressources Microsoft.Compute.|
+> | `Microsoft.Network/*/read` | Accorde l’accès aux opérations de lecture pour tous les types de ressources dans le fournisseur de ressources Microsoft.Network d’Azure.|
+> | `Microsoft.Compute/virtualMachines/*` | Accorde l’accès à toutes les opérations des machines virtuelles et à leurs types de ressources enfants.|
+> | `microsoft.web/sites/restart/Action` | Accorde l’accès au redémarrage d’une application web.|
 
 ## <a name="notactions"></a>NotActions
 
@@ -196,12 +197,13 @@ L’autorisation `NotActions` spécifie les opérations de gestion qui sont excl
 
 L’autorisation `DataActions` spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données blob d’un compte de stockage, il peut lire les objets blob de ce compte de stockage. Voici quelques exemples d’opérations sur les données qui peuvent être utilisées dans `DataActions`.
 
-| Chaîne d’opération    | Description         |
-| ------------------- | ------------------- |
-| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Retourne un objet blob ou une liste d'objets blob. |
-| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Retourne le résultat de l'écriture d'un objet blob. |
-| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Retourne un message. |
-| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Retourne un message ou le résultat de l’écriture ou de la suppression d’un message. |
+> [!div class="mx-tableFixed"]
+> | Chaîne d’opération    | Description         |
+> | ------------------- | ------------------- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Retourne un objet blob ou une liste d'objets blob. |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Retourne le résultat de l'écriture d'un objet blob. |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` | Retourne un message. |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | Retourne un message ou le résultat de l’écriture ou de la suppression d’un message. |
 
 ## <a name="notdataactions"></a>NotDataActions
 
@@ -213,18 +215,19 @@ L’autorisation `NotDataActions` spécifie les opérations sur les données qui
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-La propriété `AssignableScopes` spécifie les étendues (groupes d’administration, abonnements, groupes de ressources ou ressources) qui disposent de cette définition de rôle. Vous pouvez mettre le rôle à disposition pour pouvoir l’attribuer uniquement dans les groupes d’administration, les abonnements ou les groupes de ressources qui en ont besoin. Vous devez utiliser au moins un groupe de gestion, abonnement, groupe de ressources ou ID de ressource.
+La propriété `AssignableScopes` spécifie les étendues (groupes d’administration, abonnements ou groupes de ressources) qui disposent de cette définition de rôle. Vous pouvez mettre le rôle à disposition pour pouvoir l’attribuer uniquement dans les groupes d’administration, les abonnements ou les groupes de ressources qui en ont besoin. Vous devez utiliser au moins un groupe de gestion, un abonnement ou un groupe de ressources.
 
 La chaîne `AssignableScopes` est définie sur l’étendue racine (`"/"`) pour les rôles intégrés. L’étendue racine indique que le rôle est disponible pour attribution dans toutes les étendues. Voici des exemples d’étendues assignables valides :
 
-| Le rôle est disponible à l’attribution | Exemple |
-|----------|---------|
-| Abonnement unique | `"/subscriptions/{subscriptionId1}"` |
-| Deux abonnements | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
-| Groupe de ressources réseau | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
-| Un seul groupe d’administration | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
-| Groupe d’administration et abonnement | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
-| Toutes les étendues (applicable uniquement aux rôles intégrés) | `"/"` |
+> [!div class="mx-tableFixed"]
+> | Le rôle est disponible à l’attribution | Exemple |
+> |----------|---------|
+> | Abonnement unique | `"/subscriptions/{subscriptionId1}"` |
+> | Deux abonnements | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+> | Groupe de ressources réseau | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
+> | Un seul groupe d’administration | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+> | Groupe d’administration et abonnement | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+> | Toutes les étendues (applicable uniquement aux rôles intégrés) | `"/"` |
 
 Pour plus d’informations sur `AssignableScopes` pour des rôles personnalisés, consultez [Rôles personnalisés pour les ressources Azure](custom-roles.md).
 

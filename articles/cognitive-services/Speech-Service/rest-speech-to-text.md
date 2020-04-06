@@ -3,23 +3,23 @@ title: Informations de référence sur l’API de reconnaissance vocale (REST) -
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API REST de reconnaissance vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: 26fe995f45a97a5863bfc20fd1564df89124ed88
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.date: 03/16/2020
+ms.author: dapine
+ms.openlocfilehash: 759ea697e4093da5bfc1c082c886c6dfda636f42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168305"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474796"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
-En guise d’alternative au [SDK Speech](speech-sdk.md), le service Speech vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser.
+En guise d’alternative au [SDK Speech](speech-sdk.md), le service Speech vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser. L’API REST est très limitée et ne doit être utilisée que dans les cas où le [kit de développement logiciel (SDK) Speech](speech-sdk.md) ne peut pas l’être.
 
 Avant d’utiliser l’API REST de reconnaissance vocale, tenez compte des points suivants :
 
@@ -54,6 +54,7 @@ Ces paramètres peuvent être inclus dans la chaîne de la requête REST.
 | `language` | Identifie la langue parlée qui est reconnue. Voir [Langues prises en charge](language-support.md#speech-to-text). | Obligatoire |
 | `format` | Spécifie le format du résultat. Les valeurs acceptées sont `simple` et `detailed`. Les résultats simples incluent `RecognitionStatus`, `DisplayText`, `Offset` et `Duration`. Les réponses détaillées incluent plusieurs résultats avec des valeurs de niveau de confiance et quatre différentes représentations. La valeur par défaut est `simple`. | Facultatif |
 | `profanity` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `masked`, qui remplace les vulgarités par des astérisques, `removed`, qui supprime les vulgarités du résultat, ou `raw`, qui inclut les vulgarités dans le résultat. La valeur par défaut est `masked`. | Facultatif |
+| `cid` | Lorsque vous utilisez le [portail Custom Speech](how-to-custom-speech.md) pour créer des modèles personnalisés, vous pouvez utiliser des modèles personnalisés à l’aide de leur **ID de point de terminaison** figurant sur la page **Déploiement**. Utilisez l’**ID de point de terminaison** comme argument pour le paramètre de chaîne de requête `cid`. | Facultatif |
 
 ## <a name="request-headers"></a>En-têtes de requête
 
@@ -72,10 +73,10 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 
 L’audio est envoyé dans le corps de la requête HTTP `POST`. Il doit être dans l’un des formats de ce tableau :
 
-| Format | Codec | Bitrate | Échantillonnage |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16 bits | 16 kHz, mono |
-| OGG | OPUS | 16 bits | 16 kHz, mono |
+| Format | Codec | Bitrate | Échantillonnage  |
+|--------|-------|---------|--------------|
+| WAV    | PCM   | 16 bits  | 16 kHz, mono |
+| OGG    | OPUS  | 16 bits  | 16 kHz, mono |
 
 >[!NOTE]
 >Les formats ci-dessus sont pris en charge via l’API REST et le WebSocket du service Speech. Pour le moment, le [kit de développement logiciel (SDK) Speech](speech-sdk.md) prend en charge le format WAV avec codec PCM, ainsi que d'[autres formats](how-to-use-codec-compressed-audio-input-streams.md).
@@ -100,50 +101,43 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 
 | Code d'état HTTP | Description | Raison possible |
 |------------------|-------------|-----------------|
-| 100 | Continue | La requête initiale a été acceptée. Passez à l’envoi du reste des données. (Utilisé avec le transfert en bloc.) |
-| 200 | OK | La requête a réussi ; le corps de réponse est un objet JSON. |
-| 400 | Demande incorrecte | Le code de langue n’est pas fourni, la langue n’est pas prise en charge, le fichier audio est non valide, etc. |
-| 401 | Non autorisé | La clé d’abonnement ou le jeton d’autorisation n’est pas valide dans la région spécifiée, ou le point de terminaison n’est pas valide. |
-| 403 | Interdit | Clé d’abonnement ou jeton d’autorisation manquant. |
+| `100` | Continue | La requête initiale a été acceptée. Passez à l’envoi du reste des données. (Utilisé avec le transfert en bloc) |
+| `200` | OK | La requête a réussi ; le corps de réponse est un objet JSON. |
+| `400` | Demande incorrecte | Le code de langue n’est pas fourni, la langue n’est pas prise en charge, le fichier audio est non valide, etc. |
+| `401` | Non autorisé | La clé d’abonnement ou le jeton d’autorisation n’est pas valide dans la région spécifiée, ou le point de terminaison n’est pas valide. |
+| `403` | Interdit | Clé d’abonnement ou jeton d’autorisation manquant. |
 
 ## <a name="chunked-transfer"></a>Transfert en bloc
 
 Le transfert en bloc (`Transfer-Encoding: chunked`) peut aider à réduire la latence de la reconnaissance. Il permet au service Speech de commencer à traiter le fichier audio pendant sa transmission. L’API REST ne fournit pas de résultats partiels ou intermédiaires.
 
-Cet exemple de code montre comment envoyer l’audio en bloc. Seul le premier segment doit contenir l’en-tête du fichier audio. `request` est un objet HTTPWebRequest connecté au point de terminaison REST approprié. `audioFile` est le chemin vers un fichier audio sur disque.
+Cet exemple de code montre comment envoyer l’audio en bloc. Seul le premier segment doit contenir l’en-tête du fichier audio. `request` est un objet `HttpWebRequest` connecté au point de terminaison REST approprié. `audioFile` est le chemin vers un fichier audio sur disque.
 
 ```csharp
+var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+request.SendChunked = true;
+request.Accept = @"application/json;text/xml";
+request.Method = "POST";
+request.ProtocolVersion = HttpVersion.Version11;
+request.Host = host;
+request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
+request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
+request.AllowWriteStreamBuffering = false;
 
-    HttpWebRequest request = null;
-    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
-    request.SendChunked = true;
-    request.Accept = @"application/json;text/xml";
-    request.Method = "POST";
-    request.ProtocolVersion = HttpVersion.Version11;
-    request.Host = host;
-    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
-    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
-    request.AllowWriteStreamBuffering = false;
-
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
+    // Open a request stream and write 1024 byte chunks in the stream one at a time.
     byte[] buffer = null;
     int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
+    using (var requestStream = request.GetRequestStream())
     {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
+        // Read 1024 raw bytes from the input audio file.
         buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
         while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
         {
             requestStream.Write(buffer, 0, bytesRead);
         }
 
-        // Flush
         requestStream.Flush();
     }
 }

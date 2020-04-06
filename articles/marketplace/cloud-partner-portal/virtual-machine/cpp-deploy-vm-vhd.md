@@ -1,19 +1,18 @@
 ---
 title: Déployer une machine virtuelle à partir des disques durs virtuels pour la Place de marché Microsoft Azure
 description: Explique comment inscrire une machine virtuelle à partir d’un disque dur virtuel déployé dans Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: evansma
-ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5263d24c411ef8de4187c2fd750013374d779f04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813414"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277937"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Déployer une machine virtuelle à partir de vos disques durs virtuels
 
@@ -63,9 +62,9 @@ Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image 
    | DNS Name for Public IP (Nom DNS pour adresse IP publique)      | Nom DNS d’adresse IP publique. Vous définissez le nom DNS de la machine virtuelle dans le portail Azure, une fois l’offre déployée.  |
    | Nom d’utilisateur administrateur             | Nom d’utilisateur du compte administrateur pour une nouvelle machine virtuelle                                  |
    | Mot de passe d’administrateur              | Mot de passe du compte administrateur pour une nouvelle machine virtuelle                                  |
-   | Type de système d’exploitation                     | Système d’exploitation de machine virtuelle : `Windows` \| `Linux`                                    |
+   | Type de système d'exploitation                     | Système d’exploitation de machine virtuelle : `Windows`\|`Linux`                                    |
    | Identifiant d’abonnement             | Identificateur de l’abonnement sélectionné                                      |
-   | Location                    | Emplacement géographique du déploiement                                        |
+   | Emplacement                    | Emplacement géographique du déploiement                                        |
    | Taille de la machine virtuelle                     | [Taille de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), par exemple `Standard_A2` |
    | Nom de l’adresse IP publique      | Nom de votre adresse IP publique                                               |
    | Nom de la machine virtuelle                     | Nom de la nouvelle machine virtuelle                                                           |

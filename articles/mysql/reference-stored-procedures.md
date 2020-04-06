@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 7ab77f822ace61ccb023dffe6d79fb1d08278d11
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774938"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067695"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procédures stockées de gestion Azure Database pour MySQL
 
@@ -25,7 +25,7 @@ Les procédures stockées suivantes sont utilisées pour définir ou supprimer l
 
 |**Nom de la procédure stockée**|**Paramètres d’entrée**|**Paramètres de sortie**|**Remarque sur l’utilisation**|
 |-----|-----|-----|-----|
-|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|Pour transférer des données en mode SSL, ajoutez le contexte du certificat d’autorité de certification dans le paramètre master_ssl_ca. </br><br>Pour transférer des données sans SSL, transmettez une chaîne vide dans le paramètre master_ssl_ca.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|Pour transférer des données en mode SSL, passez le contexte du certificat d’autorité de certification dans le paramètre master_ssl_ca. </br><br>Pour transférer des données sans SSL, transmettez une chaîne vide dans le paramètre master_ssl_ca.|
 |*mysql.az_replication _start*|N/A|N/A|Lance la réplication.|
 |*mysql.az_replication _stop*|N/A|N/A|Arrête la réplication.|
 |*mysql.az_replication _remove_master*|N/A|N/A|Supprime la relation de réplication entre le serveur maître et le réplica.|

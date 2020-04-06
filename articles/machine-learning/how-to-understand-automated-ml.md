@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: 69cf79f8258f85f2fb5e787f91aa843837d0a3a1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c5f12da3606361b504d4581916d9645fa3cd24f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534693"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237001"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Comprendre les résultats des Machine Learning automatisés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,14 +27,14 @@ Pour en savoir plus :
 + [Métriques et graphiques pour les modèles de régression](#regression)
 + [Interprétabilité du modèle et importance des fonctionnalités](#explain-model)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
 * Créez une expérience pour votre exécution de machine learning automatisé, que ce soit avec le SDK ou dans Azure Machine Learning Studio.
 
     * Utilisez le Kit de développement logiciel (SDK) pour développer un [modèle de classification](how-to-auto-train-remote.md) ou un [modèle de régression](tutorial-auto-train-models.md)
-    * Utilisez [Azure Machine Learning Studio](how-to-create-portal-experiments.md) pour créer un modèle de classification ou de régression en chargeant les données appropriées.
+    * Utilisez [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) pour créer un modèle de classification ou de régression en chargeant les données appropriées.
 
 ## <a name="view-the-run"></a>Afficher l’exécution
 
@@ -60,7 +60,7 @@ Après avoir exécuté une expérience de machine learning automatisé, un histo
 
 Vous voyez aussi ces mêmes résultats lors d'une exécution avec le `RunDetails`[widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 
-## <a name="classification"></a> Résultats de la classification
+## <a name="classification-results"></a><a name="classification"></a> Résultats de la classification
 
 Les trois métriques et graphiques suivants sont disponibles pour chaque modèle de classification que vous créez à l’aide des fonctionnalités de Machine Learning automatisé d’Azure Machine Learning
 
@@ -190,7 +190,7 @@ Utilisez le graphique de gains cumulés pour choisir la limite de classification
 ### <a name="calibration-chart"></a>Graphique d’étalonnage
 
 #### <a name="what-is-a-calibration-chart"></a>Qu’est-ce qu’un graphique d’étalonnage ?
-Un tracé d’étalonnage permet d’afficher le niveau de confiance d’un modèle prédictif. Pour ce faire, il affiche la relation entre la probabilité prévue et la probabilité réelle, où le terme « probabilité » représente la vraisemblance pour une instance spécifique d’appartenir à une étiquette.
+Un tracé d’étalonnage permet d’afficher le niveau de confiance d’un modèle prédictif. Pour ce faire, il montre la relation entre la probabilité prévue et la probabilité réelle, où le terme « probabilité » représente la vraisemblance pour une instance spécifique d’appartenir à une étiquette.
 #### <a name="what-does-automated-ml-do-with-the-calibration-chart"></a>Que fait le Machine Learning automatisé avec un graphique d’étalonnage ?
 Pour tous les problèmes de classification, vous pouvez consulter la ligne d’étalonnage concernant la micro-moyenne, la macro-moyenne et chaque classe dans un modèle prédictif donné.
 
@@ -205,7 +205,7 @@ La macro-moyenne calcule la métrique indépendamment de chaque classe, puis ell
 ##### <a name="example-2-an-over-confident-model"></a>Exemple 2 : Modèle trop confiant
 ![Modèle trop confiant](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
-## <a name="regression"></a> Résultats de la régression
+## <a name="regression-results"></a><a name="regression"></a> Résultats de la régression
 
 Les trois métriques et graphiques suivants sont disponibles pour chaque modèle de régression que vous créez à l’aide des fonctionnalités de Machine Learning automatisé d’Azure Machine Learning
 
@@ -214,7 +214,7 @@ Les trois métriques et graphiques suivants sont disponibles pour chaque modèle
 + [Histogramme des résidus](#histo)
 
 
-### <a name="reg-metrics"></a> Métriques de la régression
+### <a name="regression-metrics"></a><a name="reg-metrics"></a> Métriques de la régression
 
 Les métriques suivantes sont enregistrées dans chaque itération d’exécution pour une tâche de régression ou de prévision.
 
@@ -232,7 +232,7 @@ normalized_root_mean_squared_error|L’erreur quadratique moyenne racine normali
 root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine est la racine carrée de l’erreur logarithmique quadratique attendue|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
 normalized_root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine normalisée est l’erreur logarithmique quadratique moyenne racine divisée par la plage des données|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Diviser par la plage de données|
 
-### <a name="pvt"></a> Prédiction et True
+### <a name="predicted-vs-true-chart"></a><a name="pvt"></a> Prédiction et True
 #### <a name="what-is-a-predicted-vs-true-chart"></a>Qu’est-ce qu’un graphique Prédiction et True ?
 Prédiction et True indique la relation entre une valeur prévue et sa valeur true en corrélation pour un problème de régression. Ce graphique peut servir à mesurer les performances d’un modèle, car plus les valeurs prévues sont proches de la ligne y=x, plus le modèle prédictif est précis.
 
@@ -248,7 +248,7 @@ Après chaque exécution, vous pouvez afficher un graphique de type Prédiction 
 
 
 
-### <a name="histo"></a> Histogramme des résidus
+### <a name="histogram-of-residuals-chart"></a><a name="histo"></a> Histogramme des résidus
 #### <a name="what-is-a-residuals-chart"></a>Qu’est-ce qu’un graphique des résidus ?
 Un résidu représente une valeur y observée : la valeur y prévue. Pour afficher une marge d’erreur avec un biais faible, l’histogramme des résidus doit avoir la forme d’une cloche centrée sur 0. 
 #### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>Que fait le Machine Learning automatisé avec un graphique des résidus ?
@@ -262,7 +262,7 @@ Un bon modèle a généralement une courbe en cloche ou un taux d’erreurs proc
 ##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Exemple 2 : Modèle de régression avec des erreurs mieux réparties
 ![Modèle de régression avec des erreurs mieux réparties](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
-## <a name="explain-model"></a> Interprétabilité du modèle et importance des fonctionnalités
+## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a> Interprétabilité du modèle et importance des fonctionnalités
 Le Machine Learning automatisé fournit un tableau de bord d’interprétation Machine Learning pour vos exécutions.
 Pour plus d’informations sur l’activation des caractéristiques d’interprétabilité, consultez le [guide pratique](how-to-machine-learning-interpretability-automl.md) sur l’activation de l’interprétabilité dans des expériences de machine learning automatisé.
 

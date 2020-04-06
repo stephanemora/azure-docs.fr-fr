@@ -3,12 +3,12 @@ title: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azur
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: d4d5168ee7f2f8c71b3a63fea64873a8dd71658b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602201"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389288"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -43,8 +43,6 @@ En savoir plus sur la sauvegarde [à l’aide d’un serveur de sauvegarde](back
 
 **Action** | **Support**
 --- | ---
-Activer la sauvegarde quand vous créez une machine virtuelle Azure Windows | Pris en charge pour : <br/><br/> - Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM et SP1 Standard)
-Activer la sauvegarde quand vous créez une machine virtuelle Linux | Pris en charge pour :<br/><br/> - Ubuntu Server : 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat : RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian : 8, 9<br/><br/> - CentOS : 6.9, 7.3<br/><br/> - Oracle Linux : 6.7, 6.8, 6.9, 7.2, 7.3
 Sauvegarder une machine virtuelle arrêtée/hors connexion | Pris en charge.<br/><br/> L’instantané a une cohérence en cas d’incident uniquement, mais pas de cohérence des applications.
 Sauvegarder des disques après la migration vers des disques managés | Pris en charge.<br/><br/> La sauvegarde continuera à fonctionner. Aucune action n'est requise.
 Sauvegarder des disques managés après l’activation d’un verrou de groupe de ressources | Non pris en charge.<br/><br/> La Sauvegarde Azure ne peut pas supprimer les anciens points de restauration et les sauvegardes commenceront à échouer une fois la limite maximale de points de restauration atteinte.
@@ -66,7 +64,7 @@ Le tableau suivant récapitule les systèmes d’exploitation pris en charge lor
 **Scénario** | **Système d’exploitation pris en charge**
 --- | ---
 Sauvegarder avec l’extension de l’agent de machine virtuelle Azure | - Client Windows 10 (64 bits uniquement) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM et SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bits uniquement)
-Sauvegarder avec l’agent MARS | Systèmes d’exploitation [pris en charge](backup-support-matrix-mars-agent.md#support-for-direct-backups).
+Sauvegarder avec l’agent MARS | Systèmes d’exploitation [pris en charge](backup-support-matrix-mars-agent.md#supported-operating-systems).
 Sauvegarder avec DPM/MABS | Systèmes d’exploitation pris en charge pour la sauvegarde avec [MABS](backup-mabs-protection-matrix.md) et [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
 Sauvegarde Azure ne prend pas en charge les systèmes d’exploitation 32 bits.
@@ -117,7 +115,6 @@ Points de récupération sur un disque DPM/MAB | 64 pour les serveurs de fichier
 **Restauration** | **Pris en charge**
 --- | ---
 Restauration de fichiers entre systèmes d’exploitation | Vous pouvez restaurer des fichiers sur n’importe quelle machine ayant le même système d’exploitation (ou un système d’exploitation compatible) que la machine virtuelle sauvegardée. Consultez le [Tableau des systèmes d’exploitation compatibles](backup-azure-restore-files-from-vm.md#system-requirements).
-Restauration de fichiers sur des machines virtuelles classiques | Non pris en charge.
 Restauration de fichiers provenant de machines virtuelles chiffrées | Non pris en charge.
 Restauration de fichiers provenant de comptes de stockage avec des restrictions réseau | Non pris en charge.
 Restauration de fichiers sur des machines virtuelles avec des espaces de stockage Windows | Restauration non prise en charge sur la même machine virtuelle.<br/><br/> Au lieu de cela, restaurez les fichiers sur une machine virtuelle compatible.

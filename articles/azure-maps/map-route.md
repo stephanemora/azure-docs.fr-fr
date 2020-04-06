@@ -1,7 +1,7 @@
 ---
 title: Afficher les itinéraires sur une carte | Microsoft Azure Maps
 description: Dans cet article, vous apprendrez à afficher des directions entre deux emplacements sur une carte à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 63f7eac52a555be1877f235bd2f7f1d9315d53d5
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: dde9264d0cb65726b624b918982cfa01985b63ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208503"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371409"
 ---
 # <a name="show-directions-from-a-to-b"></a>Afficher des directions de A à B
 
@@ -67,6 +67,9 @@ Le dernier bloc de code utilise l'[API de récupération](https://fetch.spec.wha
 La requête d’itinéraire, la source de données, le symbole, les couches de lignes et les limites de la caméra sont créés à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Là encore, nous voulons nous assurer que les résultats s’affichent après le chargement complet de la carte.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Bonnes pratiques en matière d’utilisation du service de routage](how-to-use-best-practices-for-search.md)
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 

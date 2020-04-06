@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: b4922326b92efa88552eb100488a29fc53e1f914
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 246ec08e9b4edb33fa49318b68cc4364534282b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198976"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064661"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -39,7 +39,7 @@ La table suivante présente les différentes méthodes que vous pouvez utiliser 
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Modèles Microsoft Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-Cet article vous guide à travers la configuration du [portail Azure](https://portal.azure.com), où vous pouvez créer un cluster HDInsight en utilisant l’affichage par défaut ou l’affichage *Classique*.
+Cet article vous guide à travers la configuration du [portail Azure](https://portal.azure.com), où vous pouvez créer un cluster HDInsight.
 
 ## <a name="basics"></a>Concepts de base
 

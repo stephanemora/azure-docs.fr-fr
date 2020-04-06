@@ -17,18 +17,22 @@
   items:
     - name: Studio et concepteur
       items:
-        - name: "Concepteur\_: 1. Entraîner un modèle de régression"
-          displayName: studio
-          href: tutorial-designer-automobile-price-train-score.md
-        - name: "Concepteur\_: 2. Déployer ce modèle"
-          displayName: studio
-          href: tutorial-designer-automobile-price-deploy.md
-        - name: Créer une expérience de machine learning automatisé
-          displayName: 'automl, automated, auto ml, portal, ui'
-          href: tutorial-first-experiment-automated-ml.md
-        - name: Prévoir la demande avec le ML automatisé (données de partage de vélo)
-          displayName: 'automl, automated, auto ml, portal, ui'
-          href: tutorial-automated-ml-forecast.md
+        - name: Concepteur (glisser-déposer)
+          items:
+            - name: "Concepteur\_: 1. Entraîner un modèle de régression"
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: "Concepteur\_: 2. Déployer ce modèle"
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: ML automatisé (IU)
+          items:
+            - name: Créer une expérience de machine learning automatisé
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-first-experiment-automated-ml.md
+            - name: Prévoir la demande avec le ML automatisé (données de partage de vélo)
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-automated-ml-forecast.md
     - name: Kit de développement logiciel (SDK) Python
       items:
         - name: Créer votre première expérience ML
@@ -139,6 +143,9 @@
             - name: Utiliser des réseaux virtuels
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
+            - name: Utiliser Private Link
+              displayName: private endpoint
+              href: how-to-configure-private-link.md
             - name: Sécuriser des services web avec SSL
               href: how-to-secure-web-service.md
             - name: Utiliser une identité Azure AD dans les déploiements AKS
@@ -254,8 +261,6 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-        - name: Chainer
-          href: how-to-train-chainer.md
     - name: Interpréter les modèles
       displayName: interpretability
       items:

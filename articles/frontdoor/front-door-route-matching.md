@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - Supervision de la mise en correspondance d’une règle de routage | Microsoft Docs
-description: Cet article vous aide à comprendre comment Azure Front Door Service fait correspondre la règle de routage à utiliser pour une demande entrante
+title: Azure Front Door - Supervision de la mise en correspondance d’une règle de routage | Microsoft Docs
+description: Cet article vous aide à comprendre comment Azure Front Door fait correspondre la règle de routage à utiliser pour une demande entrante
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736279"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471589"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Comment une porte d’entrée fait correspondre les demandes à une règle de routage
 
@@ -48,10 +48,10 @@ Quand il s’agit de mettre en correspondance des hôtes frontend, nous utilison
 
 Pour expliquer plus en détail ce processus, nous allons examiner un exemple de configuration d’itinéraires de porte d’entrée (côté gauche uniquement) :
 
-| Règle de routage | Hôtes frontend | path |
+| Règle de routage | Hôtes frontend | Path |
 |-------|--------------------|-------|
-| A | foo.contoso.com | /\* |
-| b | foo.contoso.com | /users/\* |
+| Un | foo.contoso.com | /\* |
+| B | foo.contoso.com | /users/\* |
 | C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
 Si les demandes entrantes suivantes étaient envoyées à la porte d’entrée, elles correspondraient aux règles de routage suivantes issues du tableau précédent :
@@ -78,10 +78,10 @@ Après avoir identifié l’hôte frontend spécifique et filtré les règles de
 
 Pour une explication plus détaillée, examinons d’autres exemples :
 
-| Règle de routage | Hôte frontend    | path     |
+| Règle de routage | Hôte frontend    | Path     |
 |-------|---------|----------|
-| A     | www\.contoso.com | /        |
-| b     | www\.contoso.com | /\*      |
+| Un     | www\.contoso.com | /        |
+| B     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
 | E     | www\.contoso.com | /abc/    |
@@ -93,34 +93,34 @@ Compte tenu de cette configuration, le tableau d’exemples de correspondances o
 
 | Demandes entrantes    | Itinéraire correspondant |
 |---------------------|---------------|
-| www\.contoso.com/            | A             |
-| www\.contoso.com/a           | b             |
+| www\.contoso.com/            | Un             |
+| www\.contoso.com/a           | B             |
 | www\.contoso.com/ab          | C             |
 | www\.contoso.com/abc         | D             |
-| www\.contoso.com/abzzz       | b             |
+| www\.contoso.com/abzzz       | B             |
 | www\.contoso.com/abc/        | E             |
 | www\.contoso.com/abc/d       | F             |
 | www\.contoso.com/abc/def     | G             |
 | www\.contoso.com/abc/defzzz  | F             |
 | www\.contoso.com/abc/def/ghi | F             |
-| www\.contoso.com/path        | b             |
+| www\.contoso.com/path        | B             |
 | www\.contoso.com/path/       | H             |
-| www\.contoso.com/path/zzz    | b             |
+| www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
 > </br> En l’absence de règle de routage pour un hôte frontend parfaitement concordant avec un chemin d’itinéraire fourre-tout (`/*`), il n’existe pas de correspondance avec une règle de routage.
 >
 > Exemple de configuration :
 >
-> | Routage | Host             | path    |
+> | Routage | Host             | Path    |
 > |-------|------------------|---------|
-> | A     | profile.contoso.com | /api/\* |
+> | Un     | profile.contoso.com | /api/\* |
 >
 > Tableau des correspondances :
 >
-> | Demande entrante       | Itinéraire correspondant |
+> | Requête entrante       | Itinéraire correspondant |
 > |------------------------|---------------|
-> | profile.domain.com/other | Aucune. Erreur 400 : Demande incorrecte |
+> | profile.domain.com/other | Aucun. Erreur 400 : Demande incorrecte |
 
 ### <a name="routing-decision"></a>Décision de routage
 Dès lors qu’une correspondance a été établie avec une règle de routage de porte d’entrée, il convient de choisir le mode de traitement de la demande. Si, pour la règle de routage correspondante, la porte d’entrée dispose d’une réponse dans le cache, celle-ci est renvoyée au client. Autrement, la prochaine évaluation vise à déterminer si vous avez configuré [Réécriture d’URL (chemin de transfert personnalisé)](front-door-url-rewrite.md) pour la règle de routage correspondante. Si aucun chemin de transfert personnalisé n’est défini, la demande est transférée en l’état au backend approprié dans le pool de backends configuré. Sinon, le chemin de la demande est mis à jour selon le [chemin de transfert personnalisé](front-door-url-rewrite.md) défini, puis transféré au backend.

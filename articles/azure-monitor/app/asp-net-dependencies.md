@@ -2,13 +2,13 @@
 title: Suivi des dépendances dans Azure Application Insights | Microsoft Docs
 description: Supervisez les appels de dépendances entre Application Insights et votre application locale ou votre application web Microsoft Azure.
 ms.topic: conceptual
-ms.date: 06/25/2019
-ms.openlocfilehash: 8fb1550a3f1d4b3336384139b049b60e23e648d7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/26/2020
+ms.openlocfilehash: 1d4e8d1a0482257c92f47a00bd440e786c09c7aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666239"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292123"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Suivi des dépendances dans Azure Application Insights 
 
@@ -34,12 +34,14 @@ S’il vous manque une dépendance ou si vous utilisez un autre kit SDK, vérifi
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Configurer le suivi automatique des dépendances dans les applications console
 
-Pour suivre automatiquement les dépendances des applications console .NET/.NET Core, installez le package Nuget `Microsoft.ApplicationInsights.DependencyCollector` et initialisez `DependencyTrackingTelemetryModule` de la façon suivante :
+Pour suivre automatiquement les dépendances des applications console .NET, installez le package Nuget `Microsoft.ApplicationInsights.DependencyCollector` et initialisez `DependencyTrackingTelemetryModule` de la façon suivante :
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
     depModule.Initialize(TelemetryConfiguration.Active);
 ```
+
+Pour les applications console .NET Core, TelemetryConfiguration.Active est obsolète. Consultez les instructions de la [documentation du service worker](https://docs.microsoft.com/azure/azure-monitor/app/worker-service) et la [documentation de supervision ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
 
 ### <a name="how-automatic-dependency-monitoring-works"></a>Comment fonctionne le suivi automatique des dépendances ?
 
@@ -109,7 +111,7 @@ Dans les cas ci-dessus, la bonne pratique pour vérifier que ce moteur d’instr
 * Parcourez les requêtes lentes ou ayant échoué pour vérifier leurs appels de dépendance.
 * Vous pouvez utiliser [Analytics](#logs-analytics) pour interroger des données de dépendances.
 
-## <a name="diagnosis"></a> Diagnostiquer les demandes lentes
+## <a name="diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnostiquer les demandes lentes
 
 Chaque événement de demande est associé aux appels de dépendance, aux exceptions et aux autres événements qui sont suivis pendant que votre application traite la requête. Ainsi, si certaines demandes échouent, vous pouvez savoir si cela est dû à la lenteur des réponses d’une dépendance.
 

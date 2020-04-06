@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 33705d0c9f2f405be733fd21c88cb83e96aec781
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168961"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218269"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning Studio (classique). La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
 
@@ -41,7 +43,7 @@ L’ensemble de paramètres peut être défini lors de l’étape d’initialisa
 
 ![Arbre de décision optimisé à deux classes, paramètre unique](./media/algorithm-parameters-optimize/fig2.png)
 
- Vous pouvez également définir les points minimum et maximum de la grille et le nombre total de points à générer à l’aide de l’option **Utiliser le générateur de plage**. Par défaut, les valeurs de paramètre sont générées sur une échelle linéaire. Cependant, si l’option **Échelle logarithmique** est activée, les valeurs sont générées sur une échelle logarithmique (selon laquelle le rapport entre les points adjacents est constant, et non leur différence). Pour les paramètres entiers, vous pouvez définir une plage à l’aide d’un trait d’union. Par exemple, « 1-10 » signifie que tous les entiers compris entre 1 et 10 (tous deux inclus) forment le jeu de paramètres. Un mode mixte est également pris en charge. Par exemple, l’ensemble de paramètres « 1-10, 20, 50 » inclut les entiers 1-10, 20 et 50.
+ Vous pouvez également définir les points minimum et maximum de la grille et le nombre total de points à générer à l’aide de l’option **Utiliser le générateur de plage**. Par défaut, les valeurs de paramètre sont générées sur une échelle linéaire. Cependant, si l’option **Échelle logarithmique** est activée, les valeurs sont générées sur une échelle logarithmique (selon laquelle le rapport entre les points adjacents est constant, et non leur différence). Pour les paramètres entiers, vous pouvez définir une plage à l’aide d’un trait d’union. Par exemple, « 1-10 » signifie que tous les entiers compris entre 1 et 10 (tous deux inclus) forment le jeu de paramètres. Un mode mixte est également pris en charge. Par exemple, l’ensemble de paramètres « 1-10, 20, 50 » inclut les entiers 1 à 10, 20 et 50.
 
 ![Arbre de décision optimisé à deux classes, plage de paramètres](./media/algorithm-parameters-optimize/fig3.png)
 

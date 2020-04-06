@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: a184e76faa89199d3e13ece3e17f94f73d995a12
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 7c2efc9c736097873201505f280af5d47bed4847
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760264"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294174"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Traçage et corrélation distribués par le biais de la messagerie Service Bus
 
@@ -35,7 +35,7 @@ Le protocole est basé sur le [protocole de corrélation HTTP](https://github.co
 |  Diagnostic-Id       | Identificateur unique d’un appel externe du producteur à la file d’attente. Pour explorer la logique, les considérations et le format, consultez [Request-Id dans le protocole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id). |
 |  Correlation-Context | Contexte d’opération propagé à travers tous les services impliqués dans le traitement de l’opération. Pour plus d’informations, consultez [Correlation-Context dans le protocole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context). |
 
-## <a name="service-bus-net-client-auto-tracing"></a>Traçage automatique du client .NET Service Bus
+## <a name="service-bus-net-client-autotracing"></a>Traçage automatique du client .NET Service Bus
 
 À compter de la version 3.0.0, [Microsoft Azure Service Bus Client pour .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) fournit des points d’instrumentation de traçage qui peuvent être interceptés par des systèmes de traçage ou des parties de code client.
 L’instrumentation permet le suivi de tous les appels au service de messagerie Service Bus du côté client. Si le traitement des messages est effectué avec le [modèle du gestionnaire de messages](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), le traitement des messages est également instrumenté.
@@ -84,6 +84,12 @@ Dans cet exemple, `RequestTelemetry` est signalé pour chaque message traité, a
 Les traces et exceptions imbriquées qui sont signalées durant le traitement des messages sont également horodatées avec des propriétés de corrélation qui les représentent comme des « enfants » de `RequestTelemetry`.
 
 Si vous appelez des composants externes pris en charge durant le traitement des messages, ils sont également suivis et mis en corrélation automatiquement. Pour effectuer manuellement le suivi et la mise en corrélation, consultez [Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights](../azure-monitor/app/custom-operations-tracking.md).
+
+Si vous exécutez un code externe en plus du SDK Application Insights, attendez-vous à constater une **durée** plus longue lors de l’affichage des journaux Application Insights. 
+
+![Durée plus longue dans le journal Application Insights](./media/service-bus-end-to-end-tracing/longer-duration.png)
+
+Cela ne signifie pas qu’il y a eu un retard lors de la réception du message. Dans ce scénario, le message a déjà été reçu, car il est passé en tant que paramètre au code du SDK. De plus, la balise **name** dans les journaux App Insights (**Process**) indique que le message est en cours de traitement par votre code de traitement d’événement externe. Ce problème n’est pas lié à Azure. Au lieu de cela, ces métriques font référence à l’efficacité de votre code externe, étant donné que le message a déjà été reçu de Service Bus. Consultez [ce fichier sur GitHub](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) pour voir où la balise **Process** est générée et assignée une fois que le message a été reçu de Service Bus. 
 
 ### <a name="tracking-without-tracing-system"></a>Suivi sans un système de traçage
 Si votre système de traçage ne prend pas en charge le suivi automatique des appels Service Bus, songez à l’ajouter dans un système de traçage ou dans votre application. Cette section décrit les événements de diagnostic envoyés par Service Bus .NET Client.  

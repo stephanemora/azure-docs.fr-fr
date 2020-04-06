@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 78625707bfa296eeb7ad8cc658657f46da1dc495
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668789"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333502"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows 
 
@@ -64,7 +64,7 @@ Plusieurs méthodes vous permettent de vérifier si l’agent communique correct
     |---------|-------|------------|-----------|
     |2133 & 2129 |Service de contrôle d’intégrité |Échec de la connexion de l’agent au service |Cette erreur peut se produire lorsque l’agent ne peut pas communiquer directement ou via un pare-feu/serveur proxy avec le service Azure Monitor. Vérifiez les paramètres de proxy de l’agent ou que le pare-feu/proxy réseau autorise le trafic TCP de l’ordinateur au service.|
     |2138 |Modules du service de contrôle d’intégrité |Le proxy requiert une authentification |Configurez les paramètres de proxy de l’agent et spécifiez le nom d’utilisateur/mot de passe requis pour s’authentifier auprès du serveur proxy. |
-    |2129 |Modules du service de contrôle d’intégrité |Échec de la connexion/Échec de la négociation SSL |Vérifiez vos paramètres TCP/IP de carte réseau et les paramètres de proxy de l’agent.|
+    |2129 |Modules du service de contrôle d’intégrité |Échec de la connexion/Échec de la négociation TLS |Vérifiez vos paramètres TCP/IP de carte réseau et les paramètres de proxy de l’agent.|
     |2127 |Modules du service de contrôle d’intégrité |Échec d’envoi de données avec code d'erreur reçu |Si cela se produit uniquement périodiquement pendant la journée, il peut s’agir d’une simple anomalie aléatoire qui peut être ignorée. Surveillez pour comprendre la fréquence à laquelle cela se produit. Si cela se produit souvent au cours de la journée, vérifiez tout d’abord votre configuration réseau et les paramètres de proxy. Si la description inclut le code d’erreur HTTP 404 et qu’il s’agit de la première fois où l’agent tente d’envoyer des données au service, elle inclura une erreur 500 avec un code d’erreur 404 interne. 404 signifie qu’un élément est introuvable, ce qui indique que la zone de stockage pour le nouvel espace de travail est toujours en cours de provisionnement. Lors de la tentative suivante, les données seront correctement écrites dans l’espace de travail, comme prévu. Une erreur HTTP 403 peut indiquer un problème d’autorisation ou d’informations d’identification. Des informations supplémentaires sont incluses avec l’erreur 403 pour aider à résoudre le problème.|
     |4000 |Connecteur de service |Échec de la résolution de nom DNS |La machine n’a pas pu résoudre l’adresse Internet utilisée lors de l’envoi de données au service. Cela peut être des paramètres de résolution DNS sur votre machine, des paramètres de proxy incorrects ou peut-être un problème DNS temporaire avec votre fournisseur. Si cela se produit régulièrement, cela peut provenir d’un problème temporaire de réseau.|
     |4001 |Connecteur de service |La connexion au service a échoué. |Cette erreur peut se produire lorsque l’agent ne peut pas communiquer directement ou via un pare-feu/serveur proxy avec le service Azure Monitor. Vérifiez les paramètres de proxy de l’agent ou que le pare-feu/proxy réseau autorise le trafic TCP de l’ordinateur au service.|

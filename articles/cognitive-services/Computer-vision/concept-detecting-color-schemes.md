@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945273"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244730"
 ---
 # <a name="detect-color-schemes-in-images"></a>Détecter les jeux de couleurs dans les images
 
@@ -56,7 +56,7 @@ Le tableau suivant présente la couleur de premier plan, la couleur d’arrière
 
 | Image | Couleurs dominantes |
 |-------|-----------------|
-|![Fleur blanche sur arrière-plan de couleur blanche](./Images/flower.png)| Premier plan : Noir<br/>Arrière-plan : Blanc<br/>Couleurs : Noir, blanc, vert|
+|![Fleur blanche sur fond vert](./Images/flower.png)| Premier plan : Noir<br/>Arrière-plan : White<br/>Couleurs : Noir, blanc, vert|
 ![Train traversant une gare](./Images/train_station.png) | Premier plan : Noir<br/>Arrière-plan : Noir<br/>Couleurs : Noir |
 
 ### <a name="accent-color-examples"></a>Exemples de couleur d’accentuation
@@ -66,7 +66,7 @@ Le tableau suivant présente la couleur de premier plan, la couleur d’arrière
 | Image | Couleur d’accentuation |
 |-------|--------------|
 |![Personne se tenant sur un rocher montagneux au coucher du soleil](./Images/mountain_vista.png) | #BB6D10 |
-|![Fleur blanche sur arrière-plan de couleur blanche](./Images/flower.png) | #C6A205 |
+|![Fleur blanche sur fond vert](./Images/flower.png) | #C6A205 |
 |![Train traversant une gare](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Exemples de détection pour le noir et blanc
@@ -76,8 +76,11 @@ Le tableau suivant présente l’évaluation en noir et blanc de la Vision par o
 | Image | Noir et blanc ? |
 |-------|----------------|
 |![Image noir et blanc représentant des immeubles de Manhattan](./Images/bw_buildings.png) | true |
-|![Maison bleu et jardin en façade](./Images/house_yard.png) | false |
+|![Maison bleue et jardin en façade](./Images/house_yard.png) | false |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="use-the-api"></a>Utilisation de l’API
 
-Découvrez les concepts de [détection du type d’image](concept-detecting-image-types.md).
+La fonctionnalité de détection des modèles de couleurs fait partie de l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Incluez `Color` dans le paramètre de requête **visualFeatures**. Ensuite, lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"color"`.
+
+* [Démarrage rapide : SDK .NET Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 4564aff5e8fe2119a494af33e71ff927718646db
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: 6faae80c78fe07d33579cc3fb7c76ce668969992
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765849"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369267"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MariaDB à l’aide d’Azure CLI.
 
@@ -82,7 +82,7 @@ Les valeurs d’emplacement et de niveau tarifaire du serveur restauré restent 
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a le même nom de connexion d’administrateur et le même mot de passe que le serveur qui existait au moment du lancement de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
-Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
+Le nouveau serveur créé lors d’une restauration ne dispose pas des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur. Les règles de pare-feu du serveur d’origine sont restaurées.
 
 ## <a name="geo-restore"></a>Restauration géographique
 
@@ -123,7 +123,7 @@ Lorsque vous créez un nouveau serveur par une restauration géographique, il h�
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a le même nom de connexion d’administrateur et le même mot de passe que le serveur qui existait au moment du lancement de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
-Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
+Le nouveau serveur créé lors d’une restauration ne dispose pas des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur. Les règles de pare-feu du serveur d’origine sont restaurées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3a591badab29a1669d109f01f8a93732704d2fd4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920380"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456096"
 ---
 # <a name="neural-network-regression-module"></a>Module Régression de réseau neuronal
 
@@ -50,7 +50,7 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
     
     Cette option est recommandée si vous connaissez déjà les réseaux neuronaux. Vous utilisez le langage Net# pour définir l’architecture réseau.  
 
-##  <a name="bkmk_DefaultArchitecture"></a> Créer un modèle de réseau neuronal à l’aide de l’architecture par défaut
+##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a> Créer un modèle de réseau neuronal à l’aide de l’architecture par défaut
 
 1.  Ajoutez le module **Régression de réseau neuronal** à votre pipeline dans le concepteur. Vous le trouverez sous **Machine Learning**, **Initialiser**, dans la catégorie **Régression**. 
   
@@ -58,7 +58,7 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
   
     -   **Single Parameter** (Paramètre unique) : choisissez cette option si vous savez déjà comment vous souhaitez configurer le modèle.
 
-    -   **Plage de paramètres** : sélectionnez cette option si vous ignorez quels paramètres choisir et souhaitez exécuter un balayage des paramètres. Sélectionnez la plage de valeurs sur laquelle vous souhaitez effectuer l’itération. Le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) effectue alors une itération sur toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.   
+    -   **Plage de paramètres** : Sélectionnez cette option si vous n’êtes pas sûr des paramètres à choisir et que vous souhaitez exécuter un balayage des paramètres. Sélectionnez la plage de valeurs sur laquelle vous souhaitez effectuer l’itération. Le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) effectue alors une itération sur toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.   
 
 3.  Dans **Hidden layer specification** (Spécification de couche masquée), sélectionnez **Fully connected case** (Cas entièrement connecté). Cette option crée un modèle à l’aide de l’architecture réseau neuronal par défaut qui, pour un modèle de régression de réseau neuronal, comporte les attributs suivants :  
   
@@ -86,7 +86,7 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
     -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez [Train Model](./train-model.md) (Entraîner le modèle).  
   
    
-14. Exécuter le pipeline.  
+14. Envoyez le pipeline.  
 
 ## <a name="results"></a>Résultats
 

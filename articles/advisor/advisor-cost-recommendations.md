@@ -3,12 +3,12 @@ title: Réduire les coûts de service grâce à Azure Advisor
 description: Le conseiller Azure permet d’optimiser le coût de vos déploiements Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443124"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229689"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Réduire les coûts de service grâce à Azure Advisor
 
@@ -46,6 +46,9 @@ Azure Advisor détectera les pipelines Azure Data Factory en échec de manière 
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>Utiliser des instantanés Standard pour les disques managés
 Pour économiser jusqu'à 60 %, nous vous recommandons de stocker vos instantanés dans Stockage Standard, quel que soit le type de stockage du disque parent. Il s’agit de l’option par défaut pour les instantanés de disques managés. Azure Advisor identifiera les instantanés stockés dans Stockage Premium et vous recommandera de les migrer de Stockage Premium vers Stockage Standard. [En savoir plus sur la tarification des disques managés](https://aka.ms/aa_manageddisksnapshot_learnmore)
+
+## <a name="utilize-lifecycle-management"></a>Utiliser la gestion du cycle de vie
+Azure Advisor utilisera l’intelligence pour ce qui concerne la taille totale, les transactions et le nombre d’objets du stockage Blob Azure, afin de détecter si un ou plusieurs de vos comptes de stockage sont les plus adaptés pour permettre à la gestion du cycle de vie de hiérarchiser les données. Vous serez invité à créer des règles de gestion du cycle de vie pour hiérarchiser automatiquement vos données dans les niveaux Froid ou Archive, afin d’optimiser vos coûts de stockage tout en conservant vos données dans le stockage d’objets blob Azure pour la compatibilité des applications.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Accès aux recommandations de coût dans Azure Advisor
 

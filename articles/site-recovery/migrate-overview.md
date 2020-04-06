@@ -8,25 +8,29 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7107eae5c798deb78d4d35eccdf4adcf5273335
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229149"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388897"
 ---
 # <a name="about-migration"></a>À propos de la migration
 
 Lisez cet article pour obtenir une vue d’ensemble rapide de la façon dont le service [Azure Site Recovery](site-recovery-overview.md) vous aide à migrer des ordinateurs. 
 
+> [!TIP]
+> Vous devez maintenant utiliser le service Azure Migrate, et non le service Azure Site Recovery, pour migrer des machines virtuelles et des serveurs vers Azure. [Plus d’informations](../migrate/migrate-services-overview.md)
+
+
 Voici ce que vous pouvez migrer avec Site Recovery :
 
-- **Migrer d’un site local vers Azure** : migrez des machines virtuelles Hyper-V, des machines virtuelles VMware et des serveurs physiques locaux vers Azure. Après la migration, les charges de travail en cours d’exécution sur les machines locales seront exécutées sur les machines virtuelles Azure. 
+- **Migrer à partir du site local** : migrer des machines virtuelles Hyper-V, des machines virtuelles VMware et des serveurs physiques locaux vers Azure. Après la migration, les charges de travail en cours d’exécution sur les machines locales seront exécutées sur les machines virtuelles Azure. 
 - **Migrer au sein d’Azure** : migrer des machines virtuelles Azure entre des régions Azure. 
 - **Migrer AWS** : migrer des instances Windows AWS vers des machines virtuelles IaaS Azure. 
 
 > [!NOTE]
-> Vous pouvez désormais migrer d’un environnement local vers Azure à l’aide du service Azure Migrate. [En savoir plus](../migrate/migrate-overview.md).
+> Vous pouvez désormais migrer d’un environnement local vers Azure à l’aide du service Azure Migrate. [Plus d’informations](../migrate/migrate-overview.md)
 
 ## <a name="what-do-we-mean-by-migration"></a>Quelle est notre définition de la migration ?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: f03dbb783fe1374fe138f251d813b3333ed9e025
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: dbea68f5699f26b866d2e22c960c0359bcb3479b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613837"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231997"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Service de métadonnées Azure : événements planifiés pour les machines virtuelles Linux
 
@@ -46,7 +46,7 @@ Avec le service Événements planifiés, votre application peut savoir quand une
 Le service Événements planifiés fournit des événements dans les cas d’usage suivants :
 
 - [Maintenance lancée par la plateforme](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (par exemple, redémarrage de machine virtuelle, migration dynamique ou mémoire conservant les mises à jour pour l’hôte)
-- Matériel détérioré
+- La machine virtuelle est en cours d’exécution sur le [matériel hôte détérioré](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) dont la défaillance prochaine est prédite
 - L’utilisateur a lancé une maintenance (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle).
 - Évictions d’instances de [machine virtuelle Spot](spot-vms.md) et de [groupe de machines virtuelles identiques Spot](../../virtual-machine-scale-sets/use-spot.md).
 
@@ -67,18 +67,19 @@ Par conséquent, vérifiez le champ `Resources` de l’événement pour identifi
 ### <a name="endpoint-discovery"></a>Découverte de point de terminaison
 Pour les machines virtuelles compatibles avec le réseau virtuel, le service de métadonnées est disponible à partir d’une adresse IP non routable statique, `169.254.169.254`. Le point de terminaison complet de la dernière version des événements planifiés est : 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
 
 Si la machine virtuelle n’est pas créée au sein d’un réseau virtuel, ce qui est habituellement le cas pour les services cloud et les machines virtuelles classiques, une logique supplémentaire est nécessaire pour découvrir l’adresse IP à utiliser. Reportez-vous à cet exemple pour savoir comment [découvrir le point de terminaison hôte](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Version et disponibilité dans la région
-Les versions du service Événements planifiés sont gérées. Ces versions sont obligatoires et la version actuelle est `2017-11-01`.
+Les versions du service Événements planifiés sont gérées. Ces versions sont obligatoires et la version actuelle est `2019-01-01`.
 
 | Version | Type de version | Régions | Notes de publication | 
 | - | - | - | - | 
+| 2019-01-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge des groupes de machines virtuelles identiques, EventType « Terminate » |
 | 2017-11-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge de l’éviction de machine virtuelle Spot, EventType « Preempt »<br> | 
 | 2017-08-01 | Disponibilité générale | Tous | <li> Suppression du trait de soulignement ajouté au début des noms de ressources pour les machines virtuelles IaaS<br><li>Spécification d’en-tête de métadonnées appliquée à toutes les requêtes | 
-| 2017-03-01 | PRÉVERSION | Tous | <li>Version initiale
+| 2017-03-01 | PRÉVERSION | Tous | <li>Version initiale |
 
 
 > [!NOTE] 
@@ -104,7 +105,7 @@ Vous pouvez rechercher des événements planifiés en effectuant l’appel suiva
 
 #### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
 ```
 
 Une réponse contient un tableau d’événements planifiés. Un tableau vide signifie qu’il n’y a actuellement aucun événement planifié.
@@ -115,7 +116,7 @@ S’il existe des événements planifiés, la réponse contient un tableau d’�
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt" | "Terminate",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -129,7 +130,7 @@ S’il existe des événements planifiés, la réponse contient un tableau d’�
 |Propriété  |  Description |
 | - | - |
 | EventId | GUID pour cet événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: une pause de quelques secondes est planifiée pour la machine virtuelle. L’UC et la connectivité réseau peuvent être suspendus, mais cela n’a aucun impact sur la mémoire ni sur les fichiers ouverts.<li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: la machine virtuelle Spot est supprimée (le contenu des disques éphémères est perdu).|
+| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: une pause de quelques secondes est planifiée pour la machine virtuelle. L’UC et la connectivité réseau peuvent être suspendus, mais cela n’a aucun impact sur la mémoire ni sur les fichiers ouverts.<li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: la machine virtuelle Spot est supprimée (le contenu des disques éphémères est perdu). <li> `Terminate`: La suppression de la machine virtuelle est planifiée. |
 | ResourceType | Type de ressource affecté par cet événement. <br><br> Valeurs : <ul><li>`VirtualMachine`|
 | Ressources| Liste de ressources affectée par cet événement. Elle contient à coup sûr des machines d’au plus un [domaine de mise à jour](manage-availability.md), mais elle peut tout aussi bien ne pas contenir toutes les machines de ce domaine. <br><br> Exemple : <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | État de cet événement. <br><br> Valeurs : <ul><li>`Scheduled`: cet événement est planifié pour démarrer après l’heure spécifiée dans la propriété `NotBefore`.<li>`Started`: cet événement a démarré.</ul> Aucun état `Completed` ou similaire n’est fourni. L’événement n’est plus renvoyé lorsqu’il est terminé.
@@ -144,6 +145,10 @@ Chaque événement est planifié à un moment donné dans le futur (délai minim
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
 | Preempt | 30 secondes |
+| Terminate | [Configurable par l’utilisateur](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications) : 5 à 15 minutes |
+
+> [!NOTE] 
+> Dans certains cas, Azure est en mesure de prédire une défaillance de l’hôte en raison d’un matériel détérioré, et tente d’atténuer l’interruption du service en planifiant une migration. Les machines virtuelles affectées recevront un événement planifié avec une valeur de temps `NotBefore` généralement définie sur quelques jours dans le futur. La valeur de temps réelle varie en fonction de l’évaluation du risque de la défaillance prédite. Autant que possible, Azure tente de donner un préavis de 7 jours, mais le temps réel varie et peut être inférieur si la prédiction indique qu’il y a de fortes chances que la défaillance du matériel soit imminente. Pour minimiser les risques auxquels votre service serait exposé en cas de défaillance du matériel avant la migration lancée par le système, nous vous recommandons d’auto-redéployer votre machine virtuelle dès que possible.
 
 ### <a name="start-an-event"></a>Démarrer un événement 
 
@@ -162,7 +167,7 @@ Voici un exemple de code JSON attendu dans le corps de la requête `POST`. La re
 
 #### <a name="bash-sample"></a>Exemple Bash
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
 ```
 
 > [!NOTE] 
@@ -179,7 +184,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
 this_host = socket.gethostname()
 
 

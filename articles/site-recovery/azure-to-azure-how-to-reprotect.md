@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 818c053c22cfa47cac0f4f6a19349cf239d3cdec
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 73747b8331054cdc3bfa1f4073ccf2cdb62ab326
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283240"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
 
@@ -89,6 +89,10 @@ Les conditions suivantes déterminent la quantité de données répliquées :
 |---|---|
 |La région source a une machine virtuelle avec un disque standard d’1 To.<br/>Seulement 127 Go de données sont utilisés, le reste du disque est vide.<br/>Le disque est de type standard, avec un débit de 60 Mio/s.<br/>Aucune modification des données n’est effectuée après le basculement.| Durée approximative : 45 min à 1 h 30.<br/>Lors de la reprotection, Site Recovery remplira la somme de contrôle de toutes les données, ce qui utilisera 127 Go/45 Mo et prendra environ 45 minutes.<br/>Une surcharge de temps d’approximativement 20 à 30 minutes est nécessaire pour que Site Recovery procède à la mise à l’échelle automatique.<br/>Aucun frais de sortie. |
 |La région source a une machine virtuelle avec un disque standard d’1 To.<br/>Seulement 127 Go de données sont utilisés, le reste du disque est vide.<br/>Le disque est de type standard, avec un débit de 60 Mio/s.<br/>Modification de 45 Go de données après le basculement.| Durée approximative : 1 à 2 heures.<br/>Lors de la reprotection, Site Recovery remplira la somme de contrôle de toutes les données, ce qui utilisera 127 Go/45 Mo et prendra environ 45 minutes.<br/>Temps de transfert pour appliquer les modifications aux 45 Go de données : 45 Go/45 Mbits/s, soit environ 17 minutes.<br/>Les frais de sortie sont liés aux modifications des 45 Go de données, et non à la somme de contrôle. |
+
+Quand la machine virtuelle est reprotégée après une restauration automatique vers la région primaire (c’est-à-dire, si la machine virtuelle est reprotégée de la région primaire vers la région de reprise d’activité), la machine virtuelle cible et les cartes réseau associées sont supprimées.
+
+Quand la machine virtuelle est reprotégée de la région de reprise d’activité vers la région primaire, nous ne supprimons pas l’ancienne machine virtuelle principale et les cartes réseau associées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

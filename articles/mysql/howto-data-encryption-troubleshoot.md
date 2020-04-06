@@ -1,17 +1,17 @@
 ---
-title: Résoudre les problèmes de chiffrement des données dans Azure Database pour MySQL
+title: Résoudre les problèmes de chiffrement des données - Azure Database pour MySQL
 description: Découvrez comment résoudre les problèmes de chiffrement des données dans Azure Database pour MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 516f0b2080fc894ec00f222c712ffdea4ee74356
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851099"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297038"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Résoudre les problèmes de chiffrement des données dans Azure Database pour MySQL
 
@@ -21,7 +21,7 @@ Cet article explique comment identifier et résoudre les problèmes courants sus
 
 Quand vous configurez le chiffrement des données pour utiliser une clé gérée par le client dans Azure Key Vault, les serveurs nécessitent un accès continu à la clé. Si le serveur perd l’accès à la clé gérée par le client dans Azure Key Vault, il rejette toutes les connexions, retourne le message d’erreur associé, et son état passe à ***Inaccessible*** dans le portail Azure.
 
-Si vous n’avez plus besoin d’un serveur Azure Database pour MySQL inaccessible, vous pouvez le supprimer pour arrêter les coûts. Aucune autre action sur le serveur n’est autorisée tant que l’accès au coffre de clés n’a pas été restauré et que le serveur n’est pas disponible. Il n’est pas non plus possible de définir l’option de chiffrement des données sur `No` (managée par le service) au lieu de `Yes` (gérée par le client) sur un serveur inaccessible quand il est chiffré à l’aide d’une clé gérée par le client. Vous devez revalider la clé manuellement pour que le serveur soit à nouveau accessible. Cette action est nécessaire pour protéger les données contre tout accès non autorisé pendant que les autorisations sur la clé gérée par le client sont révoquées.
+Si vous n’avez plus besoin d’un serveur Azure Database pour MySQL inaccessible, vous pouvez le supprimer pour arrêter les coûts. Aucune autre action sur le serveur n’est autorisée tant que l’accès au coffre de clés n’a pas été restauré et que le serveur n’est pas disponible. Il n’est pas non plus possible de définir l’option de chiffrement des données sur `No` (managée par le service) au lieu de `Yes` (gérée par le client) sur un serveur inaccessible lorsqu'il est chiffré à l’aide d’une clé gérée par le client. Vous devez revalider la clé manuellement pour que le serveur soit à nouveau accessible. Cette action est nécessaire pour protéger les données contre tout accès non autorisé pendant que les autorisations sur la clé gérée par le client sont révoquées.
 
 ## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Erreurs courantes qui provoquent l’inaccessibilité du serveur
 

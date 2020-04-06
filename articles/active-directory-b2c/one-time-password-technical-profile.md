@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4732d780bb241a18e0738c99603799c31c2102f
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933053"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332779"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique de mot de passe à usage unique dans une stratégie personnalisée Azure AD B2C
 
@@ -80,10 +80,6 @@ Les paramètres suivants peuvent être utilisés pour configurer le mode de gén
 | Opération | Oui | Opération à effectuer. Valeur possible : `GenerateCode`. |
 | ReuseSameCode | Non | Spécifie si un code en double doit être fourni au lieu de générer un nouveau code lorsque le code donné n'a pas expiré et reste valide. La valeur par défaut est `false`. |
 
-### <a name="returning-error-message"></a>Retour de message d’erreur
-
-Aucun message d'erreur n’est renvoyé pour le mode de génération de code.
-
 ### <a name="example"></a>Exemple
 
 L'exemple suivant `TechnicalProfile` est utilisé pour générer un code :
@@ -139,9 +135,9 @@ Les paramètres suivants peuvent être utilisés pour le mode de vérification d
 | Opération | Oui | Opération à effectuer. Valeur possible : `VerifyCode`. |
 
 
-### <a name="error-messages"></a>Messages d’erreur
+### <a name="ui-elements"></a>Éléments d’interface utilisateur
 
-Les paramètres suivants peuvent être utilisés pour configurer les messages d’erreur affichés en cas d’échec de la vérification du code. Les métadonnées doivent être configurées dans le profil technique [autodéclaré](self-asserted-technical-profile.md). Les messages d’erreur peuvent être [localisés](localization-string-ids.md#one-time-password-error-messages).
+Les métadonnées suivantes peuvent être utilisés pour configurer les messages d’erreur affichés en cas d’échec de la vérification du code. Les métadonnées doivent être configurées dans le profil technique [autodéclaré](self-asserted-technical-profile.md). Les messages d’erreur peuvent être [localisés](localization-string-ids.md#one-time-password-error-messages).
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |

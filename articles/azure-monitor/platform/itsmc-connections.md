@@ -1,17 +1,17 @@
 ---
-title: Connexions prises en charge avec IT Service Management Connector dans Azure Log Analytics | Microsoft Docs
+title: Connecteur de gestion des services informatiques dans Azure Monitor
 description: Cet article fournit des informations vous indiquant comment connecter vos produits/services ITSM à IT Service Management Connector (ITSMC) dans Azure Monitor pour surveiller et gérer les éléments de travail ITSM de manière centralisée.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: c6cad29b6cc392746a2e56323302521302835b2f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: eb3b09c6f349024d30d68a6c970770e2a78924ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665865"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132315"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](../../azure-monitor/platform/itsmc-overview.md).
@@ -180,6 +180,8 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 Vérifiez que les prérequis suivants sont remplis :
 - Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versions prises en charge par ServiceNow : New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+> [!NOTE]
+> Le connecteur ITSM prend en charge uniquement l’offre SaaS officielle de Service Now. Les déploiements privés de Service Now ne sont pas pris en charge. 
 
 **Les administrateurs ServiceNow doivent procéder comme suit dans leur instance ServiceNow** :
 - Générer l’ID client et la clé secrète client pour le produit ServiceNow. Pour plus d’informations sur la génération d’ID client et de secret, consultez les informations suivantes :
@@ -220,7 +222,7 @@ Exécutez la procédure suivante pour créer une connexion ServiceNow :
 | **Type de partenaire**   | Sélectionnez **ServiceNow**. |
 | **Nom d’utilisateur**   | Tapez le nom d’utilisateur de l’intégration que vous avez créé dans l’application ServiceNow pour prendre en charge la connexion au connecteur ITSM. Plus d’informations : [Create ServiceNow app user role (Créer un rôle utilisateur pour l’application ServiceNow)](#create-integration-user-role-in-servicenow-app).|
 | **Mot de passe**   | Tapez le mot de passe associé à ce nom d’utilisateur. **Remarque** : Le nom d’utilisateur et le mot de passe sont utilisés uniquement pour générer des jetons d’authentification. Ils ne sont pas stockés dans le service ITSMC.  |
-| **URL du serveur**   | Tapez l’URL de l’instance ServiceNow que vous souhaitez connecter au connecteur ITSM. |
+| **URL du serveur**   | Tapez l’URL de l’instance ServiceNow que vous souhaitez connecter au connecteur ITSM. L’URL doit pointer vers une version SaaS prise en charge avec le suffixe « .servicenow.com ».|
 | **ID client**   | Tapez l’ID client généré précédemment que vous souhaitez utiliser pour l’authentification OAuth2.  Plus d’informations sur la génération de l’ID client et de la clé secrète :   [Paramètres OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Clé secrète client**   | Tapez la clé secrète client, générée pour cet ID.   |
 | **Étendue de la synchronisation des données**   | Sélectionnez les éléments de travail de ServiceNow que vous souhaitez synchroniser avec Azure Log Analytics via le connecteur ITSMC.  Les valeurs sélectionnées sont importées dans Log Analytics.   **Options :**  Incidents et demandes de modification.|

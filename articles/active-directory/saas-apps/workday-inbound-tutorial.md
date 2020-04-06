@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365636"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370364"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -132,7 +132,7 @@ Utilisez la table des matières pour accéder à la section pertinente de ce tut
 La solution d'approvisionnement d'utilisateurs de Workday vers AD nécessite le déploiement d'un ou plusieurs agents d'approvisionnement sur des serveurs exécutant Windows 2012 R2 (ou versions ultérieures) avec au moins 4 Go de RAM et un runtime .NET 4.7.1+. Les considérations suivantes doivent être prises en compte avant d’installer l’agent de provisionnement :
 
 * Vérifiez que le serveur hôte exécutant l’agent de provisionnement a accès au domaine AD cible
-* L'Assistant Configuration de l'agent d'approvisionnement inscrit l'agent auprès de votre locataire Azure AD et le processus d'inscription nécessite l'accès à *.msappproxy.net sur le port 443. Vérifiez que les règles de pare-feu de trafic sortant sont en place pour permettre cette communication. L'agent prend en charge la [configuration d'un proxy HTTPS sortant](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+* L’Assistant Configuration de l’agent de provisionnement inscrit l’agent auprès de votre locataire Azure AD tandis que le processus d’inscription nécessite l’accès à *.msappproxy.net sur le port TLS 443. Vérifiez que les règles de pare-feu de trafic sortant sont en place pour permettre cette communication. L'agent prend en charge la [configuration d'un proxy HTTPS sortant](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 * L’agent de provisionnement utilise un compte de service pour communiquer avec le ou les domaines Active Directory locaux. Avant l'installation de l'agent, il est recommandé de créer un compte de service doté de droits d'administration de domaine ainsi qu'un mot de passe qui n'expire pas.  
 * Lors de la configuration de l’agent de provisionnement, vous pouvez sélectionner des contrôleurs de domaine qui doivent gérer les demandes de provisionnement. Si vous avez plusieurs contrôleurs de domaine géographiquement répartis, installez l’agent de provisionnement dans le même site que vos contrôleurs de domaine par défaut, de façon à améliorer la fiabilité et les performances de la solution de bout en bout
 * Pour la haute disponibilité, vous pouvez déployer plusieurs agents de provisionnement et les inscrire pour gérer le même ensemble de domaines Active Directory locaux.

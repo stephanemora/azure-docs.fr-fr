@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 03/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 3694c8cb34b2a050c9e18265c8cc0a0198456076
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8d26efec2783d6f121c319e46b1b505b6e1b1e09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533719"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498938"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de requête pour la traduction de texte Translator Text
 
@@ -23,7 +23,7 @@ Cet article fournit des seuils de limitation de requêtes pour l’API de traduc
 
 ## <a name="character-and-array-limits-per-request"></a>Limites de caractères et de tableaux par requête
 
-Chaque requête Translate est limitée à 5 000 caractères. Vous êtes facturé au caractère, et non pas au nombre de requêtes. Il est recommandé d’envoyer des requêtes plus courtes.
+Chaque demande de traduction est limitée à 5 000 caractères, dans toutes les langues cibles de traduction. Par exemple, l’envoi d’une demande de traduction de 1 500 caractères à traduire en 3 langues différentes génère une demande d’une taille de 1 500 x 3 = 4 500 caractères, qui satisfait la limite de demande. Vous êtes facturé au caractère, et non pas au nombre de requêtes. Il est recommandé d’envoyer des requêtes plus courtes.
 
 Les tableaux suivants répertorient les limites d’éléments de tableau et de caractères pour chaque opération de l’API de traduction de texte Translator Text.
 

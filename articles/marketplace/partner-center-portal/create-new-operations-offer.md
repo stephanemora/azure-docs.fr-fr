@@ -1,19 +1,18 @@
 ---
 title: Créer une nouvelle offre Dynamics 365 for Operations dans la Place de marché commerciale existante
 description: Comment créer une nouvelle offre Dynamics 365 for Operations pour répertorier ou vendre dans la Place de marché Azure, AppSource ou via le programme de fournisseur de solutions Cloud (CSP) avec le portail de la Place de marché commerciale sur Microsoft Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 7d897b9f85ce6565cbdc1a253a0e20b989539cae
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: f7c4b25dad50b8fe620d358aa7fb3e9decabc2f9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048662"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294350"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Créer une nouvelle offre Dynamics 365 for Operations
 
@@ -111,7 +110,7 @@ Entrez le numéro de version de votre offre. Cette version est indiquée aux cli
 
 ### <a name="terms-and-conditions"></a>Conditions générales
 
-Fournissez vos propres conditions générales dans le champ **Conditions générales**. Vous pouvez également fournir l’URL permettant d’accéder à vos conditions générales. Les clients doivent accepter ces conditions avant de pouvoir essayer votre offre.
+Fournissez vos propres conditions légales dans le champ **Conditions générales**. Vous pouvez également fournir l’URL permettant d’accéder à vos conditions générales. Les clients doivent accepter ces conditions avant de pouvoir essayer votre offre.
 
 ## <a name="offer-listing"></a>Annonce de l’offre
 
@@ -122,7 +121,7 @@ Vous devez définir les informations de la Place de marché (nom de l’offre, d
 > [!NOTE]
 > Il n’est pas nécessaire que le contenu du référencement de l’offre (par exemple, la description, les documents, les captures d’écran, les conditions d’utilisation, etc.) soit en anglais, tant que sa description commence par l’expression : « This application is available only in [langue autre que l’anglais]. » Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nom
 
 Le nom que vous entrez ici s’affichera auprès des clients comme titre de votre référencement d’offre. Ce champ est prérempli avec le texte que vous avez entré pour **Alias d’offre** lorsque vous avez créé l’offre, mais vous pouvez modifier cette valeur. Ce nom peut être une marque déposée (et vous pouvez inclure des symboles de marque ou de copyright). Le nom ne peut pas comporter plus de 50 caractères et ne peut pas contenir d’emoji.
 
@@ -293,9 +292,9 @@ Microsoft peut retirer la complexité de la configuration d’une version d’é
 
 - **Durée d’une version d’évaluation** (obligatoire) : Saisissez la durée d’activité de la version d’évaluation, en indiquant le nombre d’heures. Passée cette durée, la session prendra fin et aucune de vos licences ne sera plus utilisée. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Vous ne pouvez définir la durée qu’en nombre d’heures complètes (par exemple, « 2 » pour 2 heures, « 1,5 » est incorrect).  L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
 
-- **URL de l’instance** (obligatoire) : L’URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés (par exemple, https://testdrive.crm.dynamics.com).
+- **URL de l’instance** (obligatoire) : L’URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 exécutant votre application et où les exemples de données sont installés (par exemple `https://testdrive.crm.dynamics.com`).
 
-- **URL d’API web de l’instance** (obligatoire): Récupérez l’URL d’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en allant dans **Paramètres** \&gt; **Personnalisation** \&gt; **Ressources développeur** \&gt; **API web de l’instance (URL racine de service)** , copiez l’URL trouvée ici (par exemple, https://testdrive.crm.dynamics.com/api/data/v9.0) ).
+- **URL d’API web de l’instance** (obligatoire): Récupérez l’URL de l’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en accédant à **Paramètres** \&gt; **Personnalisation** \&gt; **Ressources développeur** \&gt; **API web de l’instance (URL racine du service)** , et copiez l’URL trouvée ici (par exemple `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Nom de rôle** (obligatoire).: Renseignez le nom du rôle de sécurité que vous avez défini dans votre version d’évaluation personnalisée de Dynamics 365. Il sera attribué à l’utilisateur lors de la version d’évaluation (par exemple, test-drive-role).
 

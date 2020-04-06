@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598457"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456197"
 ---
 # <a name="import-data-module"></a>Module Importer des données
 
@@ -65,7 +65,7 @@ Si votre source de données change, vous pouvez actualiser le jeu de données et
     Si elle est sélectionnée, le système exécutera à nouveau le module pour régénérer la sortie. Sélectionnez donc cette option lorsque les données sous-jacentes dans le stockage sont mises à jour. Cela peut vous aider à obtenir les données les plus récentes.
 
 
-1. Exécuter le pipeline.
+1. Envoyez le pipeline.
 
     Lorsque le module Importer des données charge les données dans le concepteur, il déduit le type de données de chaque colonne en fonction des valeurs qu’elle contient : numériques ou par catégorie.
 

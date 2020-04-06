@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: bf83c87c71c8e05dc74d7754c82c76489de1bd85
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750900"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382917"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Surveillez les journaux de diagnostic de Media Services
 
 [Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Pour une description détaillée de cette fonctionnalité et pour comprendre pourquoi utiliser les mesures et les journaux de diagnostic Azure Media Services, consultez la section [Surveiller les mesures et les journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md).
 
-Cet article vous montre comment acheminer les données vers le compte de stockage, puis comment afficher les données. 
+Cet article vous montre comment acheminer les données vers le compte de stockage, puis comment afficher les données.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Créer un compte Media Services](create-account-cli-how-to.md).
 - Évaluation [Surveiller les mesures et les journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md).
@@ -34,7 +34,7 @@ Cet article vous montre comment acheminer les données vers le compte de stockag
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Acheminez les données vers le compte de stockage à l’aide du portail
 
 1. Connectez-vous au portail Azure sur https://portal.azure.com.
-1. Accédez à votre compte Media Services dans et cliquez sur **Paramètres de diagnostic** sous **Surveiller**. Vous trouverez la liste de toutes les ressources dans votre abonnement, qui produisent des données de surveillance dans Azure Monitor. 
+1. Accédez à votre compte Media Services dans et cliquez sur **Paramètres de diagnostic** sous **Surveiller**. Vous trouverez la liste de toutes les ressources dans votre abonnement, qui produisent des données de surveillance dans Azure Monitor.
 
     ![Section Paramètres de diagnostic](media/media-services-diagnostic-logs/logs01.png)
 
@@ -53,11 +53,11 @@ Cet article vous montre comment acheminer les données vers le compte de stockag
 
 Les données de surveillance de votre ressource sont maintenant transférées dans le compte de stockage.
 
-## <a name="route-data-to-the-storage-account-using-the-cli"></a>Acheminez les données vers le compte de stockage à l’aide de CLI
+## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Acheminer les données vers le compte de stockage à l’aide d’Azure CLI
 
-Pour activer le stockage des journaux de diagnostic dans un compte de stockage, exécutez la commande `az monitor diagnostic-settings` suivante : 
+Pour activer le stockage des journaux de diagnostic dans un compte de stockage, exécutez la commande Azure CLI `az monitor diagnostic-settings` suivante :
 
-```cli
+```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
     --storage-account <name or ID of storage account> \
     --resource <target resource object ID> \
@@ -75,7 +75,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 Par exemple :
 
-```cli
+```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
     --storage-account storageaccountforams  \
     --resource "/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount" \

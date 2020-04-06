@@ -1,19 +1,18 @@
 ---
 title: Table Azure dans un programme de la Place de marché commerciale | Place de marché Azure
 description: Configurer la gestion des prospects pour Blob Azure
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.author: evansma
-ms.openlocfilehash: 5da4e0ab315b3f66a477b816f6fc5d27de7aa339
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812369"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285246"
 ---
 # <a name="lead-management-instructions-for-azure-blob"></a>Instructions de gestion des prospects pour Blob Azure
 
@@ -68,7 +67,7 @@ Si votre système de gestion de la relation client (CRM) n’est pas expliciteme
 
 ## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Configurer votre offre pour envoyer des prospects au Blob Azure
 
-Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre dans le portail de publication, procédez comme suit :
+Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre sur le portail de publication, procédez comme suit :
 
 1. Accédez à la page **Configuration de l'offre** de votre offre.
 2. Sélectionnez **Connexion** dans la section Gestion des prospects.
@@ -87,6 +86,6 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
 5. Sélectionnez **Enregistrer**.
 
     > [!NOTE]
-    > Pour recevoir des prospects pour l’offre, vous devez terminer la configuration du reste de l’offre et la publier.
+    > Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.
 
 

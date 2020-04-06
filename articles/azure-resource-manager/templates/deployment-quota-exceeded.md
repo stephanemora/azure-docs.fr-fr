@@ -3,12 +3,12 @@ title: Dépassement du quota de déploiement
 description: Explique comment résoudre l'erreur liée à la présence de plus de 800 déploiements dans l'historique du groupe de ressources.
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.openlocfilehash: 7f389827513562a3add67f022fec360081754b02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 919cd9a3482401cd47516e2677b0bf58387488b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474319"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245087"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Résoudre l'erreur liée à un nombre de déploiements supérieur à 800
 
@@ -22,28 +22,28 @@ Pendant un déploiement, vous recevez une erreur indiquant que celui-ci va entra
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Utilisez la commande [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) pour supprimer des déploiements de l'historique.
+Utilisez la commande [az deployment group delete](/cli/azure/group/deployment) pour supprimer des déploiements de l’historique.
 
 ```azurecli-interactive
-az group deployment delete --resource-group exampleGroup --name deploymentName
+az deployment group delete --resource-group exampleGroup --name deploymentName
 ```
 
 Pour supprimer tous les déploiements datant de plus de cinq jours, utilisez :
 
 ```azurecli-interactive
 startdate=$(date +%F -d "-5days")
-deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
+deployments=$(az deployment group list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
 
 for deployment in $deployments
 do
-  az group deployment delete --resource-group exampleGroup --name $deployment
+  az deployment group delete --resource-group exampleGroup --name $deployment
 done
 ```
 
 Pour connaître le nombre de déploiements actuellement contenu dans l'historique, utilisez la commande suivante :
 
 ```azurecli-interactive
-az group deployment list --resource-group exampleGroup --query "length(@)"
+az deployment group list --resource-group exampleGroup --query "length(@)"
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell

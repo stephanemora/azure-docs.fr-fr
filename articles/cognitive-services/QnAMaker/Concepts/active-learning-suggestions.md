@@ -2,13 +2,13 @@
 title: Suggestions d’apprentissage actif – QnA Maker
 description: Les suggestions d’apprentissage actif vous permettent d’améliorer la qualité de votre base de connaissances en suggérant d’autres questions à vos paires de question-réponse en fonction des soumissions d’utilisateurs.
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.openlocfilehash: 56f3ab870e148c39912d4f1f5e6e7133a5df4a98
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.date: 03/19/2020
+ms.openlocfilehash: af4f6b399bfd537b38ea741d03e59371ee81e588
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053154"
 ---
 # <a name="active-learning-suggestions"></a>Suggestions d’apprentissage actif
 
@@ -32,6 +32,13 @@ L’apprentissage actif est déclenché en fonction des scores des principales r
 L’apprentissage actif offre les meilleures suggestions possible dans les cas où les points de terminaison reçoivent une quantité raisonnable de différentes requêtes d’utilisation. Lorsque 5 requêtes similaires ou plus sont ordonnées en cluster, toutes les 30 minutes, QnA Maker suggère les questions de l’utilisateur au concepteur de la base de connaissances pour qu’il les accepte ou les rejette. Toutes les suggestions sont regroupées par similarité, et les principales suggestions pour les questions alternatives sont affichées en fonction de la fréquence des requêtes particulières des utilisateurs finals.
 
 Une fois les questions suggérées dans le portail QnA Maker, vous pouvez examiner, puis vérifier et accepter, ou rejeter, ces suggestions. Il n’existe pas d’API permettant de gérer des suggestions.
+
+## <a name="turn-on-active-learning"></a>Activation de l’apprentissage actif
+
+Par défaut, l’apprentissage actif est **désactivé**.
+Pour utiliser l’apprentissage actif :
+* Vous devez [activer l’apprentissage actif](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) afin que QnA Maker collecte des d’autres questions pour votre base de connaissances.
+* Pour voir les autres questions suggérées, [utilisez les options Affichage](../How-To/improve-knowledge-base.md#view-suggested-questions) sur la page Modifier.
 
 ## <a name="how-qna-makers-implicit-feedback-works"></a>Fonctionnement des commentaires implicites de QnA Maker
 

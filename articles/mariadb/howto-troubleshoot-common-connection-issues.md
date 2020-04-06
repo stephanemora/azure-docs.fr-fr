@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 613de96ee58d37e6270266852e513e53857a441a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: d134bcd0c5f9bfde0fdb095122d54848873174be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765730"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536358"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour MariaDB
 

@@ -1,18 +1,16 @@
 ---
 title: Azure Application Insights pour les applications web JavaScript
 description: Obtenir les nombres de sessions et d’affichage de page, les données de client web, les applications monopages (SPA) et les modèles d’utilisation de suivi. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276777"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234729"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -53,11 +51,11 @@ Si votre application n’utilise pas npm, vous pouvez directement instrumenter v
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(n){var o={config:n,initialize:!0},t=document,e=window,i="script";setTimeout(function(){var e=t.createElement(i);e.src=n.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",t.getElementsByTagName(i)[0].parentNode.appendChild(e)});try{o.cookie=t.cookie}catch(e){}function a(n){o[n]=function(){var e=arguments;o.queue.push(function(){o[n].apply(o,e)})}}o.queue=[],o.version=2;for(var s=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];s.length;)a("track"+s.pop());var r="Track",c=r+"Page";a("start"+c),a("stop"+c);var u=r+"Event";if(a("start"+u),a("stop"+u),a("addTelemetryInitializer"),a("setAuthenticatedUserContext"),a("clearAuthenticatedUserContext"),a("flush"),o.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===n.disableExceptionTracking||n.extensionConfig&&n.extensionConfig.ApplicationInsightsAnalytics&&!0===n.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){a("_"+(s="onerror"));var p=e[s];e[s]=function(e,n,t,i,a){var r=p&&p(e,n,t,i,a);return!0!==r&&o["_"+s]({message:e,url:n,lineNumber:t,columnNumber:i,error:a}),r},n.autoExceptionInstrumented=!0}return o}(
 {
   instrumentationKey:"INSTRUMENTATION_KEY"
 }
-);window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+);(window[aiName]=aisdk).queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -97,10 +95,11 @@ appInsights.trackTrace({message: 'This message will use a telemetry initializer'
 appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this is executed
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
+
 ## <a name="configuration"></a>Configuration
 La plupart des champs de configuration sont nommés de façon à pouvoir avoir la valeur false par défaut. Tous les champs sont facultatifs à l’exception de `instrumentationKey`.
 
-| Name | Default | Description |
+| Nom | Default | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **Obligatoire**<br>Clé d’instrumentation que vous avez obtenue à partir du portail Azure. |
 | accountId | null | ID de compte facultatif, si votre application regroupe les utilisateurs dans des comptes. Aucun espace, virgule, point-virgule, signe d’égalité ni barre verticale |
@@ -157,7 +156,7 @@ Actuellement, nous proposons un [plug-in React](#react-extensions) distinct que 
 
 ## <a name="explore-browserclient-side-data"></a>Explorer les données côté navigateur/client
 
-Vous pouvez afficher les données côté navigateur/client en accédant à **Métriques** et en ajoutant les métriques individuelles qui vous intéressent : 
+Vous pouvez afficher les données côté navigateur/client en accédant à **Métriques** et en ajoutant les métriques individuelles qui vous intéressent :
 
 ![](./media/javascript/page-view-load-time.png)
 
@@ -167,7 +166,7 @@ Sélectionnez **Navigateur**, puis choisissez **Échecs** ou **Performances**.
 
 ![](./media/javascript/browser.png)
 
-### <a name="performance"></a>Performances 
+### <a name="performance"></a>Performances
 
 ![](./media/javascript/performance-operations.png)
 
@@ -175,7 +174,7 @@ Sélectionnez **Navigateur**, puis choisissez **Échecs** ou **Performances**.
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analytics 
+### <a name="analytics"></a>Analytics
 
 Pour interroger vos données de télémétrie collectées par le kit SDK JavaScript, sélectionnez le bouton **Voir dans les journaux (analytique)** . En ajoutant une instruction `where` égale à `client_Type == "Browser"`, vous verrez uniquement les données du kit SDK JavaScript et toutes les données de télémétrie côté serveur collectées par d’autres kits SDK seront exclues.
  
@@ -196,7 +195,14 @@ dataset
 
 ### <a name="source-map-support"></a>Prise en charge du mappage de source
 
-La pile d’appels minimisée de vos données de télémétrie d’exception peut être déminimisée dans le portail Azure. Toutes les intégrations existantes dans le panneau Détails des exceptions fonctionnent avec la pile d’appels nouvellement déminimisée. La déminimisation du mappage de source par glisser-déplacer prend en charge tous les kits SDK JS existants et futurs (+Node.JS). Vous n’avez donc pas besoin de mettre à niveau votre version du SDK. Pour afficher votre pile d’appels déminimisée,
+La pile d’appels minimisée de vos données de télémétrie d’exception peut être déminimisée dans le portail Azure. Toutes les intégrations existantes dans le panneau Détails des exceptions fonctionnent avec la pile d’appels nouvellement déminimisée.
+
+#### <a name="link-to-blob-storage-account"></a>Lien vers un compte de stockage blob
+
+Vous pouvez lier votre ressource Application Insights à votre propre conteneur de stockage blob Azure pour réduire automatiquement les piles d’appels. Pour commencer, consultez la [prise en charge automatique du mappage de source](./source-map-support.md).
+
+### <a name="drag-and-drop"></a>Glisser-déposer
+
 1. Sélectionnez un élément Télémétrie des exceptions dans le portail Azure pour afficher ses « détails de transaction de bout en bout ».
 2. Identifiez les mappages de source qui correspondent à cette pile d’appels. Le mappage de source doit correspondre au fichier source d’un frame de pile, mais avec le suffixe `.map`
 3. Glissez-déplacez les mappages de source sur la pile des appels dans le portail Azure ![](https://i.imgur.com/Efue9nU.gif)
@@ -216,10 +222,12 @@ Pour obtenir des exemples exécutables, consultez [Exemples du SDK JavaScript Ap
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Mise à niveau de l’ancienne version d’Application Insights
 
 Dernières modifications dans la version V2 du kit SDK :
-- Pour permettre de meilleures signatures d’API, certains appels d’API, tels que trackPageView et trackException, ont été mis à jour. L’exécution dans IE8 ou des versions antérieures du navigateur n’est pas prise en charge.
+- Pour permettre de meilleures signatures d’API, certains appels d’API, tels que trackPageView et trackException, ont été mis à jour. L’exécution dans Internet Explorer 8 ou des versions antérieures du navigateur n’est pas prise en charge.
 - L’enveloppe de télémétrie présente des modifications de structure et de nom des champs en raison de mises à jour du schéma de données.
-- `context.operation` a été déplacé vers `context.telemetryTrace`. Certains champs ont également été modifiés (`operation.id` --> `telemetryTrace.traceID`)
-  - Pour actualiser manuellement l’ID de consultation de page actuel (par exemple, dans les applications SPA), faites-le avec `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
+- `context.operation` a été déplacé vers `context.telemetryTrace`. Certains champs ont également été modifiés (`operation.id` --> `telemetryTrace.traceID`).
+  - Pour actualiser manuellement l’ID de consultation de page actuel (par exemple, dans les applications SPA), utilisez `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`.
+    > [!NOTE]
+    > Pour conserver l’ID de trace unique, dans lequel vous avez déjà utilisé `Util.newId()`, utilisez maintenant `Util.generateW3CId()`. Tous deux finissent par être l’ID d’opération.
 
 Si vous utilisez le kit SDK de PRODUCTION d’Application Insights actuel (1.0.20) et que vous souhaitez voir si le nouveau kit SDK fonctionne dans le runtime, mettez à jour l’URL en fonction de votre scénario de chargement de kit SDK actuel.
 
@@ -260,7 +268,7 @@ Chrome version la plus récente ✔ |  Firefox version la plus récente ✔ | IE
 
 Le kit SDK JavaScript Application Insights est proposé en open source. Pour afficher le code source ou contribuer au projet, visitez le [dépôt GitHub officiel](https://github.com/Microsoft/ApplicationInsights-JS).
 
-## <a name="next"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 * [Suivi de l'utilisation](usage-overview.md)
 * [Mesures et événements personnalisés](api-custom-events-metrics.md)
 * [Développer-mesurer-apprendre](usage-overview.md)

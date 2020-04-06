@@ -1,6 +1,6 @@
 ---
-title: Encoder une transformation personnalisée avec la CLI Media Services v3 - Azure | Microsoft Docs
-description: Cette rubrique explique comment utiliser Azure Media Services v3 pour encoder une transformation personnalisée à l’aide de la CLI.
+title: Encoder une transformation personnalisée avec Media Services v3 Azure CLI | Microsoft Docs
+description: Cette rubrique explique comment utiliser Azure Media Services v3 pour encoder une transformation personnalisée à l’aide d’Azure CLI.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 42b7c2d86525c428253137b424fe58bb61edba70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762022"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382951"
 ---
-# <a name="how-to-encode-with-a-custom-transform---cli"></a>Comment encoder avec une transformation personnalisée - CLI
+# <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Comment encoder une transformation personnalisée avec Azure CLI
 
 Lors de l’encodage avec Azure Media Services, vous pouvez commencer rapidement avec l’un des préréglages intégrés recommandés et basés sur les bonnes pratiques, comme illustré dans le démarrage rapide [Streaming de fichiers](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding). Vous pouvez également créer un préréglage personnalisé pour les besoins de votre scénario ou votre appareil.
 
@@ -30,19 +30,21 @@ Lorsque vous créez des préréglages personnalisés, les considérations suivan
 * Toutes les valeurs de hauteur et de largeur de contenu AVC doivent être un multiple de 4.
 * Dans Azure Media Services v3, toutes les vitesses d’encodage sont données en bits par seconde. Cela diffère des préréglages avec nos API v2, qui utilisaient des kilobits par seconde comme unité. Par exemple, si la vitesse de transmission dans v2 était de 128 (kilobits/seconde), elle sera définie sur 12 8000 (bits/seconde) dans v3.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
 
-[Créer un compte Media Services](create-account-cli-how-to.md). <br/>Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services. 
+[Créer un compte Media Services](create-account-cli-how-to.md).
+
+Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="define-a-custom-preset"></a>Définir un préréglage personnalisé
 
-L’exemple suivant définit le corps de la demande d’une nouvelle transformation. Nous définissons un ensemble de sorties à générer lorsque cette transformation est utilisée. 
+L’exemple suivant définit le corps de la demande d’une nouvelle transformation. Nous définissons un ensemble de sorties à générer lorsque cette transformation est utilisée.
 
 Dans cet exemple, nous ajoutons tout d’abord une couche AacAudio pour l’encodage audio et deux couches H264Video pour l’encodage vidéo. Dans les couches vidéo, nous attribuons des étiquettes pour pouvoir les utiliser dans les noms de fichiers de sortie. Nous souhaitons ensuite que la sortie inclue également des miniatures. Dans l’exemple ci-dessous, nous spécifions des images au format PNG, générées à 50 % de la résolution de la vidéo d’entrée et à trois horodatages {25 %, 50 %, 75} de la longueur de la vidéo d’entrée. Pour fini, nous spécifions le format des fichiers de sortie : un pour la vidéo + audio et un autre pour les miniatures. Étant donné que nous avons plusieurs couches H264, nous devons utiliser des macros qui produisent des noms uniques par couche. Nous pouvons utiliser une macro `{Label}` ou `{Bitrate}` ; l’exemple montre la première.
 
-Nous enregistrons cette transformation dans un fichier. Dans cet exemple, nous nommons ce fichier `customPreset.json`. 
+Nous enregistrons cette transformation dans un fichier. Dans cet exemple, nous nommons ce fichier `customPreset.json`.
 
 ```json
 {
@@ -120,25 +122,24 @@ Nous enregistrons cette transformation dans un fichier. Dans cet exemple, nous n
         }
     ]
 }
-
 ```
 
 ## <a name="create-a-new-transform"></a>Créer une transformation  
 
 Dans cet exemple, nous créons une **transformation** qui repose sur le préréglage personnalisé que nous avons défini précédemment. Lorsque vous créez une transformation, vous devez tout d’abord vérifier s’il en existe déjà une. Si la transformation existe, réutilisez-la. La commande suivante `show` retourne la transformation `customTransformName`, si elle existe :
 
-```cli
+```azurecli-interactive
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 ```
 
-La commande CLI suivante crée la transformation en fonction de la présélection personnalisée (définie plus tôt). 
+La commande Azure CLI suivante crée la transformation en fonction de la présélection personnalisée (définie plus tôt).
 
-```cli
+```azurecli-interactive
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-Pour que la plateforme Media Services applique la transformation au fichier vidéo ou audio spécifié, vous devez soumettre un travail relevant de cette transformation. Pour obtenir un exemple complet illustrant la soumission d’un travail relevant d’une transformation, consultez le [Démarre rapide : Diffuser des fichiers vidéo en streaming - CLI](stream-files-cli-quickstart.md).
+Pour que la plateforme Media Services applique la transformation au fichier vidéo ou audio spécifié, vous devez soumettre un travail relevant de cette transformation. Pour obtenir un exemple complet illustrant la soumission d’un travail relevant d’une transformation, consultez le [Démarre rapide : Diffuser des fichiers vidéo en continu – Azure CLI](stream-files-cli-quickstart.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-[Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](/cli/azure/ams)

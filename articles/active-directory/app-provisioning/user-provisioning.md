@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a24a557cb436f18252abd88a4c82f15004f4390
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 5e828fd9c2561007c332db67bfd0b20dda9b845f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522048"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454531"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatiser l’approvisionnement et le déprovisionnement des utilisateurs dans les applications avec Azure Active Directory
 
@@ -73,7 +73,7 @@ Pour aider à automatiser l’approvisionnement et le déprovisionnement, les ap
 
 Pour relever ces défis, la spécification SCIM fournit un schéma utilisateur commun pour aider les utilisateurs à se déplacer dans, hors et autour des applications. SCIM devient de facto la norme pour l’approvisionnement et, lorsqu’elle est utilisée conjointement avec des normes de fédération comme SAML ou OpenID Connect, fournit aux administrateurs une solution de bout en bout basée sur des normes pour la gestion des accès.
 
-Pour obtenir des instructions détaillées sur l’utilisation de SCIM afin d’automatiser le provisionnement et le déprovisionnement d’utilisateurs et de groupes dans une application, consultez [Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs](use-scim-to-provision-users-and-groups.md).
+Pour obtenir des instructions détaillées sur le développement d’un point de terminaison SCIM afin d’automatiser le provisionnement et le déprovisionnement d’utilisateurs et de groupes dans une application, consultez [Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs](use-scim-to-provision-users-and-groups.md). Pour les applications pré-intégrées dans la galerie (Slack, Azure Databricks, Snowflake, etc.), vous pouvez ignorer la documentation du développeur et utiliser les tutoriels fournis [ici](../saas-apps/tutorial-list.md).
 
 ## <a name="manual-vs-automatic-provisioning"></a>Provisionnement manuel ou automatique
 

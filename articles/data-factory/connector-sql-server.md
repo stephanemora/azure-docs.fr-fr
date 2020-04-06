@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/24/2019
-ms.openlocfilehash: 6b5c5d46003c995ae0e853809e2283e8502615bc
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: e7f91d60a0e181690859da64e491c4c0fa1e1a3e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891949"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238712"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 
@@ -49,7 +49,7 @@ Plus précisément, ce connecteur SQL Server prend en charge :
 >[!NOTE]
 >SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) n’est actuellement pas pris en charge par ce connecteur. Pour contourner ce problème, vous pouvez utiliser un [connecteur ODBC générique](connector-odbc.md) et un pilote SQL Server ODBC. Suivez [ces instructions](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) relatives au téléchargement du pilote ODBC et à la configuration des chaînes de connexion.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -68,7 +68,7 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Serve
 | type | La propriété type doit être définie sur **SqlServer**. | Oui |
 | connectionString |Spécifiez les informations **connectionString** nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. Consultez les exemples suivants.<br/>Vous pouvez également placer un mot de passe dans Azure Key Vault. En cas d’authentification SQL, extrayez la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez l’exemple JSON figurant après le tableau et l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | userName |Spécifiez un nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
-| password |Spécifiez un mot de passe pour le compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ comme **SecureString** pour le stocker de manière sécurisée dans Azure Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non |
+| mot de passe |Spécifiez un mot de passe pour le compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ comme **SecureString** pour le stocker de manière sécurisée dans Azure Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non |
 | connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
 
 >[!TIP]
@@ -189,6 +189,7 @@ Pour copier des données à partir de SQL Server, définissez **SqlSource** comm
 | sqlReaderQuery |Utiliser la requête SQL personnalisée pour lire les données. par exemple `select * from MyTable`. |Non |
 | sqlReaderStoredProcedureName |Cette propriété est le nom de la procédure stockée qui lit les données dans la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non |
 | storedProcedureParameters |Ces paramètres concernent la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de procédure stockée. |Non |
+| isolationLevel | Spécifie le comportement de verrouillage des transactions pour la source SQL. Les valeurs autorisées sont les suivantes : **ReadCommitted** (valeur par défaut), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Pour plus d’informations, consultez [ce document](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel). | Non |
 
 **Points à noter :**
 
@@ -432,7 +433,7 @@ Les étapes permettant d’écrire des données à l’aide d’une logique pers
 - Charger les données dans une table temporaire, puis appeler une procédure stockée. 
 - Appeler une procédure stockée pendant la copie.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Appel d'une procédure stockée à partir d'un récepteur SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Appel d'une procédure stockée à partir d'un récepteur SQL
 
 Quand vous copiez des données dans une base de données SQL Server, vous pouvez également configurer et appeler une procédure stockée spécifiée par l’utilisateur avec des paramètres supplémentaires. La fonction de procédure stockée tire parti des [paramètres table](https://msdn.microsoft.com/library/bb675163.aspx).
 
@@ -448,7 +449,7 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
         [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL，
+        [State] [varchar](256) NOT NULL,
         [Category] [varchar](256) NOT NULL
     )
     ```

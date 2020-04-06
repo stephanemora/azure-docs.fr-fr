@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 55fe3a2a4fd0f45b0873e47f29b7ea013558be40
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: f2e067f76d6ed7d89a38e9b8920c407f161969a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152480"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456776"
 ---
 # <a name="add-columns-module"></a>Module Ajouter des colonnes
 
@@ -33,7 +33,7 @@ Utilisez ce module pour concaténer 2 jeux de données. Vous combinez toutes le
 
     - Vous ne pouvez pas choisir des colonnes individuelles à ajouter. Toutes les colonnes de chaque jeu de données sont concaténées lorsque vous utilisez le module **Ajouter des colonnes**. Par conséquent, si vous souhaitez ajouter uniquement un sous-ensemble de colonnes, utilisez Sélectionner des colonnes dans le jeu de données pour créer un jeu de données contenant les colonnes de votre choix.
 
-3. Exécuter le pipeline.
+3. Envoyez le pipeline.
 
 ### <a name="results"></a>Résultats
 Une fois le pipeline exécuté :

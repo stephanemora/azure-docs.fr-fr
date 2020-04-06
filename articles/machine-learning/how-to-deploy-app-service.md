@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 2a3e1f1997857ab9812fe87d5ec68b71e280e6ce
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 3e6cfde20d9f4d56af836e06b0c9a84010dea47b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122540"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282815"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Déployer des modèles Machine Learning sur Azure App Service (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,14 +29,14 @@ Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de m
 
 * [Authentification](/azure/app-service/configure-authentication-provider-aad) avancée pour une sécurité améliorée. Les méthodes d’authentification incluent Azure Active Directory et l’authentification multifacteur.
 * [Effectuer une mise à l’échelle automatique](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) sans nécessité de redéploiement.
-* [Prise en charge SSL](/azure/app-service/configure-ssl-certificate-in-code) pour les communications sécurisées entre les clients et le service.
+* [Prise en charge TLS](/azure/app-service/configure-ssl-certificate-in-code) pour les communications sécurisées entre les clients et le service.
 
 Pour plus d’informations sur les fonctionnalités fournies par Azure App Service, consultez la [présentation d’App Service](/azure/app-service/overview).
 
 > [!IMPORTANT]
 > Si vous avez besoin de la possibilité de consigner les données de scoring utilisées avec votre modèle déployé, ou les résultats de scoring, il est préférable d’effectuer le déploiement vers Azure Kubernetes Service. Pour plus d’informations, consultez [Collecter des données relatives à vos modèles de production](how-to-enable-data-collection.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -271,6 +271,6 @@ print(response.json())
 
 * Découvrez comment configurer votre application web dans la documentation sur [App service sur Linux](/azure/app-service/containers/).
 * Découvrez la mise à l’échelle dans [Bien démarrer avec la mise à l’échelle automatique dans Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Utiliser un certificat SSL dans votre Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
+* [Utiliser un certificat TLS/SSL dans votre Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](/azure/app-service/configure-authentication-provider-aad).
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)

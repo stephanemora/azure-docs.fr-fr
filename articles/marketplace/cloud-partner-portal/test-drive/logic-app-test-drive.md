@@ -1,19 +1,18 @@
 ---
 title: Version d’évaluation de l’application logique | Place de marché Azure
 description: Explique comment créer sa version d’évaluation qui se connectera à une instance Dynamics AX/CRM ou aux autres ressources qui ne se limitent pas à celles d’Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 87170344f7467770829cbd8ba7d8936a9e39c0cc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 766f893d71ca0830fe8b69c50145603c6544cc3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824602"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278380"
 ---
 <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 ====================
@@ -34,7 +33,7 @@ Maintenant que vous avez créé votre version d’évaluation, cette section dé
 
 Dans le premier champ qui est aussi le plus important, vous devez indiquer si vous souhaitez ou non procéder au test du formulaire avec l’ensemble des champs obligatoires présentés pour vous à remplir. Lorsque vous sélectionnez **Non**, le formulaire est désactivé, et si vous procédez à une republication avec la version d’évaluation désactivée, votre version d’évaluation est supprimée de la production.
 
-*Remarque*: si des versions d’évaluation sont activement utilisées, elles continuent à être exécutées jusqu’à ce que leur session expire.
+*Remarque* : si des versions d’évaluation sont activement utilisées, elles continuent à être exécutées jusqu’à ce que leur session expire.
 
 ### <a name="details"></a>Détails
 
@@ -74,7 +73,7 @@ La section suivante à remplir correspond à l’emplacement où vous configurez
 
 - **Nom du groupe de ressources Azure :** *[champ obligatoire]* écrivez le nom du groupe de ressources dans lequel vos versions d’évaluation d’application logique sont enregistrées.
 
-- **Assign Logic App Name (Attribuer un nom d’application logique) :** *[champ obligatoire]* écrivez l’application logique qui est utilisée pour affecter un utilisateur dans la version d’évaluation avant que le client ne l’obtienne ; écrivez ici le nom de cette application logique. Assurez-vous que ce fichier est enregistré dans le groupe de ressources indiqué ci-dessus.
+- **Assign Logic App Name (Attribuer un nom d’application logique) :** *[champ obligatoire]* écrivez l’application logique qui est utilisée pour affecter un utilisateur dans la version d’évaluation avant que le client l’obtienne ; écrivez ici le nom de cette application logique. Assurez-vous que ce fichier est enregistré dans le groupe de ressources indiqué ci-dessus.
 
 - **Deprovision Logic App Name (Déprovisionner le nom de l’application logique) :** *[champ obligatoire]* écrivez le nom de l’application logique pour déprovisionner toutes les ressources créées dans la version d’évaluation. Assurez-vous que ce fichier est enregistré dans le groupe de ressources indiqué ci-dessus.
 
@@ -124,7 +123,7 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
 1. Cliquez sur l’onglet **Attributions de rôles**.  ![Azure Active Directory, ajout d’un nouveau principal de contrôle d’accès](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Cliquez sur **Ajouter une attribution de rôle**.
 1. Définissez le rôle **Contributeur**.
-1. Tapez le nom de l’application Azure AD et sélectionnez celle-ci pour affecter le rôle.
+1. Tapez le nom de l’application Azure AD et sélectionnez cette dernière pour assigner le rôle.
     ![Autorisations Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. Cliquez sur **Enregistrer**.
 

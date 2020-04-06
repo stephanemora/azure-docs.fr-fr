@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 9da756b702c994d69aae42ecef0e2da4d44eed39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9da922de38d820864b3f83de80fe64eb3ac792e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510670"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246719"
 ---
 # <a name="deploy-azure-sql-database-edge-preview"></a>Déployer Azure SQL Database Edge en préversion
 
@@ -23,7 +23,7 @@ Azure SQL Database Edge en préversion est un moteur de base de données relatio
 ## <a name="before-you-begin"></a>Avant de commencer
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
-* Connectez-vous au [Portail Azure](https://portal.azure.com/).
+* Connectez-vous au [portail Azure](https://portal.azure.com/).
 * Envoyez une demande [ici](https://azure.microsoft.com/services/sql-database-edge/#contact)pour que l’abonnement soit activé pour le déploiement de SQL Database Edge.
 * Créez une ressource [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Inscrivez un [appareil IoT Edge à partir du Portail Azure](../iot-edge/how-to-register-device-portal.md).
@@ -48,7 +48,7 @@ La Place de marché Azure est un marché d’applications et de services en lign
 
    |**Champ**  |**Description**  |
    |---------|---------|
-   |Subscription  |  L’abonnement Azure dans lequel l’IoT Hub a été créé |
+   |Abonnement  |  L’abonnement Azure dans lequel l’IoT Hub a été créé |
    |IoT Hub   |  Nom de l’IoT Hub où l’appareil IoT Edge est inscrit. Sélectionnez ensuite l’option « Déployer sur un appareil »|
    |Nom de l’appareil IoT Edge  |  Nom de l’appareil IoT Edge sur lequel SQL Database Edge sera déployé |
 
@@ -66,7 +66,7 @@ La Place de marché Azure est un marché d’applications et de services en lign
    > [!NOTE]
    > Ne modifiez pas ou ne mettez pas à jour **l’URI d’image** ou les paramètres **ACCEPT_EULA** sur le module.
 
-6. Dans le volet **Modules personnalisés IoT Edge**, mettez à jour la valeur souhaitée des options de création de conteneur pour **Port hôte** et **Cible** des points de montage. La cible du point de montage est l’emplacement de stockage des fichiers de base de données SQL sur l’appareil IoT Edge hôte.
+6. Dans le volet **Modules personnalisés IoT Edge**, mettez à jour la valeur souhaitée des options de création de conteneur pour le **Port hôte**. Si vous devez déployer plusieurs modules SQL DB Edge, veillez à mettre à jour l’option Mounts pour créer une paire source et cible pour le volume persistant. Pour plus d’informations sur les montages et le volume, consultez [Utiliser des volumes](https://docs.docker.com/storage/volumes/) sur la documentation Docker. 
 
    ```json
        {

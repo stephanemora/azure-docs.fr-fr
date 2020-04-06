@@ -2,29 +2,26 @@
 title: Configurer une appliance Azure Migrate pour VMware
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles VMware.
 ms.topic: article
-ms.date: 11/18/2019
-ms.openlocfilehash: e331d45d3e87f8007642675a0349839e7494958c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/23/2020
+ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598151"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336789"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurer une appliance pour les machines virtuelles VMware
 
-Cet article explique comment configurer l’appliance Azure Migrate si vous évaluez des machines virtuelles VMware avec l’outil Azure Migrate Server Assessment ou si vous migrez des machines virtuelles VMware vers Azure avec une migration sans agent à l’aide de l’outil de migration de serveur Azure Migrate.
+Cet article explique comment configurer l’appliance Azure Migrate pour l’évaluation avec l’outil [Azure Migrate : Évaluation de serveurs](migrate-services-overview.md#azure-migrate-server-assessment-tool) et pour la migration sans agent en utilisant l’outil [Azure Migrate : Migration de serveurs](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-L’appliance de machines virtuelles VMware est une appliance légère utilisée par Azure Migrate Server Assessment/Migration pour effectuer les opérations suivantes :
+L’[appliance Azure Migrate](migrate-appliance.md) est un appareil léger utilisé par Azure Migrate : Évaluation de serveurs et Migration de serveurs pour découvrir les machines virtuelles VMware locales, pour envoyer des données de métadonnées/de performances des machines virtuelles à Azure et pour la réplication des machines virtuelles VMware pendant la migration sans agent.
 
-- Détecter les machines virtuelles VMware locales.
-- Envoyer des métadonnées et des données de performances pour les machines virtuelles découvertes à Azure Migrate Server Assessment/Migration.
-
-[En savoir plus](migrate-appliance.md) sur les appliances d’Azure Migrate.
+Vous pouvez configurer l’appliance Azure Migrate pour l’évaluation de machines virtuelles VMware avec un modèle OVA que vous téléchargez ou avec un script d’installation PowerShell. Cet article explique comment configurer l’appliance avec le modèle OVA. Si vous voulez configurer l’appliance avec le script, suivez les instructions fournies dans [cet article](deploy-appliance-script.md).
 
 
-## <a name="appliance-deployment-steps"></a>Étapes de déploiement d’appliance
+## <a name="appliance-deployment-ova"></a>Déploiement de l’appliance (OVA)
 
-Pour configurer l’appliance, vous devez :
+Pour configurer l’appliance avec un modèle OVA, vous :
 - Téléchargez un fichier de modèle OVA, puis importez-le dans vCenter Server.
 - Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
 - Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
@@ -72,7 +69,7 @@ Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL A
 
 ## <a name="configure-the-appliance"></a>Configurer l’appliance
 
-Configurez l’appliance pour la première fois.
+Configurez l’appliance pour la première fois. Si vous déployez l’appliance avec un script au lieu d’un modèle OVA, les deux premières étapes de la procédure ne sont pas applicables.
 
 1. Dans la console du client vSphere, cliquez avec le bouton droit sur la machine virtuelle, puis choisissez **Open Console** (Ouvrir la console).
 2. Spécifiez la langue, le fuseau horaire et le mot de passe pour l’appliance.
@@ -109,7 +106,7 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 
 ### <a name="specify-vcenter-server-details"></a>Spécifier les détails vCenter Server
 1. Dans **Spécifier les détails vCenter Server**, spécifiez le nom (FQDN) ou l’adresse IP du serveur vCenter Server. Vous pouvez laisser le port par défaut, ou spécifier un port personnalisé sur lequel votre serveur vCenter Server est à l’écoute.
-2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance utilisera pour découvrir les machines virtuelles sur le vCenter Server. Vous pouvez définir l’étendue de la découverte en limitant l’accès au compte vCenter. Pour en savoir plus sur la découverte délimitée, cliquez [ici](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance utilisera pour découvrir les machines virtuelles sur le vCenter Server. Vous pouvez délimiter la découverte en limitant l’accès au compte vCenter. [Plus d’informations](set-discovery-scope.md)
 3. Cliquez sur **Valider la connexion** pour vérifier que l’appliance peut se connecter à vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Spécifier des informations d’identification de machine virtuelle

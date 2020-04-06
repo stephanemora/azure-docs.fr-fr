@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818967"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228609"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
 
@@ -39,7 +39,7 @@ Cet article traite de certaines caractéristiques essentielles d'Azure SQL Datab
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
 
-Dans le [Portail Microsoft Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation d’une base de données individuelle en la sélectionnant et en cliquant sur le graphique **Supervision**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Dans le [portail Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation d’une base de données individuelle en la sélectionnant et en cliquant sur le graphique **Supervision**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU
@@ -91,7 +91,7 @@ Pour plus d’informations sur la récupération d’urgence, consultez : [Azur
 
 SQL Database prend très au sérieux la sécurité et la confidentialité. La sécurité au sein de SQL Database est disponible au niveau de la base de données et au niveau de la plateforme. Il est plus facile de la comprendre en la classant dans plusieurs couches. Au niveau de chaque couche, vous pouvez contrôler et fournir une sécurité optimale pour votre application. Ces couches sont les suivantes :
 
-- Identité et authentification ([authentification Windows/SQL et authentification Azure Active Directory [AAD]](sql-database-control-access.md)).
+- Identité et authentification ([authentification SQL et authentification Azure Active Directory [AAD]](sql-database-manage-logins.md)).
 - Activité de surveillance ([audit](sql-database-auditing.md) et [détection des menaces](sql-database-threat-detection.md)).
 - Protection des données réelles ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) et [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Contrôle de l’accès aux données sensibles et privilégiées ([sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) et [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)).
@@ -100,10 +100,10 @@ SQL Database prend très au sérieux la sécurité et la confidentialité. La s�
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Quelles sont les méthodes d’authentification utilisateur proposées dans SQL Database
 
-SQL Database propose [deux méthodes d’authentification](sql-database-control-access.md#authentication) :
+SQL Database propose deux méthodes d’authentification :
 
 - [Authentification Azure Active Directory](sql-database-aad-authentication.md)
-- Authentification SQL
+- [Authentification SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. AAD prend en charge [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) et, en [quelques clics](../active-directory/hybrid/how-to-connect-install-express.md), peut être intégré à Windows Server Active Directory. L’authentification SQL fonctionne exactement comme par le passé. Vous fournissez un nom d’utilisateur/mot de passe et vous pouvez authentifier des utilisateurs après de toute base de données sur un serveur SQL Database donné. Cela permet également à SQL Database et SQL Data Warehouse de proposer une authentification multifacteur et des comptes d’utilisateur Invité dans un domaine Azure AD. Si vous disposez déjà d’Active Directory localement, vous pouvez fédérer l’annuaire avec Azure Active Directory pour étendre votre annuaire à Azure.
 
@@ -189,7 +189,7 @@ La fonctionnalité [Sécurité au niveau des lignes](/sql/relational-databases/s
 
 Il existe des options relatives à la gestion des clés pour Always Encrypted (chiffrement côté client) et Transparent Data Encryption (chiffrement au repos). Il est recommandé de faire tourner régulièrement les clés de chiffrement. La fréquence de rotation doit respecter à la fois la réglementation et les exigences de conformité de votre organisation interne.
 
-#### <a name="transparent-data-encryption-tde"></a>Chiffrement transparent des données (TDE)
+#### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
 
 il existe une hiérarchie à deux clés dans TDE. Les données de chaque base de données utilisateur sont chiffrées par une clé de chiffrement de base de données AES-256 symétrique (spécifique à la base de données), qui est à son tour chiffrée par une clé principale RSA 2048 asymétrique (spécifique au serveur). La clé principale peut être gérée de plusieurs façons :
 
@@ -198,7 +198,7 @@ il existe une hiérarchie à deux clés dans TDE. Les données de chaque base de
 
 Par défaut, la clé principale liée à Transparent Data Encryption est gérée par le service SQL Database pour des raisons pratiques. Si votre organisation souhaite contrôler la clé principale, il est possible d’utiliser Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md) comme magasin de clés. Avec Azure Key Vault, votre organisation contrôle le provisionnement, la rotation et les autorisations spécifiques aux clés. [La rotation ou le changement de type d’une clé principale TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation) demande peu de temps, car il suffit de rechiffrer la clé de chiffrement de base de données. Dans les organisations qui appliquent une séparation des rôles entre la gestion de la sécurité et celle des données, l’administrateur de la sécurité peut provisionner le matériel de clé pour la clé principale TDE dans Azure Key Vault, et fournir à l’administrateur de base de données un identificateur de clé Azure Key Vault pour le chiffrement au repos sur un serveur. Key Vault a été conçu de façon que Microsoft ne puisse pas voir ni extraire des clés de chiffrement. Vous bénéficiez également d’une gestion centralisée des clés pour votre organisation.
 
-#### <a name="always-encrypted"></a>Toujours chiffré
+#### <a name="always-encrypted"></a>Always Encrypted
 
 Il existe aussi une [hiérarchie à deux clés](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) dans Always Encrypted : une colonne de données sensibles est chiffrée par une clé de chiffrement de colonne AES 256, qui est à son tour chiffrée par une clé principale de colonne. Les pilotes clients fournis pour Always Encrypted n’ont pas de limites concernant la longueur des clés principales de colonne. La valeur chiffrée de la clé de chiffrement de colonne est stockée dans la base de données, et la clé principale de colonne est stockée dans un magasin de clés approuvé, par exemple le magasin de certificats Windows, Azure Key Vault ou un module de sécurité matériel.
 
@@ -226,7 +226,7 @@ Express Route vous permet également de doubler la limite de bande passante que 
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Est-ce que SQL Database est conforme aux exigences réglementaires et comment cela peut-il répondre aux exigences de conformité de mon organisation
 
-SQL Database est conforme à un certain nombre d’exigences réglementaires. Pour voir quels sont les derniers points de conformité respectés par SQL Database, visitez [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) et recherchez les points de conformité importants pour votre organisation. Ainsi, vous pourrez déterminer si SQL Database fait partie des services Azure conformes. Il est important de noter que même si SQL Database peut être certifié en tant que service conforme, il contribue à la conformité du service de votre organisation sans représenter pour autant une garantie automatique.
+SQL Database est conforme à un certain nombre d’exigences réglementaires. Pour voir quels sont les derniers points de conformité respectés par SQL Database, visitez le [Centre de gestion de la confidentialité Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) et recherchez les conformités importantes pour votre organisation. Ainsi, vous pourrez déterminer si SQL Database fait partie des services Azure conformes. Il est important de noter que même si SQL Database peut être certifié en tant que service conforme, il contribue à la conformité du service de votre organisation sans représenter pour autant une garantie automatique.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Surveillance et maintenance de bases de données intelligentes après la migration
 
@@ -319,11 +319,11 @@ SQL Database utilise des techniques intelligentes pour gérer certaines classes 
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database"></a>Comment exporter et importer des données sous forme de fichiers BACPAC à partir de SQL Database
 
-- **Exporter** : vous pouvez exporter votre base de données Azure SQL Database en tant que fichier BACPAC à partir du portail Azure.
+- **Exporter** : vous pouvez exporter votre base de données Azure SQL Database en tant que fichier BACPAC à partir du portail Azure.
 
    ![exportation de base de données](./media/sql-database-export/database-export1.png)
 
-- **Importer** : vous pouvez aussi importer des données sous forme de fichier BACPAC dans la base de données à partir du portail Azure.
+- **Importer** : vous pouvez aussi importer des données sous forme de fichier BACPAC dans la base de données à partir du portail Azure.
 
    ![importation de base de données](./media/sql-database-import/import1.png)
 

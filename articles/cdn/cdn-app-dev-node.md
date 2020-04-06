@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594119"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Prise en main du développement Azure CDN
@@ -30,7 +30,7 @@ ms.locfileid: "67594119"
 
 Vous pouvez utiliser le [kit de développement logiciel Azure CDN pour Node.js](https://www.npmjs.com/package/azure-arm-cdn) pour automatiser la création et la gestion des points de terminaison et profils CDN.  Ce didacticiel présente la création d’une application console Node.js simple, qui exécute plusieurs des opérations disponibles.  Il n’a pas vocation à décrire en détail tous les aspects du kit de développement logiciel Azure CDN pour Node.js.
 
-Pour suivre ce didacticiel, vous devez avoir au préalable installé et configuré [Node.js](https://www.nodejs.org) **4.x.x** ou version ultérieure.  Vous pouvez utiliser n’importe quel éditeur de texte pour créer votre application Node.js.  Pour écrire ce didacticiel, j’ai utilisé [Visual Studio Code](https://code.visualstudio.com).  
+Pour suivre ce tutoriel, vous devez déjà avoir installé et configuré [Node.js](https://www.nodejs.org)**4.x.x** ou ultérieur.  Vous pouvez utiliser n’importe quel éditeur de texte pour créer votre application Node.js.  Pour écrire ce didacticiel, j’ai utilisé [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
 > Le [projet achevé de ce didacticiel](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) est disponible en téléchargement sur MSDN.

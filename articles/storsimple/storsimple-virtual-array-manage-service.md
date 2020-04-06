@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516677"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232077"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Déployer le service StorSimple Device Manager pour StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -94,7 +94,7 @@ Une fois que vous avez créé un service, vous devez inscrire votre appareil Sto
 Procédez comme suit pour obtenir la clé d’inscription du service.
 
 #### <a name="to-get-the-service-registration-key"></a>Pour obtenir la clé d’inscription du service
-1. Dans le panneau **Instance de StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
+1. Dans le panneau **StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
    
    ![Panneau Clés](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Une clé d’inscription du service apparaît dans le panneau **Clés**. Copiez la clé d’inscription à l’aide de l’icône de copie. 
@@ -107,7 +107,7 @@ Vous devez régénérer une clé d’inscription du service si vous êtes amené
 Procédez comme suit pour régénérer une clé d’inscription du service.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Pour régénérer la clé d’inscription du service
-1. Dans le panneau **Instance de StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
+1. Dans le panneau **StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
    
    ![Panneau Clés](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Dans le panneau **Clés**, cliquez sur **Régénérer**.

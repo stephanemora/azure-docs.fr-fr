@@ -1,33 +1,33 @@
 ---
 title: Architecture Azure HDInsight avec le pack Sécurité Entreprise
 description: Découvrez comment planifier la sécurité d’Azure HDInsight avec le pack Sécurité Entreprise.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: omidm
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: e7983c4da4803965dabaa6a471fbea8a2fba5229
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 03/11/2020
+ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810942"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365770"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utiliser le pack Sécurité Entreprise dans HDInsight
 
-Le cluster Azure HDInsight standard est un cluster à un seul utilisateur. Il convient à la plupart des entreprises qui font appel à des équipes d’application plus petites pour créer leurs charges de travail de données importantes. Chaque utilisateur peut créer un cluster dédié à la demande, et le détruire quand il n’est plus nécessaire. 
+Le cluster Azure HDInsight standard est un cluster à un seul utilisateur. Il convient à la plupart des entreprises qui font appel à des équipes d’application plus petites pour créer leurs charges de travail de données importantes. Chaque utilisateur peut créer un cluster dédié à la demande, et le détruire quand il n’est plus nécessaire.
 
 De nombreuses entreprises se sont orientées vers un modèle dans lequel les clusters sont gérés par les équipes informatiques, et partagés par plusieurs équipes d'application. Ces entreprises de plus grande taille ont besoin d’un accès multi-utilisateur à chaque cluster dans Azure HDInsight.
 
-HDInsight s’appuie sur le fournisseur d’identité répandu, Active Directory, de façon managée. En intégrant HDInsight à [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), vous pouvez accéder aux clusters en utilisant vos informations d’identification de domaine. 
+HDInsight s’appuie sur le fournisseur d’identité répandu, Active Directory, de façon managée. En intégrant HDInsight à [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), vous pouvez accéder aux clusters en utilisant vos informations d’identification de domaine.
 
 Les machines virtuelles dans HDInsight sont joints à votre domaine fourni. Ainsi, tous les services exécutés sur HDInsight (Apache Ambari, serveur Apache Hive, Apache Ranger, serveur Apache Spark Thrift, etc.) fonctionnent de manière transparente pour l’utilisateur authentifié. Les administrateurs peuvent ensuite créer des stratégies d’autorisation strictes à l’aide d’Apache Ranger, de façon à fournir un contrôle de l’accès en fonction du rôle pour les ressources du cluster.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Intégrer HDInsight avec Active Directory
 
-Apache Hadoop open source s'appuie sur le protocole Kerberos pour l'authentification et la sécurité. Ainsi, les nœuds de cluster HDInsight avec le pack Sécurité Entreprise (ESP) sont joints à un domaine qui est géré par Azure AD DS. La sécurité Kerberos est configurée pour les composants Hadoop sur le cluster. 
+Apache Hadoop open source s'appuie sur le protocole Kerberos pour l'authentification et la sécurité. Ainsi, les nœuds de cluster HDInsight avec le pack Sécurité Entreprise (ESP) sont joints à un domaine qui est géré par Azure AD DS. La sécurité Kerberos est configurée pour les composants Hadoop sur le cluster.
 
 Les éléments suivants sont créés automatiquement :
 
@@ -42,26 +42,28 @@ Pour résumer, vous devez configurer un environnement avec :
 - Une connectivité réseau appropriée, du réseau virtuel HDInsight au réseau virtuel Azure AD DS, si vous choisissez des réseaux virtuels distincts pour ces services. Une machine virtuelle à l’intérieur du réseau virtuel HDInsight doit avoir une visibilité directe sur Azure AD DS via le peering de réseau virtuel. Si HDInsight et Azure AD DS sont déployés au sein du même réseau virtuel, la connectivité est automatiquement fournie et aucune action supplémentaire n'est nécessaire.
 
 ## <a name="set-up-different-domain-controllers"></a>Configurer différents contrôleurs de domaine
+
 Pour l’instant, HDInsight prend uniquement en charge Azure AD DS comme étant le contrôleur de domaine principal que le cluster utilise pour la communication Kerberos. Par contre, d’autres configurations Active Directory complexes sont possibles, tant que ce type de configuration aboutit à l’activation d’Azure AD DS pour l’accès de HDInsight.
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
-[Azure AD DS](../../active-directory-domain-services/overview.md) fournit un domaine managé qui est entièrement compatible avec Windows Server Active Directory. Microsoft effectue la gestion, les mises à jour correctives et la surveillance du domaine dans une configuration à haute disponibilité. Vous pouvez déployer votre cluster sans vous préoccuper de la maintenance des contrôleurs de domaine. 
 
-Les utilisateurs, groupes et mots de passe sont synchronisés à partir d'Azure AD. La synchronisation unidirectionnelle à partir de votre instance Azure AD dans Azure AD DS permet aux utilisateurs de se connecter au cluster en utilisant les mêmes informations d’identification d’entreprise. 
+[Azure AD DS](../../active-directory-domain-services/overview.md) fournit un domaine managé qui est entièrement compatible avec Windows Server Active Directory. Microsoft effectue la gestion, les mises à jour correctives et la surveillance du domaine dans une configuration à haute disponibilité. Vous pouvez déployer votre cluster sans vous préoccuper de la maintenance des contrôleurs de domaine.
+
+Les utilisateurs, groupes et mots de passe sont synchronisés à partir d'Azure AD. La synchronisation unidirectionnelle à partir de votre instance Azure AD dans Azure AD DS permet aux utilisateurs de se connecter au cluster en utilisant les mêmes informations d’identification d’entreprise.
 
 Pour plus d’informations, consultez [Configurer des clusters HDInsight avec ESP en utilisant Azure AD DS](./apache-domain-joined-configure-using-azure-adds.md).
 
 ### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>Service Active Directory local ou Active Directory sur des machines virtuelles IaaS
 
-Si vous disposez d’une instance Active Directory locale ou de configurations Active Directory plus complexes pour votre domaine, vous pouvez synchroniser ces identités sur Azure AD au moyen d’Azure AD Connect. Vous pouvez ensuite activer Azure AD DS sur ce locataire Active Directory. 
+Si vous disposez d’une instance Active Directory locale ou de configurations Active Directory plus complexes pour votre domaine, vous pouvez synchroniser ces identités sur Azure AD au moyen d’Azure AD Connect. Vous pouvez ensuite activer Azure AD DS sur ce locataire Active Directory.
 
-Kerberos s’appuyant sur les hachages de mot de passe, vous devez [activer la synchronisation du hachage de mot de passe sur Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+Kerberos s’appuyant sur les hachages de mot de passe, vous devez [activer la synchronisation du hachage de mot de passe sur Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
 
-Si vous utilisez la fédération avec les services AD FS (Active Directory Federation Services), vous devez activer la synchronisation du hachage de mot de passe. (Pour connaître la configuration recommandée, consultez [cette vidéo](https://youtu.be/qQruArbu2Ew).) La synchronisation du hachage de mot de passe facilite la récupération d'urgence en cas de défaillance de votre infrastructure AD FS, et offre également une protection contre les fuites d'informations d'identification. Pour plus d’informations, consultez [Activer la synchronisation du hachage de mot de passe avec la synchronisation Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Si vous utilisez la fédération avec les services AD FS (Active Directory Federation Services), vous devez activer la synchronisation du hachage de mot de passe. (Pour connaître la configuration recommandée, consultez [cette vidéo](https://youtu.be/qQruArbu2Ew).) La synchronisation du hachage de mot de passe facilite la récupération d'urgence en cas de défaillance de votre infrastructure AD FS, et offre également une protection contre les fuites d'informations d'identification. Pour plus d’informations, consultez [Activer la synchronisation du hachage de mot de passe avec la synchronisation Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
 L'utilisation exclusive du service Active Directory local ou d'Active Directory sur des machines virtuelles IaaS, sans Azure AD ni Azure AD DS, n'est pas une configuration prise en charge pour les clusters HDInsight avec ESP.
 
-Si vous rencontrez des problèmes d'authentification alors que la fédération est utilisée et que les hachages de mot de passe sont correctement synchronisés, vérifiez que l'authentification par mot de passe cloud est activée pour le principal de service PowerShell. Si ce n'est pas le cas, vous devez définir une [stratégie de découverte du domaine d'accueil](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) pour votre locataire Azure AD. Pour vérifier et définir la stratégie de découverte du domaine d'accueil :
+Si vous rencontrez des problèmes d’authentification alors que la fédération est utilisée et que les hachages de mot de passe sont correctement synchronisés, vérifiez que l’authentification par mot de passe cloud est activée pour le principal de service PowerShell. Si ce n'est pas le cas, vous devez définir une [stratégie de découverte du domaine d'accueil](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) pour votre locataire Azure AD. Pour vérifier et définir la stratégie de découverte du domaine d'accueil :
 
 1. Installez le [module Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) en préversion.
 
@@ -70,7 +72,7 @@ Si vous rencontrez des problèmes d'authentification alors que la fédération e
    ```
 
 2. Connectez-vous en utilisant les informations d'identification d'un administrateur général (administrateur de locataire).
-   
+
    ```powershell
    Connect-AzureAD
    ```
@@ -102,7 +104,7 @@ Si vous rencontrez des problèmes d'authentification alors que la fédération e
     # Determine whether a policy for the service principal exist
     Get-AzureADServicePrincipalPolicy `
         -Id $powershellSPN.ObjectId
-    
+
     # Add a service principal policy if not exist
     Add-AzureADServicePrincipalPolicy `
         -Id $powershellSPN.ObjectId `
@@ -111,6 +113,6 @@ Si vous rencontrez des problèmes d'authentification alors que la fédération e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des clusters HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md)
-* [Configurer des stratégies Apache Hive pour des clusters HDInsight avec ESP](apache-domain-joined-run-hive.md)
-* [Gérer des clusters HDInsight avec ESP](apache-domain-joined-manage.md) 
+- [Configurer des clusters HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md)
+- [Configurer des stratégies Apache Hive pour des clusters HDInsight avec ESP](apache-domain-joined-run-hive.md)
+- [Gérer des clusters HDInsight avec ESP](apache-domain-joined-manage.md)

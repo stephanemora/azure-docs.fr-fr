@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 2a0e88a439400bc36873ed7160b8eb039a16ebfb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbc97489f0c7045040dd0189b97946c2bd8fb3c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356179"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481634"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Accélérer l’analytique en temps réel des Big Data au moyen du connecteur Apache Spark-Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Vous pouvez utiliser le connecteur avec [Azure Databricks](https://azure.microso
 ## <a name="quickstart"></a>Démarrage rapide
 
 * Suivez les étapes de [Prise en main avec le kit de développement logiciel (SDK) Java](sql-api-async-java-get-started.md) pour configurer un compte Cosmos DB, et renseignez quelques données.
-* Suivez les étapes de [Prise en main avec Azure Databricks](https://docs.azuredatabricks.net/getting-started/index.html) pour configurer un espace de travail et un cluster Azure Databricks.
+* Suivez les étapes de [Prise en main avec Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) pour configurer un espace de travail et un cluster Azure Databricks.
 * Vous pouvez désormais créer de nouveaux notebooks et importer la bibliothèque de connecteur Cosmos DB. Accédez à [Utiliser le connecteur Cosmos DB](#bk_working_with_connector) pour plus d’informations sur comment configurer votre espace de travail.
 * La section suivante offre des extraits de code sur la façon de lire et écrire avec le connecteur.
 
@@ -217,7 +217,7 @@ df
 ```
 Pour plus d’extraits de code et d’exemples de bout en bout, consultez [Jupyter](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/notebooks).
 
-## <a name="bk_working_with_connector"></a> Utilisation du connecteur
+## <a name="working-with-the-connector"></a><a name="bk_working_with_connector"></a> Utilisation du connecteur
 
 Vous pouvez créer le connecteur à partir de la source dans GitHub, ou télécharger les fichiers uber jars à partir de Maven via les liens ci-dessous.
 
@@ -273,7 +273,7 @@ mvn clean package
 
 Le [référentiel GitHub Cosmos DB Spark](https://github.com/Azure/azure-cosmosdb-spark) dispose des exemples de bloc-notes et de scripts suivants, que vous pouvez essayer.
 
-* **On-Time Flight Performance avec Spark et Cosmos DB (Seattle)** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html) : Connectez Spark à Cosmos DB à l’aide du service Jupyter notebook pour présenter Spark SQL, GraphFrames et prédire les retards de vol à l’aide de pipelines ML.
+* **Performances de ponctualité des vols avec Spark et Cosmos DB (Seattle)** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html) : Connectez Spark à Cosmos DB à l’aide du service Jupyter notebook pour présenter Spark SQL, GraphFrames et prédire les retards de vol à l’aide de pipelines ML.
 * **Twitter Source avec Apache Spark et Azure Cosmos DB Change Feed** : [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.html)
 * **À l’aide d’Apache Spark pour interroger Cosmos DB Graphs** : [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
 * **[Connectez Azure Databricks à Azure Cosmos DB](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)** à l’aide de `azure-cosmosdb-spark`.  Est aussi lié ici une version d’Azure Databricks du [notebook On-Time Flight Performance](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks).
@@ -281,7 +281,7 @@ Le [référentiel GitHub Cosmos DB Spark](https://github.com/Azure/azure-cosmosd
 
 ## <a name="more-information"></a>Informations complémentaires
 
-Informations complémentaires sur le `azure-cosmosdb-spark` [wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki), dont :
+Informations complémentaires sur le `azure-cosmosdb-spark` [wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki), dont :
 
 * [Guide d’utilisation du connecteur Spark Azure Cosmos DB](https://github.com/Azure/azure-documentdb-spark/wiki/Azure-Cosmos-DB-Spark-Connector-User-Guide)
 * [Exemples d’agrégations](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
@@ -292,7 +292,7 @@ Informations complémentaires sur le `azure-cosmosdb-spark` [wiki](https://githu
 * [Configuration Spark-Cosmos DB](https://github.com/Azure/azure-documentdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (en cours)
 * [Configuration de Power BI Direct Query dans Azure Cosmos DB via Apache Spark (HDI)](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuring-Power-BI-Direct-Query-to-Azure-Cosmos-DB-via-Apache-Spark-(HDI))
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 
 * [Utilisation d’agrégats Cosmos DB](https://github.com/Azure/azure-documentdb-spark/wiki/Troubleshooting:-Using-Cosmos-DB-Aggregates)
 * [Problèmes connus](https://github.com/Azure/azure-cosmosdb-spark/wiki/Known-Issues)

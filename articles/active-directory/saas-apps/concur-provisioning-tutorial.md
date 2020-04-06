@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Concur pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Concur pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Concur.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60280488"
 ---
-# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Didacticiel : Configurer Concur pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutoriel : Configurer Concur pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Concur et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Concur.
 
@@ -53,7 +53,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 Cette section explique comment connecter votre annuaire Azure AD à l’API d’approvisionnement de comptes d’utilisateur de Concur pour créer, mettre à jour et désactiver les comptes d’utilisateur affectés dans Concur en fonction des attributions d’utilisateurs et de groupes dans Azure AD.
 
 > [!Tip] 
-> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Concur en suivant les instructions fournies dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités complète l’autre.
+> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Concur en suivant les instructions fournies dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités compléte l’autre.
 
 ### <a name="to-configure-user-account-provisioning"></a>Pour configurer l’approvisionnement de comptes utilisateur :
 
@@ -79,7 +79,7 @@ Cette action ne doit pas être exécutée avec le profil utilisé pour l’admin
 
 2. Dans le menu **Administration**, sélectionnez **Web Services**.
    
-    ![Client Concur](./media/concur-provisioning-tutorial/IC721729.png "Client Concur")
+    ![Locataire Concur](./media/concur-provisioning-tutorial/IC721729.png "Client Concur")
 
 3. Sur le côté gauche, dans le volet **Web Services**, sélectionnez **Enable Partner Application**.
    
@@ -107,7 +107,7 @@ Cette action ne doit pas être exécutée avec le profil utilisé pour l’admin
 
 11. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application Concur. Si la connexion échoue, vérifiez que votre compte Concur dispose des autorisations d’administrateur d’équipe.
 
-12. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, et cochez la case.
+12. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case.
 
 13. Cliquez sur **Enregistrer.**
 
@@ -119,7 +119,7 @@ Cette action ne doit pas être exécutée avec le profil utilisé pour l’admin
 
 17. Cliquez sur **Enregistrer.**
 
-Vous pouvez maintenant créer un compte de test. Patientez jusqu’à 20 minutes et vérifiez que le compte a bien été synchronisé avec Concur.
+Vous pouvez à présent créer un compte de test. Patientez jusqu’à 20 minutes et vérifiez que le compte a bien été synchronisé avec Concur.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

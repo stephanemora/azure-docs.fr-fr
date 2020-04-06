@@ -12,13 +12,13 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/08/2019
-ms.openlocfilehash: 9b96969027431f289e366b150fbfc6a62ee6a908
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 03/27/2020
+ms.openlocfilehash: 405ac27fad3c24d3064f11476f452ad00abb9b02
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719906"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387765"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
@@ -32,7 +32,7 @@ ms.locfileid: "76719906"
 La section suivante décrit la configuration de l’audit à l’aide de votre instance Managed Instance.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-1. Créez un **conteneur** Stockage Azure où sont stockés les journaux d’audit.
+2. Créez un **conteneur** Stockage Azure où sont stockés les journaux d’audit.
 
    1. Accédez au stockage Azure où vous souhaitez stocker vos journaux d’audit.
 
@@ -50,8 +50,10 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
    1. Indiquez un **Nom** pour le conteneur, définissez le niveau d’accès Public sur **Privé**, puis cliquez sur **OK**.
 
       ![Créer une configuration de conteneur d’objets blob](./media/sql-managed-instance-auditing/3_create_container_config.png)
-
-1. Après avoir créé le conteneur pour les journaux d’audit, vous pouvez le configurer comme cible pour ces journaux d’activité de deux façons : [à l’aide de T-SQL](#blobtsql) ou [à l’aide de l’interface utilisateur de SSMS (SQL Server Management Studio)](#blobssms).
+  > [!IMPORTANT]
+  > Un client souhaitant configurer un magasin de journaux immuable pour ses événements d’audit au niveau du serveur ou de la base de données doit suivre les [instructions fournies par Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). (Assurez-vous d’avoir sélectionné **Autoriser les ajouts supplémentaires** lorsque vous configurez le stockage blob non modifiable.)
+  
+3. Après avoir créé le conteneur pour les journaux d’audit, vous pouvez le configurer comme cible pour ces journaux d’activité de deux façons : [à l’aide de T-SQL](#blobtsql) ou [à l’aide de l’interface utilisateur de SSMS (SQL Server Management Studio)](#blobssms).
 
    - <a id="blobtsql"></a>Configurer le stockage d’objets blob pour les journaux d’audit à l’aide de T-SQL :
 
@@ -138,12 +140,12 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
      1. Cliquez sur **OK** dans la boîte de dialogue Créer un audit.
 
-1. <a id="createspec"></a>Après avoir configuré le conteneur d’objets blob comme cible pour les journaux d’audit, créez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
+4. <a id="createspec"></a>Après avoir configuré le conteneur de blobs comme cible pour les journaux d’audit, créez et activez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
 
    - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-1. Activez l’audit du serveur que vous avez créé à l’étape 6 :
+5. Activez l’audit du serveur que vous avez créé à l’étape 3 :
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -184,7 +186,7 @@ Les journaux d’audit d’une instance gérée peuvent être envoyés à Event 
     GO
     ```
 
-9. Créez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
+9. Créez et activez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
 
    - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
@@ -192,7 +194,8 @@ Les journaux d’audit d’une instance gérée peuvent être envoyés à Event 
 10. Activez l’audit du serveur créé à l’étape 8 :
  
     ```SQL
-    ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
+    ALTER SERVER AUDIT [<your_audit_name>]
+    WITH (STATE=ON);
     GO
     ```
 

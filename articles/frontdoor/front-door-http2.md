@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - Prise en charge du protocole HTTP2 | Microsoft Docs
-description: Cet article vous aide à en savoir plus sur la prise en charge du protocole HTTP/2 dans Azure Front Door Service.
+title: Azure Front Door - Prise en charge du protocole HTTP2 | Microsoft Docs
+description: Cet article vous aide à en savoir plus sur la prise en charge du protocole HTTP/2 dans Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c3c1721454c0b3c96071c685a764f34d4fa540b9
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 415a89cbccd6b43d64ba1a553d44ac003df5806a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471623"
 ---
-# <a name="http2-support-in-azure-front-door-service"></a>Prise en charge du protocole HTTP/2 dans Azure Front Door Service
+# <a name="http2-support-in-azure-front-door"></a>Prise en charge du protocole HTTP/2 dans Azure Front Door
 
 Actuellement, la prise en charge de HTTP/2 est active pour toutes les configurations Front Door. Aucune action supplémentaire n’est nécessaire de la part des clients.
 
@@ -49,7 +49,7 @@ Tous les principaux navigateurs ont implémenté la prise en charge de HTTP/2 da
 |-------------|------------|
 |Microsoft Edge| 12|
 |Google Chrome| 43|
-|Mozilla Firefox| 38|
+|Mozilla Firefox| 38|
 |Opera| 32|
 |Safari| 9|
 

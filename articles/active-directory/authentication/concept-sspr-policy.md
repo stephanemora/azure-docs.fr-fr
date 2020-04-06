@@ -1,34 +1,34 @@
 ---
 title: Stratégies de réinitialisation de mot de passe libre-service - Azure Active Directory
-description: Configurez les options de stratégie de réinitialisation de mot de passe en libre-service Azure AD
+description: En savoir plus sur les différentes options de stratégie de réinitialisation de mot de passe en libre-service Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd6cacae9c7af705b0de7b59e0f25f25637a5a89
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: fba4dae66b5adcea6cc33e61d8cf88946e29546e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962490"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051168"
 ---
-# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
+# <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de réinitialisation de mot de passe en libre-service dans Azure Active Directory
 
 Cet article décrit les stratégies de mot de passe et les exigences en matière de complexité associées aux comptes d’utilisateur sur votre locataire Azure Active Directory (Azure AD).
 
 ## <a name="administrator-reset-policy-differences"></a>Différences en matière de stratégie de réinitialisation par l’administrateur
 
-**Microsoft met en œuvre une stratégie forte de réinitialisation de mot de passe *à deux verrous* pour n’importe quel rôle d’administrateur Azure**. Cette stratégie peut être différente de celle que vous avez définie pour vos utilisateurs et ne peut pas être modifiée. Vous devez toujours tester la fonctionnalité de réinitialisation de mot de passe en tant qu’utilisateur, sans qu’un rôle d’administrateur Azure vous soit affecté.
+**Microsoft applique par défaut une stratégie de réinitialisation de mot de passe fort à *deux verrous* pour tous les rôles d’administrateur Azure**. Cette stratégie peut être différente de celle que vous avez définie pour vos utilisateurs et ne peut pas être modifiée. Vous devez toujours tester la fonctionnalité de réinitialisation de mot de passe en tant qu’utilisateur, sans qu’un rôle d’administrateur Azure vous soit affecté.
 
 Avec une stratégie à deux verrous, **les administrateurs n’ont pas la possibilité d’utiliser des questions de sécurité**.
 
-La stratégie à deux verrous nécessite deux éléments de données d’authentification, par exemple une **adresse e-mail**, une **application d’authentificateur** ou un **numéro de téléphone**. Une stratégie à deux verrous s’applique dans les conditions suivantes :
+La stratégie à deux verrous nécessite deux éléments de données d’authentification, par exemple une *adresse e-mail*, une *application d’authentificateur* ou un *numéro de téléphone*. Une stratégie à deux verrous s’applique dans les conditions suivantes :
 
 * Tous les rôles d’administrateur suivants sont concernés :
   * Administrateur du support technique
@@ -59,15 +59,15 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
 
 ### <a name="exceptions"></a>Exceptions
 
-Une stratégie à un verrou nécessite un élément de données d’authentification, par exemple une adresse de messagerie *ou* un numéro de téléphone. Une stratégie à un verrou s’applique dans les conditions suivantes :
+Une stratégie à un verrou nécessite un élément de données d’authentification, par exemple une adresse de messagerie ou un numéro de téléphone. Une stratégie à un verrou s’applique dans les conditions suivantes :
 
 * Pendant les 30 premiers jours d’un abonnement d’essai ; ou
-* Un domaine personnalisé n’a pas été configuré pour votre locataire Azure AD. Celui-ci utilise donc le domaine par défaut * *.onmicrosoft.com*. Notez que l’utilisation du domaine par défaut * *.onmicrosoft.com* n’est pas recommandée dans un environnement de production ; et
+* Un domaine personnalisé n’a pas été configuré pour votre locataire Azure AD. Celui-ci utilise donc le domaine par défaut * *.onmicrosoft.com*. L’utilisation du domaine par défaut * *.onmicrosoft.com* n’est pas recommandée dans un environnement de production ; et
 * Azure AD Connect ne synchronise pas les identités
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Stratégies UserPrincipalName s'appliquant à tous les comptes d'utilisateur
 
-Chaque compte d’utilisateur devant se connecter à Azure AD doit être doté d’une valeur d’attribut unique de nom d’utilisateur principal (UPN) associée à son compte. Le tableau suivant décrit les stratégies qui s’appliquent aux comptes d’utilisateur Active Directory locaux qui sont synchronisés dans le cloud et aux comptes d’utilisateur uniquement dans le cloud :
+Chaque compte d’utilisateur devant se connecter à Azure AD doit être doté d’une valeur d’attribut unique de nom d’utilisateur principal (UPN) associée à son compte. Le tableau suivant décrit les stratégies qui s’appliquent aux comptes d’utilisateur Active Directory Domain Services locaux qui sont synchronisés dans le cloud et aux comptes d’utilisateur uniquement dans le cloud :
 
 | Propriété | Conditions requises pour UserPrincipalName |
 | --- | --- |
@@ -81,7 +81,7 @@ Le tableau suivant décrit les paramètres de stratégie de mot de passe appliqu
 
 | Propriété | Spécifications |
 | --- | --- |
-| Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>espace vide</li></ul> |
+| Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ;</li> <li>espace vide</li></ul> |
 | Caractères non autorisés | Caractères Unicode. |
 | Restrictions de mot de passe |<ul><li>8 caractères minimum et 256 caractères maximum.</li><li>trois des quatre éléments suivants sont requis :<ul><li>Caractères minuscules.</li><li>Caractères majuscules.</li><li>Nombres (0-9).</li><li>Symboles (voir les restrictions de mot de passe précédentes).</li></ul></li></ul> |
 | Durée d’expiration du mot de passe (âge maximum du mot de passe) |<ul><li>Valeur par défaut : **90** jours.</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy` à partir du module Azure Active Directory pour Windows PowerShell.</li></ul> |
@@ -93,7 +93,7 @@ Le tableau suivant décrit les paramètres de stratégie de mot de passe appliqu
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Définir des stratégies d’expiration de mot de passe dans Azure AD
 
-Un administrateur global ou un administrateur d’utilisateurs d’un service cloud Microsoft peut utiliser le module Microsoft Azure AD pour Windows PowerShell afin de définir des mots de passe utilisateur qui n’expirent pas. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration ou pour voir quels mots de passe utilisateur sont définis pour ne jamais expirer. 
+Un *administrateur global* ou un *administrateur d’utilisateurs* d’un service cloud Microsoft peut utiliser le *module Microsoft Azure AD pour Windows PowerShell* afin de définir des mots de passe utilisateur qui n’expirent pas. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration ou pour voir quels mots de passe utilisateur sont définis pour ne jamais expirer.
 
 Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Office 365, qui s’appuient également sur Azure AD pour les services d’identité et d’annuaire. L’expiration du mot de passe est la seule partie de la stratégie qui peut être modifiée.
 
@@ -102,7 +102,7 @@ Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Offic
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Définir ou vérifier les stratégies de mot de passe à l’aide de PowerShell
 
-Pour commencer, vous devez [télécharger et installer le module Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Une fois le module installé, vous pouvez suivre les étapes suivantes pour configurer chaque champ.
+Pour commencer, [téléchargez et installez le module Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Une fois le module installé, suivez les étapes suivantes pour configurer chaque champ.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Vérifier la stratégie d’expiration d’un mot de passe
 
@@ -156,7 +156,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
    ```
 
    > [!WARNING]
-   > Les mots de passe définis sur `-PasswordPolicies DisablePasswordExpiration` le restent en fonction de l’attribut `pwdLastSet`. Si vous définissez les mots de passe utilisateur pour qu’ils n’expirent jamais et que plus de 90 jours sont passés, les mots de passe expirent. En fonction de l’attribut `pwdLastSet`, si vous définissez l’expiration sur `-PasswordPolicies None`, tous les mots dont `pwdLastSet` est supérieur à 90 jours doivent être modifiés par l’utilisateur lors de sa connexion suivante. Cette modification peut affecter un grand nombre d’utilisateurs.
+   > Les mots de passe définis sur `-PasswordPolicies DisablePasswordExpiration` le restent en fonction de l’attribut `pwdLastSet`. En fonction de l’attribut `pwdLastSet`, si vous définissez l’expiration sur `-PasswordPolicies None`, tous les mots dont `pwdLastSet` est supérieur à 90 jours doivent être modifiés par l’utilisateur lors de sa connexion suivante. Cette modification peut affecter un grand nombre d’utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

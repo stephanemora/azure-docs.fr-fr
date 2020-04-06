@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2b9b8da550d80b027da919ba0834e43e2c83d4b4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945307"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244748"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Catégoriser les images par sujet
 
-En plus des étiquettes et les descriptions, Vision par ordinateur retourne des catégories basées sur la taxonomie détectées dans une image. Contrairement aux étiquettes, les catégories sont organisées selon une hiérarchie héréditaire parent/enfant, et elles sont moins nombreuses (86 contre des milliers d’étiquettes). Tous les noms de catégorie sont en anglais. La catégorisation peut se faire par elle-même ou à côté du modèle d’étiquettes plus récentes.
+Outre les balises et les descriptions, Vision par ordinateur renvoie des catégories basées sur la taxonomie détectées dans une image. Contrairement aux balises, les catégories sont organisées selon une hiérarchie héréditaire parent/enfant, et elles sont moins nombreuses (86 contre des milliers de balises). Tous les noms de catégorie sont en anglais. La catégorisation peut se faire par elle-même ou à côté du modèle de balises plus récentes.
 
 ## <a name="the-86-category-concept"></a>Concept des 86 catégories
 
@@ -60,6 +60,13 @@ Le tableau suivant illustre un ensemble d’images type et la catégorie renvoy�
 | ![Personne se tenant sur un rocher montagneux au coucher du soleil](./Images/mountain_vista.png) | outdoor_mountain |
 | ![Pile de petits pains sur une table](./Images/bread.png) | food_bread |
 
+## <a name="use-the-api"></a>Utilisation de l’API
+
+La fonctionnalité de catégorisation fait partie de l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Incluez `Categories` dans le paramètre de requête **visualFeatures**. Ensuite, lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"categories"`.
+
+* [Démarrage rapide : SDK .NET Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les concepts d’[étiquetage d’images](concept-tagging-images.md) et de [description d’images](concept-describing-images.md).
+Découvrez les concepts associés de [balisage des images](concept-tagging-images.md) et de [description des images](concept-describing-images.md).

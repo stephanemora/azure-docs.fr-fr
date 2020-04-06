@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 90b3c3fd18bc9211c731ccf16dd646a64a4a1116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301350"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133088"
 ---
 # <a name="application-gateway-components"></a>Composants de passerelle d’application
 
@@ -55,7 +55,7 @@ Application Gateway prend en charge quatre protocoles : HTTP, HTTPS, HTTP/2 et 
 - Spécifiez les protocoles HTTP ou HTTPS dans la configuration de l’écouteur.
 - La prise en charge des [protocoles WebSockets et HTTP/2](features.md#websocket-and-http2-traffic) est effectuée de manière native. La [prise en charge de WebSocket](application-gateway-websocket.md) est activée par défaut. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket. Utilisez WebSockets avec les écouteurs HTTP et HTTPS.
 
-Utilisez un écouteur HTTPS pour l’arrêt SSL. Un écouteur HTTPS déplace les tâches de chiffrement et de déchiffrement vers votre passerelle d’application pour que vos serveurs web ne soient pas saturés par la surcharge.
+Utilisez un écouteur HTTPS pour l’arrêt TLS. Un écouteur HTTPS déplace les tâches de chiffrement et de déchiffrement vers votre passerelle d’application pour que vos serveurs web ne soient pas saturés par la surcharge.
 
 ### <a name="custom-error-pages"></a>Pages d’erreur personnalisées
 
@@ -111,7 +111,7 @@ Pour plus d’informations, consultez [Réécrire les en-têtes HTTP sur votre p
 
 Une passerelle d’application route le trafic vers les back-ends (spécifiés dans la règle de routage de requête incluant les paramètres HTTP) à l’aide du numéro de port, du protocole et d’autres paramètres détaillés dans ce composant.
 
-Le port et le protocole utilisés dans les paramètres HTTP permettent de déterminer si le trafic entre la passerelle d’application et les back-ends est chiffré (chiffrement SSL de bout en bout) ou non chiffré.
+Le port et le protocole utilisés dans les paramètres HTTP permettent de déterminer si le trafic entre la passerelle d’application et les back-ends est chiffré (chiffrement TLS de bout en bout) ou non chiffré.
 
 Ce composant est également utilisé pour :
 

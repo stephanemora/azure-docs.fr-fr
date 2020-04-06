@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647663"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371104"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Intégrer des applications avec écran 3270 sur des mainframes IBM avec Azure à l’aide d’Azure Logic Apps et du connecteur IBM 3270
 
@@ -368,7 +368,7 @@ Lorsque vous avez terminé toutes ces étapes, vous pouvez utiliser l’action q
    | **Type d’appareil** | Non | <*IBM-terminal-model*> | Numéro ou nom de modèle du terminal IBM à émuler. Si ce champ est vide, le connecteur utilise les valeurs par défaut. |
    | **Page de codes** | Non | <*code-page-number*> | Numéro de page de codes pour l’hôte. Si ce champ est vide, le connecteur utilise `37` comme valeur par défaut. |
    | **Nom d’unité logique** | Non | <*logical-unit-name*> | Nom d’unité logique spécifique à demander à partir de l’hôte |
-   | **Activer le protocole SSL ?** | Non | Activé ou désactivé | Activer ou désactiver le chiffrement SSL. |
+   | **Activer le protocole SSL ?** | Non | Activé ou désactivé | Activez ou désactivez le chiffrement TLS. |
    | **Valider le certificat SSL de l’hôte ?** | Non | Activé ou désactivé | Activez ou désactivez la validation du certificat du serveur. |
    ||||
 

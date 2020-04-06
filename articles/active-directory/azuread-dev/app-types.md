@@ -12,12 +12,13 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b91cc5249b386a465ea98b5e81b199323481a733
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163706"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154948"
 ---
 # <a name="application-types-in-v10"></a>Types d’applications dans v1.0
 
@@ -71,7 +72,7 @@ L’approvisionnement devient plus clair lorsque vous comprenez qu’il existe d
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considérations supplémentaires lors du développement d’applications à client unique ou à plusieurs clients
 
-Vous devez tenir compte d’autres éléments lorsque vous choisissez de développer une application mutualisée plutôt qu’une application à client unique. Par exemple, si vous mettez votre application à la disposition des utilisateurs dans plusieurs annuaires, vous devez disposer d’un mécanisme permettant de déterminer dans quel client ils se trouvent. Il suffit à une application à client unique de rechercher l’utilisateur dans son propre annuaire, alors qu’une application mutualisée doit tenir compte de tous les annuaires d’Azure AD pour identifier un utilisateur particulier. À cet effet, Azure AD fournit un point de terminaison d’authentification commun vers lequel une application mutualisée peut diriger les demandes de connexion, plutôt que vers un point de terminaison spécifique au client. Ce point de terminaison est https://login.microsoftonline.com/common pour tous les annuaires dans Azure AD, tandis qu’un point de terminaison spécifique d’un client peut être https://login.microsoftonline.com/contoso.onmicrosoft.com. Lorsque vous développez votre application, il est particulièrement important de tenir compte du point de terminaison commun, car vous aurez besoin de la logique nécessaire à la gestion de plusieurs clients lors de la connexion, de la déconnexion et de la validation des jetons.
+Vous devez tenir compte d’autres éléments lorsque vous choisissez de développer une application mutualisée plutôt qu’une application à client unique. Par exemple, si vous mettez votre application à la disposition des utilisateurs dans plusieurs annuaires, vous devez disposer d’un mécanisme permettant de déterminer dans quel locataire ils se trouvent. Il suffit à une application à client unique de rechercher l’utilisateur dans son propre annuaire, alors qu’une application mutualisée doit tenir compte de tous les annuaires d’Azure AD pour identifier un utilisateur particulier. À cet effet, Azure AD fournit un point de terminaison d’authentification commun vers lequel une application mutualisée peut diriger les demandes de connexion, plutôt que vers un point de terminaison spécifique au client. Ce point de terminaison est `https://login.microsoftonline.com/common` pour tous les annuaires dans Azure AD, tandis qu’un point de terminaison spécifique d’un client peut être `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Lorsque vous développez votre application, il est particulièrement important de tenir compte du point de terminaison commun, car vous aurez besoin de la logique nécessaire à la gestion de plusieurs locataires lors de la connexion, de la déconnexion et de la validation des jetons.
 
 Si vous développez actuellement une application à client unique, mais que vous souhaitez la mettre à disposition de plusieurs organisations, vous pouvez facilement apporter des modifications à l’application et à sa configuration dans Azure AD pour la rendre compatible avec la mutualisation. De plus, Azure AD utilise la même clé de signature pour tous les jetons de tous les annuaires, que vous fournissiez l’authentification dans une application à client unique ou mutualisée.
 

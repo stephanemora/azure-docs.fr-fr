@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.date: 12/12/2019
-ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 03/18/2020
+ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485367"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388982"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Déboguer et résoudre les problèmes de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "77485367"
 Dans cet article, vous allez découvrir comment déboguer et résoudre les problèmes de [pipelines de machine learning](concept-ml-pipelines.md) dans le [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) et le [concepteur Azure Machine Learning (préversion)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Vous trouverez des informations sur la manière d’effectuer les opérations suivantes :
 
 * Déboguer à l’aide du kit de développement logiciel (SDK) Azure Machine Learning
-* Déboguer à l’aide du Concepteur Azure Machine Learning
+* Déboguer à l’aide du concepteur Azure Machine Learning
 * Déboguer à l’aide d’Application Insights
 * Déboguer de manière interactive à l’aide de Visual Studio Code (VS Code) et du plug-in Python Tools pour Visual Studio (PTVS)
 
@@ -79,7 +79,7 @@ Le tableau suivant présente les problèmes courants qui se produisent pendant l
 | Problème | Solution possible |
 |--|--|
 | Impossible de transmettre les données au répertoire `PipelineData` | Vérifiez que vous avez créé un répertoire dans le script qui correspond à l’emplacement où votre pipeline attend les données de sortie de l’étape. Dans la plupart des cas, un argument d’entrée définit le répertoire de sortie, puis crée le répertoire explicitement. Utilisez `os.makedirs(args.output_dir, exist_ok=True)` pour créer le répertoire de sortie. Pour obtenir un exemple de script de scoring qui illustre ce modèle de conception, consultez ce [tutoriel](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script). |
-| Bogues de dépendance | Si vous avez développé et testé des scripts localement, mais que vous détectez des problèmes de dépendance pendant leur exécution sur une cible de calcul distante dans le pipeline, vérifiez que les dépendances et les versions de votre environnement de calcul correspondent à celles de votre environnement de test. |
+| Bogues de dépendance | Si vous avez développé et testé des scripts localement, mais que vous détectez des problèmes de dépendance pendant leur exécution sur une cible de calcul distante dans le pipeline, vérifiez que les dépendances et les versions de votre environnement de calcul correspondent à celles de votre environnement de test. (Voir [Création, mise en cache et réutilisation d’environnement](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse))|
 | Erreurs ambiguës liées aux cibles de calcul | La suppression et la recréation des cibles de calcul peuvent résoudre certains problèmes liés aux cibles de calcul. |
 | Le pipeline ne réutilise pas les étapes | La réutilisation d’étape est activée par défaut, mais vérifiez que vous ne l’avez pas désactivée dans une étape du pipeline. Si la réutilisation est désactivée, le paramètre `allow_reuse` de l’étape est défini sur `False`. |
 | Le pipeline se réexécute inutilement | Pour faire en sorte que les étapes ne se réexécutent que lorsque leurs données sous-jacents ou leurs scripts changent, découplez vos répertoires pour chaque étape. Si vous utilisez le même répertoire source pour plusieurs étapes, des réexécutions inutiles peuvent se produire. Utilisez le paramètre `source_directory` sur un objet d’étape de pipeline pour pointer vers votre répertoire isolé pour cette étape, et vérifiez que vous n’utilisez pas le même chemin `source_directory` pour plusieurs étapes. |
@@ -136,8 +136,8 @@ Pour les pipelines créés dans le concepteur, vous trouverez les **fichiers jou
 Quand vous publiez une exécution de pipeline en restant dans la page de création, vous voyez les fichiers journaux générés pour chaque module.
 
 1. Sélectionnez un module dans le canevas de création.
-1. Dans le volet des propriétés, accédez à l’onglet **Journaux**.
-1. Sélectionnez le fichier journal `70_driver_log.txt`
+1. Dans le volet droit du module, accédez à l’onglet **Sorties + journaux**.
+1. Sélectionnez le fichier journal `70_driver_log.txt`.
 
     ![Journaux des modules dans la page de création](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
@@ -148,8 +148,8 @@ Vous pouvez également trouver les fichiers journaux d’exécutions spécifique
 1. Sélectionnez une exécution de pipeline créée dans le concepteur.
     ![Page d’exécutions de pipeline](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. Sélectionnez un module dans le volet d’aperçu.
-1. Dans le volet des propriétés, accédez à l’onglet **Journaux**.
-1. Sélectionnez le fichier journal `70_driver_log.txt`
+1. Dans le volet droit du module, accédez à l’onglet **Sorties + journaux**.
+1. Sélectionnez le fichier journal `70_driver_log.txt`.
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Déboguez et détectez des problèmes dans Application Insights
 Pour en savoir plus sur l’utilisation de la bibliothèque Python OpenCensus de cette manière, consultez ce guide : [Déboguer et résoudre les problèmes de pipelines de Machine Learning dans Application Insights](how-to-debug-pipelines-application-insights.md)
@@ -158,7 +158,7 @@ Pour en savoir plus sur l’utilisation de la bibliothèque Python OpenCensus de
 
 Dans certains cas, vous devrez peut-être déboguer interactivement le code Python utilisé dans votre pipeline ML. Visual Studio Code (VS Code) et le plug-in Python Tools pour Visual Studio (PTVS) pouvez attacher au code en cours d’exécution dans l’environnement d’apprentissage.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 * Un __espace de travail Azure Machine Learning__ configuré pour utiliser un __réseau virtuel Azure__.
 * un __pipeline Azure Machine Learning__ utilisant des scripts Python dans le cadre de ses étapes. Par exemple, PythonScriptStep.
@@ -283,7 +283,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Configurer un pipeline ML
 
-Pour fournir les packages Python nécessaires pour démarrer PTVS et obtenir le contexte d’exécution, créez un [environnement]() et définissez `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Modifiez la version du kit de développement logiciel (SDK) pour qu’elle corresponde à celle que vous utilisez. L’extrait de code suivant montre comment créer un environnement :
+Pour fournir les packages Python nécessaires pour démarrer PTVS et obtenir le contexte d’exécution, créez un environnement et définissez `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Modifiez la version du kit de développement logiciel (SDK) pour qu’elle corresponde à celle que vous utilisez. L’extrait de code suivant montre comment créer un environnement :
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -328,7 +328,7 @@ Timeout for debug connection: 300
 ip_address: 10.3.0.5
 ```
 
-Enregistrez la valeur `ip_address`. Elle sera utilisée dans la section suivante.
+Enregistrez la valeur `ip_address`. Elles seront utilisées dans la section suivante.
 
 > [!TIP]
 > Vous pouvez également trouver l’adresse IP dans les journaux de l’exécution enfant pour cette étape de pipeline. Pour plus d’informations sur l’affichage de ces informations, voir [Surveiller les exécutions et les métriques des expériences Azure Machine Learning](how-to-track-experiments.md).

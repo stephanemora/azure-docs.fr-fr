@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: d66926d8ba87096537800d22a9c116b7b10d23cf
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 69a48952ef273acb8cf7eb0ec5968e12b962b622
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309741"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454361"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gérer Azure Data Lake Analytics à l’aide de l’interface de ligne de commande Azure (CLI)
 
@@ -30,7 +30,7 @@ Pour pouvoir commencer ce didacticiel, vous devez disposer des ressources suivan
 
 * Azure CLI. Consultez [Installation et configuration de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-   * Téléchargez et installez les **outils d’interface de ligne de commande Azure** [version préliminaire](https://github.com/MicrosoftBigData/AzureDataLake/releases) pour effectuer cette démonstration.
+   * Téléchargez et installez la **préversion** d’[outils d’interface de ligne de commande Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) pour effectuer cette démonstration.
 
 * Authentifiez-vous à l’aide de la commande `az login` et sélectionnez l’abonnement que vous souhaitez utiliser. Pour plus d’informations sur l’authentification à l’aide d’un compte professionnel ou scolaire, consultez la section [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure](/cli/azure/authenticate-azure-cli).
 
@@ -197,7 +197,7 @@ Utilisez la commande list pour trouver l'id de travail, puis utilisez la fonctio
 
 Utilisez les commandes `az dla job pipeline` pour afficher les tâches déjà soumises sur les informations de pipeline.
 
-```
+```azurecli
 az dla job pipeline list --account "<Data Lake Analytics Account Name>"
 
 az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
@@ -205,7 +205,7 @@ az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeli
 
 Utilisez les commandes `az dla job recurrence` pour afficher les tâches déjà soumises sur les informations de récurrences.
 
-```
+```azurecli
 az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"

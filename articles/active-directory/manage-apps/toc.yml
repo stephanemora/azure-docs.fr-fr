@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: "Qu’est-ce que le Proxy d’application pour les applications locales\_?"
       href: what-is-application-proxy.md
+    - name: Scénarios courants de gestion d’applications
+      href: common-scenarios.md
     - name: "Qu’est-ce que le provisionnement d’application\_?"
       href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Démarrages rapides

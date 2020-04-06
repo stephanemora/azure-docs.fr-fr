@@ -2,13 +2,13 @@
 title: Ressources du développeur - Language Understanding
 description: Les kits de développement logiciel (SDK), les API REST et l'interface CLI vous aident à développer des applications LUIS (Language Understanding) dans votre langage de programmation. Gérez vos ressources Azure et vos prévisions LUIS.
 ms.topic: reference
-ms.date: 02/11/2020
-ms.openlocfilehash: f9d531f800ba0729a1f679c0bf3b11c8958c78ed
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/16/2020
+ms.openlocfilehash: 5e375157cef4789bc2980f6154ea8d59e765ff3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457982"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Ressources de développement SDK, REST et CLI pour implémenter LUIS (Language Understanding)
 
@@ -105,6 +105,7 @@ Bot Framework fournit [plusieurs outils](https://github.com/microsoft/botbuilder
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) : générez automatiquement des classes C#/Typescript de support pour vos intentions et entités LUIS.
 * [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) : application de bureau permettant aux développeurs de bots de tester et de déboguer les bots créés à l'aide du kit SDK Bot Framework.
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) : outil de développement intégré, destiné aux développeurs et aux équipes pluridisciplinaires pour créer des bots et des expériences de conversation avec Microsoft Bot Framework
+* [microsoft/NLU.DevOps](https://github.com/microsoft/NLU.DevOps) : outils prenant en charge l’intégration et le déploiement continus pour les services NLU.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

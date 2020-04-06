@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 1/24/2019
-ms.openlocfilehash: 38e0028efd7fbda8aa5bee497836ce1161109e03
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 3/17/2020
+ms.openlocfilehash: 50e82362f39da2d3f3ecfad2de1ed07b68f8a6a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982627"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501514"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copier de nouveaux fichiers de façon incrémentielle sur la base du nom de fichier partitionné dans le temps à l’aide de l’outil Copier des données
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 > * Utiliser l’outil Copier les données pour créer un pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte de stockage Azure** : Utilisez le stockage d’objets blob comme magasins de données _source_ et _récepteur_. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-account-create.md).
@@ -43,12 +43,12 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 
 Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les étapes suivantes.
 
-1. Créez un conteneur nommé **source**.  Créez un chemin de dossier **2019/02/26/14** dans votre conteneur. Créez un fichier texte vide et nommez-le **file1.txt**. Chargez le fichier file1.txt vers le chemin de dossier **source/2019/02/26/14** dans votre compte de stockage.  Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](https://storageexplorer.com/).
+1. Créez un conteneur nommé **source**.  Créez un chemin de dossier **2020/03/17/03** dans votre conteneur. Créez un fichier texte vide et nommez-le **file1.txt**. Chargez le fichier file1.txt vers le chemin de dossier **source/2020/03/17/03** dans votre compte de stockage.  Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](https://storageexplorer.com/).
 
     ![Charger des fichiers](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
 
     > [!NOTE]
-    > Ajustez le nom du dossier en fonction de votre heure UTC.  Par exemple, si l’heure UTC actuelle est 14h03 le 26 février 2019, vous pouvez créer le chemin de dossier **source/2019/02/26/14/** d’après la règle **source/{Année}/{Mois}/{Jour}/{Heure}/** .
+    > Ajustez le nom du dossier en fonction de votre heure UTC.  Par exemple, si l’heure UTC actuelle est 3h38 le 17 mars 2020, vous pouvez créer le chemin de dossier **source/2020/03/17/03/** d’après la règle **source/{Année}/{Mois}/{Jour}/{Heure}/** .
 
 2. Créez un conteneur nommé **destination**. Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](https://storageexplorer.com/).
 
@@ -76,15 +76,12 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
 5. Sous **Version**, sélectionnez **V2** pour la version.
 6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
-7. Sélectionnez **Épingler au tableau de bord**.
-8. Sélectionnez **Create** (Créer).
-9. Sur le tableau de bord, la vignette **Déploiement de Data Factory** affiche l’état du processus.
-
-    ![Vignette Déploiement d’une fabrique de données](media/tutorial-copy-data-tool/deploying-data-factory.png)
-10. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
+7. Sélectionnez **Create** (Créer).
+8. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
+9. Pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé, cliquez sur la vignette **Créer et surveiller**.
 
     ![Page d’accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
-11. Pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé, cliquez sur la vignette **Créer et surveiller**.
+
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utiliser l’outil Copier les données pour créer un pipeline
 
@@ -110,20 +107,15 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 3. Sur la page **Banque de données source**, procédez comme suit :
 
     a. Cliquez sur **+ Créer une connexion** pour ajouter une connexion.
-
-    ![Page Magasin de données sources](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
-
-    b. Sélectionnez **Stockage Blob Azure** à partir de la galerie, puis cliquez sur **Continuer**.
-
-    ![Page Magasin de données sources](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
-
-    c. Dans la page **Nouveau service lié**, sélectionnez votre compte de stockage dans la liste **Nom du compte de stockage**, puis cliquez sur **Terminer**.
+    
+    b. Sélectionnez Stockage Blob Azure à partir de la galerie, puis sélectionnez Continuer.
+    
+    c. Dans la page **Nouveau service lié (stockage Blob Azure)** , spécifiez un nom pour le service lié. Sélectionnez votre abonnement Azure et ensuite votre compte de stockage dans la liste **Nom du compte de stockage**. Testez la connexion, puis sélectionnez **Créer**.
 
     ![Page Magasin de données sources](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
 
-    d. Sélectionnez le nouveau service lié, puis cliquez sur **Suivant**.
+    d. Sélectionnez le service lié nouvellement créé en tant que **Banque de données source**, puis cliquez sur **Suivant**.
 
-   ![Page Magasin de données sources](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-linkedservice.png)
 4. Sur la page **Choisir le fichier ou le dossier de sortie**, procédez comme suit :
 
     a. Recherchez et sélectionnez le conteneur **source**, puis sélectionnez **Choisir**.
@@ -132,15 +124,10 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
     b. Sous **Comportement de chargement de fichier**, sélectionnez **Chargement incrémentiel : noms de fichiers/dossiers partitionnés dans le temps**.
 
-    ![Choisir le fichier ou le dossier d’entrée](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
-
-    c. Écrivez le chemin de dossier dynamique **source/{Année}/{Mois}/{Jour}/{Heure}/** , puis modifiez le format comme suit :
-
-    ![Choisir le fichier ou le dossier d’entrée](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
-
-    d. Cochez la case **Copie binaire** et cliquez sur **Suivant**.
+    c. Écrivez le chemin de dossier dynamique **source/{Année}/{Mois}/{Jour}/{Heure}/** , puis modifiez le format comme le montre la capture d’écran suivante. Cochez la case **Copie binaire** et cliquez sur **Suivant**.
 
     ![Choisir le fichier ou le dossier d’entrée](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
+
 5. Dans la page **Magasin de données de destination**, sélectionnez **AzureBlobStorage**, qui est le même compte de stockage que le magasin de source de données, puis cliquez sur **Suivant**.
 
     ![Page Magasin de données de destination](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png)
@@ -148,18 +135,15 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
     a. Recherchez et sélectionnez le dossier **destination**, puis cliquez sur **Choisir**.
 
-    ![Choisir le fichier ou le dossier de sortie](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)
+    b. Écrivez le chemin de dossier dynamique **destination/{Année}/{Mois}/{Jour}/{Heure}/** , puis modifiez le format comme suit :
 
-    b. Écrivez le chemin de dossier dynamique **source/{Année}/{Mois}/{Jour}/{Heure}/** , puis modifiez le format comme suit :
-
-    ![Choisir le fichier ou le dossier de sortie](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)
+    ![Choisir le fichier ou le dossier de sortie](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
     c. Cliquez sur **Suivant**.
 
     ![Choisir le fichier ou le dossier de sortie](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
 7. Sur la page **Paramètres**, cliquez sur **Suivant**.
 
-    ![Page Paramètres](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/settings-page.png)
 8. Sur la page **Résumé**, vérifiez les paramètres, puis sélectionnez **Suivant**.
 
     ![Page de résumé](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/summary-page.png)
@@ -167,38 +151,27 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 9. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche).
     ![Page Déploiement](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
 
-10. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement.  Vous devez attendre l’exécution du pipeline quand elle est déclenchée automatiquement (après environ une heure).  Quand il s’exécute, la colonne **Actions** comprend des liens permettant d’afficher les détails de l’exécution de l’activité et de réexécuter le pipeline : Sélectionnez **Actualiser** pour actualiser la liste, puis sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**.
+10. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement.  Vous devez attendre l’exécution du pipeline quand elle est déclenchée automatiquement (après environ une heure). Lorsqu’il s’exécute, cliquez sur le lien du nom du pipeline **DeltaCopyFromBlobPipeline** pour afficher les détails de l’exécution de l’activité ou réexécuter le pipeline. Sélectionnez **Actualiser** pour actualiser la liste.
 
     ![Surveiller des exécutions de pipelines](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. Il n’y a qu’une seule activité (activité de copie) dans le pipeline ; vous ne voyez donc qu’une seule entrée. Vous pouvez constater que le fichier source (file1.txt) a été copié de **source/2019/02/26/14/** vers **destination/2019/02/26/14/** avec le même nom de fichier.  
+11. Il n’y a qu’une seule activité (activité de copie) dans le pipeline ; vous ne voyez donc qu’une seule entrée. Ajustez la largeur des colonnes **source** et **destination** (si nécessaire) pour afficher plus de détails. Vous pouvez voir que le fichier source (file1.txt) a été copié de *source/2020/03/17/03/* vers *destination/2020/03/17/03/* avec le même nom de fichier. 
 
     ![Surveiller des exécutions de pipelines](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
     Vous pouvez également vérifier cela à l’aide de l’Explorateur Stockage Azure (https://storageexplorer.com/) pour analyser les fichiers.
 
     ![Surveiller des exécutions de pipelines](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. Créez un autre fichier texte vide nommé **file2.txt**. Chargez le fichier file2.txt vers le chemin de dossier **source/2019/02/26/15** dans votre compte de stockage.   Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](https://storageexplorer.com/).
 
-    ![Surveiller des exécutions de pipelines](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
+12. Créez un autre fichier texte vide nommé **file2.txt**. Chargez le fichier file2.txt vers le chemin de dossier **source/2020/03/17/04** dans votre compte de stockage. Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](https://storageexplorer.com/).
 
     > [!NOTE]
-    > Vous serez peut-être informé qu’un nouveau chemin de dossier doit être créé. Ajustez le nom du dossier en fonction de votre heure UTC.  Par exemple, si l’heure UTC actuelle est 15h20 le 26 février 2019, vous pouvez créer le chemin de dossier **source/2019/02/26/15/** d’après la règle **{Année}/{Mois}/{Jour}/{Heure}/** .
+    > Vous serez peut-être informé qu’un nouveau chemin de dossier doit être créé. Ajustez le nom du dossier en fonction de votre heure UTC.  Par exemple, si l’heure UTC actuelle est 4h20 le 17 mars 2020, vous pouvez créer le chemin de dossier **source/2020/03/17/04/** d’après la règle **{Année}/{Mois}/{Jour}/{Heure}/** .
 
 13. Pour revenir à la vue **Exécutions de pipelines**, sélectionnez **Toutes les exécutions de pipelines** et attendez que le même pipeline soit redéclenché automatiquement après une heure.  
 
     ![Surveiller des exécutions de pipelines](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Sélectionnez **Afficher l’exécution d’activité** pour la deuxième exécution d’activité quand elle est apparaît, puis appliquez la même procédure pour examiner les détails.  
-
-    ![Surveiller des exécutions de pipelines](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs6.png)
-
-    Vous pouvez constater que le fichier source (file2.txt) a été copié de **source/2019/02/26/15/** vers **destination/2019/02/26/15/** avec le même nom de fichier.
-
-    ![Surveiller des exécutions de pipelines](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png)
-
-    Vous pouvez également vérifier cela à l’aide de l’Explorateur Stockage Azure (https://storageexplorer.com/) pour analyser les fichiers dans le conteneur **destination**.
-
-    ![Surveiller des exécutions de pipelines](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
+14. Sélectionnez le nouveau lien **DeltaCopyFromBlobPipeline** pour la deuxième exécution du pipeline en temps voulu, puis appliquez la même procédure pour examiner les détails. Vous constatez que le fichier source (file2.txt) a été copié de **source/2020/03/17/04/** vers **destination/2020/03/17/04/** avec le même nom de fichier. Vous pouvez le également vérifier à l’aide de l’Explorateur Stockage Azure (https://storageexplorer.com/) pour analyser les fichiers dans le conteneur **destination**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

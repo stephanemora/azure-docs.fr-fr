@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945101"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244509"
 ---
-# <a name="applying-content-tags-to-images"></a>Application d’étiquettes de contenu aux images
+# <a name="applying-content-tags-to-images"></a>Application de balises de contenu aux images
 
-Vision par ordinateur retourne des étiquettes basées sur des milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Lorsque les étiquettes sont ambigües ou inhabituelles, la réponse de l’API fournit des « conseils » pour expliquer la signification de l’étiquette dans le contexte des paramètres connus. Les étiquettes ne sont pas organisées sous forme de taxonomie et aucune hiérarchie d’héritage n’existe. La collection d’étiquettes de contenu constitue la « description » essentielle d’une image, qui est affichée sous forme de texte lisible par l’homme (phrases complètes). Notez que, à ce stade, seul l’anglais est pris en charge pour la description d’images.
+Vision par ordinateur retourne des balises basées sur des milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Lorsque les balises sont ambigües ou inhabituelles, la réponse de l’API fournit des « conseils » pour expliquer la signification de la balise dans le contexte des paramètres connus. Les balises ne sont pas organisées sous forme de taxonomie et aucune hiérarchie d’héritage n’existe. La collection de balises de contenu constitue la « description » essentielle d’une image, qui est affichée sous forme de texte lisible par l’homme (phrases complètes). Notez que, à ce stade, seul l’anglais est pris en charge pour la description d’images.
 
-Après le chargement d’une image ou d’une URL d’image, les algorithmes de l’API Vision par ordinateur génèrent des étiquettes basées sur les objets, les êtres vivants et les actions identifiées dans l’image. L’étiquetage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.
+Après le chargement d’une image ou d’une URL d’image, les algorithmes de l’API Vision par ordinateur génèrent des balises basées sur les objets, les êtres vivants et les actions identifiées dans l’image. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.
 
-## <a name="image-tagging-example"></a>Exemple d’étiquetage d’images
+## <a name="image-tagging-example"></a>Exemple de balisage d’images
 
-Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au moment de l’étiquetage d’éléments visuels détectés dans l’image en exemple.
+Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au moment du balisage d’éléments visuels détectés dans l’image en exemple.
 
-![Maison bleu et jardin en façade](./Images/house_yard.png).
+![Maison bleue et jardin en façade](./Images/house_yard.png).
 
 ```json
 {
@@ -83,6 +83,13 @@ Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au 
 }
 ```
 
+## <a name="use-the-api"></a>Utilisation de l’API
+
+La fonctionnalité de balisage fait partie de l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Vous pouvez appeler cette API via un SDK natif ou via des appels REST. Incluez `Tags` dans le paramètre de requête **visualFeatures**. Ensuite, lorsque vous obtenez la réponse JSON complète, analysez simplement la chaîne de contenu de la section `"tags"`.
+
+* [Démarrage rapide : SDK .NET Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les concepts de [classement d’images](concept-categorizing-images.md) et de [description des images](concept-describing-images.md).
+Découvrez les concepts associés de [classement des images](concept-categorizing-images.md) et de [description des images](concept-describing-images.md).

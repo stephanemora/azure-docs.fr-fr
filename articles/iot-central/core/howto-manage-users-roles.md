@@ -4,20 +4,18 @@ description: Comment gérer les rôles et utilisateurs de votre application Azur
 author: lmasieri
 ms.author: lmasieri
 ms.date: 12/05/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 8826ec5b8876a3f9e5b613641cc0d759545f04c4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018946"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365498"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gérer les utilisateurs et rôles dans votre application Azure IoT Central
-
-
 
 Cet article explique comment, en tant qu’administrateur, vous pouvez ajouter, modifier et supprimer des utilisateurs dans votre application Azure IoT Central. L’article explique également comment gérer des rôles dans votre application Azure IoT Central.
 
@@ -25,7 +23,7 @@ Pour accéder à la section **Administration** et l’utiliser, vous devez avoir
 
 ## <a name="add-users"></a>Ajouter des utilisateurs
 
-Chaque utilisateur doit avoir un compte d’utilisateur avant de pouvoir se connecter et accéder à une application Azure IoT Central. Les comptes Microsoft (MSA) et les comptes Azure Active Directory (Azure AD) sont pris en charge dans Azure IoT Central. Actuellement, les groupes Azure Active Directory ne sont pas pris en charge dans Azure IoT Central.
+Chaque utilisateur doit avoir un compte d’utilisateur avant de pouvoir se connecter et accéder à une application Azure IoT Central. Les comptes Microsoft et les comptes Azure Active Directory sont pris en charge dans Azure IoT Central. Actuellement, les groupes Azure Active Directory ne sont pas pris en charge dans Azure IoT Central.
 
 Pour plus d’informations, consultez les sections [Aide sur le compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) et [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
@@ -43,6 +41,8 @@ Pour plus d’informations, consultez les sections [Aide sur le compte Microsoft
 
     > [!NOTE]
     > Un utilisateur qui se trouve dans un rôle personnalisé qui lui accorde l’autorisation d’ajouter d’autres utilisateurs peut uniquement ajouter des utilisateurs à un rôle avec des autorisations identiques ou moins nombreuses que son propre rôle.
+
+Si un ID d’utilisateur IoT Central est supprimé d’Azure Active Directory puis rajouté, l’utilisateur ne peut pas se connecter à l’application IoT Central. Pour réactiver l’accès, l’administrateur IoT Central doit supprimer et rajouter l’utilisateur dans l’application.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Modifier les rôles attribués aux utilisateurs
 
@@ -93,7 +93,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations du modèle d’appareil**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Gérer | Affichage <br/> Autres dépendances : Afficher les instances de service  |
@@ -101,7 +101,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations des instances d’appareils**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils |
 | Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
@@ -112,7 +112,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations des groupes d’appareils**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareil et les instances d’appareils |
 | Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareil et les instances d’appareils   |
@@ -122,7 +122,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations de gestion de la connectivité des appareils**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Lire l’instance | None <br/> Autres dépendances : Afficher les modèles d’appareil, les groupes d’appareils et les instances d’appareils |
 | Gérer l’instance | None |
@@ -132,7 +132,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations de travaux**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
 | Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
@@ -143,7 +143,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations de règles**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils |
 | Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils |
@@ -155,7 +155,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations des paramètres d’application**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Update | Affichage   |
@@ -165,7 +165,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations d’exportation du modèle d’application**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Exporter | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils, les groupes d’appareils, les tableaux de bord, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
@@ -173,7 +173,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations de facturation**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Gérer | None     |
 | Contrôle total | Gérer |
@@ -182,7 +182,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations de rôles personnalisés**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None |
 | Update | Affichage |
@@ -192,7 +192,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations de gestion des utilisateurs**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None <br/> Autres dépendances : Afficher les rôles personnalisés |
 | Ajouter | Affichage <br/> Autres dépendances :  Afficher les rôles personnalisés |
@@ -206,7 +206,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations des tableaux de bord d’applications**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Update | Affichage   |
@@ -216,7 +216,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations des tableaux de bord personnels**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Update | Affichage   |
@@ -226,7 +226,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations Marque, Icône favorite et Couleurs**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Update | Affichage   |
@@ -234,7 +234,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations de liens d’aide**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Update | Affichage   |
@@ -244,7 +244,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations d’exportation de données**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Update | Affichage   |
@@ -254,7 +254,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 **Autorisations de jeton d’API**
 
-| Name | Les dépendances |
+| Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
 | Créer | Affichage   |

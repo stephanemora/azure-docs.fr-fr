@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70cdb4b42e835a9bfa03f4551ba25088ef8c5226
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: ecd49b340810f92727f0fc98f84031c8cbf68179
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942851"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481175"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -38,13 +38,13 @@ La solution comprend les composants suivants :
 
 1. **Azure AD** : si le paramètre `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés.
 
-2. **Infrastructure de serveur proxy locale** : cette infrastructure est un appareil proxy capable d’inspection SSL (Secure Sockets Layer). Vous devez configurer le serveur proxy pour insérer l’en-tête contenant la liste des locataires autorisés dans le trafic destiné à Azure AD.
+2. **Infrastructure de serveur proxy locale** : cette infrastructure est un appareil proxy capable d’inspection TLS (Transport Layer Security). Vous devez configurer le serveur proxy pour insérer l’en-tête contenant la liste des locataires autorisés dans le trafic destiné à Azure AD.
 
 3. **Logiciel client** : pour prendre en charge les restrictions liées au locataire, le logiciel client doit demander des jetons directement à Azure AD, afin que l’infrastructure du proxy puisse intercepter le trafic. Actuellement, les applications Office 365 basées sur un navigateur prennent en charge les restrictions liées au locataire, comme les clients Office qui utilisent l’authentification moderne (comme OAuth 2.0).
 
 4. **Authentification moderne** : les services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions liées au locataire et bloquer l’accès à tous les locataires non autorisés. Vous devez configurer les services cloud Office 365 pour qu’ils utilisent les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Office 365, consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Authentification moderne Office 365 mise à jour).
 
-Le schéma suivant illustre le flux de trafic de niveau supérieur. Les restrictions liées au locataire nécessitent l’inspection SSL uniquement pour le trafic vers Azure AD, pas pour le trafic vers les services cloud Office 365. Cette distinction est importante, car le volume de trafic pour l’authentification auprès d’Azure AD est généralement beaucoup plus faible que le volume de trafic vers les applications SaaS comme Exchange Online et SharePoint Online.
+Le schéma suivant illustre le flux de trafic de niveau supérieur. Les restrictions liées au locataire nécessitent l’inspection TLS uniquement pour le trafic vers Azure AD, pas pour le trafic vers les services cloud Office 365. Cette distinction est importante, car le volume de trafic pour l’authentification auprès d’Azure AD est généralement beaucoup plus faible que le volume de trafic vers les applications SaaS comme Exchange Online et SharePoint Online.
 
 ![Flux de trafic des restrictions liées au locataire - Schéma](./media/tenant-restrictions/traffic-flow.png)
 
@@ -62,9 +62,9 @@ La configuration suivante est nécessaire pour activer les restrictions liées a
 
 #### <a name="prerequisites"></a>Prérequis
 
-- Le proxy doit être en mesure d’effectuer l’interception SSL, l’insertion d’en-tête HTTP et de filtrer les destinations à l’aide des noms de domaine complets/URL.
+- Le proxy doit être en mesure d’effectuer l’interception TLS, l’insertion d’en-tête HTTP et de filtrer les destinations à l’aide des noms de domaine complets/URL.
 
-- Les clients doivent approuver la chaîne de certificat présentée par le proxy pour les communications SSL. Par exemple, si des certificats d’une [infrastructure à clé publique](/windows/desktop/seccertenroll/public-key-infrastructure) interne sont utilisés, le certificat d’autorité de certificat racine émetteur interne doit être approuvé.
+- Les clients doivent approuver la chaîne de certificat présentée par le proxy pour les communications TLS. Par exemple, si des certificats d’une [infrastructure à clé publique](/windows/desktop/seccertenroll/public-key-infrastructure) interne sont utilisés, le certificat d’autorité de certificat racine émetteur interne doit être approuvé.
 
 - Cette fonctionnalité est incluse dans les abonnements Office 365, mais si vous souhaitez utiliser les restrictions liées au locataire pour contrôler l’accès à d’autres applications SaaS, alors vous aurez besoin de licences Premium 1 Azure AD.
 

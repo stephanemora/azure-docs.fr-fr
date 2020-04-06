@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: acdf268874b1dc1c24116ba36e2b4233a2702a5f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 085280a8064e4d12ac63939ada7cdb296d47dc70
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064493"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365775"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Authentification basée sur les certificats pour une identité Azure AD pour accéder aux clés d’un compte Azure Cosmos DB
 
 L’authentification par certificat permet d’authentifier votre application client en utilisant Azure Active Directory (Azure AD) avec un certificat client. Vous pouvez effectuer une authentification basée sur un certificat sur une machine sur laquelle vous avez besoin d’une identité, telle qu’une machine locale ou une machine virtuelle dans Azure. Votre application peut alors lire les clés Azure Cosmos DB sans avoir les clés directement dans l’application. Cet article décrit comment créer un exemple d’application Azure AD, la configurer pour l’authentification par certificat, se connecter à Azure en utilisant la nouvelle identité d’application, puis récupérer les clés de votre compte Azure Cosmos. Cet article utilise Azure PowerShell pour configurer les identités et fournit un exemple d’application C# qui authentifie et accède aux clés depuis votre compte Azure Cosmos.  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Installez la [version la plus récente](/powershell/azure/install-az-ps) d’Azure PowerShell.
 
@@ -38,7 +38,7 @@ Dans cette étape, vous inscrirez un exemple d’application web dans votre comp
 
    * **Nom** : entrez un nom pour votre application. Cela peut être n’importe quel nom, tel que « sampleApp ».
    * **Types de comptes pris en charge** : choisissez **Comptes dans cet annuaire organisationnel uniquement (répertoire par défaut)** afin de permettre aux ressources de votre répertoire actuel d’accéder à cette application. 
-   * **URL de redirection** : choisissez l’application de type **Web** et fournissez une URL pointant vers l’emplacement où votre application est hébergée. Il peut s’agir de n’importe quelle URL. Pour cet exemple, vous pouvez fournir une URL de test comme `https://sampleApp.com`, même si l’application n’existe pas.
+   * **URL de redirection** : choisissez l’application de type **Web** et fournissez une URL pointant vers l’emplacement où votre application est hébergée. Il peut s’agir de n’importe quelle URL. Pour cet exemple, vous pouvez fournir une URL de test de type `https://sampleApp.com`, même si l’application n’existe pas.
 
    ![Inscription d’un exemple d’application web](./media/certificate-based-authentication/register-sample-web-app.png)
 
@@ -52,7 +52,7 @@ Dans cette étape, vous inscrirez un exemple d’application web dans votre comp
 
 Dans cette étape, vous allez installer le module Azure AD PowerShell. Ce module est nécessaire pour obtenir l’ID de l’application que vous avez inscrite à l’étape précédente et associer un certificat autosigné à cette application. 
 
-1. Ouvrez Windows PowerShell ISE avec des droits d’administrateur. Si vous n’avez pas déjà fait, installez le module AZ PowerShell et connectez-vous à votre abonnement. Si vous avez plusieurs abonnements, vous pouvez définir le contexte de votre abonnement actuel, comme indiqué dans les commandes suivantes :
+1. Ouvrez Windows PowerShell ISE avec des droits d’administrateur. Si vous ne l’avez pas déjà fait, installez le module AZ PowerShell et connectez-vous à votre abonnement. Si vous avez plusieurs abonnements, vous pouvez définir le contexte de votre abonnement actuel, comme indiqué dans les commandes suivantes :
 
    ```powershell
    Install-Module -Name Az -AllowClobber
@@ -137,18 +137,20 @@ Dans cette étape, vous vous connecterez à Azure en utilisant l’application e
    Disconnect-AzAccount -Username <Your_Azure_account_email_id> 
    ```
 
-1. Vérifiez ensuite que vous pouvez vous connecter au Portail Microsoft Azure à l’aide des informations d’identification de l’application, puis accéder aux clés Azure Cosmos DB :
+1. Vérifiez ensuite que vous pouvez vous connecter au portail Azure avec les informations d’identification de l’application et accéder aux clés Azure Cosmos DB :
 
    ```powershell
    Login-AzAccount -ApplicationId <Your_Application_ID> -CertificateThumbprint $cert.Thumbprint -ServicePrincipal -Tenant <Tenant_ID_of_your_application>
 
-   Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <Resource_Group_Name_of_your_Azure_Cosmos_account> -ResourceName <Your_Azure_Cosmos_Account_Name> 
+   Get-AzCosmosDBAccountKey `
+      -ResourceGroupName "<Resource_Group_Name_of_your_Azure_Cosmos_account>" `
+      -Name "<Your_Azure_Cosmos_Account_Name>" `
+      -Type "Keys"
    ```
 
-La commande précédente affichera les clés primaire et secondaire principales de votre compte Azure Cosmos. Vous pouvez consulter le journal d’activité de votre compte Azure Cosmos pour valider la réussite de la requête d’obtention des clés, ainsi que le déclenchement de l’événement par l’application « sampleApp ». 
- 
-![Valider l’appel d’obtention des clés dans Azure AD](./media/certificate-based-authentication/activity-log-validate-results.png)
+La commande précédente affichera les clés primaire et secondaire principales de votre compte Azure Cosmos. Vous pouvez consulter le journal d’activité de votre compte Azure Cosmos pour valider la réussite de la requête d’obtention des clés, ainsi que le déclenchement de l’événement par l’application « sampleApp ».
 
+![Valider l’appel d’obtention des clés dans Azure AD](./media/certificate-based-authentication/activity-log-validate-results.png)
 
 ## <a name="access-the-keys-from-a-c-application"></a>Accéder aux clés à partir d’une application C# 
 
@@ -245,4 +247,4 @@ Tout comme dans la section précédente, vous pouvez consulter le journal d’ac
 
 * [Sécuriser les clés Azure Cosmos à l’aide d’Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Contrôles de sécurité pour Azure Cosmos DB](cosmos-db-security-controls.md)
+* [Base de référence de sécurité pour Azure Cosmos DB](security-baseline.md)

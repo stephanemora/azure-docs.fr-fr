@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4caa248f6972609ecb6bf71dd521c68d78cebd70
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014478"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383954"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Détections des événements à risque dans Azure Active Directory
 
@@ -49,7 +49,7 @@ De plus, vous pouvez utiliser l’[API Identity Protection relative aux détecti
 > [!IMPORTANT]
 > Parfois, vous risquez de trouver une détection d’événement à risque sans entrée correspondante dans le [rapport sur les connexions](concept-sign-ins.md). En effet, Identity Protection évalue le risque pour les connexions **interactives** et les connexions **non interactives**, alors que le rapport sur les connexions ne montre que les connexions interactives.
 
-L’insight que vous obtenez pour une détection d’événement à risque est liée à votre abonnement Azure AD. 
+L’insight que vous obtenez pour une détection des risques est liée à votre abonnement Azure AD. 
 
 * Avec l’édition **Azure AD Premium P2**, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes. 
 * Avec **Azure AD Premium P1**, les détections avancées (comme les propriétés de connexion inhabituelles) ne sont pas couvertes par votre licence et apparaissent sous le nom **Connexion avec un risque supplémentaire détectée**. En outre, le niveau de risque et les champs de détail de risque sont masqués.
@@ -92,6 +92,9 @@ Ce type de détection d’événement à risque prend en compte les emplacements
 
 Identity Protection détecte les connexions provenant d’emplacements non connus, ainsi que celles ayant fait l’objet d’une authentification de base et celles qui utilisent des protocoles hérités. Étant donné que ces protocoles ne proposent pas les fonctionnalités modernes, telles que l’ID client, les données de télémétrie ne sont pas suffisantes pour réduire le nombre de faux positifs. Pour réduire le nombre d’événements à risque détectés, vous devez passer à une méthode d’authentification moderne.   
 
+> [!NOTE]
+> Si le nom d’utilisateur et le mot de passe de connexion ne correspondent pas, la connexion échoue et la détection de risque n’est pas effectuée. Les détections de risque d’une connexion à partir d’un emplacement inhabituel sont déclenchées uniquement si les connexions aboutissent.
+
 ### <a name="sign-ins-from-infected-devices"></a>Connexions depuis des appareils infectés
 
 Ce type de détection d’événement à risque identifie les connexions depuis des appareils infectés par des logiciels malveillants, qui sont connus pour communiquer activement avec un serveur robot, grâce à la mise en corrélation des adresses IP des appareils des utilisateurs avec des adresses ayant été en contact avec un serveur robot. 
@@ -108,19 +111,19 @@ Le tableau suivant répertorie le temps nécessaire à un type de détection pou
 | Type de détection | Latence dans la génération des rapports |
 | --- | --- |
 | Temps réel | 5 à 10 minutes |
-| Hors ligne | 2 à 4 heures |
+| Hors connexion | 2 à 4 heures |
 
 
 Les types de détections d’événements à risque par Azure Active Directory sont les suivants :
 
 | Type de détection d’événement à risque | Type de détection |
 | :-- | --- | 
-| [Utilisateurs dont les informations d’identification ont fait l’objet d’une fuite](#leaked-credentials) | Hors ligne |
+| [Utilisateurs dont les informations d’identification ont fait l’objet d’une fuite](#leaked-credentials) | Hors connexion |
 | [Connexions depuis des adresses IP anonymes](#sign-ins-from-anonymous-ip-addresses) | Temps réel |
-| [Voyage impossible vers des emplacements inhabituels](#impossible-travel-to-atypical-locations) | Hors ligne |
+| [Voyage impossible vers des emplacements inhabituels](#impossible-travel-to-atypical-locations) | Hors connexion |
 | [Connexions depuis des emplacements inconnus](#sign-in-from-unfamiliar-locations) | Temps réel |
-| [Connexions depuis des périphériques infectés](#sign-ins-from-infected-devices) | Hors ligne |
-| [Connexions depuis des adresses IP avec une activité suspecte](#sign-ins-from-ip-addresses-with-suspicious-activity) | Hors ligne|
+| [Connexions depuis des périphériques infectés](#sign-ins-from-infected-devices) | Hors connexion |
+| [Connexions depuis des adresses IP avec une activité suspecte](#sign-ins-from-ip-addresses-with-suspicious-activity) | Hors connexion|
 
 
 ## <a name="risk-level"></a>Niveau de risque

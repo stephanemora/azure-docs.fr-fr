@@ -75,6 +75,8 @@
           href: overview-security.md
         - name: Base de référence de la sécurité
           href: security-baseline.md
+        - name: Sécurité intégrée
+          href: key-vault-security-controls.md
         - name: Mondes de sécurité
           href: key-vault-ovw-security-worlds.md
         - name: Sécuriser votre coffre de clés

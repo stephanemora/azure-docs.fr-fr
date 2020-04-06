@@ -1,6 +1,6 @@
 ---
 title: Renforcement du réseau adaptatif dans Azure Security Center | Microsoft Docs
-description: Découvrez comment renforcer vos règles de groupes de sécurité réseau (NSG) et améliorer votre position de sécurité, en fonction de modèles de trafic réels.
+description: Découvrez comment utiliser des modèles de trafic réels pour renforcer vos règles de groupes de sécurité réseau (NSG) et améliorer votre position de sécurité.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2019
+ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559279"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385076"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Renforcement du réseau adaptatif dans Azure Security Center
 Découvrez comment configurer le renforcement du réseau adaptatif dans Azure Security Center.
@@ -28,12 +28,14 @@ L’application de [groupes de sécurité réseau (NSG)](https://docs.microsoft.
 
 Le renforcement du réseau adaptatif fournit des suggestions visant à renforcer encore les règles NSG. Il utilise un algorithme de Machine Learning factorisé dans le trafic réel, appelé une configuration approuvée, l’intelligence des menaces et d’autres indicateurs de compromis, puis fournit des suggestions pour autoriser uniquement le trafic provenant de tuples IP/port spécifiques.
 
-Par exemple, supposons que la règle NSG existante consiste à autoriser le trafic provenant de 140.20.30.10/24 sur le port 22. La suggestion de renforcement du réseau adaptatif, basée sur l’analyse, consisterait à limiter la plage et à autoriser le trafic provenant de 140.23.30.10/29 (qui est une plage IP plus étroite) et à refuser tout autre trafic sur ce port.
+Par exemple, supposons que la règle NSG existante consiste à autoriser le trafic provenant de 140.20.30.10/24 sur le port 22. La suggestion de renforcement du réseau adaptatif, basée sur l’analyse, consisterait à limiter la plage et à autoriser le trafic provenant de 140.23.30.10/29 (qui est une plage d’adresses IP plus étroite) et à refuser tout autre trafic sur ce port.
 
-![vue du renforcement du réseau](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+>[!TIP]
+> Les suggestions de renforcement du réseau adaptatif sont uniquement prises en charge sur les ports spécifiques suivants (pour UDP et TCP) : 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
 
-> [!NOTE]
-> Les suggestions de renforcement du réseau adaptatif sont prises en charge sur les ports suivants : 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
+
+![Vue du renforcement du réseau](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Afficher les alertes et règles de renforcement du réseau adaptatif
 
@@ -73,25 +75,25 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
     ![appliquer des règles](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 
 
-### Modifier une règle <a name ="modify-rule"> </a>
+### <a name="modify-a-rule"></a>Modifier une règle <a name ="modify-rule"></a>
 
 Vous souhaiterez peut-être modifier les paramètres d’une règle qui a été recommandée. Par exemple, vous souhaiterez modifier les plages d’IP recommandées.
 
 Voici des instructions importantes relatives à la modification d’une règle de renforcement du réseau adaptatif :
 
-* Vous pouvez modifier les paramètres de règles « allow » uniquement. 
-* Vous ne pouvez pas modifier des règles « allow » en règles « deny ». 
+* Vous pouvez modifier les paramètres de règles « allow » uniquement. 
+* Vous ne pouvez pas modifier des règles « allow » en règles « deny ». 
 
   > [!NOTE]
-  > La création et la modification des règles de « refus » sont effectuées directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, changer ou supprimer un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > La création et la modification de règles « deny » sont effectuées directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, changer ou supprimer un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-* Une règle **Deny all traffic** (Refuser tout le trafic) est la seule règle de type « deny » qui serait répertoriée ici, et elle ne peut pas être modifiée. Vous pouvez toutefois la supprimer (consultez [Supprimer une règle](#delete-rule)).
+* Une règle **Deny all traffic** (Refuser tout le trafic) est la seule règle de type « deny » qui serait répertoriée ici, et elle ne peut pas être modifiée. Vous pouvez toutefois la supprimer (consultez [Supprimer une règle](#delete-rule)).
   > [!NOTE]
-  > Une règle **Deny all traffic** (Refuser tout le trafic) est recommandée lorsque, suite à l’exécution de l’algorithme, Security Center n’identifie pas de trafic qui doit être autorisé en fonction de la configuration de groupe de sécurité réseau existante. Par conséquent, la règle recommandée consiste à refuser tout le trafic vers le port spécifié. Le nom de ce type de règle apparaît comme « *généré par le système* ». Après l’application de cette règle, son nom réel dans le groupe de sécurité réseau sera une chaîne constituée du protocole, de la direction du trafic, de « DENY » et d’un nombre aléatoire.
+  > Une règle **Deny all traffic** (Refuser tout le trafic) est recommandée lorsque, suite à l’exécution de l’algorithme, Security Center n’identifie pas de trafic qui doit être autorisé en fonction de la configuration de groupe de sécurité réseau existante. Par conséquent, la règle recommandée consiste à refuser tout le trafic vers le port spécifié. Le nom de ce type de règle apparaît comme « *System Generated* » (Généré par le système). Après l’application de cette règle, son nom réel dans le groupe de sécurité réseau sera une chaîne constituée du protocole, de la direction du trafic, de « DENY » et d’un nombre aléatoire.
 
 *Pour modifier une règle de renforcement du réseau adaptatif :*
 
-1. Pour modifier certains paramètres d’une règle, dans l’onglet **Règles**, cliquez sur les trois points (...) à la fin de la ligne de la règle, puis cliquez sur **Modifier**.
+1. Pour modifier certains paramètres d’une règle, dans l’onglet **Règles**, cliquez sur les trois points (…) à la fin de la ligne de la règle, puis cliquez sur **Modifier**.
 
    ![modifier une règle](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
@@ -106,12 +108,12 @@ Voici des instructions importantes relatives à la modification d’une règle d
 
     ![appliquer une règle](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### Ajouter une nouvelle règle <a name ="add-rule"> </a>
+### <a name="add-a-new-rule"></a>Ajouter une nouvelle règle <a name ="add-rule"></a>
 
-Vous pouvez ajouter une règle « allow » qui n’a pas été recommandée par Security Center.
+Vous pouvez ajouter une règle « allow » qui n’a pas été recommandée par Security Center.
 
 > [!NOTE]
-> Seules des règles « allow » peuvent être ajoutées ici. Si vous souhaitez ajouter des règles « deny », vous pouvez le faire directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, changer ou supprimer un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Seules des règles « allow » peuvent être ajoutées ici. Si vous souhaitez ajouter des règles « deny », vous pouvez le faire directement sur le groupe de sécurité réseau. Pour plus d’informations, consultez [Créer, changer ou supprimer un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 *Pour ajouter une règle de renforcement du réseau adaptatif :*
 
@@ -129,21 +131,12 @@ Vous pouvez ajouter une règle « allow » qui n’a pas été recommandée par 
     ![appliquer une règle](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### Supprimer une règle <a name ="delete-rule"> </a>
+### <a name="delete-a-rule"></a>Supprimer une règle <a name ="delete-rule"></a>
 
 Si nécessaire, vous pouvez supprimer une règle recommandée pour la session active. Par exemple, vous pouvez déterminer que l’application d’une règle suggérée est susceptible de bloquer du trafic légitime.
 
 *Pour supprimer une règle de renforcement du réseau adaptatif pour votre session active :*
 
-1. Dans l’onglet **Règles**, cliquez sur les trois points (...) à la fin de la ligne de la règle, puis cliquez sur **Supprimer**.  
+1. Dans l’onglet **Règles**, cliquez sur les trois points (…) à la fin de la ligne de la règle, puis cliquez sur **Supprimer**.  
 
     ![règles de renforcement](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
-
-
-
-
-
-
-
- 
-

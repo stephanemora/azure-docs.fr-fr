@@ -9,25 +9,26 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 11/04/2019
-ms.openlocfilehash: 2ef3cbc83cd67647709a53fee2c32b444c5d86f4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/28/2020
+ms.openlocfilehash: c8864e00be9f491d87478c253286070b9334a26e
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526125"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383189"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
 Le machine learning automatisé, également appelé ML automatisé, est le processus d’automatisation des tâches fastidieuses et itératives de développement de modèle Machine Learning. Il permet aux chercheurs de données, analystes et développeurs de créer des modèles ML à grande échelle, efficaces et productifs, tout en maintenant la qualité du modèle. L’apprentissage automatique automatisé se base sur une innovation de notre [division Microsoft Research](https://arxiv.org/abs/1705.05355).
 
-Le développement de modèle Machine Learning traditionnel consomme beaucoup de ressources, nécessitant une connaissance significative du domaine et du temps pour produire et comparer des dizaines de modèles. Appliquez le Machine Learning automatisé lorsque vous souhaitez qu’Azure Machine Learning effectue l’apprentissage d’un modèle et le règle à votre place à l’aide de la métrique cible que vous spécifiez. Le service effectue ensuite des itérations dans les algorithmes de Machine Learning associés aux sélections de fonctionnalités, où chaque itération produit un modèle avec un score d’apprentissage. Plus le score est élevé, plus le modèle est considéré comme « adapté » à vos données.
+Le développement de modèle Machine Learning traditionnel consomme beaucoup de ressources, nécessitant une connaissance significative du domaine et du temps pour produire et comparer des dizaines de modèles. Le Machine Learning automatisé permet de réduire le temps nécessaire pour obtenir des modèles ML prêts pour la production avec une facilité et une efficacité extraordinaires.
 
-Le Machine Learning automatisé permet de réduire le temps nécessaire pour obtenir des modèles ML prêts pour la production avec une facilité et une efficacité extraordinaires.
+ 
+
 
 ## <a name="when-to-use-automated-ml"></a>Quand utiliser un Machine Learning automatisé
 
-Le ML automatisé démocratise le processus de développement de modèle Machine Learning et permet à ses utilisateurs, quel que soit leur expertise en matière de science des données, d’identifier un pipeline de Machine Learning de bout en bout pour tout problème.
+Appliquez le Machine Learning automatisé lorsque vous souhaitez qu’Azure Machine Learning effectue l’apprentissage d’un modèle et le règle à votre place à l’aide de la métrique cible que vous spécifiez. Le ML automatisé démocratise le processus de développement de modèle Machine Learning et permet à ses utilisateurs, quel que soit leur expertise en matière de science des données, d’identifier un pipeline de Machine Learning de bout en bout pour tout problème.
 
 Les scientifiques des données, analystes et développeurs de différents secteurs peuvent utiliser le Machine Learning automatisé pour ce qui suit :
 
@@ -44,7 +45,7 @@ classification ;| Prévision de séries chronologiques | régression ;
 |[Prédiction marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[Prédiction de la demande](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
 |[Classification des données de groupes de discussion](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)|[Prévision de production de boissons](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)|
 
-## <a name="how-automated-ml-works"></a>Fonctionnement du Machine Learning automatisé
+## <a name="design-automated-ml-experiments"></a>Concevoir des expériences de Machine Learning automatisé
 
 **Azure Machine Learning** vous permet de concevoir et d’exécuter vos expériences d’entraînement de Machine Learning automatisé en effectuant les étapes suivantes :
 
@@ -60,9 +61,12 @@ classification ;| Prévision de séries chronologiques | régression ;
 
 1. **Lancer l’exécution de l’apprentissage.**
 
+## <a name="how-automated-ml-works"></a>Fonctionnement du Machine Learning automatisé
+
+Pendant l’entraînement, Azure Machine Learning crée un certain nombre de pipelines parallèles qui testent différents algorithmes et paramètres. Le service effectue des itérations dans les algorithmes de Machine Learning associés aux sélections de fonctionnalités, où chaque itération produit un modèle avec un score d’apprentissage. Plus le score est élevé, plus le modèle est considéré comme « adapté » à vos données.  Il s’arrête une fois qu’il réunit les critères de sortie définis dans l’expérience. Le diagramme suivant illustre ce processus. 
+
   ![Machine Learning automatisé](./media/concept-automated-ml/automl-concept-diagram2.png)
 
-Pendant l’entraînement, Azure Machine Learning crée un certain nombre de pipelines parallèles qui testent différents algorithmes et paramètres. Il s’arrête une fois qu’il réunit les critères de sortie définis dans l’expérience.
 
 Vous pouvez également inspecter les informations d’exécution journalisées qui [contiennent les métriques collectées](how-to-understand-automated-ml.md) pendant l’exécution. L’exécution de l’apprentissage produit un objet sérialisé Python (fichier `.pkl`) contenant le modèle et le prétraitement des données.
 
@@ -95,67 +99,25 @@ Dans chaque expérience de Machine Learning automatisé, vos données sont autom
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Prétraitement avancé : personnalisation facultative
 
-Un prétraitement avancé et une personnalisation supplémentaires sont également disponibles, tels que des garde-fous des données, un codage et des transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#featurization). Activez ce paramètre avec :
+Un prétraitement avancé et une personnalisation supplémentaires sont également disponibles, tels que des garde-fous des données, un codage et des transformations. [En savoir plus sur la personnalisation incluse](how-to-use-automated-ml-for-ml-models.md#featurization). Activez ce paramètre avec :
 
-+ Azure Machine Learning Studio : Activez **Caractérisation automatique** dans la section **Afficher des configurations supplémentaires** [en suivant ces étapes](how-to-create-portal-experiments.md#create-and-run-experiment).
++ Azure Machine Learning Studio : Activez **Caractérisation automatique** dans la section **Afficher des configurations supplémentaires** [en suivant ces étapes](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 + Kit de développement logiciel (SDK) Python : en spécifiant `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` pour la [`AutoMLConfig`classe](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-## <a name="prevent-over-fitting"></a>Empêcher le surajustement
+## <a name="classification--regression"></a>Classification et régression
 
-Le surajustement en Machine Learning se produit quand un modèle ajuste trop bien les données d’entraînement, et est par conséquent dans l’incapacité de prédire avec précision des données de test invisibles. En d’autres termes, le modèle a simplement mémorisé du bruit et des patterns spécifiques dans les données d’entraînement, mais il n’est pas suffisamment flexible pour faire des prédictions sur des données réelles. Dans les cas les plus flagrants, un modèle surajusté suppose que les combinaisons de valeurs de caractéristiques vues lors de l’entraînement produiront toujours exactement la même sortie pour la cible. 
+La classification et la régression sont les types les plus courants de tâches d’apprentissage automatique. Tous deux sont des types d’apprentissage supervisé dans lesquels des modèles apprennent à utiliser des données d’apprentissage, et appliquent ces apprentissages à de nouvelles données. Azure Machine Learning offre des caractérisations spécifiquement pour ces tâches, telles que des caractériseurs de réseau neuronal profond pour la classification. Apprenez-en davantage sur les [optons de caractérisation](how-to-use-automated-ml-for-ml-models.md#featurization). 
 
-La meilleure façon d’empêcher le surajustement consiste à respecter les bonnes pratiques du Machine Learning, notamment :
+L’objectif principal des modèles de classification est de prédire les catégories dans lesquelles les nouvelles données seront classées, sur la base des apprentissages de leurs données d’apprentissage. Les exemples de classification courants incluent la détection des fraudes, la reconnaissance de l’écriture manuscrite et la détection d’objets.  Apprenez-en davantage et découvrez un exemple de [classification avec Machine Learning automatisé](tutorial-train-models-with-aml.md).
 
-* Utilisation de données d’entraînement supplémentaires et élimination du biais statistique
-* Prévention des fuites de cibles
-* Utilisation de moins de fonctionnalités
-* **Régularisation et optimisation des hyperparamètres**
-* **Limitations de la complexité des modèles**
-* **Validation croisée**
-
-Dans le contexte du ML automatisé, les trois premiers éléments ci-dessus sont des **bonnes pratiques que vous implémentez**. Les trois derniers éléments en gras sont **des bonnes pratiques implémentées par le ML automatisé** par défaut afin d’offrir une protection contre le surajustement. Dans les paramètres autres que le ML automatisé, il convient de respecter ces six bonnes pratiques pour éviter le surajustement des modèles.
-
-### <a name="best-practices-you-implement"></a>Bonnes pratiques que vous implémentez
-
-L’utilisation de **davantage** de données est le meilleur moyen (et le plus simple) d’empêcher le surajustement. En plus, cela permet généralement d’augmenter la justesse. Plus vous utilisez de données, plus il devient difficile pour le modèle de mémoriser des patterns exacts, et plus il est contraint de trouver des solutions plus flexibles pour prendre en charge davantage de conditions. Il est également important de reconnaître le **biais statistique** afin de garantir que vos données d’entraînement n’incluent pas de patterns isolés qui n’existeront pas dans les données de prédictions dynamiques. Ce scénario peut être difficile à résoudre, car il se peut qu’il n’y ait pas de surajustement entre vos jeux de test et d’entraînement, mais qu’il y en ait un par comparaison aux données de test dynamiques.
-
-La fuite de cible est un problème similaire, où il est possible que le surajustement soit visible non pas entre les jeux d’entraînement et de test, mais au moment de la prédiction. La fuite de cible se produit quand votre modèle « triche » lors de l’entraînement en ayant accès à des données auxquelles il ne devrait normalement pas avoir accès au moment de la prédiction. Par exemple, si votre problème consiste à prédire, le lundi, quel sera le prix d’un produit le vendredi, mais que l’une de vos caractéristiques inclut accidentellement des données du jeudi, il s’agit de données auxquelles le modèle n’aura pas accès au moment de la prédiction, car il ne peut pas voir dans le futur. La fuite de cible est une erreur facile à manquer, mais elle est souvent caractérisée par une justesse anormalement élevée pour votre problème. Si vous tentez de prédire des cours boursiers et que vous avez entraîné un modèle à 95 % de justesse, il est probable qu’il existe des fuites de cible quelque part dans vos caractéristiques.
-
-La suppression de caractéristiques peut également aider en cas de surajustement, en empêchant que le modèle ait un trop grand nombre de champs à utiliser pour mémoriser des patterns spécifiques, ce qui le rend plus flexible. Cela peut être difficile à mesurer quantitativement, mais si vous pouvez supprimer des caractéristiques et conserver la même justesse, vous avez probablement rendu le modèle plus flexible et vous avez réduit le risque de surajustement.
-
-### <a name="best-practices-automated-ml-implements"></a>Bonnes pratiques implémentées par le ML automatisé
-
-La régularisation est le processus qui consiste à minimiser une fonction de coût pour pénaliser les modèles complexes et surajustés. Il existe différents types de fonctions de régularisation, mais en général elles pénalisent toutes la complexité, la variance et la taille de coefficient du modèle. Le ML automatisé utilise L1 (Lasso), L2 (Ridge) et ElasticNet (L1 et L2 simultanément) dans différentes combinaisons avec des paramètres d’hyperparamètres de modèle différents qui contrôlent le surajustement. En termes simples, le ML automatisé peut varier le degré de régulation d’un modèle et choisir le résultat le plus juste.
-
-Le ML automatisé implémente également des limitations de complexité de modèle explicites afin d’empêcher le surajustement. Dans la plupart des cas, cette implémentation concerne spécifiquement les algorithmes de forêt ou d’arbres de décision, où la profondeur maximale d’une arborescence donnée est limitée et le nombre total d’arbres utilisés dans les techniques de forêt ou d’ensemble est limité.
-
-La validation croisée est le processus qui consiste à prendre de nombreux sous-ensembles de vos données d’entraînement complètes et à entraîner un modèle sur chaque sous-ensemble. L’idée est qu’un modèle pourrait être « chanceux » et avoir une grande justesse avec un sous-ensemble, mais avec l’utilisation de nombreux sous-ensembles le modèle ne présentera pas cette justesse élevée à chaque fois. Avec la validation croisée, vous fournissez un jeu de données d’exclusion de validation, vous spécifiez vos plis de validation croisée (le nombre de sous-ensembles), et le ML automatisé entraîne votre modèle et ajuste les hyperparamètres afin de minimiser les erreurs sur votre jeu de validation. Il est possible qu’un pli de validation croisée présente un surajustement, mais l’utilisation de nombreux plis réduit la probabilité que votre modèle final soit surajusté. L’inconvénient est que la validation croisée entraîne des temps d’entraînement plus longs, et par conséquent un coût plus élevé, car au lieu d’entraîner un modèle une seule fois, vous l’entraînez une fois pour tous les *n* sous-ensembles de validation croisée.
-
-> [!NOTE]
-> La validation croisée n’est pas activée par défaut ; vous devez la configurer dans les paramètres de ML automatisé. Cependant, une fois que la validation croisée est configurée et qu’un jeu de données de validation a été fourni, le processus est automatisé.
-
-### <a name="identifying-over-fitting"></a>Identification d’un surajustement
-
-Considérez les modèles entraînés suivants et leurs précisions d’entraînement et de test correspondantes.
-
-| Modèle | Précision d’entraînement | Précision de test |
-|-------|----------------|---------------|
-| Un | 99,9 % | 95 % |
-| B | 87 % | 87 % |
-| C | 99,9 % | 45 % |
-
-Si l’on considère le modèle **A**, il existe une idée fausse selon laquelle si la précision de test sur des données invisibles est inférieure à la précision d’entraînement, le modèle est surajusté. Toutefois, la précision de test doit toujours être inférieure à la précision d’entraînement, et la distinction entre l’ajustement correct et le surajustement correspond en fait à la *différence* de précision. 
-
-Si l’on compare les modèles **A** et **B**, le modèle **A** est meilleur, car il a une plus grande précision de test, et bien que la précision de test soit légèrement inférieure (95 %), il ne s’agit pas d’une différence significative qui traduit un surajustement. Vous ne choisiriez pas le modèle **B** simplement parce que les précisions d’entraînement et de test sont plus proches.
-
-Le modèle **C** représente un cas clair de surajustement ; la précision d’entraînement est très élevée, mais la précision de test l’est beaucoup moins. Cette distinction est subjective, mais provient de la connaissance de votre problème et de vos données, ainsi que des amplitudes d’erreur acceptables. 
+À la différence d’une classification dans laquelle les valeurs de sortie prédites sont catégoriques, les modèles de régression prédisent des valeurs de sortie numériques en fonction de prédictions indépendantes. Dans une régression, l’objectif est d’aider à établir la relation entre ces variables de prédiction indépendantes en estimant l’impact d’une variable sur les autres. Par exemple, le coût de l’automobile basé sur des caractéristiques telles que la consommation de carburant, la cote de sécurité, etc. Apprenez-en davantage et découvrez un exemple de [Régression avec Machine Learning automatisé](tutorial-auto-train-models.md).
 
 ## <a name="time-series-forecasting"></a>Prévision de série chronologique
 
 L’établissement de prévisions fait partie intégrante de toute entreprise, qu’il s’agisse du chiffre d’affaires, de l’inventaire, des ventes ou de la demande des clients. Vous pouvez utiliser le Machine Learning automatisé pour combiner des techniques et approches, et obtenir une prévision de série chronologique recommandée de haute qualité.
 
-Une expérience de série chronologique automatisée est traitée comme un problème de régression multivariable. Les valeurs de série chronologique passées « pivotent » pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. Contrairement aux méthodes de séries chronologiques classique, cette méthode présente l’avantage d’incorporer naturellement plusieurs variables contextuelles et leurs relations entre elles pendant l’apprentissage. Le Machine Learning automatisé effectue l’apprentissage d’un modèle unique, mais souvent ramifié en interne, pour tous les éléments du jeu de données et les horizons de prédiction. Plus de données sont ainsi disponibles pour estimer les paramètres du modèle et la généralisation en séries invisibles devient possible.
+Une expérience de série chronologique automatisée est traitée comme un problème de régression multivariable. Les valeurs de série chronologique passées « pivotent » afin de devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. Contrairement aux méthodes de séries chronologiques classique, cette méthode présente l’avantage d’incorporer naturellement plusieurs variables contextuelles et leurs relations entre elles pendant l’apprentissage. Le Machine Learning automatisé effectue l’apprentissage d’un modèle unique, mais souvent ramifié en interne, pour tous les éléments du jeu de données et les horizons de prédiction. Plus de données sont ainsi disponibles pour estimer les paramètres du modèle et la généralisation en séries invisibles devient possible.
 
 Apprenez-en davantage et découvrez un exemple de [Machine Learning automatisé pour la prévision de série chronologique](how-to-auto-train-forecast.md). Ou consultez le [notebook sur la demande d’énergie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) pour obtenir des exemples de code détaillés de la configuration de prévision avancée, à savoir :
 
@@ -166,7 +128,7 @@ Apprenez-en davantage et découvrez un exemple de [Machine Learning automatisé 
 * décalages configurables
 * caractéristiques des agrégations des fenêtres dynamiques
 
-## <a name="ensemble"></a> Modèles ensemblistes
+## <a name="ensemble-models"></a><a name="ensemble"></a> Modèles ensemblistes
 
 Le Machine Learning automatisé prend en charge les modèles ensemblistes, qui sont activés par défaut. L’apprentissage ensembliste améliore les résultats de Machine Learning et les performances prédictives en combinant plusieurs modèles. Les itérations d’ensembles apparaissent comme les dernières itérations de votre exécution. Le Machine Learning automatisé utilise des méthodes ensemblistes de vote et d’empilement pour combiner les modèles :
 
@@ -176,36 +138,6 @@ Le Machine Learning automatisé prend en charge les modèles ensemblistes, qui s
 L’[algorithme de sélection d’ensemble Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf), avec initialisation des ensembles triés, est utilisé pour déterminer les modèles qui doivent être utilisés au sein de l’ensemble. Pour résumer, cet algorithme initialise l’ensemble avec un maximum de cinq modèles ayant obtenu les meilleurs scores, puis vérifie que ces scores se situent dans une marge de plus ou moins 5 % par rapport au meilleur score, afin d’éviter un ensemble de niveau médiocre. Ensuite, pour chaque itération d’ensemble, un nouveau modèle est ajouté à l’ensemble existant et le score est calculé. Si un nouveau modèle a amélioré le score existant de l’ensemble, l’ensemble est mis à jour pour inclure le nouveau modèle.
 
 Pour savoir comment modifier les paramètres par défaut de l’ensemble au niveau du Machine Learning automatisé, consultez [cette procédure](how-to-configure-auto-train.md#ensemble).
-
-## <a name="imbalance"></a> Données déséquilibrées
-
-Les données déséquilibrées se trouvent généralement dans les scénarios de classification de machine learning. Il s’agit des données dont le taux d’observations dans chaque classe est disproportionné. Ce déséquilibre peut donner une idée faussement positive de la justesse d’un modèle parce que les données d’entrée présentent un biais vers une classe, ce qui influence le modèle entraîné. 
-
-Dans l’optique de simplifier le workflow du machine learning, le ML automatisé intègre des fonctionnalités qui permettent de gérer les données déséquilibrées, à savoir : 
-
-- Une **colonne de pondération** : le ML automatisé peut utiliser une colonne pondérée en guise d’entrée. Les lignes de données sont alors pondérées, ce qui peut accentuer ou réduire l’importance d’une classe.
-
-- Les algorithmes utilisés par le ML automatisé peuvent traiter un déséquilibre jusqu’à un rapport de 20 à 1, ce qui signifie que la classe la plus commune peut avoir 20 fois plus de lignes dans les données que la classe la moins commune.
-
-### <a name="identify-models-with-imbalanced-data"></a>Identifier les modèles présentant des données déséquilibrées
-
-Sachant que les algorithmes de classification sont généralement évalués selon des critères de justesse, il est judicieux de vérifier la justesse d’un modèle pour déterminer s’il a été impacté par des données déséquilibrées. Sa justesse pour certaines classes s’est-elle avérée élevée ou très faible ?
-
-Par ailleurs, les exécutions du ML automatisé génèrent automatiquement les graphiques suivants, qui peuvent vous aider à comprendre la cohérence des classifications de votre modèle et à identifier les modèles potentiellement impactés par des données déséquilibrées.
-
-Graphique| Description
----|---
-[Matrice de confusion](how-to-understand-automated-ml.md#confusion-matrix)| Évalue les étiquettes correctement classifiées par rapport aux étiquettes réelles des données. 
-[Rappel de précision](how-to-understand-automated-ml.md#precision-recall-chart)| Évalue le ratio d’étiquettes correctes par rapport au ratio d’instances d’étiquettes trouvées dans les données. 
-[Courbe ROC](how-to-understand-automated-ml.md#roc)| Évalue le ratio d’étiquettes correctes par rapport au ratio d’étiquettes considérées comme étant des faux positifs.
-
-### <a name="handle-imbalanced-data"></a>Traiter les données déséquilibrées 
-
-Les techniques suivantes sont des options supplémentaires pour traiter les données déséquilibrées en dehors du ML automatisé. 
-
-- Rééchantillonnage destiné à niveler le déséquilibre des classes, soit en suréchantillonnant les classes les plus petites soit en sous-échantillonnant les classes les plus grandes. Ces méthodes demandent des compétences techniques pour le traitement et l’analyse.
-
-- Utilisation d’une métrique de performances qui gère mieux les données déséquilibrées. Par exemple, le score F1 est une moyenne pondérée de la précision et du rappel. La précision mesure l’exactitude d’un classifieur -- une faible précision indique un grand nombre de faux positifs-- ; le rappel mesure l’exhaustivité d’un classifieur -- un faible rappel indique un grand nombre de faux négatifs. 
 
 ## <a name="use-with-onnx-in-c-apps"></a>Utilisation avec ONNX dans des applications C#
 
@@ -255,7 +187,8 @@ Inscription du meilleur modèle| ✓|✓
 Déploiement du meilleur modèle| ✓| ✓
 Explicabilité du meilleur modèle| ✓|✓
 Activation des modèles de l’ensemble de vote et de l’ensemble d’empilement| ✓|✓
-Affichage du meilleur modèle selon une métrique non principale|✓|Activation/désactivation de la compatibilité du modèle ONNX|✓|
+Affichage du meilleur modèle selon une métrique non principale|✓|
+Activation/désactivation de la compatibilité du modèle ONNX|✓|
 Tester le modèle | ✓| |
 
 ### <a name="run-control-settings"></a>Paramètres de contrôle d’exécution
@@ -278,7 +211,7 @@ Consultez les exemples et découvrez comment générer des modèles à l’aide 
 + Suivez le [Didacticiel : Entraîner automatiquement un modèle de régression avec Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configurez les paramètres pour l’expérience d’apprentissage automatique :
-  + Dans Azure Machine Learning Studio, [suivez ces étapes](how-to-create-portal-experiments.md).
+  + Dans Azure Machine Learning Studio, [suivez ces étapes](how-to-use-automated-ml-for-ml-models.md).
   + Avec le Kit de développement logiciel (SDK) Python, [procédez comme suit](how-to-configure-auto-train.md).
 
 + Découvrez comment effectuer l’apprentissage automatique à l’aide de données de série chronologique [en procédant comme suit](how-to-auto-train-forecast.md).

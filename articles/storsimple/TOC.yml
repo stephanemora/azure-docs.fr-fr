@@ -87,7 +87,7 @@
           href: storsimple-ova-web-ui-admin.md
     - name: Notes de publication
       items:
-        - name: "Update\_1.2"
+        - name: "Update\_1.2 - actuel"
           href: storsimple-virtual-array-update-12-release-notes.md
         - name: "Update\_1.1"
           href: storsimple-virtual-array-update-11-release-notes.md
@@ -329,13 +329,17 @@
               href: 'https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf'
         - name: Update
           items:
-            - name: "Installer Update\_5\_- en cours"
+            - name: "Installer Update\_5.1 - actuel"
+              href: storsimple-8000-install-update-51.md
+            - name: "Installer Update\_5"
               href: storsimple-8000-install-update-5.md
             - name: "Installer Update\_4"
               href: storsimple-8000-install-update-4.md
     - name: Notes de publication
       items:
-        - name: "Update\_5\_- en cours"
+        - name: "Update\_5.1 - actuel"
+          href: storsimple-update51-release-notes.md
+        - name: "Update\_5"
           href: storsimple-update5-release-notes.md
         - name: "Update\_4"
           href: storsimple-update4-release-notes.md

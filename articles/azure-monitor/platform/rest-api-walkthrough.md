@@ -4,12 +4,12 @@ description: Comment authentifier des demandes et utiliser l’API REST d’Azur
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: 42a7034c586f4e01066e989dcb2b9fae4eebfa85
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250822"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294618"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
 
@@ -463,7 +463,7 @@ Une fois les définitions de mesures disponibles connues, il est possible de ré
 
 **Méthode** : GET
 
-**URI de la requête** : https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?$filter= *{filter}* &api-version= *{apiVersion}*
+**URI de demande** : `https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 Par exemple, pour retrouver les points de données de mesure RunsSucceeded pour la plage de temps spécifiée et avec un fragment de temps de 1 heure, la requête est la suivante :
 

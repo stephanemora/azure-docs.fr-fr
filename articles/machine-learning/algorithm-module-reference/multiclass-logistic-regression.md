@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 40193a2547959b44c5753cfcc6ccad9344ab9486
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ca446b0ab67a8a202c1f4d505262660ac55f42db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920431"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456163"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Module de régression logistique multiclasse
 
@@ -40,7 +40,7 @@ Dans une régression logistique multiclasse, le classifieur permet de prédire p
 
     + **Single Parameter** (Paramètre unique) : sélectionnez cette option si vous savez comment vous voulez configurer le modèle, et fournissez un ensemble spécifique de valeurs en tant qu’arguments.
 
-    + **Plage de paramètres** : sélectionnez cette option si vous ignorez quels paramètres choisir et souhaitez exécuter un balayage des paramètres. Sélectionnez la plage de valeurs sur laquelle vous souhaitez effectuer l’itération. Le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) effectue alors une itération sur toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.  
+    + **Plage de paramètres** : Sélectionnez cette option si vous n’êtes pas sûr des paramètres à choisir et que vous souhaitez exécuter un balayage des paramètres. Sélectionnez la plage de valeurs sur laquelle vous souhaitez effectuer l’itération. Le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) effectue alors une itération sur toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.  
 
 3. **Tolérance d’optimisation** : spécifiez la valeur de seuil de convergence de l’optimiseur. Si l’amélioration entre les itérations est inférieure à ce seuil, l’algorithme s’arrête et renvoie le modèle actuel.
 
@@ -58,7 +58,7 @@ Dans une régression logistique multiclasse, le classifieur permet de prédire p
 
     + Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](./train-model.md).
 
-9. Exécuter le pipeline.
+9. Envoyez le pipeline.
 
 
 

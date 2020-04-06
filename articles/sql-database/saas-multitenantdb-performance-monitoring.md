@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cc8ccbbde56b57af684ad47840002a846bdcd8c0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0af476b69f2effd836fe76d62059259076c16f53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827969"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214154"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données Azure SQL multi-locataire partitionnée dans une application SaaS multi-locataire
 
@@ -47,11 +47,11 @@ La gestion des performances des bases de données se compose des opérations sui
 * Pour éviter de devoir analyser manuellement les performances, il est plus efficace de **définir des alertes qui se déclenchent si les bases de données s’éloignent des limites normales**.
 * Pour répondre aux fluctuations à court terme de la taille de calcul d’une base de données, **vous pouvez augmenter ou diminuer le niveau DTU**. Si cette fluctuation est régulière ou prévisible, **vous pouvez planifier la mise à l’échelle automatique de la base de données**. Par exemple, diminuez la taille du pool lorsque vous savez que votre charge de travail est faible, disons la nuit ou le week-end.
 * Pour répondre aux fluctuations à plus long terme ou aux changements de locataires, **vous pouvez déplacer des locataires spécifiques dans d’autres bases de données**.
-* Pour répondre aux augmentations à court terme de la charge de locataires *spécifiques*, **vous pouvez sortir ceux-ci d’une base de données et leur attribuer une taille de calcul spécifique**. Une fois que la charge est réduite, vous pouvez remettre le locataire dans la base de données multi-locataire. Si vous en avez connaissance à l’avance, vous pouvez déplacer préalablement les locataires pour vérifier que la base de données a toujours les ressources nécessaires et éviter l’impact sur les autres locataires de la base de données multi-locataire. Si ce besoin est prévisible, par exemple un lieu accueillant un événement populaire avec une vente de tickets à grande échelle, ce comportement de gestion peut être intégré à l’application.
+* Pour répondre aux augmentations à court terme de la charge de locataires *spécifiques*, **vous pouvez sortir ceux-ci d’une base de données et leur attribuer une taille de calcul spécifique**. Une fois que la charge est réduite, vous pouvez remettre le locataire dans la base de données multi-locataire. Si vous en avez connaissance à l’avance, les locataires peuvent être déplacés de manière préemptive pour vérifier que la base de données a toujours les ressources dont elle a besoin et éviter l’impact sur d’autres locataires de la base de données multilocataire. Si ce besoin est prévisible, par exemple un lieu accueillant un événement populaire avec une vente de tickets à grande échelle, ce comportement de gestion peut être intégré à l’application.
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
-Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser les [journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/). Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Les journaux Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services, et être utilisés pour interroger et définir des alertes.
+Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser les [journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/). Il s’agit d’un service Azure distinct offrant l’analytique des journaux émis rassemblés dans un espace de travail Log Analytics. Les journaux Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services, et être utilisés pour interroger et définir des alertes.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets
 
@@ -80,7 +80,7 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simule une charge de tra
 | 2 | Générer une charge d’intensité normale (environ 30 DTU) |
 | 3 | Générer une charge avec des pics plus longs par locataire|
 | 4 | Générer une charge avec des pics de DTU plus élevés par locataire (environ 70 DTU)|
-| 5\. | Générer une intensité élevée (environ 90 DTU) sur un locataire unique, plus une charge d’intensité normale sur tous les autres locataires |
+| 5 | Générer une intensité élevée (environ 90 DTU) sur un locataire unique, plus une charge d’intensité normale sur tous les autres locataires |
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en DTU), la durée et les intervalles varient selon les bases de données pour simuler l’activité d’un locataire imprévisible.
 

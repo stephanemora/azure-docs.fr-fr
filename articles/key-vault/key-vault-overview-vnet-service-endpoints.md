@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 47dc1a84fbc80925e5b65db8c03683f9f026271b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2d7ea5618f4c0e8b6d348ea6c34127492b3e1096
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457404"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -78,7 +78,7 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 |Azure Data Factory|[Récupérer les informations d’identification du magasin de données dans Key Vault à partir de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Hubs d'événements Azure|[Autoriser l'accès à un coffre de clés pour le scénario de clés gérées par le client](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[Autoriser l'accès à un coffre de clés pour le scénario de clés gérées par le client](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-
+|Azure Import/Export| [Utiliser des clés gérées par le client dans Azure Key Vault pour le service Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
 
 > [!NOTE]
 > Vous devez configurer les stratégies Key Vault appropriées pour autoriser les services correspondants à accéder à Key Vault.

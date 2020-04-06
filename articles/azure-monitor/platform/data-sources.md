@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 2a5d1178bd6dbd6f7cfdd2ec2af17b78836a38d7
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: d1c0652844556b545cf0617032d21b80dd67d198
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096735"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479839"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -135,12 +135,11 @@ Installez l'agent Log Analytics pour une surveillance et une gestion complètes 
 
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor pour machines virtuelles 
-[Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) fournit une expérience de surveillance personnalisée pour les machines virtuelles en offrant des fonctionnalités qui surpassent les fonctionnalités de base d'Azure Monitor, y compris l'état du service et l’intégrité des machines virtuelles. Il nécessite un agent de dépendances sur les machines virtuelles Windows et Linux qui s’intègrent à l’agent Log Analytics pour collecter des données découvertes relatives aux processus en cours d’exécution sur la machine virtuelle et aux dépendances de processus externes.
+[Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) fournit une expérience de supervision personnalisée pour les machines virtuelles en offrant des fonctionnalités qui surpassent les fonctionnalités de base d’Azure Monitor. Il nécessite un agent de dépendances sur les machines virtuelles Windows et Linux qui s’intègrent à l’agent Log Analytics pour collecter des données découvertes relatives aux processus en cours d’exécution sur la machine virtuelle et aux dépendances de processus externes.
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
 | Journaux Azure Monitor | Stocke les données sur les processus et les dépendances sur l'agent. | [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles (préversion) dans le but de comprendre les composants d’application](../insights/vminsights-maps.md) |
-| Stockage de machine virtuelle | Azure Monitor pour machines virtuelles utilise l’agent Log Analytics pour stocker les informations d’intégrité dans un emplacement personnalisé. Ces informations ne sont disponibles que pour Azure Monitor pour machines virtuelles dans le portail Azure en plus de l'[API REST Azure Resource Health](/rest/api/resourcehealth/). | [Comprendre l’intégrité de vos machines virtuelles Azure](../insights/vminsights-health.md)<br>[API REST Azure Resource Health](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 

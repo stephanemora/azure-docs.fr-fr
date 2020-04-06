@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 949d4f2c5d8c1d8034ccc392915bc40f1f2fddda
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3d98be2dcc351aa88b9e126c883865079e407c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356516"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473368"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -146,8 +146,6 @@ Pour obtenir la structure JSON complète, reportez-vous à l’[exemple de fichi
 | Propriété | Default | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | Consultez [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| samplingExcludedTypes | null | Une liste délimitée par des points-virgules des types que vous ne souhaitez pas voir échantillonnés. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés. |
-| samplingIncludedTypes | null | Liste délimitée par des points-virgules des types que vous souhaitez échantillonner ; une liste vide signifie que tous les types sont impliqués. Le type répertorié dans `samplingExcludedTypes` remplace les types répertoriés ici. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés. |
 | enableLiveMetrics | true | Active la collecte des métriques temps réel. |
 | enableDependencyTracking | true | Active le suivi des dépendances. |
 | enablePerformanceCountersCollection | true | Active la collecte des compteurs de performances Kudu. |
@@ -168,6 +166,8 @@ Pour obtenir la structure JSON complète, reportez-vous à l’[exemple de fichi
 | minSamplingPercentage | 0.1 | Comme le pourcentage d’échantillonnage varie, cette propriété détermine le pourcentage d’échantillonnage autorisé minimal. |
 | minSamplingPercentage | 0.1 | Comme le pourcentage d’échantillonnage varie, cette propriété détermine le pourcentage d’échantillonnage autorisé maximal. |
 | movingAverageRatio | 1.0 | Lors du calcul de la moyenne mobile, poids affecté à la valeur la plus récente. Utilisez une valeur inférieure ou égale à 1. Plus les valeurs sont petites, moins l’algorithme est réactif en cas de modifications brusques. |
+| excludedTypes | null | Une liste délimitée par des points-virgules des types que vous ne souhaitez pas voir échantillonnés. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés. |
+| includedTypes | null | Liste délimitée par des points-virgules des types que vous souhaitez échantillonner ; une liste vide signifie que tous les types sont impliqués. Le type répertorié dans `excludedTypes` remplace les types répertoriés ici. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 

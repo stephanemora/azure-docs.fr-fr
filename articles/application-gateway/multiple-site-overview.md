@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: c43ac0923e0d3d76c25657f4870a0a0431bc8b6e
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096433"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257408"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hébergement de plusieurs sites Application Gateway
 
@@ -39,7 +39,7 @@ Actuellement, le service Application Gateway prend en charge une seule IP publi
 
 Application Gateway prend en charge plusieurs applications qui écoutent sur des ports différents, mais ce scénario requiert que les applications acceptent le trafic sur les ports non standard. Il ne s’agit généralement pas de la configuration de votre choix.
 
-Application Gateway se base sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur les mêmes adresses IP et port. Les sites hébergés sur la passerelle Application Gateway peuvent également prendre en charge le déchargement SSL avec l’extension TLS d’indication du nom du serveur (SNI). Ce scénario signifie que le navigateur du client et la batterie de serveurs web principale doivent prendre en charge HTTP/1.1 et l’extension TLS définie dans RFC 6066.
+Application Gateway se base sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur les mêmes adresses IP et port. Les sites hébergés sur Application Gateway peuvent également prendre en charge le déchargement TLS avec l’extension Indication du nom du serveur (SNI) TLS. Ce scénario signifie que le navigateur du client et la batterie de serveurs web principale doivent prendre en charge HTTP/1.1 et l’extension TLS définie dans RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Élément de configuration d’écouteur
 

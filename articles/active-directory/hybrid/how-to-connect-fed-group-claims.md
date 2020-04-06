@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 78b36e1f5ababf2551bd69682807a8ed308ae24d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298443"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408400"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurer des revendications de groupe pour des applications avec Azure Active Directory (préversion publique)
 
@@ -107,7 +107,7 @@ Les groupes attribués à l’application sont inclus dans le jeton.  Les autres
 
 Pour changer les groupes attribués à l’application, sélectionnez l’application dans la liste **Applications d’entreprise** puis cliquez sur **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
 
-Pour plus d’informations sur la gestion de l’attribution de groupe aux applications, consultez le document [Méthodes d’attribution d’utilisateurs et de groupes à une application](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups).
+Pour plus d’informations sur la gestion de l’attribution de groupe aux applications, consultez le document [Attribuer un utilisateur ou un groupe à des applications](../../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="advanced-options"></a>Options avancées
 
@@ -222,6 +222,6 @@ Pour émettre des noms de groupes à retourner au format netbiosDomain\samAccoun
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Méthodes d’attribution d’utilisateurs et de groupes à une application](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups)
+[Affecter un utilisateur ou un groupe à une application d’entreprise](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
 [Configurer des revendications de rôle](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

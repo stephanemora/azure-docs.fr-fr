@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544264"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79138533"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -103,7 +103,8 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
 
 
 >[!IMPORTANT] 
-> Le filtre IsMemberOf n’est pas pris en charge actuellement.
+> - Le filtre IsMemberOf n’est pas pris en charge actuellement.
+> - Les opérateurs EGALS et NOT EGALS ne sont pas pris en charge pour les attributs à valeurs multiples
 
 9. Si vous le souhaitez, répétez les étapes 7 et 8 pour ajouter d’autres clauses d’étendues.
 

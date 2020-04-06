@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1555eb4e48a0cf43a38aa811e20ffbbed8ee87a9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1e7587c60e180fb35e1a2bed735b053b6b0c388a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755814"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294609"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 
@@ -54,7 +54,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtenir l’URL du clone Azure Repos et le jeton d’accès personnel
 
-1. Accédez à la page d’accueil de votre collection d’équipe (par exemple, https://contoso-web-team.visualstudio.com) ), puis sélectionnez votre projet.
+1. Accédez à la page d’accueil de votre collection d’équipe (par exemple, `https://contoso-web-team.visualstudio.com`), puis sélectionnez votre projet.
 2. Sur la page d’accueil du projet, sélectionnez **Code**.
 3. Pour afficher l’URL de clonage, sélectionnez dans la page **Code** du projet l’option **Cloner**.
 4. Enregistrez l’URL. Vous l’utiliserez ultérieurement.
@@ -71,7 +71,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 10. Passez à la section [Connecter votre laboratoire au référentiel](#connect-your-lab-to-the-repository).
 
 ## <a name="connect-your-lab-to-the-repository"></a>Connecter votre laboratoire au référentiel
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste de services.
 3. Dans la liste de laboratoires, sélectionnez votre laboratoire. 
 4. Sélectionnez **Configuration et stratégies** > **Dépôts** >  **+ Ajouter**.

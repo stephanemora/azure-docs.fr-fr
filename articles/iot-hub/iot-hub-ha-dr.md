@@ -1,22 +1,22 @@
 ---
 title: Haute disponibilité et récupération d’urgence Azure IoT Hub | Microsoft Docs
 description: Décrit les options Azure et IoT Hub qui vous aident à créer des solutions Azure IoT à haute disponibilité dotées de fonctionnalités de récupération d’urgence.
-author: rkmanda
+author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 615dc1b7bd1a31069a542ebb7ea44693c404cb40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748572"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499099"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
-La première étape de l’implémentation d’une solution IoT résiliente consiste, pour les architectes, développeurs et chefs d’entreprise, à définir les objectifs de temps de fonctionnement pour les solutions qu’ils développent. Ces objectifs peuvent être principalement définis en fonction des objectifs stratégiques applicables à chaque scénario. Dans ce contexte, l’article [Conception d’applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency/) décrit un cadre général qui vous aide à réfléchir aux question de continuité d'activité et de reprise d'activité. Le document [Récupération d’urgence et haute disponibilité pour les applications Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
+La première étape de l’implémentation d’une solution IoT résiliente consiste, pour les architectes, développeurs et chefs d’entreprise, à définir les objectifs de temps de fonctionnement pour les solutions qu’ils développent. Ces objectifs peuvent être principalement définis en fonction des objectifs stratégiques applicables à chaque scénario. Dans ce contexte, l’article [Conception d’applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency/) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d'activité et de reprise d'activité. Le document [Récupération d’urgence et haute disponibilité pour les applications Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
 
 Cet article décrit les fonctionnalités de haute disponibilité et de récupération d’urgence offertes par le service IoT Hub. Il aborde essentiellement les aspects suivants :
 
@@ -60,7 +60,7 @@ Ces deux options de basculement offrent les objectifs de point de récupération
 Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les opérations exécutées à partir des applications principales et de l’appareil sont supposées continuer de fonctionner sans intervention manuelle. Cela signifie que vos messages appareil-à-cloud continuent de fonctionner et que l’intégralité du registre de l’appareil est intacte. Les événements émis via Event Grid peuvent être utilisés sur les mêmes abonnements configurés précédemment tant que ces abonnements Event Grid restent disponibles.
 
 > [!CAUTION]
-> - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement. À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application principale, vous devrez reconfigurer votre application en [extrayant le nouveau nom et le nouveau point de terminaison compatibles Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations.
+> - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement, et les groupes de consommateurs configurés sont supprimés (il s’agit d’un bogue qui sera corrigé avant mai 2020). À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application, vous devrez [reconfigurer le groupe de consommateurs qu’ils utilisent et extraire le nouveau point de terminaison compatible Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations. Si vous utilisez Azure Functions ou Azure Stream Analytics pour connecter le point de terminaison intégré, vous devrez peut-être effectuer un **redémarrage**.
 >
 > - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. 
 
@@ -76,10 +76,15 @@ Si vos objectifs de disponibilité ne sont pas satisfaits par le RTO associé à
 
 L’option de basculement manuel est toujours disponible, que la région primaire rencontre ou non des temps d’arrêt. Par conséquent, vous pouvez potentiellement utiliser cette option pour effectuer des basculements planifiés. Les basculements planifiés peuvent être par exemple utilisés dans le cadre d’exercices de basculement périodiques. Il faut cependant savoir qu’une opération de basculement planifié entraîne l’arrêt du hub pendant la période définie par le RTO pour cette option. Elle s’accompagne également d’une perte de données, telle que définie dans le tableau des RPO ci-dessus. Vous pouvez envisager de configurer une instance IoT Hub de test pour exercer l’option de basculement planifié de manière périodique, afin de gagner confiance en votre capacité à maintenir le bon fonctionnement de vos solutions de bout en bout en cas d’incident réel.
 
-> [!IMPORTANT]
-> - Les exercices de test ne doivent pas être effectués sur des IoT Hubs utilisés dans vos environnements de production.
->
-> - Il n’est pas conseillé d’utiliser le basculement manuel comme un mécanisme servant à migrer définitivement votre hub entre les régions Azure associées géographiquement. Cela augmenterait la latence des opérations exécutées sur le hub à partir d’appareils hébergés dans l’ancienne région primaire.
+Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Effectuer un basculement manuel pour un hub IoT](tutorial-manual-failover.md)
+
+### <a name="running-test-drills"></a>Exécution d’exercices de test
+
+Les exercices de test ne doivent pas être effectués sur des IoT Hubs utilisés dans vos environnements de production.
+
+### <a name="dont-use-manual-failover-to-migrate-iot-hub-to-a-different-region"></a>Ne pas utiliser le basculement manuel pour migrer un hub IoT vers une autre région
+
+Il n’est *pas* conseillé d’utiliser le basculement manuel comme un mécanisme servant à migrer définitivement votre hub entre les régions Azure associées géographiquement. Cela augmente la latence des opérations exécutées sur le hub IoT à partir d’appareils hébergés dans l’ancienne région primaire.
 
 ## <a name="failback"></a>Restauration automatique
 
@@ -125,12 +130,12 @@ Voici un résumé des options de haute disponibilité/récupération d’urgence
 
 | Option de haute disponibilité/récupération d’urgence | RTO | RPO | Nécessite une intervention manuelle ? | Complexité de l’implémentation | Coût supplémentaire|
 | --- | --- | --- | --- | --- | --- |
-| Basculement initié par Microsoft |2 - 26 heures|Voir le tableau des RPO ci-dessus|Non|Aucun|Aucun|
-| Basculement manuel |10 min - 2 heures|Voir le tableau des RPO ci-dessus|Oui|Très faible. Vous ne devez déclencher cette opération qu’à partir du portail.|Aucun|
+| Basculement initié par Microsoft |2 - 26 heures|Voir le tableau des RPO ci-dessus|Non|None|None|
+| Basculement manuel |10 min - 2 heures|Voir le tableau des RPO ci-dessus|Oui|Très faible. Vous ne devez déclencher cette opération qu’à partir du portail.|None|
 | Haute disponibilité inter-région |< 1 min|Dépend de la fréquence de réplication de votre solution de haute disponibilité personnalisée|Non|Élevé|> 1 fois supérieure au coût de 1 IoT Hub|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu’est-ce qu’Azure IoT Hub ?](about-iot-hub.md)
 * [Bien démarrer avec les hubs IoT (démarrage rapide)](quickstart-send-telemetry-dotnet.md)
-* [Tutoriel : Effectuer un basculement manuel pour un hub IoT](tutorial-manual-failover.md)
+* [Tutoriel : Effectuer un basculement manuel pour un hub IoT](tutorial-manual-failover.md)

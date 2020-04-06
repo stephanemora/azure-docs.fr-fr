@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 2d13385b63802bc0037c3fbe32cd38ed5caaf1c6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218063"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpréter les résultats de modèle dans Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio (classique). Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
 
 
@@ -115,7 +117,7 @@ Figure 7. Visualisation du résultat de modèle de notation dans la classificat
 
 **Interprétation du résultat**
 
-Les 16 colonnes de gauche représentent les valeurs caractéristiques de l’ensemble du test. Les colonnes intitulées Probabilités notées de classe « XX » sont similaires à la colonne Probabilités notées dans le cas d’utilisation d’une classification double classe. Elles indiquent la probabilité que l'entrée correspondante est comprise dans une certaine classe. Par exemple, pour la première entrée, il y a une probabilité de 0,003571 que ce soit un « A », une probabilité de 0,000451 que ce soit un « B », et ainsi de suite. La dernière colonne (Étiquettes notées) est identique aux Étiquettes notées dans le cas d’utilisation d’une classification double classe. Elle sélectionne la classe présentant la probabilité notée la plus élevée en tant que classe prédite de l'entrée correspondante. Par exemple, pour la première entrée, l'étiquette notée est un « F », car elle présente la probabilité la plus élevée que ce soit un « F » (0,916995).
+Les 16 colonnes de gauche représentent les valeurs caractéristiques de l’ensemble du test. Les colonnes intitulées Probabilités notées de classe « XX » sont similaires à la colonne Probabilités notées dans le cas d’utilisation d’une classification double classe. Elles indiquent la probabilité que l'entrée correspondante est comprise dans une certaine classe. Par exemple, pour la première entrée, il y a une probabilité de 0,003571 que ce soit un « A », une probabilité de 0,000451 que ce soit un « B », et ainsi de suite. La dernière colonne (Étiquettes notées) est identique aux Étiquettes notées dans le cas d’utilisation d’une classification double classe. Elle sélectionne la classe présentant la probabilité notée la plus élevée en tant que classe prédite de l'entrée correspondante. Par exemple, pour la première entrée, l’étiquette notée est un « F », car elle présente la probabilité la plus élevée que ce soit un « F » (0,916995).
 
 **Publication du service web**
 
@@ -129,7 +131,7 @@ Figure 8. Code R permettant d’extraire les étiquettes notées et les probab
 
 Figure 9. Expérience de notation finale d’un problème de classification multiclasse de reconnaissance de lettres
 
-Une fois le service web publié et exécuté, et certaines valeurs caractéristiques d’une instance de test saisies, le résultat renvoyé est semblable à celui mentionné dans la Figure 10. Cette lettre écrite, accompagnée de ses 16 fonctionnalités extraites, est prédite pour être un « T » avec une probabilité de 0,9715.
+Une fois le service web publié et exécuté, et certaines valeurs caractéristiques d’une instance de test saisies, le résultat renvoyé est semblable à celui mentionné dans la Figure 10. Cette lettre écrite, accompagnée de ses 16 caractéristiques extraites, est prédite pour être un « T » avec une probabilité de 0,9715.
 
 ![Test de l’interprétation du module de notation](./media/interpret-model-results/9_1.png)
 
@@ -183,7 +185,7 @@ Utilisons le jeu de données Iris pour réaliser une expérience de clustering. 
 
 Figure 15. Expérience d’un problème de clustering Iris
 
-Le clustering diffère de la classification, car le jeu de données de formation ne dispose pas lui-même des étiquettes réelles. Le clustering regroupe les instances du jeu de données de formation dans des groupes distincts. Lors du processus de formation, le modèle étiquette les entrées en prenant compte des différences existantes entre leurs fonctionnalités. Le modèle formé peut être ensuite utilisé pour classifier les entrées futures. Deux parties du résultat nous intéressent au sein d'un problème de clustering. La première partie est l’étiquetage du jeu de données d’apprentissage et le second est le classement du nouveau jeu de données avec le modèle formé.
+Le clustering diffère de la classification, car le jeu de données d’apprentissage ne dispose pas lui-même des étiquettes réelles. Le clustering regroupe les instances du jeu de données de formation dans des groupes distincts. Lors du processus de formation, le modèle étiquette les entrées en prenant compte des différences existantes entre leurs fonctionnalités. Le modèle formé peut être ensuite utilisé pour classifier les entrées futures. Deux parties du résultat nous intéressent au sein d'un problème de clustering. La première partie est l’étiquetage du jeu de données d’apprentissage et le second est le classement du nouveau jeu de données avec le modèle formé.
 
 La première partie du résultat peut être visualisée en cliquant sur le port de sortie gauche de [Former le modèle de clustering][train-clustering-model], puis sur **Visualiser**. La visualisation est présentée dans la Figure 16.
 

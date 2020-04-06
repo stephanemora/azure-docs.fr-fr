@@ -2,20 +2,20 @@
 title: Journaux bruts HTTP Azure CDN
 description: Cet article décrit les journaux bruts HTTP Azure CDN.
 services: cdn
-author: asudbring
-manager: KumudD
+author: sohamnchatterjee
+manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2020
-ms.author: allensu
-ms.openlocfilehash: 79ced4df8df12bf2ef1fbe0075b53d02fafb2aff
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.date: 03/23/2020
+ms.author: sohamnc
+ms.openlocfilehash: c6e8570746ae3dd0051dbec084c89d90580d28b1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129843"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371636"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Journaux bruts HTTP Azure CDN
 Les journaux bruts offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit et la résolution des problèmes. Les journaux bruts diffèrent des journaux d’activité. Les journaux d’activité apportent une visibilité dans les opérations effectuées sur des ressources Azure. Les journaux bruts fournissent un enregistrement des opérations de votre ressource.
@@ -62,7 +62,7 @@ Pour configurer les journaux bruts de votre instance Azure CDN à partir du prof
 
 ## <a name="raw-logs-properties"></a>Propriétés des journaux bruts
 
-Azure CDN du service Microsoft fournit actuellement des journaux bruts (par lot toutes les heures). Les journaux bruts présentent chaque requête d’API individuellement, chaque entrée appliquant le schéma suivant : 
+Azure CDN du service Microsoft fournit actuellement des journaux bruts. Les journaux bruts présentent chaque requête d’API individuellement, chaque entrée appliquant le schéma suivant : 
 
 | Propriété              | Description                                                                                                                                                                                          |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -83,6 +83,11 @@ Azure CDN du service Microsoft fournit actuellement des journaux bruts (par lot 
 | HttpStatusDetails     | État résultant de la requête. Vous trouverez la signification de cette valeur de chaîne dans la Table de référence des états.                                                                                              |
 | Pop                   | Pop de périphérie, qui a répondu à la demande de l’utilisateur. Les abréviations des POP sont les codes aéroport de leurs Metros respectifs.                                                                                   |
 | Cache Status          | Indique si l’objet a été retourné à partir du cache ou s’il est issu de l’origine.                                                                                                             |
+> [!IMPORTANT]
+> La fonctionnalité des journaux bruts HTTP est disponible automatiquement pour tous les profils créés ou mis à jour après le **25 février 2020**. Pour les profils CDN créés précédemment, vous devez mettre à jour le point de terminaison CDN après la configuration de la journalisation. Par exemple, vous pouvez accéder au géofiltrage sous les points de terminaison CDN et bloquer tous les pays qui ne sont pas pertinents pour votre charge de travail, puis cliquer sur Enregistrer. 
+
+> [!NOTE]
+> Vous pouvez voir les journaux sous votre profil Log Analytics en exécutant une requête. Voici un exemple de requête : AzureDiagnostics | where Category == "AzureCdnAccessLog"
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez activé les journaux bruts HTTP pour le service CDN Microsoft.

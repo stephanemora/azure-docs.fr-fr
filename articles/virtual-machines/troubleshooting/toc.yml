@@ -77,6 +77,8 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: Échec du service critique
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: La machine virtuelle ne répond pas quand une stratégie Utilisateurs et groupes locaux est appliquée
+          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: Disque non amorçable
           href: troubleshoot-guide-not-bootable-disk.md
         - name: Boucle de redémarrage
@@ -87,6 +89,8 @@
           href: troubleshoot-vm-boot-configure-update.md
         - name: Impossible de démarrer la machine virtuelle en raison du gestionnaire de démarrage Windows
           href: troubleshoot-guide-windows-boot-manager-menu.md
+        - name: La machine virtuelle ne répond pas en raison d’une mise à jour
+          href: unresponsive-vm-apply-windows-update.md
 - name: Impossible de se connecter à ma machine virtuelle
   items:
     - name: RDP

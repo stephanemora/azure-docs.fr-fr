@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac0f4d5c10cf128b6161163a81cc171bcafbd36
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: a58103bad3914bd0c0c6e70f8e3d2882271e1070
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158993"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049207"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -30,7 +30,7 @@ Les identités managées pour ressources Azure fournissent des services Azure av
 
 Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -75,7 +75,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | Le point de terminaison d’identités managées pour ressources Azure pour Instance Metadata Service. |
 | `api-version`  | Un paramètre de chaîne de requête qui indique la version d’API pour le point de terminaison IMDS. Veuillez utiliser la version d’API `2018-02-01` ou une version ultérieure. |
-| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, https://management.azure.com/. |
+| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, `https://management.azure.com/`. |
 | `Metadata` | Un champ d’en-tête de requête HTTP, requis par les identités managées pour ressources Azure afin d’atténuer une attaque par falsification de requête côté serveur (SSRF). Cette valeur doit être définie sur « true », en minuscules. |
 | `object_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément object_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
 | `client_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément client_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
@@ -92,7 +92,7 @@ Metadata: true
 | ------- | ----------- |
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
 | `http://localhost:50342/oauth2/token` | Le point de terminaison d’identités managées pour ressources Azure, où 50342 est le port par défaut configurable. |
-| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, https://management.azure.com/. |
+| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, `https://management.azure.com/`. |
 | `Metadata` | Un champ d’en-tête de requête HTTP, requis par les identités managées pour ressources Azure afin d’atténuer une attaque par falsification de requête côté serveur (SSRF). Cette valeur doit être définie sur « true », en minuscules.|
 | `object_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément object_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
 | `client_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément client_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|

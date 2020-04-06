@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 98d75f75a985fca3448becab216ad6570d948468
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 13eab175356ed1ec20caa3263ba00d0563384f0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772231"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064392"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
@@ -44,6 +44,28 @@ Les types de vérifications exécutés par l’outil peuvent être classés ains
 * Vérification de disponibilité de la production : Elle recherche les meilleures pratiques de production recommandées, comme l’état des certificats d’autorité de l’appareil et la configuration du fichier journal du module.
 
 Pour obtenir une liste complète des vérifications de diagnostic, consultez [Fonctionnalités de résolution des problèmes intégrées](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## <a name="gather-debug-information-with-iotedge-support-bundle-command"></a>Collecter les informations de débogage avec la commande « iotedge support-bundle »
+
+Pour collecter des journaux à partir d’un appareil IoT Edge, la méthode la plus pratique consiste à utiliser la commande `support-bundle`. Par défaut, cette commande collecte les journaux des modules, du gestionnaire de sécurité IoT Edge et du moteur de conteneur, la sortie JSON de la commande « iotedge check » et d’autres informations de débogage utiles. Elle les compresse dans un fichier unique pour faciliter le partage. La commande `support-bundle` est disponible dans la [version 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) et supérieure.
+
+Exécutez la commande `support-bundle` avec l’indicateur `--since` pour spécifier la période pour laquelle vous souhaitez récupérer les journaux. Par exemple, `6h` permet de récupérer les journaux pour les 6 dernières heures, `6d` pour les 6 derniers jours, `6m` pour les 6 dernières minutes, et ainsi de suite. Incluez l’indicateur `--help` pour voir la liste complète des options.
+
+
+* Sur Linux :
+
+  ```bash
+  sudo iotedge support-bundle --since 6h
+  ```
+
+* Sur Windows :
+
+  ```powershell
+  iotedge support-bundle --since 6h
+  ```
+
+> [!WARNING]
+> La sortie de la commande `support-bundle` peut contenir des noms d’hôte, d’appareil et de module, des informations journalisées par vos modules, etc. Soyez conscient de cela si vous partagez la sortie dans un forum public.
 
 ## <a name="standard-diagnostic-steps"></a>Étapes de diagnostic standard
 
@@ -403,7 +425,7 @@ L’exemple ci-dessus définit le serveur DNS sur un service DNS accessible publ
 
 Placez `daemon.json` au bon emplacement de votre plateforme :
 
-| Plateforme | Location |
+| Plateforme | Emplacement |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Hôte Windows avec des conteneurs Windows | `C:\ProgramData\iotedge-moby\config` |

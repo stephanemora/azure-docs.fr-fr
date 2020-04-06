@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 03/17/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00de9c803ef796eda8da609a4009e0a8cfcb3664
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378260"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455365"
 ---
 # <a name="registration-management"></a>Gestion des inscriptions
 
@@ -119,7 +119,7 @@ Dans ce cas, vous utilisez uniquement les droits Listen (Écouter) pour accéder
 L’inscription à partir de l’appareil est la méthode la plus simple, mais présente quelques inconvénients :
 
 - Une application cliente peut mettre à jour ses balises uniquement lorsqu’elle est active. Par exemple, si un utilisateur a deux appareils qui inscrivent des balises associées à des équipes sportives, lorsque le premier appareil inscrit une balise supplémentaire (par exemple, Seahawks), le second appareil ne reçoit pas les notifications concernant les Seahawks tant que l’application présente sur le second appareil n’a pas été exécutée une deuxième fois. De manière plus générale, lorsque les balises sont affectées par plusieurs appareils, la gestion des balises à partir du serveur principal est une option intéressante.
-- Étant donné que les applications peuvent être piratées, la limitation de l’inscription à des balises spécifiques nécessite de prendre des précautions supplémentaires, comme décrit dans la section « Sécurité au niveau des balises ».
+- Étant donné que les applications peuvent être piratées, la limitation de l’inscription à des balises spécifiques nécessite de prendre des précautions supplémentaires, comme décrit dans la section [Sécurité](notification-hubs-push-notification-security.md).
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Exemple de code permettant de s’inscrire auprès d’un hub de notification à partir d’un appareil à l’aide d’une installation
 
@@ -170,7 +170,7 @@ var channel = await PushNotificationChannelManager.CreatePushNotificationChannel
 string installationId = null;
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored an installation id in application data, create and store as application data.
+// If we have not stored an installation ID in application data, create and store as application data.
 if (!settings.ContainsKey("__NHInstallationId"))
 {
     installationId = Guid.NewGuid().ToString();
@@ -212,15 +212,15 @@ Ces méthodes créent ou mettent à jour une inscription de l’appareil sur leq
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-// The Device id from the PNS
+// The Device ID from the PNS
 var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-// If you are registering from the client itself, then store this registration id in device
-// storage. Then when the app starts, you can check if a registration id already exists or not before
+// If you are registering from the client itself, then store this registration ID in device
+// storage. Then when the app starts, you can check if a registration ID already exists or not before
 // creating.
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored a registration id in application data, store in application data.
+// If we have not stored a registration ID in application data, store in application data.
 if (!settings.ContainsKey("__NHRegistrationId"))
 {
     // make sure there are no existing registrations for this push handle (used for iOS and Android)    
@@ -328,7 +328,7 @@ var reg = new WindowsRegistrationDescription(channelUri, tags);
 // Create
 await hub.CreateRegistrationAsync(reg);
 
-// Get by id
+// Get by ID
 var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
 
 // update

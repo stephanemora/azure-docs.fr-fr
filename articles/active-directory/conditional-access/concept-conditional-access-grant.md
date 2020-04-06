@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331838"
 ---
 # <a name="conditional-access-grant"></a>Accès conditionnel : Accorder
 
@@ -35,7 +35,7 @@ Le blocage est un puissant contrôle qui doit être utilisé moyennant les conna
 Les administrateurs peuvent choisir d’appliquer un ou plusieurs contrôles lors de l’octroi de l’accès. Ces contrôles incluent les options suivantes : 
 
 - [Exiger une authentification multifacteur (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
-- [Exiger que l’appareil soit marqué comme conforme (Microsoft Intune)](https://docs.microsoft.com/intune/protect/device-compliance-get-started)
+- [Exiger que l’appareil soit marqué comme conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Exiger un appareil joint à une version hybride d’Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Demander une application cliente approuvée](app-based-conditional-access.md)
 - [Exiger une stratégie de protection des applications](app-protection-based-conditional-access.md)
@@ -53,9 +53,9 @@ Quand cette case est cochée, les utilisateurs doivent effectuer une authentific
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Exiger que l’appareil soit marqué comme conforme
 
-Les organisations qui ont déployé Microsoft Intune peuvent utiliser les informations retournées par leurs appareils pour identifier les appareils qui remplissent les conditions de conformité spécifiques. Ces informations de conformité de la stratégie sont transmises d’Intune à Azure AD, où l’accès conditionnel peut prendre des décisions pour accorder ou bloquer l’accès aux ressources. Pour plus d’informations sur les stratégies de conformité, consultez l’article [Définir des règles sur les appareils pour autoriser l’accès aux ressources de votre organisation à l’aide d’Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
+Les organisations qui ont déployé Microsoft Intune peuvent utiliser les informations retournées par leurs appareils pour identifier les appareils qui remplissent les conditions de conformité spécifiques. Ces informations de conformité de la stratégie sont transmises d’Intune à Azure AD, où l’accès conditionnel peut prendre des décisions pour accorder ou bloquer l’accès aux ressources. Pour plus d’informations sur les stratégies de conformité, consultez l’article [Définir des règles sur les appareils pour autoriser l’accès aux ressources de votre organisation à l’aide d’Intune](/intune/protect/device-compliance-get-started).
 
-Un appareil peut être marqué comme conforme par Intune (pour n’importe quel système d’exploitation d’appareil), ou par un système GPM tiers pour les appareils Windows 10. Les systèmes MDM tiers pour les systèmes d’exploitation autres que Windows 10 ne sont pas pris en charge.
+Un appareil peut être marqué comme conforme par Intune (pour n’importe quel système d’exploitation d’appareil), ou par un système GPM tiers pour les appareils Windows 10. Jamf Pro est le seul système MDM tiers pris en charge. Pour plus d’informations sur l’intégration, consultez l’article [Intégrer JAMF Pro à Intune pour assurer la conformité](/intune/protect/conditional-access-integrate-jamf).
 
 Les appareils doivent être inscrits dans Azure AD pour pouvoir être marqués comme conformes. Pour plus d’informations sur l’inscription des appareils, consultez l’article [Qu’est-ce qu’une identité d’appareil ?](../devices/overview.md)
 
@@ -67,7 +67,9 @@ Les organisations peuvent choisir d’utiliser l’identité de l’appareil dan
 
 Les organisations peuvent exiger que toute tentative d’accès aux applications cloud sélectionnées provienne d’une application cliente approuvée. Ces applications clientes approuvées prennent en charge les [stratégies de protection des applications Intune](/intune/app-protection-policy), quelle que soit votre solution de gestion des périphériques mobiles (GPM).
 
-Ce paramètre s’applique aux applications clientes suivantes :
+Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, qui lui-même nécessite l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou le portail d’entreprise Microsoft pour les appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers l’App Store pour installer cette application.
+
+Ce paramètre s’applique aux applications iOS et Android suivantes :
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -80,6 +82,8 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Office
+- Microsoft Hub Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -96,17 +100,23 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Microsoft Visio
 - Microsoft Word
 - Microsoft Yammer
+- Tableau blanc collaboratif Microsoft
 
 **Remarques**
 
 - Les applications clientes approuvées prennent en charge la fonctionnalité de gestion des applications mobiles Intune.
 - Exigence **Nécessite une application cliente approuvée** :
    - elle prend uniquement en charge iOS et Android pour la condition de plateforme d’appareil.
+   - Une application de répartiteur est nécessaire pour inscrire l’appareil. Sur iOS, l’application de répartiteur est Microsoft Authenticator, sur Android, il s’agit de l’application Portail d’entreprise Intune.
 - L’accès conditionnel ne peut considérer Microsoft Edge en mode InPrivate en tant qu'application cliente approuvée.
+
+Consultez l’article [Guide pratique pour exiger des applications clientes approuvées pour l’accès aux applications cloud avec l’accès conditionnel](app-based-conditional-access.md) donnant des exemples de configuration.
 
 ### <a name="require-app-protection-policy"></a>Exiger une stratégie de protection des applications
 
 Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu’une [stratégie de protection des applications Intune](/intune/app-protection-policy) soit présente sur l’application cliente pour qu’il soit possible d’accéder aux applications cloud sélectionnées. 
+
+Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, qui lui-même nécessite l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou le portail d’entreprise Microsoft pour les appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers l’App Store pour installer cette application.
 
 Ce paramètre s’applique aux applications clientes suivantes :
 
@@ -120,6 +130,9 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Les applications associées à la stratégie de protection des applications prennent en charge la fonctionnalité de gestion d’applications mobiles Intune avec la protection des stratégies.
 - Exigences relatives à la stratégie **Exiger une stratégie de protection des applications** :
     - elle prend uniquement en charge iOS et Android pour la condition de plateforme d’appareil.
+    - Une application de répartiteur est nécessaire pour inscrire l’appareil. Sur iOS, l’application de répartiteur est Microsoft Authenticator, sur Android, il s’agit de l’application Portail d’entreprise Intune.
+
+Consultez l’article [Guide pratique pour exiger une stratégie de protection d’application et une application cliente approuvée pour l’accès aux applications cloud avec l’accès conditionnel](app-protection-based-conditional-access.md) donnant des exemples de configuration.
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 

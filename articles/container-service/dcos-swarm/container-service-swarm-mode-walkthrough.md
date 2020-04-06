@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: d4bbd5560681aa73709019e87c6c22470a64ad78
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274876"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481736"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(DÉCONSEILLÉ) Déployer le cluster Docker CE
 
@@ -67,16 +67,15 @@ Au bout de quelques minutes, la commande se termine et retourne des informations
 
 ## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
-Pour suivre ce guide de démarrage rapide, vous avez besoin du nom de domaine complet du nœud maître Docker Swarm et du pool d’agents Docker. Exécutez la commande suivante pour retourner les noms de domaine complets du nœud maître et de l’agent.
+Dans ce démarrage rapide, vous avez besoin du FQDN du nœud maître Docker Swarm et du pool d’agents Docker. Exécutez la commande suivante pour retourner les noms de domaine complets du nœud maître et de l’agent.
 
-
-```bash
+```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
 Sortie :
 
-```bash
+```output
 Master                                                               Agent
 -------------------------------------------------------------------  --------------------------------------------------------------------
 myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
@@ -125,7 +124,7 @@ docker stack deploy azure-vote --compose-file azure-vote.yaml
 
 Sortie :
 
-```bash
+```output
 Creating network azure-vote_default
 Creating service azure-vote_azure-vote-back
 Creating service azure-vote_azure-vote-front
@@ -139,7 +138,7 @@ docker stack ps azure-vote
 
 L’application est prête lorsque la valeur `CURRENT STATE` de chaque service est `Running`.
 
-```bash
+```output
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
 tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
@@ -160,13 +159,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Obtenir le code
 
-Dans ce guide de démarrage rapide, des images de conteneur créées au préalable ont été utilisées pour créer un service Docker. Le code de l’application associé, Dockerfile, et le fichier Compose sont disponibles sur GitHub.
+Dans ce démarrage rapide, des images conteneur précréées ont été utilisées pour créer un service Docker. Le code de l’application associé, Dockerfile, et le fichier Compose sont disponibles sur GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé un cluster Docker Swarm et vous y avez déployé une application de plusieurs conteneurs.
+Dans ce démarrage rapide, vous avez déployé un cluster Docker Swarm et y avez déployé une application multiconteneur.
 
 Pour en savoir plus sur l’intégration de Docker Swarm à Azure DevOps, passez à la section CI/CD avec Docker Swarm et Azure DevOps.
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152062"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409017"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -48,7 +48,7 @@ L’édition Standard de Data Catalog prend en charge jusqu’à 100 000 ress
 Tout objet inscrit dans Data Catalog, y compris les tableaux, vues, fichiers et rapports, est comptabilisé comme une ressource de données.
 
 ## <a name="what-are-its-supported-data-source-and-asset-types"></a>Quels sont les types de sources et de ressources de données pris en charge ?
-Pour obtenir la liste des sources de données actuellement prises en charge, reportez-vous au [DSR Data Catalog](data-catalog-dsr.md).
+Pour obtenir la liste des sources de données prises en charge, consultez [Sources de données prises en charge par Azure Data Catalog](data-catalog-dsr.md).
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Comment demander la prise en charge d’une autre source de données ?
 Pour demander des fonctionnalités et envoyer d’autres commentaires, rendez-vous dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
@@ -87,7 +87,7 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 >
 
 > [!NOTE]
-> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de cette propriété. Pour des bases de données relationnelles SQL Server *locales*, qui ne possèdent pas de propriété **Description** de première classe, l’outil d’inscription de la source de données Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de cette propriété. Pour des bases de données relationnelles SQL Server *locales*, qui ne possèdent pas de propriété **Description** de première classe, l’outil d’inscription de la source de données Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Cette propriété n’est pas prise en charge avec SQL Azure. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

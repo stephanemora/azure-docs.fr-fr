@@ -1,30 +1,30 @@
 ---
 title: Ajouter une couche Open Geospatial Consortium (OGC) | Microsoft Azure Maps
 description: Découvrez comment superposer une couche OGC sur la carte et comment utiliser les différentes options de la classe OgcMapLayer.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c41ee293c853572ec9e1f9dd3edf001c805924d3
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402772"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334296"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Ajouter une couche fournie par l’Open Geospatial Consortium (OGC)
 
 La classe `atlas.layer.OgcMapLayer` peut superposer des images WMS (Web Map Service) et WMTS (Web Map Tile Service) sur la carte. WMS est un protocole standard développé par l’OGC pour servir les images cartographiques géoréférencées sur Internet. Le géoréférencement des images est le processus d’association d’une image à un emplacement géographique. WMTS est également un protocole standard développé par l’OGC. Il est conçu pour proposer des mosaïques prérendues et géoréférencées.
 
-Les sections suivantes décrivent les fonctionnalités du Web Mapping Service prises en charge par la classe `OgcMapLayer`.
+Les sections suivantes décrivent les fonctionnalités du service de carte web prises en charge par la classe `OgcMapLayer`.
 
 **Web Map Service (WMS)**
 
 - Versions prises en charge : `1.0.0`, `1.1.0`, `1.1.1` et `1.3.0`
-- Le service doit prendre en charge le système de projection `EPSG:3857`, ou le service doit être en mesure de gérer les reprojections.
+- Le service doit prendre en charge le système de projection `EPSG:3857`, ou gérer les reprojections.
 - GetFeatureInfo requiert que le service prenne en charge `EPSG:4326` ou gère les reprojections. 
 - Opérations prises en charge :
 
@@ -76,7 +76,7 @@ L’outil suivant superpose les images des services WMS (Web Map Service) et WMT
 <iframe height='750' style='width: 100%;' scrolling='no' title='Explorateur Web Map Service OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service explorer</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Vous pouvez également spécifier les paramètres de carte pour utiliser un service proxy. Le service proxy vous permet de charger des ressources hébergées sur des domaines non compatibles avec les COR.
+Vous pouvez également spécifier les paramètres de carte pour utiliser un service proxy. Le service proxy vous permet de charger des ressources hébergées sur des domaines où CORS n’est pas activé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

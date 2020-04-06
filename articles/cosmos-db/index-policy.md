@@ -1,17 +1,17 @@
 ---
 title: Stratégies d’indexation d’Azure Cosmos DB
 description: Découvrez comment configurer et modifier la stratégie d’indexation par défaut pour bénéficier d’une indexation automatique et de meilleures performances dans Azure Cosmos DB.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
-ms.author: thweiss
-ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 03/26/2020
+ms.author: tisande
+ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597155"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292063"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -30,11 +30,11 @@ Azure Cosmos DB prend en charge deux modes d’indexation :
 - **Aucun** : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) jusqu’à la fin du processus.
 
 > [!NOTE]
-> Cosmos DB prend également en charge un mode d’indexation différé. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. De plus, l’utilisation de l’indexation différée à la place de « None » (aucune indexation) pour les opérations en bloc ne présente aucun avantage, car tout changement du mode d’indexation entraîne la suppression et la recréation de l’index. Pour toutes ces raisons, nous déconseillons aux clients de l’utiliser. Pour améliorer le niveau de performance des opérations en bloc, affectez au mode d’indexation la valeur None, puis retournez au mode Consistent et supervisez la propriété `IndexTransformationProgress` sur le conteneur jusqu’à la fin du processus.
+> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée.
 
 Par défaut, la stratégie d’indexation a la valeur `automatic`. Ce résultat est obtenu en affectant à la propriété `automatic` de la stratégie d’indexation la valeur `true`. L’affectation de `true` à cette propriété permet à Azure CosmosDB d’indexer automatiquement les documents au fur et à mesure de leur rédaction.
 
-## <a name="including-and-excluding-property-paths"></a>Inclusion et exclusion de chemins de propriété
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Inclusion et exclusion de chemins de propriété
 
 Une stratégie d’indexation personnalisée peut spécifier des chemins de propriétés qui sont explicitement inclus dans l’indexation ou en sont exclus. En optimisant le nombre de chemins indexés, vous pouvez réduire la quantité de stockage utilisé par votre conteneur et améliorer la latence des opérations d’écriture. Ces chemins sont définis à l’aide de [la méthode décrite dans la section de vue d’ensemble de l’indexation](index-overview.md#from-trees-to-property-paths) avec les ajouts suivants :
 
@@ -73,9 +73,11 @@ Toute stratégie d’indexation doit inclure le chemin racine `/*` comme chemin 
 - Inclure le chemin racine pour exclure sélectivement des chemins qui n’ont pas besoin d’être indexés. C’est l’approche recommandée, car elle permet à Azure Cosmos DB d’indexer proactivement toute nouvelle propriété qui peut être ajoutée à votre modèle.
 - Exclure le chemin racine pour inclure sélectivement des chemins devant être indexés.
 
-- Pour les chemins avec des caractères normaux qui incluent : des caractères alphanumériques et _ (caractère de soulignement), vous n’êtes pas obligé d’échapper la chaîne de chemin autour de guillemets doubles (par exemple, "/ path / ?"). Pour les chemins avec d’autres caractères spéciaux, vous devez avoir les caractères d’échappement que sont les guillemets doubles autour de la chaîne de chemin (par exemple, "/\"path\"/ ?"). Si vous prévoyez des caractères spéciaux dans votre chemin, vous pouvez échapper chaque chemin pour des raisons de sécurité. Du point de vue fonctionnel, que vous échappiez chaque chemin ou uniquement ceux qui ont des caractères spéciaux ne fait aucune différence.
+- Pour les chemins avec des caractères normaux qui incluent : des caractères alphanumériques et _ (caractère de soulignement), vous n’êtes pas obligé d’échapper la chaîne de chemin entourée de guillemets doubles (par exemple, "/path/?"). Pour les chemins avec d’autres caractères spéciaux, vous devez avoir les caractères d’échappement que sont les guillemets doubles autour de la chaîne de chemin (par exemple, "/\"path\"/ ?"). Si vous prévoyez des caractères spéciaux dans votre chemin, vous pouvez échapper chaque chemin pour des raisons de sécurité. Du point de vue fonctionnel, que vous échappiez chaque chemin ou uniquement ceux qui ont des caractères spéciaux ne fait aucune différence.
 
-- La propriété système « etag » est exclue de l’indexation par défaut, sauf si l’etag est ajouté au chemin inclus pour l’indexation.
+- La propriété système `_etag` est exclue de l’indexation par défaut, sauf si l’etag est ajouté au chemin inclus pour l’indexation.
+
+- Si le mode d’indexation est défini sur **cohérent**, les propriétés système `id` et `_ts` sont automatiquement indexées.
 
 Lorsque vous incluez et excluez des chemins d’accès, vous pouvez rencontrer les attributs suivants :
 
@@ -101,7 +103,7 @@ Lorsque vous définissez un chemin d’accès spatial dans la stratégie d’ind
 
 * Point
 
-* Polygon
+* Polygone
 
 * MultiPolygon
 

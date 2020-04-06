@@ -5,16 +5,16 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: jgao
-ms.openlocfilehash: b9d4150779842614a5dc284a2b3a489593fabfe1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: bc42585204e5cc2c3ece5293a3934fd22fe8507b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388516"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156444"
 ---
-# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Opération de simulation de déploiement de modèle Resource Manager (préversion)
+# <a name="arm-template-deployment-what-if-operation-preview"></a>Opération de simulation de déploiement de modèle ARM (préversion)
 
-Avant de déployer un modèle, vous souhaiterez peut-être obtenir un aperçu des modifications qui se produiront. Azure Resource Manager met à votre disposition l’opération de simulation, qui vous permet de voir comment les ressources changent si vous déployez le modèle. L’opération de simulation n’apporte aucune modification aux ressources existantes. Au lieu de cela, elle prédit les modifications si le modèle spécifié est déployé.
+Avant de déployer un modèle Azure Resource Manager (ARM), vous pouvez prévisualiser les changements. Azure Resource Manager met à votre disposition l’opération de simulation, qui vous permet de voir comment les ressources changent si vous déployez le modèle. L’opération de simulation n’apporte aucune modification aux ressources existantes. Au lieu de cela, elle prédit les modifications si le modèle spécifié est déployé.
 
 > [!NOTE]
 > L’opération de simulation est disponible en préversion. Pour l’utiliser, vous devez [vous inscrire à la préversion](https://aka.ms/armtemplatepreviews). Dans la préversion, les résultats peuvent parfois indiquer qu’une ressource changera alors qu’aucune modification ne se produira. Nous nous efforçons de réduire ces problèmes, mais nous avons besoin de votre aide. Signalez ces problèmes à l’adresse [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
@@ -287,5 +287,5 @@ Vous voyez les modifications attendues et pouvez confirmer que vous souhaitez qu
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Si vous constatez que la préversion de l’opération de simulation génère des résultats incorrects, signalez les problèmes à l’adresse [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- Pour déployer des modèles avec Azure PowerShell, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](deploy-powershell.md).
-- Pour déployer des modèles avec REST, consultez [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](deploy-rest.md).
+- Pour déployer des modèles avec Azure PowerShell, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).
+- Pour déployer des modèles avec REST, consultez [Déployer des ressources avec des modèles ARM et l’API REST Resource Manager](deploy-rest.md).

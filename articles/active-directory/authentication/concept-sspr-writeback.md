@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7fe58ae95c8d9c6b93c7e92e093541af009781ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368161"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454429"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -106,7 +106,7 @@ La réécriture du mot de passe est un service hautement sécurisé. Pour garant
    * Une fois le relais Service Bus créé, une paire de clés symétriques fortes est créée, permettant de chiffrer le mot de passe lorsqu’il arrive sur le réseau. Cette clé réside uniquement dans le magasin de secrets de votre entreprise dans le cloud, lequel est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
 * **Norme TLS (Transport Layer Security)**
    1. Lorsqu’une opération de réinitialisation ou de modification de mot de passe a lieu dans le cloud, le mot de passe en clair est chiffré avec votre clé publique.
-   1. Le mot de passe chiffré est inséré dans un message HTTPS envoyé à votre relais Service Bus via un canal chiffré, à l’aide de certificats SSL Microsoft.
+   1. Le mot de passe chiffré est inséré dans un message HTTPS envoyé à votre relais Service Bus via un canal chiffré, à l’aide de certificats TSL/SSL Microsoft.
    1. Une fois le message arrivé dans Service Bus, votre agent local sort du mode veille et s’authentifie auprès de Service Bus en utilisant le mot de passe fort précédemment généré.
    1. L’agent local récupère le message chiffré et le déchiffre à l’aide de la clé privée.
    1. L’agent local tente ensuite de définir le mot de passe via l’API SetPassword AD DS. C’est cette étape qui permet d’appliquer votre stratégie de mot de passe Active Directory local (complexité, âge, historique et filtres) dans le cloud.

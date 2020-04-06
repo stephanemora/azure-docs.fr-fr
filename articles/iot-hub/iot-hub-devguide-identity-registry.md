@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccb840caea5d28975daaf8cbf6f0d4985bdf006d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61363154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499145"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -78,6 +78,8 @@ Utilisez des opérations asynchrones sur le [point de terminaison du fournisseur
 Utilisez des opérations asynchrones sur le [point de terminaison du fournisseur de ressources IoT Hub](iot-hub-devguide-endpoints.md) pour importer des identités d’appareils en bloc dans le registre des identités du hub IoT. Les importations sont des tâches à long terme qui utilisent des données dans un conteneur d’objets blob, fourni par le client, pour écrire les données relatives à l’identité des appareils dans le registre des identités.
 
 Pour plus d’informations sur l’importation et l’exportation d’API, consultez [API REST du fournisseur de ressources IoT Hub](/rest/api/iothub/iothubresource). Pour en savoir plus sur l’exécution des travaux d’importation et d’exportation, consultez [Gestion en bloc des identités d’appareils IoT Hub](iot-hub-bulk-identity-mgmt.md).
+
+Les identités des appareils peuvent également être exportées et importées à partir d’un hub IoT via l’API de service par le biais de l’[API REST](/rest/api/iothub/service/jobclient/createimportexportjob) ou de l’un des [SDK de service](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks) IoT Hub.
 
 ## <a name="device-provisioning"></a>Approvisionnement des appareils
 
@@ -188,7 +190,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 | etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité de l’appareil, conformément à la [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
 | auth.symkey |facultatif |Un objet composite contenant une clé primaire et une clé secondaire, stockées au format base64. |
-| status |required |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé**, l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé**, cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
+| status |Obligatoire |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé**, l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé**, cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
 | statusReason |facultatif |Une chaîne de 128 caractères qui stocke le motif de l’état de l’identité de l’appareil. Tous les caractères UTF-8 sont autorisés. |
 | statusUpdateTime |en lecture seule |Un indicateur temporel, indiquant la date et l’heure de la dernière mise à jour de l’état. |
 | connectionState |en lecture seule |Un champ indiquant l’état de la connexion : **Connecté** ou **Déconnecté**. Ce champ représente la vue IoT Hub de l’état de connexion de l’appareil. **Important !** Ce champ doit être utilisé uniquement à des fins de développement et de débogage. L’état de la connexion est mis à jour uniquement pour les appareils utilisant les protocoles AMQP ou MQTT. Cet état est basé sur les pings au niveau du protocole (tests ping MQTT ou AMQP) et peut avoir un délai maximum de 5 minutes seulement. Pour ces raisons, de faux positifs peuvent survenir. Par exemple : un appareil peut être signalé comme étant connecté, alors qu’il est déconnecté. |
@@ -213,7 +215,7 @@ Les identités des modules sont représentées sous forme de documents JSON avec
 | etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité de l’appareil, conformément à la [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
 | auth.symkey |facultatif |Un objet composite contenant une clé primaire et une clé secondaire, stockées au format base64. |
-| status |required |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé**, l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé**, cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
+| status |Obligatoire |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé**, l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé**, cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
 | statusReason |facultatif |Une chaîne de 128 caractères qui stocke le motif de l’état de l’identité de l’appareil. Tous les caractères UTF-8 sont autorisés. |
 | statusUpdateTime |en lecture seule |Un indicateur temporel, indiquant la date et l’heure de la dernière mise à jour de l’état. |
 | connectionState |en lecture seule |Un champ indiquant l’état de la connexion : **Connecté** ou **Déconnecté**. Ce champ représente la vue IoT Hub de l’état de connexion de l’appareil. **Important !** Ce champ doit être utilisé uniquement à des fins de développement et de débogage. L’état de la connexion est mis à jour uniquement pour les appareils utilisant les protocoles AMQP ou MQTT. Cet état est basé sur les pings au niveau du protocole (tests ping MQTT ou AMQP) et peut avoir un délai maximum de 5 minutes seulement. Pour ces raisons, de faux positifs peuvent survenir. Par exemple : un appareil peut être signalé comme étant connecté, alors qu’il est déconnecté. |
@@ -231,7 +233,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 * La rubrique [Quotas et limitation IoT Hub](iot-hub-devguide-quotas-throttling.md) décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
 
-* La rubrique [Kits Azure IoT device et service SDK](iot-hub-devguide-sdks.md) liste les kits SDK des différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
+* La rubrique [SDK des services et appareils Azure IoT](iot-hub-devguide-sdks.md), qui répertorie les SDK en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
 
 * La rubrique [Langage de requête IoT Hub](iot-hub-devguide-query-language.md) décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur les jumeaux d’appareil et les travaux.
 

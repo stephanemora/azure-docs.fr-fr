@@ -15,16 +15,16 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 289347474189d1fb57d95a2f424cf381e1e37875
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 19d76f69669ffa13d1d55ffa807e6c4818b8840c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522660"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282186"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutoriel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
 
-Azure Active Directory (Azure AD) comprend un [service d’approvisionnement de comptes d’utilisateur](user-provisioning.md) qui permet d’automatiser l’approvisionnement ou la suppression de comptes d’utilisateur dans des applications SaaS et d’autres systèmes, pour gérer le cycle de vie des identités de bout en bout. Azure AD prend en charge des connecteurs préintégrés d’approvisionnement d’utilisateur pour l’ensemble des applications et systèmes dans la section « Suggestions » de la [Galerie d’applications Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory (Azure AD) comprend un [service d’approvisionnement de comptes d’utilisateur](user-provisioning.md) qui permet d’automatiser l’approvisionnement ou la suppression de comptes d’utilisateur dans des applications SaaS et d’autres systèmes, pour gérer le cycle de vie des identités de bout en bout. Azure AD prend en charge les connecteurs préintégrés d’attribution d’utilisateurs pour l’ensemble des applications et systèmes à l’aide des tutoriels d’attribution d’utilisateurs [ici](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
 
 Cet article décrit comment vérifier l’état de l’approvisionnement des travaux après qu’ils ont été configurés, et résoudre les problèmes d’approvisionnement d’utilisateurs individuels et de groupes.
 

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c929ac1c171547a4ff485fc43f0f329440f9c3b5
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: a9f12849525daeea69ece6e81077446f062e8889
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763638"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384396"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utiliser Azure Active Directory pour l’authentification avec PostgreSQL
 
@@ -87,13 +87,13 @@ Pour le moment, nous avons testé les clients suivants :
 
 Voici les étapes nécessaires à l’authentification d’un utilisateur ou d’une application avec Azure AD :
 
-### <a name="step-1-authenticate-with-azure-ad"></a>Étape 1 : S’authentifier avec Azure AD
+### <a name="step-1-authenticate-with-azure-ad"></a>Étape 1 : S’authentifier avec Azure AD
 
 Assurez-vous que [l’interface Azure CLI est installée](/cli/azure/install-azure-cli).
 
 Appelez l’outil Azure CLI pour l’authentification avec Azure AD. Pour ce faire, vous devez fournir votre ID d’utilisateur Azure AD et le mot de passe.
 
-```
+```azurecli-interactive
 az login
 ```
 
@@ -103,25 +103,25 @@ Cette commande lance une fenêtre de navigateur sur la page d’authentification
 > Vous pouvez également utiliser Azure Cloud Shell pour exécuter ces étapes.
 > N’oubliez pas que lors de la récupération du jeton d’accès Azure AD dans Azure Cloud Shell vous devez appeler explicitement `az login` et vous reconnecter (dans la fenêtre distincte avec un code). Après cette connexion, la commande `get-access-token` fonctionne comme prévu.
 
-### <a name="step-2-retrieve-azure-ad-access-token"></a>Étape 2 : Récupérer un jeton d’accès Azure AD
+### <a name="step-2-retrieve-azure-ad-access-token"></a>Étape 2 : Récupérer un jeton d’accès Azure AD
 
 Appelez l’outil Azure CLI pour obtenir un jeton d’accès pour l’utilisateur authentifié auprès d’Azure AD à l’étape 1 afin d’accéder à Azure Database pour PostgreSQL.
 
 Exemple (pour le cloud public) :
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 La valeur de la ressource ci-dessus doit être spécifiée exactement comme indiqué. Pour les autres clouds, la valeur de la ressource peut être recherchée à l’aide de ce qui suit :
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 Pour Azure CLI version 2.0.71 et les versions ultérieures, la commande peut être spécifiée dans la version plus pratique suivante pour tous les clouds :
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 
@@ -163,7 +163,7 @@ export PGPASSWORD=<copy/pasted TOKEN value from step 2>
 Vous pouvez désormais établir une connexion avec Azure Database pour PostgreSQL comme vous le feriez normalement :
 
 ```shell
-psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres"
+psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
 
 Vous êtes maintenant authentifié auprès de votre serveur PostgreSQL à l’aide de l’authentification Azure AD.
@@ -172,16 +172,16 @@ Vous êtes maintenant authentifié auprès de votre serveur PostgreSQL à l’ai
 
 L’authentification Azure AD dans Azure Database pour PostgreSQL garantit que l’utilisateur existe dans le serveur PostgreSQL et vérifie la validité du jeton en validant le contenu du jeton. Les étapes de validation de jeton suivantes sont exécutées :
 
--   Le jeton est signé par Azure AD et n’a pas été falsifié
--   Le jeton a été émis par Azure AD pour le locataire associé au serveur
--   Le jeton n’a pas expiré
--   Le jeton est destiné à la ressource Azure Database pour PostgreSQL (et non pour une autre ressource Azure)
+- Le jeton est signé par Azure AD et n’a pas été falsifié
+- Le jeton a été émis par Azure AD pour le locataire associé au serveur
+- Le jeton n’a pas expiré
+- Le jeton est destiné à la ressource Azure Database pour PostgreSQL (et non pour une autre ressource Azure)
 
 ## <a name="migrating-existing-postgresql-users-to-azure-ad-based-authentication"></a>Migration d’utilisateurs PostgreSQL existants vers l’authentification basée sur Azure AD
 
 Vous pouvez activer l’authentification Azure AD pour des utilisateurs existants. Il existe deux cas à prendre en compte :
 
-### <a name="case-1-postgresql-username-matches-the-azure-ad-user-principal-name"></a>Cas 1 : Le nom d’utilisateur PostgreSQL correspond au nom d’utilisateur principal Azure AD
+### <a name="case-1-postgresql-username-matches-the-azure-ad-user-principal-name"></a>Cas n° 1 : Le nom d’utilisateur PostgreSQL correspond au nom d’utilisateur principal Azure AD
 
 Dans le cas improbable où vos utilisateurs existants correspondent déjà aux noms d’utilisateur Azure AD, vous pouvez leur accorder le rôle `azure_ad_user` afin de les activer pour l’authentification Azure AD :
 
@@ -191,7 +191,7 @@ GRANT azure_ad_user TO "existinguser@yourtenant.onmicrosoft.com";
 
 Ils peuvent désormais se connecter avec les informations d’identification Azure AD au lieu d’utiliser leur mot de passe utilisateur PostgreSQL précédemment configuré.
 
-### <a name="case-2-postgresql-username-is-different-than-the-azure-ad-user-principal-name"></a>Cas 2 : Le nom d’utilisateur PostgreSQL est différent du nom d’utilisateur principal Azure AD
+### <a name="case-2-postgresql-username-is-different-than-the-azure-ad-user-principal-name"></a>Cas n° 2 : Le nom d’utilisateur PostgreSQL est différent du nom d’utilisateur principal Azure AD
 
 Si un utilisateur PostgreSQL n’existe pas dans Azure AD ou a un nom d’utilisateur différent, vous pouvez utiliser les groupes Azure AD pour vous authentifier en tant que cet utilisateur PostgreSQL. Vous pouvez migrer des utilisateurs Azure Database pour PostgreSQL existants vers Azure AD en créant un groupe Azure AD avec un nom qui correspond à l’utilisateur PostgreSQL, puis en accordant le rôle azure_ad_user à l’utilisateur PostgreSQL existant :
 

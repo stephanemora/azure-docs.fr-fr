@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: e3e8476d09541518d964bfaff4dabad47755eeb9
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3f15033095b02dd35c2d8d7bda60ca184df64c9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189651"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475017"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -91,6 +91,8 @@ Les expressions de données permettent d’accéder aux données de propriété 
 | `['has', string, object]` | boolean | Détermine si les propriétés de l’objet ont la propriété spécifiée. |
 | `['id']` | value | Obtient l’ID de la fonctionnalité, le cas échéant. |
 | `['length', string | array]` | nombre | Obtient la longueur d’une chaîne ou d’un tableau. |
+| `['in', boolean | string | number, array]` | boolean | Détermine si un élément existe dans un tableau |
+| `['in', substring, string]` | boolean | Détermine si une sous-chaîne existe dans une chaîne |
 
 **Exemples**
 
@@ -790,6 +792,44 @@ Cette couche affiche la fonctionnalité de point, comme illustré dans l’image
 <center>
 
 ![Exemple d’expression number-format](media/how-to-expressions/number-format-expression.png) </center>
+
+### <a name="image-expression"></a>Expression d’image
+
+Une expression d’image peut être utilisée avec les options `image` et `textField` d’une couche de symboles et l’option `fillPattern` de la couche de polygones. Cette expression vérifie que l’image demandée existe dans le style et retourne soit le nom de l’image résolue, soit `null`, selon que l’image est ou non actuellement dans le style. Ce processus de validation est synchrone et nécessite que l’image ait été ajoutée au style avant de la demander dans l’argument image.
+
+**Exemple**
+
+L’exemple suivant utilise une expression `image` pour ajouter une icône incluse avec du texte dans une couche de symboles. 
+
+```javascript
+ //Load the custom image icon into the map resources.
+map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
+
+    //Create a data source and add it to the map.
+    datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+
+    //Create a point feature and add it to the data source.
+    datasource.add(new atlas.data.Point(map.getCamera().center));
+
+    //Add a layer for rendering point data as symbols.
+    map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+        iconOptions: {
+            image: 'none'
+        },
+        textOptions: {
+            //Create a formatted text string that has an icon in it.
+            textField: ["format", 'Ricky\'s ', ["image", "wifi-icon"], ' Palace']
+        }
+    }));
+});
+```
+
+Cette couche restitue le champ de texte dans la couche de symboles comme illustré par l’image ci-dessous :
+
+<center>
+
+![Exemple d’expression d’image](media/how-to-expressions/image-expression.png) </center>
 
 ## <a name="zoom-expression"></a>Expression zoom
 

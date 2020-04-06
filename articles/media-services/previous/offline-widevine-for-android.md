@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 5137f35a4707aa68adfbf3f326ca9e4bfb40f0f4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970327"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294331"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android  
 
@@ -29,7 +29,7 @@ ms.locfileid: "74970327"
 > * [Version 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Voir aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Outre la protection de contenu pour la diffusion en continu en ligne, les services d’abonnement et de location du contenu multimédia offrent un contenu téléchargeable qui fonctionne lorsque vous n’êtes pas connecté à internet. Vous devrez peut-être télécharger le contenu sur votre téléphone ou tablette pour une lecture en mode avion, lorsque vous êtes en vol et déconnecté du réseau. Scénarios supplémentaires, dans lesquels vous pouvez souhaiter télécharger du contenu :
 
@@ -47,7 +47,7 @@ Pour créer les applications du lecteur Android, nous soulignons trois options 
 
 L’article répond également à certaines questions fréquentes sur la diffusion en continu du contenu protégé de Widevine.
 
-## <a name="requirements"></a>Configuration requise 
+## <a name="requirements"></a>Spécifications 
 
 Avant de mettre en œuvre la DRM hors connexion pour Widevine sur des appareils Android, vous devez, tout d’abord :
 
@@ -92,8 +92,8 @@ private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl
         {
             can_play = true,
             can_persist = true,
-            //can_renew = true,                             //if you set can_renew = false, you do not need renewal_server_url
-            //renewal_server_url = keyDeliveryUrl.ToString(),   //not mandatory, renewal_server_url is needed only if license_duration_seconds is set
+            //can_renew = true,                                //if you set can_renew = false, you do not need renewal_server_url
+            //renewal_server_url = keyDeliveryUrl.ToString(),    //not mandatory, renewal_server_url is needed only if license_duration_seconds is set
             can_renew = false,
             //rental_duration_seconds = 1209600,
             //playback_duration_seconds = 1209600,
@@ -108,7 +108,7 @@ private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl
 
 ## <a name="configuring-the-android-player-for-offline-playback"></a>Configuration du lecteur Android pour la lecture hors connexion
 
-Le moyen le plus simple de développer une application de lecteur natif pour les appareils Android est d’utiliser le [Kit de développement logiciel (SDK) Google ExoPlayer](https://github.com/google/ExoPlayer), un kit de développement logiciel du lecteur vidéo open source. ExoPlayer prend en charge les fonctionnalités non actuellement prises en charge par les API MediaPlayer native d’Android, y compris les protocoles de remise MPEG-DASH et Microsoft Smooth Streaming.
+Le moyen le plus simple de développer une application de lecteur natif pour les appareils Android est d’utiliser le [Kit de développement logiciel (SDK) Google ExoPlayer](https://github.com/google/ExoPlayer), un kit de développement logiciel du lecteur vidéo open source. ExoPlayer prend en charge des fonctionnalités qui ne sont actuellement pas prises en charge par l’API MediaPlayer native d’Android, notamment les protocoles de remise MPEG-DASH et Microsoft Smooth Streaming.
 
 ExoPlayer version 2.6 et version supérieure inclut de nombreuses classes qui prennent en charge la lecture de la DRM de Widevine hors connexion. En particulier, la classe OfflineLicenseHelper fournit des fonctions utilitaires pour faciliter l’utilisation de la DefaultDrmSessionManager pour le téléchargement, le renouvellement et la libération des licences hors connexion. Les classes fournies dans le dossier du kit de développement logiciel "library/core/src/main/java/com/google/android/exoplayer2/offline/" prennent en charge le téléchargement du contenu vidéo hors connexion.
 
@@ -157,35 +157,35 @@ Si vous mettez à niveau votre navigateur Chrome mobile sur la v62 (ou version u
 
 L’application PWA open source ci-dessus a été créée dans Node.js. Si vous souhaitez héberger votre propre version sur un serveur Ubuntu, tenez compte des problèmes fréquemment rencontrés suivants qui peuvent empêcher la lecture :
 
-1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : https://biograf-155113.appspot.com (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l’erreur HTTP suivante : Impossible de charger https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: Aucun en-tête « Access-Control-Allow-Origin » n’est présent sur la ressource demandée. L’accès à l’adresse ’https:\//13.85.80.81:8080’ d’origine n’est donc pas autorisé. Si une réponse opaque répond à vos besoins, définissez le mode de la requête sur « no-cors » pour extraire la ressource avec CORS désactivé.
+1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : `https://biograf-155113.appspot.com` (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l’erreur HTTP suivante : `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Problème de certificat : À partir de Chrome v58, EME pour Widevine nécessite HTTPS. Par conséquent, vous devez héberger l’exemple d’application via le protocole HTTPS avec un certificat X509. Les certificats de test habituels ne fonctionnent pas en raison des exigences suivantes : Vous devez obtenir un certificat répondant aux exigences minimales suivantes :
     - Chrome et Firefox exige que le paramètre Nom alternatif de l’objet SAN existe dans le certificat
     - Le certificat doit avoir une certification approuvée et un certificat auto-signé de développement ne fonctionne pas
     - Le certificat doit avoir un CN correspondant au nom DNS de la passerelle ou du serveur web
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="question"></a>Question
 
 Comment puis-je remettre des licences persistantes (activées en mode hors connexion) pour certains clients/utilisateurs et des licences non persistantes (désactivées en mode hors connexion) pour d’autres ? Dois-je dupliquer le contenu et utiliser une clé de contenu distincte ?
 
 ### <a name="answer"></a>Réponse
-Vous n’avez pas besoin de dupliquer le contenu. Vous pouvez simplement utiliser une seule copie du contenu et une ContentKeyAuthorizationPolicy unique, mais deux ContentKeyAuthorizationPolicyOption distincts :
+Vous n’avez pas besoin de dupliquer le contenu. Vous pouvez simplement utiliser une seule copie du contenu et une seule ContentKeyAuthorizationPolicy, mais deux ContentKeyAuthorizationPolicyOption distinctes :
 
-1. IContentKeyAuthorizationPolicyOption 1 : utilise les licences persistantes et ContentKeyAuthorizationPolicyRestriction 1 qui contient une revendication comme license_type = « Persistant »
-2. IContentKeyAuthorizationPolicyOption 2 : utilise une licence non persistante et ContentKeyAuthorizationPolicyRestriction 2 qui contient une revendication comme license_type = « Non persistant »
+1. IContentKeyAuthorizationPolicyOption 1 : utilise les licences persistantes et ContentKeyAuthorizationPolicyRestriction 1 qui contient une revendication comme license_type = "Persistent"
+2. IContentKeyAuthorizationPolicyOption 2 : utilise une licence non persistante et ContentKeyAuthorizationPolicyRestriction 2 qui contient une revendication comme license_type = "Nonpersistent"
 
-Ainsi, lorsqu’une requête de licence provient de l’application cliente, à partir de la demande de licence il n’existe aucune différence. Toutefois, pour un appareil/utilisateur final différent, le STS doit avoir la logique d’entreprise pour émettre des jetons JWT différents contenant des revendications différentes (un des deux license_type ci-dessus). La valeur des revendications dans le jeton JWT sera utilisée pour permettre au service de licence de décider quel type de contrat de licence émettre : persistant ou non persistant.
+Ainsi, lorsqu’une requête de licence provient de l’application cliente, à partir de la demande de licence il n’existe aucune différence. Cependant, pour un appareil/utilisateur final différent, le STS doit avoir la logique d’entreprise pour émettre des jetons JWT différents contenant des revendications différentes (un des deux license_type ci-dessus). La valeur des revendications dans le jeton JWT sera utilisée pour permettre au service de licence de décider quel type de contrat de licence émettre : persistant ou non persistant.
 
 Cela signifie que le Service STS (Secure Token Service) doit avoir les informations de logique métier et d’appareil/client pour ajouter la valeur de revendication correspondante dans un jeton.
 
 ### <a name="question"></a>Question
 
-Pour les niveaux de sécurité Widevine dans la documentation [doc Vue d’ensemble de l’architecture DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) de Google, il définit trois différents niveaux de sécurité. Toutefois, dans [Documentation Azure Media Services sur le modèle de licence Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), cinq niveaux de sécurité différents sont soulignés. Quelle est la relation ou le mappage entre les deux différents ensembles de niveaux de sécurité ?
+Pour les niveaux de sécurité Widevine, dans la [documentation Vue d’ensemble de l’architecture DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) de Google, il définit trois niveaux différents de sécurité. Toutefois, dans [Documentation Azure Media Services sur le modèle de licence Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), cinq niveaux de sécurité différents sont soulignés. Quelle est la relation ou le mappage entre les deux différents ensembles de niveaux de sécurité ?
 
 ### <a name="answer"></a>Réponse
 
-Dans la [Vue d’ensemble de l’architecture DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) de Google, il définit les trois niveaux de sécurité suivants :
+Dans [Vue d’ensemble de l’architecture DRM Widevine](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) de Google, il définit les trois niveaux de sécurité suivants :
 
 1.  Niveau de sécurité 1 : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de la sécurité peut être effectué dans différentes puces.
 2.  Niveau de sécurité 2 : effectue le chiffrement (mais pas le traitement vidéo) dans l’environnement TEE : les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par le biais d’un matériel ou d’un logiciel vidéo distinct. Au niveau 2, toutefois, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.

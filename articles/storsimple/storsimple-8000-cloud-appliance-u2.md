@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965724"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232241"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Déployer et gérer une appliance cloud StorSimple dans Azure (Update 3 et versions ultérieures)
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’appliance cloud StorSimple série 8000 est une fonctionnalité supplémentaire fournie avec votre solution Microsoft Azure StorSimple. StorSimple Cloud Appliance s’exécute sur une machine virtuelle dans un réseau virtuel Microsoft Azure. Vous pouvez l’utiliser pour sauvegarder et cloner les données à partir de vos ordinateurs hôtes.
 
@@ -50,9 +50,9 @@ StorSimple Cloud Appliance est disponible en deux modèles, un 8010 Standard (an
 | **Type de stockage** |Utilise le stockage Azure Standard pour les disques locaux<br></br> Découvrez comment [créer un compte de stockage Standard](../storage/common/storage-create-storage-account.md) |Utilise le stockage Azure Standard pour les disques locaux<sup>2</sup> <br></br> |
 | **Aide relative à la charge de travail** |Récupération au niveau des éléments des fichiers à partir de sauvegardes |Scénarios de développement et de test cloud <br></br>Faible latence et charges de travail aux performances plus élevées<br></br>Appareil secondaire pour la récupération d’urgence |
 
-<sup>1</sup>*Anciennement, 1100*.
+<sup>1</sup> *Anciennement, le modèle 1100*.
 
-<sup>2</sup>*Le 8010 et la 8020 utilisent tous deux le stockage Azure Standard pour le niveau cloud. La différence existe uniquement au niveau local au sein de l’appareil*.
+<sup>2</sup> *Le modèle 8010 et le modèle 8020 utilisent tous deux le Stockage Standard Azure pour le niveau cloud. La différence existe uniquement au niveau local au sein de l’appareil*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>Comment l’appliance cloud se différencie de l’appareil physique
 
@@ -110,7 +110,7 @@ Avant d’effectuer ces procédures, assurez-vous que vous avez rempli les [cond
 
 Pour créer StorSimple Cloud Appliance, procédez comme suit.
 
-### <a name="step-1-create-a-cloud-appliance"></a>Étape 1 : Créer une appliance cloud
+### <a name="step-1-create-a-cloud-appliance"></a>Étape 1 : Créer une appliance cloud
 
 Pour créer StorSimple Cloud Appliance, procédez comme suit.
 
@@ -118,7 +118,7 @@ Pour créer StorSimple Cloud Appliance, procédez comme suit.
 
 Si la création de l’appliance cloud échoue au cours de cette étape, vous ne disposerez peut-être pas d’une connectivité à Internet. Pour plus d’informations, consultez la section [Résolution des problèmes de connectivité Internet](#troubleshoot-internet-connectivity-errors) lors de la création d’une appliance cloud.
 
-### <a name="step-2-configure-and-register-the-cloud-appliance"></a>Étape 2 : Configurer et inscrire l’appliance cloud
+### <a name="step-2-configure-and-register-the-cloud-appliance"></a>Étape 2 : Configurer et inscrire l’appliance cloud
 
 Avant de commencer cette procédure, assurez-vous que vous disposez d’une copie de la clé de chiffrement des données de service. Une clé de chiffrement des données de service est générée lorsque vous enregistrez votre premier appareil physique StorSimple auprès du service StorSimple Manager. Nous vous avons demandé à l’enregistrer dans un emplacement sécurisé. Si vous n’avez pas de copie de la clé de chiffrement des données de service, vous devez contacter le support technique de Microsoft pour obtenir de l’aide.
 
@@ -162,13 +162,13 @@ L’accès à distance à votre appliance cloud via l’interface Windows PowerS
 
 La procédure en deux étapes suivante décrit comment se connecter à distance à votre appliance cloud.
 
-### <a name="step-1-configure-remote-management"></a>Étape 1 : Configuration de la gestion à distance
+### <a name="step-1-configure-remote-management"></a>Étape 1 : Configuration de la gestion à distance
 
 Procédez comme suit pour configurer la gestion à distance de l’appliance cloud StorSimple.
 
 [!INCLUDE [Configure remote management via HTTP for cloud appliance](../../includes/storsimple-8000-configure-remote-management-http-device.md)]
 
-### <a name="step-2-remotely-access-the-cloud-appliance"></a>Étape 2 : Accéder à distance à l’appliance cloud
+### <a name="step-2-remotely-access-the-cloud-appliance"></a>Étape 2 : Accéder à distance à l’appliance cloud
 
 Après avoir activé la gestion à distance sur l’appliance cloud, utilisez la communication à distance Windows PowerShell pour vous connecter à l’appliance à partir d’une autre machine virtuelle au sein du même réseau virtuel. Par exemple, vous pouvez vous connecter à partir de la machine virtuelle hôte que vous avez configurée et utilisée pour vous connecter à iSCSI. Dans la plupart des déploiements, vous avez déjà ouvert un point de terminaison public pour accéder à votre machine virtuelle hôte que vous pouvez utiliser pour accéder à l’appliance cloud.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b02ec00544ef11ca1048fd6d3bd9bdf3fccd8c8c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471412"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385059"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure CLI
 
@@ -36,7 +36,7 @@ ms.locfileid: "77471412"
 
 Pour lister les attributions de rôles d’un utilisateur déterminé, utilisez [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) :
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee <assignee>
 ```
 
@@ -44,11 +44,11 @@ Par défaut, seules les attributions de rôles de l'abonnement actuel sont affic
 
 L’exemple suivant liste les attributions de rôles octroyées directement à l’utilisateur *patlong\@contoso.com* :
 
-```azurecli
+```azurecli-interactive
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-```Output
+```
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
@@ -65,17 +65,17 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 Pour lister les attributions de rôle qui existent dans l’étendue d’un groupe de ressources, utilisez [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) :
 
-```azurecli
+```azurecli-interactive
 az role assignment list --resource-group <resource_group>
 ```
 
 L’exemple suivant liste les attributions de rôles du groupe de ressources *pharma-sales* :
 
-```azurecli
+```azurecli-interactive
 az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-```Output
+```
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
@@ -94,11 +94,13 @@ az role assignment list --resource-group pharma-sales --output json | jq '.[] | 
 
 Pour lister toutes les attributions de rôle dans l’étendue d’un abonnement, utilisez [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). Pour obtenir l’ID d’abonnement, accédez au panneau **Abonnements** du portail Azure ou utilisez [az account list](/cli/azure/account#az-account-list).
 
-```azurecli
+```azurecli-interactive
 az role assignment list --subscription <subscription_name_or_id>
 ```
 
-```Example
+Exemple :
+
+```azurecli-interactive
 az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
@@ -106,27 +108,29 @@ az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --ou
 
 Pour lister toutes les attributions de rôle dans l’étendue d’un groupe d’administration, utilisez [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). Pour obtenir l’ID du groupe d’administration, accédez au panneau **Groupes d’administration** dans le portail Azure ou utilisez [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
 
-```azurecli
+```azurecli-interactive
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-```Example
+Exemple :
+
+```azurecli-interactive
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Lister les attributions de rôles pour une identité managée
 
-1. Obtenez l’ID d’objet de l’identité managée attribuée par le système ou par l’utilisateur. 
+1. Obtenez l’ID d’objet de l’identité managée attribuée par le système ou par l’utilisateur.
 
     Pour obtenir l'ID d’objet d'une identité managée attribuée par l'utilisateur, vous pouvez utiliser [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) ou [az identity list](/cli/azure/identity#az-identity-list).
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp list --display-name "<name>" --query [].objectId --output tsv
     ```
 
     Pour obtenir l'ID d’objet d'une identité managée attribuée par le système, vous pouvez utiliser [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
     ```
 
@@ -134,7 +138,7 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
     Par défaut, seules les attributions de rôles de l'abonnement actuel sont affichées. Pour afficher les attributions de rôles de l’abonnement actuel et antérieur, ajoutez le paramètre `--all`. Pour afficher les attributions de rôles héritées, ajoutez le paramètre `--include-inherited`.
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment list --assignee <objectid>
     ```
 

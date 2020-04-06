@@ -6,44 +6,51 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: bad3be86bd85f7e5cebcf9445d14d836c73a87ef
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 19fdcc7b590c6ad6873c7808ae26d218bbda7f5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470788"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158965"
 ---
-# <a name="export-security-alerts-and-recommendations-preview"></a>Exporter les alertes et recommandations de sécurité (préversion)
+# <a name="export-security-alerts-and-recommendations"></a>Exporter les alertes et recommandations de sécurité
 
 Azure Security Center génère des alertes et recommandations de sécurité détaillées. Vous pouvez les afficher dans le portail ou au moyen d’outils de programmation. Si nécessaire, vous pouvez également exporter ces informations ou les envoyer à d’autres outils de supervision dans votre environnement. 
 
-Cet article décrit l’ensemble des outils (en préversion) qui sont à votre disposition pour exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue.
+Cet article décrit l’ensemble des outils qui sont à votre disposition pour exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue.
 
 À l’aide de ces outils, vous pouvez :
 
-* Générer des rapports détaillés au format CSV
-* Exporter les données vers des espaces de travail Log Analytics
-* Exporter les données vers Azure Event Hubs (en vue de l’intégration à des SIEM tiers)
+* Exporter en continu vers des espaces de travail Log Analytics
+* Exporter en continu vers des Azure Event Hubs (pour les intégrations à des solutions SIEM tierces)
+* Exporter vers un fichier CSV (opération unique)
+
 
 ## <a name="setting-up-a-continuous-export"></a>Configuration d’une exportation continue
 
-1. Dans la barre latérale de Security Center, cliquez sur **Tarification et paramètres**.
+Les étapes ci-dessous sont nécessaires si vous configurez une exportation continue vers un espace de travail Log Analytics ou vers Azure Event Hubs.
+
+1. Dans la barre latérale de Security Center, sélectionnez **Tarification et paramètres**.
 
 1. Sélectionnez l’abonnement pour lequel vous souhaitez configurer l’exportation de données.
     
-1. Dans la barre latérale de la page de paramètres de cet abonnement, sélectionnez **Exportation continue (préversion)** .
+1. Dans la barre latérale de la page de paramètres de cet abonnement, sélectionnez **Exportation continue**.
 
     [![Options d’exportation dans Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) Vous voyez ici toutes les options d’exportation. Il y a un onglet distinct pour chaque cible d’exportation disponible. 
 
-1. Sélectionnez le type de données que vous souhaitez exporter et choisissez les filtres à appliquer sur chaque type (par exemple, exporter uniquement les alertes avec un niveau de gravité élevé).
+1. Sélectionnez le type de données que vous souhaitez exporter, puis choisissez les filtres à appliquer sur chaque type (par exemple, exporter uniquement les alertes d’un niveau de gravité élevé).
 
 1. À partir de la zone « Cible d’exportation », choisissez l’emplacement où enregistrer les données. Les données peuvent être enregistrées à un emplacement cible dans un abonnement différent (par exemple, sur une instance Event Hub centrale ou un espace de travail Log Analytics central).
 
 1. Cliquez sur **Enregistrer**.
 
-## <a name="continuous-export-through-azure-event-hubs"></a>Exportation continue avec Azure Event Hubs  
+
+
+## <a name="configuring-siem-integration-via-azure-event-hubs"></a>Configuration de l’intégration SIEM à l’aide d’Azure Event Hubs
+
+Azure Event Hubs est une excellente solution pour la consommation par programmation de toutes les données de streaming. Pour les alertes et recommandations Azure Security Center, il s’agit de la méthode recommandée pour une intégration à une solution SIEM tierce.
 
 > [!NOTE]
 > Dans la plupart des cas, utiliser Azure Event Hubs est la meilleure méthode de streaming des données de supervision vers des outils externes. [Cet article](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs) fournit une brève description de la façon dont vous pouvez envoyer en streaming des données de supervision à partir de différentes sources vers un hub d’événements, ainsi que des liens vers des instructions détaillées.
@@ -53,24 +60,25 @@ Cet article décrit l’ensemble des outils (en préversion) qui sont à votre d
 
 Pour afficher les schémas d’événements des types de données exportés, visitez les [schémas d’événements Event Hub](https://aka.ms/ASCAutomationSchemas).
 
+
 ### <a name="to-integrate-with-a-siem"></a>Pour intégrer les données à un SIEM 
 
-Après avoir configuré l’exportation continue des données de Security Center que vous avez choisies vers Azure Event Hubs, vous pouvez configurer le connecteur approprié sur votre SIEM en suivant les instructions ci-dessous.
+Après avoir configuré l’exportation continue des données Security Center que vous avez choisies vers Azure Event Hubs, vous pouvez configurer le connecteur approprié pour votre solution SIEM :
 
-Suivez les instructions propres à votre SIEM fournies dans [cette page](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/?cdn=disable) et utilisez le connecteur approprié :
-
-* **Splunk** : utilisez le [module complémentaire Azure Monitor pour Splunk](https://splunkbase.splunk.com/app/3534/)
-* **IBM QRadar** : utilisez une [source de journal configurée manuellement](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/t_logsource_microsoft_azure_event_hubs.html)
+* **Azure Sentinel** : utilisez le [connecteur de données](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center) des alertes Azure Security Center natives mis à disposition.
+* **Splunk** : utilisez le [module complémentaire Azure Monitor pour Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md)
+* **IBM QRadar** : utilisez une [source de journal configurée manuellement](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/t_dsm_guide_microsoft_azure_enable_event_hubs.html)
 * **ArcSight** : utilisez [SmartConnector](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)
-
-Avec **Azure Sentinel**, utilisez le [connecteur de données](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center) des alertes natives d’Azure Security Center mis à disposition.
 
 Par ailleurs, si vous voulez que les données exportées en continu à partir de votre hub d’événements configuré soient automatiquement déplacées vers Azure Data Explorer, suivez les instructions détaillées dans [Ingérer des données Event Hub dans Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub).
 
 
+
 ## <a name="continuous-export-to-a-log-analytics-workspace"></a>Exportation continue vers un espace de travail Log Analytics
 
-Pour exporter les données vers un espace de travail Log Analytics, assurez-vous que les solutions Log Analytics avec le niveau tarifaire Gratuit ou Standard de Security Center sont activées sur votre espace de travail. Si vous utilisez le portail Azure, la solution avec le niveau Gratuit de Security Center est automatiquement activée lorsque vous activez l’exportation continue. En revanche, si vous configurez vos paramètres d’exportation continue programmatiquement, vous devez sélectionner manuellement le niveau tarifaire Gratuit ou Standard pour l’espace de travail requis sous **Tarification et paramètres**.  
+Si vous voulez analyser des données Azure Security Center dans un espace de travail Log Analytics ou utiliser des alertes Azure avec Security Center, configurez l’exportation continue vers votre espace de travail Log Analytics.
+
+Pour exporter vers un espace de travail Log Analytics, les solutions Log Analytics de Security Center doivent être activées sur votre espace de travail. Si vous utilisez le portail Azure, la solution de niveau Gratuit de Security Center est automatiquement activée quand vous activez l’exportation continue. En revanche, si vous configurez vos paramètres d’exportation continue programmatiquement, vous devez sélectionner manuellement le niveau tarifaire Gratuit ou Standard pour l’espace de travail requis sous **Tarification et paramètres**.  
 
 ### <a name="log-analytics-tables-and-schemas"></a>Tables et schémas Log Analytics
 

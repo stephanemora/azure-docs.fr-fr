@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
-ms.openlocfilehash: a0b5f45ba993033a9f56ee6b078193677b1c5aad
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 85977819d30ddc8745eb9231242eb1990222676c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191807"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530986"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Log Analytics pour Windows
 
@@ -36,6 +36,7 @@ Le tableau ci-après mappe la version de l’extension de machine virtuelle Log 
 
 | Version du bundle de l’agent Log Analytics pour Windows | Version d’extension de machine virtuelle Windows Log Analytics | Date de sortie | Notes de publication |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18029 | 1.0.18029 | Mars 2020   | <ul><li>Ajoute la prise en du code de signature SHA-2</li><li>Améliore l’installation et la gestion des extensions de machine virtuelle</li><li>Résout un bogue dans Azure Arc pour l’intégration de serveurs</li><li>Ajoute un outil de dépannage intégré pour le service clientèle</li><li>Ajoute la prise en charge de régions Azure Government supplémentaires</li> |
 | 10.20.18018 | 1.0.18018 | 2 octobre 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li></ul> |
 | 10.20.18011 | 1.0.18011 | Juillet 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li><li> Augmentation de MaxExpressionDepth à 10 000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Juin 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li><li> Ajout de la possibilité de désactiver les informations d’identification par défaut lors d’une connexion proxy (prise en charge de WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
@@ -46,6 +47,7 @@ Le tableau ci-après mappe la version de l’extension de machine virtuelle Log 
 | 8.0.11081 | 1.0.11081 | Novembre 2017 | | 
 | 8.0.11072 | 1.0.11072 | Septembre 2017 | |
 | 8.0.11049 | 1.0.11049 | Février 2017 | |
+
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

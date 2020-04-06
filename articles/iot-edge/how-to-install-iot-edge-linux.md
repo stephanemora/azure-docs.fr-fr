@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 02/21/2020
 ms.author: kgremban
-ms.openlocfilehash: af53dea76670be500e7be20063487e3e4a2177b6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: fb86ee9ce956917f8da44146e58a4775e0ba639f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548728"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535899"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installer le runtime Azure IoT Edge sur des systèmes Linux Debian
 
@@ -179,21 +179,12 @@ sudo nano /etc/iotedge/config.yaml
 
 Recherchez les configurations de provisionnement du fichier et supprimez les commentaires de la section **Configuration du provisionnement manuel**. Mettez à jour la valeur de **device_connection_string** avec la chaîne de connexion à partir de votre appareil IoT Edge. Assurez-vous que les commentaires des autres sections de provisionnement sont supprimés. Assurez-vous que la ligne **approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
 
-   ```yaml
-   # Manual provisioning configuration
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-  
-   # DPS TPM provisioning configuration
-   # provisioning:
-   #   source: "dps"
-   #   global_endpoint: "https://global.azure-devices-provisioning.net"
-   #   scope_id: "{scope_id}"
-   #   attestation:
-   #     method: "tpm"
-   #     registration_id: "{registration_id}"
-   ```
+```yml
+# Manual provisioning configuration
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```
 
 Pour coller le contenu du Presse-papiers dans Nano, appuyez sur `Shift+Right Click` ou sur `Shift+Insert`.
 
@@ -209,7 +200,13 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Option n°2 : Provisionnement automatique
 
-Pour provisionner automatiquement un appareil, [configurez le Service Device Provisioning et récupérez votre ID d’inscription d’appareil](how-to-auto-provision-simulated-device-linux.md). Un certain nombre de mécanismes d’attestation sont pris en charge par les IoT Edge lors de l’utilisation du provisionnement automatique, mais votre configuration matérielle requise affecte également vos choix. Par exemple, les appareils Raspberry Pi ne sont pas fournis avec une puce de Module de plateforme sécurisée (TPM) par défaut.
+Les appareils IoT Edge peuvent être provisionnés automatiquement à l’aide du [service Azure IoT Hub Device Provisioning (DPS)](../iot-dps/index.yml). Actuellement, ioT Edge prend en charge deux mécanismes d’attestation lors de l’utilisation de l’approvisionnement automatique, mais votre configuration matérielle requise peut également affecter vos choix. Par exemple, les appareils Raspberry Pi ne sont pas fournis avec une puce de Module de plateforme sécurisée (TPM) par défaut. Pour plus d’informations, consultez les articles suivants :
+
+* [Créer et approvisionner un appareil IoT Edge avec un TPM virtuel sur une machine virtuelle Linux](how-to-auto-provision-simulated-device-linux.md)
+* [Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509](how-to-auto-provision-x509-certs.md)
+* [Créer et approvisionner un appareil IoT Edge à l’aide d’une attestation de clé symétrique](how-to-auto-provision-symmetric-keys.md)
+
+Ces articles vous guident tout au long de la configuration des inscriptions dans DPS et de la génération des certificats ou des clés appropriés pour l’attestation. Quel que soit le mécanisme d’attestation choisi, les informations d’approvisionnement sont ajoutées au fichier de configuration IoT Edge sur votre appareil IoT Edge.
 
 Ouvrez le fichier de configuration.
 
@@ -217,29 +214,53 @@ Ouvrez le fichier de configuration.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Veuillez rechercher les configurations de provisionnement du fichier, puis supprimez les commentaires de la section appropriée pour votre mécanisme d’attestation. Par exemple, si vous utilisez l’attestation TPM, veuillez mettre à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs correspondantes de votre IoT Hub Device Provisioning Service et de votre appareil IoT Edge avec TPM. Assurez-vous que la ligne **approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
+Veuillez rechercher les configurations de provisionnement du fichier, puis supprimez les commentaires de la section appropriée pour votre mécanisme d’attestation. Assurez-vous que les commentaires des autres sections de provisionnement sont supprimés. La ligne d’**approvisionnement :** ne doit pas être précédée d’une espace et les éléments imbriqués doivent être en retrait de deux espaces. Mettez à jour la valeur de **scope_id** avec la valeur de votre instance de service IoT Hub Device Provisioning, et fournissez les valeurs appropriées pour les champs d’attestation.
 
-   ```yaml
-   # Manual provisioning configuration
-   # provisioning:
-   #   source: "manual"
-   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-  
-   # DPS TPM provisioning configuration
-   provisioning:
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "{scope_id}"
-     attestation:
-       method: "tpm"
-       registration_id: "{registration_id}"
-   ```
+Attestation TPM :
+
+```yml
+# DPS TPM provisioning configuration
+provisioning:
+  source: "dps"
+  global_endpoint: "https://global.azure-devices-provisioning.net"
+  scope_id: "<SCOPE_ID>"
+  attestation:
+    method: "tpm"
+    registration_id: "<REGISTRATION_ID>"
+```
+
+Attestation X.509 :
+
+```yml
+# DPS X.509 provisioning configuration
+provisioning:
+  source: "dps"
+  global_endpoint: "https://global.azure-devices-provisioning.net"
+  scope_id: "<SCOPE_ID>"
+  attestation:
+    method: "x509"
+#   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+    identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+    identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+```
+
+Attestation de clé symétrique :
+
+```yml
+# DPS symmetric key provisioning configuration
+provisioning:
+  source: "dps"
+  global_endpoint: "https://global.azure-devices-provisioning.net"
+  scope_id: "<SCOPE_ID>"
+  attestation:
+    method: "symmetric_key"
+    registration_id: "<REGISTRATION_ID>"
+    symmetric_key: "<SYMMETRIC_KEY>"
+```
 
 Pour coller le contenu du Presse-papiers dans Nano, appuyez sur `Shift+Right Click` ou sur `Shift+Insert`.
 
-Enregistrez et fermez le fichier.
-
-   `CTRL + X`, `Y`, `Enter`
+Enregistrez et fermez le fichier. `CTRL + X`, `Y`, `Enter`
 
 Après avoir entré les informations de provisionnement dans le fichier de configuration, redémarrez le démon :
 
@@ -297,7 +318,7 @@ De nombreux fabricants d’appareils embarqués livrent des images d’appareils
    ./check-config.sh
    ```
 
-Cette commande fournit une sortie détaillée contenant l’état des fonctionnalités du noyau qu’utilise le runtime Moby. Nous vous conseillons de vérifier que tous les éléments sous `Generally Necessary` et `Network Drivers` sont activés pour vous assurer que votre noyau est entièrement compatible avec le runtime Moby.  Si vous avez identifié des fonctionnalités manquantes, vous activez-les en reconstruisant votre noyau à partir des sources et en sélectionnant les modules associés à inclure dans le fichier kernel.config approprié.  De même, si vous utilisez un générateur de configuration du noyau comme defconfig ou menuconfig, trouvez et activez les fonctionnalités respectives et recompiler votre noyau en conséquence.  Une fois que vous avez déployé votre nouveau noyau modifié, exécutez à nouveau le script check-config pour vérifier que toutes les fonctionnalités requises ont été activées avec succès.
+Cette commande fournit une sortie détaillée contenant l’état des fonctionnalités du noyau qu’utilise le runtime Moby. Nous vous conseillons de vérifier que tous les éléments sous `Generally Necessary` et `Network Drivers` sont activés pour vous assurer que votre noyau est entièrement compatible avec le runtime Moby.  Si vous avez identifié des fonctionnalités manquantes, vous activez-les en reconstruisant votre noyau à partir des sources et en sélectionnant les modules associés à inclure dans le fichier kernel.config approprié.  De même, si vous utilisez un générateur de configuration du noyau comme `defconfig` ou `menuconfig`, trouvez et activez les fonctionnalités respectives et recompilez votre noyau en conséquence.  Une fois que vous avez déployé votre nouveau noyau modifié, exécutez à nouveau le script check-config pour vérifier que toutes les fonctionnalités requises ont été activées avec succès.
 
 ## <a name="uninstall-iot-edge"></a>Désinstaller IoT Edge
 

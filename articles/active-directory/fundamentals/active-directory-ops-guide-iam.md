@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 36b3857f8827f8a33e5fc0981b22a49128f7c193
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534773"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79298612"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guide de référence des opérations de gestion des identités et des accès Azure Active Directory
 
@@ -107,7 +107,7 @@ Si votre version d’Azure AD Connect a plus de six mois de retard, vous devez 
 
 L’utilisation de **ms-DS-consistencyguid** en tant qu’[ancre source](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-design-concepts) facilite la migration des objets entre les forêts et les domaines, ce qui est courant dans la consolidation/le nettoyage, les fusions, les acquisitions et les scissions de domaines AD.
 
-Si vous utilisez **ObjectGuid** en tant qu’ancre source, nous vous recommandons d’utiliser **ms-DS-ConsistencyGuid**.
+Si vous utilisez actuellement **ObjectGuid** en tant qu’ancre source, nous vous recommandons d’utiliser **ms-DS-ConsistencyGuid**.
 
 #### <a name="custom-rules"></a>Règles personnalisées
 
@@ -170,7 +170,7 @@ Si vous utilisez un outil tel que [Microsoft Identity Manager](https://docs.micr
 Les propriétaires de ressources peuvent penser que le groupe **Tous les utilisateurs** contient uniquement les **Employés d’entreprise**, alors qu’il peut contenir en fait les **Employés d’entreprise** et les **Invités**. Vous devez donc être particulièrement vigilant quand vous utilisez le groupe **Tous les utilisateurs** pour l’affectation d’applications et l’octroi d’un accès aux ressources telles que du contenu ou des applications SharePoint.
 
 > [!IMPORTANT]
-> Si le groupe **Tous les utilisateurs** est activé et utilisé pour les stratégies d’accès conditionnel, l’affectation d’applications ou de ressources, veillez à [sécuriser le groupe](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) si vous ne souhaitez pas qu’il inclue des utilisateurs invités. De plus, vous devez corriger vos affectations de licences en les créant et en les affectant aux groupes qui contiennent uniquement des **Employés d’entreprise**. En revanche, si vous constatez que le groupe **Tous les utilisateurs** est activé mais qu’il n’est pas utilisé pour octroyer l’accès aux ressources, vérifiez que votre organisation se sert de ce groupe (qui inclut les **Employés de l’entreprise** et les **Invités**) de manière intentionnelle.
+> Si le groupe **Tous les utilisateurs** est activé et utilisé pour les stratégies d’accès conditionnel, l’affectation d’applications ou de ressources, veillez à [sécuriser le groupe](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) si vous ne souhaitez pas qu’il inclue des utilisateurs invités. De plus, vous devez corriger vos affectations de licences en les créant et en les affectant aux groupes qui contiennent uniquement des **Employés d’entreprise**. En revanche, si vous constatez que le groupe **Tous les utilisateurs** est activé, mais qu’il n’est pas utilisé pour octroyer l’accès aux ressources, vérifiez que les recommandations de votre organisation précisent bien de se servir de ce groupe (qui inclut les **Employés de l’entreprise** et les **Invités**) de manière intentionnelle.
 
 ### <a name="automated-user-provisioning-to-apps"></a>Provisionnement automatisé des utilisateurs pour les applications
 
@@ -182,7 +182,7 @@ Si vous provisionnez des applications de manière ad hoc, ou si vous utilisez de
 
 ### <a name="azure-ad-connect-delta-sync-cycle-baseline"></a>Base de référence du cycle de synchronisation delta d’Azure AD Connect
 
-Il est important de bien évaluer le volume des changements apportés à votre organisation et de vérifier si la synchronisation ne prend pas trop de temps pour pouvoir prévoir son délai.
+Il est important de bien évaluer l’ampleur des changements apportés à votre organisation, et de vérifier si la synchronisation ne prend pas trop de temps pour pouvoir prévoir son délai.
 
 La fréquence de la [synchronisation delta par défaut](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) est de 30 minutes. Si la synchronisation delta prend régulièrement plus de 30 minutes, ou s’il existe des écarts importants entre les performances de synchronisation delta de la préproduction et de la production, recherchez et passez en revue les [facteurs qui influent sur les performances d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors).
 
@@ -195,7 +195,7 @@ La fréquence de la [synchronisation delta par défaut](https://docs.microsoft.c
 
 Une infrastructure d’identité sécurisée comporte cinq aspects. Cette liste va vous permettre de trouver et de prendre rapidement les mesures nécessaires pour sécuriser et gérer le cycle de vie des identités et de leurs droits dans votre organisation.
 
-- Affectez les propriétaires à des tâches clés.
+- Affectez des propriétaires aux tâches clés.
 - Recherchez et résolvez les problèmes de synchronisation.
 - Définissez une stratégie de basculement pour la reprise d’activité après sinistre.
 - Rationalisez la gestion des licences et l’affectation d’applications.

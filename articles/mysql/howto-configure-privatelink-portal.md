@@ -1,19 +1,19 @@
 ---
-title: Méthode de configuration via le portail de Private Link pour Azure Database pour MySQL (préversion)
+title: Private Link - Portail Azure - Azure Database pour MySQL
 description: Découvrez comment configurer une instance Private Link pour Azure Database pour MySQL à partir du portail Azure
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 193227ff98accb31c15e388c810aea7460a2cb5d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371917"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>Créer et gérer Private Link pour Azure Database pour MySQL (préversion) à l’aide du portail
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant le portail
 
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans cet article, vous apprendrez à utiliser le portail Azure pour créer une machine virtuelle dans un réseau virtuel Azure et un serveur Azure Database pour MySQL avec un point de terminaison privé Azure.
 
@@ -126,13 +126,13 @@ Dans cette section, vous allez créer un serveur Azure Database pour MySQL dans 
 
 Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point de terminaison privé. 
 
-1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Centre de liaisons privées (préversion)** .
+1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Réseau** > **Liaison privée**.
 
 2. Dans **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de **générer une connexion privée à un service**, sélectionnez **Démarrer**.
 
     ![Présentation de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. Dans **Créer un point de terminaison privé (préversion) - Concepts de base**, entrez ou sélectionnez les informations suivantes :
+1. Dans **Créer un point de terminaison privé - De base**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -156,7 +156,7 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
     |Sous-ressource cible |Sélectionnez *mysqlServer*|
     |||
 7. Sélectionnez **Suivant : Configuration**.
-8. Dans **Créer un point de terminaison privé (préversion) - Configuration**, entrez ou sélectionnez les informations suivantes :
+8. Dans **Créer un point de terminaison privé - Configuration**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |

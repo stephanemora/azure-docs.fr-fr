@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: danis
-ms.openlocfilehash: 0309d9a794a978c736ffc4689c46565ee8fb5b00
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 1f0395956fa6977be5d1d6f4f4faf06b84c094d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226692"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79465037"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment du provisionnement dans Azure. Ces configurations cloud-init sont exécutées au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -53,10 +53,10 @@ Il existe deux étapes pour rendre cloud-init disponible pour les systèmes d’
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Oui | Oui, prise en charge de la version du package : *18.2-1.el7_6.2*|
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | Oui (Notez qu’il s’agit d’une image de préversion, et que lorsque toutes les images RHEL 7.7 prendront en charge cloud-init, elle sera supprimée au milieu de l’année 2020 ; vous recevrez un avis) | Oui, prise en charge de la version du package : *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7-RAW | n/a| Non, mises à jour des images à partir de février 2020| Oui, prise en charge de la version du package : *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7-LVM | n/a| Non, mises à jour des images à partir de février 2020| Oui, prise en charge de la version du package : *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7,7 | n/a| Non, mises à jour des images à partir de février 2020 | Oui, prise en charge de la version du package : *18.5-3.el7*|
-|RedHat 7.7 |rhel-byos | rhel-lvm77 | n/a|Non, mises à jour des images à partir de février 2020  | Oui, prise en charge de la version du package : *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-RAW | n/a| Non, les mises à jour des images seront terminées fin avril 2020| Oui, prise en charge de la version du package : *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-LVM | n/a| Non, les mises à jour des images seront terminées fin avril| Oui, prise en charge de la version du package : *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7,7 | n/a| Non, les mises à jour des images seront terminées fin avril | Oui, prise en charge de la version du package : *18.5-3.el7*|
+|RedHat 7.7 |rhel-byos | rhel-lvm77 | n/a|Non, les mises à jour des images seront terminées fin avril  | Oui, prise en charge de la version du package : *18.5-3.el7*|
 
 ### <a name="centos"></a>CentOS
 
@@ -64,7 +64,7 @@ Il existe deux étapes pour rendre cloud-init disponible pour les systèmes d’
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |Oui (Notez qu’il s’agit d’une image de préversion, et que lorsque toutes les images CentOS 7.7 prendront en charge cloud-init, elle sera supprimée au milieu de l’année 2020 ; vous recevrez un avis) | Oui, prise en charge de la version du package : *18.5-3.el7.centos*|
 
-* Les images CentOS 7.7 compatibles cloud-init seront mises à jour ici en février 2020 
+* Les images CentOS 7.7 compatibles cloud-init seront mises à jour ici en mars 2020 
 
 ### <a name="oracle"></a>Oracle
 

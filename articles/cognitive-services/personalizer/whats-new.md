@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 1ec0c83655574cb09724bcf97be19519e1f6d72f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 450328fecde3be0ee0cead174c9d172bf3ac1000
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467068"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155968"
 ---
 # <a name="whats-new-in-personalizer"></a>Nouveautés de Personalizer
 
@@ -23,12 +23,16 @@ Découvrir les nouveautés du service. Ces éléments peuvent inclure des notes 
 
 ## <a name="release-notes"></a>Notes de publication 
 
+### <a name="march-2020"></a>Mars 2020
+
+* La sécurité TLS 1.2 est maintenant appliquée pour toutes les requêtes HTTP adressées à ce service. Pour plus d’informations, consultez [Sécurité Azure Cognitive Services](../cognitive-services-security.md).
+
 ### <a name="november-2019---ignite-conference"></a>Novembre 2019 - Conférence Ignite
 
 * Personalizer est mis à la disposition générale
 * [Didacticiel](tutorial-use-azure-notebook-generate-loop-data.md) Azure Notebooks tout au long du cycle de vie
 
-### <a name="may-6-2019---build-conference"></a>6 mai 2019 - //Conférence Build
+### <a name="may-2019---build-conference"></a>Mai 2019 - //Conférence Build
 
 Les fonctionnalités d’évaluation suivantes ont été publiées lors de la conférence Build 2019 :
 
@@ -46,5 +50,5 @@ Les fonctionnalités d’évaluation suivantes ont été publiées lors de la co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Créer une boucle de rétroaction dans C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Démarrage rapide : Créer une boucle de rétroaction dans C#](csharp-quickstart-commandline-feedback-loop.md)
 * [Utiliser la démonstration interactive](https://personalizationdemo.azurewebsites.net/)

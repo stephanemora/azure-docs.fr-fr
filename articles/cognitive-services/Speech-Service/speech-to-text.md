@@ -3,30 +3,31 @@ title: Reconnaissance vocale - Service Speech
 titleSuffix: Azure Cognitive Services
 description: La fonctionnalité de reconnaissance vocale permet la transcription en temps réel des flux audio en texte. Vos applications, outils ou appareils peuvent consommer, afficher et agir sur cette entrée de texte. Ce service fonctionne de façon continue avec les fonctionnalités de synthèse vocale et de traduction vocale.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.author: erhopf
-ms.openlocfilehash: 8518f92a4f4df1686d4b338783a93d969e04d219
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/12/2020
+ms.author: dapine
+ms.openlocfilehash: 2854f4e8d91164c8ae1f35761d6f605cae725245
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379949"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052632"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 La reconnaissance vocale du service Speech permet la transcription en temps réel des flux audio en texte. Vos applications, outils ou appareils peuvent consommer, afficher et agir sur ce texte sous la forme d’une entrée de commande. Ce service s’appuie sur la même technologie de reconnaissance que celle utilisée par Microsoft pour Cortana et les produits Office. Il fonctionne de façon homogène avec les offres de service de <a href="./speech-translation.md" target="_blank">traduction<span class="docon docon-navigate-external x-hidden-focus"></span></a> et de <a href="./text-to-speech.md" target="_blank">synthèse vocale <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Vous trouverez une liste complète des langues compatibles avec la reconnaissance vocale dans [Langues prises en charge](language-support.md#speech-to-text).
 
 Par défaut, le service de reconnaissance vocale utilise le modèle de langage universel. Ce modèle a été entraîné avec des données qui sont la propriété de Microsoft et est déployé dans le cloud. Il est particulièrement adapté aux scénarios de conversation et de dictée. Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et entraîner des modèles de prononciation, de langue et d’acoustique personnalisés. La personnalisation permet de prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur.
 
 > [!NOTE]
-> La reconnaissance vocale Bing a été mise hors service le 15 octobre 2019. Si vos applications, outils ou produits utilisent les API Reconnaissance vocale Bing ou Custom Speech, nous avons créé des guides pour vous aider à effectuer leur migration vers le service Speech.
+> La reconnaissance vocale Bing a été mise hors service le 15 octobre 2019. Si vos applications, outils ou produits utilisent les API Reconnaissance vocale Bing, nous avons créé des guides pour vous aider à effectuer leur migration vers le service Speech.
 > - [Effectuer une migration entre la Reconnaissance vocale Bing et le service Speech](how-to-migrate-from-bing-speech.md)
-> - [Effectuer une migration entre Custom Speech et le service Speech](how-to-migrate-from-custom-speech-service.md)
 
 ## <a name="get-started-with-speech-to-text"></a>Commencer avec la reconnaissance vocale
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - Architecture de routage | Microsoft Docs
+title: Azure Front Door - Architecture de routage | Microsoft Docs
 description: Cet article vous aide à comprendre l’architecture globale de Front Door.
 services: front-door
 documentationcenter: ''
@@ -11,26 +11,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 6af5e7c7d8788dffa8f144b2ee77c291ceda86c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1f06bcb92ea97e0e9e9a6eefeac957031575a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736278"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471555"
 ---
 # <a name="routing-architecture-overview"></a>Vue d’ensemble de l’architecture de routage
 
-Quand Azure Front Door Service reçoit les requêtes de vos client, soit il leur répond (si la mise en cache est activée), soit il les transfère vers le backend d’application approprié (en tant que proxy inverse).
+Quand Azure Front Door reçoit les requêtes de vos client, soit il leur répond (si la mise en cache est activée), soit il les transfère vers le back-end d’application approprié (en tant que proxy inverse).
 
 </br>Il existe des opportunités pour optimiser le trafic lors du routage vers Azure Front Door, ainsi que lors du routage vers le backend.
 
-## <a name = "anycast"></a>Sélection de l’environnement Front Door pour le routage du trafic (Anycast)
+## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Sélection de l’environnement Front Door pour le routage du trafic (Anycast)
 
 Le routage vers les environnements Azure Front Door utilise [Anycast](https://en.wikipedia.org/wiki/Anycast) pour le trafic DNS (Domain Name System) et HTTP (Hypertext Transfer Protocol). Ainsi, le trafic utilisateur sera acheminé vers l’environnement le plus proche en termes de topologie réseau (nombre de sauts le plus faible). Cette architecture offre généralement des durées de parcours circulaire plus courtes pour les utilisateurs finaux (optimisant ainsi les bénéfices du fractionnement TCP). Front Door organise ses environnements en « anneaux » principaux et de secours.  L’anneau externe a des environnements qui sont plus proches des utilisateurs, offrant des latences réduites.  L’anneau interne a des environnements capables de gérer le basculement pour l’environnement d’anneau externe en cas de problème. L’anneau externe est la cible par défaut pour tout le trafic, mais l’anneau interne est nécessaire pour gérer le dépassement de capacité de trafic de l’anneau externe. En termes d’adresses IP virtuelles (adresses VIP), chaque hôte frontal ou domaine pris en charge par Front Door reçoit une adresse VIP principale, qui est annoncée par les environnements dans les anneaux interne et externe, ainsi qu’une adresse VIP de secours, qui est annoncée uniquement par les environnements dans l’anneau interne. 
 
 </br>Cette stratégie globale garantit que les requêtes de vos utilisateurs finaux parviennent toujours à l’environnement Front Door le plus proche, et que même en cas de non-intégrité de l’environnement Front Door par défaut le trafic bascule automatiquement vers l’environnement le plus proche suivant.
 
-## <a name = "splittcp"></a>Connexion à l’environnement Front Door (fractionnement TCP)
+## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Connexion à l’environnement Front Door (fractionnement TCP)
 
 Le [TCP de fractionnement](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) est une technique permettant de réduire les latences et les problèmes liés aux protocole TCP en fractionnant les connexions dont les durées de parcours circulaire seraient trop élevées.  En plaçant les environnements Front Door plus près des utilisateurs finaux et en fermant les connexions TCP à l’intérieur de l’environnement Front Door, une connexion TCP avec une durée de parcours circulaire élevée vers le backend d’application est fractionnée en deux connexions TCP. La courte connexion entre l’utilisateur final et l’environnement Front Door signifie que la connexion est établie sur trois brefs parcours circulaires plutôt que trois longs parcours circulaires, réduisant ainsi la latence.  La longue connexion entre l’environnement Front Door et le backend peut être préalablement établie et réutilisée pour plusieurs appels de l’utilisateur final, réduisant là encore la durée de connexion TCP.  L’effet est multipliée lors de l’établissement d’une connexion SSL/TLS (Transport Layer Security), car il y a davantage de parcours circulaires pour sécuriser la connexion.
 

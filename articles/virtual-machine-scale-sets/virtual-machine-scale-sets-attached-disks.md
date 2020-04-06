@@ -1,19 +1,19 @@
 ---
 title: Groupes de machines virtuelles identiques Azure - Disques de données associés
 description: Découvrez comment utiliser des disques de données associés à des groupes de machines virtuelles identiques grâce à la présentation de cas d’utilisation spécifiques.
-author: mayanknayar
+author: avirishuv
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 4/25/2017
-ms.author: manayar
-ms.openlocfilehash: c7fd4d89fcc66fb4110029be45ad94e21faea0e0
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.author: avverma
+ms.openlocfilehash: 6e39a8ffb24b0cca720890e3d00a55d1e58fadc2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278167"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123373"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
 Pour développer votre espace de stockage, les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge les instances de machine virtuelle avec des disques de données associés. Vous pouvez associer des disques de données lorsque le groupe identique est créé ou sur un groupe identique existant.
@@ -86,12 +86,12 @@ Pour préparer automatiquement les disques de données dans un cluster Linux, aj
 
 
 ## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Ajout de disques de données préremplis dans un groupe identique existant
-Les disques de données spécifiés dans le modèle de groupe identique sont toujours vides. Toutefois, vous pouvez attacher un disque de données existant à une machine virtuelle spécifique dans un groupe identique. Cette fonctionnalité est disponible en préversion, et des exemples sont présentés sur [GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Si vous souhaitez propager les données sur toutes les machines virtuelles du groupe identique, vous pouvez dupliquer votre disque de données et l’attacher à chaque machine virtuelle du groupe identique, vous pouvez créer une image personnalisée qui contient les données et configurer le groupe identique à partir de cette image personnalisée, ou vous pouvez utiliser Azure Files ou une offre de stockage de données similaire.
+Les disques de données spécifiés dans le modèle de groupe identique sont toujours vides. Toutefois, vous pouvez attacher un disque de données existant à une machine virtuelle spécifique dans un groupe identique. Si vous souhaitez propager les données sur toutes les machines virtuelles du groupe identique, vous pouvez dupliquer votre disque de données et l’attacher à chaque machine virtuelle du groupe identique, ou créer une image personnalisée qui contient les données et configurer le groupe identique à partir de cette image personnalisée, ou vous pouvez utiliser Azure Files ou une offre de stockage de données similaire.
 
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 La prise en charge des disques managés Azure et des disques de données associés de groupe identique ests disponible dans les versions [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) et ultérieures de l’APi Microsoft.Compute.API.
 
-La prise en charge du portail Azure pour les disques de données associés dans des groupes identiques est initialement limitée. Selon vos besoins, vous pouvez utiliser des modèles Azure, la CLI, PowerShell, des kits de développement logiciel (SDK) et l’API REST pour gérer les disques associés.
+La prise en charge du portail Azure pour les disques de données associés dans des groupes identiques est limitée. Selon vos besoins, vous pouvez utiliser des modèles Azure, la CLI, PowerShell, des kits de développement logiciel (SDK) et l’API REST pour gérer les disques associés.
 
 

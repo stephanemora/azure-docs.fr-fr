@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 3141795ed9ccfdabc9fd462a1cd09a74690f9c5b
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0a9728e05aee27e74054a77e2c9be7dc08968207
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137918"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455857"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
@@ -62,9 +62,9 @@ Dans Azure Machine Learning, la création et l’utilisation d’un modèle Mach
     > [!TIP] 
     > Si vous avez des difficultés à utiliser le sélecteur de colonne, consultez l’article [Sélectionner des colonnes dans le jeu de données](./select-columns-in-dataset.md) pour obtenir des conseils. Il décrit quelques scénarios courants et fournit des conseils pour utiliser les options **WITH RULES** (Avec règles) et **BY NAME** (Par nom).
   
-5.  Exécuter le pipeline. Si vous avez une grande quantité de données, cela peut prendre un certain temps.
+5.  Envoyez le pipeline. Si vous avez une grande quantité de données, cela peut prendre un certain temps.
 
-## <a name="bkmk_results"></a> Résultats
+## <a name="results"></a><a name="bkmk_results"></a> Résultats
 
 Une fois le modèle formé :
 

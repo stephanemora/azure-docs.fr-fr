@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 02/01/2020
-ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/09/2020
+ms.openlocfilehash: 97ce402045cfd2c990b457c5d4d06888cda632d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587292"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228549"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Choisir entre les modèles d’achat vCore et DTU
 
@@ -57,7 +57,7 @@ Si vous souhaitez consulter une description de la méthode permettant de défini
 
 ## <a name="storage-costs"></a>Coûts de stockage
 
-Les divers types de stockage sont facturés différemment. Pour le stockage des données, vous êtes facturé pour le stockage approvisionné, en fonction de la taille maximale de la base de données ou du pool que vous sélectionnez. Le coût ne change pas, sauf si vous réduisez ou augmentez cette taille maximale. Le stockage de sauvegarde est associé aux sauvegardes automatisées de votre instance et il est alloué de manière dynamique. L’allongement de la période de rétention des sauvegardes a pour effet d’augmenter le volume de stockage de sauvegarde que votre instance utilise.
+Les divers types de stockage sont facturés différemment. Pour le stockage des données, vous êtes facturé pour le stockage approvisionné, en fonction de la taille maximale de la base de données ou du pool que vous sélectionnez. Le coût ne change pas, sauf si vous réduisez ou augmentez cette taille maximale. Le stockage de sauvegarde est associé aux sauvegardes automatisées de votre instance et il est alloué de manière dynamique. L’allongement de la période de conservation des sauvegardes augmente le volume de stockage de sauvegarde que votre instance utilise.
 
 Par défaut, l’équivalent de 7 jours de sauvegardes automatisées de vos bases de données est copié vers un compte de stockage Blob standard de RA-GRS (stockage géographiquement redondant avec accès en lecture). Ce stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux qui sont copiés toutes les 5 minutes. La taille des journaux des transactions dépend de la fréquence de changement de la base de données. Un volume de stockage minimal égal à 100 pour cent de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure du stockage de sauvegarde est facturée en Go par mois.
 
@@ -85,6 +85,11 @@ Pour passer du modèle d’achat DTU au modèle d’achat vCore, sélectionnez l
 
 - Chaque tranche de 100 DTU au niveau Standard nécessite au moins 1 vCore au niveau de service Usage général.
 - Chaque tranche de 125 DTU au niveau Premium nécessite au moins 1 vCore au niveau de service Critique pour l’entreprise.
+
+> [!NOTE]
+> Les instructions relatives au dimensionnement de DTU vers vCore sont approximatives et sont fournies pour vous aider à faire une estimation initiale de l’objectif de service de la base de données cible. La configuration optimale de la base de données cible dépend de la charge de travail. 
+> 
+> Pour atteindre le rapport prix/performances optimal, il peut être nécessaire de tirer parti de la flexibilité du modèle vCore pour ajuster le nombre de vCores, la [génération de matériel](sql-database-service-tiers-vcore.md#hardware-generations) et les niveaux de [service](sql-database-service-tiers-vcore.md#service-tiers) et de [calcul](sql-database-service-tiers-vcore.md#compute-tiers), ainsi que d’ajuster d’autres paramètres de configuration de base de données, comme le [degré maximal de parallélisme](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 
 ## <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
@@ -142,6 +147,20 @@ Les valeurs d’entrée pour cette formule peuvent être obtenues à partir des 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Charges de travail tirant avantage d’un pool élastique de ressources
 
 Les pools conviennent parfaitement pour des bases de données avec une utilisation moyenne des ressources faible et des pics d’utilisation relativement peu fréquents. Pour plus d’informations, voir [Quand devez-vous envisager d’utiliser un pool élastique SQL Database ?](sql-database-elastic-pool.md).
+
+### <a name="hardware-generations-in-the-dtu-based-purchasing-model"></a>Générations de matériel dans le modèle d’achat DTU
+
+Dans le modèle d’achat DTU, les clients ne peuvent pas choisir la génération de matériel utilisée pour leurs bases de données. Bien qu’une base de données reste généralement sur une génération de matériel pendant une longue période (généralement pendant plusieurs mois), certains événements peuvent entraîner le déplacement d’une base de données vers une autre génération de matériel.
+
+Par exemple, une base de données peut être déplacée vers une autre génération de matériel si elle subit un scale-up ou un scale-down pour répondre à un objectif de service différent, si l’infrastructure actuelle dans un centre de données approche ses limites de capacité ou si le matériel utilisé est mis hors service en raison de sa fin de vie.
+
+Si une base de données est déplacée vers un autre matériel, les performances de la charge de travail peuvent changer. Le modèle DTU garantit que le débit et le temps de réponse de la charge de travail du [test d’évaluation DTU](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) restent sensiblement identiques quand la base de données passe à une autre génération de matériel, à condition que son objectif de service (le nombre de DTU) reste le même. 
+
+Toutefois, dans le large éventail des charges de travail des clients qui s’exécutent dans Azure SQL Database, l’impact de l’utilisation d’un matériel différent pour le même objectif de service peut être plus prononcé. Les différentes charges de travail tirent parti de configurations matérielles et de fonctionnalités différentes. Ainsi, pour les charges de travail autres que le test d’évaluation DTU, il est possible de constater des différences de performances si la base de données passe d’une génération de matériel à une autre.
+
+Par exemple, une application qui est sensible à la latence du réseau peut afficher de meilleures performances sur un matériel Gen5 que sur un matériel Gen4 en raison de l’utilisation de l’accélération réseau dans Gen5, tandis qu’une application gourmande en opérations d’E/S de lecture peut afficher de meilleures performances sur un matériel Gen4 que sur un matériel Gen5 car le matériel Gen4 dispose de plus de mémoire par cœur.
+
+Les clients avec des charges de travail sensibles aux modifications matérielles ou les clients qui souhaitent contrôler le choix de la génération de matériel pour leur base de données peuvent utiliser le modèle [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) pour choisir leur génération de matériel lors de la création et de la mise à l’échelle de la base de données. Dans le modèle vCore, les limites de ressources de chaque objectif de service sur chaque génération de matériel sont documentées, tant pour les [bases de données uniques](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) que pour les [pools élastiques](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools). Pour plus d’informations sur les générations de matériel dans le modèle vCore, consultez [Génération du matériel](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
 

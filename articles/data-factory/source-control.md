@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 6645c2672e15c562216b4347f779ef3634a2f124
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031627"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130873"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 
@@ -141,7 +141,7 @@ Le volet de configuration affiche les paramètres du dépôt GitHub suivants :
 |:--- |:--- |:--- |
 | **Type de référentiel** | Type du dépôt de code Azure Repos. | GitHub |
 | **Utiliser GitHub Enterprise** | Cochez la case pour sélectionner GitHub Enterprise | non sélectionné (par défaut) |
-| **URL GitHub Enterprise** | L’URL racine de GitHub Enterprise. Par exemple : https://github.mydomain.com. Obligatoire uniquement si l’option **Utiliser GitHub Enterprise** est sélectionnée | `<your GitHub enterprise url>` |                                                           
+| **URL GitHub Enterprise** | URL racine de GitHub Enterprise (doit être HTTPS pour un serveur local GitHub Enterprise). Par exemple : https://github.mydomain.com. Obligatoire uniquement si l’option **Utiliser GitHub Enterprise** est sélectionnée | `<your GitHub enterprise url>` |                                                           
 | **Compte GitHub** | Le nom de votre compte GitHub. Vous trouverez ce nom dans https:\//github.com/{nom du compte}/{nom du référentiel}. En naviguant sur cette page, vous êtes invité à entrer les informations d’identification GitHub OAuth sur votre compte GitHub. | `<your GitHub account name>` |
 | **Nom du dépôt**  | Le nom de votre référentiel de code GitHub. Les comptes GitHub contiennent des référentiels Git pour gérer votre code source. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le compte. | `<your repository name>` |
 | **Branche de collaboration** | Votre branche de collaboration GitHub utilisée pour la publication. Maître par défaut. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche. | `<your collaboration branch>` |

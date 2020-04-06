@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978571"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124827"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -46,7 +46,7 @@ Les [règles de réseau virtuel](sql-database-vnet-service-endpoint-rule-overvie
 > [!IMPORTANT]
 > La gestion des bases de données et des serveurs de bases de données dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 L’authentification est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Azure SQL Database prend en charge deux types d’authentification :
 
@@ -56,7 +56,7 @@ L’authentification est le processus consistant à prouver que l’utilisateur 
 
 - **Authentification Azure Active Directory** :
 
-    L’authentification Azure Active Directory est un mécanisme servant à se connecter à [Azure SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
+    L’authentification Azure Active Directory est un mécanisme servant à se connecter à [Azure SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
 
      Un administrateur de serveur appelé **administrateur Active Directory** doit être créé pour utiliser l’authentification Azure AD avec SQL Database. Pour plus d’informations, consultez [Connexion à SQL Database avec l’authentification Azure Active Directory](sql-database-aad-authentication.md). L’authentification Azure AD prend en charge les comptes managés et fédérés. Les comptes fédérés prennent en charge les utilisateurs et groupes Windows pour un domaine de client fédéré avec Azure AD.
 
@@ -152,6 +152,6 @@ Non seulement Azure SQL Database propose les fonctions ci-dessus et des fonction
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une description de l’utilisation des fonctionnalités de contrôle d’accès dans SQL Database, consultez [Azure SQL Database access control (Contrôle d’accès d’Azure SQL Database)](sql-database-control-access.md).
+- Pour plus d’informations sur l’utilisation de connexions, de comptes d’utilisateur, de rôles de base de données et d’autorisations dans SQL Database, consultez [Gérer les connexions et les comptes d’utilisateurs](sql-database-manage-logins.md).
 - Pour une présentation de l’audit de base de données, consultez [Audit de base de données SQL](sql-database-auditing.md).
 - Pour une description de la détection des menaces, consultez [Détection de menaces pour les bases de données SQL](sql-database-threat-detection.md).

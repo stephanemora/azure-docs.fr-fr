@@ -1,25 +1,25 @@
 ---
-title: Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
+title: Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
 description: Découvrez comment déployer et configurer Azure Monitor pour des machines virtuelles. Découvrez la configuration système requise.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/14/2019
-ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/27/2020
+ms.openlocfilehash: 26ed33e967aff1714d2a6fb174eab623e71534c2
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669571"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382730"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-overview"></a>Activer Azure Monitor pour machines virtuelles (préversion)
+# <a name="enable-azure-monitor-for-vms-overview"></a>Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
 
-Cet article fournit une vue d’ensemble des options disponibles pour configurer Azure Monitor pour machines virtuelles. Utilisez Azure Monitor pour machines virtuelles pour surveiller l’intégrité et les performances. Découvrez les dépendances d’application qui s’exécutent sur des machines virtuelles et des groupes de machines virtuelles identiques Azure, des machines virtuelles locales ou des machines virtuelles hébergées dans un autre environnement cloud.  
+Cet article fournit une vue d’ensemble des options disponibles permettant d’activer Azure Monitor pour machines virtuelles sur vos machines virtuelles afin d’en surveiller l’intégrité et les performances. Découvrez les dépendances d’application qui s’exécutent sur des machines virtuelles et des groupes de machines virtuelles identiques Azure, des machines virtuelles locales ou des machines virtuelles hébergées dans un autre environnement cloud.  
 
 Pour configurer Azure Monitor pour des machines virtuelles :
 
-* Activez une machine virtuelle ou un groupe de machines virtuelles identiques Azure en sélectionnant **Insights (préversion)** directement à partir de la machine virtuelle ou du groupe de machines virtuelles identiques.
+* Activez une machine virtuelle ou un groupe de machines virtuelles identiques Azure en sélectionnant **Insights** directement à partir de la machine virtuelle ou du groupe de machines virtuelles identiques.
 * Activez au moins deux machines virtuelles et groupes de machines virtuelles identiques Azure à l’aide d’Azure Policy. Cette méthode vérifie que, sur des machines virtuelles et des groupes identiques Azure, les dépendances requises sont installées et correctement configurées. Les machines virtuelles et groupes identiques non conformes sont signalés afin que vous puissiez décider si vous voulez les activer et les corriger.
 * Activez plusieurs machines virtuelles Azure ou groupes de machines virtuelles identiques sur un abonnement ou un groupe de ressources spécifié à l’aide de PowerShell.
 * Activez Azure Monitor pour machines virtuelles afin de surveiller les machines virtuelles ou ordinateurs physiques hébergés dans votre réseau d’entreprise ou un autre environnement cloud.
@@ -55,20 +55,20 @@ Azure Monitor pour machines virtuelles prend en charge un espace de travail Log 
 - Sud-Australie Est
 
 >[!NOTE]
->Vous pouvez déployer des machines virtuelles Azure à partir de toute région. Ces machines virtuelles ne sont pas limitées aux régions prises en charge par l’espace de travail Log Analytics.
+>Vous pouvez surveiller les machines virtuelles Azure de n’importe quelle région. Les machines virtuelles elles-même ne sont pas limitées aux régions prises en charge par l’espace de travail Log Analytics.
 >
 
-Si vous n’avez pas d’espace de travail, vous pouvez en créer un en utilisant l’une des ressources suivantes :
-* [L’interface de ligne de commande Microsoft Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
+Si vous n’avez pas d’espace de travail Log Analytics, vous pouvez en créer un en utilisant l’une des ressources suivantes :
+* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Le portail Azure](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Vous pouvez également créer un espace de travail pendant que vous activez la surveillance pour une machine virtuelle ou un groupe de machines virtuelles identiques Azure dans le portail Azure.
 
 Pour configurer un scénario à grande échelle qui utilise des modèles Azure Policy, Azure PowerShell ou Azure Resource Manager, dans votre espace de travail Log Analytics :
 
-* Installez les solutions ServiceMap et InfrastructureInsights. Vous pouvez effectuer cette installation à l’aide d’un modèle Azure Resource Manager fourni. Ou bien, sous l’onglet **Prise en main**, vous pouvez sélectionner **Configurer l’espace de travail**.
+* Installez les solutions *ServiceMap* et *InfrastructureInsights*. Vous pouvez effectuer cette installation à l’aide d’un modèle Azure Resource Manager fourni. Ou bien, sous l’onglet **Prise en main** du Portail Azure, sélectionnez **Configurer l’espace de travail**.
 * Configurez l’espace de travail Log Analytics pour collecter les compteurs de performances.
 
 Pour configurer votre espace de travail pour le scénario à grande échelle, utilisez l’une des méthodes suivantes :
@@ -175,8 +175,8 @@ Vous pouvez télécharger le Dependency Agent à partir des emplacements suivant
 
 | Fichier | Système d''exploitation | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.2.9060 | B7725B6B205CF8C336D9AAD87956336C816412740E9D6499BCACB6F862AE3896  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.2.9060 | C6995A67A7782AEC312647D74A99C3C823F68F5FFA490FD4BB6006A2FF2941B0 |
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
@@ -184,60 +184,16 @@ Pour activer les fonctionnalités et y accéder dans Azure Monitor pour les mach
 
 Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../../azure-monitor/platform/manage-access.md).
 
-## <a name="how-to-enable-azure-monitor-for-vms-preview"></a>Comment activer Azure Monitor pour machines virtuelles (préversion)
+## <a name="how-to-enable-azure-monitor-for-vms"></a>Comment activer Azure Monitor pour machines virtuelles
 
 Pour activer Azure Monitor pour les machines virtuelles, utilisez l’une des méthodes décrites dans ce tableau :
 
 | État du déploiement | Méthode | Description |
 |------------------|--------|-------------|
-| Machine virtuelle ou groupe de machines virtuelles identiques uniques Azure | [Activer à partir de la machine virtuelle](vminsights-enable-single-vm.md) | Vous pouvez activer une machine virtuelle Azure en sélectionnant **Insights (préversion)** directement à partir de la machine virtuelle ou du groupe de machines virtuelles identiques. |
+| Machine virtuelle ou groupe de machines virtuelles identiques uniques Azure | [Activer à partir de la machine virtuelle](vminsights-enable-single-vm.md) | Vous pouvez activer une machine virtuelle Azure en sélectionnant **Insights** directement à partir de la machine virtuelle ou du groupe de machines virtuelles identiques. |
 | Machines virtuelles ou groupes de machines virtuelles identiques multiples Azure | [Activer via Azure Policy](vminsights-enable-at-scale-policy.md) | Vous pouvez activer plusieurs machines virtuelles Azure à l’aide d’Azure Policy et des définitions de stratégie disponibles. |
 | Machines virtuelles ou groupes de machines virtuelles identiques multiples Azure | [Activer à l’aide de modèles Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Vous pouvez activer plusieurs machines virtuelles ou groupes de machines virtuelles identiques Azure sur un abonnement ou un groupe de ressources spécifié en utilisant des modèles Azure PowerShell ou Azure Resource Manager. |
 | Cloud hybride | [Activer pour l’environnement hybride](vminsights-enable-hybrid-cloud.md) | Vous pouvez déployer sur des machines virtuelles ou des ordinateurs physiques hébergés dans votre centre de données ou d’autres environnements cloud. |
-
-## <a name="performance-counters-enabled"></a>Compteurs de performances activés 
-
-Azure Monitor pour machines virtuelles configure un espace de travail Log Analytics pour collecter des compteurs de performances qu’il utilise. Les tableaux suivants répertorient les objets et compteurs collectés toutes les 60 secondes.
-
->[!NOTE]
->La liste suivante de compteurs de performances activée par Azure Monitor pour machines virtuelles ne vous limite pas à l’activation de compteurs supplémentaires que vous devez collecter à partir de machines virtuelles envoyant des rapports à l’espace de travail. En outre, si vous désactivez ces compteurs, cela empêchera l’ensemble des graphiques de performances inclus avec la fonctionnalité de performances d’afficher l’utilisation des ressources de vos machines virtuelles.
-
-### <a name="windows-performance-counters"></a>Compteurs de performances Windows
-
-|Nom d’objet |Nom du compteur |
-|------------|-------------|
-|LogicalDisk |% Free Space |
-|LogicalDisk |Avg. Disk sec/Read |
-|LogicalDisk |Avg. Disk sec/Transfer |
-|LogicalDisk |Avg. Disk sec/Write |
-|LogicalDisk |Disk Bytes/sec |
-|LogicalDisk |Nb d’octets de lecture de disque/s |
-|LogicalDisk |Nb d’opérations de lectures de disque/s |
-|LogicalDisk |Disk Transfers/sec |
-|LogicalDisk |Nb d’octets d’écriture de disque/s |
-|LogicalDisk |Nb d’opération d’écriture de disque/s |
-|LogicalDisk |Free Megabytes |
-|Mémoire |Nombre d’octets disponibles |
-|Carte réseau |Octets reçus/s |
-|Carte réseau |Octets envoyés/s |
-|Processeur |% temps processeur |
-
-### <a name="linux-performance-counters"></a>Compteurs de performances Linux
-
-|Nom d’objet |Nom du compteur |
-|------------|-------------|
-|Logical Disk |% Used Space |
-|Logical Disk |Nb d’octets de lecture de disque/s |
-|Logical Disk |Nb d’opérations de lectures de disque/s |
-|Logical Disk |Disk Transfers/sec |
-|Logical Disk |Nb d’octets d’écriture de disque/s |
-|Logical Disk |Nb d’opération d’écriture de disque/s |
-|Logical Disk |Free Megabytes |
-|Logical Disk |Logical Disk Bytes/sec |
-|Mémoire |Available MBytes Memory |
-|Réseau |Total Bytes Received |
-|Réseau |Total Bytes Transmitted |
-|Processeur |% temps processeur |
 
 ## <a name="management-packs"></a>Packs d’administration
 

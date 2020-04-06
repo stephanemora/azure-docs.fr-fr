@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112267"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexation d’objets blob pour produire plusieurs documents de recherche
@@ -31,7 +31,7 @@ Lorsque vous utilisez un des modes d’analyse répertoriées ci-dessus, un obje
 
 Par défaut, en l’absence de mappage explicite pour le champ d’index de clé, le champ `AzureSearch_DocumentKey` est mappé à celui-ci, à l’aide de la fonction de mappage de champs `base64Encode`.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 Supposons que vous avez une définition d’index avec les champs suivants :
 + `id`
 + `temperature`
@@ -83,7 +83,7 @@ _Blob2.json_
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
 
-Lorsque vous créez un indexeur avec `delimitedText` **parsingMode**, il peut sembler naturel de configurer une fonction de mappage pour le champ de clé comme suit :
+Quand vous créez un indexeur avec `delimitedText` **parsingMode**, il peut sembler naturel de configurer une fonction de mappage pour le champ de clé comme suit :
 
     {
         "sourceFieldName" : "recordid",

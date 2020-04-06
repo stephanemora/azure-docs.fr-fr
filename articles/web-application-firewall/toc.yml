@@ -18,6 +18,14 @@
       items:
         - name: Pare-feu d’applications web sur Azure CDN
           href: ./cdn/cdn-overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Application Gateway
+      items:
+        - name: Déployer WAF v2 - modèle ARM
+          displayName: Resource Manager
+          href: ./ag/quick-create-template.md
 - name: Tutoriels
   items:
     - name: Application Gateway

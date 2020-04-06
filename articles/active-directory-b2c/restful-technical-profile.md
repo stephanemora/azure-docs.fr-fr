@@ -8,31 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/03/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4638b5bfc3ff31d0d2149e7ee227c46d3360a306
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 410f413fc8450c0ee33c3ca95e860a3e8de34107
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254992"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332608"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) prend en charge votre propre service RESTful. Azure Active Directory B2C envoie des données au service RESTful dans une collection de revendications d’entrée et reçoit des données en retour dans une collection de revendications de sortie. Avec l’intégration de service RESTful, vous pouvez :
-
-- **Valider les données d’entrée utilisateur** : empêche la persistance de données mal formées AAD B2C. Si la valeur de l’utilisateur n’est pas valide, votre service RESTful retourne un message d’erreur qui demande à l’utilisateur de fournir une entrée. Par exemple, vous pouvez vérifier que l’adresse e-mail fournie par l’utilisateur existe dans la base de données de clients.
-- **Remplacer des revendications d’entrée** : permet de remettre en forme les valeurs de revendications d’entrée. Par exemple, si un utilisateur entre le prénom entier en lettres minuscules ou majuscules, vous pouvez modifier sa mise en forme en utilisant une majuscule uniquement pour la première lettre.
-- **Enrichir des données utilisateur** : permet d’approfondir l’intégration avec des applications métier d’entreprise. Par exemple, votre service RESTful peut recevoir l’adresse e-mail de l’utilisateur, interroger la base de données de clients et retourner le numéro de fidélité de l’utilisateur à Azure AD B2C. Les revendications retournées peuvent être stockées, évaluées dans les étapes d’orchestration suivantes, ou incluses dans le jeton d’accès.
-- **Exécuter une logique métier personnalisée** : permet d’envoyer des notifications Push, de mettre à jour des bases de données d’entreprise, d’exécuter un processus de migration utilisateur, de gérer des autorisations, d’auditer des bases de données, et d’effectuer d’autres actions.
-
-Votre stratégie peut envoyer des revendications d’entrée à votre API REST. L’API REST peut également retourner des revendications de sortie que vous pouvez utiliser ultérieurement dans votre stratégie, ou déclencher un message d’erreur. Vous pouvez concevoir l’intégration aux services RESTful comme suit :
-
-- **Profil technique de validation** : un profil technique de validation appelle le service RESTful. Le profil technique de validation valide les données fournies par l’utilisateur avant la poursuite du parcours de celui-ci. Avec le profil technique de validation, un message d’erreur est affiché sur une page déclarée automatiquement, et retourné dans des revendications de sortie.
-- **Échange de revendications** : un appel est effectué au service RESTful via une étape d’orchestration. Dans ce scénario, il n’existe pas d’interface utilisateur pour afficher le message d’erreur. Si votre API REST retourne une erreur, l’utilisateur est redirigé vers l’application de la partie de confiance avec le message d’erreur.
+Azure Active Directory B2C (Azure AD B2C) assure la prise en charge de l’intégration de votre propre service RESTful. Azure Active Directory B2C envoie des données au service RESTful dans une collection de revendications d’entrée et reçoit des données en retour dans une collection de revendications de sortie. Pour plus d’informations, consultez [Intégrer les échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](custom-policy-rest-api-intro.md).  
 
 ## <a name="protocol"></a>Protocol
 
@@ -132,6 +122,7 @@ Le profil technique retourne également des revendications, qui ne sont pas reto
 | DebugMode | Non | Exécute le profil technique en mode débogage. Valeurs possibles : `true` ou `false` (par défaut). En mode débogage, l’API REST peut retourner plus d’informations. Consultez la section [Retour de message d’erreur](#returning-error-message). |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 | ResolveJsonPathsInJsonTokens  | Non | Indique si le profil technique résout les chemins d’accès JSON. Valeurs possibles : `true` ou `false` (par défaut). Utilisez ces métadonnées pour lire des données issues d’un élément JSON imbriqué. Dans un élément [OutputClaim](technicalprofiles.md#outputclaims), définissez `PartnerClaimType` sur l’élément de chemin d’accès JSON que vous souhaitez générer. Par exemple : `firstName.localized` ou `data.0.to.0.email`.|
+| UseClaimAsBearerToken| Non| Nom de la revendication qui contient le jeton du porteur.|
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 
@@ -218,19 +209,7 @@ Si le type d’authentification est défini sur `Bearer`, l’élément **Crypto
 
 ## <a name="returning-error-message"></a>Retour de message d’erreur
 
-Il se peut que votre API REST doive retourner un message d’erreur tel que « Utilisateur introuvable dans le système CRM ». Lorsqu'une erreur se produit, l’API REST doit retourner un message d’erreur HTTP 409 (code d’état Conflit) avec les attributs suivants :
-
-| Attribut | Obligatoire | Description |
-| --------- | -------- | ----------- |
-| version | Oui | 1.0.0 |
-| status | Oui | 409 |
-| code | Non | Code d’erreur provenant du fournisseur de point de terminaison RESTful, affiché quand `DebugMode` est activé. |
-| requestId | Non | Identificateur de demande provenant du fournisseur de point de terminaison RESTful, affiché quand `DebugMode` est activé. |
-| userMessage | Oui | Message d’erreur affiché à l’utilisateur. |
-| developerMessage | Non | Description détaillée du problème et de la manière de le corriger, affiché quand `DebugMode` est activé. |
-| moreInfo | Non | URI pointant vers des informations supplémentaires, affiché quand `DebugMode` est activé. |
-
-L’exemple suivant montre une API REST qui retourne un message d’erreur au format JSON :
+Il se peut que votre API REST doive retourner un message d’erreur tel que « Utilisateur introuvable dans le système CRM ». Lorsqu’une erreur se produit, l’API REST doit retourner un message d’erreur HTTP 4xx, par exemple le code d’état de réponse 400 (requête incorrecte) ou 409 (conflit). Le corps de la réponse contient le message d’erreur au format JSON :
 
 ```JSON
 {
@@ -243,6 +222,17 @@ L’exemple suivant montre une API REST qui retourne un message d’erreur au fo
   "moreInfo": "https://restapi/error/API12345/moreinfo"
 }
 ```
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| version | Oui | Votre version d’API REST. Par exemple : 1.0.1 |
+| status | Oui | Doit être 409 |
+| code | Non | Code d’erreur provenant du fournisseur de point de terminaison RESTful, affiché quand `DebugMode` est activé. |
+| requestId | Non | Identificateur de demande provenant du fournisseur de point de terminaison RESTful, affiché quand `DebugMode` est activé. |
+| userMessage | Oui | Message d’erreur affiché à l’utilisateur. |
+| developerMessage | Non | Description détaillée du problème et de la manière de le corriger, affiché quand `DebugMode` est activé. |
+| moreInfo | Non | URI pointant vers des informations supplémentaires, affiché quand `DebugMode` est activé. |
+
 
 L’exemple suivant montre une classe C# qui retourne un message d’erreur :
 
@@ -263,7 +253,8 @@ public class ResponseContent
 
 Consultez les articles suivants pour obtenir des exemples d’utilisation d’un profil technique RESTful :
 
-- [Intégrer les échanges de revendications d’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](rest-api-claims-exchange-dotnet.md)
-- [Sécuriser vos services RESTful à l’aide d’une authentification HTTP de base](secure-rest-api-dotnet-basic-auth.md)
-- [Sécuriser votre service RESTful à l’aide de certificats clients](secure-rest-api-dotnet-certificate-auth.md)
-- [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](custom-policy-rest-api-claims-validation.md)
+- [Intégrer les échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](custom-policy-rest-api-intro.md)
+- [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](custom-policy-rest-api-claims-validation.md)
+- [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
+- [Sécuriser vos services d’API REST](secure-rest-api.md)
+

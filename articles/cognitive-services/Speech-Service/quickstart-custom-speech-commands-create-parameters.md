@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 994ac88f78dfe5a5b0ee6fef3fa97d66d53c911b
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 96312bac369cfa5fe3cb8a00fd63ecfbec624918
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156690"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80348531"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Démarrage rapide : Créer une commande personnalisée avec paramètres (préversion)
 
@@ -36,7 +36,7 @@ Dans cet article, nous allons ajouter des paramètres à cette application afin 
 
    | Paramètre            | Valeur suggérée     | Description                                                                                               |
    | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- |
-   | Name               | ActiverDésactiver               | Nom descriptif de votre paramètre                                                                     |
+   | Nom               | ActiverDésactiver               | Nom descriptif de votre paramètre                                                                     |
    | Est global          | non cochée           | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes du projet |
    | Obligatoire           | cochée             | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande          |
    | Modèle de réponse  | « - Activé ou désactivé ? »      | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                                       |
@@ -48,7 +48,7 @@ Dans cet article, nous allons ajouter des paramètres à cette application afin 
 
    | Paramètre            | Valeur suggérée       | Description                                                                                               |
    | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
-   | Name               | AppareilSujet         | Nom descriptif de votre paramètre                                                                     |
+   | Nom               | AppareilSujet         | Nom descriptif de votre paramètre                                                                     |
    | Est global          | non cochée             | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes du projet |
    | Obligatoire           | cochée               | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande          |
    | Modèle de réponse  | « - Quel appareil ? »     | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                                       |
@@ -91,7 +91,7 @@ Modifiez la règle de saisie semi-automatique que vous avez créée dans [le pr�
 1. Modifiez l'action Réponse vocale pour utiliser `OnOff` et `SubjectDevice` :
 
    ```
-   Ok, turning {OnOff} the {SubjectDevice}
+   - Ok, turning {OnOff} the {SubjectDevice}
    ```
 
 ## <a name="try-it-out"></a>Faites un essai
@@ -111,4 +111,4 @@ Ouvrez le volet Conversation de test et essayez quelques interactions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [Démarrage rapide : Utiliser des commandes personnalisées avec Custom Voice (préversion)](./quickstart-custom-speech-commands-select-custom-voice.md)

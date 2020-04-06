@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: 8611abd4e504e0378b744b12d0adb5fa22f5476b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920363"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456061"
 ---
 # <a name="permutation-feature-importance"></a>Importance de la fonctionnalité de permutation
 
@@ -54,7 +54,7 @@ La génération d’un ensemble de scores de fonctionnalités exige que vous dis
 
      Pour obtenir une description plus détaillée de ces métriques d’évaluation et de la façon dont elles sont calculées, consultez [Évaluer le modèle](evaluate-model.md).  
 
-6.  Exécuter le pipeline.  
+6.  Envoyez le pipeline.  
 
 7.  Le module génère une liste de colonnes de fonctionnalités et les scores qui leur sont associés. Cette liste est classée dans l’ordre décroissant des scores.  
 
