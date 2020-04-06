@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7ab811635ca50c3a28ecd8bdf6d0f18fad4c384f
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137371"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372481"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Comprendre les affectations de refus relatives aux ressources Azure
 
@@ -30,7 +30,7 @@ Cet article explique comment définir des attributions de refus.
 
 ## <a name="how-deny-assignments-are-created"></a>Création des affectations de refus
 
-Les affectations de refus sont créées et gérées par Azure pour protéger les ressources. Azure Blueprints et les applications managées Azure utilisent les affectations de refus pour protéger les ressources managées par le système. Azure Blueprints et les applications managées Azure constituent la seule façon de créer des affectations de refus. Vous ne pouvez pas directement créer vos propres affectations de refus.  Pour plus d’informations, consultez [Protéger les nouvelles ressources avec des verrous de ressources Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
+Les affectations de refus sont créées et gérées par Azure pour protéger les ressources. Azure Blueprints et les applications managées Azure utilisent les affectations de refus pour protéger les ressources managées par le système. Azure Blueprints et les applications managées Azure constituent la seule façon de créer des affectations de refus. Vous ne pouvez pas directement créer vos propres affectations de refus. Pour plus d’informations sur la façon dont Blueprints utilise les attributions de refus pour verrouiller les ressources, consultez [Comprendre le verrouillage des ressources dans Azure Blueprints](../governance/blueprints/concepts/resource-locking.md).
 
 > [!NOTE]
 > Vous ne pouvez pas directement créer vos propres affectations de refus.
@@ -89,5 +89,5 @@ Tous les principaux peut être combiné avec `ExcludePrincipals` pour refuser to
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Tutoriel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md)
 * [Répertorier les affectations de refus pour les ressources Azure à l’aide du portail Azure](deny-assignments-portal.md)
-* [Comprendre les définitions de rôle relatives aux ressources Azure](role-definitions.md)

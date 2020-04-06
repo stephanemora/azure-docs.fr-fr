@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60403094"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Application multiniveau .NET avec les files d’attente Azure Service Bus
@@ -94,7 +94,7 @@ Ensuite, ajoutez le code permettant d’envoyer les éléments à une file d’a
    ![][13]
    
    Notez que les assemblys client nécessaires sont maintenant référencés et que certains nouveaux fichiers de code ont été ajoutés.
-10. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Modèles** et cliquez sur **Ajouter**, puis sur **Classe**. Dans la zone **Nom**, saisissez le nom **OnlineOrder.cs**. Cliquez ensuite sur **Add**.
+10. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Modèles** et cliquez sur **Ajouter**, puis sur **Classe**. Dans la zone **Nom**, saisissez le nom **OnlineOrder.cs**. Cliquez ensuite sur **Ajouter**.
 
 ### <a name="write-the-code-for-your-web-role"></a>Écriture du code de votre rôle Web
 Dans cette section, vous créez les différentes pages affichées par votre application.
@@ -324,7 +324,7 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
    ![][25]
 9. Créez une classe **OnlineOrder**pour représenter les commandes à mesure que vous les traitez dans la file d’attente. Vous pouvez réutiliser une classe que vous avez déjà créée. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la classe **OrderProcessingRole** (sur l’icône de la classe, non sur le rôle). Cliquez sur **Ajouter**, puis sur **Élément existant**.
 10. Accédez au sous-dossier **FrontendWebRole\Models**, puis double-cliquez sur **OnlineOrder.cs** pour l’ajouter à ce projet.
-11. Dans**WorkerRole.cs**, remplacez la valeur de variable **QueueName** `"ProcessingQueue"` par `"OrdersQueue"`, comme dans le code suivant.
+11. Dans**WorkerRole.cs**, remplacez la valeur de variable **QueueName**`"ProcessingQueue"` par `"OrdersQueue"`, comme dans le code suivant.
     
     ```csharp
     // The name of your queue.

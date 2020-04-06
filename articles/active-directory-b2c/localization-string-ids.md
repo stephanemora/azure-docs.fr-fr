@@ -1,21 +1,21 @@
 ---
 title: ID de chaînes de localisation - Azure Active Directory B2C | Microsoft Docs
-description: Spécifiez les ID d’une définition de contenu avec un Id api.signuporsignin dans une stratégie personnalisée dans Azure Active Directory B2C.
+description: Spécifiez les ID d’une définition de contenu avec un ID api.signuporsignin dans une stratégie personnalisée au sein d'Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3af62a75228959478a80c2628307fff2b47c3c4a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e5339136513d4a9553c46bb50c0dd29f9785c7fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187489"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330944"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -33,7 +33,7 @@ Les ID suivants sont utilisés pour une définition de contenu avec un ID `api.s
 | **logonIdentifier_email** | Adresse de messagerie |
 | **requiredField_email** | Entrez votre adresse e-mail |
 | **invalid_email** | Entrez une adresse e-mail valide |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
 | **local_intro_username** | Connectez-vous avec votre nom d'utilisateur |
 | **logonIdentifier_username** | Nom d’utilisateur |
 | **requiredField_username** | Entrez votre nom d'utilisateur |
@@ -168,7 +168,7 @@ Voici les ID pour une définition de contenu avec un ID `api.phonefactor`.
 | **intro_mixed_p** | Nous avons les numéros suivants en mémoire pour vous. Choisissez un numéro que nous pouvons appeler ou auquel envoyer un code par SMS afin de vous authentifier. |
 | **button_verify_code** | Vérifier le code |
 | **requiredField_code** | Entrez le code de vérification que vous avez reçu |
-| **invalid_code** | Entrez le code à 6 chiffres que vous avez reçu |
+| **invalid_code** | Entrez le code à 6 chiffres que vous avez reçu |
 | **button_cancel** | Annuler |
 | **local_number_input_placeholder_text** | Numéro de téléphone |
 | **button_retry** | Recommencer |
@@ -215,8 +215,54 @@ Voici les ID d’un [contrôle d’affichage de vérification](display-control-v
 |verification_control_but_send_code |Envoyer le code |
 |verification_control_but_send_new_code |Envoyer le nouveau code |
 |verification_control_but_verify_code |Vérifier le code |
+|verification_control_code_sent| Le code de vérification a été envoyé. Veuillez le copier dans la zone d’entrée ci-dessous. |
+
+### <a name="example"></a>Exemple
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_fail_send_code">Failed to send the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_fail_verify_code">Failed to verify the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_code">Send Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_new_code">Send New Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_verify_code">Verify Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="azure-mfa-error-messages"></a>Messages d’erreur Azure MFA
+
+Voici les ID d’un message d’erreur de [profil technique Azure MFA](multi-factor-auth-technical-profile.md) :
+
+| id | Valeur par défaut |
+| -- | ------------- |
+|UserMessageIfCouldntSendSms | Impossible d’envoyer un SMS au téléphone. Essayez un autre numéro de téléphone. |
+|UserMessageIfInvalidFormat | Le format de votre numéro de téléphone n’est pas valide. Corrigez-le, puis réessayez.|
+|UserMessageIfMaxAllowedCodeRetryReached | Code erroné entré trop de fois. Réessayez plus tard.|
+|UserMessageIfServerError | Impossible d'utiliser le service MFA. Réessayez plus tard.|
+|UserMessageIfThrottled | Votre requête a été limitée, Réessayez plus tard.|
+|UserMessageIfWrongCodeEntered|Code entré erroné. Réessayez.|
+
+### <a name="example"></a>Exemple
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidFormat">Your phone number is not in a valid format, please correct it and try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">Wrong code entered too many times, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
 
 ## <a name="one-time-password-error-messages"></a>Messages d’erreur du mot de passe à usage unique
+
 Voici les ID d’un message d’erreur de [profil technique à mot de passe à usage unique](one-time-password-technical-profile.md)
 
 | id | Valeur par défaut |
@@ -225,6 +271,44 @@ Voici les ID d’un message d’erreur de [profil technique à mot de passe à u
 |UserMessageIfSessionDoesNotExist |Une session de vérification du mot de passe à usage unique a expiré |
 |UserMessageIfSessionConflict |Une session de vérification du mot de passe à usage unique a un conflit |
 |UserMessageIfInvalidCode |Le mot de passe à usage unique fourni pour la vérification est incorrect |
+
+### <a name="example"></a>Exemple
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
+## <a name="claims-transformations-error-messages"></a>Messages d'erreur relatifs aux transformations de revendications
+
+Voici les ID des messages d’erreur relatifs aux transformations de revendications :
+
+| id | Transformation de revendications | Valeur par défaut |
+| -- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Échec de comparaison des valeurs de la revendication booléenne pour le type de revendication « inputClaim ».| 
+|DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Échec de comparaison des valeurs de la revendication : L’opérande de gauche fourni est supérieur à l’opérande de droite.|
+|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Échec de comparaison des valeurs de la revendication à l’aide de StringComparison « OrdinalIgnoreCase ».|
+
+### <a name="example"></a>Exemple
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
 
 
 

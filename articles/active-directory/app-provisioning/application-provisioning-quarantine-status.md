@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d689bb5f76eef36b784a3285749a7d250144fd7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522711"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154625"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionnement d’application en état de quarantaine
 
@@ -36,6 +36,8 @@ Vous avez trois façons de vérifier si une application est en quarantaine :
 - Dans le Portail Azure, accédez à **Azure Active Directory** > **Applications d’entreprise** > &lt;*nom de l’application*&gt; > **Provisionnement** et accédez à la barre de progression tout en bas.  
 
   ![Barre d’état de provisionnement présentant un état de quarantaine](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
+
+- Dans le portail Azure, accédez à **Azure Active Directory** > **Journaux d’audit** > filtrez sur **Activité : quarantaine** et examinez l’historique de quarantaine. Lorsque l'affichage de la barre de progression, comme décrit ci-dessus, affiche un approvisionnement en cours de quarantaine, les journaux d’audit vous permettent de consulter l’historique de quarantaine d'une application. 
 
 - Utilisez la requête Microsoft Graph [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) pour obtenir par programmation l’état du travail de provisionnement :
 

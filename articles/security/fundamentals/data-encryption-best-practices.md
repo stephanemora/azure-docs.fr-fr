@@ -4,7 +4,7 @@ description: Cet article détaille les meilleures pratiques en matière de chiff
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934749"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224705"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Bonnes pratiques relatives au chiffrement et à la sécurité des données dans Azure
 Cet article décrit les bonnes pratiques relatives au chiffrement et à la sécurité des données.
 
-Ces meilleures pratiques font l’objet d’un consensus et sont compatibles avec les capacités et fonctionnalités actuelles de la plateforme Azure. Les opinions et avis évoluent au fil du temps ; cet article est régulièrement mis à jour de manière à tenir compte de ces changements.
+Ces meilleures pratiques font l’objet d’un consensus et sont compatibles avec les capacités et fonctionnalités actuelles de la plateforme Azure. Les opinions et technologies évoluent au fil du temps ; cet article est régulièrement mis à jour de manière à tenir compte de ces changements.
 
 ## <a name="protect-data"></a>Protection des données
 Pour assurer la protection des données dans le cloud, vous devez tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Les bonnes pratiques pour la sécurité et le chiffrement des données Azure s’apparentent aux états des données suivants :
@@ -108,7 +108,7 @@ Voici les bonnes pratiques relatives à la passerelle VPN Azure, et les protocol
 **Détail** : Utilisez un [VPN de point à site](/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
 **Bonne pratique** : Déplacez les jeux de données plus grands via une liaison WAN dédiée à haute vitesse.   
-**Détail** : Utilisez [ExpressRoute](/azure/expressroute/expressroute-introduction). Si vous choisissez d’utiliser ExpressRoute, vous pouvez également chiffrer les données au niveau des applications par le biais de [SSL/TLS](https://support.microsoft.com/kb/257591) ou d’autres protocoles, pour optimiser la protection.
+**Détail** : Utilisez [ExpressRoute](/azure/expressroute/expressroute-introduction). Si vous choisissez d’utiliser ExpressRoute, vous pouvez également chiffrer les données au niveau des applications par le biais de SSL/TLS ou d’autres protocoles pour une protection renforcée.
 
 **Bonne pratique** : Interagissez avec Stockage Azure via le portail Azure.   
 **Détail** : Toutes les transactions se font via HTTPS. [L’API de stockage REST](https://msdn.microsoft.com/library/azure/dd179355.aspx) par le biais de HTTPS peut également être utilisée pour interagir avec le [stockage Azure](https://azure.microsoft.com/services/storage/).
@@ -128,7 +128,7 @@ Cette solution de protection des informations vous permet de contrôler vos donn
 Nous vous recommandons :
 
 - De [déployer Azure Information Protection](/azure/information-protection/deployment-roadmap) pour votre organisation.
-- D’appliquer des étiquettes qui reflètent les besoins de votre entreprise. Par exemple :  Appliquez une étiquette nommée « Hautement confidentiel » à tous vos documents et courriers contenant des données ultrasecrètes, afin de classifier et protéger ces données. Ensuite, seuls les utilisateurs autorisés peuvent accéder à ces données, avec les restrictions que vous spécifiez.
+- D’appliquer des étiquettes qui reflètent les besoins de votre entreprise. Par exemple : Appliquez une étiquette nommée « Hautement confidentiel » à tous vos documents et courriers contenant des données ultrasecrètes, afin de classifier et protéger ces données. Ensuite, seuls les utilisateurs autorisés peuvent accéder à ces données, avec les restrictions que vous spécifiez.
 - Configurez [la journalisation de l’utilisation d’Azure RMS](/azure/information-protection/log-analyze-usage) afin de surveiller l’utilisation du service de protection par votre organisation.
 
 Les organisations bénéficiant d’une [classification](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) et d’une protection insuffisantes des données sont plus vulnérables aux fuites ou aux utilisations malveillantes des données. Avec une protection de fichier adaptée, vous pouvez analyser les flux de données pour obtenir des informations sur votre entreprise, détecter des comportements à risque et prendre les mesures correctives adéquates, suivre l’accès aux documents, etc.

@@ -2,13 +2,13 @@
 title: Configurer un service QnA Maker - QnA Maker
 description: Avant de pouvoir créer des bases de connaissances QnA Maker, vous devez tout d’abord configurer un service QnA Maker dans Azure. Toute personne disposant d’autorisations pour créer des ressources dans un abonnement peut configurer un service QnA Maker.
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 663cbce0e096c6189d97cf7872d466383d272f06
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.date: 03/19/2020
+ms.openlocfilehash: 8ec57f441ba58227e45398c35c7931dc75fa658f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650416"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131697"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -107,9 +107,9 @@ Pour mettre à niveau la référence SKU de gestion de QnA Maker :
 
  Lorsque votre base de connaissances doit répondre à un plus grand nombre de demandes de votre application client, mettez à niveau le niveau tarifaire d’App Service.
 
-Vous pouvez faire [monter en puissance](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou faire descendre en puissance le service d’application.
+Vous pouvez effectuer un [scale-up](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou un scale-out du service d’application.
 
-Accédez à la ressource App Service dans le portail Azure et sélectionnez l’option **Monter en puissance** ou **Descendre en puissance** en fonction des besoins.
+Accédez à la ressource App Service dans le portail Azure et sélectionnez l’option **Scale-up** ou **Scale-out** en fonction des besoins.
 
 ![Mise à l'échelle du service d’application QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
@@ -188,6 +188,31 @@ La ressource **App Service** de QnA Maker utilise la ressource Recherche cogniti
     > ![Capture d’écran de Portail Azure redémarrant App Service après modification des paramètres de configuration](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 Si vous créez un service QnA par le biais de modèles Azure Resource Manager, vous pouvez créer toutes les ressources et contrôler la création de l’App Service pour utiliser un service de recherche existant.
+
+En savoir plus sur la configuration des [paramètres de l’application](../../../app-service/configure-common.md#configure-app-settings) App Service .
+
+## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Configurer le paramètre d’inactivité d’App Service pour éviter le délai d’expiration
+
+Le service d’application, qui sert le runtime de prédiction QnA Maker pour une base de connaissances publiée, a une configuration de délai d’inactivité, qui utilise par défaut le délai d’expiration automatique si le service est inactif. Pour QnA Maker, cela signifie que votre API generateAnswer de runtime des prédictions expire parfois après des périodes sans trafic.
+
+Pour que l’application de point de terminaison de prédiction soit chargée même en l’absence de trafic, définissez la valeur d’inactivité sur Toujours activé.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Recherchez et sélectionnez le service d’application de votre ressource QnA Maker. Il aura le même nom que la ressource QnA Maker, mais il aura un **type** différent d’App Service.
+1. Recherchez **Paramètres** puis sélectionnez **Configuration**.
+1. Dans le volet de configuration, sélectionnez **Paramètres généraux**, recherchez **Toujours activé**, puis sélectionnez **Activé** comme valeur.
+
+    > [!div class="mx-imgBorder"]
+    > ![Dans le volet de configuration, sélectionnez **Paramètres généraux**, puis recherchez **Toujours activé**, et sélectionnez la valeur **Activé**.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
+
+1. Sélectionnez **Enregistrer** pour enregistrer la configuration.
+1. Vous êtes invité à redémarrer l’application pour qu’elle utilise le nouveau paramètre. Sélectionnez **Continuer**.
+
+En savoir plus sur la configuration des [Paramètres généraux](../../../app-service/configure-common.md#configure-general-settings) de l’App Service .
+
+## <a name="delete-azure-resources"></a>Supprimer les ressources Azure
+
+Si vous supprimez l’une des ressources Azure utilisées pour vos bases de connaissances QnA Maker, celles-ci ne fonctionneront plus. Avant de supprimer des ressources, veillez à exporter vos bases de connaissances à partir de la page **Paramètres**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

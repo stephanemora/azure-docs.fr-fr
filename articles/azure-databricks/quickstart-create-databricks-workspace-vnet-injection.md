@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 12/04/2019
-ms.openlocfilehash: 046b2da7cdb966192e485ff9f5510eb63c9e0008
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/23/2020
+ms.openlocfilehash: 63dd1b4d9396d340dd17a7afb92ff9c38a2b38b3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132676"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Démarrage rapide : Créer un espace de travail Azure Databricks dans votre propre réseau virtuel
 
@@ -41,9 +41,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
     |Paramètre|Valeur suggérée|Description|
     |-------|---------------|-----------|
-    |Subscription|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
+    |Abonnement|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
     |Resource group|databricks-quickstart|Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte.|
-    |Name|databricks-quickstart|Sélectionnez un nom pour votre réseau virtuel.|
+    |Nom|databricks-quickstart|Sélectionnez un nom pour votre réseau virtuel.|
     |Région|\<Sélectionnez la région la plus proche de vos utilisateurs\>|Sélectionnez l’emplacement géographique où vous pouvez héberger votre réseau virtuel. Utilisez l’emplacement le plus proche de vos utilisateurs.|
 
     ![Notions de base d’un réseau virtuel sur portail Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
@@ -73,9 +73,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
     |Paramètre|Valeur suggérée|Description|
     |-------|---------------|-----------|
     |Nom de l’espace de travail|databricks-quickstart|Sélectionnez un nom pour votre espace de travail Azure Databricks.|
-    |Subscription|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
+    |Abonnement|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
     |Resource group|databricks-quickstart|Sélectionnez le même groupe de ressources que celui que vous avez utilisé pour le réseau virtuel.|
-    |Location|\<Sélectionnez la région la plus proche de vos utilisateurs\>|Choisissez le même emplacement que pour votre réseau virtuel.|
+    |Emplacement|\<Sélectionnez la région la plus proche de vos utilisateurs\>|Choisissez le même emplacement que pour votre réseau virtuel.|
     |Niveau de tarification|Choisissez entre Standard ou Premium.|Pour plus d’informations sur les niveaux de tarification, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
 
     ![Créer une notion de base de l’espace de travail Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
@@ -100,6 +100,8 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
     Le groupe de ressources managé n’est pas modifiable et n’est pas utilisé pour créer des machines virtuelles. Vous pouvez uniquement créer des machines virtuelles dans le groupe de ressources que vous gérez.
 
     ![Groupe de ressources managé Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
+
+    Lorsque le déploiement d’un espace de travail échoue, l’espace de travail est malgré tout créé en état d’échec. Supprimez l’espace de travail défaillant et créez un espace de travail qui résout les erreurs de déploiement. Lorsque vous supprimez l’espace de travail défaillant, le groupe de ressources managé et toutes les ressources déployées correctement sont également supprimés.
 
 ## <a name="create-a-cluster"></a>Créer un cluster
 

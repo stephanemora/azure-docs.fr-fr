@@ -2,32 +2,29 @@
 title: Applications monopages dans Azure Active Directory
 description: Décrit les applications monopages (SPA), ainsi que les principes de base sur le flux de protocole, l’inscription et l’expiration du jeton pour ce type d’application.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 362de46b6b8cd70f9e4daa86637e3b4eb28ad95c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163406"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154744"
 ---
 # <a name="single-page-applications"></a>Applications monopages
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-En général, la structure des applications monopages consiste en une couche (frontale) de présentation JavaScript qui s’exécute dans le navigateur et en un back end d’API web qui s’exécute sur un serveur et implémente la logique métier de l’application. Pour en savoir plus sur l’octroi d’autorisations implicite, et vous aider à déterminer ce qui correspond le mieux pour votre scénario d’application, consultez [Comprendre le flux d’octroi implicite OAuth2 dans Azure Active Directory (AD)](v1-oauth2-implicit-grant-flow.md).
+En règle générale, la structure des applications monopages se compose d'une couche (frontale) de présentation JavaScript qui s’exécute dans le navigateur et d'un back end d’API web qui s’exécute sur un serveur et implémente la logique métier de l’application. Pour en savoir plus sur l’octroi d’autorisation implicite, et vous aider à déterminer ce qui correspond le mieux à votre scénario d’application, consultez [Comprendre le flux d’octroi implicite OAuth2 dans Azure Active Directory (AD)](v1-oauth2-implicit-grant-flow.md).
 
 Dans ce scénario, quand l’utilisateur se connecte, le JavaScript frontal utilise [Active Directory Authentication Library pour JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) et l’octroi d’autorisation implicite pour obtenir un jeton d’ID (id_token) d’Azure AD. Le jeton est mis en cache, et le client l’attache à la demande en tant que jeton porteur lors de l’appel des composants principaux de son API web, qui sont sécurisés à l’aide de l’intergiciel OWIN.
 
@@ -52,10 +49,10 @@ Consultez les [exemples de code pour les scénarios d’application monopage](sa
 
 ## <a name="app-registration"></a>Inscription d'application
 
-* Locataire unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail Azure.
-* Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans le répertoire de votre entreprise, mais également dans celui de chaque organisation qui utilise l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur.
+* Locataire unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail Azure.
+* Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans l'annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilise l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur.
 
-Après avoir inscrit l’application, vous devez la configurer pour qu’elle utilise le protocole d’octroi implicite OAuth 2.0. Par défaut, ce protocole est désactivé pour les applications. Pour activer le protocole d’octroi implicite OAuth2 pour votre application, modifiez son manifeste d’application à partir du Portail Azure et définissez la valeur « oauth2AllowImplicitFlow » sur true. Pour plus d’informations, consultez l’article [Manifeste d’application](../develop/reference-app-manifest.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Après avoir inscrit l’application, vous devez la configurer pour qu’elle utilise le protocole d’octroi implicite OAuth 2.0. Par défaut, ce protocole est désactivé pour les applications. Pour activer le protocole d’octroi implicite OAuth2 pour votre application, modifiez son manifeste d’application à partir du portail Azure et définissez la valeur « oauth2AllowImplicitFlow » sur true. Pour plus d’informations, consultez l’article [Manifeste d’application](../develop/reference-app-manifest.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ## <a name="token-expiration"></a>Expiration du jeton
 

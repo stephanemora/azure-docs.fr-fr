@@ -6,16 +6,15 @@ services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
-author: ronychatterjee
-ms.author: achatter
-ms.reviewer: davidph
-ms.date: 11/04/2019
-ms.openlocfilehash: 37fc04919b844d1edf87be62a587c34de4a8c4d5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: dphansen
+ms.author: davidph
+ms.date: 03/26/2020
+ms.openlocfilehash: aff9346595d3b8985d3558658af32d05f88c0554
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692344"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365451"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Déployer et effectuer des prédictions avec un modèle ONNX dans la préversion de SQL Database Edge
 
@@ -32,8 +31,8 @@ Ce guide de démarrage rapide est basé sur **scikit-Learn** et utilise le jeu d
 * Ouvrez Azure Data Studio et procédez comme suit pour installer les packages nécessaires pour ce démarrage rapide :
 
     1. Ouvrez un [Nouveau bloc-notes](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connecté au noyau Python 3. 
-    1. Cliquez sur **Gérer les packages** puis, sous **Ajouter nouveau**, recherchez **sklearn**, puis installez le package scikit-Learn. 
-    1. Installez également les packages **onnxmltools**, **onnxruntime**, **skl2onnx**et **SQLAlchemy**.
+    1. Cliquez sur **Gérer les packages** puis, sous **Ajouter**, recherchez **scikit-learn** et installez le package scikit-learn. 
+    1. Installez également les packages **setuptools**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc** et **sqlalchemy**.
     
 * Entrez chaque partie du script ci-dessous une cellule du bloc-notes Azure Data Studio, puis exécutez la cellule.
 
@@ -61,7 +60,6 @@ x = df.drop(['MEDV'], axis = 1)
 
 # y is what we are trying to predict - the median value
 y = df.iloc[:,-1]
-
 
 # Split the data frame into features and target
 x_train = df.drop(['MEDV'], axis = 1)

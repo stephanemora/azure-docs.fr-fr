@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 868a0238092786d0999a6a41de71d30011bbef7a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7e16eabc4f9572591eabd37b93258fcd783cce7e
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72246034"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351151"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Résoudre les problèmes de démarrage de machine virtuelle Linux dus à des erreurs fstab
 
@@ -29,27 +29,27 @@ Vous ne pouvez pas vous connecter à une machine virtuelle Linux Azure avec une 
 
 Voici quelques exemples d’erreurs possibles.
 
-### <a name="example-1-a-disk-is-mounted-by-the-scsi-id-instead-of-the-universally-unique-identifier-uuid"></a>Exemple 1 : Un disque est monté avec l’ID SCSI au lieu de l’identificateur unique universel (UUID).
+### <a name="example-1-a-disk-is-mounted-by-the-scsi-id-instead-of-the-universally-unique-identifier-uuid"></a>Exemple 1 : Un disque est monté avec l’ID SCSI au lieu de l’identificateur unique universel (UUID).
 
 ```
 [K[[1;31m TIME [0m] Timed out waiting for device dev-incorrect.device.
 [[1;33mDEPEND[0m] Dependency failed for /data.
 [[1;33mDEPEND[0m] Dependency failed for Local File Systems.
 …
-Welcome to emergency mode! After logging in, type “journalctl -xb” to viewsystem logs, “systemctl reboot” to reboot, “systemctl default” to try again to boot into default mode.
+Welcome to emergency mode! After logging in, type "journalctl -xb" to viewsystem logs, "systemctl reboot" to reboot, "systemctl default" to try again to boot into default mode.
 Give root password for maintenance
 (or type Control-D to continue)
 ```
 
-### <a name="example-2-an-unattached-device-is-missing-on-centos"></a>Exemple 2 : Un appareil non attaché est manquant sur CentOS.
+### <a name="example-2-an-unattached-device-is-missing-on-centos"></a>Exemple 2 : Un appareil non attaché est manquant sur CentOS.
 
 ```
 Checking file systems…
 fsck from util-linux 2.19.1
 Checking all file systems.
-/dev/sdc1: nonexistent device (“nofail” fstab option may be used to skip this device)
-/dev/sdd1: nonexistent device (“nofail” fstab option may be used to skip this device)
-/dev/sde1: nonexistent device (“nofail” fstab option may be used to skip this device)
+/dev/sdc1: nonexistent device ("nofail" fstab option may be used to skip this device)
+/dev/sdd1: nonexistent device ("nofail" fstab option may be used to skip this device)
+/dev/sde1: nonexistent device ("nofail" fstab option may be used to skip this device)
 
 [/sbin/fsck.ext3 (1) — /CODE] sck.ext3 -a /dev/sdc1
 fsck.ext3: No such file or directory while trying to open /dev/sdc1
@@ -67,14 +67,14 @@ e2fsck -b 8193 <device>
 [/sbin/fsck.ext3 (1) — /DATATEMP] fsck.ext3 -a /dev/sde1 fsck.ext3: No such file or directory while trying to open /dev/sde1
 ```
 
-### <a name="example-3-a-vm-cannot-start-because-of-an-fstab-misconfiguration-or-because-the-disk-is-no-longer-attached"></a>Exemple 3 : Une machine virtuelle ne peut pas démarrer en raison d’une configuration fstab incorrecte ou parce que le disque n’est plus attaché.
+### <a name="example-3-a-vm-cannot-start-because-of-an-fstab-misconfiguration-or-because-the-disk-is-no-longer-attached"></a>Exemple 3 : Une machine virtuelle ne peut pas démarrer en raison d’une configuration fstab incorrecte ou parce que le disque n’est plus attaché.
 
 ```
 The disk drive for /var/lib/mysql is not ready yet or not present.
 Continue to wait, or Press S to skip mounting or M for manual recovery
 ```
 
-### <a name="example-4-a-serial-log-entry-shows-an-incorrect-uuid"></a>Exemple 4 : Une entrée de journal série indique un UUID incorrect.
+### <a name="example-4-a-serial-log-entry-shows-an-incorrect-uuid"></a>Exemple 4 : Une entrée de journal série indique un UUID incorrect.
 
 ```
 Checking filesystems
@@ -90,7 +90,7 @@ fsck.ext4: Unable to resolve UUID="<UUID>"
 *** when you leave the shell.
 *** Warning — SELinux is active
 *** Disabling security enforcement for system recovery.
-*** Run ‘setenforce 1’ to reenable.
+*** Run 'setenforce 1' to reenable.
 type=1404 audit(1428047455.949:4): enforcing=0 old_enforcing=1 auid=<AUID> ses=4294967295
 Give root password for maintenance
 (or type Control-D to continue)
@@ -98,11 +98,47 @@ Give root password for maintenance
 
 Ce problème peut se produire si la syntaxe de table de systèmes de fichiers (fstab, file systems table) est incorrecte ou si un disque de données requis mappé à une entrée dans le fichier « /etc/fstab » n’est pas attaché à la machine virtuelle.
 
-## <a name="resolution"></a>Résolution :
+## <a name="resolution"></a>Résolution
 
 Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence à l’aide de la console série pour les machines virtuelles Azure. Puis, utilisez cet outil pour réparer le système de fichiers. Si la console série n’est pas activée sur votre machine virtuelle, accédez à la section [Réparer la machine virtuelle en mode hors connexion](#repair-the-vm-offline).
 
 ## <a name="use-the-serial-console"></a>Utiliser la console série
+
+### <a name="using-single-user-mode"></a>Utilisation du mode mono-utilisateur
+
+1. Connectez-vous à la [console série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+2. Utiliser la console série pour passer en mode mono-utilisateur [mode mono-utilisateur](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+3. Une fois que la machine virtuelle a démarré en mode mono-utilisateur. Ouvrez le fichier fstab dans l’éditeur de texte de votre choix. 
+
+   ```
+   # nano /etc/fstab
+   ```
+
+4. Passez en revue les systèmes de fichiers listés. Chaque ligne du fichier fstab indique un système de fichiers monté au démarrage de la machine virtuelle. Pour plus d’informations sur la syntaxe du fichier fstab, exécutez la commande fstab man. Pour résoudre un problème de démarrage, passez en revue chaque ligne pour vous assurer qu’elle est correcte en termes de structure et de contenu.
+
+   > [!Note]
+   > * Les champs de chaque ligne sont séparés par des tabulations ou des espaces. Les lignes vides sont ignorées. Les lignes ayant comme premier caractère le signe dièse (#) sont des commentaires. Les lignes en commentaire peuvent être conservées dans le fichier fstab, mais elles ne sont pas traitées. Quand vous avez un doute au sujet d’une ligne fstab, nous vous recommandons de la mettre en commentaire plutôt que de la supprimer.
+   > * Les seules partitions nécessaires à la récupération et au démarrage de la machine virtuelle doivent être les partitions de système de fichiers. La machine virtuelle peut rencontrer des erreurs d’application liées aux autres partitions commentées. Toutefois, la machine virtuelle devrait démarrer sans ces partitions. Vous pourrez, par la suite, supprimer les commentaires des lignes concernées.
+   > * Nous vous recommandons de monter les disques de données sur les machines virtuelles Azure à l’aide de l’UUID de la partition de système de fichiers. Par exemple, exécutez la commande suivante : ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Pour déterminer l’UUID du système de fichiers, exécutez la commande blkid. Pour plus d’informations sur la syntaxe, exécutez la commande blkid man.
+   > * L’option nofail permet de s’assurer que la machine virtuelle démarre même si le système de fichiers est endommagé ou n’existe pas au démarrage. Nous vous recommandons d’utiliser l’option nofail dans le fichier fstab. Le démarrage de la machine virtuelle pourra ainsi se poursuive si des partitions qui ne sont pas nécessaires au démarrage présentent des erreurs.
+
+5. Modifiez ou mettez en commentaire les lignes incorrectes ou superflues dans le fichier fstab pour permettre à la machine virtuelle de démarrer correctement.
+
+6. Enregistrez les modifications apportées au fichier fstab.
+
+7. Redémarrez la machine virtuelle à l’aide de la commande ci-dessous.
+   
+   ```
+   # reboot -f
+   ```
+> [!Note]
+   > Vous pouvez également utiliser la commande « Ctrl + x » qui redémarre également la machine virtuelle.
+
+
+8. Si la mise en commentaire ou la correction des entrées a réussi, le système doit afficher une invite Bash dans le portail. Vérifiez si vous pouvez vous connecter à la machine virtuelle.
+
+### <a name="using-root-password"></a>Utilisation du mot de passe racine
 
 1. Connectez-vous à la [console série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 2. Connectez-vous au système à l’aide d’un mot de passe en tant qu’utilisateur local.
@@ -156,7 +192,7 @@ Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence 
 
 2. Une fois le disque système monté en tant que disque de données sur la machine virtuelle de récupération, sauvegardez le fichier fstab avant modification, puis effectuez les étapes suivantes pour corriger le fichier fstab.
 
-3.  Recherchez l’erreur indiquant que le disque n’a pas été monté. Dans l’exemple suivant, le système essayait d’attacher un disque qui n’était plus présent :
+3.    Recherchez l’erreur indiquant que le disque n’a pas été monté. Dans l’exemple suivant, le système essayait d’attacher un disque qui n’était plus présent :
 
     ```
     [DEPEND] Dependency failed for /datadisk1.

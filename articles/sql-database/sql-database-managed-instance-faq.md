@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-ms.date: 07/16/2019
-ms.openlocfilehash: 1c1995b4daf3b76abf7663d8d6c1f4cb7b1d6e2b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/17/2020
+ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201677"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80364165"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
@@ -42,13 +42,13 @@ Pour les niveaux de service disponibles et leurs caractéristiques, consultez [D
 
 **Où puis-je trouver des informations sur les problèmes connus et les bogues ?**
 
-Pour les bogues et les problèmes connus, consultez [problèmes connus](sql-database-managed-instance-transact-sql-information.md#Issues).
+Pour les bogues et les problèmes connus, consultez [problèmes connus](sql-database-release-notes.md#known-issues).
 
 ## <a name="new-features"></a>Nouvelles fonctionnalités
 
 **Où puis-je trouver les fonctionnalités les plus récentes et les fonctionnalités disponibles en préversion publique ?**
 
-Pour les fonctionnalités nouvelles et d’évaluation, consultez les [notes de publication](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+Pour les fonctionnalités nouvelles et d’évaluation, consultez les [notes de publication](sql-database-release-notes.md?tabs=managed-instance).
 
 ## <a name="deployment-times"></a>Temps de déploiement 
 
@@ -60,7 +60,11 @@ Le temps prévu pour créer une instance managée ou changer le niveau de servic
 
 **Est-ce qu’une instance managée peut avoir le même nom qu’un serveur SQL Server local ?**
 
-L’instance gérée doit avoir un nom qui se termine par *database.windows.net*. Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, **mi-another-name**.contoso.com : 
+La modification du nom de l’instance managée n’est pas prise en charge.
+
+La zone DNS par défaut de l’instance managée *.database.windows.net* peut être modifiée. 
+
+Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, *.contoso.com* : 
 - Utilisez CliConfig pour définir un alias. L’outil étant simplement un wrapper de paramètres du registre, cela peut aussi se faire à l'aide d'une stratégie de groupe ou d'un script.
 - Utilisez *CNAME* avec l’option *TrustServerCertificate = true*.
 
@@ -125,24 +129,24 @@ Utilisez l’option **Coûts cumulés**, puis filtrez en fonction du **type de r
 
 **Comment puis-je définir des règles de groupe de sécurité réseau entrantes sur les ports de gestion ?**
 
-La fonctionnalité pare-feu intégré configure le pare-feu de Windows sur toutes les machines virtuels du cluster pour autoriser les connexions entrantes à partir de plages d’adresses IP associés uniquement aux machines de déploiement de la gestion de Microsoft et les stations de travail administrateur sécurisées et empêcher ainsi que intrusions via la couche réseau.
+Le plan de contrôle de l’instance managée gère les règles NSG qui protègent les ports de gestion.
 
-Voici pourquoi les ports sont utilisés :
+Voici pourquoi les ports de gestion sont utilisés :
 
 Les ports 9000 et 9003 sont utilisés par l’infrastructure de Service Fabric. Le rôle de principal de Service Fabric consiste à garder le cluster virtuel et conserver l’état d’objectif en termes de nombre de réplicas de composant.
 
 Les ports 1438, 1440 et 1452 sont utilisés par l’agent de nœud. L’agent de nœud est une application qui s’exécute à l’intérieur du cluster et est utilisée par le plan de contrôle pour exécuter des commandes de gestion.
 
-En plus du pare-feu intégré sur la couche réseau, la communication est également protégée par des certificats.
+En plus des règles NSG, le pare-feu intégré protège l’instance sur la couche réseau. Sur la couche application, la communication est protégée à l’aide des certificats.
   
 Pour plus d’informations et pour savoir comment vérifier le pare-feu intégré, voir [Pare-feu intégré de l’instance gérée Azure SQL Database](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 
-## <a name="mitigate-network-risks"></a>Atténuer les risques liés au réseau  
+## <a name="mitigate-data-exfiltration-risks"></a>Atténuer les risques liés à l’exfiltration de données  
 
-**Comment puis-je atténuer les risques de mise en réseau ?**
+**Comment atténuer les risques liés à l’exfiltration de données ?**
 
-Afin d’atténuer les risques liés à la mise en réseau, il est recommandé aux clients d’appliquer un ensemble de paramètres et de contrôles de sécurité :
+Afin d’atténuer les risques liés à l’exfiltration de données, il est recommandé aux clients d’appliquer un ensemble de paramètres et de contrôles de sécurité :
 
 - Activez [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) sur toutes les bases de données.
 - Désactivez Common Language Runtime (CLR). Cela est recommandé localement également.
@@ -180,19 +184,19 @@ La configuration DNS est actualisée par la suite :
 Comme solution de contournement, rétrogradez l’instance gérée à 4 vCore et mettez-la à niveau à nouveau par la suite. Ceci a pour effet secondaire d’actualiser la configuration DNS.
 
 
-## <a name="static-ip-address"></a>Adresse IP statique
+## <a name="ip-address"></a>Adresse IP
+
+**Puis-je me connecter à une instance managée à l’aide d’une adresse IP ?**
+
+La connexion à une instance managée à l’aide d’une adresse IP n’est pas prise en charge. Le nom d’hôte de l’instance managée est mappé à l’équilibreur de charge devant le cluster virtuel de l’instance managée. Comme un cluster virtuel peut héberger plusieurs instances managées, la connexion ne peut pas être acheminée vers l’instance managée appropriée si son nom n’est pas spécifié.
+
+Pour plus d’informations sur l’architecture de cluster virtuel d’instance managée, consultez [Architecture de la connectivité du cluster virtuel](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture).
 
 **Une instance managée peut-elle avoir une adresse IP statique ?**
 
 Dans des situations rares mais nécessaires, nous pourrions avoir besoin de faire une migration en ligne d’une instance gérée vers un nouveau cluster virtuel. Si nécessaire, cette migration est due à des changements dans notre pile technologique visant à améliorer la sécurité et la fiabilité du service. La migration vers un nouveau cluster virtuel entraîne la modification de l’adresse IP associée au nom d’hôte de l’instance gérée. Le service d’instance gérée ne réclame pas le support des adresses IP statiques et se réserve le droit de les modifier sans préavis dans le cadre des cycles de maintenance réguliers.
 
 Pour cette raison, nous déconseillons fortement de se fier à l’immuabilité de l’adresse IP car cela pourrait causer des temps d’arrêt inutiles.
-
-## <a name="moving-mi"></a>Déplacement d’une instance managée
-
-**Puis-je déplacer une instance managée ou son réseau virtuel vers un autre groupe de ressources ?**
-
-Non, il s’agit de la limite actuelle de la plateforme. Après la création d’une instance managée, le déplacement de l’instance managée ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
 
 ## <a name="change-time-zone"></a>Changer le fuseau horaire
 

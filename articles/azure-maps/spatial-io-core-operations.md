@@ -1,19 +1,19 @@
 ---
 title: Opérations d’E/S principales | Microsoft Azure Maps
 description: Découvrez comment lire et écrire efficacement des données XML et délimitées à l’aide de bibliothèques principales à partir du module d’E/S spatiales.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d2a82fd5d9ba958fd6490a83ecbbe0a4bdf820a0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370360"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371438"
 ---
 # <a name="core-io-operations"></a>Opérations d’E/S principales
 
@@ -47,7 +47,7 @@ Pour utiliser cette classe, procédez comme suit :
 - Créez une instance de la classe et définissez éventuellement un qualificateur de texte ou un délimiteur personnalisé.
 - Écrivez des données dans la classe à l’aide de la fonction `write` ou de la fonction `writeRow`. Pour la fonction `write`, transmettez un tableau d’objets à deux dimensions représentant plusieurs lignes et cellules. Pour utiliser la fonction `writeRow`, transmettez un tableau d’objets représentant une ligne de données avec plusieurs colonnes.
 - Appelez la fonction `toString` pour récupérer la chaîne délimitée. 
-- Éventuellement, appelez la méthode `clear` pour rendre l’enregistreur réutilisable et réduire son allocation de ressources ou appelez la méthode `delete` pour supprimer l’instance de l’enregistreur.
+- Éventuellement, appelez la méthode `clear` pour rendre l’enregistreur réutilisable et réduire son allocation de ressources ou appelez la méthode `delete` pour supprimer l’instance d'enregistreur.
 
 > [!Note]
 > Le nombre de colonnes écrites sera restreint au nombre de cellules de la première ligne des données transmises à l’enregistreur.

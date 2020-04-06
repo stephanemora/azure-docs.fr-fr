@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 58e7eea487c5d00a33338a592dd064072bef3c64
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78926690"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348876"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -27,15 +27,15 @@ ms.locfileid: "78926690"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -147,15 +147,13 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
          1. Adresse IP 10.0.0.5 pour NW2
             * Répéter les étapes ci-dessus pour NW2
       1. Créer les pools principaux
-         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW1
+         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS
             1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-            1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
+            1. Entrer le nom du nouveau pool principal (par exemple **nw-backend**)
             1. Sélectionnez Réseau virtuel.
             1. Cliquer sur Ajouter une machine virtuelle
             1. Sélectionnez les machines virtuelles du cluster NFS et leurs adresses IP.
             1. Cliquez sur Ajouter.
-         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW2
-            * Répéter les étapes ci-dessus pour créer un pool principal pour NW2
       1. Créer les sondes d’intégrité
          1. Port 61000 pour NW1
             1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
@@ -167,7 +165,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
       1. Règles d’équilibrage de charge
          1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
          1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **nw1-lb**).
-         1. Sélectionner l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple, **nw1-frontend**, **nw1-backend** et **nw1-hp**).
+         1. Sélectionner l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple, **nw1-frontend**, **nw-backend** et **nw1-hp**)
          1. Sélectionnez **Ports HA**.
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
@@ -183,15 +181,13 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
          1. Adresse IP 10.0.0.5 pour NW2
             * Répéter les étapes ci-dessus pour NW2
       1. Créer les pools principaux
-         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW1
+         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS
             1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-            1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
+            1. Entrer le nom du nouveau pool principal (par exemple **nw-backend**)
             1. Cliquer sur Ajouter une machine virtuelle
             1. Sélectionner le groupe à haute disponibilité créé précédemment
             1. Sélectionner les machines virtuelles du cluster NFS
             1. Cliquez sur OK
-         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW2
-            * Répéter les étapes ci-dessus pour créer un pool principal pour NW2
       1. Créer les sondes d’intégrité
          1. Port 61000 pour NW1
             1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
@@ -468,9 +464,9 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
    Lorsque vous utilisez drbd pour synchroniser les données entre 2 hôtes, un syndrome Split-Brain peut se produire. Il s’agit d’un scénario au cours duquel les 2 nœuds de cluster promeuvent l’appareil drbd en tant qu’instance principale et se désynchronisent. S’il s’agit d’un problème rare, vous avez tout intérêt à le résoudre dans les meilleurs délais. Par conséquent, il est important d’être prévenu de la survenue d’un Split-Brain.
 
-   Consultez la [documentation officielle drbd](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) pour savoir comment configurer une notification de Split-Brain.
+   Consultez la [documentation officielle drbd](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) pour savoir comment configurer une notification de Split-Brain.
 
-   Il est également possible de récupérer automatiquement à partir d’un scénario de Split-Brain. Pour plus d’informations, consultez la page [Automatic split brain recovery policies](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration) (Stratégies de récupération automatique à partir des scénarios de Split-Brain).
+   Il est également possible de récupérer automatiquement à partir d’un scénario de Split-Brain. Pour plus d’informations, consultez la page [Automatic split brain recovery policies](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration) (Stratégies de récupération automatique à partir des scénarios de Split-Brain).
    
 ### <a name="configure-cluster-framework"></a>Configurer le framework du cluster
 
@@ -478,9 +474,9 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
    > [!IMPORTANT]
    > Des tests récents ont révélé des cas où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à ne gérer qu’une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
-   > Pour des clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat. Actuellement, nous vous recommandons d’utiliser l’agent de ressources azure-lb, qui fait partie du package resource-agents, avec la configuration requise suivante pour la version du package :
-   > - Pour SLES 12 SP4/SP5, la version doit être au minimum resource-agents-4.3.018.a7fb5035-3.30.1.  
-   > - Pour SLES 15/15 SP1, la version doit être au minimum resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat. Actuellement, nous vous recommandons d'utiliser l'agent de ressources azure-lb, qui fait partie du package resource-agents, avec la configuration requise suivante pour la version du package :
+   > - Pour SLES 12 SP4/SP5, la version minimum est resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - Pour SLES 15/15 SP1, la version minimum est resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Notez que la modification nécessitera un bref temps d’arrêt.  
    > Pour les clusters Pacemaker existants, si la configuration a déjà été modifiée pour utiliser socat comme décrit à la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), il n’est pas nécessaire de passer immédiatement à l’agent de ressources azure-lb.
@@ -574,6 +570,8 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo crm configure colocation col-<b>NW2</b>_nfs_on_drbd inf: \
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
+
+   L’option `crossmnt` dans les ressources de cluster `exportfs` est présente dans notre documentation pour la compatibilité descendante avec les anciennes versions de SLES.  
 
 1. **[1]** Désactiver le mode de maintenance
    

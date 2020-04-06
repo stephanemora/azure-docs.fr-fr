@@ -14,12 +14,12 @@ ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c99a6e018edd0806daac7cd429135e522f217f23
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: d5f83fa040de501adf3afa523086e100244fa619
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159826"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331785"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](how-to-connect-install-express.md) ne convient pas à votre déploiement ou à votre topologie.
@@ -246,16 +246,16 @@ La configuration d’AD FS avec Azure AD Connect est simple et s’effectue en q
 
 * Un serveur Windows Server 2012 R2 ou version ultérieure pour le serveur de fédération avec la gestion distante activée
 * Un serveur Windows Server 2012 R2 ou version ultérieure pour le serveur proxy d’application web avec la gestion distante activée
-* Un certificat SSL pour le nom de service de fédération que vous prévoyez d’utiliser (par exemple, sts.contoso.com)
+* Un certificat TLS/SSL pour le nom de service de fédération que vous prévoyez d’utiliser (par exemple, sts.contoso.com)
 
 >[!NOTE]
->Vous pouvez mettre à jour le certificat SSL de la batterie de serveurs AD FS à l’aide du logiciel Azure AD Connect et ce, même si vous le l’utilisez pas pour gérer l’approbation de votre fédération.
+>Vous pouvez mettre à jour le certificat TLS/SSL de la batterie de serveurs AD FS à l’aide du logiciel Azure AD Connect et ce, même si vous ne l’utilisez pas pour gérer l’approbation de votre fédération.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Conditions préalables à la configuration AD FS
 Pour configurer votre batterie AD FS avec Azure AD Connect, vérifiez que WinRM est activé sur les serveurs distants. Vérifiez que vous avez effectué les autres tâches dans les [conditions préalables de la fédération](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). En outre, passez en revue les exigences en matière de ports répertoriées dans le [Tableau 3 : Azure AD Connect et serveurs de fédération/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Création d’une batterie de serveurs AD FS ou utilisation d’une batterie de serveurs AD FS existante
-Vous pouvez utiliser une batterie de serveurs AD FS existante ou en créer une. Si vous choisissez de créer une batterie de serveurs, vous devez fournir le certificat SSL. Si ce dernier est protégé par un mot de passe, vous devez fournir ce mot de passe.
+Vous pouvez utiliser une batterie de serveurs AD FS existante ou en créer une. Si vous choisissez de créer une batterie de serveurs, vous devez fournir le certificat TLS/SSL. Si ce dernier est protégé par un mot de passe, vous êtes invité à entrer ce mot de passe.
 
 ![Batterie de serveurs ADFS](./media/how-to-connect-install-custom/adfs1.png)
 
@@ -320,7 +320,7 @@ Lorsque vous sélectionnez le domaine à fédérer, Azure AD Connect vous fourni
 ## <a name="configuring-federation-with-pingfederate"></a>Configuration de la fédération avec PingFederate
 La configuration de PingFederate avec Azure AD Connect est simple et s’effectue en quelques clics seulement. En revanche, les prérequis suivants sont indispensables.
 - PingFederate 8.4 ou version ultérieure.  Pour plus d’informations, consultez [Intégration de PingFederate à Azure Active Directory et Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
-- Un certificat SSL pour le nom de service de fédération que vous prévoyez d’utiliser (par exemple, sts.contoso.com)
+- Un certificat TLS/SSL pour le nom de service de fédération que vous prévoyez d’utiliser (par exemple, sts.contoso.com)
 
 ### <a name="verify-the-domain"></a>Vérifier le domaine
 Après avoir sélectionné la fédération avec PingFederate, vous êtes invité à vérifier le domaine que vous voulez fédérer.  Sélectionnez le domaine dans la liste déroulante.

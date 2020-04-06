@@ -3,22 +3,22 @@ title: Déployer un modèle avec un jeton SAS en toute sécurité
 description: Déployez des ressources sur Azure avec un modèle Azure Resource Manager protégé par un jeton SAP. Affiche Azure PowerShell et Azure CLI.
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d30e685c35f33b6fc5d3872b9287e45190ad5713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476307"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156393"
 ---
-# <a name="deploy-private-resource-manager-template-with-sas-token"></a>Déployer un modèle Resource Manager privé avec un jeton SAP
+# <a name="deploy-private-arm-template-with-sas-token"></a>Déployer un modèle privé ARM avec un jeton SAS
 
-Lorsque votre modèle se trouve dans un compte de stockage, vous pouvez restreindre l’accès au modèle pour éviter de l’exposer publiquement. Vous accédez à un modèle sécurisé en créant un jeton de signature d’accès partagé (SAS) pour le modèle et en fournissant ce jeton pendant le déploiement. Cet article explique comment utiliser Azure PowerShell ou Azure CLI pour déployer un modèle avec un jeton SAP.
+Lorsque votre modèle Azure Resource Manager (ARM) se trouve dans un compte de stockage, vous pouvez restreindre l’accès au modèle pour éviter de l’exposer publiquement. Vous accédez à un modèle sécurisé en créant un jeton de signature d’accès partagé (SAS) pour le modèle et en fournissant ce jeton pendant le déploiement. Cet article explique comment utiliser Azure PowerShell ou Azure CLI pour déployer un modèle avec un jeton SAP.
 
 ## <a name="create-storage-account-with-secured-container"></a>Créer un compte de stockage avec un conteneur sécurisé
 
 Le script suivant crée un compte de stockage et un conteneur avec l’accès public désactivé.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -37,7 +37,7 @@ New-AzStorageContainer `
   -Permission Off
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create \
@@ -65,7 +65,7 @@ az storage container create \
 
 Maintenant, vous pouvez charger votre modèle dans le compte de stockage. Indiquez le chemin d’accès au modèle que vous souhaitez utiliser.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzStorageBlobContent `
@@ -73,7 +73,7 @@ Set-AzStorageBlobContent `
   -File c:\Templates\azuredeploy.json
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az storage blob upload \
@@ -93,7 +93,7 @@ Pour déployer un modèle dans un compte de stockage privé, générez un jeton 
 > L’objet blob contenant le modèle n’est accessible qu’au propriétaire du compte. Toutefois, lorsque vous créez un jeton SAP pour l’objet blob, celui-ci est accessible à toute personne ayant cet URI. Si un autre utilisateur intercepte l’URI, il pourra accéder au modèle. Un jeton SAP est un bon moyen de limiter l’accès à vos modèles, mais vous ne devez pas inclure de données sensibles comme des mots de passe directement dans le modèle.
 >
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 # get the URI with the SAS token
@@ -109,7 +109,7 @@ New-AzResourceGroupDeployment `
   -TemplateUri $templateuri
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -129,7 +129,7 @@ url=$(az storage blob url \
     --name azuredeploy.json \
     --output tsv \
     --connection-string $connection)
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```
@@ -140,5 +140,5 @@ Pour accéder à un exemple d’utilisation d’un jeton SAP avec des modèles l
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour une introduction au déploiement de modèles, voir [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](deploy-powershell.md).
+* Pour une introduction au déploiement de modèles, voir [Déployer des ressources à l’aide de modèles ARM et d’Azure PowerShell](deploy-powershell.md).
 * Pour définir des paramètres dans le modèle, consultez [Création de modèles](template-syntax.md#parameters).

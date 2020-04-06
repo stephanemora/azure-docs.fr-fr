@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422235"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473521"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès dans Azure App Service #
 
@@ -42,7 +42,7 @@ La liste affiche l’ensemble des restrictions actuelles de votre application. S
 
 ## <a name="adding-ip-address-rules"></a>Ajout de règles d’adresses IP
 
-Vous pouvez cliquer sur **[+] Ajouter** pour ajouter une nouvelle règle de restriction d’accès. Quand vous ajoutez une règle, celle-ci est appliquée immédiatement. Les règles sont appliquées par ordre de priorité, du chiffre le moins élevé au chiffre le plus élevé. Il existe une règle implicite « Tout refuser » qui s’applique dès que vous ajoutez une règle.
+Vous pouvez cliquer sur **[+] Ajouter une règle** pour ajouter une nouvelle règle de restriction d’accès. Quand vous ajoutez une règle, celle-ci est appliquée immédiatement. Les règles sont appliquées par ordre de priorité, du chiffre le moins élevé au chiffre le plus élevé. Il existe une règle implicite « Tout refuser » qui s’applique dès que vous ajoutez une règle.
 
 Lorsque vous créez une règle, vous devez sélectionner autoriser/refuser, ainsi que le type de règle. Vous devez également indiquer la valeur de priorité et l’élément sur lequel porte la restriction d’accès.  Vous pouvez éventuellement ajouter un nom et une description à la règle.  
 
@@ -76,7 +76,7 @@ Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre r
 
 ## <a name="blocking-a-single-ip-address"></a>Bloquer une adresse IP unique ##
 
-Lorsque vous ajoutez votre première règle de restriction IP, le service ajoute une règle **tout refuser** ayant la priorité 2147483647. Dans la pratique, la règle explicite **Tout refuser** est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle **Autoriser**.
+Lorsque vous ajoutez votre première règle de restriction IP, le service ajoute une règle **Tout refuser** ayant la priorité 2147483647. Dans la pratique, la règle explicite **Tout refuser** est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle **Autoriser**.
 
 Lorsque les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter une règle explicite **Tout autoriser**.
 
@@ -127,7 +127,7 @@ La syntaxe JSON de l’exemple précédent est la suivante :
 
 ## <a name="azure-function-app-access-restrictions"></a>Restrictions d’accès dans Azure Function App
 
-Les restrictions d’accès sont disponibles pour les deux Function Apps avec la même fonctionnalité que les plans App Service. L’activation des restrictions d’accès désactive l’éditeur de code du portail pour les adresses IP non autorisées.
+Les restrictions d’accès sont également disponibles pour les applications de fonctions avec la même fonctionnalité que les plans App Service. L’activation des restrictions d’accès désactive l’éditeur de code du portail pour les adresses IP non autorisées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Restrictions d’accès pour Azure Function Apps](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

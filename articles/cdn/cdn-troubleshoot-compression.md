@@ -3,8 +3,8 @@ title: Résolution des problèmes de compression de fichiers dans Azure CDN | Mi
 description: Résolvez les problèmes de compression des fichiers CDN Azure.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: sohamnc
+manager: danielgi
 editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: azure-cdn
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5195dc3c47d2a4377147b2ef49b23bab6b3fee77
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: aff2dadee365fcdc7e14070714aa1d2cbba901ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593319"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476421"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Résolution des problèmes de compression des fichiers CDN
 Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).
@@ -36,12 +36,13 @@ La compression pour votre point de terminaison est activée, mais les fichiers s
 > 
 > 
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 Il existe plusieurs causes possibles, y compris :
 
 * Le contenu demandé n’est pas éligible pour la compression.
 * La compression n’est pas activée pour le type de fichier demandé.
 * La requête HTTP ne comprenait pas un en-tête demandant un type de compression valide.
+* L’origine envoie du contenu segmenté.
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage
 > [!TIP]

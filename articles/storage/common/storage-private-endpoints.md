@@ -1,31 +1,34 @@
 ---
-title: Utilisation de points de terminaison privés avec Stockage Azure | Microsoft Docs
+title: Utiliser des points de terminaison privés
+titleSuffix: Azure Storage
 description: Vue d’ensemble des points de terminaison privés pour un accès sécurisé aux comptes de stockage à partir de réseaux virtuels.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252644"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299054"
 ---
-# <a name="using-private-endpoints-for-azure-storage-preview"></a>Utilisation de points de terminaison privés pour Stockage Azure (préversion)
+# <a name="use-private-endpoints-for-azure-storage"></a>Utiliser des points de terminaison privés pour Stockage Azure
 
 Vous pouvez utiliser des [points de terminaison privés](../../private-link/private-endpoint-overview.md) pour vos comptes Stockage Azure afin de permettre aux clients d’un réseau virtuel (VNet) d’accéder en toute sécurité aux données via une liaison [Private Link](../../private-link/private-link-overview.md). Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre service de compte de stockage. Le trafic réseau entre les clients sur le réseau virtuel et le compte de stockage traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public.
 
 L’utilisation de points de terminaison privés pour votre compte de stockage vous permet d’effectuer les opérations suivantes :
+
 - Sécurisez votre compte de stockage en configurant le pare-feu de stockage pour bloquer toutes les connexions sur le point de terminaison public pour le service de stockage.
 - Améliorez la sécurité du réseau virtuel en vous permettant de bloquer l’exfiltration des données à partir du réseau virtuel.
 - Connectez-vous en toute sécurité aux comptes de stockage à partir de réseaux locaux qui se connectent au réseau virtuel à l’aide de [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [d’ExpressRoutes](../../expressroute/expressroute-locations.md) avec le peering privé.
 
-## <a name="conceptual-overview"></a>Vue d’ensemble conceptuelle
+## <a name="conceptual-overview"></a>Vue d'ensemble conceptuelle
+
 ![Vue d’ensemble des points de terminaison privés pour Stockage Azure](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
 Un point de terminaison privé est une interface réseau spéciale pour un service Azure dans votre [réseau virtuel](../../virtual-network/virtual-networks-overview.md). Lorsque vous créez un point de terminaison privé pour votre compte de stockage, il offre une connectivité sécurisée entre les clients sur votre réseau virtuel et votre stockage. Une adresse IP est attribuée au point de terminaison privé à partir de la plage d’adresses IP de votre réseau virtuel. La connexion entre le point de terminaison privé et le service de stockage utilise une liaison privée.
@@ -43,7 +46,7 @@ Les propriétaires de comptes de stockage peuvent gérer les demandes de consent
 
 Vous pouvez sécuriser votre compte de stockage pour accepter uniquement les connexions à partir de votre réseau virtuel, en [configurant le pare-feu de stockage](storage-network-security.md#change-the-default-network-access-rule) afin de refuser l’accès via son point de terminaison public par défaut. Vous n’avez pas besoin d’une règle de pare-feu pour autoriser le trafic à partir d’un réseau virtuel doté d’un point de terminaison privé, puisque le pare-feu de stockage contrôle uniquement l’accès via le point de terminaison public. Les points de terminaison privés reposent plutôt sur le flux de consentement pour accorder l’accès aux sous-réseaux au service de stockage.
 
-### <a name="private-endpoints-for-storage-service"></a>Points de terminaison privés pour le service de stockage
+### <a name="private-endpoints-for-azure-storage"></a>Points de terminaison privés pour Stockage Azure
 
 Lorsque vous créez le point de terminaison privé, vous devez spécifier le compte de stockage et le service de stockage auxquels il se connecte. Vous avez besoin d’un point de terminaison privé distinct pour chaque service de stockage dans un compte de stockage auquel vous devez accéder, à savoir [Objets Blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Fichiers](../files/storage-files-introduction.md), [Files d’attente](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) ou [Sites web statiques](../blobs/storage-blob-static-website.md).
 
@@ -51,8 +54,6 @@ Lorsque vous créez le point de terminaison privé, vous devez spécifier le com
 > Créez un point de terminaison privé distinct pour l’instance secondaire du service de stockage afin d’améliorer les performances de lecture sur les comptes RA-GRS.
 
 Pour accéder en lecture à la région secondaire avec un compte de stockage configuré pour le stockage géoredondant, vous devez disposer de points de terminaison privés distincts pour les instances principale et secondaire du service. Vous n’avez pas besoin de créer un point de terminaison privé pour l’instance secondaire pour le **basculement**. Le point de terminaison privé se connecte automatiquement à la nouvelle instance principale après le basculement. Pour plus d'informations sur les options de redondance du stockage, consultez [Redondance du Stockage Azure](storage-redundancy.md).
-
-#### <a name="resources"></a>Ressources
 
 Pour plus d’informations sur la création d’un point de terminaison privé pour votre compte de stockage, reportez-vous aux articles suivants :
 
@@ -111,8 +112,6 @@ Les noms des zones DNS recommandés pour les points de terminaison privés pour 
 | Service Table          | `privatelink.table.core.windows.net` |
 | Sites web statiques        | `privatelink.web.core.windows.net`   |
 
-#### <a name="resources"></a>Ressources
-
 Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
 
 - [Résolution de noms pour des ressources dans les réseaux virtuels Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
@@ -124,16 +123,23 @@ Pour plus d’informations sur les tarifs, consultez [Tarification Liaison priv�
 
 ## <a name="known-issues"></a>Problèmes connus
 
+Gardez à l’esprit les problèmes connus suivants concernant les points de terminaison privés pour le Stockage Azure.
+
 ### <a name="copy-blob-support"></a>Prise en charge de la copie Blob
 
-Pendant la préversion, nous ne prenons pas en charge les commandes [Copier Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) émises sur les comptes de stockage accessibles via des points de terminaison privés lorsque le compte de stockage source est protégé par un pare-feu.
+Si le compte de stockage est protégé par un pare-feu et accessible via des points de terminaison privés, ce compte ne peut pas faire office de source dans le cadre d'une opération [Copie d'un objet blob](/rest/api/storageservices/copy-blob).
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Contraintes d’accès au stockage pour les clients dans des réseaux virtuels avec des points de terminaison privés
 
-Les clients dans réseaux virtuels avec des points de terminaison privés existants sont soumis à des contraintes lors de l’accès à d’autres comptes de stockage qui ont des points de terminaison privés. Par exemple, supposons qu’un réseau virtuel N1 possède un point de terminaison privé pour un compte de stockage A1 pour, par exemple, le service Blob. Si le compte de stockage A2 possède un point de terminaison privé dans un réseau virtuel N2 pour le service Blob, les clients dans le réseau virtuel N1 doivent également accéder au service Blob du compte A2 à l’aide d’un point de terminaison privé. Si le compte de stockage A2 ne possède pas de points de terminaison privés pour le service Blob, les clients dans le réseau virtuel N1 peuvent accéder à son service Blob sans point de terminaison privé.
+Les clients dans réseaux virtuels avec des points de terminaison privés existants sont soumis à des contraintes lors de l’accès à d’autres comptes de stockage qui ont des points de terminaison privés. Par exemple, supposons qu’un réseau virtuel N1 possède un point de terminaison privé pour un compte de stockage A1 pour le stockage Blob. Si le compte de stockage A2 possède un point de terminaison privé dans un réseau virtuel N2 pour le stockage Blob, les clients dans le réseau virtuel N1 doivent également accéder au stockage Blob du compte A2 à l’aide d’un point de terminaison privé. Si le compte de stockage A2 ne possède pas de points de terminaison privés pour le stockage Blob, les clients dans le réseau virtuel N1 peuvent accéder au stockage Blob de ce compte sans point de terminaison privé.
 
 Cette contrainte résulte des modifications DNS effectuées lorsque le compte A2 crée un point de terminaison privé.
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Règles de groupe de sécurité réseau pour les sous-réseaux avec des points de terminaison privés
 
 Actuellement, vous ne pouvez pas configurer de règles de [groupe de sécurité réseau](../../virtual-network/security-overview.md) (NSG, Network Security Group) ni de routes définies par l’utilisateur pour des points de terminaison privés. Les règles NSG appliquées au sous-réseau hébergeant le point de terminaison privé sont appliquées au point de terminaison privé. Une solution de contournement limitée pour ce problème consiste à implémenter vos règles d’accès pour les points de terminaison privés sur les sous-réseaux sources, bien que cette approche puisse nécessiter une charge de gestion supérieure.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Configurer des pare-feu et des réseaux virtuels dans Stockage Azure](storage-network-security.md)
+- [Recommandations de sécurité pour Stockage Blob](../blobs/security-recommendations.md)

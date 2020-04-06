@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: c12aaea1dbc99a3f6db064e03b4b49e569f15194
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189056"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80371618"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notes de publication : Kit de développement logiciel (SDK) Speech Devices
 
@@ -58,7 +58,7 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 **Dernières modifications**
 
 - En raison de la nouvelle technologie de mot clé, tous les mots clés doivent être recréés sur notre portail de mots clés améliorés. Pour supprimer complètement les anciens mots-clés de l’appareil, désinstallez l’ancienne application.
-  - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
+  - adb uninstall com.microsoft.cognitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="speech-devices-sdk-140-2019-apr-release"></a>SDK Speech Devices 1.4.0 : version d’avril 2019
 

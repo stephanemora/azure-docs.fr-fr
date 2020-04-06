@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820128"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurer l’accélérateur de solution Usine connectée
@@ -267,7 +267,7 @@ Les propriétés de cette catégorie définissent l’apparence visuelle du tabl
 * Nom
 * Description
 * Image
-* Location
+* Emplacement
 * Units
 * Visible
 
@@ -291,7 +291,7 @@ Les objets du nœud OPC UA des postes activent le balisage pour une utilisation 
 L’Usine connectée prend en charge un mécanisme de génération d’alertes basé sur un seuil minimal/maximal simple. Il existe un certain nombre d’actions prédéfinies, que vous pouvez configurer en réponse à ces alertes. Les propriétés suivantes contrôlent ce mécanisme :
 
 * Maximale
-* Minimale
+* Minimum
 * MaximumAlertActions
 * MinimumAlertActions
 
@@ -309,7 +309,7 @@ Pour certaines opérations, telles que la visualisation de la dernière valeur o
 
 Pour plus d’informations sur la façon dont les données de télémétrie sont intégrées à l’Usine connectée, consultez [Définition d’OPC Publisher](overview-opc-publisher.md).
 
-## <a name="example-how-kpi1-is-calculated"></a>Exemple : Mode de calcul de KPI1
+## <a name="example-how-kpi1-is-calculated"></a>Exemple : Mode de calcul de KPI1
 
 La configuration du fichier `ContosoTopologyDescription.json` contrôle la façon dont les valeurs de l’OEE/du KPI sont calculées. L’exemple suivant montre comment les propriétés de ce fichier contrôlent le calcul de KPI1.
 

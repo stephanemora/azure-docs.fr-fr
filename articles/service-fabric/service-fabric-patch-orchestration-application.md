@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 3115c65c7027f5624b7b60b9be702ee4192d8cb6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 857a4da0b24d600ecc572933af578e2e8faf501a
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464450"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366317"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -63,7 +63,7 @@ POA est composé des sous-éléments suivants :
 > [!NOTE]
 > POA utilise le service Gestionnaire des réparations Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par POA suit la progression de l’exécution de Windows Update pour chaque nœud.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 > [!NOTE]
 > La version minimale de .NET Framework requise est la version 4.6.
@@ -401,7 +401,7 @@ A : Le temps nécessaire pour appliquer un correctif à un cluster entier dépe
 
 - La stratégie du service Coordinateur. La stratégie par défaut, « NodeWise », entraîne l’application d’un correctif à un seul nœud à la fois, une approche plus lente que l’utilisation de « UpgradeDomainWise ». 
 
-   Par exemple :  Si l’application d’un correctif à un nœud prend environ 1 heure, pour appliquer un correctif à un cluster de 20 nœuds (du même type) avec 5 domaines de mise à jours, contenant 4 nœuds chacun :
+   Par exemple : Si l’application d’un correctif à un nœud prend environ 1 heure, pour appliquer un correctif à un cluster de 20 nœuds (du même type) avec 5 domaines de mise à jours, contenant 4 nœuds chacun :
     - Pour « NodeWise » : environ 20 heures.
     - Pour « UpgradeDomainWise » : environ 5 heures.
 
@@ -432,6 +432,10 @@ Il est également possible que la mise à jour corrective des nœuds soit bloqu�
 **Q : Pourquoi le nœud doit-il être désactivé lorsque POA lui applique une mise à jour corrective ?**
 
 A : POA désactive le nœud avec l’intention *Redémarrer*, ce qui arrête ou réalloue tous les services Azure Service Fabric qui s’exécutent sur le nœud. POA fait cela pour éviter que les applications utilisent un mélange de nouvelles DLL et d’anciennes DLL. Il est donc recommandé de désactiver un nœud avant d’y installer un correctif.
+
+**Q : Quel est le nombre maximal de nœuds pouvant être mis à jour à l’aide de POA ?**
+
+A : POA utilise le Gestionnaire des réparations Service Fabric pour créer des tâches de réparation pour les nœuds à des fins de mise à jour. Cela étant, un maximum de 250 tâches de réparation peuvent être présentes en même temps. Actuellement, POA crée des tâches de réparation pour chaque nœud simultanément et dès lors, POA ne peut mettre à jour plus de 250 nœuds dans un cluster. 
 
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 

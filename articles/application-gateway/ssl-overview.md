@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 9c4e6124acdbb35233f8e829f43d2665fd4a5176
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75657979"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284804"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Présentation de la terminaison SSL et du chiffrement SSL de bout en bout sur la passerelle Application Gateway
 
@@ -43,7 +43,7 @@ Pour que la connexion SSL fonctionne, assurez-vous que le certificat SSL remplit
 Application Gateway prend en charge les types de certificat suivants :
 
 - Certificat délivré par une autorité de certification (CA) : Un certificat CA est un certificat numérique émis par une autorité de certification (CA).
-- Certificat EV (à validation étendue) : Un certificat EV est un certificat numérique répondant aux directives standards du secteur. La barre de recherche du navigateur devient verte et le nom de la société s’affiche.
+- Certificat EV (à validation étendue) : Un certificat EV est un certificat conforme aux directives standard du secteur. La barre de recherche du navigateur devient verte et le nom de la société s’affiche.
 - Certificat générique : Ce certificat prend en charge un nombre quelconque de sous-domaines basés sur *.site.com, adresse dans laquelle l’astérisque correspond au sous-domaine. Cependant, il ne prend pas en charge l’adresse site.com ; ainsi, le certificat numérique ne gère pas le cas où un utilisateur accède à votre site web sans avoir saisi « www » au début de l’adresse.
 - Certificats auto-signés : Les navigateurs clients ne font pas confiance à ces certificats et avertiront l’utilisateur que le certificat du service virtuel ne fait pas partie d’une chaîne d’approbation. Les certificats auto-signés conviennent pour les tests ou les environnements dans lesquels les administrateurs contrôlent les clients et peuvent ignorer en toute sécurité les alertes de sécurité du navigateur. Les charges de travail de production ne doivent jamais utiliser de certificats auto-signés.
 

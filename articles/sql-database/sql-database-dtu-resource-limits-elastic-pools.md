@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 3f6bbef8f274c5efb99d5b98961450aa7b001527
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264863"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351006"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 
@@ -40,13 +40,17 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 | Espace de stockage inclus par pool (Go) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Choix de l’espace de stockage maximal par pool (Go) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
-| Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
-| Nombre maximal d’ouvriers simultanés (demandes) par pool | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
-| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Nombre maximal de bases de données par pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Nombre maximal de workers (demandes) simultanés par pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
+| Nombre maximal de sessions simultanées par pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Choix du nombre minimal d’eDTU par base de données | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Choix du nombre maximal d’eDTU par base de données | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Espace de stockage maximal par base de données (Go) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
+
+<sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](sql-database-elastic-pool-resource-management.md) pour obtenir des considérations supplémentaires.
+
+<sup>2</sup> Afin de connaître le nombre maximal de workers (demandes) simultanés pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ### <a name="standard-elastic-pool-limits"></a>Limites du pool élastique standard
 
@@ -55,13 +59,17 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 | Espace de stockage inclus par pool (Go) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Choix de l’espace de stockage maximal par pool (Go) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1 024 | 300, 500, 750, 1 204, 1 280 | 400, 500, 750, 1 024, 1 280, 1 536 | 800, 1 024, 1 280, 1 536, 1 792, 2 048 |
 | Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A | N/A |
-| Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 |
-| Nombre maximal d’ouvriers simultanés (demandes) par pool | 100 | 200 | 400 | 600 | 800 | 1 600 |
-| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Nombre maximal de bases de données par pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
+| Nombre maximal de workers (demandes) simultanés par pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1 600 |
+| Nombre maximal de sessions simultanées par pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Choix du nombre minimal d’eDTU par base de données | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Choix du nombre maximal d’eDTU par base de données | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Espace de stockage maximal par base de données (Go) | 500 | 750 | 1 024 | 1 024 | 1 024 | 1 024 |
 ||||||||
+
+<sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](sql-database-elastic-pool-resource-management.md) pour obtenir des considérations supplémentaires.
+
+<sup>2</sup> Afin de connaître le nombre maximal de workers (demandes) simultanés pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ### <a name="standard-elastic-pool-limits-continued"></a>Limites du pool élastique standard (suite)
 
@@ -70,13 +78,17 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 | Espace de stockage inclus par pool (Go) | 1200 | 1 600 | 2000 | 2 500 | 3000 |
 | Choix de l’espace de stockage maximal par pool (Go) | 1 200, 1 280, 1 536, 1792, 2 048, 2 304, 2 560 | 1 600, 1 792, 2 048, 2 304, 2 560, 2 816, 3 072 | 2 000, 2 048, 2 304, 2 560, 2 816, 3 072, 3 328, 3 584 | 2 500, 2 560, 2 816, 3 072, 3 328, 3 584, 3 840, 4 096 | 3 000, 3 072, 3 328, 3 584, 3 840, 4 096 |
 | Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A |
-| Nombre maximal de bases de données par pool | 500 | 500 | 500 | 500 | 500 |
-| Nombre maximal d’ouvriers simultanés (demandes) par pool | 2 400 | 3200 | 4000 | 5 000 | 6000 |
-| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Nombre maximal de bases de données par pool <sup>1</sup> | 500 | 500 | 500 | 500 | 500 |
+| Nombre maximal de workers (demandes) simultanés par pool <sup>2</sup> | 2 400 | 3200 | 4000 | 5 000 | 6000 |
+| Nombre maximal de sessions simultanées par pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Choix du nombre minimal d’eDTU par base de données | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Choix du nombre maximal d’eDTU par base de données | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Choix de l’espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
 |||||||
+
+<sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](sql-database-elastic-pool-resource-management.md) pour obtenir des considérations supplémentaires.
+
+<sup>2</sup> Afin de connaître le nombre maximal de workers (demandes) simultanés pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ### <a name="premium-elastic-pool-limits"></a>Limites du pool élastique Premium
 
@@ -85,13 +97,17 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 | Espace de stockage inclus par pool (Go) | 250 | 500 | 750 | 1 024 | 1536 |
 | Choix de l’espace de stockage maximal par pool (Go) | 250, 500, 750, 1 024 | 500, 750, 1 024 | 750, 1 024 | 1 024 | 1536 |
 | Stockage OLTP en mémoire maximal par pool (Go) | 1 | 2 | 4 | 10 | 12 |
-| Nombre maximal de bases de données par pool | 50 | 100 | 100 | 100 | 100 |
-| Nombre maximal d’ouvriers simultanés par pool (demandes) | 200 | 400 | 800 | 1 600 | 2 400 |
-| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Nombre maximal de bases de données par pool <sup>1</sup> | 50 | 100 | 100 | 100 | 100 |
+| Nombre maximal de workers simultanés par pool (demandes) <sup>2</sup> | 200 | 400 | 800 | 1 600 | 2 400 |
+| Nombre maximal de sessions simultanées par pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Nombre minimal d’eDTU par base de données | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Nombre maximal d’eDTU par base de données | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
 |||||||
+
+<sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](sql-database-elastic-pool-resource-management.md) pour obtenir des considérations supplémentaires.
+
+<sup>2</sup> Afin de connaître le nombre maximal de workers (demandes) simultanés pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Limites du pool élastique Premium (suite)
 
@@ -100,13 +116,17 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 | Espace de stockage inclus par pool (Go) | 2 048 | 2560 | 3 072 | 3 548 | 4096 |
 | Choix de l’espace de stockage maximal par pool (Go) | 2 048 | 2560 | 3 072 | 3 548 | 4096|
 | Stockage OLTP en mémoire maximal par pool (Go) | 16 | 20 | 24 | 28 | 32 |
-| Nombre maximal de bases de données par pool | 100 | 100 | 100 | 100 | 100 |
-| Nombre maximal d’ouvriers simultanés (demandes) par pool | 3200 | 4000 | 4 800 | 5600 | 6 400 |
-| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Nombre maximal de bases de données par pool <sup>1</sup> | 100 | 100 | 100 | 100 | 100 |
+| Nombre maximal de workers (demandes) simultanés par pool <sup>2</sup> | 3200 | 4000 | 4 800 | 5600 | 6 400 |
+| Nombre maximal de sessions simultanées par pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Choix du nombre minimal d’eDTU par base de données | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Choix du nombre maximal d’eDTU par base de données | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
 |||||||
+
+<sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](sql-database-elastic-pool-resource-management.md) pour obtenir des considérations supplémentaires.
+
+<sup>2</sup> Afin de connaître le nombre maximal de workers (demandes) simultanés pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](sql-database-vcore-resource-limits-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 > [!IMPORTANT]
 > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).

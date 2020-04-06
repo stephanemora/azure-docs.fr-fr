@@ -5,23 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 93e487063944801129090d6b9952143b8df887da
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163326"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154421"
 ---
 # <a name="web-api"></a>API Web
 
@@ -45,24 +43,24 @@ L’identité d’application et l’identité d’utilisateur délégué sont d
 1. Un utilisateur est connecté à Azure AD dans l’application web (voir la section **Applications web** pour plus d’informations).
 1. L’application web doit obtenir un jeton d’accès pour pouvoir s’authentifier auprès de l’API web et extraire la ressource souhaitée. Elle envoie une requête au point de terminaison de jeton d’Azure AD, avec les informations d’identification, l’ID d’application et l’URI ID d’application de l’API web.
 1. Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.
-1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « porteur » dans l’en-tête d’autorisation de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
+1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « Bearer » (Porteur) dans l’en-tête « Authorization » (Autorisation) de la requête adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>Identité d’utilisateur délégué avec OpenID Connect
 
 1. Un utilisateur est connecté à une application web via Azure AD (voir la section Navigateur web vers application web ci-dessus). Si l’utilisateur de l’application web n’a pas encore consenti à autoriser l’application web à appeler l’API web en son nom, il doit donner son consentement. L’application affiche les autorisations nécessaires et, si certaines d’entre elles sont des autorisations administrateur, un utilisateur normal de l’annuaire ne peut pas donner le consentement. Ce processus de consentement s’applique uniquement aux applications mutualisées, pas aux applications à client unique, car l’application a déjà les autorisations nécessaires. Quand l’utilisateur s’est connecté, l’application web a reçu un jeton d’ID avec les informations sur l’utilisateur, ainsi qu’un code d’autorisation.
-1. À l’aide du code d’autorisation émis par Azure AD, l’application web envoie une demande au point de terminaison de jeton d’Azure AD. Celle-ci comprend le code d’autorisation, des détails sur l’application cliente (ID d’application et URI de redirection) et la ressource souhaitée (URI ID d’application de l’API web).
+1. À l’aide du code d’autorisation émis par Azure AD, l’application web envoie une requête au point de terminaison de jeton d’Azure AD. Celle-ci comprend le code d’autorisation, des détails sur l’application cliente (ID d’application et URI de redirection) et la ressource souhaitée (URI ID d’application de l’API web).
 1. Le code d’autorisation et les informations sur l’application web et l’API web sont validés par Azure AD. Si la validation réussit, Azure AD renvoie deux jetons : un jeton d’accès JWT et un jeton d’actualisation JWT.
-1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « porteur » dans l’en-tête d’autorisation de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
+1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « Bearer » (Porteur) dans l’en-tête « Authorization » (Autorisation) de la requête adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
 
 ### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Identité d’utilisateur délégué avec octroi de code d’autorisation OAuth 2.0
 
 1. Un utilisateur est déjà connecté à une application web, dont le mécanisme d’authentification est indépendant d’Azure AD.
-1. L’application web a besoin d’un code d’autorisation pour obtenir un jeton d’accès et adresse donc une demande au point de terminaison d’autorisation d’Azure AD via le navigateur, en indiquant l’ID d’application et l’URI de redirection de l’application web une fois l’authentification réussie. L’utilisateur se connecte à Azure AD.
+1. L’application web a besoin d’un code d’autorisation pour obtenir un jeton d’accès et adresse donc une requête au point de terminaison d’autorisation d’Azure AD via le navigateur, en indiquant l’ID d’application et l’URI de redirection de l’application web une fois l’authentification réussie. L’utilisateur se connecte à Azure AD.
 1. Si l’utilisateur de l’application web n’a pas encore consenti à autoriser l’application web à appeler l’API web en son nom, il doit donner son consentement. L’application affiche les autorisations nécessaires et, si certaines d’entre elles sont des autorisations administrateur, un utilisateur normal de l’annuaire ne peut pas donner le consentement. Ce consentement s’applique à l’application unique et multi-locataire. Dans le cas d’un client unique, un administrateur peut effectuer le consentement d’administrateur pour consentir pour le compte de leurs utilisateurs. Cela est possible à l’aide du bouton `Grant Permissions` situé dans le [portail Azure](https://portal.azure.com). 
 1. Une fois que l’utilisateur a donné son consentement, l’application web reçoit le code d’autorisation dont elle a besoin pour obtenir un jeton d’accès.
-1. À l’aide du code d’autorisation émis par Azure AD, l’application web envoie une demande au point de terminaison de jeton d’Azure AD. Celle-ci comprend le code d’autorisation, des détails sur l’application cliente (ID d’application et URI de redirection) et la ressource souhaitée (URI ID d’application de l’API web).
+1. À l’aide du code d’autorisation émis par Azure AD, l’application web envoie une requête au point de terminaison de jeton d’Azure AD. Celle-ci comprend le code d’autorisation, des détails sur l’application cliente (ID d’application et URI de redirection) et la ressource souhaitée (URI ID d’application de l’API web).
 1. Le code d’autorisation et les informations sur l’application web et l’API web sont validés par Azure AD. Si la validation réussit, Azure AD renvoie deux jetons : un jeton d’accès JWT et un jeton d’actualisation JWT.
-1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « porteur » dans l’en-tête d’autorisation de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
+1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « Bearer » (Porteur) dans l’en-tête « Authorization » (Autorisation) de la requête adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
 
 ## <a name="code-samples"></a>Exemples de code
 

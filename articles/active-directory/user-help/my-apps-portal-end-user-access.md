@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a5dae30c8b8f43602581b39005389211da83cb9e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022271"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80347170"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Se connecter et démarrer des applications à partir du portail Mes applications
 
@@ -69,7 +69,8 @@ Téléchargez et installez l’extension en fonction du navigateur que vous util
 
 - **Mozilla Firefox** Sur la page des **extensions Firefox**, accédez à la fonctionnalité [Extension de connexion sécurisée à Mes applications](https://addons.mozilla.org/firefox/addon/access-panel-extension/), puis sélectionnez **Ajouter Firefox**.
 
-- **Microsoft Edge** Dans le Microsoft Store, accédez à la fonctionnalité **Extension de connexion sécurisée à Mes applications**, puis sélectionnez [Obtenir](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab).
+- **Microsoft Edge** Dans le Microsoft Store, accédez à la fonctionnalité [Extension de connexion sécurisée à Mes applications](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab), puis sélectionnez **Obtenir** du navigateur hérité Microsoft Edge.  
+Si vous utilisez le nouveau navigateur Microsoft Edge (Edge sur Chromium), vous pouvez accéder à l'extension depuis [Microsoft Edge Addons Store](https://microsoftedge.microsoft.com/addons/category/EdgeExtensionsEditorsPick).
 
 Une icône est ajoutée à droite de votre barre d’**adresse**, vous permettant de vous connecter et de personnaliser l’extension.
 

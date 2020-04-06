@@ -1,32 +1,49 @@
 ---
-title: Appeler des points de terminaison HTTP et HTTPS
-description: Envoyer des requêtes sortantes à des points de terminaison HTTP et HTTPS avec Azure Logic Apps
+title: Appeler des points de terminaison de service à l’aide de HTTP ou HTTPS
+description: Envoyer des requêtes HTTP ou HTTPS sortantes aux points de terminaison de service à partir d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117970"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297194"
 ---
-# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envoyer des appels sortants à des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS à partir d'Azure Logic Apps
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur ou l’action HTTP intégrés, vous pouvez créer des tâches et des workflows automatisés qui envoient régulièrement des requêtes à un point de terminaison HTTP ou HTTPS quelconque. Pour recevoir et répondre aux appels HTTP ou HTTPS entrants, utilisez le [déclencheur de requête ou l’action Réponse](../connectors/connectors-native-reqres.md) intégrés.
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur ou l’action HTTP intégrés, vous pouvez créer des tâches et des workflows automatisés qui envoient des requêtes à des points de terminaison de service via HTTP ou HTTPS. Par exemple, vous pouvez surveiller le point de terminaison de service pour votre site web en vérifiant ce point de terminaison selon une planification spécifique. Lorsque l'événement spécifié se produit au niveau de ce point de terminaison, comme une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions dans ce workflow. Pour recevoir et répondre aux appels HTTP ou HTTPS entrants, utilisez le [déclencheur de requête ou l’action Réponse](../connectors/connectors-native-reqres.md) intégrés.
 
-Par exemple, vous pouvez surveiller le point de terminaison de service pour votre site web en vérifiant ce point de terminaison selon une planification définie. Lorsqu’un événement se produit au niveau de ce point de terminaison, tel qu’une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions spécifiées.
+> [!NOTE]
+> En fonction des capacités du point de terminaison cible, le connecteur HTTP prend en charge les versions 1.0, 1.1 et 1.2 du protocole TLS (Transport Layer Security). Logic Apps négocie avec le point de terminaison en utilisant la version prise en charge la plus récente possible. Si, par exemple, le point de terminaison prend en charge la version 1.2, le connecteur commence par utiliser celle-ci. Sinon, le connecteur utilise la version prise en charge juste inférieure.
 
-Vous pouvez utiliser le déclencheur HTTP comme première étape de votre flux de travail pour vérifier ou *interroger* un point de terminaison selon une planification régulière. À chaque vérification, le déclencheur envoie un appel ou une *demande* au point de terminaison. La réponse du point de terminaison détermine si le flux de travail de votre application logique s’exécute. Le déclencheur transmet le contenu de la réponse aux actions de votre application logique.
+Vous pouvez *ajouter le déclencheur HTTP* comme première étape de votre workflow pour vérifier ou [interroger](#http-trigger) un point de terminaison selon une planification récurrente. Chaque fois que le déclencheur vérifie le point de terminaison, il appelle ou envoie une *requête* au point de terminaison. La réponse du point de terminaison détermine si le flux de travail de votre application logique s’exécute. Le déclencheur transmet le contenu de la réponse du point de terminaison aux actions de votre application logique.
 
-Vous pouvez utiliser l’action HTTP comme toute autre étape de votre flux de travail pour appeler le point de terminaison quand vous le souhaitez. La réponse du point de terminaison détermine la façon dont s’exécutent les actions restantes de votre flux de travail.
+Pour appeler un point de terminaison à partir de n’importe quel autre emplacement de votre workflow, [ajoutez l’action HTTP](#http-action). La réponse du point de terminaison détermine la façon dont s’exécutent les actions restantes de votre flux de travail.
 
-En fonction des capacités du point de terminaison cible, le connecteur HTTP prend en charge les versions 1.0, 1.1 et 1.2 du protocole TLS (Transport Layer Security). Logic Apps négocie avec le point de terminaison en utilisant la version prise en charge la plus récente possible. Si, par exemple, le point de terminaison prend en charge la version 1.2, le connecteur commence par utiliser celle-ci. Sinon, le connecteur utilise la version prise en charge juste inférieure.
+> [!IMPORTANT]
+> Si un déclencheur HTTP ou une action contient les en-têtes ci-dessous, Logic Apps les supprime du message de requête généré sans afficher d’avertissement ou d’erreur :
+>
+> * `Accept-*`
+> * `Allow`
+> * `Content-*` à ces exceptions près : `Content-Disposition`, `Content-Encoding` et `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Si Logic Apps ne vous empêche pas d’enregistrer des applications logiques ayant un déclencheur ou une action HTTP contenant ces en-têtes, le service les ignore.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+Cet article explique comment ajouter un déclencheur ou une action HTTP au workflow de votre application logique.
+
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -36,13 +53,15 @@ En fonction des capacités du point de terminaison cible, le connecteur HTTP pre
 
 * L’application logique à partir de laquelle vous souhaitez appeler le point de terminaison cible. Pour démarrer avec un déclencheur HTTP, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser l’action HTTP, démarrez votre application logique avec le déclencheur de votre choix. Cet exemple utilise le déclencheur HTTP en tant que première étape.
 
+<a name="http-trigger"></a>
+
 ## <a name="add-an-http-trigger"></a>Ajouter un déclencheur HTTP
 
 Ce déclencheur intégré effectue un appel HTTP vers l’URL spécifiée d’un point de terminaison et renvoie une réponse.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’application logique.
 
-1. Sous **Choisir une action**, dans la zone de recherche, entrez « http » en guise de filtre. Dans la liste **Déclencheurs**, sélectionnez le déclencheur **HTTP**.
+1. Dans la zone de recherche du concepteur, sélectionnez **Intégré**. Dans la zone de recherche, entrez `http` en guise de filtre. Dans la liste **Déclencheurs**, sélectionnez le déclencheur **HTTP**.
 
    ![Sélectionner le déclencheur HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -63,6 +82,8 @@ Ce déclencheur intégré effectue un appel HTTP vers l’URL spécifiée d’un
 
 1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
+<a name="http-action"></a>
+
 ## <a name="add-an-http-action"></a>Ajouter une action HTTP
 
 Cette action intégrée effectue un appel HTTP à l’URL spécifiée d’un point de terminaison et renvoie une réponse.
@@ -75,7 +96,7 @@ Cette action intégrée effectue un appel HTTP à l’URL spécifiée d’un poi
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-1. Sous **Choisir une action**, dans la zone de recherche, entrez « http » en guise de filtre. Dans la liste **Actions**, sélectionnez **HTTP**.
+1. Sous **Choisir une action**, sélectionnez **Intégré**. Dans la zone de recherche, entrez `http` en guise de filtre. Dans la liste **Actions**, sélectionnez **HTTP**.
 
    ![Sélection de l’action HTTP](./media/connectors-native-http/select-http-action.png)
 

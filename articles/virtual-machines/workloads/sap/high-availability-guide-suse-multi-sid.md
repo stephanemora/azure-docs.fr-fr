@@ -13,20 +13,22 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 3e9634b9121cb0ecbcfb01f6ad58984d90ec28e5
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 793851780e1154b6b6a21c88ea8cae063a277790
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927253"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350057"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
+
+[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
@@ -84,7 +86,7 @@ Avant de commencer, reportez-vous aux notes et documents SAP suivants :
 * [Guides sur les meilleures pratiques pour SUSE SAP HA][suse-ha-guide] Les guides contiennent toutes les informations nécessaires pour configurer la réplication locale des systèmes Netweaver HP et SAP HANA. Utilisez ces guides comme planning de référence. Ils fournissent des informations beaucoup plus détaillées.
 * [Notes de publication de SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 * [Guide du cluster multi-SID SUSE pour SLES 12 et SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
-
+* [Applications SAP NetApp su Microsoft Azure avec Azure NetApp Files][anf-sap-applications-azure]
 ## <a name="overview"></a>Vue d’ensemble
 
 Les machines virtuelles participant au cluster doivent être dimensionnées de manière à exécuter toutes les ressources, en cas de basculement. Chaque SID SAP peut basculer indépendamment des autres dans le cluster à haute disponibilité multi-SID.  Si vous utilisez l'isolation SBD, les appareils SBD peuvent être partagés entre plusieurs clusters.  
@@ -109,8 +111,6 @@ La liste suivante présente la configuration de l’équilibreur de charge (A)SC
   * Adresse IP pour NW1 :  10.3.1.14
   * Adresse IP pour NW2 :  10.3.1.16
   * Adresse IP pour NW3 :  10.3.1.13
-* Configuration du backend
-  * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Ports d'analyse
   * Port 620<strong>&lt;nr&gt;</strong>, par conséquent pour NW1, NW2 et NW3 ports d'analyse 620**00**, 620**10** et 620**20**
 * Règles d’équilibrage de charge - 
@@ -131,8 +131,6 @@ La liste suivante présente la configuration de l’équilibreur de charge (A)SC
   * Adresse IP pour NW1 10.3.1.15
   * Adresse IP pour NW2 10.3.1.17
   * Adresse IP pour NW3 10.3.1.19
-* Configuration du backend
-  * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
   * Port 621<strong>&lt;Nr&gt;</strong>, par conséquent pour NW1, NW2 et N# ports d'analyse 621**02**, 621**12** et 621**22**
 * Règles d’équilibrage de charge - créez-en une pour chaque instance, à savoir NW1/ERS, NW2/ERS et NW3/ERS.
@@ -143,6 +141,9 @@ La liste suivante présente la configuration de l’équilibreur de charge (A)SC
     * TCP 5<strong>&lt;nr&gt;</strong>13
     * TCP 5<strong>&lt;nr&gt;</strong>14
     * TCP 5<strong>&lt;nr&gt;</strong>16
+
+* Configuration du backend
+  * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 
 
 > [!Note]
@@ -246,9 +247,9 @@ Cette documentation suppose ce qui suit :
 
    > [!IMPORTANT]
    > Des tests récents ont révélé des cas où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à ne gérer qu’une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
-   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat. Actuellement, nous vous recommandons d’utiliser l’agent de ressources azure-lb, qui fait partie du package resource-agents, avec la configuration requise suivante pour la version du package :
-   > - Pour SLES 12 SP4/SP5, la version doit être au minimum resource-agents-4.3.018.a7fb5035-3.30.1.  
-   > - Pour SLES 15/15 SP1, la version doit être au minimum resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat. Actuellement, nous vous recommandons d'utiliser l'agent de ressources azure-lb, qui fait partie du package resource-agents, avec la configuration requise suivante pour la version du package :
+   > - Pour SLES 12 SP4/SP5, la version minimum est resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - Pour SLES 15/15 SP1, la version minimum est resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Notez que la modification nécessitera un bref temps d’arrêt.  
    > Pour les clusters Pacemaker existants, si la configuration a déjà été modifiée pour utiliser socat comme décrit à la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), il n’est pas nécessaire de passer immédiatement à l’agent de ressources azure-lb.

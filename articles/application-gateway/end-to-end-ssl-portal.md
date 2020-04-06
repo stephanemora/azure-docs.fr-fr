@@ -1,7 +1,7 @@
 ---
-title: Configurer le chiffrement SSL de bout en bout à l’aide du portail
+title: Configurer le chiffrement TLS de bout en bout à l’aide du portail
 titleSuffix: Azure Application Gateway
-description: Découvrez comment utiliser le portail Azure pour créer une passerelle d’application avec chiffrement SSL de bout en bout.
+description: Découvrez comment utiliser le portail Azure pour créer une passerelle d’application avec chiffrement TLS de bout en bout.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: a878b966266bdd326db35d266bc14b2f81161e92
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6f86f32e64bbbe79ea5a403d04f7d6c29ee6b980
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075139"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133011"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurer le chiffrement SSL de bout en bout avec Application Gateway et le portail
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurer le chiffrement TLS de bout en bout avec Application Gateway et le portail
 
-Cet article explique comment utiliser le portail Azure pour configurer un chiffrement SSL (Secure Sockets Layer) de bout en bout par le biais du SKU Azure Application Gateway v1.
+Cet article explique comment utiliser le portail Azure pour configurer un chiffrement TLS (Transport Layer Security), anciennement chiffrement SSL (Secure Sockets Layer), de bout en bout par le biais de la référence SKU Azure Application Gateway v1.
 
 > [!NOTE]
 > Application Gateway v2 requiert des certificats racine approuvés pour permettre la configuration de bout en bout.
@@ -27,19 +27,19 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour configurer le protocole SSL de bout en bout avec une passerelle d’application, vous avez besoin d’un certificat pour la passerelle. Les certificats sont également exigés pour les serveurs back-end. Le certificat de passerelle est utilisé pour dériver une clé symétrique conformément aux spécifications du protocole SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. 
+Pour configurer le protocole TLS de bout en bout avec une passerelle d’application, vous avez besoin d’un certificat pour la passerelle. Les certificats sont également exigés pour les serveurs back-end. Le certificat de passerelle est utilisé pour dériver une clé symétrique conformément aux spécifications du protocole TLS. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. 
 
-Pour le chiffrement SSL de bout en bout, les serveurs back-end appropriés doivent être autorisés dans la passerelle d’application. Pour autoriser cet accès, chargez le certificat public des serveurs back-end, aussi appelés certificats d’authentification (v1) ou certificats racines approuvés (v2), sur la passerelle d’application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur back-end connues. Cette configuration renforce la sécurité de la communication de bout en bout.
+Pour le chiffrement TLS de bout en bout, les serveurs back-end appropriés doivent être autorisés dans la passerelle d’application. Pour autoriser cet accès, chargez le certificat public des serveurs back-end, aussi appelés certificats d’authentification (v1) ou certificats racines approuvés (v2), sur la passerelle d’application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur back-end connues. Cette configuration renforce la sécurité de la communication de bout en bout.
 
-Pour plus d’information, consultez [Arrêt SSL et SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+Pour plus d’informations, consultez [Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
 
-## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Créer une passerelle d’application avec SSL de bout en bout
+## <a name="create-a-new-application-gateway-with-end-to-end-tls"></a>Créer une passerelle d’application avec TLS de bout en bout
 
-Pour créer une passerelle d’application avec chiffrement SSL de bout en bout, vous devez d’abord activer un arrêt SSL lors de la création d’une passerelle d’application. Cette action active le chiffrement SSL pour la communication entre le client et la passerelle d’application. Ensuite, vous devez placer dans la liste des destinataires approuvés les certificats des serveurs back-end indiqués dans les paramètres HTTP. Cette configuration active le chiffrement SSL pour la communication entre la passerelle d’application et les serveurs back-end. Ainsi est effectué le chiffrement SSL de bout en bout.
+Pour créer une passerelle d’application avec chiffrement TLS de bout en bout, vous devez d’abord activer un arrêt TLS lors de la création d’une passerelle d’application. Cette action active le chiffrement TLS pour la communication entre le client et la passerelle d’application. Ensuite, vous devez placer dans la liste des destinataires approuvés les certificats des serveurs back-end indiqués dans les paramètres HTTP. Cette configuration active le chiffrement TLS pour la communication entre la passerelle d’application et les serveurs back-end. Ainsi est effectué le chiffrement TLS de bout en bout.
 
-### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Activer l’arrêt SSL lors de la création d’une passerelle d’application
+### <a name="enable-tls-termination-while-creating-a-new-application-gateway"></a>Activer l’arrêt TLS lors de la création d’une passerelle d’application
 
-Pour en savoir plus, consultez [Activer l’arrêt SSL lors de la création d’une passerelle d’application](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Pour en savoir plus, consultez [Activer l’arrêt TLS lors de la création d’une passerelle d’application](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="add-authenticationroot-certificates-of-back-end-servers"></a>Ajouter des certificats d’authentification/racines des serveurs back-end
 
@@ -69,14 +69,14 @@ Pour en savoir plus, consultez [Activer l’arrêt SSL lors de la création d’
 
 8. Sélectionnez **Enregistrer**.
 
-## <a name="enable-end-to-end-ssl-for-an-existing-application-gateway"></a>Activer le protocole SSL de bout en bout pour une passerelle d’application existante
+## <a name="enable-end-to-end-tls-for-an-existing-application-gateway"></a>Activer le protocole TLS de bout en bout pour une passerelle d’application existante
 
-Pour configurer une passerelle d’application existante avec le chiffrement SSL de bout en bout, vous devez d’abord activer un arrêt SSL sur l’écouteur. Cette action active le chiffrement SSL pour la communication entre le client et la passerelle d’application. Ensuite, placez ces certificats pour les serveurs back-end dans les paramètres HTTP, dans la liste des destinataires approuvés. Cette configuration active le chiffrement SSL pour la communication entre la passerelle d’application et les serveurs back-end. Ainsi est effectué le chiffrement SSL de bout en bout.
+Pour configurer une passerelle d’application existante avec le chiffrement TLS de bout en bout, vous devez d’abord activer un arrêt TLS sur l’écouteur. Cette action active le chiffrement TLS pour la communication entre le client et la passerelle d’application. Ensuite, placez ces certificats pour les serveurs back-end dans les paramètres HTTP, dans la liste des destinataires approuvés. Cette configuration active le chiffrement TLS pour la communication entre la passerelle d’application et les serveurs back-end. Ainsi est effectué le chiffrement TLS de bout en bout.
 
-Vous devez utiliser un écouteur avec le protocole HTTPS et un certificat pour activer l’arrêt SSL. Vous pouvez soit utiliser un écouteur existant qui remplit ces conditions, soit créer un écouteur. Si vous choisissez la première option, vous pouvez ignorer la section « Activer l’arrêt SSL dans une passerelle d’application existante » pour passer directement à la section « Ajouter des certificats d’authentification/racines approuvés pour des serveurs back-end ».
+Vous devez utiliser un écouteur avec le protocole HTTPS et un certificat pour activer l’arrêt TLS. Vous pouvez soit utiliser un écouteur existant qui remplit ces conditions, soit créer un écouteur. Si vous choisissez la première option, vous pouvez ignorer la section « Activer l’arrêt TLS dans une passerelle d’application existante » pour passer directement à la section « Ajouter des certificats d’authentification/racines approuvés pour des serveurs back-end ».
 
 Si vous choisissez la seconde option, appliquez les étapes de la procédure suivante.
-### <a name="enable-ssl-termination-in-an-existing-application-gateway"></a>Activer l’arrêt SSL dans une passerelle d’application existante
+### <a name="enable-tls-termination-in-an-existing-application-gateway"></a>Activer l’arrêt TLS dans une passerelle d’application existante
 
 1. Sélectionnez **Toutes les ressources**, puis **myAppGateway**.
 
@@ -86,7 +86,7 @@ Si vous choisissez la seconde option, appliquez les étapes de la procédure sui
 
 4. Sous **Protocole**, sélectionnez **HTTPS**. Un volet de **certificat** s’affiche.
 
-5. Chargez le certificat PFX que vous souhaitez utiliser pour l’arrêt SSL entre le client et la passerelle d’application.
+5. Chargez le certificat PFX que vous souhaitez utiliser pour l’arrêt TLS entre le client et la passerelle d’application.
 
    > [!NOTE]
    > Dans le cadre d’un test, vous pouvez utiliser un certificat auto-signé. Toutefois, ces derniers ne sont pas recommandés pour les charges de travail de production, car elles sont plus difficiles à gérer et ne sont pas entièrement sécurisées. Pour plus d’informations, consultez [Créer un certificat auto-signé](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).

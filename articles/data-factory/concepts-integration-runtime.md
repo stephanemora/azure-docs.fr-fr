@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/26/2020
+ms.openlocfilehash: 4077e1e00b606480ec93feacbad3c841c0de1ed9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357218"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336177"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -88,7 +88,7 @@ Si vous souhaitez intégrer vos données en toute sécurité dans un environneme
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d'intégration auto-hébergé
 Le runtime d’intégration auto-hébergé doit être installé sur un ordinateur local ou une machine virtuelle à l’intérieur d’un réseau privé. Actuellement, nous prenons uniquement en charge l’exécution du runtime d’intégration auto-hébergé sur un système d’exploitation Windows.  
 
-Pour obtenir un runtime d’intégration hautement disponible et évolutif, vous pouvez augmenter la taille des instances du runtime d’intégration auto-hébergé en associant l’instance logique avec plusieurs ordinateurs locaux en mode actif/actif.  Pour en savoir plus, consultez l’article [Comment créer et configurer le runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md) sous Procédures.
+Pour obtenir un runtime d’intégration hautement disponible et évolutif, vous pouvez effectuer un scale-out du runtime d’intégration auto-hébergé en associant l’instance logique avec plusieurs ordinateurs locaux en mode actif/actif.  Pour en savoir plus, consultez l’article [Comment créer et configurer le runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md) sous Procédures.
 
 ## <a name="azure-ssis-integration-runtime"></a>Runtime d’intégration Azure SSIS
 Pour effectuer une opération lift-and-shift sur la charge de travail SSIS existante, vous pouvez créer un runtime d’intégration Azure SSIS pour exécuter les packages SSIS en mode natif.
@@ -103,10 +103,10 @@ Pour en savoir plus, consultez l’article « Comment créer et configurer le ru
 
 Pour plus d’informations sur le runtime Azure-SSIS, voir les articles suivants : 
 
-- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
+- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer une instance Azure-SSIS Integration Runtime qui utilise une instance Azure SQL Database pour héberger le catalogue SSIS. 
 - [Procédure : Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le tutoriel et fournit des instructions sur la façon d’utiliser Azure SQL Database Managed Instance et de joindre le runtime d’intégration à un réseau virtuel. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Surveiller le runtime d’intégration Azure-SSIS). Cet article explique comment récupérer des informations sur un runtime d’intégration Azure-SSIS ainsi que des descriptions d’état dans les informations renvoyées. 
-- [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment le faire évoluer en lui ajoutant des nœuds supplémentaires. 
+- [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment effectuer un scale-out en lui ajoutant des nœuds supplémentaires. 
 - [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure. Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
 
 ## <a name="integration-runtime-location"></a>Emplacement du runtime d’intégration
@@ -117,9 +117,17 @@ L’emplacement du runtime d’intégration définit l’emplacement de son calc
 ### <a name="azure-ir-location"></a>Emplacement du runtime d'intégration Azure
 Vous pouvez définir l’emplacement spécifique d’un runtime d'intégration Azure, auquel cas le déplacement des données ou la distribution d’activité se fera dans cette région spécifique. 
 
-Si vous choisissez d’utiliser la **résolution automatique du runtime d’intégration Azure**, définie par défaut, 
+>[!TIP]
+>Si vos exigences en termes de conformité des données sont strictes et que vous avez besoin de vous assurer que les données restent dans une certaine zone géographique, vous pouvez explicitement créer un runtime d'intégration Azure dans une région donnée et diriger le service lié vers ce runtime d'intégration via la propriété ConnectVia. Par exemple, si vous voulez copier des données depuis Blob dans la région Sud du Royaume-Uni vers SQL DW dans la région Sud du Royaume-Uni et souhaitez vous assurer que les données ne quittent pas le Royaume-Uni, créez un runtime d'intégration dans la région Royaume-Uni Sud et liez les deux services liés à ce runtime.
 
-- Pour une activité de copie, ADF fera au mieux pour détecter automatiquement votre récepteur et banque de données source afin de choisir le meilleur emplacement, que ce soit dans la même région si disponible ou dans région la plus proche dans la même zone géographique. S’ils ne sont pas détectables, il utilisera la région de la fabrique de données comme alternative.
+Si vous choisissez d’utiliser la **résolution automatique d’Azure Integration Runtime**, définie par défaut, 
+
+- Pour une activité de copie, ADF fera au mieux pour détecter automatiquement l'emplacement du magasin de données de votre récepteur, puis utiliser l'IR dans la même région si disponible ou dans région la plus proche dans la même zone géographique ; si la région du magasin de données du récepteur ne peut être détectée, l'IR de la région de la fabrique de donnée est utilisé comme alternative.
+
+  Par exemple, votre fabrique est créée dans la région USA Est, 
+  
+  - Lorsque vous copiez des données vers un objet blob Azure dans la région USA Ouest, si ADF a détecté l’objet blob situé dans la région USA Ouest, l’activité de copie est exécutée sur l’IR dans cette région ; si la détection de la région échoue, l’activité de copie est exécutée sur l’IR de la région USA Est.
+  - Lorsque vous copiez des données vers Salesforce et que la région n’est pas détectable, l’activité de copie est exécutée sur l'IR de la région USA Est.
 
 - Pour l’exécution de l’activité Lookup/GetMetadata/Delete (également connue sous le nom d’activités Pipeline), la répartition de l’activité de transformation (également connue sous le nom d’activités externes) et les opérations de création (tester la connexion, dresser la liste des dossiers et des tables, prévisualiser les données), ADF utilise le runtime d’intégration dans la région Data factory.
 
@@ -130,9 +138,6 @@ Si vous choisissez d’utiliser la **résolution automatique du runtime d’int�
 
 Vous pouvez surveiller quel emplacement du runtime d'intégration prend effet lors de l’exécution de l’activité dans la vue de surveillance de l’activité du pipeline sur l’interface utilisateur, ou dans la charge utile de la surveillance de l’activité.
 
->[!TIP]
->Si vos exigences en termes de conformité des données sont strictes et que vous avez besoin de vous assurer que les données restent dans une certaine zone géographique, vous pouvez explicitement créer un runtime d'intégration Azure dans une région donnée et diriger le service lié vers ce runtime d'intégration via la propriété ConnectVia. Par exemple, si vous voulez copier des données depuis Blob dans la région Sud du Royaume-Uni vers SQL DW dans la région Sud du Royaume-Uni et souhaitez vous assurer que les données ne quittent pas le Royaume-Uni, créez un runtime d'intégration dans la région Royaume-Uni Sud et liez les deux services liés à ce runtime.
-
 ### <a name="self-hosted-ir-location"></a>Emplacement du runtime d’intégration auto-hébergé
 Le runtime d’intégration auto-hébergé est logiquement enregistré auprès de la fabrique de données. Quant à vous, il vous revient de fournir le calcul utilisé pour prendre en charge ses fonctionnalités. Par conséquent, il n’existe aucune propriété d’emplacement explicite pour le runtime d’intégration auto-hébergé. 
 
@@ -141,7 +146,7 @@ Lorsqu’il est utilisé pour procéder au déplacement des données, le runtime
 ### <a name="azure-ssis-ir-location"></a>Emplacement du runtime d’intégration Azure SSIS
 Le choix de l’emplacement pour votre runtime d’intégration Azure SSIS est essentiel pour parvenir à un niveau de performance élevé dans vos flux de travail ETL (extraction, transformation et chargement).
 
-- L’emplacement de votre runtime d’intégration Azure-SSIS ne doit pas nécessairement être identique à l’emplacement de votre fabrique de données, mais il doit être le même que l’emplacement de votre serveur Azure SQL Database ou Managed Instance où SSISDB doit être hébergé. De cette manière, le runtime d’intégration Azure SSIS peut facilement accéder au SSISDB sans être entravé par le trafic entre les différents emplacements.
+- L’emplacement de votre instance Azure-SSIS Integration Runtime ne doit pas nécessairement être identique à l’emplacement de votre fabrique de données, mais il doit être le même que l’emplacement de votre serveur Azure SQL Database ou Managed Instance où SSISDB doit être hébergé. De cette manière, le runtime d’intégration Azure SSIS peut facilement accéder au SSISDB sans être entravé par le trafic entre les différents emplacements.
 - Si vous n’avez pas de serveur Azure SQL Database ou Managed Instance pour héberger SSISDB, mais que vous avez des sources/destinations de données locales, vous devez créer un serveur Azure SQL Database ou Managed Instance là où un réseau virtuel est connecté à votre réseau local.  Ainsi, vous pouvez créer votre runtime d’intégration Azure-SSIS en utilisant le nouveau serveur Azure SQL Database ou Managed Instance et en associant ce réseau virtuel, au même endroit, afin de réduire efficacement les déplacements de données entre les différents emplacements.
 - Si l’emplacement de votre serveur Azure SQL Database ou Managed Instance où SSISDB est hébergé n’est pas le même que l’emplacement où un réseau virtuel est connecté à votre réseau local, créez d’abord votre runtime d’intégration Azure-SSIS en utilisant Azure SQ Database ou Managed Instance et en associant un autre réseau virtuel situé au même emplacement. Ensuite, configurez une connexion entre deux réseaux virtuels situés à différents emplacements.
 
