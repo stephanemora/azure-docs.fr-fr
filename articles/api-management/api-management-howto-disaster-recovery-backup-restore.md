@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 8f748764d0f61e4932b2d4710f5a6805a5eddf0e
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: f9758678708338a284a35b45f7f9dd43b9a9017c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047465"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335955"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -139,7 +139,7 @@ Avant d’appeler les opérations de « sauvegarde et de restauration » décrit
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-### <a name="step1"> </a>Sauvegarde d’un service Gestion des API
+### <a name="back-up-an-api-management-service"></a><a name="step1"> </a>Sauvegarde d’un service Gestion des API
 
 Pour sauvegarder un service Gestion des API, envoyez la demande HTTP suivante :
 
@@ -175,7 +175,7 @@ Tenez compte des contraintes suivantes quand vous faites une demande de sauvegar
 -   Pendant la sauvegarde, **évitez toutes les modifications de gestion dans le service**, comme mettre à niveau une référence SKU ou la passer à une version antérieure, changer un nom de domaine, etc.
 -   La restauration d’une **sauvegarde n’est garantie que pendant 30 jours** à partir du moment de sa création.
 -   Les **données d’utilisation** servant à la création des rapports analytiques **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][azure api management rest api] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
--   En outre, les éléments suivants ne font pas partie des données de sauvegarde : les certificats SSL de domaine personnalisé et tous les certificats intermédiaires ou racines téléchargés par le client, le contenu du portail des développeurs et les paramètres d’intégration du réseau virtuel.
+-   En outre, les éléments suivants ne font pas partie des données de sauvegarde : les certificats TLS/SSL de domaine personnalisé et tous les certificats intermédiaires ou racines téléchargés par le client, le contenu du portail des développeurs et les paramètres d’intégration du réseau virtuel.
 -   La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Pour la réduire, nous vous conseillons d’implémenter des sauvegardes régulières et d’effectuer des sauvegardes à la demande quand vous apportez des changements à votre service Gestion des API.
 -   Les **changements** de configuration du service (par exemple, les API, les stratégies et l’apparence du portail des développeurs) pendant une opération de sauvegarde **peuvent être exclus de la sauvegarde et être perdus**.
 -   **Autorisez** l’accès depuis le plan de contrôle au compte de stockage Azure, si le [pare-feu][azure-storage-ip-firewall] est activé pour celui-ci. Le client doit ouvrir l’ensemble des [adresses IP du plan de contrôle de gestion des API Azure][control-plane-ip-address] sur son compte de stockage utilisé comme destination de sauvegarde ou source de restauration. 
@@ -183,7 +183,7 @@ Tenez compte des contraintes suivantes quand vous faites une demande de sauvegar
 > [!NOTE]
 > Si vous tentez d’effectuer des sauvegardes/restaurations à partir de/vers un service gestion des API en utilisant un compte de stockage sur lequel le [pare-feu][azure-storage-ip-firewall] est activé dans la même région Azure, ceci ne fonctionnera pas. Cela est dû au fait que les demandes adressées à Stockage Azure ne font pas l’objet d’une traduction d’adresse réseau source en adresse IP publique dans Calcul > (Plan de contrôle de gestion des API Azure). La demande de stockage inter-région fera l’objet d’une traduction d’adresse réseau source.
 
-### <a name="step2"> </a>Restauration d’un service Gestion des API
+### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restauration d’un service Gestion des API
 
 Pour restaurer un service Gestion des API à partir d’une sauvegarde créée précédemment, envoyez la demande HTTP suivante :
 

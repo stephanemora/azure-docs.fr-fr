@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/26/2020
+ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 053349996e15dbc0f58f062ffa966d0d894f5e0d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189012"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80116889"
 ---
 ## <a name="use-custom-page-content"></a>Utiliser un contenu de page personnalisé
 
@@ -72,6 +72,7 @@ Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’in
   - Prise en charge limitée pour Internet Explorer 9 et 8
   - Google Chrome 42.0 et ultérieur
   - Mozilla Firefox 38.0 et ultérieur
+  - Safari pour iOS et macOS, version 12 et versions ultérieures
 - En raison des restrictions de sécurité, Azure AD B2C ne prend pas en charge les éléments HTML `frame`, `iframe` ni `form`.
 
 ## <a name="custom-page-content-walkthrough"></a>Procédure pas à pas pour le contenu de page personnalisé
@@ -133,7 +134,7 @@ Pour créer un conteneur public dans Stockage Blob, effectuez les étapes suivan
 
 1. Sous **Service Blob** dans le menu de gauche, sélectionnez **Objets Blob**.
 1. Sélectionnez **+ Conteneur**.
-1. Pour **Nom**, entrez *root*. Cela peut être un nom de votre choix, par exemple *wingtiptoys*, mais nous utilisons *root* dans cet exemple par souci de simplicité.
+1. Pour **Nom**, entrez *root*. Il peut s’agir du nom de votre choix, par exemple *contoso*, mais nous utilisons *root* dans cet exemple par souci de simplicité.
 1. Pour **Niveau d’accès public**, sélectionnez **Objet blob**, puis **OK**.
 1. Sélectionnez **root** pour ouvrir le nouveau conteneur.
 
@@ -164,6 +165,9 @@ Configurez Stockage Blob pour le Partage des ressources cross-origin en effectu
 
 Vérifiez que vous êtes prêt en effectuant les étapes suivantes :
 
-1. Accédez à [www.test-cors.org](https://www.test-cors.org/) et collez l’URL dans le champ **URL distante**.
+1. Répétez l’étape Configuration de CORS. Dans **Origines autorisées**, entrez `https://www.test-cors.org`.
+1. Accédez à [www.test-cors.org](https://www.test-cors.org/). 
+1. Dans la zone **URL distante**, collez l’URL de votre fichier HTML. Par exemple : `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
 1. Sélectionnez **Envoyer une demande**.
+    Le résultat devrait être `XHR status: 200`. 
     Si vous recevez une erreur, assurez-vous que vos paramètres CORS sont corrects. Vous serez peut-être amené à vider le cache de votre navigateur ou à ouvrir une fenêtre de navigation privée, en appuyant sur Ctrl+Maj+P.

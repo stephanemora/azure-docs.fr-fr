@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: c1b72f2a84f8cafa1767639cae64fb420b0a997c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546042"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065941"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Événements en direct et sorties en direct dans Media Services
 
@@ -34,7 +34,7 @@ Les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevent
 
 ## <a name="live-event-types"></a>Types d’événements en direct
 
-Un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : transfert direct ou encodage en temps réel. Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype) :
+Un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être défini sur *Pass-through* (un encodeur live local envoie un flux à débit binaire multiple) ou sur *Live Encoding* (un encodeur live local envoie un flux à débit binaire unique). Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype) :
 
 * **LiveEventEncodingType.None** : Un encodeur live local envoie un flux à débit binaire multiple. Le flux reçu transite par l’événement en direct sans traitement supplémentaire. Également appelé le mode pass-through.
 * **LiveEventEncodingType.Standard** : Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. Si la résolution du flux de contribution est de 720p ou plus, la présélection **Default720p** encode un jeu de 6 paires résolution/débits.
@@ -89,7 +89,7 @@ Quand vous créez un événement en direct, vous pouvez spécifier les options s
 * Le nom de l’événement en direct peut contenir au maximum 32 caractères.
 * Le nom doit suivre ce modèle [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-Reportez-vous également aux [conventions de nommage des points de terminaison de streaming](streaming-endpoint-concept.md#naming-convention).
+Consultez également les [conventions de nommage des points de terminaison de streaming](streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > Pour garantir l’unicité du nom de votre événement en direct, vous pouvez générer un GUID, puis supprimer tous les traits d’union et les accolades (le cas échéant). La chaîne sera unique pour tous les événements en direct et sa longueur sera de 32 caractères.
@@ -107,7 +107,7 @@ Vous pouvez utiliser des URL de redirection ou de non-redirection vers un micros
 
     L’URL de non-redirection vers un microsite est le mode par défaut dans Media Services v3. Vous obtenez éventuellement l’événement en direct rapidement, mais l’URL de réception est connue uniquement quand l’événement en direct est démarré. L’URL change si vous arrêtez/démarrez l’événement en direct. <br/>La non-redirection vers un microsite est utile dans les scénarios quand un utilisateur final souhaite diffuser à l’aide d’une application là où l’application souhaite obtenir un événement en direct dès que possible et qu’une URL de réception dynamique n’est pas un problème.
 
-    Si une application client n’a pas besoin de prégénérer une URL de réception avant la création de l’événement en direct, laissez simplement Media Services générer automatiquement le jeton d’accès pour l’événement en direct.
+    Si une application cliente n’a pas besoin de prégénérer une URL de réception avant la création de l’événement en direct, laissez simplement Media Services générer automatiquement le jeton d’accès pour l’événement en direct.
 
 * URL de redirection vers un microsite
 
@@ -176,7 +176,11 @@ Une fois que le flux transite dans l’événement en direct, vous pouvez commen
 
 Pour plus d’informations sur les sorties en direct, consultez [Utiliser un magnétoscope numérique cloud](live-event-cloud-dvr.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+Consultez l’article [Foire aux questions](frequently-asked-questions.md#live-streaming).
+
+## <a name="ask-questions-and-get-updates"></a>Questions et actualités
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

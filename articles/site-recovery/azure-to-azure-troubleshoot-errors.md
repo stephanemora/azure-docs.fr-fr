@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: rochakm
-ms.openlocfilehash: 32d826f3c27cea3d0993c47e8562360315b7bd2e
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: c131609a5622061e2ea49db422bc4e9da96666d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256045"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276680"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure vers Azure
 
 Cet article explique comment résoudre les erreurs courantes rencontrées dans Azure Site Recovery pendant la réplication et la reprise d’activité de machines virtuelles Azure d’une région vers une autre. Pour plus d’informations sur les configurations prises en charge, consultez la [matrice de prise en charge pour la réplication des machines virtuelles Azure](site-recovery-support-matrix-azure-to-azure.md).
 
-## <a name="azure-resource-quota-issues-error-code-150097"></a>Problèmes liés aux quotas de ressources Azure (code d’erreur 150097)
+## <a name="azure-resource-quota-issues-error-code-150097"></a><a name="azure-resource-quota-issues-error-code-150097"></a>Problèmes liés aux quotas de ressources Azure (code d’erreur 150097)
 
 Vérifiez que votre abonnement est activé pour créer des machines virtuelles Azure dans la région cible que vous prévoyez d’utiliser comme région de reprise d’activité après sinistre. Vérifiez également que votre abonnement dispose d’un quota suffisant pour créer des machines virtuelles des tailles nécessaires. Par défaut, Site Recovery choisit une taille de machine virtuelle cible identique à celle de la machine virtuelle source. Si la taille correspondante n’est pas disponible, Site Recovery choisit automatiquement la taille disponible la plus proche.
 
@@ -38,9 +38,9 @@ Contactez le [support de facturation Azure](https://docs.microsoft.com/azure/azu
 
 Si l’emplacement cible a une contrainte de capacité, désactivez la réplication sur celui-ci. Activez ensuite la réplication sur un autre emplacement où votre abonnement dispose d’un quota suffisant pour créer des machines virtuelles des tailles nécessaires.
 
-## <a name="trusted-root-certificates-error-code-151066"></a>Certificats racines approuvés (code d’erreur 151066)
+## <a name="trusted-root-certificates-error-code-151066"></a><a name="trusted-root-certificates-error-code-151066"></a>Certificats racines approuvés (code d’erreur 151066)
 
-Si tous les certificats racines approuvés les plus récents ne sont pas présents sur la machine virtuelle, votre travail Site Recovery « Activer la réplication » peut échouer. L’authentification et l’autorisation des appels du service Site Recovery à partir de la machine virtuelle échouent sans ces certificats. 
+Si tous les certificats racines approuvés les plus récents ne sont pas présents sur la machine virtuelle, votre travail Site Recovery « Activer la réplication » peut échouer. L’authentification et l’autorisation des appels du service Site Recovery à partir de la machine virtuelle échouent sans ces certificats.
 
 Si le travail « Activer la réplication » échoue, le message suivant s’affiche :
 
@@ -164,78 +164,61 @@ Suivez les instructions fournies par le distributeur de votre version du systèm
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Connectivité sortante pour les plages d’adresses IP ou les URL Site Recovery (code d’erreur 151037 ou 151072)
 
-Pour que la réplication Site Recovery fonctionne, une connectivité sortante est nécessaire à partir de la machine virtuelle vers des URL ou des plages d’adresses IP spécifiques. Si votre machine virtuelle se trouve derrière un pare-feu ou utilise des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, vous pouvez rencontrer l’un des problèmes ci-après.
+Pour que la réplication Site Recovery fonctionne, une connectivité sortante vers des URL spécifiques est nécessaire à partir de la machine virtuelle. Si votre machine virtuelle se trouve derrière un pare-feu ou utilise des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, vous pouvez rencontrer l’un des problèmes ci-après. Notez que même si nous continuons de prendre en charge l’accès sortant via des URL, l’utilisation d’une liste verte de plages d’adresses IP n’est plus prise en charge.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problème 1 : Échec de l’inscription de la machine virtuelle Azure auprès de Site Recovery (code d’erreur 151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a><a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problème 1 : Échec de l’inscription de la machine virtuelle Azure auprès de Site Recovery (151195) </br>
+- **Cause possible** </br>
+  - Il est impossible d’établir la connexion aux points de terminaison de Site Recovery en raison de l’échec de la résolution DNS.
+  - Cela est plus fréquent pendant la reprotection lorsque vous avez procédé au basculement de la machine virtuelle, mais que le serveur DNS n’est pas accessible à partir de la région de récupération d’urgence.
 
-#### <a name="possible-cause"></a>Cause probable 
+- **Résolution :**
+   - Si vous utilisez un système DNS personnalisé, assurez-vous que le serveur DNS est accessible à partir de la région de récupération d’urgence. Pour vérifier si vous avez un système DNS personnalisé accédez à Machine virtuelle > Réseau de récupération d’urgence > Serveurs DNS. Essayez d’accéder au serveur DNS à partir de la machine virtuelle. S’il n’est pas accessible, rendez-le accessible en basculant sur le serveur DNS ou en créant la ligne du site entre le réseau de récupération d’urgence et le système DNS.
 
-Il est impossible d’établir la connexion aux points de terminaison Site Recovery en raison d’un échec de la résolution DNS.
-
-Ce problème survient le plus souvent pendant la reprotection, quand vous avez procédé au basculement de la machine virtuelle mais que le serveur DNS n’est pas accessible à partir de la région de reprise d’activité après sinistre.
-
-#### <a name="fix-the-problem"></a>Résoudre le problème
-
-Si vous utilisez un DNS personnalisé, vérifiez que le serveur DNS est accessible à partir de la région de reprise d’activité après sinistre. Pour déterminer si vous disposez d’un DNS personnalisé, sur la machine virtuelle, accédez au *réseau reprise d’activité après sinistre* > **Serveurs DNS**.
-
-![Liste des serveurs DNS personnalisés](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
-
-Essayez d’accéder au serveur DNS à partir de la machine virtuelle. Si le serveur n’est pas accessible, rendez-le accessible en effectuant un basculement du serveur DNS ou en créant la ligne de site entre le réseau de reprise d’activité après sinistre et le système DNS.
-
-### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problème2 : Échec de la configuration de Site Recovery (code d’erreur 151196)
-
-#### <a name="possible-cause"></a>Cause probable
-
-Il est impossible d’établir la connexion aux points de terminaison IP4 d’authentification et d’identité d’Office 365.
-
-#### <a name="fix-the-problem"></a>Résoudre le problème
-
-Site Recovery exige un accès aux plages d’adresses IP Office 365 pour l’authentification.
-Si vous utilisez des règles de groupe de sécurité réseau (NSG) Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, veillez à autoriser la communication avec les plages d’adresses IP Office 365. Créez une règle de groupe de sécurité réseau basée sur une [balise de service Azure Active Directory (Azure AD)](../virtual-network/security-overview.md#service-tags), ce qui autorise l’accès à toutes les adresses IP correspondant à Azure AD. Si de nouvelles adresses sont ajoutées à Azure AD à l’avenir, vous devez créer de nouvelles règles de groupe de sécurité réseau.
-
-> [!NOTE]
-> Si les machines virtuelles se trouvent derrière un équilibreur de charge interne *standard*, ce dernier n’a, par défaut, pas accès aux plages d’adresses IP Office 365 (autrement dit, login.microsoftonline.com). Remplacez le type d’équilibreur de charge interne par le type *De base* ou créez un accès sortant comme décrit dans l’article [Configurer des règles d’équilibrage de charge et des règles de trafic sortant](https://aka.ms/lboutboundrulescli).
-
-### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problème 3 : Échec de la configuration de Site Recovery (code d’erreur 151197)
-
-#### <a name="possible-cause"></a>Cause probable
-
-Il est impossible d’établir la connexion aux points de terminaison de service Site Recovery.
-
-#### <a name="fix-the-problem"></a>Résoudre le problème
-
-Site Recovery exige un accès aux [plages d’adresses IP Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), selon la région. Vérifiez que les plages d’adresses IP nécessaires sont accessibles à partir de la machine virtuelle.
-
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problème 4 : Échec de la réplication Azure vers Azure quand le trafic réseau transite par un serveur proxy local (code d’erreur 151072)
-
-#### <a name="possible-cause"></a>Cause probable
-
-Les paramètres de proxy personnalisés sont incorrects, et l’agent Mobility Service de Site Recovery n’a pas détecté automatiquement les paramètres de proxy d’Internet Explorer.
-
-#### <a name="fix-the-problem"></a>Résoudre le problème
-
-L’agent Mobility Service détecte les paramètres de proxy d’Internet Explorer sur Windows et à l’emplacement /etc/environment sur Linux.
-
-Si vous préférez définir un proxy uniquement pour Mobility Service, vous pouvez fournir les détails du proxy dans le fichier ProxyInfo.conf situé dans emplacements suivants :
-
-- **Linux** : /usr/local/InMage/config/
-- **Windows** : C:\ProgramData\Microsoft Azure Site Recovery\Config
-
-Dans ProxyInfo.conf, fournissez les paramètres de proxy au format de fichier d’initialisation suivant :
-
-> [*proxy*]
-
-> Address= *http://1.2.3.4*
-
-> Port=*567*
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 
-> [!NOTE]
-> L’agent Mobility Service de Site Recovery prend uniquement en charge les *proxys non authentifiés*.
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problème2 : Échec de la configuration de Site Recovery (151196)
+- **Cause possible** </br>
+  - Impossible d’établir la connexion aux points de terminaison IP4 d’identité et d’authentification Office 365.
+
+- **Résolution :**
+  - Azure Site Recovery exigeait l’accès aux plages d’adresses IP d’Office 365 pour l’authentification.
+    Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, assurez-vous d’utiliser une règle de groupe de sécurité réseau basée sur les [balises de service Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à AAD. Nous ne prenons plus en charge les règles de groupe de sécurité réseau basées sur les adresses IP.
+
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problème 3 : Échec de la configuration de Site Recovery (151197)
+- **Cause possible** </br>
+  - Il est impossible d’établir la connexion aux points de terminaison de service Azure Site Recovery.
+
+- **Résolution :**
+  - Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, assurez-vous d’utiliser les balises de service. Nous ne prenons plus en charge l’utilisation d’une liste verte d’adresses IP via les groupes de sécurité réseau pour Azure Site Recovery (ASR).
+
+
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problème 4 : Échec de la réplication interapplication lorsque le trafic réseau transite par un serveur proxy local (151072)
+ - **Cause possible** </br>
+   - Les paramètres de proxy personnalisés sont incorrects, et l’agent du service Mobilité ASR n’a pas détecté automatiquement les paramètres de proxy à partir d’Internet Explorer.
+
+
+ - **Résolution :**
+   1.    L’agent du service Mobilité détecte les paramètres de proxy à partir d’Internet Explorer sur Windows et à l’emplacement /etc/environment sur Linux.
+   2.  Si vous préférez définir un proxy uniquement pour le service Mobilité ASR, vous pouvez fournir les détails du proxy dans le fichier ProxyInfo.conf situé aux emplacements suivants :</br>
+       - ``/usr/local/InMage/config/`` sur ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` sur ***Windows***
+   3.    Le fichier ProxyInfo.conf doit inclure les paramètres de proxy au format INI suivant.</br>
+                   *[proxy]*</br>
+                   *Address=http://1.2.3.4*</br>
+                   *Port=567*</br>
+   4. L’agent du service Mobilité ASR prend uniquement en charge les ***proxies non authentifiés***.
+
+
+### <a name="fix-the-problem"></a>Résoudre le problème
+
+Pour ajouter [les URL requises](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) à une liste verte, suivez les étapes décrites dans le [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).
+
 
 ### <a name="more-information"></a>Informations complémentaires
 
-Pour spécifier les [URL nécessaires](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou les [plages d’adresses IP nécessaires](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), suivez les instructions mentionnées dans [Mise en réseau dans la réplication Azure vers Azure](site-recovery-azure-to-azure-networking-guidance.md).
+Pour spécifier les [URL nécessaires](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou les [plages d’adresses IP nécessaires](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), suivez les instructions mentionnées dans [Mise en réseau dans la réplication Azure vers Azure](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Disque introuvable sur la machine (code d’erreur 150039)
 
@@ -445,7 +428,7 @@ La taille du disque est inférieure à la taille de 1 024 Mo prise en charge.
 
 Vérifiez que la taille de disque est dans la plage des tailles prises en charge, puis retentez l’opération.
 
-## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>La protection n’a pas été activée car la configuration GRUB inclut le nom de l’appareil au lieu de l’UUID (code d’erreur 151126)
+## <a name="protection-was-not-enabled-because-the-grub-configuration-includes-the-device-name-instead-of-the-uuid-error-code-151126"></a><a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>La protection n’a pas été activée car la configuration GRUB inclut le nom de l’appareil au lieu de l’UUID (code d’erreur 151126)
 
 ### <a name="possible-cause"></a>Cause probable
 
@@ -512,7 +495,7 @@ Mobility Service de Site Recovery comprend de nombreux composants, notamment le 
 > [!NOTE]
 > Il s’agit simplement d’un avertissement. La réplication existante continue à fonctionner même après la nouvelle mise à jour de l’agent. Vous pouvez choisir d’effectuer un redémarrage chaque fois que vous souhaitez profiter du nouveau pilote de filtre, mais en l’absence de redémarrage, l’ancien pilote de filtre continue de fonctionner.
 >
-> Hormis le pilote de filtre, les autres améliorations et correctifs de Mobility Service prennent effet sans nécessiter un redémarrage.  
+> Hormis le pilote de filtre, les autres améliorations et correctifs de Mobility Service prennent effet sans nécessiter un redémarrage.
 
 ## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>Impossible d’activer la protection car le disque managé de réplica existe déjà, sans les balises attendues, dans le groupe de ressources cible (code d’erreur 150161)
 

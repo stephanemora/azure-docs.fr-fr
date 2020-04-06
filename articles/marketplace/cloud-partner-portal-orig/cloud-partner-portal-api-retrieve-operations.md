@@ -1,19 +1,18 @@
 ---
 title: API de récupération d’opérations | Place de marché Azure
 description: Récupère toutes les opérations sur l’offre ou pour obtenir une opération particulière pour la valeur operationId spécifiée.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819589"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280471"
 ---
 <a name="retrieve-operations"></a>Récupérer des opérations
 ===================
@@ -34,10 +33,10 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 
 |  **Nom**          |      **Description**                                                                                           | **Type de données** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificateur du serveur de publication, par exemple `Contoso`                                                                   |  Chaîne       |
-|  offerId           |  Identificateur de l’offre                                                                                              |  Chaîne       |
+|  publisherId       |  Identificateur du serveur de publication, par exemple `Contoso`                                                                   |  String       |
+|  offerId           |  Identificateur de l’offre                                                                                              |  String       |
 |  operationId       |  GUID qui identifie de façon unique l’opération sur l’offre. La valeur operationId peut être récupérée à l’aide de cette API et elle est également retournée dans l’en-tête HTTP de la réponse pour toute opération de longue durée, comme celle de l’API de [publication de l’offre](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Paramètre de requête facultatif utilisé pour filtrer par état (par exemple `running`) sur la collection retournée par cette API.  |   Chaîne |
+|  filteredStatus    | Paramètre de requête facultatif utilisé pour filtrer par état (par exemple `running`) sur la collection retournée par cette API.  |   String |
 |  api-version       | Dernière version de l’API                                                                                           |    Date      |
 |  |  |  |
 
@@ -48,7 +47,7 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 |  **Nom**          |  **Valeur**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
-|  Authorization     | `Bearer YOUR_TOKEN`  |
+|  Autorisation     | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
@@ -183,7 +182,7 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 |  submissionType              | Identifie le type d’opération signalé pour l’offre, par exemple `Publish/GGoLive`      |
 |  createdDateTime             | Date/heure UTC de création de l’opération                                                       |
 |  lastActionDateTime          | Date/heure UTC de la dernière mise à jour de l’opération                                       |
-|  status                      | État de l’opération (`not started` \| `running` \| `failed` \| `completed`). Une seule opération à la fois peut avoir l’état `running`. |
+|  status                      | État de l’opération, parmi `not started` \| `running` \| `failed` \| `completed`. Une seule opération à la fois peut avoir l’état `running`. |
 |  error                       | Message d’erreur pour l’échec des opérations                                                               |
 |  |  |
 

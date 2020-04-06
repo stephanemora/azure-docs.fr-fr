@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2e50d226282536fa4e8c044d2ee3d91df4cfd1ee
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 34972e70039fef17161bdef66f64278cbabf908f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131471"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130797"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -78,15 +78,15 @@ Vous pouvez surveiller vos fabriques de données via PowerShell, un SDK ou les o
 ### <a name="new-features-for-ssis-in-data-factory"></a>Nouvelles fonctionnalités pour SSIS dans Data Factory
 Depuis la préversion publique initiale de 2017, les fonctionnalités suivantes pour SSIS ont été ajoutées à Data Factory :
 
--   Prise en charge de trois configurations/variantes supplémentaires d’Azure SQL Database pour héberger la base de données SSIS (SSISDB) des projets/packages :
--   SQL Database avec points de terminaison de service de réseau virtuel
--   Instance gérée
--   Pool élastique
--   Prise en charge d’un réseau virtuel Azure Resource Manager sur un réseau virtuel classique qui sera dépréciée dans le futur : ceci vous permet d’injecter/joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel configuré pour SQL Database avec des points de terminaison de service de réseau virtuel/MI/accès aux données locales. Pour plus d’informations, consultez également [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
--   Prise en charge de l’authentification Azure Active Directory (AAD) et de l’authentification SQL pour se connecter à la SSISDB : ceci vous permet d’utiliser l’authentification Azure AD avec votre identité managée Data Factory pour des ressources Azure
--   Prise en charge de votre propre licence SQL Server locale pour réaliser des économies substantielles avec l’option Azure Hybrid Benefit
--   Prise en charge de l’édition Entreprise du runtime d’intégration Azure-SSIS, qui vous permet d’utiliser des fonctionnalités avancées/Premium, un programme d’installation personnalisé pour installer des composants/extensions supplémentaires, et un écosystème de partenaires. Pour plus d’informations, consultez également [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
--   Une intégration plus étroite de SSIS dans Data Factory, qui vous permet d’appeler/déclencher des activités étendues d’exécution de package SSIS dans des pipelines Data Factory et de les planifier via SSMS. Pour plus d’informations, consultez [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
+-    Prise en charge de trois configurations/variantes supplémentaires d’Azure SQL Database pour héberger la base de données SSIS (SSISDB) des projets/packages :
+-    SQL Database avec points de terminaison de service de réseau virtuel
+-    Instance gérée
+-    Pool élastique
+-    Prise en charge d’un réseau virtuel Azure Resource Manager sur un réseau virtuel classique qui sera dépréciée dans le futur : ceci vous permet d’injecter/joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel configuré pour SQL Database avec des points de terminaison de service de réseau virtuel/MI/accès aux données locales. Pour plus d’informations, consultez également [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
+-    Prise en charge de l’authentification Azure Active Directory (AAD) et de l’authentification SQL pour se connecter à la SSISDB : ceci vous permet d’utiliser l’authentification Azure AD avec votre identité managée Data Factory pour des ressources Azure
+-    Prise en charge de votre propre licence SQL Server locale pour réaliser des économies substantielles avec l’option Azure Hybrid Benefit
+-    Prise en charge de l’édition Entreprise du runtime d’intégration Azure-SSIS, qui vous permet d’utiliser des fonctionnalités avancées/Premium, un programme d’installation personnalisé pour installer des composants/extensions supplémentaires, et un écosystème de partenaires. Pour plus d’informations, consultez également [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
+-    Une intégration plus étroite de SSIS dans Data Factory, qui vous permet d’appeler/déclencher des activités étendues d’exécution de package SSIS dans des pipelines Data Factory et de les planifier via SSMS. Pour plus d’informations, consultez [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
 
 ## <a name="what-is-the-integration-runtime"></a>Qu’est-ce que le runtime d’intégration ?
@@ -207,7 +207,6 @@ Le flux de wrangling data est actuellement pris en charge dans les fabriques de 
 * Australie Est
 * Centre du Canada
 * Inde centrale
-* USA Centre
 * USA Est
 * USA Est 2
 * Japon Est

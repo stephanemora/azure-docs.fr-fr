@@ -1,20 +1,20 @@
 ---
 title: Pratiques de sécurité recommandées
 description: Lorsque vous utilisez la gestion des ressources déléguées Azure, il est important de prendre en compte la sécurité et le contrôle d’accès.
-ms.date: 07/11/2019
+ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456888"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246906"
 ---
 # <a name="recommended-security-practices"></a>Pratiques de sécurité recommandées
 
-Lorsque vous utilisez la gestion des ressources déléguées Azure, il est important de prendre en compte la sécurité et le contrôle d’accès. Les utilisateurs de votre locataire ayant un accès direct aux abonnements et aux groupes de ressources du client, il est souhaitable de prendre des mesures pour maintenir la sécurité de votre locataire. Vous devez également vous assurer que vous autorisez uniquement l’accès nécessaire pour gérer efficacement les ressources de vos clients. Cette rubrique fournit des recommandations pour vous y aider.
+Lorsque vous utilisez la [gestion des ressources déléguées Azure](azure-delegated-resource-management.md), il est important de prendre en compte la sécurité et le contrôle d’accès. Les utilisateurs de votre locataire ayant un accès direct aux abonnements et aux groupes de ressources du client, il est souhaitable de prendre des mesures pour maintenir la sécurité de votre locataire. Vous devez également vous assurer que vous autorisez uniquement l’accès nécessaire pour gérer efficacement les ressources de vos clients. Cette rubrique fournit des recommandations pour vous y aider.
 
-## <a name="require-azure-multi-factor-authentication"></a>Exiger l’utilisation de Microsoft Azure Multi-Factor Authentication
+## <a name="require-azure-multi-factor-authentication"></a>Exiger l’utilisation d’Azure Multi-Factor Authentication
 
 La solution [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (également appelée vérification en deux étapes) aide à empêcher des attaquants d’accéder à un compte en exigeant plusieurs étapes d’authentification. Vous devez exiger l’application de la solution Microsoft Azure Multi-Factor Authentication à tous les utilisateurs de votre locataire de fournisseur de services, notamment aux utilisateurs qui auront accès aux ressources du client.
 
@@ -23,6 +23,9 @@ Nous vous suggérons de demander à vos clients d’implémenter également Micr
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Affecter des autorisations à des groupes selon le principe de privilège minimum
 
 Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle requis pour gérer les ressources de vos clients. Cela vous permet d’ajouter ou de supprimer un utilisateur individuel dans un groupe en fonction des besoins, plutôt que d’attribuer directement des autorisations à cet utilisateur.
+
+> [!IMPORTANT]
+> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être **Sécurité** et non **Office 365**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Lors de la création de votre structure d’autorisation, veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail, ce qui contribue à réduire le risque d’erreurs accidentelles.
 

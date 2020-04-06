@@ -4,12 +4,12 @@ description: Découvrez comment gérer des interactions humaines et les délais 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0c16ef092c30a94cd04b55c91d3643ac29b82be0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562103"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335758"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
@@ -36,7 +36,7 @@ La complexité de ce scénario est considérablement réduite lorsque vous utili
 Cet article détaille les fonctions suivantes de l’exemple d’application :
 
 * `E4_SmsPhoneVerification`: Une [fonction d’orchestrateur](durable-functions-bindings.md#orchestration-trigger) qui effectue le processus de vérification par téléphone, y compris la gestion des délais d’attente et des nouvelles tentatives.
-* `E4_SendSmsChallenge`: Une [fonction d’orchestrateur](durable-functions-bindings.md#activity-trigger) qui envoie un code par SMS.
+* `E4_SendSmsChallenge`: Une [fonction d’activité](durable-functions-bindings.md#activity-trigger) qui envoie un code par SMS.
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>Fonction d'orchestrateur E4_SmsPhoneVerification
 

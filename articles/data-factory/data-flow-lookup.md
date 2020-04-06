@@ -1,77 +1,93 @@
 ---
-title: Transformation de recherche du flux de données de mappage
-description: Transformation de recherche de flux de données de mappage Azure Data Factory
+title: Transformation de recherche dans le flux de données de mappage
+description: Référencez des données à partir d’une autre source à l’aide de la transformation de recherche dans le flux de données de mappage.
 author: kromerm
+ms.reviewer: daperlov
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/26/2020
-ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 03/23/2020
+ms.openlocfilehash: 78c6c1363af011a90865770d88c0037e50e958c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164676"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240418"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformation de recherche de flux de données de mappage Azure Data Factory
+# <a name="lookup-transformation-in-mapping-data-flow"></a>Transformation de recherche dans le flux de données de mappage
 
-Utilisez la recherche pour ajouter des données de référence d’une autre source à votre Data Flow. La transformation de recherche requiert une source définie qui pointe vers votre table de référence et qui correspond aux champs clés.
+Utilisez la transformation de recherche pour référencer des données provenant d’une autre source dans un flux de données. La transformation de recherche ajoute des colonnes de données mises en correspondance à vos données sources.
+
+Une transformation de recherche est similaire à une jointure externe gauche. Toutes les lignes du flux principal existent dans le flux de sortie avec des colonnes supplémentaires venant du flux de recherche. 
+
+## <a name="configuration"></a>Configuration
 
 ![Transformation de recherche](media/data-flow/lookup1.png "Recherche")
 
-Sélectionnez les champs clés que vous souhaitez mettre en correspondance entre les champs de flux de données entrantes et les champs provenant de la source de référence. Vous devez d’abord créer une nouvelle source sur le canevas de conception du Data Flow à utiliser comme partie droite de la recherche.
+**Flux principal :** Le flux de données entrant. Ce flux est équivalent au côté gauche d’une jointure.
 
-Lorsque les correspondances sont trouvées, les lignes et les colonnes résultantes provenant de la source de référence seront ajoutés à votre flux de données. Vous pouvez choisir les champs d’intérêt que vous souhaitez inclure dans votre récepteur à la fin de votre Data Flow. Vous pouvez également utiliser une transformation de sélection à la suite de votre recherche pour élaguer la liste de champs afin de conserver uniquement les champs souhaités des deux flux.
+**Flux de recherche :** Les données ajoutées au flux de données principal. Les données ajoutées sont déterminées par les conditions de recherche. Ce flux est équivalent au côté droit d’une jointure.
 
-La transformation de recherche effectue une action équivalente à celle d’une jointure externe gauche. Vous verrez donc toutes les lignes de la source de gauche se combiner aux lignes correspondantes du côté droit. Si votre recherche contient plusieurs valeurs correspondantes ou si vous souhaitez personnaliser l’expression de recherche, il est préférable d’utiliser une transformation de jointure avec une jointure croisée. Vous éviterez ainsi les erreurs de produit cartésien lors de l’exécution.
+**Correspond à plusieurs lignes :** Si cette option est activée, une ligne avec plusieurs correspondances dans le flux principal retourne plusieurs lignes. Dans le cas contraire, une seule ligne est retournée en fonction de la condition ’Match on'.
 
-## <a name="match--no-match"></a>Correspondance / non-correspondance
+**Correspond à :** Visible uniquement si « faire correspondre plusieurs lignes » est activé. Choisissez s’il faut faire correspondre sur n’importe quelle ligne, sur la première correspondance ou sur la dernière correspondance. Faire correspondre sur n’importe quelle ligne est recommandé, car c’est l’option qui s’exécute le plus rapidement. Si la première ligne ou la dernière ligne est sélectionnée, vous devez spécifier des conditions de tri.
 
-Après votre transformation de recherche, vous pouvez utiliser d’autres transformations afin d’inspecter les résultats de chaque ligne de correspondance à l’aide de la fonction d’expression `isMatch()` pour effectuer des choix supplémentaires dans votre logique selon que la recherche a généré une correspondance de ligne ou non.
+**Conditions de recherche :** Choisissez les colonnes à faire correspondre. Si la condition d’égalité est remplie, les lignes sont considérées comme une correspondance. Pointez et sélectionnez « Colonne calculée » pour extraire une valeur à l’aide du [Langage d’expression des flux de données](data-flow-expression-functions.md).
+
+La transformation de recherche prend uniquement en charge les correspondances d’égalité. Pour personnaliser l’expression de recherche afin d’inclure d’autres opérateurs tels que supérieur à, il est recommandé d’utiliser une [jointure croisée dans la transformation de jointure](data-flow-join.md#custom-cross-join). Avec une jointure croisée, vous éviterez ainsi les erreurs de produit cartésien lors de l’exécution.
+
+Toutes les colonnes des deux flux sont incluses dans les données de sortie. Pour supprimer les colonnes en double ou indésirables, ajoutez une [transformation de sélection](data-flow-select.md) après votre transformation de recherche. Les colonnes peuvent également être supprimées ou renommées dans une transformation de récepteur.
+
+## <a name="analyzing-matched-rows"></a>Analyse des lignes correspondantes
+
+Après la transformation de recherche, la fonction `isMatch()` peut être utilisée pour déterminer si la recherche correspond à des lignes individuelles.
 
 ![Modèle de recherche](media/data-flow/lookup111.png "Modèle de recherche")
 
-Après avoir utilisé la transformation de recherche, vous pouvez ajouter un fractionnement de la transformation de fractionnement conditionnel sur la fonction ```isMatch()```. Dans l’exemple ci-dessus, les lignes correspondantes passent par le flux principal, et les lignes sans correspondance transitent par le flux ```NoMatch```.
+Un exemple de ce modèle consiste à utiliser la transformation de fractionnement conditionnel pour fractionner sur la fonction `isMatch()`. Dans l’exemple ci-dessus, les lignes correspondantes passent par le flux principal, et les lignes sans correspondance transitent par le flux ```NoMatch```.
 
-## <a name="first-or-last-value"></a>Première ou dernière valeur
+## <a name="testing-lookup-conditions"></a>Test des conditions de recherche
 
-La transformation de recherche est implémentée sous la forme d’une jointure externe gauche. Si vous obtenez plusieurs correspondances à partir de votre recherche, vous pouvez réduire les nombreuses lignes mises en correspondance en sélectionnant la première ou la dernière ligne correspondante ou en choisissant une ligne au hasard.
+Lorsque vous testez la transformation de recherche avec l’aperçu des données en mode débogage, utilisez un jeu de données connues peu volumineux. Lors de l’échantillonnage de lignes à partir d’un jeu de données volumineux, vous ne pouvez pas prédire quelles lignes et quelles clés seront lues dans le cadre du test. Le résultat n’est pas déterministe, ce qui signifie que vos conditions de jointure peuvent ne renvoyer aucun résultat.
 
-### <a name="option-1"></a>Option 1 :
+## <a name="broadcast-optimization"></a>Optimisation de la diffusion
 
-![Single Row Lookup](media/data-flow/singlerowlookup.png "Recherche d’une ligne unique")
-
-* Correspond à plusieurs lignes : Laissez le champ vide pour retourner une correspondance de ligne unique
-* Correspond à : Sélectionnez la première, la dernière ou toute autre correspondance
-* Conditions de tri : Si vous sélectionnez la première ou dernière ligne, ADF requiert que vos données soient ordonnées de sorte qu’il existe une logique derrière la première et la dernière ligne
-
-> [!NOTE]
-> Utilisez uniquement la première ou dernière option sur votre sélecteur de ligne unique si vous devez contrôler la valeur à restaurer de votre recherche. L’utilisation de recherches « n’importe » ou sur plusieurs lignes permettra d’obtenir des résultats plus rapidement.
-
-### <a name="option-2"></a>Option 2 :
-
-Vous pouvez également effectuer cette opération au moyen d’une transformation d’agrégation après votre recherche. Dans ce cas, une transformation d’agrégation nommée ```PickFirst``` est utilisée pour choisir la première valeur à partir des correspondances de recherche.
-
-![Agrégat de recherche](media/data-flow/lookup333.png "Agrégat de recherche")
-
-![Rechercher en premier](media/data-flow/lookup444.png "Rechercher en premier")
-
-## <a name="optimizations"></a>Optimisations
-
-Dans Data Factory, les flux de données s’exécutent dans des environnements à grande échelle Spark. Si votre jeu de données peut tenir dans l’espace mémoire de nœud Worder, nous pouvons optimiser les performances de vos recherches.
+Dans Azure Data Factory, les mappages de flux de données s’exécutent dans des environnements à grande échelle Spark. Si votre jeu de données peut tenir dans l’espace mémoire de nœud Worker, vous pouvez optimiser les performances de vos recherches en activant la diffusion.
 
 ![Jonction de diffusion](media/data-flow/broadcast.png "Jonction de diffusion")
 
-### <a name="broadcast-join"></a>Jonction de diffusion
+L’activation de la diffusion pousse l’ensemble du jeu de données en mémoire. Pour les jeux de données plus petits contenant uniquement quelques milliers de lignes, la diffusion peut améliorer les performances de recherche. Pour les jeux de données volumineux, cette option peut entraîner une exception de mémoire insuffisante.
 
-Sélectionnez une jointure de diffusion côté gauche et/ou droit pour demander à ADF qu’il envoie en mémoire l’ensemble du jeu de données de chaque côté de la relation de recherche. Pour les jeux de données plus petits, ceci peut améliorer considérablement les performances de recherche.
+## <a name="data-flow-script"></a>Script de flux de données
 
-### <a name="data-partitioning"></a>Partitionnement des données
+### <a name="syntax"></a>Syntaxe
 
-Vous pouvez également spécifier le partitionnement de vos données en sélectionnant « Définir le partitionnement » sous l’onglet Optimisation de la transformation de recherche afin de créer des jeux de données qui s’adaptent mieux à la mémoire par Worker.
+```
+<leftStream>, <rightStream>
+    lookup(
+        <lookupConditionExpression>,
+        multiple: { true | false },
+        pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
+        { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
+        broadcast: { 'none' | 'left' | 'right' | 'both' }
+    ) ~> <lookupTransformationName>
+```
+### <a name="example"></a>Exemple
 
-## <a name="next-steps"></a>Étapes suivantes
+![Transformation de recherche](media/data-flow/lookup-dsl-example.png "Recherche")
 
-* Les transformations [Join](data-flow-join.md) et [Exists](data-flow-exists.md) effectuent des tâches similaires dans les flux de données de mappage ADF. Examinons maintenant ces transformations.
-* Utiliser un [Fractionnement conditionnel](data-flow-conditional-split.md) avec ```isMatch()``` pour fractionner des lignes sur des valeurs correspondantes et non correspondantes
+Le script de transmission de données pour la configuration de recherche ci-dessus se trouve dans l’extrait de code suivant.
+
+```
+SQLProducts, DimProd lookup(ProductID == ProductKey,
+    multiple: false,
+    pickup: 'first',
+    asc(ProductKey, true),
+    broadcast: 'none')~> LookupKeys
+```
+## 
+Étapes suivantes
+
+* Les transformations [join](data-flow-join.md) et [exists](data-flow-exists.md) prennent toutes les deux plusieurs entrées de flux
+* Utiliser une [transformation de fractionnement conditionnel](data-flow-conditional-split.md) avec ```isMatch()``` pour fractionner des lignes sur des valeurs correspondantes et non correspondantes

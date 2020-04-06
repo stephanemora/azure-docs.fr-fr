@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: b3278615b90fe2ef539456c3f00eb877918aa9c2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: edd607c4d708df9fcfd3cbd5fdb71f0a7652d6c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78248363"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330907"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -68,7 +68,7 @@ Vous devez répondre aux exigences de base suivantes pour configurer et impléme
 
 * **Limites du service** : pour éviter qu’un même locataire ne surconsomme les ressources, des limites sont définies pour chaque application et chaque locataire. Pour voir ces limites, consultez [Restrictions et limites du service Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Ces limites sont basées sur un point de référence bien supérieur à l’utilisation classique, et fournissent une mémoire tampon largement suffisante pour la plupart des déploiements.
 
-* **Certificat public** : Si vous utilisez des noms de domaine personnalisés, vous devez fournir un certificat SSL. En fonction des exigences de votre organisation, l’obtention d’un certificat peut prendre un certain temps. Par conséquent, nous vous recommandons de démarrer le processus aussi tôt que possible. Le proxy d’application Azure prend en charge les certificats standard, [génériques](application-proxy-wildcard.md) et SAN. Pour plus de détails, consultez [Configurer des domaines personnalisés avec le Proxy d’application Azure AD](application-proxy-configure-custom-domain.md).
+* **Certificat public** : Si vous utilisez des noms de domaine personnalisés, vous devez fournir un certificat TLS/SSL. En fonction des exigences de votre organisation, l’obtention d’un certificat peut prendre un certain temps. Par conséquent, nous vous recommandons de démarrer le processus aussi tôt que possible. Le proxy d’application Azure prend en charge les certificats standard, [génériques](application-proxy-wildcard.md) et SAN. Pour plus de détails, consultez [Configurer des domaines personnalisés avec le Proxy d’application Azure AD](application-proxy-configure-custom-domain.md).
 
 * **Exigences relatives aux domaines** : L’authentification unique à vos applications publiées à l’aide de la délégation Kerberos contrainte (KCD) nécessite que les serveurs exécutant le connecteur et l’application soient joints au domaine et qu’ils fassent partie du même domaine ou des domaines approuvés.
 Pour des informations détaillées, consultez [KCD pour l’authentification unique auprès du proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md). Le service du connecteur s’exécute sur un système local et ne doit pas être configuré pour utiliser une identité personnalisée.
@@ -155,7 +155,7 @@ L’implémentation de votre pilote directement dans un locataire de production 
 
 **Paramètres d’authentification unique** : certains paramètres d’authentification unique ont des dépendances qui peuvent être longues à configurer. Par conséquent, pour éviter les retards liés au contrôle des modifications, il est conseillé de configurer les dépendances bien à l’avance. Cela inclut le fait de joindre les hôtes connecteurs au domaine afin d’effectuer l’authentification unique à l’aide de la délégation contrainte Kerberos (KCD), et de vous occuper des autres activités à exécution longue, comme la configuration d’une instance PINGAccess, par exemple, si vous avez besoin de l’authentification unique basée sur les en-têtes.
 
-**Protocole SSL entre l’hôte connecteur et l’application cible** : la sécurité est primordiale. Par conséquent, vous devez systématiquement utiliser TLS entre les hôtes connecteurs et les applications cibles, en particulier si l’application web est configurée pour l’authentification basée sur les formulaires (FBA), car les informations d’identification utilisateur sont transmises en texte clair.
+**Protocole TLS entre l’hôte connecteur et l’application cible** : la sécurité est primordiale. Par conséquent, vous devez systématiquement utiliser TLS entre les hôtes connecteurs et les applications cibles, en particulier si l’application web est configurée pour l’authentification basée sur les formulaires (FBA), car les informations d’identification utilisateur sont transmises en texte clair.
 
 **Implémenter de manière incrémentielle et tester chaque étape** : effectuez des tests fonctionnels de base après la publication d’une application afin de vérifier que toutes les exigences relatives aux utilisateurs et aux entreprises sont respectées. Pour cela, effectuez les étapes suivantes :
 

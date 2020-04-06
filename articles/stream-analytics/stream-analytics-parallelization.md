@@ -1,5 +1,5 @@
 ---
-title: Utiliser la parallélisation et la mise à l’échelle de requête dans Azure Stream Analytics
+title: Utiliser la parallélisation de requête et le scale-in dans Azure Stream Analytics
 description: Cet article décrit comment mettre à l’échelle des tâches Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de streaming d’un travail.
 author: JSeb225
 ms.author: jeanb
@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 31ac43ec796d305b8a8f4b62ea09481e262b6b3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431574"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80256978"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -60,7 +60,7 @@ Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure
 
 2. Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **PARTITION BY** à toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Aux niveau de compatibilité 1.0 et 1.1, la clé de partitionnement doit être définie sur **PartitionId** afin que le travail soit entièrement parallèle. Pour les travaux dont le niveau de compatibilité est supérieur ou égal à 1.2, vous pouvez spécifier une colonne personnalisée en tant que Clé de partition dans les paramètres d’entrée, de sorte que le travail soit automatiquement exécuté en parallèle, même sans la clause PARTITION BY. Pour la sortie de hub d’événements, la propriété « Colonne de clé de partition » doit être définie de façon à utiliser « PartitionId ».
 
-3. La plupart de nos sorties peuvent tirer parti du partitionnement mais, si vous utilisez un type de sortie qui ne prend pas en charge le partitionnement, votre travail n’est pas totalement parallèle. Reportez-vous à la [section relative aux sorties](#outputs) pour plus d’informations.
+3. La plupart de nos sorties peuvent tirer parti du partitionnement mais, si vous utilisez un type de sortie qui ne prend pas en charge le partitionnement, votre travail n’est pas totalement parallèle. Pour les sorties Event Hub, vérifiez que la **Colonne de clé de partition** est définie sur la même valeur que la clé de partition de requête. Reportez-vous à la [section relative aux sorties](#outputs) pour plus d’informations.
 
 4. Le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. La sortie du Stockage Blob peut prendre en charge les partitions et hériter du schéma de partitionnement de la requête en amont. Lorsqu’une clé de partition du Stockage Blob est spécifiée, les données sont partitionnées par partition d’entrée ; le résultat reste donc entièrement parallèle. Voici des exemples de valeurs de partition qui permettent la création d’un travail entièrement parallèle :
 
@@ -158,7 +158,7 @@ Requête :
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-le niveau de compatibilité 1.2 permet l’exécution de requête en parallèle par défaut. Par exemple, la requête de la section précédente est partitionnée tant que la colonne « TollBooth If » est définie en tant que clé de partition d’entrée. La clause PARTITION BY ParttionId n’est pas obligatoire.
+le niveau de compatibilité 1.2 permet l’exécution de requête en parallèle par défaut. Par exemple, la requête de la section précédente est partitionnée tant que la colonne « TollBooth If » est définie en tant que clé de partition d’entrée. La clause PARTITION BY PartitionId n’est pas obligatoire.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcul du nombre maximum d'unités de diffusion en continu pour un travail
 Le nombre total d'unités de diffusion en continu qui peut être utilisé par un travail Stream Analytics varie selon le nombre d'étapes de la requête définie pour le travail et le nombre de partitions pour chaque étape.

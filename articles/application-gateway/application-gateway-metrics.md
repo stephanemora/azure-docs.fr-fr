@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 8b63233aa2b20862e4654c89f1a6dd5d00c78940
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: abff2f16d9559f015417711820a993badd636f7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133075"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -34,7 +34,7 @@ Application Gateway fournit plusieurs métriques de minutage intégrées associ�
 
   Temps passé à établir une connexion avec l’application principale. 
 
-  Cela comprend la latence du réseau, ainsi que le temps pris par la pile TCP du serveur principal pour établir de nouvelles connexions. Dans le cas de SSL, il comprend également le temps consacré à la négociation. 
+  Cela comprend la latence du réseau, ainsi que le temps pris par la pile TCP du serveur principal pour établir de nouvelles connexions. Dans le cas de TLS, il comprend également le temps consacré à la négociation. 
 
 - **Temps de réponse du premier octet du principal**
 

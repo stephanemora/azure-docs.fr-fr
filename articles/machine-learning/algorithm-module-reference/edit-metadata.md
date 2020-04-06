@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 57a211c6ffab9a960c013008410f4b52b909d360
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 9853a3decc8d145fee58d1da526926e224ee2030
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137507"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064244"
 ---
 # <a name="edit-metadata-module"></a>Module Modifier les métadonnées
 
@@ -94,7 +94,7 @@ Les modifications de métadonnées standard peuvent être les suivantes :
   
     + Toutes les colonnes sélectionnées doivent être renommées. Vous ne pouvez pas omettre ni ignorer des colonnes.  
   
-1. Exécuter le pipeline.  
+1. Envoyez le pipeline.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

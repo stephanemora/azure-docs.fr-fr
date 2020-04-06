@@ -3,16 +3,16 @@ title: Déploiement conditionnel avec des modèles
 description: Décrit comment déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207789"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153418"
 ---
-# <a name="conditional-deployment-in-resource-manager-templates"></a>Déploiement conditionnel dans des modèles Azure Resource Manager
+# <a name="conditional-deployment-in-arm-templates"></a>Déploiement conditionnel dans des modèles ARM
 
-Parfois, vous devez déployer une ressource de manière conditionnelle dans un modèle. Pour spécifier si la ressource est déployée, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
+Parfois, vous devez déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager (ARM). Pour spécifier si la ressource est déployée, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
 
 ## <a name="new-or-existing-resource"></a>Ressource nouvelle ou existante
 
@@ -87,5 +87,5 @@ Si vous déployez un modèle en [mode complet](deployment-modes.md) et qu’une 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
-* Pour créer plusieurs instances d’une ressource, consultez [Itération de ressources dans des modèles Azure Resource Manager](copy-resources.md).
+* Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles ARM](template-best-practices.md).
+* Pour créer plusieurs instances d’une ressource, consultez [Itération de ressources dans des modèles ARM](copy-resources.md).

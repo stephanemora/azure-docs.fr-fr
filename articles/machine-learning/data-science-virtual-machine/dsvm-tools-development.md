@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: bc1f40760c1602d81da042bf6909e44a540d35de
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612153"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282679"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Outils de développement sur Azure Data Science Virtual Machine
 
@@ -26,7 +26,7 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | IDE à usage général      |
-| Versions DSVM prises en charge      | Windows : Visual Studio 2017, Windows 2019 (préversion) : Visual Studio 2019      |
+| Versions DSVM prises en charge      | Windows : Visual Studio 2017, Windows 2019 : Visual Studio 2019      |
 | Utilisations classiques      | Développement de logiciels    |
 | Comment est-il configuré et installé sur la machine virtuelle DSVM ?      | Charge de travail Science des données (outils Python et R), charge de travail Azure (Hadoop, Data Lake), Node.js, outils SQL Server, [Azure Machine Learning pour Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`). Visuellement, ouvrez Visual Studio à l’aide de l’icône du Bureau ou du menu **Démarrer**. Recherchez des programmes (en tapant touche Windows + S), suivi de **Visual Studio**. À partir d’ici, vous pouvez créer des projets dans des langages comme C#, Python, R et Node.js.   |
@@ -81,7 +81,7 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | IDE client pour le langage Python    |
-| Versions DSVM prises en charge      | Windows 2019 (préversion), Linux      |
+| Versions DSVM prises en charge      | Windows 2019, Linux      |
 | Utilisations classiques      |  Développement Python     |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\tk`) sur Windows. Raccourci sur le Bureau (`/usr/bin/pycharm`) sur Linux      |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio, Visual Studio Code, RStudio      |

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d6b2fbe28aae8e8233aaeb75bc9b43a35a9ab588
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d07d1a706635a7f269a9a51769ae6f8bbf57df3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905282"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295405"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -101,7 +101,7 @@ Veillez à traiter /path/to/my/cert comme le chemin d’un fichier PEM ou PKCS
 
 |Option|Description|
 |--|--|
-|--aad-endpoint|Point de terminaison Azure Active Directory (Azure AD) à utiliser. L'adresse par défaut (https://login.microsoftonline.com) est correcte pour le cloud Azure public. Définissez ce paramètre lors de l'authentification dans un cloud national. Consultez [Points de terminaison d'authentification Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+|--aad-endpoint|Point de terminaison Azure Active Directory (Azure AD) à utiliser. L'adresse par défaut (`https://login.microsoftonline.com`) est correcte pour le cloud Azure public. Définissez ce paramètre lors de l'authentification dans un cloud national. Consultez [Points de terminaison d'authentification Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 Cet indicateur n'est pas nécessaire pour Managed Service Identity.|
 |--application-id (chaîne)|ID d’application de l’identité affectée par l’utilisateur. Obligatoire pour l’authentification du principal de service.|
 |--certificate-path (chaîne)|Chemin du certificat pour l’authentification SPN. Obligatoire pour l’authentification du principal de service basée sur les certificats.|

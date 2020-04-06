@@ -1,46 +1,40 @@
 ---
 title: Comment acheter des logiciels sur AppSource | Place de marché Azure
 description: Étapes pour acheter des logiciels sur AppSource | Place de marché Azure
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 70e51d7c05e93e7d5f4451fa383023605a02af99
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.date: 03/20/2020
+ms.openlocfilehash: bc19246354bebd1ba2a827e7718cbad95b896e14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933494"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284974"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Comment acheter des logiciels sur Microsoft AppSource
 
 Microsoft [AppSource](https://appsource.microsoft.com/) permet désormais aux clients de s’abonner à des applications SaaS proposées par les partenaires Microsoft. Les clients peuvent trouver des applications web certifiées dans le magasin et gérer les frais, les mises à niveau, les rétrogradations et les annulations dans un emplacement unique à l’aide du Centre d’administration Microsoft. Cet article explique comment acheter une application à partir du magasin.
 
+AppSource vous propose toute une sélection d’applications, y compris des versions gratuites, des versions d’essai et des abonnements payants. Cet article décrit comment acheter des abonnements payants par le biais d’AppSource.
+
 ## <a name="requirements"></a>Spécifications
 
 Pour acheter des offres SaaS, vous devez avoir :
 
-- Un compte professionnel ou scolaire.
+- Un compte professionnel ou scolaire. Si vous ne disposez pas d’un compte professionnel ou scolaire, suivez le lien « Inscrivez-vous pour bénéficier d’un compte gratuit » pendant le processus d’achat.
+
+- Une carte de crédit valide dans le pays ou la région où vous achetez l’offre.
 
     > [!Note]
-    > Si vous n’avez pas de compte professionnel ou scolaire, vous devez créer un locataire Azure Active Directory auquel un compte professionnel ou scolaire peut être ajouté. Pour en savoir plus, consultez [Démarrage rapide : Créer un locataire dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
-
-- Une carte de crédit valide.
-
-    > [!Note]
-    > La carte de crédit doit être émise dans le pays/la région où le client achète l’offre. Pour choisir un autre pays, sélectionnez « Modifier le pays/la région de facturation » au bas de la page.
+    > Le pays de facturation de la carte de crédit peut être verrouillé sur l’emplacement de votre instance Azure Active Directory.
 
 ## <a name="steps-for-making-purchases-on-appsource"></a>Étapes nécessaires pour effectuer des achats sur AppSource
 
 1. Sélectionnez votre pays/région de facturation sur [AppSource](https://appsource.microsoft.com/).
 1. Recherchez l’application que vous souhaitez mettre à jour.
-
-    > [!Note]
-    > AppSource vous propose toute une sélection d’applications, y compris des versions gratuites, des versions d’essai et des abonnements payants. Cet article décrit comment acheter des abonnements payants par le biais d’AppSource.
-
 1. Sélectionnez **Obtenir maintenant**.
 1. Choisissez le plan :
 

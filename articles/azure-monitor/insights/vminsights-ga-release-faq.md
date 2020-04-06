@@ -6,30 +6,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 0af5e4b92b52b4ecfc4e0e302b5d2a7701297908
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 3d250ef1aba979be04a44acaf31a3d685f162e37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656192"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283886"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Questions fréquentes sur Azure Monitor pour machines virtuelles (version en disponibilité générale)
-
-Ce FAQ sur la disponibilité générale couvre les modifications qui se produisent dans Azure Monitor pour machines virtuelles que nous préparons actuellement pour la version Mise à la disposition générale. 
+Ces Questions fréquentes (FAQ) sur la disponibilité générale couvrent les modifications apportées au 4e trimestre 2019 et au 1er trimestre 2020, lors de la préparation pour la disponibilité générale.
 
 ## <a name="updates-for-azure-monitor-for-vms"></a>Mises à jour d’Azure Monitor pour machines virtuelles
+Nous avons publié une nouvelle version d’Azure Monitor pour machines virtuelles en janvier 2020, avant l’annonce de la disponibilité générale. Les clients qui activeront Azure Monitor pour machines virtuelles recevront désormais la version GA, mais les clients existants qui utilisent la version d’Azure Monitor pour machines virtuelles du 4e trimestre 2019 et versions antérieures seront invités à effectuer une mise à niveau. Ce FAQ vous aidera à effectuer une mise à niveau à grande échelle si vos déploiements sont volumineux sur plusieurs espaces de travail.
 
-Nous avons publié une nouvelle version d'Azure Monitor pour machines virtuelles. Les clients qui activeront Azure Monitor pour machines virtuelles recevront désormais la nouvelle version, tandis que les clients existants qui utilisent déjà Azure Monitor pour machines virtuelles seront invités à effectuer une mise à niveau. Ce FAQ et notre documentation vous aideront à effectuer une mise à niveau à grande échelle si vos déploiements sont volumineux sur plusieurs espaces de travail.
 
 Avec cette mise à niveau, les données de performances d’Azure Monitor pour machines virtuelles sont stockées dans la même table *InsightsMetrics* que [Azure Monitor pour conteneurs](container-insights-overview.md), ce qui vous permet d’interroger plus facilement les deux jeux de données. De plus, cette table vous permet de stocker des jeux de données plus diversifiés que la table utilisée auparavant. 
 
 Nos affichages de performances utilisent désormais les données que nous stockons dans la table *InsightsMetrics*.  Si vous n’avez pas encore effectué la mise à niveau pour utiliser la dernière solution VMInsights sur votre espace de travail, vos graphiques n’afficheront plus d’informations.  Vous pouvez effectuer la mise à niveau à partir de notre page **Prise en main**, comme décrit ci-dessous.
 
-Conscients de la gêne occasionnée par la mise à niveau des workflows pour les clients existants, nous avons choisi d’effectuer ce changement maintenant dans le cadre de la Préversion publique plutôt que de le faire plus tard après la mise en disponibilité générale.
-
 
 ## <a name="what-is-changing"></a>Qu’est-ce qui change ?
-
 Nous avons publié une nouvelle solution, appelée VMInsights, qui offre des fonctionnalités supplémentaires pour la collecte des données ainsi qu’un nouvel emplacement de stockage de ces données dans votre espace de travail Log Analytics. 
 
 Auparavant, nous avons activé la solution ServiceMap sur votre espace de travail et configuré les compteurs de performance dans votre espace de travail Log Analytics pour envoyer les données à la table de*Perf*. Cette nouvelle solution envoie les données dans une table nommée *InsightsMetrics*, qui est aussi utilisée par Azure Monitor pour conteneurs. Le schéma de cette table nous permet de stocker des indicateurs de performance et des jeux de données de service supplémentaires qui ne sont pas compatibles avec le format de la table *Perf*.
@@ -48,9 +44,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>Que faire avec les compteurs de performances de mon espace de travail si j’installe la solution VMInsights ?
 
-La méthode actuelle d’activation d’Azure Monitor pour machines virtuelles utilise des compteurs de performances dans votre espace de travail. La nouvelle méthode stocke ces données dans une nouvelle table, `InsightsMetrics`.
-
-Une fois que nous aurons modifié notre interface utilisateur pour utiliser les données dans la table `InsightsMetrics`, nous mettrons à jour notre documentation et nous communiquerons cette annonce via différents canaux, notamment par l’affichage d’une bannière dans le Portail Azure. Pour le moment, vous pouvez choisir de désactiver ces [compteurs de performances](vminsights-enable-overview.md#performance-counters-enabled) dans votre espace de travail si vous n’en avez plus besoin. 
+La méthode précédente d’activation d’Azure Monitor pour machines virtuelles utilisait des compteurs de performances dans votre espace de travail. La version actuelle stocke ces données dans une table nommée `InsightsMetrics`. Vous pouvez choisir de désactiver ces compteurs de performances dans votre espace de travail si vous n’en avez plus besoin. 
 
 >[!NOTE]
 >Si vous utilisez des règles d’alerte qui font référence à ces compteurs dans la table `Perf`, vous devez les mettre à jour pour qu’elles référencent les nouvelles données stockées dans la table `InsightsMetrics`. Consultez notre documentation pour obtenir et réutiliser des exemples de requêtes sur des journaux qui font référence à cette table.
@@ -93,10 +87,6 @@ Non, les deux solutions partagent les jeux de données cartographiques que nous 
 ## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>Si je supprime la solution Service Map ou VMInsights, les données associées seront-elles aussi supprimées ?
 
 Non, les deux solutions partagent les jeux de données cartographiques que nous stockons dans les tables `VMComputer` (anciennement ServiceMapComputer_CL), `VMProcess` (anciennement ServiceMapProcess_CL), `VMConnection` et `VMBoundPort`. Si vous supprimez l’une des solutions, ces jeux de données identifient qu’il reste une solution en place qui utilise les données et les conserve dans l’espace de travail Log Analytics. Les données sont supprimées de votre espace de travail seulement si vous supprimez les deux solutions.
-
-## <a name="when-will-this-update-be-released"></a>Quand cette mise à jour sera-t-elle publiée ?
-
-Nous prévoyons de publier la mise à jour d’Azure Monitor pour machines virtuelles au début de janvier 2020. À mesure que nous approcherons de la date de publication en janvier, nous actualiserons le contenu de ce forum aux questions et nous vous enverrons des notifications dans le Portail Azure quand vous ouvrirez Azure Monitor.
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>La fonctionnalité Intégrité est disponible en préversion publique limitée
 

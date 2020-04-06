@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2020
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598066"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062242"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure
 
@@ -128,11 +128,11 @@ Pour lister l’accès pour un utilisateur, un groupe, un principal de service o
 
 ## <a name="list-number-of-role-assignments"></a>Répertorier le nombre d’attributions de rôles
 
-Vous pouvez avoir jusqu’à **2 000** attributions de rôles dans chaque abonnement. Pour vous aider à suivre ces limites, l’onglet **Attributions de rôles** comprend un graphique qui répertorie le nombre actuel d’attributions de rôles.
+Vous pouvez avoir jusqu’à **2 000** attributions de rôles dans chaque abonnement. Pour vous aider à suivre cette limite, l’onglet **Attributions de rôles** comprend un graphe indiquant le nombre d’attributions de rôles de l’abonnement actif.
 
 ![Contrôle d’accès : graphique du nombre d’attributions de rôles](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-Si vous vous approchez du nombre maximal et que vous essayez d’ajouter d’autres attributions de rôles, un avertissement s’affiche dans le volet **Ajouter une attribution de rôle**. Vous pouvez réduire le nombre d’attributions de rôles en supprimant les attributions de rôles qui ne sont plus nécessaires ou en attribuant des rôles à des groupes plutôt qu’à des utilisateurs individuels.
+Si vous vous approchez du nombre maximal et que vous essayez d’ajouter d’autres attributions de rôles, un avertissement s’affiche dans le volet **Ajouter une attribution de rôle**. Pour savoir comment réduire le nombre d’attributions de rôles, consultez [Résolution des problèmes de contrôle d’accès en fonction du rôle Azure](troubleshooting.md#azure-role-assignments-limit).
 
 ![Contrôle d’accès : avertissement Ajouter une attribution de rôle](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 

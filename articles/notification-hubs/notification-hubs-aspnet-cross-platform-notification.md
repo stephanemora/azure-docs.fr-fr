@@ -16,14 +16,14 @@ ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 8f4de88ed79ee802866579448681cfe6cee3e654
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fc3cec348517244c8a7f54d2d3d17298c58e4262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293416"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127043"
 ---
-# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs
+# <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Envoi de notifications multiplateformes avec Azure Notification Hubs
 
 Ce tutoriel se base sur le précédent [Envoyer des notifications à des utilisateurs spécifiques à l’aide d’Azure Notification Hubs]. Ce tutoriel décrit comment envoyer des notifications Push à tous les appareils inscrits pour un utilisateur authentifié spécifique. Cette approche nécessitait que plusieurs demandes envoient une notification à chaque plateforme cliente prise en charge. Azure Notification Hubs prend en charge des modèles avec lesquels vous pouvez spécifier le mode de réception des notifications pour un appareil déterminé. Cette méthode simplifie l’envoi de notifications interplateformes.
 

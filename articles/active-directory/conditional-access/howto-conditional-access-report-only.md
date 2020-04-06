@@ -5,22 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da44e8482e335c209f45db478797efa5461bbfe1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671855"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295114"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurer une stratégie d’accès conditionnel en mode Rapport uniquement (préversion)
 
 Pour configurer une stratégie d’accès conditionnel en mode Rapport uniquement :
+
+> [!IMPORTANT]
+> Si votre organisation ne l’a pas encore fait, [configurez l’intégration d’Azure Monitor avec Azure AD](#set-up-azure-monitor-integration-with-azure-ad). Ce processus doit avoir lieu avant que les données soient disponibles pour la révision.
 
 1. Connectez-vous au **portail Azure** en tant qu’administrateur de l’accès conditionnel, administrateur de la sécurité ou administrateur général.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**

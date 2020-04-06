@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 02/04/2020
 ms.custom: seodec18
-ms.openlocfilehash: 35b330f27ba87aa18ce2c2f275a7b19fdae3cb65
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 209df97169c71d910677ffdb2e2b12593882445b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024413"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80152578"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -99,6 +99,22 @@ Pour corriger le décalage :
 1. Définissez la capacité de référence SKU sur la valeur maximale autorisée (10 unités dans ce cas). Après augmentation de la capacité, le processus d’entrée commence à rattraper le retard beaucoup plus rapidement. L’augmentation de capacité occasionne des frais supplémentaires. Pour suivre sa progression rapide, consultez le graphique de disponibilité dans l’[explorateur Time Series Insights](https://insights.timeseries.azure.com).
 
 2. Une fois le retard rattrapé, rétablissez la capacité de référence SKU sur votre taux d’entrée normal.
+
+## <a name="problem-data-was-showing-previously-but-is-no-longer-showing"></a>Problème : les données étaient affichées précédemment mais ne sont plus affichées
+
+TSI n’ingère plus les données, mais les événements sont toujours diffusés en continu dans IoT Hub ou Event Hub
+
+### <a name="cause-a-your-hub-access-key-was-regenerated-and-your-environment-needs-updating"></a>Cause A : la clé d’accès de votre hub a été régénérée et votre environnement doit être mis à jour
+
+Ce problème se produit lorsque la clé fournie lors de la création de votre source d’événements n’est plus valide. Vous pouvez voir les données de télémétrie dans votre hub, mais aucun message n’a été reçu en entrée dans Time Series Insights. Si vous ne savez pas si la clé a été régénérée, vous pouvez effectuer une recherche dans le journal d’activité de votre Event Hub pour « Création ou mise à jour de règles d’autorisation d’espace de noms » ou rechercher « Création ou mise à jour d’une ressource IoT Hub » pour IoT Hub.
+
+Pour mettre à jour votre environnement Time Series Insights avec la nouvelle clé, ouvrez votre ressource de hub dans le portail Azure et copiez la nouvelle clé. Accédez à votre ressource TSI, puis cliquez sur Sources d’événements. 
+
+   [![Mettez à jour la clé.](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
+
+Sélectionnez la ou les sources d’événements à partir desquelles l’ingestion s’est arrêtée, collez la nouvelle clé, puis cliquez sur Enregistrer.
+
+   [![Mettez à jour la clé.](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problème : le paramètre du nom de la propriété d’horodatage de ma source d’événements ne fonctionne pas
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: b6f26eca0592017306eaefd3f5fecb544dc6fb36
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d0b28770940f0e1adeec16aa89cd087299bd4abc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932187"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132994"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Réécrire des en-têtes HTTP avec Application Gateway
 
@@ -64,7 +64,7 @@ Application Gateway prend en charge ces variables de serveur :
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | Champ d’en-tête de requête client X-Forwarded-For auquel la variable `client_ip` (voir l’explication plus loin dans ce tableau) est ajoutée au format IP1, IP2, IP3 et ainsi de suite. Si le champ X-Forwarded-For ne se trouve pas dans l’en-tête de la requête cliente, la variable `add_x_forwarded_for_proxy` est égale à la variable `$client_ip`. Cette variable est particulièrement utile quand vous voulez réécrire l’en-tête X-Forwarded-For défini par Application Gateway de sorte que l’en-tête contienne uniquement l’adresse IP sans les informations de port. |
 | ciphers_supported          | Liste de chiffrements pris en charge par le client.          |
-| ciphers_used               | Chaîne de chiffrements utilisés pour une connexion SSL établie. |
+| ciphers_used               | Chaîne de chiffrements utilisés pour une connexion TLS établie. |
 | client_ip                  | Adresse IP du client à partir duquel la passerelle d’application a reçu la requête. S’il existe un proxy inverse devant la passerelle d’application et le client d’origine, *client_ip* retourne l’adresse IP du proxy inverse. |
 | client_port                | Port client.                                                  |
 | client_tcp_rtt             | Informations sur la connexion TCP cliente. Disponible sur les systèmes qui prennent en charge l’option de socket TCP_INFO. |
@@ -81,8 +81,8 @@ Application Gateway prend en charge ces variables de serveur :
 | request_uri                | URI complet de la requête d’origine (avec les arguments).                   |
 | sent_bytes                 | Nombre d’octets envoyés à un client.                             |
 | server_port                | Port du serveur qui a accepté une requête.                 |
-| ssl_connection_protocol    | Protocole d’une connexion SSL établie.        |
-| ssl_enabled                | Valeur « On » si la connexion opère en mode SSL. Sinon, chaîne vide. |
+| ssl_connection_protocol    | Protocole d’une connexion TLS établie.        |
+| ssl_enabled                | Valeur « On » si la connexion opère en mode TLS. Sinon, chaîne vide. |
 
 ## <a name="rewrite-configuration"></a>Configuration de la réécriture
 

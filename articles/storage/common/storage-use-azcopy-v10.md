@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90adb3b973b6952d10ef89e4b40d0fc68489e224
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443718"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061105"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -92,7 +92,7 @@ Ces rôles peuvent être attribués à votre principal de service sur l’une de
 - Conteneur (système de fichiers)
 - Compte de stockage
 - Resource group
-- Subscription
+- Abonnement
 
 Pour savoir comment vérifier et attribuer des rôles, voir [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -288,7 +288,7 @@ L’URL apparaît dans la sortie de cette commande. Votre script peut alors tél
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Caractères spéciaux d’échappement dans les jetons SAS
 
-Dans les fichiers de lot qui portent l’extension `.cmd`, vous devez placer dans une séquence d’échappement les caractères `%` qui apparaissent dans les jetons SAS. Pour ce faire, vous pouvez ajouter un caractère `%` d’addition à côté des caractères `%` existants dans la chaîne de jeton SAS.
+Dans les fichiers de lot qui portent l’extension `.cmd`, vous devez placer dans une séquence d’échappement les caractères `%` qui apparaissent dans les jetons SAS. Pour cela, ajoutez un caractère `%` supplémentaire à côté des caractères `%` existants dans la chaîne de jeton SAS.
 
 ### <a name="run-scripts-by-using-jenkins"></a>Exécuter des scripts à l’aide de Jenkins
 

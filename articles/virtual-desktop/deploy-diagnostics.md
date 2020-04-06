@@ -5,17 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9392855f98dbee2badbe87bb4a0bf11bf2fc073e
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 4eb63fe4bd8f8a8b0961aa6a7fccb8de9b7c2f16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128014"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123405"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
+
+>[!IMPORTANT]
+>Depuis le 16 mars 2020, nous avons désactivé temporairement les requêtes de diagnostic qui nuisaient à l’expérience utilisateur en raison de l’augmentation de la demande sur le service. Cela entraînera l’arrêt de l’outil, car il s’appuie sur ces requêtes pour fonctionner. Nous mettrons à jour cet article lorsque les requêtes de diagnostic seront à nouveau disponibles.
+>
+>D’ici là, nous vous recommandons vivement [d’utiliser Log Analytics](diagnostics-log-analytics.md) pour poursuivre le monitoring.
 
 Voici ce que l’outil de diagnostic pour Windows Virtual Desktop peut faire pour vous :
 

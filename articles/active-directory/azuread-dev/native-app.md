@@ -10,14 +10,15 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e65a31192be8b79720ea15d1721fbf37908a8cbe
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9ecf711f5442b6f21de53d2735ad1c94d7cb6223
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163482"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154795"
 ---
 # <a name="native-apps"></a>Applications natives
 
@@ -33,7 +34,7 @@ Les applications natives sont des applications qui appellent une API web de la p
 
 Si vous utilisez les bibliothèques d’authentification AD, la plupart des détails de protocole décrits ci-dessous sont gérés pour vous, notamment les fenêtres contextuelles du navigateur, la mise en cache des jetons et la gestion des jetons d’actualisation.
 
-1. À l’aide d’une fenêtre contextuelle du navigateur, l’application native envoie une demande au point de terminaison d’autorisation d’Azure AD. Cette demande comprend l’ID d’application et l’URI de redirection de l’application native tels qu’ils figurent dans le portail Azure, et l’URI d’ID d’application de l’API web. Si l’utilisateur ne s’est pas déjà connecté, il est invité à nouveau à se connecter.
+1. À l’aide d’une fenêtre contextuelle du navigateur, l’application native envoie une demande au point de terminaison d’autorisation d’Azure AD. Cette demande comprend l’ID d’application et l’URI de redirection de l’application native tels qu’ils figurent dans le portail Azure, et l’URI d’ID d’application de l’API web. Si l’utilisateur ne s’est pas déjà connecté, il est invité à nouveau à se connecter
 1. Azure AD authentifie l’utilisateur. S’il s’agit d’une application mutualisée et si un consentement est requis pour utiliser l’application, l’utilisateur doit donner son consentement, s’il ne l’a pas déjà fait. Une fois le consentement donné et l’authentification réussie, Azure AD renvoie une réponse de code d’autorisation à l’URI de redirection de l’application cliente.
 1. Quand Azure AD renvoie une réponse de code d’autorisation à l’URI de redirection, l’application cliente arrête l’interaction du navigateur et extrait le code d’autorisation de la réponse. À l’aide de ce code d’autorisation, l’application cliente envoie une demande au point de terminaison de jeton d’Azure AD. Celle-ci comprend le code d’autorisation, des détails sur l’application cliente (ID d’application et URI de redirection) et la ressource souhaitée (URI ID d’application de l’API web).
 1. Le code d’autorisation et les informations sur l’application cliente et l’API web sont validés par Azure AD. Si la validation réussit, Azure AD renvoie deux jetons : un jeton d’accès JWT et un jeton d’actualisation JWT. Azure AD renvoie également des informations de base sur l’utilisateur, telles que son nom d’affichage et son ID client.

@@ -3,21 +3,23 @@ title: Synthèse vocale – Service Speech
 titleSuffix: Azure Cognitive Services
 description: La synthèse vocale du service Speech est une fonctionnalité qui permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée quasi humaine. Choisissez des voix prédéfinies ou créez votre propre voix personnalisée.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.author: erhopf
-ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/23/2020
+ms.author: dapine
+ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379876"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131562"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 La synthèse vocale du service Speech permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée humaine. Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou à votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans un nombre limité de langues et de paramètres régionaux. Pour obtenir la liste complète des voix, langues et paramètres régionaux pris en charge, consultez [Langues prises en charge](language-support.md#text-to-speech).
 
@@ -25,11 +27,11 @@ La synthèse vocale du service Speech permet à vos applications, outils ou appa
 > La reconnaissance vocale Bing a été mise hors service le 15 octobre 2019. Si vos applications, outils ou produits utilisent les API Reconnaissance vocale Bing ou Custom Speech, nous avons créé des guides pour vous aider à effectuer leur migration vers le service Speech.
 > - [Effectuer une migration entre la Reconnaissance vocale Bing et le service Speech](how-to-migrate-from-bing-speech.md)
 
-## <a name="core-features"></a>Fonctionnalités de base 
+## <a name="core-features"></a>Fonctionnalités de base
 
 * Synthèse vocale : utilisez le [SDK Speech](quickstarts/text-to-speech-audio-file.md) ou l’[API REST](rest-text-to-speech.md) pour convertir du texte en voix avec des voix standard, neuronales ou personnalisées.
 
-* Synthèse asynchrone d’audio long : utilisez l’[API Audio long](long-audio-api.md) pour synthétiser de texte en voix en mode asynchrone des fichiers de plus de 10 minutes (par exemple des livres audio ou des conférences). Contrairement à la synthèse effectuée avec le SDK Speech ou l’API REST de reconnaissance vocale, les réponses ne sont pas retournées en temps réel. Il est prévu que les demandes soient envoyées de façon asynchrone, que les réponses fassent l’objet d’une interrogation et que l’audio synthétisé soit téléchargé quand il est disponible auprès du service. Seules les voix neuronales sont prises en charge.
+* Synthèse asynchrone d’audio long : utilisez l’[API Audio long](long-audio-api.md) pour synthétiser de texte en voix en mode asynchrone des fichiers de plus de 10 minutes (par exemple des livres audio ou des conférences). Contrairement à la synthèse effectuée avec le SDK Speech ou l’API REST de reconnaissance vocale, les réponses ne sont pas retournées en temps réel. Il est prévu que les demandes soient envoyées de façon asynchrone, que les réponses fassent l’objet d’une interrogation et que l’audio synthétisé soit téléchargé quand il est disponible auprès du service. Seules les voix neuronales personnalisées sont prises en charge.
 
 * Voix standard : elles sont créées avec des techniques de synthèse paramétrique statistique et/ou de synthèse par concaténation. Ces voix sont hautement intelligibles et naturelles. Vous pouvez facilement configurer vos applications pour qu’elles parlent dans plus de 45 langues, avec un large éventail d’options vocales. Ces voix sont très précises en matière de prononciation. Elles prennent en charge les abréviations, les développements d’acronyme, l’interprétation des dates/heures, les polyphones et bien plus encore. Vous trouverez une liste complète des voix standard dans [Langues prises en charge](language-support.md#text-to-speech).
 
@@ -54,7 +56,7 @@ Un exemple de code pour la synthèse vocale est disponible sur GitHub. Ces exemp
 - [Exemples de synthèse vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Exemples de synthèse vocale (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-## <a name="customization"></a>Personnalisation 
+## <a name="customization"></a>Personnalisation
 
 En plus des voix standard et neuronales, vous pouvez créer et affiner des voix personnalisées propres à votre produit ou à votre marque. Pour commencer, vous n’avez besoin que de quelques fichiers audio et des transcriptions associées. Pour plus d’informations, consultez [Bien démarrer avec Custom Voice](how-to-custom-voice.md).
 

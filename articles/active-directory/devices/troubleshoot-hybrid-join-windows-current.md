@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672279"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331773"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory 
 
@@ -277,7 +277,7 @@ Utilisez les journaux de l’observateur d’événements pour rechercher le cod
    - Motif : la connexion avec le point de terminaison d’authentification a été abandonnée.
    - Résolution : réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Motif : le certificat SSL (Secure Sockets Layer) envoyé par le serveur n’a pas pu être validé.
+   - Motif : La sécurité TLS (Transport Layer Security), précédemment connue sous le nom de protocole SSL, n’a pas pu valider le certificat envoyé par le serveur.
    - Résolution : vérifiez l’asymétrie temporelle du client. réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable. 
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Motif : la tentative de connexion à `https://login.microsoftonline.com` a échoué.

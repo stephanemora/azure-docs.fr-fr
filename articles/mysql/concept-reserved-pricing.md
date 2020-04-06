@@ -5,19 +5,19 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 44bdd9a58bfe2f1a8d3a0102aa6652bb340ac719
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 78c8750de7189bad33e9bbc766a3d7543a646f6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773829"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159351"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Acompte pour les ressources de calcul Azure Database pour MySQL avec une capacité réservée
 
-Faites des économies avec Azure SQL Database en utilisant le prépaiement de ressources de calcul au lieu d’appliquer le tarif du paiement à l’utilisation. Avec une capacité réservée Azure SQL Database, vous prenez un engagement initial pour le serveur MySQL, sur une période d’un an, afin de bénéficier d’une remise importante sur les coûts de calcul. Pour acheter une capacité réservée Azure Database pour MySQL, vous devez spécifier la région Azure, le type de déploiement, le niveau de performance et le terme. </br>
+Faites des économies avec Azure SQL Database en utilisant le prépaiement de ressources de calcul au lieu d’appliquer le tarif du paiement à l’utilisation. Avec une capacité réservée Azure SQL Database, vous prenez un engagement initial pour le serveur MySQL, sur une période d’un ou de trois ans, afin de bénéficier d’une remise importante sur les coûts de calcul. Pour acheter une capacité réservée Azure Database pour MySQL, vous devez spécifier la région Azure, le type de déploiement, le niveau de performance et le terme. </br>
 
-Vous n’avez pas besoin d’attribuer la réservation à des serveurs Azure Database pour MySQL spécifiques. Un serveur Azure Database pour MySQL déjà en cours d’exécution ou plusieurs récemment déployés, bénéficient automatiquement du tarif réservé. En achetant une réservation, vous payez d’avance les coûts de calcul pendant une durée d’un an. Dès que vous achetez une réservation, les charges de calcul Azure Database pour MySQL qui correspondent aux attributs de la réservation ne sont plus facturées au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage qui sont associés au serveur de base de données MySQL. À l’issue de la période de réservation, la remise sur facturation expire les serveurs Azure Database pour MySQL sont facturés au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité réservée Azure Database pour MySQL](https://azure.microsoft.com/pricing/details/mysql/). </br>
+Vous n’avez pas besoin d’attribuer la réservation à des serveurs Azure Database pour MySQL spécifiques. Un serveur Azure Database pour MySQL déjà en cours d’exécution ou plusieurs récemment déployés, bénéficient automatiquement du tarif réservé. En achetant une réservation, vous payez d’avance les coûts de calcul pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les charges de calcul Azure Database pour MySQL qui correspondent aux attributs de la réservation ne sont plus facturées au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage qui sont associés au serveur de base de données MySQL. À l’issue de la période de réservation, la remise sur facturation expire les serveurs Azure Database pour MySQL sont facturés au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité réservée Azure Database pour MySQL](https://azure.microsoft.com/pricing/details/mysql/). </br>
 
 Vous pouvez acheter une capacité réservée Azure Database pour MySQL sur le [Portail Azure](https://portal.azure.com/). Pour acheter une capacité réservée :
 
@@ -32,12 +32,12 @@ Plus en savoir plus sur la facturation des achats de réservation pour les clien
 
 La taille de la réservation doit s'appuyer sur le nombre total de calculs utilisés par le serveur existant ou à déployer récemment dans une région spécifique et utilisant le même niveau de performance et la même génération de matériel.</br>
 
-Par exemple, supposons que vous exécutez un usage général ; une base de données MySQL de 32 vCore Gen5 et deux bases de données MySQL 16 vCore Gen5 à mémoire optimisée. Admettons également que vous envisagez de déployer au cours du mois suivant un serveur de base de données supplémentaire de 32 vCore Gen5 pour un usage général et un autre de 16 vCore Gen5 à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 64 (2x32) vCores pour une durée d’un an, pour un usage général de bases de données uniques - Gen5 et une réservation de 48 (2x16 + 16) vCores pour une durée d’un an pour une base de données unique à mémoire optimisée - Gen5
+Par exemple, supposons que vous exécutez un usage général ; une base de données MySQL de 32 vCore Gen5 et deux bases de données MySQL 16 vCore Gen5 à mémoire optimisée. Admettons également que vous envisagez de déployer au cours du mois prochain un autre serveur de base de données Gen5 32 vCore à usage général et un serveur de base de données Gen5 16 vCore à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 64 (2x32) vCores pour une durée d’un an, pour un usage général de bases de données uniques - Gen5 et une réservation de 48 (2x16 + 16) vCores pour une durée d’un an pour une base de données unique à mémoire optimisée - Gen5
 
 
 ## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Acheter une capacité réservée Azure Database pour MySQL
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez **Ajouter**, puis dans le volet Acheter des réservations, sélectionnez **Azure Database pour MySQL** pour acheter une nouvelle réservation pour vos bases de données MySQL.
 4. Renseignez les champs obligatoires. Les bases de données existantes ou nouvelles, correspondant aux attributs que vous sélectionnez, peuvent prétendre à la remise de capacité réservée. Le nombre réel de vos serveurs Azure Database pour MySQL qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
@@ -50,7 +50,7 @@ Le tableau suivant décrit les champs requis.
 
 | Champ | Description |
 | :------------ | :------- |
-| Subscription   | L’abonnement utilisé pour payer la réservation de capacité réservée Azure Database pour MySQL. Les coûts initiaux de la réservation de capacité réservée Azure Database pour MySQL sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.
+| Abonnement   | L’abonnement utilisé pour payer la réservation de capacité réservée Azure Database pour MySQL. Les coûts initiaux de la réservation de capacité réservée Azure Database pour MySQL sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.
 | Étendue | L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : </br></br> **Partagé** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour MySQL en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</br></br> **Abonnement unique** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour MySQL inclus dans cet abonnement. </br></br> **Groupe de ressources unique** : la remise de réservation est appliquée aux serveurs Azure Database pour MySQL inclus dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement.
 | Région | La région Azure couverte par la réservation de capacité réservée Azure Database pour MySQL.
 | Type de déploiement | Le type de ressource Azure Database pour MySQL pour laquelle vous voulez acheter la réservation.

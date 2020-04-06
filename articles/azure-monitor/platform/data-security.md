@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 0ac169060f7ba0e58aeb3e36e3af1629b6453fc1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667361"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333355"
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
 Ce document est destiné à fournir des informations propres à Log Analytics, qui est une fonctionnalité d’Azure Monitor, en complément des informations disponibles sur le [Centre de confidentialité Azure](../../security/fundamentals/trust-center.md).  
@@ -151,7 +151,7 @@ Toutes les communications entre les systèmes connectés et le service Log Analy
 Chaque type d’agent collecte des données pour Log Analytics. Le type des données collectées dépend des types de solutions utilisés. Pour un récapitulatif de la collecte de données, voir [Ajouter des solutions Log Analytics à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md). Par ailleurs, des informations plus détaillées concernant la collecte sont disponibles pour la plupart des solutions. Une solution est un ensemble de vues prédéfinies, de requêtes de recherche de journal, de règles de collecte de données et de logique de traitement. Seuls les administrateurs peuvent utiliser Log Analytics pour importer une solution. Une fois la solution importée, elle est déplacée vers les serveurs d’administration Operations Manager (éventuellement utilisés), puis vers les agents que vous avez choisis. Ensuite, les agents collectent les données.
 
 ## <a name="2-send-data-from-agents"></a>2. Envoyer des données à partir d'agents
-Vous enregistrez tous les types d’agents avec une clé d’inscription et une connexion sécurisée est établie entre l’agent et le service Log Analytics à l’aide de l’authentification par certificat et SSL avec le port 443. Log Analytics utilise un magasin des secrets pour générer et gérer les clés. Les clés privées sont remplacées tous les 90 jours, stockées dans Azure, et gérées par des opérations Azure qui suivent des pratiques réglementaires et de conformité strictes.
+Vous enregistrez tous les types d’agents avec une clé d’inscription et une connexion sécurisée est établie entre l’agent et le service Log Analytics à l’aide de l’authentification par certificat et TLS avec le port 443. Log Analytics utilise un magasin des secrets pour générer et gérer les clés. Les clés privées sont remplacées tous les 90 jours, stockées dans Azure, et gérées par des opérations Azure qui suivent des pratiques réglementaires et de conformité strictes.
 
 Avec Operations Manager, le groupe d’administration qui est inscrit auprès d’un espace de travail Log Analytics établit une connexion HTTPS sécurisée avec un serveur d’administration Operations Manager.
 
@@ -161,7 +161,7 @@ Tout agent rendant compte à un groupe d’administration Operations Manager qui
 
 Les données mises en cache de l’agent Windows ou du serveur d’administration sont protégées par le magasin d’informations d’identification du système d’exploitation. Si le service ne peut pas traiter les données au bout de deux heures, les agents mettent celles-ci en file d’attente. En cas de saturation de la file d’attente, l’agent commence à supprimer certains types de données, en commençant par les données de performances. La limite de file d’attente de l’agent est une clé de Registre que vous pouvez modifier si nécessaire. Étant donné que les données collectées sont compressées et envoyées au service en contournant les bases de données du groupe d’administration Operations Manager, aucune charge n’est ajoutée à ces données. Une fois que les données collectées sont envoyées, elles sont supprimées du cache.
 
-Comme décrit ci-dessus, les données provenant d’agents du serveur d’administration ou d’agents connectés directement sont envoyées par le biais du protocole SSL aux centres de données Microsoft Azure. Vous pouvez également utiliser ExpressRoute pour sécuriser davantage les données. ExpressRoute vous permet de vous connecter directement à Azure à partir de votre réseau étendu (WAN) existant, comme un VPN MPLS fourni par un fournisseur de services réseau. Pour plus d’informations, voir [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+Comme décrit ci-dessus, les données provenant d’agents du serveur d’administration ou d’agents connectés directement sont envoyées par le biais du protocole TLS aux centres de données Microsoft Azure. Vous pouvez également utiliser ExpressRoute pour sécuriser davantage les données. ExpressRoute vous permet de vous connecter directement à Azure à partir de votre réseau étendu (WAN) existant, comme un VPN MPLS fourni par un fournisseur de services réseau. Pour plus d’informations, voir [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Le service Log Analytics reçoit et traite les données
 Le service Log Analytics s’assure que les données entrantes proviennent d’une source approuvée en validant des certificats et l’intégrité des données à l’aide de la certification Azure. Les données brutes non traitées sont ensuite stockées dans un hub d’événements Azure de la région où les données finissent par être stockées au repos. Le type des données stockées dépend des types de solutions qui ont été importées et utilisées pour collecter des données. Ensuite, le service Log Analytics traite les données brutes et les ingère dans la base de données.

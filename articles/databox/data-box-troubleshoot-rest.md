@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fe5afbc4984c430cbf393e4e2b44122bdd43983
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204215"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297126"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Résoudre les problèmes liés au Stockage Blob Azure Data Box
 
@@ -27,7 +27,7 @@ Cette section détaille certains des problèmes rencontrés lors de l’utilisat
 |---------|---------|
 |Unable to retrieve child resources. (Impossible de récupérer des ressources enfants.) The value for one of the HTTP headers is not in the correct format. (Le format de la valeur d’un des en-têtes HTTP est incorrect.)|Dans le menu **Modifier**, sélectionnez **Target Azure Stack APIs** (Cibler des API Azure Stack). <br>Redémarrez l’Explorateur Stockage Azure.|
 |`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Vérifiez que le nom de point de terminaison `<accountname>.blob.<serialnumber>.microsoftdatabox.com` est ajouté au fichier hosts sur ce chemin d’accès : <li>`C:\Windows\System32\drivers\etc\hosts` sur Windows, ou </li><li> `/etc/hosts` sur Linux.</li>|
-|Unable to retrieve child resources. (Impossible de récupérer des ressources enfants.) <br>Détails : certificat auto-signé |Importez le certificat SSL pour votre appareil dans l’Explorateur Stockage Azure : <li>Téléchargez le certificat à partir du Portail Azure. Pour plus d’informations, consultez [Télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Dans le menu **Modifier**, sélectionnez **Certificats SSL**, puis sélectionnez **Importer les certificats**.</li>|
+|Unable to retrieve child resources. (Impossible de récupérer des ressources enfants.) <br>Détails : certificat auto-signé |Importez le certificat TLS/SSL pour votre appareil dans l’Explorateur Stockage Azure : <li>Téléchargez le certificat à partir du Portail Azure. Pour plus d’informations, consultez [Télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Dans le menu **Modifier**, sélectionnez **Certificats SSL**, puis sélectionnez **Importer les certificats**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Erreurs rencontrées dans AzCopy pour Windows
 
@@ -36,7 +36,7 @@ Cette section détaille certains des problèmes rencontrés lors de l’utilisat
 |Message d’erreur  |Action recommandée |
 |---------|---------|
 |La commande AzCopy semble bloquée pendant une minute avant d’afficher cette erreur : <br>Failed to enumerate directory https://… (Échec de l’énumération du répertoire https://...) Impossible de résoudre le nom distant `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Vérifiez que le nom de point de terminaison `<accountname>.blob.<serialnumber>.microsoftdatabox.com` est ajouté au fichier hosts sur : `C:\Windows\System32\drivers\etc\hosts`.|
-|La commande AzCopy semble bloquée pendant une minute avant d’afficher cette erreur : <br>Error parsing source location. (Erreur d’analyse de l’emplacement source.) Le serveur a clos la connexion sous-jacente : Impossible d’établir une relation de confiance pour le canal sécurisé SSL/TLS.|Importez le certificat SSL pour votre appareil dans le magasin de certificats du système. Pour plus d’informations, consultez [Télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|La commande AzCopy semble bloquée pendant une minute avant d’afficher cette erreur : <br>Error parsing source location. (Erreur d’analyse de l’emplacement source.) Le serveur a clos la connexion sous-jacente : Impossible d’établir une relation de confiance pour le canal sécurisé SSL/TLS.|Importez le certificat TLS/SSL pour votre appareil dans le magasin de certificats du système. Pour plus d’informations, consultez [Télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 
 ## <a name="errors-seen-in-azcopy-for-linux"></a>Erreurs rencontrées dans AzCopy pour Linux
@@ -46,7 +46,7 @@ Cette section détaille certains des problèmes rencontrés lors de l’utilisat
 |Message d’erreur  |Action recommandée |
 |---------|---------|
 |La commande AzCopy semble bloquée pendant 20 minutes avant d’afficher cette erreur : <br>Error parsing source location `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`. (Erreur d’analyse de l’emplacement source.) Aucun périphérique ou adresse correspondant|Vérifiez que le nom de point de terminaison `<accountname>.blob.<serialnumber>.microsoftdatabox.com` est ajouté au fichier hosts sur : `/etc/hosts`.|
-|La commande AzCopy semble bloquée pendant 20 minutes avant d’afficher cette erreur : <br>Error parsing source location... (Erreur d’analyse de l’emplacement source...) The SSL connection could not be established (La connexion SSL n’a pas pu être établie.)|Importez le certificat SSL pour votre appareil dans le magasin de certificats du système. Pour plus d’informations, consultez [Télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|La commande AzCopy semble bloquée pendant 20 minutes avant d’afficher cette erreur : <br>Error parsing source location... (Erreur d’analyse de l’emplacement source...) The SSL connection could not be established (La connexion SSL n’a pas pu être établie.)|Importez le certificat TLS/SSL pour votre appareil dans le magasin de certificats du système. Pour plus d’informations, consultez [Télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 ## <a name="errors-seen-in-azure-storage-library-for-python"></a>Erreurs rencontrées dans la bibliothèque de Stockage Azure pour Python
 
@@ -55,7 +55,7 @@ Cette section détaille certains des principaux problèmes rencontrés lors du d
 |Message d’erreur  |Action recommandée |
 |---------|---------|
 |The value for one of the HTTP headers is not in the correct format. (Le format de la valeur d’un des en-têtes HTTP est incorrect.) |La version installée de la bibliothèque Stockage Microsoft Azure pour Python n’est pas prise en charge par Data Box. Consultez les exigences relatives au Stockage Blob d’Azure Data Box pour connaître les versions prises en charge.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Avant d’exécuter Python, définissez la variable d’environnement REQUESTS_CA_BUNDLE sur le chemin d’accès du fichier de certificat SSL codé en Base64 (consultez comment [Télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Par exemple :<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Vous pouvez également ajouter le certificat au magasin de certificats du système puis définir cette variable d’environnement sur le chemin d’accès de ce magasin. <br> Par exemple, sur Ubuntu : <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Avant d’exécuter Python, définissez la variable d’environnement REQUESTS_CA_BUNDLE sur le chemin d’accès du fichier de certificat TLS codé en Base64 (consultez comment [Télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Par exemple :<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Vous pouvez également ajouter le certificat au magasin de certificats du système puis définir cette variable d’environnement sur le chemin d’accès de ce magasin. <br> Par exemple, sur Ubuntu : <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Erreurs courantes

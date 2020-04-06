@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d3008e2e2d720b67fcf0846c27d2fed1ef7db307
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1635589b282dc33f6a1e9c2552dc8a73c67b9004
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035506"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294742"
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
 
@@ -39,9 +39,9 @@ Pour utiliser Azure Active Directory à des fins d’authentification, vous deve
 Ces étapes utilisent Azure CLI pour créer l’inscription d’application et l’interface graphique utilisateur (portail) pour définir les autorisations. Pour créer l’inscription d’application, cinq éléments d’information sont nécessaires :
 
 - Nom complet : nom d’inscription de l’application (par exemple : OCPAzureAD)
-- Page d’accueil : URL de la console OpenShift (par exemple, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- URL d’identificateur : URL de la console OpenShift (par exemple, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- URL de réponse : URL publique maître et nom d’inscription de l’application (par exemple, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Page d’accueil : URL de la console OpenShift (par exemple, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- URL d’identificateur : URL de la console OpenShift (par exemple, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- URL de réponse : URL publique maître et nom d’inscription de l’application (par exemple, `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`)
 - Mot de passe : mot de passe sécurisé (utilisez un mot de passe fort)
 
 L’exemple suivant crée une inscription d’application à l’aide des informations précédentes :
@@ -176,7 +176,7 @@ Si les métriques ou la journalisation n’ont pas été activées durant l’in
 
 ### <a name="azure-cloud-provider-in-use"></a>Fournisseur de cloud Azure utilisé
 
-Établissez une connexion SSH au nœud Bastion ou au premier nœud master (en fonction du modèle et de la branche utilisés), à l’aide des informations d’identification fournies durant le déploiement. Exécutez la commande suivante :
+Établissez une connexion SSH au nœud Bastion ou au premier nœud master (en fonction du modèle et de la branche utilisés), à l’aide des informations d’identification fournies durant le déploiement. Émettez les commandes suivantes :
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \

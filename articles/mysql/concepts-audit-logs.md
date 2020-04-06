@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: eae7e434ce21b5f9d9f3e6c40f94261df8baa426
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 3/19/2020
+ms.openlocfilehash: b42f0d7a8146f7f2b313959273abd22303c89a60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972351"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062544"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Journaux d’audit dans Azure Database pour MySQL
 
@@ -33,7 +33,7 @@ Les autres paramètres que vous pouvez ajuster incluent :
 - `audit_log_exclude_users`: utilisateurs MySQL à exclure de la journalisation. La longueur maximale du paramètre est de 512 caractères.
 
 > [!Note]
-> Pour `sql_text`, le journal est tronqué s’il dépasse 2048 caractères.
+> Pour `sql_text`, le journal est tronqué s’il dépasse 2 048 caractères.
 
 | **Event** | **Description** |
 |---|---|
@@ -81,7 +81,7 @@ Les sections suivantes décrivent la sortie des journaux d’audit MySQL en fonc
 | `db_s` | Nom de la base de données connectée |
 | `\_ResourceId` | URI de ressource |
 
-### <a name="general"></a>Généralités
+### <a name="general"></a>Général
 
 Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL et ADMIN.
 
@@ -113,6 +113,9 @@ Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELEC
 
 ### <a name="table-access"></a>Accès à la table
 
+> [!NOTE]
+> Les journaux d’accès à la table sont uniquement des sorties pour MySQL 5.7.
+
 | **Propriété** | **Description** |
 |---|---|
 | `TenantId` | Votre ID d’abonné |
@@ -131,10 +134,64 @@ Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELEC
 | `event_class_s` | `table_access_log` |
 | `event_subclass_s` | `READ`, `INSERT`, `UPDATE` ou `DELETE` |
 | `connection_id_d` | ID de connexion unique généré par MySQL |
-| `db_s` | Nom de la base de données accédée |
+| `db_s` | Nom de la base de données sollicitée |
 | `table_s` | Nom de la table sollicitée |
 | `sql_text_s` | Texte de la requête complète |
 | `\_ResourceId` | URI de ressource |
+
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Analyser les journaux dans Azure Monitor
+
+Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le biais des journaux de diagnostic, vous pouvez effectuer une analyse plus poussée de vos événements audités. Voici quelques exemples de requêtes pour vous aider à commencer. Veillez à mettre à jour les exemples ci-dessous avec le nom de votre serveur.
+
+- Lister les événements GÉNÉRAUX sur un serveur spécifique :
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last 
+    ```
+
+- Lister les événements de CONNEXION sur un serveur spécifique :
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ```
+
+- Résumer les événements audités sur un serveur spécifique :
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
+    ```
+
+- Représenter sous forme de graphe la distribution des types d’événements d’audit sur un serveur spécifique :
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart 
+    ```
+
+- Lister les événements audités de tous les serveurs MySQL sur lesquels les journaux de diagnostic sont activés pour les journaux d’audit :
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ``` 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

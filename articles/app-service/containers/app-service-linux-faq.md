@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944091"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245818"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -35,7 +35,7 @@ Vous trouverez tous les fichiers Docker sur [GitHub](https://github.com/azure-ap
 | Java SE         | la commande pour démarrer votre application JAR (par exemple, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
 | Tomcat          | l’emplacement d’un script pour effectuer toutes les configurations nécessaires (par exemple, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | le fichier de configuration PM2 ou votre fichier de script                                |
-| .Net Core       | le nom de la DLL compilée en tant que `dotnet <myapp>.dll`                                 |
+| .NET Core       | le nom de la DLL compilée en tant que `dotnet <myapp>.dll`                                 |
 | Ruby            | le script Ruby avec lequel initialiser votre application                     |
 
 Ces commandes ou scripts sont exécutés après le démarrage du conteneur Docker intégré, mais avant le démarrage de votre code d’application.
@@ -56,7 +56,7 @@ Oui, vous pouvez le faire via le site de gestion de contrôle de code source (SC
 
 **Comment puis-je créer un plan App Service Linux via un kit de développement ou un modèle Azure Resource Manager ?**
 
-Vous devez définir le champ **reserved** du service d’application sur *true*.
+Définissez le champ **reserved** du service d’application sur *true*.
 
 ## <a name="continuous-integration-and-deployment"></a>Intégration et déploiement continus
 
@@ -173,11 +173,19 @@ Voici les règles pour déterminer quel conteneur est accessible, par ordre d’
 - Le premier conteneur doit définir le port 80 ou 8080.
 - Si aucune de ces règles n’est appliquée, le premier conteneur défini dans le fichier sera accessible (exposé).
 
+
+## <a name="web-sockets"></a>Web Sockets
+
+Les Web Sockets sont pris en charge sur les applications Linux.
+
+> [!IMPORTANT]
+> Les Web Sockets ne sont actuellement pas pris en charge pour les applications Linux sur les plans Free App Service. Nous travaillons à la suppression de cette limitation et nous prévoyons de prendre en charge jusqu’à 5 connexions de Web Socket sur les plans Free App Service.
+
 ## <a name="pricing-and-sla"></a>Tarifs et contrat SLA
 
 **À présent que le service est disponible généralement, quels sont les tarifs ?**
 
-Le nombre d’heures d’exécution de votre application vous est facturé, selon les tarifs Azure App Service normaux.
+La tarification varie en fonction de la référence et de la région, mais vous pouvez voir plus de détails sur notre page de tarification : [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
 ## <a name="other-questions"></a>Autres questions
 

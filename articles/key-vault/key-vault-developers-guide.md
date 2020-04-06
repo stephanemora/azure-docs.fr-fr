@@ -3,18 +3,17 @@ title: Guide du développeur de coffre de clés Azure
 description: Les développeurs peuvent utiliser le coffre de clés Azure pour gérer les clés de chiffrement dans l'environnement Microsoft Azure.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 331e3d5855e4ea1fc18a3b638741f6297a7a27d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a8cb0ea9fb3c6e8388271c4274baf4ecc7282cda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184670"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247229"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -23,7 +22,7 @@ Key Vault vous permet d’accéder en toute sécurité aux informations sensible
 - Les clés et secrets sont protégés sans que vous deviez écrire de code et vous pouvez facilement les utiliser dans vos applications.
 - Vous pouvez faire en sorte que vos clients possèdent et gèrent leurs propres clés, afin que vous puissiez vous concentrer sur la fourniture des principales fonctionnalités du logiciel. Ainsi, vos applications ne vous exposent à aucune responsabilité en relation avec les clés et secrets de vos clients.
 - Votre application peut utiliser des clés pour la signature et le chiffrement, tandis que la gestion des clés s’effectue à l’extérieur de l’application, de sorte que votre solution convient parfaitement pour une application distribuée géographiquement.
-- Depuis la version de septembre 2016 de Key Vault, vos applications peuvent désormais gérer des certificats Key Vault. Pour plus d’informations, consultez [À propos des clés, des secrets et des certificats](/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Gérez les certificats Key Vault. Pour plus d’informations, consultez [À propos des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md).
 
 Pour des informations plus générales sur le coffre de clés Azure Key Vault, voir [Qu’est-ce qu’Azure Key Vault ?](key-vault-overview.md).
 
@@ -39,9 +38,14 @@ Pour plus d’informations sur les identités managées pour les ressources Azur
 
 Avant d’utiliser des clés, des secrets ou des certificats dans votre coffre de clés, créez et gérez votre coffre de clés via CLI, PowerShell, des modèles du Gestionnaire des ressources ou REST, comme décrit dans les articles suivants :
 
-- [Créer et gérer les coffres de clés avec l’interface de ligne de commande](key-vault-manage-with-cli2.md)
-- [Créer et gérer les coffres de clés avec PowerShell](key-vault-overview.md)
-- [Créer un coffre de clés et ajouter un secret via un modèle Azure Resource Manager](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [Créer et gérer les coffres de clés avec l’interface de ligne de commande](quick-create-cli.md)
+- [Créer et gérer les coffres de clés avec PowerShell](quick-create-powershell.md)
+- [Créer et gérer les coffres de clés avec le port Azure](quick-create-portal.md)
+- [Créer et gérer les coffres de clés avec Python](quick-create-python.md)
+- [Créer et gérer les coffres de clés avec Java](quick-create-java.md)
+- [Créer et gérer les coffres de clés avec Node.js](quick-create-node.md)
+- [Créer et gérer les coffres de clés avec .NET (v4 SDK)](quick-create-net.md)
+- [Créer un coffre de clés et ajouter un secret via un modèle Azure Resource Manager](quick-create-template.md)
 - [Créer et gérer les coffres de clés avec REST](/rest/api/keyvault/)
 
 
@@ -59,7 +63,7 @@ Toutes vos ressources Key Vault sont accessibles par le biais de l’interface R
 
 #### <a name="net"></a>.NET
 
-[Informations de référence sur l’API .NET pour Key Vault](/dotnet/api/microsoft.azure.keyvault).
+[Informations de référence sur l’API .NET pour Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
 
 Pour plus d’informations sur la version 2.x du kit SDK .NET, consultez les [Notes de publication](key-vault-dotnet2api-release-notes.md).
 
@@ -71,24 +75,19 @@ Pour plus d’informations sur la version 2.x du kit SDK .NET, consultez les [No
 
 Dans Node.js, l’API de gestion Key Vault et l’API des objets Key Vault sont distinctes. L’article de présentation suivant vous donne accès aux deux API. 
 
-[Modules Azure Key Vault pour Node.js](/nodejs/api/overview/azure/key-vault)
+[Modules Azure Key Vault pour Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Bibliothèques Azure Key Vault pour Python](/python/api/overview/azure/key-vault)
+[Bibliothèques Azure Key Vault pour Python](/python/api/overview/azure/key-vault?view=azure-python)
 
-#### <a name="azure-cli-2"></a>Interface de ligne de commande Azure 2
+#### <a name="azure-cli"></a>Azure CLI
 
-[Interface de ligne de commande Azure pour Key Vault](/cli/azure/keyvault)
+[Interface de ligne de commande Azure pour Key Vault](/cli/azure/keyvault?view=azure-cli-latest)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Azure PowerShell pour Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
-
-### <a name="quickstart-guides"></a>Guides de démarrage rapide
-
-- [Création d'un coffre de clés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Bien démarrer avec Key Vault dans Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
+[Azure PowerShell pour Key Vault](/powershell/module/az.keyvault/?view=azps-3.6.1#key_vault)
 
 ### <a name="code-examples"></a>Exemples de code
 

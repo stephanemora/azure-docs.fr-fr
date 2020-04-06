@@ -9,18 +9,18 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 405b2fb9d9b8ef3bce17a9370ac87592a3437026
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585949"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331367"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -57,7 +57,7 @@ La section suivante explique en détail comment fonctionne la synchronisation du
 4. L’agent de synchronisation de hachage de mot de passe étend le hachage de mot de passe binaire de 16 octets à 64 octets en convertissant d’abord le hachage en chaîne hexadécimale de 32 octets, puis en reconvertissant cette chaîne au format binaire avec l’encodage UTF-16.
 5. L’agent de synchronisation de hachage de mot de passe ajoute pour chaque utilisateur un salt de 10 octets de long au fichier binaire de 64 octets pour renforcer la protection du hachage d’origine.
 6. L’agent de synchronisation de hachage de mot de passe combine alors le hachage MD4 et le salt par utilisateur, puis place le tout dans la fonction [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). 1 000 itérations de l’algorithme de hachage à clé [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) sont utilisées. 
-7. L’agent de synchronisation de hachage de mot de passe prend le hachage de 32 octets résultant, concatène le salt par utilisateur et le nombre d’itérations SHA256 (pour une utilisation par Azure AD), puis transmet la chaîne d’Azure AD Connect à Azure AD par SSL.</br> 
+7. L’agent de synchronisation de hachage de mot de passe prend le hachage de 32 octets résultant, concatène le salt par utilisateur et le nombre d’itérations SHA256 (pour une utilisation par Azure AD), puis transmet la chaîne d’Azure AD Connect à Azure AD par TLS.</br> 
 8. Lorsqu’un utilisateur tente de se connecter à Azure AD et entre son mot de passe, le mot de passe est traité par le même processus MD4+salt+PBKDF2+HMAC-SHA256. Si le hachage résultant correspond au hachage stocké dans Azure AD, l’utilisateur a entré le bon mot de passe et est authentifié.
 
 > [!NOTE]
@@ -124,6 +124,7 @@ Inconvénient : si des comptes synchronisés doivent avoir des mots de passe sa
 
 > [!NOTE]
 > Cette fonctionnalité est actuellement en préversion publique.
+> La commande PowerShell Set-MsolPasswordPolicy ne fonctionne pas sur les domaines fédérés. 
 
 #### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Préversion publique de la synchronisation des mots de passe temporaires et « Forcer la modification du mot de passe à la prochaine ouverture de session »
 
@@ -136,10 +137,10 @@ Pour prendre en charge les mots de passe temporaires dans Azure AD pour les util
 `Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> forcer un utilisateur à changer son mot de passe lors de la prochaine ouverture de session nécessite en même temps un changement du mot de passe.  AD Connect ne récupère pas l’indicateur le changement de mot de passe forcé de lui-même. Cela s’ajoute au changement de mot de passe détecté qui se produit pendant la synchronisation du hachage de mot de passe.
+> forcer un utilisateur à changer son mot de passe lors de la prochaine ouverture de session nécessite en même temps un changement du mot de passe.  Azure AD Connect ne récupère pas de lui-même l’indicateur de changement forcé du mot de passe. Cela s’ajoute au changement de mot de passe détecté qui se produit pendant la synchronisation du hachage de mot de passe.
 
 > [!CAUTION]
-> Si vous n’activez pas la réinitialisation de mot de passe en libre-service (SSPR) dans Azure AD, les utilisateurs pourront se sentir perdus quand ils réinitialiseront leur mot de passe dans Azure AD puis tenteront de se connecter à Active Directory avec le nouveau mot de passe parce que ce nouveau mot de passe ne sera pas valide dans Active Directory. Vous devez utiliser cette fonctionnalité uniquement quand la réinitialisation de mot de passe en libre-service et la réécriture du mot de passe sont activées sur le locataire.
+> Vous devez utiliser cette fonctionnalité uniquement quand la réinitialisation de mot de passe en libre-service (SSPR) et la réécriture du mot de passe sont activées sur le locataire.  Ainsi, si un utilisateur modifie son mot de passe via SSPR, il sera synchronisé avec Active Directory.
 
 > [!NOTE]
 > Cette fonctionnalité est actuellement en préversion publique.

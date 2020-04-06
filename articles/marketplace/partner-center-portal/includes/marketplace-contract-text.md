@@ -1,26 +1,20 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: fichier include de texte pour le contrat Standard du marketplace commercial de Microsoft
-services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
-author: ChJenk
-manager: evansma
-editor: ''
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 01/22/2020
-ms.author: v-chjen
+ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 76603ef30cefa14018a7c6b976eb8541b9b608f4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9b99876b66826cc5a66cba686a7d6a5243b47b98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76760887"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277220"
 ---
 Microsoft fournit un modèle de contrat Standard pour le marketplace commercial.
 
@@ -49,7 +43,7 @@ Deux types de modifications sont proposées aux éditeurs de la place de marché
 
 **Termes d’amendement universel au contrat Standard pour la place de marché commerciale Microsoft** : Entrez les conditions de l’amendement universel dans cette zone. Vous pouvez fournir un seul amendement universel par offre. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Ces termes sont affichés pour les clients dans AppSource, la Place de marché Azure et/ou le portail Azure pendant le processus de découverte et d’achat.
 
-**Termes d'amendements personnalisées du contrat Standard pour la place de marché commerciale de Microsoft**: Commencez par sélectionner **Ajouter des conditions d’amendement personnalisées**. Vous pouvez fournir jusqu’à 10 termes d’amendement personnalisés par offre.
+**Conditions d'amendements personnalisées du contrat Standard pour la place de marché commerciale de Microsoft**: Commencez par sélectionner **Ajouter des conditions d’amendement personnalisées**. Vous pouvez fournir jusqu’à 10 termes d’amendement personnalisés par offre.
 
 - **Termes d’amendement personnalisés**: Saisissez vos conditions d’amendement personnalisées dans la zone Conditions d’amendement personnalisées. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Seuls les clients des ID de locataire que vous spécifiez pour ces conditions personnalisées seront présentés avec les termes de l’amendement personnalisé dans le flow d’achat de l’offre dans le Portail Azure.  
 - **ID de locataire** (obligatoire) : Chaque amendement personnalisé peut être ciblé vers jusqu’à 20 ID de locataire. Si vous ajoutez un amendement personnalisé, vous devez fournir au moins un ID de locataire. L’ID de locataire identifie votre client dans Azure. Vous pouvez demander à votre client cet ID et il peut le trouver en accédant à portal.azure.com > Azure Active Directory > Propriétés. La valeur de l’ID de répertoire est l’ID de locataire (par exemple, 50c464d3-4930-494c-963C-1e951d15360e). Vous pouvez également Rechercher l’ID de locataire de l’organisation de votre client à l’aide de son URL de nom de domaine sur [Qu’est-ce que mon Microsoft Azure et mon ID de locataire Office 365 ?](https://www.whatismytenantid.com).

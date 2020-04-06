@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c3e60e9c296dc8e3a1e31a52a262d8462237407
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a86b8ddb59719db9bdaffea44aecd5428ad16834
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75765661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282662"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azurem
 * `auth_enabled` -Si l’authentification par clé est activée, `True` ; sinon, `False`.
 * `token_auth_enabled` -Si l’authentification par jeton est activée, `True` ; sinon, `False`.
 * `scoring_uri` -L’adresse de l’API REST.
-* `swagger_uri` : l’adresse de la spécification OpenAPI. Cet URI est disponible si vous avez activé la génération de schéma automatique. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md#schema).
+* `swagger_uri` : l’adresse de la spécification OpenAPI. Cet URI est disponible si vous avez activé la génération de schéma automatique. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 Il y a trois manières de récupérer ces informations pour les services web déployés :
 
@@ -75,12 +75,12 @@ Il y a trois manières de récupérer ces informations pour les services web dé
 
 ### <a name="secured-web-service"></a>Service web sécurisé
 
-Si vous avez sécurisé le service web déployé à l’aide d’un certificat SSL, vous pouvez utiliser [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pour vous connecter au service à l’aide de l’URI de notation ou Swagger. HTTPS permet de sécuriser les communications entre un client et un service web en chiffrant les communications entre les deux. Le chiffrement utilise [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS est toujours parfois appelé *SSL (Secure Sockets Layer)* , qui était le prédécesseur de TLS.
+Si vous avez sécurisé le service web déployé à l’aide d’un certificat TLS/SSL, vous pouvez utiliser [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pour vous connecter au service à l’aide de l’URI de notation ou Swagger. HTTPS permet de sécuriser les communications entre un client et un service web en chiffrant les communications entre les deux. Le chiffrement utilise [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS est toujours parfois appelé *SSL (Secure Sockets Layer)* , qui était le prédécesseur de TLS.
 
 > [!IMPORTANT]
 > Les services web déployés par Azure Machine Learning prennent uniquement en charge TLS version 1.2. Lors de la création d’une application cliente, vérifiez qu’elle prend en charge cette version.
 
-Pour plus d’informations, consultez [Utiliser SSL pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md).
+Pour plus d’informations, consultez [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md).
 
 ### <a name="authentication-for-services"></a>Authentification pour les services
 

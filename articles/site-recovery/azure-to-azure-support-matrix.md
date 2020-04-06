@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: d278f96acf8d8efc57a9ae7fb57f9a758339162a
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 0b4a654093e0842e66e1f8b0924edfa6c9c215e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276646"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -29,7 +29,7 @@ Cet article récapitule la prise en charge et les conditions préalables pour la
 ## <a name="resource-support"></a>Prise en charge des ressources
 
 **Action de ressource** | **Détails**
---- | --- 
+--- | ---
 **Déplacer des coffre entre plusieurs groupes de ressources** | Non pris en charge
 **Déplacer le calcul/le stockage/les ressources réseau entre plusieurs groupes de ressources** | Non pris en charge.<br/><br/> Si vous déplacez une machine virtuelle ou des composants associés tels que le stockage/réseau après la réplication de la machine virtuelle, vous devez désactiver et réactiver la réplication pour la machine virtuelle.
 **Répliquer des machines virtuelles Azure d’un abonnement à un autre pour la reprise d’activité** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
@@ -46,11 +46,11 @@ Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions 
 America | Canada , Canada Centre, USA Centre Sud, Ouest du USA Centre, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre, USA Centre Nord
 Europe | Royaume-Uni Ouest, Royaume-Uni Sud, Europe Nord, Europe Ouest, France Centre, France Sud, Afrique du Sud Ouest, Afrique du Sud Nord, Norvège Est, Norvège Ouest
 Asia | Inde Sud, Inde Centre, Inde Ouest, Asie Sud-Est, Asie Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Émirats arabes unis Centre, Émirats arabes unis Nord
-Australie   | Australie Est, Australie Sud-Est, Australie Centre, Australie Centre 2
-Azure Government    | US Gov Virginie, US Gov Iowa, US Gov Arizona, US Gov Texas, US DoD Est, US DoD Centre 
-Allemagne | Centre de l’Allemagne, Nord-Est de l’Allemagne
+Australie    | Australie Est, Australie Sud-Est, Australie Centre, Australie Centre 2
+Azure Government    | US Gov Virginie, US Gov Iowa, US Gov Arizona, US Gov Texas, US DoD Est, US DoD Centre
+Allemagne    | Centre de l’Allemagne, Nord-Est de l’Allemagne
 Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
-Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Allemagne Nord réservée pour les clients Allemagne Centre-Ouest, Suisse Ouest réservée pour les clients Suisse Nord, France Sud réservée pour les clients France Centre 
+Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Allemagne Nord réservée pour les clients Allemagne Centre-Ouest, Suisse Ouest réservée pour les clients Suisse Nord, France Sud réservée pour les clients France Centre
 
 >[!NOTE]
 >
@@ -75,7 +75,7 @@ Pare-feux du Stockage Azure pour réseaux virtuels  | Prise en charge | Si vous 
 
 ## <a name="replicated-machine-operating-systems"></a>Systèmes d’exploitation de machine répliquée
 
-Site Recovery prend en charge la réplication de machines virtuelles Azure exécutant les systèmes d’exploitation répertoriés dans cette section.
+Site Recovery prend en charge la réplication de machines virtuelles Azure exécutant les systèmes d’exploitation répertoriés dans cette section. Notez que si une machine déjà répliquée est ensuite mise à niveau (ou rétrogradée) vers un autre noyau principal, vous devez désactiver la réplication et la réactiver après la mise à niveau.
 
 ### <a name="windows"></a>Windows
 
@@ -109,7 +109,7 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Versions du noyau prise
 SUSE Linux Enterprise Server 15 | 15 et 15 SP1. [(Versions du noyau prises en charge)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> La mise à niveau des machines de réplication SP3 vers SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, vous devez désactiver la réplication et la réactiver après la mise à niveau.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5)
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versions du noyau Ubuntu prises en charge pour les machines virtuelles Azure
@@ -158,7 +158,7 @@ SUSE Linux Enterprise Server 15 et 15 SP1 | 9.32 | Tous les [noyaux de stock S
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Machines répliquées - Stockage invité/système de fichiers Linux
 
-* Systèmes de fichiers : ext3, ext4, ReiserFS (Suse Linux Enterprise Server uniquement), XFS, BTRFS
+* Systèmes de fichiers : ext3, ext4, XFS, BTRFS
 * Gestionnaire de volume : LVM2
 * Logiciel multichemin : Mappeur d’appareil
 
@@ -167,7 +167,7 @@ SUSE Linux Enterprise Server 15 et 15 SP1 | 9.32 | Tous les [noyaux de stock S
 
 **Paramètre** | **Support** | **Détails**
 --- | --- | ---
-Size | N’importe quelle taille de machine virtuelle Azure avec au moins 2 cœurs d’UC et 1 Go de RAM | Consultez [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
+Taille | N’importe quelle taille de machine virtuelle Azure avec au moins 2 cœurs d’UC et 1 Go de RAM | Consultez [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
 Groupes à haute disponibilité | Prise en charge | Si vous activez la réplication pour une machine virtuelle Azure avec les options par défaut, un groupe à haute disponibilité est créé automatiquement, selon les paramètres de la région source. Vous pouvez modifier ces paramètres.
 Zones de disponibilité | Prise en charge |
 HUB (Hybrid Use Benefit) | Prise en charge | Si la machine virtuelle source a une licence HUB activée, une machine virtuelle de basculement ou de test de basculement utilise également la licence HUB.
@@ -199,7 +199,7 @@ Ce tableau récapitule la prise en charge du disque du système d’exploitation
 Taille maximale du disque du système d’exploitation | 2048 GB | [En savoir plus](../virtual-machines/windows/managed-disks-overview.md) sur les disques de machines virtuelles.
 Disque temporaire | Non pris en charge | Le disque temporaire est toujours exclu de la réplication.<br/><br/> Ne conservez pas de données persistantes sur le disque temporaire. [Plus d’informations](../virtual-machines/windows/managed-disks-overview.md)
 Taille maximale du disque de données | 8192 Go pour les disques managés<br></br>4095 Go pour les disques non managés|
-Taille minimale du disque de données | Aucune restriction pour les disques non managés. 2 Go pour les disques managés | 
+Taille minimale du disque de données | Aucune restriction pour les disques non managés. 2 Go pour les disques managés |
 Nombre maximal de disques de données | Jusqu’à 64, en adéquation avec la prise en charge pour une taille spécifique de machine virtuelle Azure | [En savoir plus](../virtual-machines/windows/sizes.md) sur les tailles de machines virtuelles.
 Taux de modification du disque de données | 10 Mbits/s maximum par disque pour le stockage Premium. 2 Mbits/s maximum par disque pour le stockage Standard. | Si le taux moyen de modification des données sur le disque est en permanence supérieur à la valeur maximale, la réplication ne pourra pas suivre.<br/><br/>  Toutefois, si la valeur maximale est dépassée de manière sporadique, la réplication peut suivre, mais les points de récupération pourraient être légèrement différés.
 Disque de données - Compte de stockage Standard | Prise en charge |
@@ -210,15 +210,16 @@ SSD Standard | Prise en charge |
 Redondance | LRS et GRS sont pris en charge.<br/><br/> ZRS n’est pas pris en charge.
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud
 Espaces de stockage | Prise en charge |
-Chiffrement au repos (SSE) | Prise en charge | SSE est le paramètre par défaut sur les comptes de stockage.   
-Chiffrement au repos (CMK) | Prise en charge | Les clés HSM et logicielles sont prises en charge pour les disques managés    
-Azure Disk Encryption (ADE) pour système d’exploitation Windows | Pris en charge pour les machines virtuelles avec des disques managés. Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge |
-Azure Disk Encryption (ADE) pour système d’exploitation Linux | Prise en charge |
-Ajout à chaud | Prise en charge | L'activation de la réplication pour un disque de données que vous ajoutez à une machine virtuelle Azure répliquée est prise en charge pour les machines virtuelles utilisant des disques managés.
-Retrait de disque à chaud | Non pris en charge | Si vous retirez un disque de données de la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
-Exclure le disque | Pris en charge. Vous devez utiliser [Powershell](azure-to-azure-exclude-disks.md) pour configurer. |  Les disques temporaires sont exclus par défaut.
+Chiffrement au repos (SSE) | Prise en charge | SSE est le paramètre par défaut sur les comptes de stockage.
+Chiffrement au repos (CMK) | Prise en charge | Les clés HSM et logicielles sont prises en charge pour les disques managés
+Azure Disk Encryption (ADE) pour système d’exploitation Windows | Pris en charge pour les machines virtuelles avec des disques managés. | Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge. <br/><br/> Les clés protégées par HSM ne sont pas prises en charge. |
+Azure Disk Encryption (ADE) pour système d’exploitation Linux | Pris en charge pour les machines virtuelles avec des disques managés. | Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge. <br/><br/> Les clés protégées par HSM ne sont pas prises en charge. |
+Ajout à chaud    | Prise en charge | L'activation de la réplication pour un disque de données que vous ajoutez à une machine virtuelle Azure répliquée est prise en charge pour les machines virtuelles utilisant des disques managés.
+Retrait de disque à chaud    | Non pris en charge | Si vous retirez un disque de données de la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
+Exclure le disque | Pris en charge. Vous devez utiliser [PowerShell](azure-to-azure-exclude-disks.md) pour configurer. |    Les disques temporaires sont exclus par défaut.
 Espaces de stockage direct  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 Serveur de fichiers avec montée en puissance parallèle  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
+DRBD | Les disques qui font partie d’une installation DRBD ne sont pas pris en charge. |
 LRS | Prise en charge |
 GRS | Prise en charge |
 RA-GRS | Prise en charge |
@@ -241,9 +242,9 @@ Le tableau suivant récapitule les limites de Site Recovery.
 
 **Cible de stockage** | **E/S moyennes de disque source** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
 ---|---|---|---
-Stockage Standard | 8 Ko | 2 Mo/s | 168 Go par disque
-Disque Premium P10 ou P15 | 8 Ko  | 2 Mo/s | 168 Go par disque
-Disque Premium P10 ou P15 | 16 Ko | 4 Mo/s |  336 Go par disque
+Stockage Standard | 8 Ko    | 2 Mo/s | 168 Go par disque
+Disque Premium P10 ou P15 | 8 Ko    | 2 Mo/s | 168 Go par disque
+Disque Premium P10 ou P15 | 16 Ko | 4 Mo/s |    336 Go par disque
 Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1 684 Go par disque
@@ -259,14 +260,14 @@ Groupe de sécurité réseau (NSG) sur la carte réseau | Prise en charge | Asso
 Groupe de sécurité réseau (NSG) sur le sous-réseau | Prise en charge | Associez le groupe de sécurité réseau au sous-réseau à l’aide d’un script Azure Automation dans un plan de récupération.
 Adresse IP (statique) réservée | Prise en charge | Si la carte réseau sur la machine virtuelle source a une adresse IP statique et que le sous-réseau cible a la même adresse IP disponible, celle-ci est affectée à la machine virtuelle de basculement.<br/><br/> Si le sous-réseau cible n’a pas la même adresse IP disponible, l’une des adresses IP disponibles sur le sous-réseau est réservée à la machine virtuelle.<br/><br/> Vous pouvez également spécifier une adresse IP fixe et un sous-réseau dans **Éléments répliqués** > **Paramètres** > **Calcul et réseau** > **Interfaces réseau**.
 Adresse IP dynamique | Prise en charge | Si la carte réseau sur la machine virtuelle source a l’adressage IP dynamique, la carte réseau sur la machine virtuelle de basculement est également dynamique par défaut.<br/><br/> Vous pouvez remplacer cela par une adresse IP fixe si nécessaire.
-Plusieurs adresses IP | Non pris en charge | Lorsque vous basculez une machine virtuelle équipée d'une carte réseau avec plusieurs adresses IP, seule l’adresse IP principale de la carte réseau de la région source est conservée. Pour attribuer plusieurs adresses IP, vous pouvez ajouter des machines virtuelles à un [plan de récupération](recovery-plan-overview.md) et joindre un script pour attribuer des adresses IP supplémentaires à ce plan. Vous pouvez également procéder à la modification manuellement ou à l'aide d'un script après basculement. 
+Plusieurs adresses IP | Non pris en charge | Lorsque vous basculez une machine virtuelle équipée d'une carte réseau avec plusieurs adresses IP, seule l’adresse IP principale de la carte réseau de la région source est conservée. Pour attribuer plusieurs adresses IP, vous pouvez ajouter des machines virtuelles à un [plan de récupération](recovery-plan-overview.md) et joindre un script pour attribuer des adresses IP supplémentaires à ce plan. Vous pouvez également procéder à la modification manuellement ou à l'aide d'un script après basculement.
 Traffic Manager     | Prise en charge | Vous pouvez préconfigurer Traffic Manager pour que le trafic soit acheminé vers le point de terminaison dans la région source de manière régulière et vers le point de terminaison dans la région cible en cas de basculement.
 Azure DNS | Prise en charge |
-Système DNS personnalisé  | Prise en charge |
-Proxy non authentifié | Prise en charge | [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)    
-Proxy authentifié | Non pris en charge | Si la machine virtuelle utilise un proxy authentifié pour la connectivité sortante, elle ne peut pas être répliquée à l’aide d’Azure Site Recovery.    
-Connexion VPN de site à site à un environnement local<br/><br/>(avec ou sans ExpressRoute)| Prise en charge | Vérifiez que les itinéraires définis par l’utilisateur et les groupes de sécurité réseau sont configurés de telle sorte que le trafic Site Recovery ne soit pas acheminé vers l’infrastructure locale. [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)    
-Connexion de réseau virtuel à réseau virtuel | Prise en charge | [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)  
+Système DNS personnalisé    | Prise en charge |
+Proxy non authentifié | Prise en charge | [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)
+Proxy authentifié | Non pris en charge | Si la machine virtuelle utilise un proxy authentifié pour la connectivité sortante, elle ne peut pas être répliquée à l’aide d’Azure Site Recovery.
+Connexion VPN de site à site à un environnement local<br/><br/>(avec ou sans ExpressRoute)| Prise en charge | Vérifiez que les itinéraires définis par l’utilisateur et les groupes de sécurité réseau sont configurés de telle sorte que le trafic Site Recovery ne soit pas acheminé vers l’infrastructure locale. [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)
+Connexion de réseau virtuel à réseau virtuel    | Prise en charge | [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)
 Points de terminaison de service de réseau virtuel | Prise en charge | Si vous limitez l’accès au réseau virtuel aux comptes de stockage, assurez-vous que les services Microsoft de confiance sont autorisés à accéder au compte de stockage.
 Mise en réseau accélérée | Prise en charge | L’accélération réseau doit être activée sur la machine virtuelle source. [Plus d’informations](azure-vm-disaster-recovery-with-accelerated-networking.md)
 

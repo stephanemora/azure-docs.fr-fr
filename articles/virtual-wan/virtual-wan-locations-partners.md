@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 68379fd2334e517df4011c05bb32543f7ce4a173
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3976f4114df6222d34f19e2bb44fd05d53057321
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190400"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123289"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Localisation des partenaires et hub virtuel Virtual WAN
 
@@ -23,7 +23,7 @@ Un WAN virtuel Azure est un service de mise en réseau qui offre une connectivit
 
 La connectivité est établie de manière automatisée de l’appareil en local vers le Hub virtuel. Un hub virtuel est un réseau virtuel géré par Microsoft. Le hub contient différents points de terminaison de service pour activer la connectivité à partir de votre réseau local (vpnsite). Vous ne pouvez disposer que d’un seul hub par région.
 
-## <a name="automation"></a>Automation provenant des partenaires de connectivité
+## <a name="automation-from-connectivity-partners"></a><a name="automation"></a>Automation provenant des partenaires de connectivité
 
 Les appareils qui se connectent à Azure Virtual WAN disposent, pour ce faire, d’une automation intégrée. Celle-ci est généralement configurée à distance dans l’interface utilisateur (ou équivalent) de gestion des appareils, qui configure la connectivité et la gestion de la configuration du périphérique VPN de branche vers un point de terminaison VPN Azure Virtual Hub (passerelle VPN).
 
@@ -36,13 +36,13 @@ L’automation générale suivante est configurée dans la console de l’appare
 
 Certains partenaires de connectivité peuvent étendre l’automation pour inclure la création du réseau virtuel Azure Virtual Hub et la passerelle VPN. Pour en savoir plus sur l’automatisation, consultez [Conseils d’automatisation pour les partenaires Virtual WAN](virtual-wan-configure-automation-providers.md).
 
-## <a name="partners"></a>Connectivité via les partenaires
+## <a name="connectivity-through-partners"></a><a name="partners"></a>Connectivité via les partenaires
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Les partenaires suivants sont prévus prochainement sur notre feuille de route : Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink et VMWare Velocloud.
+Les partenaires suivants sont prévus prochainement sur notre feuille de route : 128 Technology, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink et VMware VeloCloud.
 
-## <a name="locations"></a>Emplacements
+## <a name="locations"></a><a name="locations"></a>Emplacements
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 

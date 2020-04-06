@@ -11,51 +11,38 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 769a70cee4f5a1d5d5f77cdd4e55108e3ba40fa1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb11d1bdcf8145d4e78285833789b41c92b0ce4e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978695"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064878"
 ---
-# <a name="azure-event-hubs---use-firewall-rules"></a>Azure Event Hubs – utiliser des règles de pare-feu
+# <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configuration des règles de pare-feu IP pour un espace de noms Azure Event Hubs
+Par défaut, les espaces de noms Event Hubs sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Pour les scénarios où Azure Event Hubs doit uniquement être accessible à partir de certains sites bien connus, les règles de pare-feu vous permettent de configurer des règles pour accepter le trafic en provenance d’adresses IPv4 spécifiques. Par exemple, ces adresses peuvent être celles d’une passerelle NAT d’entreprise.
+Cette fonctionnalité est utile dans les scénarios où Azure Event Hubs ne doit être accessible qu’à partir de certains sites bien connus. Les règles de pare-feu permettent de configurer des règles pour accepter le trafic provenant d’adresses IPv4 spécifiques. Par exemple, si vous utilisez Event Hubs avec [Azure ExpressRoute][express-route], vous pouvez créer une **règle de pare-feu** pour autoriser uniquement le trafic provenant des adresses IP de votre infrastructure locale. 
 
-## <a name="when-to-use"></a>Quand l’utiliser
+## <a name="ip-firewall-rules"></a>Règles de pare-feu IP
+Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Event Hubs. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge. Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Event Hubs est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP. Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 
-Si vous cherchez à configurer votre espace de noms Event Hubs de façon à ce qu’il reçoive le trafic uniquement à partir d’une plage spécifiée d’adresses IP et rejette tout le reste, vous pouvez exploiter une *règle de pare-feu* pour bloquer les points de terminaison Event Hub d’autres adresses IP. Par exemple, si vous utilisez Event Hubs avec [Azure Express Route][express-route], vous pouvez créer une *règle de pare-feu* pour restreindre le trafic des adresses IP de votre infrastructure sur site.
+## <a name="use-azure-portal"></a>Utiliser le portail Azure
+Cette section montre comment utiliser le Portail Azure afin de créer des règles de pare-feu IP pour un espace de noms Event Hubs. 
 
-## <a name="how-filter-rules-are-applied"></a>Application des règles de filtre
+1. Accédez à votre **espace de noms Event Hubs** sur le [Portail Azure](https://portal.azure.com).
+2. Dans le menu de gauche, sélectionnez l’option **Réseaux**. Si vous sélectionnez l’option **Tous les réseaux**, le hub d’événements accepte les connexions de toutes les adresses IP. Ce paramètre est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0. 
 
-Les règles de filtre IP sont appliquées au niveau de l’espace de noms Event Hubs. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge.
+    ![Pare-feu – Option Tous les réseaux sélectionnée](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. Pour restreindre l’accès à des réseaux et des adresses IP spécifiques, sélectionnez l’option **Réseaux sélectionnés**. Dans la section **Pare-feu**, suivez ces étapes :
+    1. Sélectionnez l’option **Ajouter l’adresse IP de votre client** pour permettre à l’adresse IP de votre client actuel d’accéder à l’espace de noms. 
+    2. Dans **Plage d’adresses**, entrez une adresse IPv4 ou une plage d’adresses IPv4 spécifique en notation CIDR. 
+    3. Spécifiez si vous voulez **Autoriser les services Microsoft approuvés à contourner ce pare-feu**. 
 
-Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Event Hubs est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP.
+        ![Pare-feu – Option Tous les réseaux sélectionnée](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+3. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer les paramètres. Patientez quelques minutes jusqu’à ce que la confirmation s’affiche dans les notifications du portail.
 
-## <a name="default-setting"></a>Paramètre par défaut
 
-Par défaut, la grille **Filtre IP** du portail pour Event Hubs est vide. Ce paramètre par défaut signifie que votre hub d’événements accepte les connexions de n’importe quelle adresse IP. Ce paramètre par défaut est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0.
-
-## <a name="ip-filter-rule-evaluation"></a>Évaluation de règle de filtre IP
-
-Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
-
->[!WARNING]
-> La mise en place de pare-feu peut empêcher d’autres services Azure d’interagir avec Event Hubs.
->
-> Les services Microsoft de confiance ne sont pas pris en charge quand le filtrage d’adresse IP (pare-feu) est implémenté. Ils le seront prochainement.
->
-> Scénarios courants Azure qui ne fonctionnent pas avec le filtrage d’adresse IP (notez que cette liste **N’EST PAS** exhaustive) :
-> - Azure Stream Analytics
-> - Intégration à Azure Event Grid
-> - Routes Azure IoT Hub
-> - Azure IoT Device Explorer
->
-> Les services Microsoft suivants doivent être sur un réseau virtuel
-> - Azure Web Apps
-> - Azure Functions
-
-### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Création d’une règle de pare-feu avec des modèles Azure Resource Manager
+## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
 
 > [!IMPORTANT]
 > Les règles de pare-feu sont prises en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau de base.
@@ -133,6 +120,7 @@ Paramètres du modèle :
                 "action":"Allow"
             }
           ],
+          "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }
       }

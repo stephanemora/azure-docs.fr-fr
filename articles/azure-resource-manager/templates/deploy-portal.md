@@ -3,23 +3,23 @@ title: Gérer les ressources avec le portail Azure
 description: Utilisez le portail Azure et Azure Resource Manager pour déployer vos ressources dans un groupe de ressources de votre abonnement.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 32c807b4881bc59b6bec0d26ab3664abdb200628
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357094"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153435"
 ---
-# <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
+# <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles ARM et le portail Azure
 
-Découvrez comment utiliser le [Portail Azure](https://portal.azure.com) avec [Azure Resource Manager](overview.md) pour déployer vos ressources Azure. Pour en savoir plus sur la gestion de vos ressources, consultez [Gérer des ressources avec le portail Azure](../management/manage-resources-portal.md).
+Découvrez comment utiliser le [Portail Azure](https://portal.azure.com) avec des [modèles Azure Resource Manager (ARM)](overview.md) pour déployer vos ressources Azure. Pour en savoir plus sur la gestion de vos ressources, consultez [Gérer des ressources avec le portail Azure](../management/manage-resources-portal.md).
 
 Le déploiement de ressources Azure à l’aide du portail Azure implique généralement deux étapes :
 
 - Créez un groupe de ressources.
 - Déployez des ressources sur un groupe de ressources.
 
-De plus, vous pouvez aussi déployer un modèle Azure Resource Manager pour créer des ressources Azure.
+De plus, vous pouvez aussi déployer un modèle ARM pour créer des ressources Azure.
 
 Cet article illustre les deux méthodes.
 
@@ -73,7 +73,7 @@ Une fois votre groupe de ressources créé, vous pouvez y déployer le groupe à
 
 ## <a name="deploy-resources-from-custom-template"></a>Déployer des ressources à partir d’un modèle personnalisé
 
-Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de Marketplace, vous pouvez créer un modèle personnalisé qui définit l’infrastructure de votre solution. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de Marketplace, vous pouvez créer un modèle personnalisé qui définit l’infrastructure de votre solution. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
 
 > [!NOTE]
 > L’interface du portail ne prend pas en charge le référencement à un [secret d’un coffre de clés](key-vault-parameter.md). Utilisez plutôt [PowerShell](deploy-powershell.md) ou [Azure CLI](deploy-cli.md) pour déployer votre modèle localement ou à partir d’un URI externe.
@@ -126,5 +126,5 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 
 - Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](../management/view-activity-logs.md).
 - Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](deployment-history.md).
-- Pour exporter un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter des modèles Azure Resource Manager](export-template-portal.md).
+- Pour exporter un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter des modèles ARM](export-template-portal.md).
 - Pour déployer votre service sur plusieurs régions de façon sécurisée, consultez [Azure Deployment Manager](deployment-manager-overview.md).

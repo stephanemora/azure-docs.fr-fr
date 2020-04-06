@@ -1,19 +1,18 @@
 ---
 title: FAQ sur Seller Insights
 description: Forum Aux Questions sur la fonctionnalité Seller Insights du portail Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: b015d21005448d24d24923ba424a10a4af0d47b1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 011558baa43ee3db2803e9229d1d15df5158d668
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821598"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285382"
 ---
 <a name="seller-insights-faq"></a>FAQ sur Seller Insights
 ===================
@@ -42,7 +41,7 @@ Après avoir téléchargé vos transactions à partir du module Payout (Revenu),
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcul du revenu par période d’utilisation de client
 ------------------------------------------
 
-Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Transaction Status** (État de transaction), puis appliquez le filtre pour afficher uniquement la valeur « Paid » (Payé).   Pour chaque transaction répertoriée, la colonne intitulée **Montant du paiement (DE)** représente le montant qui vous a été payé.  Pour estimer la période d’utilisation associée à la transaction, utilisez la colonne **Date de facturation**, qui est une approximation du dernier jour d’utilisation de la période à laquelle s’applique la transaction.
+Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Transaction Status** (État de transaction), puis appliquez le filtre pour afficher uniquement la valeur « Paid » (Payé).   Pour chaque transaction répertoriée, la colonne intitulée **Montant du paiement (DE)** représente le montant qui vous a été payé.  Pour estimer la période d’utilisation associée à la transaction, utilisez la colonne **Date de facturation**, qui est une approximation du dernier jour d’utilisation de la période à laquelle s’applique la transaction.
 
 
 <a name="calculate-your-bad-debt"></a>Calcul de votre créance irrécouvrable
@@ -96,7 +95,7 @@ Pour consulter la date à laquelle un client a acheté pour la première fois l�
 <a name="finding-more-help"></a>Aide complémentaire
 -----------------
 
-- [Seller Insights Definitions](./si-insights-definitions-v4.md) (Définitions Seller Insights) : rechercher les définitions des données et des mesures.
+- [Définitions Seller Insights](./si-insights-definitions-v4.md) : rechercher les définitions des données et des métriques
 
 - [Getting started with Seller Insights](./si-getting-started.md) (Prise en main de Seller Insights) : présentation de la fonctionnalité Seller Insights.
 

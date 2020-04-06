@@ -3,22 +3,22 @@ title: Déployer un module de stockage Blob sur votre appareil - Azure IoT Edge
 description: Déployez un module de stockage Blob Azure sur votre appareil IoT Edge pour stocker des données en périphérie.
 author: kgremban
 ms.author: kgremban
-ms.date: 12/13/2019
+ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 8c2df4854f4cdb93c08e22f7dcdc23b1b69b13d6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 04b145622a1a4237b576a1bb512b5f749f9c3823
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548779"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133338"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Déployer le module de stockage Blob Azure sur IoT Edge vers votre appareil
 
 Il existe plusieurs façons de déployer des modules sur un appareil IoT Edge, et toutes fonctionnent pour les modules de stockage Blob Azure sur IoT Edge. Les deux méthodes les plus simples consistent à utiliser les modèles de Visual Studio Code ou du portail Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) dans votre abonnement Azure.
 - Un [appareil IoT Edge](how-to-register-device.md) avec le runtime IoT Edge installé.
@@ -260,8 +260,41 @@ Modifiez les **Options de création de conteneur** (dans le Portail Azure) ou le
 
 Lorsque vous vous connectez à des modules de stockage d’objets blob supplémentaires, modifiez le point de terminaison pour qu’il pointe vers le port hôte mis à jour.
 
+## <a name="configure-proxy-support"></a>Configurer une prise en charge de proxy
+
+Si votre organisation utilise un serveur proxy, vous devez configurer la prise en charge du proxy pour les modules Runtime edgeAgent et edgeHub. Ce processus implique deux tâches :
+
+- Configurer les démons du Runtime et l’agent IoT Edge sur l’appareil.
+- Définir la variable d’environnement HTTPS_PROXY pour les modules dans le fichier JSON du manifeste de déploiement.
+
+Ce processus est décrit dans [Configurer un appareil IoT Edge pour communiquer via un serveur proxy](how-to-configure-proxy-support.md).
+
+En outre, un module de stockage d’objets BLOB requiert également le paramètre HTTPS_PROXY dans le fichier de déploiement du manifeste. Vous pouvez modifier directement le fichier manifeste de déploiement ou utiliser le portail Azure.
+
+1. Accédez à votre IoT Hub dans le portail Azure et sélectionnez **IoT Edge** dans le menu du volet gauche.
+
+1. Sélectionnez l’appareil avec le module à configurer.
+
+1. Sélectionnez **Définir modules**.
+
+1. Dans la section **Modules IoT Edge** de la page, sélectionnez le module de stockage d’objets BLOB.
+
+1. Sur la page **Mettre à jour le module IoT Edge**, sélectionnez l’onglet **Variables d’environnement**.
+
+1. Ajoutez `HTTPS_PROXY` pour le **Nom** et votre URL de proxy pour la **Valeur**.
+
+      ![Définir la variable d’environnement HTTPS_PROXY](./media/how-to-deploy-blob/https-proxy-config.png)
+
+1. Cliquez sur **Mettre à jour**, puis sur **Vérifier + créer**.
+
+1. Notez que le proxy est ajouté au module dans le manifeste de déploiement, et sélectionnez **Créer**.
+
+1. Vérifiez le paramètre en sélectionnant le module à partir de la page Détails de l’appareil, puis dans la partie inférieure de la page **Détails des modules IoT Edge** sélectionnez l’onglet **Variables d’environnement**.
+
+      ![Définir la variable d’environnement HTTPS_PROXY](./media/how-to-deploy-blob/verify-proxy-config.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [stockage Blob Azure sur IoT Edge](how-to-store-data-blob.md)
+En savoir plus sur le [stockage Blob Azure sur IoT Edge](how-to-store-data-blob.md).
 
 Pour plus d’informations sur le fonctionnement et la création des manifestes de déploiement, consultez [Comprendre comment les modules IoT Edge peuvent être utilisés, configurés et réutilisés](module-composition.md).

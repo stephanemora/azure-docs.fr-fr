@@ -1,18 +1,18 @@
 ---
-title: Connecter une passerelle de réseau virtuel à un Azure Virtual WAN | Microsoft Docs
+title: Connexion d’une passerelle de réseau virtuel à un réseau Azure Virtual WAN
 description: Cet article vous aide à connecter une passerelle de réseau virtuel Azure à une passerelle VPN Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1f8e0db9921c305edd2ee34efad22cdcf568f8df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 688183bc07aa14d5e5df182d7de0897cec93f0b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510934"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066230"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connecter une passerelle VPN (passerelle de réseau virtuel) à Virtual WAN
 
@@ -31,29 +31,29 @@ WAN virtuel Azure
 
 Réseau virtuel Azure
 
-* Créez un réseau virtuel sans aucune passerelle de réseau virtuel. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le Portail Azure, consultez le [Démarrage rapide](../virtual-network/quick-create-portal.md).
+* Créez un réseau virtuel sans aucune passerelle de réseau virtuel. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le portail Azure, consultez le [guide de démarrage rapide](../virtual-network/quick-create-portal.md).
 
-## <a name="vnetgw"></a>1. Créer une passerelle de réseau virtuel Azure
+## <a name="1-create-an-azure-virtual-network-gateway"></a><a name="vnetgw"></a>1. Créer une passerelle de réseau virtuel Azure
 
 Créez une passerelle de réseau virtuel de passerelle VPN pour votre réseau virtuel en mode actif/actif pour votre réseau virtuel. Lorsque vous créez la passerelle, vous pouvez utiliser des adresses IP publiques existantes pour les deux instances de la passerelle ou vous pouvez créer de nouvelles adresses IP publiques. Vous utilisez ces adresses IP publiques lors de la configuration des sites WAN virtuels. Pour plus d’informations sur le mode actif/actif, consultez [Configurer des connexions entre deux passerelles actives](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
 
-### <a name="active-active"></a>Configuration du mode actif/actif
+### <a name="active-active-mode-setting"></a><a name="active-active"></a>Configuration du mode actif/actif
 
 ![actif/actif](./media/connect-virtual-network-gateway-vwan/active.png "actif / actif")
 
-### <a name="BGP"></a>Paramètre BGP
+### <a name="bgp-setting"></a><a name="BGP"></a>Paramètre BGP
 
 L’ASN BGP ne peut pas être 65515. 66515 sera utilisé par Azure Virtual WAN.
 
 ![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
-### <a name="pip"></a>Adresses IP publiques
+### <a name="public-ip-addresses"></a><a name="pip"></a>Adresses IP publiques
 
 Une fois la passerelle créée, accédez à la page **Propriétés**. Les propriétés et les paramètres de configuration sont similaires à l’exemple suivant. Notez les deux adresses IP publiques qui sont utilisées pour la passerelle.
 
 ![properties](./media/connect-virtual-network-gateway-vwan/publicip.png "properties")
 
-## <a name="vwansite"></a>2. Créer des sites VPN Virtual WAN
+## <a name="2-create-virtual-wan-vpn-sites"></a><a name="vwansite"></a>2. Créer des sites VPN Virtual WAN
 
 Pour créer des sites VPN Virtual WAN, accédez à votre réseau étendu virtuel et, sous **Connectivité**, sélectionnez **Sites VPN**. Dans cette section, vous allez créer deux sites VPN Virtual WAN qui correspondent aux passerelles de réseau virtuel que vous avez créées dans la section précédente.
 
@@ -75,17 +75,17 @@ Pour créer des sites VPN Virtual WAN, accédez à votre réseau étendu virtuel
 5. Répétez les étapes précédentes pour créer le deuxième site correspondant à la deuxième instance de la passerelle de réseau virtuel de la passerelle VPN. Vous conservez les mêmes paramètres, à l’exception de la deuxième adresse IP publique et de la deuxième adresse IP homologue BGP de la configuration de la passerelle VPN.
 6. Vous disposez maintenant de deux sites correctement configurés et pouvez passer à la section suivante pour télécharger les fichiers de configuration.
 
-## <a name="downloadconfig"></a>3. Télécharger les fichiers de configuration VPN
+## <a name="3-download-the-vpn-configuration-files"></a><a name="downloadconfig"></a>3. Télécharger les fichiers de configuration VPN
 
 Dans cette section, vous téléchargez le fichier de configuration VPN pour chacun des sites que vous avez créés dans la section précédente.
 
 1. En haut de la page des **sites VPN** de Virtual WAN, sélectionnez le **site**, puis sélectionnez **Télécharger la configuration du VPN de site à site**. Azure crée un fichier de configuration avec les paramètres.
 
-   ![télécharger le fichier configuration](./media/connect-virtual-network-gateway-vwan/download.png "télécharger")
+   ![télécharger le fichier de configuration](./media/connect-virtual-network-gateway-vwan/download.png "télécharger")
 2. Téléchargez et ouvrez le fichier de configuration.
 3. Répétez ces étapes pour le second site. Une fois que les deux fichiers de configuration sont ouverts, vous pouvez passer à la section suivante.
 
-## <a name="createlocalgateways"></a>4. Créer les passerelles de réseau local
+## <a name="4-create-the-local-network-gateways"></a><a name="createlocalgateways"></a>4. Créer les passerelles de réseau local
 
 Dans cette section, vous créez deux passerelles de réseau local de passerelle VPN Azure. Les fichiers de configuration de l’étape précédente contiennent les paramètres de configuration de la passerelle. Utilisez ces paramètres pour créer et configurer les passerelles de réseau local de la passerelle VPN Azure.
 
@@ -96,12 +96,12 @@ Dans cette section, vous créez deux passerelles de réseau local de passerelle 
    * **Abonnement, Groupe de ressources et Emplacement** sont les mêmes que pour le hub Virtual WAN.
 2. Vérifiez et créez la passerelle de réseau local. Votre passerelle de réseau local doit ressembler à cet exemple.
 
-   ![télécharger le fichier configuration](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![télécharger le fichier de configuration](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. Répétez ces étapes pour créer une autre passerelle de réseau local, mais cette fois-ci, utilisez les valeurs « Instance1 » à la place des valeurs « Instance0 » du fichier de configuration.
 
    ![télécharger le fichier de configuration](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")
 
-## <a name="createlocalgateways"></a>5. Créer des connexions
+## <a name="5-create-connections"></a><a name="createlocalgateways"></a>5. Créer des connexions
 
 Dans cette section, vous créez une connexion entre les passerelles de réseau local de la passerelle VPN et la passerelle de réseau virtuel. Pour connaître les étapes de création d’une connexion de passerelle VPN, consultez [Configurer une connexion](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
 
@@ -121,7 +121,7 @@ Dans cette section, vous créez une connexion entre les passerelles de réseau l
    ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
 5. Répétez la procédure précédente pour créer une seconde connexion. Pour la deuxième connexion, sélectionnez l’autre passerelle de réseau local que vous avez créée.
 
-## <a name="test"></a>6. Tester les connexions
+## <a name="6-test-connections"></a><a name="test"></a>6. Tester les connexions
 
 Vous pouvez tester la connectivité en créant deux machines virtuelles, l’une sur le côté de la passerelle de réseau virtuel de la passerelle VPN et l’autre dans un réseau virtuel pour le WAN virtuel, puis effectuez un test ping sur les deux machines virtuelles.
 

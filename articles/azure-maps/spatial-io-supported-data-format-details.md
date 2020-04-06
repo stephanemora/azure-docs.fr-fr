@@ -1,19 +1,19 @@
 ---
 title: Détails sur les formats de données pris en charge | Microsoft Azure Maps
 description: Découvrez comment les données spatiales délimitées sont analysées dans le module d’E/S spatiales.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fff801731c3c3a94b4039a8c65ad8ccaab7cc725
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 3353620f1751e939a04543115fe704555fb3bc21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402746"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334084"
 ---
 # <a name="supported-data-format-details"></a>Détails sur les formats de données pris en charge
 
@@ -170,7 +170,7 @@ Le module d’E/S spatiales prend en charge les éléments GeoRSS suivants.
 | `georss:where`           | Oui     | Oui   |                                                                                                |
 | `geourl:latitude`        | Oui     | non    | Écrit sous la forme d’un `georss:point`.                                                                   |
 | `geourl:longitude`       | Oui     | non    | Écrit sous la forme d’un `georss:point`.                                                                   |
-| `position`               | Oui     | non    | Certains flux XML enveloppent GML avec une balise de position au lieu de l’envelopper avec une balise georss:where. Lira cette balise, mais écrira à l’aide d’une balise georss:where. |
+| `position`               | Oui     | non    | Certains flux XML enveloppent GML avec une balise de position au lieu de l’envelopper avec une balise `georss:where`. Lira cette balise, mais écrira à l’aide d’une balise `georss:where`. |
 | `rss`                    | Oui     | non    | GeoRSS écrit au format ATOM.                                                                 |
 | `rss:author`             | Oui     | partielles | Écrit sous la forme d’un `atom:author`.                                                                 |
 | `rss:category`           | Oui     | partielles | Écrit sous la forme d’un `atom:category`.                                                               |
@@ -213,7 +213,7 @@ Le module d’E/S spatiales prend en charge les éléments GML suivants.
 | `gml:Envelope`          | Oui  | Oui   |                                                                                        |
 | `gml:exterior`          | Oui  | Oui   |                                                                                        |
 | `gml:Feature`           | Oui  | non    | Écrit comme une forme.                                                                    |
-| `gml:FeatureCollection` | Oui  | non    | Écrit sous la forme d’une collection de géométrie.                                                      |
+| `gml:FeatureCollection` | Oui  | non    | Écrit sous la forme d’une collection de géométries.                                                      |
 | `gml:featureMember`     | Oui  | non    | Écrit sous la forme d’une collection de géométries.                                                      |
 | `gml:geometry`          | Oui  | non    | Écrit comme une forme.                                                                    |
 | `gml:geometryMember`    | Oui  | Oui   |                                                                                        |
@@ -423,7 +423,7 @@ Lors de l’analyse de la ligne d’en-tête, toutes les informations de type qu
 - edm.string
 - varchar
 - text
-- case 'string
+- string
 
 Si aucune information de type ne peut être extraite de l’en-tête et que l’option de typage dynamique est activée lors de la lecture, chaque cellule est analysée individuellement pour déterminer le type de données le mieux adapté au cast.
 

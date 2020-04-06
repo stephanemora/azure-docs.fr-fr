@@ -3,7 +3,7 @@ title: Résoudre les problèmes de gestion des droits d’utilisation – Azure 
 description: Découvrez les points à vérifier pour résoudre les problèmes de gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 10/26/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422495"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128473"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD
 
@@ -48,6 +48,10 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 * Lorsque vous supprimez un membre d’une équipe, il est également supprimé du groupe Office 365. La suppression de la fonctionnalité de conversation de l’équipe peut être retardée. Pour plus d’informations, consultez l’article [Appartenance au groupe](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
 * Vérifiez que votre annuaire n’est pas en configuration multigéographique. Actuellement, la gestion des droits d’utilisation ne prend pas en charge les emplacements multigéographiques pour SharePoint Online. Les sites SharePoint Online doivent se trouver à l’emplacement géographique par défaut pour être régis par la gestion des droits d’utilisation. Pour plus d’informations, voir [Fonctionnalités multigéographiques dans OneDrive et SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+
+## <a name="access-packages"></a>Packages d’accès
+
+* Si vous tentez de supprimer un package d’accès ou une stratégie et qu’un message d’erreur apparaît, indiquant qu’il existe des affectations actives alors que vous ne voyez aucun utilisateur doté d’affectations, regardez si certains des utilisateurs supprimés récemment possèdent encore des affectations. Pendant la fenêtre de 30 jours qui suit la suppression d’un utilisateur, le compte d’utilisateur peut être restauré.   
 
 ## <a name="external-users"></a>Utilisateurs externes
 

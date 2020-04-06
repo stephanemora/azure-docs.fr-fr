@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 35d4d44f0b9f1b210f38a034575b589c7211d55c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943636"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246668"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Ligne de base de sécurité Azure pour Azure SQL Database
 
@@ -238,20 +238,19 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 En outre, vous pouvez diffuser en continu des données de télémétrie de diagnostic Azure SQL dans Azure SQL Analytics, une solution cloud qui supervise à grande échelle les performances des bases de données Azure SQL, des pools élastiques et des instances managées et entre plusieurs abonnements. Elle peut vous aider à collecter et visualiser des métriques de performances Azure SQL Database et intègre des fonctions d’intelligence destinées à résoudre les problèmes.
 
-
 Comment configurer l’audit pour votre base de données Azure SQL Database :
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 
-Comment collecter des journaux et des métriques de plateforme avec Azure Monitor :
+Collecte des métriques et des journaux des ressources avec Azure Monitor :
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 
 Comment diffuser en continu des diagnostics dans Azure SQL Analytics :
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#configure-the-streaming-export-of-diagnostic-telemetry
 
 **Supervision Azure Security Center** : Oui
 
@@ -787,7 +786,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 Comment exporter un rapport d’évaluation des vulnérabilités dans Azure Security Center :
 
-https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
+https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implement-vulnerability-assessment
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1272,7 +1271,7 @@ Alertes de sécurité dans Azure Security Center : https://docs.microsoft.com/a
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
-**Conseils** : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
+**Aide** : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
 
 
 
@@ -1344,7 +1343,7 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 Vous trouverez plus d’informations sur la stratégie de Microsoft et l’exécution de Red Teaming et des tests de pénétration de site actif sur l’infrastructure, les services et les applications cloud managés par Microsoft ici : https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 
