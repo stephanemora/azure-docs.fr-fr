@@ -3,12 +3,12 @@ title: Fichiers SharePoint – QnA Maker
 description: Ajoutez des sources de données SharePoint sécurisées à votre base de connaissances afin d’enrichir celle-ci de questions et de réponses pouvant être sécurisées avec Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 402d8239ee9fbac01e64e3624a7e4d8a13f2e7d8
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650433"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294880"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Ajouter une source de données SharePoint sécurisée à votre base de connaissances
 
@@ -21,7 +21,7 @@ Si le Gestionnaire de la Base de connaissances QnA Maker n’est pas le Gestionn
 ## <a name="prerequisites"></a>Prérequis
 
 * SharePoint informatique : QnA Maker utilise Microsoft Graph pour les autorisations. Si votre SharePoint est local, vous ne pourrez pas procéder à l’extraction à partir de SharePoint, car Microsoft Graph ne sera pas en mesure de déterminer les autorisations.
-* Format d’URL : QnA Maker prend en charge uniquement les URL SharePoint qui sont générées pour le partage et qui sont au format https://*.sharepoint.com.
+* Format d’URL – QnA Maker prend en charge uniquement les URL SharePoint qui sont générées pour le partage et qui sont au format `https://\*.sharepoint.com`
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Ajouter des types de fichiers pris en charge à la Base de connaissances
 
@@ -32,7 +32,7 @@ Vous pouvez ajouter tout [type de fichier](../Concepts/content-types.md) pris en
 
    ![Obtenez l’URL du fichier SharePoint en sélectionnant le menu symbolisé par des points de suspension du fichier, puis en copiant l’URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. Dans le portail QnA Maker, sur la page **Paramètres**, [ajoutez l’URL](edit-knowledge-base.md#add-datasource) à la Base de connaissances.
+1. Dans le portail QnA Maker, sur la page **Paramètres**, [ajoutez l’URL](manage-knowledge-bases.md#edit-knowledge-base) à la Base de connaissances.
 
 ### <a name="images-with-sharepoint-files"></a>Images représentant des fichiers SharePoint
 
@@ -69,7 +69,7 @@ Lorsque le gestionnaire QnA Maker sélectionne le compte, l’administrateur Azu
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Gestionnaire Active directory : accorder l’accès en lecture de fichier à QnA Maker
 
-Le gestionnaire Active Directory (et non le gestionnaire QnA Maker) doit autoriser QnA Maker à accéder à la ressource SharePoint en sélectionnant [ce lien](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2F www.qnamaker.ai%3A%2FCreate&state=68) pour autoriser l’application d’entreprise SharePoint du portail QnA Maker à recevoir des autorisations de lecture de fichier.
+Le gestionnaire Active Directory (et non le gestionnaire QnA Maker) doit autoriser QnA Maker à accéder à la ressource SharePoint en sélectionnant [ce lien](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) pour autoriser l’application d’entreprise SharePoint du portail QnA Maker à recevoir des autorisations de lecture de fichier.
 
 ![Le Gestionnaire Active Directory accorde une autorisation de façon interactive](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 

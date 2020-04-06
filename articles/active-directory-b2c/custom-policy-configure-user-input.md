@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56a3478f1c0dbc05eba07a5109f5bb6ba89b79d0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079879"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473674"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,9 +24,12 @@ ms.locfileid: "79079879"
 
 Dans cet article, vous collectez un nouvel attribut lors de votre parcours d’inscription dans Azure Active Directory B2C (Azure AD B2C). Vous obtenez la ville des utilisateurs, vous la configurez en tant que liste déroulante et vous indiquez si elle doit être obligatoirement fournie.
 
+> [!NOTE]
+> Cet exemple utilise la revendication intégrée « city ». Au lieu de cela, vous pouvez choisir l’un des [attributs intégrés Azure AD B2C](user-profile-attributes.md) pris en charge ou un attribut personnalisé. Pour utiliser un attribut personnalisé, [activez les attributs personnalisés dans votre stratégie](custom-policy-custom-attributes.md). Pour utiliser un autre attribut intégré ou personnalisé, remplacez « city » par l’attribut de votre choix, par exemple l’attribut intégré *jobTitle* ou un attribut personnalisé comme *extension_loyaltyId*.  
+
 Vous pouvez collecter les données initiales auprès des utilisateurs par le biais du parcours utilisateur d’inscription ou de connexion. Des revendications supplémentaires peuvent être collectées par la suite au moyen des parcours utilisateur de modification de profil. Chaque fois qu’Azure AD B2C rassemble de manière interactive des informations provenant directement de l’utilisateur, Identity Experience Framework utilise son [profil technique autodéclaré](self-asserted-technical-profile.md). Dans cet exemple, vous allez :
 
-1. Définir une revendication « city ».
+1. Définir une revendication « city ». 
 1. Demander à l’utilisateur la ville où il vit.
 1. conserver la ville dans le profil utilisateur de l’annuaire Azure AD B2C ;
 1. lire la revendication de ville dans l’annuaire Azure AD B2C à chaque connexion ;
