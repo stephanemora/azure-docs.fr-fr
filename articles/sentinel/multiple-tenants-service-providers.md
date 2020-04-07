@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: caa79b572d0024b93abd2d32ca99d92cc2a8b4bb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: fdb58686fcdd18a8e2861aab533717dbc91e8893
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582073"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476013"
 ---
 # <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Utiliser plusieurs locataires dans Azure Sentinel 
 
@@ -27,7 +27,7 @@ Si vous êtes un fournisseur de services de sécurité managés (MSSP, managed s
 
 ## <a name="prerequisites"></a>Prérequis
 - [Intégrez Azure Lighthouse](../lighthouse/how-to/onboard-customer.md).
-- Pour que le processus fonctionne correctement, votre locataire doit être inscrit auprès du fournisseur de ressources Azure Sentinel sur au moins un abonnement. Si votre locataire dispose d’une solution Azure Sentinel inscrite, vous êtes prêt à commencer. Si ce n’est pas le cas, dans le portail Azure, sélectionnez **Abonnements**, puis **Fournisseurs de ressources**. Recherchez `Microsoft.Security.Insights`, puis sélectionnez **Inscrire**.
+- Pour que le processus fonctionne correctement, votre locataire doit être inscrit auprès du fournisseur de ressources Azure Sentinel sur au moins un abonnement. Si votre locataire dispose d’une solution Azure Sentinel inscrite, vous êtes prêt à commencer. Dans le cas contraire, sélectionnez **Abonnements** dans le portail Azure, puis **Fournisseurs de ressources**.  Ensuite, dans l’écran **SOC - Fournisseurs de ressources**, recherchez et sélectionnez `Microsoft.OperationalInsights` et `Microsoft.SecurityInsights`, puis sélectionnez **Inscrire**.
    ![Vérification des fournisseurs de ressources](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Accéder à Azure Sentinel à partir d’autres locataires
 1. Sous **Répertoire + abonnement**, sélectionnez les répertoires délégués et les abonnements où se trouvent les espaces de travail Azure Sentinel de votre client.

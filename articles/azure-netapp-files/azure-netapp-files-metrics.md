@@ -12,57 +12,59 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c8e3b616dee1ab4e6bb6e77c6a8bab5661d4e20b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848785"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460430"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métriques pour Azure NetApp Files
 
-Azure NetApp Files fournit des métriques sur le stockage alloué, l'utilisation réelle du stockage, le débit du volume, les IOPS et la latence. En analysant ces métriques, vous en saurez plus sur le mode d'utilisation et les performances des volumes de vos comptes NetApp.  
+Azure NetApp Files fournit des métriques sur le stockage alloué, l’utilisation réelle du stockage, les IOPS du volume et la latence. En analysant ces métriques, vous en saurez plus sur le mode d'utilisation et les performances des volumes de vos comptes NetApp.  
 
-## <a name="capacity_pools"></a>Métriques d'utilisation des pools de capacités
+## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Métriques d'utilisation des pools de capacités
 
 <!-- 
-- *Volume pool allocated size*  
-    The size (GiB) of the provisioned capacity pool  
+- *Pool Provisioned Size*  
+    The logical space (GiB) the capacity pool is provisioned with.  
+    This size is the size you selected during capacity pool creation. 
 --> 
-- *Taille allouée utilisée du pool de volumes*  
-    Quota total des volumes (en Gio) d’un pool de capacités donné (autrement dit, total des tailles provisionnées pour les volumes du pool de capacités)  
-    Il s'agit de la taille que vous avez sélectionnée lors de la création des volumes.  
-- *Taille logique totale du pool de volumes*  
-    Espace logique total (en Gio) utilisé sur l’ensemble des volumes d’un pool de capacités  
+- *Pool alloué à la taille du volume*  
+    Quota total des volumes (en Gio) d’un pool de capacités donné (autrement dit, total des tailles provisionnées pour les volumes du pool de capacités).  
+    Il s’agit de la taille que vous avez sélectionnée lors de la création des volumes.  
+- *Taille du pool consommée*  
+    Espace logique total (en Gio) utilisé sur l’ensemble des volumes d’un pool de capacités.  
 <!-- 
-- *Volume pool total snapshot size*  
-    The total of incremental logical space used by the snapshots  
+- *Pool Consumed Snapshot Size*  
+    The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
 -->
 
-## <a name="volumes"></a>Métriques d'utilisation des volumes
+## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Métriques d'utilisation des volumes
 
-<!-- 
-- *Volume allocated size*   
-    The volume size (quota) provisioned in GiB  
---> 
-- *Taille logique du volume*   
-    Espace logique total utilisé dans un volume (en Gio)  
+<!--
+- *Volume Quota Size*    
+    The quota size (GiB) the volume is provisioned with.   
+    This size is the size you selected during capacity pool creation. 
+-->
+-  *Taille du volume consommée*  
+    Espace logique total utilisé dans un volume (en Gio).  
     Cette taille inclut l'espace logique utilisé par les captures instantanées et les systèmes de fichiers actifs.  
-- *Taille d'instantané du volume*   
-   Espace logique incrémentiel utilisé par les captures instantanées d’un volume  
+- *Taille du cliché instantané de volume*   
+   Espace logique incrémentiel utilisé par les clichés instantanés d’un volume.  
 
 ## <a name="performance-metrics-for-volumes"></a>Métriques de performances des volumes
 
 - *AverageReadLatency*   
-    Temps moyen pour les lectures à partir du volume, en millisecondes
+    Temps moyen des lectures du volume (en millisecondes).
 - *AverageWriteLatency*   
-    Temps moyen pour les lectures à partir du volume, en millisecondes
+    Temps moyen des écritures du volume (en millisecondes).
 - *ReadIops*   
-    Nombre de lectures sur le volume par seconde
+    Nombre de lectures sur le volume par seconde.
 - *WriteIops*   
-    Nombre d’écritures sur le volume par seconde
+    Nombre d’écritures sur le volume par seconde.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

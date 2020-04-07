@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227313"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 
@@ -63,7 +63,8 @@ Si la charge de travail d'une partition logique consomme plus que le débit allo
 Les conteneurs dans une base de données à débit partagé partagent le débit (RU/s) alloué à cette base de données. Vous pouvez avoir jusqu’à quatre conteneurs avec un minimum de 400 RU/s sur la base de données. Chaque nouveau conteneur après les quatre premiers nécessite un minimum de 100 RU/s supplémentaires. Par exemple, si vous avec une base de données à débit partagé avec huit conteneurs, le nombre minimal de RU/s sur la base de données sera de 800 RU/s.
 
 > [!NOTE]
-> Dans une base de données à débit partagé, vous pouvez avoir un maximum de 25 conteneurs dans la base de données. Si vous avez déjà plus de 25 conteneurs dans une base de données à débit partagé, vous ne pourrez pas créer de conteneurs supplémentaires tant que le nombre de conteneurs ne sera pas inférieur à 25.
+> En février 2020, nous avons apporté un changement qui vous permet de bénéficier d'un maximum de 25 conteneurs dans une base de données à débit partagée, afin de mieux partager le débit entre les conteneurs. Après les 25 premiers conteneurs, vous ne pouvez ajouter d'autres conteneurs à la base de données que s'ils sont [approvisionnés avec un débit dédié](#set-throughput-on-a-database-and-a-container) distinct du débit partagé de la base de données.<br>
+Si votre compte Azure Cosmos DB contient déjà une base de données à débit partagée dotée de >= 25 conteneurs, le compte et tous les autres comptes du même abonnement Azure sont exemptés de ce changement. Si vous avez des commentaires ou des questions, n'hésitez pas à [contacter le support produit](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
 Si vos charges de travail impliquent la suppression et la recréation de toutes les collections d’une base de données, il est recommandé de supprimer la base de données vide et de recréer une nouvelle base de données avant la création de la collection. L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
 
@@ -86,11 +87,11 @@ Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de do
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Mise à jour du débit sur une base de données ou un conteneur
 
-Après avoir créé un conteneur Azure Cosmos ou une base de données, vous pouvez mettre à jour le débit provisionné. Il n’y a pas de limite sur le débit maximum que vous pouvez provisionner sur la base de données ou le conteneur. Le débit minimum provisionné dépend des facteurs suivants : 
+Après avoir créé un conteneur Azure Cosmos ou une base de données, vous pouvez mettre à jour le débit provisionné. Il n’y a pas de limite sur le débit maximum que vous pouvez provisionner sur la base de données ou le conteneur. Le [débit provisionné minimal](concepts-limits.md#storage-and-throughput) dépend des facteurs suivants : 
 
 * La taille maximale des données que vous stockez dans le conteneur
 * Le débit maximum que vous avez provisionné sur le conteneur
-* Le nombre maximum de conteneurs Azure Cosmos que vous pouvez créer dans une base de données avec un débit partagé. 
+* Le nombre actuel de conteneurs Azure Cosmos dont vous disposez dans une base de données avec débit partagé 
 
 Vous pouvez récupérer le débit minimum d’un conteneur ou d’une base de données par programmation en utilisant les SDK ou visualiser la valeur dans le Portail Microsoft Azure. Lorsque vous utilisez le SDK .NET, la méthode [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) vous permet d’adapter la valeur de débit provisionnée. Lorsque vous utilisez le SDK Java, la méthode [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) vous permet d’adapter la valeur de débit provisionnée. 
 

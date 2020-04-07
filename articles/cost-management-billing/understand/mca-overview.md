@@ -1,18 +1,18 @@
 ---
-title: Bien démarrer avec la facturation dans le cadre d’un Contrat client Microsoft - Azure
+title: Bien démarrer avec un compte de facturation dans le cadre d’un Contrat client Microsoft - Azure
 description: Comprendre le fonctionnement de votre compte de facturation associé à un Contrat client Microsoft
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/27/2020
 ms.author: banders
-ms.openlocfilehash: a580dd1fb9d2965a9da1e4918733bd5cf137e443
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df54109010c694934dda005d6e8f1c219ec49efc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79139944"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371002"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft
 
@@ -34,7 +34,7 @@ Les rôles du compte de facturation disposent du plus haut niveau d’autorisati
 
 Utilisez un profil de facturation pour gérer vos factures et modes de paiement. Une facture mensuelle est générée au début du mois pour chaque profil de facturation associé à votre compte. La facture contient les frais respectifs pour tous les abonnements Azure et les autres achats du mois précédent.
 
-Un profil de facturation est automatiquement créé pour votre compte de facturation. Il contient une section de facture par défaut. Vous pouvez créer des sections supplémentaires pour effectuer un suivi et allouer facilement les coûts en fonction de vos besoins, que ce soit par projet, service ou environnement de développement. Ces sections s’affichent sur la facture et reflètent l’utilisation de chaque abonnement et des achats que vous lui avez attribués.
+Un profil de facturation est automatiquement créé pour votre compte de facturation. Il contient une section de facture par défaut. Vous pouvez créer des sections supplémentaires pour effectuer un suivi et allouer facilement les coûts en fonction de vos besoins, que ce soit par projet, service ou environnement de développement. Ces sections figurent sur la facture et reflètent l’utilisation de chaque abonnement et des achats que vous lui avez attribués.
 
 Les rôles associés aux profils de facturation sont autorisés à afficher et à gérer les factures et les modes de paiement. Attribuez ces rôles aux utilisateurs qui paient les factures tels que les membres du service de comptabilité de votre organisation. Pour plus d’informations, consultez [Rôles et tâches liés au profil de facturation](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 

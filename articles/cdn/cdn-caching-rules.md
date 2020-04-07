@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
 ms.openlocfilehash: ddd7dc7e1245c2a77e866a454bf6bfa3c1f16f88
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74278132"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache
@@ -67,7 +67,7 @@ Pour les règles de mise en cache globales et personnalisées, vous pouvez spéc
 ## <a name="cache-expiration-duration"></a>Durée d’expiration du cache
 Pour les règles de mise en cache globales et personnalisées, vous pouvez spécifier la durée d’expiration du cache en jours, heures, minutes et secondes :
 
-- Pour les paramètres de **Comportement de mise en cache** **Remplacer** et **Définir en cas d’absence**, la plage des durées de cache valide est comprise entre 0 et 366 jours. Pour une valeur de 0 seconde, le CDN met en cache le contenu, mais doit revalider chaque requête avec le serveur d’origine.
+- Pour les paramètres de **Comportement de mise en cache** **Remplacer** et **Définir en cas d’absence**, les durées de cache valides sont comprises entre 0 et 366 jours. Pour une valeur de 0 seconde, le CDN met en cache le contenu, mais doit revalider chaque requête avec le serveur d’origine.
 
 - Pour le paramètre **Ignorer le cache**, la durée du cache est automatiquement définie sur 0 seconde et ne peut pas être modifiée.
 
@@ -86,7 +86,7 @@ Les règles de mise en cache globales et personnalisées sont traitées dans l�
 
 - Les règles de mise en cache personnalisées sont prioritaires sur les règles de mise en cache globales, où elles s’appliquent. Les règles de mise en cache personnalisées sont traitées de haut en bas. Autrement dit, si une requête remplie ces deux conditions, les règles situées au bas de la liste sont prioritaires sur celles qui sont situées en haut. Par conséquent, vous devez placer les règles vraiment spécifiques plus bas dans la liste.
 
-**Exemple**:
+**Exemple** :
 - Règles de mise en cache générales : 
    - Comportement de mise en cache : **Remplacer**
    - Durée d’expiration du cache : 1 jour
@@ -116,4 +116,4 @@ Quand ces règles sont définies, une requête pour _&lt;nom_d’hôte_du_point_
 ## <a name="see-also"></a>Voir aussi
 
 - [Comment fonctionne la mise en cache](cdn-how-caching-works.md)
-- [Tutoriel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)
+- [Tutoriel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)

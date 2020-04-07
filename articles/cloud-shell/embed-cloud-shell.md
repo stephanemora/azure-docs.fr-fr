@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: damaerte
 ms.openlocfilehash: bbf6c1f3049265961559ea34c8b748b2b4d263b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60614309"
 ---
 # <a name="embed-azure-cloud-shell"></a>Incorporer Azure Cloud Shell
@@ -27,13 +27,13 @@ L’incorporation de Cloud Shell permet aux développeurs et aux rédacteurs de 
 
 Bouton de taille normale
 
-[![Lancement - standard](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
+[![Lancement normal](https://shell.azure.com/images/launchcloudshell.png "Lancement d’Azure Cloud Shell")](https://shell.azure.com)
 
 Bouton de grande taille
 
-[![Lancement - grande taille](https://shell.azure.com/images/launchcloudshell@2x.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
+[![Lancement volumineux](https://shell.azure.com/images/launchcloudshell@2x.png "Lancement d’Azure Cloud Shell")](https://shell.azure.com)
 
-## <a name="how-to"></a>Procédure
+## <a name="how-to"></a>Procédures
 
 Intégrez le bouton de lancement de Cloud Shell aux fichiers Markdown en copiant ce qui suit :
 

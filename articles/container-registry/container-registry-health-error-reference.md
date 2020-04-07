@@ -3,12 +3,12 @@ title: Référence des erreurs pour les contrôles d’intégrité
 description: Codes d’erreur et solutions possibles en lie avec des problèmes détectés en exécutant la commande de diagnostic az acr check-health dans Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a921d17ad7d01b134f5bfa33a1d9a768d3ea94df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455037"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289139"
 ---
 # <a name="health-check-error-reference"></a>Référence d’erreur pour le contrôle d’intégrité
 
@@ -97,6 +97,10 @@ Cette erreur signifie que le client n’a pas pu établir de connexion sécuris�
 Cette erreur signifie que l’interface CLI n’a pas pu trouver le serveur de connexion du Registre donné, et qu’aucun suffixe par défaut a été trouvé pour le cloud en cours. Cette erreur peut se produire si le Registre n’existe pas, si l’utilisateur ne dispose pas des autorisations appropriées sur le Registre, si le cloud du Registre et le cloud actuel d’Azure CLI ne correspondent pas, ou si la version d’Azure CLI est obsolète.
 
 *Solutions potentielles* : vérifier que l’orthographe est correcte et que le Registre existe ; vérifier que l’utilisateur dispose des autorisations appropriées sur le Registre et que les clouds du Registre et de l’environnement de l’interface de ligne de commande correspondent ; mettre à jour Azure CLI vers la dernière version.
+
+## <a name="notary_version_error"></a>NOTARY_VERSION_ERROR
+
+Cette erreur indique que l’interface CLI n’est pas compatible avec la version de Docker/Notary installée. Essayez de rétrograder votre version de notary.exe à une version antérieure à 0.6.0 en remplaçant manuellement le client Notary de l’installation Docker pour résoudre ce problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

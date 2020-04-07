@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 6277a7e7dc5891a3bc67c298a31344284c92e31d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 97bd03fb2aa8f5b486ef87a04f260fec43eb81bd
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80235635"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396698"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -20,7 +20,7 @@ Les réservations Azure vous permettent d’économiser en vous engageant sur de
 
 Vous pouvez payer une réservation à l’avance ou tous les mois. Une même réservation avec paiement initial et avec paiements mensuels a le même coût total : vous ne payez pas de frais supplémentaires si vous optez pour le paiement mensuel. Le paiement mensuel est disponible pour les réservations Azure, et non pour les produits tiers.
 
-Vous pouvez acheter une réservation sur le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Vous pouvez acheter une réservation dans le portail Azure sur [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## <a name="why-buy-a-reservation"></a>Pourquoi acheter une réservation ?
 
@@ -34,6 +34,48 @@ Pour plus d’informations sur la façon dont la remise est appliquée, consulte
 
 Pour plus d’informations sur le fonctionnement de l’étendue de réservation, consultez [Réservations d’étendue](prepare-buy-reservation.md#scope-reservations).
 
+## <a name="determine-what-to-purchase"></a>Déterminer ce qu’il faut acheter 
+
+Toutes les réservations s’appliquent sur une base horaire sauf pour Azure Databricks. Pensez à acheter des réservations en fonction de votre utilisation régulière de base. Vous pouvez déterminer la réservation à acheter en analysant vos données d’utilisation ou en utilisant des recommandations de réservation. Vous trouverez des recommandations dans :
+
+- Azure Advisor (machines virtuelles uniquement)
+- Expérience d’achat de réservations dans le portail Azure.
+- Application Power BI Cost Management
+- API 
+
+Pour plus d’informations, consultez [Déterminer la réservation à acheter](determine-reservation-purchase.md). 
+
+## <a name="buying-a-reservation"></a>Achat d’une réservation 
+
+Vous pouvez acheter des réservations à partir du portail Azure, d’API, de PowerShell et de l’interface CLI. 
+
+Accédez au portail Azure pour faire votre achat (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs). 
+
+Pour plus d’informations, consultez [Acheter une réservation](prepare-buy-reservation.md). 
+
+## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ? 
+
+La réservation est facturée selon le mode de paiement associé à l’abonnement. Le coût de la réservation est déduit de votre solde d’engagement financier, le cas échéant. Lorsque ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement pour les achats en paiement initial. Les paiements mensuels apparaissent sur votre facture et votre carte de crédit est facturée chaque mois. Lorsque vous réglez sur facture, les frais sont portés sur votre prochaine facture. 
+
+## <a name="permissions-to-view-and-manage-reservations"></a>Autorisations pour consulter et gérer des réservations 
+
+L’utilisateur qui achète une réservation et l’administrateur de compte de l’abonnement utilisé pour la facturation de la réservation se voient attribuer le rôle Propriétaire sur l’ordre de réservation et la réservation.
+
+Vous pouvez déléguer la gestion des réservations en ajoutant des utilisateurs aux rôles de l’ordre de réservation ou de la réservation. Vous attribuez les rôles dans le portail Azure ou en utilisant des API et PowerShell. 
+
+Pour plus d’informations, consultez [Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation). 
+
+## <a name="get-reservation-details-and-utilization-after-purchase"></a>Obtenir les détails de la réservation et les données d’utilisation après l’achat
+
+Si vous êtes autorisé à voir la réservation, vous pouvez examiner ses données d’utilisation dans le portail Azure. Vous pouvez également obtenir les données en utilisant des API. 
+
+Pour plus d’informations sur la façon de voir des réservations dans le portail Azure, consultez [Afficher des réservations dans le portail Azure](view-reservations.md) 
+
+## <a name="manage-reservations-after-purchase"></a>Gérer les réservations après l’achat 
+
+Après avoir acheté une réservation Azure, vous pouvez mettre à jour l’étendue pour appliquer la réservation à un autre abonnement, modifier les personnes autorisées à gérer la réservation, diviser une réservation en parties plus petites ou changer la flexibilité de la taille d’instance. 
+
+Pour plus d’informations, consultez [Gérer les réservations pour les ressources Azure](manage-reserved-vm-instance.md). 
 
 ## <a name="flexibility-with-azure-reservations"></a>Flexibilité des réservations Azure
 
@@ -54,7 +96,7 @@ Pour plus d’informations, consultez [Échanges et remboursements en libre-serv
 - **Azure Database pour MySQL** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de logiciels, de réseau ou de stockage qui sont associés au serveur de base de données MySQL.
 - **Azure Database pour PostgreSQL** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de logiciels, de réseau ou de stockage qui sont associés aux serveurs de base de données PostgreSQL.
 - **Azure Database pour MariaDB** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de logiciels, de réseau ou de stockage qui sont associés au serveur de base de données MariaDB.
-- **Azure Data Explorer** : une réservation couvre les frais de majoration. Une réservation ne couvre pas les frais de calcul, de stockage ou de réseau associés à l’utilisation des clusters.
+- **Azure Data Explorer** : une réservation couvre les frais de majoration. Une réservation ne s’applique pas aux frais de calcul, de stockage ou de réseau associés à l’utilisation des clusters.
 - **Azure Cache pour Redis** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de stockage ou de réseau associés aux instances de cache Redis.
 - **Azure Dedicated Host** : seuls les coûts de calcul sont inclus avec l’hôte dédié.
 - **Réservations de Stockage sur disque Azure** : une réservation couvre uniquement les disques SSD Premium de taille P30 ou supérieure. Elle ne couvre pas les autres types de disque ou les tailles inférieures à P30.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
 ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74560092"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
@@ -33,7 +33,7 @@ Ce didacticiel couvre les étapes suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes du document [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
     1. Créez un **espace de noms** Service Bus.
     2. Obtenez la **chaîne de connexion**.
     3. Créez une **rubrique** dans l’espace de noms.
@@ -75,7 +75,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
     static ITopicClient topicClient;
     ``` 
 
-3. Remplacez la méthode `Main()` par la méthode **asynchrone** `Main` suivante qui envoie les messages de manière asynchrone à l’aide de la méthode SendMessagesAsync que vous allez ajouter à l’étape suivante. 
+3. Remplacez la méthode `Main()` par la méthode `Main` **asynchrone** suivante, qui envoie les messages de manière asynchrone à l’aide de la méthode SendMessagesAsync que vous allez ajouter à l’étape suivante. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -188,7 +188,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
 
 ## <a name="receive-messages-from-the-subscription"></a>Réception des messages de l’abonnement
 
-Pour recevoir les messages que vous avez envoyés, créez une autre application de console .NET Core et installez le package NuGet **Microsoft.Azure.ServiceBus**, identique à l’application d’expéditeur précédente.
+Pour recevoir les messages que vous avez envoyés, créez une autre application console .NET Core et installez le package NuGet **Microsoft.Azure.ServiceBus**, identique à l’application d’expéditeur précédente.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Écrire du code pour recevoir des messages de l’abonnement
 

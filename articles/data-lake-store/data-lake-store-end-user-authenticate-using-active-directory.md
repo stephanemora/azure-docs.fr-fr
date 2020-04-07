@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66234053"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Authentification de l’utilisateur final auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory
@@ -47,7 +47,7 @@ Cet article traite de la création d’une **application native Azure AD pour l�
 
 * Votre ID de client Azure. Pour obtenir des instructions pour récupérer l’ID de client, consultez [Obtenir l’ID de client](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-## <a name="end-user-authentication"></a>Authentification de l’utilisateur final
+## <a name="end-user-authentication"></a>Authentification des utilisateurs finaux
 Ce mécanisme d’authentification est l’approche recommandée si vous souhaitez qu’un utilisateur final se connecte à votre application via Azure AD. Votre application est alors en mesure d’accéder aux ressources Azure avec le même niveau d’accès que l’utilisateur final qui s’est connecté. Votre utilisateur final doit fournir ses informations d’identification régulièrement pour que votre application maintienne l’accès.
 
 Conséquence de la connexion de l’utilisateur final : votre application reçoit un jeton d’accès et un jeton d’actualisation. Le jeton d’accès est lié à chaque requête adressée au Data Lake Storage Gen1 ou à Data Lake Analytics et, par défaut, il est valide pendant une heure. Le jeton d’actualisation peut être utilisé pour obtenir un nouveau jeton d’accès et, par défaut, il est valide pendant deux semaines au maximum. Vous pouvez utiliser deux approches différentes pour la connexion de l’utilisateur final.
@@ -72,15 +72,15 @@ Votre application peut fournir directement des informations d’identification d
 * Définir des autorisations déléguées
 
 
-## <a name="step-1-create-an-active-directory-native-application"></a>Étape 1 : Créer une application native Active Directory
+## <a name="step-1-create-an-active-directory-native-application"></a>Étape 1 : Créer une application native Active Directory
 
 Créez et configurez une application native Azure AD pour l’authentification de l’utilisateur final auprès de Data Lake Storage Gen1 à l’aide d’Azure Active Directory. Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../active-directory/develop/howto-create-service-principal-portal.md).
 
 Si vous suivez les instructions du lien, veillez à sélectionner le type d’application **Native**, comme l’illustre la capture d’écran suivante :
 
-![Créer une application web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Créer une application native")
+![Création d’une application web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Création d’une application native")
 
-## <a name="step-2-get-application-id-and-redirect-uri"></a>Étape 2 : Obtenir l’ID et l’URI de redirection de l’application
+## <a name="step-2-get-application-id-and-redirect-uri"></a>Étape 2 : Obtenir l’ID et l’URI de redirection de l’application
 
 Consultez [Obtenir l’ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) pour récupérer l’ID d’application.
 

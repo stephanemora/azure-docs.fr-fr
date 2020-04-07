@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 9f14521c15c3497bed4ffbeba44cb5d78ee4df7b
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74047986"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Résoudre des problèmes d’affinité de session dans Azure Application Gateway
@@ -22,7 +22,7 @@ Découvrez comment diagnostiquer et résoudre des problèmes d’affinité de se
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La fonctionnalité d’affinité de session basée sur les cookies est utile lorsque vous souhaitez conserver une session utilisateur sur le même serveur. En utilisant des cookies gérés de passerelle, la passerelle Application Gateway peut diriger le trafic pour traitement à partir d’une session utilisateur vers le même serveur. Ceci est important lorsque l’état de la session est enregistré localement sur le serveur pour une session utilisateur.
 
@@ -63,7 +63,7 @@ Vous pouvez également vérifier que la valeur de **CookieBasedAffinity** est d�
 
 ### <a name="the-application-cannot-handle-cookie-based-affinity"></a>L’application ne peut pas gérer l’affinité basée sur les cookies
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Le passerelle d’application ne peut gérer l’affinité de session qu’en utilisant un cookie.
 
@@ -82,7 +82,7 @@ Pour identifier ce problème, suivez les instructions :
 1. Prenez une trace de débogueur web sur le « Client » qui se connecte à l’application derrière Application Gateway (nous utilisons Fiddler dans cet exemple).
     **Conseil** Si vous ignorez comment utiliser Fiddler, activez l’option **I want to collect network traffic and analyze it using web debugger** (Je veux collecter le trafic réseau et l’analyser à l’aide du débogueur web) en bas de la page.
 
-2. Vérifiez et analysez les journaux de session afin de déterminer si les cookies fournis par le client contiennent les détails ARRAffinity. Si vous ne trouvez pas les détails ARRAffinity, tels que **ARRAffinity =** *ARRAffinityValue* dans le jeu de cookies, cela signifie que le client ne répond pas avec le cookie ARRA fourni par Application Gateway.
+2. Vérifiez et analysez les journaux de session afin de déterminer si les cookies fournis par le client contiennent les détails ARRAffinity. Si vous ne trouvez pas les détails ARRAffinity, notamment **ARRAffinity=** *ARRAffinityValue* dans le jeu de cookies, cela signifie que le client ne répond pas avec le cookie ARRA fourni par Application Gateway.
     Par exemple :
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
@@ -91,11 +91,11 @@ Pour identifier ce problème, suivez les instructions :
 
 L’application continue d’essayer de définir le cookie sur chaque demande jusqu’à ce qu’elle reçoive une réponse.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Ce problème se produit parce que Internet Explorer et d’autres navigateurs ne peuvent pas stocker ou utiliser le cookie avec une URL au short name.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Pour résoudre ce problème, vous devez accéder à la passerelle d’application en utilisant un nom de domaine complet. Par exemple, utilisez [http://website.com](https://website.com/) ou [http://appgw.website.com](http://appgw.website.com/).
 
@@ -145,7 +145,7 @@ Activation de la journalisation avec le portail Azure
 - **ClientPort** : port source du client qui se connecte pour la demande.
 - **RequestQuery** : serveur de destination où la demande est reçue.
 - **Acheminée par le serveur** : instance de pool principal où la demande est reçue.
-- **X-AzureApplicationGateway-LOG-ID** : ID de corrélation utilisé pour la requête. Peut être utilisée pour résoudre les problèmes de trafic sur les serveurs principaux. Par exemple :  X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
+- **X-AzureApplicationGateway-LOG-ID** : ID de corrélation utilisé pour la requête. Peut être utilisée pour résoudre les problèmes de trafic sur les serveurs principaux. Par exemple : X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
 
   - **ÉTAT DU SERVEUR** : code de réponse HTTP reçu par Application Gateway à partir du back-end.
 

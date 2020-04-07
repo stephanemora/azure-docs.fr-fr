@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 53ad0c516547e17801bd57c2fd6b0d1704383797
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593812"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP pour le moteur de règles Azure CDN
@@ -38,9 +38,9 @@ Le tableau suivant décrit les variables HTTP prises en charge. Une valeur vide 
 | ---- | -------- | ----------- | ------------ |
 | ASN (demandeur) | %{geo_asnum} | Indique le numéro de système autonome du demandeur. <br /><br />**Déprécié :** %{virt_dst_asnum}. <br />Cette variable est dépréciée au profit de %{geo_asnum}. Bien que les règles utilisant cette variable dépréciée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable. | AS15133 |
 | Ville (demandeur) | %{geo_city} | Indique la ville du demandeur. | Los Angeles |
-| Continent (demandeur) | %{geo_continent} | Indique le continent du demandeur au travers de son abréviation. <br />Les valeurs autorisées sont : <br />AF : Afrique<br />AS : Asie<br />EU : Europe<br />NA : Amérique du Nord<br />OC : Océanie<br />SA : Amérique du Sud<br /><br />**Déprécié :** %{virt_dst_continent}. <br />Cette variable est dépréciée au profit de %{geo_continent}. <br />Bien que les règles utilisant cette variable dépréciée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable.| N/A |
+| Continent (demandeur) | %{geo_continent} | Indique le continent du demandeur au travers de son abréviation. <br />Les valeurs autorisées sont : <br />AF : Afrique<br />AS : Asia<br />EU : Europe<br />NA : Amérique du Nord<br />OC : Océanie<br />SA : Amérique du Sud<br /><br />**Déprécié :** %{virt_dst_continent}. <br />Cette variable est dépréciée au profit de %{geo_continent}. <br />Bien que les règles utilisant cette variable dépréciée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable.| N/A |
 | Valeur du cookie | %{cookie_Cookie} | Retourne la valeur correspondant à la clé de cookie identifiée par le terme Cookie. | Exemple d’utilisation : <br />%{cookie__utma}<br /><br />Exemple de valeur :<br />111662281.2.10.1222100123 |
-| Pays (demandeur) | %{geo_country} | Indique le pays d’origine du demandeur au travers de son code pays. <br />**Déprécié :** %{virt_dst_country}. <br /><br />Cette variable est dépréciée au profit de %{geo_country}. Bien que les règles utilisant cette variable dépréciée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable. | FR |
+| Pays (demandeur) | %{geo_country} | Indique le pays d’origine du demandeur au travers de son code pays. <br />**Déprécié :** %{virt_dst_country}. <br /><br />Cette variable est dépréciée au profit de %{geo_country}. Bien que les règles utilisant cette variable dépréciée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable. | US |
 | Designated Market Area (demandeur) | %{geo_dma_code} |Spécifie le marché des médias du demandeur au moyen de son code de région. <br /><br />Ce champ est uniquement applicable aux requêtes provenant des États-Unis.| 745 |
 | Méthode de requête HTTP | %{request_method} | Indique la méthode de requête HTTP. | GET |
 | Code d’état HTTP | %{status} | Indique le code d’état HTTP de la réponse. | 200 |
@@ -62,14 +62,14 @@ Le tableau suivant décrit les variables HTTP prises en charge. Une valeur vide 
 | Modèle de requête | %{scheme} | Indique le schéma de la requête. |http |
 | URI de requête (relatif) | %{request_uri} | Indique le chemin d’accès relatif, y compris la chaîne de requête, défini dans l’URI de requête. | /marketing/foo.js?loggedin=true |
 | URI de requête (relatif sans chaîne de requête) | %{uri} | Indique le chemin d’accès relatif vers le contenu demandé. <br /><br/>Informations essentielles :<br />- Ce chemin d’accès relatif exclut la chaîne de requête.<br />- Ce chemin d’accès relatif reflète les réécritures d’URL. Une URL est réécrite dans les conditions suivantes :<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Fonctionnalité de réécriture d’URL : cette fonctionnalité réécrit le chemin d’accès relatif défini dans l’URI de requête.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Edge CNAME URL (URL du CNAME de périmètre) : ce type de requête est réécrit sur l’URL du CDN correspondant. |/800001/corigin/rewrittendir/foo.js |
-| URI de demande | %{request} | Décrit la requête. <br />Syntaxe : &lt;méthode HTTP&gt; &lt;chemin d’accès relatif&gt; &lt;protocole HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
+| URI de demande | %{request} | Décrit la requête. <br />Syntaxe : &lt;Méthode HTTP&gt; &lt;chemin relatif&gt; &lt;protocole HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
 | Valeur d’en-tête de réponse | %{resp_&lt;ResponseHeader&gt;} | Retourne la valeur correspondant à l’en-tête de réponse identifié par le terme &lt;ResponseHeader&gt;. <br /><br />Si le nom de l’en-tête de réponse contient un tiret (par exemple, User-Agent), remplacez-le par un trait de soulignement (par exemple, User_Agent). | Exemple d’utilisation : %{resp_Content_Length}<br /><br />Exemple de valeur : 100 |
 
 ## <a name="usage"></a>Usage
 Le tableau suivant décrit la syntaxe permettant de spécifier les variables HTTP.
 
 
-| Syntaxe | Exemples | Description |
+| Syntaxe | Exemple | Description |
 | ------ | -------- | ---------- |
 | %{&lt;HTTPVariable&gt;} | %{host} | Utilisez la syntaxe suivante pour obtenir la valeur entière correspondant à la variable &lt;HTTPVariable&gt; spécifiée. |
 | %{&lt;HTTPVariableDelimiter&gt;} | %{host,} | Utilisez la syntaxe suivante pour définir la casse de la valeur entière correspondant à la variable &lt;HTTPVariableDelimiter&gt; spécifiée. |
@@ -82,19 +82,19 @@ Un délimiteur peut être spécifié après une variable HTTP pour apporter l’
 
 - Transformer la valeur associée à la variable.
 
-     Exemple : Convertit la valeur entière en minuscules.
+     Exemple : Convertit la valeur entière en minuscules.
 
 - Supprimer la valeur associée à la variable.
 
 - Manipuler la valeur associée à la variable.
 
-     Exemple : Utilise des expressions régulières pour modifier la valeur associée à la variable HTTP.
+     Exemple : Utilise des expressions régulières pour modifier la valeur associée à la variable HTTP.
 
 Les délimiteurs sont décrits dans le tableau suivant.
 
 | Délimiteur | Description |
 | --------- | ----------- |
-| := | Indique qu’une valeur par défaut sera assignée à la variable lorsqu’elle est : <br />- manquante ; <br />- définie sur Null. |
+| := | Indique qu’une valeur par défaut sera assignée à la variable lorsqu’elle est : <br />- en-tête manquante ; <br />- valeur de l’en-tête définie sur Null. |
 | :+ | Indique qu’une valeur par défaut sera assignée à la variable lorsqu’une valeur lui aura été assignée. |
 | : | Indique qu’une sous-chaîne de la valeur assignée à la variable sera développée. |
 | # | Indique que le modèle spécifié après ce délimiteur doit être supprimé lorsqu’il se trouve au début de la valeur associée à la variable. |
@@ -110,7 +110,7 @@ Les délimiteurs sont décrits dans le tableau suivant.
 ## <a name="exceptions"></a>Exceptions
 Le tableau suivant décrit les circonstances dans lesquelles le texte spécifié n’est pas traité comme une variable HTTP.
 
-| Condition | Description | Exemples |
+| Condition | Description | Exemple |
 | --------- | ----------- | --------|
 | Échappement du symbole % | Le symbole de pourcentage peut faire l’objet d’un échappement au moyen d’une barre oblique inverse. <br />L’exemple de valeur à droite sera considéré comme une valeur littérale et non comme une variable HTTP.| \%{host} |
 | Variables inconnues | Une chaîne vide est toujours retournée pour les variables inconnues. | % {unknown_variable} |
@@ -125,7 +125,7 @@ Une valeur par défaut peut être assignée à un en-tête dans les conditions s
 
 Le tableau suivant décrit comment définir une valeur par défaut.
 
-| Condition | Syntaxe | Exemples | Description |
+| Condition | Syntaxe | Exemple | Description |
 | --------- | ------ | --------| ----------- |
 | Définition d’une valeur par défaut pour un en-tête dans les conditions suivantes : <br /><br />- en-tête manquant ; <br /><br />- valeur d’en-tête définie sur Null.| %{Variable:=Value} | %{http_referrer:=unspecified} | L’en-tête Referrer est uniquement défini sur *unspecified* quand il est manquant ou défini avec la valeur Null. Aucune action n’est effectuée s’il a été défini. |
 | Définition d’un en-tête à une valeur par défaut lorsqu’il est manquant. | %{Variable=Value} | %{http_referrer=unspecified} | L’en-tête Referrer est uniquement défini sur *unspecified* quand il est manquant. Aucune action n’est effectuée s’il a été défini. |
@@ -156,7 +156,7 @@ Informations essentielles :
      - Positive : détermine la longueur de la sous-chaîne à partir du premier caractère vers la droite.
      - Négatif : détermine la longueur de la sous-chaîne à partir du premier caractère vers la gauche.
 
-#### <a name="example"></a>Exemple :
+#### <a name="example"></a>Exemple :
 
 L’exemple suivant s’appuie sur l’exemple d’URL de requête suivant :
 
@@ -179,7 +179,7 @@ Le texte correspondant à un modèle spécifique peut être supprimé du début 
 | %{Variable#Pattern} | Supprime le texte lorsque le modèle spécifié est localisé au début de la valeur d’une variable. |
 | %{Variable%Pattern} | Supprime le texte lorsque le modèle spécifié est localisé à la fin de la valeur d’une variable. |
 
-#### <a name="example"></a>Exemple :
+#### <a name="example"></a>Exemple :
 
 Dans cet exemple de scénario, la variable *request_uri* est définie sur :
 

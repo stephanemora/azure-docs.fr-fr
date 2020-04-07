@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24f7a81b267e858d16ae0805f9c7ab384be3b2fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81b6b8a7024de9ff3361e24cb14190d479e50681
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200640"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80258054"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Découvrez comment configurer votre compte de facturation associé à un contrat client Microsoft
 
@@ -81,7 +81,7 @@ Votre nouveau compte de facturation simplifie la facturation pour votre organisa
 1. Le compte de facturation vous permet de gérer la facturation de votre contrat client Microsoft. Les administrateurs d’entreprise deviennent propriétaires du compte de facturation. Pour en savoir plus sur le compte de facturation, consultez [Comprendre le compte de facturation](../understand/mca-overview.md#your-billing-account).
 2. Le profil de facturation vous permet de gérer la facturation de votre organisation, de la même façon que votre inscription à un Contrat Entreprise. Les administrateurs d’entreprise deviennent propriétaires du profil de facturation. Pour en savoir plus sur les profils de facturation, consultez [Comprendre les profils de facturation](../understand/mca-overview.md#billing-profiles).
 3. Une section de facture permet d’organiser vos coûts en fonction de vos besoins, de la même façon que les départements dans votre inscription à un Contrat Entreprise. Les départements deviennent les sections de facture et les administrateurs de départements deviennent les propriétaires des sections de facture respectives. Pour en savoir plus sur les sections de facture, consultez [Comprendre les sections de facture](../understand/mca-overview.md#invoice-sections).
-4. Les comptes qui ont été créés dans votre Accord Entreprise ne sont pas pris en charge dans le nouveau compte de facturation. Les abonnements du compte appartiennent à la section de facture respective du département. Les propriétaires de comptes peuvent créer et gérer des abonnements pour leurs sections de facture.
+4. Les comptes qui ont été créés dans votre Contrat Entreprise ne sont pas pris en charge dans le nouveau compte de facturation. Les abonnements du compte appartiennent à la section de facture respective du département. Les propriétaires de comptes peuvent créer et gérer des abonnements pour leurs sections de facture.
 
 ## <a name="changes-to-billing-administrator-access"></a>Modifications apportées à l’accès administrateur à la facturation
 
@@ -97,7 +97,7 @@ Selon leur accès, les administrateurs de facturation sur votre inscription à u
 
 Un locataire Azure Active Directory (AD) est sélectionné pour le nouveau compte de facturation lors de l’acceptation de votre Contrat Client Microsoft. Si vous n’avez pas de locataire pour votre organisation, un locataire est créé. Le locataire représente votre organisation dans Azure Active Directory. Les administrateurs de locataires d’entreprise de votre organisation utilisent le locataire pour gérer l’accès aux applications et données de votre organisation.
 
-Votre nouveau compte prend uniquement en charge les utilisateurs du locataire qui a été sélectionné lors de la signature du contrat client Microsoft. Si des utilisateurs avec des autorisations administratives sur votre Accord Entreprise font partie du locataire, ils peuvent accéder au nouveau compte de facturation pendant la configuration. S’ils ne font pas partie du locataire, ils ne peuvent pas accéder au nouveau compte de facturation, sauf si vous les invitez.
+Votre nouveau compte prend uniquement en charge les utilisateurs du locataire qui a été sélectionné lors de la signature du contrat client Microsoft. Si des utilisateurs avec des autorisations administratives sur votre Contrat Entreprise font partie du locataire, ils peuvent accéder au nouveau compte de facturation pendant la configuration. S’ils ne font pas partie du locataire, ils ne peuvent pas accéder au nouveau compte de facturation, sauf si vous les invitez.
 
 Quand vous invitez les utilisateurs, ils sont ajoutés au locataire en tant qu’utilisateurs invités et ont accès au compte de facturation. Pour inviter les utilisateurs, l’accès invité doit être activé pour le locataire. Pour plus d’informations, consultez [Contrôler l’accès invité dans Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Si l’accès invité est désactivé, contactez les administrateurs d’entreprise de votre locataire pour l’activer. <!-- Todo - How can they find their global administrator -->
 
@@ -115,7 +115,7 @@ Les contacts de notification reçoivent des communications par e-mail à propos 
 
 ### <a name="spending-quotas"></a>Quotas de dépenses
 
-Les quotas de dépenses qui ont été définis pour les départements dans votre inscription à un Contrat Entreprise sont remplacés par des budgets dans le nouveau compte de facturation. Un budget est créé pour chaque quota de dépenses défini pour les départements dans votre inscription. Pour plus d’informations sur les budgets, consultez [Gérer les budgets Azure avec Cloudyn](../cloudyn/manage-budgets.md).
+Les quotas de dépenses qui ont été définis pour les départements dans votre inscription à un Contrat Entreprise sont remplacés par des budgets dans le nouveau compte de facturation. Un budget est créé pour chaque quota de dépenses défini pour les départements dans votre inscription. Pour plus d’informations sur les budgets, consultez [Tutoriel : Créer et gérer des budgets Azure](../costs/tutorial-acm-create-budgets.md).
 
 ### <a name="cost-centers"></a>Centres de coûts
 

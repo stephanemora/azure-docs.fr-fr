@@ -1,6 +1,6 @@
 ---
-title: Comment résoudre les défaillances de travaux U-SQL Azure Data Lake Analytics en raison de la mise à niveau de .NET 4.7.2
-description: Résolvez les défaillances de travaux U-SQL en raison de la mise à niveau vers .NET 4.7.2.
+title: Guide pratique pour résoudre les défaillances des travaux U-SQL Azure Data Lake Analytics dues à la mise à niveau vers .NET Framework 4.7.2
+description: Résolvez les défaillances des travaux U-SQL dues à la mise à niveau vers .NET 4.7.2.
 services: data-lake-analytics
 author: guyhay
 ms.author: guyhay
@@ -9,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: 2be2f50558fef41659c9a3313871b17961f6ad6d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873231"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79213585"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics est mis à niveau vers .NET Framework v4.7.2
 
@@ -22,12 +22,12 @@ Le runtime par défaut d’Azure Data Lake Analytics est mis à niveau de .NET F
 
 Cette mise à niveau de .NET Framework 4.5.2 vers la version 4.7.2 signifie que le .NET Framework déployé dans un runtime U-SQL (le runtime par défaut) sera désormais toujours 4.7.2. Il n’existe pas d’option côte à côte pour les versions de .NET Framework.
 
-Une fois cette mise à niveau vers .NET 4.7.2 terminée, le code managé du système s’exécutera en tant que version 4.7.2, les bibliothèques fournies par l’utilisateur, telles que les assemblys U-SQL personnalisés, s’exécuteront dans le mode à compatibilité descendante approprié à la version pour laquelle l’assembly a été généré.
+Une fois cette mise à niveau vers .NET Framework 4.7.2 effectuée, le code managé du système s’exécutera sous la version 4.7.2 et les bibliothèques fournies par l’utilisateur, comme les assemblys personnalisés U-SQL, s’exécuteront dans le mode de compatibilité descendante correspondant à la version pour laquelle l’assembly a été généré.
 
 - Si vos DLL d’assembly sont générées pour la version 4.5.2, l’infrastructure déployée les traitera comme des bibliothèques 4.5.2, en fournissant (avec quelques exceptions) la sémantique 4.5.2.
 - Vous pouvez maintenant utiliser des assemblys U-SQL personnalisés qui utilisent les fonctionnalités 4.7.2 de version, si vous ciblez le .NET Framework 4.7.2.
 
-En raison de cette mise à niveau vers .NET 4.7.2, il est possible d’introduire des changements cassants dans vos travaux U-SQL qui utilisent des assemblys personnalisés .NET. Nous vous suggérons de vérifier les problèmes de compatibilité descendante à l’aide de la procédure ci-dessous.
+Il est possible que cette mise à niveau vers .NET Framework 4.7.2 introduise des changements cassants dans les travaux U-SQL qui utilisent des assemblys personnalisés .NET. Nous vous suggérons de vérifier les problèmes de compatibilité descendante à l’aide de la procédure ci-dessous.
 
 ## <a name="how-to-check-for-backwards-compatibility-issues"></a>Comment vérifier les problèmes de compatibilité descendante
 

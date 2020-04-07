@@ -4,18 +4,18 @@ description: Découvrez la syntaxe de la fonction d’agrégation SQL et les typ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/16/2020
 ms.author: tisande
-ms.openlocfilehash: df9700dd51c8915ff28c34cf0a29c2f5e48baa44
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78897827"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79464459"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Fonctions d’agrégation dans Azure Cosmos DB
 
-Les fonctions d’agrégation effectuent un calcul sur un ensemble de valeurs dans la clause SELECT et retournent une valeur unique. Par exemple, la requête suivante retourne le nombre d’éléments présents dans le conteneur `Families` :
+Les fonctions d’agrégation effectuent un calcul sur un ensemble de valeurs dans la clause `SELECT` et retournent une valeur unique. Par exemple, la requête suivante retourne le nombre d’éléments présents dans le conteneur `Families` :
 
 ## <a name="examples"></a>Exemples
 
@@ -61,7 +61,7 @@ Les résultats sont :
 
 ## <a name="types-of-aggregate-functions"></a>Types de fonctions d’agrégation
 
-L’API SQL prend en charge les fonctions d’agrégation suivantes. SUM et AVG opèrent sur des valeurs numériques, tandis que COUNT, MIN et MAX fonctionnent sur des nombres, des chaînes, des booléens et des valeurs Null.
+L’API SQL prend en charge les fonctions d’agrégation suivantes. `SUM` et `AVG` opèrent sur des valeurs numériques, tandis que `COUNT`, `MIN` et `MAX` fonctionnent sur des nombres, des chaînes, des booléens et des valeurs Null.
 
 | Fonction | Description |
 |-------|-------------|
@@ -75,6 +75,10 @@ Vous pouvez également effectuer des agrégations sur les résultats d’une it�
 
 > [!NOTE]
 > Dans l’Explorateur de données du portail Azure, les requêtes d’agrégation peuvent agréger des résultats partiels sur une seule page de requête. Le kit SDK génère une valeur cumulée unique sur toutes les pages. Pour effectuer des requêtes d’agrégation à l’aide de code, vous avez besoin du kit SDK .NET 1.12.0, du kit SDK .NET Core 1.1.0 ou du kit SDK Java 1.9.5 ou ultérieur.
+
+## <a name="remarks"></a>Notes
+
+Ces fonctions système d’agrégation bénéficieront d’un [index de plage](index-policy.md#includeexclude-strategy). Si vous comptez exécuter une fonction `COUNT`, `SUM`, `MIN`, `MAX` ou `AVG` sur une propriété, vous devez [inclure le chemin d’accès correct dans la stratégie d’indexation](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,26 +13,26 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: dapine
-  ms.openlocfilehash: f047af5d14ed6b18c559f814b35d730ba7ce0f6a
-  ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+  ms.openlocfilehash: 0f0b9aa0109b7e63bffcbd330dbef3276821698e
+  ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80244322"
+  ms.lasthandoff: 04/06/2020
+  ms.locfileid: "80743909"
 highlightedContent:
   items:
   - title: Qu’est-ce que le service de reconnaissance vocale ?
     itemType: overview
     url: overview.md
+  - title: À propos du kit SDK Speech
+    itemType: overview
+    url: speech-sdk.md
   - title: Notes de publication du SDK Speech
     itemType: whats-new
     url: releasenotes.md
-  - title: Prise en charge des langues dans les services Speech
+  - title: Prise en charge des langues dans le service Speech
     itemType: reference
     url: language-support.md
-  - title: Créer une ressource pour les services Speech
-    itemType: how-to-guide
-    url: get-started.md
 conceptualContent:
   items:
   - title: Reconnaissance vocale

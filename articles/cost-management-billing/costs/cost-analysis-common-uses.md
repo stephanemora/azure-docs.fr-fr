@@ -3,16 +3,16 @@ title: Usages courants de l’analyse des coûts dans Azure Cost Management
 description: Cet article explique comment obtenir des résultats des tâches courantes d’analyse des coûts dans Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 901f271ac401cb985e59c434b9e6d7f8db03889f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203098"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520875"
 ---
 # <a name="common-cost-analysis-uses"></a>Usages courants de l’analyse des coûts
 
@@ -26,7 +26,7 @@ La visualisation des coûts par service Azure peut vous aider à mieux comprendr
 1. Sélectionnez **Coût par service**, puis, groupez les coûts selon le critère **Niveau de service**.
 1. Choisissez la vue **Tableau**.
 
-![Décomposition des coûts par service Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)
+[![Décomposition des coûts par service Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Voir la décomposition des coûts par ressource Azure
 
@@ -36,7 +36,7 @@ Vos services s’articulent autour de ressources Azure. L’examen des coûts en
 1. Sélectionnez **Coût par ressource**.
 1. Choisissez la vue **Tableau**.
 
-![Voir la décomposition des coûts par ressource Azure](./media/cost-analysis-common-uses/cost-by-resource.png)
+[![Voir la décomposition des coûts par ressource Azure](./media/cost-analysis-common-uses/cost-by-resource.png)](./media/cost-analysis-common-uses/cost-by-resource.png#lightbox)
 
 ## <a name="view-cost-breakdown-by-selected-dimensions"></a>Voir la décomposition des coûts selon certaines dimensions
 
@@ -44,10 +44,10 @@ Les dimensions vous permettent d’organiser les coûts en fonction de différen
 
 1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez le filtre **Grouper par**.  
-    ![Sélectionner un critère de groupement](./media/cost-analysis-common-uses/group-by.png)
+    [![Sélectionner un critère de groupement](./media/cost-analysis-common-uses/group-by.png)](./media/cost-analysis-common-uses/group-by.png#lightbox)
 1. Vous pouvez enregistrer la vue pour une utilisation ultérieure si vous le souhaitez.
 1. Cliquez sur un graphique à secteurs sous le graphe pour afficher des données plus détaillées.  
-    ![Voir la décomposition des coûts selon certaines dimensions](./media/cost-analysis-common-uses/drill-down.png)
+    [![Voir la décomposition des coûts selon certaines dimensions](./media/cost-analysis-common-uses/drill-down.png)](./media/cost-analysis-common-uses/drill-down.png#lightbox)
 
 ## <a name="view-costs-per-day-or-by-month"></a>Voir les coûts par jour ou par mois
 
@@ -56,7 +56,58 @@ La consultation des coûts par jour et par mois peut vous aider à mieux compren
 1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sous **Granularité**, sélectionnez **Mensuelle** ou **Quotidienne**.
 
-![Voir les coûts par jour](./media/cost-analysis-common-uses/daily-granularity.png)
+[![Voir les coûts par jour](./media/cost-analysis-common-uses/daily-granularity.png)](./media/cost-analysis-common-uses/daily-granularity.png#lightbox)
+
+
+## <a name="view-your-spot-vm-charges"></a>Voir les frais associés aux machines virtuelles Spot
+
+Les machines virtuelles Spot peuvent vous permettre de réaliser de grandes économies pour les charges de travail capables de gérer les interruptions. Les charges de travail sont exécutées sur une capacité Azure inutilisée. Dans la mesure où elles peuvent être supprimées à tout moment, les machines virtuelles Spot bénéficient de remises importantes. Effectuez les étapes suivantes pour voir les frais de vos machines virtuelles Spot.
+
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple, **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+2. Ajoutez un filtre **Modèle tarifaire : Spot**.
+
+![Exemple montrant un filtre de machine virtuelle Spot](./media/cost-analysis-common-uses/spot-vm-filter.png)
+
+La dimension Modèle tarifaire permet également de voir les frais de réservation et d’utilisation à la demande.
+
+## <a name="view-your-reservation-charges"></a>Voir vos frais de réservation
+
+Les instances réservées vous permettent de faire des économies avec Azure. En optant pour des réservations, vous dépensez de l’argent au départ pour un nombre donné de ressources au long cours. L’analyse des coûts montre les frais tels qu’ils apparaissent sur votre facture. Les frais sont présentés comme des coûts réels ou amortis au cours de votre période de réservation.
+
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple, **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Ajoutez un filtre **Modèle tarifaire : Réservation**.
+1. Sous **Étendue** et à côté du coût indiqué, cliquez sur le symbole de flèche vers le bas, sélectionnez la métrique **Coût réel** ou **Coût amorti**.
+
+![Sélectionner une métrique de coût](./media/cost-analysis-common-uses/metric-cost.png)
+
+Chaque métrique affecte la façon dont les données sont affichées pour vos frais de réservation.
+
+**Coût réel** : Montre l’achat tel qu’il apparaît sur votre facture. Par exemple, si vous avez acheté une réservation d’un an pour 1 200 dollars US en janvier, l’analyse des coûts montre un coût de 1 200 dollars US en janvier pour la réservation. Elle ne montre aucun coût de réservation pour les autres mois de l’année. Si vous regroupez vos coûts réels par machine virtuelle, une machine virtuelle recevant l’avantage de réservation pour un mois donné n’engendre aucun coût pour le mois.
+
+**Coût amorti** : Montre un achat de réservation réparti sur la durée de la période de réservation. Dans l’exemple ci-dessus, l’analyse du coût montre un coût de 100 dollars US pour chaque mois de l’année si vous avez acheté une réservation d’un an pour 1 200 dollars US en janvier. Si vous regroupez les coûts par machine virtuelle dans cet exemple, vous pouvez voir le coût attribué à chaque machine virtuelle ayant bénéficié de l’avantage de réservation.
+
+## <a name="view-your-reservation-utilization"></a>Voir l’utilisation des réservations
+
+Après l’achat d’une réservation, il est important de suivre son utilisation pour voir si son achat est justifié. Par exemple, si vous achetez 10 machines virtuelles pour un an et que vous n’en utilisez que cinq, la moitié de votre achat ne sert à rien. Vous pouvez évaluer votre utilisation de deux façons :
+
+### <a name="view-unused-ri-costs-in-cost-analysis"></a>Voir les coûts des instances réservées inutilisées dans l’analyse des coûts
+
+Pour identifier le montant de votre achat de réservation qui est gaspillé chaque mois, effectuez les étapes ci-dessous.
+
+1. Dans le portail Azure, accédez à l’analyse des coûts pour l’étendue où votre réservation est appliquée. Par exemple, **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Ajoutez un filtre **Modèle tarifaire : Réservation**.
+1. Sélectionnez la vue **Coût amorti**.
+1. Sélectionnez **Mensuelle** comme granularité.
+1. Sélectionnez l’année en cours ou le terme de votre réservation comme période de temps.
+1. Sélectionnez **Colonnes (empilées)** comme type de graphique.
+1. Regroupez les frais par **Type de frais**.
+1. Examinez les résultats pour les valeurs `unusedreservation`.
+
+[![Exemple montrant l’utilisation d’une réservation](./media/cost-analysis-common-uses/view-reservation-cost.png)](./media/cost-analysis-common-uses/view-reservation-cost.png#lightbox)
+
+### <a name="view-utilization-in-reservations"></a>Voir l’utilisation dans Réservations
+
+Pour obtenir des instructions détaillées, consultez [Optimiser l’utilisation de la réservation](../reservations/manage-reserved-vm-instance.md#optimize-reservation-use).
 
 ## <a name="view-costs-for-a-specific-tag"></a>Voir les coûts pour une étiquette spécifique
 
@@ -67,7 +118,7 @@ La prise en charge des étiquettes s’applique à l’utilisation signalée *ap
 1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez l’option d’étiquette sous **Grouper par**.
 
-![Voir les coûts pour une étiquette spécifique](./media/cost-analysis-common-uses/tag.png)
+[![Voir les coûts pour une étiquette spécifique](./media/cost-analysis-common-uses/tag.png)](./media/cost-analysis-common-uses/tag.png#lightbox)
 
 ## <a name="download-your-usage-details"></a>Télécharger vos détails d’utilisation
 
@@ -75,7 +126,7 @@ Le fichier de rapport des détails d’utilisation, au format CSV, fournit une d
 
 1. Dans le portail Azure, accédez à l’onglet **Utilisation et frais** pour un abonnement ou un compte de facturation. Par exemple : **Gestion des coûts + facturation** > **Facturation** > **Utilisation + frais**.
 1. Sélectionnez la ligne pour laquelle vous souhaitez télécharger les informations, puis cliquez sur le symbole de téléchargement.  
-    ![Télécharger les données sur l’utilisation et les frais](./media/cost-analysis-common-uses/download1.png)
+    [![Télécharger les données sur l’utilisation et les frais](./media/cost-analysis-common-uses/download1.png)](./media/cost-analysis-common-uses/download1.png#lightbox)
 1.  Sélectionnez le fichier d’utilisation à télécharger.  
     ![Choisir un fichier d’utilisation à télécharger](./media/cost-analysis-common-uses/download2.png)
 
@@ -88,9 +139,9 @@ Les coûts s’affichent uniquement pour votre inscription active. Si vous avez 
 
 1. Dans le portail Azure, accédez à **Gestion des coûts + facturation** > **Vue d’ensemble**.
 1. Cliquez sur **Décomposition** pour le mois en cours afin de visualiser la ventilation de votre engagement financier.  
-    ![Vue d’ensemble des coûts d’EA - décomposition récapitulative](./media/cost-analysis-common-uses/breakdown1.png)
-1.  Cliquez sur l’onglet **Utilisation et frais** pour voir la décomposition pour le mois précédent sur la période choisie.  
-    ![Onglet Utilisation et frais](./media/cost-analysis-common-uses/breakdown2.png)
+    [![Vue d’ensemble des coûts d’EA - décomposition récapitulative](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
+1.  Cliquez sur l’onglet **Utilisation et frais** pour voir la décomposition du mois précédent sur la période choisie.  
+    [![Onglet Utilisation et frais](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)
 
 ## <a name="view-enrollment-monthly-cost-by-term"></a>Voir le coût mensuel de l’inscription par période
 
@@ -102,7 +153,7 @@ Utilisez une vue graphique des coûts mensuels de votre inscription pour compren
 
 Vous pouvez grouper et filtrer vos données pour obtenir une analyse plus détaillée.
 
-![Coût mensuel de l’inscription par période](./media/cost-analysis-common-uses/enrollment-term1.png)
+[![Coût mensuel de l’inscription par période](./media/cost-analysis-common-uses/enrollment-term1.png)](./media/cost-analysis-common-uses/enrollment-term1.png#lightbox)
 
 ## <a name="view-ea-enrollment-accumulated-costs"></a>Voir les coûts cumulés de l’inscription EA
 
@@ -111,7 +162,7 @@ Pour comprendre les dépenses globales de votre organisation sur une période do
 1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez votre inscription pour voir les coûts cumulés à ce jour.
 
-![Coûts cumulés de l’inscription](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
+[![Coûts cumulés de l’inscription](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)](./media/cost-analysis-common-uses/cost-analysis-enrollment.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Si vous n’avez pas encore effectué le premier guide de démarrage rapide relatif à Cost Management, lisez-le à partir de [Démarrer l’analyse des coûts](quick-acm-cost-analysis.md).

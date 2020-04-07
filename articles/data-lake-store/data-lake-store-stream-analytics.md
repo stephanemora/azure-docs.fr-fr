@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60194853"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Diffuser des données à partir d’Azure Storage Blob dans Azure Data Lake Storage Gen1 à l’aide d’Azure Stream Analytics
@@ -48,11 +48,11 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
 1. Ouvrez la page du travail Stream Analytics et, dans le volet gauche, cliquez sur l’onglet **Entrées**, puis sur **Ajouter**.
 
-    ![Ajout d’une entrée à votre travail](./media/data-lake-store-stream-analytics/create.input.1.png "Ajout d’une entrée à votre travail")
+    ![Ajout d’une entrée au travail](./media/data-lake-store-stream-analytics/create.input.1.png "Ajouter une entrée à votre tâche")
 
 2. Dans le panneau **Nouvelle entrée**, fournissez les valeurs suivantes.
 
-    ![Ajout d’une entrée à votre travail](./media/data-lake-store-stream-analytics/create.input.2.png "Ajout d’une entrée à votre travail")
+    ![Ajout d’une entrée au travail](./media/data-lake-store-stream-analytics/create.input.2.png "Ajouter une entrée à votre tâche")
 
    * Pour **Alias d’entrée**, entrez un nom unique pour l’entrée de travail.
    * Pour **Type de source**, sélectionnez **Flux de données**.
@@ -71,18 +71,18 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
 1. Ouvrez la page du travail Stream Analytics, cliquez sur l’onglet **Sorties**, puis sur **Ajouter** et sélectionnez **Data Lake Storage Gen1**.
 
-    ![Ajout d’une sortie à votre travail](./media/data-lake-store-stream-analytics/create.output.1.png "Ajout d’une sortie à votre travail")
+    ![Ajout d’une sortie au travail](./media/data-lake-store-stream-analytics/create.output.1.png "Ajouter une sortie à votre tâche")
 
 2. Dans le panneau **Nouvelle sortie**, fournissez les valeurs suivantes.
 
-    ![Ajout d’une sortie à votre travail](./media/data-lake-store-stream-analytics/create.output.2.png "Ajout d’une sortie à votre travail")
+    ![Ajout d’une sortie au travail](./media/data-lake-store-stream-analytics/create.output.2.png "Ajouter une sortie à votre tâche")
 
     * Dans la zone **Alias de sortie**, entrez un nom unique pour la sortie de travail. Il s’agit du nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers ce compte Data Lake Storage Gen1.
     * Vous êtes invité à autoriser l’accès au compte Data Lake Storage Gen1. Cliquez sur **Autoriser**.
 
 3. Dans le panneau **Nouvelle sortie**, continuez à fournir les valeurs suivantes.
 
-    ![Ajout d’une sortie à votre travail](./media/data-lake-store-stream-analytics/create.output.3.png "Ajout d’une sortie à votre travail")
+    ![Ajout d’une sortie au travail](./media/data-lake-store-stream-analytics/create.output.3.png "Ajouter une sortie à votre tâche")
 
    * Pour **Nom du compte**, sélectionnez le compte Data Lake Storage Gen1 que vous avez déjà créé et auquel vous voulez envoyer la sortie de travail.
    * Pour **Modèle de préfixe de chemin d’accès**, entrez un chemin où écrire vos fichiers dans le compte Data Lake Storage Gen1 spécifié.
@@ -98,11 +98,11 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
 1. Pour exécuter un travail Stream Analytics, vous devez exécuter une requête à partir de l’onglet **Requête**. Pour ce didacticiel, vous pouvez exécuter l’exemple de requête en remplaçant les espaces réservés par les alias d’entrée et de sortie de la tâche, comme illustré dans la capture d’écran ci-dessous.
 
-    ![Exécutez une requête](./media/data-lake-store-stream-analytics/run.query.png "Exécuter une requête")
+    ![Exécution de la requête](./media/data-lake-store-stream-analytics/run.query.png "Exécuter une requête")
 
 2. Cliquez sur **Enregistrer** dans le haut de l’écran, puis, sous l’onglet **Vue d'ensemble**, cliquez sur **Démarrer**. Dans la boîte de dialogue, sélectionnez **Heure personnalisée**, puis définissez l’heure et la date actuelles.
 
-    ![Définir l’heure du travail](./media/data-lake-store-stream-analytics/run.query.2.png "Définir l’heure du travail")
+    ![Définition de l’heure du travail](./media/data-lake-store-stream-analytics/run.query.2.png "Définir l’heure de la tâche")
 
     Cliquez sur **Démarrer** pour démarrer le travail. Le démarrage de la tâche peut prendre quelques minutes.
 
@@ -110,11 +110,11 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
 4. Sous l’onglet **Vue d’ensemble**, sous **Surveillance**, vérifiez le mode de traitement des données.
 
-    ![Surveiller la tâche](./media/data-lake-store-stream-analytics/run.query.3.png "Surveiller la tâche")
+    ![Monitoring du travail](./media/data-lake-store-stream-analytics/run.query.3.png "Surveiller la tâche")
 
 5. Enfin, vous pouvez vérifier que les données de sortie du travail sont disponibles dans le compte Data Lake Storage Gen1. 
 
-    ![Vérifier la sortie](./media/data-lake-store-stream-analytics/run.query.4.png "Vérifier la sortie")
+    ![Vérification de la sortie](./media/data-lake-store-stream-analytics/run.query.4.png "Vérifier la sortie")
 
     Dans le volet Explorateur de données, notez que la sortie est écrite dans le chemin d’un dossier, comme indiqué dans les paramètres de sortie Data Lake Storage Gen1 (`streamanalytics/job/output/{date}/{time}`).  
 

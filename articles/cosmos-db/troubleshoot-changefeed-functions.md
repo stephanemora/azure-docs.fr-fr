@@ -3,16 +3,16 @@ title: Résoudre les problèmes lors de l’utilisation du déclencheur Azure Fu
 description: Problèmes courants, solutions de contournement et procédures de diagnostic relatifs à l’utilisation du déclencheur Azure Functions pour Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 07/17/2019
+ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365506"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 
@@ -41,7 +41,7 @@ En outre, si vous créez manuellement votre propre instance du [client de Kit de
 
 La fonction Azure échoue et le message d’erreur suivant s’affiche : « La collection de source "nom-de-la-collection" ("nom-de-la-base-de-données" pour une base de données) ou la collection de baux "nom-de-la-collection2" ("nom-de-la-base-de-données2" pour une base de données) n’existe pas. Les deux collections doivent exister avant le démarrage de l’écouteur. Pour créer automatiquement la collection de baux, définissez "CreateLeaseCollectionIfNotExists" sur "true" ».
 
-Cela signifie qu’au moins l’un des deux conteneurs Azure Cosmos nécessaires au fonctionnement du déclencheur n’existent pas ou que la fonction Azure ne peut pas y accéder. **L’erreur indiquera elle-même les conteneurs et la base de données Azure Cosmos que le déclencheur recherche** en fonction de votre configuration.
+Cela signifie qu’au moins l’un des deux conteneurs Azure Cosmos nécessaires au fonctionnement du déclencheur n’existent pas ou que la fonction Azure ne peut pas y accéder. **L’erreur indiquera elle-même quel conteneur et quelle base de données Azure Cosmos le déclencheur recherche** en fonction de votre configuration.
 
 1. Vérifiez l’attribut `ConnectionStringSetting` et assurez-vous qu’il **fait référence à un paramètre qui existe dans votre application de fonction Azure**. La valeur de cet attribut ne doit pas être la chaîne de connexion, mais le nom du paramètre de configuration.
 2. Vérifiez que `databaseName` et `collectionName` existent dans votre compte Azure Cosmos. Si vous utilisez le remplacement de valeur automatique (à l’aide des modèles `%settingName%`), assurez-vous que le nom du paramètre existe dans votre application de fonction Azure.
@@ -51,6 +51,10 @@ Cela signifie qu’au moins l’un des deux conteneurs Azure Cosmos nécessaires
 ### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Le démarrage de la fonction Azure échoue et le message d’erreur « La collection de débit partagé doit avoir une clé de partition » s’affiche
 
 Dans les versions précédentes, l’extension Azure Cosmos DB ne prenait pas en charge l’utilisation de conteneurs de baux créés au sein d’une [base de données de débit partagé](./set-throughput.md#set-throughput-on-a-database). Pour résoudre ce problème, mettez à jour l’extension [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) pour obtenir la dernière version.
+
+### <a name="azure-function-fails-to-start-with-partitionkey-must-be-supplied-for-this-operation"></a>Le démarrage de la fonction Azure échoue et le message d’erreur « PartitionKey doit être fourni pour cette opération » s’affiche
+
+Cette erreur signifie que vous utilisez actuellement une collection de baux partitionnée avec une [dépendance à une ancienne extension](#dependencies). Passez à la dernière version disponible. Si vous utilisez actuellement Azure Functions v1, vous devrez effectuer une mise à niveau vers Azure Functions v2.
 
 ### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Le démarrage de la fonction Azure échoue et le message d’erreur « Si elle est partitionnée, la collection de baux doit avoir une clé de partition correspondant à id » s’affiche.
 
@@ -70,6 +74,13 @@ Dans le deuxième cas, il peut y avoir un délai entre le stockage de vos modifi
 3. Votre conteneur Azure Cosmos peut avoir une [limitation de débit](./request-units.md).
 4. Vous pouvez utiliser l’attribut `PreferredLocations` dans votre déclencheur pour spécifier une liste de régions Azure séparée par des virgules permettant de définir un ordre de connexion privilégié et personnalisé.
 
+### <a name="some-changes-are-repeated-in-my-trigger"></a>Certaines modifications se répètent dans mon déclencheur
+
+Le concept de « modification » correspond à une opération sur un document. Voici les scénarios les plus courants dans lesquels des événements sont reçus pour le même document :
+* Le compte utilise la cohérence à terme. Si le flux de modification est consommé au niveau de cohérence à terme, il peut se produire des événements en double entre les opérations de lecture de flux de modification ultérieures (le dernier événement d’une opération de lecture apparaît comme le premier événement de la suivante).
+* Le document est en cours de mise à jour. Le flux de modification peut contenir plusieurs opérations pour le même document ; si celui-ci reçoit des mises à jour, il peut sélectionner plusieurs événements (un par mise à jour). Un moyen simple de faire la distinction entre les différentes opérations d’un même document consiste à effectuer le suivi de la propriété `_lsn` [pour chaque modification](change-feed.md#change-feed-and-_etag-_lsn-or-_ts). Si elle n’est pas identique, il s’agit de modifications différentes du même document.
+* Si vous identifiez des documents par `id` uniquement, n’oubliez pas que l’identificateur unique d’un document est son `id` et sa clé de partition (il peut exister deux documents disposant du même `id` mais possédant une clé de partition différente).
+
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Il manque certaines modifications dans mon déclencheur
 
 Si vous découvrez que certaines modifications dans votre conteneur Azure Cosmos ne sont pas récupérées par la fonction Azure, vous devez suivre une étape pour inspecter en amont.
@@ -83,26 +94,26 @@ Dans ce scénario, la meilleure méthode consiste à ajouter des blocs `try/catc
 > [!NOTE]
 > Par défaut, le déclencheur Azure Functions pour Cosmos DB n’essaiera pas de traiter à nouveau les modifications si une exception non prise en charge est survenue lors de l’exécution du code. Cela signifie que les modifications ne sont pas arrivées à destination en raison d’une erreur lors de leur traitement.
 
-Si vous découvrez que certaines modifications n’ont pas été reçues par votre déclencheur, l’existence d’une **autre fonction Azure en cours d’exécution** constitue le scénario le plus courant. Il peut s’agir d’une autre fonction Azure déployée dans Azure ou exécutée en local sur la machine d’un développeur qui a **exactement la même configuration** (conteneurs surveillés et de baux identiques). Dans ce dernier cas, cette fonction Azure vole un sous-ensemble des modifications que votre fonction Azure est censée traiter.
+Si vous découvrez que votre déclencheur n’a pas reçu du tout certaines modifications, le scénario le plus courant est qu’il existe une **autre fonction Azure en cours d’exécution** . Il peut s’agir d’une autre fonction Azure déployée dans Azure ou exécutée en local sur la machine d’un développeur qui a **exactement la même configuration** (conteneurs surveillés et de baux identiques). Dans ce dernier cas, cette fonction Azure vole un sous-ensemble des modifications que votre fonction Azure est censée traiter.
 
-En outre, il est possible de confirmer ce scénario si vous connaissez le nombre d’instances d’application de fonction Azure en cours d’exécution dont vous disposez. Si vous examinez votre conteneur de baux et comptez le nombre d’éléments de bail qu’il contient, les valeurs distinctes de la propriété `Owner` devraient correspondre au nombre d’instances de votre application de fonction. Si les instances d’application de fonction Azure ont plus de propriétaires que prévu, cela signifie que ces propriétaires supplémentaires « volent » les modifications.
+En outre, il est possible de confirmer ce scénario si vous connaissez le nombre d’instances d’application de fonction Azure en cours d’exécution dont vous disposez. Si vous examinez votre conteneur de baux et comptez le nombre d’éléments de bail qu’il contient, les valeurs distinctes de la propriété `Owner` devraient correspondre au nombre d’instances de votre application de fonction. S’il existe plus de propriétaires que d’instances Azure Function App, cela signifie que ce sont ces propriétaires supplémentaires qui « volent » les modifications.
 
-Un moyen simple pour contourner cette situation consiste à appliquer un préfixe `LeaseCollectionPrefix/leaseCollectionPrefix` à votre fonction avec une valeur nouvelle/différente. Vous pouvez également tester en utilisant un nouveau conteneur de baux.
+Un moyen simple de contourner cette situation consiste à appliquer un préfixe `LeaseCollectionPrefix/leaseCollectionPrefix` à votre fonction avec une nouvelle ou une autre valeur. Vous pouvez également la tester en utilisant un nouveau conteneur de baux.
 
-### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>Vous devez redémarrer et retraiter tous les éléments de mon conteneur depuis le début 
+### <a name="need-to-restart-and-reprocess-all-the-items-in-my-container-from-the-beginning"></a>Je dois redémarrer et traiter à nouveau tous les éléments de mon conteneur à partir du début 
 Pour traiter à nouveau tous les éléments d’un conteneur à partir du début :
 1. Arrêtez votre fonction Azure si elle est en cours d’exécution. 
 1. Supprimez les documents de la collection de baux (ou supprimez et recréez la collection de baux pour qu’elle soit vide)
 1. Affectez la valeur True à l’attribut [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) CosmosDBTrigger dans votre fonction. 
 1. Redémarrez la fonction Azure. Elle va maintenant lire et traiter toutes les modifications depuis le début. 
 
-La définition de [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) sur True indique à la fonction Azure de commencer à lire les modifications à partir du début de l’historique de la collection au lieu de l’heure actuelle. Cela ne fonctionne que si aucun bail n’est déjà créé (c’est-à-dire des documents dans la collection de baux). L’affectation de la valeur True à cette propriété lorsque des baux ont déjà été créés n’a aucun effet. Dans ce scénario, lorsqu’une fonction est arrêtée et redémarrée, elle commence la lecture à partir du dernier point de contrôle, tel que défini dans la collection de baux. Pour effectuer un nouveau traitement à partir du début, suivez les étapes ci-dessus 1-4.  
+La définition de [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) sur True indique à la fonction Azure de commencer à lire les modifications à partir du début de l’historique de la collection au lieu de l’heure actuelle. Cela ne fonctionne que si aucun bail n’a déjà été créé (c’est-à-dire s’il n’y a pas de documents dans la collection de baux). L’affectation de la valeur True à cette propriété lorsque des baux ont déjà été créés n’a aucun effet. Dans ce scénario, lorsqu’une fonction est arrêtée et redémarrée, elle commence la lecture à partir du dernier point de contrôle, tel que défini dans la collection de baux. Pour effectuer un nouveau traitement à partir du début, suivez les étapes 1 à 4 ci-dessus.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Une liaison peut uniquement être établie avec IReadOnlyList\<Document> ou JArray
 
 Cette erreur se produit si votre projet Azure Functions (ou tout autre projet référencé) contient une référence NuGet manuelle au Kit de développement logiciel (SDK) Azure Cosmos DB et qu’elle présente une version différente de celle fournie par [l’extension Azure Functions Cosmos DB](./troubleshoot-changefeed-functions.md#dependencies).
 
-Pour contourner cette situation, supprimez la référence NuGet manuelle qui a été ajoutée et laissez la référence du Kit de développement logiciel (SDK) Azure Cosmos DB résoudre le package d’extension d’Azure Functions Cosmos DB.
+Pour contourner cette situation, supprimez la référence NuGet manuelle qui a été ajoutée et laissez la référence au kit SDK Azure Cosmos DB se résoudre à travers le package de l’extension Azure Functions Cosmos DB.
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Modification de l’intervalle d’interrogation de Fonction Azure pour la détection des modifications
 

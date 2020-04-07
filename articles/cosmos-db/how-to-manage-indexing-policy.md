@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 171542c89b900eb8bf282156c79303a1deb5a5f7
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506236"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227345"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Dans Azure Cosmos DB, les données sont indexées suivant les [stratégies d’
 
 ## <a name="indexing-policy-examples"></a>Exemples de stratégie d’indexation
 
-Voici quelques exemples de stratégies d’indexation affichées dans leur format JSON, qui est la façon dont elles sont exposées dans le portail Azure. Les mêmes paramètres peuvent être définis par le biais de l’interface Azure CLI ou de n’importe quel SDK.
+Voici quelques exemples de stratégies d’indexation au [format JSON](index-policy.md#include-exclude-paths), comme elles apparaissent sur le Portail Azure. Les mêmes paramètres peuvent être définis par le biais de l’interface Azure CLI ou de n’importe quel SDK.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Stratégie de refus pour exclure de façon sélective certains chemins de propriété
 
@@ -153,7 +153,7 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
     ],
     "excludedPaths": [
         {
-            "path": "/\"_etag\"/?"
+            "path": "/_etag/?"
         }
     ],
     "spatialIndexes": [

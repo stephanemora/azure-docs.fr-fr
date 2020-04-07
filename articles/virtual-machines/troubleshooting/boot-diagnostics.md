@@ -10,18 +10,18 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 0506527808892bf1ee531d892e2773d095e18560
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fe2427d008b49daa6222ca981994f0dc2fbea355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965640"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476584"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Comment utiliser les diagnostics de démarrage pour résoudre les problèmes des machines virtuelles dans Azure
 
 Plusieurs raisons peuvent expliquer pourquoi une machine virtuelle entre dans un état non démarrable. Concernant les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager, vous pouvez résoudre les problèmes en utilisant les fonctionnalités de débogage suivantes : Prise en charge des sorties de console et des captures d’écran pour les machines virtuelles Azure. 
 
-Dans le cas des machines virtuelles Linux, vous pouvez facilement voir la sortie de votre journal de console dans le portail. Pour les machines virtuelles Windows et Linux, Azure vous permet également de voir une capture d’écran de la machine virtuelle dans l’hyperviseur. Ces deux fonctionnalités sont prises en charge par les machines virtuelles Azure dans toutes les régions. Notez que des captures d’écran ainsi que des sorties peuvent prendre jusqu'à 10 minutes pour apparaître dans votre compte de stockage.
+Dans le cas des machines virtuelles Linux, vous pouvez facilement voir la sortie de votre journal de console dans le portail. Pour les machines virtuelles Windows et Linux, Azure vous permet également de voir une capture d’écran de la machine virtuelle dans l’hyperviseur. Ces deux fonctionnalités sont prises en charge par les machines virtuelles Azure dans toutes les régions. Notez que des captures d’écran ainsi que des sorties peuvent prendre jusqu’à 10 minutes pour apparaître dans votre compte de stockage.
 
 Vous pouvez sélectionner l’option **Diagnostics de démarrage** pour afficher le journal et la capture d’écran.
 

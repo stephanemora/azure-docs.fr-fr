@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: allensu
 ms.openlocfilehash: 7230b0c2b80137b068bbeacf43ab2133491a69b0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74225465"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI
@@ -169,9 +169,9 @@ az network lb outbound-rule create \
 
 Si vous ne souhaitez pas utiliser de pool distinct sortant, vous pouvez modifier l’argument de pool d’adresses dans la commande précédente pour spécifier *bepoolinbound* à la place.  Nous vous recommandons d’utiliser des pools distincts pour des questions de flexibilité et de lisibilité de la configuration qui en résulte.
 
-Maintenant, vous pouvez ajouter votre machine virtuelle au pool backend *bepoolinbound* __et__  *bepooloutbound* en mettant à jour la configuration IP des ressources de carte réseau respectives à l’aide de la commande [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+Vous pouvez maintenant ajouter votre machine virtuelle au pool back-end *bepoolinbound* __et__ *bepooloutbound* en mettant à jour la configuration IP des ressources de carte réseau respectives avec la commande [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, l’équilibreur de charge et toutes les ressources associées.
 

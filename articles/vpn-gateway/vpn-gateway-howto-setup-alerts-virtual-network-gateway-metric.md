@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
 ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67605228"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurer des alertes sur les métriques de passerelle VPN
@@ -23,24 +23,24 @@ Cet article vous aide à configurer des alertes sur les métriques de passerelle
 |---       | ---        | ---       | ---            | ---       |
 |**AverageBandwidth**| octets/s  | 5 minutes| Utilisation moyenne de la bande passante combinée pour toutes les connexions de site à site sur la passerelle.     |
 |**P2SBandwidth**| octets/s  | 1 minute  | Utilisation moyenne de la bande passante combinée pour toutes les connexions de point à site sur la passerelle.    |
-|**P2SConnectionCount**| Nombre  | 1 minute  | Nombre de connexions point à site sur la passerelle.   |
+|**P2SConnectionCount**| Count  | 1 minute  | Nombre de connexions point à site sur la passerelle.   |
 |**TunnelAverageBandwidth** | octets/s    | 5 minutes  | Utilisation moyenne de la bande passante pour les tunnels créés sur la passerelle. |
 |**TunnelEgressBytes** | Octets | 5 minutes | Trafic sortant sur les tunnels créés sur la passerelle.   |
-|**TunnelEgressPackets** | Nombre | 5 minutes | Nombre de paquets sortants sur les tunnels créés sur la passerelle.   |
-|**TunnelEgressPacketDropTSMismatch** | Nombre | 5 minutes | Nombre de paquets sortants ignorés sur les tunnels en raison d’une incompatibilité de sélecteur de trafic. |
+|**TunnelEgressPackets** | Count | 5 minutes | Nombre de paquets sortants sur les tunnels créés sur la passerelle.   |
+|**TunnelEgressPacketDropTSMismatch** | Count | 5 minutes | Nombre de paquets sortants ignorés sur les tunnels en raison d’une incompatibilité de sélecteur de trafic. |
 |**TunnelIngressBytes** | Octets | 5 minutes | Trafic entrant sur les tunnels créés sur la passerelle.   |
-|**TunnelIngressPackets** | Nombre | 5 minutes | Nombre de paquets entrants sur les tunnels créés sur la passerelle.   |
-|**TunnelIngressPacketDropTSMismatch** | Nombre | 5 minutes | Nombre de paquets entrants ignorés sur les tunnels en raison d’une incompatibilité de sélecteur de trafic. |
+|**TunnelIngressPackets** | Count | 5 minutes | Nombre de paquets entrants sur les tunnels créés sur la passerelle.   |
+|**TunnelIngressPacketDropTSMismatch** | Count | 5 minutes | Nombre de paquets entrants ignorés sur les tunnels en raison d’une incompatibilité de sélecteur de trafic. |
 
 
-## <a name="setup"></a>Configurer des alertes Azure Monitor en fonction de métriques à l’aide du portail Azure
+## <a name="set-up-azure-monitor-alerts-based-on-metrics-by-using-the-azure-portal"></a><a name="setup"></a>Configurer des alertes Azure Monitor en fonction de métriques à l’aide du portail Azure
 
 L’exemple suivant montre comment créera une alerte sur une passerelle pour :
 
 - **Mesure :** TunnelAverageBandwidth
 - **Condition :** Bande passante > 10 octets/seconde
 - **Fenêtre :** 5 minutes
-- **Action d’alerte :** Email
+- **Action d’alerte :** E-mail
 
 
 
@@ -50,24 +50,24 @@ L’exemple suivant montre comment créera une alerte sur une passerelle pour :
 
 2. Sélectionnez votre passerelle VPN en tant que ressource.
 
-   ![Bouton de sélection et passerelle VPN dans la liste des ressources](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Sélectionner")
+   ![Bouton Sélectionner et passerelle VPN dans la liste des ressources](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Sélectionnez")
 
 3. Sélectionnez une métrique à configurer pour l’alerte.
 
-   ![Métrique sélectionnée dans la liste des métriques](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Sélectionner")
+   ![Métrique sélectionnée dans la liste des métriques](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Sélectionnez")
 4. Configurez la logique du signal. Il existe trois composants :
 
     a. **Dimensions** : si la métrique a des dimensions, vous pouvez sélectionner des valeurs de dimension spécifiques afin que l’alerte évalue uniquement les données de cette dimension. Cela est facultatif.
 
     b. **Condition** : il s’agit de l’opération visant à évaluer la valeur de métrique.
 
-    c. **Temps** : spécifiez la granularité des données de métrique et la période pour laquelle évaluer l’alerte.
+    c. **Time** : spécifiez la granularité des données de métrique et la période pour laquelle évaluer l’alerte.
 
-   ![Détails de la configuration de logique de signal](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Sélectionner")
+   ![Détails de la configuration de logique de signal](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Sélectionnez")
 
 5. Pour afficher les règles configurées, sélectionnez **Gérer les règles d’alerte**.
 
-   ![Bouton pour la gestion des règles d’alerte](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Sélectionner")
+   ![Bouton de gestion des règles d’alerte](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Sélectionnez")
 
 ## <a name="next-steps"></a>Étapes suivantes
 

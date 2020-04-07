@@ -1,20 +1,20 @@
 ---
-title: Préparer l’achat d’une réservation Azure
+title: Acheter une réservation Azure
 description: Découvrez les points importants à prendre en compte avant l’achat d’une réservation Azure.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 1f5ca2d43356eab98cffe8414c00d97e5744739a
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80235651"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436984"
 ---
-# <a name="prepare-to-buy-a-reservation"></a>Préparer l’achat d’une réservation
+# <a name="buy-a-reservation"></a>Acheter une réservation
 
 Les réservations Azure vous permettent d’économiser en vous engageant sur des plans d’un ou trois ans pour de nombreuses ressources Azure. Avant de vous engager dans l’achat d’une réservation, veillez à consulter les sections suivantes, qui vous permettront de préparer votre achat.
 
@@ -50,6 +50,17 @@ Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour ce
 
 ![Exemple illustrant la modification d’une étendue de réservation](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
 
+## <a name="discounted-subscription-and-offer-types"></a>Types d'abonnements et d'offres remisés
+
+Les remises de réservation s’appliquent aux types d'abonnements et d'offres éligibles suivants.
+
+- Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P)
+- Abonnements avec Contrat Client Microsoft.
+- Forfaits individuels avec paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P)
+- Abonnements CSP
+
+Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation.
+
 ## <a name="purchase-reservations"></a>Acheter des réservations
 
 Vous pouvez acheter des réservations à partir du portail Azure, d’API, de PowerShell et de l’interface CLI. Quand vous êtes prêt à acheter une réservation, lisez les articles s’appliquant à votre situation :
@@ -66,6 +77,54 @@ Vous pouvez acheter des réservations à partir du portail Azure, d’API, de Po
 - [Base de données SQL](../../sql-database/sql-database-reserved-capacity.md)
 - [SQL Data Warehouse](prepay-sql-data-warehouse-charges.md)
 - [Machines virtuelles](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+
+## <a name="buy-reservations-with-monthly-payments"></a>Acheter des réservations avec paiements mensuels
+
+Vous pouvez payer les réservations en effectuant des paiements mensuels. Contrairement à un achat initial dans lequel vous payez le montant total, l’option de paiement mensuel répartit uniformément le coût total de la réservation sur les différents mois de la période. Une même réservation avec paiement initial et avec paiements mensuels a le même coût total : vous ne payez pas de frais supplémentaires si vous optez pour le paiement mensuel.
+
+Si la réservation est achetée à l’aide d’un Contrat client Microsoft, le montant de votre paiement mensuel peut varier en fonction du taux de change du mois en cours pour votre devise locale.
+
+Les paiements mensuels ne sont disponibles pour ce qui suit : Databricks, réservations SUSE Linux, offres Red Hat et calcul Azure Red Hat OpenShift.
+
+### <a name="view-payments-made"></a>Afficher les paiements effectués
+
+Vous pouvez afficher les paiements effectués à l’aide des API, des données d’utilisation et de l’analyse des coûts. Pour les réservations avec paiement mensuel, la fréquence a pour valeur **recurring** (périodique) dans les données d’utilisation et l’API de facturation des réservations. Pour les réservations avec paiement initial, la valeur est **onetime** (paiement en une seule fois).
+
+L’analyse des coûts affiche les achats mensuels dans la vue par défaut. Appliquez le filtre **purchase** (achat) à **Charge type** (Type de frais) et **recurring** (périodique) pour **Frequency** (Fréquence) pour afficher tous les achats. Pour afficher uniquement les réservations, appliquez un filtre pour **Reservation**.
+
+![Exemple montrant les coûts d’achat de réservation dans l’analyse des coûts](./media/prepare-buy-reservation/cost-analysis.png)
+
+### <a name="exchange-and-refunds"></a>Échange et remboursements
+
+Comme les autres réservations, vous pouvez demander le remboursement ou l’échange des réservations achetées avec facturation mensuelle. 
+
+Quand vous échangez une réservation qui est payée mensuellement, le coût total de la durée de vie du nouvel achat doit être supérieur aux paiements restants qui sont annulés pour la réservation retournée. Il n’y a pas d’autres limites ou frais pour les échanges. Vous pouvez échanger une réservation acquittée avec paiement initial pour acheter une nouvelle réservation avec facturation mensuelle. Toutefois, la valeur de la durée de vie de la nouvelle réservation doit être supérieure à la valeur au prorata de la réservation retournée.
+
+Si vous annulez une réservation payée mensuellement, les paiements futurs annulés sont comptabilisés dans la limite de remboursement de 50 000 USD.
+
+Pour plus d’informations sur les échanges et les remboursements, consultez [Échanges et remboursements en libre-service de réservations Azure](exchange-and-refund-azure-reservations.md).
+
+## <a name="reservation-notifications"></a>Notifications de réservation
+
+Selon la façon dont vous payez votre abonnement Azure, des notifications de réservation sont envoyées par e-mail aux utilisateurs suivants dans votre organisation. Les notifications sont envoyées pour différents événements, notamment : 
+
+- Purchase
+- Expiration de la réservation à venir
+- Expiry
+- Renouvellement
+- Annulation
+- Étendue modifiée
+
+Pour les clients avec des abonnements EA :
+
+- Les notifications sont envoyées uniquement aux contacts de notification EA.
+- Les utilisateurs ajoutés à une réservation à l’aide de l’autorisation RBAC (IAM) ne reçoivent pas de notifications par e-mail.
+
+Pour les clients qui ont des abonnements individuels :
+
+- l’acheteur reçoit une notification d’achat.
+- Au moment de l’achat, le propriétaire du compte de facturation de l’abonnement reçoit une notification d’achat.
+- Le propriétaire du compte reçoit toutes les autres notifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

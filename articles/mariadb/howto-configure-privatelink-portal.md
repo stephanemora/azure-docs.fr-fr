@@ -1,19 +1,19 @@
 ---
-title: Méthode de configuration via le portail de Private Link pour Azure Database for MariaDB (préversion)
+title: Private Link – Portail Azure – Azure Database for MariaDB
 description: Découvrez comment configurer une instance Private Link pour Azure Database for MariaDB à partir du portail Azure
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: a9b3ae1ed28fc22d91760a4af3832a604a419a30
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 3f421cad64caf91b898bb1ec13dc909b93b7f72d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561729"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370336"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>Créer et gérer Private Link pour Azure Database for MariaDB (préversion) à l’aide du portail
+# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Création et gestion de Private Link pour Azure Database for MariaDB avec le portail
 
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.  Dans cet article, vous apprendrez à utiliser le portail Azure pour créer une machine virtuelle dans un réseau virtuel Azure et un serveur Azure Database for MariaDB avec un point de terminaison privé Azure.
 
@@ -126,12 +126,12 @@ Dans cette section, vous allez créer un serveur Azure Database for MariaDB dans
 
 Dans cette section, vous allez créer un point de terminaison privé pour l’ajouter au serveur MariaDB. 
 
-1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Centre de liaisons privées (préversion)** .
+1. En haut à gauche de l’écran du Portail Azure, sélectionnez **Créer une ressource** > **Réseaux** > **Liaison privée**.
 2. Dans **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de **générer une connexion privée à un service**, sélectionnez **Démarrer**.
 
     ![Présentation de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. Dans **Créer un point de terminaison privé (préversion) - Concepts de base**, entrez ou sélectionnez les informations suivantes :
+1. Dans **Créer un point de terminaison privé – Informations de base**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -154,7 +154,7 @@ Dans cette section, vous allez créer un point de terminaison privé pour l’aj
     |Sous-ressource cible |Sélectionnez *mariadbServer*|
     |||
 7. Sélectionnez **Suivant : Configuration**.
-8. Dans **Créer un point de terminaison privé (préversion) - Configuration**, entrez ou sélectionnez les informations suivantes :
+8. Dans **Créer un point de terminaison privé – Configuration**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |

@@ -193,10 +193,10 @@
       href: luis-how-to-publish-app.md
     - name: Gérer l’application
       items:
-        - name: Clés de création et d'exécution
+        - name: Ressources Azure
           displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
           href: luis-how-to-azure-subscription.md
-        - name: Migrer vers une clé de création
+        - name: Migrer vers la ressource de création
           items:
             - name: Vue d’ensemble
               href: luis-migration-authoring.md

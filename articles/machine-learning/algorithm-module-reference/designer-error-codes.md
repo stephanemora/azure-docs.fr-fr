@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: ea132578a08b9f0002084374838c615a01fa820f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: cda499b81a61a5b78ca86a96372640e368f90357
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425797"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80364193"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
 
@@ -39,6 +39,9 @@ Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans 
 |La colonne portant le nom ou l’index « {ID_colonne} » est introuvable.|
 |La colonne portant le nom ou l’index « {ID_colonne} » n’existe pas dans « {nom_argument_avec_colonne_manquante} ».|
 |La colonne portant le nom ou l’index « {ID_colonne} » n’existe pas dans « {colonne_manquante_nom_argument} », mais elle existe dans « {nom_argument_avec_colonne} ».|
+|Les colonnes portant le nom ou l’index « {noms_colonnes} » sont introuvables.|
+|Les colonnes portant le nom ou l’index « {noms_colonnes} » n’existent pas dans « {nom_argument_avec_colonne_manquante} ».|
+|Les colonnes portant le nom ou l’index « {noms_colonnes} » n’existent pas dans « {nom_argument_avec_colonne_manquante} », mais elles existent dans « {nom_argument_avec_colonne} ».|
 
 
 ## <a name="error-0002"></a>Erreur 0002  
@@ -373,6 +376,7 @@ Pour les colonnes que vous souhaitez utiliser pour le regroupement ou la catégo
 |{jeu_de_données1} et {jeu_de_données2} doivent être cohérents du point de vue des colonnes.|
 |{jeu_de_données1} contient des données non valides, {raison}.|
 |{jeu_de_données1} contient {catégorie_de_données_non_valide}. {conseil_dépannage}|
+|{jeu_données1} n’est pas valide, {raison}. {conseil_dépannage}|
 
 
 ## <a name="error-0019"></a>Erreur 0019  
@@ -1248,6 +1252,7 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |{data_name} contient des données non valides pour l’entraînement.|
 |{data_name} contient des données non valides pour l’entraînement. Type d’apprenant : {learner_type}.|
 |{data_name} contient des données non valides pour l’entraînement. Type d’apprenant : {learner_type}. Raison : « {raison} ».|
+|Impossible d’appliquer l’action « {nom_action} » sur les données d’apprentissage {nom_données}. Raison : « {raison} ».|
 
 
 ## <a name="error-0084"></a>Erreur 0084  
@@ -1394,7 +1399,8 @@ Résolution :
 
  Si vous incluez une colonne d’étiquette dans la sélection de colonnes mais qu’elle n’est pas reconnue, utilisez le module [Modifier les métadonnées](edit-metadata.md) pour la marquer en tant que colonne d’étiquette.
 
-  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Ensuite, vous pouvez utiliser le module [Clean Missing Data](clean-missing-data.md) (Nettoyer les données manquantes) pour supprimer les lignes vides dans la colonne d’étiquette. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->
+  Ensuite, vous pouvez utiliser le module [Clean Missing Data](clean-missing-data.md) (Nettoyer les données manquantes) pour supprimer les lignes vides dans la colonne d’étiquette. 
 
  Vérifiez vos jeux de données d’entrée pour vous assurer qu’ils contiennent des données valides et suffisamment de lignes pour satisfaire aux exigences de l’opération. De nombreux algorithmes génèrent un message d’erreur s’ils nécessitent un nombre minimal de lignes de données ; or, les données ne contiennent que quelques lignes ou seulement un en-tête.
 
@@ -1455,8 +1461,8 @@ Résolution :
 
 |Messages d’exception|
 |------------------------|
-|Les noms de colonnes ne sont pas des chaînes.|
-|Noms de colonnes : {noms_colonnes} ne sont pas des chaînes.|
+|Le nom de colonne dataframe doit être de type chaîne. Les noms de colonnes ne sont pas des chaînes.|
+|Le nom de colonne dataframe doit être de type chaîne. Les noms de colonnes {noms_colonnes} ne sont pas des chaînes.|
 
 
 ## <a name="error-0156"></a>Erreur 0156  
@@ -1475,6 +1481,15 @@ Résolution :
 |------------------------|
 |Les informations du magasin de données ne sont pas valides.|
 |Les informations du magasin de données ne sont pas valides. Impossible d’obtenir le magasin de données AzureML « {nom_magasin_de_données} » dans l’espace de travail « {nom_espace_de_travail} ».|
+
+
+## <a name="error-0158"></a>Erreur 0158
+ Générée lorsque un répertoire de transformation n’est pas valide.
+
+|Messages d’exception|
+|------------------------------------------------------------|
+|Le répertoire de transformation donné n’est pas valide.|
+|L’élément « {nom_argument} » TransformationDirectory n’est pas valide. Raison : « {raison} ». Veuillez réexécuter l’expérience de formation qui génère le fichier de transformation. Si l’expérience de formation a été supprimée, recréez et enregistrez le fichier de transformation.|
 
 
 ## <a name="error-1000"></a>Erreur 1000  

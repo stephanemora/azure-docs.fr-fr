@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - Sécurité de la couche Application | Microsoft Docs
-description: Cet article vous aide à comprendre comment Azure Front Door Service permet de protéger et de sécuriser vos backends d’application
+title: Azure Front Door – Sécurité de la couche Application | Microsoft Docs
+description: Cet article explique comment Azure Front Door permet de protéger et de sécuriser vos back-ends d’application.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,22 +11,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193915"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471793"
 ---
 # <a name="application-layer-security-with-front-door"></a>Sécurité de la couche Application avec Front Door
-Azure Front Door Service fournit une fonction de protection des applications web pour protéger vos applications web contre les attaques réseau et les attaques de vulnérabilités web courantes, comme l’injection de code SQL ou l’exécution de script de site à site (XSS). Activée pour les frontends HTTP(S), la sécurité de la couche Application de Front Door est distribuée mondialement et toujours activée, ce qui empêche les attaques malveillantes au niveau du périmètre de réseau, loin de vos backends. Avec une sécurité accrue et une optimisation des performances, Front Door offre des expériences web rapides et sécurisées pour vos utilisateurs finaux.
+Azure Front Door offre une fonction de protection des applications web contre les attaques réseau et les types courants de code malveillant exploitant une faille de sécurité web, comme l’injection de code SQL le cross-site scripting (XSS). Activée pour les frontends HTTP(S), la sécurité de la couche Application de Front Door est distribuée mondialement et toujours activée, ce qui arrête les attaques malveillantes au niveau du périmètre de réseau, loin de vos backends. Avec une sécurité accrue et une optimisation des performances, Front Door offre des expériences web rapides et sécurisées pour vos utilisateurs finaux.
 
 ## <a name="application-protection"></a>Protection des applications
-La protection des applications de Front Door est configurée sur chaque environnement Edge dans le monde entier, conformément aux applications, et empêche automatiquement le trafic autre que HTTP(S) d’atteindre vos applications web. Notre architecture distribuée multi-locataire permet une protection globale à grande échelle sans sacrifier les performances. Pour les charges de travail HTTP(S), le service de protection des applications web de Front Door fournit un moteur de règles enrichi pour les règles personnalisées, un ensemble de règles préconfiguré contre les attaques courantes et une journalisation détaillée pour toutes les requêtes qui correspondent à une règle. Des actions flexibles, notamment autoriser, bloquer ou journaliser uniquement, sont prises en charge.
+La protection des applications par Front Door est configurée sur chaque environnement Edge dans le monde entier, conformément aux applications, et empêche automatiquement le trafic autre que HTTP(S) d’atteindre vos applications web. Notre architecture distribuée multi-locataire permet une protection globale à grande échelle sans sacrifier les performances. Pour les charges de travail HTTP(S), le service de protection des applications web de Front Door fournit un moteur de règles enrichi pour les règles personnalisées, un ensemble de règles préconfiguré contre les attaques courantes et une journalisation détaillée pour toutes les requêtes qui correspondent à une règle. Des actions flexibles, notamment autoriser, bloquer ou journaliser uniquement, sont prises en charge.
 
 ## <a name="custom-access-control-rules"></a>Règles de contrôle d’accès personnalisées
-- **Listes rouges et listes vertes d’adresses IP :** vous pouvez configurer des règles personnalisées pour contrôler l’accès à vos applications web en fonction d’une liste d’adresses IP de clients. IP v4 et IP v6 sont pris en charge
-- **Contrôle d’accès basé sur la géolocalisation :** vous pouvez configurer des règles personnalisées pour contrôler l’accès à vos applications web en fonction du code de pays d’où provient une adresse IP de client.
+- **Listes d’adresses IP autorisées et bloquées :** vous pouvez configurer des règles personnalisées pour contrôler l’accès à vos applications web en fonction d’une liste d’adresses IP de clients. IP v4 et IP v6 sont pris en charge
+- **Contrôle d’accès en fonction de l’emplacement géographique :** vous pouvez configurer des règles personnalisées pour contrôler l’accès à vos applications web en fonction du code de pays d’où provient une adresse IP de client.
 - **Filtrage des paramètres HTTP :** vous pouvez configurer des règles d’accès personnalisées basées sur la correspondance de paramètres de requête HTTP(S), notamment les en-têtes, l’URL et les chaînes de requête.
 
 ## <a name="azure-managed-rules"></a>Règles gérées par Azure

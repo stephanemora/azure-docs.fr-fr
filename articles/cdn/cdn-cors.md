@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74278095"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilisation d’Azure CDN avec CORS
@@ -94,7 +94,7 @@ Si l’expression régulière correspond, votre règle remplace l’en-tête **A
 ![Exemple de règles avec expression régulière](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Règle d’en-tête de demande pour chaque origine
-Au lieu de recourir à des expressions régulières, vous pouvez créer une règle pour chaque origine à autoriser en utilisant la [condition de correspondance](/previous-versions/azure/mt757336(v=azure.100)#match-conditions) **Request Header Wildcard** (Caractère générique pour l’en-tête de la demande). Comme dans le cas de la méthode des expressions régulières, seul le moteur de règles définit les en-têtes CORS. 
+Au lieu de recourir à des expressions régulières, vous pouvez créer une règle pour chaque origine à autoriser en utilisant la [condition de correspondance](/previous-versions/azure/mt757336(v=azure.100)#match-conditions) **Request Header Wildcard** (Caractère générique de l’en-tête de demande). Comme dans le cas de la méthode des expressions régulières, seul le moteur de règles définit les en-têtes CORS. 
 
 ![Exemple de règles sans expression régulière](./media/cdn-cors/cdn-cors-no-regex.png)
 

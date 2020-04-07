@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248605"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Comment contacter Microsoft Genomics pour une demande de support
@@ -24,7 +24,7 @@ Cette vue d’ensemble décrit comment soumettre une demande de support pour con
 ## <a name="file-a-support-ticket-through-the-azure-portal"></a>Soumettre un ticket de support via le Portail Azure
 Commencez par vous connecter à votre compte Azure dans le Portail Azure. Cliquez sur le point d’interrogation dans le coin supérieur droit et sélectionnez `Help + support`.
 
-![Contacter le support sur le portail Azure](./media/file-support-ticket/genomics-contact-support.png "Contacter le support sur le portail Azure") 
+![Contacter le support sur le Portail Azure](./media/file-support-ticket/genomics-contact-support.png "Contacter le support sur le Portail Azure") 
 
 
 
@@ -34,16 +34,16 @@ Ensuite, sélectionnez `New support request`.
 
 Renseignez la section `Basics`, notamment `Issue type` et `Subscription`. Pour `Issue type`, sélectionnez ce que se rapproche le plus de votre problème. Par exemple, dans l’image ci-dessous, `Technical` a été sélectionné. Assurez-vous de sélectionner `Microsoft Genomics` comme service associé.  `Microsoft Genomics` sera répertorié sous la catégorie `Intelligence and Analytics`.   Après avoir sélectionné `Microsoft Genomics`, vous devrez également fournir le type de `Support plan`.
 
-![Informations de base de la demande de support](./media/file-support-ticket/support-request-basics.png "Informations de base de la demande de support")
+![Demande de support – Informations de base](./media/file-support-ticket/support-request-basics.png "Demande de support – Informations de base")
 
 
 Ensuite, ajoutez des informations sur votre problème. L’outil de demande intégrera également un lien vers la documentation existante pouvant éventuellement vous aider. Dans cet exemple, le problème est lié à `Genomics keys`, mais plusieurs autres options sont également disponibles.
 
-![Problème de la demande de support](./media/file-support-ticket/support-request-problem.png "Problème de la demande de support")
+![Demande de support – Problème](./media/file-support-ticket/support-request-problem.png "Demande de support – Problème")
 
 Enfin, ajoutez vos informations de contact et sélectionnez `Create` au bas de l’écran afin de soumettre votre demande de support.
 
-![Contact pour la demande de support](./media/file-support-ticket/support-request-contact.png "Contact pour la demande de support")
+![Demande de support – Contact](./media/file-support-ticket/support-request-contact.png "Demande de support – Contact")
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris comment soumettre une demande de support. Vous pouvez également résoudre des problèmes courants à l’aide de notre [FAQ](frequently-asked-questions-genomics.md) et de notre [guide de résolution des problèmes](troubleshooting-guide-genomics.md). 

@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cddf2ab36b2372ce93ae8a2a6230ccb02ae30117
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: f9ed613972f166f1f9955fc34e9bb640d87da6b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721034"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331438"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Feuille de route pour l’installation d’Azure AD Connect et d’Azure AD Connect Health
 
@@ -81,7 +81,7 @@ La [mise à niveau automatique](how-to-connect-install-automatic-upgrade.md) est
 |Synchronisation de hachage de mot de passe | [Synchronisation de hachage de mot de passe](how-to-connect-password-hash-synchronization.md)|
 |Authentification directe | [Authentification directe](how-to-connect-pta.md)
 |Réécriture du mot de passe | [Prise en main de la gestion de mot de passe](../authentication/quickstart-sspr.md)|
-|L’écriture différée d’appareils | [Activation de l’écriture différée des appareils dans Azure AD Connect](how-to-connect-device-writeback.md)|
+|Écriture différée des appareils | [Activation de l’écriture différée des appareils dans Azure AD Connect](how-to-connect-device-writeback.md)|
 |prévention des suppressions accidentelles | [Synchronisation Azure AD Connect : prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |Mise à jour automatique | [Azure AD Connect : mise à niveau automatique](how-to-connect-install-automatic-upgrade.md)|
 
@@ -108,7 +108,7 @@ Le modèle de configuration dans la synchronisation est appelé [Approvisionneme
 
 Azure AD Connect fournit plusieurs fonctionnalités qui simplifient la fédération avec Azure AD à l’aide d’AD FS, ainsi que la gestion de l’approbation de fédération. Azure AD Connect prends en charge AD FS sur Windows Server 2012R2 et les versions ultérieures.
 
-[Mettez à jour le certificat SSL de la batterie de serveurs AD FS](how-to-connect-fed-ssl-update.md), même si vous n’utilisez pas Azure AD Connect pour gérer l’approbation de votre fédération.
+[Mettez à jour le certificat TLS/SSL de la batterie de serveurs AD FS](how-to-connect-fed-ssl-update.md), même si vous n’utilisez pas Azure AD Connect pour gérer l’approbation de votre fédération.
 
 [Ajoutez un serveur AD FS](how-to-connect-fed-management.md#addadfsserver) à votre batterie de serveurs pour l’étendre selon vos besoins.
 

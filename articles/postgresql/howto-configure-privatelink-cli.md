@@ -1,19 +1,19 @@
 ---
-title: Méthode d’installation du service Liaison privé pour Azure Database pour PostgreSQL – Serveur unique (préversion) via l’interface CLI
+title: Private Link – Azure CLI – Azure Database pour PostgreSQL – Serveur unique
 description: Découvrez comment configurer une liaison privée pour Azure Database pour PostgreSQL – Serveur unique à partir de l’interface Azure CLI.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d4288b901a0e6e132e32f8391d108e79861fc331
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562086"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371033"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Créer et gérer le service Liaison privé pour Azure Database pour PostgreSQL – Serveur unique (préversion) à l’aide de l’interface CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Création et gestion de Private Link pour Azure Database pour PostgreSQL – Serveur unique avec l’interface CLI
 
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans cet article, vous apprendrez à utiliser Azure CLI pour créer une machine virtuelle dans un réseau virtuel Azure et un serveur unique Azure Database pour PostgreSQL avec un point de terminaison privé Azure.
 
@@ -122,7 +122,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 ```
 
 > [!NOTE] 
-> Le nom de domaine complet dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le nom de domaine complet configuré comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
+> Le nom de domaine complet dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 

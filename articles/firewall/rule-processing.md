@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 69c0c13c7027707cdadb2f1f1de9cc1655c9c625
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621907"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231253"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logique de traitement des règles du service Pare-feu Azure
 Vous pouvez configurer des règles NAT, des règles de réseau et des règles d'application sur Pare-feu Azure. Les règles sont traitées selon leur type. 
@@ -24,7 +24,7 @@ Vous pouvez configurer des règles NAT, des règles de réseau et des règles d'
 
 ### <a name="network-rules-and-applications-rules"></a>Règles de réseau et règles d’application
 
-Si vous configurez des règles de réseau et des règles d'application, les règles de réseau sont appliquées par ordre de priorité avant les règles d'application. Ce processus prend fin dès qu’une règle est exécutée. Ainsi, si une correspondance est trouvée dans une règle de réseau, aucune autre règle n'est traitée.  S’il n’y a pas de correspondance avec les règles de réseau, et si le protocole est HTTP, HTTPS ou MSSQL, le paquet est alors évalué par les règles d’application par ordre de priorité. Si aucune correspondance n’est trouvée, le paquet est évalué par rapport à la [collection de règles de l’infrastructure](infrastructure-fqdns.md). S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut.
+Si vous configurez des règles de réseau et des règles d'application, les règles de réseau sont appliquées par ordre de priorité avant les règles d'application. Ce processus prend fin dès qu’une règle est exécutée. Ainsi, si une correspondance est trouvée dans une règle de réseau, aucune autre règle n'est traitée.  En l’absence de correspondance avec les règles de réseau, si le protocole est HTTP, HTTPS ou MSSQL, le paquet est évalué par les règles d’application par ordre de priorité. Si aucune correspondance n’est trouvée, le paquet est évalué par rapport à la [collection de règles de l’infrastructure](infrastructure-fqdns.md). S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut.
 
 ## <a name="inbound"></a>Trafic entrant
 
@@ -90,6 +90,10 @@ Le trafic SSH est refusé, car une collection de règles de réseau *Deny* de pr
 **Résultat**
 
 Les connexions SSH sont refusées, car une collection de règles de réseau de priorité plus élevée les bloque. Le traitement des règles s’arrête à ce stade.
+
+## <a name="rule-changes"></a>Modification de la règle
+
+Si vous modifiez une règle de façon à refuser du trafic jusqu’ici autorisé, toutes les sessions existantes concernées sont supprimées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

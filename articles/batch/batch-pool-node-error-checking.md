@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: a68d812a044c776819d169d5bf179f011d06390f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484126"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472943"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Rechercher les erreurs des pools et des nœuds
 
@@ -64,17 +64,17 @@ Batch définit l’[état du pool](https://docs.microsoft.com/rest/api/batchserv
 
 ## <a name="pool-compute-node-errors"></a>Erreurs des nœuds de calcul du pool
 
-Même lorsque Batch alloue des nœuds d’un pool, différents problèmes peuvent les endommager ou les rendre incapables d’exécuter des tâches. Ces nœuds entraînent toujours des frais. Il est donc important de détecter les problèmes afin d’éviter de payer pour des nœuds qui ne peuvent pas être utilisés. En plus des erreurs de nœud courantes, il est utile de connaître l’[état actuel de la tâche](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) en vue de la résolution des problèmes.
+Même lorsque Batch alloue des nœuds d’un pool, différents problèmes peuvent les endommager ou les rendre incapables d’exécuter des tâches. Ces nœuds entraînent toujours des frais. Il est donc important de détecter les problèmes afin d’éviter de payer pour des nœuds qui ne peuvent pas être utilisés. En plus des erreurs de nœud courantes, il est utile de connaître l’[état actuel de la tâche](/rest/api/batchservice/job/get#jobstate) en vue de la résolution des problèmes.
 
 ### <a name="start-task-failures"></a>Échecs de la tâche de démarrage
 
-Vous souhaiterez peut-être indiquer une [tâche de démarrage](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) facultative pour un pool. Comme avec n’importe quelle tâche, vous pouvez utiliser une ligne de commande et des fichiers de ressources à télécharger à partir du stockage. La tâche de démarrage est exécutée pour chaque nœud après son lancement. La propriété **waitForSuccess** indique si Batch attend que la tâche de démarrage se termine avec succès avant de planifier des tâches vers un nœud.
+Vous souhaiterez peut-être indiquer une [tâche de démarrage](/rest/api/batchservice/pool/add#starttask) facultative pour un pool. Comme avec n’importe quelle tâche, vous pouvez utiliser une ligne de commande et des fichiers de ressources à télécharger à partir du stockage. La tâche de démarrage est exécutée pour chaque nœud après son lancement. La propriété **waitForSuccess** indique si Batch attend que la tâche de démarrage se termine avec succès avant de planifier des tâches vers un nœud.
 
 Que se passe-t-il si vous avez configuré le nœud de sorte qu’il attende l’achèvement réussi de la tâche de démarrage mais que la tâche de démarrage échoue ? Dans ce cas, le nœud ne sera pas utilisable, mais il entraînera toujours des frais.
 
-Vous pouvez détecter les échecs des tâches de démarrage via les propriétés [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) et [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) de la propriété du nœud [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) du plus haut niveau.
+Vous pouvez détecter les échecs des tâches de démarrage via les propriétés [result](/rest/api/batchservice/computenode/get#taskexecutionresult) et [failureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) de la propriété du nœud [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) du plus haut niveau.
 
-Une tâche de démarrage qui a échoué fait passer [l’état](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) du nœud à **starttaskfailed** si **waitForSuccess** a été défini sur **true**.
+Une tâche de démarrage qui a échoué fait passer [l’état](/rest/api/batchservice/computenode/get#computenodestate) du nœud à **starttaskfailed** si **waitForSuccess** a été défini sur **true**.
 
 Comme avec n’importe quelle tâche, plusieurs causes d’échec de la tâche de démarrage sont possibles.  Pour résoudre les problèmes, examinez les fichiers journaux stdout, stderr et tous les fichiers journaux spécifiques aux tâches.
 
@@ -84,19 +84,19 @@ Les tâches de démarrage doivent être réentrantes, car il est possible que la
 
 Vous pouvez spécifier un ou plusieurs packages d’application pour un pool. Batch télécharge les fichiers de package spécifiés vers chaque nœud et décompresse les fichiers après le démarrage du nœud, mais avant que les tâches ne soient planifiées. Il est courant d’utiliser une ligne de commande de tâche de démarrage conjointement avec des packages d’application. Par exemple, pour copier des fichiers vers un emplacement différent ou exécuter le programme d’installation.
 
-La propriété [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) du nœud rapporte un échec du téléchargement et de décompression d’un package d’application ; l’état du nœud est défini sur **inutilisable**.
+La propriété [errors](/rest/api/batchservice/computenode/get#computenodeerror) du nœud rapporte un échec du téléchargement et de décompression d’un package d’application ; l’état du nœud est défini sur **inutilisable**.
 
 ### <a name="container-download-failure"></a>Échec du téléchargement du conteneur
 
-Vous pouvez spécifier une ou plusieurs références de conteneur sur un pool. Batch télécharge les conteneurs spécifiés pour chaque nœud. La propriété [erreurs](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) du nœud signale l’échec de téléchargement d’un conteneur et définit l’état du nœud sur **inutilisable**.
+Vous pouvez spécifier une ou plusieurs références de conteneur sur un pool. Batch télécharge les conteneurs spécifiés pour chaque nœud. La propriété [erreurs](/rest/api/batchservice/computenode/get#computenodeerror) du nœud signale l’échec de téléchargement d’un conteneur et définit l’état du nœud sur **inutilisable**.
 
 ### <a name="node-in-unusable-state"></a>Nœud dans un état inutilisable
 
-Azure Batch peut définir [l’état du nœud](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) sur **inutilisable** pour de nombreuses raisons. Quand l’état du nœud est défini sur **inutilisable**, il n’est pas possible de planifier des tâches pour le nœud, mais il continue d’entraîner la facturation de frais.
+Azure Batch peut définir [l’état du nœud](/rest/api/batchservice/computenode/get#computenodestate) sur **inutilisable** pour de nombreuses raisons. Quand l’état du nœud est défini sur **inutilisable**, il n’est pas possible de planifier des tâches pour le nœud, mais il continue d’entraîner la facturation de frais.
 
-Lorsque des nœuds sont en état **inutilisable** sans [erreurs](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror), cela signifie que Batch n’est pas en mesure de communiquer avec la machine virtuelle. Dans ce cas, Batch tente toujours de récupérer la machine virtuelle. Batch ne tente pas automatiquement de récupérer les machines virtuelles qui n’ont pas réussi à installer les packages d’applications ou les conteneurs, même si leur état est **inutilisable**.
+Lorsque des nœuds sont en état **inutilisable** sans [erreurs](/rest/api/batchservice/computenode/get#computenodeerror), cela signifie que Batch n’est pas en mesure de communiquer avec la machine virtuelle. Dans ce cas, Batch tente toujours de récupérer la machine virtuelle. Batch ne tente pas automatiquement de récupérer les machines virtuelles qui n’ont pas réussi à installer les packages d’applications ou les conteneurs, même si leur état est **inutilisable**.
 
-Si Batch peut déterminer la cause de l’erreur, Batch la signale à l’aide de la propriété [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror).
+Si Batch peut déterminer la cause de l’erreur, Batch la signale à l’aide de la propriété [errors](/rest/api/batchservice/computenode/get#computenodeerror).
 
 Voici des exemples supplémentaires de causes aboutissant à des nœuds **inutilisables** :
 
@@ -114,7 +114,7 @@ Voici des exemples supplémentaires de causes aboutissant à des nœuds **inutil
 
 ### <a name="node-agent-log-files"></a>Fichiers de journaux de l’agent du nœud
 
-Si vous devez contacter le support technique concernant un problème de nœud de pool, le processus de l’agent Batch qui s’exécute sur chaque nœud du pool peut vous fournir des fichiers journaux très utiles. Les fichiers journaux pour un nœud peuvent être chargés via le portail Azure, Batch Explorer ou une [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). Il est utile de charger et d’enregistrer les fichiers journaux. Ensuite, vous pouvez supprimer le nœud ou le pool pour maîtriser le coût des nœuds en cours d’exécution.
+Si vous devez contacter le support technique concernant un problème de nœud de pool, le processus de l’agent Batch qui s’exécute sur chaque nœud du pool peut vous fournir des fichiers journaux très utiles. Les fichiers journaux pour un nœud peuvent être chargés via le portail Azure, Batch Explorer ou une [API](/rest/api/batchservice/computenode/uploadbatchservicelogs). Il est utile de charger et d’enregistrer les fichiers journaux. Ensuite, vous pouvez supprimer le nœud ou le pool pour maîtriser le coût des nœuds en cours d’exécution.
 
 ### <a name="node-disk-full"></a>Disque de nœud plein
 
@@ -133,12 +133,26 @@ D’autres fichiers sont écrits pour chaque tâche exécutée sur un nœud, par
 La taille du lecteur temporaire dépend de la taille de la machine virtuelle. L’un des points à prendre en compte lors du choix de la taille d’une machine virtuelle consiste à s’assurer que le lecteur temporaire dispose de suffisamment d’espace.
 
 - Dans le portail Azure, lors de l’ajout d’un pool, la liste complète des tailles de machines virtuelles peut être affichée et il existe une colonne « Taille du disque de ressources ».
-- Les articles décrivant toutes les tailles de machines virtuelles, par exemple [Tailles de machines virtuelles optimisées pour le calcul](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute), ont des tables avec une colonne « Stockage temporaire ».
+- Les articles décrivant toutes les tailles de machines virtuelles, par exemple [Tailles de machines virtuelles optimisées pour le calcul](/azure/virtual-machines/windows/sizes-compute), ont des tables avec une colonne « Stockage temporaire ».
 
 Concernant les fichiers écrits par chaque tâche, une durée de rétention déterminant la durée pendant laquelle ils seront conservés avant d’être automatiquement nettoyés peut respectivement être spécifiée. La durée de rétention peut être raccourcie pour réduire les exigences de stockage.
 
-Si l’espace disque temporaire se remplit, le nœud stoppe l’exécution des tâches. À l’avenir, une [erreur de nœud](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) sera signalée.
 
+Si le disque temporaire manque (ou est sur le point de manquer) d’espace, le nœud passera à l’état [Inutilisable](/rest/api/batchservice/computenode/get#computenodestate) et une erreur de nœud indiquera que le disque est plein.
+
+### <a name="what-to-do-when-a-disk-is-full"></a>Procédure à suivre lorsqu’un disque est plein
+
+Déterminez la raison pour laquelle le disque est plein : Si vous ne savez pas ce qui occupe de l’espace sur le nœud, nous vous recommandons d’y accéder à distance et d’examiner manuellement à quoi cet espace est utilisé. Vous pouvez également recourir à [l’API Batch Lister les fichiers](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) pour examiner les fichiers des dossiers gérés par Batch (par exemple, les sorties de tâches). Il faut savoir que cette API ne répertorie que les fichiers présents dans les répertoires gérés par Batch ; si vos tâches ont créé des fichiers ailleurs, ceux-ci n’apparaîtront pas.
+
+Vérifiez que toutes les données dont vous avez besoin ont été récupérées à partir du nœud ou chargées dans un magasin durable. L’atténuation du problème de disque plein implique nécessairement la suppression de données pour libérer de l’espace.
+
+### <a name="recovering-the-node"></a>Récupération du nœud
+
+1. Si votre pool est un pool [C.loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration), vous pouvez recréer l’image du nœud avec [l’API Batch Recréation d’image](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage), qui nettoie la totalité du disque. La recréation d’image n’est à l’heure actuelle pas prise en charge pour les pools [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+
+2. Si votre pool est un pool [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), vous pouvez supprimer le nœud du pool avec [l’API Suppression de nœuds](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes), puis agrandir le pool pour remplacer le mauvais nœud par un nouveau.
+
+3.  Supprimez les anciennes tâches et les anciens travaux terminés dont les données se trouvent toujours sur les nœuds. Pour savoir quelles données sont concernées, vous pouvez regarder dans la [collection RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) sur le nœud, ou examiner les [fichiers sur le nœud](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). La suppression du travail entraîne la suppression de toutes les tâches qu’il comporte, qui elle entraîne la suppression des données des répertoires de tâches du nœud, ce qui libère de l’espace. Une fois que vous avez libéré suffisamment d’espace, redémarrez le nœud ; il devrait repasser de l’état « Inutilisable » à l’état « Inactif ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
