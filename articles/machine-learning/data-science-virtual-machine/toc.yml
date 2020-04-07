@@ -17,8 +17,6 @@
       href: provision-vm.md
     - name: Créer une instance Ubuntu de Data Science Virtual Machine
       href: dsvm-ubuntu-intro.md
-    - name: Créer une machine virtuelle Data Science Virtual Machine CentOS
-      href: linux-dsvm-intro.md
     - name: Créer une instance Geo AI de Data Science Virtual Machine
       href: provision-geo-ai-dsvm.md
 - name: Concepts
@@ -67,8 +65,6 @@
   items:
     - name: Instance Ubuntu de Data Science Virtual Machine
       href: reference-ubuntu-vm.md
-    - name: Instance CentOS de Data Science Virtual Machine
-      href: reference-centos-vm.md
     - name: Notes de publication
       href: release-notes.md
     - name: Problèmes connus

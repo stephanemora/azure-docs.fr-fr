@@ -32,8 +32,6 @@
       href: tutorial-sql-backup.md
     - name: Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
       href: tutorial-backup-sap-hana-db.md
-    - name: Sauvegarder des partages de fichiers Azure Files
-      href: tutorial-backup-azure-files.md
     - name: Sauvegarder Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restaurer des fichiers sur Windows Server
