@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 2ae0f3033b88b3229d3dbef35c8bc9a32510c00e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e284060893e00ed7459edd0d1a03075c813dc5b2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972334"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065393"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Résoudre les problèmes dans Azure Data Factory
 
@@ -452,7 +452,7 @@ Le tableau suivant s’applique à U-SQL.
 - **Recommandation** :  Corrigez le type de la propriété et réessayez.
 
 
-### <a name="error-code--2112"></a>Code d’erreur :  2 112
+### <a name="error-code--2112"></a>Code d’erreur :  2112
 
 - **Message** : `The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
 
@@ -471,7 +471,7 @@ Le tableau suivant s’applique à U-SQL.
 
 
 
-## <a name="custom"></a>Personnalisée
+## <a name="custom"></a>Custom
 
 Le tableau suivant s’applique à Azure Batch.
       
@@ -639,7 +639,7 @@ Le tableau suivant s’applique à Azure Batch.
 - **Recommandation** :  Spécifiez un principal de service disposant des autorisations nécessaires pour créer un cluster HDInsight dans l’abonnement indiqué, puis réessayez. Si cette solution n’est pas acceptable, contactez l’équipe du support technique ADF pour obtenir une aide supplémentaire.
 
 
-### <a name="error-code--2300"></a>Code d’erreur :  2 300
+### <a name="error-code--2300"></a>Code d’erreur :  2300
 
 - **Message** : `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
@@ -1020,7 +1020,7 @@ Pour utiliser Fiddler en vue de créer une session HTTP de l’application web 
 
    ![Options Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
-1. Si votre application utilise des certificats SSL, ajoutez le certificat Fiddler à votre appareil. Accédez à **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop** (Outils > Options Fiddler > HTTPS > Actions > Exporter le certificat racine vers le Bureau).
+1. Si votre application utilise des certificats TLS/SSL, ajoutez le certificat Fiddler à votre appareil. Accédez à **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop** (Outils > Options Fiddler > HTTPS > Actions > Exporter le certificat racine vers le Bureau).
 
 1. Désactivez la capture en accédant à **File** > **Capture Traffic** (Fichier > Capturer le trafic). Vous pouvez aussi appuyer sur **F12**.
 

@@ -1,5 +1,5 @@
 ---
-title: Utiliser les infos relatives à un appareil de la gamme StorSimple 8000 | Microsoft Docs
+title: Utiliser le panneau de synthèse de l’appareil dans le service StorSimple Device Manager
 description: Décrit le panneau de synthèse de l’appareil offert par le service StorSimple Device Manager et explique comment l’utiliser pour afficher les métriques de stockage et les initiateurs connectés, et rechercher le numéro de série et l’IQN pour un appareil.
 services: storsimple
 documentationcenter: NA
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7801cdc6573799330e5173db82dead8d4f2cd83f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578220"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398247"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utiliser le panneau de synthèse de l’appareil dans le service StorSimple Device Manager
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le panneau de synthèse de l’appareil StorSimple offre une vue d’ensemble des informations relatives à un appareil StorSimple spécifique, à la différence du panneau de synthèse du service, qui regroupe les informations concernant tous les appareils inclus dans votre solution Microsoft Azure StorSimple.
 
 Le panneau de synthèse de l’appareil fournit une vue récapitulative d’un appareil de la gamme StorSimple 8000 inscrit auprès d’une instance StorSimple Device Manager donnée, en mettant en évidence les problèmes qui nécessitent l’intervention d’un administrateur système. Ce didacticiel présente le panneau de synthèse des appareils, explique le contenu et la fonctionnalité et décrit les travaux que vous pouvez effectuer à partir de ce panneau.
@@ -95,5 +95,5 @@ La zone des éléments principaux comporte quelques-unes des propriétés import
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Accédez à des informations supplémentaires sur le [panneau de synthèse du service StorSimple](storsimple-8000-service-dashboard.md).
-* Découvrez plus en détail comment [utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
+* En savoir plus sur l’[utilisation du service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
 
