@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/02/2020
-ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 32100e9cad86f12dc8111ee8a0282a515540a4db
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644752"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346606"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformation de jointure dans le flux de données de mappage
 
@@ -32,7 +32,7 @@ La jointure interne génère uniquement les lignes possédant des valeurs corres
 La jointure externe gauche renvoie toutes les lignes du flux de données gauche et les enregistrements correspondants du flux de droite. Si une ligne du flux de gauche n’a pas de correspondance, les colonnes de sortie du flux de droite ont pour valeur NULL. La sortie contient les lignes renvoyées par la jointure interne ainsi que les lignes sans correspondance du flux de gauche.
 
 > [!NOTE]
-> Le moteur Spark utilisé par les flux de données sera calculera parfois un produit cartésien dans vos conditions de jointure. Lorsque c’est le cas, vous pouvez basculer vers une jointure croisée personnalisée et entrer manuellement votre condition de jointure. Cela peut entraîner un ralentissement des performances dans vos flux de données, car le moteur d’exécution peut avoir besoin de calculer toutes les lignes des deux côtés de la relation, puis filtrer les lignes.
+> Le moteur Spark utilisé par les flux de données échouera parfois en raison d’éventuels produits cartésiens dans vos conditions de jointure. Le cas échéant, vous pouvez basculer vers une jointure croisée personnalisée et entrer manuellement votre condition de jointure. Cela peut entraîner un ralentissement des performances dans vos flux de données, car le moteur d’exécution peut avoir besoin de calculer toutes les lignes des deux côtés de la relation, puis filtrer les lignes.
 
 ### <a name="right-outer"></a>Externe droite
 

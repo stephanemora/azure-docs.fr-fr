@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 24ff081d40d5cd3adf771511ca0b52d66c287b63
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 1e559309b8e8d9768ca2f79dabfb01ec6086a961
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272625"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348720"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -25,7 +25,7 @@ Cet article explique comment gérer l’accès aux journaux et administrer les e
 
 ## <a name="configure-access-control-mode"></a>Configurer le mode de contrôle d’accès
 
-Vous pouvez afficher le mode de contrôle d’accès configuré sur un espace de travail à partir du portail Azure ou avec Azure PowerShell.  Vous pouvez modifier ce paramètre à l’aide de l’une des méthodes prises en charge suivantes :
+Vous pouvez afficher le [mode de contrôle d’accès](design-logs-deployment.md) configuré sur un espace de travail à partir du portail Azure ou avec Azure PowerShell.  Vous pouvez modifier ce paramètre à l’aide de l’une des méthodes prises en charge suivantes :
 
 * Portail Azure
 

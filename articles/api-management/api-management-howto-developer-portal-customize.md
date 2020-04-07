@@ -10,20 +10,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454420"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224889"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accéder au portail des développeurs et le personnaliser
 
 Le portail des développeurs est un site web généré automatiquement et entièrement personnalisable avec la documentation de vos API. C’est là que les consommateurs d’API peuvent découvrir vos API, apprendre à les utiliser et y demander l’accès.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Accéder à la version managée du portail des développeurs
@@ -38,7 +38,7 @@ Pour plus d’informations sur le portail des développeurs, voir la [Vue d’en
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Effectuez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
+- Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 - Importez et publiez une instance Gestion des API Azure. Pour plus d’informations, voir [Importer et publier](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -111,7 +111,7 @@ Dans la vidéo ci-dessous, nous expliquons comment modifier le contenu du portai
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish"> </a>Publier le portail
+## <a name="publish-the-portal"></a><a name="publish"> </a>Publier le portail
 
 Pour que votre portail et ses dernières modifications soient accessibles aux visiteurs, vous devez le publier.
 
@@ -125,6 +125,10 @@ Pour que votre portail et ses dernières modifications soient accessibles aux vi
 ## <a name="visit-the-published-portal"></a>Consulter le portail publié
 
 Une fois publié, le portail est accessible à la même URL que le panneau d’administration, par exemple `https://contoso-api.developer.azure-api.net`. Affichez-le dans une session de navigateur distincte (mode de navigation incognito ou privée) en tant que visiteur externe.
+
+## <a name="apply-the-cors-policy-on-apis"></a>Appliquer la stratégie CORS sur les API
+
+Vous devez activer CORS (cross-origin resource sharing) sur vos API pour permettre aux visiteurs de votre portail de tester les API via la console interactive intégrée. Pour plus d’informations, consultez [cet article de la documentation](api-management-howto-developer-portal.md#cors).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

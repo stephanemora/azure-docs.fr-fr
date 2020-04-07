@@ -3,12 +3,12 @@ title: Diagnostiquer des défaillances et exceptions avec Azure Application Insi
 description: Capturez des exceptions à partir d’applications ASP.NET, ainsi que des données de télémétrie des demandes.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294689"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
 Les exceptions dans votre application web dynamique sont signalées par [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.
@@ -27,6 +27,8 @@ Les exceptions dans votre application web dynamique sont signalées par [Applica
   * [API web 1.*](#web-api-1x)
   * [API web 2.*](#web-api-2x)
   * [WCF](#wcf)
+
+  Cet article se concentre spécifiquement sur les applications .NET Framework du point de vue d’un exemple de code. Certaines des méthodes qui fonctionnent pour .NET Framework sont obsolètes dans le kit SDK .NET Core. Reportez-vous à la [documentation du kit SDK .NET Core ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) si vous avez une application .NET Core.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnostic des exceptions à l’aide de Visual Studio
 Ouvrez la solution d’application dans Visual Studio pour faciliter le débogage.
@@ -89,7 +91,7 @@ Les détails de la demande n'incluent pas les données envoyées à votre applic
 * Insérez du code dans votre application pour appeler [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Envoyez les données POST dans le paramètre du message. Il existe une limite à la taille autorisée. Vous pouvez donc essayer d'envoyer uniquement les données essentielles.
 * Lorsque vous examinez une demande ayant échoué, recherchez les traces associées.
 
-## <a name="exceptions"></a> Capture des exceptions et des données de diagnostic connexes
+## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Capture des exceptions et des données de diagnostic connexes
 Dans un premier temps, vous ne verrez pas dans le portail toutes les exceptions qui entraînent des défaillances dans votre application. Vous verrez les exceptions du navigateur (si vous utilisez le [SDK JavaScript](../../azure-monitor/app/javascript.md) dans vos pages web). Mais la plupart des exceptions de serveur sont interceptées par IIS et vous devez écrire un peu de code afin de les afficher.
 
 Vous pouvez :

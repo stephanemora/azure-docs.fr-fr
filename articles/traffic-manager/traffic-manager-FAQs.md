@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: bc318aff0dad7d7fdff16df549c013927ef0e799
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938813"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228049"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -43,7 +43,7 @@ Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-m
 
 Un examen approfondi de l’application doit donc être effectué.
 
-L’en-tête d’hôte HTTP envoyé à partir du navigateur du client est la source de problèmes la plus courante. Assurez-vous que l’application est configurée pour accepter l’en-tête d’hôte correct pour le nom de domaine que vous utilisez. Pour les points de terminaison utilisant Azure App Service, voir [Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+L’en-tête d’hôte HTTP envoyé à partir du navigateur du client est la source de problèmes la plus courante. Assurez-vous que l’application est configurée pour accepter l’en-tête d’hôte correct pour le nom de domaine que vous utilisez. Pour les points de terminaison utilisant Azure App Service, voir [Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager](../app-service/configure-domain-traffic-manager.md).
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Quel est l’impact de Traffic Manager sur les performances ?
 
@@ -104,7 +104,7 @@ Traffic Manager examine l’adresse IP source de la requête (très probablement
 
 ### <a name="is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Est-il garanti que Traffic Manager détermine correctement l’emplacement géographique exact de l’utilisateur dans tous les cas ?
 
-Non, Traffic Manager ne peut pas garantir que la région géographique que nous déduisons à partir de l’adresse IP source d’une requête DNS correspond toujours à l’emplacement de l’utilisateur, et ce pour les raisons suivantes :
+Non, Traffic Manager ne peut pas garantir que la région géographique que nous déduisons à partir de l’adresse IP source d’une requête DNS corresponde toujours à l’emplacement de l’utilisateur, et ce pour les raisons suivantes :
 
 - Tout d’abord, comme décrit dans le Forum aux questions précédent, l’adresse IP source que nous voyons est celle d’un programme de résolution DNS qui effectue une recherche pour le compte de l’utilisateur. Bien que l’emplacement géographique du programme de résolution DNS est un bon indicateur de l’emplacement géographique de l’utilisateur, il peut également être différent selon l’encombrement du service de résolution DNS et du service de résolution DNS spécifique qu'un client a choisi d’utiliser. Par exemple, un client en Malaisie peut définir dans les paramètres de son appareil l’utilisation d’un service de résolution DNS dont le serveur DNS à Singapour peut être sélectionné pour gérer les résolutions de requête pour cet utilisateur/appareil. Dans ce cas, Traffic Manager affiche uniquement l’adresse IP du programme de résolution, qui correspond à l’emplacement à Singapour. En outre, consultez le Forum aux questions précédent concernant la prise en charge des adresses de sous-réseau client sur cette page.
 
@@ -145,9 +145,9 @@ Les appareils des utilisateurs finaux ont généralement recours à un programme
 
 Les adresses IP à associer à un point de terminaison peuvent être spécifiées de deux manières. Tout d’abord, vous pouvez utiliser la notation d’octet décimale à quatre points avec une adresse de début et une adresse de fin pour spécifier la plage (par exemple, 1.2.3.4-5.6.7.8 ou 3.4.5.6-3.4.5.6). Ensuite, vous pouvez utiliser la notation CIDR pour spécifier la plage (par exemple, 1.2.3.0/24). Vous pouvez spécifier plusieurs plages et utiliser les deux types de notation dans un ensemble de plages. Quelques restrictions s’appliquent.
 
--   Les plages d’adresses ne peuvent pas se chevaucher, dans la mesure où chaque adresse IP doit être mappée avec un seul point de terminaison unique.
--   L’adresse de début ne peut pas être supérieure à l’adresse de fin.
--   Dans le cas de la notation CIDR, l’adresse IP qui précède le caractère « / » doit être l’adresse de début de la plage (par exemple, 1.2.3.0/24 est valide, alors que 1.2.3.4.4/24 ne l’est PAS).
+-    Les plages d’adresses ne peuvent pas se chevaucher, dans la mesure où chaque adresse IP doit être mappée avec un seul point de terminaison unique.
+-    L’adresse de début ne peut pas être supérieure à l’adresse de fin.
+-    Dans le cas de la notation CIDR, l’adresse IP qui précède le caractère « / » doit être l’adresse de début de la plage (par exemple, 1.2.3.0/24 est valide, alors que 1.2.3.4.4/24 ne l’est PAS).
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Comment puis-je spécifier un point de terminaison de secours avec le routage en fonction du sous-réseau ?
 
@@ -376,31 +376,31 @@ Traffic Manager permet d’utiliser des adresses IPv4 ou IPv6 pour spécifier 
 
 Non, Traffic Manager ne permet pas de combiner des types d’adressage de point de terminaison au sein d’un profil, sauf dans le cas d’un profil avec le type de routage MultiValue, où vous pouvez combiner les types d’adressage IPv4 et IPv6.
 
-### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Que se passe-t-il lorsque le type d’enregistrement d’une requête entrante est différent du type d’enregistrement associé au type d’adressage des points de terminaison ?
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Que se passe-t-il quand le type d’enregistrement d’une requête entrante est différent du type d’enregistrement associé au type d’adressage des points de terminaison ?
 
 Lors de la réception d’une requête sur un profil, Traffic Manager commence par rechercher le point de terminaison à renvoyer en fonction de la méthode de routage spécifiée et l’état d’intégrité des points de terminaison. Il examine ensuite le type d’enregistrement demandé dans la requête entrante et le type d’enregistrement associé au point de terminaison avant de renvoyer une réponse basée sur le tableau ci-dessous.
 
 Pour les profils avec une méthode de routage différente de MultiValue :
 
-|Requête entrante|    Type de point de terminaison|  Réponse fournie|
+|Requête entrante|     Type de point de terminaison|     Réponse fournie|
 |--|--|--|
-|ANY |  A / AAAA / CNAME |  Point de terminaison cible| 
-|Un |    A / CNAME | Point de terminaison cible|
-|Un |    AAAA |  NODATA |
-|AAAA | AAAA / CNAME |  Point de terminaison cible|
-|AAAA | Un | NODATA |
-|CNAME |    CNAME | Point de terminaison cible|
-|CNAME  |A / AAAA | NODATA |
+|ANY |    A / AAAA / CNAME |    Point de terminaison cible| 
+|Un |    A / CNAME |    Point de terminaison cible|
+|Un |    AAAA |    NODATA |
+|AAAA |    AAAA / CNAME |    Point de terminaison cible|
+|AAAA |    Un |    NODATA |
+|CNAME |    CNAME |    Point de terminaison cible|
+|CNAME     |A / AAAA |    NODATA |
 |
 
 Pour les profils avec la méthode de routage MultiValue :
 
-|Requête entrante|    Type de point de terminaison | Réponse fournie|
+|Requête entrante|     Type de point de terminaison |    Réponse fournie|
 |--|--|--|
-|ANY |  Combinaison de A et AAAA | Points de terminaison cibles|
-|Un |    Combinaison de A et AAAA | Uniquement des points de terminaison de cibles de type A|
-|AAAA   |Combinaison de A et AAAA|     Uniquement des points de terminaison cibles de type A|
-|CNAME |    Combinaison de A et AAAA | NODATA |
+|ANY |    Combinaison de A et AAAA |    Points de terminaison cibles|
+|Un |    Combinaison de A et AAAA |    Uniquement des points de terminaison de cibles de type A|
+|AAAA    |Combinaison de A et AAAA|     Uniquement des points de terminaison cibles de type A|
+|CNAME |    Combinaison de A et AAAA |    NODATA |
 
 ### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Puis-je utiliser un profil avec des points de terminaison IPv4/IPv6 dans un profil imbriqué ?
 

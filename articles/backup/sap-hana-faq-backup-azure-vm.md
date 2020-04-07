@@ -3,12 +3,12 @@ title: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuel
 description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: d9d10e38885ba814045d8476b83671153feb7b8c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a46c4d6cccc00452a56567880400ef5779e6aed4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919683"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155390"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -53,6 +53,14 @@ L’exécution du script de pré-inscription définit les autorisations requises
 
 Reportez-vous à [cette section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) du Guide de résolution des problèmes.
 
+### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>La sauvegarde Azure HANA peut-elle être configurée sur une adresse IP virtuelle (équilibreur de charge) et non une machine virtuelle ?
+
+Nous ne sommes pas en mesure de configurer la solution sur une adresse IP virtuelle seule pour le moment. Une machine virtuelle est nécessaire pour exécuter la solution.
+
+### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>J’ai une réplication du système SAP HANA (HSR). Comment dois-je configurer la sauvegarde pour cette installation ?
+
+Les nœuds principal et secondaire du HSR seront traités comme deux machines virtuelles indépendantes. Vous devez configurer la sauvegarde sur le nœud principal et, lorsque le basculement intervient, vous devez configurer la sauvegarde sur le nœud secondaire (qui devient alors le nœud principal). Il n’y a pas de basculement automatique de la sauvegarde vers l’autre nœud.
+
 ## <a name="restore"></a>Restaurer
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>Pourquoi ne puis-je pas voir le système HANA sur lequel ma base de données doit être restaurée ?
@@ -63,7 +71,7 @@ Vérifiez que toutes les conditions préalables pour la restauration vers la cib
 
 Assurez-vous que l’option **Forcer le remplacement** est sélectionnée lors de la restauration.
 
-### <a name="why-do-i-see-the-source-and-target-systems-for-restore-are-incompatible-error"></a>Pourquoi est-ce que l’erreur s’affiche-t-elle : « Les systèmes source et cible pour la restauration ne sont pas compatibles » ?
+### <a name="why-do-i-see-the-source-and-target-systems-for-restore-are-incompatible-error"></a>Pourquoi l’erreur : « Les systèmes source et cible pour la restauration ne sont pas compatibles » apparaît-elle ?
 
 Reportez-vous à la note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) pour voir quels types de restauration sont actuellement pris en charge.
 

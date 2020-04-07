@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 73f986774fc13ac8c69cd800c977c909b591a74c
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: cc2ba11f75da5f993b99c90e5d0cc1030003203e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369738"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257254"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -79,7 +79,7 @@ Le tableau suivant affiche une liste des systèmes d’exploitation pris en char
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
@@ -148,15 +148,15 @@ Lors de l’installation de l’extension Guest Configuration, le module PowerSh
 
 L’extension de configuration d’invité écrit les fichiers journaux aux emplacements suivants :
 
-Windows : `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
+Windows : `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux : `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+Linux : `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
 Où `<version>` indique le numéro de la version actuelle.
 
 ### <a name="collecting-logs-remotely"></a>Collecte des journaux à distance
 
-La première étape de la résolution des problèmes liés aux configurations ou aux modules de Guest Configuration consiste à utiliser l'applet de commande `Test-GuestConfigurationPackage` en suivant les étapes décrites dans [Tester un package Guest Configuration](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+La première étape de résolution des problèmes des configurations ou modules Guest Configuration doit être d’utiliser la cmdlet `Test-GuestConfigurationPackage` suivant la procédure pour [créer une stratégie d’audit Guest Configuration personnalisée pour Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
 Si cela ne réussit pas, la collecte des journaux des clients peut vous aider à diagnostiquer les problèmes.
 
 #### <a name="windows"></a>Windows
@@ -166,8 +166,8 @@ Pour utiliser la commande Run de la machine virtuelle Azure afin de capturer des
 ```powershell
 $linesToIncludeBeforeMatch = 0
 $linesToIncludeAfterMatch = 10
-$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
-Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+$logPath = 'C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log'
+Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
 ```
 
 #### <a name="linux"></a>Linux
@@ -177,8 +177,8 @@ Pour utiliser la commande Run de la machine virtuelle Azure afin de capturer des
 ```Bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
-latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
-egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
 
 ## <a name="guest-configuration-samples"></a>Exemples de la configuration d’invité

@@ -3,18 +3,18 @@ title: Mappages de champs dans les indexeurs
 titleSuffix: Azure Cognitive Search
 description: Configurez des mappages de champs d’un indexeur vers un compte pour détecter des différences de noms de champs et de représentations des données.
 manager: nitinme
-author: mgottein
+author: mattmsft
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 3e09741e841897032b8146dee67b79e0c26ea5cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123991"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275150"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs Recherche cognitive Azure
 
@@ -123,7 +123,7 @@ Exécute l’encodage Base64 *sécurisé pour les URL* de la chaîne d'entrée. 
 
 #### <a name="example---document-key-lookup"></a>Exemple de recherche d’une clé de document
 
-Seuls les caractères sécurisés pour les URL peuvent apparaître dans une clé de document Recherche cognitive Azure (car les clients doivent pouvoir traiter le document à l’aide de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si le champ source de votre clé contient des caractères non sécurisés pour les URL, vous pouvez utiliser la fonction `base64Encode` pour les convertir au moment de l’indexation.
+Seuls les caractères sécurisés pour les URL peuvent apparaître dans une clé de document Recherche cognitive Azure (car les clients doivent pouvoir traiter le document à l’aide de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si le champ source de votre clé contient des caractères non sécurisés pour les URL, vous pouvez utiliser la fonction `base64Encode` pour les convertir au moment de l’indexation. Cependant, une clé de document (avant et après la conversion) ne doit pas excéder 1 024 caractères.
 
 Une fois que vous avez récupéré la clé encodée au moment de la recherche, vous pouvez utiliser la fonction `base64Decode` pour obtenir la valeur de clé d’origine, et l’utiliser pour récupérer le document source.
 
@@ -191,7 +191,7 @@ Le tableau suivant compare les différents encodages base64 de la chaîne `00>00
 | Base64 avec remplissage | `MDA+MDA/MDA=` | Utiliser des caractères sécurisés pour les URL et supprimer le remplissage | Utiliser des caractères base64 standard et ajouter le remplissage |
 | Base64 sans remplissage | `MDA+MDA/MDA` | Utiliser des caractères sécurisés pour les URL | Utiliser des caractères base64 standard |
 | Base64 sécurisé pour les URL avec remplissage | `MDA-MDA_MDA=` | Supprimer le remplissage | Ajouter le remplissage |
-| Base64 sécurisé pour les URL sans remplissage | `MDA-MDA_MDA` | Aucun | Aucun |
+| Base64 sécurisé pour les URL sans remplissage | `MDA-MDA_MDA` | None | None |
 
 <a name="extractTokenAtPositionFunction"></a>
 
@@ -292,6 +292,28 @@ Une fois que vous avez récupéré la clé encodée au moment de la recherche, v
     "targetFieldName" : "SearchableMetadata",
     "mappingFunction" : {
       "name" : "urlDecode"
+    }
+  }]
+ ```
+ 
+ <a name="fixedLengthEncodeFunction"></a>
+ 
+ ### <a name="fixedlengthencode-function"></a>Fonction fixedLengthEncode
+ 
+ Cette fonction convertit une chaîne de n’importe quelle longueur en chaîne à longueur fixe.
+ 
+ ### <a name="example---map-document-keys-that-are-too-long"></a>Exemple - mapper des clés de document trop longues
+ 
+Lorsque vous rencontrez une erreur indiquant que la clé du document excède 1 024 caractères, cette fonction peut être appliquée pour réduire la longueur de la clé.
+
+ ```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "metadata_storage_path",
+    "targetFieldName" : "your key field",
+    "mappingFunction" : {
+      "name" : "fixedLengthEncode"
     }
   }]
  ```

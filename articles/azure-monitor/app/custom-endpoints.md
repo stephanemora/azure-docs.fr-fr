@@ -3,12 +3,12 @@ title: Remplacer les points de terminaison par défaut des SDK Azure Application
 description: Modifiez les points de terminaison par défaut des SDK Azure Monitor Application Insights pour certaines régions, comme Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 3aa18a6b96458533c3dc53f3f420ed264b298a3e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298320"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Remplacer les points de terminaison par défaut d’Application Insights
 
@@ -186,6 +186,10 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
     );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
+
+### <a name="python"></a>Python
+
+Pour obtenir des conseils sur la modification du point de terminaison d’ingestion pour le SDK opencensus-python, consultez le [référentiel opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
 
 ## <a name="regions-that-require-endpoint-modification"></a>Régions nécessitant une modification des points de terminaison
 

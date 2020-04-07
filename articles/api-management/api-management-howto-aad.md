@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: df640f11e8a0e8af22c96a662a602e0de508715c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985048"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473538"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
 Cet article explique comment activer l’accès au portail des développeurs pour les utilisateurs à partir d’Azure Active Directory (Azure AD). Il montre également comment gérer des groupes d’utilisateurs Azure AD en ajoutant des groupes externes qui contiennent les utilisateurs.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 - Importez et publiez une instance Gestion des API Azure. Pour plus d’informations, consultez [Importer et publier](import-and-publish.md).
@@ -84,12 +84,12 @@ Une fois les changements enregistrés, les utilisateurs de l’instance Azure AD
 
 Après avoir activé l’accès pour les utilisateurs dans un locataire Azure AD, vous pouvez ajouter des groupes Azure AD dans Gestion des API. Par conséquent, vous pouvez contrôler la visibilité des produits à l’aide de groupes Azure AD.
 
-Pour ajouter un groupe Azure AD externe dans APIM, vous devez d’abord effectuer la section précédente. En outre, l’application que vous avez inscrite doit avoir accès à l’API Graph d’Azure Active Directory avec l’autorisation `Directory.ReadAll` en suivant les étapes ci-dessous : 
+Pour ajouter un groupe Azure AD externe dans APIM, vous devez d’abord effectuer la section précédente. En outre, l’application que vous avez inscrite doit avoir accès à l’API Microsoft Graph avec l’autorisation `Directory.Read.All` en suivant les étapes ci-dessous : 
 
 1. Revenez à l’inscription de votre application qui a été créée dans la section précédente.
-2. Cliquez sur l’onglet **Autorisations de l’API**, puis cliquez sur le bouton **+ Ajouter une autorisation**. 
-3. Dans le volet **Demander les autorisations de l’API**, sélectionnez l’onglet **API Microsoft**, puis faites défiler vers le bas pour trouver la vignette **Azure Active Directory Graph** dans la section API héritées prises en charge, puis cliquez dessus. Cliquez ensuite sur le bouton **Autorisations pour les APPLICATIONS**, sélectionnez **Directory.ReadAll**, puis ajoutez cette autorisation à l’aide du bouton en bas de l’écran. 
-4. Cliquez sur le bouton **Accorder un consentement administrateur pour {tenantname}** afin d’accorder l’accès à tous les utilisateurs de ce répertoire. 
+2. Sélectionnez **Autorisations d’API**, puis **+Ajouter une autorisation**. 
+3. Dans le volet **Demander une autorisation d’API**, sélectionnez l’onglet **API Microsoft** et sélectionnez la vignette **Microsoft Graph**. Sélectionnez **Autorisations d’application**, recherchez **Répertoire** et sélectionnez l’autorisation **Directory.Read.All**. 
+4. Cliquez sur **Ajouter des autorisations** en bas du volet et cliquez sur **Octroyer le consentement de l’administrateur à {nom_client}** pour accorder l’accès à tous les utilisateurs de ce répertoire. 
 
 Vous pouvez maintenant ajouter des groupes Azure AD externes à partir de l’onglet **Groupes** de votre instance Gestion des API.
 
@@ -103,7 +103,7 @@ Après avoir ajouté un groupe Azure AD externe, vous pouvez passer en revue ses
  
 Les utilisateurs de l’instance Azure AD configurée peuvent à présent se connecter au portail des développeurs. Ils peuvent afficher les groupes pour lesquels ils disposent d’une visibilité et s’abonner à ces groupes.
 
-## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Portail des développeurs : ajouter l’authentification de compte Azure AD
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Portail des développeurs : ajouter l’authentification de compte Azure AD
 
 Dans le portail des développeurs, il est possible de se connecter avec AAD à l’aide du widget **Bouton de connexion : OAuth**. Le widget est déjà inclus dans la page de connexion du contenu du portail des développeurs par défaut.
 
@@ -153,7 +153,6 @@ Votre utilisateur est maintenant inscrit auprès du portail des développeurs po
 
 [https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1

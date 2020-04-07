@@ -1,23 +1,23 @@
 ---
-title: Azure Private Link pour Azure Database pour PostgreSQL - Serveur unique (préversion)
+title: Private Link – Azure Database pour PostgreSQL – Serveur unique
 description: Découvrez comment Azure Private Link fonctionne pour Azure Database pour PostgreSQL - Serveur unique.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: e3667a60a326838b490f9082fd55bdc92d038cf9
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/10/2020
+ms.openlocfilehash: 4216abdf8cc8aae00e3ba0c57961c4b8b7403672
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75899189"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371679"
 ---
-# <a name="private-link-for-azure-database-for-postgresql-single-server-preview"></a>Azure Private Link pour Azure Database pour PostgreSQL-Serveur unique (préversion)
+# <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Azure Private Link pour Azure Database pour PostgreSQL-Serveur unique
 
-Azure Private Link vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un point de terminaison privé. Azure Private Link intègre essentiellement les services Azure à votre Réseau virtuel privé. Vous pouvez accéder aux ressources PaaS à l’aide de l’adresse IP privée, comme toute autre ressource dans le réseau virtuel.
+Private Link vous permet de créer des points de terminaison privés pour Azure Database pour PostgreSQL et de placer les services Azure à l’intérieur de votre réseau virtuel privé (VNet). Le point de terminaison privé expose une adresse IP privée que vous pouvez utiliser pour vous connecter à votre serveur de base de données, comme n’importe quelle autre ressource du réseau virtuel.
 
-Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Azure Private Link, consultez la [documentation](https://docs.microsoft.com/azure/private-link/index) Azure Private Link. Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) et d’un sous-réseau spécifiques.
+Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Private Link, consultez la [documentation](https://docs.microsoft.com/azure/private-link/index) de Private Link. Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) et d’un sous-réseau spécifiques.
 
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
@@ -39,45 +39,42 @@ Imaginez un scénario avec un utilisateur exécutant PGAdmin à l’intérieur d
 
 À la fin de cette configuration, la machine virtuelle Azure peut uniquement se connecter au serveur unique Azure Database pour PostgreSQL dans la région USA Ouest. Toutefois, la connectivité n’est pas limitée à un serveur unique Azure Database pour PostgreSQL. La machine virtuelle peut toujours se connecter à tout serveur unique Azure Database pour PostgreSQL de la région USA Ouest, même si elle ne fait pas partie de l’abonnement. Bien que nous ayons réduit l’étendue de l’exfiltration de données dans le scénario ci-dessus à une région spécifique, nous ne l’avons pas encore totalement éliminée.</br>
 
-Grâce à Azure Private Link, vous pouvez désormais configurer des contrôles d’accès réseau comme des groupes de sécurité réseau pour restreindre l’accès au point de terminaison privé. Les ressources Azure PaaS individuelles sont ensuite mappées à des points de terminaison privés spécifiques. Un utilisateur interne malveillant peut uniquement accéder à la ressource PaaS mappée (par exemple, un serveur unique Azure Database pour PostgreSQL). Il n’a accès à aucune autre ressource.
+Grâce à Private Link, vous pouvez désormais configurer des contrôles d’accès réseau comme des groupes de sécurité réseau pour restreindre l’accès au point de terminaison privé. Les ressources Azure PaaS individuelles sont ensuite mappées à des points de terminaison privés spécifiques. Un utilisateur interne malveillant peut uniquement accéder à la ressource PaaS mappée (par exemple, un serveur unique Azure Database pour PostgreSQL). Il n’a accès à aucune autre ressource.
 
 ## <a name="on-premises-connectivity-over-private-peering"></a>Connectivité locale sur un appairage privé
 
 Quand vous vous connectez au point de terminaison public à partir de machines locales, votre adresse IP doit être ajoutée au pare-feu IP à l’aide d’une règle de pare-feu au niveau du serveur. Bien que ce modèle fonctionne bien pour autoriser l’accès à des machines individuelles pour des charges de travail de développement ou de test, il est difficile à gérer dans un environnement de production.
 
-Grâce à Azure Private Link, vous pouvez activer l’accès entre différents locaux au point de terminaison privé en utilisant [ExpressRoute](https://azure.microsoft.com/services/expressroute/) (ER), un Peering privé ou un [tunnel VPN](https://docs.microsoft.com/azure/vpn-gateway/). Vous pouvez ensuite désactiver tous les accès via le point de terminaison public et ne pas utiliser le pare-feu IP.
+Grâce à Private Link, vous pouvez activer l’accès entre différents locaux au point de terminaison privé en utilisant [ExpressRoute](https://azure.microsoft.com/services/expressroute/) (ER), un peering privé ou un [tunnel VPN](https://docs.microsoft.com/azure/vpn-gateway/). Vous pouvez ensuite désactiver tous les accès via le point de terminaison public et ne pas utiliser le pare-feu IP.
 
 ## <a name="configure-private-link-for-azure-database-for-postgresql-single-server"></a>Configurer Azure Private Link pour le serveur unique Azure Database pour PostgreSQL
 
 ### <a name="creation-process"></a>Processus de création
 
-Des points de terminaison privés sont requis pour activer Azure Private Link. Pour ce faire, vous pouvez utiliser les guides pratiques suivants.
+Des points de terminaison privés sont requis pour activer Private Link. Pour ce faire, vous pouvez utiliser les guides pratiques suivants.
 
 * [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
 * [INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Processus d’approbation
-Une fois que l’administrateur réseau a créé le point de terminaison privé (PE), l’administrateur PostgreSQL peut gérer la connexion de point de terminaison privé (PEC) à Azure Database pour PostgreSQL.
-
-> [!NOTE]
-> Actuellement, le serveur unique Azure Database pour PostgreSQL prend uniquement en charge l’approbation automatique pour le point de terminaison privé.
+Une fois que l’administrateur réseau a créé le point de terminaison privé (PE), l’administrateur PostgreSQL peut gérer la connexion de point de terminaison privé (PEC) à Azure Database pour PostgreSQL. Cette séparation des tâches entre l’administrateur réseau et l’administrateur de bases de données facilite la gestion de la connectivité Azure Database pour PostgreSQL. 
 
 * Accédez à la ressource de serveur Azure Database pour PostgreSQL dans le Portail Azure. 
     * Sélectionner les connexions de point de terminaison privé dans le volet gauche
-    * Liste de toutes les connexions de point de terminaison privé (PEC)
+    * Affiche la liste de toutes les connexions de point de terminaison privé (PEC)
     * Point de terminaison privé (PE) correspondant créé
 
-![Sélectionnez le portail de point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+![sélectionnez le portail du point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
 
 * Sélectionnez un PEC dans la liste.
 
-![sélectionnez l’approbation en attente de point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link.png)
+![sélectionnez l’approbation en attente du point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link.png)
 
 * L’administrateur du serveur PostgreSQL peut choisir d’approuver ou de rejeter un PEC. Il peut aussi ajouter une brève réponse sous forme de texte.
 
-![sélectionnez le message de point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+![sélectionnez le message du point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
 
-* Après approbation ou rejet, la liste reflète l’état approprié et le texte de réponse
+* Après l’approbation ou le rejet, la liste reflète l’état approprié et le texte de réponse
 
 ![sélectionnez l’état final du point de terminaison privé](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
 
@@ -109,6 +106,19 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 * Si vous configurez un trafic public ou un point de terminaison de service et que vous créez des points de terminaison privés, différents types de trafic entrant sont alors autorisés par le type de règle de pare-feu correspondant.
 
 * Si vous ne configurez aucun trafic public ni point de terminaison de service et que vous créez des points de terminaison privés, le serveur unique Azure Database pour PostgreSQL est alors uniquement accessible via les points de terminaison privés. Si vous ne configurez aucun trafic public ni point de terminaison de service, après le rejet ou la suppression de tous les points de terminaison privés approuvés, aucun trafic ne sera en mesure d’accéder au serveur unique Azure Database pour PostgreSQL.
+
+## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Refuser l’accès public pour le serveur unique Azure Database pour PostgreSQL
+
+Si vous souhaitez vous fier uniquement à des points de terminaison privés pour accéder à leur base de données Azure Database pour PostgreSQL, vous pouvez désactiver la définition de tous les points de terminaison publics ([règles de pare-feu](concepts-firewall-rules.md) et [points de terminaison de service de réseau virtuel](concepts-data-access-and-security-vnet.md)) en définissant la configuration **Refuser l’accès au réseau public** sur le serveur de base de données. 
+
+Lorsque ce paramètre est défini sur *OUI*, seules les connexions via des points de terminaison privés sont autorisées vers votre base de données Azure Database pour PostgreSQL. Lorsque ce paramètre est défini sur *NON*, les clients peuvent se connecter à votre base de données Azure Database pour PostgreSQL en fonction du paramètre des points de terminaison de votre service de pare-feu ou de réseau virtuel. En outre, une fois la valeur d'accès au réseau privé définie, les clients ne peuvent ajouter et/ou mettre à jour ni des « règles de pare-feu » existantes, ni une règle de points de terminaison du service de réseau virtuel.
+
+> [!Note]
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL - Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
+>
+> Ce paramètre n’a aucun impact sur les configurations SSL et TLS pour votre serveur Azure Database pour PostgreSQL.
+
+Pour savoir comment définir l’option **Refuser l’accès au réseau public** pour votre serveur unique Azure Database pour PostgreSQL à partir du portail Azure, consultez [Configurer Refuser l’accès au réseau public](howto-deny-public-network-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

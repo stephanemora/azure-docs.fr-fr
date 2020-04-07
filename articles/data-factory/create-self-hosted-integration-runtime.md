@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/18/2019
-ms.openlocfilehash: 0d04ea7d7003f274b252e057b7afced7759bfaae
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/10/2020
+ms.openlocfilehash: 6302a7d6ffe7218d339121ec98a624f8e98356f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928521"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065595"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -153,7 +153,7 @@ Voici un résumé global des étapes de flux de données de copie avec un runtim
 - Les versions de Windows Server prises en charge sont les suivantes :
   + Windows 7 Service Pack 1
   + Windows 8.1
-  + Windows 10
+  + Windows 10
   + Windows Server 2008 R2 SP1
   + Windows Server 2012
   + Windows Server 2012 R2
@@ -162,7 +162,7 @@ Voici un résumé global des étapes de flux de données de copie avec un runtim
    
    L’installation du runtime d’intégration auto-hébergé sur un contrôleur de domaine n’est pas prise en charge.
 - .NET Framework 4.6.1 ou version ultérieure est requis. Si vous installez le runtime d’intégration auto-hébergé sur une machine Windows 7, installez .NET Framework 4.6.1 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](/dotnet/framework/get-started/system-requirements) pour plus d’informations.
-- La configuration minimale recommandée pour la machine exécutant le runtime d’intégration auto-hébergé correspond à un processeur à 2 GHz avec quatre cœurs, 8 Go de RAM et 80 Go d’espace disponible sur le disque dur.
+- La configuration minimale recommandée pour la machine exécutant le runtime d’intégration auto-hébergé correspond à un processeur à 2 GHz avec 4 cœurs, 8 Go de RAM et 80 Go d’espace disponible sur le disque dur.
 - Si la machine hôte est en veille prolongée, le runtime d’intégration auto-hébergé ne répond pas aux demandes de données. Configurez un plan d’alimentation approprié sur l’ordinateur avant d’installer le runtime d’intégration auto-hébergé. Si la machine est configurée pour se mettre en veille prolongée, le programme d'installation du runtime d’intégration auto-hébergé ouvre un message.
 - Vous devez disposer de droits d'administrateur sur la machine pour correctement installer et configurer le runtime d’intégration auto-hébergé.
 - L’activité de copie s’exécute selon une fréquence spécifique. L'utilisation du processeur et de la RAM sur la machine suit le même modèle avec des périodes de pointe et d’inactivité. L'utilisation des ressources dépend également en grande partie de la quantité de données déplacées. Lorsque plusieurs travaux sont en cours, vous constaterez une augmentation des ressources utilisées pendant les heures de pointe.
@@ -172,7 +172,7 @@ Voici un résumé global des étapes de flux de données de copie avec un runtim
 
 ## <a name="installation-best-practices"></a>Bonnes pratiques d’installation
 
-Vous pouvez installer le runtime d’intégration auto-hébergé en téléchargeant un package de configuration MSI à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Pour des instructions pas à pas, consultez l’article [Déplacement de données entre des sources locales et le cloud](tutorial-hybrid-copy-powershell.md).
+Vous pouvez installer le runtime d’intégration auto-hébergé en téléchargeant un package de configuration d’identité gérée à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Pour des instructions pas à pas, consultez l’article [Déplacement de données entre des sources locales et le cloud](tutorial-hybrid-copy-powershell.md).
 
 - Configurez un plan d’alimentation sur la machine hôte du runtime d’intégration auto-hébergé afin d’empêcher la mise en veille prolongée de la machine. Si cette dernière se met en veille prolongée, le runtime d’intégration auto-hébergé passe à l’état hors connexion.
 - Sauvegardez régulièrement les informations d’identification associées au runtime d’intégration auto-hébergé.
@@ -182,7 +182,7 @@ Vous pouvez installer le runtime d’intégration auto-hébergé en télécharge
 
 1. Rendez-vous sur la [page de téléchargement du runtime d’intégration Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
 1. Sélectionnez **Télécharger**, la version 64 bits, puis **Suivant**. La version 32 bits n'est pas prise en charge.
-1. Exécutez le fichier MSI directement ou enregistrez-le sur votre disque dur avant de l’exécuter.
+1. Exécutez le fichier de l’identité gérée directement ou enregistrez-le sur votre disque dur avant de l’exécuter.
 1. Dans la fenêtre **Bienvenue**, sélectionnez une langue, puis **Suivant**.
 1. Acceptez les termes du contrat de licence du logiciel Microsoft et sélectionnez **Suivant**.
 1. Sélectionnez le **dossier** pour l’installation du runtime d’intégration auto-hébergé et sélectionnez **Suivant**.
@@ -219,9 +219,9 @@ Vous pouvez associer plusieurs nœuds en installant le logiciel du runtime d’i
 
 ### <a name="scale-considerations"></a>Considérations d’échelle
 
-#### <a name="scale-out"></a>Montée en charge
+#### <a name="scale-out"></a>Scale-out
 
-Si l'utilisation du processeur est élevé et la mémoire disponible faible sur le runtime d’intégration auto-hébergé, ajoutez un nouveau nœud pour permettre une montée en charge des machines. Si des activités échouent parce qu’elles expirent ou que le nœud du runtime d’intégration auto-hébergé passe à l’état hors connexion, il est judicieux d’ajouter un nœud à la passerelle.
+Si l'utilisation du processeur est élevé et la mémoire disponible faible sur le runtime d’intégration auto-hébergé, ajoutez un nouveau nœud pour permettre d’effectuer un scale-out de la charge sur les machines. Si des activités échouent parce qu’elles expirent ou que le nœud du runtime d’intégration auto-hébergé passe à l’état hors connexion, il est judicieux d’ajouter un nœud à la passerelle.
 
 #### <a name="scale-up"></a>Monter en puissance
 
@@ -236,7 +236,7 @@ Voici la configuration requise pour le certificat TLS/SSL que vous utilisez pour
 - Le certificat doit être un certificat X509 v3 approuvé publiquement. Nous vous recommandons d’utiliser des certificats émis par une autorité de certification partenaire publique.
 - Chaque nœud de runtime d’intégration doit approuver ce certificat.
 - Nous déconseillons les certificats SAN (Subject Alternative Name) car seul le dernier élément SAN est utilisé. Tous les autres éléments SAN sont ignorés. Par exemple, si vous disposez d'un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous pouvez utiliser ce certificat uniquement sur une machine dont le nom de domaine complet (FQDN) est **node2.domain.contoso.com**.
-- Le certificat peut utiliser toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
+- Le certificat peut utiliser toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats TLS/SSL.
 - Les certificats qui utilisent des clés CNG ne sont pas pris en charge.  
 
 > [!NOTE]
@@ -283,7 +283,7 @@ Pour partager un runtime d’intégration auto-hébergé avec plusieurs fabrique
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitations connues du partage de runtime d’intégration autohébergé
 
-* La fabrique de données dans laquelle un runtime d’intégration lié est créé doit avoir une identité [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Par défaut, les fabriques de données créées dans le portail Azure ou les cmdlets PowerShell disposent d’une identité MSI créée implicitement. Cela étant, lorsqu'une fabrique de données est créée à l’aide d’un modèle Azure Resource Manager ou d'un kit de développement logiciel (SDK), vous devez explicitement définir la propriété **Identité**. Ce paramètre permet de s’assurer que Resource Manager crée une fabrique de données contenant un MSI.
+* La fabrique de données dans laquelle un runtime d’intégration lié est créé doit avoir une [identité gérée](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Par défaut, les fabriques de données créées dans le portail Azure ou les cmdlets PowerShell disposent d’une identité gérée créée implicitement. Cela étant, lorsqu'une fabrique de données est créée à l’aide d’un modèle Azure Resource Manager ou d'un kit de développement logiciel (SDK), vous devez explicitement définir la propriété **Identité**. Ce paramètre permet de s’assurer que Resource Manager crée une fabrique de données contenant une identité gérée.
 
 * Le kit de développement logiciel (SDK) Data Factory .NET version 1.1.0 ou ultérieure prend en charge cette fonctionnalité.
 
@@ -291,7 +291,7 @@ Pour partager un runtime d’intégration auto-hébergé avec plusieurs fabrique
 
 * La fonctionnalité de partage fonctionne uniquement pour les fabriques de données relevant du même locataire Azure AD.
 
-* Pour les [utilisateurs invités](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) Azure AD, la fonctionnalité de recherche de l'interface utilisateur, qui répertorie toutes les fabriques de données à l’aide d’un mot-clé de recherche, [ne fonctionne pas](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Cependant, tant que l’utilisateur invité correspond au propriétaire de la fabrique de données, vous pouvez partager le runtime d’intégration sans la fonctionnalité de recherche. Pour la MSI de la fabrique de données qui doit partager le runtime d’intégration, entrez ce cette MSI dans la boîte de dialogue **Attribuer une autorisation**, puis sélectionnez **Ajouter** dans l’interface utilisateur de Data Factory.
+* Pour les [utilisateurs invités](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) Azure AD, la fonctionnalité de recherche de l'interface utilisateur, qui répertorie toutes les fabriques de données à l’aide d’un mot-clé de recherche, [ne fonctionne pas](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Cependant, tant que l’utilisateur invité correspond au propriétaire de la fabrique de données, vous pouvez partager le runtime d’intégration sans la fonctionnalité de recherche. Pour l’identité gérée de la fabrique de données qui doit partager le runtime d’intégration, entrez ce cette identité gérée dans la boîte de dialogue **Attribuer une autorisation**, puis sélectionnez **Ajouter** dans l’interface utilisateur de Data Factory.
 
   > [!NOTE]
   > Cette fonctionnalité est uniquement disponible dans Data Factory V2.

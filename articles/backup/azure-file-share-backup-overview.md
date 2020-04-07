@@ -3,12 +3,12 @@ title: À propos de la sauvegarde des partages de fichiers Azure
 description: Découvrir comment sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0e17b05a3febaa673fb29d45c2bcef25e2996df8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd5bb51b2c7b5c09e9d859b69c3094eb50c205b5
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385715"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396282"
 ---
 # <a name="about-azure-file-share-backup"></a>À propos de la sauvegarde des partages de fichiers Azure
 
@@ -43,6 +43,15 @@ La sauvegarde des partages de fichiers Azure est une solution de sauvegarde clou
 6. Vous pouvez restaurer le contenu du partage de fichiers Azure (fichiers individuels ou partage complet) à partir des captures instantanées disponibles sur le partage de fichiers source. Une fois l’opération déclenchée, l’URL de capture instantanée est récupérée à partir du magasin de métadonnées et les données sont listées et transférées de l’instantané source vers le partage de fichiers cible de votre choix.
 
 7. Les données de surveillance des travaux de sauvegarde et de restauration sont envoyées au service Azure Backup Monitoring. Cela vous permet de surveiller les sauvegardes cloud de vos partages de fichiers dans un tableau de bord unique. En outre, vous pouvez également configurer des alertes ou des notifications par e-mail lorsque l’intégrité de la sauvegarde est affectée. Les e-mails sont envoyés par le biais du service de messagerie Azure.
+
+## <a name="backup-costs"></a>Coûts de sauvegarde
+
+La sauvegarde du partage de fichiers Azure est une solution basée sur des instantanés. Les frais de stockage inhérents sont facturés avec l’utilisation d’Azure Files selon la grille tarifaire présentée [ici](https://azure.microsoft.com/pricing/details/storage/files/).
+
+Toutefois, les frais de l’instance protégée pour tirer parti de la solution de sauvegarde suivent le modèle de tarification décrit dans la section [Sauvegarde pour Azure Files](https://azure.microsoft.com/pricing/details/backup/). Le prix réel n’a été mis à jour que pour la zone USA Centre-Ouest pour le moment. Pour les autres régions, les prix exacts seront mis à jour prochainement avec des variations régionales, mais sur le même modèle de tarification.
+
+>[!NOTE]
+>Pendant la préversion, il n’y a pas de « frais d’instance protégée ». Seuls les instantanés sont facturés selon la tarification indiquée [ici](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aca5019f4f7fca47195fb8fb821b1af1ae9ec77
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6a868c8199ac34a498a280e2522d6b1e4c7ec370
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024243"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295214"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
 
@@ -24,7 +24,7 @@ En raison des risques accrus associés aux protocoles d’authentification héri
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour bloquer les requêtes d’authentification héritées.
+Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour bloquer les requêtes d’authentification héritées. Ces stratégies sont mises en [mode rapport seul](howto-conditional-access-report-only.md) pour commencer afin que les administrateurs puissent déterminer l’impact qu’elles auront sur les utilisateurs existants. Lorsque les administrateurs sont sûrs que la stratégie s’applique comme prévu, ils peuvent l’**activer** ou échelonner le déploiement en ajoutant certains groupes et en en excluant d’autres.
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
@@ -32,7 +32,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
-   1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes qui doivent conserver la possibilité d’utiliser l’authentification héritée. Vous devez exclure au moins un compte pour que vous ne soyez pas verrouillé. Si vous n’excluez pas de compte, vous ne pourrez pas créer cette stratégie.
+   1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes qui doivent conserver la possibilité d’utiliser l’authentification héritée. Vous devez exclure au moins un compte pour ne pas être verrouillé. Si vous n’excluez pas de compte, vous ne pourrez pas créer cette stratégie.
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud**, sélectionnez **Toutes les applications cloud**.
    1. Sélectionnez **Terminé**.
@@ -41,7 +41,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
    1. Sélectionnez **Terminé**.
 1. Sous **Contrôles d'accès** > **Accorder**, sélectionnez **Bloquer l’accès**.
    1. Sélectionnez **Sélectionner**.
-1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+1. Confirmez vos paramètres et définissez **Activer la stratégie** sur **Rapport seul**.
 1. Sélectionnez **Créer** pour créer votre stratégie.
 
 ## <a name="next-steps"></a>Étapes suivantes

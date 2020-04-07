@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cb68f1bc851a8573ddec01d1eee803135a11b067
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 0cf8a4a78894cb7f0e1ddcf7aa18bbb4006bbeeb
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195356"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345637"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Services Azure qui prennent en charge Azure Data Lake Storage Gen2
 
@@ -40,7 +40,8 @@ Ce tableau répertorie les services Azure que vous pouvez utiliser avec Azure Da
 |Power BI| Mise à la disposition générale|[Analyse des données dans Data Lake Storage Gen2 à l’aide de Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage)|
 |SQL Data Warehouse|Mise à la disposition générale|[Utiliser avec Azure SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)|
 |SQL Server Integration Services (SSIS)|Mise à la disposition générale|[Gestionnaire de connexions Stockage Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
-|Recherche cognitive Azure| PRÉVERSION|[Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
+|Recherche cognitive Azure|PRÉVERSION|[Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
+|Explorateur de données Azure|PRÉVERSION|[Interroger des données dans Azure Data Lake à l’aide d’Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
 |Azure Content Delivery Network|Pas encore pris en charge|[Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
 
 
