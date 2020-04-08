@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: f2e875c625431867e6e83cfd1e0b2c6d7a2781f7
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112849"
 ---
 # <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>Créer un index Recherche cognitive Azure dans le portail
@@ -83,5 +83,5 @@ Sinon, vous pouvez étudier les [index de manière plus approfondie](search-what
 ## <a name="see-also"></a>Voir aussi
 
  [Fonctionnement de la recherche en texte intégral](search-lucene-query-architecture.md)  
- [API REST du service de recherche](https://docs.microsoft.com/rest/api/searchservice/)[SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
+ [API REST du service Search](https://docs.microsoft.com/rest/api/searchservice/) [Kit SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
 

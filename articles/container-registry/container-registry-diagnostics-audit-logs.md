@@ -3,12 +3,12 @@ title: Collecter et analyser les journaux de ressources
 description: Enregistrez et analysez les événements des journaux des ressources pour Azure Container Registry tels que l’authentification, l’envoi (push) d’images et le tirage (pull) d’images.
 ms.topic: article
 ms.date: 01/03/2020
-ms.openlocfilehash: 72d03149cd24636ba2086dfaaff0dbba16d30f1e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 00f9468721126bd166051df47cec1596356e9b54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748002"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409641"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics
 
@@ -20,11 +20,7 @@ Cet article explique comment collecter des données de journal pour un registre 
 
 La collecte de données de journal de ressources à l’aide d’Azure Monitor peut entraîner des coûts supplémentaires. Consultez [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). 
 
-
-> [!IMPORTANT]
-> Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
-
-## <a name="preview-limitations"></a>Limitations de la version préliminaire
+## <a name="repository-events"></a>Événements de dépôt
 
 Les événements suivants au niveau du référentiel pour les images et autres artefacts sont actuellement journalisés :
 
@@ -109,5 +105,3 @@ Vous pouvez également diffuser en continu les événements du journal de diagno
 * En savoir plus sur l’utilisation de [Log Analytics](../azure-monitor/log-query/get-started-portal.md) et la création de [requêtes de journal](../azure-monitor/log-query/get-started-queries.md).
 * Consultez [vue d’ensemble des journaux de plateforme Azure](../azure-monitor/platform/platform-logs-overview.md) pour en savoir plus sur les journaux de plateforme disponibles dans différentes couches d’Azure.
 
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

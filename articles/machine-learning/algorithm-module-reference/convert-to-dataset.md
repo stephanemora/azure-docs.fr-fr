@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: dc3630f4b832a9b15217e8f5cdc03830f15ee2a7
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546756"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456588"
 ---
 # <a name="convert-to-dataset"></a>Convertir en jeu de données
 
@@ -51,7 +51,7 @@ Nous vous recommandons d’utiliser le module [Modifier les métadonnées](edit-
     Notez que l’opération **Remplacer des valeurs** s’applique uniquement aux correspondances exactes. Par exemple, ces chaînes ne sont pas affectées : `obs.`, `obsolete`.  
  
   
-5.  Exécuter le pipeline.  
+5.  Envoyez le pipeline.  
 
 ## <a name="results"></a>Résultats
 

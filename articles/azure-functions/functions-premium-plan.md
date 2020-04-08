@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615678"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234985"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-Dans cet exemple, remplacez `<RESOURCE_GROUP>` par votre groupe de ressources `<PLAN_NAME>` et par le nom de votre plan, qui doit être unique dans le groupe de ressources. Spécifiez une [`<REGION>` prise en charge](#regions). Pour créer un plan Premium qui prend en charge Linux, ajoutez l’option `--is-linux`.
+Dans cet exemple, remplacez `<RESOURCE_GROUP>` par votre groupe de ressources `<PLAN_NAME>` et par le nom de votre plan, qui doit être unique dans le groupe de ressources. Spécifiez une [`<REGION>` prise en charge](https://azure.microsoft.com/global-infrastructure/services/?products=functions). Pour créer un plan Premium qui prend en charge Linux, ajoutez l’option `--is-linux`.
 
 Une fois le plan créé, vous pouvez utiliser [az functionapp create](/cli/azure/functionapp#az-functionapp-create) pour créer votre application de fonction. Dans le portail, le plan et l’application sont créés en même temps. Pour obtenir un exemple de script Azure CLI complet, consultez [Créer une application de fonction sur le plan Premium](scripts/functions-cli-create-premium-plan.md).
 
@@ -41,7 +41,7 @@ Si aucun événement ou aucune exécution ne se produisent aujourd’hui dans le
 
 Dans le plan Premium, vous pouvez disposer de votre application chauffée au préalable sur un nombre spécifié d’instances, jusqu’à la taille minimale de votre plan.  Les instances chauffées au préalable vous permettent également de mettre à l’échelle une application avant une charge élevée. Lorsque l’application monte en charge, elle commence par se mettre à l’échelle dans les instances chauffées au préalable. Des instances supplémentaires continuent de s’ajouter en mémoire tampon et à chauffer immédiatement en vue de la prochaine opération de mise à l’échelle. Le fait de disposer d’un tampon d’instances chauffées au préalable vous permet d’éviter efficacement les latences de démarrage à froid.  Les instances chauffées au préalable caractérisent le plan Premium et vous devez conserver au moins une instance opérationnelle et disponible aussi longtemps que le plan est actif.
 
-Vous pouvez configurer le nombre d’instances chauffées au préalable sur le portail Azure en sélectionnant votre **Function App**, en accédant à l’onglet **Fonctionnalités de la plateforme**, puis en sélectionnant les options pour **Monter en charge**. Dans la fenêtre d’édition de l’application, les instances chauffées au préalable sont spécifiques de cette application, mais les instances minimale et maximale s’appliquent au plan tout entier.
+Vous pouvez configurer le nombre d’instances chauffées au préalable sur le portail Azure en sélectionnant votre **Function App**, en accédant à l’onglet **Fonctionnalités de la plateforme**, puis en sélectionnant les options **Scale-out**. Dans la fenêtre d’édition de l’application, les instances chauffées au préalable sont spécifiques de cette application, mais les instances minimale et maximale s’appliquent au plan tout entier.
 
 ![Paramètres de mise à l’échelle élastique](./media/functions-premium-plan/scale-out.png)
 
@@ -65,7 +65,7 @@ Des instances de calcul supplémentaires sont automatiquement ajoutées pour vot
 
 ### <a name="longer-run-duration"></a>Durée d’exécution plus longue
 
-Azure Functions dans un Plan Consommation est limité à 10 minutes par exécution.  Dans le plan Premium, la durée d’exécution par défaut est de 30 minutes pour éviter tout perte de contrôle. Cependant, vous pouvez [modifier la configuration de host.json](./functions-host-json.md#functiontimeout) afin de porter la durée d’exécution à 60 minutes pour les applications du plan Premium.
+Azure Functions dans un Plan Consommation est limité à 10 minutes par exécution.  Dans le plan Premium, la durée d’exécution par défaut est de 30 minutes pour éviter tout perte de contrôle. Cependant, vous pouvez [modifier la configuration de host.json](./functions-host-json.md#functiontimeout) afin de rendre son exécution illimitée pour les applications du plan Premium (60 minutes garanties).
 
 ## <a name="plan-and-sku-settings"></a>Paramètres du plan et de la référence SKU
 
@@ -74,9 +74,9 @@ Lorsque vous créez le plan, vous configurez deux paramètres : le nombre minim
 > [!IMPORTANT]
 > Vous êtes facturé pour chaque instance allouée en lien avec le nombre minimal d’instances, que les fonctions s’exécutent ou non.
 
-Si votre application nécessite un nombre d’instances supérieur à la taille de votre plan, elle peut continuer à monter en charge jusqu’à ce que le nombre d’instances atteigne la limite maximale en rafale.  Vous êtes facturé pour des instances dépassant la taille de votre plan uniquement quand elles sont en cours d’exécution et louées pour vous.  Nous nous efforçons d’augmenter l’échelle votre application jusqu’à la limite maximale définie, tandis que les instances minimales du plan sont garanties pour votre application.
+Si votre application nécessite un nombre d’instances supérieur à la taille de votre plan, elle peut continuer à effectuer un scale-out jusqu’à ce que le nombre d’instances atteigne la limite maximale en rafale.  Vous êtes facturé pour des instances dépassant la taille de votre plan uniquement quand elles sont en cours d’exécution et louées pour vous.  Nous nous efforçons d’augmenter l’échelle votre application jusqu’à la limite maximale définie, tandis que les instances minimales du plan sont garanties pour votre application.
 
-Vous pouvez configurer la taille et les nombres maximums d'instances du plan via le portail Azure en sélectionnant les options **Scale Out** du plan ou une application de fonction déployée dans le cadre de celui-ci (sous **Fonctionnalités de la plateforme**).
+Vous pouvez configurer la taille et les nombres maximaux d’instances du plan via le portail Azure en sélectionnant les options **Scale-out** du plan ou une Function App déployée sur celui-ci (sous **Fonctionnalités de la plateforme**).
 
 Vous pouvez également augmenter la limite maximale en rafale à partir d’Azure CLI :
 
@@ -86,7 +86,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>Références SKU d’instance disponibles
 
-Pendant la création ou la mise à l’échelle de votre plan, vous pouvez choisir entre trois tailles d’instance.  Vous êtes facturé pour le nombre total de cœurs et la mémoire consommés par seconde.  Votre application peut monter en charge automatiquement en augmentant le nombre d’instances en fonction des besoins.  
+Pendant la création ou la mise à l’échelle de votre plan, vous pouvez choisir entre trois tailles d’instance.  Vous êtes facturé pour le nombre total de cœurs et la mémoire consommés par seconde.  Votre application peut automatiquement effectuer un scale-out sur plusieurs instances en fonction des besoins.  
 
 |SKU|Cœurs|Mémoire|Stockage|
 |--|--|--|--|
@@ -99,43 +99,42 @@ L’exécution sur une machine avec davantage de mémoire ne signifie pas toujou
 
 Par exemple, une application de fonction JavaScript est contrainte par la limite de mémoire par défaut dans Node.js. Pour augmenter cette limite de mémoire fixe, ajoutez le paramètre d’application `languageWorkers:node:arguments` avec la valeur `--max-old-space-size=<max memory in MB>`.
 
-## <a name="regions"></a>Régions
+## <a name="region-max-scale-out"></a>Scale-out maximal par région
 
-Vous trouverez ci-dessous les régions prises en charge actuellement pour chaque système d’exploitation.
+Vous trouverez ci-dessous les valeurs maximales de scale-out actuellement prises en charge pour un même plan dans chaque région et configuration de système d’exploitation. Pour demander une augmentation, ouvrez un ticket de support.
+
+La disponibilité régionale complète de Functions est indiquée ici : [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
 |Région| Windows | Linux |
 |--| -- | -- |
-|Centre de l’Australie| ✔<sup>1</sup> | |
-|Centre de l’Australie 2| ✔<sup>1</sup> | |
-|Australie Est| ✔ | ✔<sup>1</sup> |
-|Sud-Australie Est | ✔ | ✔<sup>1</sup> |
-|Brésil Sud| ✔<sup>2</sup> |  |
-|Centre du Canada| ✔ | ✔<sup>1</sup> |
-|USA Centre| ✔ |  |
-|Asie Est| ✔ |  |
-|USA Est | ✔ | ✔<sup>1</sup> |
-|USA Est 2| ✔ | ✔<sup>1</sup> |
-|France Centre| ✔ |  |
-|Allemagne Centre-Ouest| ✔ | |
-|Japon Est| ✔ | ✔<sup>1</sup> |
-|OuJapon Est| ✔ | ✔<sup>1</sup> |
-|Centre de la Corée| ✔ | ✔<sup>1</sup> |
-|Centre-Nord des États-Unis| ✔ |  |
-|Europe Nord| ✔ | ✔<sup>1</sup> |
-|États-Unis - partie centrale méridionale| ✔ | ✔<sup>1</sup> |
-|Inde Sud | ✔ | |
-|Asie Sud-Est| ✔ | ✔<sup>1</sup> |
-|Sud du Royaume-Uni| ✔ | ✔<sup>1</sup> |
-|Ouest du Royaume-Uni| ✔ |  |
-|Europe Ouest| ✔ | ✔<sup>1</sup> |
-|Inde Ouest| ✔ |  |
-|Centre-USA Ouest| | ✔<sup>1</sup> |
-|USA Ouest| ✔ | ✔<sup>1</sup> |
-|USA Ouest 2| ✔ |  |
-
-<sup>1</sup> Montée en charge (scale out) maximale limitée à 20 instances.  
-<sup>2</sup> Montée en charge (scale out) maximale limitée à 60 instances.
-
+|Centre de l’Australie| 20 | Non disponible |
+|Centre de l’Australie 2| 20 | Non disponible |
+|Australie Est| 100 | 20 |
+|Sud-Australie Est | 100 | 20 |
+|Brésil Sud| 60 | 20 |
+|Centre du Canada| 100 | 20 |
+|USA Centre| 100 | 20 |
+|Asie Est| 100 | 20 |
+|USA Est | 100 | 20 |
+|USA Est 2| 100 | 20 |
+|France Centre| 100 | 20 |
+|Allemagne Centre-Ouest| 100 | Non disponible |
+|Japon Est| 100 | 20 |
+|OuJapon Est| 100 | 20 |
+|Centre de la Corée| 100 | 20 |
+|Centre-Nord des États-Unis| 100 | 20 |
+|Europe Nord| 100 | 20 |
+|Norvège Est| 20 | 20 |
+|États-Unis - partie centrale méridionale| 100 | 20 |
+|Inde Sud | 100 | Non disponible |
+|Asie Sud-Est| 100 | 20 |
+|Sud du Royaume-Uni| 100 | 20 |
+|Ouest du Royaume-Uni| 100 | 20 |
+|Europe Ouest| 100 | 20 |
+|Inde Ouest| 100 | 20 |
+|Centre-USA Ouest| 20 | 20 |
+|USA Ouest| 100 | 20 |
+|USA Ouest 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

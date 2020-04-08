@@ -12,17 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 03/27/2020
 ms.author: b-juche
-ms.openlocfilehash: 81711394b56287e67c51882744a5032555a186f0
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 8eae528c965e599e7adfb546a09b0d5879e7c54f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206297"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369524"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
+
+## <a name="azure-high-performance-computing-hpc-solutions"></a>Solutions de calcul haute performance (HPC) Azure
+
+* [Exécuter le logiciel de simulation de réservoir sur Azure](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
+* [Exécuter des charges de travail MPI avec Azure Batch et Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
 
 ## <a name="azure-kubernetes-service-aks-solutions"></a>Solutions Azure Kubernetes Service (AKS)
 
@@ -46,10 +51,11 @@ Cet article fournit des références aux meilleures pratiques pouvant vous aider
 * [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 * [Azure NetApp Files : sauvegarde SAP HANA en secondes](https://blog.netapp.com/azure-netapp-files-sap-hana-backup-in-seconds/)
 * [Azure NetApp Files : restaurer votre base de données HANA à partir d’une sauvegarde d’instantané](https://blog.netapp.com/azure-netapp-files-backup-sap-hana/)
+* [Azure NetApp Files : déchargement de sauvegardes SAP HANA avec Cloud Sync](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Accélérez vos copies système SAP HANA à l’aide d’Azure NetApp Files](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
-* [Cloud Volumes ONTAP et Azure NetApp Files : migration du système SAP HANA facilitée](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
+* [Cloud Volumes ONTAP et Azure NetApp Files : migration du système SAP HANA facilitée](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/) 
 
-## <a name="talon-solutions"></a>Solutions Talon
+## <a name="global-file-caching-solutions"></a>Solutions globales de mise en cache de fichiers
 
 * [Globally distributed enterprise file sharing with Azure NetApp Files and Talon FAST™](https://www.talonstorage.com/products/azure-netapp-files)
 

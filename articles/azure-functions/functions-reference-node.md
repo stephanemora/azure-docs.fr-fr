@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de JavaScr
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 345df8e1ea88caa6f8dbe941245c1f989c3e81c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584487"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234961"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -363,6 +363,7 @@ L’objet (de réponse) `context.res` comporte les propriétés suivantes :
 | _headers_ | Objet qui contient les en-têtes de la réponse.             |
 | _isRaw_   | Indique que la mise en forme est ignorée pour la réponse.    |
 | _statut_  | Code d’état HTTP de la réponse.                     |
+| _cookies_ | Tableau d’objets cookie HTTP définis dans la réponse. Un objet cookie HTTP possède un `name`, `value` et d’autres propriétés de cookie, comme `maxAge` ou `sameSite`. |
 
 ### <a name="accessing-the-request-and-response"></a>Accès à la demande et à la réponse 
 
@@ -634,7 +635,7 @@ Quand vous utilisez des fonctions JavaScript, tenez compte des considérations d
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Choisir des plans App Service à processeur virtuel unique
 
-Lorsque vous créez une application de fonction qui utilise le plan App Service, nous vous recommandons de sélectionner un plan à processeur virtuel unique plutôt qu’un plan à plusieurs processeurs virtuels. À l’heure actuelle, Functions exécute les fonctions JavaScript plus efficacement sur des machines virtuelles à processeur virtuel unique. Le recours à de plus grandes machines virtuelles ne produit pas les améliorations de performances attendues. Le cas échéant, vous pouvez faire une mise à l’échelle horizontale manuellement en ajoutant des instances de machine virtuelle à processeur virtuel unique, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
+Lorsque vous créez une application de fonction qui utilise le plan App Service, nous vous recommandons de sélectionner un plan à processeur virtuel unique plutôt qu’un plan à plusieurs processeurs virtuels. À l’heure actuelle, Functions exécute les fonctions JavaScript plus efficacement sur des machines virtuelles à processeur virtuel unique. Le recours à de plus grandes machines virtuelles ne produit pas les améliorations de performances attendues. Le cas échéant, vous pouvez effectuer un scale-out manuellement en ajoutant des instances de machine virtuelle à processeur virtuel unique, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
 
 ### <a name="cold-start"></a>Démarrage à froid
 

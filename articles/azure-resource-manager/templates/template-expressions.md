@@ -2,13 +2,13 @@
 title: Modèle de syntaxe et d’expressions
 description: Décrit la syntaxe JSON déclarative pour les modèles Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 7bca3125f80225d2180734f483194a63e39d9cf5
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 03/17/2020
+ms.openlocfilehash: 172838fa24709eb60fbcb6a68277f44bbd42f01e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207398"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460107"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntaxe et expressions dans les modèles Azure Resource Manager
 
@@ -71,9 +71,59 @@ Pour échapper les guillemets doubles dans une expression, comme l’ajout d’u
 },
 ```
 
+Quand il s’agit de transmettre des valeurs de paramètres, l’utilisation de caractères d’échappement dépend de l’endroit où sont spécifiées ces valeurs. Si vous définissez une valeur par défaut dans le modèle, vous avez besoin du crochet gauche supplémentaire.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "demoParam1":{
+            "type": "string",
+            "defaultValue": "[[test value]"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "exampleOutput": {
+            "type": "string",
+            "value": "[parameters('demoParam1')]"
+        }
+    }
+}
+```
+
+Si vous utilisez la valeur par défaut, le modèle retourne `[test value]`.
+
+Cependant, si vous transmettez une valeur de paramètre via la ligne de commande, les caractères sont interprétés littéralement. Le fait de déployer le modèle précédent avec :
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[[test value]"
+```
+
+Retourne `[[test value]`. Utilisez à la place :
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
+```
+
+La même mise en forme s’applique quand il s’agit de transmettre des valeurs à partir d’un fichier de paramètres. Les caractères sont interprétés littéralement. Quand il est utilisé avec le modèle précédent, le fichier de paramètres suivant retourne `[test value]` :
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "demoParam1": {
+            "value": "[test value]"
+        }
+   }
+}
+```
+
 ## <a name="null-values"></a>Valeurs Null
 
-Pour définir une propriété sur la valeur Null, vous pouvez utiliser **null** ou **[json('null')]** . La [fonction json](template-functions-array.md#json) retourne un objet vide quand vous fournissez `null` comme paramètre. Dans les deux cas, les modèles Resource Manager traitent les expressions comme si la propriété en était absente.
+Pour définir une propriété sur la valeur Null, vous pouvez utiliser **null** ou **[json('null')]** . La [fonction json](template-functions-array.md#json) retourne un objet vide quand vous fournissez `null` comme paramètre. Dans les deux cas, les modèles Resource Manager font comme si la propriété n’était pas présente.
 
 ```json
 "stringValue": null,

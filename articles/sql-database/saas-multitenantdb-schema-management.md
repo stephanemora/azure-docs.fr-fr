@@ -12,11 +12,11 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822121"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232613"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
 

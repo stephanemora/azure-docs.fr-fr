@@ -4,33 +4,31 @@ description: Découvrez comment configurer des clés gérées par le client pour
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 6e2a90b8f81b9b945905ee98beb1686c54a62e8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063753"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 
 > [!NOTE]
 > À ce stade, vous devez demander l’accès pour utiliser cette fonctionnalité. Pour ce faire, veuillez contacter [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
 
-Les données stockées dans votre compte Azure Cosmos sont chiffrées automatiquement et en toute transparence. Azure Cosmos DB offre deux options pour gérer les clés utilisées pour chiffrer les données au repos :
+Les données stockées dans votre compte Azure Cosmos sont chiffrées automatiquement et de façon fluide avec des clés gérées par Microsoft (**clés gérées par le service**). Vous pouvez éventuellement choisir d’ajouter une deuxième couche de chiffrement avec des clés gérées par vos soins (**clés gérées par le client**).
 
-- **Clés gérées par le service** : Par défaut, Microsoft gère les clés utilisées pour chiffrer les données dans votre compte Azure Cosmos.
-
-- **Clés gérées par le client (CMK)**  : Vous pouvez éventuellement choisir d’ajouter une deuxième couche de chiffrement avec vos propres clés.
+![Couches de chiffrement autour des données du client](./media/how-to-setup-cmk/cmk-intro.png)
 
 Vous devez stocker les clés gérées par le client dans [Azure Key Vault](../key-vault/key-vault-overview.md) et fournir une clé pour chaque compte Azure Cosmos activé avec des clés gérées par le client. Cette clé est utilisée pour chiffrer toutes les données stockées dans ce compte.
 
 > [!NOTE]
 > Actuellement, les clés gérées par le client sont uniquement disponibles pour les nouveaux comptes Azure Cosmos. Vous devez les configurer lors de la création du compte.
 
-## <a id="register-resource-provider"></a> Inscrire le fournisseur de ressources Azure Cosmos DB dans l’abonnement Azure
+## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a> Inscrire le fournisseur de ressources Azure Cosmos DB dans l’abonnement Azure
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/), accédez à votre abonnement Azure et sélectionnez **Fournisseurs de ressources** sous l’onglet **Paramètres** :
 
@@ -189,6 +187,22 @@ New-AzResourceGroupDeployment `
     -keyVaultKeyUri $keyVaultKeyUri
 ```
 
+### <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
+
+Quand vous créez un compte Azure Cosmos à l’aide d’Azure CLI, transmettez l’URI de la clé Azure Key Vault que vous avez copiée sous le paramètre **--key-uri**.
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --key-uri $keyVaultKeyUri
+```
+
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="is-there-any-additional-charge-for-using-customer-managed-keys"></a>Des frais supplémentaires sont-ils facturés pour l’utilisation de clés gérées par le client ?
@@ -217,7 +231,7 @@ Actuellement non, mais les clés au niveau du conteneur sont prises en compte.
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Comment les clés gérées par le client influent-elles sur une sauvegarde ?
 
-Azure Cosmos DB prend des [sauvegardes régulières et automatiques](./online-backup-and-restore.md) des données stockées dans votre compte. Cette opération sauvegarde les données chiffrées. Pour utiliser la sauvegarde restaurée, la clé de chiffrement que vous avez utilisée au moment de la sauvegarde est requise. Cela signifie qu’aucune révocation n’a été effectuée et que la version de la clé qui a été utilisée au moment de la sauvegarde est toujours activée.
+Azure Cosmos DB prend des [sauvegardes régulières et automatiques](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) des données stockées dans votre compte. Cette opération sauvegarde les données chiffrées. Pour utiliser la sauvegarde restaurée, la clé de chiffrement que vous avez utilisée au moment de la sauvegarde est requise. Cela signifie qu’aucune révocation n’a été effectuée et que la version de la clé qui a été utilisée au moment de la sauvegarde est toujours activée.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Comment révoquer une clé de chiffrement ?
 

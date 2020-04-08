@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Resource Health
 description: Vue d’ensemble d’Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356791"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159249"
 ---
 # <a name="resource-health-overview"></a>Vue d’ensemble de Resource Health
  
@@ -38,7 +38,7 @@ L’intégrité d’une ressource présente l’un des états suivants.
 
 #### <a name="platform-events"></a>Événements de plateforme
 
-Les événements de plateforme sont déclenchés par plusieurs composants de l’infrastructure Azure. Ils incluent à la fois les actions planifiées (par exemple, une maintenance planifiée) et les incidents inattendus (par exemple, un redémarrage de l’hôte non planifié).
+Les événements de plateforme sont déclenchés par plusieurs composants de l’infrastructure Azure. Ils incluent à la fois les actions planifiées (par exemple, une maintenance planifiée) et les incidents inattendus (par exemple, un redémarrage imprévu de l’hôte ou un matériel hôte dégradé dont on prévoit qu’il tombera en panne après une période donnée).
 
 Resource Health fournit des détails supplémentaires sur l’événement et le processus de récupération. Vous pouvez aussi contacter le support Microsoft même si vous n’avez pas de contrat de support actif.
 
@@ -76,7 +76,7 @@ Si vous pensez que l’état d’intégrité actuel est incorrect, vous pouvez n
 
 ## <a name="history-information"></a>Informations d’historique
 
-Vous pouvez accéder à 14 jours d’historique d’intégrité dans la section **Historique de l’intégrité** de Resource Health.
+Vous pouvez consulter jusqu’à 30 jours d’historique dans la section **Historique de l’intégrité** de Resource Health.
 
 ![Liste des événements Resource Health sur les deux dernières semaines](./media/resource-health-overview/history-blade.png)
 

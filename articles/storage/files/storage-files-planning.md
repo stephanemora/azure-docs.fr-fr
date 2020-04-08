@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b5bf5cc5c44226236f39a6e32c33ebe346e36eeb
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78940987"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502432"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -88,7 +88,7 @@ En général, les fonctionnalités d’Azure Files et l’interopérabilité ave
     - Les partages de fichiers Standard sont disponibles pour le stockage localement redondant, redondant interzone, géoredondant (GRS) et géoredondant interzone (GZRS).
 - **Taille maximale d’un partage de fichiers**
     - Les partages de fichiers Premium peuvent être provisionnés jusqu’à 100 Tio sans aucun travail supplémentaire.
-    - Par défaut, les partages de fichiers Standard ne peuvent atteindre que 5 Tio, mais la limite de partage peut être augmentée jusqu’à 100 Tio en optant pour l’indicateur de fonctionnalité de compte de stockage *Partage de fichiers volumineux*. Les partages de fichiers Standard peuvent couvrir jusqu’à 100 Tio uniquement pour les comptes de stockage redondants en local ou interzones. Pour plus d’informations sur l’augmentation de la  
+    - Par défaut, les partages de fichiers Standard ne peuvent atteindre que 5 Tio, mais la limite de partage peut être augmentée jusqu’à 100 Tio en optant pour l’indicateur de fonctionnalité de compte de stockage *Partage de fichiers volumineux*. Les partages de fichiers Standard peuvent couvrir jusqu’à 100 Tio uniquement pour les comptes de stockage redondants en local ou interzones. Pour plus d’informations sur l’augmentation de la taille des partages de fichiers, consultez [Activer et créer des partages de fichiers volumineux](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Disponibilité régionale**
     - Les partages de fichiers Premium ne sont pas disponibles dans toutes les régions, et la prise en charge de la redondance interzone est disponible dans un sous-ensemble plus petit de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour connaître les régions prenant en charge ZRS, consultez [Prise en charge des zones de disponibilité Azure par région](../../availability-zones/az-overview.md#services-support-by-region). Pour nous aider à hiérarchiser les nouvelles régions et les fonctionnalités du niveau Premium, répondez à ce [sondage](https://aka.ms/pfsfeedback).
     - Le partage de fichiers Standard est disponible dans toutes les régions Azure.

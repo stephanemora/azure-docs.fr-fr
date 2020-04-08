@@ -4,21 +4,22 @@ description: Découvrez les mots clés SQL pour Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: c9024f120e0a55162a1f6dba0cd9cbda97f5eebc
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: f2da2695ec20eac9dd2636104d3314427e60d541
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343191"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498540"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Mots clés dans Azure Cosmos DB
+
 Cet article détaille les mots clés qui peuvent être utilisés dans les requêtes SQL Azure Cosmos DB.
 
 ## <a name="between"></a>BETWEEN
 
-Comme dans SQL ANSI, vous pouvez utiliser le mot clé BETWEEN pour exprimer des requêtes sur des plages de valeurs numériques ou de chaîne. Par exemple, la requête suivante retourne tous les éléments dont la classe du premier enfant est comprise entre 1 et 5, inclus.
+Vous pouvez utiliser le mot clé `BETWEEN` pour exprimer des requêtes sur des plages de chaînes ou de valeurs numériques. Par exemple, la requête suivante retourne tous les éléments dont la classe du premier enfant est comprise entre 1 et 5, inclus.
 
 ```sql
     SELECT *
@@ -26,7 +27,7 @@ Comme dans SQL ANSI, vous pouvez utiliser le mot clé BETWEEN pour exprimer des 
     WHERE c.grade BETWEEN 1 AND 5
 ```
 
-Contrairement à SQL ANSI, vous pouvez également utiliser la clause BETWEEN dans la clause FROM, comme dans l’exemple suivant.
+Vous pouvez également utiliser le mot clé `BETWEEN` dans la clause `SELECT`, comme dans l’exemple suivant.
 
 ```sql
     SELECT (c.grade BETWEEN 0 AND 10)
@@ -36,18 +37,18 @@ Contrairement à SQL ANSI, vous pouvez également utiliser la clause BETWEEN dan
 Dans l’API SQL, contrairement à SQL ANSI, vous pouvez exprimer des requêtes de plage sur des propriétés de types mixtes. Par exemple, `grade` peut être un nombre comme `5` dans certains éléments et une chaîne comme `grade4` dans d’autres. Dans ces cas-là, comme dans JavaScript, la comparaison entre deux types différents a pour résultat `Undefined` ; l’élément est donc ignoré.
 
 > [!TIP]
-> Pour accélérer le temps d’exécution de requête, créez une stratégie d’indexation qui utilise un type d’index de plage sur tous les chemins ou propriétés numériques que filtre la clause BETWEEN.
+> Pour accélérer le temps d’exécution des requêtes, créez une stratégie d’indexation qui utilise un type d’index de plage sur tous les chemins ou propriétés numériques que la clause `BETWEEN` filtre.
 
 ## <a name="distinct"></a>DISTINCT
 
-Le mot clé DISTINCT élimine les doublons dans la projection de la requête.
+Le mot clé `DISTINCT` élimine les doublons dans la projection de la requête.
+
+Dans cet exemple, la requête projette des valeurs pour chaque nom de famille :
 
 ```sql
 SELECT DISTINCT VALUE f.lastName
 FROM Families f
 ```
-
-Dans cet exemple, la requête projette des valeurs pour chaque nom de famille.
 
 Les résultats sont :
 
@@ -101,7 +102,14 @@ Les résultats sont :
     }
 ]
 ```
-## <a name="in"></a> IN
+
+Les requêtes comprenant une fonction système d’agrégation et une sous-requête avec `DISTINCT` ne sont pas prises en charge. Par exemple, la requête suivante n’est pas prise en charge :
+
+```sql
+SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
+```
+
+## <a name="in"></a>IN
 
 Utilisez le mot clé IN pour vérifier si une valeur spécifiée correspond à une valeur dans une liste. Par exemple, la requête suivante retourne tous les éléments de famille dont le champ `id` a pour valeur `WakefieldFamily` ou `AndersenFamily`.
 
@@ -119,11 +127,13 @@ L’exemple suivant retourne tous les éléments dont l’État (« state ») 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-L’API SQL prend en charge l’[itération sur les tableaux JSON](sql-query-object-array.md#Iteration), avec une nouvelle construction ajoutée par le biais du mot clé IN dans la source FROM. 
+L’API SQL prend en charge l’[itération sur les tableaux JSON](sql-query-object-array.md#Iteration), avec une nouvelle construction ajoutée par le biais du mot clé IN dans la source FROM.
 
-## <a name="top"></a>TOP
+Si vous incluez votre clé de partition dans le filtre `IN`, votre requête sera automatiquement filtrée sur les seules partitions pertinentes.
 
-Le mot clé TOP retourne les `N` premiers résultats de la requête dans un ordre non défini. En guise de bonne pratique, utilisez TOP avec la clause ORDER BY pour limiter les résultats aux `N` premières valeurs ordonnées. La combinaison de ces deux clauses est le seul moyen d’indiquer de manière prévisible les lignes qui sont affectées par TOP.
+## <a name="top"></a>Haut de la page
+
+Le mot clé TOP retourne les `N` premiers résultats de la requête dans un ordre non défini. En guise de meilleure pratique, utilisez TOP avec la clause `ORDER BY` pour limiter les résultats aux `N` premières valeurs ordonnées. La combinaison de ces deux clauses est le seul moyen d’indiquer de manière prévisible les lignes qui sont affectées par TOP.
 
 Vous pouvez utiliser TOP avec une valeur constante, comme dans l’exemple suivant, ou avec une valeur variable à l’aide de requêtes paramétrables.
 
@@ -156,6 +166,6 @@ Les résultats sont :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main](sql-query-getting-started.md)
-- [Jointures](sql-query-join.md)
-- [Sous-requêtes](sql-query-subquery.md)
+- [Bien démarrer](sql-query-getting-started.md)
+- [Joins](sql-query-join.md)
+- [Subqueries](sql-query-subquery.md)

@@ -1,6 +1,7 @@
 ---
-title: Continuité et reprise d’activité Video Indexer - Azure
-description: Découvrez comment basculer vers un compte Video Indexer secondaire en cas de panne ou de défaillance d’un centre de données régional.
+title: Basculement et récupération d’urgence Video Indexer
+titleSuffix: Azure Media Services
+description: Découvrez comment basculer vers un compte Video Indexer secondaire en cas de défaillance d’un centre de données régional ou de sinistre.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,20 +14,20 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 2f54c340226a9ea78643df8e0a984c8ed8475c94
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 17c21900448fcb6d0a40fe5407f3b8bd62f9e3e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513573"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499609"
 ---
-# <a name="handle-video-indexer-business-continuity-and-disaster-recovery"></a>Gérer la continuité et la reprise d’activité Video Indexer
+# <a name="video-indexer-failover-and-disaster-recovery"></a>Basculement et récupération d’urgence Video Indexer
 
-Azure Media Services Video Indexer ne fournit pas de basculement instantané du service en cas de panne ou d’échec d’un centre de données régional. Cet article explique comment configurer votre environnement pour un basculement afin de garantir une disponibilité optimale pour les applications et réduire le temps de récupération en cas de sinistre.
+Azure Media Services Video Indexer ne fournit pas de basculement instantané du service en cas de panne ou de défaillance d’un centre de données régional. Cet article explique comment configurer votre environnement pour un basculement afin de garantir une disponibilité optimale pour les applications et réduire le temps de récupération en cas de sinistre.
 
-Nous vous recommandons de configurer la continuité d’activité et reprise d’activité (BCDR) dans les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité Azure. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Nous vous recommandons de configurer la continuité d’activité et reprise d’activité (BCDR) dans des paires régionales pour tirer parti des stratégies d’isolation et de disponibilité d’Azure. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis
 
 Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un essai gratuit Azure](https://azure.microsoft.com/free/).
 
@@ -34,8 +35,8 @@ Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrive
 
 Pour implémenter BCDR, vous devez disposer de deux comptes Video Indexer pour gérer la redondance.
 
-1. Créez deux comptes Video indexer connectés à Azure (voir [Créer des comptes](connect-to-azure.md)). Un pour votre région primaire et l’autre pour la région Azure couplée. 
-1. En cas de défaillance dans votre région principale, basculez vers l’indexation à l’aide du compte secondaire.
+1. Créez deux comptes Video indexer connectés à Azure (voir [Créer un compte Video Indexer](connect-to-azure.md)). Créez un compte pour votre région primaire et un autre pour la région Azure jumelée.
+1. En cas de défaillance dans votre région primaire, basculez sur l’indexation à l’aide du compte secondaire.
 
 > [!TIP]
 > Vous pouvez automatiser BCDR en configurant des alertes de journal d’activité pour les notifications d’intégrité du service, comme mentionné dans [Créer des alertes de journal d'activité sur les notifications de service](../../service-health/alerts-activity-log-service-notifications.md).

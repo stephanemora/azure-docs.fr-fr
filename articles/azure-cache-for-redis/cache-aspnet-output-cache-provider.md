@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 1a375f063d398c19ed86a0a401e2a41c696ef4e2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: af003f1f0422c2351bcdf9b0c0010e38785c0344
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412987"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530323"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Fournisseur de caches de sortie ASP.NET pour le Cache Azure pour Redis
 
@@ -67,7 +67,6 @@ Configurez les attributs avec les valeurs du panneau de votre cache sur le porta
 | *throwOnError* | boolean | true | *SessionStateProvider uniquement*<br/>*Cet attribut peut uniquement être spécifié par le biais de web.config ou AppSettings.*<br/><br/>Indique s’il faut ou non lever une exception lorsqu’une erreur se produit.<br/><br/>Pour plus d’informations sur *throwOnError*, consultez [Remarques sur *throwOnError*](#notes-on-throwonerror) dans la section [Remarques sur les attributs](#attribute-notes). |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
 | *retryTimeoutInMilliseconds* | entier positif | 5 000 | *SessionStateProvider uniquement*<br/>*Cet attribut peut uniquement être spécifié par le biais de web.config ou AppSettings.*<br/><br/>Combien de nouvelles tentatives en cas d’échec d’une opération. Si cette valeur est inférieure à *operationTimeoutInMilliseconds*, le fournisseur ne fera pas de nouvelles tentatives.<br/><br/>Pour plus d’informations sur *retryTimeoutInMilliseconds*, consultez [Remarques sur *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) dans la section [Remarques sur les attributs](#attribute-notes). |
 | *redisSerializerType* | string | *n/a* | Spécifie le nom de type d’assembly qualifié d’une classe qui implémente Microsoft.Web.Redis. ISerializer et qui contient la logique personnalisée pour sérialiser et désérialiser les valeurs. Pour plus d’informations, consultez [À propos de *redisSerializerType*](#about-redisserializertype) dans la section [Remarques sur les attributs](#attribute-notes). |
-|
 
 ## <a name="attribute-notes"></a>Remarques sur les attributs
 
@@ -197,6 +196,12 @@ Ajoutez une directive OutputCache à chaque page pour laquelle vous voulez mettr
 Dans l’exemple précédent, les données de page mises en cache resteront dans le cache pendant 60 secondes et une version différente de la page est mise en cache pour chaque combinaison de paramètres. Pour plus d’informations sur la directive OutputCache, consultez [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837).
 
 Une fois ces étapes effectuées, votre application est configurée pour utiliser le fournisseur de caches de sortie Redis.
+
+## <a name="third-party-output-cache-providers"></a>Fournisseur de caches de sortie tiers
+
+* [NCache](https://www.alachisoft.com/blogs/how-to-use-a-distributed-cache-for-asp-net-output-cache/)
+* [Apache Ignite](https://apacheignite-net.readme.io/docs/aspnet-output-caching)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

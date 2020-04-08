@@ -3,18 +3,18 @@ title: À propos de la sauvegarde de base de données SAP HANA dans les machines
 description: Cet article explique comment sauvegarder des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 53fd87f0de48d56d696abcf5484908060225cb3d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 52c235c95cea73a0c51c62fcb55f7f711d2eff21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207011"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476455"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>À propos de la sauvegarde de base de données SAP HANA dans les machines virtuelles Azure
 
 Les bases de données SAP HANA sont des charges de travail critiques qui nécessitent un objectif de point de récupération (RPO) faible et un objectif de temps de récupération (RTO) rapide. Vous pouvez désormais [sauvegarder des bases de données SAP HANA s’exécutant sur les machines virtuelles Azure](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) à l’aide du service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview).
 
-Le service Sauvegarde Azure est [certifié Backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) par SAP pour la prise en charge de sauvegarde native à l’aide d’API natives de SAP HANA. Cette offre du service Sauvegarde Azure s’aligne sur le mantra de Sauvegarde Azure de sauvegardes d’**infrastructure zéro**, ce qui élimine le besoin de déployer et de gérer l’infrastructure de sauvegarde. Vous pouvez désormais effectuer en toute transparence une sauvegarde et une restauration de bases de données SAP HANA s’exécutant sur des machines virtuelles Azure (les [machines virtuelles de la série M](../virtual-machines/m-series.md) sont désormais également prises en charge) et tirer parti des fonctionnalités de gestion d’entreprise du service Sauvegarde Azure.
+Le service Sauvegarde Azure est [certifié Backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) par SAP pour la prise en charge de sauvegarde native à l’aide d’API natives de SAP HANA. Cette offre du service Sauvegarde Azure s’aligne sur le mantra de Sauvegarde Azure des sauvegardes d’**infrastructure zéro**, ce qui élimine le besoin de déployer et de gérer l’infrastructure de sauvegarde. Vous pouvez désormais effectuer en toute transparence une sauvegarde et une restauration de bases de données SAP HANA s’exécutant sur des machines virtuelles Azure (les [machines virtuelles de la série M](../virtual-machines/m-series.md) sont désormais également prises en charge) et tirer parti des fonctionnalités de gestion d’entreprise du service Sauvegarde Azure.
 
 ## <a name="added-value"></a>Valeur ajoutée
 
@@ -52,6 +52,25 @@ Pour afficher les scénarios de sauvegarde et de restauration que nous prenons e
 * Le **plug-in Sauvegarde Azure pour HANA** conserve l’ensemble des planifications de sauvegarde et des détails de la stratégie. Il déclenche les sauvegardes planifiées et communique avec le **Moteur de sauvegarde HANA** via les API Backint.
 * Le **Moteur de sauvegarde HANA** retourne un flux Backint avec les données à sauvegarder.
 * Les sauvegardes planifiées et à la demande (déclenchées à partir du portail Azure) complètes ou différentielles sont toutes initiées par le **plug-in Sauvegarde Azure pour HANA**. Toutefois, les sauvegardes de fichier journal sont gérées et déclenchées par le **Moteur de sauvegarde HANA**.
+* Le service Sauvegarde Azure pour SAP HANA, qui est une solution certifiée par BackInt, ne dépend pas des types de disque ou de machine virtuelle sous-jacents. La sauvegarde est effectuée par des flux générés par HANA.
+
+## <a name="using-azure-vm-backup-with-azure-sap-hana-backup"></a>Utilisation de la sauvegarde de machine virtuelle Azure avec la sauvegarde Azure SAP HANA
+
+En plus d’utiliser la sauvegarde SAP HANA dans Azure qui assure une sauvegarde et une récupération de niveau base de données, vous pouvez utiliser la solution de sauvegarde de machine virtuelle Azure pour sauvegarder les disques de système d’exploitation et les disques qui ne comportent pas de base de données.
+
+La [solution de sauvegarde Azure SAP HANA certifiée par Backint](#backup-architecture) peut être utilisée pour la sauvegarde et la récupération de base de données.
+
+La [sauvegarde de machine virtuelle Azure ](backup-azure-vms-introduction.md) peut être utilisée pour sauvegarder les disques de système d’exploitation et d’autres disques qui ne comportent pas de base de données. La sauvegarde de machine virtuelle se produit une fois par jour et porte sur tous les disques (à l’exception des **disques Accélérateur d’écriture (WA)** et des **UltraDisks**). Sachant que la base de données est sauvegardée à l’aide de la solution de sauvegarde Azure SAP HANA, vous pouvez effectuer une sauvegarde cohérente au niveau fichier uniquement pour les disques de système d’exploitation et les disques qui ne comportent pas de base de données en utilisant la fonctionnalité d’exclusion de disque, qui est actuellement en préversion.
+
+>[!NOTE]
+> L’utilisation de pré-post scripts avec la sauvegarde de machine virtuelle Azure autorise les sauvegardes cohérentes au niveau application des volumes de données de la base de données. Cependant, si la zone de journal réside sur des disques WA, la création d’une capture instantanée de ces disques ne garantit pas nécessairement la cohérence de la zone de journal. C’est précisément pour cette raison que HANA propose une façon explicite de générer des sauvegardes de journaux. Activez cette fonctionnalité dans votre SAP HANA pour pouvoir les sauvegarder à l’aide de la fonctionnalité de sauvegarde Azure SAP HANA.
+
+Pour restaurer une machine virtuelle exécutant SAP HANA, effectuez ces étapes :
+
+* [Restaurez une nouvelle machine virtuelle à partir de la sauvegarde de machine virtuelle Azure](backup-azure-arm-restore-vms.md) et en partant du dernier point de récupération. Sinon, créez une machine virtuelle vide et attachez les disques du dernier point de récupération.
+* Les disques WA n’étant pas sauvegardés, ils ne sont pas restaurés. Créez des disques WA vides et une zone de journal.
+* Une fois que toutes les autres configurations (adresse IP, nom du système, etc) ont été effectuées, la machine virtuelle est définie pour recevoir les données de base de données de la sauvegarde Azure.
+* Restaurez maintenant la base de données dans la machine virtuelle à partir de la [sauvegarde de base de données Azure SAP HANA](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) jusqu’aux date et heure souhaitées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

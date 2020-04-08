@@ -1,23 +1,21 @@
 ---
-title: Qu’est-ce qu’Azure Monitor pour machines virtuelles (préversion) ? | Microsoft Docs
+title: Qu’est-ce qu’Azure Monitor pour machines virtuelles ?
 description: Vue d’ensemble d’Azure Monitor pour machines virtuelles qui supervise l’intégrité et les performances des machines virtuelles Azure, en plus de découvrir et de mapper automatiquement les composants d’application et leurs dépendances.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/14/2019
-ms.openlocfilehash: 1dcce3ab9f975fcf5910c382df3489d5d4ed425a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/11/2020
+ms.openlocfilehash: 6f65ba96f768a4b88aa13c073cc66920b8c5e049
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670662"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480485"
 ---
-# <a name="what-is-azure-monitor-for-vms-preview"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles (préversion) ?
+# <a name="what-is-azure-monitor-for-vms"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles ?
 
-Azure Monitor pour machines virtuelles surveille les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes. 
-
-Il prend en charge la supervision des performances et des dépendances d’applications des machines virtuelles qui sont hébergées localement ou auprès d’un autre fournisseur de cloud. Les fonctionnalités clés suivantes offrent des insights approfondis :
+Azure Monitor pour machines virtuelles surveille les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes. Il prend en charge la supervision des performances et des dépendances d’applications des machines virtuelles qui sont hébergées localement ou auprès d’un autre fournisseur de cloud. Les fonctionnalités clés suivantes offrent des insights approfondis :
 
 - **Graphiques prédéfinis de tendances des performances** : affichent les mesures de performances principales du système d’exploitation de la machine virtuelle invitée.
 
@@ -27,13 +25,11 @@ Il prend en charge la supervision des performances et des dépendances d’appli
 >Nous avons récemment fait l’[annonce des changements](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
 ) que nous apportons à la fonctionnalité Intégrité suite aux commentaires que nous avons reçus de la part de nos clients ayant utilisé la préversion publique. En raison des multiples changements prévus, nous avons choisi de ne plus fournir la fonctionnalité Intégrité aux nouveaux clients. Les clients existants pourront continuer à utiliser la fonctionnalité Intégrité. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la disponibilité générale](vminsights-ga-release-faq.md).  
 
-L’intégration avec les journaux d’activité Azure Monitor offre de puissantes fonctionnalités d’agrégation et de filtrage, ainsi que la possibilité d’analyser les tendances des données au fil du temps. Pris individuellement, Azure Monitor ou Service Map ne sont pas suffisants pour effectuer un monitoring aussi complet des charges de travail.  
+Grâce à l’intégration avec les journaux Azure Monitor et aux puissantes fonctionnalités d’agrégation et de filtrage qu’elle offre, Azure Monitor pour machines virtuelles peut analyser les tendances des données dans le temps. Vous pouvez afficher directement ces données sur une seule machine virtuelle, ou bien utiliser Azure Monitor pour avoir une vue d’ensemble de vos machines virtuelles dans laquelle la vue prend en charge les modes Azure de contexte de la ressource ou de contexte de l’espace de travail. Pour plus d’informations, consultez [Vue d’ensemble des modes d’accès](../platform/design-logs-deployment.md#access-mode).
 
-Vous pouvez afficher directement ces données sur une seule machine virtuelle, ou bien utiliser Azure Monitor pour avoir une vue d’ensemble de vos machines virtuelles dans laquelle la vue prend en charge les modes Azure de contexte de la ressource ou de contexte de l’espace de travail. Pour plus d’informations, consultez [Vue d’ensemble des modes d’accès](../platform/design-logs-deployment.md#access-mode).
+![Perspective des insights sur les machines virtuelles sur le Portail Azure](media/vminsights-overview/vminsights-azmon-directvm.png)
 
-![Perspective des insights sur les machines virtuelles sur le Portail Azure](./media/vminsights-overview/vminsights-azmon-directvm.png)
-
-Azure Monitor pour machines virtuelles peut offrir des performances prévisibles et assurer la disponibilité des applications vitales. Il identifie les goulets d'étranglement de performances et les problèmes réseau. Azure Monitor pour machines virtuelles peut également aider à comprendre si le problème est lié à d’autres dépendances.  
+Azure Monitor pour machines virtuelles peut offrir des performances prévisibles et assurer la disponibilité des applications vitales. Il identifie les goulots d’étranglement de performances et les problèmes réseau et peut aussi vous aider à déterminer si un problème est lié à d’autres dépendances.  
 
 ## <a name="data-usage"></a>Utilisation des données
 
@@ -43,7 +39,7 @@ Lorsque Azure Monitor pour machines virtuelles est déployé, les données recue
 - les règles d’alerte créées ;
 - les notifications envoyées. 
 
-La taille du journal, qui varie en fonction de la longueur des chaînes des compteurs de performances, peut augmenter avec le nombre de disques logiques et de cartes réseau alloué à la machine virtuelle. Si vous disposez déjà d’un espace de travail et que vous collectez ces compteurs, ces frais ne seront pas facturés une deuxième fois. Si vous utilisez déjà Service Map, la seule différence concerne les données de connexion supplémentaires envoyées à Azure Monitor.
+La taille du journal, qui varie en fonction de la longueur des chaînes des compteurs de performances, peut augmenter avec le nombre de disques logiques et de cartes réseau alloué à la machine virtuelle. Si vous disposez déjà d’un espace de travail et que vous collectez ces compteurs, ces frais ne seront pas facturés une deuxième fois. Si vous utilisez déjà Service Map, la seule différence notable concerne les données de connexion supplémentaires qui sont envoyées à Azure Monitor.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

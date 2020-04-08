@@ -1,6 +1,6 @@
 ---
 title: Query Performance Insight
-description: La supervision des performances de requêtes identifie les requêtes consommant le plus de processeur pour une base de données Azure SQL.
+description: La supervision des performances de requêtes identifie les requêtes les plus longues et consommant le plus de processeur pour les bases de données uniques et mises en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,35 +10,31 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/03/2019
-ms.openlocfilehash: 56daca0aa817d03298bad971506402739d71482e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/10/2020
+ms.openlocfilehash: f5998fde6659715de4fcb533cb0f41a8939b1c48
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821253"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214062"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight pour Azure SQL Database
 
-La gestion et de réglage des performances des bases de données relationnelles demandent de l’expertise et du temps. Query Performance Insight fait partie de la gamme de produits de performances intelligentes Azure SQL Database. Il vous permet de passer moins de temps à résoudre les problèmes de performances de bases de données en fournissant :
+Query Performance Insight fournit une analyse intelligente des requêtes pour les bases de données uniques et mises en pool. Il aide à identifier les requêtes les plus longues et les plus consommatrices de ressources dans votre charge de travail. Cela vous permet de trouver les requêtes à optimiser pour améliorer les performances globales de charge de travail et pour utiliser efficacement la ressource que vous payez. Query Performance Insight vous permet de résoudre plus rapidement les problèmes de performances des bases de données en fournissant :
 
-* Une meilleure compréhension de la consommation des ressources des bases de données (DTU).
-* Des informations sur les requêtes de base de données principales par processeur, la durée et le nombre d’exécutions (candidats de réglage possibles pour l’amélioration des performances).
-* La possibilité d’explorer une requête, de voir son texte et l’historique d’utilisation des ressources.
-* Les annotations qui montrent des recommandations de performances à partir de [SQL Database Advisor](sql-database-advisor.md).
+* Un insight approfondi de votre consommation des ressources des bases de données (DTU)
+* Des informations sur les requêtes de base de données principales par processeur, la durée et le nombre d’exécutions (candidats de réglage possibles pour l’amélioration des performances)
+* La possibilité d’explorer une requête, de voir son texte et l’historique d’utilisation des ressources
+* Les annotations qui montrent des recommandations de performances à partir des [conseillers en bases de données](sql-database-advisor.md)
 
 ![Query Performance Insight](./media/sql-database-query-performance/opening-title.png)
-
-> [!TIP]
-> Pour une supervision de base des performances avec Azure SQL Database, nous vous recommandons Query Performance Insight. Notez les limitations de produit publiées dans cet article. Pour une supervision avancée des performances de base de données à grande échelle, nous vous recommandons [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md). Il intègre une intelligence pour résoudre automatiquement les problèmes de performances. Pour régler automatiquement certains problèmes de performances de base de données les plus courants, nous vous recommandons le [réglage automatique](sql-database-automatic-tuning.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Il est automatiquement activé pour toutes les bases de données Azure SQL par défaut. Si le magasin de requêtes n’est pas exécuté, le portail Azure vous invite à l’activer.
 
 > [!NOTE]
-> Si le message « Le magasin de requêtes n’est pas correctement configuré sur cette base de données » s’affiche dans le portail, consultez [Optimisation de la configuration du magasin de requêtes](#optimize-the-query-store-configuration-for-query-performance-insight).
->
+> Si le message « Le magasin de requêtes n’est pas correctement configuré sur cette base de données » s’affiche dans le portail, consultez [Optimisation de la configuration du magasin de requêtes](#optimize-the-query-store-configuration).
 
 ## <a name="permissions"></a>Autorisations
 
@@ -65,6 +61,11 @@ Query Performance Insight est simple d’utilisation :
 
 > [!NOTE]
 > Pour que SQL Database affiche les informations dans Query Performance Insight, le magasin de requêtes doit capturer quelques heures de données. Si la base de données n’a pas d’activité ou que le magasin de requêtes est resté inactif pendant une certaine période, les graphiques sont vides quand Query Performance Insight affiche cet intervalle de temps. Vous pouvez activer le magasin de requêtes à tout moment s’il n’est pas en cours d’exécution. Pour plus d’informations, consultez [Bonnes pratiques avec le magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+>
+
+Pour des recommandations sur les performances de base de données, sélectionnez [Recommandations](sql-database-advisor.md) dans le panneau de navigation de Query Performance Insight.
+
+![Onglet Recommandations](./media/sql-database-query-performance/ia.png)
 
 ## <a name="review-top-cpu-consuming-queries"></a>Examiner les requêtes principales consommatrices de processeur
 
@@ -72,9 +73,9 @@ Par défaut, Query Performance Insight affiche les cinq premières requêtes con
 
 1. Sélectionnez ou désélectionnez des requêtes individuelles pour les inclure ou les exclure du graphique à l’aide des cases à cocher.
 
-    La première ligne montre le pourcentage DTU général de la base de données. Les barres montrent le pourcentage de processeur que les requêtes ont consommé pendant l’intervalle sélectionné. Par exemple, si **Semaine dernière** est sélectionné, chaque barre représente une journée.
+   La première ligne montre le pourcentage DTU général de la base de données. Les barres montrent le pourcentage de processeur que les requêtes ont consommé pendant l’intervalle sélectionné. Par exemple, si **Semaine dernière** est sélectionné, chaque barre représente une journée.
 
-    ![Premières requêtes](./media/sql-database-query-performance/top-queries.png)
+   ![Premières requêtes](./media/sql-database-query-performance/top-queries.png)
 
    > [!IMPORTANT]
    > La ligne DTU indiquée est agrégée à une valeur maximale de consommation dans des périodes d’une heure. Elle sert de moyen de comparaison au niveau global uniquement avec les statistiques d’exécution de requête. Dans certains cas, l’utilisation de DTU peut sembler trop élevée par rapport aux requêtes exécutées, mais ce n’est peut-être pas le cas.
@@ -217,7 +218,7 @@ Dans certains cas, en raison du niveau de zoom, les annotations proches les unes
 
 La corrélation de requêtes et des actions de réglage des performances peut vous aider à mieux comprendre votre charge de travail.
 
-## <a name="optimize-the-query-store-configuration-for-query-performance-insight"></a>Optimiser la configuration du magasin de requêtes pour Query Performance Insight
+## <a name="optimize-the-query-store-configuration"></a>Optimiser la configuration du magasin de requêtes
 
 Pendant l’utilisation de Query Performance Insight, vous pouvez voir les messages suivants du magasin de requêtes :
 
@@ -241,7 +242,7 @@ Il existe deux types de stratégies de rétention :
 
 Vous pouvez définir la stratégie de capture sur :
 
-* **Tout** : Le magasin des requêtes capture toutes les requêtes.
+* **Tout** : Le magasin des requêtes capture toutes les requêtes.
 * **Auto** : Le magasin des requêtes ignore les requêtes peu fréquentes et les requêtes avec une durée de compilation et d’exécution insignifiante. Les seuils du nombre d’exécutions, de la durée de compilation et de la durée d’exécution sont déterminés en interne. Il s'agit de l'option par défaut.
 * **Aucun** : Le magasin de requêtes arrête la capture de nouvelles requêtes, mais les statistiques d’exécution pour les requêtes déjà capturées sont toujours collectées.
 
@@ -260,7 +261,7 @@ Nous vous recommandons de définir toutes les stratégies sur **AUTO** et la str
 
 Augmentez la taille du magasin de requêtes en vous connectant à une base de données dans [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou le portail Azure et en exécutant la requête suivante. (Remplacez `YourDB` par le nom de la base de données.)
 
-```T-SQL
+```SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
@@ -274,16 +275,6 @@ L’application de ces paramètres permet au magasin de requêtes de collecter l
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="summary"></a>Résumé
-
-Query Performance Insight vous permet de comprendre l’impact de votre charge de travail de requêtes et la relation de celle-ci avec la consommation des ressources de base de données. Avec cette fonctionnalité, vous découvrez plus d’informations sur les requêtes les plus consommatrices sur votre base de données, et vous identifiez les requêtes à optimiser avant qu’elles ne deviennent un problème.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour des recommandations sur les performances de base de données, sélectionnez [Recommandations](sql-database-advisor.md) dans le panneau de navigation de Query Performance Insight.
-
-    ![Onglet Recommandations](./media/sql-database-query-performance/ia.png)
-
-* Activez le [réglage automatique](sql-database-automatic-tuning.md) pour les problèmes courants de performances de base de données.
-* Découvrez comment [Intelligent Insights](sql-database-intelligent-insights.md) peut vous aider à résoudre automatiquement les problèmes de performances de base de données.
-* Utilisez [Azure SQL Analytics]( ../azure-monitor/insights/azure-sql.md) pour une supervision avancée des performances d’un grand nombre de bases de données SQL, de pools élastiques et d’instances gérées avec l’intelligence intégrée.
+Utilisez [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) pour une supervision avancée des performances d’une flotte importante de bases de données uniques et mises en pool, de pools élastiques, d’instances managées et de bases de données d’instance.

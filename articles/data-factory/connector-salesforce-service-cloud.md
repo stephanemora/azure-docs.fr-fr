@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/06/2019
-ms.openlocfilehash: 0bfab8c8bbcacd130f73190b8572893327ee795e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/24/2020
+ms.openlocfilehash: 4540b27a9241a14b3d1a153d11bf43900e8ae0ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926914"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153848"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copier des données depuis et vers le Salesforce Service Cloud à l’aide de Azure Data Factory
 
@@ -36,7 +36,7 @@ Plus précisément, ce connecteur Salesforce Service Cloud prend en charge les �
 - Développeur Salesforce, éditions professionnelle, d’entreprise ou illimitées.
 - La copie de données depuis et vers le domaine de production, le bac à sable et le domaine personnalisé de Salesforce.
 
-Le connecteur Salesforce Service Cloud est basé sur l’API REST/en bloc de Salesforce, avec [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir d’un emplacement et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données vers un emplacement.
+Le connecteur Salesforce est basé sur l'API REST/en bloc Salesforce. Par défaut, le connecteur utilise [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir de Salesforce, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données dans Salesforce. Vous pouvez aussi définir explicitement la version de l’API utilisée pour lire/écrire des données via la [`apiVersion`prorpiété](#linked-service-properties) dans le service lié.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -51,7 +51,7 @@ Salesforce prend en charge un nombre limité de requêtes d’API totales et de 
 
 Vous pouvez également recevoir le message d’erreur « REQUEST_LIMIT_EXCEEDED » dans les deux scénarios. Pour plus d’informations, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce).
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -63,11 +63,12 @@ Les propriétés suivantes sont prises en charge pour le service lié Salesforce
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété type doit être définie sur **SalesforceServiceCloud**. |OUI |
+| type |La propriété type doit être définie sur **SalesforceServiceCloud**. |Oui |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce Service Cloud. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non |
-| username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
-| password |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
-| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité, consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité). Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API).<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
+| mot de passe |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. <br/><br/>Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). Le jeton de sécurité peut être uniquement ignoré si vous ajoutez l’adresse IP d'Integration Runtime à la [liste d'adresses IP approuvées](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) sur Salesforce. Lorsque vous utilisez Azure IR, consultez [Adresses IP Azure Integration Runtime](azure-integration-runtime-ip-addresses.md).<br/><br/>Pour des instructions sur l'obtention et la réinitialisation d’un jeton de sécurité, consultez l’article [Obtenir un jeton de sécurité](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non |
+| apiVersion | Spécifiez la version de l’API REST/en bloc de Salesforce à utiliser, par exemple `48.0`. Par défaut, le connecteur utilise [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir de Salesforce, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données dans Salesforce. | Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
 
 >[!IMPORTANT]
@@ -141,7 +142,7 @@ Pour copier des données depuis/vers Salesforce Service Cloud, les propriétés 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SalesforceServiceCloudObject**.  | OUI |
+| type | La propriété type doit être définie sur **SalesforceServiceCloudObject**.  | Oui |
 | objectApiName | Nom d’objet Salesforce duquel extraire des données. | Non pour Source, Oui pour Récepteur |
 
 > [!IMPORTANT]
@@ -170,7 +171,7 @@ Pour copier des données depuis/vers Salesforce Service Cloud, les propriétés 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **RelationalTable**. | OUI |
+| type | La propriété type du jeu de données doit être définie sur **RelationalTable**. | Oui |
 | tableName | Nom de la table dans Salesforce Service Cloud. | Non (si « query » est spécifié dans la source de l’activité) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
@@ -183,7 +184,7 @@ Pour copier des données à partir de Salesforce Service Cloud, les propriétés
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **SalesforceServiceCloudSource**. | OUI |
+| type | La propriété type de la source de l’activité de copie doit être définie sur **SalesforceServiceCloudSource**. | Oui |
 | query |Utilise la requête personnalisée pour lire des données. Vous pouvez utiliser une requête SQL-92 ou [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Retrouvez d’autres conseils dans la section [Conseils de requête](#query-tips). Si la requête n’est pas spécifiée, toutes les données de l’objet Salesforce Service Cloud spécifiées dans « objectApiName » dans le jeu de données seront récupérées. | Non (si « objectApiName » est spécifié dans le jeu de données) |
 | readBehavior | Indique si seuls les enregistrements existants doivent être interrogés ou si tous les enregistrements, y compris ceux qui ont été supprimés, doivent être interrogés. Si rien n’est spécifié, le comportement par défaut appliqué est le premier. <br>Valeurs autorisées : **query** (valeur par défaut), **queryAll**.  | Non |
 
@@ -230,7 +231,7 @@ Pour copier des données dans Salesforce Service Cloud, les propriétés suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SalesforceServiceCloudSink**. | OUI |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **SalesforceServiceCloudSink**. | Oui |
 | writeBehavior | Comportement d’écriture de l’opération.<br/>Les valeurs autorisées sont **Insert** et **Upsert**. | Non (la valeur par défaut est un point Insert) |
 | externalIdFieldName | Nom du champ ID externe pour l’opération upsert. Le champ spécifié doit être défini en tant que « champ d’ID externe » dans l’objet Salesforce Service Cloud. Il ne peut pas avoir de valeurs NULL dans les données d’entrée correspondantes. | Oui, pour « Upsert » |
 | writeBatchSize | Nombre de lignes de données écrites dans Salesforce Service Cloud dans chaque lot. | Non (valeur par défaut : 5,000) |
@@ -275,7 +276,7 @@ Pour copier des données dans Salesforce Service Cloud, les propriétés suivant
 
 ### <a name="retrieve-data-from-a-salesforce-service-cloud-report"></a>Récupérer des données à partir d’un rapport Salesforce Service Cloud
 
-Vous pouvez récupérer des données à partir de rapports Salesforce Service Cloud en spécifiant une requête sous la forme `{call "<report name>"}`. Par exemple `"query": "{call \"TestReport\"}"`.
+Vous pouvez récupérer des données à partir de rapports Salesforce Service Cloud en spécifiant une requête sous la forme `{call "<report name>"}`. par exemple `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-service-cloud-recycle-bin"></a>Récupérer les enregistrements supprimés de la corbeille Salesforce Service Cloud
 
@@ -311,25 +312,25 @@ Lorsque vous copiez des données à partir de Salesforce Service Cloud, les mapp
 
 | Type de données Salesforce Service Cloud | Type de données intermédiaires d’Azure Data Factory |
 |:--- |:--- |
-| Numérotation automatique |Chaîne |
+| Numérotation automatique |String |
 | Case à cocher |Boolean |
 | Devise |Decimal |
 | Date |DateTime |
 | Date/Heure |DateTime |
-| Email |Chaîne |
-| Id |Chaîne |
-| Relation de recherche |Chaîne |
-| Liste déroulante à sélection multiple |Chaîne |
+| E-mail |String |
+| Id |String |
+| Relation de recherche |String |
+| Liste déroulante à sélection multiple |String |
 | Number |Decimal |
 | Pourcentage |Decimal |
-| Téléphone |Chaîne |
-| Liste déroulante |Chaîne |
-| Texte |Chaîne |
-| Zone de texte |Chaîne |
-| Zone de texte (long) |Chaîne |
-| Zone de texte (enrichi) |Chaîne |
-| Texte (chiffré) |Chaîne |
-| URL |Chaîne |
+| Téléphone |String |
+| Liste déroulante |String |
+| Texte |String |
+| Zone de texte |String |
+| Zone de texte (long) |String |
+| Zone de texte (enrichi) |String |
+| Texte (chiffré) |String |
+| URL |String |
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 

@@ -1,6 +1,6 @@
 ---
 title: Gérer les protocoles et les chiffrements dans Gestion des API Azure | Microsoft Docs
-description: Découvrez comment gérer les protocoles (TLS, SSL) et les chiffrements (DES) dans Gestion des API Azure.
+description: Découvrez comment gérer les protocoles (TLS) et les chiffrements (DES) dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: f7c7fdd06480ce3da70c86d38ab0685b9b3aaaf2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7f87389016286c9f1b91abc77155be9e94005371
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072401"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335868"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gérer les protocoles et les chiffrements dans Gestion des API Azure
 

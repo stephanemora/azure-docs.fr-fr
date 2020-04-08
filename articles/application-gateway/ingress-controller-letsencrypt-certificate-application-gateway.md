@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73957985"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Utiliser des certificats avec LetsEncrypt.org sur Application Gateway pour des clusters AKS
@@ -127,7 +127,7 @@ Suivez les étapes ci-dessous pour installer [cert-manager](https://docs.cert-ma
     EOF
     ```
 
-    Après quelques secondes, vous pouvez accéder au service `guestbook` par le biais de l’URL HTTPS d’Application Gateway à l’aide du certificat `Lets Encrypt` **intermédiaire** émis automatiquement.
+    Après quelques secondes, vous pouvez accéder au service `guestbook` par le biais de l’URL HTTPS d’Application Gateway à l’aide du certificat **intermédiaire** `Lets Encrypt` émis automatiquement.
     Votre navigateur peut vous avertir qu’une autorité de certification est non valide. Le certificat intermédiaire est émis par `CN=Fake LE Intermediate X1`. Cela indique que le système a fonctionné comme prévu et que vous êtes prêt pour votre certificat de production.
 
 4. Certificat de production

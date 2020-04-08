@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51c6284c0d7ee21f67d37465100f84d4b2f5ae2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848083"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480978"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Intégration d'annuaires entre le serveur Azure MFA et Active Directory
 
 Utilisez la section Intégration de répertoires du serveur Azure MFA pour l’intégrer à Active Directory ou un autre répertoire LDAP. Vous pouvez configurer des attributs pour correspondre au schéma du répertoire et configurer la synchronisation automatique des utilisateurs.
 
 > [!IMPORTANT]
-> À compter du 1er juillet 2019, Microsoft ne proposera plus le serveur MFA pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé le serveur MFA avant le 1er juillet pourront télécharger la dernière version et les futures mises à jour et générer des informations d’identification d’activation comme d’habitude.
+> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
 
 ## <a name="settings"></a>Paramètres
 
@@ -33,11 +33,11 @@ Par défaut, le serveur Azure Multi-Factor Authentication (MFA) est configuré p
 ![Modifier la configuration LDAP du serveur MFA](./media/howto-mfaserver-dir-ad/dirint.png)
 
 > [!NOTE]
-> Il n’est pas garanti que l’intégration d’annuaire fonctionnera correctement avec des répertoires autres qu’Active Directory Domain Services.
+> Il n’est pas garanti que l’intégration d’annuaire fonctionne correctement avec des répertoires autres que Microsoft Active Directory Domain Services.
 
 | Fonctionnalité | Description |
 | --- | --- |
-| Utiliser Active Directory |Sélectionnez cette option pour utiliser Active Directory pour l'importation et la synchronisation.  Il s’agit du paramètre par défaut. <br>Remarque : Pour que l’intégration Active Directory fonctionne correctement, joignez l’ordinateur à un domaine et connectez-vous avec un compte de domaine. |
+| Utiliser Active Directory |Sélectionnez cette option pour utiliser Active Directory pour l'importation et la synchronisation.  Il s'agit du paramètre par défaut. <br>Remarque : Pour que l’intégration Active Directory fonctionne correctement, joignez l’ordinateur à un domaine et connectez-vous avec un compte de domaine. |
 | Inclure des domaines approuvés |Cochez la case **Inclure des domaines approuvés** pour que l’agent tente de se connecter à des domaines approuvés par le domaine actuel, un autre domaine de la forêt ou des domaines impliqués dans une approbation de forêt.  Lorsque vous n'importez pas ou ne synchronisez pas d'utilisateurs à partir des domaines approuvés, désactivez la case à cocher pour améliorer les performances.  La case est cochée par défaut. |
 | Utiliser une configuration LDAP spécifique |Sélectionnez l'option Utiliser LDAP pour utiliser les paramètres LDAP spécifiés pour l'importation et la synchronisation. Remarque : Lorsque l’option Utiliser LDAP est sélectionnée, les références de l’interface utilisateur passent d’Active Directory à LDAP. |
 | Bouton Modifier |Le bouton Modifier permet de modifier les paramètres de la configuration LDAP. |
@@ -47,7 +47,7 @@ Le tableau suivant décrit les paramètres de la configuration LDAP.
 
 | Fonctionnalité | Description |
 | --- | --- |
-| Serveur |Entrez le nom d'hôte ou l’adresse IP du serveur exécutant l'annuaire LDAP.  Il est également possible de spécifier un serveur de sauvegarde, en le séparant par un point-virgule. <br>Remarque : Lorsque le Type de liaison est SSL, un nom d’hôte complet est nécessaire. |
+| Serveur |Entrez le nom d'hôte ou l’adresse IP du serveur exécutant l'annuaire LDAP.  Il est également possible de spécifier un serveur de sauvegarde, en le séparant par un point-virgule. <br>Remarque : Lorsque le type de liaison est SSL (TLS), un nom d’hôte complet est nécessaire. |
 | Nom unique de base |Entrez le nom unique de l’objet de répertoire de base à partir duquel toutes les requêtes de répertoire sont lancées.  Par exemple, dc = abc, dc = com. |
 | Type de liaison - Requêtes |Sélectionnez le type de liaison approprié à utiliser lors de la liaison pour rechercher l'annuaire LDAP.  Cette option est utilisée pour les importations, la synchronisation et la résolution de nom d'utilisateur. <br><br>  Anonyme - Une liaison anonyme est effectuée.  Le nom unique de liaison et le mot de passe de liaison ne sont pas utilisés.  Cela fonctionne uniquement si le répertoire LDAP autorise une liaison anonyme et si les autorisations permettent l’interrogation des enregistrements appropriés et des attributs.  <br><br> Simple - Le nom unique de liaison et le mot de passe de liaison sont transmis en texte brut pour la liaison au répertoire LDAP.  Cela sert à des fins de test, pour vérifier que le serveur peut être atteint et que le compte de liaison dispose de l’accès approprié. Une fois que le certificat approprié a été installé, utilisez SSL.  <br><br> SSL - Le nom unique de liaison et le mot de passe de liaison sont chiffrés à l’aide de SSL pour la liaison au répertoire LDAP.  Installez en local un certificat approuvé par le répertoire LDAP.  <br><br> Windows - Le nom d’utilisateur de liaison et le mot de passe de liaison sont utilisés pour la connexion sécurisée à un contrôleur de domaine Active Directory ou un répertoire ADAM.  Si le champ Nom d’utilisateur de liaison n’est pas renseigné, le compte de l’utilisateur connecté est utilisé pour la liaison. |
 | Type de liaison - Authentifications |Sélectionnez le type de liaison approprié à utiliser lors de l'authentification de liaison LDAP.  Consultez les descriptions de type de liaison sous Type de liaison - Requêtes.  Cela permet, par exemple, d'utiliser la liaison anonyme pour les requêtes alors que la liaison SSL est utilisée pour sécuriser les authentifications de liaison LDAP. |
@@ -99,7 +99,7 @@ Les attributs peuvent être entrés manuellement et ne doivent pas nécessaireme
 | Téléphone mobile |Entrez le nom de l'attribut qui contient le numéro de téléphone mobile dans un enregistrement utilisateur.  La valeur par défaut est mobile. |
 | Fax |Entrez le nom de l'attribut qui contient le numéro du fax dans un enregistrement utilisateur.  La valeur par défaut est facsimileTelephoneNumber. |
 | Téléphone IP |Entrez le nom de l'attribut qui contient le numéro de téléphone IP dans un enregistrement utilisateur.  La valeur par défaut est ipPhone. |
-| Personnalisée |Entrez le nom de l’attribut qui contient un numéro de téléphone personnalisé dans un enregistrement utilisateur.  La valeur par défaut est vide. |
+| Custom |Entrez le nom de l’attribut qui contient un numéro de téléphone personnalisé dans un enregistrement utilisateur.  La valeur par défaut est vide. |
 | Extension |Entrez le nom de l'attribut qui contient le numéro de téléphone de l'extension dans un enregistrement utilisateur.  La valeur du champ d’extension est utilisée comme extension du numéro de téléphone principal uniquement.  La valeur par défaut est vide. <br><br>Si l’attribut Extension n’est pas spécifié, les extensions peuvent être incluses dans le cadre de l’attribut de téléphone. Dans ce cas, faites précéder l’extension d’un « x » afin qu’il soit correctement analysé.  Par exemple, 555-123-4567 x890 pourrait conduire à 555-123-4567 comme numéro de téléphone et 890 comme extension. |
 | Bouton Paramètres par défaut |Cliquez sur **Paramètres par défaut** pour restaurer la valeur par défaut des attributs.  Les valeurs par défaut doivent fonctionner correctement avec le schéma Active Directory ou ADAM normal. |
 
@@ -107,7 +107,7 @@ Pour modifier les attributs, cliquez sur **Modifier** dans l’onglet Attributs.
 
 ![Modifier le mappage d’attribut d’annuaire du serveur MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
-## <a name="synchronization"></a>Synchronisation
+## <a name="synchronization"></a>Synchronization
 
 La synchronisation maintient la base de données utilisateur Azure MFA synchronisée avec les utilisateurs dans Active Directory ou un autre répertoire LDAP (Lightweight Directory Access Protocol). Le processus est similaire à l'importation manuelle d'utilisateurs à partir d'Active Directory, mais il procède à des interrogations régulières pour connaître les modifications apportées aux utilisateurs et groupes de sécurité Active Directory à traiter.  De même, il désactive ou supprime les utilisateurs qui ont été supprimés d’un conteneur, d’un groupe de sécurité ou d’Active Directory.
 

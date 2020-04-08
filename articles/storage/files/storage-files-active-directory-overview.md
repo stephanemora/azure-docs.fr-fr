@@ -3,15 +3,16 @@ title: Vue d’ensemble – Autorisation basée sur l’identité Azure Files
 description: Azure Files prend en charge l’authentification basée sur l’identité sur SMB (Server Message Block) au travers d’Azure Active Directory Domain Services (AD DS) et d’Active Directory. Vos machines virtuelles Windows jointes à un domaine peuvent alors accéder aux partages de fichiers Azure en utilisant les informations d’identification Azure AD.
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.subservice: files
+ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: rogarana
-ms.openlocfilehash: 673bf3be59d72b2cc62b9f92af353fee235c5ddc
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 737cdfaddca3a5f7532620bdafd86149e4d61f9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598814"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061068"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Vue d’ensemble de la prise en charge de l’authentification basée sur l’identité Azure Files pour l’accès SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -33,7 +34,7 @@ Vous devez comprendre certains termes clés relatifs à l’authentification Azu
 
 -   **Azure Active Directory (Azure AD)**
 
-    Azure Active Directory (Azure AD) est le service cloud Microsoft multilocataire de gestion des annuaires et des identités. Azure AD associe des services d’annuaires principaux, la gestion de l’accès aux applications et la protection des identités dans une même solution. Azure AD permet à vos machines virtuelles Windows jointes à un domaine d’accéder aux partages de fichiers Azure avec vos informations d’identification Azure AD. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../../active-directory/fundamentals/active-directory-whatis.md)
+    Azure Active Directory (Azure AD) est le service cloud de gestion des identités et des annuaires multilocataire de Microsoft. Azure AD associe des services d’annuaires principaux, la gestion de l’accès aux applications et la protection des identités dans une même solution. Azure AD permet à vos machines virtuelles Windows jointes à un domaine d’accéder aux partages de fichiers Azure avec vos informations d’identification Azure AD. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure AD Domain Services (Azure AD DS)**
 
@@ -98,7 +99,7 @@ Quand une identité associée à une application s’exécutant sur une machine 
 
 ### <a name="enable-identity-based-authentication"></a>Activer une authentification basée sur l’identité
 
-Vous pouvez activer une authentification basée sur l’identité avec Azure AD DS (généralement disponible) ou AD (en préversion) pour des partages de fichiers Azure sur vos comptes de stockage nouveaux et existants. Vous ne pouvez utiliser qu’une seul service de domaine pour l’authentification d’accès aux fichiers sur le compte de stockage, qui s’applique à tous les partages de fichiers du compte. Vous trouverez un guide pas à pas détaillé sur la configuration des partages de fichiers pour l’authentification avec Azure AD DS (généralement disponible) dans notre article [Activer l’authentification Azure Active Directory Domain Services sur Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md), et des conseils pour AD (en préversion) dans notre autre article, [Activer l’authentification Azure Active Directory sur SMB pour les partages de fichiers Azure](storage-files-identity-auth-active-directory-enable.md).
+Vous pouvez activer une authentification basée sur l’identité avec Azure AD DS (généralement disponible) ou AD (en préversion) pour des partages de fichiers Azure sur vos comptes de stockage nouveaux et existants. Vous ne pouvez utiliser qu’une seul service de domaine pour l’authentification d’accès aux fichiers sur le compte de stockage, qui s’applique à tous les partages de fichiers du compte. Vous trouverez un guide pas à pas détaillé sur la configuration des partages de fichiers pour l’authentification auprès d’Azure AD DS (généralement disponible) dans notre article [Activer l’authentification Azure Active Directory Domain Services sur Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md), et des conseils pour AD (en préversion) dans notre autre article, [Activer l’authentification Azure Active Directory sur SMB pour les partages de fichiers Azure](storage-files-identity-auth-active-directory-enable.md).
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configurer les autorisations au niveau du partage pour Azure Files
 

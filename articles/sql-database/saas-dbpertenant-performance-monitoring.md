@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e2e752ec37f71ea501dcee586e7daf0fc950919d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 34c50795567615637e31446ad3dc51a5e1b355f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214464"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données Azure SQL et des pools dans une application SaaS multilocataire
 
@@ -56,7 +56,7 @@ Les pools et les bases de données qu’ils incluent doivent être surveillés p
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données et les pools. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
-Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser les [journaux Azure Monitor](saas-dbpertenant-log-analytics.md). Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Les journaux Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services, et être utilisés pour interroger et définir des alertes.
+Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser les [journaux Azure Monitor](saas-dbpertenant-log-analytics.md). Il s’agit d’un service Azure distinct offrant l’analytique des journaux émis rassemblés dans un espace de travail Log Analytics. Les journaux Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services, et être utilisés pour interroger et définir des alertes.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
@@ -85,7 +85,7 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simulant une charge de t
 | 2 | Générer une charge d’intensité normale (environ 40 DTU) |
 | 3 | Générer une charge avec des pics plus longs et plus fréquents par base de données|
 | 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
-| 5\. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
+| 5 | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
 | 6 | Générer une charge déséquilibrée entre plusieurs pools|
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en eDTU), la durée et les intervalles varient selon les bases de données afin de simuler l’activité d’un locataire imprévisible.
@@ -206,7 +206,7 @@ Cet exercice simule l’effet de la salle de concert Contoso qui subit une charg
 
 1. Inspectez le graphique **Surveillance du pool élastique**, et recherchez l’utilisation d’eDTU du pool accrue. Après une ou deux minutes, la charge plus élevée doit commencer à apparaître et vous devez rapidement voir que le pool a atteint 100 % d’utilisation.
 2. Examinez également l’affichage **Surveillance de la base de données élastique** qui illustre les bases de données les plus actives au cours de la dernière heure. La base de données *contosoconcerthall* doit figurer rapidement parmi les cinq bases de données les plus sollicitées.
-3. Cliquez sur le **graphique** **Surveillance de la base de données élastique**. Cela a pour effet d’ouvrir la page **Utilisation des ressources de base de données** dans laquelle vous pouvez surveiller toutes les bases de données. Cela vous permet d’isoler l’affichage de la base de données *contosoconcerthall*.
+3. **Cliquez sur le **graphique** Supervision de la base de données élastique** pour ouvrir la page **Utilisation des ressources de base de données** dans laquelle vous pouvez superviser toutes les bases de données. Cela vous permet d’isoler l’affichage de la base de données *contosoconcerthall*.
 4. Dans la liste des bases de données, cliquez sur **contosoconcerthall**.
 5. Cliquez sur **Niveau tarifaire (mise à l’échelle de DTU)** pour ouvrir la page **Configurer les performances** dans laquelle vous pouvez définir une taille de calcul autonome pour la base de données.
 6. Cliquez sur l’onglet **Standard** pour ouvrir les options de mise à l’échelle du niveau Standard.
@@ -238,7 +238,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Augmenter la taille du pool élastique en réponse à la charge accrue sur les bases de données
 > * Approvisionner un deuxième pool élastique pour équilibrer la charge de l’activité de la base de données
 
-[Didacticiel Restaurer un locataire unique](saas-dbpertenant-restore-single-tenant.md)
+[Didacticiel Restaurer une base de données à locataire unique](saas-dbpertenant-restore-single-tenant.md)
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

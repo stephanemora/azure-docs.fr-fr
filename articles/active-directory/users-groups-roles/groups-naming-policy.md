@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941056"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497878"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms sur les groupes Office 365 dans Azure Active Directory
 
@@ -29,6 +29,8 @@ Pour appliquer des conventions de nommage cohérentes pour les groupes Office 3
 > Chaque utilisateur unique membre d’un ou plusieurs groupes Office 365 a besoin de se voir attribuer une licence Azure Active Directory Premium P1 ou Azure AD Basic EDU, mais pas nécessairement de la posséder, pour pouvoir utiliser la stratégie d’attribution de noms de groupes Azure AD pour les groupes Office 365.
 
 La stratégie de nommage s’applique à la création ou à la modification des groupes créés dans toutes les charges de travail (par exemple, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Elle s’applique à la fois au nom de groupe et à l’alias de groupe. Si vous avez configuré votre stratégie d’attribution de noms dans Azure AD et qu’il existe une stratégie d’attribution de noms de groupes Exchange, la stratégie d’attribution de noms Azure AD est appliquée dans votre organisation.
+
+Lorsque la stratégie d’attribution de nom à un groupe est configurée, la stratégie est appliquée aux nouveaux groupes Office 365 créés par les utilisateurs finaux. La stratégie d’attribution de nom ne s’applique pas à certains rôles d’annuaire, tels que l’administrateur général ou l’administrateur d’utilisateurs (voir ci-dessous pour obtenir la liste complète des rôles exemptés de la stratégie d’attribution de nom à un groupe). Pour les groupes Office 365 existants, la stratégie ne s’applique pas immédiatement au moment de la configuration. Une fois que le propriétaire du groupe modifie le nom de ces groupes, la stratégie d’attribution de nom est appliquée.
 
 ## <a name="naming-policy-features"></a>Caractéristiques de la stratégie de nommage
 

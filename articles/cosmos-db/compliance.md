@@ -4,15 +4,15 @@ description: Cet article décrit la couverture de certification pour les offres 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: a41d95a5ab0665698676d0f17333e2f5c7f467eb
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5a35ec10d7d9bc60bbbf28ee85c83c838108050b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872201"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527365"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformité dans Azure Cosmos DB 
 
@@ -26,7 +26,7 @@ Azure Cosmos DB est disponible dans toutes les régions Azure. Microsoft met cin
 
 * **Azure Government** est disponible dans quatre régions des États-Unis pour les organismes publics américains et leurs partenaires. 
 
-* **Azure Government pour le Ministère de la défense** est disponible dans deux régions aux États-Unis pour le Ministère de la défense des États-Unis.
+* **Azure Government pour le département de la Défense** est disponible dans deux régions des États-Unis pour le département de la Défense des États-Unis.
 
 Pour aider les clients à répondre à leurs propres obligations en matière de conformité dans les industries et sur les marchés réglementés du monde entier, Azure gère la plus grande gamme de solutions de conformité du secteur en termes de largeur (nombre total d’offres) et de profondeur (nombre de services B2C dans l’étendue d’évaluation).  Les offres de conformité Azure sont regroupées dans quatre segments : applicables globalement, gouvernement des États-Unis, propres à un secteur d’activité, et propres à une région ou un pays/une région.  Les offres de conformité sont basées sur divers types de garanties, notamment des certifications, attestations, validations, autorisations et évaluations officielles créées par des sociétés d’audit tierces indépendantes, ainsi que des modifications contractuelles, des auto-évaluations et des documents de conseils pour les clients créés par Microsoft.
 
@@ -44,6 +44,7 @@ Azure Cosmos DB étend en permanence sa couverture de certification. Actuellemen
 | ISO 27017:2015 | | | |
 | ISO 27018:2014 | | | |
 | ISO 9001:2015 | | | |
+| ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
 Pour en savoir plus sur chacune de ces offres de conformité et pour découvrir en quoi elles peuvent vous être utiles, consultez la page [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).

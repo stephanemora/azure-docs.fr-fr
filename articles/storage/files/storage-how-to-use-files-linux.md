@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 72264755d5f0379f0ffb07852f48885126a36898
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772106"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411606"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [client SMB en mode noyau](https://wiki.samba.org/index.php/LinuxCIFS). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
@@ -34,7 +34,7 @@ Si vous utilisez une distribution Linux non listée dans le tableau ci-dessus, v
 uname -r
 ```
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Vérifiez que le package cifs-utils est installé.**  
@@ -194,6 +194,53 @@ Quand vous avez terminé d’utiliser le partage de fichiers Azure, vous pouvez 
     > [!Note]  
     > La commande de montage ci-dessus effectue le montage avec SMB 3.0. Si votre distribution Linux ne prend pas en charge SMB 3.0 avec chiffrement ou si elle ne prend en charge que SMB 2.1, vous ne pouvez effectuer le montage qu’à partir d’une machine virtuelle Azure de la même région que le compte de stockage. Pour monter votre partage de fichiers Azure sur une distribution Linux qui ne prend pas en charge SMB 3.0 avec chiffrement, vous devez [désactiver le chiffrement en transit pour le compte de stockage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+### <a name="using-autofs-to-automatically-mount-the-azure-file-shares"></a>Utilisation d’autofs pour monter automatiquement le ou les partages de fichiers Azure
+
+1. **Vérifiez que le package autofs est installé.**  
+
+    Vous pouvez installer le package autofs à l’aide du gestionnaire de package sur la distribution Linux de votre choix. 
+
+    Sur les distributions **Ubuntu** et **basées sur Debian**, utilisez le gestionnaire de packages `apt` :
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    Sur **Fedora**, **Red Hat Enterprise Linux 8+** et **CentOS 8 +** , utilisez le gestionnaire de packages `dnf` :
+    ```bash
+    sudo dnf install autofs
+    ```
+    Sur les versions plus anciennes de **Red Hat Enterprise Linux** et **CentOS**, utilisez le gestionnaire de packages `yum` :
+    ```bash
+    sudo yum install autofs 
+    ```
+    Sur **openSUSE**, utilisez le gestionnaire de packages `zypper` :
+    ```bash
+    sudo zypper install autofs
+    ```
+2. **Créez un point de montage pour le ou les partages** :
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **Créez un fichier de configuration autofs personnalisé** :
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **Ajoutez les entrées suivantes à /etc/auto.fileshares** :
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **Ajoutez l’entrée suivante à /etc/auto.master** :
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **Redémarrez autofs** :
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **Accédez au dossier désigné pour le partage** :
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## <a name="securing-linux"></a>Sécurisation de Linux
 Pour monter un partage de fichiers Azure sur Linux, le port 445 doit être accessible. De nombreuses organisations bloquent le port 445 en raison des risques de sécurité inhérents à SMB 1. SMB 1, aussi appelé CIFS (Common Internet File System), est un protocole de système de fichiers hérité intégré à de nombreuses distributions Linux. SMB 1 est un protocole obsolète, inefficace et qui pose surtout des problèmes de sécurité. La bonne nouvelle, c’est qu’Azure Files ne prend pas en charge SMB 1 et qu’à partir de la version 4.18 de son noyau, Linux permet de désactiver SMB 1. Dans tous les cas, nous vous [recommandons vivement](https://aka.ms/stopusingsmb1) de désactiver SMB 1 sur vos clients Linux avant d’utiliser des partages de fichiers SMB en production.
 
@@ -226,7 +273,7 @@ sudo modinfo -p cifs | grep disable_legacy_dialects
 
 Cette commande doit générer le message suivant :
 
-```Output
+```output
 disable_legacy_dialects: To improve security it may be helpful to restrict the ability to override the default dialects (SMB2.1, SMB3 and SMB3.02) on mount with old dialects (CIFS/SMB1 and SMB2) since vers=1.0 (CIFS/SMB1) and vers=2.0 are weaker and less secure. Default: n/N/0 (bool)
 ```
 
@@ -276,7 +323,7 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## <a name="feedback"></a>Commentaires
 Utilisateurs de Linux, nous attendons votre avis !
 
-Azure Files pour le groupe d’utilisateurs Linux propose un forum qui vous permet de partager vos commentaires quand vous évaluez et adoptez le stockage de fichiers sur Linux. Envoyez un e-mail aux [utilisateurs Linux d’Azure Files](mailto:azurefileslinuxusers@microsoft.com) pour rejoindre le groupe d’utilisateurs.
+Azure Files pour le groupe d’utilisateurs Linux propose un forum qui vous permet de partager vos commentaires quand vous évaluez et adoptez le stockage de fichiers sur Linux. Envoyez un e-mail aux [utilisateurs Linux d’Azure Files](mailto:azurefiles@microsoft.com) pour rejoindre le groupe d’utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez ces liens pour en savoir plus sur Azure Files :

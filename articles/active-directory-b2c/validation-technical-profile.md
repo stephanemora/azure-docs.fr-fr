@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65a2eab05e7c475431602d9c2d3fc44b59bbc8f7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78185724"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481566"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de validation dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un profil technique de validation est un profil technique ordinaire issu de n’importe quel protocole, comme [Azure Active Directory](active-directory-technical-profile.md) ou une [API REST](restful-technical-profile.md). Le profil technique de validation renvoie des revendications de sortie ou un message d’erreur HTTP 409 (code d’état de réponse Conflit), avec les données suivantes :
+Un profil technique de validation est un profil technique ordinaire issu de n’importe quel protocole, comme [Azure Active Directory](active-directory-technical-profile.md) ou une [API REST](restful-technical-profile.md). Le profil technique de validation retourne des revendications de sortie ou un code d’état 4xx HTTP comprenant les données suivantes : Pour plus d’informations, consultez [Retour de message d’erreur](restful-technical-profile.md#returning-error-message).
 
 ```JSON
 {
@@ -32,11 +32,11 @@ Un profil technique de validation est un profil technique ordinaire issu de n’
 }
 ```
 
-Les revendications renvoyées à partir d’un profil technique de validation sont ajoutées à l’ensemble des revendications. Vous pouvez utiliser ces revendications dans les profils techniques de validation suivants.
+La portée des revendications de sortie d’un profil technique de validation se limite au [profil technique autodéclaré](self-asserted-technical-profile.md) qui appelle le profil technique de validation, ainsi qu’à ses propres profils techniques de validation. Si vous souhaitez utiliser les revendications de sortie à l’étape d’orchestration suivante, ajoutez les revendications de sortie au profil technique autodéclaré qui appelle le profil technique de validation.
 
 Les profils techniques de validation sont exécutés dans l’ordre où ils apparaissent dans l’élément **ValidationTechnicalProfiles**. Dans un profil technique de validation, vous pouvez choisir si l’exécution des profils techniques de validation suivants doit se poursuivre dans le cas où le profil technique de validation génère une erreur ou réussit.
 
-Un profil technique de validation peut être exécuté de manière conditionnelle en fonction de conditions préalables définies dans l’élément **ValidationTechnicalProfile**. Par exemple, vous pouvez vérifier si une revendication spécifique existe, ou si une revendication est égale ou non à la valeur spécifiée.
+Un profil technique de validation peut être exécuté de manière conditionnelle en fonction de conditions préalables définies dans l’élément **ValidationTechnicalProfile**. Par exemple, vous pouvez vérifier si une revendication existe, ou si une revendication est égale ou non à la valeur spécifiée.
 
 Un profil technique autodéclaré peut définir un profil technique de validation à utiliser pour valider toutes ou certaines de ses revendications de sortie. Toutes les revendications d’entrée du profil technique référencé doivent apparaître dans les revendications de sortie du profil technique de validation de référencement.
 

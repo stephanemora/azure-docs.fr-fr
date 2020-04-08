@@ -1,17 +1,17 @@
 ---
-title: Collecter les journaux d’activité Azure dans un espace de travail Log Analytics auprès de locataire Azure | Microsoft Docs
+title: Journaux d’activité Azure multilocataires dans Azure Monitor
 description: Utilisez Event Hubs et Logic Apps pour collecter des données de journal d’activité Azure et les envoyer à un espace de travail Log Analytics dans Azure Monitor d’un autre locataire.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 52bf8b955ef4dc9cfae7fd74fbad0df744609196
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669265"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055737"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Collecter les journaux d’activité Azure dans Azure Monitor auprès de locataires Azure Active Directory (méthode héritée)
 

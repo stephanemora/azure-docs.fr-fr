@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: ec218b1638183db463ff09488c988cad64d78c6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096423"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370438"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
@@ -69,7 +69,7 @@ Créez une table dans Azure Data Explorer, à laquelle Event Hubs enverra les do
 
 1. Copiez la commande suivante dans la fenêtre, puis sélectionnez **Exécuter** pour créer la table (TestTable) qui doit recevoir les données ingérées.
 
-    ```Kusto
+    ```kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
     ```
 
@@ -77,7 +77,7 @@ Créez une table dans Azure Data Explorer, à laquelle Event Hubs enverra les do
 
 1. Copiez la commande suivante dans la fenêtre et sélectionnez **Exécuter** pour mapper les données JSON entrantes aux types de données et aux noms de colonne de la table (TestTable).
 
-    ```Kusto
+    ```kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.TimeStamp"},{"column":"Value","path":"$.Value"},{"column":"Source","path":"$.Source"}]'
     ```
 
@@ -130,11 +130,11 @@ Nous allons maintenant utiliser un petit script de shell qui exécute quelques c
 
 Enregistrez les données dans un fichier et chargez celui-ci avec ce script :
 
-```Json
+```json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
 ```
 
-```bash
+```azurecli
 #!/bin/bash
 ### A simple Azure Storage example script
 
@@ -195,14 +195,14 @@ Vous pouvez modifier la stratégie ultérieurement si nécessaire. Dans cet arti
 
 1. Exécutez la requête suivante dans votre base de données de test pour vérifier combien de messages sont arrivés dans la base de données jusqu’à présent.
 
-    ```Kusto
+    ```kusto
     TestTable
     | count
     ```
 
 1. Pour voir le contenu des messages, exécutez la requête suivante dans votre base de données de test.
 
-    ```Kusto
+    ```kusto
     TestTable
     ```
 

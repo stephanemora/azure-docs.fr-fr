@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d8f1bbd79e6dcbbd75e1ea1b98bd211d77ed1a9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 983470994c103cb25d0d2aff96ae8544080e6288
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275444"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481294"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Activer l’accès distant à SharePoint avec le proxy d’application Azure AD
 
@@ -51,7 +51,7 @@ Cet article utilise les valeurs suivantes :
 - URL externe : `https://spsites-demo1984.msappproxy.net/`
 - Compte du pool d’applications pour l’application web SharePoint : `Contoso\spapppool`
 
-## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Étape 1 : Configurer une application dans Azure AD qui utilise le proxy d’application
+## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Étape 1 : Configurer une application dans Azure AD qui utilise le proxy d’application
 
 Dans cette étape, vous allez créer une application dans votre locataire Azure Active Directory qui utilise le proxy d’application. Vous définissez l’URL externe et spécifiez l’URL interne, les deux étant utilisées ultérieurement dans SharePoint.
 
@@ -74,7 +74,7 @@ Dans cette étape, vous allez créer une application dans votre locataire Azure 
 
 1. Pour terminer la configuration de votre application, accédez à la section **Utilisateurs et groupes** et affectez des utilisateurs pouvant accéder à cette application. 
 
-## <a name="step-2-configure-the-sharepoint-web-application"></a>Étape 2 : Configurer l’application web SharePoint
+## <a name="step-2-configure-the-sharepoint-web-application"></a>Étape 2 : Configurer l’application web SharePoint
 
 L’application web SharePoint doit être configurée avec Kerberos et les mappages d’accès de substitution appropriés pour fonctionner correctement avec le proxy d’application Azure AD. Il existe deux options possibles :
 
@@ -161,7 +161,7 @@ Pour identifier le compte qui exécute le pool d’applications de l’applicati
 1. Ouvrez la console du gestionnaire des services Internet Information Services.
 1. Développez le serveur dans l’arborescence, développez **Sites**, sélectionnez le site **SharePoint – Proxy AAD**, puis **Liaisons**.
 1. Sélectionnez la **liaison https**, puis **Modifier**.
-1. Dans le champ de certificat SSL, choisissez le certificat **SharePoint**, puis sélectionnez **OK**.
+1. Dans le champ de certificat TLS/SSL, choisissez le certificat **SharePoint**, puis sélectionnez **OK**.
 
 Vous pouvez maintenant accéder au site SharePoint en externe par l’intermédiaire du proxy d’application Azure AD.
 

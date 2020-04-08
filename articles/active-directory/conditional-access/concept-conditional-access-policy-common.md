@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfb5fb17abd5a433c177d3efc5a4f0a2cec3d4d7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186141"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295305"
 ---
 # <a name="common-conditional-access-policies"></a>Stratégies d’accès conditionnel courantes
 
@@ -33,18 +33,23 @@ Pour plus d’informations sur les comptes d’accès d’urgence et la raison p
 
 ## <a name="typical-policies-deployed-by-organizations"></a>Stratégies standard déployées par les organisations
 
+* [Bloquer l’authentification héritée](howto-conditional-access-policy-block-legacy.md)\*
 * [Exiger MFA pour les administrateurs](howto-conditional-access-policy-admin-mfa.md)\*
 * [Exiger MFA pour la gestion Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Exiger MFA pour tous les utilisateurs](howto-conditional-access-policy-all-users-mfa.md)\*
-* [Bloquer l’authentification héritée](howto-conditional-access-policy-block-legacy.md)\*
+
+\* Ces quatre stratégies, quand elles sont configurées conjointement, simulent les fonctionnalités activées par les [paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md).
+
+## <a name="additional-policies"></a>Stratégies supplémentaires
+
 * [Accès conditionnel basé sur le risque (requiert Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Exiger un emplacement approuvé pour l’inscription MFA](howto-conditional-access-policy-registration.md)
 * [Bloquer l’accès par emplacement](howto-conditional-access-policy-location.md)
 * [Exiger un appareil conforme](howto-conditional-access-policy-compliant-device.md)
-
-\* Ces quatre stratégies, quand elles sont configurées conjointement, simulent les fonctionnalités activées par les [paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md).
+* [Bloquer l’accès à l’exception d’applications spécifiques](howto-conditional-access-policy-block-access.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel.](troubleshoot-conditional-access-what-if.md)
+
 - [Utilisez le mode Rapport uniquement pour l’accès conditionnel afin de déterminer l’impact des nouvelles décisions de stratégie.](concept-conditional-access-report-only.md)

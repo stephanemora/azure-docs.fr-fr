@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707942"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128760"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dépannage des appareils à l’aide de la commande dsregcmd
 
@@ -134,7 +134,7 @@ Cette section répertorie l’état de différents attributs pour l’utilisateu
 - **CanReset :** - indique si la clé Windows Hello peut être réinitialisée par l’utilisateur. 
 - **Valeurs possibles :** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive ou Unknown en cas d’erreur. 
 - **WorkplaceJoined :** - défini sur « OUI » si des comptes inscrits à Azure AD ont été ajoutés à l’appareil dans le contexte NTUSER actuel.
-- **WamDefaultSet :** - défini sur « OUI » si un compte WebAccount par défaut est créé pour l’utilisateur connecté. Ce champ peut afficher une erreur si dsreg/état est exécuté dans un contexte d’administration. 
+- **WamDefaultSet :** - défini sur « OUI » si un compte WebAccount par défaut est créé pour l’utilisateur connecté. Ce champ peut afficher une erreur si dsreg /status est exécuté dans une invite de commandes avec élévation de privilèges. 
 - **WamDefaultAuthority :** -défini sur « organisations » pour Azure AD.
 - **WamDefaultId :** - toujours « https://login.microsoft.com  » pour Azure AD.
 - **WamDefaultGUID :** - le GUID du fournisseur WAM (Azure AD/compte Microsoft) pour le compte WebAccount par défaut. 
@@ -211,8 +211,16 @@ Dans cette section, différents tests sont effectués pour faciliter le diagnost
 - **Test de configuration AD** :- le test permet de lire et de vérifier si l’objet SCP est correctement configuré dans la forêt AD locale. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase de découverte avec le code d’erreur 0x801c001d.
 - **Test de détection DRS :** - le test permet d’obtenir les points de terminaison DRS à partir du point de terminaison de métadonnées de découverte et d’exécuter une requête de domaine d’utilisateur. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase de découverte.
 - **Test de connectivité DRS :** - un test de connectivité de base est effectué sur le point de terminaison DRS.
-- **Test d’acquisition de jeton :**  - le test tente d’obtenir un jeton d’authentification Azure AD si le locataire de l’utilisateur est fédéré. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase d’authentification. En cas d’échec de l’authentification, une jointure de synchronisation est tentée en tant que secours, sauf si le secours est explicitement désactivé avec une clé de Registre.
-- **Option de secours pour la jointure de synchronisation :** - défini sur « Activé » si la clé de Registre n’est PAS présente afin d’empêcher l’option de secours pour la jointure de synchronisation. Cette option est disponible à partir de Windows 10 1803 et versions ultérieures.
+- **Test d’acquisition de jeton :**  - le test tente d’obtenir un jeton d’authentification Azure AD si le locataire de l’utilisateur est fédéré. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase d’authentification. En cas d’échec de l’authentification, une jointure de synchronisation est tentée en tant qu’option de secours, sauf si celle-ci est explicitement désactivée avec les paramètres de clé de registre ci-dessous.
+```
+    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+    Value: FallbackToSyncJoin
+    Type:  REG_DWORD
+    Value: 0x0 -> Disabled
+    Value: 0x1 -> Enabled
+    Default (No Key): Enabled
+ ```
+- **Fallback to Sync-Join :** définissez cette option sur « Enabled » (Activé) si la clé de registre ci-dessus n’est PAS présente afin d’empêcher l’option de secours de jointure de synchronisation en cas d’échec de l’authentification. Cette option est disponible à partir de Windows 10 1803 et versions ultérieures.
 - **Inscription précédente :** - heure à laquelle la tentative de jointure précédente a eu lieu. Seules les tentatives de jointure ayant échoué sont journalisées.
 - **Phase d’erreur :** - l’étape de la jointure où celle-ci a été abandonnée. Les valeurs possibles sont prévérification, détection, authentification et jointure.
 - **Client ErrorCode :** code d’erreur client retourné (HRESULT).

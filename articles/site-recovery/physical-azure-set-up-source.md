@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589053"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229129"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurer le serveur de configuration pour la récupération d’urgence de serveurs physiques sur Azure
 
@@ -22,7 +22,7 @@ Cet article décrit comment configurer votre environnement local pour lancer la 
 ## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous disposez déjà des éléments suivants :
-- Un coffre Recovery Services dans le [portail Azure](https://portal.azure.com "portail Azure").
+- Un coffre Recovery Services dans le [portail Azure](https://portal.azure.com "Portail Azure").
 - Un ordinateur physique sur lequel installer le serveur de configuration.
 - Si vous avez désactivé TLS 1.0 sur l’ordinateur sur lequel vous installez le serveur de configuration, vérifiez que TLS 1.2 est activé et que .NET Framework version 4.6 ou ultérieure est installé sur l’ordinateur (et que le chiffrement fort est activé). [Plus d’informations](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
 

@@ -1,18 +1,18 @@
 ---
-title: Captures instantanées incrémentielles (préversion) pour les disques managés
-description: Apprenez-en davantage sur les instantanés incrémentiels (préversion) pour les disques managés, notamment sur la manière de les créer à l’aide de PowerShell et d’Azure Resource Manager.
+title: Instantanés incrémentiels pour les disques managés
+description: Apprenez-en davantage sur les instantanés incrémentiels pour les disques managés, notamment sur la manière de les créer à l’aide de l’interface CLI et d’Azure Resource Manager.
 author: roygara
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 03/13/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 74c1c84b4deb1f2d904f88887fcf81b880f0f8ec
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: cc2685c234bceb302b86ebd84d0ec091ac11f098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970411"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370863"
 ---
-# <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>Créer un instantané incrémentiel (préversion) pour les disques managés
-[!INCLUDE [virtual-machines-disks-incremental-snapshot](../../../includes/virtual-machines-disks-incremental-snapshot.md)]
+# <a name="create-an-incremental-snapshot-for-managed-disks---cli"></a>Créer un instantané incrémentiel pour les disques managés – Interface CLI
+[!INCLUDE [virtual-machines-disks-incremental-snapshot-cli](../../../includes/virtual-machines-disks-incremental-snapshot-cli.md)]

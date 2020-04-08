@@ -4,24 +4,23 @@ description: Découvrez comment configurer l’accès conditionnel pour Azure SQ
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sql-data-warehouse
-ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
+ms.custom: sql-data-warehouse
 ms.date: 02/06/2020
 tag: azure-synpase
-ms.openlocfilehash: f2431ee7c62079a3691a5ea99e562460df8f9309
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: cd56ccf2e6a4ceb0d81c25b5b9e795176be66b77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197570"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124905"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-azure-synapse-analytics"></a>Accès conditionnel (MFA) avec Azure SQL Database et Azure Synapse Analytics
 
-Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md) et [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) prennent tous deux en charge l’accès conditionnel Microsoft. 
+Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md) et [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) prennent tous deux en charge l’accès conditionnel Microsoft. 
 
 > [!NOTE]
 > Cette rubrique s’applique au serveur Azure SQL ainsi qu’aux instances de SQL Database et Azure Synapse créées sur le serveur Azure SQL. Par souci de simplicité, le nom « SQL Database » est utilisé pour faire référence à SQL Database et à Azure Synapse.
@@ -42,7 +41,7 @@ Les étapes suivantes montrent comment configurer SQL Database pour appliquer un
 
 4. Sélectionnez **Applications cloud**, puis cliquez sur **Sélectionner des applications**. Vous voyez toutes les applications disponibles pour l’accès conditionnel. Sélectionnez **Azure SQL Database**, cliquez en bas sur **Sélectionner**, puis sur **Terminé**.  
    ![sélectionner SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
-   Si vous ne trouvez pas **Azure SQL Database** répertorié dans la troisième capture d’écran ci-dessous, effectuez les étapes suivantes :   
+   Si vous ne trouvez pas **Azure SQL Database** répertorié dans la troisième capture d’écran ci-dessous, effectuez les étapes suivantes :   
    - Connectez-vous à votre instance Azure SQL DB/DW à l’aide de SSMS avec un compte d’administrateur AAD.  
    - Exécutez `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
    - Connectez-vous à AAD et vérifiez qu’Azure SQL Database et Azure Synapse sont listés dans AAD.  

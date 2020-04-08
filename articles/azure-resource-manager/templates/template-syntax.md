@@ -2,19 +2,19 @@
 title: Structure et syntaxe des modèles
 description: Décrit la structure et les propriétés des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/16/2020
+ms.openlocfilehash: 4e8334e4ddfaee52c5d1aa68fb8689fcde0a6cbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79459988"
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
+# <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendre la structure et la syntaxe des modèles ARM
 
-Cet article décrit la structure d’un modèle Azure Resource Manager. Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections.
+Cet article décrit la structure d’un modèle ARM (Azure Resource Manager). Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections.
 
-Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles Resource Manager. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md)
+Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles ARM. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md)
 
 ## <a name="template-format"></a>Format de modèle
 
@@ -22,7 +22,7 @@ Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "",
   "apiProfile": "",
   "parameters": {  },
@@ -35,7 +35,7 @@ Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| $schema |Oui |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle.<br><br> Pour des déploiements de groupes de ressources, utilisez : `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Pour des déploiements d’abonnements, utilisez : `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Oui |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle. Le numéro de version que vous utilisez dépend de l’étendue du déploiement et de votre éditeur JSON.<br><br>Si vous utilisez [VS Code avec l’extension des outils Azure Resource Manager](use-vs-code-to-create-template.md), utilisez la version la plus récente pour les déploiements de groupes de ressources :<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Il se peut que d’autres éditeurs (dont Visual Studio) ne puissent pas traiter ce schéma. Pour ces éditeurs, utilisez :<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Pour les déploiements d’abonnements, utilisez :<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Pour les déploiements de groupes d’administration, utilisez :<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Pour les déploiements de locataires, utilisez :<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Oui |Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Utilisez cette valeur pour documenter les modifications importantes dans votre modèle. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé. |
 | apiProfile |Non | Une version d’API qui sert de collection de versions d’API pour les types de ressources. Utilisez cette valeur pour éviter d’avoir à spécifier les versions d’API pour chaque ressource dans le modèle. Lorsque vous spécifiez une version de profil d’API et que vous ne spécifiez pas une version d’API pour le type de ressource, Resource Manager utilise la version d’API pour ce type de ressource qui est définie dans le profil.<br><br>La propriété de profil d’API est particulièrement utile lorsque vous déployez un modèle dans différents environnements, comme Azure Stack et Azure global. Utilisez la version de profil d’API pour vous assurer que votre modèle utilise automatiquement des versions prises en charge dans les deux environnements. Pour une liste des versions de profil d’API actuelles et les versions d’API définies dans le profil de ressources, consultez [Profil d’API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Pour plus d’informations, consultez [Suivre les versions à l’aide de profils d’API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Non |Valeurs fournies lors de l'exécution du déploiement pour personnaliser le déploiement des ressources. |
@@ -317,7 +317,7 @@ Vous pouvez ajouter un objet `metadata` presque n’importe où dans votre modè
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "metadata": {
     "comments": "This template was developed for demonstration purposes.",

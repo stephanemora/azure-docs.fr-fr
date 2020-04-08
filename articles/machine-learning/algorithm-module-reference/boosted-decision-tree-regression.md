@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 10821639fb26af935326bda0bff7895105da675c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 79a2ccae31fac31d8d10bb643c35a41a3d7cb5d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919955"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456724"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Module de régression d’arbre de décision boosté
 
@@ -56,7 +56,7 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
   
     -   **Single Parameter** (Paramètre unique) : sélectionnez cette option si vous savez comment vous voulez configurer le modèle, et fournissez un ensemble spécifique de valeurs en tant qu’arguments. 
      
-    -   **Plage de paramètres** : sélectionnez cette option si vous ignorez quels paramètres choisir et souhaitez exécuter un balayage des paramètres. Sélectionnez la plage de valeurs sur laquelle vous souhaitez effectuer l’itération. Le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) effectue alors une itération sur toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.    
+    -   **Plage de paramètres** : Sélectionnez cette option si vous n’êtes pas sûr des paramètres à choisir et que vous souhaitez exécuter un balayage des paramètres. Sélectionnez la plage de valeurs sur laquelle vous souhaitez effectuer l’itération. Le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) effectue alors une itération sur toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.    
    
   
 3. **Maximum number of leaves per tree** (Nombre maximal de feuilles par arbre) : indiquer le nombre maximal de nœuds terminaux (feuilles) qui peuvent être créés dans n’importe quel arbre.  
@@ -84,7 +84,7 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
   
     
 
-10. Exécuter le pipeline.  
+10. Envoyez le pipeline.  
   
 ## <a name="results"></a>Résultats
 

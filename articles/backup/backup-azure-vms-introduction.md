@@ -3,16 +3,22 @@ title: À propos de la sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597250"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415979"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
 Cet article décrit la manière dont le [service Sauvegarde Azure](backup-introduction-to-azure-backup.md) sauvegarde les machines virtuelles Azure.
+
+Le service Sauvegarde Azure propose des sauvegardes indépendantes et isolées pour éviter une destruction involontaire des données de vos machines virtuelles. Les sauvegardes sont stockées dans un coffre Recovery Services avec gestion intégrée des points de récupération. La configuration et la mise à l’échelle sont simples, les sauvegardes sont optimisées, et vous pouvez facilement restaurer en fonction des besoins.
+
+Pendant le processus de sauvegarde, une [capture instantanée est créée](#snapshot-creation) et les données sont transférées vers le coffre Recovery Services sans que cela n’impacte les charges de travail de production. La capture instantanée offre différents niveaux de cohérence, comme décrit [ici](#snapshot-consistency).
+
+Le service Sauvegarde Azure propose également des offres spécialisées pour les charges de travail de base de données comme [SQL Server](backup-azure-sql-database.md) et [SAP HANA](sap-hana-db-about.md) qui prennent en charge les charges de travail, offrent un objectif de point de récupération (RPO) de 15 minutes et autorisent la sauvegarde et la restauration des bases de données individuelles.
 
 ## <a name="backup-process"></a>Processus de sauvegarde
 
@@ -20,8 +26,8 @@ Voici comment Sauvegarde Azure effectue une sauvegarde de machines virtuelles Az
 
 1. Pour des machines virtuelles Azure sélectionnés pour la sauvegarde, Sauvegarde Azure démarre un travail de sauvegarde conformément à la planification de sauvegarde que vous spécifiez.
 1. Lors de la première sauvegarde, une extension de sauvegarde est installée sur la machine virtuelle si celle-ci est en cours d’exécution.
-    - Pour les machines virtuelles Windows, l’extension _VMSnapshot_ est installée.
-    - Pour les machines virtuelles Linux, l’extension _VMSnapshotLinux_ est installée.
+    - Pour les machines virtuelles Windows, l’[extension VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows) est installée.
+    - Pour les machines virtuelles Linux, l’[extension VMSnapshotLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-linux) est installée.
 1. Pour les machines virtuelles Windows en cours d’exécution, le service Sauvegarde se coordonne avec le service VSS (Volume Shadow Copy Service) Windows pour prendre un instantané de cohérence d’application de la machine virtuelle.
     - Par défaut, Sauvegarde Azure effectue des sauvegardes VSS complètes.
     - Si la sauvegarde ne peut pas prendre d’instantané de cohérence d’application, elle prend un instantané cohérent au niveau fichier du stockage sous-jacent (parce qu’aucune écriture d’application n’a lieu quand la machine virtuelle est arrêtée).
@@ -66,7 +72,7 @@ Sauvegarde Azure prend des captures instantanées en fonction de la planificatio
   - Si les pré-scripts et post-scripts s’exécutent correctement, Sauvegarde Azure marque le point de récupération comme étant cohérent dans les applications. Toutefois, lors de l’utilisation de scripts personnalisés, vous êtes responsable de la cohérence des applications .
   - [Apprenez-en davantage](backup-azure-linux-app-consistent.md) sur la configuration des scripts.
 
-### <a name="snapshot-consistency"></a>Cohérence des instantanés
+## <a name="snapshot-consistency"></a>Cohérence des instantanés
 
 Le tableau suivant explique les différents types de cohérence de capture instantanée :
 
@@ -102,7 +108,7 @@ Les scénarios courants ci-dessous peuvent affecter la durée de sauvegarde tota
 Lors de la configuration des sauvegardes de machines virtuelles, nous vous suggérons de suivre les pratiques suivantes :
 
 - Modifiez les heures de planification par défaut définies dans une stratégie. Par exemple, si l’heure par défaut d’une stratégie est minuit, incrémentez-la de quelques minutes pour optimiser l’utilisation des ressources.
-- Si vous restaurez des machines virtuelles à partir d’un seul coffre, nous vous recommandons vivement d’utiliser différents [comptes de stockage v2 à usage général](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) pour être certain que le compte de stockage cible ne soit pas limité. Par exemple, chaque machine virtuelle doit avoir un compte de stockage distinct. Par exemple, si 10 machines virtuelles sont restaurées, utilisez 10 comptes de stockage distincts.
+- Si vous restaurez des machines virtuelles à partir d’un seul coffre, nous vous recommandons vivement d’utiliser différents [comptes de stockage v2 à usage général](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) pour faire en sorte que le compte de stockage cible ne soit pas limité. Par exemple, chaque machine virtuelle doit avoir un compte de stockage distinct. Par exemple, si 10 machines virtuelles sont restaurées, utilisez 10 comptes de stockage distincts.
 - Pour la sauvegarde de machines virtuelles qui utilisent le stockage Premium, avec la restauration instantanée, nous vous recommandons d’allouer *50 %* de l’espace de stockage alloué total disponible, qui est nécessaire **uniquement** pour la première sauvegarde. Le fait de n’utiliser que 50 % de l’espace disponible n’est plus une obligation une fois la première sauvegarde terminée
 - La limite du nombre de disques par compte de stockage dépend de la lourdeur des disques auxquels accèdent les applications s’exécutant sur une machine virtuelle IaaS. En règle générale, si plus de 5 disques sont présents sur un compte de stockage, équilibrez la charge en déplaçant certains disques vers des comptes de stockage distincts.
 

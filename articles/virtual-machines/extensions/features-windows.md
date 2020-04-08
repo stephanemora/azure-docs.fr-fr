@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4eb212cb6122803f78b13e6c17a55bac5bc48286
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587870"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066853"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -353,7 +353,7 @@ Chaque extension de machine virtuelle peut présenter une procédure de résolut
 
 La procédure de résolution des problèmes ci-après s’applique à toutes les extensions de machine virtuelle.
 
-1. Pour consulter le journal de l’agent invité Windows, examinez l’activité au moment où votre extension a été approvisionnée dans le fichier *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. Pour consulter le journal de l’agent invité Windows, examinez l’activité au moment où votre extension a été approvisionnée dans le fichier *C:\WindowsAzure\Logs\WaAppAgent.log*
 
 2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits à l’emplacement *C:\WindowsAzure\Logs\Plugins\<nomExtension&gt;*
 

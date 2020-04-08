@@ -4,11 +4,11 @@ description: Les évaluations et les effets d’Azure Policy déterminent la con
 ms.date: 02/01/2019
 ms.topic: how-to
 ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873146"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236133"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -53,7 +53,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
 
 L’analyse prend en charge l’évaluation des ressources dans un abonnement ou dans un groupe de ressources. Lancez une analyse pour une étendue avec une commande **POST** d’API REST en utilisant les structures d’URI suivantes :
 
-- Subscription
+- Abonnement
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -71,7 +71,7 @@ L’appel retourne un état **202 Accepté**. Une propriété **Emplacement** es
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}` est généré de manière statique pour l’étendue demandée. Si une étendue exécute déjà une analyse à la demande, aucune nouvelle analyse n’est démarrée. Au lieu de cela, le même URI `{ResourceContainerGUID}`**d’emplacement** pour l’état est fourni à la nouvelle requête. Une commande **GET** d’API REST à l’URI **d’emplacement** retourne un **202 Accepté** tandis que l’évaluation est en cours. Une fois l’analyse de l’évaluation terminée, elle retourne un état **200 OK**. Le corps d’une analyse terminée est une réponse JSON avec l’état :
+`{ResourceContainerGUID}` est généré de manière statique pour l’étendue demandée. Si une étendue exécute déjà une analyse à la demande, aucune nouvelle analyse n’est démarrée. Au lieu de cela, le même URI `{ResourceContainerGUID}` **d’emplacement** pour l’état est fourni à la nouvelle requête. Une commande **GET** d’API REST à l’URI **d’emplacement** retourne un **202 Accepté** tandis que l’évaluation est en cours. Une fois l’analyse de l’évaluation terminée, elle retourne un état **200 OK**. Le corps d’une analyse terminée est une réponse JSON avec l’état :
 
 ```json
 {
@@ -244,7 +244,7 @@ L’exemple de réponse ci-dessous a été ramené à une seule ressource non co
 }
 ```
 
-### <a name="view-events"></a>Visualiser les événements
+### <a name="view-events"></a>Afficher les événements
 
 Lorsqu’une ressource est créée ou mise à jour, un résultat d’évaluation de stratégie est généré. Ces résultats sont appelés _événements de stratégie_. L’URI suivant permet d’afficher les événements de stratégie récents associés à l’abonnement.
 
@@ -294,7 +294,7 @@ Le module comporte les cmdlets suivantes :
 - `Start-AzPolicyRemediation`
 - `Stop-AzPolicyRemediation`
 
-Exemple : Obtenir le résumé d’état de la stratégie affectée au premier plan qui comporte le plus grand nombre de ressources non conformes.
+Exemple : Obtenir le résumé d’état de la stratégie affectée au premier plan qui comporte le plus grand nombre de ressources non conformes.
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyStateSummary -Top 1
@@ -305,7 +305,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
                         oft.authorization/policyassignments/37ce239ae4304622914f0c77}
 ```
 
-Exemple : Obtenir l’enregistrement de l’état pour la ressource évaluée la plus récemment (par défaut, selon un horodatage dans l’ordre décroissant).
+Exemple : Obtenir l’enregistrement de l’état pour la ressource évaluée la plus récemment (par défaut, selon un horodatage dans l’ordre décroissant).
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Top 1
@@ -331,7 +331,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Exemple : Obtenir des détails pour toutes les ressources non conformes du réseau virtuel.
+Exemple : Obtenir des détails pour toutes les ressources non conformes du réseau virtuel.
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
@@ -357,7 +357,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Exemple : Obtenir des événements liés aux ressources non conformes du réseau virtuel qui se sont produits après une date spécifique.
+Exemple : Obtenir des événements liés aux ressources non conformes du réseau virtuel qui se sont produits après une date spécifique.
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'

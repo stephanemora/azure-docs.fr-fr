@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ee3b5bd3278412949074b77f9d1c53d63a467280
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189393"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408713"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notes développeur pour les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -59,68 +59,82 @@ Les développeurs qui utilisent les fonctionnalités de stratégie personnalisé
 
 Les fonctionnalités de stratégie personnalisée/Identity Experience Framework font l’objet d’un développement rapide et constant. Le tableau suivant indique la disponibilité des fonctionnalités et des composants.
 
-### <a name="identity-providers-tokens-protocols"></a>Fournisseurs d’identité, jetons et protocoles
+
+### <a name="protocols-and-authorization-flows"></a>Protocoles et flux d’autorisation
 
 | Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| IDP-OpenIDConnect |  |  | X | Par exemple, Google+.  |
-| IDP-OAUTH2 |  |  | X | Par exemple, Facebook.  |
-| IDP-OAUTH1 (twitter) |  | X |  | Par exemple, Twitter. |
-| IDP-OAUTH1 (ex-twitter) |  |  |  | Non pris en charge |
-| IDP-SAML |  |   | X | Par exemple, Salesforce, ADFS. |
-| IDP-WSFED | X |  |  |  |
-| OAUTH1 avec partie de confiance |  |  |  | Non pris en charge. |
-| OAUTH2 avec partie de confiance |  |  | X |  |
-| OIDC avec partie de confiance |  |  | X |  |
-| SAML avec partie de confiance |  |X  |  |  |
-| WSFED avec partie de confiance | X |  |  |  |
-| API REST avec l’authentification de base et par certificat |  |  | X | Par exemple, Azure Logic Apps. |
+| [Code d’autorisation OAuth2](authorization-code-flow.md) |  |  | X |  |
+| Code d’autorisation OAuth2 avec PKCE |  |  | X | Applications mobiles uniquement  |
+| [Flux implicite OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
+| [Informations d’identification de mot de passe du propriétaire de ressource OAuth2](ropc-custom.md) |  | X |  |  |
+| [OIDC Connect](openid-connect.md) |  |  | X |  |
+| [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | Liaisons POST et de redirection. |
+| OAuth1 |  |  |  | Non pris en charge. |
+| WSFED | X |  |  |  |
+
+### <a name="identify-providers-federation"></a>Identifier la fédération des fournisseurs 
+
+| Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Par exemple, Google+.  |
+| [OAuth2](oauth2-technical-profile.md) |  |  | X | Par exemple, Facebook.  |
+| [OAuth1](oauth1-technical-profile.md) |  | X |  | Par exemple, Twitter. |
+| [SAML2](saml-technical-profile.md) |  |   | X | Par exemple, Salesforce, ADFS. |
+| WSFED| X |  |  |  |
+
+
+### <a name="rest-api-integration"></a>Intégration de l’API REST
+
+| Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [API REST avec authentification de base](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
+| [API REST avec authentification par certificat client](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
+| [API REST avec authentification par jeton du porteur OAuth2](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
 
 ### <a name="component-support"></a>Prise en charge des composants
 
 | Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Azure Multi-Factor Authentication |  |  | X |  |
-| Azure Active Directory comme annuaire local |  |  | X |  |
-| Sous-système Azure Email pour la vérification d’e-mail |  |  | X |  |
-| Prise en charge multi-langage|  |  | X |  |
-| Validations de prédicats |  |  | X | Par exemple, la complexité des mots de passe. |
-| Utilisation de fournisseurs de services d’e-mail tiers |  |X  |  |  |
+| [Authentification par facteur téléphonique](phone-factor-technical-profile.md) |  |  | X |  |
+| [Authentification Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Mot de passe à usage unique](one-time-password-technical-profile.md) |  | X |  |  |
+| [Azure Active Directory](active-directory-technical-profile.md) comme répertoire local |  |  | X |  |
+| Sous-système de messagerie Azure pour la vérification par e-mail |  |  | X |  |
+| [Fournisseurs de services de messagerie tiers](custom-email.md) |  |X  |  |  |
+| [Prise en charge multilingue](localization.md)|  |  | X |  |
+| [Validations de prédicats](predicates.md) |  |  | X | Par exemple, la complexité des mots de passe. |
+| [Contrôles d’affichage](display-controls.md) |  |X  |  |  |
 
-### <a name="content-definition"></a>Définition du contenu
+
+### <a name="page-layout-versions"></a>Versions des mises en page
 
 | Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Page d’erreur, api.error |  |  | X |  |
-| Page de sélection de fournisseurs d’identité, api.idpselections |  |  | X |  |
-| Sélection de fournisseurs d’identité pour l’inscription, api.idpselections.signup |  |  | X |  |
-| Mot de passe oublié, api.localaccountpasswordreset |  |  | X |  |
-| Connexion au compte local, api.localaccountsignin |  |  | X |  |
-| Inscription à un compte local, api.localaccountsignup |  |  | X |  |
-| Page MFA, api.phonefactor |  |  | X |  |
-| Inscription autodéclarée à un compte social, api.selfasserted |  |  | X |  |
-| Mise à jour de profil autodéclaré, api.selfasserted.profileupdate |  |  | X |  |
-| Page d’inscription ou de connexion unifiée, api.signuporsignin, avec le paramètre « disableSignup » |  |  | X |  |
-| JavaScript / Mise en page |  | X |  |  |
+| [2.0.0](page-layout.md#200) |  | X |  |  |
+| [1.2.0](page-layout.md#120) |  | X |  |  |
+| [1.1.0](page-layout.md#110) |  |  | X |  |
+| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [Prise en charge de JavaScript](javascript-samples.md) |  | X |  |  |
 
 ### <a name="app-ief-integration"></a>Intégration App-IEF
 
 | Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Paramètre de chaîne de requête domain_hint |  |  | X | Disponible sous forme de revendication, peut être transmis au fournisseur d’identité. |
-| Paramètre de chaîne de requête login_hint |  |  | X | Disponible sous forme de revendication, peut être transmis au fournisseur d’identité. |
-| Insérer du code JSON dans le parcours utilisateur via client_assertion | X |  |  | Sera déconseillé. |
-| Insérer du code JSON dans le parcours utilisateur en tant que id_token_hint |  | X |  | Approche à adopter pour transmettre JSON. |
-| Transmettre le jeton IDP TOKEN à l’application |  | X |  | Par exemple, de Facebook à l’application. |
+| Paramètre de chaîne de requête `domain_hint` |  |  | X | Disponible sous forme de revendication, peut être transmis au fournisseur d’identité. |
+| Paramètre de chaîne de requête `login_hint` |  |  | X | Disponible sous forme de revendication, peut être transmis au fournisseur d’identité. |
+| Insérer du code JSON dans le parcours utilisateur via `client_assertion` | X |  |  | Sera déconseillé. |
+| Insérer du code JSON dans le parcours utilisateur en tant que `id_token_hint` |  | X |  | Approche à adopter pour transmettre JSON. |
+| [Transmettre le jeton du fournisseur d’identité à l’application](idp-pass-through-custom.md) |  | X |  | Par exemple, de Facebook à l’application. |
 
 ### <a name="session-management"></a>Gestion des sessions
 
 | Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Fournisseur de session par authentification unique |  |  | X |  |
-| Fournisseur de session de connexion externe |  |  | X |  |
-| Fournisseur de session par authentification unique SAML |  |  | X |  |
-| Fournisseur de session SSO par défaut |  |  | X |  |
+| [Fournisseur de session SSO par défaut](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
+| [Fournisseur de session de connexion externe](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
+| [Fournisseur de session par authentification unique SAML](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
+
 
 ### <a name="security"></a>Sécurité
 
@@ -128,16 +142,19 @@ Les fonctionnalités de stratégie personnalisée/Identity Experience Framework 
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Clés de stratégie : générer, manuel, charger |  |  | X |  |
 | Clés de stratégie : RSA/certificat, secrets |  |  | X |  |
-| Chargement de stratégie |  |  | X |  |
+
 
 ### <a name="developer-interface"></a>Interface de développeur
 
 | Fonctionnalité | Développement | PRÉVERSION | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Expérience utilisateur de l’infrastructure d’expérience d’identité dans le Portail Azure |  |  | X |  |
-| Journaux d’activité du parcours utilisateur Application Insights |  | X |  | Utilisés pour la résolution des problèmes pendant le développement.  |
-| Journaux d’événements Application Insights (via les étapes d’orchestration) |  | X |  | Utilisés pour superviser les flux utilisateur en production. |
+| Chargement de stratégie |  |  | X |  |
+| [Journaux de parcours utilisateur Application Insights](troubleshoot-with-application-insights.md) |  | X |  | Utilisés pour la résolution des problèmes pendant le développement.  |
+| [Journaux d’événements Application Insights](application-insights-technical-profile.md) |  | X |  | Utilisés pour superviser les flux utilisateur en production. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Approfondissez vos connaissances sur les stratégies personnalisées et découvrez ce qui les distingue des flux utilisateur](custom-policy-overview.md).
+- Consultez [Opérations Microsoft Graph disponibles pour Azure AD B2C](microsoft-graph-operations.md).
+- [Approfondissez vos connaissances sur les stratégies personnalisées et découvrez ce qui les distingue des flux utilisateur](custom-policy-overview.md).

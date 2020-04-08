@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c81d2bc499c3d9cae262ef62be2dac2d7280be7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 83a13e0b1bb4d55b889d96e42c8f3f18ce0f2b73
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183837"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408937"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -90,11 +90,32 @@ L’attribut **Name** de l’élément Protocol doit être défini sur `SAML2`.
 
 L’élément **OutputClaims** contient une liste de revendications retournées par le fournisseur d’identité SAML dans la section `AttributeStatement`. Il se peut que vous deviez mapper le nom de la revendication définie dans votre stratégie au nom défini dans le fournisseur d'identité. Vous pouvez également inclure des revendications qui ne sont pas retournées par le fournisseur d’identité, pour autant que vous définissiez l’attribut `DefaultValue`.
 
-Pour lire l’assertion SAML **NamedId** dans **Objet** comme une revendication normalisée, définissez la revendication **PartnerClaimType** sur `assertionSubjectName`. Assurez-vous que **NameId** est la première valeur dans l’assertion XML. Lorsque vous définissez plusieurs assertion, Azure AD B2C sélectionne la valeur d’objet de la dernière assertion.
+### <a name="subject-name-output-claim"></a>Revendication de sortie du nom de l’objet
 
-L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
+Pour lire l’assertion SAML **NamedId** dans **Objet** comme une revendication normalisée, définissez la revendication **PartnerClaimType** sur la valeur de l’attribut `SPNameQualifier`. Si l’attribut `SPNameQualifier` n’est pas présenté, définissez la revendication **PartnerClaimType** sur la valeur de l’attribut `NameQualifier`. 
 
-L’exemple suivant montre les revendications retournées par le fournisseur d’identité Facebook :
+
+Assertion SAML : 
+
+```XML
+<saml:Subject>
+  <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
+    <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+      <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+    </SubjectConfirmation>
+  </saml:SubjectConfirmation>
+</saml:Subject>
+```
+
+Revendication de sortie :
+
+```XML
+<OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
+```
+
+Si les attributs `SPNameQualifier` ou `NameQualifier` ne sont pas présentés dans l’assertion SAML, définissez la revendication **PartnerClaimType** sur `assertionSubjectName`. Assurez-vous que **NameId** est la première valeur dans l’assertion XML. Lorsque vous définissez plusieurs assertion, Azure AD B2C sélectionne la valeur d’objet de la dernière assertion.
+
+L’exemple suivant montre les revendications retournées par un fournisseur d’identité SAML :
 
 - La revendication **issuerUserId** est mappée à la revendication **assertionSubjectName**.
 - Revendication **first_name** mappée à la revendication **givenName**.
@@ -118,6 +139,8 @@ Le profil technique retourne également des revendications qui ne sont pas retou
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
 </OutputClaims>
 ```
+
+L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
 
 ## <a name="metadata"></a>Métadonnées
 

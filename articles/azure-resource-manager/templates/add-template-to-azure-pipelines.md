@@ -3,16 +3,16 @@ title: CI/CD avec Azure Pipelines et des modèles
 description: Décrit la configuration de l’intégration continue dans Azure Pipelines en utilisant des projets de déploiement Groupe de ressources Azure dans Visual Studio pour déployer des modèles Resource Manager.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 6f5d4846d32b4880ccd3fbd82f062f57948ac15a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474455"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153452"
 ---
-# <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Intégrer des modèles Azure Resource Manager avec Azure Pipelines
+# <a name="integrate-arm-templates-with-azure-pipelines"></a>Intégrer des modèles ARM avec Azure Pipelines
 
-Visual Studio fournit le projet de groupe de ressources Azure pour la création de modèles et leur déploiement dans votre abonnement Azure. Vous pouvez intégrer ce projet avec Azure Pipelines pour l’intégration et déploiement continus (CI/CD).
+Visual Studio fournit le projet de groupe de ressources Azure pour la création de modèles Azure Resource Manager (ARM) et leur déploiement dans votre abonnement Azure. Vous pouvez intégrer ce projet avec Azure Pipelines pour l’intégration et déploiement continus (CI/CD).
 
 Il existe deux façons de déployer des modèles avec Azure Pipelines :
 
@@ -261,4 +261,4 @@ Vous pouvez sélectionner le pipeline en cours d’exécution pour afficher plus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour un processus pas à pas sur l’utilisation d’Azure Pipelines et des modèles Resource Manager, consultez [Didacticiel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+Pour obtenir un processus pas à pas sur l’utilisation d’Azure Pipelines avec des modèles ARM, consultez [Didacticiel : Intégration continue de modèles ARM avec Azure Pipelines](template-tutorial-use-azure-pipelines.md).

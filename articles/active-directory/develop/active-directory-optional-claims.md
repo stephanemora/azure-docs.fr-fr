@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/08/2019
+ms.date: 3/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300066"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136515"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procédure : Fournir des revendications facultatives à votre application Azure AD
 
@@ -85,10 +85,10 @@ Ces revendications sont toujours incluses dans les jetons Azure AD v1.0, mais pa
 | `pwd_exp`     | Heure d’expiration du mot de passe        | Date et heure d’expiration du mot de passe. |       |
 | `pwd_url`     | Modifier l’URL de mot de passe             | URL à laquelle l’utilisateur peut accéder pour modifier son mot de passe.   |   |
 | `in_corp`     | Dans le périmètre du réseau d’entreprise        | Indique si le client se connecte à partir du réseau d’entreprise. Dans le cas contraire, la revendication n’est pas incluse.   |  Basé sur les [adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips) définies dans MFA.    |
-| `nickname`    | Surnom                        | Nom supplémentaire pour l’utilisateur. Le surnom est séparé du prénom ou du nom. | 
-| `family_name` | Nom                       | Fournit le nom de famille de l’utilisateur, tel que défini sur l’objet utilisateur. <br>"family_name":"Miller" | Pris en charge dans MSA et Azure AD   |
-| `given_name`  | Prénom                      | Fournit le prénom de l’utilisateur, tel que défini sur l’objet utilisateur.<br>"given_name": "Frank"                   | Pris en charge dans MSA et Azure AD  |
-| `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. |
+| `nickname`    | Surnom                        | Nom supplémentaire pour l’utilisateur. Le surnom est séparé du prénom ou du nom. Nécessite l’étendue `profile`.| 
+| `family_name` | Nom                       | Fournit le nom de famille de l’utilisateur, tel que défini sur l’objet utilisateur. <br>"family_name":"Miller" | Pris en charge dans MSA et Azure AD. Nécessite l’étendue `profile`.   |
+| `given_name`  | Prénom                      | Fournit le prénom de l’utilisateur, tel que défini sur l’objet utilisateur.<br>"given_name": "Frank"                   | Pris en charge dans MSA et Azure AD.  Nécessite l’étendue `profile`. |
+| `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. Nécessite l’étendue `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriétés supplémentaires des revendications facultatives
 
@@ -117,12 +117,13 @@ Certaines revendications facultatives peuvent être configurées pour modifier l
         }
     ```
 
-Cet objet OptionalClaims renvoie au client le jeton d’ID pour y inclure un autre UPN avec des informations supplémentaires sur le locataire de base et le locataire de ressource. La revendication `upn` est uniquement Modifiée dans le jeton si l’utilisateur est un invité du locataire (qui utilise un fournisseur d’identité différent pour l’authentification). 
+Cet objet OptionalClaims retourne au client le jeton d’ID pour y inclure une revendication UPN avec des informations supplémentaires sur le locataire de base et le locataire de ressource. La revendication `upn` est uniquement Modifiée dans le jeton si l’utilisateur est un invité du locataire (qui utilise un fournisseur d’identité différent pour l’authentification). 
 
 ## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
 
 > [!IMPORTANT]
 > Les jetons d’accès sont **toujours** générés à l’aide du manifeste de la ressource, pas du client.  Donc, dans la requête `...scope=https://graph.microsoft.com/user.read...`, la ressource est l’API Microsoft Graph.  Ainsi, le jeton d’accès est créé à l’aide du manifeste de l’API Microsoft Graph, et non du manifeste du client.  La modification du manifeste de votre application n’entraînera jamais de changement au niveau des jetons pour l’API Microsoft Graph.  Pour vérifier que vos modifications de `accessToken` sont effectives, demandez un jeton pour votre application, pas pour une autre application.  
+
 
 Vous pouvez configurer des revendications facultatives pour votre application par le biais de l’interface utilisateur ou du manifeste de l’application.
 
@@ -207,7 +208,7 @@ En cas de prise en charge par une revendication spécifique, vous pouvez égalem
 | `additionalProperties` | Collection (Edm.String) | Propriétés supplémentaires de la revendication. Si une propriété existe dans cette collection, elle modifie le comportement de la revendication facultative spécifiée dans la propriété name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configuration des revendications facultatives d’extension d’annuaire
 
-En plus de l’ensemble de revendications facultatives standard, vous pouvez configurer des jetons pour inclure des extensions. Cette fonctionnalité est utile pour joindre des informations utilisateur supplémentaires utilisables par votre application, par exemple un identificateur supplémentaire ou une option de configuration importante que l’utilisateur a définie. Pour obtenir un exemple, consultez le bas de cette page.
+En plus de l’ensemble de revendications facultatives standard, vous pouvez configurer des jetons pour inclure des extensions. Pour plus d’informations, consultez la [documentation sur extensionProperty Microsoft Graph](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0). Notez que le schéma et les extensions ouvertes ne sont pas pris en charge par les revendications facultatives, mais uniquement par les extensions d’annuaire de type AAD-Graph. Cette fonctionnalité est utile pour joindre des informations utilisateur supplémentaires utilisables par votre application, par exemple un identificateur supplémentaire ou une option de configuration importante que l’utilisateur a définie. Pour obtenir un exemple, consultez le bas de cette page.
 
 > [!NOTE]
 > - Les extensions de schéma d’annuaire sont une fonctionnalité spécifique d’Azure AD. Par conséquent, si le manifeste de votre application demande une extension personnalisée et qu’un utilisateur MSA se connecte à votre application, ces extensions ne sont pas retournées.
@@ -269,7 +270,7 @@ Cette section couvre les options de configuration sous les revendications facult
    Si vous souhaitez que les groupes dans le jeton contiennent les attributs de groupe AD local, dans la section Revendications facultatives, spécifiez la revendication facultative de type de jeton à laquelle appliquer la configuration, le nom de la revendication facultative demandée et toutes les propriétés supplémentaires souhaitées.  Plusieurs types de jetons peuvent être répertoriés :
 
    - idToken pour le jeton d’ID d’OIDC ;
-   - accessToken pour le jeton d’accès OAuth/OIDC ;
+   - accessToken pour le jeton d’accès OAuth
    - Saml2Token pour les jetons SAML.
 
    > [!NOTE]

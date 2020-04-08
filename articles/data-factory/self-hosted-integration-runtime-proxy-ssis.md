@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 02/28/2020
-ms.openlocfilehash: e2d1a1c6e924e879e05af80e2e36a38e8a5cde66
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/27/2020
+ms.openlocfilehash: 9a1923057bc318869f491791520aacb4d0d17591
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273957"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346635"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
 
@@ -25,7 +25,7 @@ Cet article explique comment exécuter des packages SQL Server Integration Servi
 
 Avec cette fonctionnalité, vous pouvez accéder aux données localement sans avoir à [joindre votre instance d’Azure-SSIS IR à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Cette fonctionnalité est utile quand votre réseau d’entreprise a une configuration trop complexe ou une stratégie trop restrictive pour pouvoir y injecter votre instance Azure-SSIS IR.
 
-Elle divise les packages qui contiennent une tâche de flux de données avec une source de données locale en deux tâches intermédiaires : 
+Elle divise toute tâche de flux de données SSIS dotée d’une source de données locale en deux tâches intermédiaires : 
 * La première tâche, qui s’exécute sur votre IR auto-hébergé, déplace d’abord les données de la source de données locale vers une zone intermédiaire dans votre stockage d’objets blob Azure.
 * La deuxième tâche, qui s’exécute sur votre instance Azure-SSIS IR, déplace les données de la zone intermédiaire vers la destination de données prévue.
 
@@ -52,11 +52,11 @@ Pour finir, vous téléchargez et installez la dernière version de l’IR auto-
 
 Si ce n’est pas déjà fait, créez un service lié de stockage d’objets blob Azure dans la fabrique de données où votre instance d’Azure-SSIS IR est configurée. Pour ce faire, consultez [Créer un service lié Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Veillez à effectuer les opérations suivantes :
 - Pour **Magasin de données**, sélectionnez **Stockage Blob Azure**.  
-- Pour **Se connecter via le runtime d’intégration**, sélectionnez **AutoResolveIntegrationRuntime**.  
+- Pour **Se connecter via le runtime d’intégration**, sélectionnez **AutoResolveIntegrationRuntime** (pas votre Azure-SSIS IR ni votre IR auto-hébergé), car nous utilisons l’IR Azure par défaut pour extraire les informations d’identification d’accès de votre Stockage Blob Azure.  
 - Pour **Méthode d’authentification**, sélectionnez **Clé de compte**, **URI SAS** ou **Principal du service**.  
 
     >[!TIP]
-    >Si vous sélectionnez  **Principal du service**, accordez au moins le rôle *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez  [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties).
+    >Si vous sélectionnez la méthode du **principal du service**, accordez à votre principal du service le rôle  *Contributeur aux données Blob du stockage* au minimum. Pour plus d’informations, consultez  [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties).
 
 ![Préparer le service lié de stockage d’objets blob Azure pour la préproduction](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -153,7 +153,7 @@ Si vos tâches intermédiaires sur votre IR auto-hébergé nécessitent l’auth
 
 Vos tâches intermédiaires seront appelées avec le compte de service de l’IR auto-hébergé (*NT SERVICE\DIAHostService* par défaut), et vos magasins de données seront accessibles avec le compte d’authentification Windows. Les deux comptes nécessitent que certaines stratégies de sécurité leur soient attribuées. Sur l’ordinateur IR auto-hébergé, accédez à **Stratégie de sécurité locale** > **Stratégies locales** > **Attribution des droits utilisateur**, puis effectuez les étapes suivantes :
 
-1. Attribuez les stratégies *Ajuster les quotas de mémoire pour un processus* et *Remplacer un jeton de niveau processus* au compte de service de l’IR auto-hébergé. Ceci doit se produire automatiquement quand vous installez votre IR auto-hébergé avec le compte de service par défaut. Si vous utilisez un autre compte de service, attribuez-lui les mêmes stratégies.
+1. Attribuez les stratégies *Ajuster les quotas de mémoire pour un processus* et *Remplacer un jeton de niveau processus* au compte de service de l’IR auto-hébergé. Ceci doit se produire automatiquement quand vous installez votre IR auto-hébergé avec le compte de service par défaut. Si ce n’est pas le cas, attribuez ces stratégies manuellement. Si vous utilisez un autre compte de service, attribuez-lui les mêmes stratégies.
 
 1. Attribuez la stratégie *Se connecter en tant que service* au compte d’authentification Windows.
 
@@ -163,11 +163,17 @@ Les premières tâches intermédiaires qui s’exécutent sur votre IR auto-héb
 
 Les deuxièmes tâches intermédiaires qui s’exécutent sur votre instance d’Azure-SSIS IR ne sont pas facturées séparément, mais votre instance d’Azure-SSIS IR en cours d’exécution est facturée comme décrit dans l’article [Tarification d’Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/).
 
+## <a name="enabling-tls-12"></a>Activation de TLS 1.2
+
+Si vous devez utiliser un chiffrement renforcé ou un protocole réseau plus sécurisé (TLS 1.2) et désactiver les anciennes versions SSL/TLS sur votre IR auto-hébergé, vous pouvez télécharger et exécuter le script *main.cmd* qui se trouve dans le dossier *CustomSetupScript/UserScenarios/TLS 1.2* de notre conteneur de préversions publiques.  À l’aide d’[Explorateur Stockage Azure](https://storageexplorer.com/), vous pouvez vous connecter à notre conteneur de préversions publiques en entrant l’URI SAS suivant :
+
+`https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
+
 ## <a name="current-limitations"></a>Limites actuelles
 
-- Seules les tâches de flux de données avec les gestionnaires de connexions de fichiers plats, OLEDB ou ODBC (Open Database Connectivity), ou les sources de fichiers plats, OLEDB ou ODBC sont actuellement prises en charge. 
+- Seules les tâches de flux de données dont les sources sont Open Database Connectivity (ODBC)/OLEDB/Flat File sont actuellement prises en charge. 
 - Seuls les services liés de stockage d’objets blob Azure configurés avec une authentification de type *Clé de compte*, *URI SAS (Shared Access Signature)* ou *Principal du service* sont actuellement pris en charge.
-- *ParameterMapping* n'est pas encore pris en charge dans la source OLEDB. Pour résoudre ce problème, utilisez *Commande SQL à partir d'une variable* en tant que mode d'accès (*AccessMode*) et utilisez *Expression* pour insérer vos variables/paramètres dans une commande SQL. En guise d'illustration, vous trouverez un exemple de package *(ParameterMappingSample.dtsx)* dans le dossier *SelfhostedIrProxy/Limitations* du conteneur de notre préversion publique. Pour y accéder, entrez l'URI SAS suivant dans l'[Explorateur Stockage Azure](https://storageexplorer.com/) : *https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c* .
+- *ParameterMapping* n'est pas encore pris en charge dans la source OLEDB. Pour résoudre ce problème, utilisez *Commande SQL à partir d'une variable* en tant que mode d'accès (*AccessMode*) et utilisez *Expression* pour insérer vos variables/paramètres dans une commande SQL. À titre d’illustration, consultez le package *ParameterMappingSample.dtsx* qui se trouve dans le dossier *SelfHostedIRProxy/Limitations* de notre conteneur de préversions publiques. À l’aide d’Explorateur Stockage Azure, vous pouvez vous connecter à notre conteneur de préversions publiques en entrant l’URI SAS ci-dessus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

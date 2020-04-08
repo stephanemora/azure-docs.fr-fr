@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74888051"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services 
@@ -58,7 +58,7 @@ L’ingestion en direct basée sur le format MP4 fragmenté ISO pour Media Servi
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 Voici les spécifications détaillées :
 
 1. L’encodeur DOIT démarrer la diffusion en envoyant une requête HTTP POST avec un « corps » vide (longueur de contenu nulle) à l’aide de la même URL d’ingestion. Cela peut aider l’encodeur à détecter rapidement si le point de terminaison d’ingestion en direct est valide et s’il existe une authentification ou d’autres conditions requises. Conformément au protocole HTTP, le serveur ne peut pas renvoyer une réponse HTTP tant que la requête entière, y compris le corps POST, n’est pas reçue. Étant donné la longue durée d’un événement en direct, sans cette étape, l’encodeur risque de ne pas pouvoir détecter d’éventuelles erreurs tant qu’il n’a pas terminé d’envoyer toutes les données.
@@ -83,17 +83,17 @@ Vidéo : 3000 Kbits/s, 1500 Kbits/s, 750 Kbits/s
 
 Audio : 128 Kbits/s
 
-### <a name="option-1-all-tracks-in-one-stream"></a>Option 1 : toutes les pistes dans un seul flux
+### <a name="option-1-all-tracks-in-one-stream"></a>Option 1 : toutes les pistes dans un seul flux
 Dans cette option, un encodeur unique génère toutes les pistes audio/vidéo et les regroupe dans un flux binaire MP4 fragmenté. Le flux binaire MP4 fragmenté est ensuite envoyé via une connexion HTTP POST. Dans cet exemple, il existe un seul flux pour cette présentation en direct.
 
 ![Flux : une piste][image2]
 
-### <a name="option-2-each-track-in-a-separate-stream"></a>Option 2 : chaque piste dans un flux distinct
+### <a name="option-2-each-track-in-a-separate-stream"></a>Option n°2 : chaque piste dans un flux distinct
 Dans cette option, l’encodeur met une piste dans chaque flux binaire MP4 fragmenté, puis publie tous les flux sur des connexions HTTP distinctes. Cette option est réalisable avec un seul encodeur ou plusieurs. Du point de vue de l’ingestion en direct, cette présentation en direct se compose de quatre flux.
 
 ![Flux : pistes distinctes][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Option 3 : regrouper la piste audio et la piste vidéo au débit binaire le plus bas dans un seul flux
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Option 3 : regrouper la piste audio et la piste vidéo au débit binaire le plus bas dans un seul flux
 Dans cette option, le client choisit de regrouper la piste audio avec la piste vidéo au débit binaire le plus bas dans un seul flux binaire MP4 fragmenté et de laisser les deux autres pistes vidéo en tant que flux distincts. 
 
 ![Flux : pistes audio et vidéo][image4]

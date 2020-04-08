@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e42234e9fcdcfe3ee5ce975babbe03b64a750e36
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74846825"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Conseils de sécurité pour l’utilisation de l’authentification multifacteur Azure avec des comptes Azure AD
@@ -68,7 +68,7 @@ Dans la mesure où la plupart des utilisateurs sont habitués à utiliser unique
 
 Si votre entreprise a décidé de se servir de sa propre infrastructure pour activer l’authentification MFA, vous devez [déployer un serveur Azure Multi-Factor Authentication localement](howto-mfaserver-deploy.md). Les composants serveur de l’authentification MFA figurent dans le diagramme suivant :
 
-![Les composants de serveur MFA par défaut](./media/multi-factor-authentication-security-best-practices/server.png) \*Ne sont pas installés par défaut\* *Installés, mais non activés par défaut
+![Les composants de serveur MFA par défaut](./media/multi-factor-authentication-security-best-practices/server.png) \*Ne sont pas installés par défaut\* *Installés, mais non activés par défaut
 
 Le serveur Microsoft Azure Multi-Factor Authentication peut sécuriser les ressources de cloud et les ressources locales par fédération. Vous devez disposer d’AD FS et le fédérer avec votre locataire Azure AD.
 Durant la configuration du serveur Multi-Factor Authentication, tenez compte des détails suivants :

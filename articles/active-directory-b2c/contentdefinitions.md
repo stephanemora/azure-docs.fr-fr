@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b55199ec2684ab7b95ce4e4988b19814c27b2cc3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189580"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051493"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -70,7 +70,7 @@ L’élément **ContentDefinition** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Chaîne contenant l’URL de la page HTML5 de la définition de contenu. |
-| RecoveryUri | 1:1 | Chaîne contenant l’URL de la page HTML pour l’affichage d’une erreur liée à la définition de contenu. |
+| RecoveryUri | 1:1 | Chaîne contenant l’URL de la page HTML pour l’affichage d’une erreur liée à la définition de contenu. Non utilisé actuellement. La valeur doit être `~/common/default_page_error.html`. |
 | DataUri | 1:1 | Chaîne contenant l’URL relative d’un fichier HTML qui fournit l’expérience utilisateur à appeler pour l’étape. |
 | Métadonnées | 0:1 | Collection de paires clé/valeur contenant les métadonnées utilisées par la définition de contenu. |
 | LocalizedResourcesReferences | 0:1 | Collection de références de ressources localisées. Cet élément permet de personnaliser la localisation d’une interface utilisateur et d’un attribut de revendications. |

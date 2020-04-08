@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 819929fb157444ae53df113c0318dd18146156c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ef7d032d37105549ff7b05f85b953cd420954602
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442030"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131471"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
@@ -22,11 +22,11 @@ Pour les API SQL, Gremlin et Table, le niveau de cohérence configuré par défa
 
 Lorsque vous utilisez l’API Cassandra ou l’API Azure Cosmos DB pour MongoDB, les applications obtiennent un ensemble complet de niveaux de cohérence proposés par Apache Cassandra et MongoDB, respectivement, avec des garanties encore plus fortes de cohérence et de durabilité. Ce document présente les niveaux de cohérence Azure Cosmos DB correspondants pour les niveaux de cohérence Apache Cassandra et MongoDB.
 
-## <a id="cassandra-mapping"></a>Mappage entre les niveaux de cohérence Apache Cassandra et Azure Cosmos DB
+## <a name="mapping-between-apache-cassandra-and-azure-cosmos-db-consistency-levels"></a><a id="cassandra-mapping"></a>Mappage entre les niveaux de cohérence Apache Cassandra et Azure Cosmos DB
 
 Contrairement à Azure Cosmos DB, Apache Cassandra ne fournit pas en mode natif des garanties de cohérence précises.  Au lieu de cela, Apache Cassandra fournit un niveau de cohérence d’écriture et un niveau de cohérence de lecture, pour permettre les compromis de haute disponibilité, de cohérence et de latence. Lors de l’utilisation de l’API Cassandra Azure Cosmos DB : 
 
-* Le niveau de cohérence d’écriture d’Apache Cassandra est mappé au niveau de cohérence par défaut configuré sur votre compte Azure Cosmos. 
+* Le niveau de cohérence d’écriture d’Apache Cassandra est mappé au niveau de cohérence par défaut configuré sur votre compte Azure Cosmos. La cohérence d’une opération d’écriture ne peut pas être changée en fonction de la demande.
 
 * Azure Cosmos DB mappe de manière dynamique le niveau de cohérence de lecture spécifié par le pilote client Cassandra à l’un des niveaux de cohérence Azure Cosmos DB configurés dynamiquement sur une requête de lecture. 
 
@@ -34,7 +34,7 @@ Le tableau suivant illustre le mappage des niveaux de cohérence Cassandra en mo
 
 [![Mappage du modèle de cohérence Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
-## <a id="mongo-mapping"></a>Mappage entre les niveaux de cohérence MongoDB et Azure Cosmos DB
+## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Mappage entre les niveaux de cohérence MongoDB et Azure Cosmos DB
 
 Contrairement à Azure Cosmos DB, MongoDB en mode natif ne fournit pas de garanties de cohérence précises. Au lieu de cela, MongoDB en mode natif permet aux utilisateurs de configurer les garanties de cohérence suivantes : problème d’écriture, problème de lecture et directive isMaster - pour diriger les opérations de lecture vers les réplicas principaux ou secondaires dans l’optique d’atteindre le niveau de cohérence souhaité. 
 
@@ -44,7 +44,7 @@ Lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB :
 
 * Le problème d’écriture est mappé au niveau de cohérence par défaut configuré sur votre compte Azure Cosmos.
  
-* Azure Cosmos DB mappe de manière dynamique le problème de lecture spécifié par le pilote client MongoDB à l’un des niveaux de cohérence Azure Cosmos DB configurés dynamiquement sur une requête de lecture. 
+* Azure Cosmos DB mappe de manière dynamique le problème de lecture spécifié par le pilote client MongoDB à l’un des niveaux de cohérence Azure Cosmos DB configurés dynamiquement sur une requête de lecture.  
 
 * Vous pouvez annoter une région spécifique associée à votre compte Azure Cosmos en tant que « Master » en désignant la région comme première région accessible en écriture. 
 

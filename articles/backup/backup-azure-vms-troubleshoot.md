@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1b82d43a58a25dc1c475180a4780106220e1ceeb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597318"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297388"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -24,7 +24,7 @@ Cette section traite de l’échec d’opération de sauvegarde d’une machine 
 * Assurez-vous que l’agent de machine virtuelle (WA Agent) est la [version la plus récente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Vérifiez que la version du système d’exploitation de la machine virtuelle Windows ou Linux est prise en charge, consultez la [matrice de prise en charge de sauvegarde de machine virtuelle IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Vérifiez qu’un autre service de sauvegarde ne fonctionne pas.
-  * Pour vous assurer qu’il n’existe aucun problème d’extension de capture instantanée, [désinstallez les extensions pour forcer le rechargement, puis réessayez la sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+  * Pour vous assurer qu’il n’existe aucun problème d’extension de capture instantanée, [désinstallez les extensions pour forcer le rechargement, puis réessayez la sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
 * Vérifiez la connectivité Internet de la machine virtuelle.
   * Assurez-vous qu’un autre service de sauvegarde n’est pas en cours d’exécution.
 * À partir de `Services.msc`, assurez-vous que le service d’**agent invité Windows Azure** est en **cours d’exécution**. Si le service d’**agent invité Windows Azure** est manquant, installez-le à partir de la [sauvegarde de machines virtuelles Azure dans un coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
@@ -125,7 +125,7 @@ Si les autorisations que vous voyez dans le répertoire **MachineKeys** sont dif
    * Autorisations de lecture
 2. Supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP** :
 
-   * [Ouvrez les certificats sur une console d’ordinateur local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * [Ouvrez les certificats sur une console d’ordinateur local](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * Sous **Certificats** > **personnels**, supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP**.
 3. Lancez une opération de sauvegarde de machine virtuelle.
 
@@ -190,7 +190,7 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 | L’agent de machine virtuelle n’est pas présent sur la machine virtuelle : <br>installez les composants requis et l’agent de machine virtuelle. Ensuite, relancez l’opération. |Apprenez-en plus sur [l’installation de l’agent de machine virtuelle et la validation de cette opération](#vm-agent). |
 | **Code d’erreur** : ExtensionSnapshotFailedNoSecureNetwork <br/> **Message d’erreur** : Échec de l’opération de capture instantanée en raison de l’échec de la création du canal de communication réseau sécurisé. | <ol><li> Ouvrez l’Éditeur du Registre en exécutant **regedit.exe** avec élévation de privilèges. <li> Identifiez toutes les versions de. NET Framework présentes dans votre système. Elles se trouvent dans la hiérarchie de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Pour chaque .NET Framework présent dans la clé de Registre, ajoutez la clé suivante : <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Code d’erreur** : ExtensionVCRedistInstallationFailure <br/> **Message d’erreur** : Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistribuable Visual C++ pour Visual Studio 2012. | Accédez à C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion et installez vcredist2013_x64.<br/>Assurez-vous que la valeur de clé de Registre qui permet l’installation du service est correctement définie. Autrement dit, définissez la valeur **Démarrer** dans **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** sur **3** et non sur **4**. <br><br>Si vous rencontrez toujours des problèmes d’installation, redémarrez le service d’installation en exécutant **MSIEXEC /UNREGISTER** suivi de **MSIEXEC /REGISTER** dans une invite de commandes avec élévation de privilèges.  |
-
+| **Code d’erreur** :  UserErrorRequestDisallowedByPolicy <BR> **Message d’erreur** : Une stratégie non valide est configurée sur la machine virtuelle qui empêche l’opération de capture instantanée. | Si vous disposez d’une stratégie Azure Policy qui [régit les étiquettes au sein de votre environnement](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), vous pouvez soit envisager de passer d’un [effet Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) à un [effet Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) pour la stratégie, soit créer manuellement le groupe de ressources en fonction du [schéma de nommage exigé par Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 ## <a name="jobs"></a>travaux
 
 | Détails de l’erreur | Solution de contournement |

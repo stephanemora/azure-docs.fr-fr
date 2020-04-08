@@ -8,15 +8,15 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: d06be85e4d18bc0867835a307b44ec8813c79d7d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72245930"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption avec Azure AD pour les machines virtuelles Windows (version précédente)
 
-**La nouvelle version d’Azure Disk Encryption vous évite de fournir un paramètre d’application Azure AD pour activer le chiffrement de disque de machine virtuelle. Avec la nouvelle version, vous n’êtes plus obligé de fournir les informations d’identification Azure AD lors de l’étape d’activation du chiffrement. La nouvelle version permet à toutes les nouvelles machines virtuelles d’être chiffrées sans les paramètres d’application Azure AD. Pour consulter les instructions d’activation du chiffrement de disque des machines virtuelles grâce à la nouvelle version, consultez l’article [Azure Disk Encryption pour les machines virtuelles Windows](disk-encryption-windows.md). Les machines virtuelles déjà chiffrées avec les paramètres d’application Azure AD sont toujours prises en charge et doivent continuer à être gérées avec la syntaxe AAD.**
+**La nouvelle version d’Azure Disk Encryption vous évite de fournir un paramètre d’application Azure AD pour activer le chiffrement de disque de machine virtuelle. Avec la nouvelle version, vous n’êtes plus obligé de fournir les informations d’identification Azure AD lors de l’étape d’activation du chiffrement. Avec la nouvelle version, toutes les nouvelles machines virtuelles doivent être chiffrées sans les paramètres d’application Azure AD. Pour consulter les instructions d’activation du chiffrement de disque des machines virtuelles grâce à la nouvelle version, consultez l’article [Azure Disk Encryption pour les machines virtuelles Windows](disk-encryption-windows.md). Les machines virtuelles déjà chiffrées avec les paramètres d’application Azure AD sont toujours prises en charge et doivent continuer à être gérées avec la syntaxe AAD.**
 
 
 Il existe de nombreux scénarios permettant d’activer le chiffrement de disque et les étapes peuvent varier selon le scénario. Les sections suivantes décrivent ces scénarios de façon plus détaillée pour les machines virtuelles IaaS Windows. Avant de pouvoir utiliser le chiffrement de disque, les [prérequis pour Azure Disk Encryption](disk-encryption-overview-aad.md) doivent être satisfaits. 
@@ -68,14 +68,14 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | vmName | Nom de la machine virtuelle sur laquelle l’opération de chiffrement doit être effectuée. |
 
 
-## <a name="bkmk_RunningWinVM"></a> Activer le chiffrement sur des machines virtuelles IaaS Windows existantes ou en cours d’exécution
+## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a><a name="bkmk_RunningWinVM"></a> Activer le chiffrement sur des machines virtuelles IaaS Windows existantes ou en cours d’exécution
 Dans ce scénario, vous pouvez activer le chiffrement avec un modèle, avec des applets de commande PowerShell ou avec des commandes CLI. Les sections suivantes expliquent en détail comment activer Azure Disk Encryption. 
 
 
-### <a name="bkmk_RunningWinVMPSH"></a> Activer le chiffrement sur des machines virtuelles existantes ou en cours d’exécution avec Azure PowerShell 
-Utilisez la commande [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) pour activer le chiffrement sur une machine virtuelle IaaS en cours d’exécution dans Azure. Pour plus d’informations sur l’activation du chiffrement avec Azure Disk Encryption à l’aide des applets de commande PowerShell, consultez les billets de blog [Explorer Azure Disk Encryption avec Azure PowerShell - partie 1](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) et [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx).
+### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a><a name="bkmk_RunningWinVMPSH"></a> Activer le chiffrement sur des machines virtuelles existantes ou en cours d’exécution avec Azure PowerShell 
+Utilisez la cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) pour activer le chiffrement sur une machine virtuelle IaaS en cours d’exécution dans Azure. Pour plus d’informations sur l’activation du chiffrement avec Azure Disk Encryption à l’aide des applets de commande PowerShell, consultez les billets de blog [Explorer Azure Disk Encryption avec Azure PowerShell - partie 1](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) et [Explorer Azure Disk Encryption avec Azure PowerShell - partie 2](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx).
 
--  **Chiffrer une machine virtuelle en cours d’exécution avec un secret client :** Le script ci-dessous initialise vos variables et exécute l’applet de commande Set-AzVMDiskEncryptionExtension. Les prérequis sont que le groupe de ressources, la machine virtuelle, le coffre de clés, l’application AAD et le secret client doivent déjà avoir été créés. Remplacez MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID et My-AAD-client-secret par vos valeurs.
+-  **Chiffrer une machine virtuelle en cours d’exécution avec un secret client :** Le script ci-dessous initialise vos variables et exécute la cmdlet Set-AzVMDiskEncryptionExtension. Les prérequis sont que le groupe de ressources, la machine virtuelle, le coffre de clés, l’application AAD et le secret client doivent déjà avoir été créés. Remplacez MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID et My-AAD-client-secret par vos valeurs.
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
       $VMRGName = 'MyVirtualMachineResourceGroup';
@@ -116,12 +116,12 @@ Utilisez la commande [Set-AzVMDiskEncryptionExtension](/powershell/module/az.com
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
-- **Désactiver le chiffrement de disque :** pour désactiver le chiffrement, utilisez la cmdlet [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
+- **Désactiver le chiffrement de disque :** pour désactiver le chiffrement, utilisez l’applet de commande [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-### <a name="bkmk_RunningWinVMCLI"></a> Activer le chiffrement sur des machines virtuelles existantes ou en cours d’exécution avec Azure CLI
+### <a name="enable-encryption-on-existing-or-running-vms-with--azure-cli"></a><a name="bkmk_RunningWinVMCLI"></a> Activer le chiffrement sur des machines virtuelles existantes ou en cours d’exécution avec Azure CLI
 Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) pour activer le chiffrement sur une machine virtuelle IaaS en cours d’exécution dans Azure.
 
 - **Chiffrer une machine virtuelle en cours d’exécution avec un secret client :**
@@ -151,7 +151,7 @@ Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az-vm-en
      ```
 
 
-### <a name="bkmk_RunningWinVMwRM"> </a>Utilisation du modèle Resource Manager
+### <a name="using-the-resource-manager-template"></a><a name="bkmk_RunningWinVMwRM"> </a>Utilisation du modèle Resource Manager
 Vous pouvez activer le chiffrement de disque sur des machines virtuelles Windows IaaS existantes ou en cours d’exécution dans Azure en utilisant le [modèle Resource Manager pour chiffrer une machine virtuelle Windows en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 
@@ -172,7 +172,7 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | vmName | Nom de la machine virtuelle sur laquelle l’opération de chiffrement doit être effectuée. |
 
 
-## <a name="bkmk_VHDpre"> </a> Nouvelles machines virtuelles IaaS créées à partir de disques durs virtuels et de clés de chiffrement chiffrés par le client
+## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a><a name="bkmk_VHDpre"> </a> Nouvelles machines virtuelles IaaS créées à partir d’un disque dur virtuel chiffré par le client et de clés de chiffrement
 Dans ce scénario, vous pouvez activer le chiffrement à l’aide du modèle Resource Manager, des applets de commande PowerShell ou des commandes CLI. Les sections ci-dessous décrivent de façon plus détaillée le modèle Resource Manager et les commandes CLI. 
 
 Utilisez les instructions de l’annexe pour la préparer d’images préchiffrées qui peuvent être utilisées dans Azure. Une fois l’image créée, vous pouvez suivre la procédure décrite dans la section suivante pour créer une machine virtuelle Azure chiffrée.
@@ -180,7 +180,7 @@ Utilisez les instructions de l’annexe pour la préparer d’images préchiffr�
 * [Préparer un disque dur virtuel Windows déjà chiffré](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd)
 
 
-### <a name="bkmk_VHDprePSH"> </a> Chiffrer des machines virtuelles avec des disques durs virtuels préchiffrés avec Azure PowerShell
+### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a><a name="bkmk_VHDprePSH"> </a> Chiffrer des machines virtuelles avec des disques durs virtuels préchiffrés à l’aide d’Azure PowerShell
 Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré avec la cmdlet PowerShell [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). L’exemple ci-dessous vous montre certains paramètres courants. 
 
 ```powershell
@@ -196,7 +196,7 @@ Vous pouvez [ajouter un nouveau disque à une machine virtuelle Windows avec Pow
  Quand vous utilisez PowerShell pour chiffrer un nouveau disque de machines virtuelles Windows, vous devez spécifier une nouvelle version de la séquence. La version de la séquence doit être unique. Le script ci-dessous génère un GUID pour la version de la séquence. Dans certains cas, un disque de données nouvellement ajouté peut être chiffré automatiquement par l’extension Azure Disk Encryption. Le chiffrement automatique se produit généralement quand la machine virtuelle redémarre après la mise en ligne du nouveau disque. Cela est généralement dû au fait que « Tous » était spécifié pour le type de volume quand le chiffrement de disque a été précédemment exécuté sur la machine virtuelle. Si le chiffrement automatique se produit sur un disque de données nouvellement ajouté, nous recommandons de réexécuter l’applet de commande Set-AzVmDiskEncryptionExtension avec la nouvelle version de la séquence. Si votre nouveau disque de données est automatiquement chiffré et que vous ne voulez pas qu’il le soit, déchiffrez d’abord tous les lecteurs, puis chiffrez-les à nouveau avec une nouvelle version de séquence spécifiant le système d’exploitation pour le type de volume. 
  
 
--  **Chiffrer une machine virtuelle en cours d’exécution avec un secret client :** Le script ci-dessous initialise vos variables et exécute l’applet de commande Set-AzVMDiskEncryptionExtension. Les prérequis sont que le groupe de ressources, la machine virtuelle, le coffre de clés, l’application AAD et le secret client doivent déjà avoir été créés. Remplacez MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID et My-AAD-client-secret par vos valeurs. Cet exemple utilise « All » pour le paramètre VolumeType, qui inclut les volumes de données et de systèmes d’exploitation. Si vous souhaitez uniquement chiffrer le volume de systèmes d’exploitation, utilisez « OS » pour le paramètre VolumeType. 
+-  **Chiffrer une machine virtuelle en cours d’exécution avec un secret client :** Le script ci-dessous initialise vos variables et exécute la cmdlet Set-AzVMDiskEncryptionExtension. Les prérequis sont que le groupe de ressources, la machine virtuelle, le coffre de clés, l’application AAD et le secret client doivent déjà avoir été créés. Remplacez MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID et My-AAD-client-secret par vos valeurs. Cet exemple utilise « All » pour le paramètre VolumeType, qui inclut les volumes de données et de systèmes d’exploitation. Si vous souhaitez uniquement chiffrer le volume de systèmes d’exploitation, utilisez « OS » pour le paramètre VolumeType. 
 
      ```azurepowershell
       $sequenceVersion = [Guid]::NewGuid();
@@ -312,7 +312,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -Aa
 ## <a name="disable-encryption"></a>Désactiver le chiffrement
 Vous pouvez désactiver le chiffrement avec Azure PowerShell, Azure CLI ou un modèle Resource Manager. 
 
-- **Désactiver le chiffrement de disque avec Azure PowerShell :** pour désactiver le chiffrement, utilisez l’applet de commande [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
+- **Désactiver le chiffrement de disque avec Azure PowerShell :** pour désactiver le chiffrement, utilisez l’applet de commande [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```

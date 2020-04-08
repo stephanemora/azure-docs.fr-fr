@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 6391a3eeead6a52371c11011a65f4b4de7260156
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046243"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460447"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Questions fréquentes (FAQ) sur les performances SMB pour Azure NetApp Files
 
@@ -94,12 +94,12 @@ Azure impose des limites de débit réseau sur chaque type/taille de machine vir
 
 ![Comparaison des E/S séquentielles](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
 
-## <a name="is-advanced-networking-recommended"></a>La mise en réseau avancée est-elle recommandée ?
+## <a name="is-accelerated-networking-recommended"></a>L’accélération réseau est-elle recommandée ?
 
-Pour obtenir des performances optimales, il est recommandé de configurer la mise en réseau avancée dans la mesure du possible. Gardez à l’esprit les points suivants :  
+Pour des performances optimales, il est recommandé de configurer l’[accélération réseau](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) dans la mesure du possible. Gardez à l’esprit les points suivants :  
 
-* Le portail Azure active la mise en réseau avancée par défaut pour les machines virtuelles prenant en charge cette fonctionnalité.  Toutefois, il est possible que ce ne soit pas le cas d’autres méthodes de déploiement telles qu’Ansible et les outils de configuration similaires.  L’échec de l’activation de la mise en réseau avancée peut entraver les performances d’une machine.  
-* Si la mise en réseau avancée n’est pas activée sur l’interface réseau d’une machine virtuelle en raison de l’absence de prise en charge d’un type ou d’une taille d’instance, elle reste désactivée avec les types d’instances plus grands. Dans ces cas, vous avez besoin d’une intervention manuelle.
+* Le portail Azure active l’accélération réseau par défaut pour les machines virtuelles prenant en charge cette fonctionnalité.  Toutefois, il est possible que ce ne soit pas le cas d’autres méthodes de déploiement telles qu’Ansible et les outils de configuration similaires.  L’échec de l’activation de l’accélération réseau peut entraver les performances d’une machine.  
+* Si l’accélération réseau n’est pas activée sur l’interface réseau d’une machine virtuelle en raison de l’absence de prise en charge d’un type ou d’une taille d’instance, elle reste désactivée avec les types d’instances plus grands. Dans ces cas, vous avez besoin d’une intervention manuelle.
 
 ## <a name="are-jumbo-frames-supported"></a>Les trames Jumbo sont-elles prises en charge ?
 

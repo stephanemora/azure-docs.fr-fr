@@ -3,12 +3,12 @@ title: Matrice de prise en charge pour l’agent MARS
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582634"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226049"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -43,7 +43,7 @@ Quand vous utilisez l’agent MARS pour sauvegarder des données, l’agent pren
 
 **Cache** | **Détails**
 --- | ---
-Size |  L’espace disponible dans le dossier de cache doit représenter au moins 5 à 10 % de la taille globale de vos données de sauvegarde.
+Taille |  L’espace disponible dans le dossier de cache doit représenter au moins 5 à 10 % de la taille globale de vos données de sauvegarde.
 Emplacement | Le dossier de cache doit être stocké en local sur la machine en cours de sauvegarde et il doit être en ligne. Le dossier de cache ne doit pas se trouver sur un partage réseau, sur un média amovible ou sur un volume hors connexion.
 Dossier | Le dossier de cache ne doit pas être chiffré sur un volume dédupliqué ou dans un dossier compressé, partiellement alloué ou contenant un point d’analyse.
 Changements d’emplacement | Vous pouvez modifier l’emplacement du cache en arrêtant le moteur de sauvegarde (`net stop bengine`) et en copiant le dossier de cache sur un nouveau lecteur. (Assurez-vous que le nouveau lecteur possède suffisamment d’espace.) Remplacez ensuite les deux entrées de Registre sous **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** et **Config/CloudBackupProvider/ScratchLocation**) par le nouvel emplacement et redémarrez le moteur.
@@ -85,7 +85,7 @@ Avec le Peering Microsoft, sélectionnez les services/régions suivants et les v
 - Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 - Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 
-Pour plus d’informations, consultez [Configuration requise pour le routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Pour plus d’informations, consultez [Exigences du routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >Le peering public Azure est déconseillé pour les nouveaux circuits.
@@ -97,7 +97,7 @@ Pour plus d’informations, consultez [Configuration requise pour le routage Exp
 Contrôle de la bande passante | Pris en charge. Dans l’agent MARS, utilisez **Changer les propriétés** pour ajuster la bande passante.
 Limitation du réseau | Non disponible pour les machines sauvegardées qui exécutent Windows Server 2008 R2, Windows Server 2008 SP2 ou Windows 7.
 
-## <a name="support-for-direct-backups"></a>Prise en charge des sauvegardes directes
+## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 >[!NOTE]
 > L’agent MARS ne prend pas en charge les références SKU Windows Server Core.
@@ -114,7 +114,6 @@ Les systèmes d’exploitation doivent être des systèmes d’exploitation 64 
 Windows 10 (Entreprise, Professionnel, Famille) | Oui | Non |  Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
 Windows 8.1 (Entreprise, Professionnel)| Oui |Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
 Windows 8 (Entreprise, Professionnel) | Oui | Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
-Windows 7 (Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium/Basique, Édition Starter) | Oui | Non | Vérifier la version serveur correspondante pour la configuration requise concernant les logiciels et les modules
 Windows Server 2016 (Standard, Datacenter, Essentials) | Oui | Oui | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Oui | Oui | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Oui | Oui |- .NET 4.5 <br> \- Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
@@ -122,6 +121,20 @@ Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Oui | Non | - .
 Windows Server 2019 (Standard, Datacenter, Essentials) | Oui | Oui | - .NET 4.5 <br> - Windows PowerShell <br> - Dernier package redistribuable Microsoft VC + + compatible <br> - Microsoft Management Console (MMC) 3.0
 
 Pour plus d’informations, consultez [Systèmes d’exploitation pris en charge pour MABS et DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
+### <a name="operating-systems-at-end-of-support"></a>Systèmes d’exploitation en fin de support
+
+Les systèmes d’exploitation suivants sont en fin de support et il est vivement recommandé de les mettre à niveau pour rester protégé.
+
+Si des engagements existants empêchent leur mise à niveau, procédez à la migration des serveurs Windows vers des machines virtuelles Azure et tirez parti des sauvegardes de machine virtuelle Azure pour rester protégé. Pour plus d’informations sur la migration de votre serveur Windows, consultez la [page de migration ici](https://azure.microsoft.com/migration/windows-server/).
+
+Pour les environnements locaux ou hébergés où il n’est pas possible de mettre à niveau le système d’exploitation ou de migrer vers Azure, activez les correctifs de sécurité étendus pour les machines de façon à rester protégé et à continuer de bénéficier du support. Notez que seules certaines éditions sont éligibles aux correctifs de sécurité étendus. Pour en savoir plus, consultez la [page des questions fréquentes (FAQ)](https://www.microsoft.com/cloud-platform/extended-security-updates).
+
+| **Système d’exploitation**                                       | **Fichiers/dossiers** | **État du système** | **Configuration requise des logiciels et modules**                           |
+| ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
+| Windows 7 (Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium/Basique, Édition Starter) | Oui               | Non                 | Vérifier la version serveur correspondante pour la configuration requise des logiciels et modules |
+| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Oui               | Oui                | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Package redistribuable Microsoft VC + + compatible <br>  - Microsoft Management Console (MMC) 3.0 <br>  - Deployment Image Servicing and Management (DISM.exe) |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Oui               | Non                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Package redistribuable Microsoft VC + + compatible <br>  - Microsoft Management Console (MMC) 3.0 <br>  - Deployment Image Servicing and Management (DISM.exe) <br>  - Base Virtual Server 2005 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Limites Azure Backup
 
@@ -145,7 +158,7 @@ Windows 7| 1 700 Go
 
 **Type** | **Support**
 --- | ---
-Chiffré| Pris en charge.
+Chiffré<sup>*</sup>| Pris en charge.
 Compressé | Pris en charge.
 Partiellement alloué | Pris en charge.
 Compressé et partiellement alloué |Pris en charge.
@@ -156,6 +169,8 @@ Flux compressé| Non pris en charge. Ignoré.
 Flux partiellement alloué| Non pris en charge. Ignoré.
 OneDrive (les fichiers synchronisés sont des flux partiellement alloués)| Non pris en charge.
 Dossiers avec réplication DFS activée | Non pris en charge.
+
+\* Veillez à ce que l’agent MARS ait accès aux certificats nécessaires pour accéder aux fichiers chiffrés. Les fichiers inaccessibles sont ignorés.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Lecteurs ou volumes pris en charge pour la sauvegarde
 

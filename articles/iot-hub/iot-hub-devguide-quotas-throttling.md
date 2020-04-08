@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237381"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -105,7 +105,7 @@ IoT Hub impose d’autres limites opérationnelles :
 | Messages de cloud-à-appareil<sup>1</sup> | Taille maximale des messages 64 Ko. Le nombre maximal de messages en attente est de 50 par appareil. |
 | Méthode directe<sup>1</sup> | La taille maximale de charge utile de la méthode directe est de 128 Ko. |
 | Configurations automatiques d’appareils et de modules<sup>1</sup> | 100 configurations par hub de référence SKU payant. 20 configurations par hub de référence SKU gratuit. |
-| Déploiement automatique IoT Edge<sup>1</sup> | 20 modules par déploiement. 100 déploiements (déploiements en couches inclus) par hub de référence SKU payant. 10 déploiements par hub de référence SKU gratuit. |
+| Déploiement automatique IoT Edge<sup>1</sup> | 50 modules par déploiement. 100 déploiements (déploiements en couches inclus) par hub de référence SKU payant. 10 déploiements par hub de référence SKU gratuit. |
 | Jumeaux<sup>1</sup> | La taille maximale des sections de propriétés souhaitées et de propriétés signalées est de 32 Ko chacune. La taille maximale de la section des étiquettes est de 8 Ko. |
 | Stratégies d’accès partagé | Le nombre maximum de stratégies d'accès partagé est de 16 |
 

@@ -4,12 +4,12 @@ description: Cet article explique comment utiliser l'Explorateur de sauvegarde p
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: b65f68e33b53dff341ee72f6b9e9f42e344c49b1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: fa30a061dfe0d9f7721bd2405280f8a01bea87fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149573"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131811"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Superviser vos sauvegardes avec l’Explorateur de sauvegarde
 
@@ -26,6 +26,7 @@ Ces fonctionnalités sont fournies prêtes à l'emploi par une intégration nati
 > [!NOTE]
 > * Pour le moment, l'Explorateur de sauvegarde est uniquement disponible pour les données des machines virtuelles Azure.
 > * L'Explorateur de sauvegarde a été conçu comme un tableau de bord opérationnel qui permet de visualiser les informations relatives à vos sauvegardes des 7 derniers jours (maximum).
+> * L’Explorateur de sauvegarde n’est actuellement pas pris en charge sur les clouds nationaux.
 > * Il est actuellement impossible de personnaliser le modèle de l'Explorateur de sauvegarde. 
 > * Nous vous déconseillons de créer des automatisations personnalisées sur les données Azure Resource Graph.
 

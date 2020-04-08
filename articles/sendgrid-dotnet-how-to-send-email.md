@@ -4,7 +4,7 @@ description: Découvrez comment envoyer un e-mail avec le service e-mail SendGri
 services: ''
 documentationcenter: .net
 author: georgewallace
-ms.author: erikre
+ms.author: gwallace
 editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
-ms.openlocfilehash: be1644fe6b6a44edf7fad5cbbd8e3b8971ad02e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33df6b5c8c5c16a6eb896944de05068affc2b407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463586"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062214"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envoi de courriers électroniques à l'aide de SendGrid avec Azure
 ## <a name="overview"></a>Vue d’ensemble

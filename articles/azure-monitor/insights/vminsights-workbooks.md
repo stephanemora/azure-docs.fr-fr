@@ -1,17 +1,17 @@
 ---
-title: Créer des rapports interactifs Azure Monitor pour machines virtuelles avec des classeurs | Microsoft Docs
+title: Créer des rapports interactifs Azure Monitor pour machines virtuelles avec des classeurs
 description: Simplifier la création de rapports complexes grâce à des classeurs paramétrés prédéfinis et personnalisés pour Azure Monitor pour machines virtuelles.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: 7ec24f1eca0b2cf1d5ea2c171573f7c5e47319af
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670672"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480451"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Créer des rapports interactifs Azure Monitor pour machines virtuelles avec des classeurs
 
@@ -24,7 +24,7 @@ Les classeurs sont utiles pour les scénarios tels que les suivants :
 * Partager les résultats d’une expérimentation de redimensionnement de votre machine virtuelle avec d’autres membres de votre équipe. Vous pouvez expliquer les objectifs de l’expérimentation avec du texte, puis montrer chaque métrique d’utilisation et des requêtes analytiques utilisées pour évaluer l’expérimentation, en vous aidant de légendes claires indiquant si chaque métrique se situe au-dessus ou en dessous de la cible.
 * Créer des rapports relatifs à l’impact d’une panne sur l’utilisation de votre machine virtuelle, en combinant des données, une explication du texte et une présentation des étapes suivantes pour éviter à l’avenir d’éventuelles interruptions.
 
-Azure Monitor pour machines virtuelles inclut plusieurs classeurs pour vous aider à commencer. Le tableau suivant les récapitule.
+Le tableau suivant récapitule les classeurs qu’inclut Azure Monitor pour machines virtuelles pour vous aider à commencer.
 
 | Classeur | Description | Étendue |
 |----------|-------------|-------|
@@ -40,7 +40,7 @@ Azure Monitor pour machines virtuelles inclut plusieurs classeurs pour vous aide
 | Performances | Fournit une version personnalisable de notre vue Performances qui exploite tous les compteurs de performances Log Analytics que vous avez activés. | Machine virtuelle unique | 
 | Connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles. | Machine virtuelle unique |
  
-## <a name="starting-with-a-template-or-saved-workbook"></a>Commencer avec un classeur enregistré ou un modèle
+## <a name="creating-a-new-workbook"></a>Création d’un classeur
 
 Un classeur est composé de sections comprenant des graphiques, des tableaux, du texte et des commandes de saisie modifiables de manière indépendante. Pour mieux comprendre les classeurs, commençons par ouvrir un modèle et décrivons la procédure à suivre pour créer un classeur personnalisé. 
 
@@ -50,25 +50,21 @@ Un classeur est composé de sections comprenant des graphiques, des tableaux, du
 
 3. Sélectionnez une machine virtuelle dans la liste.
 
-4. Sur la page de la machine virtuelle, dans la section **Surveillance**, sélectionnez **Insights (préversion)** .
+4. Dans la page de la machine virtuelle, dans la section **Supervision**, sélectionnez **Insights**.
 
-5. Dans la page Insights de machine virtuelle, sélectionnez l’onglet **Performances** ou **Cartes**, puis sélectionnez **Voir les classeurs** à partir du lien affiché sur la page. 
-
-    ![Capture d’écran de navigation jusqu’aux classeurs](media/vminsights-workbooks/workbook-option-01.png)
-
-6. Dans la liste déroulante, sélectionnez **Accéder à la galerie** en bas de la liste.
+5. Dans la page Insights de machine virtuelle, sélectionnez l’onglet **Performances** ou **Cartes**, puis sélectionnez **Voir les classeurs** à partir du lien affiché sur la page. Dans la liste déroulante, sélectionnez **Accéder à la galerie**.
 
     ![Capture d’écran de la liste déroulante des classeurs](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    La galerie de classeurs, qui contient plusieurs classeurs prédéfinis pour vous aider à commencer, est alors lancée.
+    La galerie de classeurs est alors lancée avec plusieurs classeurs prédéfinis pour vous aider à commencer.
 
-7. Nous allons commencer par le **modèle par défaut** qui se trouve sous le titre **Démarrage rapide**.
+7. Créez un classeur en sélectionnant **Nouveau**.
 
     ![Capture d’écran de la galerie de classeurs](media/vminsights-workbooks/workbook-gallery-01.png)
 
 ## <a name="editing-workbook-sections"></a>Modification de sections de classeur
 
-Les classeurs présentent deux modes : le **mode d’édition** et le **mode lecture**. Quand le modèle de classeur par défaut est lancé pour la première fois, il s’ouvre en **mode édition**. Tout le contenu du classeur s’affiche, notamment les étapes et les paramètres qui sont généralement masqués. Le **mode lecture** présente une vue de rapport simplifiée. Le mode lecture vous permet de masquer les éléments complexes de création du rapport, tout en accédant en quelques clics aux paramètres et mécanismes sous-jacents si vous avez besoin de les modifier.
+Les classeurs présentent deux modes : le **mode d’édition** et le **mode lecture**. Quand un nouveau classeur est lancé pour la première fois, il s’ouvre en **mode d’édition**. Tout le contenu du classeur s’affiche, notamment les étapes et les paramètres qui sont généralement masqués. Le **mode lecture** présente une vue de rapport simplifiée. Le mode lecture vous permet de masquer les éléments complexes de création du rapport, tout en accédant en quelques clics aux paramètres et mécanismes sous-jacents si vous avez besoin de les modifier.
 
 ![Contrôles d’édition de la section Classeurs d’Azure Monitor pour machines virtuelles](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 

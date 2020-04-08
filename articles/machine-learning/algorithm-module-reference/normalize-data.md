@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 2cf0efb24a10da602ac0c26276a081342776cdcc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a740c81aa165e221bca19987c7b3c62da56b0402
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920397"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477525"
 ---
 # <a name="normalize-data-module"></a>Module Normaliser des données
 
@@ -92,7 +92,7 @@ Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à l
     
       ![normalisation à l'aide de la fonction tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Exécutez le pipeline ou double-cliquez sur le module **Normaliser des données** et sélectionnez **Exécuter la sélection**. 
+6. Envoyez le pipeline ou double-cliquez sur le module **Normaliser des données** et sélectionnez **Exécuter la sélection**. 
 
 ## <a name="results"></a>Résultats
 

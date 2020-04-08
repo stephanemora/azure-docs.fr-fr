@@ -5,20 +5,36 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/24/2018
-ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/17/2020
+ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77657807"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535367"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
 
 Les visualisations telles que les diagrammes ou graphiques peuvent vous aider à analyser vos données de supervision pour explorer des problèmes en profondeur et identifier des modèles. En fonction de l’outil que vous utilisez, vous pouvez également avoir la possibilité de partager les visualisations avec d’autres utilisateurs à l’intérieur et en dehors de votre organisation.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## <a name="workbooks"></a>Workbooks
+Les [classeurs](../azure-monitor/app/usage-workbooks.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
+
+![Classeur](media/visualizations/workbook.png)
+
+### <a name="advantages"></a>Avantages
+- Prend en charge les métriques et les journaux d’activité.
+- Prend en charge des paramètres qui permettent de créer des rapports interactifs où la sélection d’un élément dans une table met dynamiquement à jour les visualisations et graphiques associés.
+- Flux de type document.
+- Possibilité de définir des classeurs personnels ou partagés.
+- Expérience de création simple et conviviale.
+- Les modèles prennent en charge la galerie de modèles publique basée sur GitHub.
+
+### <a name="limitations"></a>Limites
+- Aucune actualisation automatique.
+- Les classeurs présentant une disposition moins dense que les tableaux de bord, ils n’offrent pas la même vision panoramique. Conviennent davantage pour fournir des insights plus approfondis.
+
 
 ## <a name="azure-dashboards"></a>Tableaux de bord Azure
 Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constituent la principale technologie de création de tableaux de bord pour Azure. Ils sont particulièrement efficaces pour fournir un panorama unique de vos infrastructure et services Azure, ce qui vous permet d’identifier rapidement les problèmes importants.
@@ -43,44 +59,6 @@ Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constit
 - Les graphiques de journal peuvent uniquement être épinglés aux tableaux de bord partagés.
 - Aucune interactivité avec les données de tableau de bord.
 - Exploration contextuelle limitée.
-
-## <a name="azure-monitor-views"></a>Affichages Azure Monitor
-Les [affichages dans Azure Monitor](platform/view-designer.md) vous permettent de créer des visualisations personnalisées avec les données de journal stockées. Les [solutions de supervision](insights/solutions.md) s’en servent pour présenter les données qu’elles collectent.
-
-![Affichage](media/visualizations/view.png)
-
-### <a name="advantages"></a>Avantages
-- Visualisations riches des données de journal.
-- Possibilité d’exporter et d’importer des affichages pour les transférer vers d’autres groupes de ressources et abonnements.
-- Intégration au modèle de gestion Azure Monitor avec des espaces de travail et des solutions de supervision.
-- [Filtres](platform/view-designer-filters.md) pour les paramètres personnalisés.
-- Interactif ; prend en charge l’exploration sur plusieurs niveaux (d’un affichage à l’autre)
-
-### <a name="limitations"></a>Limites
-- Prend en charge les journaux d’activité, mais pas les métriques.
-- Aucun affichage personnel. Disponible pour tous les utilisateurs ayant accès à l’espace de travail.
-- Aucune actualisation automatique.
-- Options de disposition limitées.
-- Pas prise en charge de l’interrogation de plusieurs espaces de travail ou applications Application Insights.
-- La taille de la réponse des requêtes est limitée à 8 Mo, tandis que le temps d’exécution des requêtes est limité à 110 secondes.
-
-
-## <a name="workbooks"></a>Workbooks
-Les [classeurs](../azure-monitor/app/usage-workbooks.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
-
-![Classeur](media/visualizations/workbook.png)
-
-### <a name="advantages"></a>Avantages
-- Prend en charge les métriques et les journaux d’activité.
-- Prend en charge des paramètres qui permettent de créer des rapports interactifs où la sélection d’un élément dans une table met dynamiquement à jour les visualisations et graphiques associés.
-- Flux de type document.
-- Possibilité de définir des classeurs personnels ou partagés.
-- Expérience de création simple et conviviale.
-- Les modèles prennent en charge la galerie de modèles publique basée sur GitHub.
-
-### <a name="limitations"></a>Limites
-- Aucune actualisation automatique.
-- Les classeurs présentant une disposition moins dense que les tableaux de bord, ils n’offrent pas la même vision panoramique. Conviennent davantage pour fournir des insights plus approfondis.
 
 
 ## <a name="power-bi"></a>Power BI
@@ -129,6 +107,31 @@ Vous pouvez accéder aux données dans les journaux et aux métriques dans Azure
 ### <a name="disadvantages"></a>Inconvénients
 - Effort d’ingénierie significatif requis.
 
+
+## <a name="azure-monitor-views"></a>Affichages Azure Monitor
+
+> [!IMPORTANT]
+> Les vues sont en cours de dépréciation. Pour obtenir des conseils sur la conversion des vues en classeurs, consultez le [Guide de transition : du concepteur de vues Azure Monitor aux classeurs](platform/view-designer-conversion-overview.md).
+
+Les [affichages dans Azure Monitor](platform/view-designer.md) vous permettent de créer des visualisations personnalisées avec les données de journal stockées. Les [solutions de supervision](insights/solutions.md) s’en servent pour présenter les données qu’elles collectent.
+
+
+![Affichage](media/visualizations/view.png)
+
+### <a name="advantages"></a>Avantages
+- Visualisations riches des données de journal.
+- Possibilité d’exporter et d’importer des affichages pour les transférer vers d’autres groupes de ressources et abonnements.
+- Intégration au modèle de gestion Azure Monitor avec des espaces de travail et des solutions de supervision.
+- [Filtres](platform/view-designer-filters.md) pour les paramètres personnalisés.
+- Interactif ; prend en charge l’exploration sur plusieurs niveaux (d’un affichage à l’autre)
+
+### <a name="limitations"></a>Limites
+- Prend en charge les journaux d’activité, mais pas les métriques.
+- Aucun affichage personnel. Disponible pour tous les utilisateurs ayant accès à l’espace de travail.
+- Aucune actualisation automatique.
+- Options de disposition limitées.
+- Pas prise en charge de l’interrogation de plusieurs espaces de travail ou applications Application Insights.
+- La taille de la réponse des requêtes est limitée à 8 Mo, tandis que le temps d’exécution des requêtes est limité à 110 secondes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez les [données collectées par Azure Monitor](platform/data-platform.md).

@@ -1,23 +1,23 @@
 ---
-title: Activer Azure Monitor (préversion) pour un environnement hybride | Microsoft Docs
+title: Activer Azure Monitor pour un environnement hybride | Microsoft Docs
 description: Cet article décrit comment activer des Azure Monitor pour machines virtuelles pour un environnement de cloud hybride contenant une ou plusieurs machines virtuelles.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669622"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480740"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Activer Azure Monitor pour machines virtuelles (préversion) pour un environnement hybride
+# <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Activer Azure Monitor pour machines virtuelles pour un environnement hybride
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Cet article explique comment activer Azure Monitor pour machines virtuelles (préversion) pour des machines virtuelles ou des ordinateurs physiques hébergés dans votre centre de données ou un autre environnement cloud. À la fin de ce processus, vous aurez commencé à analyser vos machines virtuelles dans votre environnement et saurez reconnaître les problèmes de performances ou de disponibilité.
+Cet article explique comment activer Azure Monitor pour machines virtuelles pour les machines virtuelles ou les ordinateurs physiques hébergés dans votre centre de données ou un autre environnement cloud. À la fin de ce processus, vous aurez commencé à analyser vos machines virtuelles dans votre environnement et saurez reconnaître les problèmes de performances ou de disponibilité.
 
 Avant de commencer, veillez à consulter les [conditions préalables](vminsights-enable-overview.md) et vérifiez que votre abonnement et vos ressources répondent aux exigences. Passez en revue les exigences et les méthodes de déploiement pour l’[agent Log Analytique Linux et Windows](../../log-analytics/log-analytics-agent-overview.md).
 
@@ -111,7 +111,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 Pour déployer l’agent de dépendances avec la configuration de l'état souhaité, vous pouvez utiliser le module xPSDesiredStateConfiguration avec l’exemple de code suivant :
 
 ```powershell
-configuration ServiceMap {
+configuration VMInsights {
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
@@ -184,7 +184,7 @@ Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interfac
                     {
                         "apiVersion": "2015-11-01-preview",
                         "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "dependsOn": [
                             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -194,9 +194,9 @@ Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interfac
                         },
 
                         "plan": {
-                            "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                             "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
                             "promotionCode": ""
                         }
                     }

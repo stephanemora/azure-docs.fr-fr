@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.openlocfilehash: b0b0bb5eefde9e744b1f30109d60ded91d3b44e8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228658"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455789"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Exécuter du code Python dans le concepteur Azure Machine Learning
 
@@ -78,7 +78,7 @@ Dans cet exemple, vous utilisez Pandas pour combiner deux colonnes trouvées dan
 
     La valeur renvoyée doit être une trame de données Pandas. Vous pouvez retourner jusqu’à deux trames de données comme sorties de module.
     
-1. Exécuter le pipeline.
+1. Envoyez le pipeline.
 
 À présent, vous disposez d’un jeu de données doté de la nouvelle fonctionnalité **Dollars/HP**, ce qui peut être utile pour la formation d’un outil de recommandation de voitures. Voici un exemple d’extraction de fonctionnalités et de réduction de la dimensionnalité. 
 

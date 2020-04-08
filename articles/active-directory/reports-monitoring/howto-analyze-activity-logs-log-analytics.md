@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008287"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analyser les journaux d'activité Azure AD à l'aide des journaux Azure Monitor
@@ -47,7 +47,7 @@ Pour suivre l’article, vous devez préalablement :
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Accéder à l’espace de travail Log Analytics
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 2. Sélectionnez **Azure Active Directory**, puis sélectionnez **Journaux d’activité** dans la section **Supervision** pour ouvrir votre espace de travail Log Analytics. L’espace de travail s’ouvre avec une requête par défaut.
 
@@ -61,7 +61,7 @@ Les journaux d’activité sont envoyés (push) dans les tableaux **AuditLogs** 
 1. Dans la vue de la requête par défaut, de la section précédente, sélectionnez **Schéma** et développez l’espace de travail. 
 
 2. Développez la section **Gestion des journaux**, puis développez **AuditLogs** ou **SignInLogs** pour afficher le schéma des journaux.
-    ![Journaux d’audit](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png)![Journaux d’activité de connexion](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
+    ![Journaux d’audit](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![Journaux de connexion](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Exécuter des requêtes sur les journaux d’activité Azure AD
 

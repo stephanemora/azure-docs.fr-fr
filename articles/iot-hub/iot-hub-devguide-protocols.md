@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626177"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237361"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Référence - Choisir un protocole de communication
 
@@ -29,7 +29,7 @@ Pour plus d’informations sur la façon dont ces protocoles prennent en charge 
 
 Le tableau suivant fournit des recommandations de haut niveau pour votre choix de protocole :
 
-| Protocole | Quand choisir ce protocole |
+| Protocol | Quand choisir ce protocole |
 | --- | --- |
 | MQTT <br> MQTT sur WebSocket |Utilisez sur tous les appareils ne nécessitant pas de connecter plusieurs appareils (chacun avec ses propres informations d’identification par appareil) à l’aide de la même connexion TLS. |
 | AMQP <br> AMQP sur WebSocket |Utiliser sur les passerelles de champ et de cloud pour tirer parti du multiplexage de connexion sur les appareils. |
@@ -48,13 +48,13 @@ Prenez en compte les points suivants lorsque vous choisissez votre protocole pou
 * **Taille de charge utile**. MQTT et AMQP sont des protocoles binaires qui génèrent des charges utiles plus compactes que HTTPS.
 
 > [!WARNING]
-> Quand vous utilisez HTTPS, chaque appareil doit envoyer des interrogations pour les messages cloud-à-appareil toutes les 25 minutes, voire plus. Toutefois, au cours du développement, il est clairement acceptable d’avoir des fréquences d’interrogation plus régulières que toutes les 25 minutes.
+> Quand vous utilisez HTTPS, chaque appareil doit interroger les messages cloud-à-appareil pas plus d’une fois toutes les 25 minutes. Pendant le développement, chaque appareil peut les interroger plus fréquemment, le cas échéant.
 
 ## <a name="port-numbers"></a>Numéros de ports
 
 Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers protocoles. En règle générale, le choix du protocole dépend des exigences spécifiques de la solution. Le tableau suivant répertorie les ports de sortie qui doivent être ouverts pour qu’un appareil puisse utiliser un protocole spécifique :
 
-| Protocole | Port |
+| Protocol | Port |
 | --- | --- |
 | MQTT |8883 |
 | MQTT sur WebSockets |443 |

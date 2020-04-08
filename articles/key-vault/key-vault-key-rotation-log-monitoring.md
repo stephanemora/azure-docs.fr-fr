@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f7fbc82c08d89d73d671a49fb31b9d3cca01c721
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6962a264787bd8a55b6f6a2ebdb6eeb615c33d5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195513"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218397"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit
 
@@ -23,21 +23,16 @@ ms.locfileid: "78195513"
 
 Une fois que vous avez un coffre de clés, vous pouvez commencer à l’utiliser pour stocker les clés et les secrets. Vos applications ne doivent plus nécessairement conserver vos clés et secrets, mais peuvent les demander au coffre en cas de besoin. Un coffre de clés vous permet de mettre à jour les clés et les secrets sans affecter le comportement de votre application, et de disposer ainsi de toute une multitude de possibilités de gestion des clés et secrets.
 
->[!IMPORTANT]
-> Les exemples de cet article sont fournis à titre d’illustration uniquement. Ils ne sont pas conçus pour être utilisés en production. 
+Cet article explique comment implémenter une rotation planifiée des clés de compte de stockage, superviser les journaux d’audit de coffre de clés et déclencher des alertes quand des demandes inattendues sont effectuées. 
 
-Cet article vous guide tout au long des procédures suivantes :
+Vous devez d’abord créer un coffre de clés à l’aide de la méthode de votre choix :
 
-- Un exemple d’utilisation d’Azure Key Vault pour stocker un secret. Dans cet article, le secret stocké est la clé de compte de stockage Azure qui fait l’objet d’un accès par une application. 
-- Implémentation d’une rotation planifiée de cette clé de compte de stockage.
-- Surveillance des journaux d’audit du coffre de clés et déclenchement des alertes en cas de requêtes inattendues.
+- [Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI](quick-create-cli.md)
+- [Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure PowerShell](quick-create-powershell.md)
+- [Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure](quick-create-portal.md)
 
-> [!NOTE]
-> Cet article n’explique pas en détail la configuration initiale de votre coffre de clés. Pour en savoir plus, consultez [Présentation d'Azure Key Vault](key-vault-overview.md). Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez la rubrique [Gérer Key Vault à l’aide de l’interface de ligne de commande Azure](key-vault-manage-with-cli2.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="set-up-key-vault"></a>Configuration d’Azure Key Vault
+## <a name="store-a-secret"></a>Stocker un secret
 
 Pour qu’une application puisse récupérer un secret dans Key Vault, vous devez tout d’abord créer le secret et le télécharger dans votre coffre.
 

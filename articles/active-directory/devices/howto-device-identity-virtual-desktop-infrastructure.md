@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900374"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
@@ -41,14 +41,14 @@ Cet article présente les conseils de Microsoft aux administrateurs, en matière
 
 Avant de configurer les identités d’appareil dans Azure AD pour votre environnement VDI, familiarisez-vous avec les scénarios pris en charge. Le tableau ci-dessous illustre les scénarios de provisionnement pris en charge. Dans ce contexte, le provisionnement implique qu’un administrateur peut configurer des identités d’appareil à grande échelle, sans nécessiter l’intervention d’utilisateurs finals.
 
-| Type d’identité d’appareil | Infrastructure d’identité | Appareils Windows | Version de la plateforme VDI | Pris en charge |
+| Type d’identité d’appareil | Infrastructure d’identité | Appareils Windows | Version de la plateforme VDI | Prise en charge |
 | --- | --- | --- | --- | --- |
-| Appareils joints Azure AD hybrides | Fédérée* | Windows actuel*** et Windows de bas niveau**** | Persistante | OUI |
+| Appareils joints Azure AD hybrides | Fédérée* | Windows actuel*** et Windows de bas niveau**** | Persistante | Oui |
 |   |   | Windows actuel | Non persistante | Non |
-|   |   | Appareils Windows de bas niveau | Non persistante | OUI |
-|   | Managée** | Windows actuel et Windows de bas niveau | Persistante | OUI |
+|   |   | Appareils Windows de bas niveau | Non persistante | Oui |
+|   | Managée** | Windows actuel et Windows de bas niveau | Persistante | Oui |
 |   |   | Windows actuel | Non persistante | Non |
-|   |   | Appareils Windows de bas niveau | Non persistante | OUI |
+|   |   | Appareils Windows de bas niveau | Non persistante | Oui |
 | Appareil joints Azure AD | Adresses IP fédérées | Windows actuel | Persistante | Non |
 |   |   |   | Non persistante | Non |
 |   | Adresses IP gérées | Windows actuel | Persistante | Non |
@@ -62,9 +62,9 @@ Avant de configurer les identités d’appareil dans Azure AD pour votre environ
 
 \*\* Un environnement d’infrastructure d’identité **managée** représente un environnement avec Azure AD en tant que fournisseur d’identité déployé au moyen de la [synchronisation de hachage de mot de passe (PHS)](../hybrid/whatis-phs.md) ou de l’[authentification directe (PTA)](../hybrid/how-to-connect-pta.md) avec l’[authentification unique fluide](../hybrid/how-to-connect-sso.md).
 
-\*\*\* Les appareils **Windows actuels** représentent Windows 10, Windows Server 2016 et Windows Server 2019.
+\*\*\* Les appareils **Windows actuels** sont Windows 10, Windows Server 2016 et Windows Server 2019.
 
-\*\*\*\* Les appareils **Windows de bas niveau** représentent Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Pour des informations relatives à la prise en charge de Windows 7, consultez [Fin de la prise en charge de Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Pour obtenir des informations de support sur Windows Server 2008 R2, consultez [Préparez-vous à la fin du support de Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
+\*\*\*\* Les appareils **Windows de bas niveau** sont Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Pour des informations relatives à la prise en charge de Windows 7, consultez [Fin de la prise en charge de Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Pour obtenir des informations de support sur Windows Server 2008 R2, consultez [Préparez-vous à la fin du support de Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 ## <a name="microsofts-guidance"></a>Conseils de Microsoft
 

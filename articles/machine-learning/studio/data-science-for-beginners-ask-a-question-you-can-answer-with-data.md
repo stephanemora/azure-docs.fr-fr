@@ -10,10 +10,10 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
 ms.openlocfilehash: 26837337b49d79a26404fd6709b036f6907720f8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838835"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
@@ -30,11 +30,11 @@ Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [A
 ## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
 *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
-* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 s)*
+* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 s)*
 * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
 * Vidéo 3 : Poser une question à laquelle les données permettent de répondre
-* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
+* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 
 ## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcription : Poser une question à laquelle les données permettent de répondre
 Bienvenue dans la troisième vidéo de la série « Science des données pour les débutants ».  

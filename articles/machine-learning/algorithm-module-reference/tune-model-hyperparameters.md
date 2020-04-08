@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 112a7f7aa61984b2ce9bd8400c629fe62db55584
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137895"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064156"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimiser les hyperparamètres du modèle
 
 Cet article décrit comment utiliser le module Optimiser les hyperparamètres du modèle dans le concepteur Azure Machine Learning (préversion). L’objectif est de déterminer les hyperparamètres optimaux pour un modèle Machine Learning. Le module génère et teste plusieurs modèles avec différentes combinaisons de paramètres. Il compare les métriques à tous les modèles pour obtenir les combinaisons de paramètres. 
 
-Les termes *paramètre* et *hyperparamètre* peuvent prêter à confusion. Les *paramètres* du modèle sont ce que vous définissez dans le volet des propriétés. Ce module effectue essentiellement un *balayage de paramètres* sur les réglages de paramètres spécifiés. Il apprend un ensemble optimal d’_hyperparamètres_, qui peut être différent pour chaque arbre de décision, jeu de données ou méthode de régression. Le processus de recherche de la configuration optimale est parfois appelé *optimisation*. 
+Les termes *paramètre* et *hyperparamètre* peuvent prêter à confusion. Les *paramètres* du modèle sont ce que vous définissez dans le volet de droite du module. Ce module effectue essentiellement un *balayage de paramètres* sur les réglages de paramètres spécifiés. Il apprend un ensemble optimal d’_hyperparamètres_, qui peut être différent pour chaque arbre de décision, jeu de données ou méthode de régression. Le processus de recherche de la configuration optimale est parfois appelé *optimisation*. 
 
 Le module prend en charge la méthode suivante pour rechercher les paramètres optimaux d’un modèle : *entraînement et optimisation intégrés*. Dans cette méthode, vous configurez un ensemble de paramètres à utiliser. Vous faites ensuite itérer le module sur plusieurs combinaisons. Le module mesure la justesse jusqu’à ce qu’il trouve un modèle « optimal ». Avec la plupart des modules d’apprentissage, vous pouvez choisir les paramètres à changer au cours du processus d’entraînement et ceux qui doivent rester tels quels.
 
@@ -69,7 +69,7 @@ Cette section décrit comment effectuer un balayage de paramètres de base, qui 
 
 9.  Pour **Random seed** (Valeur de départ aléatoire), entrez un nombre à utiliser pour commencer le balayage de paramètres. 
 
-10. Exécuter le pipeline.
+10. Envoyez le pipeline.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Résultats de l’optimisation des hyperparamètres
 

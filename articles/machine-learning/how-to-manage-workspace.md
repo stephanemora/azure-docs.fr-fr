@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f31c5583671ed3441e1a3f0f53c8518e550080a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580727"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297060"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Créer et gérer des espaces de travail Azure Machine Learning dans le Portail Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -50,7 +50,8 @@ Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si v
 
     ![Configurer votre espace de travail](./media/how-to-manage-workspace/select-edition.png)
 
-1. Une fois que vous avez terminé de configurer l’espace de travail, sélectionnez **Créer**. 
+1. Lorsque vous avez terminé de configurer l’espace de travail, sélectionnez **Vérifier + créer**.
+2. Passez en revue les paramètres et apportez toute modification ou correction supplémentaire. Lorsque vous êtes satisfait des paramètres, sélectionnez **Créer**.
 
    > [!Warning] 
    > La création de votre espace de travail dans le cloud peut prendre plusieurs minutes.
@@ -69,7 +70,7 @@ Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si v
    
    Placez le fichier dans la structure de répertoires avec vos scripts Python ou vos notebooks Jupyter. Il peut se trouver dans le même répertoire, dans un sous-répertoire nommé *.azureml* ou dans un répertoire parent. Quand vous créez une instance de calcul, ce fichier est automatiquement ajouté dans le répertoire approprié sur la machine virtuelle.
 
-## <a name="upgrade"></a>Mise à jour vers l’édition Enterprise
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Mise à jour vers l’édition Enterprise
 
 Vous pouvez mettre à niveau votre espace de travail de l’édition De base vers l’édition Entreprise pour tirer parti des fonctionnalités améliorées, telles que les expériences à faible niveau de code et les fonctionnalités de sécurité améliorées.
 
@@ -87,7 +88,7 @@ Vous pouvez mettre à niveau votre espace de travail de l’édition De base ver
 > [!IMPORTANT]
 > Vous ne pouvez pas rétrograder un espace de travail Édition Entreprise vers une édition De base. 
 
-## <a name="view"></a>Trouver un espace de travail
+## <a name="find-a-workspace"></a><a name="view"></a>Trouver un espace de travail
 
 1. Dans le champ de recherche du haut, tapez **Machine Learning**.  
 
@@ -120,9 +121,9 @@ Utilisez le bouton Supprimer en haut de l’espace de travail que vous souhaitez
 > [!WARNING]
 > Le déplacement de votre espace de travail Azure Machine Learning vers un autre abonnement, ou le déplacement de l’abonnement propriétaire vers un nouveau locataire, n’est pas pris en charge. En effet, cela peut provoquer des erreurs.
 
-### <a name="deleting-the-azure-container-registry"></a>Suppression d’Azure Container Registry
+### <a name="deleting-the-azure-container-registry"></a>Suppression d'Azure Container Registry
 
-L’espace de travail Azure Machine Learning utilise Azure Container Registry (ACR) pour certaines opérations. Il crée automatiquement une instance ACR lorsqu’il en a besoin d’une pour la première fois.
+L'espace de travail Azure Machine Learning utilise Azure Container Registry (ACR) pour certaines opérations. Il crée automatiquement une instance ACR dès qu'il en a besoin.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 

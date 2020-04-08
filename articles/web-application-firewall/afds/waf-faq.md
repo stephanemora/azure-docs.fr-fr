@@ -1,6 +1,6 @@
 ---
 title: Pare-feu d’applications web Azure - Forum aux questions
-description: Cet article fournit des réponses aux questions les plus souvent posées sur le pare-feu d'applications web sur Azure Front Door Service
+description: Cet article fournit des réponses aux questions les plus souvent posées sur le pare-feu d’applications web sur Azure Front Door.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2019
 ms.author: victorh
-ms.openlocfilehash: 263f929fa010450fcfb35b8db74f94cd6fd7dc84
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c40210f3a6f0fb10be1f20deef87b2acfa076a4c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511618"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460634"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Forum aux questions sur le pare-feu d’applications web Azure sur Azure Front Door Service
 
@@ -23,15 +23,15 @@ Cet article répond aux questions courantes sur les fonctionnalités du pare-feu
 
 Azure WAF est un pare-feu d’applications web qui aide à protéger vos applications web des menaces courantes telles que les injections de code SQL, le script de site à site et autres codes malveillants exploitant des failles de sécurité. Vous pouvez définir une stratégie de pare-feu d’applications web consistant en une combinaison de règles personnalisées et gérées pour contrôler l’accès à vos applications web.
 
-Une stratégie de pare-feu d’applications web Azure peut être appliquée aux applications web hébergées sur les services Application Gateway ou Azure Front Door.
+Une stratégie de pare-feu d’applications web Azure peut être appliquée aux applications web hébergées sur Application Gateway ou Azure Front Door.
 
-## <a name="what-is-waf-on-azure-front-door-service"></a>Qu’est-ce qu’un pare-feu d’applications web sur le service Azure Front Door Service ? 
+## <a name="what-is-waf-on-azure-front-door"></a>Qu’est-ce qu’un pare-feu d’applications web sur Azure Front Door ? 
 
 Azure Front Door est un réseau de distribution de contenu et d’application hautement évolutif et distribué mondialement. Un pare-feu d’applications web Azure, lorsqu’intégré à Front Door, bloque les attaques DDoS et ciblant une application à la périphérie du réseau Azure, près de la source avant qu’elles ne pénètrent dans votre réseau virtuel, et offre une protection sans sacrifice des performances.
 
 ## <a name="does-azure-waf-support-https"></a>Le pare-feu d’applications web prend-il en charge HTTPS ?
 
-Le service Front Door offre le déchargement SSL. Le pare-feu d’applications web est intégré de façon native à Front Door et peut inspecter une demande après qu’elle ait été déchiffrée.
+Front Door offre le déchargement SSL. Le pare-feu d’applications web est intégré de façon native à Front Door et peut inspecter une demande après qu’elle ait été déchiffrée.
 
 ## <a name="does-azure-waf-support-ipv6"></a>Le pare-feu d’applications web prend-il en charge IPv6 ?
 
@@ -47,7 +47,7 @@ Le déploiement global d’une stratégie de pare-feu d’applications web prend
 
 ## <a name="can-waf-policies-be-different-for-different-regions"></a>Les stratégies de pare-feu d’applications web peuvent-elles être différentes d’une région à une autre ?
 
-Une fois intégré au service Front Door, le pare-feu d’applications web constitue une ressource globale. La même configuration s’applique à tous les emplacements Front Door.
+Une fois intégré à Front Door, le pare-feu d’applications web constitue une ressource globale. La même configuration s’applique à tous les emplacements Front Door.
  
 ## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Comment limiter l’accès à mon serveur back-end au service Front Door uniquement ?
 

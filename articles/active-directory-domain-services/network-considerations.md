@@ -4,19 +4,18 @@ description: Apprenez-en davantage sur certaines considérations et ressources r
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
-ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613334"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408831"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure AD Domain Services
 
@@ -76,7 +75,7 @@ Vous pouvez connecter deux réseaux virtuels (connexion de réseau virtuel à r�
 
 ![Connexion entre des réseaux virtuels à l’aide d’une passerelle VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-Pour plus d’informations sur l’utilisation de réseaux privés virtuels, consultez la page [Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
+Pour plus d’informations sur l’utilisation de réseaux privés virtuels, consultez la page [Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
 ## <a name="name-resolution-when-connecting-virtual-networks"></a>Résolution de noms lors de la connexion de réseaux virtuels
 
@@ -97,11 +96,11 @@ Un domaine managé Azure AD DS crée des ressources réseau au cours du déplo
 | Règles d'équilibrage de charge                     | Lorsqu’un domaine managé Azure AD DS est configuré pour le LDAP sécurisé sur le port TCP 636, trois règles sont créées et utilisées sur un équilibreur de charge pour répartir le trafic. |
 
 > [!WARNING]
-> Ne supprimez aucune des ressources réseau créées par Azure AD DS. Si vous supprimez une des ressources réseau, le service Azure AD DS est interrompu.
+> Ne supprimez ni ne modifiez aucune des ressources réseau créées par Azure AD DS, telles que la configuration manuelle de l’équilibreur de charge ou des règles. Si vous supprimez ou modifiez l’une des ressources réseau, le service Azure AD DS peut être interrompu.
 
 ## <a name="network-security-groups-and-required-ports"></a>Groupes de sécurité réseau et ports requis
 
-Un [groupe de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contient la liste des règles qui autorisent ou rejettent le trafic réseau vers le trafic d’un réseau virtuel Azure. Un groupe de sécurité réseau est créé lorsque vous déployez Azure AD DS qui contient un ensemble de règles permettant au service de fournir des fonctions d’authentification et de gestion. Ce groupe de sécurité réseau par défaut est associé au sous-réseau de réseau virtuel dans lequel votre domaine managé Azure AD DS est déployé.
+Un [groupe de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) contient la liste des règles qui autorisent ou rejettent le trafic réseau vers le trafic d’un réseau virtuel Azure. Un groupe de sécurité réseau est créé lorsque vous déployez Azure AD DS qui contient un ensemble de règles permettant au service de fournir des fonctions d’authentification et de gestion. Ce groupe de sécurité réseau par défaut est associé au sous-réseau de réseau virtuel dans lequel votre domaine managé Azure AD DS est déployé.
 
 Les règles de groupe de sécurité réseau suivantes sont requises pour permettre à Azure AD DS de fournir des services d’authentification et de gestion. Ne modifiez pas et ne supprimez pas ces règles de groupe de sécurité réseau pour le sous-réseau de réseau virtuel dans lequel votre domaine managé Azure AD DS est déployé.
 
@@ -143,6 +142,11 @@ Les règles de groupe de sécurité réseau suivantes sont requises pour permett
 * Sans accès à ce port, votre domaine managé Azure AD DS ne peut pas être mis à jour, configuré, sauvegardé ou surveillé.
 * Pour les domaines managés Azure AD DS qui utilisent un réseau virtuel basé sur gestionnaire des ressources, vous pouvez restreindre l’accès entrant à ce port à la balise de service *AzureActiveDirectoryDomainServices*.
     * Pour les domaines managés Azure AD DS hérités utilisant un réseau virtuel classique, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, et *104.40.87.209*.
+
+    > [!NOTE]
+    > En 2017, le service Azure AD Domain Services est devenu disponible pour l’hébergement dans un réseau Azure Resource Manager. Depuis lors, nous avons pu créer un service plus sécurisé utilisant les fonctionnalités modernes d’Azure Resource Manager. Étant donné que les déploiements d’Azure Resource Manager remplacent entièrement les déploiements d’Azure Classic, les déploiements de réseau virtuel Classic d’Azure AD DS seront mis hors service le 1er mars 2023.
+    >
+    > Pour plus d’informations, voir l’[avis de désapprobation officiel](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="user-defined-routes"></a>Itinéraires définis par l’utilisateur
 

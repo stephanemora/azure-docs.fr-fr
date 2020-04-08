@@ -3,7 +3,7 @@ title: Ajouter une organisation connectée dans la gestion des droits d’utilis
 description: Découvrez comment autoriser les personnes extérieures à votre organisation à demander des packages d’accès afin de pouvoir collaborer sur des projets.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/22/2020
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ecf3a8819518c674a3d8bd7af55d1a3c6393c42
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ee370bc9c381eb11ae7cae53b31d0c987c52733c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483854"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128611"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
-La gestion des droits d’utilisation Azure vous permet de collaborer avec des personnes extérieures à votre organisation. Si vous collaborez fréquemment avec des utilisateurs dans un annuaire ou domaine Azure AD externe, vous pouvez les ajouter en tant qu’organisation connectée. Cet article explique comment ajouter une organisation connectée afin de permettre aux utilisateurs extérieurs à votre organisation de demander des ressources dans votre annuaire.
+Avec la gestion des droits d’utilisation Azure Active Directory (Azure AD), vous pouvez collaborer avec des personnes extérieures à votre organisation. Si vous collaborez fréquemment avec des utilisateurs dans un annuaire ou domaine Azure AD externe, vous pouvez les ajouter en tant qu’organisation connectée. Cet article explique comment ajouter une organisation connectée afin de permettre aux utilisateurs extérieurs à votre organisation de demander des ressources dans votre annuaire.
 
 ## <a name="what-is-a-connected-organization"></a>Qu’est-ce qu’une organisation connectée ?
 
@@ -33,14 +33,14 @@ Une organisation connectée est un domaine ou un annuaire Azure AD externe avec 
 
 Par exemple, supposons que vous travaillez chez Woodgrove Bank et que vous souhaitez collaborer avec deux organisations externes. Ces deux organisations ont des configurations différentes :
 
-- Graphic Design Institute utilise Azure AD et ses utilisateurs ont un nom d’utilisateur principal qui se termine par `graphicdesigninstitute.com`
-- Contoso n’utilise pas encore Azure AD. Les utilisateurs Contoso ont un nom d’utilisateur principal qui se termine par `contoso.com`.
+- Graphic Design Institute utilise Azure AD, et ses utilisateurs ont un nom d’utilisateur principal qui se termine par *graphicdesigninstitute.com*.
+- Contoso n’utilise pas encore Azure AD. Les utilisateurs Contoso ont un nom d’utilisateur principal qui se termine par *contoso.com*.
 
-Dans ce cas, vous pouvez configurer deux organisations connectées. Vous créez une organisation connectée pour Graphic Design Institute et une autre pour Contoso. Si vous ajoutez ensuite ces deux organisations connectées à une stratégie, les utilisateurs de chaque organisation avec un nom d’utilisateur principal qui correspond à la stratégie peuvent demander des packages d’accès. Les utilisateurs qui ont un nom d’utilisateur principal avec le domaine graphicdesigninstitute.com correspondent à l’organisation connectée Graphical Design Institute et sont autorisés à envoyer des demandes, et les utilisateurs qui ont un nom d’utilisateur principal avec le domaine contoso.com correspondent à l’organisation connectée Contoso et sont aussi autorisés à demander des packages. De plus, étant donné que Graphic Design Institute utilise Azure AD, tous les utilisateurs avec un nom principal correspondant à un [domaine vérifié](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) ajouté à leur locataire, par exemple graphicdesigninstitute.exemple, peuvent également demander des packages d’accès à l’aide de la même stratégie.
+Dans ce cas, vous pouvez configurer deux organisations connectées. Vous devez créer une organisation connectée pour Graphic Design Institute et une autre pour Contoso. Si vous ajoutez ensuite ces deux organisations connectées à une stratégie, les utilisateurs de chaque organisation qui ont un nom d’utilisateur principal correspondant à la stratégie peuvent demander des packages d’accès. Les utilisateurs dont le nom d’utilisateur principal comprend le domaine *graphicdesigninstitute.com* sont ceux de l’organisation connectée à Graphics Institute et sont autorisés à envoyer des demandes. Les utilisateurs dont le nom d’utilisateur principal comprend le domaine *contoso.com* sont ceux de l’organisation connectée à Contoso et sont également autorisés à demander des packages. De plus, étant donné que Graphic Design Institute utilise Azure AD, tous les utilisateurs dont le nom principal correspond à un [domaine vérifié](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) suivi de leur locataire (comme dans *graphicdesigninstitute.example*), peuvent également demander des packages d’accès à l’aide de la même stratégie.
 
 ![Exemple d’organisation connectée](./media/entitlement-management-organization/connected-organization-example.png)
 
-La manière dont les utilisateurs de l’annuaire ou du domaine Azure AD s’authentifient dépend du type d’authentification. Les types d’authentification pour les organisations connectées sont les suivants :
+La manière dont les utilisateurs de l’annuaire ou du domaine Azure AD s’authentifient dépend du type d’authentification. Les types d’authentification pour les organisations connectées sont :
 
 - Azure AD
 - [Fédération directe](../b2b/direct-federation.md)
@@ -52,85 +52,87 @@ Pour une démonstration de l’ajout d’une organisation connectée, regardez l
 
 ## <a name="add-a-connected-organization"></a>Ajouter une organisation connectée
 
-Procédez comme suit pour ajouter un annuaire ou un domaine Azure AD externe en tant qu’organisation connectée.
+Pour ajouter un annuaire ou un domaine Azure AD externe en tant qu’organisation connectée, suivez les instructions de cette section.
 
-**Rôle prérequis :** administrateur général, administrateur d’utilisateurs ou inviteur d’invités
+**Rôle prérequis** : *administrateur général*, *administrateur d’utilisateurs* ou *inviteur d’invités*
 
-1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
+1. Dans le portail Azure, sélectionnez **Azure Active Directory**, puis **Identity Governance**.
 
-1. Dans le menu de gauche, cliquez sur **Organisations connectées**, puis cliquez sur **Ajouter une organisation connectée**.
+1. Dans le volet de gauche, sélectionnez **Organisations connectées**, puis **Ajouter une organisation connectée**.
 
-    ![Gouvernance des identités - Organisations connectées - Ajouter une organisation connectée](./media/entitlement-management-organization/connected-organization.png)
+    ![Bouton « Ajouter une organisation connectée »](./media/entitlement-management-organization/connected-organization.png)
 
-1. Sous l’onglet **De base**, entrez un nom d’affichage et une description pour l’organisation.
+1. Sélectionnez l’onglet **De base**, puis entrez un nom d’affichage et une description pour l’organisation.
 
-    ![Ajouter une organisation connectée - onglet De base](./media/entitlement-management-organization/organization-basics.png)
+    ![Bouton Ajouter une organisation connectée - Onglet De base](./media/entitlement-management-organization/organization-basics.png)
 
-1. Sous l’onglet **Annuaire + domaine**, cliquez sur **Ajouter un annuaire + domaine** pour ouvrir le volet Sélectionner des annuaires et des domaines.
+1. Sélectionnez l’onglet **Annuaire + domaine**, puis sélectionnez **Ajouter un annuaire + domaine**.
 
-1. Entrez un nom de domaine pour rechercher le répertoire ou le domaine Azure AD. Vous devez entrer le nom de domaine complet.
+    Le volet **Sélectionner des annuaires et des domaines** s’ouvre.
 
-1. Vérifiez qu’il s’agit de l’organisation correcte pour le nom et le type d’authentification fournis. La manière dont les utilisateurs se connectent dépend du type d’authentification.
+1. Dans la zone de recherche, entrez un nom de domaine pour rechercher l’annuaire ou le domaine Azure AD. Veillez à entrer le nom de domaine complet.
 
-    ![Ajouter une organisation connectée - Sélectionner des annuaires et des domaines](./media/entitlement-management-organization/organization-select-directories-domains.png)
+1. Vérifiez que le nom de l’organisation et le type d’authentification sont corrects. La manière dont les utilisateurs se connectent dépend du type d’authentification.
 
-1. Cliquez sur **Ajouter** pour ajouter l’annuaire ou domaine Azure AD. Actuellement, vous ne pouvez ajouter qu’un seul annuaire ou domaine Azure AD par organisation connectée.
+    ![Volet « Sélectionner des annuaires et des domaines »](./media/entitlement-management-organization/organization-select-directories-domains.png)
+
+1. Sélectionnez **Ajouter** pour ajouter l’annuaire ou le domaine Azure AD. Vous ne pouvez ajouter qu’un seul annuaire ou domaine Azure AD par organisation connectée.
 
     > [!NOTE]
-    > Tous les utilisateurs de l’annuaire ou du domaine Azure AD seront en mesure de demander ce package d’accès. Cela comprend les utilisateurs Azure AD de tous les sous-domaines associés à l’annuaire, à moins que ces domaines soient bloqués par la liste d’autorisation ou de refus d’Azure B2B. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../b2b/allow-deny-list.md).
+    > Tous les utilisateurs de l’annuaire ou du domaine Azure AD seront en mesure de demander ce package d’accès. Cela comprend les utilisateurs Azure AD de tous les sous-domaines associés à l’annuaire, à moins que ces domaines ne soient bloqués par la liste d’autorisation ou de refus d’Azure AD B2B. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../b2b/allow-deny-list.md).
 
-1. Une fois que vous avez ajouté l’annuaire ou le domaine Azure AD, cliquez sur **Sélectionner**.
+1. Une fois que vous avez ajouté l’annuaire ou le domaine Azure AD, sélectionnez **Sélectionner**.
 
     L’organisation apparaît dans la liste.
 
-    ![Ajouter une organisation connectée - Onglet Annuaires](./media/entitlement-management-organization/organization-directory-domain.png)
+    ![Volet « Annuaire + domaine »](./media/entitlement-management-organization/organization-directory-domain.png)
 
-1. Sous l’onglet **Commanditaires**, ajoutez des commanditaires facultatifs pour cette organisation connectée.
+1. Sélectionnez l’onglet **Commanditaires**, puis ajoutez des commanditaires facultatifs pour cette organisation connectée.
 
     Les commanditaires sont des utilisateurs internes ou externes qui se trouvent déjà dans votre annuaire et qui constituent le point de contact pour la relation avec cette organisation connectée. Les commanditaires internes sont des utilisateurs membres de votre annuaire. Les commanditaires externes sont des utilisateurs invités de l’organisation connectée qui ont été invités précédemment et qui se trouvent déjà dans votre annuaire. Les commanditaires peuvent être utilisés en tant qu’approbateurs lorsque des utilisateurs de cette organisation connectée demandent l’accès à ce package d’accès. Pour plus d’informations sur l’invitation d’un utilisateur invité à votre annuaire, consultez [Ajout d'utilisateurs de collaboration Azure Active Directory B2B dans le portail Azure](../b2b/add-users-administrator.md).
 
-    Lorsque vous cliquez sur **Ajouter/Supprimer**, un volet s’affiche pour sélectionner les commanditaires internes ou externes. Le volet affiche une liste non filtrée d’utilisateurs et de groupes dans votre annuaire.
+    Lorsque vous sélectionnez **Ajouter/Supprimer**, un volet s’ouvre dans lequel vous pouvez choisir des commanditaires internes ou externes. Le volet affiche une liste non filtrée d’utilisateurs et de groupes dans votre annuaire.
 
-    ![Package d’accès - Stratégie - Ajouter une organisation connectée - Onglet Commanditaires](./media/entitlement-management-organization/organization-sponsors.png)
+    ![Volet Commanditaires](./media/entitlement-management-organization/organization-sponsors.png)
 
-1. Sous l’onglet **Vérifier + créer**, vérifiez les paramètres de votre organisation, puis cliquez sur **Créer**.
+1. Sélectionnez l’onglet **Vérifier + créer**, vérifiez les paramètres de votre organisation, puis sélectionnez **Créer**.
 
-    ![Package d’accès - Stratégie - Ajouter une organisation connectée - Onglet Vérifier + créer](./media/entitlement-management-organization/organization-review-create.png)
+    ![Volet « Vérifier + créer »](./media/entitlement-management-organization/organization-review-create.png)
 
 ## <a name="update-a-connected-organization"></a>Mettre à jour une organisation connectée 
 
-Si l’organisation connectée change de domaine et que vous avez un nouveau nom pour cette organisation ou souhaitez modifier les sponsors, vous pouvez mettre à jour l’organisation connectée.
+Si l’organisation connectée change de domaine, si le nom de l’organisation change ou si vous souhaitez modifier les commanditaires, vous pouvez mettre à jour l’organisation connectée en suivant les instructions de cette section.
 
-**Rôle prérequis :** administrateur général, administrateur d’utilisateurs ou inviteur d’invités
+**Rôle prérequis** : *administrateur général*, *administrateur d’utilisateurs* ou *inviteur d’invités*
 
-1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
+1. Dans le portail Azure, sélectionnez **Azure Active Directory**, puis **Identity Governance**.
 
-1. Dans le menu de gauche, cliquez sur **Organisations connectées**, puis cliquez sur pour ouvrir l’organisation connectée.
+1. Dans le volet de gauche, sélectionnez **Organisations connectées**, puis sélectionnez l’organisation connectée pour l’ouvrir.
 
-1. Dans la page de présentation, cliquez sur **Modifier** pour modifier le nom ou la description de l’organisation.  
+1. Dans la vue d’ensemble de l’organisation connectée, sélectionnez **Modifier** pour modifier le nom ou la description de l’organisation.  
 
-1. Dans la page Répertoire + domaine, cliquez sur **mettre à jour le répertoire et le domaine** pour basculer vers un autre répertoire ou domaine.
+1. Dans la page **Annuaire + domaine**, sélectionnez **Mettre à jour l’annuaire + le domaine** pour basculer vers un autre annuaire ou domaine.
 
-1. Dans la page Sponsors, cliquez sur **Ajouter des sponsors internes** ou **Ajouter des sponsors externes** pour ajouter un utilisateur en tant que sponsor.  Pour supprimer un sponsor, cliquez dessus, puis, dans le menu de droite, cliquez sur **Supprimer**.
+1. Dans la page **Commanditaires**, sélectionnez **Ajouter des sponsors internes** ou **Ajouter des sponsors externes** pour ajouter un utilisateur en tant que sponsor. Pour supprimer un commanditaire, sélectionnez-le, puis, dans le volet droit, sélectionnez **Supprimer**.
 
 
 ## <a name="delete-a-connected-organization"></a>Supprimer une organisation connectée
 
 Si vous n’avez plus de relation avec un annuaire ou un domaine Azure AD externe, vous pouvez supprimer l’organisation connectée.
 
-**Rôle prérequis :** administrateur général, administrateur d’utilisateurs ou inviteur d’invités
+**Rôle prérequis** : *administrateur général*, *administrateur d’utilisateurs* ou *inviteur d’invités*
 
-1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
+1. Dans le portail Azure, sélectionnez **Azure Active Directory**, puis **Identity Governance**.
 
-1. Dans le menu de gauche, cliquez sur **Organisations connectées**, puis cliquez sur pour ouvrir l’organisation connectée.
+1. Dans le volet de gauche, sélectionnez **Organisations connectées**, puis sélectionnez l’organisation connectée pour l’ouvrir.
 
-1. Dans la page Vue d’ensemble, cliquez sur **Supprimer** pour supprimer l’organisation connectée.
+1. Dans la vue d’ensemble de l’organisation connectée, sélectionnez **Supprimer** pour la supprimer.
 
-    Actuellement, vous ne pouvez supprimer une organisation connectée que si aucun utilisateur n’est connecté.
+    Vous pouvez supprimer une organisation connectée seulement si aucun utilisateur n’est connecté.
 
-    ![Gouvernance des identités - Organisations connectées - Supprimer une organisation connectée](./media/entitlement-management-organization/organization-delete.png)
+    ![Bouton « Supprimer une organisation connectée »](./media/entitlement-management-organization/organization-delete.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Régir l’accès des utilisateurs externes](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
-- [Pour les utilisateurs qui ne sont pas dans votre annuaire](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
+- [Régir l’accès des utilisateurs qui ne font pas partie de votre annuaire](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

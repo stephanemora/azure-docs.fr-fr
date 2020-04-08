@@ -1,5 +1,6 @@
 ---
 title: Schéma NetworkConfiguration d’Azure Cloud Services | Microsoft Docs
+description: Découvrez les éléments enfants de l’élément NetworkConfiguration du fichier de configuration de service, qui spécifie les valeurs de réseau virtuel et DNS.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 28
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: cacc8b1f2909965594fdf0d841963e792acf648c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 695ba3acfd5af8797de6e6f7454e493d7863627c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529286"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schéma NetworkConfiguration de configuration d’Azure Cloud Services
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 01/06/2020
-ms.openlocfilehash: 036efa27fb8d22c32f2f6bce1efe9dea300a3972
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/18/2020
+ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302766"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064190"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Présentation des environnements Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,10 +92,13 @@ Observez le diagramme suivant qui montre trois définitions d’environnement. D
 
 ![Diagramme de la mise en cache d’environnement en tant qu’images Docker](./media/concept-environments/environment-caching.png)
 
-Si vous créez un environnement avec une dépendance de package désépinglée, par exemple ```numpy```, cet environnement continuera à utiliser la version de package installée au moment de la création de l’environnement. En outre, tout environnement ultérieur avec une définition correspondante continuera à utiliser l’ancienne version. Pour mettre à jour le package, spécifiez un numéro de version afin de forcer la regénération de l’image, par exemple ```numpy==1.18.1```. Notez que de nouvelles dépendances, notamment imbriquées, seront installées et risquent de provoquer le non-fonctionnement d’un scénario précédemment opérationnel.
+>[!IMPORTANT]
+> Si vous créez un environnement avec une dépendance de package désépinglée, par exemple ```numpy```, cet environnement continuera à utiliser la version de package installée _au moment de la création de l’environnement_. En outre, tout environnement ultérieur avec une définition correspondante continuera à utiliser l’ancienne version. 
+
+Pour mettre à jour le package, spécifiez un numéro de version afin de forcer la regénération de l’image, par exemple ```numpy==1.18.1```. Notez que de nouvelles dépendances, notamment celles imbriquées, seront installées et risquent de provoquer le non-fonctionnement d’un scénario précédemment opérationnel.
 
 > [!WARNING]
->  La méthode [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) regénérera l’image mise en cache, avec comme effet secondaire possible la mise à jour des packages désépinglés et la rupture de la reproductibilité pour toutes les définitions d’environnement correspondant à cette image mise en cache.
+>  La méthode [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) regénérera l’image mise en cache, avec comme effet secondaire possible la mise à jour des packages désépinglés et la rupture de la reproductibilité pour toutes les définitions d’environnement correspondant à cette image mise en cache.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

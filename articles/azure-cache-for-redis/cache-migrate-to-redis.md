@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
 ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74122684"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrer un Service de cache géré vers le Cache Azure pour Redis
@@ -72,7 +72,7 @@ Une fois le cache créé et configuré, vous devez supprimer la configuration du
 ### <a name="remove-the-managed-cache-service-configuration"></a>Suppression de la configuration du Service de cache géré
 Pour pouvoir configurer les applications clientes pour le Cache Azure pour Redis, vous devez au préalable supprimer la configuration et les références d’assembly existantes du Service de cache géré en désinstallant le package NuGet du Service de cache géré.
 
-Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache**  **Microsoft Azure** (ou **Mise en cache** **Microsoft Azure** en fonction de la version du package NuGet), cliquez sur **Désinstaller**, puis sur **Fermer**.
+Pour désinstaller ce package, cliquez avec le bouton droit sur le projet client dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. Sélectionnez le nœud **Packages installés**, puis entrez W**indowsAzure.Caching** dans la zone de recherche des packages installés. Sélectionnez **Cache Azure** **Windows** (ou **Mise en cache Azure** **Windows** en fonction de la version du package NuGet), cliquez sur **Désinstaller**, puis sur **Fermer**.
 
 ![Désinstaller le package NuGet du Service de cache géré Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 

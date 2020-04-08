@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b818fe1d8b6bbc9d2d8c5b460b4d71dccdd39366
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65825990"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Guide pratique pour affecter des utilisateurs à des applications
@@ -44,9 +44,9 @@ Pour qu’un utilisateur puisse accéder à une application, il doit tout d’ab
 
     * Le groupe [Tous les utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 
-3.  Un administrateur active l[’accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** du [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), **sans approbation de l’entreprise**
+3.  Un administrateur active l’[accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** du [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), **sans approbation de l’entreprise**.
 
-4.  Un administrateur active l[’accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** du [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), mais uniquement **après approbation d’un ensemble sélectionné d’approbateurs d’entreprise**
+4.  Un administrateur active l’[accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** du [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), mais uniquement **après approbation d’un ensemble sélectionné d’approbateurs d’entreprise**.
 
 5.  Un administrateur active la [gestion des groupes en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) pour permettre à un utilisateur de joindre un groupe auquel une application est affectée, **sans approbation d’entreprise**
 

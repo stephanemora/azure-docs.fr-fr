@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c12e14b8b842e3ccf9f2bf9e0ab783d8852ee69b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357776"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229741"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
 
@@ -92,8 +92,9 @@ Pour plus d’informations sur les quotas et les limites, consultez [Limites App
 Par défaut, les applications web sont déchargées si elles restent inactives pendant un laps de temps défini. De cette manière, le système peut économiser les ressources. L’inconvénient est que la réponse à la première requête une fois que l’application web est déchargée est plus longue, pour permettre à l’application web de charger puis de démarrer le traitement des réponses. Dans les plans de service De base et Standard, vous pouvez activer le paramètre **Always On** afin que l’application reste toujours chargée. Cela raccourcit les délais de chargement une fois que l’application est inactive. Pour modifier le paramètre **Always On** :
 
 1. Dans le portail Azure, accédez à votre application web.
-2. Sélectionnez **Paramètres de l'application**.
-3. Pour **Always On**, sélectionnez **On**.
+2. Sélectionnez **Configuration**.
+3. Sélectionnez **Paramètres généraux**.
+4. Pour **Always On**, sélectionnez **On**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>Comment activer le suivi des demandes ayant échoué ?
 

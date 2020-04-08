@@ -3,12 +3,12 @@ title: Ressources, rôles et contrôle d’accès dans Azure Application Insight
 description: Propriétaires, collaborateurs et lecteurs des perspectives de votre organisation.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 617134c523148e713f7d34b46e0fbf6ae862591f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671526"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473130"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
 
@@ -37,7 +37,7 @@ Quelques définitions pour commencer :
 * [**Abonnement**](https://portal.azure.com) : pour utiliser Application Insights ou d’autres ressources Azure, vous vous connectez à un abonnement Azure. Chaque groupe de ressources appartient à un abonnement Azure, où vous choisissez votre package de prix et, s’il s’agit d’un abonnement d’organisation, sélectionnez les membres et leurs autorisations d’accès.
 * [**Compte Microsoft**][account] : le nom d’utilisateur et le mot de passe que vous utilisez pour vous connecter aux abonnements Microsoft Azure, à XBox Live, à Outlook.com et à d’autres services Microsoft.
 
-## <a name="access"></a> Contrôle de l’accès dans le groupe de ressources
+## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Contrôle de l’accès dans le groupe de ressources
 
 Il est important de comprendre qu’en plus de la ressource que vous avez créée pour votre application, il existe également des ressources distinctes masquées pour les alertes et les tests Web. Elles sont associées au même [groupe de ressources](#resource-group) que votre ressource Application Insights. Vous pouvez également placer d’autres services Azure ici, comme des sites Web ou du stockage.
 
@@ -76,7 +76,7 @@ Le cas échéant, le lien est établi vers la documentation de référence offic
 | --- | --- |
 | [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Peut tout modifier, y compris l’accès utilisateur. |
 | [Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Peut tout modifier, y compris l’ensemble des ressources. |
-| [Contributeur de composants Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Peut modifier les ressources, les tests web et les alertes Application Insights. |
+| [Contributeur de composants Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Peut modifier les ressources Application Insights. |
 | [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Peut afficher les éléments, mais ne peut rien modifier. |
 | [Débogueur de capture instantanée d’Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Autorise l’utilisateur à utiliser les fonctionnalités du débogueur de capture instantanée d’Application Insights. Remarquez que ce rôle n’est pas inclus dans les rôles de propriétaire et de contributeur. |
 | Contributeur de gestion des mises en production de déploiement Azure Service | Rôle de contributeur pour le déploiement de services via le déploiement Azure Service. |
@@ -85,7 +85,7 @@ Le cas échéant, le lien est établi vers la documentation de référence offic
 | [Contributeur Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. La modification des paramètres de supervision inclut l’ajout de l’extension de machine virtuelle aux machines virtuelles, la lecture des clés de comptes de stockage permettant de configurer la collection de journaux d’activité du stockage Azure, la création et la configuration de comptes Automation, l’ajout de solutions et la configuration de diagnostics Azure sur toutes les ressources Azure.  |
 | [Lecteur Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Peut afficher et rechercher toutes les données de surveillance, ainsi qu’afficher les paramètres de surveillance, notamment la configuration des diagnostics Azure sur toutes les ressources Azure. |
 | masterreader | Permet à un utilisateur d’afficher tous les éléments, mais sans apporter de modifications. |
-| [Contributeur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Peut lire toutes les données de surveillance et mettre à jour les paramètres de surveillance. |
+| [Contributeur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Peut lire toutes les données de surveillance et mettre à jour les paramètres de surveillance.|
 | [Publication des métriques de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Permet de publier les métriques relatives aux ressources Azure. |
 | [Lecteur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Peut lire toutes les données de surveillance. |
 | Contributeur de stratégie de ressource (préversion) | Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire une ressource/hiérarchie.  |

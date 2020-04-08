@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447010"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258292"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de supervision à distance à l’aide de l’interface CLI
 
@@ -23,7 +23,7 @@ Ce guide pratique montre comment déployer l’accélérateur de solution de sup
 
 Pour déployer l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
 
-Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Pour pouvoir exécuter l’interface CLI, vous devez installer [Node.js](https://nodejs.org/) sur votre ordinateur local.
 
@@ -68,7 +68,7 @@ Le déploiement de base est destiné à présenter la solution. Pour réduire le
 
 Un déploiement de base crée les services suivants dans votre abonnement Azure :
 
-| Nombre | Ressource                       | Type         | Utilisation |
+| Count | Ressource                       | Type         | Utilisation |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Machine virtuelle Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hébergement des microservices |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | Niveau Standard S1 | Gestion des appareils et communication |
@@ -89,13 +89,13 @@ Un déploiement standard est un déploiement prêt pour la production, qu’un d
 
 Un déploiement standard crée les services suivants dans votre abonnement Azure :
 
-| Nombre | Ressource                                     | Référence (SKU) / Taille      | Utilisation |
+| Count | Ressource                                     | Référence (SKU) / Taille      | Utilisation |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Utilisez un service d’orchestration de conteneurs Kubernetes entièrement managé (3 agents par défaut).|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | Niveau Standard S2 | Gestion des appareils, commande et contrôle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | standard        | Stockage des données de configuration et de télémétrie d’appareil comme les règles, les alertes et les messages |
-| 5\.     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
-| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application Gateway via SSL |
+| 5     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
+| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Passerelle d’application via TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestion des identités d’utilisateur et de la sécurité |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | standard                | Affichage des emplacements de ressources |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unités              | Prise en charge des analyses en temps réel |

@@ -1,18 +1,18 @@
 ---
-title: Connecter l’ordinateur de développement à un cluster AKS (préversion)
+title: Connecter votre ordinateur de développement à un cluster AKS (préversion)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Découvrez comment connecter votre ordinateur de développement à un cluster AKS avec Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 13e6f16e66941be0ae463e8280827dc0b8183450
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 772f221a8047a71902f36fa98ded6c24b5e02d27
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196091"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235017"
 ---
-# <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Connecter l’ordinateur de développement à un cluster AKS (préversion)
+# <a name="connect-your-development-computer-to-an-aks-cluster-preview"></a>Connecter votre ordinateur de développement à un cluster AKS (préversion)
 
 Azure Dev Spaces vous permet d’exécuter et de déboguer du code avec ou sans conteneur sur votre ordinateur de développement, tout en étant connecté à votre cluster Kubernetes avec le reste de votre application ou de vos services. La connexion de votre ordinateur de développement à votre cluster vous permet de développer rapidement votre application et d’effectuer des tests de bout en bout sans avoir à créer de configuration de Docker ou de Kubernetes. Vous pouvez également vous connecter à votre cluster AKS sans affecter les autres charges de travail ou utilisateurs qui peuvent utiliser le même cluster.
 
@@ -42,7 +42,7 @@ Ce guide utilise l’exemple d’application [Azure Dev Spaces Bike Sharing](htt
 * [Visual Studio Code][vs-code] avec l’extension [Azure Dev Spaces][azds-vs-code] installée et exécutée sur MacOS ou Windows 10.
 * L’exemple d’application [Azure Dev Spaces Bike Sharing](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) ou votre propre application s’exécutant sur un cluster AKS.
 
-## <a name="connect-your-development-machine"></a>Connecter votre machine de développement
+## <a name="connect-your-development-computer"></a>Connecter votre ordinateur de développement
 
 Ouvrez *dev-Spaces/Samples/BikeSharingApp/Bikes* dans Visual Studio Code et utilisez l’extension Azure Dev Spaces pour connecter votre ordinateur de développement à votre cluster AKS.
 
@@ -89,10 +89,10 @@ Après avoir sélectionné votre mode de connexion, vous êtes invité à entrer
 
 ### <a name="confirm-you-are-connected"></a>Vérifiez que vous êtes connecté
 
-Après avoir sélectionné le port TCP de votre application, Azure Dev Spaces établit une connexion au cluster AKS. Azure Dev Spaces injecte un agent dans votre cluster AKS pour rediriger le trafic entre le cluster AKS et votre ordinateur de développement. L’établissement de cette connexion peut prendre quelques minutes. Azure Dev Spaces demandera également l’accès administrateur pour modifier le fichier *d’hébergement* sur votre ordinateur de développement.
+Après avoir sélectionné le port TCP de votre application, Azure Dev Spaces établit une connexion au cluster AKS. Azure Dev Spaces injecte un agent dans votre cluster AKS pour rediriger le trafic entre le cluster AKS et votre ordinateur de développement. L’établissement de cette connexion peut prendre quelques minutes. Azure Dev Spaces demandera également l’accès administrateur pour modifier le fichier d’*hébergement* sur votre ordinateur de développement.
 
 > [!IMPORTANT]
-> Une fois qu’Azure Dev Spaces établi une connexion avec votre cluster AKS, les autres services de votre cluster AKS peuvent ne pas fonctionner correctement tant que vous n’avez pas démarré le service sur votre ordinateur de développement si vous choisissez le mode de connexion *Remplacer*. Vous pouvez choisir le mode de connexion *Cloner* à la place pour créer un espace de développement enfant pour votre redirection et éviter toute interruption de l’espace parent. En outre, si votre service a une dépendance qui n’est pas disponible sur votre ordinateur de développement, vous devrez peut-être modifier votre application ou fournir une [configuration supplémentaire](#additional-configuration)
+> Une fois qu’Azure Dev Spaces a établi une connexion avec votre cluster AKS, les autres services de votre cluster AKS peuvent ne pas fonctionner correctement tant que vous n’avez pas démarré le service sur votre ordinateur de développement si vous choisissez le mode de connexion *Remplacer*. Vous pouvez choisir le mode de connexion *Cloner* à la place pour créer un espace de développement enfant pour votre redirection et éviter toute interruption de l’espace parent. En outre, si votre service a une dépendance qui n’est pas disponible sur votre ordinateur de développement, vous devrez peut-être modifier votre application ou fournir une [configuration supplémentaire](#additional-configuration)
 
 Azure Dev Spaces ouvre une fenêtre de terminal intitulée *AZDS Connect-Bikes* après avoir établi une connexion avec votre cluster AKS. Toutes les variables d’environnement et les entrées DNS de cette fenêtre de terminal sont configurées à partir de votre cluster AKS. Tout code que vous exécutez dans cette fenêtre de terminal ou à l’aide du débogueur Visual Studio Code est connecté au cluster AKS.
 
@@ -108,7 +108,7 @@ Azure Dev Spaces a également un élément de barre d’État qui indique l’é
 
 Vérifiez que la barre d’état affiche *Espaces de développement : Connecté à dev/Bikes sur le port local 3000*.
 
-### <a name="configure-your-application-on-your-development-machine"></a>Configurer votre application sur votre ordinateur de développement
+### <a name="configure-your-application-on-your-development-computer"></a>Configurer votre application sur votre ordinateur de développement
 
 Ouvrez la fenêtre de terminal *AZDS Connect-Bikes* et exécutez `npm install` :
 
@@ -151,7 +151,7 @@ Ouvrez [package.json](https://github.com/Azure/dev-spaces/blob/master/samples/Bi
   }
 ```
 
-### <a name="start-your-application-on-your-development-machine"></a>Démarrer votre application sur votre ordinateur de développement
+### <a name="start-your-application-on-your-development-computer"></a>Démarrer votre application sur votre ordinateur de développement
 
 Cliquez sur l’icône *Débogage* à gauche et cliquez sur le bouton Démarrer à côté de *Lancer via NPM* en haut.
 
@@ -208,31 +208,37 @@ Voici un exemple `azds-local.env` :
 
 ```
 # This downloads the "whitelist" volume from the container,
-# saves it to a temporary directory on your development machine,
+# saves it to a temporary directory on your development computer,
 # and sets the full path to an environment variable called WHITELIST_PATH.
 
 WHITELIST_PATH=${volumes.whitelist}/whitelist
 
 # This downloads a file from the container's 'default-token-<any>' mount directory 
-# to /var/run/secrets/kubernetes.io/serviceaccount on your development machine.
+# to /var/run/secrets/kubernetes.io/serviceaccount on your development computer.
 
 KUBERNETES_IN_CLUSTER_CONFIG_OVERWRITE=${volumes.default-token-*|/var/run/secrets/kubernetes.io/serviceaccount}
 
 
-# This makes the myapp1 service available to your development machine
+# This makes the myapp1 service available to your development computer
 # regardless of the AKS cluster you are connected to and
 # sets the local IP to an environment variable called MYAPP1_SERVICE_HOST.
-
-MYAPP1_SERVICE_HOST=${services.myapp1}
 
 # If the myapp1 service is made available in this way, 
 # you can also access it using "myapp1" and "myapp1.svc.cluster.local"
 # in addition to the IP in the MYAPP1_SERVICE_HOST environment variable.
+
+MYAPP1_SERVICE_HOST=${services.myapp1}
+
+# This makes the service myapp2 in namespace mynamespace available to your 
+# development computer regardless of the AKS cluster you are connected to and
+# sets the local IP to an environment variable called MYAPP2_SERVICE_HOST.
+
+MYAPP2_SERVICE_HOST=${services.mynamespace.myapp2}
 ```
 
 ## <a name="using-logging-and-diagnostics"></a>Utilisation de la journalisation et des diagnostics
 
-La sortie de la journalisation est écrite dans la fenêtre *Dev Spaces Connect* après avoir connecté votre machine de développement à votre cluster AKS.
+La sortie de la journalisation est écrite dans la fenêtre *Dev Spaces Connect* après avoir connecté votre ordinateur de développement à votre cluster AKS.
 
 ![Output](../media/how-to-connect/connect-output.png)
 

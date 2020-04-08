@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: shandilvarun
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67177002"
 ---
 Les machines virtuelles Microsoft Azure passent par différents états qui peuvent être classés en états *d’approvisionnement* et *d’alimentation*. Cet article vise à décrire ces états et en particulier à mettre en exergue la date de facturation des clients pour l’utilisation des instances. 
@@ -29,7 +29,7 @@ Le tableau suivant contient une description de l’état de chaque instance et i
 <table>
 <tr>
 <th>
-État
+State
 </th>
 <th>
 Description
@@ -228,7 +228,7 @@ Voici les états transitoires des opérations une fois que la plateforme a accep
 </td>
 <td width="366">
 <p>Si une machine virtuelle est créée avec une image de système d’exploitation et pas avec une image spécialisée, les sous-états suivants peuvent être observés :</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; La machine virtuelle est en cours d’exécution, et l’installation du système d’exploitation invité est en cours. <p /> 
+<p>1. <b>OSProvisioningInprogress</b> &ndash; La machine virtuelle est en cours d’exécution et l’installation du système d’exploitation invité est en cours. <p /> 
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
@@ -244,7 +244,7 @@ Voici les états transitoires des opérations une fois que la plateforme a accep
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Remarque</b>: Le provisionnement du système d’exploitation peut passer à l’état **Échec** en cas de défaillance du système d’exploitation, ou si ce dernier n’est pas installé à temps. Les clients sont facturés pour la machine virtuelle déployée dans l’infrastructure.</p>
+<p><b>Remarque</b> : Le provisionnement du système d’exploitation peut passer à l’état **Échec** en cas de défaillance du système d’exploitation, ou si ce dernier n’est pas installé à temps. Les clients sont facturés pour la machine virtuelle déployée dans l’infrastructure.</p>
 </td>
 </tr>
 </table>

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 70d843f5773f66e6e17c40d0441553e3cb096c64
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 03/17/2020
+ms.custom: seoapril2019, seodec18
+ms.openlocfilehash: f779781eee81bf85f6420e5bae6b0feb62680b8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064188"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -28,9 +28,9 @@ Apprenez-en davantage sur l’architecture, les concepts et le workflow pour Azu
 Le workflow du modèle Machine Learning suit généralement cette séquence :
 
 1. **Entraîner**
-    + Développez des scripts de formation Machine Learning dans **Python** ou le concepteur visuel.
+    + Développez des scripts d’entraînement Machine Learning dans **Python**, **R** ou le concepteur visuel.
     + Créez et configurez une **cible de calcul**.
-    + **Envoyez les scripts** à la cible de calcul configurée en vue de leur exécution dans cet environnement. Pendant l’entraînement, les scripts peuvent lire ou écrire dans un **magasin de données**. De plus, les enregistrements de l’exécution sont enregistrés en tant que **séries** dans l’**espace de travail** et regroupés dans des **expériences**.
+    + **Envoyez les scripts** à une cible de calcul configurée en vue de leur exécution dans cet environnement. Pendant l’entraînement, les scripts peuvent lire ou écrire dans des **magasins de données**. Les journaux et la sortie produits pendant l’entraînement sont enregistrés sous forme d’**exécution** dans l’**espace de travail** et regroupés dans des **expériences**.
 
 1. **Empaqueter** - Une fois qu’une exécution satisfaisante est trouvée, inscrivez le modèle persistant dans le **registre de modèles**.
 
@@ -135,7 +135,7 @@ Lorsque vous développez votre solution, utilisez le SDK Python Azure Machine Le
 
 Vous utilisez des pipelines de machine learning pour créer et gérer des flux de travail qui combinent les phases de machine learning. Par exemple, un pipeline peut inclure les phases de préparation des données, d’entraînement du modèle, de déploiement du modèle et d’inférence/scoring. Chaque phase peut englober plusieurs étapes, chacune d’elles pouvant s’exécuter sans assistance dans différentes cibles de calcul. 
 
-Les étapes de pipeline sont réutilisables et peuvent être exécutées sans avoir à réexécuter les étapes suivantes si la sortie de l’étape en question n’a pas changé. Par exemple, vous pouvez réentraîner un modèle sans réexécuter les étapes coûteuses de préparation des données si celles-ci n’ont pas été modifiées. Les pipelines permettent également aux scientifiques des données de collaborer tout en travaillant chacun sur une partie différente du workflow de Machine Learning.
+Les étapes de pipeline sont réutilisables et peuvent être exécutées sans avoir à réexécuter les étapes précédentes si la sortie de ces étapes n’a pas changé. Par exemple, vous pouvez réentraîner un modèle sans réexécuter les étapes coûteuses de préparation des données si celles-ci n’ont pas été modifiées. Les pipelines permettent également aux scientifiques des données de collaborer tout en travaillant chacun sur une partie différente du workflow de Machine Learning.
 
 Pour plus d’informations sur les pipelines Machine Learning disposant de ce service, consultez [Pipelines et Azure Machine Learning](concept-ml-pipelines.md).
 
@@ -212,7 +212,7 @@ Si vous avez activé la supervision, Azure collecte les données de télémétri
 Azure IoT Edge garantit l’exécution de votre module et supervise l’appareil qui l’héberge.
 
 
-### <a name="compute-instance"></a>Instance de calcul (préversion)
+### <a name="compute-instance-preview"></a><a name="compute-instance"></a>Instance de calcul (préversion)
 
 Une **instance de calcul Azure Machine Learning** (ancienne machine virtuelle Notebook) est une station de travail cloud complètement managée qui comprend plusieurs outils et environnements installés pour Machine Learning. Les instances de calcul peuvent être utilisées comme cible de calcul pour les travaux de formation et d’inférence. Pour les tâches volumineuses, les [clusters de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) avec des fonctionnalités de mise à l’échelle à plusieurs nœuds constituent un meilleur choix de cible de calcul.
 

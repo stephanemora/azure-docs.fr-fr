@@ -10,17 +10,17 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248584"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
 Cet article montre comment envoyer un workflow au service Microsoft Genomics à l’aide d’un fichier config.txt contenant des [signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) au lieu de clés de compte de stockage. Cette fonctionnalité peut être utile si avoir la clé de compte de stockage visible dans le fichier config.txt pose des problèmes de sécurité. 
 
-Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à effectuer les procédures décrites dans cet article. 
+Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez correctement soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à appliquer la procédure décrite dans cet article. 
 
 ## <a name="what-is-a-sas"></a>Qu’est ce qu’une SAP ?
 Une [signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) fournit un accès délégué aux ressources de votre compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. C’est tout l’intérêt d’utiliser des signatures d’accès partagé dans vos applications : une SAP est un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
@@ -53,7 +53,7 @@ L’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-ex
 
 Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du fichier d’entrée particulier (blob). Pour créer un jeton SAP, suivez [ces instructions](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Une fois que vous avez créé la SAP, l’URL complète avec la chaîne de requête ainsi que la chaîne de requête elle-même sont fournies et peuvent être copiées à partir de l’écran.
 
- ![Explorateur de stockage SAP Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorateur de stockage SAP Genomics")
+ ![Explorateur Stockage, envoi d’une signature d’accès partagé à Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorateur Stockage, envoi d’une signature d’accès partagé à Genomics")
 
 
 ### <a name="set-up-create-a-sas-programmatically"></a>Configuration : créer une SAP par programmation
@@ -66,7 +66,7 @@ Pour créer une SAP sans kit de développement logiciel (SDK), la chaîne de req
 ## <a name="add-the-sas-to-the-configtxt-file"></a>Ajouter la SAP au fichier config.txt
 Pour exécuter un flux de travail via le service Microsoft Genomics à l’aide d’une chaîne de requête SAP, modifiez le fichier config.txt pour supprimer les clés du fichier config.txt. Ensuite, ajoutez la chaîne de requête SAP (qui commence par un `?`) au nom du conteneur de sortie, comme indiqué. 
 
-![Configuration de SAP Genomics](./media/quickstart-input-sas/genomics-sas-config.png "Configuration de SAP Genomics")
+![Configuration d’une signature d’accès partagé pour Genomics](./media/quickstart-input-sas/genomics-sas-config.png "Configuration d’une signature d’accès partagé pour Genomics")
 
 Utilisez le client Microsoft Genomics Python pour soumettre votre flux de travail avec la commande suivante, en ajoutant la chaîne de requête SAP correspondante à chacun des noms d’objet blob d’entrée :
 
@@ -77,7 +77,7 @@ msgen submit -f [full path to your config file] -b1 [name of your first paired e
 ### <a name="if-adding-the-input-file-names-to-the-configtxt-file"></a>Si vous ajoutez les noms de fichiers d’entrée au fichier config.txt
 Vous pouvez également ajouter directement les noms des fichiers de séquences appariées au fichier config.txt, en ajoutant les jetons de requête SAP comme indiqué :
 
-![Configuration des noms de blobs SAP Genomics](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Configuration des noms de blobs SAP Genomics")
+![Configuration de noms d’objet blob avec signature d’accès partagé pour Genomics](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Configuration de noms d’objet blob avec signature d’accès partagé pour Genomics")
 
 Utilisez le client Microsoft Genomics Python pour soumettre votre flux de travail à l’aide de la commande suivante, en omettant les commandes `-b1` et `-b2` :
 

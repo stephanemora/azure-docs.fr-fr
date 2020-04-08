@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828078"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79208940"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers une instance managée Azure SQL Database
 
@@ -72,7 +72,7 @@ Voici quelques paramètres à mesurer sur votre instance SQL Server :
 - Analysez les performances des requêtes et des charges de travail sur votre instance SQL Server en examinant les vues de gestion dynamique ou le magasin de données des requêtes si vous effectuez une migration à partir de la version SQL Server 2016 +. Identifiez la durée moyenne et l’utilisation du processeur des requêtes les plus importantes dans votre charge de travail, afin de les comparer avec les requêtes qui s’exécutent sur l’instance Managed Instance.
 
 > [!Note]
-> Si vous remarquez un problème avec votre charge de travail sur SQL Server, comme une utilisation élevée du processeur, une sollicitation constante de la mémoire, des problèmes de paramétrage ou de tempdb, vous devez tenter de le résoudre dans votre instance SQL Server source avant de procéder au référentiel et à la migration. Migrer des problèmes connus sur un nouveau système peut provoquer des résultats inattendus et invalider toute comparaison de performance.
+> Si vous remarquez un problème avec votre charge de travail sur SQL Server, comme une utilisation élevée du processeur, une sollicitation constante de la mémoire, des problèmes de paramétrage ou de tempdb, vous devez tenter de le résoudre dans votre instance SQL Server source avant de prendre la base de référence et d’effectuer la migration. Migrer des problèmes connus sur un nouveau système peut provoquer des résultats inattendus et invalider toute comparaison de performance.
 
 À l’issue de cette activité, vous devez avoir documenté les valeurs moyennes et maximales du processeur, de la mémoire et de l’utilisation des E/S sur votre système source, de même que les durées moyennes et maximales des requêtes principales et les plus critiques dans votre charge de travail, avec leur utilisation du processeur. Vous devrez utiliser ces valeurs ultérieurement pour comparer les performances de votre charge de travail sur Managed Instance avec celles du référentiel de performance de la charge de travail sur l’instance SQL Server source.
 
@@ -176,7 +176,7 @@ Le résultat de la comparaison des performances peut se résumer ainsi :
 
 Effectuez la modification des paramètres ou mettez à niveau les niveaux de service pour converger vers la configuration optimale, jusqu’à atteindre les performances de charge de travail convenant à vos besoins.
 
-### <a name="monitor-performance"></a>Analyser les performances
+### <a name="monitor-performance"></a>Superviser les performances
 
 Managed Instance fournit de nombreux outils avancés de surveillance et de résolution des problèmes, et vous devez les utiliser pour surveiller les performances de votre instance. Voici quelques-uns des paramètres que vous devez surveiller :
 - L’utilisation de l’UC sur l’instance pour déterminer le nombre de vCores que vous avez approvisionnés convient pour votre charge de travail.

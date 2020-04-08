@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: b097ce3781a77a8c5e8a94b9c2bf0977f3efcfd9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997035"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481328"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -59,7 +59,7 @@ Les connecteurs interrogent également le serveur pour déterminer s’il existe
 
 Vous pouvez surveiller vos connecteurs à partir de l’ordinateur sur lequel ils s’exécutent à l’aide du journal d’événements et des compteurs de performances. Ou vous pouvez afficher leur état à partir de la page du proxy d’application du portail Azure :
 
-![Exemple : Connecteurs de proxy d’application Azure AD](./media/application-proxy-connectors/app-proxy-connectors.png)
+![Exemple : Connecteurs de proxy d’application Azure AD](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 Vous n’êtes pas obligé de supprimer manuellement les connecteurs qui ne sont pas utilisés. Lorsqu’un connecteur est en cours d’exécution, il reste actif car il se connecte au service. Les connecteurs inutilisés sont marqués comme _inactifs_ et sont supprimés après 10 jours d’inactivité. Toutefois, si vous souhaitez réellement désinstaller un connecteur, désinstallez le service du connecteur et le service de mise à jour du serveur. Redémarrez votre ordinateur pour supprimer complètement le service.
 
@@ -88,7 +88,7 @@ Pour en savoir plus sur les groupes de connecteurs, consultez [Publier des appli
 
 ## <a name="capacity-planning"></a>planification de la capacité
 
-Il est important de planifier une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendu. Nous recommandons la présence d'au moins deux connecteurs par groupe de connecteurs à des fins de haute disponibilité et de mise à l’échelle. La présence de trois connecteurs est idéale s'il vous faut mettre en service une machine à tout moment.
+Il est important de planifier une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendu. Nous recommandons la présence d’au moins deux connecteurs par groupe de connecteurs à des fins de haute disponibilité et de mise à l’échelle. La présence de trois connecteurs est idéale si vous devez effectuer une maintenance sur l’une de vos machines.
 
 En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des capacités importantes. Le tableau ci-dessous présente le volume et la latence attendue que les différentes machines peuvent gérer. Veuillez noter qu’il s’appuie entièrement sur le nombre attendu de transactions par seconde (TPS) plutôt que par utilisateur, étant donné que les modèles d’utilisation varient et ne peuvent servir à prévoir une charge. Il y aura par ailleurs des différences en fonction de la taille des réponses et du temps de réponse de l’application principale : plus la réponse est volumineuse et le temps de réponse lent, plus le TPS maximal est faible. Nous vous recommandons également de prévoir des machines supplémentaires pour permettre à la charge distribuée des machines d'offrir suffisamment de mémoire tampon. Cette capacité additionnelle garantit résilience et haute disponibilité.
 
@@ -118,7 +118,7 @@ Pour plus d’informations sur la configuration des règles sortantes de pare-fe
 
 La mise à l’échelle pour le proxy d’application est transparente, mais l’échelle est un facteur lorsqu’il s’agit de connecteurs. Vous devez disposer de suffisamment de connecteurs pour gérer les pics de trafic. Puisqu’ils sont sans état, les connecteurs ne sont pas affectés par le nombre d’utilisateurs ou de sessions. Ils varient plutôt selon le nombre de requêtes et leur taille de charge utile. Avec le trafic web standard, une machine moyenne peut gérer quelques milliers de requêtes par seconde. La capacité spécifique dépend des caractéristiques exactes de la machine.
 
-Les performances du connecteur sont liées au processeur et à la mise en réseau. Les performances processeur sont nécessaires pour le chiffrement et le déchiffrement SSL, tandis que la mise en réseau est vitale pour obtenir une connectivité rapide aux applications et au service en ligne dans Azure.
+Les performances du connecteur sont liées au processeur et à la mise en réseau. Un processeur performant est nécessaire au chiffrement et au déchiffrement TLS, tandis que le réseau est important pour obtenir une connectivité rapide aux applications et au service en ligne dans Azure.
 
 En revanche, la mémoire est moins problématique pour les connecteurs. Le service en ligne s’occupe de la majeure partie du traitement et de tout le trafic non authentifié. Tout ce qui peut être effectué dans le cloud est réalisé dans le cloud.
 
@@ -176,7 +176,7 @@ Pour afficher les journaux d’activité, accédez l’Observateur d’événeme
 
 Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur se compose de deux services Windows : le connecteur lui-même et le programme de mise à jour. Tous deux doivent s’exécuter en permanence.
 
- ![Exemple : Fenêtre Services indiquant des services locaux Azure AD](./media/application-proxy-connectors/aad-connector-services.png)
+ ![Exemple : Fenêtre Services indiquant des services locaux Azure AD](./media/application-proxy-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

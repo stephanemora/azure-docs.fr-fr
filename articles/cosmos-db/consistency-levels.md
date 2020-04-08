@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: b5d9df7a0afa9b4270f0eff643e083e5bccfceb8
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.date: 03/18/2020
+ms.openlocfilehash: 4e3d29471064616039bf946bb2762c15ce67bf8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933673"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530255"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 
@@ -41,7 +41,7 @@ La sémantique des cinq niveaux de cohérence est décrite ici :
 
 - **Remarque**: une cohérence forte offre une garantie de linéarisabilité. La linéarisabilité fait référence aux demandes de traitement simultanées. Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
 
-  Le graphique suivant illustre la cohérence forte avec des notes musicales. Une fois les données écrites dans la région « USA Est », lorsque vous lisez les données à partir d’autres régions, vous obtenez la valeur la plus récente :
+  Le graphique suivant illustre la cohérence forte avec des notes musicales. Une fois les données écrites dans la région « USA Ouest 2 », quand vous lisez les données à partir d’autres régions, vous obtenez la valeur la plus récente :
 
   ![video](media/consistency-levels/strong-consistency.gif)
 
@@ -52,13 +52,13 @@ La sémantique des cinq niveaux de cohérence est décrite ici :
 
   La cohérence de type obsolescence limitée fournit l’ordre global total, en dehors de la « fenêtre d’obsolescence ». Notez que des garanties de lecture unitone existent dans une région à l’intérieur et en dehors de la fenêtre d’obsolescence. La cohérence forte dispose de la même sémantique que l’obsolescence limitée. La fenêtre d’obsolescence est égale à zéro. L’obsolescence limitée est également appelée linéarisabilité retardée. Lorsqu’un client effectue des opérations de lecture dans une région acceptant les écritures, les garanties fournies par une cohérence à obsolescence limitée sont identiques à celles à forte cohérence.
 
-  L’obsolescence limitée est souvent choisie par des applications mondialement distribuées qui souhaitent de faibles latences en écriture, mais nécessitent des garanties d’ordre totales à l’échelle mondiale. L’obsolescence limitée est idéale pour les applications qui incluent la collaboration et le partage de groupes, les cotations boursières, la publication-abonnement/la mise en file d’attente, etc. Le graphique suivant illustre la cohérence à obsolescence limitée avec des notes musicales. Une fois les données écrites dans la région « USA Est », les régions « USA Ouest » et « Australie Est » lisent la valeur écrite en fonction de la durée de latence maximum configurée ou du nombre maximal d’opérations :
+  L’obsolescence limitée est souvent choisie par des applications mondialement distribuées qui souhaitent de faibles latences en écriture, mais nécessitent des garanties d’ordre totales à l’échelle mondiale. L’obsolescence limitée est idéale pour les applications qui incluent la collaboration et le partage de groupes, les cotations boursières, la publication-abonnement/la mise en file d’attente, etc. Le graphique suivant illustre la cohérence à obsolescence limitée avec des notes musicales. Une fois les données écrites dans la région « USA Ouest 2 », les régions « USA Est 2 » et « Australie Est » lisent la valeur écrite en fonction de la durée de latence maximum configurée ou du nombre maximal d’opérations :
 
   ![video](media/consistency-levels/bounded-staleness-consistency.gif)
 
 - **Session**:  Dans une session client unique, les lectures honoreront les garanties de préfixe cohérent (en partant du principe qu’il s’agit d’une session à « writer » unique), de lectures unitones, d’écritures unitones, de lecture de vos écritures et d’écriture suivant les lectures. Les clients en dehors de la session effectuant des écritures verront la cohérence éventuelle.
 
-  La cohérence de session est le niveau de cohérence largement utilisé aussi bien pour les applications limitées à une seule région que celles distribuées dans le monde entier. Elle propose des latences en écriture, une disponibilité et un débit de lecture comparables à ceux de la cohérence éventuelle, mais fournit aussi des garanties de cohérence qui répondent aux besoins des applications écrites pour agir dans le contexte de l’utilisateur. Le graphique suivant illustre la cohérence de session avec des notes musicales. Les régions « USA Ouest » et « USA Est » utilisent la même session (session A) et lisent donc les données en même temps. En revanche, la région « Australie Est » utilise « Session B » et reçoit les données plus tard, mais dans le même ordre que les écritures.
+  La cohérence de session est le niveau de cohérence largement utilisé aussi bien pour les applications limitées à une seule région que celles distribuées dans le monde entier. Elle propose des latences en écriture, une disponibilité et un débit de lecture comparables à ceux de la cohérence éventuelle, mais fournit aussi des garanties de cohérence qui répondent aux besoins des applications écrites pour agir dans le contexte de l’utilisateur. Le graphique suivant illustre la cohérence de session avec des notes musicales. Les régions « USA Ouest 2 » et « USA Est 2 » utilisent la même session (session A) et lisent donc les données en même temps. En revanche, la région « Australie Est » utilise « Session B » et reçoit les données plus tard, mais dans le même ordre que les écritures.
 
   ![video](media/consistency-levels/session-consistency.gif)
 

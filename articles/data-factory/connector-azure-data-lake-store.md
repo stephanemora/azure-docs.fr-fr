@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4dae0d10f103710a0e6039127c5c1cacb63c03c4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: a8ba8b212a504a8f8e4e29fbd50126189998e81a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893101"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065480"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 
@@ -115,7 +115,7 @@ Les propriétés prises en charge sont les suivantes :
 }
 ```
 
-### <a name="managed-identity"></a> Utiliser des identités managées afin d’authentifier les ressources Azure
+### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Utiliser des identités managées afin d’authentifier les ressources Azure
 
 Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser directement cette identité managée pour l’authentification Data Lake Store, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données et de les copier depuis ou vers votre Data Lake Store.
 
@@ -261,6 +261,7 @@ Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété de type sous `storeSettings` doit être définie sur **AzureDataLakeStoreWriteSettings**. | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
+| expiryDateTime | Spécifie l’heure d’expiration des fichiers écrits. L’heure est appliquée à l’heure UTC au format « 2020-03-01T08:00:00Z ». Par défaut, la valeur est NULL, ce qui signifie que les fichiers écrits n’ont jamais expiré. | Non |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de données. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
 
 **Exemple :**
@@ -351,7 +352,8 @@ Exemples de caractères génériques :
 * ```[]``` Met en correspondance un ou plusieurs caractères indiqués entre crochets
 
 * ```/data/sales/**/*.csv``` Obtient tous les fichiers CSV se trouvant sous /data/sales
-* ```/data/sales/20??/**``` Obtient tous les fichiers datés du 20ème siècle
+* ```/data/sales/20??/**/``` Obtient tous les fichiers datés du 20ème siècle
+* ```/data/sales/*/*/*.csv``` Obtient les fichiers CSV à deux niveaux sous /data/sales
 * ```/data/sales/2004/*/12/[XY]1?.csv``` Obtient tous les fichiers CSV datés de décembre 2004, commençant par X ou Y et ayant comme préfixe un nombre à deux chiffres
 
 **Chemin racine de la partition :** Si vous avez partitionné des dossiers dans votre source de fichiers avec un format ```key=value``` (par exemple, année = 2019), vous pouvez attribuer le niveau supérieur de cette arborescence de dossiers de partitions à un nom de colonne dans votre flux de données.
@@ -403,7 +405,7 @@ Dans la transformation du récepteur, vous pouvez écrire dans un conteneur ou u
    * **Par défaut** : Autorisez Spark à nommer les fichiers en fonction des valeurs par défaut de la partition.
    * **Modèle** : Entrez un modèle qui énumère vos fichiers de sortie par partition. Par exemple, **loans[n].csv** crée loans1.csv, loans2.csv, etc.
    * **Par partition** : Entrez un nom de fichier pour chaque partition.
-   * **Comme les données de la colonne** : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination.
+   * **Comme les données de la colonne** : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination. Si vous avez un chemin de dossier dans votre jeu de données, il sera remplacé.
    * **Sortie d’un seul fichier** : Combinez les fichiers de sortie partitionnés en un seul fichier nommé. Le chemin est relatif au dossier du jeu de données. Sachez que cette opération de fusion peut échouer en fonction de la taille du nœud. Cette option n’est pas recommandée pour des jeux de données volumineux.
 
 **Tout mettre entre guillemets :** Détermine si toutes les valeurs doivent être placées entre guillemets

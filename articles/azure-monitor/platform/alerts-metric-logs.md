@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9f61c62bc4960cb8e5bff31f84bd73a14240b613
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6b21f228858954292e7a3bc5561d5e86fcfaaf41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250708"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055182"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux d’activité dans Azure Monitor
 
@@ -42,7 +42,7 @@ L’utilisation **d’alertes de métrique de journaux d’activité** présente
  Les alertes de métrique prennent en charge la génération d’alertes pour les métriques qui utilisent des dimensions. Vous pouvez utiliser les dimensions pour filtrer votre métrique au niveau approprié. La liste complète des métriques prises en charge pour les journaux d’activité des [espaces de travail Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) est répertoriée, pour toutes les solutions prises en charge.
 
 > [!NOTE]
-> Pour afficher les métriques prises en charge pour l’extraction de l’espace de travail Log Analytics via [Azure Monitor - Métriques](../../azure-monitor/platform/metrics-charts.md), une alerte de métrique de journal d’activité doit être créée pour la métrique concernée. Les dimensions choisies dans l’alerte de métrique pour des journaux d’activité apparaissent uniquement pour l’exploration via Azure Monitor - Métriques.
+> Pour afficher une métrique prise en charge extraite d’un espace de travail Log Analytics via [Azure Monitor – Métriques](../../azure-monitor/platform/metrics-charts.md), une alerte de métrique de journal doit être créée sur cette métrique spécifique. Les dimensions choisies dans l’alerte de métrique pour journaux apparaissent uniquement pour l’exploration via Azure Monitor – Métriques.
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>Création d’alerte de métrique pour Log Analytics
 

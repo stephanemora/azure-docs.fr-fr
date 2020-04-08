@@ -1,17 +1,17 @@
 ---
-title: Script automatisé permettant de créer l’application web Service Manager pour se connecter au connecteur ITSM dans Azure | Microsoft Docs
+title: Créer une application web pour le connecteur de management des services
 description: Créez une application web Service Manager à l’aide d’un script automatisé pour vous connecter au connecteur de gestion des services informatiques (ITSM) dans Azure, et pour surveiller et gérer les éléments de travail ITSM de manière centralisée.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: f224e58905e2989caf16259e383726595c0206d5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: decb674c2b55b93a81169c540ee04713bdf2799e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672189"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054853"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Créer l’application web Service Manager à l’aide du script automatisé
 

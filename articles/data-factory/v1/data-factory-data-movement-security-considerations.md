@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 467ba9f36dbcd44c5b8d87ee2f20d178d62d9732
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1f19d258531e5368238cba72c986aede3f4a64ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930810"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130838"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -60,8 +60,8 @@ Tous les transferts de données entre les services de déplacement des données 
 ### <a name="data-encryption-at-rest"></a>Chiffrement des données au repos
 Certaines banques de données prennent en charge le chiffrement des données au repos. Nous vous suggérons d’activer le mécanisme de chiffrement des données pour ces banques de données. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Dans Microsoft Azure SQL Data Warehouse, TDE (Transparent Data Encryption) contribue à vous protéger contre les activités malveillantes par le biais d’un chiffrement et d’un déchiffrement en temps réel de vos données au repos. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Sécuriser une base de données dans SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse.
+Dans Microsoft Azure SQL Data Warehouse, TDE (Transparent Data Encryption) contribue à vous protéger contre les activités malveillantes par le biais d’un chiffrement et d’un déchiffrement en temps réel de vos données au repos. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Sécuriser une base de données dans SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database prend également en charge TDE (Transparent Data Encryption) qui vous protège contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel des données, sans qu’il soit nécessaire de modifier l’application. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Transparent Data Encryption avec Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
@@ -114,7 +114,7 @@ La passerelle de gestion des données utilise actuellement un seul **certificat*
 | Version de la passerelle (lors de la création) | Informations d’identification stockées | Chiffrement/sécurité des informations d’identification | 
 | --------------------------------- | ------------------ | --------- |  
 | < = 2.3.xxxx.x | Dans le cloud | Chiffrement à l’aide d’un certificat (différent de celui utilisé par l’application Gestionnaire des informations d’identification) | 
-| > = 2.4.xxxx.x | En local | Sécurisation à l’aide de DPAPI | 
+| > = 2.4.xxxx.x | Localement | Sécurisation à l’aide de DPAPI | 
   
 
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
@@ -179,7 +179,7 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Question :** La passerelle peut-elle être partagée entre plusieurs fabriques de données ?
 **Réponse :** Nous ne prenons pas encore en charge cette fonctionnalité. mais y travaillons activement.

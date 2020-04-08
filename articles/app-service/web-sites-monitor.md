@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 2bca4521184fa42002e6649a90bb9101fded595c
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d84340730391abd7dba4d13202503d37941c09b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500423"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de supervision intégrées pour les applications web, mobiles et d’API dans le [portail Azure](https://portal.azure.com).
 
-Dans le portail Azure, vous pouvez examiner les *quotas* et les *métriques* d’une application et d’un plan App Service, et configurer les *alertes* et la *mise à l’échelle automatique* basées sur les métriques.
+Dans le portail Azure, vous pouvez examiner les *quotas* et les *métriques* d’une application et d’un plan App Service, et configurer des *alertes* et des règles de *mise à l’échelle automatique* basées sur les métriques.
 
 ## <a name="understand-quotas"></a>Comprendre les quotas
 
@@ -61,13 +61,17 @@ Vous pouvez augmenter ou supprimer les quotas dans votre application en procéda
 > **Utilisation de systèmes de fichiers** est une nouvelle métrique déployée à l’échelle mondiale. Vous n’avez aucune donnée à attendre sauf si vous figurez sur la liste verte de la préversion privée.
 > 
 
+> [!IMPORTANT]
+> Le **temps de réponse moyen** sera bientôt déprécié afin d’éviter toute confusion avec les agrégations de métriques. Utilisez le **Temps de réponse** à la place.
+
 Les métriques fournissent des informations sur le comportement de l’application ou du plan App Service.
 
 Pour une application, les métriques disponibles sont les suivantes :
 
 | Métrique | Description |
 | --- | --- |
-| **Temps de réponse moyen** | Temps moyen, en secondes, nécessaire à l’application pour traiter les requêtes. |
+| **Temps de réponse** | Temps nécessaire à l’application pour traiter les requêtes (en secondes). |
+| **Temps de réponse moyen (déprécié)** | Temps moyen, en secondes, nécessaire à l’application pour traiter les requêtes. |
 | **Plage de travail moyenne de la mémoire** | Quantité moyenne de mémoire, en mégaoctets (Mio), utilisée par l’application. |
 | **Connexions** | Nombre de sockets liés existants dans le bac à sable (w3wp.exe et ses processus enfants).  Un socket lié est créé en appelant les API bind()/connect(), et persiste jusqu’à être fermé avec CloseHandle()/closesocket(). |
 | **Temps processeur** | Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez [Temps processeur et pourcentage processeur](#cpu-time-vs-cpu-percentage). |

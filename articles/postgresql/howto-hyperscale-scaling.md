@@ -5,13 +5,13 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/16/2020
+ms.openlocfilehash: fa48ca287c248155a0271b5134be782d8db1c785
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453052"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063115"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Mettre à l’échelle un groupe de serveurs Hyperscale (Citus)
 
@@ -38,9 +38,14 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 La fonction `rebalance_table_shards` rééquilibre toutes les tables dans le groupe [colocation](concepts-hyperscale-colocation.md) de la table nommée dans son argument. Vous n’avez donc pas besoin d’appeler la fonction pour chaque table distribuée. Il vous suffit de l’appeler sur une table représentative à partir de chaque groupe de colocation.
 
-## <a name="increase-vcores"></a>Augmenter les vCores
+## <a name="increase-or-decrease-vcores-on-nodes"></a>Augmenter ou diminuer le nombre de cœurs virtuels sur les nœuds
 
-Outre l’ajout de nouveaux nœuds, vous pouvez augmenter les capacités des nœuds existants. Cette fonctionnalité est actuellement en préversion : pour demander une augmentation des vCores pour les nœuds de votre groupe de serveurs, [contactez le support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [!NOTE]
+> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Pour demander une modification du nombre de cœurs virtuels pour les nœuds de votre groupe de serveurs, veuillez [contacter le support technique Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+Outre l’ajout de nouveaux nœuds, vous pouvez augmenter les capacités des nœuds existants. L’augmentation ou la diminution de la capacité de calcul peut être utile pour les expériences de performances, ainsi que pour les modifications à court terme ou à long terme des demandes de trafic.
+
+Pour changer le nombre de cœurs virtuels pour tous les nœuds de travail, ajustez le curseur **vCores** sous **Configuration (par nœud worker)** . Le nombre de cœurs virtuels du nœud coordinateur peut être ajusté indépendamment. Cliquez sur le lien **Changer la configuration** sous le **nœud coordinateur**. Une boîte de dialogue s’affiche avec des curseurs pour le nombre de cœurs virtuels et la capacité de stockage du coordinateur. Changez les curseurs comme vous le souhaitez et sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

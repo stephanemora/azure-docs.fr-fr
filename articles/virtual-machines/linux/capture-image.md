@@ -1,30 +1,19 @@
 ---
-title: Capturer l’image d’une machine virtuelle Linux dans Azure avec Azure CLI
+title: Capturer l’image d’une machine virtuelle Linux avec Azure CLI
 description: Capturez l’image d’une machine virtuelle Azure et utilisez-la pour les déploiements de masse à l’aide d’Azure CLI.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ed7d45fb9148bd441a3798c48be8b25e1da2b8c1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036924"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226829"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Créer une image d’une machine virtuelle ou d’un disque dur virtuel
-
-<!-- generalize, image - extended version of the tutorial-->
 
 Pour créer plusieurs copies d’une machine virtuelle à utiliser dans Azure, capturez une image de la machine virtuelle ou du disque dur virtuel de système d’exploitation. Pour créer une image pour le déploiement, vous devez supprimer les informations personnelles du compte. Les étapes suivantes vous permettent de déprovisionner une machine virtuelle existante, de la désallouer et de créer une image. Vous pouvez utiliser cette image pour créer des machines virtuelles dans n’importe quel groupe de ressources de votre abonnement.
 
@@ -43,7 +32,7 @@ Vous avez besoin des éléments suivants avant de créer une image :
 Pour une version simplifiée de cet article et pour tester, évaluer ou découvrir les machines virtuelles dans Azure, consultez [Créer une image personnalisée d’une machine virtuelle Azure à l’aide de l’interface CLI](tutorial-custom-images.md).  Sinon, continuez à lire pour obtenir une image complète.
 
 
-## <a name="step-1-deprovision-the-vm"></a>Étape 1 : Annuler l’approvisionnement de la machine virtuelle
+## <a name="step-1-deprovision-the-vm"></a>Étape 1 : Annuler l’approvisionnement de la machine virtuelle
 Commencez par déprovisionner la machine virtuelle à l’aide de l’agent de machine virtuelle Azure pour supprimer les fichiers et les données propres à la machine. Utilisez la commande `waagent` avec le paramètre `-deprovision+user` sur votre machine virtuelle Linux source. Pour plus d’informations, consultez le [Guide d’utilisateur de l’agent Linux Azure](../extensions/agent-linux.md).
 
 1. Connectez-vous à votre machine virtuelle Linux avec un client SSH.
@@ -58,7 +47,7 @@ Commencez par déprovisionner la machine virtuelle à l’aide de l’agent de m
 3. Tapez **Y** pour continuer. Vous pouvez ajouter le paramètre `-force` pour éviter cette étape de confirmation.
 4. Une fois la commande exécutée, entrez **exit** pour fermer le client SSH.  La machine virtuelle est toujours en cours d’exécution à ce stade.
 
-## <a name="step-2-create-vm-image"></a>Étape 2 : Créer une image de machine virtuelle
+## <a name="step-2-create-vm-image"></a>Étape 2 : Créer une image de machine virtuelle
 Utilisez Azure CLI pour marquer la machine virtuelle comme étant généralisée et capturer l’image. Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myVnet* et *myVM*.
 
 1. Libérez la machine virtuelle dont vous avez annulé le déploiement à l’aide de la commande [az vm deallocate](/cli/azure/vm). L’exemple suivant désalloue la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup*.  

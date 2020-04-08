@@ -1,5 +1,6 @@
 ---
 title: Déf. Azure Cloud Services Schéma LoadBalancerProbe | Microsoft Docs
+description: Le schéma LoadBalancerProbe défini par le client est un probe d’intégrité des points de terminaison dans les instances de rôle. Il se combine avec des rôles de travail ou web dans un fichier de définition de service.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
-ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449052"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537344"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schéma LoadBalancerProbe de définition Azure Cloud Services
 La sonde d’équilibreur de charge est une sonde d’intégrité définie par le client qui vérifie les points de terminaison UDP et les points de terminaison dans les instances de rôle. Le `LoadBalancerProbe` n’est pas un élément autonome ; il est associé au rôle web ou au rôle de travail dans un fichier de définition de service. Un `LoadBalancerProbe` peut être utilisé par plusieurs rôles.
@@ -46,10 +47,10 @@ L’élément `LoadBalancerProbes` du fichier de définition de service inclut l
 - [Élément LoadBalancerProbes](#LoadBalancerProbes)
 - [Élément LoadBalancerProbe](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a> Élément LoadBalancerProbes
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a> Élément LoadBalancerProbes
 L’élément `LoadBalancerProbes` décrit la collection de sondes d’équilibreur de charge. Cet élément est l’élément parent de l’[élément LoadBalancerProbe](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a> Élément LoadBalancerProbe
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a> Élément LoadBalancerProbe
 L’élément `LoadBalancerProbe` définit la sonde d’intégrité pour un modèle. Vous pouvez définir plusieurs sondes d’équilibreur de charge. 
 
 Le tableau suivant décrit les attributs de l’élément `LoadBalancerProbe` :

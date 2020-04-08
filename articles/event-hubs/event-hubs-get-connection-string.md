@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771000"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231301"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtenir une chaîne de connexion Event Hubs
 
@@ -55,7 +55,7 @@ Cet article vous guide dans les différentes façons d’obtenir la chaîne de c
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous pouvez utiliser [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) pour obtenir la chaîne de connexion pour la stratégie ou le nom de règle spécifié, comme indiqué ci-dessous :
+Vous pouvez utiliser [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) afin d’obtenir la chaîne de connexion pour la stratégie ou le nom de règle spécifié, comme indiqué ci-dessous :
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

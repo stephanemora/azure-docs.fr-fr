@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 5f695bf739a6e096083cd6d8271b6936f24c16da
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 6466cea9fe04bb308a670cb03fd3de5314758142
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546824"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456605"
 ---
 # <a name="clip-values"></a>Limiter les valeurs
 
@@ -84,7 +84,7 @@ Si vous devez appliquer des méthodes de limitation ou des critères différents
   
     Pour conserver la colonne d’origine et ajouter une nouvelle colonne avec les valeurs limitées, désélectionnez cette option.  
   
-1.  Exécuter le pipeline.  
+1.  Envoyez le pipeline.  
   
     Cliquez avec le bouton droit sur le module **Limiter les valeurs** et sélectionnez **Visualiser** ou sélectionnez le module et basculez vers l’onglet **Sorties** dans le panneau droit, cliquez sur l’icône d’histogramme dans **Port outputs** (Sorties de port) pour examiner les valeurs et vérifier que l’opération de limitation répond à vos attentes.  
  

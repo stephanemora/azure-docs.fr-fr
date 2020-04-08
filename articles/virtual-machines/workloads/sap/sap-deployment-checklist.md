@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c3c52fc85e6c915587db27a3f5ce247fd05ea51
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598321"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060060"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -164,7 +164,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
             -   [Note de support SAP n° 2772999 - Red Hat Enterprise Linux 8.x : installation et configuration](https://launchpad.support.sap.com/#/notes/2772999)
             -   [Note de support SAP n° 2777782 - SAP HANA DB : paramètres de système d’exploitation recommandés pour RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
             -   [Note de support SAP n° 2578899 - SUSE Linux Enterprise Server 15 : note d’installation](https://launchpad.support.sap.com/#/notes/2578899)
-            -   [note de support SAP n° https://launchpad.support.sap.com/#/notes/0002455582)(https://launchpad.support.sap.com/#/notes/0002455582)
+            -   [Note de support SAP n° 2455582 – Linux : Exécution d’applications SAP compilées avec GCC 6.x](https://launchpad.support.sap.com/#/notes/0002455582)
             -    [Note de support SAP n° 2729475 - Échec de HWCCT avec une erreur de type « L’hyperviseur n’est pas pris en charge » sur les machines virtuelles Azure certifiées pour SAP HANA](https://launchpad.support.sap.com/#/notes/2729475)
 1. Testez vos procédures de haute disponibilité et de récupération d’urgence.
    1. Simulez les situations de basculement en arrêtant les machines virtuelles (systèmes d’exploitation invités Windows) ou en plaçant les systèmes d’exploitation en mode urgence (systèmes d’exploitation invités Linux). Cette étape vous permet de déterminer si vos configurations de basculement fonctionnent comme prévu.
@@ -182,7 +182,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
 1. Tests de performances. Dans SAP, en fonction du suivi et des mesures SAP, effectuez les comparaisons suivantes :
    - Le cas échéant, comparez les 10 premiers rapports en ligne à votre implémentation actuelle.
    - Le cas échéant, comparez les 10 premiers traitements par lots à votre implémentation actuelle.
-   - Comparez les transferts de données via des interfaces dans le système SAP. Concentrez-vous sur les interfaces pour lesquelles vous savez que le transfert s’effectue désormais entre différents emplacements, par exemple d’un site local vers Azure.
+   - Comparez les transferts de données via des interfaces dans le système SAP. Concentrez-vous sur les interfaces pour lesquelles vous savez que le transfert s’effectue entre différents emplacements, par exemple d’un site local vers Azure.
 
 
 ## <a name="non-production-phase"></a>Phase hors production 

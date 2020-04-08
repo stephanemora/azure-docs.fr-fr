@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 3a4d31cb6986f8fc841a6afe20388e40e9f28c9b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0557c9b9eb65654c4a11c1389ace4776ab60a61d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926673"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532568"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Créer une dépendance de déclencheur de fenêtre bascule
 
@@ -76,9 +76,9 @@ Le tableau suivant donne la liste des attributs nécessaires pour définir une d
 
 | **Nom de la propriété** | **Description**  | **Type** | **Obligatoire** |
 |---|---|---|---|
-| Type  | Tous les déclencheurs de fenêtre bascule existants s’affichent dans cette liste déroulante. Choisissez le déclencheur sur lequel portera la dépendance.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | OUI |
-| offset | Décalage du déclencheur de dépendance. Indiquez une valeur au format TimeSpan ; sont autorisés les décalages positifs et négatifs. Cette propriété est obligatoire si le déclencheur dépend de lui-même, facultative dans tous les autres cas. L’autodépendance doit toujours correspondre à un décalage négatif. Si aucune valeur n’est spécifiée, la fenêtre est la même que le déclencheur lui-même. | Timespan<br/>(hh:mm:ss) | Autodépendance : OUI<br/>Autre : Non |
-| size | Taille de la fenêtre bascule de dépendance. Fournissez une valeur TimeSpan positive. Cette propriété est facultative. | Timespan<br/>(hh:mm:ss) | Non  |
+| type  | Tous les déclencheurs de fenêtre bascule existants s’affichent dans cette liste déroulante. Choisissez le déclencheur sur lequel portera la dépendance.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Oui |
+| offset | Décalage du déclencheur de dépendance. Indiquez une valeur au format TimeSpan ; sont autorisés les décalages positifs et négatifs. Cette propriété est obligatoire si le déclencheur dépend de lui-même, facultative dans tous les autres cas. L’autodépendance doit toujours correspondre à un décalage négatif. Si aucune valeur n’est spécifiée, la fenêtre est la même que le déclencheur lui-même. | Timespan<br/>(hh:mm:ss) | Autodépendance : Oui<br/>Autre : Non |
+| taille | Taille de la fenêtre bascule de dépendance. Fournissez une valeur TimeSpan positive. Cette propriété est facultative. | Timespan<br/>(hh:mm:ss) | Non  |
 
 > [!NOTE]
 > Un déclencheur de fenêtre bascule peut dépendre d’un maximum de deux autres déclencheurs.
@@ -146,6 +146,10 @@ Une tâche de traitement quotidien des données de télémétrie dépend d’une
 Voici une tâche quotidienne sans écart dans les flux de sortie :
 
 ![Exemple d’autodépendance](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Exemple d’autodépendance")
+
+Pour une démonstration de la création de pipelines dépendants dans votre fabrique de données Azure à l’aide d’un déclencheur de fenêtre bascule, regardez la vidéo suivante :
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Effectuer le monitoring des dépendances
 

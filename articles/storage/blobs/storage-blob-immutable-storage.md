@@ -9,18 +9,20 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a980c7bd068a463956191eece43ec1be233e7890
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981838"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367616"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
 Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des objets de données critiques pour l’entreprise dans un état WORM (disque optique non réinscriptible). Cet état les rend non effaçables et immuables pour une durée spécifiée par l’utilisateur. Au cours de cette période de conservation, il est possible de créer et de lire des blobs, mais pas de les modifier ou de les supprimer. Le stockage immuable est disponible pour les comptes v1 universel, v2 universel, BlobStorage et BlockBlobStorage dans toutes les régions Azure.
 
 Pour plus d’informations sur la définition et la suppression de conservations légales ou sur la création d’une stratégie de rétention basée sur la durée à l’aide du Portail Azure, de PowerShell ou d’Azure CLI, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage blob](storage-blob-immutability-policies-manage.md).
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="about-immutable-blob-storage"></a>À propos du stockage blob immuable
 
@@ -68,7 +70,7 @@ Une stratégie de rétention limitée dans le temps et déverrouillée est recom
 Les limites suivantes s’appliquent aux stratégies de rétention :
 
 - Pour un compte de stockage, le nombre maximal de conteneurs avec stratégies immuables limitées dans le temps verrouillées est de 10 000.
-- La période de conservation minimale est d’un jour. Le maximum est de 146 000 jours (400 ans).
+- La période de rétention minimale est de 1 jour. Le maximum est de 146 000 jours (400 ans).
 - Pour un conteneur, il est possible de modifier jusqu’à cinq fois la période de rétention définie dans des stratégies immuables verrouillées limitées dans le temps.
 - Pour un conteneur, un maximum de sept journaux d’audit de stratégie de rétention limitée dans le temps est conservé pour une stratégie verrouillée.
 
@@ -84,15 +86,7 @@ Par exemple, supposez qu’un utilisateur crée une stratégie de rétention lim
 
 Les stratégies de rétention limitées dans le temps déverrouillées permettent d’activer et de désactiver à tout moment le paramètre `allowProtectedAppendWrites`. Une fois que la stratégie de rétention limitée dans le temps est verrouillée, le paramètre `allowProtectedAppendWrites` ne peut pas être modifié.
 
-Les stratégies de conservation légale ne peuvent pas activer `allowProtectedAppendWrites` et n’autorisent pas l’ajout de nouveaux blocs aux objets blob d’ajout. Si une conservation légale est appliquée à une stratégie de rétention limitée dans le temps avec le paramètre `allowProtectedAppendWrites` activé, l’API *AppendBlock* échoue tant que la conservation légale n’est pas levée.
-
-> [!IMPORTANT] 
-> Le paramètre Autoriser les écritures protégées d’objets blob d’ajout dont la conservation est limitée dans le temps est actuellement disponible dans les régions suivantes :
-> - USA Est
-> - États-Unis - partie centrale méridionale
-> - USA Ouest 2
->
-> À ce stade, nous vous recommandons vivement de ne pas activer `allowProtectedAppendWrites` dans d’autres régions en plus de celles spécifiées, car cela peut entraîner des défaillances intermittentes et affecter la conformité pour les objets blob d’ajout. Pour plus d’informations sur la façon de définir et de verrouiller des stratégies de rétention limitée dans le temps, consultez [Activation du paramètre Autoriser les écritures protégées d’objets blob d’ajout](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+Les stratégies de conservation légale ne peuvent pas activer `allowProtectedAppendWrites`, et toute conservation légale annule la propriété « allowProtectedAppendWrites ». Si une conservation légale est appliquée à une stratégie de rétention limitée dans le temps avec le paramètre `allowProtectedAppendWrites` activé, l’API *AppendBlock* échoue tant que la conservation légale n’est pas levée.
 
 ## <a name="legal-holds"></a>Conservation juridique
 
@@ -140,7 +134,7 @@ Non. Vous pouvez utiliser le stockage immuable avec des comptes v1 universel, v
 
 **Puis-je appliquer à la fois une conservation légale et une stratégie de rétention à durée définie ?**
 
-Oui, un conteneur peut avoir à la fois une conservation légale et une stratégie de rétention limitée dans le temps. Tous les objets blob de ce conteneur conservent l’état immuable jusqu’à ce que toutes les stratégies d’archivage juridique aient été levées, même si leur période de conservation effective est écoulée. À l’inverse, un objet blob demeure dans un état immuable jusqu’à expiration de la période de conservation effective, même si toutes les stratégies d’archivage juridique ont été levées.
+Oui, un conteneur peut avoir à la fois une stratégie de conservation légale et une stratégie de conservation basée sur la durée. Toutefois, le paramètre « allowProtectedAppendWrites » ne s’applique pas tant que la conservation légale n’est pas désactivée. Tous les objets blob de ce conteneur conservent l’état immuable jusqu’à ce que toutes les stratégies d’archivage juridique aient été levées, même si leur période de conservation effective est écoulée. À l’inverse, un objet blob demeure dans un état immuable jusqu’à expiration de la période de conservation effective, même si toutes les stratégies d’archivage juridique ont été levées. 
 
 **Les stratégies de conservation légale s’appliquent-elles uniquement aux procédures judiciaires ou existe-t-il d’autres scénarios d’utilisation ?**
 
@@ -164,7 +158,7 @@ Oui, vous pouvez utiliser la commande Set Blob Tier pour déplacer des données 
 
 **Que se passe-t-il si je ne paie pas et que mon intervalle de rétention n’a pas expiré ?**
 
-En cas de défaut de paiement, les stratégies de conservation des données normales s’appliquent, comme le stipulent les conditions générales de votre contrat avec Microsoft.
+En cas de défaut de paiement, les stratégies de conservation des données normales s’appliquent, comme le stipulent les conditions générales de votre contrat avec Microsoft. Pour obtenir des informations générales, consultez [Gestion des données chez Microsoft](https://www.microsoft.com/en-us/trust-center/privacy/data-management). 
 
 **Proposez-vous une période d’essai ou de grâce pour essayer la fonctionnalité ?**
 

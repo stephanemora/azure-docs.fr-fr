@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74027312"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Changer l’appartenance au groupe statique en dynamique dans Azure Active Directory
@@ -57,7 +57,7 @@ Les étapes suivantes sont un exemple de modification de l’appartenance d’un
 ## <a name="change-membership-type-for-a-group-powershell"></a>Changer le type d’appartenance pour un groupe (PowerShell)
 
 > [!NOTE]
-> Pour modifier les propriétés de groupe dynamique, vous devez utiliser les applets de commande de la **préversion** d'[Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez exécuter la version préliminaire à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
+> Pour changer les propriétés de groupe dynamique, vous devez utiliser les applets de commande de la **préversion** d’[Azure AD PowerShell version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez exécuter la version préliminaire à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Voici un exemple de fonctions qui permettent de changer la gestion des appartenances d’un groupe existant. Dans cet exemple, une attention particulière est nécessaire pour manipuler correctement la propriété GroupTypes et conserver toutes les valeurs qui ne sont pas liées à l’appartenance dynamique.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b22f779d616751ebaa3dad853d5aa23ec4969f23
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658861"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234149"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Envoyer en streaming des données de supervision Azure vers un hub d’événements
 Azure Monitor fournit une solution de supervision de pile complète pour les applications et services dans Azure, dans d’autres clouds et en local. En plus d’utiliser Azure Monitor pour analyser ces données et en tirer parti dans différents scénarios de supervision, vous aurez peut-être besoin de les envoyer à d’autres outils de supervision de votre environnement. Dans la plupart des cas, la méthode la plus efficace de streaming des données de supervision vers des outils externes consiste à utiliser [Azure Event Hubs](/azure/event-hubs/). Cet article fournit une brève description de la façon dont vous pouvez envoyer en streaming des données de supervision à partir de différentes sources vers un hub d’événements, ainsi que des liens vers des instructions détaillées.
@@ -35,7 +35,7 @@ Avant de configurer le streaming pour une source de données, vous avez besoin d
 | Niveau | Données | Méthode |
 |:---|:---|:---|
 | [Locataire Azure](data-sources.md#azure-tenant) | Journaux d’audit Azure Active Directory | Configurez un paramètre de diagnostic de locataire sur votre locataire AAD. Consultez [Tutoriel : Streaming des journaux Azure Active Directory vers un hub d’événements Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) pour plus d’informations. |
-| [Abonnement Azure](data-sources.md#azure-subscription) | Journaux d’activité | Créez un profil de journal pour exporter les événements du journal d’activité vers Event Hubs.  Consultez [Exporter le journal d’activité vers le stockage ou Azure Event Hubs](activity-log-export.md) pour plus d’informations. |
+| [Abonnement Azure](data-sources.md#azure-subscription) | Journaux d’activité | Créez un profil de journal pour exporter les événements du journal d’activité vers Event Hubs.  Pour plus d’informations, consultez [Diffuser en continu les journaux de la plateforme Azure sur Azure Event Hubs](resource-logs-stream-event-hubs.md). |
 | [Ressources Azure](data-sources.md#azure-resources) | Métriques de plateforme<br> Journaux d’activité de ressources |Ces deux types de données sont envoyés à un hub d’événements à l’aide d’un paramètre de diagnostic des ressources. Consultez [Streaming des journaux de ressources Azure vers un hub d’événements](resource-logs-stream-event-hubs.md) pour plus d’informations. |
 | [Système d’exploitation (invité)](data-sources.md#operating-system-guest) | Machines virtuelles Azure | Installez l’[extension Diagnostics Azure](diagnostics-extension-overview.md) sur les machines virtuelles Windows et Linux dans Azure. Consultez [Streaming des données Diagnostics Azure dans le chemin chaud à l’aide d’Event Hubs](diagnostics-extension-stream-event-hubs.md) pour plus d’informations sur les machines virtuelles Windows et [Utiliser l’extension Diagnostics Linux pour superviser des métriques et des journaux](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) pour plus d’informations sur les machines virtuelles Linux. |
 | [Code d’application](data-sources.md#application-code) | Application Insights | Application Insights ne fournit pas de méthode directe pour envoyer en streaming des données vers des hubs d’événements. Vous pouvez [configurer l’exportation continue](../../azure-monitor/app/export-telemetry.md) des données Application Insights vers un compte de stockage, puis utiliser une application logique pour envoyer les données à un hub d’événements comme décrit dans [Streaming manuel avec une application logique](#manual-streaming-with-logic-app). |

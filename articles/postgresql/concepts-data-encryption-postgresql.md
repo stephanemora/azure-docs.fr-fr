@@ -1,17 +1,17 @@
 ---
-title: Chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client
+title: Chiffrement des données avec une clé gérée par le client – Azure Database pour PostgreSQL – Serveur unique
 description: Le chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client permet le scénario Bring Your Own Key (BYOK) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 20e01e681c382e3c9c69f76c95a90f709f409d6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198698"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297020"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client
 
@@ -32,9 +32,9 @@ Key Vault est un système de gestion de clés externe basé sur le cloud. Il fou
 Le chiffrement des données pour Azure Database pour PostgreSQL Serveur unique offre les avantages suivants :
 
 * L'accès aux données est entièrement contrôlé par vous puisque vous avez la possibilité de retirer la clé et de rendre la base de données inaccessible 
-*   Contrôle total sur le cycle de vie de la clé, y compris la rotation de la clé à aligner avec les stratégies d'entreprise
-*   Gestion centralisée et organisation des clés dans Azure Key Vault
-*   Possibilité d'implémenter une séparation des tâches entre les responsables de la sécurité, les administrateurs de base de données et les administrateurs système
+*    Contrôle total sur le cycle de vie de la clé, y compris la rotation de la clé à aligner avec les stratégies d'entreprise
+*    Gestion centralisée et organisation des clés dans Azure Key Vault
+*    Possibilité d'implémenter une séparation des tâches entre les responsables de la sécurité, les administrateurs de base de données et les administrateurs système
 
 ## <a name="terminology-and-description"></a>Terminologie et description
 

@@ -1,7 +1,7 @@
 ---
 title: Utiliser des cibles de calcul pour la formation des modèles
 titleSuffix: Azure Machine Learning
-description: Configurer les environnements d’entraînement (cibles de calcul) pour l’entraînement des modèles de machine learning. Vous pouvez facilement basculer entre différents environnements d’entraînement. Commencer l’entraînement en local. Si une montée en charge est nécessaire, basculez vers une cible de calcul basée sur le cloud.
+description: Configurer les environnements d’entraînement (cibles de calcul) pour l’entraînement des modèles de machine learning. Vous pouvez facilement basculer entre différents environnements d’entraînement. Commencer l’entraînement en local. Si un scale-out est nécessaire, basculez vers une cible de calcul basée sur le cloud.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 24c0d9955a857e8bbc1e1c09e600031a7541026c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156350"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296958"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurer et utiliser des cibles de calcul pour effectuer l’apprentissage du modèle 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,7 +81,7 @@ Reportez-vous aux sections ci-dessous pour configurer ces cibles de calcul :
 * [Azure HDInsight](#hdinsight)
 
 
-### <a id="local"></a>Ordinateur local
+### <a name="local-computer"></a><a id="local"></a>Ordinateur local
 
 1. **Créer et attacher** : Il n’est pas nécessaire de créer ou d’attacher une cible de calcul pour utiliser votre ordinateur local en tant qu’environnement d’apprentissage.  
 
@@ -91,7 +91,7 @@ Reportez-vous aux sections ci-dessous pour configurer ces cibles de calcul :
 
 À présent que vous avez attaché la cible de calcul et configuré votre série de tests, l’étape suivante consiste à [soumettre la série de tests d’apprentissage](#submit).
 
-### <a id="amlcompute"></a>Capacité de calcul Azure Machine Learning
+### <a name="azure-machine-learning-compute"></a><a id="amlcompute"></a>Capacité de calcul Azure Machine Learning
 
 Capacité de calcul Azure Machine Learning est une infrastructure de capacité de calcul managée qui permet à l’utilisateur de créer facilement une capacité de calcul à un ou plusieurs nœuds. La capacité de calcul est créée dans la région de votre espace de travail sous forme de ressource qui peut être partagée avec d’autres utilisateurs dans votre espace de travail. La cible de calcul monte en puissance automatiquement quand un travail est soumis, et peut être placée dans un réseau virtuel Azure. La cible de calcul s’exécute dans un environnement conteneurisé et empaquète les dépendances de votre modèle dans un [conteneur Docker](https://www.docker.com/why-docker).
 
@@ -116,7 +116,7 @@ Vous pouvez créer une capacité de calcul Azure Machine Learning en tant que ci
 
 À présent que vous avez attaché la cible de calcul et configuré votre série de tests, l’étape suivante consiste à [soumettre la série de tests d’apprentissage](#submit).
 
-#### <a id="persistent"></a>Capacité de calcul persistante
+#### <a name="persistent-compute"></a><a id="persistent"></a>Capacité de calcul persistante
 
 Une capacité de calcul Azure Machine Learning persistante peut être réutilisée pour plusieurs travaux. Il peut être partagé avec d’autres utilisateurs dans l’espace de travail et conservé entre les travaux.
 
@@ -139,7 +139,7 @@ Une capacité de calcul Azure Machine Learning persistante peut être réutilis�
 À présent que vous avez attaché la cible de calcul et configuré votre série de tests, l’étape suivante consiste à [soumettre la série de tests d’apprentissage](#submit).
 
 
-### <a id="vm"></a>Machines virtuelles distantes
+### <a name="remote-virtual-machines"></a><a id="vm"></a>Machines virtuelles distantes
 
 Azure Machine Learning prend également en charge l’utilisation de votre propre ressource de calcul et son attachement à votre espace de travail. Un tel type de ressource est une machine virtuelle distante arbitraire tant qu’elle est accessible depuis Azure Machine Learning. Il peut s’agir d’une machine virtuelle Azure, d’un serveur distant dans votre organisation, ou encore d’un serveur local. En particulier, avec l’adresse IP et les informations d’identification (nom d’utilisateur/mot de passe ou clé SSH), vous pouvez utiliser n’importe quelle machine virtuelle accessible pour les exécutions à distance.
 
@@ -154,15 +154,30 @@ Pour ce scénario, utilisez Azure Data Science Virtual Machine (DSVM) en tant qu
 
 1. **Attacher** : Pour attacher une machine virtuelle existante comme cible de calcul, vous devez fournir le nom de domaine complet, le nom d’utilisateur et le mot de passe de la machine virtuelle. Dans l’exemple, remplacez \<fqdn> par le nom de domaine complet public de la machine virtuelle, ou l’adresse IP publique. Remplacez \<username> et \<password> par le nom d’utilisateur SSH et le mot de passe de la machine virtuelle.
 
+    > [!IMPORTANT]
+    > Les régions Azure suivantes ne prennent pas en charge l’attachement d’une machine virtuelle à l’aide de l’IP publique de la machine virtuelle. Utilisez plutôt l’ID Azure Resource Manager de la machine virtuelle avec le paramètre `resource_id` :
+    >
+    > * USA Est
+    > * USA Ouest 2
+    > * USA Centre Sud
+    >
+    > L’ID de ressource de la machine virtuelle peut être construit à l’aide de l’ID d’abonnement, du nom du groupe de ressources et du nom de la machine virtuelle en utilisant le format de chaîne suivant : `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
+
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -186,7 +201,7 @@ Pour ce scénario, utilisez Azure Data Science Virtual Machine (DSVM) en tant qu
 
 À présent que vous avez attaché la cible de calcul et configuré votre série de tests, l’étape suivante consiste à [soumettre la série de tests d’apprentissage](#submit).
 
-### <a id="hdinsight"></a>Azure HDInsight 
+### <a name="azure-hdinsight"></a><a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. Elle fournit Apache Spark, que vous pouvez utiliser pour entraîner votre modèle.
 
@@ -198,6 +213,15 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
 
 1. **Attacher** : Pour attacher un cluster HDInsight en tant que cible de calcul, vous devez fournir le nom d’hôte, le nom d’utilisateur et le mot de passe du cluster HDInsight. L’exemple suivant utilise le SDK pour attacher un cluster à votre espace de travail. Dans l’exemple, remplacez \<clustername > par le nom de votre cluster. Remplacez \<username> et \<password> par le nom d’utilisateur SSH et le mot de passe du cluster.
 
+    > [!IMPORTANT]
+    > Les régions Azure suivantes ne prennent pas en charge l’attachement d’un cluster HDInsight à l’aide de l’IP publique du cluster. Utilisez plutôt l’ID Azure Resource Manager du cluster avec le paramètre `resource_id` :
+    >
+    > * USA Est
+    > * USA Ouest 2
+    > * USA Centre Sud
+    >
+    > L’ID de ressource du cluster peut être construit à l’aide de l’ID d’abonnement, du nom du groupe de ressources et du nom du cluster en utilisant le format de chaîne suivant : `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
@@ -208,6 +232,11 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -228,15 +257,15 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
 À présent que vous avez attaché la cible de calcul et configuré votre série de tests, l’étape suivante consiste à [soumettre la série de tests d’apprentissage](#submit).
 
 
-### <a id="azbatch"></a>Azure Batch 
+### <a name="azure-batch"></a><a id="azbatch"></a>Azure Batch 
 
 Azure Batch sert à exécuter efficacement des applications de calcul haute performance (HPC) en parallèle et à grande échelle dans le cloud. AzureBatchStep peut être utilisé dans un pipeline Azure Machine Learning pour envoyer des travaux à un pool de machines Azure Batch.
 
 Pour attacher Azure Batch comme cible de calcul, vous devez utiliser le Kit de développement logiciel Azure Machine Learning et fournir les informations suivantes :
 
--   **Nom de calcul Azure Batch** : Nom convivial à utiliser pour le calcul au sein de l’espace de travail
--   **Nom du compte Azure Batch** : Nom du compte Azure Batch
--   **Groupe de ressources** : Groupe de ressources qui contient le compte Azure Batch.
+-    **Nom de calcul Azure Batch** : Nom convivial à utiliser pour le calcul au sein de l’espace de travail
+-    **Nom du compte Azure Batch** : Nom du compte Azure Batch
+-    **Groupe de ressources** : Groupe de ressources qui contient le compte Azure Batch.
 
 Le code suivant montre comment attacher Azure Batch comme cible de calcul :
 
@@ -284,7 +313,7 @@ from azureml.core.compute import ComputeTarget
 myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 ```
 
-### <a id="portal-view"></a>Afficher les cibles de calcul
+### <a name="view-compute-targets"></a><a id="portal-view"></a>Afficher les cibles de calcul
 
 
 Pour consulter les cibles de calcul de votre espace de travail, procédez comme suit :
@@ -295,7 +324,7 @@ Pour consulter les cibles de calcul de votre espace de travail, procédez comme 
 
     [![Onglet 	Voir le computing](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
-### <a id="portal-create"></a>Créer une cible de calcul
+### <a name="create-a-compute-target"></a><a id="portal-create"></a>Créer une cible de calcul
 
 Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis procédez comme suit pour créer une cible de calcul : 
 
@@ -323,7 +352,7 @@ Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis
 
     ![Consultez les détails de la cible de calcul](./media/how-to-set-up-training-targets/compute-target-details.png) 
 
-### <a id="portal-reuse"></a>Joindre des cibles de calcul
+### <a name="attach-compute-targets"></a><a id="portal-reuse"></a>Joindre des cibles de calcul
 
 Pour utiliser des cibles de calcul créées en dehors de l’espace de travail Azure Machine Learning, vous devez les joindre. Une fois la cible de calcul jointe, elle sera disponible dans votre espace de travail.
 
@@ -366,7 +395,7 @@ Pour plus d’informations, voir [Gestion des ressources](reference-azure-machin
 
 Vous pouvez accéder, créer et gérer les cibles de calcul associées à votre espace de travail en utilisant l’[extension VS Code](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) pour Azure Machine Learning.
 
-## <a id="submit"></a>Envoyer une série de tests d’apprentissage à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning
+## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Envoyer une série de tests d’apprentissage à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning
 
 Après avoir créé une configuration de série de tests, vous l’utilisez pour exécuter votre expérience.  Le modèle de code pour soumettre une série de tests d’apprentissage est le même pour tous les types de cibles de calcul :
 
@@ -421,6 +450,8 @@ Pour plus d’informations, consultez la documentation sur [ScriptRunConfig](htt
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Créer une configuration de série de tests et soumettre une série de tests à l’aide de l’interface de ligne de commande d’Azure Machine Learning
 
 Vous pouvez utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et l’[extension d’interface de ligne de commande Machine Learning](reference-azure-machine-learning-cli.md) pour créer des configurations de série de tests et soumettre des séries de tests sur différentes cibles de calcul. Les exemples suivants partent du principe que vous disposez déjà d’un espace de travail Azure Machine Learning et que vous vous êtes connecté à Azure à l’aide de la commande `az login`. 
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 ### <a name="create-run-configuration"></a>Créer une configuration d’exécution
 
@@ -505,7 +536,7 @@ Lorsque vous lancez une exécution d’entraînement où le répertoire source e
 
 Pour des exemples d’apprentissage avec différentes cibles de calcul, voir les blocs-notes suivants :
 * [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4dbe5a62e69f4c30d55fa1318ca79c06640a10f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78186741"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231109"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -101,7 +101,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | SubjectNamingInfo | 0:1 | Contrôle la production du nom du sujet dans les jetons où le nom du sujet est spécifié séparément à partir de revendications. Par exemple, OAuth ou SAML.  |
 | IncludeInSso | 0:1 |  Si l’utilisation de ce profil technique doit appliquer le comportement de l’authentification unique (SSO) pour la session, ou si une interaction explicite est exigée à la place. Cet élément est valide uniquement dans les profils SelfAsserted utilisés dans un profil technique de validation. Valeurs possibles : `true` (par défaut) ou `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Identificateur d’un profil technique à partir duquel vous souhaitez que toutes les revendications d’entrée et de sortie soient ajoutées à ce profil technique. Le profil technique référencé doit être défini dans le même fichier de stratégie. |
-| IncludeTechnicalProfile |0:1 | Identificateur d’un profil technique à partir duquel vous souhaitez que toutes les sonnées soient ajoutées à ce profil technique. Le profil technique référencé doit exister dans le même fichier de stratégie. |
+| IncludeTechnicalProfile |0:1 | Identificateur d’un profil technique à partir duquel vous souhaitez que toutes les sonnées soient ajoutées à ce profil technique. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Autre profil technique à utiliser pour la gestion de session. |
 |EnabledForUserJourneys| 0:1 |Contrôle si le profil technique est exécuté dans un parcours utilisateur.  |
 

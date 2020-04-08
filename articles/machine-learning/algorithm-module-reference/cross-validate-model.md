@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477644"
 ---
 # <a name="cross-validate-model"></a>Modèle de validation croisée
 
@@ -72,7 +72,7 @@ Dans ce scénario, vous entraînez et testez le modèle à l’aide du modèle d
 
 5. Définissez une valeur pour le paramètre **Random seed** (Valeur de départ aléatoire) si vous souhaitez répéter les résultats de la validation croisée entre des exécutions successives sur les mêmes données.  
 
-6. Exécuter le pipeline.
+6. Envoyez le pipeline.
 
 7. Pour obtenir une description des rapports, consultez la section [Résultats](#results).
 

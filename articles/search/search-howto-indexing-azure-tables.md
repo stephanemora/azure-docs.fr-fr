@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113003"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Comment indexer des tables à partir du stockage de tables Azure avec la Recherche cognitive Azure
@@ -24,7 +24,7 @@ Cet article montre comment utiliser la Recherche cognitive Azure pour indexer le
 
 Vous pouvez configurer un indexeur de stockage de tables Azure à l’aide des ressources suivantes :
 
-* [Portail Azure](https://ms.portal.azure.com)
+* [Azure portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
 * [Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk) de Recherche cognitive Azure
 
@@ -76,7 +76,7 @@ Pour plus d’informations sur les signatures d’accès partagé au stockage, c
 > [!NOTE]
 > Si vous utilisez des informations d’identification d’une signature d’accès partagé, vous devez mettre à jour les informations d’identification de la source de données régulièrement avec des signatures renouvelées afin d’éviter leur expiration. Si les informations d’identification d’une signature d’accès partagé expirent, l’indexeur échoue avec un message d’erreur tel que « Les informations d’identification fournies dans la chaîne de connexion sont invalides ou ont expiré. »  
 
-### <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
+### <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
 L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
 
 Pour créer un index :
@@ -95,7 +95,7 @@ Pour créer un index :
 
 Pour plus d’informations sur la création d’index, consultez [Création d’un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>Étape 3 : Créer un indexeur
+### <a name="step-3-create-an-indexer"></a>Étape 3 : Créer un indexeur
 Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données. 
 
 Une fois l’index et la source de données créés, vous êtes prêt à créer l’indexeur :
@@ -126,7 +126,7 @@ Dans la Recherche cognitive Azure, la clé de document identifie un document de 
 Puisque les lignes d’une table ont une clé composée, la Recherche cognitive Azure génère un champ synthétique appelé `Key` qui est une concaténation des valeurs de la clé de partition et de la clé de ligne. Par exemple, si la valeur PartitionKey d’une ligne est `PK1` et que RowKey est `RK1`, alors la valeur du champ `Key` est `PK1RK1`.
 
 > [!NOTE]
-> La valeur `Key` peut contenir des caractères non valides dans les clés de document, par exemple des tirets. Vous pouvez traiter les caractères non valides à l’aide de la `base64Encode` [fonction de mappage de champ](search-indexer-field-mappings.md#base64EncodeFunction). Si vous procédez ainsi, n’oubliez pas d’utiliser également l’encodage Base64 sécurisé pour les URL lorsque vous transmettez des clés de document dans des appels d’API tels que Recherche.
+> La valeur `Key` peut contenir des caractères non valides dans les clés de document, par exemple des tirets. Vous pouvez traiter les caractères non valides à l’aide de la [fonction de mappage de champ](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. Si vous procédez ainsi, n’oubliez pas d’utiliser également l’encodage Base64 sécurisé pour les URL lorsque vous transmettez des clés de document dans des appels d’API tels que Recherche.
 >
 >
 
@@ -166,5 +166,5 @@ Voici deux approches possibles pour améliorer les performances d’indexation d
     - Avec cette approche, si vous avez besoin de déclencher une réindexation complète, vous devez réinitialiser la requête de source de données en plus de la réinitialisation de l’indexeur. 
 
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Aidez-nous à améliorer la Recherche cognitive Azure
+## <a name="help-us-make-azure-cognitive-search-better"></a>Aidez-nous à améliorer Recherche cognitive Azure
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas les proposer sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

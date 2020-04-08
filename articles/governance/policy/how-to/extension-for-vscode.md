@@ -1,14 +1,14 @@
 ---
 title: Extension Azure Policy pour Visual Studio Code
 description: Découvrez comment utiliser l’extension Azure Policy pour Visual Studio Code afin de rechercher des alias Resource Manager.
-ms.date: 11/04/2019
+ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873112"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231221"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Utiliser l’extension Azure Policy pour Visual Studio Code
 
@@ -23,7 +23,7 @@ L’extension Azure Policy pour Visual Studio Code peut être installée sur tou
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessaires suivants :
+Les éléments suivants sont requis pour effectuer les étapes décrites dans cet article :
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - [Visual Studio Code](https://code.visualstudio.com).
@@ -32,7 +32,7 @@ Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessa
 
 Une fois tous les prérequis remplis, vous pouvez installer l’extension Azure Policy pour Visual Studio Code en suivant les étapes ci-dessous :
 
-1. Ouvrez Visual Studio Code.
+1. Ouvrez Visual Studio Code.
 
 1. À partir de la barre de menus, accédez à **Afficher** > **Extensions**.
 
@@ -82,7 +82,7 @@ Lors de la première connexion, seules les stratégies et les ressources d’abo
 
    - Palette de commandes : 
 
-     Dans la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure Policy : Sélectionner des abonnements**.
+     À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure: Sélectionner des abonnements**.
 
    - Pied de page de la fenêtre
 
@@ -111,7 +111,7 @@ Les clients disposant de centaines ou de milliers de ressources dans un même ab
 
    - Palette de commandes :
 
-     Dans la barre de menus, accédez à **Afficher**>**Palette de commandes**, puis entrez **Ressources : Rechercher des ressources**.
+     Dans la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Ressources : Rechercher des ressources**.
 
 1. Si plusieurs abonnements sont sélectionnés pour l’affichage, utilisez le filtre pour sélectionner celui dans lequel la recherche devra être effectuée.
 
@@ -139,7 +139,7 @@ L’extension Azure Policy liste les types et les affectations de stratégie sou
 
    - Palette de commandes :
 
-     Dans la barre de menus, accédez à **Afficher**>**Palette de commandes**, puis entrez **Stratégies : Rechercher des stratégies**.
+     Dans la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Stratégies : Rechercher des stratégies**.
 
 1. Si plusieurs abonnements sont sélectionnés pour l’affichage, utilisez le filtre pour sélectionner celui dans lequel la recherche devra être effectuée.
 

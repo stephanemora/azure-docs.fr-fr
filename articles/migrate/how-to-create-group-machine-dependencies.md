@@ -1,34 +1,34 @@
 ---
-title: Configurer la visualisation des dépendances dans Azure Migrate
-description: Cet article explique comment configurer la visualisation des dépendances dans Azure Migrate Server Assessment.
-ms.topic: article
+title: Configurer l’analyse des dépendances basée sur les agents dans l’outil d’évaluation de serveur Azure Migrate
+description: Cet article explique comment configurer l’analyse des dépendances basée sur les agents dans l’outil d’évaluation de serveur Azure Migrate.
+ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: 2b75a38a376558946841d08ab7a9dbf730232e51
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: e61b7b4e6c3e566aa67d2bd585d2049ae885083b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78940983"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79453613"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurer la visualisation des dépendances
 
-Cet article explique comment configurer la visualisation des dépendances dans Azure Migrate : Server Assessment. La [visualisation des dépendances](concepts-dependency-visualization.md#what-is-dependency-visualization) vous aide à identifier et à comprendre les dépendances entre les machines que vous souhaitez évaluer et faire migrer vers Azure.
+Cet article explique comment configurer l’analyse des dépendances basée sur les agents dans l’outil Azure Migrate : évaluation de serveur. L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier et de comprendre les dépendances entre les machines que vous souhaitez évaluer et faire migrer vers Azure.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-- [Consultez](concepts-dependency-visualization.md) les conditions requises et les coûts associés à la visualisation des dépendances.
+- [Apprenez-en davantage](concepts-dependency-visualization.md#agent-based-analysis) sur l’analyse des dépendances basée sur les agents.
+- Passez en revue les prérequis et les exigences de prise en charge pour la configuration de la visualisation des dépendances basée sur les agents pour les [machines virtuelles VMware](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), les [serveurs physiques](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements) et les [machines virtuelles Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
-- Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
-- Vérifiez que vous avez configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir vos machines locales. Découvrez comment configurer une appliance pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment.
+- Si vous avez déjà créé un projet, vérifiez que vous avez [ajouté](how-to-assess.md) l’outil Azure Migrate : évaluation de serveur.
+- Vérifiez que vous avez configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir vos machines locales. Découvrez comment configurer une appliance pour [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md) ou des [serveurs physiques](how-to-set-up-appliance-physical.md). L’appliance découvre les machines locales, puis envoie les métadonnées et les données de performances à l’outil Azure Migrate : évaluation de serveur.
 - Pour utiliser la visualisation des dépendances, associez un [espace de travail Log Analytics](../azure-monitor/platform/manage-access.md) à un projet Azure Migrate :
+    - Vous pouvez joindre un espace de travail uniquement après avoir configuré l’appliance Azure Migrate et découvert les machines dans le projet Azure Migrate.
     - Veillez à disposer d’un espace de travail dans l’abonnement qui contient le projet Azure Migrate.
     - L’espace de travail doit résider dans les régions USA Est, Asie Sud-Est ou Europe Ouest. Les espaces de travail des autres régions ne peuvent pas être associés à un projet.
     - L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
     - Vous pouvez associer un espace de travail Log Analytics nouveau ou déjà existant à un projet Azure Migrate.
     - Vous joignez l'espace de travail la première fois que vous configurez la visualisation des dépendances pour une machine. L’espace de travail d’un projet Azure Migrate ne peut pas être modifié une fois qu’il a été ajouté.
     - Dans Log Analytics, l’espace de travail associé à Azure Migrate est marqué avec la clé de projet de migration et le nom du projet.
-
-- Vous ne pouvez joindre un espace de travail qu'après avoir découvert des machines dans le projet Azure Migrate. Vous pouvez le faire en configurant une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. [Plus d’informations](migrate-appliance.md)
 
 ## <a name="associate-a-workspace"></a>Associer un espace de travail
 
@@ -51,7 +51,7 @@ Cet article explique comment configurer la visualisation des dépendances dans A
 Sur chaque machine à analyser, installez les agents.
 
 > [!NOTE]
-    > Pour les machines surveillées par System Center Operations Manager 2012 R2 ou version ultérieure, il n'est pas nécessaire d'installer l'agent MMA. Service Map s’intègre à Operations Manager. [Suivez cette](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) aide à l’intégration.
+> Pour les machines surveillées par System Center Operations Manager 2012 R2 ou version ultérieure, il n'est pas nécessaire d'installer l'agent MMA. Service Map s’intègre à Operations Manager. [Suivez](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) l’aide à l’intégration.
 
 1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
 2. Pour chaque machine à analyser à l’aide de la visualisation des dépendances, dans la colonne **Dépendances**, cliquez sur **Installation de l’agent requise**.

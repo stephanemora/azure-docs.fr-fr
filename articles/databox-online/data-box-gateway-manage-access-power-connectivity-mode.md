@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: e2e82c551117f2ae96e026b39c08ccf56e7ce8e2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: e4d85bd460c39964c9f42ac946e3522f5f129c1c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561814"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474439"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gérer l’accès, l’alimentation et le mode de connectivité de votre appareil Azure Data Box Gateway
 
@@ -58,16 +58,16 @@ Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot 
 
 Pour créer votre ressource Data Box Edge/Data Box Gateway, IoT Hub et de Stockage Azure, vous devez disposer d’autorisations en tant que contributeur ou d’autorisations plus élevées au niveau du groupe de ressources. Les fournisseurs de ressources correspondants doivent également être inscrits. Pour toutes les opérations qui impliquent des informations d’identification et une clé d’activation, des autorisations sur l’API Azure Active Directory Graph sont également exigées. Elles sont décrites dans les sections suivantes.
 
-### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Gérer les autorisations d’API Microsoft Azure Active Directory Graph
+### <a name="manage-microsoft-graph-api-permissions"></a>Gérer les autorisations pour l’API Microsoft Graph
 
-Quand vous générez la clé d’activation pour l’appareil Data Box Edge ou que vous effectuez des opérations qui nécessitent des informations d’identification, vous devez disposer d’autorisations sur l’API Azure Active Directory Graph. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
+Quand vous générez la clé d’activation pour l’appareil Data Box Edge ou que vous effectuez des opérations qui nécessitent des informations d’identification, vous devez disposer d’autorisations sur l’API Microsoft Graph. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
 
 -  Création d’un partage avec un compte de stockage associé.
 -  Création d’un utilisateur qui peut accéder aux partages se trouvant sur l’appareil.
 
 Vous devez avoir un accès `User` sur le locataire Active Directory car vous devez être en mesure de `Read all directory objects`. Vous ne pouvez pas être un utilisateur Invité car ce type d’utilisateur ne dispose pas d’autorisations pour `Read all directory objects`. Si vous êtes invité, les opérations telles que la génération d’une clé d’activation, la création d’un partage sur votre appareil Data Box Edge et la création d’un utilisateur, sont toutes vouées à l’échec.
 
-Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Azure Active Directory Graph, consultez [Accès par défaut pour les administrateurs, utilisateurs et utilisateurs invités](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Microsoft Graph, consultez [Informations de référence sur les autorisations Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Inscrire des fournisseurs de ressources
 

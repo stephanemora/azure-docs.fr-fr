@@ -9,18 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 11/12/2019
-ms.openlocfilehash: 34aba3c00ac0026abebbdfc93143aa5e7f788e8b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/12/2020
+ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268481"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136191"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Superviser et collecter des données à partir des points de terminaison de service web Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous allez apprendre à collecter des données à partir de points de terminaison de service web et à superviser les modèles déployés sur ces points de terminaison dans Azure Kubernetes service (AKS) ou Azure Container Instances (ACI) en activant Azure Application Insights. En plus de la collecte des données d’entrée et de réponse d’un point de terminaison, vous pouvez superviser les éléments suivants :
+Dans cet article, vous allez apprendre à collecter des données à partir de points de terminaison de service web et à superviser les modèles déployés sur ces points de terminaison dans Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI) en activant Azure Application Insights via 
+* [SDK Python Azure Machine Learning](#python)
+* [Azure Machine Learning Studio](#studio) sur https://ml.azure.com
+
+En plus de la collecte des données de sortie et des réponses d’un point de terminaison, vous pouvez superviser les éléments suivants :
 
 * Taux de demande, temps de réponse et taux d’échec
 * Taux de dépendance, temps de réponse et taux d’échec
@@ -34,6 +38,7 @@ Dans cet article, vous allez apprendre à collecter des données à partir de po
 * Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui
 
 * Un espace de travail Azure Machine Learning, un répertoire local contenant vos scripts, et le SDK Azure Machine Learning pour Python. Pour savoir comment obtenir ces prérequis, consultez [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md)
+
 * Un modèle de machine learning entraîné à déployer sur Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI). Si vous n’en avez pas, consultez le tutoriel [Effectuer l’apprentissage d’un modèle de classification d’images](tutorial-train-models-with-aml.md).
 
 ## <a name="web-service-metadata-and-response-data"></a>Métadonnées de service web et données de réponse
@@ -42,6 +47,8 @@ Dans cet article, vous allez apprendre à collecter des données à partir de po
 > Azure Application Insights ne journalise que les charges utiles jusqu’à 64 Ko. Si cette limite est atteinte, seules les sorties les plus récentes du modèle sont enregistrées. 
 
 Les métadonnées et la réponse au service (correspondant aux métadonnées de service web et aux prédictions du modèle) sont enregistrées dans les suivis Azure Application Insights sous le message `"model_data_collection"`. Vous pouvez interroger Azure Application Insights directement pour accéder à ces données, ou configurer une [exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) vers un compte de stockage pour une conservation plus longue ou un traitement ultérieur. Les données de modèle peuvent ensuite être utilisées dans le service Azure Machine Learning pour configurer l’étiquetage, le réentraînement, l’explicabilité, l’analyse des données ou toute autre utilisation. 
+
+<a name="python"></a>
 
 ## <a name="use-python-sdk-to-configure"></a>Utiliser le kit SDK Python pour la configuration 
 
@@ -86,11 +93,27 @@ Pour désactiver Azure Application Insights, utilisez le code suivant :
 <service_name>.update(enable_app_insights=False)
 ```
 
+<a name="studio"></a>
+
+## <a name="use-azure-machine-learning-studio-to-configure"></a>Utiliser Azure Machine Learning Studio pour effectuer la configuration
+
+Vous pouvez également effectuer les étapes suivantes pour activer Azure Application Insights à partir d’Azure Machine Learning Studio quand vous êtes prêt à déployer votre modèle.
+
+1. Connectez-vous à votre espace de travail sur https://ml.azure.com/
+1. Accédez à **Modèles**, puis sélectionnez le modèle que vous voulez déployer
+1. Sélectionnez **+ Déployer**
+1. Renseignez le formulaire **Déployer le modèle**
+1. Développez le menu **Avancé**
+
+    ![Formulaire de déploiement](./media/how-to-enable-app-insights/deploy-form.png)
+1. Sélectionnez **Activer les diagnostics et la collecte de données Application Insights**
+
+    ![Activer App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
 ## <a name="evaluate-data"></a>Évaluer les données
 Les données de votre service sont stockées dans votre compte Azure Application Insights, dans le même groupe de ressources qu’Azure Machine Learning.
 Pour l’afficher :
 
-1. Accédez à votre espace de travail Azure Machine Learning dans [Azure Machine Learning Studio](https://ml.azure.com) et cliquez sur le lien Application Insights.
+1. Accédez à votre espace de travail Azure Machine Learning dans le [portail Azure](https://ms.portal.azure.com/), puis cliquez sur le lien Application Insights
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 

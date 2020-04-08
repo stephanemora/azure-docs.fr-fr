@@ -1,19 +1,19 @@
 ---
 title: Modifier un groupe de machines virtuelles identiques Azure
 description: Découvrir comment modifier et à mettre à jour un groupe de machines virtuelles identiques Azure avec les API REST, Azure PowerShell et Azure CLI
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 02/14/2018
-ms.author: manayar
-ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 03/10/2020
+ms.author: mimckitt
+ms.openlocfilehash: 66fd656b5175547641150a048e57c978dc06d291
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274448"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476822"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 
@@ -311,7 +311,7 @@ Pour mettre à jour les machines virtuelles existantes, vous devez effectuer une
 >[!NOTE]
 > Les clusters Service Fabric peuvent uniquement utiliser le mode *Automatique*, mais la mise à jour est gérée différemment. Pour plus d’informations, consultez [Mise à niveau des applications Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
-Il existe une méthode de modification des propriétés globales de groupe identique qui ne respecte pas la stratégie de mise à niveau. Les modifications apportées au profil de système d’exploitation du groupe identique (par exemple au nom d’utilisateur ou au mot de passe de l’administrateur) peuvent être apportées uniquement dans la version d’API *2017-12-01* ou une version ultérieure. Ces modifications s’appliquent uniquement aux machines virtuelles qui ont été créées après la modification du modèle du groupe identique. Pour mettre à jour les machines virtuelles existantes, vous devez effectuer un réimageage pour chacune d’elles. Vous pouvez effectuer ce réimageage via :
+Il existe une méthode de modification des propriétés globales de groupe identique qui ne respecte pas la stratégie de mise à niveau. Les modifications apportées au profil de système d’exploitation et de disque de données du groupe identique (par exemple au nom d’utilisateur ou au mot de passe de l’administrateur) peuvent être apportées uniquement dans la version d’API *2017-12-01* ou une version ultérieure. Ces modifications s’appliquent uniquement aux machines virtuelles qui ont été créées après la modification du modèle du groupe identique. Pour mettre à jour les machines virtuelles existantes, vous devez effectuer un réimageage pour chacune d’elles. Vous pouvez effectuer ce réimageage via :
 
 - Les API REST avec [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) comme suit :
 
@@ -342,6 +342,7 @@ Certaines propriétés peuvent être définies uniquement lors de la création d
 - Zones de disponibilité
 - Image reference publisher
 - Image reference offer
+- Image reference sku
 - Type géré de compte de stockage de disque de système d’exploitation
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propriétés qui peuvent être modifiées uniquement en fonction de la valeur actuelle
@@ -371,7 +372,7 @@ Il est également courant de déployer des applications à l’aide d’une imag
 Si vous utilisez des images de plateforme Azure, vous pouvez les mettre à jour en modifiant *imageReference* (pour plus d’informations, consultez la [documentation de l’API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
-> Avec les images de plateforme, il est courant de spécifier « latest » (dernière) pour la version de référence d’image. Cela signifie que lors de la création, de l’augmentation de la taille des instances et de la réinitialisation du groupe identique, les machines virtuelles sont créées avec la dernière version disponible. Toutefois, cela **ne signifie pas** que l’image du système d’exploitation sera automatiquement mise à jour à chaque nouvelle version d’image. Une fonction distincte, actuellement en version préliminaire, fournit des mises à niveau automatiques du système d’exploitation. Pour plus d’informations, consultez la [documentation relative aux mises à niveau automatiques du système d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md).
+> Avec les images de plateforme, il est courant de spécifier « latest » (dernière) pour la version de référence d’image. Cela signifie que lors de la création, du scale-out et de la réinitialisation du groupe identique, les machines virtuelles sont créées avec la dernière version disponible. Toutefois, cela **ne signifie pas** que l’image du système d’exploitation sera automatiquement mise à jour à chaque nouvelle version d’image. Une fonction distincte, actuellement en version préliminaire, fournit des mises à niveau automatiques du système d’exploitation. Pour plus d’informations, consultez la [documentation relative aux mises à niveau automatiques du système d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md).
 
 Si vous utilisez des images personnalisées, vous pouvez les mettre à jour en modifiant l’ID *imageReference* (pour plus d’informations, consultez la [documentation de l’API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 

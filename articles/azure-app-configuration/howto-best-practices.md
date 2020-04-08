@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 37f93099027f810e8089119536e089e07080d0bc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898632"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348674"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure App Configuration – Bonnes pratiques
 
@@ -56,6 +56,8 @@ configBuilder.AddAzureAppConfiguration(options => {
 });
 ```
 
+La rubrique [Utilisation d’étiquettes pour permettre différentes configurations selon les environnements](./howto-labels-aspnet-core.md) fournit un exemple complet.
+
 ## <a name="app-configuration-bootstrap"></a>Amorçage d’App Configuration
 
 Pour accéder à un magasin App Configuration, vous pouvez utiliser sa chaîne de connexion, qui est disponible sur le portail Azure. Étant donné que les chaînes de connexion contiennent des informations d’identification, elles sont considérées comme des secrets. Ces secrets doivent être stockés dans Azure Key Vault, et votre code doit s’authentifier auprès de Key Vault pour les récupérer.
@@ -70,6 +72,20 @@ Vous pouvez fournir un accès à App Configuration pour les applications web ou 
 * Stockez la chaîne de connexion à votre magasin App Configuration dans Key Vault et [faites-y référence dans App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
 * Utilisez les identités managées Azure pour accéder au magasin App Configuration. Pour plus d’informations, consultez [S’intégrer avec des identités managées Azure](howto-integrate-azure-managed-service-identity.md).
 * Envoyer (push) la configuration d’App Configuration vers App Service. App Configuration propose une fonction d’exportation (sur le portail Azure et dans Azure CLI) qui envoie directement les données dans App Service. Avec cette méthode, vous n’avez pas du tout besoin de modifier le code d’application.
+
+## <a name="reduce-requests-made-to-app-configuration"></a>Réduire le nombre de requêtes adressées à App Configuration
+
+Un nombre excessif de requêtes envoyées à App Configuration peut entraîner des frais de limitation de requêtes ou de dépassement. Pour réduire le nombre de requêtes effectuées :
+
+* Augmentez le délai d’actualisation, surtout si vos valeurs de configuration ne changent pas fréquemment. Spécifiez un nouveau délai d’actualisation à l’aide de la [méthode `SetCacheExpiration`](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+
+* Surveillez une seule *clé Sentinel*, plutôt que de surveiller des clés individuelles. Actualisez toute la configuration uniquement si la clé Sentinel est modifiée. Pour obtenir un exemple, consultez [Utiliser la configuration dynamique dans une application ASP.NET Core](enable-dynamic-configuration-aspnet-core.md).
+
+* Utilisez Azure Event Grid pour recevoir des notifications en cas de modification de la configuration, au lieu de l’interroger constamment sur d’éventuelles modifications. Pour plus d’informations, consultez [Router des événements Azure App Configuration vers un point de terminaison web](./howto-app-configuration-event.md).
+
+## <a name="importing-configuration-data-into-app-configuration"></a>Importation des données de configuration dans App Configuration
+
+App Configuration vous offre la possibilité d’[importer](https://aka.ms/azconfig-importexport1) en bloc vos paramètres de configuration à partir de vos fichiers config actuels à l’aide du Portail Azure ou de l’interface CLI. Vous pouvez également utiliser les mêmes options pour exporter des valeurs depuis App Configuration, par exemple entre des magasins associés. Si vous souhaitez configurer une synchronisation continu avec votre référentiel GitHub, vous pouvez utiliser notre [action GitHub](https://aka.ms/azconfig-gha2) afin de pouvoir continuer à utiliser vos pratiques existantes de contrôle de code source tout en bénéficiant des avantages d’App Configuration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

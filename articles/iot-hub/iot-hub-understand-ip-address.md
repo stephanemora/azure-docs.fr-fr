@@ -7,16 +7,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772147"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367565"
 ---
 # <a name="iot-hub-ip-addresses"></a>Adresses IP IoT Hub
 
-Les préfixes d’adresse IP des points de terminaison publics de l’hub IoT sont publiés régulièrement sous la _balise de service_ [AzureIoTHub](../virtual-network/service-tags-overview.md). Vous pouvez utiliser ces préfixes d’adresse IP pour contrôler la connectivité entre IoT Hub et vos appareils ou ressources réseau afin d’implémenter un large éventail d’objectifs d’isolement réseau :
+Les préfixes d’adresse IP des points de terminaison publics de l’hub IoT sont publiés régulièrement sous la _balise de service_ [AzureIoTHub](../virtual-network/service-tags-overview.md).
+
+> [!NOTE]
+> Pour les appareils déployés au sein des réseaux locaux, Azure IoT Hub prend en charge l’intégration de la connectivité des réseaux virtuels aux points de terminaison privés. Pour plus d’informations, consultez [Prise en charge des réseaux virtuels par IoT Hub](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints).
+
+
+Vous pouvez utiliser ces préfixes d’adresse IP pour contrôler la connectivité entre IoT Hub et vos appareils ou ressources réseau afin d’implémenter un large éventail d’objectifs d’isolement réseau :
 
 | Objectif | Scénarios applicables | Approche |
 |------|-----------|----------|

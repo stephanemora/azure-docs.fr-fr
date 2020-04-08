@@ -10,17 +10,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: ba792c225c9875bbad50e3fb460c84ed012ce615
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 58ccd63e16382aca8e16eb67efba951a055eb254
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217836"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Guide de résolution des problèmes : Créer un espace de travail Azure Machine Learning Studio (classique) et s’y connecter
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Ce guide propose des solutions pour certains défis qui se posent souvent quand vous configurez des espaces de travail Azure Machine Learning Studio (classique).
-
-
 
 ## <a name="workspace-owner"></a>Propriétaire de l'espace de travail
 Pour ouvrir un espace de travail de Machine Learning Studio (classique), vous devez être connecté au compte Microsoft utilisé pour créer l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail. À partir du portail Azure, vous pouvez gérer l’espace de travail, notamment configurer l’accès.
@@ -30,14 +31,14 @@ Pour plus d’informations sur la gestion d’un espace de travail, voir [Gérer
 [Gérer un espace de travail Azure Machine Learning Studio (classique)]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Régions autorisées
-Machine Learning est actuellement disponible dans un nombre limité de régions. Si votre abonnement n’inclut une de ces régions, le message d’erreur suivant risque de s’afficher : « Vous ne disposez d’aucun abonnement dans les régions autorisées ».
+Machine Learning est actuellement disponible dans un nombre limité de régions. Si votre abonnement n’inclut pas l’une de ces régions, le message d’erreur suivant risque de s’afficher : « Vous n’avez aucun abonnement dans les régions autorisées. »
 
 Pour demander qu’une région soit ajoutée à votre abonnement, créez une nouvelle demande d’assistance depuis le portail Azure, choisissez **Facturation** comme type de problème, puis suivez les invites pour envoyer votre demande.
 
 ## <a name="storage-account"></a>Compte de stockage
 Le service Machine Learning a besoin d'un compte de stockage pour stocker les données. Vous pouvez utiliser un compte de stockage existant ou en créer un lors de la création de l’espace de travail Machine Learning Studio (classique) (si vous disposez d’un quota pour la création d’un compte de stockage).
 
-Une fois l’espace de travail Machine Learning Studio (classique) créé, vous pouvez vous connecter à Machine Learning Studio (classique) au moyen du compte Microsoft utilisé pour créer l’espace de travail. Si vous rencontrez le message d'erreur « Espace de travail introuvable » (comme dans la capture d'écran suivante), effectuez les étapes suivantes pour supprimer les cookies de votre navigateur.
+Une fois l’espace de travail Machine Learning Studio (classique) créé, vous pouvez vous connecter à Machine Learning Studio (classique) au moyen du compte Microsoft utilisé pour créer l’espace de travail. Si le message d’erreur « Espace de travail introuvable » s’affiche (comme dans la capture d’écran suivante), effectuez les étapes suivantes pour supprimer les cookies de votre navigateur.
 
 ![Workspace not found](media/troubleshooting-creating-ml-workspace/screen3.png)
 

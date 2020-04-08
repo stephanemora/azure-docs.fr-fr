@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: e6b2f73540a0af7ed9c12469406a77d1bed8a2b4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268456"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79296963"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Surveiller les exécutions et les métriques des expériences Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -58,76 +58,27 @@ Avant d’ajouter la journalisation et d’envoyer une expérience, vous devez c
 
 1. Chargez l’espace de travail. Pour en savoir plus sur la définition de la configuration de l’espace de travail, consultez le [fichier de configuration de l’espace de travail](how-to-configure-environment.md#workspace).
 
-   ```python
-   from azureml.core import Experiment, Run, Workspace
-   import azureml.core
-  
-   ws = Workspace.from_config()
-   ```
-  
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_ws)]
+
+
 ## <a name="option-1-use-start_logging"></a>Option 1 : Utiliser start_logging
 
 **start_logging** crée une exécution interactive pour une utilisation dans des scénarios tels que des notebooks. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérimentation.
 
 L’exemple suivant entraîne un simple modèle Ridge sklearn localement dans un notebook Jupyter local. Pour en savoir plus sur l’envoi d’expérimentations dans différents environnements, consultez [Configurer des cibles de calcul pour l’entraînement de modèle avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets).
 
-1. Créez un script d’entraînement dans un notebook Jupyter local. 
+### <a name="load-the-data"></a>Chargement des données
 
-   ```python
-   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
-   from sklearn.datasets import load_diabetes
-   from sklearn.linear_model import Ridge
-   from sklearn.metrics import mean_squared_error
-   from sklearn.model_selection import train_test_split
-   from sklearn.externals import joblib
+Cet exemple utilise le jeu de données « diabète », un petit jeu de données bien connu fourni avec scikit-learn. Cette cellule charge le jeu de données et le divise en jeux d’entraînement et de test aléatoires.
 
-   X, y = load_diabetes(return_X_y = True)
-   columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
-   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-   data = {
-      "train":{"X": X_train, "y": y_train},        
-      "test":{"X": X_test, "y": y_test}
-   }
-   reg = Ridge(alpha = 0.03)
-   reg.fit(data['train']['X'], data['train']['y'])
-   preds = reg.predict(data['test']['X'])
-   print('Mean Squared Error is', mean_squared_error(preds, data['test']['y']))
-   joblib.dump(value = reg, filename = 'model.pkl');
-   ```
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_data)]
 
-2. Ajoutez le suivi d’expérimentation à l’aide du kit de développement logiciel (SDK) Azure Machine Learning et chargez un modèle persistant sur l’enregistrement d’exécution de l’expérimentation. Le code suivant ajoute des balises, des journaux d’activité, puis charge un fichier de modèle sur l’exécution de l’expérimentation.
+### <a name="add-tracking"></a>Ajouter un suivi
+Ajoutez le suivi d’expérimentation à l’aide du kit de développement logiciel (SDK) Azure Machine Learning et chargez un modèle persistant sur l’enregistrement d’exécution de l’expérimentation. Le code suivant ajoute des balises, des journaux d’activité, puis charge un fichier de modèle sur l’exécution de l’expérimentation.
 
-   ```python
-    # Get an experiment object from Azure Machine Learning
-    experiment = Experiment(workspace=ws, name="train-within-notebook")
-    
-    # Create a run object in the experiment
-    run =  experiment.start_logging()
-    # Log the algorithm parameter alpha to the run
-    run.log('alpha', 0.03)
-    
-    # Create, fit, and test the scikit-learn Ridge regression model
-    regression_model = Ridge(alpha=0.03)
-    regression_model.fit(data['train']['X'], data['train']['y'])
-    preds = regression_model.predict(data['test']['X'])
-    
-    # Output the Mean Squared Error to the notebook and to the run
-    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-    run.log('mse', mean_squared_error(data['test']['y'], preds))
-    
-    # Save the model to the outputs directory for capture
-    model_file_name = 'outputs/model.pkl'
-    
-    joblib.dump(value = regression_model, filename = model_file_name)
-    
-    # upload the model file explicitly into artifacts 
-    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
-    
-    # Complete the run
-    run.complete()
-   ```
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
 
-    Le script se termine par ```run.complete()```, ce qui marque l’exécution comme terminée.  Cette fonction est généralement utilisée dans les scénarios de notebooks interactifs.
+Le script se termine par ```run.complete()```, ce qui marque l’exécution comme terminée.  Cette fonction est généralement utilisée dans les scénarios de notebooks interactifs.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Option n°2 : Utiliser ScriptRunConfig
 
@@ -137,94 +88,23 @@ Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effect
 
 1. Créez un script d’entraînement `train.py`.
 
-   ```python
-   # train.py
-
-   import os
-   from sklearn.datasets import load_diabetes
-   from sklearn.linear_model import Ridge
-   from sklearn.metrics import mean_squared_error
-   from sklearn.model_selection import train_test_split
-   from azureml.core.run import Run
-   from sklearn.externals import joblib
-
-   import numpy as np
-
-   #os.makedirs('./outputs', exist_ok = True)
-
-   X, y = load_diabetes(return_X_y = True)
-
-   run = Run.get_context()
-
-   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-   data = {"train": {"X": X_train, "y": y_train},
-          "test": {"X": X_test, "y": y_test}}
-
-   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-   alphas = mylib.get_alphas()
-
-   for alpha in alphas:
-      # Use Ridge algorithm to create a regression model
-      reg = Ridge(alpha = alpha)
-      reg.fit(data["train"]["X"], data["train"]["y"])
-
-      preds = reg.predict(data["test"]["X"])
-      mse = mean_squared_error(preds, data["test"]["y"])
-      # log the alpha and mse values
-      run.log('alpha', alpha)
-      run.log('mse', mse)
-
-      model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
-      # save model in the outputs folder so it automatically get uploaded
-      with open(model_file_name, "wb") as file:
-          joblib.dump(value = reg, filename = model_file_name)
-
-      # upload the model file explicitly into artifacts 
-      run.upload_file(name = model_file_name, path_or_stream = model_file_name)
-
-      # register the model
-      #run.register_model(file_name = model_file_name)
-
-      print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
-  
-   ```
+   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 2. Le script `train.py` fait référence à `mylib.py`, qui permet d’obtenir la liste des valeurs alpha à utiliser dans le modèle Ridge.
 
-   ```python
-   # mylib.py
-  
-   import numpy as np
-
-   def get_alphas():
-      # list of numbers from 0.0 to 1.0 with a 0.05 interval
-      return np.arange(0.0, 1.0, 0.05)
-   ```
+   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
 3. Configurez un environnement local géré par l’utilisateur.
 
-   ```python
-   from azureml.core.environment import Environment
-    
-   # Editing a run configuration property on-fly.
-   user_managed_env = Environment("user-managed-env")
-    
-   user_managed_env.python.user_managed_dependencies = True
-    
-   # You can choose a specific Python environment by pointing to a Python path 
-   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
-   ```
+   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=user_managed_env)]
+
 
 4. Envoyez le script ```train.py``` à exécuter dans l’environnement géré par l’utilisateur. L’intégralité de ce dossier de script est envoyée pour l’entraînement, dont le fichier ```mylib.py```.
 
-   ```python
-   from azureml.core import ScriptRunConfig
-    
-   exp = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory='./', script='train.py')
-   src.run_config.environment = user_managed_env
-   run = exp.submit(src)
-   ```
+   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)] [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
+
+
+
 
 ## <a name="manage-a-run"></a>Gérer une exécution
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 239bfb4f5a0e9115c113bb2d5ddbc931f41c0f3d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599807"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062124"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption pour les machines virtuelles et les groupes de machines virtuelles identiques
 
@@ -29,6 +29,7 @@ Les articles suivants fournissent des conseils pour le chiffrement de machines v
 - [Créer et chiffrer une machine virtuelle Linux avec Azure CLI](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
 - [Créer et chiffrer une machine virtuelle Linux avec Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Créer et chiffrer une machine virtuelle Linux via le portail Azure](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)
+- [Schéma de l’extension Azure Disk Encryption pour Linux](../../virtual-machines/extensions/azure-disk-enc-linux.md)
 - [Création et configuration d’un coffre de clés pour Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-key-vault.md)
 - [Exemples de scripts Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-sample-scripts.md)
 - [Résolution des problèmes liés à Azure Disk Encryption](../../virtual-machines/linux/disk-encryption-troubleshooting.md)
@@ -51,6 +52,7 @@ Les articles suivants fournissent des conseils pour le chiffrement de machines v
 - [Créer et chiffrer une machine virtuelle Windows avec Azure CLI](../../virtual-machines/windows/disk-encryption-cli-quickstart.md)
 - [Créer et chiffrer une machine virtuelle Windows avec Azure PowerShell](../../virtual-machines/windows/disk-encryption-powershell-quickstart.md)
 - [Créer et chiffrer une machine virtuelle Windows via le portail Azure](../../virtual-machines/windows/disk-encryption-portal-quickstart.md)
+- [Schéma de l’extension Azure Disk Encryption pour Windows](../../virtual-machines/extensions/azure-disk-enc-windows.md)
 - [Création et configuration d’un coffre de clés pour Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-key-vault.md)
 - [Exemples de scripts Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-sample-scripts.md)
 - [Résolution des problèmes liés à Azure Disk Encryption](../../virtual-machines/windows/disk-encryption-troubleshooting.md)

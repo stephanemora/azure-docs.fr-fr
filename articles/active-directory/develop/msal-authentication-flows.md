@@ -13,12 +13,12 @@ ms.date: 01/30/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ace636152f6a0c9bf3896860eb17cc291bef2887
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 25c219bedbbbec9fbc0c5617c7bd9fc482faf49a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377285"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050512"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -151,7 +151,7 @@ En utilisant le flux de code d’appareil, l’application obtient les jetons vi
 
 Dans le diagramme ci-dessus :
 
-1. Chaque fois que l’authentification de l’utilisateur est requise, l’application fournit un code et invite l’utilisateur à utiliser un autre appareil (par exemple, un smartphone connecté à Internet) pour accéder à une URL (par exemple https://microsoft.com/devicelogin). L’utilisateur est ensuite invité à entrer le code et son expérience se poursuit avec une authentification normale, avec des invites de consentement et une authentification multifacteur si nécessaire.
+1. Chaque fois que l’authentification de l’utilisateur est nécessaire, l’application fournit un code et invite l’utilisateur à utiliser un autre appareil (par exemple, un smartphone connecté à Internet) pour accéder à une URL (par exemple, `https://microsoft.com/devicelogin`). L’utilisateur est ensuite invité à entrer le code et son expérience se poursuit avec une authentification normale, avec des invites de consentement et une authentification multifacteur si nécessaire.
 
 2. Après une authentification réussie, l’application de ligne de commande reçoit les jetons requis via un canal arrière et les utilise pour effectuer les appels d’API web dont il a besoin.
 

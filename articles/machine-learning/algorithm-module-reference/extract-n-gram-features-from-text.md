@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: cae128505c61e7c640819041c6ffdae10a4947e7
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152276"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477610"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Informations de référence sur le module d’extraction des caractéristiques de N-grammes du texte
 
@@ -73,7 +73,7 @@ Le module prend en charge les scénarios suivants pour l’utilisation d’un di
 
 1. Sélectionnez l’option **Normalize n-gram feature vectors** (Normaliser les vecteurs de caractéristique N-grammes) pour normaliser les vecteurs de caractéristique. Si cette option est activée, chaque vecteur de caractéristiques de N-grammes est divisé par sa norme L2.
 
-1. Exécuter le pipeline.
+1. Envoyez le pipeline.
 
 ### <a name="use-an-existing-n-gram-dictionary"></a>Utiliser un dictionnaire de N-grammes existant
 
@@ -92,7 +92,7 @@ Le module prend en charge les scénarios suivants pour l’utilisation d’un di
 
 1.  Pour toutes les autres options, consultez les descriptions des propriétés dans la [section précédente](#create-a-new-n-gram-dictionary).
 
-1.  Exécuter le pipeline.
+1.  Envoyez le pipeline.
 
 ### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Noter ou publier un modèle qui utilise des N-grammes
 

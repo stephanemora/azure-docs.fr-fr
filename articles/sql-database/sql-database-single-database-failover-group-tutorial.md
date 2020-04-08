@@ -11,20 +11,20 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: b88557468c386bc07c2432e154a82fd1f4fcb438
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c5ce6a1c2f231d372a2a8113eb9043a236090388
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194295"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061690"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutoriel : Ajouter une base de données unique Azure SQL Database à un groupe de basculement
 
-Configurez un groupe de basculement pour une base de données unique Azure SQL Database et testez le basculement en utilisant le portail Azure, PowerShell ou Azure CLI.  Dans ce didacticiel, vous apprendrez à :
+Un [groupe de basculement](sql-database-auto-failover-group.md) est une couche d’abstraction déclarative qui vous permet de regrouper plusieurs bases de données géorépliquées. Découvrez comment configurer un groupe de basculement pour une base de données unique Azure SQL Database et tester le basculement en utilisant le portail Azure, PowerShell ou Azure CLI.  Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
 > - Créer une base de données unique Azure SQL Database.
-> - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour une base de données unique entre deux serveurs SQL logiques.
+> - Créer un groupe de basculement pour une base de données unique entre deux serveurs SQL logiques.
 > - Tester le basculement.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -62,7 +62,7 @@ Créez votre groupe de basculement et ajoutez-y votre base de données en utilis
 
 1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
 1. Sélectionnez la base de données créée dans la section 1, comme `mySampleDatabase`. 
-1. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
+1. Les groupes de basculement peuvent être configurés au niveau du serveur. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
    ![Ouvrir un serveur pour une base de donnée unique](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 

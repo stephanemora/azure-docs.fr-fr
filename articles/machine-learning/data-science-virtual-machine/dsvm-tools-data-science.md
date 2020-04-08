@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c6b7e3da6cb6fd87e3b43d6f310e3b76f8fc4d30
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526091"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282305"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Outils d’apprentissage automatique et de science des données sur les machines virtuelles de science des données (DSVM) Azure
 Les machines virtuelles DSVM (Data Science Virtual Machine) offrent un ensemble complet d’outils et de bibliothèques de Machine Learning disponibles dans des langages courants tels que Python, R et Julia.
@@ -108,7 +108,7 @@ Il existe plusieurs autres bibliothèques de Machine Learning sur des machines v
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Moteur de requête SQL open source sur le Big Data    |
-| Versions DSVM prises en charge      | Windows 2019 (préversion), Linux  |
+| Versions DSVM prises en charge      | Windows 2019, Linux  |
 | Comment est-il configuré et installé sur la machine virtuelle DSVM ?      |  Installé dans `/dsvm/tools/drill*` en mode incorporé uniquement   |
 | Utilisations classiques      |  Pour l’exploration de données sur place sans nécessiter une opération d’extraction, de transformation et de chargement (ETL). Interroger différents formats et sources de données, notamment CSV, JSON, les tables relationnelles et Hadoop.     |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau  <br/> [Prendre en main Drill en 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |

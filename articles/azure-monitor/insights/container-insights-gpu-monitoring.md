@@ -1,0 +1,47 @@
+---
+title: Configurer la supervision de GPU avec Azure Monitor pour conteneurs | Microsoft Docs
+description: Cet article explique comment configurer la supervision de clusters Kubernetes constitués de nœuds équipés de GPU NVIDIA et AMD à l’aide d’Azure Monitor pour conteneurs.
+ms.topic: conceptual
+ms.date: 03/27/2020
+ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80373272"
+---
+# <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurer la supervision de GPU avec Azure Monitor pour conteneurs
+
+Depuis sa version *ciprod03022019*, l’agent intégré d’Azure Monitor pour conteneurs prend désormais en charge la supervision de l’utilisation de GPU (cartes graphiques) sur les nœuds de cluster Kubernetes compatibles GPU et supervise les pods/conteneurs demandant et utilisant des ressources GPU.
+
+## <a name="supported-gpu-vendors"></a>Fabricants de GPU compatibles
+
+Azure Monitor pour conteneurs prend en charge la supervision des clusters de GPU des fabricants de GPU suivants :
+
+- [NVIDIA](https://developer.nvidia.com/kubernetes-gpu)
+
+- [AMD](https://github.com/RadeonOpenCompute/k8s-device-plugin)
+
+Azure Monitor pour conteneurs lance automatiquement la supervision de l’utilisation de GPU sur les nœuds ainsi que les pods et les charges de travail demandant des ressources GPU en collectant les métriques suivantes toutes les 60 secondes et en les stockant dans la table **InsightMetrics** :
+
+|Nom de la métrique |Dimension de la métrique (balises) |Description |
+|------------|------------------------|------------|
+|containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor|Pourcentage de temps durant lequel le GPU est resté occupé/en cours de traitement pour un conteneur au cours de la période d’échantillonnage passée (60 secondes). Le cycle d’utilisation est un nombre compris entre 1 et 100. |
+|containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName |Chaque conteneur peut spécifier des limites pour un ou plusieurs GPU. Il n’est pas possible de demander ou de limiter une partie d’un GPU. |
+|containerGpuRequests |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName |Chaque conteneur peut demander un ou plusieurs GPU. Il n’est pas possible de demander ou de limiter une partie d’un GPU.|
+|containerGpumemoryTotalBytes |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor |Quantité de mémoire de GPU en octets à disposition pour un conteneur spécifique. |
+|containerGpumemoryUsedBytes |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor |Quantité de mémoire de GPU en octets utilisée par un conteneur spécifique. |
+|nodeGpuAllocatable |container.azm.ms/clusterId, container.azm.ms/clusterName, gpuVendor |Nombre de GPU dans un nœud pouvant être utilisés par Kubernetes. |
+|nodeGpuCapacity |container.azm.ms/clusterId, container.azm.ms/clusterName, gpuVendor |Nombre total de GPU présents dans un nœud. |
+
+## <a name="gpu-performance-charts"></a>Graphiques de performances de GPU 
+
+Azure Monitor pour conteneurs inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur de GPU pour chaque cluster. Vous pouvez trouver le classeur de GPU **GPU de nœud** directement à partir d’un cluster AKS en sélectionnant **Classeurs** dans le volet de gauche, puis à partir de la liste déroulante **Voir les classeurs** dans Insight.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Consultez [Utiliser des GPU pour les charges de travail nécessitant beaucoup de ressources système sur Azure Kubernetes Service](../../aks/gpu-cluster.md) (AKS) pour savoir comment déployer un cluster AKS constitué de nœuds avec GPU.
+
+- Apprenez-en davantage sur les [Tailles de machine virtuelle à GPU optimisé dans Microsoft Azure](../../virtual-machines/sizes-gpu.md).
+
+- Consultez [Prise en charge des GPU dans Kubernetes](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) pour en savoir plus sur la prise en charge expérimentale de Kubernetes de la gestion de GPU sur un ou plusieurs nœuds d’un cluster.

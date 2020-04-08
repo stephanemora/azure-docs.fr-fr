@@ -1,6 +1,6 @@
 ---
 title: Files d’attente de lettres mortes Service Bus | Microsoft Docs
-description: Décrit les files d’attente de lettres mortes dans Azure Service Bus. Les files d’attente Service Bus et les abonnements aux rubriques fournissent une sous-file d’attente secondaire, appelée file d’attente de lettres mortes.
+description: Décrit les files d’attente de lettres mortes dans Azure Service Bus. Les files d’attente et abonnements aux rubriques Service Bus fournissent une sous-file d’attente secondaire, appelée file d’attente de lettres mortes.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: e1c3798c36b497423ea1d0cb5da6fabbd6a935f7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761013"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158897"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
-Les files d’attente Azure Service Bus et les abonnements aux rubriques fournissent une sous-file d’attente secondaire, appelée *file d’attente de lettres mortes*. La file d’attente de lettres mortes n’a pas besoin d’être explicitement créée et ne peut pas être supprimée ou gérée indépendamment de l’entité principale.
+Les files d’attente et abonnements aux rubriques Azure Service Bus fournissent une sous-file d’attente secondaire, appelée *file d’attente de lettres mortes*. La file d’attente de lettres mortes n’a pas besoin d’être explicitement créée et ne peut pas être supprimée ni gérée indépendamment de l’entité principale.
 
 Cet article décrit les files d’attente de lettres mortes dans Service Bus. Une grande partie de la discussion est illustrée par l’[exemple de files d’attente de lettres mortes](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) qui se trouve sur GitHub.
  
@@ -33,7 +33,14 @@ L’objectif de la file d’attente de lettres mortes est de conserver les messa
 
 Du point de vue de l’API et du protocole, la file d’attente de lettres mortes est essentiellement similaire à une autre file d’attente, sauf que les messages peuvent être envoyés uniquement par le biais de l’opération de lettres mortes de l’entité parente. En outre, la durée de vie n’est pas observée, et vous ne pouvez pas supprimer un message d’une file d’attente de lettres mortes. La file d’attente de lettres mortes prend entièrement en charge la remise de verrou d’affichage et les opérations transactionnelles.
 
-Notez qu’il n’y a aucun nettoyage automatique de la file d’attente de lettres mortes. Les messages restent dans la file d’attente de lettres mortes jusqu’à ce que vous les récupériez explicitement et que vous appeliez [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sur le message de lettres mortes.
+Il n’y a aucun nettoyage automatique de la file d’attente de lettres mortes. Les messages restent dans la file d’attente de lettres mortes jusqu’à ce que vous les récupériez explicitement et que vous appeliez [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sur le message de lettres mortes.
+
+## <a name="dlq-message-count"></a>Nombre de messages en file d’attente de lettres mortes
+Il n’est pas possible de connaître le nombre de messages en file d’attente de lettres mortes au niveau de la rubrique. Cela est dû au fait que les messages ne se trouvent pas au niveau de la rubrique, sauf si Service Bus lève une erreur interne. Au lieu de cela, lorsqu’un expéditeur envoie un message à une rubrique, le message est transféré aux abonnements de la rubrique en quelques millisecondes et ne réside donc plus au niveau de la rubrique. Par conséquent, vous pouvez voir les messages dans la file d’attente de lettres mortes associée à l’abonnement de la rubrique. Dans l’exemple suivant, **Service Bus Explorer** indique qu’il y a actuellement 62  messages dans la file d’attente de lettres mortes pour l’abonnement « test1 ». 
+
+![Nombre de messages en file d’attente de lettres mortes](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
+
+Vous pouvez également récupérer le nombre de messages en file d’attente de lettres mortes à l’aide de la commande Azure CLI : [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
 
 ## <a name="moving-messages-to-the-dlq"></a>Déplacer des messages vers la file d’attente de lettres mortes
 
@@ -48,7 +55,7 @@ Les applications peuvent définir leurs propres codes pour la propriété `DeadL
 | Toujours |HeaderSizeExceeded |Le quota de taille pour ce flux a été dépassé. |
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing et SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Le message a expiré et a été placé dans la file d’attente de lettres mortes. |
-| SubscriptionDescription.RequiresSession |L’ID de session a la valeur null. |L’entité activée dans la session n’autorise pas les messages dont l’identificateur de session a la valeur null. |
+| SubscriptionDescription.RequiresSession |L’ID de session a la valeur Null. |L’entité activée dans la session n’autorise pas les messages dont l’identificateur de session a la valeur null. |
 | !dead letter queue | MaxTransferHopCountExceeded | Nombre maximal de sauts autorisés lors du transfert entre files d’attente. La valeur est définie sur 4. |
 | Mise en file d’attente de lettres mortes explicite par l’application |Spécifié par l’application |Spécifié par l’application |
 
@@ -56,7 +63,7 @@ Les applications peuvent définir leurs propres codes pour la propriété `DeadL
 
 Les files d’attente et les abonnements ont chacun une propriété [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) et [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount), respectivement. La valeur par défaut est 10. Chaque fois qu’un message a été remis sous un verrou ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), mais qu’il a été explicitement abandonné ou que le verrou a expiré, la propriété [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) du message est incrémentée. Quand [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dépasse [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), le message est déplacé vers la file d’attente de lettres mortes avec le code motif `MaxDeliveryCountExceeded`.
 
-Ce comportement ne peut pas être désactivé, mais vous pouvez définir [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) sur un très grand nombre.
+Ce comportement ne peut pas être désactivé, mais vous pouvez définir [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) sur un grand nombre.
 
 ## <a name="exceeding-timetolive"></a>Dépassement de TimeToLive
 
@@ -76,7 +83,7 @@ En plus des fonctionnalités de file d’attente de lettres mortes fournies par 
 
 Les messages seront envoyés à la file d’attente de lettres mortes de transfert dans les conditions suivantes :
 
-- Un message passe par plus de 4 files d’attente ou rubriques [enchaînées](service-bus-auto-forwarding.md).
+- Un message passe par plus de quatre files d’attente ou rubriques [enchaînées](service-bus-auto-forwarding.md).
 - La file d’attente de destination ou la rubrique est désactivée ou supprimée.
 - La file d’attente ou la rubrique de destination dépasse la taille d’entité maximale.
 
@@ -111,7 +118,7 @@ Vous pouvez accéder à la file d’attente de lettres mortes à l’aide de la 
 <topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
-Si vous utilisez le kit SDK .NET, vous pouvez obtenir le chemin d’accès à la file d’attente de lettres mortes au moyen de la méthode SubscriptionClient.FormatDeadLetterPath(). Cette méthode prend le nom de la rubrique/nom de l’abonnement et ajoute le suffixe **/$DeadLetterQueue**.
+Si vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez obtenir le chemin d’accès à la file d’attente de lettres mortes au moyen de la méthode SubscriptionClient.FormatDeadLetterPath(). Cette méthode prend le nom de la rubrique/nom de l’abonnement et ajoute le suffixe **/$DeadLetterQueue**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

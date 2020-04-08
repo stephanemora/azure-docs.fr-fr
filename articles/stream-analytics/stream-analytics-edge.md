@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7e4a1cf43931b56cfdb3c31ffe870a07dbaa75af
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8bb1bd018866bda9270b78507f0462b6c4d4ea17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201753"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475890"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics sur IoT Edge
  
@@ -153,7 +153,7 @@ Cependant, les fonctionnalités suivantes ne sont pas encore prises en charge po
 * Les opérateurs SQL suivants :
     * PARTITION BY
     * GetMetadataPropertyValue
-
+* Stratégie d’arrivée tardive
 
 ### <a name="runtime-and-hardware-requirements"></a>Runtime et conditions matérielles requises
 Pour exécuter ASA sur IoT Edge, vous avez besoin d’appareils pouvant exécuter [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 

@@ -4,12 +4,12 @@ description: Apporte des conseils visant à vous aider à diagnostiquer la cause
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c650ee735ffcdd50f4361a867fa592f4965ab68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78295961"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408689"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Résolution des problèmes de sauvegarde lente de fichiers et de dossiers dans Azure Backup
 
@@ -95,3 +95,7 @@ Les indicateurs suivants peuvent vous aider à identifier le goulot d’étrangl
 
 * **L’interface utilisateur affiche la progression du transfert de données**. Les données sont toujours en cours de transfert. La bande passante réseau ou la taille des données engendrent peut-être un ralentissement.
 * **L’interface utilisateur n’affiche pas la progression du transfert de données**. Ouvrez les journaux d’activité sous C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, puis recherchez l’entrée FileProvider::EndData dans les journaux d’activité. Cette entrée signifie que le transfert de données est terminé et que l’opération de catalogage est en cours. N’annulez pas les tâches de sauvegarde. Attendez un peu plus longtemps que l’opération de catalogage soit terminée. Si le problème persiste, contactez le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Questions courantes concernant la sauvegarde des fichiers et des dossiers](backup-azure-file-folder-backup-faq.md)

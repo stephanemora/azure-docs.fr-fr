@@ -1,19 +1,19 @@
 ---
-title: Visualiser les dépendances d’applications avec Azure Monitor pour machines virtuelles (préversion)
+title: Visualiser les dépendances d’applications avec Azure Monitor pour machines virtuelles
 description: Cartographie est une fonctionnalité d’Azure Monitor pour machines virtuelles. Elle détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les différents services. Cet article explique comment utiliser la fonctionnalité Cartographie dans divers scénarios.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: cbdcd5cc8fa9475febd338f94f8b6fe1cb2fe406
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/20/2020
+ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670744"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283852"
 ---
-# <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Utiliser la fonctionnalité Cartographie d’Azure Monitor pour machines virtuelles (préversion) afin de mieux comprendre le fonctionnement des composants d’application
+# <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utiliser la fonctionnalité Cartographie d’Azure Monitor pour machines virtuelles afin de mieux comprendre le fonctionnement des composants d’application
 Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Il existe deux manières d’observer les machines virtuelles : en affichant une carte directement à partir d’une machine virtuelle ou en affichant une carte à partir d’Azure Monitor pour voir les composants dans les groupes de machines virtuelles. Cet article vous aidera à bien comprendre ces deux méthodes de visualisation et à utiliser correctement la fonctionnalité Cartographie. 
 
 Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-enable-overview.md)(Activer Azure Monitor pour les machines virtuelles).
@@ -88,7 +88,7 @@ Si le groupe inclut des serveurs supervisés et non supervisés, vous pouvez sé
 Pour accéder à Azure Monitor pour machines virtuelles directement à partir d’une machine virtuelle :
 
 1. Dans le portail Azure, sélectionnez **Machines virtuelles**. 
-2. Dans la liste, sélectionnez une machine virtuelle. Dans la section **Supervision**, choisissez **Insights (préversion)** .  
+2. Dans la liste, sélectionnez une machine virtuelle. Dans la section **Supervision**, choisissez **Insights**.  
 3. Sélectionnez l’onglet **Carte**.
 
 La carte affiche les dépendances de la machine virtuelle en détectant les processus et groupes de processus en cours d’exécution qui ont des connexions réseau actives sur l’intervalle de temps spécifié.  
@@ -102,7 +102,7 @@ Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir 
 Pour accéder à Azure Monitor pour machines virtuelles directement à partir d’un groupe de machines virtuelles identiques :
 
 1. Dans le Portail Microsoft Azure, sélectionnez **Groupes de machines virtuelles identiques**.
-2. Dans la liste, sélectionnez une machine virtuelle. Dans la section **Supervision**, choisissez **Insights (préversion)** .  
+2. Dans la liste, sélectionnez une machine virtuelle. Ensuite, dans la section **Supervision**, choisissez **Insights**.  
 3. Sélectionnez l’onglet **Carte**.
 
 La carte affiche toutes les instances dans le groupe identique sous forme de nœud de groupe présentant toutes les dépendances du groupe. Le nœud développé liste les instances dans le groupe identique. Vous pouvez faire défiler jusqu’à 10 instances à la fois. 
@@ -114,14 +114,14 @@ Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir 
 ![Vue d’ensemble de la carte de machine virtuelle directe](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Vous pouvez également accéder à la carte d’une instance spécifique à partir de la vue **Instances** de votre groupe de machines virtuelles identiques. Dans la section **Paramètres**, accédez à **Instances** > **Insights (préversion)** .
+>Vous pouvez également accéder à la carte d’une instance spécifique à partir de la vue **Instances** de votre groupe de machines virtuelles identiques. Dans la section **Paramètres**, accédez à **Instances** > **Insights**.
 
 ## <a name="view-a-map-from-azure-monitor"></a>Afficher une carte à partir d’Azure Monitor
 
 Dans Azure Monitor, la fonctionnalité Cartographie offre une vue globale de vos machines virtuelles et de leurs dépendances. Pour accéder à la fonctionnalité Cartographie dans Azure Monitor :
 
 1. Dans le Portail Azure, sélectionnez **Surveiller**. 
-2. Dans la section **Insights**, choisissez **Machines virtuelles (préversion)** .
+2. Dans la section **Insights**, choisissez **Machines virtuelles**.
 3. Sélectionnez l’onglet **Carte**.
 
    ![Carte globale d’Azure Monitor des différentes machines virtuelles](./media/vminsights-maps/map-multivm-azure-monitor-01.png)

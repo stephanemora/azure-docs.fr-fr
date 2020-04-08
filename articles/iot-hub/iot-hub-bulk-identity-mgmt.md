@@ -1,6 +1,6 @@
 ---
 title: Importer/exporter des identités d’appareil Azure IoT Hub | Microsoft Docs
-description: Utilisation du Kit de développement logiciel (SDK) de service Azure IoT pour effectuer des opérations en bloc dans le registre des identités pour importer et exporter les identités des appareils. Les opérations d’importation vous permettent de créer, de mettre à jour et de supprimer des identités d’appareils en bloc.
+description: Utilisation du Kit Azure IoT service SDK afin d’exécuter des opérations en bloc dans le registre des identités pour importer et exporter les identités des appareils. Les opérations d’importation vous permettent de créer, de mettre à jour et de supprimer des identités d’appareils en bloc.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,18 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429257"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371577"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importer et exporter des identités d’appareil IoT Hub en bloc
 
 Chaque IoT Hub a un registre des identités que vous pouvez utiliser pour créer des ressources par appareil dans le service. Le registre des identités vous permet également de contrôler l’accès aux points de terminaison orientés appareil. Cet article explique comment importer et exporter les identités des appareils en bloc vers et à partir d’un registre des identités. Pour voir un exemple fonctionnel en C# et découvrir comment utiliser cette fonctionnalité lors du clonage d’un hub dans une autre région, voir [Guide pratique pour cloner un hub IoT](iot-hub-how-to-clone.md).
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+> [!NOTE]
+> IoT Hub a récemment ajouté la prise en charge des réseaux virtuels dans un nombre limité de régions. Cette fonctionnalité sécurise les opérations d’importation et d’exportation et élimine la nécessité de passer des clés pour l’authentification.  Initialement, la prise en charge des réseaux virtuels est disponible uniquement dans les régions suivantes : *WestUS2*, *EastUS* et *SouthCentralUS*. Pour en savoir plus sur la prise en charge des réseaux virtuels et sur les appels d’API pour l’implémenter, consultez [Prise en charge des réseaux virtuels par IoT Hub](virtual-network-support.md).
 
 Les opérations d’importation et d’exportation se déroulent dans le cadre de *Tâches* , qui vous permettent d’exécuter des opérations de service en bloc par rapport à un IoT Hub.
 
@@ -27,6 +28,7 @@ La classe **RegistryManager** comprend les méthodes **ExportDevicesAsync** et *
 
 Cette rubrique décrit l’utilisation de la classe **RegistryManager** et du système de **tâches** pour effectuer des importations et exportations en bloc d’appareils vers et depuis le registre des identités d’un hub IoT. Vous pouvez également utiliser le service de d’approvisionnement des appareils IoT Hub pour activer l’approvisionnement sans contact et juste-à-temps vers un ou plusieurs hubs IoT sans qu’une intervention humaine soit nécessaire. Pour plus d’informations, consultez la [documentation relative au service d’approvisionnement](/azure/iot-dps).
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>Que sont les tâches ?
 
@@ -84,6 +86,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+> [!NOTE]
+> Si votre compte de stockage a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
+
 
 ## <a name="device-importexport-job-limits"></a>Limites de travail d’importation/exportation d’appareil
 

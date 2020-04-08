@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67621054"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Ouvrir un ticket de support pour un travail Import/Export
@@ -39,7 +39,7 @@ Procédez comme suit pour créer une demande de support.
             ![Choisir Gestion du comptes de stockage](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
         - Si vous choisissez **Blob**, sélectionnez **Ressource**, **Noms de conteneur** (facultatif) et **Plan de support**.
             ![Choisir Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-        - Si vous choisissez **Fichier**, sélectionnez **Ressource**, **Noms de partage de fichier** (facultatif) et **Plan de support**. ![Choisir Fichier](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
+        - Si vous choisissez **Fichier**, sélectionnez **Ressource**, **Noms de partage de fichier** (facultatif) et **Plan de support** ![Choisir un fichier](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
     4. Cliquez sur **Suivant**.
 
 3. Dans le panneau **Nouvelle demande de support**, cliquez sur **2 Problème**. Dans le panneau **Problème**, procédez comme suit :

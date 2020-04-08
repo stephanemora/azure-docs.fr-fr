@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: d8e5b531684e175e5b9423bbc302bbe0b3d36058
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 416be7de4b3cef4fb6e1bcfd09d934937f8c96d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745290"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297727"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutoriel : Effectuer la migration hors connexion d’une instance SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Cet article décrit une migration hors connexion de SQL Server vers une instance managée SQL Database. Pour une migration en ligne, consultez [Migrer SQL Server vers une instance managée d’Azure SQL Database en ligne à l’aide de DMS](tutorial-sql-server-managed-instance-online.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
@@ -147,7 +147,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
     Quand aucun certificat approuvé n’est installé, SQL Server génère un certificat auto-signé au démarrage de l’instance. Ce certificat permet de chiffrer les informations d’identification des connexions clientes.
 
     > [!CAUTION]
-    > Les connexions SSL chiffrées à l’aide d’un certificat auto-signé n’offrent pas de sécurité renforcée. Elles sont vulnérables aux attaques de l’intercepteur. Vous ne devez pas compter sur SSL utilisant des certificats auto-signés dans un environnement de production ou sur des serveurs connectés à Internet.
+    > Les connexions TLS chiffrées à l’aide d’un certificat auto-signé n’offrent pas de sécurité renforcée. Elles sont vulnérables aux attaques de l’intercepteur. Ne faites jamais confiance à une connexion TLS utilisant des certificats autosignés dans un environnement de production ou sur des serveurs connectés à Internet.
 
    ![Détails de la source](media/tutorial-sql-server-to-managed-instance/dms-source-details1.png)
 

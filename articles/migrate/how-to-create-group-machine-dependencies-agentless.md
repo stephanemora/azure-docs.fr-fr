@@ -1,26 +1,36 @@
 ---
-title: Configurer la visualisation des dépendances sans agent dans Azure Migrate
-description: 'Configurez des groupes à l’aide de la visualisation des dépendances sans agent dans Azure Migrate : Server Assessment.'
-ms.topic: article
+title: Configurer l’analyse des dépendances sans agent dans l’outil d’évaluation de serveur Azure Migrate
+description: Configurez l’analyse des dépendances sans agent dans l’outil d’évaluation de serveur Azure Migrate.
+ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: c9425ad1fa78f14a194d3fe13c259dadf4eb5eb6
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589128"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455704"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Configurer la visualisation des dépendances sans agent 
 
-Cet article explique comment configurer la visualisation des dépendances dans l’évaluation de serveur Azure Migrate. La [visualisation des dépendances](concepts-dependency-visualization.md#what-is-dependency-visualization) vous permet d’identifier et de comprendre les dépendances entre les machines que vous voulez évaluer et migrer vers Azure.
+Cet article explique comment configurer l’analyse des dépendances sans agent dans l’outil Azure Migrate : évaluation de serveur. L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier et de comprendre les dépendances entre les machines que vous souhaitez évaluer et faire migrer vers Azure.
 
-La visualisation des dépendances sans agent vous aide à identifier les dépendances de machine sans installer d’agents sur les ordinateurs. Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit.
 
 > [!IMPORTANT]
-> La visualisation des dépendances sans agent est actuellement en préversion pour les machines virtuelles VMware Azure uniquement, découvertes à l’aide de l’outil Azure Migrate : Server Assessment.
+> La visualisation des dépendances sans agent est actuellement en préversion pour les machines virtuelles VMware uniquement, découvertes avec l’outil Azure Migrate : évaluation de serveur.
 > Les fonctionnalités peuvent être limitées ou incomplètes.
 > Cette préversion est couverte par le support client et peut être utilisée pour les charges de travail de production.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+
+## <a name="before-you-start"></a>Avant de commencer
+
+- [Apprenez-en davantage](concepts-dependency-visualization.md#agentless-analysis) sur l’analyse des dépendances sans agent.
+- [Passez en revue](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) les prérequis et les exigences de prise en charge pour la configuration de la visualisation des dépendances sans agent pour les machines virtuelles VMware.
+- Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
+- Si vous avez déjà créé un projet, vérifiez que vous avez [ajouté](how-to-assess.md) l’outil Azure Migrate : évaluation de serveur.
+- Assurez-vous d’avoir configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir vos machines locales. Découvrez comment configurer une appliance pour des machines virtuelles [VMware](how-to-set-up-appliance-vmware.md). L’appliance découvre les machines locales, puis envoie les métadonnées et les données de performances à Azure Migrate : évaluation de serveur.
+
 
 ## <a name="current-limitations"></a>Limites actuelles
 
@@ -28,21 +38,10 @@ La visualisation des dépendances sans agent vous aide à identifier les dépend
 - Une carte des dépendances pour un groupe de serveurs n’est pas disponible actuellement.
 - Actuellement, les données de dépendance ne peuvent pas être téléchargées sous forme de tableau.
 
-## <a name="before-you-start"></a>Avant de commencer
-
-- [Consultez](concepts-dependency-visualization.md#agentless-visualization) les exigences et les coûts associés à la visualisation des dépendances sans agent.
-- Consultez les [conditions de prise en charge](migrate-support-matrix-vmware.md#agentless-dependency-visualization) pour configurer la visualisation des dépendances sans agent.
-- Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
-- Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) l’outil Azure Migrate : Server Assessment.
-- Assurez-vous d’avoir configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir vos machines locales. Découvrez comment configurer une appliance pour des machines virtuelles [VMware](how-to-set-up-appliance-vmware.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment.
-
-
 ## <a name="create-a-user-account-for-discovery"></a>Créer un compte d’utilisateur pour la découverte
 
-Configurez un compte d’utilisateur pour que Server Assessment puisse accéder à la machine virtuelle à une fin de découverte. Vous pouvez spécifier un compte d’utilisateur.
+Configurez un compte d’utilisateur pour que Server Assessment puisse accéder à la machine virtuelle à une fin de découverte. [Découvrez](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) les exigences relatives aux comptes.
 
-- **Machines virtuelles Windows** : Le compte d’utilisateur doit être un administrateur local ou un administrateur de domaine.
-- **Machines virtuelles Linux** : Le privilège de racine est requis sur le compte. Le compte d’utilisateur a également besoin des deux capacités ci-dessous sur les fichiers/bin/netstat et/bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Ajouter le compte d’utilisateur à l’appliance
 

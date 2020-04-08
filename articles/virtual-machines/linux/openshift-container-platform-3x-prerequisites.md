@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 76e7a9aa9c0f17501885c8bd06c6997fdc8d2104
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 8767a6ee6218223280ea6219e22540c53d1e89be
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255688"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409114"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Conditions préalables courantes au déploiement d’OpenShift Container Platform 3.11 dans Azure
 
@@ -54,16 +54,17 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="sign-in-to-azure"></a>Connexion à Azure 
 Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index) et suivez les instructions à l’écran ou cliquez sur **Essayer** pour utiliser Cloud Shell.
 
-```azurecli 
+```azurecli
 az login
 ```
+
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Vous devez utiliser un groupe de ressources dédié pour héberger le coffre de clés. Ce groupe est différent du groupe de ressources dans lequel se déploient les ressources de cluster OpenShift.
 
 L’exemple suivant crée un groupe de ressources nommé *keyvaultrg* à l’emplacement *eastus* :
 
-```azurecli 
+```azurecli
 az group create --name keyvaultrg --location eastus
 ```
 
@@ -81,7 +82,7 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ## <a name="create-an-ssh-key"></a>Création d’une clé SSH 
 Une clé SSH est nécessaire pour sécuriser l’accès au cluster OpenShift. Créez une paire de clés SSH à l’aide de la commande `ssh-keygen` (sur Linux ou macOS) :
  
- ```bash
+```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
@@ -115,6 +116,7 @@ Créez un principal de service :
 ```azurecli
 az group show --name openshiftrg --query id
 ```
+
 Enregistrez la sortie de la commande et utilisez-la à la place de $scope dans la commande suivante.
 
 ```azurecli
@@ -123,6 +125,7 @@ az ad sp create-for-rbac --name openshiftsp \
 ```
 
 Prenez note de la propriété appId et du mot de passe renvoyés par la commande :
+
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -132,6 +135,7 @@ Prenez note de la propriété appId et du mot de passe renvoyés par la commande
   "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 }
 ```
+
  > [!WARNING] 
  > Veillez à noter le mot de passe sécurisé, car il ne sera pas possible de le récupérer une nouvelle fois.
 
@@ -139,15 +143,15 @@ Pour plus d’informations sur les principaux de service, consultez [Créer un p
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Conditions préalables uniquement applicables aux modèles Resource Manager
 
-Des secrets doivent être créés pour la clé privée SSH (**sshPrivateKey**), la clé secrète client Azure AD (**aadClientSecret**), le mot de passe de l'administrateur OpenShift (**openshiftPassword**), et le mot de passe ou la clé d'activation du Gestionnaire d'abonnements Red Hat (**rhsmPasswordOrActivationKey**).  De plus, si des certificats SSL personnalisés sont utilisés, six secrets supplémentaires devront être créés : **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile** et **masterkeyfile**.  Ces paramètres seront décrits en détail.
+Des secrets doivent être créés pour la clé privée SSH (**sshPrivateKey**), la clé secrète client Azure AD (**aadClientSecret**), le mot de passe de l'administrateur OpenShift (**openshiftPassword**), et le mot de passe ou la clé d'activation du Gestionnaire d'abonnements Red Hat (**rhsmPasswordOrActivationKey**).  De plus, si des certificats TLS/SSL personnalisés sont utilisés, six secrets supplémentaires devront être créés : **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile** et **masterkeyfile**.  Ces paramètres seront décrits en détail.
 
 Le modèle fait référence à des noms de secret spécifiques. Par conséquent, vous **devez** utiliser les noms en gras répertoriés ci-dessus (en respectant la casse).
 
 ### <a name="custom-certificates"></a>Certificats personnalisés
 
-Par défaut, le modèle déploie un cluster OpenShift en utilisant des certificats auto-signés pour la console web OpenShift et le domaine de routage. Si vous souhaitez utiliser des certificats SSL personnalisés, définissez 'routingCertType' sur 'custom' et 'masterCertType' sur 'custom'.  Vous aurez besoin des fichiers CA, Cert et Key au format .pem pour les certificats.  Il est possible d'utiliser des certificats personnalisés pour l'un mais pas pour l'autre.
+Par défaut, le modèle déploie un cluster OpenShift en utilisant des certificats auto-signés pour la console web OpenShift et le domaine de routage. Si vous souhaitez utiliser des certificats TLS/SSL personnalisés, définissez « routingCertType » sur « custom » et « masterCertType » sur « custom ».  Vous aurez besoin des fichiers CA, Cert et Key au format .pem pour les certificats.  Il est possible d'utiliser des certificats personnalisés pour l'un mais pas pour l'autre.
 
-Vous devrez stocker ces fichiers dans des secrets du coffre de clés Key Vault.  Utilisez le même coffre que celui utilisé pour la clé privée.  Plutôt que d'exiger 6 entrées supplémentaires pour les noms secrets, le modèle est codé en dur afin d'utiliser des noms secrets spécifiques pour chacun des fichiers de certificat SSL.  Stockez les données de certificat à l'aide des informations du tableau suivant.
+Vous devrez stocker ces fichiers dans des secrets du coffre de clés Key Vault.  Utilisez le même coffre que celui utilisé pour la clé privée.  Plutôt que d’exiger six entrées supplémentaires pour les noms secrets, le modèle est codé en dur afin d’utiliser des noms secrets spécifiques pour chacun des fichiers de certificat TLS/SSL.  Stockez les données de certificat à l'aide des informations du tableau suivant.
 
 | Nom du secret      | Fichier de certificat   |
 |------------------|--------------------|
@@ -160,7 +164,7 @@ Vous devrez stocker ces fichiers dans des secrets du coffre de clés Key Vault. 
 
 Créez les secrets à l’aide de l'interface de ligne de commande Azure (Azure CLI). Voici un exemple.
 
-```bash
+```azurecli
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
 ```
 

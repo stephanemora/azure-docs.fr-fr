@@ -12,12 +12,13 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 85696a5580c4ed6c03f257787e2693a61a6158de
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: ff0ce05b13fea8409475e3415c5d810d7c79769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163542"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154863"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procédure : Réactiver des espaces de noms Access Control Service désactivés
 
@@ -25,7 +26,7 @@ ms.locfileid: "77163542"
 
 En novembre 2017, nous avons annoncé la mise hors service de Microsoft Azure Access Control Service (ACS), un service d’Azure Active Directory (Azure AD), le 7 novembre 2018.
 
-Depuis, nous avons envoyé plusieurs e-mails aux administrateurs des abonnements ACS sur cette mise hors service : 12 mois, 9 mois, 6 mois, 3 mois, 1 mois, 2 semaines, 1 semaine et 1 jour avant la date de mise hors service du 7 novembre 2018.
+Depuis, nous avons envoyé plusieurs e-mails aux administrateurs des abonnements ACS sur cette mise hors service : 12 mois, 9 mois, 6 mois, 3 mois, 1 mois, 2 semaines, 1 semaine et 1 jour avant la date de mise hors service du 7 novembre 2018.
 
 Le 3 octobre 2018, nous avons annoncé (par e-mail et dans [un billet de blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) une offre d’extension pour les clients n'étant pas en mesure de terminer leur migration avant le 7 novembre 2018. Cette annonce contenait également les instructions relatives à la demande d’extension.
 

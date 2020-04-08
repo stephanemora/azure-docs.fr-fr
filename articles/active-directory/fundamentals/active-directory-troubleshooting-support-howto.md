@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dce9b93dfe4ddfca370d1d3131d1d12cb6f121d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1193bfc08ccbd86d4da09c4de472f09bb49208f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561765"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049932"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Obtenir de l’aide et ouvrir un ticket de support pour Azure Active Directory
 Microsoft propose des services de support pour les problèmes techniques, de prévente, de facturation et d’abonnements relatifs à Azure Active Directory (Azure AD). Le support est disponible en ligne et par téléphone pour les abonnements d’évaluation et payants Microsoft Azure. L’assistance téléphonique et le support de facturation en ligne sont disponibles dans plusieurs langues. 
@@ -49,15 +49,26 @@ Si vous ne parvenez pas à trouver de réponses dans les ressources d’auto-ass
 2. Faites défiler l’écran jusqu’à **Dépannage + support**, puis sélectionnez **Nouvelle demande de support**.
    
 3. Dans le panneau **De base**, pour **Type de problème**, sélectionnez **Technique**.
-   
-4. Pour **Service**, sélectionnez **Azure Active Directory**, puis **Suivant**.
 
-5. Dans le panneau **Problème**, sélectionnez un niveau de [Gravité](https://azure.microsoft.com/support/plans/response/).
+4. Sélectionnez votre **abonnement**.
+
+5. Sous **Service**, sélectionnez **Azure Active Directory**.
+
+6. Créez un **résumé** pour la requête. Le nombre de caractères du résumé doit être inférieur à 140.
   
-6. Sélectionnez un **Type de problème**, puis une **Catégorie** pour ce type. À ce stade, des informations d’auto-assistance vous sont aussi proposées en fonction de la catégorie de votre problème.
+7. Sélectionnez un **Type de problème**, puis une catégorie pour ce type. À ce stade, des informations d’auto-assistance vous sont aussi proposées en fonction de la catégorie de votre problème.
   
-7. Détaillez un peu plus votre problème, puis cliquez sur **Suivant**.
-  
+7. Détaillez un peu plus votre problème, puis cliquez sur **Suivant**. 
+
+8. À ce stade, des solutions d’auto-assistance et une documentation vous sont proposées dans le panneau **Solutions**. Si aucune des solutions ne résout votre problème, cliquez sur **Suivant**. 
+
+9. Dans le panneau **Détails**, renseignez les informations nécessaires, puis sélectionnez un niveau de [Gravité](https://azure.microsoft.com/support/plans/response/). 
+ 
+![image](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
+ 
+10. Indiquez vos coordonnées et sélectionnez **Suivant**. 
+
+
 8. Indiquez vos coordonnées et sélectionnez **Créer**.
   ![Capture d’écran d’auto-assistance en fonction de la catégorie du problème](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 

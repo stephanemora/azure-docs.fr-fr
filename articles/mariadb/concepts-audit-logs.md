@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 9c5f6aa2900570aa00ddbc50ec8be4dbb0d16a34
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 3/19/2020
+ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063831"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Journaux d’audit dans Azure Database for MariaDB
 
@@ -76,7 +76,7 @@ Les sections suivantes décrivent la sortie des journaux d’audit MariaDB en fo
 | `db_s` | Nom de la base de données connectée |
 | `\_ResourceId` | URI de ressource |
 
-### <a name="general"></a>Généralités
+### <a name="general"></a>Général
 
 Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL et ADMIN.
 
@@ -106,30 +106,59 @@ Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELEC
 | `sql_text_s` | Texte de la requête complète |
 | `\_ResourceId` | URI de ressource |
 
-### <a name="table-access"></a>Accès à la table
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Analyser les journaux dans Azure Monitor
 
-| **Propriété** | **Description** |
-|---|---|
-| `TenantId` | Votre ID d’abonné |
-| `SourceSystem` | `Azure` |
-| `TimeGenerated [UTC]` | Horodatage du moment où le journal a été enregistré en UTC |
-| `Type` | Type de journal. Toujours `AzureDiagnostics` |
-| `SubscriptionId` | GUID de l’abonnement auquel appartient le serveur |
-| `ResourceGroup` | Nom du groupe de ressources auquel le serveur appartient |
-| `ResourceProvider` | Nom du fournisseur de ressources. Toujours `MICROSOFT.DBFORMARIADB` |
-| `ResourceType` | `Servers` |
-| `ResourceId` | URI de ressource |
-| `Resource` | Nom du serveur |
-| `Category` | `MySqlAuditLogs` |
-| `OperationName` | `LogEvent` |
-| `LogicalServerName_s` | Nom du serveur |
-| `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` ou `DELETE` |
-| `connection_id_d` | ID de connexion unique généré par MariaDB |
-| `db_s` | Nom de la base de données sollicitée |
-| `table_s` | Nom de la table sollicitée |
-| `sql_text_s` | Texte de la requête complète |
-| `\_ResourceId` | URI de ressource |
+Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le biais des journaux de diagnostic, vous pouvez effectuer une analyse plus poussée de vos événements audités. Voici quelques exemples de requêtes pour vous aider à commencer. Veillez à mettre à jour les exemples ci-dessous avec le nom de votre serveur.
+
+- Lister les événements généraux (GENERAL) sur un serveur spécifique
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last 
+    ```
+
+- Lister les événements de connexion (CONNECTION) sur un serveur spécifique
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ```
+
+- Récapituler les événements audités sur un serveur spécifique
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
+    ```
+
+- Représenter sous forme de graphique la distribution des types d’événements d’audit sur un serveur spécifique
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart 
+    ```
+
+- Lister les événements audités de tous les serveurs MariaDB sur lesquels les journaux de diagnostic sont activés pour les journaux d’audit
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ``` 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

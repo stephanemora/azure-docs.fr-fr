@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878718"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accès aux journaux de diagnostic d’Azure Data Lake Storage Gen1
@@ -73,13 +73,13 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>À partir du compte de Stockage Azure qui contient des données de journal
 1. Ouvrez le panneau du compte de Stockage Azure associé au Data Lake Storage Gen1 pour la journalisation, puis cliquez sur Objets blob. Le panneau **Service Blob** répertorie deux conteneurs.
    
-    ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
+    ![Afficher la journalisation de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
    
    * Le conteneur **insights-logs-audit** contient les journaux d’audit.
    * Le conteneur **insights-logs-requests** contient les journaux d’activité de demande.
 2. Les journaux d’activité sont stockés dans ces conteneurs selon la structure suivante.
    
-    ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Afficher les journaux de diagnostic")
+    ![Afficher la journalisation de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Afficher les journaux de diagnostic")
    
     Par exemple, le chemin d’accès complet à un journal d’audit peut être `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
@@ -113,27 +113,27 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
     }
 
 #### <a name="request-log-schema"></a>Schéma du journal de requête
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
-| time |Chaîne |L’horodatage (heure UTC) du journal. |
-| resourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
-| category |Chaîne |La catégorie du journal. Par exemple, **Demandes**. |
-| operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
-| resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
-| callerIpAddress |Chaîne |L’adresse IP du client qui a effectué la demande. |
-| correlationId |Chaîne |L’ID du journal qui peut être utilisé pour regrouper un ensemble d’entrées de journal associées |
+| time |String |L’horodatage (heure UTC) du journal. |
+| resourceId |String |L’ID de la ressource sur laquelle l’opération a eu lieu. |
+| catégorie |String |La catégorie du journal. Par exemple, **Demandes**. |
+| operationName |String |Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
+| resultType |String |L’état de l’opération. Par exemple, 200. |
+| callerIpAddress |String |L’adresse IP du client qui a effectué la demande. |
+| correlationId |String |L’ID du journal qui peut être utilisé pour regrouper un ensemble d’entrées de journal associées |
 | identité |Object |L’identité qui a généré le journal. |
 | properties |JSON |Voir les détails ci-dessous. |
 
 #### <a name="request-log-properties-schema"></a>Schéma des propriétés de journal de demande
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
-| HttpMethod |Chaîne |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
-| path |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
+| HttpMethod |String |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
+| Path |String |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 | RequestContentLength |int |La longueur du contenu de la demande HTTP. |
-| ClientRequestId |Chaîne |L’ID qui identifie de façon unique la demande |
-| StartTime |Chaîne |L’heure à laquelle le serveur a reçu la demande. |
-| EndTime |Chaîne |L’heure à laquelle le serveur a envoyé une réponse. |
+| ClientRequestId |String |L’ID qui identifie de façon unique la demande |
+| StartTime |String |L’heure à laquelle le serveur a reçu la demande. |
+| EndTime |String |L’heure à laquelle le serveur a envoyé une réponse. |
 
 ### <a name="audit-logs"></a>Journaux d’audit
 Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque objet blob a un objet racine appelé **records** qui contient un tableau d’objets du journal
@@ -160,22 +160,22 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
     }
 
 #### <a name="audit-log-schema"></a>Schéma du journal d’audit
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
-| time |Chaîne |L’horodatage (heure UTC) du journal. |
-| resourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
-| category |Chaîne |La catégorie du journal. Par exemple, **Audit**. |
-| operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
-| resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
-| resultSignature |Chaîne |Détails supplémentaires sur l’opération. |
-| correlationId |Chaîne |L’ID du journal qui peut être utilisé pour regrouper un ensemble d’entrées de journal associées |
+| time |String |L’horodatage (heure UTC) du journal. |
+| resourceId |String |L’ID de la ressource sur laquelle l’opération a eu lieu. |
+| catégorie |String |La catégorie du journal. Par exemple, **Audit**. |
+| operationName |String |Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
+| resultType |String |L’état de l’opération. Par exemple, 200. |
+| resultSignature |String |Détails supplémentaires sur l’opération. |
+| correlationId |String |L’ID du journal qui peut être utilisé pour regrouper un ensemble d’entrées de journal associées |
 | identité |Object |L’identité qui a généré le journal. |
 | properties |JSON |Voir les détails ci-dessous. |
 
 #### <a name="audit-log-properties-schema"></a>Schéma des propriétés de journal d’audit
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
-| StreamName |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
+| StreamName |String |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemples de traitement des données de journal
 Quand vous envoyez des journaux d’Azure Data Lake Storage Gen1 vers Journaux Azure Monitor (voir [Consulter ou analyser les données collectées avec la recherche dans les journaux Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) pour plus d’informations sur l’utilisation de Journaux Azure Monitor), la requête suivante retourne une table contenant une liste de noms d’affichage d’utilisateurs, l’heure des événements et le nombre d’événements par heure d’événement, ainsi qu’un graphique. Vous pouvez facilement la modifier pour afficher le GUID de l’utilisateur ou d’autres attributs :

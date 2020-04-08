@@ -1,19 +1,19 @@
 ---
-title: Méthode de configuration via l’interface CLI de Private Link pour Azure Database pour MySQL (préversion)
-description: Découvrez comment configurer une instance Private Link pour Azure Database pour MySQL à partir d’Azure CLI
+title: Liaison privée - Azure CLI - Azure Database pour MySQL
+description: Découvrez comment configurer une liaison privée pour Azure Database pour MySQL à partir d’Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d9a401bfbf1f0c63995c8f7773abb6e8e874e7e
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561695"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368007"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Créer et gérer Private Link pour Azure Database pour MySQL (préversion) à l’aide de l’interface CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant l’interface CLI
 
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans cet article, vous apprendrez à utiliser Azure CLI pour créer une machine virtuelle dans un réseau virtuel Azure et un serveur Azure Database pour MySQL avec un point de terminaison privé Azure.
 
@@ -118,7 +118,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 ```
 
 > [!NOTE] 
-> Le nom de domaine complet dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le nom de domaine complet configuré comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
+> Le nom de domaine complet dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 

@@ -2,13 +2,13 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: 64090f1a0bac4b2b5f18d8dec14be0c3b051ac17
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.date: 03/16/2020
+ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968874"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460260"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Créer des ressources au niveau du locataire
 
@@ -65,10 +65,20 @@ Le principal dispose désormais des autorisations requises pour déployer le mod
 
 Les commandes utilisées pour les déploiements de locataires sont différentes de celles utilisées pour les déploiements de groupes de ressources.
 
+Pour Azure CLI, utilisez [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create) :
+
+```azurecli-interactive
+az deployment tenant create \
+  --name demoTenantDeployment \
+  --location WestUS \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+```
+
 Pour Azure PowerShell, utilisez [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
+  -Name demoTenantDeployment `
   -Location "West US" `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```

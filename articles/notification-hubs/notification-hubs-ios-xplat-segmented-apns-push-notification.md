@@ -1,5 +1,5 @@
 ---
-title: Notifications Push vers des appareils iOS spécifiques à l’aide d’Azure Notification Hubs | Microsoft Docs
+title: Envoyer des notifications Push vers des appareils iOS spécifiques avec Azure Notification Hubs | Microsoft Docs
 description: Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à des appareils iOS spécifiques.
 services: notification-hubs
 documentationcenter: ios
@@ -16,14 +16,14 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a775963f1b0fa19cd687c839f527f4a078c76864
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774884"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80126989"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutoriel : notifications Push vers des appareils iOS spécifiques à l’aide d’Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des appareils iOS spécifiques avec Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Envoyer des notifications à partir de l’appareil
 > * Exécution de l’application et génération de notifications
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cette rubrique s’appuie sur l’application que vous avez créée dans le [Tutoriel : Notifications Push vers des applications iOS avec Azure Notification Hubs][get-started]. Avant de commencer ce tutoriel, vous devez suivre le [Tutoriel : Notifications Push vers des applications iOS avec Azure Notification Hubs][get-started].
 

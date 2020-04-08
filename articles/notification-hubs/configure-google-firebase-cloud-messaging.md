@@ -12,14 +12,15 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 803289476d4d8869f7828b2843a983ee0c86bfbd
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 1adbce654bc5c057270df9a874911731a0135034
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212500"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127468"
 ---
-# <a name="configure-google-firebase-cloud-messaging-fcm-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurer les paramètres de Google Firebase Cloud Messaging (FCM) pour un hub de notification sur le portail Azure
+# <a name="configure-google-firebase-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurer les paramètres de Google Firebase pour un hub de notification dans le portail Azure
+
 Cet article explique comment configurer les paramètres Google Firebase Cloud Messaging (FCM) pour un hub de notification Azure à l'aide du portail Azure.  
 
 ## <a name="prerequisites"></a>Prérequis

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dbd1d96cda88d500e16fff885dae03ebfa230f0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079894"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480961"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -248,7 +248,7 @@ La procédure suivante explique comment ajouter une langue aux conditions d’ut
 
 ## <a name="per-device-terms-of-use"></a>Conditions d’utilisation par appareil
 
-Le paramètre **Demander le consentement des utilisateurs sur chaque appareil** vous permet de demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé. L’utilisateur final doit joindre son appareil dans Azure AD. Quand l’appareil est joint, l’ID d’appareil est utilisé pour appliquer les conditions d’utilisation sur chaque appareil.
+Le paramètre **Demander le consentement des utilisateurs sur chaque appareil** vous permet de demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé. L’utilisateur final doit inscrire son appareil dans Azure AD. Quand l’appareil est inscrit, l’ID d’appareil est utilisé pour appliquer les conditions d’utilisation sur chaque appareil.
 
 Voici une liste des plateformes et des logiciels pris en charge.
 

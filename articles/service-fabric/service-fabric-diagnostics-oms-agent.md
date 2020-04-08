@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c8978a0114caf57d01f7add0bd9357c5d0775dc
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609942"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79366743"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Analyse des performances avec les journaux Azure Monitor
 
@@ -33,17 +33,17 @@ La meilleure façon d’ajouter l’agent Log Analytics à un cluster est d’ut
 
 3. Cliquez sur **Serveurs Windows** si vous créez un cluster Windows, ou sur **Serveurs Linux** si vous créez un cluster Linux. Cette page affiche les éléments `workspace ID` et `workspace key` (répertoriés en tant que clé primaire dans le portail). Vous aurez besoin de ces éléments pour l’étape suivante.
 
-4. Exécutez la commande pour installer l’agent Log Analytics sur votre cluster en utilisant l’API `vmss extension set` de votre service Cloud Shell :
+4. Exécutez la commande pour installer l’agent Log Analytics sur votre cluster en utilisant l’API `vmss extension set` :
 
     Pour un cluster Windows :
 
-    ```sh
+    ```azurecli
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
     Pour un cluster Linux :
 
-    ```sh
+    ```azurecli
     az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
@@ -53,7 +53,7 @@ La meilleure façon d’ajouter l’agent Log Analytics à un cluster est d’ut
 
 5. Normalement, l’ajout de l’agent aux nœuds prend moins de 15 minutes. Vous pouvez vérifier que les agents ont bien été ajoutés à l’aide de l’API `az vmss extension list` :
 
-    ```sh
+    ```azurecli
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
     ```
 

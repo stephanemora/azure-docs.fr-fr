@@ -1,23 +1,23 @@
 ---
 title: Remédier aux ressources non conformes
 description: Ce guide explique comment corriger les ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
-ms.date: 09/09/2019
+ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: e3db0f5f8ae1be4a6ab6eb281801958bfb816228
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 71af5c81e0dce4d5c0a0461534f634db36bd66a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544179"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471385"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
-Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** ou **modify** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer la correction, vous indiquez à Azure Policy d’exécuter l’effet **deployIfNotExists** ou l’étiquette **operations** de la stratégie affectée sur vos ressources existantes. Cet article explique les étapes nécessaires pour comprendre et exécuter des corrections avec Azure Policy.
+Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** ou **modify** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer cette correction, vous devez demander à Azure Policy d'exécuter l'effet **deployIfNotExists** ou l'étiquette **operations** de la stratégie attribuée à vos ressources existantes, que cette attribution s'adresse à un groupe d'administration, à un abonnement, à un groupe de ressources ou à une ressource individuelle. Cet article explique les étapes nécessaires pour comprendre et exécuter des corrections avec Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Fonctionnement de la sécurité de la correction
 
 Lorsque le logiciel Azure Policy exécute le modèle dans la définition de stratégie **deployIfNotExists**, il utilise une [identité managée](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy crée automatiquement une identité managée pour chaque affectation, mais doit obtenir des informations sur les rôles à accorder à l’identité managée. S’il manque des rôles à l’identité managée, cette erreur est affichée durant l’affectation de la stratégie ou d’une initiative. Lorsque vous utilisez le portail, une fois l’affectation lancée, Azure Policy accorde automatiquement à l’identité managée les rôles répertoriés.
+Azure Policy crée automatiquement une identité managée pour chaque affectation, mais doit obtenir des informations sur les rôles à accorder à l’identité managée. S’il manque des rôles à l’identité managée, cette erreur est affichée durant l’affectation de la stratégie ou d’une initiative. Quand vous utilisez le portail, une fois l’affectation lancée, Azure Policy accorde automatiquement à l’identité managée les rôles listés. La _localisation_ de l’identité managée n’impacte pas son fonctionnement avec Azure Policy.
 
 ![Identité managée : rôle manquant](../media/remediate-resources/missing-role.png)
 

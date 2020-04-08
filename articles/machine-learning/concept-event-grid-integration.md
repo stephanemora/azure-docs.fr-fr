@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
-ms.openlocfilehash: 5ec953ace6bb9583c622f89cfcd0196482b1c683
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8a975487c68a21b2c8b6fa2f07d86c312243f12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535697"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79139043"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>Consommer des événements Azure Machine Learning (préversion)
 
@@ -42,6 +42,7 @@ Azure Machine Learning fournit des événements tout au long du cycle de vie de 
 | `Microsoft.MachineLearningServices.ModelRegistered` | Déclenché lorsqu’un modèle d’apprentissage automatique est inscrit dans l’espace de travail |
 | `Microsoft.MachineLearningServices.ModelDeployed` | Déclenché lorsqu’un déploiement du service d’inférence avec un ou plusieurs modèles est terminé |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | Déclenché lorsqu’un travail de détection de dérive de données pour deux jeux de données est terminé |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | Déclenché quand un état d’exécution changeait ; actuellement déclenché uniquement quand l’état d’exécution a la valeur « failed » |
 
 ## <a name="subscribe-to-machine-learning-events"></a>S’abonner à des événements Azure Machine Learning
 
@@ -61,6 +62,7 @@ Azure Event Grid prend en charge les filtres de sujet reposant sur les correspon
 | `Microsoft.MachineLearningServices.ModelRegistered` | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
 | `Microsoft.MachineLearningServices.ModelDeployed` | `endpoints/{serviceId}` | `endpoints/my_sklearn_aks` |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
 ### <a name="advanced-filtering"></a>Filtrage avancé
 

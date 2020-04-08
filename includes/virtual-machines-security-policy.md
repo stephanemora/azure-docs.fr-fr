@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 53c9dea83fc6d413d7e82194696ffedabcc8cf7b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 14a6703b3e256d33ab3b18e1821587cc3eb293db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830082"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79381613"
 ---
-Il est important de sécuriser votre machine virtuelle (VM) pour les applications que vous exécutez. La sécurisation des machines virtuelles peut comprendre plusieurs services et fonctionnalités Azure qui garantissent un accès sécurisé à vos machines virtuelles et le stockage sécurisé des données. Cet article donne des informations vous permettant de sécuriser votre machine virtuelle et vos applications.
+Il est important de sécuriser votre machine virtuelle pour les applications que vous exécutez. La sécurisation des machines virtuelles peut comprendre plusieurs services et fonctionnalités Azure qui garantissent un accès sécurisé à vos machines virtuelles et le stockage sécurisé des données. Cet article donne des informations vous permettant de sécuriser votre machine virtuelle et vos applications.
 
 ## <a name="antimalware"></a>Logiciel anti-programme malveillant
 
@@ -21,9 +21,23 @@ Les menaces vis-à-vis des environnements cloud sont dynamiques et il faut plus 
 
 [Azure Security Center](../articles/security-center/security-center-intro.md) vous aide à vous empêcher, détecter et répondre aux menaces pesant sur vos machines virtuelles. Security Center fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
-L’accès juste-à-temps de Security Center peut être appliqué au déploiement vos machines virtuelles pour verrouiller le trafic entrant vers vos machines virtuelles Azure, réduire l’exposition aux attaques et faciliter la connexion aux machines virtuelles, si nécessaire. Lorsque l'accès juste-à-temps est activé et qu'un utilisateur demande à accéder à une machine virtuelle, Security Center vérifie les autorisations de l'utilisateur pour la machine virtuelle en question. S’il dispose des autorisations qui conviennent, la requête est approuvée et Security Center configure automatiquement les Groupes de sécurité réseau (NSG) afin d’autoriser le trafic entrant vers les ports sélectionnés pendant une durée limitée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent. 
+L’accès juste-à-temps de Security Center peut être appliqué au déploiement de vos machines virtuelles pour verrouiller le trafic entrant vers vos machines virtuelles Azure, réduire l’exposition aux attaques et faciliter la connexion aux machines virtuelles en cas de nécessité. Lorsque l'accès juste-à-temps est activé et qu'un utilisateur demande à accéder à une machine virtuelle, Security Center vérifie les autorisations de l'utilisateur pour la machine virtuelle en question. S’il dispose des autorisations qui conviennent, la requête est approuvée et Security Center configure automatiquement les Groupes de sécurité réseau (NSG) afin d’autoriser le trafic entrant vers les ports sélectionnés pendant une durée limitée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent. 
 
 ## <a name="encryption"></a>Chiffrement
+
+Deux méthodes de chiffrement sont proposées pour les disques managés : le chiffrement au niveau du système d’exploitation (Azure Disk Encryption) et le chiffrement au niveau de la plateforme (chiffrement côté serveur).
+
+### <a name="server-side-encryption"></a>Chiffrement côté serveur
+
+Les disques managés Azure chiffrent automatiquement vos données par défaut lors de leur conservation dans le cloud. Le chiffrement côté serveur protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Les données dans les disque managés Azure sont chiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2.
+
+Le chiffrement n’a pas d’impact sur les performances des disques managés. Le chiffrement n’entraîne aucun coût supplémentaire.
+
+Vous pouvez vous appuyer sur les clés gérées par la plateforme pour le chiffrement de votre disque managé, ou vous pouvez gérer le chiffrement en utilisant vos propres clés. Si vous choisissez de gérer le chiffrement avec vos propres clés, vous pouvez spécifier une *clé gérée par le client* à utiliser pour le chiffrement et le déchiffrement de toutes les données dans les disques managés. 
+
+Pour en savoir plus sur le chiffrement côté serveur, consultez les articles suivants pour [Windows](../articles/virtual-machines/windows/disk-encryption.md) ou [Linux](../articles/virtual-machines/linux/disk-encryption.md).
+
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Pour renforcer la sécurité et la conformité de la machine virtuelle [Windows](../articles/virtual-machines/windows/encrypt-disks.md) et [Linux](../articles/virtual-machines/linux/disk-encryption-overview.md), les disques virtuels dans Azure peuvent être chiffrés. Les disques virtuels qui se trouvent sur des machines virtuelles Windows sont chiffrés au repos avec BitLocker. Les disques virtuels sur des machines virtuelles Linux sont chiffrés au repos à l’aide de la commande dm-crypt. 
 

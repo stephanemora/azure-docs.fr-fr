@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: ajburnle
 ms.reviewer: kexia
-ms.custom: fasttrack-edit
+ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422832"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049792"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
 Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Office 365, qui utilise Azure AD comme fournisseur d’identité.
@@ -27,7 +27,7 @@ Utilisez le logo et la palette de couleurs personnalisée de votre organisation 
 >La personnalisation nécessite l’utilisation des éditions Azure Active Directory Premium 1, Premium 2 ou De base, ou encore une licence Office 365. Pour plus d’informations sur les licences et les éditions, consultez [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md).<br><br>Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personnaliser votre page de connexion Azure AD
-Vous pouvez personnaliser vos pages de connexion Azure AD, qui s’affichent quand les utilisateurs se connectent à des applications spécifiques aux locataires de votre organisation, comme [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), ou lors de la soumission d’une variable de domaine, comme [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+Vous pouvez personnaliser les pages de connexion Azure AD qui s’affichent quand les utilisateurs se connectent à des applications propres aux locataires de votre organisation, comme `https://outlook.com/contoso.com`, ou lors de l’envoi d’une variable de domaine, comme `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
 
 Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs accèdent à des sites tels que www\.office.com. L’utilisateur doit se connecter avant que votre personnalisation n’apparaisse. Une fois que l’utilisateur est connecté, la personnalisation peut prendre une quinzaine de minutes pour s’afficher. 
 
@@ -70,11 +70,11 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
         - **Couleur d’arrière-plan de la page de connexion.** Spécifiez la couleur hexadécimale (par exemple, #FFFFFF pour blanc) qui s’affiche à la place de votre image d’arrière-plan en cas de faible bande passante. Nous vous recommandons d’utiliser la couleur principale de votre logo de bannière ou la couleur de votre organisation.
 
-        - **Logo carré.** Sélectionnez une image .png (recommandé) ou .jpg du logo de votre organisation pour qu’elle soit présentée aux utilisateurs pendant le processus d’installation de nouveaux appareils Windows 10 Entreprise. Cette image est utilisée uniquement pour l’authentification Windows et s’affiche uniquement sur les locataires qui utilisent [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) pour les pages de déploiement ou de saisie de mot de passe dans d’autres expériences Windows 10. Dans certains cas, elle peut également apparaître dans la boîte de dialogue de consentement.
+        - **Logo carré.** Sélectionnez une image .png (recommandé) ou .jpg du logo de votre organisation pour qu’elle soit présentée aux utilisateurs pendant le processus d’installation de nouveaux appareils Windows 10 Entreprise. Cette image est utilisée uniquement pour l’authentification Windows et s’affiche uniquement sur les locataires qui utilisent [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) pour les pages de déploiement ou de saisie de mot de passe dans d’autres expériences Windows 10. Dans certains cas, elle peut également apparaître dans la boîte de dialogue de consentement.
         
-            L’image ne peut pas être supérieure à 240 x 240 pixels et doit faire moins de 10 Ko. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit.
+            La taille de l’image ne peut pas dépasser 240 x 240 pixels et doit être inférieure à 10 Ko. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit.
     
-        - **Logo carré, thème foncé.** Identique à l’image de logo carré ci-dessus. Cette image de logo prend la place de l’image de logo carré dans le cas d’un arrière-plan foncé, comme avec les écrans « Windows 10 Azure AD Joined » de l’expérience OOBE (out-of-box experience).  Si votre logo semble correct sur des arrière-plans blancs, bleu foncé et noirs, vous n’avez pas besoin d’ajouter cette image. 
+        - **Logo carré, thème foncé.** Identique à l’image de logo carré ci-dessus. Cette image de logo prend la place de l’image de logo carré dans le cas d’un arrière-plan foncé, comme avec les écrans « Windows 10 Azure AD Joined » de l’expérience OOBE (out-of-box experience).  Si votre logo ressort bien sur des arrière-plans blancs, bleu foncé et noirs, vous n’avez pas besoin d’ajouter cette image. 
         
         - **Afficher l’option permettant de rester connecté.** Vous pouvez autoriser les utilisateurs à rester connecté à Azure AD jusqu’à ce qu’ils se déconnectent de manière explicite. Si vous sélectionnez **Non**, cette option est masquée et les utilisateurs doivent se connecter chaque fois que le navigateur est fermé puis ouvert.
         
@@ -130,9 +130,9 @@ Pour ajouter votre personnalisation aux pages, modifiez la fin de l’URL avec l
 **Exemples :**
 
 **URL d’origine :** https://aka.ms/MFASetup<br>
-**URL personnalisée :** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+**URL personnalisée :** `https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com`
 
 **URL d’origine :** https://aka.ms/SSPR<br>
-**URL personnalisée :** https://passwordreset.microsoftonline.com/?whr=contoso.com
+**URL personnalisée :** `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
  

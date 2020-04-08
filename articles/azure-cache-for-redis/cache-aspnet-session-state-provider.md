@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 5c9af862ca2df3d812384c0f4ab660730aece872
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 25cef95e2d01012506148f03be45104e455e1fcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433554"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530272"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fournisseur d’États de session ASP.NET pour le Cache Azure pour Redis
 
@@ -125,6 +125,11 @@ Une fois ces étapes effectuées, votre application est configurée pour utilise
 * Fournisseur d’État de session distribué en mémoire (par exemple, fournisseur d’État de session du Cache Azure pour Redis) : ce fournisseur associe tous les avantages. Votre application Web peut bénéficier d’un fournisseur d’état de session à la fois simple, rapide et évolutif. Étant donné que ce fournisseur stocke l’état de session dans un cache et que votre application doit prendre en considération toutes les caractéristiques associées lorsqu’elle communique avec un cache distribué en mémoire (par exemple, les défaillances réseau temporaires). Pour obtenir des recommandations sur l’utilisation du Cache, consultez la page [Caching Guidance](../best-practices-caching.md) dans le [Guide de conception et d’implémentation des applications Azure Cloud](https://github.com/mspnp/azure-guidance) de Microsoft Patterns & Practices.
 
 Pour plus d'informations sur l’état de session et obtenir d’autres meilleures pratiques, consultez la page [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+
+## <a name="third-party-session-state-providers"></a>Fournisseurs d’état de session tiers
+
+* [NCache](https://www.alachisoft.com/ncache/session-index.html)
+* [Apache Ignite](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

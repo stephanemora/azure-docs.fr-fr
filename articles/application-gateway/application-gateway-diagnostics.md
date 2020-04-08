@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966926"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411056"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -91,14 +91,14 @@ L’extrait de code suivant montre un exemple de la réponse :
 }
 ```
 
-## <a name="diagnostic-logging"></a>Journaux de diagnostic
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Journaux de diagnostic
 
 Vous pouvez utiliser différents types de journaux d’activité dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Vous pouvez accéder à certains de ces journaux d’activité via le portail. Tous les journaux d’activité peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme les [journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), Excel et Power BI. Pour en savoir plus sur les différents types de journaux d’activité, consultez la liste suivante :
 
 * **Journal d’activité** : vous pouvez utiliser le [Journal d’activité Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anciennement journaux d’activité des opérations et journaux d’audit) pour voir toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
-* **Journal d’accès** : Vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser les informations importantes. Ceci comprend l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway est identifiée par la propriété instanceId.
+* **Journal d’accès** : Vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser les informations importantes. Ceci comprend l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 60 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway est identifiée par la propriété instanceId.
 * **Journaux de performances** : vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances de chaque instance, notamment le nombre total de requêtes traitées, le débit en octets, le nombre total de requêtes présentées, le nombre de requêtes ayant échoué, le nombre d’instances du serveur principal intègres et défectueuses. Le journal des performances est collecté toutes les 60 secondes. Le journal des performances est uniquement disponible pour la référence SKU v1. S’il s’agit de la référence SKU v2, utilisez les [Métriques](application-gateway-metrics.md) pour les données de performances.
-* **Journal du pare-feu** : vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle Application Gateway configuré avec un pare-feu d’applications web.
+* **Journal du pare-feu** : vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle Application Gateway configuré avec un pare-feu d’applications web. Les journaux du pare-feu sont collectés toutes les 60 secondes. 
 
 > [!NOTE]
 > Les journaux d’activité ne sont disponibles que pour les ressources déployées dans le modèle de déploiement Azure Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, consultez l’article [Présentation du déploiement de Resource Manager et du déploiement classique](../azure-resource-manager/management/deployment-models.md) .

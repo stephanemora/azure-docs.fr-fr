@@ -4,12 +4,12 @@ description: Découvrez comment créer manuellement un volume avec des disques A
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: b84f62dd02aa29a4c1aa64e3235c0a1e7cc66522
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 17795ae696c0d710f099a5c21aa754fc925953ca
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596740"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047940"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Créer manuellement et utiliser un volume avec des disques Azure sur Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et
 
 ## <a name="create-an-azure-disk"></a>Créer un disque Azure
 
-Lorsque vous créez un disque Azure pour une utilisation avec AKS, vous pouvez créer la ressource de disque sur le groupe de ressources de **nœuds**. Cette approche permet au cluster AKS d’accéder et de gérer la ressource de disque. Si, à la place, vous créez le disque dans un groupe de ressources distinct, vous devez donner au service principal Azure Kubernetes Service (AKS) pour votre cluster le rôle `Contributor` dans le groupe de ressource du disque.
+Lorsque vous créez un disque Azure pour une utilisation avec AKS, vous pouvez créer la ressource de disque sur le groupe de ressources de **nœuds**. Cette approche permet au cluster AKS d’accéder et de gérer la ressource de disque. Si, à la place, vous créez le disque dans un groupe de ressources distinct, vous devez donner au service principal Azure Kubernetes Service (AKS) pour votre cluster le rôle `Contributor` dans le groupe de ressource du disque. Vous pouvez également utiliser l’identité managée affectée par le système pour les autorisations, au lieu du principal du service. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
 
 Pour cet article, créez le disque dans le groupe de ressources de nœuds. Tout d’abord, obtenez le nom du groupe de ressources avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 

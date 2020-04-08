@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: b7aa90bd19e52059319570f1e7f6e64b90dee6e4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368330"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -121,7 +121,7 @@ Les restrictions d’affectation de noms sont implémentées par la plateforme A
 * Le nom de groupe de ressources AKS *MC_* combine le nom de groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` ne doit pas dépasser 80 caractères. Si nécessaire, réduisez la longueur du nom de groupe de ressources ou du nom de cluster AKS.
 * L'élément *dnsPrefix* doit commencer et se terminer par des valeurs alphanumériques et doit comporter 1 à 54 caractères. Parmi les caractères autorisés figurent les valeurs alphanumériques et les traits d’union (-). L’élément *dnsPrefix* ne peut pas inclure de caractères spéciaux comme un point (.).
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Je reçois une erreur quand j’essaie de créer, mettre à jour, mettre à l’échelle, supprimer ou mettre à niveau un cluster ; ces opérations ne sont pas autorisées quand une autre opération est en cours.
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Je reçois une erreur quand j’essaie de créer, mettre à jour, mettre à l’échelle, supprimer ou mettre à niveau un cluster, m’informant que cette opération n’est pas autorisée quand une autre opération est en cours.
 
 *Cette assistance de dépannage est redirigée depuis aka.ms/aks-pending-operation*
 
@@ -298,7 +298,7 @@ Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pou
 Dans certains cas, si une opération de détachement de disque Azure échoue à la première tentative, elle ne retente pas l’opération de détachement et reste attachée à la machine virtuelle du nœud d’origine. Cette erreur peut se produire lors du déplacement d’un disque d’un nœud à un autre. Par exemple :
 
 ```console
-[Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
+[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
 ```
 
 Ce problème a été résolu dans les versions suivantes de Kubernetes :
@@ -348,12 +348,12 @@ Ce problème a été résolu dans les versions suivantes de Kubernetes :
 Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème et si votre machine virtuelle de nœud est dans un état d’échec, vous pouvez atténuer le problème en mettant à jour manuellement l’état de la machine virtuelle à l’aide de l’une des opérations ci-dessous :
 
 * Pour un cluster à base de groupes à haute disponibilité :
-    ```console
+    ```azurecli
     az vm update -n <VM_NAME> -g <RESOURCE_GROUP_NAME>
     ```
 
 * Pour un cluster basé sur VMSS :
-    ```console
+    ```azurecli
     az vmss update-instances -g <RESOURCE_GROUP_NAME> --name <VMSS_NAME> --instance-id <ID>
     ```
 
@@ -384,7 +384,7 @@ Paramètres recommandés :
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 et versions ultérieures | 0777 |
 
-Si vous utilisez un cluster avec Kuberetes 1.8.5 ou ultérieur et que vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
+Si vous utilisez un cluster avec Kubernetes 1.8.5 ou ultérieur et que vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
 
 ```yaml
 kind: StorageClass
@@ -491,6 +491,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 Cette erreur est due à une condition de concurrence du dispositif de mise à l’échelle automatique du cluster en amont, où le dispositif de mise à l’échelle automatique du cluster se termine par une valeur différente de la valeur effective du cluster. Pour sortir de cet état, il vous suffit de désactiver et de réactiver le [dispositif de mise à l’échelle automatique du cluster][cluster-autoscaler].
+
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Attachement du disque lent : GetAzureDiskLun prend de 10 à 15 minutes et une erreur s’affiche
+
+Dans les versions de Kubernetes **antérieures à 1.15.0**, vous pouvez recevoir une erreur telle que **Erreur WaitForAttach : le numéro d’unité logique du disque est introuvable**.  Pour contourner ce problème, attendez environ 15 minutes, puis réessayez.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

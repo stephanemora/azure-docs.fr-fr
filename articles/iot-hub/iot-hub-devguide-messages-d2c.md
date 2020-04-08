@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: ff50d972ad9590fb70dbcf67e21f8b5dc8c32fad
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748057"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370455"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -75,6 +75,9 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
+> [!NOTE]
+> Si votre compte de stockage a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
+
 Pour créer un compte de stockage compatible Azure Data Lake Gen2, créez un nouveau compte de stockage v2 et sélectionnez *activé* dans le champ *Espace de noms hiérarchique* de l’onglet **Avancé**, comme indiqué dans l’image suivante :
 
 ![Sélectionner le stockage Azure Data Lake Gen2](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -84,9 +87,17 @@ Pour créer un compte de stockage compatible Azure Data Lake Gen2, créez un nou
 
 Les options **Sessions** ou **Détection des doublons** ne doivent pas être activées pour les files d’attente et rubriques Service Bus utilisées comme points de terminaison IoT Hub. Si l’une de ces options est activée, le point de terminaison s’affiche comme **Inaccessible** dans le portail Azure.
 
+> [!NOTE]
+> Si votre ressource Service Bus a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
+
+
 ### <a name="event-hubs"></a>Event Hubs
 
 En plus du point de terminaison compatible Event Hubs intégré, vous pouvez router des données vers des points de terminaison personnalisés de type Event Hubs. 
+
+> [!NOTE]
+> Si votre ressource Event Hubs a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
+
 
 ## <a name="reading-data-that-has-been-routed"></a>Lecture de données qui ont été routées
 
@@ -103,6 +114,7 @@ Utilisez les tutoriels suivants pour découvrir comment lire un message à parti
 * Lecture à partir de [files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 
 * Lecture à partir de [rubriques Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
 
 ## <a name="fallback-route"></a>Itinéraire de secours
 

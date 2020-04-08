@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28a9de63bb04a95fc2e655b05727963feaa3ec40
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599598"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137626"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Charge de travail SAP sur les machines virtuelles Azure - Scénarios pris en charge
 Concevoir un architecture système SAP NetWeaver, Business One, `Hybris` ou S/4HANA dans Azure ouvre la voie à bien des opportunités en termes d'architectures et d'outils à utiliser afin d'obtenir un déploiement évolutif, efficace et hautement disponible. Bien qu’elles dépendent du système d’exploitation ou du SGBD utilisé, il existe des restrictions. De même, tous les scénarios pris en charge localement ne sont pas pris en charge de la même manière dans Azure. Ce document présente les configurations sans haute disponibilité prises en charge, ainsi que les configurations et architectures haute disponibilité utilisant exclusivement des machines virtuelles Azure. Pour les scénarios pris en charge avec de [grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), consultez l’article [Scénarios pris en charge pour les grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
@@ -66,7 +66,8 @@ Ce type de déploiement SGBD est pris en charge pour :
 - SQL Server sur Windows
 - IBM Db2. Pour plus d'informations, consultez l'article [Instances multiples (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
 - Pour Oracle. Pour plus d’informations, consultez [note de support SAP n° 1778431](https://launchpad.support.sap.com/#/notes/1778431) et notes SAP associées
-- Pour SAP HANA, instances multiples sur une machine virtuelle, appels SAP, cette méthode de déploiement MCOS est prise en charge. Pour plus d’informations, consultez l’article SAP [Systèmes SAP HANA multiples sur un hôte (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/en-US/b2751fd43bec41a9a14e01913f1edf18.html)
+- Pour SAP HANA, instances multiples sur une machine virtuelle, appels SAP, cette méthode de déploiement MCOS est prise en charge. Pour plus d’informations, consultez l’article SAP [Systèmes SAP HANA multiples sur un hôte (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
+- /b2751fd43bec41a9a14e01913f1edf18.html)
 
 En exécutant plusieurs instances de base de données sur un seul hôte, vous devez vous assurer que les différentes instances ne sont pas en concurrence en termes de ressources et, par conséquent, dépasser les limites de ressources physiques de la machine virtuelle. Cela se vérifie notamment lorsqu'il vous faut limiter la mémoire que chaque utilisateur partageant la machine virtuelle peut allouer. Cela peut également se vérifier pour les ressources d'UC que les différentes instances de base de données peuvent utiliser. Tous les SGBD mentionnés sont dotés de configurations qui permettent de limiter l’allocation de la mémoire et les ressources d'UC au niveau de l’instance.
 Pour que cette configuration soit prise en charge pour les machines virtuelles Azure, il convient de séparer les disques ou volumes utilisés pour les données et les fichiers journaux/de restauration des bases de données gérées par les différentes instances. En d’autres termes, les données ou les fichiers journaux/de restauration des bases de données gérés par différentes instances SGBD ne sont pas censés partager les mêmes disques ou volumes. 
@@ -121,6 +122,8 @@ Pour les machines virtuelles Azure, les configurations haute disponibilité suiv
 
 > [!IMPORTANT]
 > Pour aucun des scénarios décrits ci-dessus, nous prenons en charge les configurations de plusieurs instances SGBD dans une machine virtuelle. Ainsi, dans chaque cas, une seule instance de base de données peut être déployée par machine virtuelle et protégée à l'aide des méthodes de haute disponibilité décrites. Actuellement, la protection de plusieurs instances SGBD sous le même cluster de basculement Windows ou Pacemaker n'est **PAS** prise en charge. En outre, Oracle Data Guard est pris en charge pour une seule instance par cas de déploiement de machine virtuelle. 
+
+Différents systèmes de base de données autorisent l’hébergement de plusieurs bases de données sous une seule instance SGBD. Comme dans le cas de SAP HANA, plusieurs bases de données peuvent être hébergées dans plusieurs conteneurs de base de données (MDC). Dans les cas où ces configurations à plusieurs bases de données fonctionnent dans une ressource de cluster de basculement, ces configurations sont prises en charge. Les configurations qui ne sont pas prises en charge sont les cas où plusieurs ressources de cluster seraient nécessaires. Comme pour les configurations dans lesquelles vous définiriez plusieurs groupes de disponibilité SQL Server sous une seule instance de SQL Server.
 
 
 ![Configuration haute disponibilité SGBD](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)
@@ -301,7 +304,7 @@ Scénario(s) que nous n’avons pas testés et sur lesquels nous n'avons pas enc
  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les étapes suivantes dans [Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+Découvrez les étapes suivantes dans [Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 
 
 

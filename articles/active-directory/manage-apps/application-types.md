@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65781091"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Application inattendue dans ma liste d’applications
@@ -46,7 +46,7 @@ Pour afficher toutes les applications dans votre client, vous devez utiliser le 
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>Pourquoi une application spécifique apparaît-elle dans ma liste de toutes les applications ?
 
-Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les applications** affiche chaque objet Principal de service dans votre client. Les objets Principal de service peuvent apparaître dans cette liste de différentes façons :
+Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les applications** affiche chaque objet Principal de service de votre locataire. Les objets Principal de service peuvent apparaître dans cette liste de différentes façons :
 
 1. Lorsque vous ajoutez une application à partir de la galerie d’applications, y compris :
 
@@ -100,7 +100,7 @@ Pour **supprimer une application**, procédez comme suit :
 
 5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
-   * Si l’application que vous recherchez n’apparaît pas, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
+   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
 6. Sélectionnez l’application que vous voulez supprimer.
 

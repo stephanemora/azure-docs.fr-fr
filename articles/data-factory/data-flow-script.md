@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/10/2019
-ms.openlocfilehash: d861a4355158dfe18ac3aa40a7f98dc11ebda90b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/24/2020
+ms.openlocfilehash: 92421125ecb5f4336922c6e6b4508fcdaf92be6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930254"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246396"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
 
@@ -136,6 +136,40 @@ Et un récepteur sans schéma ressemblerait simplement à ce qui suit :
 ```
 derive1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
+```
+
+## <a name="script-snippets"></a>Extraits de script
+
+### <a name="aggregated-summary-stats"></a>Résumé agrégé des statistiques
+Ajoutez une transformation d’agrégation à votre flux de données nommé « SummaryStats », puis collez le code ci-dessous pour la fonction d’agrégation dans votre script, en remplaçant le SummaryStats existant. Cela permet de fournir un modèle générique pour le résumé des statistiques du profil de données.
+
+```
+aggregate(each(match(true()), $$+'_NotNull' = countIf(!isNull($$)), $$ + '_Null' = countIf(isNull($$))),
+        each(match(type=='double'||type=='integer'||type=='short'||type=='decimal'), $$+'_stddev' = round(stddev($$),2), $$ + '_min' = min ($$), $$ + '_max' = max($$), $$ + '_average' = round(avg($$),2), $$ + '_variance' = round(variance($$),2)),
+        each(match(type=='string'), $$+'_maxLength' = max(length($$)))) ~> SummaryStats
+```
+Vous pouvez également utiliser l’exemple ci-dessous pour compter le nombre de lignes uniques et le nombre de lignes distinctes dans vos données. L’exemple ci-dessous peut être collé dans un flux de données avec la transformation d’agrégation appelée ValueDistAgg. Cet exemple utilise une colonne appelée « title ». Veillez à remplacer « title » par la colonne de chaîne de vos données que vous souhaitez utiliser pour connaître le nombre de valeurs.
+
+```
+aggregate(groupBy(title),
+    countunique = count()) ~> ValueDistAgg
+ValueDistAgg aggregate(numofunique = countIf(countunique==1),
+        numofdistinct = countDistinct(title)) ~> UniqDist
+```
+
+### <a name="include-all-columns-in-an-aggregate"></a>Inclure toutes les colonnes dans un agrégat
+Il s’agit d’un modèle d’agrégation générique qui montre comment conserver les colonnes restantes dans vos métadonnées de sortie lorsque vous générez des agrégats. Dans ce cas, nous utilisons la fonction ```first()``` pour choisir la première valeur de chaque colonne dont le nom n’est pas « movie ». Pour ce faire, créez une transformation d’agrégation appelée DistinctRows, puis collez-la dans votre script au-dessus du script d’agrégation DistinctRows existant.
+
+```
+aggregate(groupBy(movie),
+    each(match(name!='movie'), $$ = first($$))) ~> DistinctRows
+```
+
+### <a name="create-row-hash-fingerprint"></a>Créer une empreinte digitale de hachage de ligne 
+Utilisez ce code dans votre script de flux de données pour créer une colonne dérivée nommée ```DWhash``` qui produit un hachage ```sha1``` de trois colonnes.
+
+```
+derive(DWhash = sha1(Name,ProductNumber,Color))
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: eca2dbe7589fdc7d59a84d21ecf59749d986ade9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7429a9d5e9a803f0e9a6f900c5d81e77e7477a48
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826407"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214505"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurer et utiliser des journaux Azure Monitor avec une application SaaS SQL Database multilocataire
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur les scénarios et les modèles SaaS, et leur inci
 
 Pour Azure SQL Database, la surveillance et les alertes sont disponibles pour les bases de données et les pools dans le portail Azure. Ces fonctions de surveillance et de génération d’alertes intégrées sont pratiques, mais également propres à la ressource. Cela signifie qu’elles sont moins bien adaptées pour surveiller les installations de grande taille ou fournir une vue unifiée sur l’ensemble des ressources et abonnements.
 
-Pour les scénarios à volumes élevés, vous pouvez utiliser des journaux Azure Monitor pour la supervision et la création d’alertes. Azure Monitor est un service Azure distinct qui permet d’analyser des journaux de diagnostic et des données de télémétrie recueillis dans un espace de travail auprès de nombreux services. Les journaux Azure Monitor proposent un langage de requête intégré et des outils de visualisation pour l’analyse des données opérationnelles. La solution SQL Analytics fournit plusieurs vues et requêtes prédéfinies de surveillance et d’alertes pour les pools élastiques et les bases de données. Les journaux Azure Monitor fournissent également un concepteur de vues personnalisées.
+Pour les scénarios à volumes élevés, vous pouvez utiliser des journaux Azure Monitor pour la supervision et la création d’alertes. Azure Monitor est un service Azure distinct qui permet d’analyser des journaux de nombreux services regroupés dans un espace de travail. Les journaux Azure Monitor proposent un langage de requête intégré et des outils de visualisation pour l’analyse des données opérationnelles. La solution SQL Analytics fournit plusieurs vues et requêtes prédéfinies de surveillance et d’alertes pour les pools élastiques et les bases de données. Les journaux Azure Monitor fournissent également un concepteur de vues personnalisées.
 
 Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ». Les espaces de travail et les solutions d’analyse de Log Analytics s’ouvrent dans le Portail Azure. Le Portail Azure constitue le point d’accès le plus récent, mais il peut être moins évolué que le portail Operations Management Suite dans certains domaines.
 
@@ -86,7 +86,7 @@ Dans cet exercice, ouvrez l’espace de travail Log Analytics dans le portail Az
 
 1. Sélectionnez **Vue d’ensemble** pour ouvrir la solution Log Analytics dans le portail Azure.
 
-   ![Vue d'ensemble](media/saas-dbpertenant-log-analytics/click-overview.png)
+   ![Vue d’ensemble](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > L’activation de la solution peut prendre quelques minutes. 

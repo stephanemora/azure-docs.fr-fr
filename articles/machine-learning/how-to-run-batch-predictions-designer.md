@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: fdda35d3a617a30169748f4f6b42c8726e7e3512
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 01d69bffcf2c17abceba8ba2e0893360bead8b12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920686"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477219"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -43,13 +43,13 @@ Votre pipeline de formation doit être exécuté au moins une fois pour créer u
 
 1. Sélectionnez le pipeline d’entraînement qui entraîne le modèle que vous voulez utiliser pour faire une prédiction.
 
-1. **Exécutez** le pipeline.
+1. **Envoyez** le pipeline.
 
-    ![Exécuter le pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
+    ![Envoyer le pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
 Maintenant que le pipeline de formation a été exécuté, vous pouvez créer un pipeline d'inférence par lots.
 
-1. En regard de **Exécuter**, sélectionnez le nouveau menu déroulant **Créer un pipeline d'inférence**.
+1. En regard de **Envoyer**, sélectionnez le nouveau menu déroulant **Créer un pipeline d’inférence**.
 
 1. Sélectionnez **Pipeline d'inférence par lots**.
 
@@ -110,13 +110,13 @@ Dans cette section, vous allez configurer une exécution manuelle du pipeline et
 
     La page Détails du pipeline affiche l'historique détaillé des exécutions ainsi que des informations sur les chaînes de connexion de votre pipeline. 
     
-1. Sélectionnez **Exécuter** pour lancer une exécution manuelle du pipeline.
+1. Sélectionnez **Envoyer** pour créer une exécution manuelle du pipeline.
 
     ![Détails du pipeline](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
     
 1. Modifiez le paramètre pour utiliser un autre jeu de données.
     
-1. Sélectionnez **Exécuter** pour exécuter le pipeline.
+1. Sélectionnez **Envoyer** pour exécuter le pipeline.
 
 ### <a name="use-the-rest-endpoint"></a>Utiliser le point de terminaison REST
 
@@ -145,3 +145,4 @@ Vous pouvez également définir un nouveau pipeline par défaut sous l'onglet **
 ## <a name="next-steps"></a>Étapes suivantes
 
 Suivez le [tutoriel](tutorial-designer-automobile-price-train-score.md) sur le concepteur pour entraîner et déployer un modèle de régression.
+«

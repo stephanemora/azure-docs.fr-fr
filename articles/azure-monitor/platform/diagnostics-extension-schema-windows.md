@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 3adf4b59c0605859ada75577c083094541815984
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672359"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234309"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schéma d’extension de diagnostic Windows
 L’extension Diagnostics Azure est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité et des charges de travail de ressources de calcul Azure. Cet article détaille le schéma utilisé pour la configuration de l’extension de diagnostic sur les machines virtuelles Windows et d’autres ressources de calcul.
@@ -506,7 +506,7 @@ Les éléments *PublicConfig* et *PrivateConfig* sont séparés, car, dans la pl
 ```
 
 > [!NOTE]
-> La définition du récepteur Azure Monitor dans le cadre d’une configuration publique inclut deux propriétés, à savoir *PrincipalId* and *Secret*. Elles sont requises uniquement pour les services de machines virtuelles et de cloud classiques. Ces propriétés ne doivent pas être utilisées pour d’autres ressources.
+> La définition du récepteur Azure Monitor dans le cadre d’une configuration privée inclut deux propriétés, à savoir *PrincipalId* and *Secret*. Elles sont requises uniquement pour les services de machines virtuelles et de cloud classiques. Ces propriétés ne doivent pas être utilisées pour d’autres ressources.
 
 
 ```json

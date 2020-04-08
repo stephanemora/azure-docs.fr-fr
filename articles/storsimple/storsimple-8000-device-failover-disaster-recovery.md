@@ -1,5 +1,5 @@
 ---
-title: Basculement et récupération d’urgence pour les appareils StorSimple de la gamme 8000
+title: Basculement et récupération d’urgence pour un appareil de la gamme StorSimple 8000
 description: Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou une appliance cloud.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228233"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397520"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Basculement et récupération d’urgence pour votre appareil de la gamme StorSimple 8000
 
@@ -50,8 +50,8 @@ Sur un appareil de la gamme StorSimple 8000, les stratégies de sauvegarde sont
 
 Supposons qu’il existe deux stratégies de sauvegarde, *defaultPol* et *customPol* :
 
-* *defaultPol* : un seul volume, *vol1*, s’exécute tous les jours à 22 h 30.
-* *customPol* : quatre volumes, *vol1*, *vol2*, *vol3* et *vol4*, s’exécutent tous les jours à 22 h 00.
+* *defaultPol* : un seul volume, *vol1*, s’exécute tous les jours à 22h30.
+* *customPol* : quatre volumes, *vol1*, *vol2*, *vol3* et *vol4*, s’exécutent tous les jours à 22h00.
 
 Dans ce cas, StorSimple donne la priorité pour des raisons de cohérence en cas d’incident et utilise *customPol*, car elle a plus de volumes. La sauvegarde la plus récente de cette stratégie est utilisée pour restaurer les données. Pour plus d’informations sur la façon de créer et gérer des stratégies de sauvegarde, accédez à [Use the StorSimple Device Manager service in Azure portal to manage backup policies](storsimple-8000-manage-backup-policies-u2.md) (Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde).
 

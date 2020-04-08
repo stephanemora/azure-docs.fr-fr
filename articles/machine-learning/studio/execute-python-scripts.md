@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: ec210fcdf521413438edd256cc3ee988b67f293f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168659"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218078"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Exécution des scripts d’apprentissage automatique Python dans Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Python est un précieux outil dans le coffre à outils de nombreux scientifiques de données. Il est utilisé à chaque étape des flux de travail d’apprentissage automatique typiques, y compris l'exploration des données, l'extraction des fonctionnalités, la formation, la validation et le déploiement de modèles.
 
@@ -65,13 +67,13 @@ Les jeux de données Studio sont différents des trames de données Pandas. Par 
 
 **Les tableaux de données d’entrée dans la fonction Python ont toujours un index numérique de 64 bits compris entre 0 et le nombre de lignes moins 1*
 
-## <a id="import-modules"></a>Importation des modules de script Python existants
+## <a name="importing-existing-python-script-modules"></a><a id="import-modules"></a>Importation des modules de script Python existants
 
 Le serveur principal utilisé pour exécuter Python est basé sur [Anaconda](https://www.anaconda.com/distribution/), une distribution scientifique Python largement utilisée. Il est fourni avec près de 200 des packages Python les plus couramment utilisés dans des charges de travail centrées sur les données. Actuellement, Studio (classique) ne prend pas en charge l’utilisation de systèmes de gestion de paquets comme Pip ou Conda pour installer et gérer des bibliothèques externes.  Si vous jugez nécessaire d'incorporer d’autres bibliothèques, utilisez le scénario suivant comme guide.
 
 Un cas typique consiste à incorporer des scripts Python existants dans des expériences Studio (classique). Le module [Exécuter le script Python][execute-python-script] accepte un fichier zip contenant des modules Python au troisième port d’entrée. Le fichier est décompressé par l’infrastructure d’exécution lors de l’exécution, et le contenu est ajouté au chemin de bibliothèque de l’interpréteur Python. La fonction du point d'entrée `azureml_main` peut ensuite importer ces modules directement. 
 
-Prenez pour exemple le fichier Hello.py contenant une fonction simple « Hello, World ».
+Prenez l’exemple du fichier Hello.py contenant une fonction simple « Hello, World ».
 
 ![Fonction définie par l’utilisateur dans le fichier Hello.py](./media/execute-python-scripts/figure4.png)
 
@@ -122,13 +124,13 @@ Un service web créé à partir de cette expérience effectue les actions suiva
 1. Envoie une expression Python à l’interpréteur Python
 1. Renvoie une table contenant l’expression et le résultat évalué.
 
-## <a id="visualizations"></a>Utilisation des visualisations
+## <a name="working-with-visualizations"></a><a id="visualizations"></a>Utilisation des visualisations
 
 Les graphiques créés à l'aide de MatplotLib peuvent être renvoyés par le module [Exécuter le script Python][execute-python-script]. Mais les graphiques ne sont pas redirigés automatiquement vers des images, comme lorsque vous utilisez R. De ce fait, l'utilisateur doit enregistrer explicitement les graphiques en fichiers PNG.
 
 Pour générer des images à partir de MatplotLib, vous devez vous effectuer les étapes suivantes :
 
-1. Basculez le serveur principal sur « AGG » depuis le convertisseur par défaut basé sur Qt.
+1. Basculez le back-end sur « AGG » à partir du convertisseur par défaut basé sur Qt.
 1. Créez un objet figure.
 1. Obtenez l'axe et générez sur celui-ci tous les graphiques.
 1. Enregistrez la figure dans un fichier PNG.
@@ -153,7 +155,7 @@ Voici la fonction Python permettant de calculer les notations d’importance et 
 
 ![Fonction permettant de classer les fonctionnalités par notations](./media/execute-python-scripts/figure8.png)
 
-L’expérience suivante calcule, puis renvoie les notations d’importance des fonctionnalités dans le jeu de données « Diabète chez les indiens Pima » dans Azure Machine Learning Studio (classique) :
+L’expérience suivante calcule, puis retourne les notations d’importance des fonctionnalités dans le jeu de données « Diabète chez les indiens Pima » dans Azure Machine Learning Studio (classique) :
 
 ![Expérience permettant de classer des fonctionnalités dans l'ensemble de données du diabète chez les indiens Pima, en utilisant Python](./media/execute-python-scripts/figure9a.png)
 

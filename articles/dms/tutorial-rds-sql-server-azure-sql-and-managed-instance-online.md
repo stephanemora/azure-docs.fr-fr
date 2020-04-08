@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 8d538deca610fd9981d401d28b6bea1c31c6d4c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255517"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298867"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutoriel : Migrer en ligne RDS SQL Server vers une instance d’Azure SQL Database ou Azure SQL Database Managed Instance à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour effectuer la migration des bases de données d’une instance RDS SQL Server vers une instance [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) ou [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) avec un temps d’arrêt minimal. Dans ce tutoriel, vous allez effectuer la migration de la base de données **Adventureworks2012**, qui a été restaurée sur une instance RDS SQL Server de SQL Server 2012 (ou version ultérieure), vers une instance Azure SQL Database ou Azure SQL Database Managed Instance à l’aide d’Azure Database Migration Service.
@@ -223,7 +223,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
     Quand aucun certificat approuvé n’est installé, SQL Server génère un certificat auto-signé au démarrage de l’instance. Ce certificat permet de chiffrer les informations d’identification des connexions clientes.
 
     > [!CAUTION]
-    > Les connexions SSL chiffrées à l’aide d’un certificat auto-signé n’offrent pas de sécurité renforcée. Elles sont vulnérables aux attaques de l’intercepteur. Vous ne devez pas compter sur SSL utilisant des certificats auto-signés dans un environnement de production ou sur des serveurs connectés à Internet.
+    > Les connexions TLS chiffrées à l’aide d’un certificat auto-signé n’offrent pas de sécurité renforcée. Elles sont vulnérables aux attaques de l’intercepteur. Ne faites jamais confiance à une connexion TLS utilisant des certificats autosignés dans un environnement de production ou sur des serveurs connectés à Internet.
 
    ![Détails de la source](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 

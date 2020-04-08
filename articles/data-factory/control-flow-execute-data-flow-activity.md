@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 01/02/2020
-ms.openlocfilehash: d0b9c59852175b91b4bf799a366ae5124fa0ae42
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/16/2020
+ms.openlocfilehash: 115cb3e499117457629e130b6432a1cbc2224edb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644786"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79463048"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -62,6 +62,14 @@ staging.linkedService | Si vous utilisez une source ou un récepteur SQL DW, le
 staging.folderPath | Si vous utilisez une source ou un récepteur SQL DW, chemin du dossier dans le compte de stockage blob utilisé pour la préproduction de PolyBase | String | Uniquement si le flux de données lit ou écrit dans un entrepôt de données SQL DW
 
 ![Exécuter un flux de données](media/data-flow/activity-data-flow.png "Exécuter un flux de données")
+
+### <a name="dynamically-size-data-flow-compute-at-runtime"></a>Dimensionner dynamiquement le calcul du flux de données au moment de l’exécution
+
+Les propriétés Nombre de cœurs et Type de capacité de calcul peuvent être définies de manière dynamique en fonction de la taille de vos données sources entrantes au moment de l’exécution. Utilisez des activités de pipeline telles que Recherche ou Obtention des métadonnées afin de déterminer la taille des données du jeu de données source. Ensuite, utilisez Ajouter du contenu dynamique dans les propriétés de l’activité Flux de données.
+
+![Flux de données dynamique](media/data-flow/dyna1.png "Flux de données dynamique")
+
+[Voici un bref tutoriel vidéo expliquant cette technique](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 ### <a name="data-flow-integration-runtime"></a>Runtime d’intégration de flux de données
 

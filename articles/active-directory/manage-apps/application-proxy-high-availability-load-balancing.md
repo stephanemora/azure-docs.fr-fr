@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9add6ac30184d87ef50200c3ab944698a1a660f8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275534"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481311"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Haute disponibilité et équilibrage de charge de vos applications et connecteurs de proxy d’application
 
@@ -88,11 +88,11 @@ Dans ce scénario, l’application web principale requiert l’adhérence de ses
 Ce scénario peut être plus compliqué, car le client établit généralement plusieurs connexions au service de proxy d’application. Les requêtes sur différentes connexions peuvent arriver sur des connecteurs et des serveurs différents dans la batterie. Étant donné que chaque connecteur utilise sa propre adresse IP pour cette communication, l’équilibreur de charge ne peut pas garantir l’adhérence de session en fonction de l’adresse IP des connecteurs. L’affinité IP source ne peut pas être utilisée non plus.
 Voici quelques options pour le scénario 2 :
 
-- Option 1 : Basez la persistance de session sur un cookie de session défini par l’équilibreur de charge. Cette option est recommandée car elle permet de répartir la charge de manière plus uniforme entre les serveurs principaux. Elle nécessite un équilibreur de charge de couche 7 avec cette fonctionnalité et qui peut gérer le trafic HTTP et mettre fin à la connexion SSL. Vous pouvez utiliser Azure Application Gateway (affinité de session) ou un équilibreur de charge d’un autre fournisseur.
+- Option 1 : Basez la persistance de session sur un cookie de session défini par l’équilibreur de charge. Cette option est recommandée car elle permet de répartir la charge de manière plus uniforme entre les serveurs principaux. Elle nécessite un équilibreur de charge de couche 7 avec cette fonctionnalité, capable de gérer le trafic HTTP et de mettre fin à la connexion TLS. Vous pouvez utiliser Azure Application Gateway (affinité de session) ou un équilibreur de charge d’un autre fournisseur.
 
-- Option 2 : Basez la persistance de session sur le champ d’en-tête X-Forwarded-For. Cette option nécessite un équilibreur de charge de couche 7 avec cette fonctionnalité et qui peut gérer le trafic HTTP et mettre fin à la connexion SSL.  
+- Option n°2 : Basez la persistance de session sur le champ d’en-tête X-Forwarded-For. Elle nécessite un équilibreur de charge de couche 7 avec cette fonctionnalité, capable de gérer le trafic HTTP et de mettre fin à la connexion TLS.  
 
-- Option 3 : Configurez l’application principale pour qu’elle ne nécessite pas de persistance de session.
+- Option 3 : Configurez l’application principale pour qu’elle ne nécessite pas de persistance de session.
 
 Reportez-vous à la documentation de votre fournisseur de logiciels pour comprendre les exigences en matière d’équilibrage de charge de l’application principale.
 

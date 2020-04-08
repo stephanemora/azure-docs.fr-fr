@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650297"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481080"
 ---
 # <a name="vcore-model-overview"></a>Vue d’ensemble du modèle vCore
 
@@ -81,13 +81,15 @@ Pour connaître les régions dans lesquelles Gen4/Gen5 est disponible, voir [Dis
 - En fonction de la charge de travail, la série Fsv2 peut fournir plus de performances de processeur par vCore que Gen5 ; la taille de 72 vCore peut en offrir plus à moindre coût que 80 vCore sur Gen5. 
 - Dans la mesure où Fsv2 fournit moins de mémoire et de tempdb par vCore que d’autres matériels, Gen5 ou la série M peuvent être à envisager pour les charges de travail sensibles à ces limites.  
 
-Pour connaître les régions dans lesquelles la série Fsv2 est disponible, voir [Disponibilité de la série Fsv2](#fsv2-series).
+La série Fsv2 n’est pas prise en charge dans le niveau Usage général.  Pour connaître les régions dans lesquelles la série Fsv2 est disponible, voir [Disponibilité de la série Fsv2](#fsv2-series).
 
 
 ### <a name="m-seriespreview"></a>Série M (préversion)
 
 - La série M est une option matérielle à mémoire optimisée destinée aux charges de travail réclamant plus de mémoire et des limites de calcul supérieures à celles fournies par Gen5.
 - La série M fournit 29 Go par vCore et 128 vCore, ce qui multiplie par 8 la limite de mémoire par rapport à Gen5 (presque 4 To).
+
+La série M est prise en charge uniquement dans le niveau Critique pour l’entreprise et ne prend pas en charge la redondance de zone.
 
 Pour activer le matériel de série M sur un abonnement et une région, il est nécessaire d’ouvrir une demande de support. L’abonnement doit être un type d’offre payante, y compris Paiement à l’utilisation ou Accord Entreprise (EA).  Si elle est approuvée, l’expérience de sélection et de provisionnement de la série M suit le même modèle que pour les autres générations de matériel. Pour connaître les régions dans lesquelles la série M est disponible, voir [Disponibilité de la série M](#m-series).
 
@@ -98,10 +100,11 @@ Pour activer le matériel de série M sur un abonnement et une région, il est 
 |Génération du matériel  |Calcul  |Mémoire  |
 |:---------|:---------|:---------|
 |Gen4     |- Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz<br>- Provisionnement dans la limite de 24 vCore (1 vCore = 1 cœur physique)  |- 7 Go par vCore<br>- Provisionnement dans la limite de 168 Go|
-|Gen5     |**Calcul provisionné**<br>- Processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz et Intel SP-8160 (Skylake)<br>- Provisionnement dans la limite de 80 vCore (1 vCore = 1 hyper-thread)<br><br>**Calcul serverless**<br>- Processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz et Intel SP-8160 (Skylake)<br>- Mise à l’échelle automatique dans la limite de 16 vCore (1 vCore = 1 hyper-thread)|**Calcul provisionné**<br>- 5,1 Go par vCore<br>- Provisionnement dans la limite de 408 Go<br><br>**Calcul serverless**<br>- Mise à l’échelle automatique dans la limite de 24 Go par vCore<br>- Mise à l’échelle automatique dans la limite de 48 Go|
+|Gen5     |**Calcul provisionné**<br>- Processeurs Intel E5-2673 v4 (Broadwell) cadencé à 2.3 GHz et Intel SP-8160 (Skylake)*<br>- Provisionnement dans la limite de 80 vCore (1 vCore = 1 hyper-thread)<br><br>**Calcul serverless**<br>- Processeurs Intel E5-2673 v4 (Broadwell) cadencé à 2.3 GHz et Intel SP-8160 (Skylake)*<br>- Mise à l’échelle automatique dans la limite de 16 vCore (1 vCore = 1 hyper-thread)|**Calcul provisionné**<br>- 5,1 Go par vCore<br>- Provisionnement dans la limite de 408 Go<br><br>**Calcul serverless**<br>- Mise à l’échelle automatique dans la limite de 24 Go par vCore<br>- Mise à l’échelle automatique dans la limite de 48 Go|
 |Série Fsv2     |- Processeurs Intel Xeon Platinum 8168 (Skylake)<br>- Fréquence d’horloge turbo tous cœurs prolongée de 3,4 GHz et fréquence d’horloge turbo monocœur maximale de 3,7 GHz<br>- Provisionnement de 72 vCore (1 vCore = 1 hyper-thread)|- 1,9 Go par vCore<br>- Provisionnement de 136 Go|
 |Série M     |- Processeurs Intel Xeon E7-8890 v3 2,5 GHz<br>- Provisionnement de 128 vCore (1 vCore = 1 hyper-thread)|- 29 Go par vCore<br>- Provisionnement de 3,7 To|
 
+\* Dans la vue de gestion dynamique [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la génération de matériel pour les bases de données Gen5 utilisant des processeurs Intel SP-8160 (Skylake) apparaît comme Gen6. Les limites de ressources pour toutes les bases de données Gen5 sont identiques, quel que soit le type de processeur (Broadwell ou Skylake).
 
 Pour plus d’informations sur les limites de ressources, voir [Limites de ressources des bases de données uniques (vCore)](sql-database-vcore-resource-limits-single-databases.md)ou [Limites de ressources des pools élastiques (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 
@@ -174,7 +177,7 @@ Pour plus d’informations, consultez la rubrique relative à la commande [az sq
 
 ### <a name="hardware-availability"></a>Disponibilité matérielle
 
-#### <a name="gen4gen5-1"></a> Gen4/Gen5
+#### <a name="gen4gen5"></a><a name="gen4gen5-1"></a> Gen4/Gen5
 
 Le matériel Gen4 est [en cours de retrait](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) et n’est plus disponible pour les nouveaux déploiements. Toutes les nouvelles bases de données doivent être déployées sur le matériel Gen5.
 

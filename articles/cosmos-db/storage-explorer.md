@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882350"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411672"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Utiliser des données à l’aide de l’Explorateur Stockage Azure
 
@@ -84,8 +84,8 @@ Vous pouvez gérer un compte Azure Cosmos DB en effectuant les opérations suiva
 * Ouvrir le compte dans le portail Azure
 * Ajouter la ressource à la liste d’accès rapide
 * Rechercher et actualiser les ressources
-* Créer et supprimer les bases de données
-* Créer et supprimer les collections
+* Créer et supprimer des bases de données
+* Créer et supprimer des collections
 * Créer, modifier, supprimer et filtrer les documents
 * Gérer les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur
 
@@ -103,10 +103,10 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
     ![rechercher à partir d’ici](./media/storage-explorer/search-from-here.png) 
 
 ### <a name="database-and-collection-management"></a>Gestion des bases de données et des collections
-#### <a name="create-a-database"></a>Créer une base de données 
+#### <a name="create-a-database"></a>Création d'une base de données 
 -   Cliquez avec le bouton droit sur le compte Azure Cosmos DB, choisissez **Créer une base de données**, entrez le nom de la base de données, puis appuyez sur **Entrée** pour terminer.
        
-    ![Création d’une base de données](./media/storage-explorer/create-database.png) 
+    ![Créer une base de données](./media/storage-explorer/create-database.png) 
 
 #### <a name="delete-a-database"></a>Supprimer une base de données
 - Cliquez avec le bouton droit sur la base de données, cliquez sur **Supprimer la base de données**, puis sur **Oui** dans la fenêtre contextuelle. Le nœud de base de données est supprimé et le compte Azure Cosmos DB s’actualise automatiquement.
@@ -174,7 +174,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 1. Pour créer une table, ouvrez **Entités** dans la fenêtre de gauche, cliquez sur **Ajouter**, modifiez le contenu de la boîte de dialogue **Ajouter une entité**, ajoutez la propriété en cliquant sur le bouton **Ajouter une propriété**, puis cliquez sur **Insérer**.
 2. Pour modifier une table, cliquez sur **Modifier**, modifiez le contenu, puis cliquez sur **Mettre à jour**.
 
-    ![Table](./media/storage-explorer/table.png)
+    ![Table de charge de travail](./media/storage-explorer/table.png)
 
 #### <a name="import-and-export-table"></a>Importer et exporter une table
 1. Pour importer, cliquez sur le bouton **Importer** et choisissez une table existante.
@@ -199,7 +199,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
     ![Procédure stockée](./media/storage-explorer/stored-procedure.png)
 * Les opérations pour les **déclencheurs** et les **fonctions définies par l’utilisateur** sont similaires à celles des **procédures stockées**.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 [Azure Cosmos DB dans l’Explorateur Stockage Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) est une application autonome qui permet de se connecter aux comptes Azure Cosmos DB hébergés sur Azure et sur les clouds souverains à partir de Windows, Mac OS ou Linux. Elle vous permet de gérer des entités Azure Cosmos DB, de manipuler des données, de mettre à jour des procédures stockées et des déclencheurs, ainsi que d’autres entités Azure comme les files d’attente et les objets blob de stockage.
 
@@ -215,15 +215,15 @@ Vous pouvez voir cette erreur pour plusieurs raisons. Les deux plus courantes so
 
 + Vous vous trouvez derrière un *proxy transparent*, ce qui signifie que quelqu’un (par exemple votre service informatique) intercepte le trafic HTTPS, le déchiffre, puis le chiffre en utilisant un certificat auto-signé.
 
-+ Vous exécutez un logiciel, tel qu’un logiciel antivirus, qui injecte un certificat SSL auto-signé dans les messages HTTPS que vous recevez.
++ Vous exécutez un logiciel, tel qu’un logiciel antivirus, qui injecte un certificat TLS/SSL auto-signé dans les messages HTTPS que vous recevez.
 
 Lorsque l’Explorateur de stockage rencontre l’un de ces « certificats auto-signés », il ne peut plus savoir si le message HTTPS qu’il reçoit a été falsifié. Si vous avez une copie du certificat auto-signé, vous pouvez indiquer à l’Explorateur de stockage de lui faire confiance. Si vous ne savez pas qui injecte le certificat, vous pouvez essayer de le découvrir vous-même en procédant comme suit :
 
-1. Installez Open SSL.
+1. Installer OpenSSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (n’importe quelle version légère convient)
      - Mac et Linux : doit être inclus dans votre système d’exploitation
-2. Exécutez Open SSL.
-    - Windows : accédez au répertoire d’installation, puis **/bin/** , puis double-cliquez sur **openssl.exe**.
+2. Exécuter OpenSSL
+    - Windows : accédez au répertoire d’installation, puis **/bin/** , puis double-cliquez sur **openssl.exe**.
     - Mac et Linux : exécutez **openssl** à partir d’un terminal
 3. Exécutez `s_client -showcerts -connect microsoft.com:443`
 4. Recherchez les certificats auto-signés. Si vous ne savez pas lesquels sont auto-signés, recherchez ceux dont le sujet (« s: ») et l’émetteur (« i: ») sont identiques.

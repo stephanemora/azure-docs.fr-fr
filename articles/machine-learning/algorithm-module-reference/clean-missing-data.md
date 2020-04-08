@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 5851b294e52fdcc03dbf3b889ff32898a823f655
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137568"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477695"
 ---
 # <a name="clean-missing-data-module"></a>Module de nettoyage des données manquantes
 
@@ -110,7 +110,7 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
   
 7. **Générer une colonne d’indicateur de valeur manquante** : Sélectionnez cette option si vous souhaitez générer des indications concernant le fait que les valeurs de la colonne correspondent aux critères du nettoyage de valeurs manquantes. Cette option est particulièrement utile lorsque vous mettez en place une nouvelle opération de nettoyage et que vous souhaitez vous assurer qu’il fonctionne comme prévu.
   
-8. Exécuter le pipeline.
+8. Envoyez le pipeline.
 
 ### <a name="results"></a>Résultats
 
@@ -138,7 +138,7 @@ Si vous devez répéter les opérations de nettoyage souvent, nous vous recomman
 
     Toutefois, supposons que vous avez créé une transformation sur un sous-ensemble de colonnes numériques. Vous pouvez appliquer cette transformation pour un jeu de données des types de colonne mixtes sans déclencher d’erreur, car les valeurs manquantes sont modifiés uniquement dans les colonnes numériques correspondantes.
 
-6.  Exécuter le pipeline.  
+6.  Envoyez le pipeline.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

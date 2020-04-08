@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 61fdc2a4694405d4f56600b2d2b71e9e37232a7a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 6ef0675e3ae3f7a5da38138177f3033051723411
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943243"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537106"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurer Azure Monitor pour votre application Python
 
@@ -271,7 +271,8 @@ Voici la liste des métriques standard qui sont actuellement envoyées :
 - Utilisation du processeur UC (en pourcentage)
 - Octets privés de processus (en octets)
 
-Vous devriez être en mesure de voir ces métriques dans `performanceCounters`. Le taux de requêtes entrantes se trouve sous `customMetrics`.
+Vous devriez être en mesure de voir ces métriques dans `performanceCounters`. Le taux de requêtes entrantes se trouve sous `customMetrics`. Pour plus d’informations, consultez [compteurs de performances](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+
 #### <a name="modify-telemetry"></a>Modifier la télémétrie
 
 Pour plus d’informations sur la modification de la télémétrie suivie avant son envoi à Azure Monitor, consultez les [processeurs de télémétrie](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors) OpenCensus Python.
@@ -388,13 +389,33 @@ Pour plus d’informations sur la modification de la télémétrie suivie avant 
 
     # Use properties in logging statements
     logger.warning('action', extra=properties)
+    ```
+
+#### <a name="sending-exceptions"></a>Envoi d’exceptions
+
+OpenCensus Python ne suit et n’envoie pas automatiquement les données de télémétrie `exception`. Elles sont envoyées via `AzureLogHandler` en utilisant les exceptions de la bibliothèque de journalisation Python. Vous pouvez ajouter des propriétés personnalisées comme pour la journalisation normale.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+
+    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
 
     # Use properties in exception logs
     try:
         result = 1 / 0  # generate a ZeroDivisionError
     except Exception:
-    logger.exception('Captured an exception.', extra=properties)
+        logger.exception('Captured an exception.', extra=properties)
     ```
+Sachant que vous devez journaliser les exceptions de manière explicite, il revient à l’utilisateur de décider comment il souhaite journaliser les exceptions non gérées. OpenCensus n’impose pas de restrictions aux utilisateurs quant à la méthode à employer, du moment qu’ils journalisent de manière explicite les données de télémétrie des exceptions.
+
 #### <a name="sampling"></a>échantillonnage
 
 Pour plus d’informations sur l’échantillonnage dans OpenCensus, consultez [Échantillonnage dans OpenCensus](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).

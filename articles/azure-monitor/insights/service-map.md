@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663621"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480910"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -26,7 +26,7 @@ Cet article décrit les détails de l’intégration et de l’utilisation de Se
 * L’agent de dépendances installé sur l’ordinateur Windows ou le serveur Linux.
 
 >[!NOTE]
->Si vous avez déjà déployé Service Map, vous pouvez maintenant visualiser vos mappages dans Azure Monitor pour les machines virtuelles, incluant des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances de celles-ci. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte Azure Monitor pour machines virtuelles, consultez les [questions fréquentes (FAQ)](../faq.md#azure-monitor-for-vms-preview).
+>Si vous avez déjà déployé Service Map, vous pouvez maintenant visualiser vos mappages dans Azure Monitor pour les machines virtuelles, incluant des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances de celles-ci. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte Azure Monitor pour machines virtuelles, consultez les [questions fréquentes (FAQ)](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -55,7 +55,7 @@ La solution Service Map vous permet de planifier, d’accélérer et de valider 
 
 ### <a name="business-continuity"></a>Continuité de l’activité
 
-Si vous utilisez Azure Site Recovery et que vous avez besoin d’aide pour définir la séquence de récupération pour votre environnement d’application, Service Map peut automatiquement vous indiquer comment les systèmes s’appuient les uns sur les autres pour s’assurer que votre plan de récupération est fiable. En choisissant un serveur ou un groupe critiques, et en affichant ses clients, vous pouvez identifier les systèmes frontaux à récupérer une fois le serveur restauré et disponible. Inversement, en examinant les dépendances des serveurs critiques par rapport au serveur principal, vous pouvez identifier les systèmes à récupérer avant la restauration de vos systèmes principaux.
+Si vous utilisez Azure Site Recovery et que vous avez besoin d’aide pour définir la séquence de récupération pour votre environnement d’application, Service Map peut automatiquement vous indiquer comment les systèmes s’appuient les uns sur les autres pour s’assurer que votre plan de récupération est fiable. En choisissant un serveur ou un groupe critiques, et en affichant ses clients, vous pouvez identifier les systèmes frontaux à récupérer une fois le serveur restauré et disponible. Inversement, en examinant les dépendances back-end des serveurs critiques, vous pouvez identifier les systèmes à récupérer avant la restauration de vos systèmes principaux.
 
 ### <a name="patch-management"></a>Gestion des correctifs
 
@@ -63,7 +63,7 @@ Service Map améliore l’utilisation de l’évaluation des mises à jour syst�
 
 ## <a name="mapping-overview"></a>Vue d’ensemble du mappage
 
-Les agents Service Map rassemblent des informations sur tous les processus connectés via TCP sur le serveur où ils sont installés, ainsi que des détails sur les connexions entrantes et sortantes pour chaque processus.
+Les agents Service Map rassemblent des informations sur tous les processus connectés via TCP sur le serveur où ils sont installés ainsi que des détails sur les connexions entrantes et sortantes pour chaque processus.
 
 Dans la liste du volet gauche, vous pouvez sélectionner les ordinateurs ou les groupes disposant d’agents Service Map afin de visualiser leurs dépendances sur une plage de temps spécifiée. Les cartes de dépendance d’ordinateur ciblent un ordinateur spécifique, et montrent tous les ordinateurs qui sont des clients ou serveurs TCP directs de cet ordinateur.  Les cartes de groupe d’ordinateurs montrent des ensembles de serveurs et leurs dépendances.
 
@@ -108,7 +108,7 @@ Vous pouvez alors choisir **Créer un nouveau** et attribuer un nom au groupe.
 
 ### <a name="viewing-a-group"></a>Affichage d’un groupe
 
-Une fois que vous avez créé des groupes, vous pouvez les afficher en cliquant sur l’onglet Groupes.
+Une fois que vous avez créé des groupes, vous pouvez les voir en cliquant sur l’onglet Groupes.
 
 ![Onglet Groupes](media/service-map/machine-groups-tab.png)
 
@@ -219,7 +219,7 @@ Vous pouvez collecter les détails du processus à partir des métadonnées du s
 
 ![Volet Propriétés du processus](media/service-map/process-properties.png)
 
-Le volet **Récapitulatif du processus** fournit des informations supplémentaires sur la connectivité du processus, qui comprennent les ports liés, les connexions entrantes et sortantes, et les connexions ayant échoué.
+Le volet **Récapitulatif du processus** fournit des informations supplémentaires sur la connectivité du processus, qui comprennent les ports liés, les connexions entrantes et sortantes ainsi que les connexions ayant échoué.
 
 ![Volet Récapitulatif du processus](media/service-map/process-summary.png)
 

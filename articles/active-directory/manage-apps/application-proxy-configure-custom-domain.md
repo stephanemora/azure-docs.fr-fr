@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3f35658a75adb4d4c6c279e45087e741b8117e65
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78248681"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481379"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -120,7 +120,7 @@ Pour obtenir des instructions plus détaillées sur le Proxy d’application, vo
 
 ## <a name="certificates-for-custom-domains"></a>Certificats pour des domaines personnalisés
 
-Un certificat crée la connexion SSL sécurisée pour votre domaine personnalisé. 
+Un certificat crée la connexion TLS sécurisée pour votre domaine personnalisé. 
 
 ### <a name="certificate-formats"></a>Formats de certificat
 

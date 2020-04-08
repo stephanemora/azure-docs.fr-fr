@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b29dbd7a034123b17b34b1c0fd4c8649e30810bd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128176"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535729"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d'Azure NetApp Files
 
@@ -57,11 +57,11 @@ Pour commencer, vous devez configurer un compte Azure NetApp Files.
 
 5. Une fois Azure Cloud Shell chargé, exécutez les deux cmdlets suivantes.
 
-   ```powershell
+   ```azurecli
    az account set --subscription <subscriptionID>
    ```
 
-   ```powershell
+   ```azurecli
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
@@ -73,7 +73,7 @@ Pour commencer, vous devez configurer un compte Azure NetApp Files.
 7. Sélectionnez **Azure NetApp Files** dans les résultats de la recherche, puis cliquez sur **Créer**.
 
 8. Sélectionnez le bouton **Ajouter**.
-9. Lorsque le panneau **Nouveau compte NetApp** s'ouvre, entrez les valeurs suivantes :
+9. Lorsque l’onglet **Nouveau compte NetApp** s’ouvre, entrez les valeurs suivantes :
 
     - Dans le champ **Nom**, entrez le nom de votre compte NetApp.
     - Dans le menu déroulant **Abonnement**, sélectionnez l'abonnement correspondant au compte de stockage que vous avez configuré à l'étape 4.
@@ -92,7 +92,7 @@ Créez ensuite un pool de capacités :
 1. Accédez au menu Azure NetApp Files et sélectionnez votre nouveau compte.
 2. Dans le menu de votre compte, sélectionnez **Pools de capacités** sous Service de stockage.
 3. Sélectionnez **Ajouter un pool**.
-4. Lorsque le panneau **Nouveau pool de capacités** s'ouvre, entrez les valeurs suivantes :
+4. Lorsque l’onglet **Nouveau pool de capacités** s’ouvre, entrez les valeurs suivantes :
 
     - Dans le champ **Nom**, entrez le nom du nouveau pool de capacités.
     - Dans le menu déroulant **Niveau de service**, sélectionnez la valeur de votre choix. Nous recommandons le niveau **Premium** pour la plupart des environnements.
@@ -127,7 +127,7 @@ Vous devez ensuite créer un volume.
 
 1. Sélectionnez **Volumes**, puis **Ajouter un volume**.
 
-2. Lorsque le panneau **Créer un volume** s'ouvre, entrez les valeurs suivantes :
+2. Lorsque l’onglet **Créer un volume** s’ouvre, entrez les valeurs suivantes :
 
     - Dans le champ **Nom du volume**, entrez le nom du nouveau volume.
     - Dans le menu déroulant **Pool de capacités**, sélectionnez le pool de capacités que vous venez de créer.

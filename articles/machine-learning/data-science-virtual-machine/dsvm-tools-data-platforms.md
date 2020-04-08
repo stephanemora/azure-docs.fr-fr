@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: bfae8147c348c76fa0e406fec283144ebc26e86b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cd787881957d78f179107e46b2650de4618c7724
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615328"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282322"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
@@ -28,7 +28,7 @@ Les outils de plateforme de données pris en charge sur DSVM sont les suivants.
 | | |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Une instance de base de données relationnelle locale      |
-| Éditions DSVM prises en charge      | Windows : SQL Server 2017, Windows 2019 (préversion) : SQL Server 2019      |
+| Éditions DSVM prises en charge      | Windows 2016 : SQL Server 2017, Windows 2019 : SQL Server 2019      |
 | Utilisations classiques      | Développement rapide localement avec le plus petit jeu de données <br/> Exécution de R en base de données   |
 | Liens vers des exemples      |    Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL :<br/>  `nyctaxi` <br/> Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft Machine Learning Server et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Outils connexes sur la machine virtuelle DSVM       | SQL Server Management Studio <br/> Pilotes ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |

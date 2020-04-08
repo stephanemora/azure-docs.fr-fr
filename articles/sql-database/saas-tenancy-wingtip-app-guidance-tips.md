@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132299"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Conseils généraux pour utiliser des exemples d'applications Wingtip Tickets SaaS
@@ -49,14 +49,14 @@ Pour tirer le meilleur parti de l’exemple, vous devez approfondir les scripts 
 Modifiez le fichier **UserConfig.psm1** avec le groupe de ressources et la valeur utilisateur que vous avez définis durant le déploiement :
 
 1. Ouvrez le *PowerShell ISE* puis chargez...\\Learning Modules\\*UserConfig.psm1*.
-2. Mettez à jour *ResourceGroupName* et *Name* avec les valeurs spécifique de votre déploiement (sur les lignes 10 et 11 uniquement).
-3. N’oubliez pas d’enregistrer les modifications.
+2. Mettez à jour *ResourceGroupName* et *Name* avec les valeurs spécifiques à votre déploiement (lignes 10 et 11 uniquement).
+3. Enregistrez les modifications !
 
 La définition de ces valeurs ici vous évite simplement d’avoir à mettre à jour ces valeurs spécifiques du déploiement dans chaque script.
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Exécuter les scripts en appuyant sur F5
 
-Plusieurs scripts utilisent *$PSScriptRoot* pour parcourir les dossiers, et *$PSScriptRoot* est évalué uniquement lors de l’exécution de scripts en appuyant sur **F5**.  La mise en surbrillance et l’exécution d’une sélection (**F8**) pouvant entraîner des erreurs, nous vous conseillons d’appuyer sur **F5** lors de l’exécution des scripts.
+Plusieurs scripts utilisent *$PSScriptRoot* pour parcourir les dossiers, et *$PSScriptRoot* est évalué uniquement lors de l’exécution de scripts en appuyant sur **F5**.  La mise en surbrillance et l’exécution d’une sélection (**F8**) pouvant entraîner des erreurs, appuyez sur **F5** lors de l’exécution des scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Parcourir les scripts pour examiner l’implémentation
 
@@ -79,16 +79,16 @@ Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ss
 Au départ, le déploiement a des locataires et des serveurs SQL Database de catalogue auxquels se connecter. Les noms de serveurs dépendent du modèle de client de base de données (voir ci-dessous pour plus les détails).
 
    - **Application autonome :** serveurs pour chaque client (ex. serveur *contosoconcerthall-&lt;Utilisateur&gt;* ) et *catalog-sa-&lt;Utilisateur&gt;*
-   - **Base de données par client :** serveurs *tenants1-dpt-&lt;Utilisateur&gt;* et *catalog-dpt-&lt;Utilisateur&gt;*
-   - **Base de données mutualisée :** serveurs *tenants1-mt-&lt;Utilisateur&gt;* et *catalog-mt-&lt;Utilisateur&gt;*
+   - **Base de données par locataire :** serveurs *tenants1-dpt-&lt;Utilisateur&gt;* et *catalog-dpt-&lt;Utilisateur&gt;*
+   - **Base de données multilocataire :** serveurs *tenants1-mt-&lt;Utilisateur&gt;* et *catalog-mt-&lt;Utilisateur&gt;*
 
 Pour garantir une connexion de démonstration réussie, tous serveurs ont une [règle de pare-feu](sql-database-firewall-configure.md) autorisant toutes les adresses IP.
 
 
 1. Ouvrez *SSMS* et connectez-vous aux clients. Le nom du serveur dépend du modèle de client de base de données que vous avez sélectionné (voir ci-dessous pour plus les détails) :
     - **Application autonome :** serveurs avec des clients individuels (ex. *contosoconcerthall-&lt;Utilisateur&gt;.database.windows.net*)
-    - **Base de données par client :** *tenants1-dpt-&lt;Utilisateur&gt;.database.windows.net*
-    - **Base de données mutualisée :** *tenants1-mt-&lt;Utilisateur&gt;.database.windows.net*
+    - **Base de données par locataire :** *tenants1-dpt-&lt;Utilisateur&gt;.database.windows.net*
+    - **Base de données multilocataire :** *tenants1-mt-&lt;Utilisateur&gt;.database.windows.net*
 2. Cliquez sur **Connexion** > **Moteur de base de données...**  :
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
@@ -96,14 +96,14 @@ Pour garantir une connexion de démonstration réussie, tous serveurs ont une [r
 3. Les informations d’identification de démonstration sont : Connexion = *developer*, Mot de passe = *P\@ssword1*
 
     L'image ci-dessous montre l'ouverture d'une session pour le modèle *Base de données par client*.
-    ![Connexion](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
 
 
 
 4. Répétez les étapes 2 et 3 et connectez-vous au serveur de catalogue (voir ci-dessous pour connaître le nom des serveurs spécifiques en fonction du modèle de client de base de données sélectionné)
-    - **Application autonome :** *catalog-sa-&lt;Utilisateur&gt;.database.windows.net*
-    - **Base de données par client :** *catalog-dpt-&lt;Utilisateur&gt;.database.windows.net*
-    - **Base de données mutualisée :** *catalog-mt-&lt;Utilisateur&gt;.database.windows.net*
+    - **Application autonome :** *catalog-sa-&lt;Utilisateur&gt;.database.windows.net*
+    - **Base de données par locataire :** *catalog-dpt-&lt;Utilisateur&gt;.database.windows.net*
+    - **Base de données multilocataire :** *catalog-mt-&lt;Utilisateur&gt;.database.windows.net*
 
 
 Une fois la connexion établie, vous devez voir tous les serveurs. Votre liste des bases de données peut être différente, selon les clients que vous avez approvisionnés.

@@ -3,12 +3,12 @@ title: Résoudre les erreurs de sauvegarde de bases de données SAP HANA
 description: Décrit comment résoudre les erreurs courantes qui peuvent survenir lorsque vous utilisez le service Sauvegarde Azure pour sauvegarder des bases de données SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 6520f106011b632da2725f456aeb278c7748ddc9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664596"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79459308"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
@@ -16,9 +16,16 @@ Cet article fournit des informations de dépannage pour la sauvegarde des bases 
 
 ## <a name="prerequisites-and-permissions"></a>Prérequis et autorisations
 
-Reportez-vous aux sections [conditions préalables](tutorial-backup-sap-hana-db.md#prerequisites) et [configuration des autorisations](tutorial-backup-sap-hana-db.md#setting-up-permissions) avant de configurer les sauvegardes.
+Reportez-vous aux sections [Conditions préalables](tutorial-backup-sap-hana-db.md#prerequisites) et [Ce que fait le script de préinscription](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) avant de configurer les sauvegardes.
 
 ## <a name="common-user-errors"></a>Erreurs utilisateur courantes
+
+### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
+
+| **Message d’erreur**      | <span style="font-weight:normal">La sauvegarde Azure ne dispose pas des privilèges de rôle requis pour effectuer la sauvegarde</span>    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Causes possibles**    | Le rôle a peut-être été modifié.                          |
+| **Action recommandée** | Pour résoudre le problème, exécutez le script à partir du volet **Discover DB** ou téléchargez-le [ici](https://aka.ms/scriptforpermsonhana). Vous pouvez également ajouter le rôle « SAP_INTERNAL_HANA_SUPPORT » à l’utilisateur de sauvegarde de charge de travail (AZUREWLBACKUPHANAUSER). |
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
@@ -117,6 +124,26 @@ Les mises à niveau vers OS ou SAP HANA qui n’entraînent pas de modification 
 - Réexécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana). En règle générale, nous avons vu que le processus de mise à niveau supprime les rôles nécessaires. L’exécution du script de préinscription permet de vérifier tous les rôles requis.
 - [Réactiver la protection](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) de la base de données
 
+## <a name="re-registration-failures"></a>Échecs de réinscription
+
+Vérifiez la présence d’un ou plusieurs des symptômes suivants avant de déclencher l’opération de réinscription :
+
+- Toutes les opérations (comme la sauvegarde, la restauration et la configuration de la sauvegarde) échouent sur la machine virtuelle avec un des codes d’erreur suivants : **WorkloadExtensionNotReachable, UserErrorWorkloadExtensionNotInstalled, WorkloadExtensionNotPresent, WorkloadExtensionDidntDequeueMsg**.
+- Si la zone de l’**État de la sauvegarde** de l’élément de sauvegarde affiche **Inaccessible**, excluez toutes les autres causes susceptibles d’entraîner le même état :
+
+  - Absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle
+  - La machine virtuelle étant arrêtée, les sauvegardes ne peuvent pas se produire
+  - Problèmes de réseau
+
+Ces symptômes peuvent survenir pour une ou plusieurs des raisons suivantes :
+
+- Une extension a été supprimée ou désinstallée sur le portail.
+- La machine virtuelle a été restaurée à un point dans le temps via une restauration de disques sur place.
+- La machine virtuelle a été arrêtée pendant une période prolongée, entraînant l’expiration de la configuration d’extension qui s’y trouvait.
+- La machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et le même groupe de ressources que la machine virtuelle supprimée.
+
+Dans les scénarios précédents, nous vous recommandons de déclencher une opération de réinscription sur la machine virtuelle.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez le [forum aux questions](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) sur la sauvegarde de bases de données SQL Server sur des machines virtuelles Azure]
+- Consultez les [questions fréquentes (FAQ)](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) sur la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure.

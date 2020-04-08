@@ -2,13 +2,13 @@
 title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: dc46762755718c798b4a7eed6f2dc6b8afce9b98
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.date: 03/16/2020
+ms.openlocfilehash: 863d1330412fa238b820eb0f1f05351fc723de6f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942765"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460311"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Créer des ressources au niveau du groupe d’administration
 
@@ -45,13 +45,24 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Les commandes utilisées pour les déploiements de groupes d’administration sont différentes de celles utilisées pour les déploiements de groupes de ressources.
 
-Pour Azure PowerShell, utilisez [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment). 
+Pour Azure CLI, utilisez [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create) :
+
+```azurecli-interactive
+az deployment mg create \
+  --name demoMGDeployment \
+  --location WestUS \
+  --management-group-id myMG \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
+```
+
+Pour Azure PowerShell, utilisez [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
 ```azurepowershell-interactive
 New-AzManagementGroupDeployment `
-  -ManagementGroupId "myMG" `
+  -Name demoMGDeployment `
   -Location "West US" `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+  -ManagementGroupId "myMG" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
 Pour l’API REST, utilisez [Déploiements - Créer au niveau du groupe d’administration](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).

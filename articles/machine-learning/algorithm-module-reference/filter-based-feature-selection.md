@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548473"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477593"
 ---
 # <a name="filter-based-feature-selection"></a>Sélection de caractéristiques par filtrage
 
@@ -90,7 +90,7 @@ Vous choisissez une métrique statistique standard. Le module calcule la corrél
 
     - Si vous spécifiez moins de colonnes de résultats qu’il n’y a de colonnes de caractéristiques, les caractéristiques sont classées par ordre décroissant de leur score. Seules les caractéristiques principales sont retournées. 
 
-7.  Exécutez le pipeline, ou sélectionnez le module de sélection de caractéristiques par filtrage et sélectionnez **Exécuter la sélection**.
+7.  Envoyez le pipeline, ou sélectionnez le module de sélection de caractéristiques par filtrage et sélectionnez **Exécuter la sélection**.
 
 
 ## <a name="results"></a>Résultats

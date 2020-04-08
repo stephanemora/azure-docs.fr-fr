@@ -3,14 +3,15 @@ title: Créer des abonnements Azure par programmation
 description: Découvrez comment créer des abonnements Azure supplémentaires par programmation.
 author: amberbhargava
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 03/17/2020
+ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 47d4454c47967d07898492176438e547b1e561b6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 33f1d154f438b917b79cd299e81c9078e2f2e81d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198681"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460396"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Créer des abonnements Azure par programmation (préversion)
 
@@ -22,6 +23,8 @@ Quand vous créez un abonnement Azure par programmation, cet abonnement est rég
 
 
 ## <a name="create-subscriptions-for-an-ea-billing-account"></a>Créer des abonnements pour un compte de facturation EA
+
+Consultez les sections suivantes pour savoir comment créer des abonnements EA.
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -202,7 +205,7 @@ Pour obtenir la liste complète de tous les paramètres, consultez [az account c
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitations de l’API de création d’abonnement Azure Enterprise
 
 - Seuls des abonnements Azure Enterprise peuvent être créés à l’aide de cette API.
-- Il existe une limite de 200 abonnements par compte d’inscription. Au-delà de cette limite, les abonnements supplémentaires pour le compte peuvent être créés uniquement à partir du portail Azure. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
+- Il existe une limite de 500 abonnements par compte d’inscription. Au-delà de cette limite, les abonnements supplémentaires pour le compte peuvent être créés uniquement à partir du portail Azure. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
 - Les utilisateurs qui ne sont pas propriétaires de compte, mais qui ont été ajoutés à un compte d’inscription par le biais de RBAC, ne peuvent pas créer d’abonnements dans le portail Azure.
 - Vous ne pouvez pas sélectionner le locataire où l’abonnement doit être créé. L’abonnement est toujours créé dans le locataire de base du propriétaire du compte. Pour déplacer l’abonnement vers un autre locataire, consultez [Changer le locataire d’abonnement](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

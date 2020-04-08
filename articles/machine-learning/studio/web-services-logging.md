@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217858"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Ce document fournit des informations sur la capacité de journalisation des services web Machine Learning Studio (classique). La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning Studio (classique).  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Comment activer la journalisation pour un service web
@@ -61,7 +64,7 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Effets de l’activation de la journalisation
-Lorsque la journalisation est activée, les diagnostics et erreurs du point de terminaison du service web sont journalisés dans le conteneur d’objets blob **ml-diagnostics** dans le compte de Stockage Azure lié à l’espace de travail de l’utilisateur. Ce conteneur contient toutes les informations de diagnostic pour tous les points de terminaison de service web pour tous les espaces de travail associés à ce compte de stockage.
+Quand la journalisation est activée, les diagnostics et erreurs du point de terminaison de service web sont journalisés dans le conteneur d’objets blob **ml-diagnostics** dans le compte de Stockage Azure lié à l’espace de travail de l’utilisateur. Ce conteneur contient toutes les informations de diagnostic pour tous les points de terminaison de service web pour tous les espaces de travail associés à ce compte de stockage.
 
 Les journaux d’activité peuvent être consultés à l’aide de plusieurs outils servant à « explorer » un compte de Stockage Azure. Le plus simple peut être d’accéder au compte de stockage dans le portail Azure, de cliquer sur **Conteneurs**, puis sur le conteneur **ml-diagnostics**.  
 

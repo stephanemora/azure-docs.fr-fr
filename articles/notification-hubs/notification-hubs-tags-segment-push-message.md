@@ -16,12 +16,12 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: b1162e6070deba7f645298b59ffeb1898eb030a8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545770"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062309"
 ---
 # <a name="routing-and-tag-expressions"></a>Routage et expressions de balise
 
@@ -39,7 +39,7 @@ La seule façon de cibler des inscriptions de notification spécifiques consiste
 
 ## <a name="tags"></a>Balises
 
-Une balise est une chaîne de 120 caractères maximum, contenant des caractères alphanumériques ainsi que les caractères non alphanumériques suivants : « `_` », « `@` », « `#` », « `.` », « `:` », « `-` ». L'exemple suivant montre une application à partir de laquelle vous pouvez recevoir des notifications toast concernant des groupes musicaux spécifiques. Dans ce scénario, une méthode simple pour router des notifications consiste à étiqueter les inscriptions avec des balises représentant les différents groupes de musique, comme dans la figure suivante :
+Une balise est une chaîne de 120 caractères au maximum, contenant des caractères alphanumériques ainsi que les caractères non alphanumériques suivants : « `_` », « `@` », « `#` », « `.` », « `:` », « `-` ». L'exemple suivant montre une application à partir de laquelle vous pouvez recevoir des notifications toast concernant des groupes musicaux spécifiques. Dans ce scénario, une méthode simple pour router des notifications consiste à étiqueter les inscriptions avec des balises représentant les différents groupes de musique, comme dans la figure suivante :
 
 ![Vue d’ensemble des étiquettes](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
@@ -96,7 +96,7 @@ Examinons une application de sports qui envoie un rappel à tous les abonnés ha
 
 ![Expressions de balise](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Les expressions de balise prennent en charge les opérateurs booléens courants comme `AND` (`&&`), `OR` (`||`) et `NOT` (`!`) ; elles peuvent également contenir des parenthèses. Les expressions de balise utilisant uniquement des opérateurs `OR` peuvent faire référence à 20 balises ; sinon, les expressions de balise sont limitées à 6 balises.
+Les expressions de balise prennent en charge les opérateurs booléens courants comme `AND` (`&&`), `OR` (`||`) et `NOT` (`!`) ; elles peuvent également contenir des parenthèses. Les expressions de balise utilisant uniquement des opérateurs `OR` peuvent référencer 20 balises ; une expression avec des opérateurs `AND` mais sans opérateur `OR` peut référencer 10 balises ; sinon, les expressions de balise sont limitées à 6 balises.
 
 Voici un exemple d’envoi de notifications effectué avec des expressions de balise et le kit SDK :
 

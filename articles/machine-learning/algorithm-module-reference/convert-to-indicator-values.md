@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: fc059eca3a01b5c6cde642af5ceb6a3822672def
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163826"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477661"
 ---
 # <a name="convert-to-indicator-values"></a>Convertir en valeurs d’indicateur
 Cet article décrit un module du concepteur Azure Machine Learning.
@@ -39,7 +39,7 @@ Ce module génère également une définition de la transformation utilisée pou
     > [!TIP]
     >  Si vous choisissez l’option de remplacement, la colonne source n’est pas réellement supprimée ou modifiée. Au lieu de cela, les nouvelles colonnes sont générées et présentées dans le jeu de données de sortie, et la colonne source reste disponible dans l’espace de travail. Si vous avez besoin de voir les données d’origine, vous pouvez utiliser le module [Ajouter des colonnes](add-columns.md) à tout moment pour rajouter la colonne source.
 
-1. Exécuter le pipeline.
+1. Envoyez le pipeline.
 
 ## <a name="results"></a>Résultats
 
@@ -88,7 +88,7 @@ Si vous devez répéter souvent des opérations de valeurs d’indicateur, vous 
 
    Quand vous appliquez une transformation enregistrée, vous ne pouvez pas sélectionner les colonnes à transformer. Cela est dû au fait que la transformation a été définie et qu’elle s’applique automatiquement aux types de données spécifiés dans l’opération d’origine.
 
-1. Exécuter le pipeline.
+1. Envoyez le pipeline.
  
 ## <a name="technical-notes"></a>Notes techniques  
 

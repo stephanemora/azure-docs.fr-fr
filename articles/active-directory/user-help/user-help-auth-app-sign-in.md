@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78297839"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79138941"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator
 
@@ -112,7 +112,7 @@ Sur un appareil iOS :
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Vous connecter à l’aide de la vérification en deux étapes pour votre compte
 
-La méthode de vérification à deux facteurs standard vous oblige à entrer votre nom d’utilisateur et votre mot de passe sur l’appareil sur lequel vous vous connectez, puis à choisir si l’application Microsoft Authenticator reçoit l’application Microsoft Authenticator. Sur un appareil Android, ces codes de vérification se trouvent dans l’écran Comptes. Sur un appareil iOS, ces codes de vérification se trouvent dans l’écran **Comptes** ou dans la vue plein écran d’un compte, en fonction du type de compte. Vous activez la vérification en deux étapes pour votre compte dans le cadre du processus d’ajout du compte à l’application Microsoft Authenticator.
+La méthode de vérification à deux facteurs standard vous oblige à entrer votre nom d’utilisateur et votre mot de passe sur l’appareil auquel vous vous connectez. Ensuite, ouvrez votre application Microsoft Authenticator et tapez le code généré de manière aléatoire pour votre compte dans la zone **Entrez un code**. Sur un appareil Android, ces codes de vérification se trouvent dans l’écran **Comptes**. Sur un appareil iOS, ces codes de vérification se trouvent dans l’écran **Comptes** ou dans la vue plein écran d’un compte, en fonction du type de compte. Vous activez la vérification en deux étapes pour votre compte dans le cadre du processus d’ajout du compte à l’application Microsoft Authenticator.
 
 >[!Note]
 >Si vous ne voyez pas votre compte professionnel ou scolaire ou votre compte personnel sur l’écran **Comptes** de l’application Microsoft Authenticator, cela signifie que vous n’avez pas ajouté le compte à l’application Microsoft Authenticator. Pour ajouter votre compte, consultez [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md) ou [Ajouter vos comptes personnels](user-help-auth-app-add-personal-ms-account.md).

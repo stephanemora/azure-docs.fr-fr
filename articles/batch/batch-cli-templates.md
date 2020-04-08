@@ -11,12 +11,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: df7db30e987c408ff158acfc468010948c821b8d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020163"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397535"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utiliser des modèles d’interface de ligne de commande Azure Batch et le transfert de fichiers
 
@@ -28,7 +28,7 @@ Créez et utilisez des modèles de fichier JSON avec Azure CLI pour créer des p
 
 Une extension de l’interface Azure CLI permet aux utilisateurs qui ne sont pas des développeurs d’utiliser Batch de bout en bout. En utilisant juste des commandes CLI, vous pouvez créer un pool, charger des données d’entrée, créer des travaux et des tâches associées, et télécharger les données de sortie produites. Aucun code supplémentaire n’est nécessaire. Exécutez les commandes CLI directement, ou intégrez-les dans des scripts.
 
-Les modèles Batch s’appuient sur la [prise en charge actuelle de Batch dans Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) pour les fichiers JSON, afin de spécifier des valeurs de propriété lors de la création notamment de pools, de travaux et de tâches. Les modèles Batch ajoutent les fonctionnalités suivantes :
+Les modèles Batch s’appuient sur la prise en charge actuelle de Batch dans [Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) pour les fichiers JSON, afin de spécifier des valeurs de propriété lors de la création notamment de pools, de travaux et de tâches. Les modèles Batch ajoutent les fonctionnalités suivantes :
 
 -   Des paramètres peuvent être définis. Lorsque le modèle est utilisé, seules les valeurs de paramètre sont spécifiées pour créer l’élément et les autres valeurs de propriété d’élément sont spécifiées dans le corps du modèle. Un utilisateur qui comprend Batch et les applications exécutées par Batch peut créer des modèles, en spécifiant les valeurs de propriété des pools, des travaux et des tâches. Un utilisateur moins familiarisé avec Batch et/ou les applications doit uniquement spécifier les valeurs des paramètres définis.
 
@@ -68,7 +68,7 @@ Les modèles Azure Batch sont semblables aux modèles Azure Resource Manager en 
 
 -   **Paramètres**
 
-    -   Ils autorisent la spécification des valeurs de propriété dans une section Corps, seules les valeurs de paramètre devant être fournies lorsque le modèle est utilisé. Par exemple, la définition complète d’un pool peut être placée dans le corps et un seul paramètre défini pour l’ID du pool. Par conséquent, seule la chaîne d’ID du pool doit être fournie pour créer un pool.
+    -   Ils autorisent la spécification des valeurs de propriété dans une section Corps, seules les valeurs de paramètre devant être fournies lorsque le modèle est utilisé. Par exemple, la définition complète d’un pool peut être placée dans le corps et un seul paramètre défini pour `poolId`. Par conséquent, seule la chaîne d’ID du pool doit être fournie pour créer un pool.
         
     -   Le corps du modèle peut être créé par une personne connaissant Batch et les applications à exécuter dans celui-ci. Seules les valeurs des paramètres définis par l’auteur doivent être fournis lorsque le modèle est utilisé. Un utilisateur sans connaissance poussée de Batch ou des applications peut par conséquent utiliser les modèles.
 

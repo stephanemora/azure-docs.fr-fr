@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183701"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472773"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -34,7 +34,7 @@ Compare deux revendications et lève une exception si elles ne sont pas égales 
 | InputClaim | inputClaim2 | string | Type de la deuxième revendication qui doit être comparée. |
 | InputParameter | stringComparison | string | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 
-La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [DisplayConrtol](display-controls.md). Les métadonnées `UserMessageIfClaimsTransformationStringsAreNotEqual` d’un profil technique autodéclaré contrôlent le message d’erreur présenté à l’utilisateur.
+La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [DisplayConrtol](display-controls.md). Les métadonnées `UserMessageIfClaimsTransformationStringsAreNotEqual` d’un profil technique autodéclaré contrôlent le message d’erreur présenté à l’utilisateur. Les messages d’erreur peuvent être [localisés](localization-string-ids.md#claims-transformations-error-messages).
 
 
 ![Exécution de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)

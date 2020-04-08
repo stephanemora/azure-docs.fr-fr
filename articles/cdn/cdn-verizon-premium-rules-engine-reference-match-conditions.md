@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593201"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN de Verizon Premium
@@ -102,7 +102,7 @@ Nom | Objectif
 
 La condition de correspondance Toujours applique un ensemble de fonctionnalités par défaut à toutes les requêtes.
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -129,7 +129,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -149,7 +149,7 @@ Informations essentielles :
 - Le point d’accès de contenu identifie le service qui doit traiter le contenu demandé.
 - N’utilisez pas d’instruction AND IF pour combiner certaines conditions de correspondance. Par exemple, la combinaison d’une condition de correspondance Origine CDN avec une condition de correspondance Origine client crée un modèle de correspondance introuvable. Pour cette raison, deux conditions de correspondance Origine CDN ne peuvent pas être combinées à l’aide d’une instruction AND IF.
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -178,7 +178,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -211,7 +211,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 </br>
 
 ---
@@ -243,7 +243,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -285,7 +285,7 @@ Cette condition de correspondance vous permet d’effectuer une multitude de per
 
 - Deny Access (403) Feature (Fonctionnalité Refuser l’accès (403)) : activez [Deny Access (403) feature](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) (Fonctionnalité Refuser l’accès (403)) pour répliquer la partie autorisée ou bloquée de la fonctionnalité de filtrage par pays.
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -301,7 +301,7 @@ Informations essentielles :
   - Configuration de CNAME de périmètre
 - N’utilisez pas d’instruction AND IF pour combiner certaines conditions de correspondance. Par exemple, la combinaison d’une condition de correspondance Origine client avec une condition de correspondance Origine CDN crée un modèle de correspondance introuvable. Pour cette raison, deux conditions de correspondance Origine client ne peuvent pas être combinées à l’aide d’une instruction AND IF.
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -364,11 +364,11 @@ Navigateur mobile | %{wurfl_cap_mobile_browser} | Chaîne qui indique le navigat
 Version du navigateur mobile | %{wurfl_cap_mobile_browser_version} | Chaîne qui indique la version du navigateur utilisé pour demander du contenu à partir de l’appareil. | 31
 Nom du modèle | %{wurfl_cap_model_name} | Chaîne qui indique le nom du modèle de l’appareil. | s3
 Téléchargement progressif | %{wurfl_cap_progressive_download} | Valeur booléenne qui indique si l’appareil prend en charge la lecture d’un fichier audio/vidéo pendant son téléchargement. | true
-Date de lancement | %{wurfl_cap_release_date} | Chaîne qui indique l’année et le mois de l’ajout de l’appareil à la base de données WURFL.<br/><br/>Format : `yyyy_mm` | 2013_december
+Date de sortie | %{wurfl_cap_release_date} | Chaîne qui indique l’année et le mois de l’ajout de l’appareil à la base de données WURFL.<br/><br/>Format : `yyyy_mm` | 2013_december
 Hauteur de résolution | %{wurfl_cap_resolution_height} | Entier qui indique la hauteur de l’appareil en pixels. | 768
 Largeur de résolution | %{wurfl_cap_resolution_width} | Entier qui indique la largeur de l’appareil en pixels. | 1 024
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -388,7 +388,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -407,7 +407,7 @@ Informations essentielles :
 
 - Spécifiez plusieurs noms d’hôte en les séparant par un espace.
 - Cette condition de correspondance prend en charge les [valeurs de caractère générique](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
-- Si la valeur spécifiée ne contient pas d’astérisque, elle doit correspondre à la valeur exacte du nom d’hôte du point d’accès. Par exemple, «mydomain.com» ne correspond pas à «www.mydomain.com».
+- Si la valeur spécifiée ne contient pas d’astérisque, elle doit correspondre à la valeur exacte du nom d’hôte du point d’accès. Par exemple, «mydomain.com» ne correspond pas à « www.mydomain.com».
 - Utilisez l’option **Ignorer la casse** pour contrôler si une comparaison respectant la casse est effectuée.
 - En raison du type de suivi des paramètres de cache, cette condition de correspondance est incompatible avec les fonctionnalités suivantes :
   - Remplissage de cache complet
@@ -416,7 +416,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -441,7 +441,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -472,7 +472,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -504,7 +504,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -519,7 +519,7 @@ La condition de correspondance Méthode de requête est respectée uniquement qu
 - POST
 - OPTIONS
 - PUT
-- SUPPRIMER
+- Suppression
 - TRACE
 - CONNECT
 
@@ -533,7 +533,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -555,7 +555,7 @@ Informations essentielles :
   - Ignorer la requête non-cache d’origine
   - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -592,7 +592,7 @@ Informations essentielles :
     
   - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
-    Informations supplémentaires :
+    Informations supplémentaires :
   - Domaine personnalisé : https:\//my.domain.com/path/asset.htm
     
     - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/
@@ -613,7 +613,7 @@ Informations essentielles :
 
 - Utilisez l’option **Ignorer la casse** pour contrôler si une comparaison respectant la casse est effectuée.
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -656,7 +656,7 @@ Cette condition de correspondance est remplie quand elle trouve des URL qui se t
 - .php
 - .html
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -687,7 +687,7 @@ Informations essentielles :
 
     Par exemple, spécifier « presentation.ppt » correspond à une ressource nommée « presentation.ppt », mais pas à une ressource nommée « presentation.pptx ».
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -724,7 +724,7 @@ Par exemple, les deux URL suivantes pointent vers la même ressource et ont donc
 - CDN URL: http:\//wpc.0001.&lt;domaine&gt;/800001/CustomerOrigin/path/asset.htm
 - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
 
-    Informations supplémentaires :
+    Informations supplémentaires :
     
     - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/asset.htm
    
@@ -736,7 +736,7 @@ Par exemple, les deux URL suivantes pointent vers la même ressource et ont donc
 
 - Pour faire correspondre toutes les demandes effectuées vers un répertoire particulier, utilisez la condition de correspondance [Répertoire du chemin d’URL](#url-path-directory) ou [Caractère générique du chemin d’URL](#url-path-wildcard).
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -761,7 +761,7 @@ Informations essentielles :
 
      - URL CNAME de périmètre : http:\//my.domain.com/path/asset.htm
 
-    Informations supplémentaires :
+    Informations supplémentaires :
     
      - Chemin d’URL : /800001/CustomerOrigin/path/asset.htm
 
@@ -771,7 +771,7 @@ Informations essentielles :
     
 - Les espaces dans le chemin d’URL doivent être remplacées par « %20 ».
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -807,7 +807,7 @@ Informations essentielles :
      - CDN URL: http://wpc.0001.&lt ;domain&gt; /800001/CustomerOrigin/path/asset.htm
      - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
-    Informations supplémentaires :
+    Informations supplémentaires :
     
      - Chemin d’URL (relatif à la racine) : /800001/CustomerOrigin/path/asset.htm
     
@@ -829,15 +829,15 @@ Informations essentielles :
 
 Les exemples de configuration dans le tableau suivant supposent que cette condition de correspondance est remplie quand une requête correspond au modèle d’URL spécifié :
 
-Valeur                   | Par rapport à    | Résultat 
+Valeur                   | Par rapport à    | Résultats 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Racine ou Origine | Ce modèle correspond aux requêtes de ressources nommées « test.html » ou « test.php » dans les dossiers.
-/80ABCD/origin/text/*   | Racine           | Ce modèle correspond lorsque la ressource demandée répond aux critères suivants : <br />- Il doit résider sur une origine client appelée « origin ». <br />- Le chemin d’accès relatif doit commencer par un dossier appelé « text ». Autrement dit, la ressource demandée peut résider dans le dossier « text » ou l’un de ses sous-dossiers récursifs.
+/80ABCD/origin/text/*   | Root           | Ce modèle correspond lorsque la ressource demandée répond aux critères suivants : <br />- Il doit résider sur une origine client appelée « origin ». <br />- Le chemin d’accès relatif doit commencer par un dossier appelé « text ». Autrement dit, la ressource demandée peut résider dans le dossier « text » ou l’un de ses sous-dossiers récursifs.
 */css/* */js/*          | Racine ou Origine | Ce modèle correspond à toutes les URL CDN ou CNAME de périmètre qui contiennent un dossier css ou js.
 *.jpg *.gif *.png       | Racine ou Origine | Ce modèle correspond à toutes les URL CDN ou CNAME de périmètre se terminant par .jpg, .gif ou .png. Une autre façon de spécifier ce modèle consiste à utiliser la [condition de correspondance Extension du chemin d’URL](#url-path-extension).
 /images/\* /media/\*      | Origine         | Ce modèle est mis en correspondance par les URL CDN ou CNAME de périmètre dont le chemin d’accès relatif commence par un dossier « images » ou « media ». <br />- CDN URL: http:\//wpc.0001.&lt;domaine&gt;/800001/myorigin/images/sales/event1.png<br />- Exemple d’URL CNAME de périmètre : http:\//cdn.mydomain.com/images/sales/event1.png
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -874,7 +874,7 @@ Informations essentielles :
    - Ignorer la requête non-cache d’origine
    - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -909,7 +909,7 @@ Informations essentielles :
 
 - Spécifiez plusieurs valeurs de paramètre de chaîne de requête en les séparant par une espace. Cette condition de correspondance est remplie quand une requête contient l’une des combinaisons nom/valeur spécifiées.
 
-   - Exemple 1 :
+   - Exemple 1 :
 
      - Configuration :
 
@@ -921,7 +921,7 @@ Informations essentielles :
     
        Parameter1=ValueB
 
-   - Exemple 2 :
+   - Exemple 2 :
 
      - Configuration : 
 
@@ -953,13 +953,13 @@ Informations essentielles :
 
 L’exemple suivant montre comment cette option fonctionne dans des situations spécifiques :
 
-Nom  | Valeur |  Résultat
+Nom  | Valeur |  Résultats
 ------|-------|--------
 Utilisateur  | Joe   | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée est « ?user=joe ».
 Utilisateur  | *     | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée contient un paramètre Utilisateur.
-Email | Joe\* | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée contient un paramètre E-mail qui commence par « Joe ».
+E-mail | Joe\* | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée contient un paramètre E-mail qui commence par « Joe ».
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -1007,7 +1007,7 @@ Informations essentielles :
    - Ignorer la requête non-cache d’origine
    - Obsolescence maximale interne
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 
@@ -1036,7 +1036,7 @@ Informations essentielles :
 
 - Spécifiez plusieurs valeurs en les séparant par un espace.
 
-   Par exemple :  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Par exemple : *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Seules les correspondances exactes à au moins un des modèles de chaîne de requête spécifiés satisfont cette condition de correspondance.
     
@@ -1058,7 +1058,7 @@ L’exemple suivant montre comment cette option fonctionne dans des situations s
 user=joe              | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée est « ?user=joe ».
 \*user=\* \*optout=\* | Ce modèle correspond lorsque la requête d’URL CDN contient l’utilisateur ou le paramètre de désabonnement.
 
-[Revenir en haut](#reference-for-rules-engine-match-conditions)
+[Retour au début](#reference-for-rules-engine-match-conditions)
 
 </br>
 

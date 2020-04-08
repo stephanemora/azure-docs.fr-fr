@@ -4,12 +4,12 @@ description: Guide pratique pour déployer un réseau de consortium Hyperledger 
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
-ms.openlocfilehash: 5aed420295fd17cf4e7b26c86e8b84c4687e6545
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 2312c002e5c2e0b813f8acbdc3e3bff597f204d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029909"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476438"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consortium Hyperledger Fabric sur Azure Kubernetes Service (AKS)
 
@@ -78,7 +78,7 @@ Pour prendre en main le déploiement des composants du réseau HLF, accédez au
     ![Modèle Hyperledger Fabric sur Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. Entrez les informations suivantes :
-    - **Nom de l’organisation** : Nom de l’organisation Fabric, qui est requis pour les différentes opérations de plan de données.
+    - **Nom de l’organisation** : Nom de l’organisation Fabric, qui est requis pour les différentes opérations de plan de données. Le nom de l’organisation doit être unique par déploiement. 
     - **Composant du réseau Fabric** : Choisissez Service de classement ou Nœuds homologues en fonction du composant réseau blockchain que vous souhaitez configurer.
     - **Nombre de nœuds** : les deux types de nœuds sont les suivants :
         - Service de classement : sélectionnez le nombre de nœuds pour la tolérance de panne du réseau. Seuls 3,5 et 7 sont des nombres de nœuds des auteurs des commandes pris en charge.

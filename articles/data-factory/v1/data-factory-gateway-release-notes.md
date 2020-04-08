@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9d0e31a89494477e048c7a2f9f7b8165e08d1a2f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924260"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064993"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 > [!NOTE]
@@ -41,8 +41,8 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 ### <a name="enhancements-"></a>Améliorations
 - Vous pouvez ajouter des entrées DNS à la liste verte
  Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Vous pouvez trouver l’entrée DNS concernée sur le portail Azure (Data Factory -> Créer et déployer > Passerelles > ServiceUrls (dans JSON))
-- Le connecteur HDFS prend désormais en charge le certificat public auto-signé en vous permettant d’ignorer la validation SSL.
-- Problème résolu : problème lié à la passerelle en mode hors connexion pendant la mise à jour (en raison d’une différence d’heure)
+- Le connecteur HDFS prend désormais en charge le certificat public auto-signé en vous permettant d’ignorer la validation TLS.
+- Résolu : problème lié à la passerelle en mode hors connexion pendant la mise à jour (en raison d’une différence d’heure)
 
 
 ## <a name="2963132"></a>2.9.6313.2
@@ -50,20 +50,20 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 -   Vous pouvez ajouter des entrées DNS à la liste verte
  Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Plus de détails ici.
 -   Vous pouvez maintenant copier les données vers ou à partir d’un seul objet blob de blocs jusqu’à 4,75 To. Il s’agit de la taille maximale prise en charge pour ces objets (la limite antérieure était de 195 Go).
--   Problème résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
--   Problème résolu : problème d’index hors plage lors de la copie de Document DB vers le système SQL Server local avec la fonctionnalité d’idempotence.
--   Problème résolu : le script de nettoyage SQL ne fonctionne pas avec la version locale de SQL Server à partir de l’Assistant de copie.
--   Problème résolu : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
+-   Résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
+-   Résolu : problème d’index hors plage lors de la copie de Document DB vers le système SQL Server local avec la fonctionnalité d’idempotence.
+-   Résolu : le script de nettoyage SQL ne fonctionne pas avec la version locale de SQL Server à partir de l’Assistant de copie.
+-   Résolu : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Améliorations
-- Problème résolu : problème d’informations d’identification manquantes au redémarrage de l’ordinateur de la passerelle.
-- Problème résolu : problème lié à l’inscription lors de la restauration de la passerelle à l’aide d’un fichier de sauvegarde.
+- Résolu : problème d’informations d’identification manquantes au redémarrage de l’ordinateur de la passerelle.
+- Résolu : problème lié à l’inscription lors de la restauration de la passerelle à l’aide d’un fichier de sauvegarde.
 
 
 ## <a name="2762401"></a>2.7.6240.1
 ### <a name="enhancements-"></a>Améliorations
-- Problème résolu : lecture incorrecte d’une valeur null décimale à partir d’Oracle comme source.
+- Résolu : lecture incorrecte d’une valeur null décimale à partir d’Oracle comme source.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>Nouveautés
@@ -130,7 +130,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
     *  Vous pouvez copier des données à partir d’un stockage à l’aide de [l’outil de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) .
 *  Vous pouvez utiliser la passerelle de gestion des données pour entrer des données directement à partir d’une base de données SQL Server locale dans Azure Machine Learning.
 
-*  Amélioration des performances
+*  Optimisation des performances
 
     * Amélioration des performances d’affichage du schéma/de l’aperçu par rapport à SQL Server dans l’outil de copie sans code.
 
@@ -146,7 +146,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 
 *  En cas d’échec de la mise à jour automatique, le programme d’installation de la passerelle retente la mise à jour automatique trois fois au maximum.
 
-*  Amélioration des performances
+*  Optimisation des performances
 
     * Améliorez les performances lors du chargement de tables de grande taille à partir du serveur local dans le scénario de copie sans code.
 
@@ -154,7 +154,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Amélioration des performances
+*  Optimisation des performances
 
 *  Résolution des bogues
 
@@ -166,34 +166,34 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 *  Possibilité de définir l’heure de planification de la mise à jour
 *  Script PowerShell disponible pour activer/désactiver la mise à jour automatique
 *  Prise en charge du format JSON  
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Amélioration de l’expérience de résolution des problèmes
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Prise en charge de la source/du récepteur HDFS en local
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -210,7 +210,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Prise en charge des noms de tables pour la source de données ODBC pour Microsoft Azure Data Factory
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -231,13 +231,13 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 
 *  Prise en charge de cinq bases de données relationnelles pour Microsoft Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata et Sybase)
 *  Prise en charge de la compression (Gzip et Deflate)
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Ajout de la prise en charge de source de données Oracle pour Microsoft Azure Data Factory
-*  Amélioration des performances
+*  Optimisation des performances
 *  Résolution des bogues
 
 ### <a name="1454921"></a>1.4.5492.1

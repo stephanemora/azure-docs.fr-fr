@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 204026825a5132464e1adda611227db2ac7cf91f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 34b29ceadaaf85e69d1214039fa1b563ed21a77d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295181"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accès conditionnel : Bloquer l’accès par emplacement
 
@@ -50,6 +50,7 @@ Pour plus d’informations sur la condition d’emplacement dans l’accès cond
    1. Sous **Inclure**, sélectionnez **Emplacements sélectionnés**
    1. Sélectionnez l’emplacement bloqué que vous avez créé pour votre organisation.
    1. Cliquez sur **Sélectionner** > **Terminé** > **Terminé**.
+1. Sous **Conditions** > **Applications clientes (préversion)** , définissez **Configurer** sur **Oui**, puis sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Bloquer**, sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.

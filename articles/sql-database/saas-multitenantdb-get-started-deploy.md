@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
 ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827990"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
@@ -57,8 +57,8 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 ### <a name="plan-the-names"></a>Planifier les noms
 
 Les étapes de cette section vous permettent de fournir une valeur *utilisateur* utilisée pour garantir que les noms de ressources sont globalement uniques et un nom du *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley*, nous vous suggérons :
-- *Utilisateur :* **af1** *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
-- *Groupe de ressources :* **wingtip-mt-af1** *(wingtip-mt-af1 indique qu’il s’agit de l’application multi-locataires partitionnée. L’ajout de af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
+- *Utilisateur :* **af1**  *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
+- *Groupe de ressources :* **wingtip-mt-af1** *(wingtip-mt indique qu’il s’agit de l’application multi-locataires partitionnée. L’ajout de af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
 
 Choisissez vos noms maintenant et notez-les. 
 
@@ -124,7 +124,7 @@ Chaque lieu bénéficie d’un site web personnalisé pour répertorier ses év�
 Une page web centrale de **concentrateur d’événements** fournit une liste de liens vers les locataires de votre déploiement. Réalisez les étapes suivantes pour vous familiariser avec la page web de **concentrateur d’événements** et une application web individuelle :
 
 1. Ouvrez le **concentrateur d’événements** dans votre navigateur web :
-   - http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net &nbsp; *(remplacez &lt; user&gt; par la valeur de l’utilisateur de votre déploiement.)*
+   - http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net &nbsp; *(remplacez &lt; user&gt; par la valeur d’utilisateur de votre déploiement.)*
 
      ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

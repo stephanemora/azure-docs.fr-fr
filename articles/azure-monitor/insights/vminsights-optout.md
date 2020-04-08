@@ -1,19 +1,19 @@
 ---
-title: Désactiver la surveillance dans Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
+title: Désactiver la supervision dans Azure Monitor pour machines virtuelles
 description: Cet article explique comment arrêter la surveillance de vos machines virtuelles dans Azure Monitor pour machines virtuelles.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/05/2018
-ms.openlocfilehash: fb4347e610920380792a17bb620e6d97a7d72505
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669503"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480519"
 ---
-# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Désactiver la surveillance de vos machines virtuelles dans Azure Monitor pour machines virtuelles (préversion)
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Désactiver la supervision de vos machines virtuelles dans Azure Monitor pour machines virtuelles
 
 Après avoir activé la surveillance de vos machines virtuelles, vous pouvez choisir de désactiver cette surveillance dans Azure Monitor pour machines virtuelles. Cet article explique comment désactiver la surveillance d’une ou plusieurs machines virtuelles.  
 
@@ -23,7 +23,7 @@ Azure Monitor pour machines virtuelles s’appuie sur les composants suivants :
 
 * Un espace de travail Log Analytics, qui stocke les données de surveillance collectées à partir des machines virtuelles et d’autres sources.
 * Une collection de compteurs de performances configurés dans l’espace de travail. Cette collection met à jour la configuration de la surveillance sur toutes les machines virtuelles connectées à l’espace de travail.
-* `InfrastructureInsights` et `ServiceMap`, qui sont des solutions de surveillance configurées dans l’espace de travail. Ces solutions mettent à jour la configuration de la surveillance sur toutes les machines virtuelles connectées à l’espace de travail.
+* `VMInsights`, qui est une solution de supervision configurée dans l’espace de travail. Cette solution met à jour la configuration de la supervision sur toutes les machines virtuelles connectées à l’espace de travail.
 * `MicrosoftMonitoringAgent` et `DependencyAgent`, qui sont des extensions de machine virtuelle Azure. Ces extensions collectent et envoient des données à l’espace de travail.
 
 Lorsque vous vous préparez à désactiver la surveillance de vos machines virtuelles, n’oubliez pas les considérations suivantes :
@@ -32,24 +32,17 @@ Lorsque vous vous préparez à désactiver la surveillance de vos machines virtu
 * Si vous avez sélectionné un espace de travail Log Analytics préexistant qui prend en charge d’autres solutions de surveillance et la collecte de données à partir d’autres sources, vous pouvez supprimer les composants de la solution de l’espace de travail sans interrompre ni affecter votre espace de travail.  
 
 >[!NOTE]
-> Après avoir supprimé les composants de la solution de votre espace de travail, vous pouvez continuer à voir l’état d’intégrité de vos machines virtuelles Azure. Plus précisément, vous voyez les données de performances et de mappage lorsque vous accédez à l’une de ces vues dans le portail. Les données cesseront éventuellement d’apparaître dans les vues **Performances** et **Mappage**. Toutefois, la vue **Intégrité** continuera d’afficher l’état d’intégrité pour vos machines virtuelles. L’option **Essayer maintenant** sera disponible sur la machine virtuelle Azure sélectionnée et vous permettra de réactiver ultérieurement la surveillance.  
+> Après avoir supprimé les composants de la solution de votre espace de travail, il se peut que les données de performances et de carte continuent de s’afficher pour vos machines virtuelles Azure. Les données cesseront éventuellement d’apparaître dans les vues **Performances** et **Carte**. L’option **Activer** sera disponible sur la machine virtuelle Azure sélectionnée et vous permettra de réactiver la supervision ultérieurement.  
 
 ## <a name="remove-azure-monitor-for-vms-completely"></a>Supprimer complètement Azure Monitor pour machines virtuelles
 
-Si vous avez encore besoin de l’espace de travail Log Analytics, procédez comme suit pour supprimer complètement Azure Monitor pour machines virtuelles. Vous allez supprimer les solutions `InfrastructureInsights` et `ServiceMap` à partir de l’espace de travail.  
-
->[!NOTE]
->Si vous utilisiez la solution de surveillance Service Map avant d’activer Azure Monitor pour machines virtuelles et que vous l’utilisez toujours, ne supprimez pas cette solution comme cela est décrit dans la dernière étape de la procédure suivante.  
->
+Si vous avez encore besoin de l’espace de travail Log Analytics, procédez comme suit pour supprimer complètement Azure Monitor pour machines virtuelles. Vous allez supprimer la solution `VMInsights` de l’espace de travail.  
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste filtre les suggestions. Sélectionnez **Log Analytics**.
 3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez celui que vous avez choisi lors de l’activation d’Azure Monitor pour machines virtuelles.
 4. Sur la gauche, sélectionnez **Solutions**.  
-5. Dans la liste des solutions, sélectionnez **InfrastructureInsights(nom d’espace de travail)** . Dans la page **Vue d’ensemble** pour la solution, sélectionnez **Supprimer**. À l’invite de confirmation, sélectionnez **Oui**.  
-6. Dans la liste des solutions, sélectionnez **ServiceMap(nom d’espace de travail)** . Dans la page **Vue d’ensemble** pour la solution, sélectionnez **Supprimer**. À l’invite de confirmation, sélectionnez **Oui**.  
-
-Avant l’activation d’Azure Monitor pour machines virtuelles, si vous n’avez pas [collecté les compteurs de performances](vminsights-enable-overview.md#performance-counters-enabled) pour les machines virtuelles Windows ou Linux dans votre espace de travail, [désactivez ces règles](../platform/data-sources-performance-counters.md#configuring-performance-counters) pour Windows et Linux.
+5. Dans la liste des solutions, sélectionnez **VMInsights(nom d’espace de travail)** . Dans la page **Vue d’ensemble** pour la solution, sélectionnez **Supprimer**. À l’invite de confirmation, sélectionnez **Oui**.
 
 ## <a name="disable-monitoring-and-keep-the-workspace"></a>Désactiver la surveillance et conserver l’espace de travail  
 

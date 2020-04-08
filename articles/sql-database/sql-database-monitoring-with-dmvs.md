@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 12/19/2018
-ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/10/2020
+ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802915"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214023"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique
 
@@ -28,7 +28,7 @@ La base de données SQL prend partiellement en charge trois catégories de vues 
 - vues de gestion dynamique liées à l’exécution ;
 - vues de gestion dynamique liées à la transaction.
 
-Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et vues de gestion dynamique (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) dans la documentation en ligne de SQL Server. 
+Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et vues de gestion dynamique (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) dans la documentation en ligne de SQL Server.
 
 ## <a name="permissions"></a>Autorisations
 
@@ -40,6 +40,17 @@ GRANT VIEW DATABASE STATE TO database_user;
 ```
 
 Dans une instance de SQL Server local, des vues de gestion dynamiques renvoient des informations sur l’état du serveur. Dans Base de données SQL, elles renvoient des informations relatives à votre base de données logique actuelle.
+
+Cet article contient une collection de requêtes DMV que vous pouvez exécuter à l’aide de SQL Server Management Studio ou d’Azure Data Studio pour détecter les types de problèmes de performances de requête suivants :
+
+- [Identification des requêtes liées à une consommation excessive d’UC](#identify-cpu-performance-issues)
+- [Attentes PAGELATCH_* et WRITE_LOG liées à des goulots d’étranglement d’E/S](#identify-io-performance-issues)
+- [Attentes PAGELATCH_* provoquées par une contention bytTempDB](#identify-tempdb-performance-issues)
+- [Attentes RESOURCE_SEMAPHORE provoquées par des problèmes d’attente d’allocation de mémoire](#identify-memory-grant-wait-performance-issues)
+- [Identification des tailles de base de données et d’objet](#calculating-database-and-objects-sizes)
+- [Récupération d’informations sur les sessions actives](#monitoring-connections)
+- [Récupérer les informations d’utilisation des ressources de base de données et à l’échelle du système](#monitor-resource-use)
+- [Récupération des informations sur les performances des requêtes](#monitoring-query-performance)
 
 ## <a name="identify-cpu-performance-issues"></a>Identifier les problèmes de performances d’UC
 
@@ -56,11 +67,11 @@ Utilisez la requête suivante pour identifier les principaux hachages de requêt
 ```sql
 PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
 SELECT TOP 10 GETDATE() runtime, *
-FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
-     FROM(SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
+FROM (SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
+    FROM (SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
           FROM sys.dm_exec_requests AS req
-               CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
-     GROUP BY query_hash) AS t
+                CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
+    GROUP BY query_hash) AS t
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
@@ -72,14 +83,14 @@ Utilisez la requête suivante pour identifier ces requêtes :
 PRINT '--top 10 Active CPU Consuming Queries by sessions--';
 SELECT TOP 10 req.session_id, req.start_time, cpu_time 'cpu_time_ms', OBJECT_NAME(ST.objectid, ST.dbid) 'ObjectName', SUBSTRING(REPLACE(REPLACE(SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1), CHAR(10), ' '), CHAR(13), ' '), 1, 512) AS statement_text
 FROM sys.dm_exec_requests AS req
-     CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
+    CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
 ORDER BY cpu_time DESC;
 GO
 ```
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>Le problème de l’UC s’est produit dans le passé
 
-Si le problème s’est produit dans le passé et que vous souhaitez effectuer une analyse de la cause racine, utilisez [Magasin de requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Les utilisateurs ayant accès à la base de données peuvent utiliser T-SQL pour interroger les données du Magasin de requêtes.  Les configurations par défaut du Magasin de requêtes utilisent un niveau de granularité d’1 heure.  Utilisez la requête suivante pour examiner l’activité des requêtes ayant une consommation d’UC élevée. Cette requête retourne les 15 premières requêtes consommant l’UC.  N’oubliez pas de changer `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()` :
+Si le problème s’est produit dans le passé et que vous souhaitez effectuer une analyse de la cause racine, utilisez [Magasin de requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Les utilisateurs ayant accès à la base de données peuvent utiliser T-SQL pour interroger les données du Magasin de requêtes. Les configurations par défaut du Magasin de requêtes utilisent un niveau de granularité d’1 heure. Utilisez la requête suivante pour examiner l’activité des requêtes ayant une consommation d’UC élevée. Cette requête retourne les 15 premières requêtes consommant l’UC. N’oubliez pas de changer `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()` :
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -130,8 +141,8 @@ ORDER BY end_time DESC;
 
 Si la limite d’E/S a été atteinte, vous avez deux options :
 
-- Option 1 : mise à niveau de la taille de calcul ou du niveau de service
-- Option 2 : identification et optimisation des requêtes qui consomment le plus d’E/S
+- Option 1 : mise à niveau de la taille de calcul ou du niveau de service
+- Option n°2 : identification et optimisation des requêtes qui consomment le plus d’E/S
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>Afficher les E/S de la mémoire tampon à l’aide du Magasin de données
 
@@ -243,7 +254,7 @@ Pour une contention tempdb, il est courant de réduire ou réécrire le code d�
 
 - Tables temporaires
 - Variables de table
-- Paramètres table
+- Paramètres table
 - Utilisation du magasin de version (spécifiquement associé aux transactions longues)
 - Requêtes comportant des plans de requête qui utilisent des tris, des jointures hachées et des files d’attente
 
@@ -541,7 +552,7 @@ Le graphique suivant illustre l’utilisation des ressources d’UC pour une bas
 
 ![Utilisation des ressources de base de données SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-D’après les données, cette base de données présente actuellement une charge d’UC maximale légèrement supérieure à 50 % de l’utilisation de l’UC, par rapport à la taille de calcul P2 (le mardi, à la mi-journée). Si l’UC est le facteur dominant dans le profil de ressource de l’application, vous pouvez décider que P2 est la taille de calcul permettant de garantir que la charge de travail est toujours adaptée. Si vous prévoyez une croissance de l’application au fil du temps, vous avez tout intérêt à avoir une mémoire-tampon de ressources supplémentaires, afin que l’application n’atteigne jamais le plafond de performances. En augmentant la taille de calcul, vous pouvez éviter les erreurs visibles par les clients, qui sont susceptibles de se produire lorsqu’une application ne dispose pas de la puissance nécessaire pour traiter efficacement les requêtes, plus particulièrement dans les environnements sensibles à la latence. Comme exemple, considérons une base de données qui prend en charge une application remplissant les pages web en fonction des résultats des appels de la base de données.
+D’après les données, cette base de données présente actuellement une charge d’UC maximale légèrement supérieure à 50 % de l’utilisation de l’UC, par rapport à la taille de calcul P2 (le mardi, à la mi-journée). Si le processeur est le facteur dominant dans le profil de ressource de l’application, vous pouvez décider que P2 est la taille de calcul permettant de garantir que la charge de travail est toujours adaptée. Si vous prévoyez une croissance de l’application au fil du temps, vous avez tout intérêt à avoir une mémoire-tampon de ressources supplémentaires, afin que l’application n’atteigne jamais le plafond de performances. En augmentant la taille de calcul, vous pouvez éviter les erreurs visibles par les clients, qui sont susceptibles de se produire lorsqu’une application ne dispose pas de la puissance nécessaire pour traiter efficacement les requêtes, plus particulièrement dans les environnements sensibles à la latence. Comme exemple, considérons une base de données qui prend en charge une application remplissant les pages web en fonction des résultats des appels de la base de données.
 
 D’autres types d’applications peuvent interpréter différemment le même graphique. Par exemple, si une application essaie de traiter les données de paie chaque jour et obtient le même graphique, ce genre de modèle de « traitement par lot » peut convenir avec une taille de calcul P1. La taille de calcul P1 comprend 100 DTU, contre 200 DTU pour la taille de calcul P2. La taille de calcul P1 fournit la moitié des performances de la taille de calcul P2. Par conséquent, 50 % d’utilisation de l’UC au niveau P2 correspond à 100 % d’utilisation de l’UC au niveau de performance P1. Si l’application n’a pas de délai d’expiration, le fait qu’une tâche volumineuse s’exécute en 2 h ou 2 h 30 peut ne pas avoir d’importance à condition qu’elle soit effectuée le jour même. Une application de cette catégorie peut probablement utiliser une taille de calcul P1. Vous pouvez tirer parti du fait qu’il y a des périodes pendant la journée où l’utilisation des ressources est moindre, ce qui signifie que toute période de pointe peut déborder sur l’un des creux plus tard dans la journée. La taille de calcul P1 peut convenir pour une application de ce type (et permettre de réaliser des économies) tant que les travaux peuvent se terminer à temps chaque jour.
 
@@ -563,7 +574,7 @@ ORDER BY start_time DESC
 
 L’exemple suivant vous montre différentes manières d’utiliser la vue du catalogue **sys.resource_stats** pour obtenir des informations sur l’utilisation des ressources par votre SQL Database :
 
-1. Pour consulter l’utilisation des ressources pour la base de données userdb1 au cours de la semaine passée, exécutez cette requête :
+1. Pour consulter l’utilisation des ressources pour la base de données userdb1 au cours de la semaine passée, exécutez cette requête :
 
     ```sql
     SELECT *
@@ -635,19 +646,19 @@ Pour les pools élastiques, vous pouvez surveiller des bases de données individ
 
 Pour afficher le nombre de requêtes simultanées, exécutez cette requête Transact-SQL sur votre base de données SQL :
 
-    ```sql
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R;
-    ```
+```sql
+SELECT COUNT(*) AS [Concurrent_Requests]
+FROM sys.dm_exec_requests R;
+```
 
 Pour analyser la charge de travail d’une base de données SQL Server locale, modifiez cette requête pour la filtrer selon la base de données spécifique que vous analysez. Par exemple, si vous utilisez une base de données locale nommée MyDatabase, cette requête Transact-SQL renvoie le nombre de requêtes simultanées dans cette base de données :
 
-    ```sql
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R
-    INNER JOIN sys.databases D ON D.database_id = R.database_id
-    AND D.name = 'MyDatabase';
-    ```
+```sql
+SELECT COUNT(*) AS [Concurrent_Requests]
+FROM sys.dm_exec_requests R
+INNER JOIN sys.databases D ON D.database_id = R.database_id
+AND D.name = 'MyDatabase';
+```
 
 Il s’agit simplement d’un instantané à un point unique dans le temps. Pour obtenir une meilleure compréhension de votre charge de travail et des exigences liées aux demandes simultanées, il vous faut collecter plusieurs échantillons au fil du temps.
 
@@ -664,18 +675,22 @@ Si plusieurs clients utilisent la même chaîne de connexion, le service authent
 
 Pour afficher le nombre de sessions simultanément actives, exécutez cette requête Transact-SQL sur votre base de données SQL :
 
-    SELECT COUNT(*) AS [Sessions]
-    FROM sys.dm_exec_connections
+```sql
+SELECT COUNT(*) AS [Sessions]
+FROM sys.dm_exec_connections
+```
 
 Si vous analysez une charge de travail SQL Server locale, modifiez la requête pour vous concentrer sur une base de données spécifique. Cette requête vous aide à déterminer les éventuels besoins de votre session pour la base de données si vous envisagez de la déplacer vers Azure SQL Database.
 
-    SELECT COUNT(*)  AS [Sessions]
-    FROM sys.dm_exec_connections C
-    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-    WHERE D.name = 'MyDatabase'
+```sql
+SELECT COUNT(*) AS [Sessions]
+FROM sys.dm_exec_connections C
+INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+WHERE D.name = 'MyDatabase'
+```
 
-Là encore, ces requêtes renvoient un nombre à un point dans le temps. Si vous collectez plusieurs échantillons au fil du temps, vous bénéficiez d’une meilleure compréhension de l’utilisation de votre session.
+Là encore, ces requêtes renvoient un nombre à un point dans le temps. Si vous collectez plusieurs échantillons au fur et à mesure, vous bénéficierez d’une meilleure compréhension de l’utilisation de votre session.
 
 Pour une analyse SQL Database, vous pouvez obtenir des statistiques d’historique sur les sessions en interrogeant la vue [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) et en consultant la colonne **active_session_count**.
 
@@ -687,22 +702,22 @@ Des requêtes lentes ou longues peuvent consommer des ressources système signif
 
 L’exemple suivant renvoie des informations relatives aux cinq premières requêtes, classées sur la base du temps processeur moyen. Cet exemple agrège les requêtes selon leur hachage de requête et, logiquement, les requêtes équivalentes sont regroupées sur la base de leur consommation cumulée de ressources.
 
-    ```sql
-    SELECT TOP 5 query_stats.query_hash AS "Query Hash",
-       SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
-       MIN(query_stats.statement_text) AS "Statement Text"
-    FROM
-       (SELECT QS.*,
+```sql
+SELECT TOP 5 query_stats.query_hash AS "Query Hash",
+    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
+     MIN(query_stats.statement_text) AS "Statement Text"
+FROM
+    (SELECT QS.*,
         SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-        ((CASE statement_end_offset
-           WHEN -1 THEN DATALENGTH(ST.text)
-           ELSE QS.statement_end_offset END
-           - QS.statement_start_offset)/2) + 1) AS statement_text
-    FROM sys.dm_exec_query_stats AS QS
-    CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
-    GROUP BY query_stats.query_hash
-    ORDER BY 2 DESC;
-    ```
+            ((CASE statement_end_offset
+                WHEN -1 THEN DATALENGTH(ST.text)
+                ELSE QS.statement_end_offset END
+            - QS.statement_start_offset)/2) + 1) AS statement_text
+FROM sys.dm_exec_query_stats AS QS
+CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
+GROUP BY query_stats.query_hash
+ORDER BY 2 DESC;
+```
 
 ### <a name="monitoring-blocked-queries"></a>Surveillance des requêtes bloquées
 
@@ -712,25 +727,25 @@ Des requêtes lentes ou longues peuvent contribuer à une consommation excessive
 
 Un plan de requête inefficace peut également augmenter la consommation du processeur. L’exemple suivant utilise la vue [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) pour déterminer quelle requête utilise le plus de temps processeur total.
 
-    ```sql
-    SELECT
-       highest_cpu_queries.plan_handle,
-       highest_cpu_queries.total_worker_time,
-       q.dbid,
-       q.objectid,
-       q.number,
-       q.encrypted,
-       q.[text]
-    FROM
-       (SELECT TOP 50
+```sql
+SELECT
+    highest_cpu_queries.plan_handle,
+    highest_cpu_queries.total_worker_time,
+    q.dbid,
+    q.objectid,
+    q.number,
+    q.encrypted,
+    q.[text]
+FROM
+    (SELECT TOP 50
         qs.plan_handle,
         qs.total_worker_time
     FROM
         sys.dm_exec_query_stats qs
-    ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
-    CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
-    ORDER BY highest_cpu_queries.total_worker_time DESC;
-    ```
+ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
+CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
+ORDER BY highest_cpu_queries.total_worker_time DESC;
+```
 
 ## <a name="see-also"></a>Voir aussi
 

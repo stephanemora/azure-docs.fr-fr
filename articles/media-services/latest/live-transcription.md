@@ -1,6 +1,7 @@
 ---
-title: Transcription en direct Azure Media Services | Microsoft Docs
-description: Cet article explique ce qu’est la transcription en direct d’Azure Media Services.
+title: Transcription en direct
+titleSuffix: Azure Media Services
+description: En savoir plus sur la transcription en direct Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,31 +14,31 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 95cd759a5ef4f5f67ecf56e60595e709bbc8b44f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b364b6e70e3b5723c483bc3435f0c3a152c03aa9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845681"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499863"
 ---
 # <a name="live-transcription-preview"></a>Transcription en direct (préversion)
 
-Azure Media Services diffuse de la vidéo, de l’audio et maintenant du texte dans différents protocoles. Lorsque vous publiez votre stream en direct en MPEG-DASH ou HLS/CMAF, notre service diffuse le texte transcrit en IMSC1.1 compatible TTML, sous forme de fragments MPEG-4 Partie 30 (ISO/CEI 14496-30), avec la vidéo et le son. Si vous utilisez la diffusion via HLS/TS, le texte est diffusé sous forme de VTT segmenté. 
+Azure Media Services diffuse de la vidéo, de l’audio et du texte dans différents protocoles. Lorsque vous publiez votre stream en direct en MPEG-DASH ou HLS/CMAF, notre service diffuse le texte transcrit en IMSC1.1 compatible TTML avec la vidéo et le son. La diffusion est empaquetée sous forme de fragments MPEG-4 Partie 30 (ISO/CEI 14496-30). Si vous utilisez la diffusion via HLS/TS, le texte est diffusé sous forme de VTT segmenté.
 
-Cet article explique comment activer la transcription en direct lors de la diffusion en continu d’un événement en direct grâce à Azure Media Services v3. Avant de continuer, assurez-vous de connaître l’utilisation des API REST de Media Services v3 (pour plus d’informations, consultez [ce tutoriel](stream-files-tutorial-with-rest.md)). Vous devez également maîtriser le concept de [streaming en direct](live-streaming-overview.md). Nous vous conseillons de suivre le tutoriel [Streaming en direct avec Media Services](stream-live-tutorial-with-api.md). 
+Cet article explique comment activer la transcription en direct lors de la diffusion en continu d’un événement en direct grâce à Azure Media Services v3. Avant de continuer, assurez-vous de connaître l’utilisation des API REST de Media Services v3 (pour plus d’informations, consultez [ce tutoriel](stream-files-tutorial-with-rest.md)). Vous devez également maîtriser le concept de [streaming en direct](live-streaming-overview.md). Nous vous conseillons de suivre le tutoriel [Diffuser en direct avec Media Services](stream-live-tutorial-with-api.md).
 
 > [!NOTE]
-> Actuellement, la transcription en direct est disponible uniquement en tant que fonctionnalité d’évaluation dans la région USA Ouest 2. Elle prend en charge la transcription en texte des mots parlés en anglais. La référence API de cette fonctionnalité se trouve dans ce document : étant donné qu’il s’agit d’une version préliminaire, les détails ne sont pas disponibles avec nos documents REST. 
+> Actuellement, la transcription en direct est disponible uniquement en tant que fonctionnalité d’évaluation dans la région USA Ouest 2. Elle prend en charge la transcription en texte des mots parlés en anglais. La référence API de cette fonctionnalité se trouve ci-dessous : étant donné qu’il s’agit d’une version préliminaire, les détails ne sont pas disponibles avec nos documents REST.
 
-## <a name="creating-the-live-event"></a>Création de l’événement en direct 
+## <a name="creating-the-live-event"></a>Création de l’événement en direct
 
-Pour créer l’événement en direct, vous devez envoyer l’opération PUT à la préversion 2019-05-01, par exemple : 
+Pour créer l’événement en direct, vous devez envoyer l’opération PUT à la préversion 2019-05-01, par exemple :
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-L’opération a le corps suivant (où un événement en direct pass-through est créé avec RTMP comme protocole de réception). Notez l’ajout d’une propriété de transcriptions. La seule valeur autorisée pour la langue est en-US. 
+L’opération a le corps suivant (où un événement en direct pass-through est créé avec RTMP comme protocole de réception). Notez l’ajout d’une propriété de transcriptions. La seule valeur autorisée pour la langue est en-US.
 
 ```
 { 
@@ -87,18 +88,18 @@ L’opération a le corps suivant (où un événement en direct pass-through est
 } 
 ```
 
-Vous devez interroger l’état de l’événement en direct jusqu’à ce qu’il passe à l’état « En cours d’exécution », ce qui indique que vous pouvez à présent envoyer un flux RTMP de contribution. Vous pouvez maintenant suivre les mêmes étapes que dans ce tutoriel, telles que la vérification de l’aperçu du flux et la création de sorties en direct. 
+Interrogez l’état de l’événement en direct jusqu’à ce qu’il passe à l’état « En cours d’exécution », ce qui indique que vous pouvez à présent envoyer un flux RTMP de contribution. Vous pouvez maintenant suivre les mêmes étapes que dans ce tutoriel, telles que la vérification de l’aperçu du flux et la création de sorties en direct.
 
-## <a name="delivery-and-playback"></a>Diffusion et lecture 
+## <a name="transcription-delivery-and-playback"></a>Diffusion et lecture de la transcription
 
-Consultez l’article [Vue d’ensemble de l’empaquetage dynamique](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) sur la façon dont notre service utilise l’empaquetage dynamique pour diffuser de la vidéo, de l’audio et du texte dans différents protocoles. Lorsque vous publiez votre stream en direct en MPEG-DASH ou HLS/CMAF, notre service diffuse le texte transcrit en IMSC1.1 compatible TTML, sous forme de fragments MPEG-4 Partie 30 (ISO/CEI 14496-30), avec la vidéo et le son. Si vous utilisez la diffusion via HLS/TS, le texte est diffusé sous forme de VTT segmenté. Vous pouvez utiliser un lecteur Web, tel que le [Lecteur multimédia Azure](use-azure-media-player.md) pour lire le flux.  
+Consultez l’article [Vue d’ensemble de l’empaquetage dynamique](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) sur la façon dont notre service utilise l’empaquetage dynamique pour diffuser de la vidéo, de l’audio et du texte dans différents protocoles. Lorsque vous publiez votre stream en direct en MPEG-DASH ou HLS/CMAF, notre service diffuse le texte transcrit en IMSC1.1 compatible TTML avec la vidéo et le son. Cette diffusion est empaquetée sous forme de fragments MPEG-4 Partie 30 (ISO/CEI 14496-30). Si vous utilisez la diffusion via HLS/TS, le texte est diffusé sous forme en blocs VTT. Vous pouvez utiliser un lecteur Web, tel que le [Lecteur multimédia Azure](use-azure-media-player.md) pour lire le flux.  
 
 > [!NOTE]
->  Si vous utilisez le Lecteur multimédia Azure, utilisez la version 2.3.3 ou une version ultérieure.
+> Si vous utilisez le Lecteur multimédia Azure, utilisez la version 2.3.3 ou une version ultérieure.
 
-## <a name="known-issues"></a>Problèmes connus 
+## <a name="known-issues"></a>Problèmes connus
 
-En préversion, voici les problèmes connus liés à la transcription en direct 
+Pour la préversion, voici les problèmes connus liés à la transcription en direct :
 
 * La fonctionnalité est disponible uniquement dans la région USA Ouest 2.
 * Les applications doivent utiliser les API de préversion, décrites dans la documentation [Spécification OpenAPI de Media Services v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
@@ -107,4 +108,4 @@ En préversion, voici les problèmes connus liés à la transcription en direct
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Présentation de Media Services](media-services-overview.md)
+* [Présentation de Media Services](media-services-overview.md)

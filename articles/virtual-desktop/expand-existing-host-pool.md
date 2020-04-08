@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365217"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Développer un pool d’hôtes existant avec de nouveaux hôtes de session
 
@@ -71,7 +71,7 @@ Voici comment redéployer le modèle Azure Resource Manager pour développer un 
 
 ## <a name="run-the-azure-marketplace-offering"></a>Exécuter l’offre de la Place de marché Microsoft Azure
 
-Suivez les instructions de la section [Créer un pool d’hôtes en utilisant la Place de marché Azure](./create-host-pools-azure-marketplace.md) jusqu’à atteindre la section [Exécuter l’offre de la Place de marché Azure pour provisionner un nouveau pool d’hôtes](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Lorsque vous accédez à ce point, vous devez entrer les informations suivantes pour chaque panneau :
+Suivez les instructions de la section [Créer un pool d’hôtes en utilisant la Place de marché Azure](./create-host-pools-azure-marketplace.md) jusqu’à atteindre la section [Exécuter l’offre de la Place de marché Azure pour provisionner un nouveau pool d’hôtes](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Quand vous parvenez à ce stade, vous devez entrer les informations suivantes pour chaque onglet :
 
 ### <a name="basics"></a>Concepts de base
 

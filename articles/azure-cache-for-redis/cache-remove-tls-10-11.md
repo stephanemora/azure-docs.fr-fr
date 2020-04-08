@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 6130c934f9a718baab840dae714222e4153bfcf6
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 0d28469820f63f63089d9b91d57ccd7fe75c8b95
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126346"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348654"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Supprimer les protocoles TLS 1.0 et 1.1 de l’utilisation avec Azure Cache pour Redis
 
@@ -31,12 +31,12 @@ Cet article fournit des instructions générales sur la façon de détecter les 
 
 Les dates d'entrée en vigueur de ces modifications sont les suivantes :
 
-| Cloud               | Date de début de la phase 1 | Date de début de la phase 2 |
-|---------------------|--------------------|--------------------|
-| Azure (global)      |  13 janvier 2020  | 31 mars 2020     |
-| Azure Government    |  13 mars 2020    | 11 mai 2020       |
-| Azure Germany       |  13 mars 2020    | 11 mai 2020       |
-| Azure Chine         |  13 mars 2020    | 11 mai 2020       |
+| Cloud               | Date de début de la phase 1 | Date de début de la phase 2      |
+|---------------------|--------------------|-------------------------|
+| Azure (global)      |  13 janvier 2020  | 11 mai 2020 (étendu) |
+| Azure Government    |  13 mars 2020    | 11 mai 2020            |
+| Azure Germany       |  13 mars 2020    | 11 mai 2020            |
+| Azure Chine         |  13 mars 2020    | 11 mai 2020            |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Vérifier si votre application est déjà conforme
 

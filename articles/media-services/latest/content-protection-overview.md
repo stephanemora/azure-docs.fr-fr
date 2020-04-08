@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 18e80383bfcbebc6a442663c141100faa56fd061
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313804"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79461110"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
 
-Utilisez Azure Media Services pour sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à sa remise, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés.  
+Utilisez Azure Media Services pour sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à sa remise, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. Si le contenu est chiffré avec une clé en clair AES et est envoyé via HTTPS, il ne s’affiche en clair qu’une fois qu’il atteint le client. 
 
 Dans Media Services v3, une clé de contenu est associée à un localisateur de streaming (consultez [cet exemple](protect-with-aes128.md)). Si vous utilisez le service de remise de clé Azure Media Services, vous pouvez demander à ce service de générer la clé de contenu pour vous. Vous devez générer la clé de contenu vous-même si vous utilisez votre propre service de remise de clé, ou si vous avez besoin de gérer un scénario de haute disponibilité au cours duquel vous avez besoin d’avoir la même clé de contenu dans deux centres de données.
 

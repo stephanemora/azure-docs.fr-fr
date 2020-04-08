@@ -1,17 +1,17 @@
 ---
-title: Résoudre les problèmes de chiffrement des données dans Azure Database pour PostgreSQL - Serveur unique
+title: Résoudre les problèmes de chiffrement des données – Azure Database pour PostgreSQL – Serveur unique
 description: Découvrir comment résoudre les problèmes du chiffrement des données dans Azure Database pour PostgreSQL - Serveur unique
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: bd3303117bae307bb562390cec1fdfb62c01b7c6
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 2902ff17ac14a48f1a11259339c2ab1bc4595980
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299258"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Résoudre les problèmes de chiffrement des données dans Azure Database pour PostgreSQL - Serveur unique
 

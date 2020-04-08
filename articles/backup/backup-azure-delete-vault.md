@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Recovery Services Sauvegarde Microsoft Azure (MARS).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9ac9d0fd6411b512b319d02c94e86fa792243e0a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251429"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500393"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -31,6 +31,8 @@ Vous ne pouvez pas supprimer un coffre Recovery Services qui a des dépendances 
 - Si les éléments de sauvegarde se trouvent dans un état de suppression réversible, le message d’avertissement ci-dessous s’affiche, et il faut attendre qu’ils soient définitivement supprimés. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
    ![Supprimez l’erreur du coffre.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
+
+- Les coffres qui comportent des comptes de stockage inscrits ne peuvent pas être supprimés. Pour savoir comme désinscrire un compte, consultez [Annuler l’inscription d’un compte de stockage](manage-afs-backup.md#unregister-a-storage-account).
   
 Pour supprimer le coffre, choisissez le scénario qui correspond à votre configuration et suivez les étapes recommandées :
 
@@ -40,7 +42,7 @@ J’ai des fichiers et dossiers locaux protégés à l’aide de l’agent Sauve
 J’ai des machines locales protégées par le serveur Sauvegarde Microsoft Azure (MABS) ou System Center Data Protection Manager (DPM) sur Azure | Exécuter les étapes indiquées dans [Supprimer des éléments de sauvegarde de la console de gestion MABS](#delete-backup-items-from-the-mabs-management-console)
 J’ai des éléments protégés dans le cloud (par exemple, une machine virtuelle laaS ou un partage Azure Files)  | Exécuter les étapes indiquées dans [Supprimer des éléments protégés dans le cloud](#delete-protected-items-in-the-cloud)
 J’ai des éléments protégés à la fois localement et dans le cloud | Suivez les étapes indiquées dans ces sections, dans l’ordre suivant : <br> 1. [Supprimer des éléments protégés dans le cloud](#delete-protected-items-in-the-cloud)<br> 2. [Supprimer des éléments de sauvegarde de la console de gestion MARS](#delete-backup-items-from-the-mars-management-console) <br> 3. [Supprimer des éléments de sauvegarde de la console de gestion MABS](#delete-backup-items-from-the-mabs-management-console)
-Je n’ai pas d’éléments protégés localement ou dans le cloud ; toutefois, je reçois toujours le message d’erreur de suppression du coffre | Suivez les étapes indiquées dans [Supprimer le coffre Recovery Services à l’aide d’Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
+Je n’ai pas d’éléments protégés localement ou dans le cloud ; toutefois, je reçois toujours le message d’erreur de suppression du coffre | Suivez les étapes indiquées dans [Supprimer le coffre Recovery Services à l’aide d’Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager) <br><br> Vérifiez qu’aucun compte de stockage n’est inscrit au niveau du coffre. Pour savoir comme désinscrire un compte, consultez [Annuler l’inscription d’un compte de stockage](manage-afs-backup.md#unregister-a-storage-account).
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Supprimer des éléments protégés dans le cloud
 
@@ -333,7 +335,7 @@ Pour plus d’informations sur la commande ARMClient, voir [LISEZMOI ARMClient](
 
 ### <a name="use-the-azure-resource-manager-client-to-delete-a-recovery-services-vault"></a>Utiliser le client Azure Resource Manager pour supprimer un coffre Recovery Services
 
-1. Exécutez la commande suivante à l’aide de votre ID d’abonnement, du nom du groupe de ressources et du nom du coffre. Si vous n’avez pas de dépendances, le coffre est supprimé quand vous exécutez la commande suivante :
+1. Exécutez la commande suivante à l’aide de votre ID d’abonnement, du nom du groupe de ressources et du nom du coffre. Si vous n’avez pas de dépendances, le coffre est supprimé au moment où vous exécutez la commande suivante :
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15

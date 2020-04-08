@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64869022"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Prise en main du Kit de développement logiciel du client Java pour Azure Media Services  
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo avec l’application Azure Media Services (AMS) à l’aide du Kit de développement logiciel Java.
 
@@ -32,11 +32,11 @@ Ce didacticiel explique comment implémenter un service de base de diffusion de 
 
 Les éléments suivants sont requis pour suivre ce didacticiel :
 
-* Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
 * Le [Kit de développement logiciel Java pour Azure Media Services](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest) actuel
 
-## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Activation Importer le package du SDK du client Java pour Azure Media Services
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Procédure : Importer le package du SDK du client Java pour Azure Media Services
 
 Pour commencer à utiliser le Kit de développement logiciel Java pour Media Services, ajoutez une référence à la version actuelle (0.9.8) du package `azure-media` à partir du [Kit de développement logiciel Java pour Azure Media Services](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
@@ -50,7 +50,7 @@ Par exemple, si vous utilisez l’outil de compilation `gradle`, ajoutez la dép
 >[!NOTE]
 >Le code source du Kit de développement logiciel Java pour Azure Media Services est disponible dans notre [référentiel GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Veillez à basculer vers la branche 0,9 et pas la branche principale. 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>Activation Utiliser Azure Media Services avec Java
+## <a name="how-to-use-azure-media-services-with-java"></a>Procédure : Utiliser Azure Media Services avec Java
 
 >[!NOTE]
 >Une fois votre compte Media Services créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**.
@@ -311,7 +311,7 @@ Le code repose également sur un fichier vidéo stocké localement. Vous devez m
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-Pour plus d’informations sur le développement des applications Java dans Azure, consultez le [Centre de développement Java pour Azure][Azure Java Developer Center] et [Azure pour les développeurs Java][Azure for Java developers].
+Pour plus d’informations sur le développement d’applications Java dans Azure, consultez le [Centre de développement Java pour Azure][Azure Java Developer Center] et [Azure pour les développeurs Java][Azure for Java developers].
 
 
 Pour obtenir une documentation Javadoc sur Media Services, voir [Bibliothèques Azure pour la documentation Java][Bibliothèques Azure pour la documentation Java].

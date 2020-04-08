@@ -3,20 +3,20 @@ title: Gestion de sessions d’authentification unique avec des stratégies pers
 titleSuffix: Azure AD B2C
 description: Découvrez comment gérer des sessions d’authentification unique (SSO) à l’aide de stratégies personnalisées dans Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 03/09/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 80cf0d101a29de7fca9d4dd36e188a500d35e290
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851120"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225485"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestion de session d’authentification unique dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76851120"
 
 Le gestion de session d’authentification unique (SSO) dans Azure Active Directory B2C (Azure AD B2C) permet à un administrateur de contrôler l’interaction avec un utilisateur une fois celui-ci authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau. Cet article décrit comment configurer les paramètres d’authentification unique pour Azure AD B2C.
 
-La gestion de session d’authentification unique comporte deux parties. La première a trait aux interactions de l’utilisateur directement avec Azure AD B2C, et la deuxième aux interactions de l’utilisateur avec des tiers externes, tels que Facebook. Azure AD B2C ne peut ni remplacer, ni contourner des sessions d’authentification unique qui pourraient être tenues par des parties externes. Au lieu de cela, l’itinéraire parcouru via Azure AD B2C pour accéder à la partie externe est « mémorisé », ce qui évite de devoir réinviter l’utilisateur à sélectionner son fournisseur d’identité sociale ou d’entreprise. La décision finale en lien avec l’authentification unique appartient au tiers externe.
+La gestion de session d’authentification unique comporte deux parties. La première a trait aux interactions de l’utilisateur directement avec Azure AD B2C, et la deuxième aux interactions de l’utilisateur avec des tiers externes, tels que Facebook. Azure AD B2C ne peut ni remplacer, ni contourner des sessions d’authentification unique qui pourraient être tenues par des parties externes. Au lieu de cela, l’itinéraire parcouru via Azure AD B2C pour accéder à la partie externe est « mémorisé », ce qui évite de devoir réinviter l’utilisateur à sélectionner son fournisseur d’identité sociale ou d’entreprise. La décision finale en lien avec l’authentification unique appartient au tiers externe.
 
 La gestion de session d’authentification unique utilise la même sémantique que tout autre profil technique dans des stratégies personnalisées. Quand une étape d’orchestration est exécutée, le profil technique associé à l’étape est interrogé pour obtenir une référence `UseTechnicalProfileForSessionManagement`. S’il en existe une, le fournisseur de la session de l’authentification unique référencé est vérifié pour voir si l’utilisateur est un participant de la session. Dans l’affirmative, le fournisseur de session d’authentification unique est utilisé pour remplir à nouveau la session. De même, lors de l’exécution d’une étape d’orchestration est terminée, le fournisseur est utilisé pour stocker les informations de la session si un fournisseur de session d’authentification unique a été spécifié.
 
@@ -35,65 +35,123 @@ Azure AD B2C a défini un certain nombre de fournisseurs de session d’authenti
 * ExternalLoginSSOSessionProvider
 * SamlSSOSessionProvider
 
-Les classes de gestion de l’authentification unique sont spécifiées à l’aide de l’élément `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />` d’un profil technique.
+Les classes de gestion de l’authentification unique sont spécifiées à l’aide de l’élément `<UseTechnicalProfileForSessionManagement ReferenceId="{ID}" />` d’un profil technique.
 
-## <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
+## <a name="input-claims"></a>Revendications d’entrée
 
-Comme son nom l’indique, ce fournisseur ne fait rien. Ce fournisseur peut être utilisé pour supprimer un comportement d’authentification unique pour un profil technique spécifique.
+L’élément `InputClaims` est vide ou absent.
 
-## <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
+## <a name="persisted-claims"></a>Revendications persistantes
 
-Ce fournisseur peut être utilisé pour le stockage de revendications dans une session. Ce fournisseur est en général référencé dans un profil technique utilisé pour la gestion de comptes locaux. Lorsque vous utilisez le DefaultSSOSessionProvider pour stocker des revendications dans une session, vous devez vous assurer que toutes les revendications devant être retournées à l’application ou utilisées par les conditions préalables dans les étapes suivantes, sont stockées dans la session ou complétées par une lecture depuis le profil des utilisateurs dans le répertoire. Cela garantit que votre parcours d’authentification n’échouera pas sur les revendications manquantes.
+Les revendications qui doivent être retournées à l’application ou utilisées par les conditions préalables dans les étapes suivantes doivent être stockées dans la session ou complétées par une lecture depuis le profil de l’utilisateur dans le répertoire. L’utilisation de revendications persistantes garantit que vos parcours d’authentification n’échouent pas en raison de revendications manquantes. Pour ajouter des revendications dans la session, utilisez l’élément `<PersistedClaims>` du profil technique. Lorsque le fournisseur est utilisé pour remplir à nouveau la session, les revendications persistantes sont ajoutées au jeu de revendications.
+
+## <a name="output-claims"></a>Revendications de sortie
+
+`<OutputClaims>` est utilisé pour récupérer des revendications de la session.
+
+## <a name="session-providers"></a>Fournisseurs de session
+
+### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
+
+Comme son nom l’indique, ce fournisseur ne fait rien. Ce fournisseur peut être utilisé pour supprimer un comportement d’authentification unique pour un profil technique spécifique. Le profil technique `SM-Noop` suivant est inclus dans le [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack).
+
+```XML
+<TechnicalProfile Id="SM-Noop">
+  <DisplayName>Noop Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.NoopSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+</TechnicalProfile>
+```
+
+### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
+
+Ce fournisseur peut être utilisé pour le stockage de revendications dans une session. Ce fournisseur est en général référencé dans un profil technique utilisé pour la gestion de comptes locaux. Le profil technique `SM-AAD` suivant est inclus dans le [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
-    <DisplayName>Session Mananagement Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <PersistedClaims>
-        <PersistedClaim ClaimTypeReferenceId="objectId" />
-        <PersistedClaim ClaimTypeReferenceId="newUser" />
-        <PersistedClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" />
-    </PersistedClaims>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="objectIdFromSession" DefaultValue="true" />
-    </OutputClaims>
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="objectId" />
+    <PersistedClaim ClaimTypeReferenceId="signInName" />
+    <PersistedClaim ClaimTypeReferenceId="authenticationSource" />
+    <PersistedClaim ClaimTypeReferenceId="identityProvider" />
+    <PersistedClaim ClaimTypeReferenceId="newUser" />
+    <PersistedClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" />
+  </PersistedClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectIdFromSession" DefaultValue="true"/>
+  </OutputClaims>
 </TechnicalProfile>
 ```
 
-Pour ajouter des revendications dans la session, utilisez l’élément `<PersistedClaims>` du profil technique. Lorsque le fournisseur est utilisé pour remplir à nouveau la session, les revendications persistantes sont ajoutées au jeu de revendications. `<OutputClaims>` est utilisé pour récupérer des revendications de la session.
+Le profil technique `SM-MFA` suivant est inclus dans le [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. Ce profil technique gère la session d’authentification multifacteur.
 
-## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
+```XML
+<TechnicalProfile Id="SM-MFA">
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" />
+  </PersistedClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isActiveMFASession" DefaultValue="true"/>
+  </OutputClaims>
+</TechnicalProfile>
+```
 
-Ce fournisseur est utilisé pour supprimer l’écran permettant de choisir le fournisseur d’identité. Il est généralement référencé dans un profil technique configuré pour un fournisseur d’identité externe, tel que Facebook.
+### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
+
+Ce fournisseur est utilisé pour supprimer l’écran permettant de « choisir le fournisseur d’identité ». Il est généralement référencé dans un profil technique configuré pour un fournisseur d’identité externe, tel que Facebook. Le profil technique `SM-SocialLogin` suivant est inclus dans le [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
-    <DisplayName>Session Mananagement Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="AlwaysFetchClaimsFromProvider">true</Item>
+  </Metadata>
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="AlternativeSecurityId" />
+  </PersistedClaims>
 </TechnicalProfile>
 ```
 
-## <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
+#### <a name="metadata"></a>Métadonnées
 
-Ce fournisseur est utilisé pour gérer les sessions SAML d’Azure AD B2C entre applications ainsi que les fournisseurs d’identité SAML externes.
+| Attribut | Obligatoire | Description|
+| --- | --- | --- |
+| AlwaysFetchClaimsFromProvider | Non | Non utilisé actuellement, peut être ignoré. |
+
+### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
+
+Ce fournisseur est utilisé pour gérer les sessions SAML d’Azure AD B2C entre une application basée sur les revendications et un fournisseur d’identité SAML fédéré. Lorsque vous utilisez le fournisseur d’authentification unique pour stocker une session de fournisseur d’identité SAML, `RegisterServiceProviders` doit avoir la valeur `false`. Le profil technique `SM-Saml-idp` suivant est utilisé par le [profil technique SAML](saml-technical-profile.md).
 
 ```XML
-<TechnicalProfile Id="SM-Reflector-SAML">
-    <DisplayName>Session Management Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="IncludeSessionIndex">false</Item>
-        <Item Key="RegisterServiceProviders">false</Item>
-    </Metadata>
+<TechnicalProfile Id="SM-Saml-idp">
+  <DisplayName>Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="RegisterServiceProviders">false</Item>
+  </Metadata>
 </TechnicalProfile>
 ```
 
-Le profil technique contient deux éléments de métadonnées :
+Lorsque vous utilisez le fournisseur pour stocker la session SAML B2C, `RegisterServiceProviders` doit avoir la valeur `true`. La fermeture de la session SAML requiert les valeurs `SessionIndex` et `NameID` pour aboutir.
 
-| Élément | Valeur par défaut | Valeurs possibles | Description
-| --- | --- | --- | --- |
-| IncludeSessionIndex | true | true/false | Indique au fournisseur que l’index de la session doit être stocké. |
-| RegisterServiceProviders | true | true/false | Indique que le fournisseur doit inscrire tous les fournisseurs de services SAML auxquels une assertion a été envoyée. |
+Le profil technique `SM-Saml-idp` suivant est utilisé par le [profil technique de l’émetteur SAML](saml-issuer-technical-profile.md)
 
-Lorsque vous utilisez le fournisseur pour stocker une session de fournisseur d’identité SAML, les éléments ci-dessus doivent tous deux avoir la valeur false. Lorsque vous utilisez le fournisseur pour stocker la session SAML B2C, les éléments ci-dessus doivent avoir la valeur true. Cette valeur peut également être omise, car les valeurs de ces éléments sont true par défaut. La fermeture de la session SAML requiert les valeurs `SessionIndex` et `NameID` pour aboutir.
+```XML
+<TechnicalProfile Id="SM-Saml-sp">
+  <DisplayName>Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+</TechnicalProfile>
+```
+#### <a name="metadata"></a>Métadonnées
+
+| Attribut | Obligatoire | Description|
+| --- | --- | --- |
+| IncludeSessionIndex | Non | Non utilisé actuellement, peut être ignoré.|
+| RegisterServiceProviders | Non | Indique que le fournisseur doit inscrire tous les fournisseurs de services SAML auxquels une assertion a été envoyée. Valeurs possibles : `true` (par défaut) ou `false`.|
+
+
 

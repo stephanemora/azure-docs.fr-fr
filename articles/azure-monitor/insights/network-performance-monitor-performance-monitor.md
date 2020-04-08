@@ -1,17 +1,17 @@
 ---
-title: Fonctionnalité Analyseur de performances de la solution Network Performance Monitor dans Azure Log Analytics | Microsoft Docs
+title: Moniteur de performances dans Network Performance Monitor
 description: La fonctionnalité Analyseur de performances de Network Performance Monitor vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dfbc4ea8e168ced95a4239dd100cf7277e0adf7b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654526"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055684"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : analyse des performances.
 

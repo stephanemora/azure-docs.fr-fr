@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 11/04/2019
-ms.openlocfilehash: 9cbfc17e7412b4d30f082354996721ee7b5d6d5b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 03/24/2020
+ms.openlocfilehash: d5c48b6036065f6182912c21c144cab80fc3cfbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510642"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246702"
 ---
 # <a name="what-is-azure-sql-database-edge-preview"></a>Qu’est-ce qu’Azure SQL Database Edge en préversion ?
 
@@ -34,9 +34,8 @@ SQL Database Edge est disponible avec trois éditions ou plans logiciels différ
 
    |**Planification**  |**Description**  |
    |---------|---------|
-   |Développeur  |  Référence SKU de développement uniquement, avec les mêmes limites de limitation que celles imposées par la référence SKU standard mentionnée ci-dessous |
-   |standard   |  Le plan standard prend en charge jusqu’à 4 UC et jusqu’à 32 Go de mémoire pour le conteneur SQL Database Edge. |
-   |Premium    |  La référence SKU Premium prend en charge jusqu’à 8 cœurs et jusqu’à 64 Go de mémoire pour le conteneur SQL Database Edge. |
+   |Azure SQL Database Edge Développeur  |  Référence SKU de développement uniquement, chaque conteneur SQL Database Edge est limité à 4 cœurs et à 32 Go de mémoire.  |
+   |Azure SQL Database Edge    |  Référence SKU de production, chaque conteneur SQL Database Edge est limité à 8 cœurs et à 64 Go de mémoire. |
 
 ## <a name="pricing-and-availability"></a>Tarification et disponibilité
 
@@ -71,5 +70,5 @@ Azure SQL Database Edge simplifie le développement et la gestion des applicatio
 - Pour plus d’informations sur la tarification et la disponibilité, consultez [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 - Demandez à activer Azure SQL Database Edge pour votre abonnement.
 - Pour commencer, consultez les procédures suivantes :
-  - [Déployer SQL Database Edge via le portail Azure](deploy-portal.md)
+  - [Déployer SQL Database Edge via le Portail Azure](deploy-portal.md)
   - [Machine Learning et intelligence artificielle avec SQL Database Edge](onnx-overview.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 5c84588290ce769b556002469b6a11c6950bb878
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819103"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476550"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure
 
@@ -39,16 +39,16 @@ Lorsque vous essayez d’activer une machine virtuelle Windows Azure, vous recev
 
 **Erreur : 0xC004F074 : le logiciel LicensingService a signalé que l’ordinateur n’a pas pu être activé. Aucun service de gestion des clés (KMS) n’a pu être contacté. Pour obtenir plus d’informations, veuillez consulter le Journal des événements de l’application.**
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 En règle générale, les problèmes d’activation de machines virtuelles Azure se produisent si la machine virtuelle Windows n’est pas configurée à l’aide de la bonne clé d’installation client KMS. Ces problèmes peuvent également survenir si la machine virtuelle Windows rencontre un problème de connectivité au service Azure KMS (kms.core.windows.net, port 1688). 
 
 ## <a name="solution"></a>Solution
 
 >[!NOTE]
->Si vous utilisez un réseau privé virtuel de site à site et un tunneling forcé, consultez l’article [Utiliser des itinéraires personnalisés Azure pour permettre l’activation KMS avec le tunneling forcé](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
+>Si vous utilisez un réseau privé virtuel de site à site et un tunneling forcé, consultez l’article [Utiliser des itinéraires personnalisés Azure pour permettre l’activation KMS avec le tunneling forcé](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
 >
->Si vous utilisez le service ExpressRoute et possédez un itinéraire publié par défaut, consultez l’article [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Une machine virtuelle Azure peut être incapable d’activer ExpressRoute).
+>Si vous utilisez ExpressRoute et que vous avez publié une route par défaut, consultez [Puis-je bloquer la connectivité Internet pour les réseaux virtuels connectés à des circuits ExpressRoute ?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Étape 1 : configurer la bonne clé d’installation client KMS
 
@@ -102,7 +102,9 @@ Pour la machine virtuelle créée à partir d’une image personnalisée, vous d
   
     Assurez-vous également que le trafic réseau sortant vers le point de terminaison KMS via le port 1688 n’est pas bloqué par le pare-feu de la machine virtuelle.
 
-5. Après avoir vérifié que la connectivité à kms.core.windows.net fonctionne, exécutez la commande suivante dans l’invite Windows PowerShell avec élévation de privilèges. Cette commande tente plusieurs fois l’activation.
+5. Vérifiez à l’aide de [Network Watcher Next Hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) que le type de tronçon suivant de la machine virtuelle en question vers l’adresse IP de destination 23.102.135.246 (pour kms.core.windows.net) ou l’adresse IP du point de terminaison KMS approprié qui s’applique à votre région est **Internet**.  Si le résultat est VirtualAppliance ou VirtualNetworkGateway, il est probable qu’il existe une route par défaut.  Contactez votre administrateur réseau et collaborez avec lui pour déterminer la marche à suivre.  Il peut s’agir d’une [route personnalisée](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) si cette solution est conforme aux stratégies de votre organisation.
+
+6. Après avoir vérifié que la connectivité à kms.core.windows.net fonctionne, exécutez la commande suivante dans l’invite Windows PowerShell avec élévation de privilèges. Cette commande tente plusieurs fois l’activation.
 
     ```powershell
     1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
@@ -112,7 +114,7 @@ Pour la machine virtuelle créée à partir d’une image personnalisée, vous d
     
     **Activation de Windows(R), édition ServerDatacenter (12345678-1234-1234-1234-12345678)... Le produit a été activé**.
 
-## <a name="faq"></a>Forum Aux Questions 
+## <a name="faq"></a>Questions fréquentes (FAQ) 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>J’ai créé l’image Windows Server 2016 à partir de la Place de marché Microsoft Azure. Ai-je besoin de configurer la clé KMS pour l’activation de Windows Server 2016 ? 
 

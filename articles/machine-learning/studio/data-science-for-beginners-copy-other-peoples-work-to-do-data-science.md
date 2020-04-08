@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 3a99ad12af7f6eecb74f6c0d52a269770fd5ed7c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837817"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
@@ -35,10 +35,10 @@ Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [A
 ## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
 *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
-* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 s)*
+* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 s)*
 * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
-* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
 * Vidéo 5 : Copier le travail d’autres personnes pour des projets de science des données
 
 ## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcription : Copier le travail d’autres personnes pour des projets de science des données
@@ -88,7 +88,7 @@ Il existe d’autres expériences dans [Azure AI Gallery](https://gallery.azure.
 
 [Azure AI Gallery](https://gallery.azure.ai) est l’endroit où trouver des expériences de travail que vous pouvez utiliser comme point de départ pour vos propres solutions.
 
-Nous vous invitons à regarder les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning Studio (classique).
+Nous vous invitons à regarder les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning Studio (classique).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez votre première expérience de science des données avec Azure Machine Learning Studio (classique)](create-experiment.md)

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794276"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche cognitive Azure
@@ -27,7 +27,7 @@ Cet article explique les étapes à suivre pour mettre en place le filtrage de s
 > [!div class="checklist"]
 > * Créer un champ qui contient les identificateurs de principal 
 > * Envoyer (push) ou mettre à jour les documents existants avec les identificateurs de principal appropriés
-> * Exécuter une requête de recherche avec `search.in` `filter`
+> * Émettre une demande de recherche avec `search.in` `filter`
 
 >[!NOTE]
 > Le processus de récupération des identificateurs de principal n’est pas abordé dans ce document. Obtenez-le auprès de votre fournisseur de services d’identité.
@@ -156,5 +156,5 @@ Vous venez de voir comment filtrer des résultats en fonction de l’identité d
 ## <a name="see-also"></a>Voir aussi
 
 + [Contrôle d’accès à Active Directory basé sur l’identité à l’aide des filtres Recherche cognitive Azure](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtres dans Recherche cognitive Azure](search-filters.md)
++ [Filtres dans la Recherche cognitive Azure](search-filters.md)
 + [Sécurité des données et contrôle d'accès dans les opérations de Recherche cognitive Azure](search-security-overview.md)

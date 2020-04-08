@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25097f8b72c7c8dde742701ce576c1b0e2fbabd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 476bdfdd2c0b81d86900cee18024cc261ee80a07
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475279"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481260"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemples Azure AD PowerShell pour le proxy d’application Azure AD
 
@@ -45,6 +45,6 @@ Pour plus d’informations sur les applets de commande utilisées dans ces exemp
 | [Récupérer toutes les applications de proxy d’application à l’aide de la publication générique](scripts/powershell-get-all-wildcard-apps.md) | Répertorie toutes les applications de proxy d’application à l’aide de la publication de caractères génériques. |
 |**Configuration de domaine personnalisée**||
 | [Répertorier toutes les applications de proxy d’application utilisant des domaines personnalisés et informations de certificat](scripts/powershell-get-all-custom-domains-and-certs.md) | Répertorie toutes les applications de proxy d’application qui utilisent des domaines personnalisés et des informations de certificat associées aux domaines personnalisés. |
-| [Répertorier toutes les applications d’application proxy Azure AD publiées sans certificat chargé](scripts/powershell-get-all-custom-domain-no-cert.md) | Répertorie toutes les applications de proxy d’application qui utilisent des domaines personnalisés, mais n’ont pas de certificat SSL valide chargé. |
+| [Répertorier toutes les applications d’application proxy Azure AD publiées sans certificat chargé](scripts/powershell-get-all-custom-domain-no-cert.md) | Liste toutes les applications de proxy d’application qui utilisent des domaines personnalisés, mais n’ont pas de certificat TLS/SSL valide chargé. |
 | [Récupérer toutes les applications d’application Azure AD proxy publiées avec le même certificat](scripts/powershell-get-custom-domain-identical-cert.md) | Répertorie toutes les applications d’application proxy Azure AD publiées avec le certificat identique. |
 | [Récupérer toutes les applications d’application Azure AD proxy publiées avec le certificat identique et remplacement](scripts/powershell-get-custom-domain-replace-cert.md) | Pour les applications Azure AD proxy qui sont publiées avec un certificat identique, vous permet de remplacer le certificat en bloc. |

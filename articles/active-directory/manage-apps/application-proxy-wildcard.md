@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a9e7be5f582051e03cba08733fcbfa697cc8f5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481243"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory
 
@@ -62,7 +62,7 @@ Pour commencer, vérifiez que vous respectez ces exigences.
 Bien que les [domaines personnalisés](application-proxy-configure-custom-domain.md) soient facultatifs pour toutes les autres applications, ils sont obligatoires pour les applications génériques. Pour créer des domaines personnalisés, vous devez :
 
 1. Créez un domaine vérifié dans Azure.
-1. Charger un certificat SSL au format PFX dans votre proxy d’application.
+1. Charger un certificat TLS/SSL au format PFX dans votre proxy d’application
 
 Vous devez utiliser un certificat générique correspondant à l’application que vous voulez créer. Sinon, vous pouvez utiliser un certificat qui liste uniquement des applications spécifiques. Dans ce cas, seules les applications listées dans le certificat sont accessibles via cette application générique.
 
@@ -142,15 +142,15 @@ En suivant les [étapes documentées](application-proxy-add-on-premises-applicat
 
 - URL interne :
 
-    ![Exemple : Caractère générique dans l’URL interne](./media/application-proxy-wildcard/42.png)
+    ![Exemple : Caractère générique dans l’URL interne](./media/application-proxy-wildcard/42.png)
 
 - URL externe :
 
-    ![Exemple : Caractère générique dans l’URL externe](./media/application-proxy-wildcard/43.png)
+    ![Exemple : Caractère générique dans l’URL externe](./media/application-proxy-wildcard/43.png)
 
 - SPN d’application interne :
 
-    ![Exemple : Caractère générique dans la configuration SPN](./media/application-proxy-wildcard/44.png)
+    ![Exemple : Caractère générique dans la configuration SPN](./media/application-proxy-wildcard/44.png)
 
 La publication de l’application générique vous permet désormais d’accéder à vos trois applications via les URL auxquelles vous êtes habitué (par exemple, `travel.adventure-works.com`).
 
@@ -173,15 +173,15 @@ D’après les [étapes documentées](application-proxy-add-on-premises-applicat
 
 - Dans **l’URL interne**, vous définissez **finance** au lieu d’un caractère générique.
 
-    ![Exemple : Dans l’URL interne, définissez finance au lieu d’un caractère générique.](./media/application-proxy-wildcard/52.png)
+    ![Exemple : Dans l’URL interne, définissez finance au lieu d’un caractère générique.](./media/application-proxy-wildcard/52.png)
 
 - Dans **l’URL externe**, vous définissez **finance** au lieu d’un caractère générique.
 
-    ![Exemple : Dans l’URL externe, définissez finance au lieu d’un caractère générique.](./media/application-proxy-wildcard/53.png)
+    ![Exemple : Dans l’URL externe, définissez finance au lieu d’un caractère générique.](./media/application-proxy-wildcard/53.png)
 
 - Pour le SPN d’application interne, vous définissez **finance** au lieu d’un caractère générique.
 
-    ![Exemple : Dans une configuration SPN, définissez finance au lieu d’un caractère générique.](./media/application-proxy-wildcard/54.png)
+    ![Exemple : Dans une configuration SPN, définissez finance au lieu d’un caractère générique.](./media/application-proxy-wildcard/54.png)
 
 Cette configuration implémente le scénario suivant :
 

@@ -8,28 +8,22 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 8658bc44e41f61e717cf228a6d8e7cee6b477022
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5e323d8faa19ceb0712aa6183df17740ce2a0a1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264948"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370375"
 ---
 # <a name="public-preview-service-limits"></a>Limites de service de la préversion publique
 
-Dans la préversion publique, Azure Digital Twins présente les limites temporaires suivantes au niveau des abonnements, des instances et des taux.
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Ces limites ont pour but de simplifier l’apprentissage du nouveau service et de ses nombreuses fonctionnalités.
-
-> [!NOTE]
-> Ces limites sont réduites ou supprimées dans la version en disponibilité générale (GA).
+Dans la préversion publique, Azure Digital Twins présente les limites temporaires suivantes au niveau des abonnements, des instances et des taux pour les clients existants. Ces limites ont pour but de simplifier l’apprentissage du nouveau service et de ses nombreuses fonctionnalités et seront augmentées ou supprimées dans la version en disponibilité générale (GA).
 
 ## <a name="per-subscription-limits"></a>Limites par abonnement
 
-Dans la préversion publique, chaque abonnement Azure ne peut créer ou exécuter qu’une seule instance d’Azure Digital Twins à la fois.
-
-> [!TIP]
-> Si vous supprimez votre instance, vous pouvez en créer une nouvelle.
+Dans la préversion publique, chaque abonnement Azure ne peut créer ou exécuter qu’une seule instance d’Azure Digital Twins à la fois. Si vous supprimez votre instance, vous pouvez en créer une nouvelle.
 
 ## <a name="per-instance-limits"></a>Limites par instance
 
@@ -71,7 +65,7 @@ Les limites suivantes définissent le nombre total d’appels de fonction défin
 Les limites suivantes restreignent le nombre total de messages que vos appareils peuvent envoyer à votre instance d’Azure Digital Twins :
 
 - 100 messages par seconde sur tous les appareils
--   25 messages par seconde par appareil
+-    25 messages par seconde par appareil
 
 ## <a name="next-steps"></a>Étapes suivantes
 

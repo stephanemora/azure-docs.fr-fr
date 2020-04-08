@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 4ff4025941e9a77148daa91995ecf182231d1f0b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 88e0e1c18722fd86e79fc1fa7722b59b3cb8966a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976279"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460957"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu 
 
@@ -35,12 +35,17 @@ L’image suivante illustre le flux de travail de protection du contenu Media Se
 Cet article explique les concepts et la terminologie pertinents pour comprendre la protection du contenu avec Media Services. Il fournit également des liens aux articles qui abordent la protection du contenu. 
 
 ## <a name="dynamic-encryption"></a>Chiffrement dynamique
- Vous pouvez utiliser Media Services pour transmettre du contenu chiffré de manière dynamique avec le chiffrement à clé en clair AES ou DRM en utilisant PlayReady, Widevine ou Apple FairPlay. Actuellement, vous pouvez chiffrer les formats de diffusion en continu HLS (HTTP Live Streaming), MPEG DASH et Smooth Streaming. Le chiffrement sur des téléchargements progressifs n’est pas pris en charge. Chaque méthode de chiffrement prend en charge les protocoles de diffusion en continu suivants :
 
+Vous pouvez utiliser Media Services pour transmettre du contenu chiffré de manière dynamique avec le chiffrement à clé en clair AES ou DRM en utilisant PlayReady, Widevine ou Apple FairPlay. Si le contenu est chiffré avec une clé en clair AES et est envoyé via HTTPS, il ne s’affiche en clair qu’une fois qu’il atteint le client. 
+
+Chaque méthode de chiffrement prend en charge les protocoles de diffusion en continu suivants :
+ 
 - AES : MPEG-DASH, Smooth Streaming et HLS
 - PlayReady : MPEG-DASH, Smooth Streaming et HLS
 - Widevine : MPEG-DASH
 - FairPlay : HLS
+
+Le chiffrement sur des téléchargements progressifs n’est pas pris en charge. 
 
 Pour chiffrer un élément, vous devez associer une clé de contenu de chiffrement à votre élément et configurer également une stratégie d'autorisation pour la clé. Les clés de chiffrement peuvent être spécifiées ou générées automatiquement par Media Services.
 
@@ -75,6 +80,19 @@ Avec une stratégie d’autorisation de jeton, la clé de contenu n’est envoy�
 
 Quand vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres de clé de vérification, émetteur et audience principaux. La clé de vérification principale contient le jeton avec lequel la clé a été signée. L’émetteur est le service STS qui émet le jeton. L’audience, parfois appelé étendue, décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
+### <a name="token-replay-prevention"></a>Prévention de réexécution de jeton
+
+La fonctionnalité de *prévention de relecture de jeton* permet aux clients de Media Services de limiter le nombre de fois qu’un même jeton peut être utilisé pour demander une clé ou une licence. Le client peut ajouter une revendication de type `urn:microsoft:azure:mediaservices:maxuses` dans le jeton, sont la valeur indique le nombre de fois que le jeton peut être utilisé pour acquérir une licence ou une clé. Toutes les demandes suivantes de remise de clé effectuées à l’aide du même jeton renvoient une réponse Non autorisé. Découvrez comment ajouter la revendication dans l’[exemple DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+ 
+#### <a name="considerations"></a>Considérations
+
+* Les clients doivent pouvoir contrôler la génération de jetons. La revendication doit être placée dans le jeton lui-même.
+* Lors de l’utilisation de cette fonctionnalité, les demandes comportant des jetons dont le délai d’expiration est supérieur à une heure après le moment de réception de la demande sont rejetées avec une réponse Non autorisé.
+* Les jetons sont identifiés de façon unique par leur signature. Toute modification apportée à la charge utile (par exemple, une mise à jour de l’heure d’expiration ou de la revendication) a pour effet de modifier la signature du jeton et est considérée comme un nouveau jeton que la fonctionnalité de remise de clé n’a pas encore rencontré.
+* La lecture échoue si le jeton a été exécuté un nombre fois supérieur à la valeur `maxuses` définie par le client.
+* Cette fonctionnalité peut être utilisée pour tout contenu protégé existant (seul le jeton émis doit être modifié).
+* Cette fonctionnalité opère avec JWT et SWT.
+
 ## <a name="streaming-urls"></a>URL de diffusion
 Si votre ressource a été chiffrée avec plusieurs DRM, utilisez une balise de chiffrement dans l’URL de streaming : (format=’m3u8-aapl’, encryption=’xxx’).
 
@@ -84,6 +102,7 @@ Les considérations suivantes s'appliquent :
 * Le type de chiffrement ne doit pas être spécifié dans l’URL si un seul chiffrement a été appliqué à la ressource.
 * Le type de chiffrement ne tient pas compte de la casse.
 * Les types de chiffrement suivants peuvent être spécifiés :
+
   * **cenc** : pour PlayReady ou Widevine (chiffrement commun)
   * **cbcs-aapl** : pour FairPlay (chiffrement CBC AES)
   * **cbc** : chiffrement de l'enveloppe AES

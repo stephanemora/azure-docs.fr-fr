@@ -2,13 +2,13 @@
 title: Importer les images conteneur
 description: Importez des images conteneur dans un registre de conteneurs Azure à l’aide d’API Azure sans avoir à exécuter de commandes Docker.
 ms.topic: article
-ms.date: 02/06/2019
-ms.openlocfilehash: e649447d7b9280dbebef1ae332c1f25910f5a516
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 03/16/2020
+ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456308"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051918"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importer des images conteneur dans un registre de conteneurs
 
@@ -31,7 +31,7 @@ L’importation d’images dans un registre de conteneurs Azure présente les av
 Pour importer des images conteneur, cet article nécessite que vous exécutiez l’interface Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
 > [!NOTE]
-> Si vous avez besoin de distribuer des images conteneur identiques dans plusieurs régions Azure, Azure Container Registry prend également en charge la [géoréplication](container-registry-geo-replication.md). En géoréplicant un registre (référence SKU Premium requise), vous pouvez servir plusieurs régions avec des noms d’image et d’étiquette identiques à partir d’un seul registre.
+> Si vous avez besoin de distribuer des images conteneur identiques dans plusieurs régions Azure, Azure Container Registry prend également en charge la [géoréplication](container-registry-geo-replication.md). En géoréplicant un registre (niveau de service Premium requis), vous pouvez servir plusieurs régions avec des noms d’image et d’étiquette identiques à partir d’un seul registre.
 >
 
 ## <a name="prerequisites"></a>Prérequis
@@ -47,19 +47,27 @@ Pour importer une image dans un registre de conteneurs Azure, votre identité do
 Par exemple, utilisez la commande [az acr import][az-acr-import] pour importer l’image `hello-world:latest` multi-architecture à partir de Docker Hub dans un registre nommé *myregistry*. `hello-world` étant une image officielle de Docker Hub, cette image se trouve dans le dépôt `library` par défaut. Indiquez le nom du dépôt et éventuellement une étiquette dans la valeur du paramètre d’image `--source`. (Vous pouvez également identifier une image par code de hachage de manifeste et non par étiquette, ce qui garantit l’obtention d’une version particulière.)
  
 ```azurecli
-az acr import --name myregistry --source docker.io/library/hello-world:latest --image hello-world:latest
+az acr import \
+  --name myregistry \
+  --source docker.io/library/hello-world:latest \
+  --image hello-world:latest
 ```
 
 Pour vérifier si plusieurs manifestes sont associés à cette image, exécutez la commande `az acr repository show-manifests` :
 
 ```azurecli
-az acr repository show-manifests --name myregistry --repository hello-world
+az acr repository show-manifests \
+  --name myregistry \
+  --repository hello-world
 ```
 
 L’exemple suivant importe une image publique à partir du dépôt `tensorflow` dans Docker Hub :
 
 ```azurecli
-az acr import --name myregistry --source docker.io/tensorflow/tensorflow:latest-gpu --image tensorflow:latest-gpu
+az acr import \
+  --name myregistry \
+  --source docker.io/tensorflow/tensorflow:latest-gpu \
+  --image tensorflow:latest-gpu
 ```
 
 ### <a name="import-from-microsoft-container-registry"></a>Importer à partir du registre de conteneurs Microsoft
@@ -67,7 +75,10 @@ az acr import --name myregistry --source docker.io/tensorflow/tensorflow:latest-
 Par exemple, importez la dernière image Windows Server Core à partir du dépôt `windows` dans le registre de conteneurs Microsoft.
 
 ```azurecli
-az acr import --name myregistry --source mcr.microsoft.com/windows/servercore:latest --image servercore:latest
+az acr import \
+--name myregistry \
+--source mcr.microsoft.com/windows/servercore:latest \
+--image servercore:latest
 ```
 
 ## <a name="import-from-another-azure-container-registry"></a>Importer à partir d’un registre de conteneurs Azure
@@ -83,21 +94,30 @@ Vous pouvez importer une image à partir d’un autre registre de conteneurs Azu
 Par exemple, importez l’image `aci-helloworld:latest` à partir d’un registre source *mysourceregistry* dans *myregistry* dans le même abonnement Azure.
 
 ```azurecli
-az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-helloworld:latest --image hello-world:latest
+az acr import \
+  --name myregistry \
+  --source mysourceregistry.azurecr.io/aci-helloworld:latest \
+  --image aci-helloworld:latest
 ```
 
 L’exemple suivant importe une image par code de hachage de manifeste (hachage SHA-256, représenté sous la forme `sha256:...`), et non par étiquette :
 
 ```azurecli
-az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-helloworld@sha256:123456abcdefg 
+az acr import \
+  --name myregistry \
+  --source mysourceregistry.azurecr.io/aci-helloworld@sha256:123456abcdefg 
 ```
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>Importer à partir d’un registre dans un abonnement différent
 
-Dans l’exemple suivant, *mysourceregistry* est dans un autre abonnement que *myregistry*, dans le même locataire Active Directory. Indiquez l’ID de ressource du registre source avec le paramètre `--registry`. Notez que le paramètre `--source` spécifie uniquement le dépôt source et le nom de l’image, pas le nom du serveur de connexion au registre.
- 
+Dans l’exemple suivant, *mysourceregistry* est dans un autre abonnement que *myregistry*, dans le même locataire Active Directory. Indiquez l’ID de ressource du registre source avec le paramètre `--registry`. Notez que le paramètre `--source` spécifie uniquement le dépôt source et l’étiquette, pas le nom du serveur de connexion au registre.
+
 ```azurecli
-az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
+az acr import \
+  --name myregistry \
+  --source samples/aci-helloworld:latest \
+  --image aci-hello-world:latest \
+  --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importer à partir d’un registre à l’aide des informations d’identification du principal de service
@@ -105,7 +125,12 @@ az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --imag
 Pour importer à partir d’un registre auquel vous ne pouvez pas accéder à l’aide des autorisations Active Directory, vous pouvez utiliser les informations d’identification du principal de service (si celles-ci sont disponibles). Indiquez l’appID et le mot de passe d’un [principal de service](container-registry-auth-service-principal.md) Active Directory disposant d’un accès ACRPull au registre source. L’utilisation d’un principal de service est utile pour les systèmes de génération et d’autres systèmes sans assistance qui doivent importer des images dans votre registre.
 
 ```azurecli
-az acr import --name myregistry --source sourceregistry.azurecr.io/sourcerepo/sourceimage:tag --image targetimage:tag --username <SP_App_ID> –-password <SP_Passwd>
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --username <SP_App_ID> \
+  –-password <SP_Passwd>
 ```
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importer à partir d’un registre de conteneurs privé non-Azure
@@ -113,7 +138,12 @@ az acr import --name myregistry --source sourceregistry.azurecr.io/sourcerepo/so
 Importez une image à partir d’un registre privé en spécifiant des informations d’identification qui permettent un accès en tirage (pull) au registre. Par exemple, tirez (pull) une image à partir d’un registre Docker privé : 
 
 ```azurecli
-az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --image sourceimage:tag --username <username> --password <password>
+az acr import \
+  --name myregistry \
+  --source docker.io/sourcerepo/sourceimage:tag \
+  --image sourceimage:tag \
+  --username <username> \
+  --password <password>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

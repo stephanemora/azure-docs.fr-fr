@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075b2c92168afe0c366608266c38b14394b73cff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: eaceaf1f5e9b6e34ced5db39b61e607fffcb5953
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275481"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295136"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory
 
@@ -41,7 +41,7 @@ Lorsqu’une application est publiée via le proxy d’application Azure AD, le 
 
 Lorsque vous vous inscrivez pour un locataire Azure AD, la région de votre locataire est déterminée par le pays/la région que vous spécifiez. Lorsque vous activez le service de proxy d’application, les instances du service de proxy d’application de votre locataire sont sélectionnées ou créées dans la même région que votre locataire Azure AD, ou la région la plus proche de ce dernier.
 
-Par exemple, si le pays ou la région de votre locataire Azure AD est le Royaume-Uni, tous vos connecteurs de proxy d’application utilisent des instances de service dans des centres de données de l’Union européenne. Lorsque vos utilisateurs accèdent à des applications publiées, leur trafic passe par les instances du service de proxy d’application à cet emplacement.
+Par exemple, si le pays ou la région de votre locataire Azure AD est le Royaume-Uni, tous vos connecteurs de proxy d’application utilisent des instances de service dans des centres de données européens. Lorsque vos utilisateurs accèdent à des applications publiées, leur trafic passe par les instances du service de proxy d’application à cet emplacement.
 
 ## <a name="considerations-for-reducing-latency"></a>Considérations relatives à la réduction de la latence
 
@@ -162,15 +162,15 @@ Le connecteur peut être placé dans le centre de données Azure. Dans la mesure
 
 ### <a name="use-case-5"></a>Cas d’utilisation 5
 
-**Scénario :** L’application se trouve dans un réseau d’entreprise de l’Union européenne avec l’instance de proxy d’application et la plupart des utilisateurs aux États-Unis.
+**Scénario :** L’application se trouve dans un réseau d’entreprise en Europe avec l’instance de proxy d’application et la plupart des utilisateurs aux États-Unis.
 
 **Recommandation :** Placez le connecteur près de l’application. Étant donné que les utilisateurs des États-Unis ont accès à une instance de proxy d’application qui se trouve dans la même région, le tronçon 1 n’est pas trop onéreux. Le tronçon 3 est optimisé. Envisagez d’utiliser ExpressRoute pour optimiser le tronçon 2.
 
-![Le diagramme montre les utilisateurs et le proxy aux États-Unis, le connecteur et l’application dans l’Union européenne](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
+![Le diagramme montre les utilisateurs et le proxy aux États-Unis, le connecteur et l’application en Europe](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 
-Vous pouvez également envisager d’utiliser une autre variante dans cette situation. Si la plupart des utilisateurs de l’organisation sont aux États-Unis, il est probable que votre réseau « s’étende » aussi vers les États-Unis. Placez le connecteur aux États-Unis et utilisez la ligne de réseau d’entreprise interne dédiée vers l’application dans l’Union européenne. Les tronçons 2 et 3 sont ainsi optimisés.
+Vous pouvez également envisager d’utiliser une autre variante dans cette situation. Si la plupart des utilisateurs de l’organisation sont aux États-Unis, il est probable que votre réseau « s’étende » aussi vers les États-Unis. Placez le connecteur aux États-Unis et utilisez la ligne de réseau d’entreprise interne dédiée vers l’application en Europe. Les tronçons 2 et 3 sont ainsi optimisés.
 
-![Le diagramme montre les utilisateurs, le proxy et le connecteur aux États-Unis, l’application dans l’Union européenne](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
+![Le diagramme montre les utilisateurs, le proxy et le connecteur aux États-Unis, l’application en Europe](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 03/27/2020
+ms.openlocfilehash: 580b7efd26d5729baf236b59452f63483c003e44
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153160"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366222"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -385,6 +385,13 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | --- | --- | --- | --- |
 > | jobs | resource group | 2-64 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre. |
 
+## <a name="microsoftinsights"></a>Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | Entité | Étendue | Longueur | Caractères valides |
+> | --- | --- | --- | --- |
+> | components | resource group | 1-260 | Impossibilité d’utiliser :<br>`%&\?/` <br><br>Ne peut pas se terminer par un espace ou un point.  |
+
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
@@ -616,6 +623,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | --- | --- | --- | --- |
 > | managedInstances | globale | 1-63 | Lettres minuscules, chiffres et traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. |
 > | servers | globale | 1-63 | Lettres minuscules, chiffres et traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. |
+> | servers / administrators | server |  | Doit être `ActiveDirectory`. |
 > | servers / databases | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:\/?`<br><br>Ne peut pas se terminer par un point ou un espace. |
 > | servers / databases / syncGroups | database | 1-150 | Caractères alphanumériques, traits d’union et traits de soulignement. |
 > | servers / elasticPools | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:\/?`<br><br>Ne peut pas se terminer par un point ou un espace. |

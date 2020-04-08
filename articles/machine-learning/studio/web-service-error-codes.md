@@ -12,14 +12,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468158"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217770"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Codes d’erreur de l’API REST Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
 Les codes d’erreur suivants peuvent être retournés par une opération effectuée sur un service web Azure Machine Learning Studio (classique).
  
@@ -27,7 +29,7 @@ Les codes d’erreur suivants peuvent être retournés par une opération effect
  
 Argument non valide fourni.
  
-Cette classe d’erreurs indique qu’un des arguments fournis est non valide. Il peut s’agir d’une information d’identification ou d’un emplacement de stockage Azure relatifs à du contenu transmis au service web. Examinez la section des détails du champ du code d’erreur afin d’identifier l’argument spécifique non valide.
+Cette classe d’erreurs indique qu’un des arguments fournis est non valide. Il peut s’agir d’une information d’identification ou d’un emplacement de stockage Azure relatifs à du contenu transmis au service web. Examinez le champ du code d’erreur dans la section des détails afin d’identifier l’argument spécifique non valide.
  
 | Code d'erreur | Message utilisateur |
 | ---------- |--------------|

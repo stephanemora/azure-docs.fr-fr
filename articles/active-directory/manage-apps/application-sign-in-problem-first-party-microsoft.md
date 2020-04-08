@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67108295"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
@@ -71,7 +71,7 @@ La liste ci-après répertorie les problèmes couramment rencontrés lorsque les
 
   * Vérifiez que les **informations de contact d’authentification** de l’utilisateur sont à jour et permettent d’appliquer les stratégies d’accès conditionnel ou de Multi-Factor Authentication. [Vérifier l’état Multi-Factor Authentication d’un utilisateur](#check-a-users-multi-factor-authentication-status) ou [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info)
 
-- Pour les applications **Microsoft** **qui nécessitent une licence** (comme Office 365), voici certains problèmes à vérifier une fois que vous avez écarté les problèmes d’ordre général ci-dessus :
+- Pour les applications **Microsoft** **qui nécessitent une licence** (comme Office 365), voici certains problèmes à vérifier une fois que vous avez écarté les problèmes d’ordre général ci-dessus :
 
   * Vérifiez que l’utilisateur **dispose d’une licence**. [Vérifier les licences affectées à un utilisateur](#check-a-users-assigned-licenses) ou [Vérifier les licences affectées à un groupe](#check-a-groups-assigned-licenses)
 
@@ -79,13 +79,13 @@ La liste ci-après répertorie les problèmes couramment rencontrés lorsque les
 
   * Si la licence est **affectée à un** **groupe dynamique**, vérifiez que la **règle de groupe dynamique est correctement définie**. [Vérifier les critères d’appartenance d’un groupe dynamique](#check-a-dynamic-groups-membership-criteria)
 
-  * Si la licence est **affectée à un** **groupe dynamique**, vérifiez que le groupe dynamique **a terminé de traiter** son appartenance et que **l’utilisateur est membre du groupe** (cela peut prendre un certain temps). [Vérifier les appartenances d’un utilisateur à des groupes](#check-a-users-group-memberships)
+  * Si la licence est **affectée à un** **groupe dynamique**, vérifiez que le groupe dynamique **a terminé de traiter** son appartenance et que l’**utilisateur est membre du groupe** (cela peut prendre un certain temps). [Vérifier les appartenances d’un utilisateur à des groupes](#check-a-users-group-memberships)
 
   *  Après avoir vérifié que la licence est affectée, vérifiez que la licence **n’a pas expiré**.
 
   *  Vérifiez que la licence **correspond à l’application** à laquelle il souhaite accéder.
 
-- Pour les **applications** Microsoft **qui ne nécessitent pas une licence**, voici quelques autres points à vérifier :
+- Pour les **applications** Microsoft **qui ne nécessitent pas de licence**, voici quelques autres points à vérifier :
 
   * Si l’application demande des **autorisations de niveau utilisateur** (par exemple « Accéder à la boîte aux lettres de cet utilisateur »), vérifiez que l’utilisateur s’est connecté à l’application et qu’il a effectué une **opération de consentement de niveau utilisateur** pour permettre à l’application d’accéder à ses données.
 
@@ -127,7 +127,7 @@ Pour vérifier si le compte d’un utilisateur est présent, procédez comme sui
 
 5.  Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Vérifiez les propriétés de l’objet utilisateur pour vous assurer qu’elles apparaissent comme prévu et qu’aucune donnée n’est manquante.
 
@@ -205,7 +205,7 @@ Pour vérifier l’état d’authentification multifacteur d’un utilisateur, p
 
 9. Sélectionnez l’utilisateur dans la liste des utilisateurs et **activez**, **désactivez** ou **appliquez** la Multi-Factor Authentication comme souhaité.
 
-   * **Remarque**: Si un utilisateur est dans un état **Appliqué**, vous pouvez définir le définir sur **Désactivé** de façon temporaire pour lui permettre de revenir à son compte. Une fois qu’il est revenu dans son compte, vous pouvez ensuite modifier son état en le redéfinissant sur **Activé** pour lui demander d’enregistrer à nouveau ses informations de contact à sa prochaine connexion. Sinon, vous pouvez suivre les étapes décrites dans [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info) pour vérifier ou définir ces données à sa place.
+   * **Remarque** : Si un utilisateur est dans un état **Appliqué**, vous pouvez définir le définir sur **Désactivé** de façon temporaire pour lui permettre de revenir à son compte. Une fois qu’il est revenu dans son compte, vous pouvez ensuite modifier son état en le redéfinissant sur **Activé** pour lui demander d’enregistrer à nouveau ses informations de contact à sa prochaine connexion. Sinon, vous pouvez suivre les étapes décrites dans [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info) pour vérifier ou définir ces données à sa place.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Vérifier les informations de contact de l’authentification d’un utilisateur
 
@@ -337,7 +337,7 @@ Pour vérifier les critères d’appartenance à un groupe dynamique, procédez 
 
 5.  Cliquez sur **Tous les groupes**.
 
-6.  **Recherchez** le groupe qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** le groupe qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Règles d’appartenance dynamique**.
 

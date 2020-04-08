@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 602553637e21b17aa4f9bc7402753af024c697c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912787"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477559"
 ---
 # <a name="linear-regression-module"></a>Module Régression linéaire
 Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
@@ -82,7 +82,7 @@ Ce module prend en charge deux méthodes d’ajustement d’un modèle de régre
 
 7. Ajoutez le module [Entraîner le modèle](./train-model.md) à votre pipeline, puis connectez un jeu de données étiqueté.
 
-8. Exécuter le pipeline.
+8. Envoyez le pipeline.
 
 ### <a name="results-for-ordinary-least-squares-model"></a>Résultats de modèle de moindres carrés ordinaires
 
@@ -131,7 +131,7 @@ Une fois l’apprentissage terminé :
 
     Si vous n’utilisez pas de balayage de paramètre, utilisez le module [Train Model](train-model.md) (Entraîner le modèle).
 
-13. Exécuter le pipeline.
+13. Envoyez le pipeline.
 
 ### <a name="results-for-online-gradient-descent"></a>Résultats pour la descente de gradient en ligne
 

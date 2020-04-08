@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 17505084095eb8fbe46c20c7aa226131e128b286
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127419"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371594"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -145,7 +145,7 @@ Exemple d’erreur brute :
 
 Pour corriger cela, effectuez les actions suivantes :
 
-1. Ouvrez le portail Azure et accédez au panneau **Réseaux virtuels**.
+1. Ouvrez le portail Azure et accédez à l’onglet **Réseaux virtuels**.
 2. Recherchez votre réseau virtuel, puis sélectionnez **Serveurs DNS**.
 3. Le menu Serveurs DNS doit apparaître sur le côté droit de l’écran. Dans ce menu, sélectionnez **Personnalisé**.
 4. Vérifiez que les serveurs DNS listés sous Personnalisé correspondent à votre contrôleur de domaine ou à votre domaine Active Directory. Si vous ne voyez pas votre serveur DNS, vous pouvez l’ajouter en entrant sa valeur dans le champ **Ajouter un serveur DNS**.

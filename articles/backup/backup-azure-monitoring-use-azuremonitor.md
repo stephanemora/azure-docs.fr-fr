@@ -4,12 +4,12 @@ description: Supervisez les charges de travail de Sauvegarde Azure et créez des
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 0673291ac6bd1692c6ebe07540e05077e3025d55
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 547cef66be9902468f4e2755c31e5f586eccad5e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583864"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79459512"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -29,7 +29,7 @@ Dans Azure Monitor, vous pouvez créer vos propres alertes dans un espace de tra
 > [!IMPORTANT]
 > Pour plus d’informations sur le coût de création de cette requête, consultez [Tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Ouvrez la section **Journaux** de l’espace de travail Log Analytics et écrivez une requête par rapport à vos propres journaux. Quand vous sélectionnez **Nouvelle règle d’alerte**, la page de création d’alerte Azure Monitor s’ouvre, comme illustré dans l’image suivante.
+Ouvrez la section **Journaux** de l’espace de travail Log Analytics et créez une requête pour vos propres journaux. Quand vous sélectionnez **Nouvelle règle d’alerte**, la page de création d’alerte Azure Monitor s’ouvre, comme illustré dans l’image suivante.
 
 ![Créer une alerte dans un espace de travail Log Analytics](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 

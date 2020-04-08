@@ -1,6 +1,6 @@
 ---
 title: Scénarios de flux et d’applications pour l’authentification de la plateforme d’identités Microsoft | Azure
-description: Découvrez les flux d’authentification et scénarios d’applications pour la plateforme d’identités Microsoft. Découvrez les différents types d’applications qui peuvent authentifier des identités, acquérir des jetons et appeler des API protégées.
+description: Découvrez les scénarios d’application pour la plateforme d’identités Microsoft, notamment l’authentification des identités, l’acquisition de jetons et l’appel d’API protégées.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,21 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/27/2019
+ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: bdcc93fe84d2fded914f21dfa2a29d9e2a2ab449
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e73da5e7b440a216841fffd65ca2e1b95de7a609
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161356"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480927"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
-Le point de terminaison de la plateforme d’identités Microsoft (v2.0) prend en charge l’authentification pour différents types d’architectures d’applications modernes. Toutes les architectures sont basées sur les protocoles standard [OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md).  Les applications se servent des [bibliothèques d’authentification](reference-v2-libraries.md) pour authentifier les identités et acquérir des jetons pour accéder aux API protégées.
+Le point de terminaison de la plateforme d’identités Microsoft (v2.0) prend en charge l’authentification pour différents types d’architectures d’applications modernes. Toutes les architectures sont basées sur les protocoles standard [OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md).  Les applications se servent des [bibliothèques d’authentification de la plateforme d’identités Microsoft](reference-v2-libraries.md) pour authentifier les identités et acquérir des jetons afin d’accéder aux API protégées.
 
-Cet article décrit les différents flux d’authentification et les scénarios d’applications dans lesquels ils sont utilisés. Cet article fournit également des listes de :
+Cet article décrit les flux d’authentification et les scénarios d’application dans lesquels ils sont utilisés :
+
 - [Scénarios d’applications et flux d’authentification pris en charge](#scenarios-and-supported-authentication-flows).
 - [Scénarios d’applications avec les plateformes et langages pris en charge](#scenarios-and-supported-platforms-and-languages).
 
@@ -36,13 +37,13 @@ Les jetons peuvent être obtenus à partir de plusieurs types d’applications, 
 - Applications de bureau
 - API Web
 
-Ils peuvent également être obtenus à partir d’applications exécutées sur des appareils qui n’ont pas de navigateur ou qui s’exécutent sur IoT.
+Les jetons peuvent également être obtenus à partir d’applications exécutées sur des appareils qui n’ont pas de navigateur ou qui s’exécutent sur IoT.
 
 Les applications peuvent être catégorisées comme suit :
 
 - [Ressources protégées et applications clientes](#protected-resources-vs-client-applications) : certains scénarios concernent la protection de ressources telles que des applications web ou des API web. D’autres scénarios concernent l’acquisition d’un jeton de sécurité pour appeler une API web protégée.
 - [Avec utilisateurs ou sans utilisateurs](#with-users-or-without-users) : certains scénarios impliquent un utilisateur connecté, tandis que d’autres (comme les scénarios de démon) n’impliquent pas d’utilisateur.
-- [Applications clientes monopages, publiques et confidentielles](#single-page-public-client-and-confidential-client-applications) : Il existe trois grandes catégories de types d’applications. Chacune est utilisée avec différents objets et bibliothèques.
+- [Applications clientes monopages, publiques et confidentielles](#single-page-public-client-and-confidential-client-applications) : il s’agit des trois grandes catégories d’applications. Chacune est utilisée avec différents objets et bibliothèques.
 - [Audience de connexion](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types) : les flux d’authentification disponibles diffèrent en fonction de l’audience de connexion. Certains flux sont disponibles uniquement pour les comptes professionnels ou scolaires. D’autres sont disponibles pour les comptes professionnels ou scolaires et pour les comptes Microsoft personnels. L’audience autorisée dépend des flux d’authentification.
 - [Flux OAuth 2.0 pris en charge](#scenarios-and-supported-authentication-flows) :  les flux d’authentification sont utilisés pour implémenter les scénarios d’applications qui demandent des jetons. Il n’existe pas de mappage un-à-un entre des scénarios d’applications et des flux d’authentification.
 - [Plateformes prises en charge](#scenarios-and-supported-platforms-and-languages) : Tous les scénarios d’applications ne sont pas disponibles pour toutes les plateformes.
@@ -51,7 +52,7 @@ Les applications peuvent être catégorisées comme suit :
 
 Les scénarios d’authentification impliquent deux activités :
 
-- **Acquisition de jetons de sécurité pour une API web protégée** : Microsoft recommande d’utiliser des [bibliothèques d’authentification](reference-v2-libraries.md#microsoft-supported-client-libraries) pour acquérir des jetons, en particulier la famille de bibliothèques Microsoft MSAL (Microsoft Authentication Library).
+- **Acquisition de jetons de sécurité pour une API web protégée** : nous vous recommandons d’utiliser des [bibliothèques clientes prises en charge par Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) pour acquérir des jetons, en particulier la famille de bibliothèques d’authentification Microsoft (MSAL).
 - **Protection d’une API web ou d’une application web** : l’un des défis de la protection d’une API web ou d’une ressource d’application web consiste à valider le jeton de sécurité. Sur certaines plateformes, Microsoft propose des [bibliothèques d’intergiciels (middleware)](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Avec utilisateurs ou sans utilisateurs
@@ -68,25 +69,25 @@ Toutefois, il existe également des scénarios d’applications démon, dans les
 
 Les jetons de sécurité peuvent être acquis à partir de plusieurs types d’applications. On peut diviser ces applications en trois catégories :
 
-- **Applications monopages** : Également appelées pages SPA (Single-Page Applications), il s’agit d’applications web dans lesquelles les jetons sont acquis à partir d’une application JavaScript ou TypeScript qui s’exécute dans le navigateur. De nombreuses applications modernes ont un front-end d’application monopage écrit principalement en JavaScript. L’application utilise souvent un framework comme Angular, React ou Vue. MSAL.js est la seule bibliothèque d’authentification Microsoft prenant en charge les applications monopages.
+- **Applications monopages** : également appelées SPA (Single-Page Applications), ces applications sont des applications web dans lesquelles les jetons sont acquis à partir d’une application JavaScript ou TypeScript qui s’exécute dans le navigateur. De nombreuses applications modernes ont un front-end d’application monopage écrit principalement en JavaScript. L’application utilise souvent un framework comme Angular, React ou Vue. MSAL.js est la seule bibliothèque d’authentification Microsoft prenant en charge les applications monopages.
 
 - **Applications clientes publiques** : ces applications connectent toujours des utilisateurs :
   - Applications de bureau appelant des API web au nom de l’utilisateur connecté
   - Applications mobiles
   - Applications s’exécutant sur des appareils qui n’ont pas de navigateur, comme ceux qui s’exécutent sur iOT
 
-  Ces applications sont représentées par la classe MSAL [PublicClientApplication](msal-client-applications.md).
+  Ces applications sont représentées par la classe MSAL [PublicClientApplication](/dotnet/api/microsoft.identity.client.publicclientapplication). Pour plus d’informations, consultez [Applications clientes publiques et confidentielles](msal-client-applications.md).
 
 - **Applications clientes confidentielles** :
   - Applications web appelant des API web
   - API web appelant une API web
   - Applications démon, même implémentées en tant que service de console tel qu’un démon Linux ou un service Windows
 
-  Ces types d’applications utilisent la classe [ConfidentialClientApplication](msal-client-applications.md).
+  Ces types d’applications utilisent la classe [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplication). Pour plus d’informations, consultez [Applications clientes publiques et confidentielles](msal-client-applications.md).
 
 ## <a name="application-scenarios"></a>Scénarios d’application
 
-Le point de terminaison de la plateforme d’identités Microsoft prend en charge l’authentification pour différents types d’architectures d’applications :
+Le point de terminaison de la plateforme d’identités Microsoft prend en charge l’authentification pour différentes architectures d’applications :
 
 - Applications monopages
 - les applications web
@@ -100,7 +101,9 @@ Les applications utilisent les différents flux d’authentification pour connec
 
 ### <a name="a-single-page-application"></a>Une application monopage
 
-De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client et écrites avec JavaScript ou un framework SPA comme Angular, Vue.js et React.js. Ces applications s’exécutent dans un navigateur web. Leurs caractéristiques d’authentification diffèrent de celles des applications web traditionnelles côté serveur. Avec la plateforme d’identités Microsoft, les applications monopages peuvent connecter des utilisateurs et obtenir des jetons pour accéder à des services back-end ou à des API web.
+De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Ces applications utilisent JavaScript ou une infrastructure d’application monopage telle que Angular, Vue.js et React.js. Ces applications s’exécutent dans un navigateur web.
+
+Leurs caractéristiques d’authentification diffèrent des applications web traditionnelles côté serveur. Avec la plateforme d’identités Microsoft, les applications monopages peuvent connecter des utilisateurs et obtenir des jetons pour accéder à des services back-end ou à des API web.
 
 ![Une application monopage](media/scenarios/spa-app.svg)
 
@@ -140,11 +143,11 @@ Les applications qui s’exécutent sur un appareil sans navigateur peuvent touj
 
 Bien que nous ne recommandions pas son utilisation, le [flux Nom d’utilisateur/Mot de passe](https://aka.ms/msal-net-up) est disponible dans les applications clientes publiques. Ce flux est toujours nécessaire dans certains scénarios comme DevOps.
 
-Toutefois, l’utilisation de ce flux impose des contraintes sur vos applications. Par exemple, les applications utilisant ce flux ne peuvent pas connecter un utilisateur qui doit effectuer une authentification multifacteur ou un accès conditionnel. Vos applications ne bénéficient pas non plus de l’authentification unique.
+Toutefois, l’utilisation de ce flux limite vos applications. Par exemple, les applications ne peuvent pas connecter un utilisateur qui doit utiliser une authentification multifacteur ou un accès conditionnel. Vos applications ne bénéficient pas non plus de l’authentification unique.
 
 L’authentification avec le flux Nom d’utilisateur/Mot de passe va à l’encontre des principes de l’authentification moderne et n’est fournie que pour des raisons d’héritage.
 
-Dans les applications de bureau, si vous souhaitez que le cache de jetons soit persistant, vous devez [personnaliser la sérialisation du cache de jetons](https://aka.ms/msal-net-token-cache-serialization). En implémentant une [double sérialisation du cache de jetons](https://aka.ms/msal-net-dual-cache-serialization), vous pouvez activer des caches de jetons offrant une compatibilité descendante et ascendante avec des générations précédentes de bibliothèques d’authentification. Les bibliothèques spécifiques incluent Azure AD Authentication Library pour .NET (ADAL.NET) version 3 et version 4.
+Dans les applications de bureau, si vous souhaitez que le cache de jetons soit conservé, personnalisez la [sérialisation du cache de jetons](https://aka.ms/msal-net-token-cache-serialization). En implémentant une [double sérialisation du cache de jetons](https://aka.ms/msal-net-dual-cache-serialization), vous pouvez utiliser des caches de jetons à compatibilité descendante et ascendante. Ces jetons prennent en charge les générations précédentes de bibliothèques d’authentification. Les bibliothèques spécifiques incluent Azure AD Authentication Library pour .NET (ADAL.NET) version 3 et version 4.
 
 Pour plus d’informations, consultez [Application de bureau qui appelle des API web](scenario-desktop-overview.md).
 
@@ -156,16 +159,18 @@ Comme une application de bureau, une application mobile appelle les méthodes d�
 
 MSAL iOS et MSAL Android utilisent le navigateur web du système par défaut. Toutefois, vous pouvez leur donner pour instruction d’utiliser l’affichage web incorporé à la place. Il existe des spécificités qui dépendent de la plateforme mobile : Plateforme Windows universelle (UWP), iOS ou Android.
 
-Certains scénarios, comme ceux qui impliquent un accès conditionnel lié à l’ID d’appareil ou à l’inscription de l’appareil, nécessitent l’installation d’un [répartiteur](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) sur l’appareil. Le portail d’entreprise Microsoft sur Android et Microsoft Authenticator sur Android et iOS sont des exemples de répartiteurs. En outre, MSAL peut désormais interagir avec les répartiteurs.
-
-> [!NOTE]
-> Vous pouvez appliquer des stratégies de protection des applications à votre application mobile qui utilise MSAL.iOS, MSAL.Android ou MSAL.NET sur Xamarin. Par exemple, les stratégies peuvent empêcher un utilisateur de copier du texte protégé. L’application mobile est [gérée par Intune](https://docs.microsoft.com/intune/app-sdk) et reconnue par Intune en tant qu’application gérée. Le [SDK d’application Intune](https://docs.microsoft.com/intune/app-sdk-get-started) est distinct des bibliothèques MSAL et interagit avec Azure AD de façon autonome.
+Certains scénarios, comme ceux qui impliquent un accès conditionnel lié à l’identité d’appareil ou à l’inscription de l’appareil, nécessitent l’installation d’un répartiteur sur l’appareil. Le portail d’entreprise Microsoft sur Android et Microsoft Authenticator sur Android et iOS sont des exemples de répartiteurs. MSAL peut désormais interagir avec les répartiteurs. Pour plus d’informations, consultez [Leveraging brokers on Android and iOS](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) (Utilisation de répartiteurs sur Android et iOS).
 
 Pour plus d’informations, consultez [Application mobile qui appelle des API web](scenario-mobile-overview.md).
 
+> [!NOTE]
+> Vous pouvez appliquer des stratégies de protection des applications à votre application mobile qui utilise MSAL.iOS, MSAL.Android ou MSAL.NET sur Xamarin. Par exemple, les stratégies peuvent empêcher un utilisateur de copier du texte protégé. L’application mobile est gérée par Intune et reconnue par Intune en tant qu’application gérée. Pour plus d’informations, consultez l’article [Présentation du Microsoft Intune App SDK](https://docs.microsoft.com/intune/app-sdk).
+>
+> Le [SDK d’application Intune](https://docs.microsoft.com/intune/app-sdk-get-started) est distinct des bibliothèques MSAL et interagit avec Azure AD de façon autonome.
+
 ### <a name="a-protected-web-api"></a>Une API web protégée
 
-Vous pouvez utiliser le point de terminaison de la plateforme d’identités Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Une API web protégée est appelée avec un jeton d’accès pour sécuriser les données de l’API et authentifier les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP.
+Vous pouvez utiliser le point de terminaison de la plateforme d’identités Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Une API web protégée est appelée à l’aide d’un jeton d’accès. Le jeton sécurise les données de l’API et authentifie les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP.
 
 Si vous souhaitez protéger votre API web ASP.NET ou ASP.NET Core, vous devez valider le jeton d’accès. Pour cette validation, vous utilisez le middleware JWT ASP.NET. La validation est effectuée par la bibliothèque d’[extensions IdentityModel pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki), non par MSAL.NET.
 
@@ -173,7 +178,7 @@ Pour plus d’informations, consultez [API web protégée](scenario-protected-we
 
 ### <a name="a-web-api-calling-another-web-api-on-behalf-of-a-user"></a>Une API web appelant une autre API web pour le compte d’un utilisateur
 
-Pour que votre API web protégée ASP.NET ou ASP.NET Core puisse appeler une autre API web pour le compte d’un utilisateur, votre application doit acquérir un jeton pour l’API web en aval. Pour ce faire, elle doit appeler la méthode [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) de la classe **ConfidentialClientApplication**. Ces appels portent également le nom d’appels de service à service. Les API web qui appellent d’autres API web doivent fournir une sérialisation de cache personnalisée.
+Pour que votre API web protégée ASP.NET ou ASP.NET Core puisse appeler une autre API web pour le compte d’un utilisateur, votre application doit acquérir un jeton pour l’API web en aval. Pour acquérir un jeton, votre application appelle la méthode [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) de la classe **ConfidentialClientApplication**. Ces appels portent également le nom d’appels de *service à service*. Les API web qui appellent d’autres API web doivent fournir une sérialisation de cache personnalisée.
 
   ![Une API web appelant une autre API web](media/scenarios/web-api.svg)
 
@@ -181,7 +186,7 @@ Pour plus d’informations, consultez [API web qui appelle des API web](scenario
 
 ### <a name="a-daemon-app-calling-a-web-api-in-the-daemons-name"></a>Une application démon appelant une API web dans le nom du démon
 
-Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans interaction utilisateur doivent également disposer d’un moyen d’accès aux API web sécurisées. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application plutôt qu’avec l’identité déléguée d’un utilisateur. L’application prouve son identité à l’aide d’un certificat ou d’une clé secrète client.
+Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans interaction utilisateur doivent également disposer d’un moyen d’accès aux API web sécurisées. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de leur identité d’application. L’application prouve son identité à l’aide d’un certificat ou d’une clé secrète client.
 
 Vous pouvez écrire de telles applications démon qui acquièrent un jeton pour l’application appelante en utilisant les méthodes d’acquisition d’[informations d’identification du client](https://aka.ms/msal-net-client-credentials) de la classe MSAL **ConfidentialClientApplication**. Ces méthodes nécessitent que l’application appelante ait inscrit un secret auprès d’Azure AD. L’application partage ensuite le secret avec le démon appelé. Parmi ces secrets, citons par exemple les mots de passe d’application, l’assertion de certificat ou l’assertion du client.
 
@@ -191,7 +196,7 @@ Pour plus d’informations, consultez [Application démon qui appelle des API we
 
 ## <a name="scenarios-and-supported-authentication-flows"></a>Scénarios et flux d’authentification pris en charge
 
-Les scénarios qui impliquent l’acquisition de jetons mappent également à des flux d’authentification OAuth 2.0, comme détaillé dans [Protocoles de la plateforme d’identités Microsoft](active-directory-v2-protocols.md).
+Les scénarios qui impliquent l’acquisition de jetons sont également mappés à des flux d’authentification OAuth 2.0. Pour plus d’informations, consultez [Protocoles OAuth 2.0 et OpenID Connect sur la plateforme d’identités Microsoft](active-directory-v2-protocols.md).
 
 <table>
  <thead>
@@ -287,7 +292,10 @@ Les bibliothèques d’authentification Microsoft prennent en charge plusieurs p
 - Java
 - Python
 
-Vous pouvez également utiliser différents langages pour générer vos applications. Notez que certains types d’applications ne sont pas disponibles sur toutes les plateformes.
+Vous pouvez également utiliser différents langages pour générer vos applications.
+
+> [!NOTE]
+> Certains types d’applications ne sont pas disponibles sur toutes les plateformes.
 
 Dans la colonne Windows du tableau suivant, chaque fois que .NET Core est mentionné, .NET Framework est également possible. Ce dernier est omis pour éviter d’encombrer la table.
 
@@ -301,7 +309,9 @@ Dans la colonne Windows du tableau suivant, chaque fois que .NET Core est mentio
 | [Application démon](scenario-daemon-overview.md) <br/> [![Application démon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [API web qui appelle des API web](scenario-web-api-call-api-overview.md) <br/><br/> [![API web qui appelle des API web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-Consultez également [Bibliothèques prises en charge par Microsoft selon le système d’exploitation/language](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
+Pour plus d’informations, consultez [Bibliothèques prises en charge par Microsoft selon le système d’exploitation/language](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Apprenez-en davantage sur les [notions de base de l’authentification](authentication-scenarios.md) et les [jetons d’accès](access-tokens.md).
+
+* Apprenez-en davantage sur les [notions de base de l’authentification](authentication-scenarios.md) et les [jetons d’accès de la plateforme d’identités Microsoft](access-tokens.md).
+* Découvrez la [sécurisation de l’accès aux applications IoT](/azure/architecture/example-scenario/iot-aad/iot-aad).

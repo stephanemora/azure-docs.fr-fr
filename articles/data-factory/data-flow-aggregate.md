@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2019
-ms.openlocfilehash: 74b96bf2cac0de7c57e496c637f2e3ef549eb61f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/24/2020
+ms.openlocfilehash: e4b076d96cad280c4da6c2424f056c2216c47602
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930453"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408872"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformation d’agrégation dans le flux de données de mappage 
 
@@ -46,6 +46,16 @@ Les transformations d’agrégation sont similaires aux requêtes SQL Aggregate 
 * Utilisez une fonction d’agrégation telle que `last()` ou `first()` pour inclure cette colonne supplémentaire.
 * Rattachez les colonnes à votre flux de sortie à l’aide du [modèle de jointure réflexive](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
+## <a name="removing-duplicate-rows"></a>Suppression de lignes en double
+
+Une utilisation courante de la transformation d’agrégation consiste à supprimer ou à identifier les entrées en double dans les données sources. Ce processus est appelé déduplication. Sur la base d’un ensemble de clés Grouper par, utilisez l’euristique de votre choix pour déterminer la ligne dupliquée à conserver. Les euristiques courantes sont `first()`, `last()`, `max()` et `min()`. Utilisez les [modèles de colonne](concepts-data-flow-column-pattern.md) pour appliquer la règle à chaque colonne, à l’exception des colonnes Grouper par.
+
+![Déduplication](media/data-flow/agg-dedupe.png "Déduplication")
+
+Dans l’exemple ci-dessus, les colonnes `ProductID` et `Name` sont utilisées pour le regroupement. Si deux lignes ont les mêmes valeurs pour ces deux colonnes, elles sont considérées comme des doublons. Dans cette transformation d’agrégation, les valeurs de la première ligne correspondante sont conservées et toutes les autres sont supprimées. À l’aide de la syntaxe du modèle de colonne, toutes les colonnes dont les noms ne sont pas `ProductID` et `Name` sont mappées à leur nom de colonne existant et reçoivent la valeur des premières lignes correspondantes. Le schéma de sortie est le même que le schéma d’entrée.
+
+Pour les scénarios de validation des données, la fonction `count()` peut être utilisée pour compter le nombre de doublons.
+
 ## <a name="data-flow-script"></a>Script de flux de données
 
 ### <a name="syntax"></a>Syntaxe
@@ -67,11 +77,11 @@ Les transformations d’agrégation sont similaires aux requêtes SQL Aggregate 
           ) ~> <aggregateTransformationName>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 L’exemple ci-dessous prend un flux entrant `MoviesYear` et regroupe les lignes par colonne `year`. La transformation crée une colonne d’agrégation `avgrating` qui correspond à la moyenne de la colonne `Rating`. Cette transformation d’agrégation est nommée `AvgComedyRatingsByYear`.
 
-Dans l’expérience utilisateur Data Factory, cette transformation ressemble à l’image ci-dessous :
+Dans l’expérience utilisateur Data Factory, cette transformation se présente comme dans l’image ci-dessous :
 
 ![Exemple Regrouper par](media/data-flow/agg-script1.png "Exemple Regrouper par")
 
@@ -84,6 +94,15 @@ MoviesYear aggregate(
                 groupBy(year),
                 avgrating = avg(toInteger(Rating))
             ) ~> AvgComedyRatingByYear
+```
+
+![Aggregate data flow script](media/data-flow/aggdfs1.png "Agréger le script de flux de données")
+
+```MoviesYear```: Colonne dérivée définissant les colonnes Year et Title ```AvgComedyRatingByYear``` : Transformation d’agrégation pour l’évaluation moyenne de comédies regroupées par année ```avgrating``` : Nom de la colonne créée pour contenir la valeur agrégée
+
+```
+MoviesYear aggregate(groupBy(year),
+    avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

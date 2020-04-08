@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60931702"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Envoi de courrier électronique à l'aide de SendGrid depuis Node.js
@@ -59,7 +59,7 @@ var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 Le module SendGrid exporte les fonctions **SendGrid** et **Email**.
 **SendGrid** est chargé d'envoyer l’e-mail par le biais de l'API Web, alors que **Email** permet d'encapsuler un e-mail.
 
-## <a name="how-to-create-an-email"></a>Activation créer un e-mail
+## <a name="how-to-create-an-email"></a>Procédure : créer un e-mail
 
 La création d'un message électronique à l'aide du module SendGrid consiste en premier lieu à créer un message électronique à l'aide de la fonction Email, puis à l'envoyer à l'aide de la fonction SendGrid. L'exemple suivant illustre la création d'un message à l'aide de la fonction Email :
 
@@ -82,7 +82,7 @@ Définir les propriétés text et html offre une solution de repli intéressante
 
 Pour plus d’informations sur l’ensemble des propriétés prises en charge par la fonction Email, consultez la page [sendgrid-nodejs][sendgrid-nodejs].
 
-## <a name="how-to-send-an-email"></a>Activation envoyer un e-mail
+## <a name="how-to-send-an-email"></a>Procédure : envoyer un e-mail
 
 Une fois le message électronique créé à l'aide de la fonction Email, vous pouvez l'envoyer via l'API Web fournie par SendGrid. 
 
@@ -108,7 +108,7 @@ sendgrid.send(email, function(err, json){
 > ```
 >
 
-## <a name="how-to-add-an-attachment"></a>Activation Ajout d'une pièce jointe
+## <a name="how-to-add-an-attachment"></a>Procédure : Ajout d'une pièce jointe
 Il est possible d'ajouter des pièces jointes à un message en spécifiant les noms de fichiers et les chemins d'accès dans la propriété **files**. L'exemple suivant illustre l'envoi d'une pièce jointe :
 
 ```javascript
@@ -135,7 +135,7 @@ sendgrid.send({
 > 
 > 
 
-## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Activation Utiliser des filtres pour activer les pieds de page et le suivi
+## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Procédure : Utiliser des filtres pour activer les pieds de page et le suivi
 
 SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des filtres. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre][Filter Settings].
 
@@ -186,7 +186,7 @@ email.setFilters({
 sendgrid.send(email);
 ```
 
-## <a name="how-to-update-email-properties"></a>Activation Mettre à jour les propriétés du courrier électronique
+## <a name="how-to-update-email-properties"></a>Procédure : Mettre à jour les propriétés du courrier électronique
 
 Vous pouvez remplacer certaines propriétés d’e-mail en utilisant **setProperty** ou en ajouter en utilisant **addProperty**. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
 
@@ -203,9 +203,9 @@ email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
 Pour plus d’informations, consultez [sendgrid-nodejs][sendgrid-nodejs].
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Activation utiliser des services SendGrid supplémentaires
+## <a name="how-to-use-additional-sendgrid-services"></a>Procédure : utiliser des services SendGrid supplémentaires
 
-SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d’informations, consultez la [documentation de l’API SendGrid][SendGrid API documentation].
+SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Étapes suivantes
 

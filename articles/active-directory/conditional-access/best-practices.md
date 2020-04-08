@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f4560a514ddb9949c8cc07864b2319a5878b245e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963934"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295356"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory
 
@@ -98,7 +98,7 @@ Certaines applications cloud comme SharePoint Online et Exchange Online prennent
 
 Les applications interconnectées courantes comprennent Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online et Office 365 Yammer.
 
-C’est important pour les stratégies qui exigent des interactions utilisateur, comme l’authentification multifacteur, quand l’accès est contrôlé au début d’une session ou d’une tâche. Si vous ne suivez pas cette recommandation, les utilisateurs ne peuvent pas effectuer certaines tâches au sein d’une application. Par exemple, si vous avez besoin d’une authentification multifacteur sur des appareils non gérés pour accéder à SharePoint, mais pas à l’e-mail, les utilisateurs qui travaillent dans leur e-mail ne peuvent pas joindre des fichiers SharePoint à un message. Vous trouverez plus d’informations dans l’article [Quelles sont les dépendances de service dans l’accès conditionnel Azure Active Directory ?](service-dependencies.md).
+C’est important pour les stratégies qui exigent des interactions utilisateur, comme l’authentification multifacteur, quand l’accès est contrôlé au début d’une session ou d’une tâche. Si vous ne suivez pas cette recommandation, les utilisateurs ne peuvent pas effectuer certaines tâches au sein d’une application. Par exemple, si vous avez besoin d’une authentification multifacteur sur des appareils non gérés pour accéder à SharePoint, mais pas à la messagerie, les utilisateurs qui travaillent dans leur messagerie ne peuvent pas joindre de fichiers SharePoint à un message. Vous trouverez plus d’informations dans l’article [Quelles sont les dépendances de service dans l’accès conditionnel Azure Active Directory ?](service-dependencies.md).
 
 ## <a name="what-you-should-avoid-doing"></a>Ce que vous devez éviter
 
@@ -138,7 +138,7 @@ Envisagez d’effectuer la migration des stratégies que vous n’avez pas cré�
 
 - Vous pouvez maintenant résoudre des scénarios que vous ne pouviez pas gérer auparavant.
 - Vous pouvez réduire le nombre de stratégies que vous devez gérer en les consolidant.   
-- Vous pouvez gérer toutes vos stratégies d’accès conditionnel dans un emplacement central.
+- Vous pouvez gérer toutes vos stratégies d’accès conditionnel depuis un emplacement central.
 - Le Portail Azure Classic a été mis hors service.   
 
 Pour plus d’informations, consultez [Migrer les stratégies classiques dans le portail Azure](policy-migration.md).

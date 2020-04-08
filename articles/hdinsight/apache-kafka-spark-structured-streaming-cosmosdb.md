@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
 ms.openlocfilehash: 04faafca0811e60ded47d1e91a82054a1c1cdb25
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74406170"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Utiliser Apache Spark Structured Streaming avec Apache Kafka et Azure Cosmos DB
@@ -66,7 +66,7 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
     |Propriété |Valeur |
     |---|---|
-    |Subscription|Sélectionnez votre abonnement Azure.|
+    |Abonnement|Sélectionnez votre abonnement Azure.|
     |Resource group|créez un groupe ou sélectionnez un groupe existant. Ce groupe contient le cluster HDInsight.|
     |Nom de compte Azure Cosmos DB|cette valeur est utilisée comme nom du compte Cosmos DB. Le nom peut uniquement contenir des lettres minuscules, des chiffres et le caractère de trait d’union (-). Sa longueur doit être comprise entre 3 et 31 caractères.|
     |Nom du cluster de base|cette valeur est utilisée comme nom de base pour les clusters Spark et Kafka. Par exemple, si vous entrez **myhdi**, un cluster Spark nommé __spark-hdi__ et un cluster Kafka nommé **kafka-hdi** sont créés.|

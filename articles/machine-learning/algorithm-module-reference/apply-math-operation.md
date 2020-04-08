@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: b136f408bbc4fbf13bba902f76f7d33ce6b2ba96
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314570"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456741"
 ---
 # <a name="apply-math-operation"></a>Appliquer une opération mathématique
 
-Cet article décrit un module du concepteur Azure Machine Learning.
+Cet article décrit un module du concepteur Azure Machine Learning (préversion).
 
 Utilisez le module Appliquer une opération mathématique pour créer des calculs et les appliquer aux colonnes numériques du jeu de données d’entrée. 
 
@@ -86,7 +86,7 @@ Chaque instance de ce module peut exécuter un seul type d’opération à la fo
     - **Inplace**. Les valeurs des colonnes utilisées comme entrées sont remplacées par les nouvelles valeurs calculées. 
     - **ResultOnly**. Une seule colonne est retournée avec les résultats de l’opération mathématique.
   
-1.  Exécuter le pipeline.  
+1.  Envoyez le pipeline.  
   
 ## <a name="results"></a>Résultats
 

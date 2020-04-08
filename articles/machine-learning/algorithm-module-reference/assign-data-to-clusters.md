@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: eff480d6763ae4bd277e6781663c559cc7c9169e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 207172f10277589af2b22ae2f41b07234a0925b3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152446"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477712"
 ---
 # <a name="module-assign-data-to-clusters"></a>Module : Attribuer des données à des clusters
 
@@ -43,7 +43,7 @@ Le module Attribuer des données à des clusters retourne un jeu de données con
   
     Si vous décochez cette case, seuls les résultats sont retournés. Cette option peut être utile lorsque vous créez des prédictions dans le cadre d’un service web.
   
-5.  Exécuter le pipeline.  
+5.  Envoyez le pipeline.  
   
 ### <a name="results"></a>Résultats
 

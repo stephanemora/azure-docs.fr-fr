@@ -10,18 +10,20 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894523"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365359"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Reprise d’activité après sinistre et basculement de compte (préversion)
 
 Microsoft s’efforce de faire en sorte que les services Azure soient toujours disponibles. Toutefois, des interruptions de service non planifiées peuvent se produire. Si votre application nécessite la résilience, Microsoft vous recommande d’utiliser le stockage géoredondant, afin que vos données soient copiées vers une seconde région. De plus, les clients doivent disposer d’un plan de reprise d’activité après sinistre afin de gérer toute interruption de service régionale. Une partie importante du plan de reprise d’activité consiste à préparer le basculement vers le point de terminaison secondaire, au cas où le point de terminaison principal deviendrait indisponible.
 
 Stockage Azure prend en charge le basculement de compte (préversion) pour les comptes de stockage géoredondants. Avec le basculement de compte, vous pouvez lancer le processus de basculement pour votre compte de stockage si le point de terminaison principal devient indisponible. Le basculement met à jour le point de terminaison secondaire pour qu’il devienne le point de terminaison principal pour votre compte de stockage. Une fois le basculement terminé, les clients peuvent commencer à écrire dans le nouveau point de terminaison principal.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Cet article décrit les concepts et les processus impliqués dans un basculement de compte, et explique comment préparer votre compte de stockage pour la reprise avec le moins d’impact possible sur le client. Pour découvrir comment lancer un basculement de compte dans le portail Azure ou PowerShell, consultez [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md).
 
@@ -124,7 +126,7 @@ Passez en revue les considérations supplémentaires décrites dans cette sectio
 
 #### <a name="storage-account-containing-archived-blobs"></a>Compte de stockage contenant des objets blob archivés
 
-Les comptes de stockage contenant des objets blob archivés peuvent faire l’objet d’un basculement. Une fois le basculement terminé, pour reconvertir le compte en GRS ou RA-GRS, tous les objets blob archivés doivent être d’abord réalimentés vers un niveau en ligne.
+Les comptes de stockage contenant des objets blob archivés peuvent faire l’objet d’un basculement. Une fois le basculement terminé, pour reconvertir le compte en GRS ou RA-GRS, tous les objets blob archivés doivent d’abord être réalimentés vers un niveau en ligne.
 
 #### <a name="storage-resource-provider"></a>Fournisseur de ressources de stockage
 

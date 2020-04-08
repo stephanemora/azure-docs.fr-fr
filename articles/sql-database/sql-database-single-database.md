@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fc63de4057def632d3ac1980e8cb3eaedbff2175
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820939"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500747"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Qu’est-ce qu’une base de données Azure SQL Database unique
 
@@ -37,7 +37,7 @@ Une base de données unique peut être déplacée dans et hors d’un [pool éla
 
 ## <a name="monitoring-and-alerting"></a>Surveillance et alerte
 
-Vous utilisez les outils intégrés de [surveillance](sql-database-performance.md) et [d’alerte](sql-database-insights-alerts-portal.md) de performances, combinées avec les évaluations de performance. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. En outre, SQL Database peut [émettre des métriques et des journaux de diagnostic](sql-database-metrics-diag-logging.md) pour faciliter la supervision.
+Vous utilisez les outils intégrés de [surveillance](sql-database-performance-guidance.md) et [d’alerte](sql-database-insights-alerts-portal.md) de performances, combinées avec les évaluations de performance. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. De plus, SQL Database peut [émettre des métriques et des journaux de ressources](sql-database-metrics-diag-logging.md) pour faciliter la supervision.
 
 ## <a name="availability-capabilities"></a>Fonctionnalités de disponibilité
 

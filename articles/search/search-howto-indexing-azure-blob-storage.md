@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5df1198e6681431738f886eb7c3ad549936eab1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020622"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067645"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Comment indexer des documents dans Stockage Blob Azure avec la Recherche cognitive Azure
 
@@ -289,16 +289,59 @@ Vous pouvez également poursuivre l’indexation si des erreurs se produisent à
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexation incrémentielle et détection des suppressions
+
 Si vous configurez l’exécution planifiée d’un indexeur d’objets blob, celui-ci réindexera uniquement les objets blob modifiés d’après leur horodateur `LastModified`.
 
 > [!NOTE]
 > Vous n’êtes pas contraint de spécifier une stratégie de détection des modifications ; l’indexation incrémentielle est activée automatiquement à votre intention.
 
-Pour prendre en charge la suppression de documents, utilisez une approche de type « suppression réversible ». Si vous supprimez complètement les objets blob, les documents correspondants ne seront pas supprimés de l’index de recherche. Procédez plutôt comme suit :  
+Pour prendre en charge la suppression de documents, utilisez une approche de type « suppression réversible ». Si vous supprimez complètement les objets blob, les documents correspondants ne seront pas supprimés de l’index de recherche.
 
-1. Ajoutez une propriété de métadonnées personnalisée à l’objet blob pour indiquer à la Recherche cognitive Azure qu’il est logiquement supprimé
-2. Configurez une stratégie de détection des suppressions réversibles sur la source de données
-3. Une fois que l’indexeur a traité l’objet blob (comme l’indique l’API d’état de l’indexeur), vous pouvez supprimer physiquement l’objet blob
+Il existe deux façons d’implémenter l’approche de suppression réversible. Les deux sont décrites ci-dessous.
+
+### <a name="native-blob-soft-delete-preview"></a>Suppression réversible native de blobs (préversion)
+
+> [!IMPORTANT]
+> La prise en charge de la suppression réversible native de blobs est disponible en préversion. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](https://docs.microsoft.com/azure/search/search-api-preview) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
+
+> [!NOTE]
+> Lors de l’utilisation de la stratégie de suppression réversible native de blobs, les clés de document des documents de votre index doivent être une propriété blob ou des métadonnées blob.
+
+Dans cette méthode, vous allez utiliser la fonctionnalité de [suppression réversible native de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) offerte par le stockage Blob Azure. Si la suppression réversible native de blobs est activée sur votre compte de stockage, votre source de données a un jeu natif de stratégies de suppression réversible, et si l’indexeur trouve un blob qui a été transféré à un état Supprimé de manière réversible, l’indexeur supprime ce document de l’index. La stratégie de suppression réversible native de blobs n’est pas prise en charge lors de l’indexation de blobs à partir d’Azure Data Lake Storage Gen2.
+
+Utiliser les étapes suivantes :
+1. Activez la [suppression réversible native pour le stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Nous vous recommandons de définir la stratégie de rétention sur une valeur bien supérieure à celle de la planification d’intervalle de votre indexeur. Ainsi, en cas de problème lors de l’exécution de l’indexeur ou si vous avez un grand nombre de documents à indexer, l’indexeur a tout le temps nécessaire pour traiter les blobs supprimés de manière réversible. Les indexeurs Recherche cognitive Azure suppriment un document de l’index uniquement s’ils traitent le blob alors que son état est Supprimé de manière réversible.
+1. Configurez une stratégie de détection des suppressions réversibles natives de blobs sur la source de données. Voici un exemple. Étant donné qu’il s’agit d’une fonctionnalité d’évaluation, vous devez utiliser l’API REST en préversion.
+1. Exécutez l’indexeur ou configurez l’indexeur pour qu’il s’exécute selon une planification. Lorsque l’indexeur s’exécute et traite le blob, le document est supprimé de l’index.
+
+    ```
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : null },
+        "dataDeletionDetectionPolicy" : {
+            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+        }
+    }
+    ```
+
+#### <a name="reindexing-undeleted-blobs"></a>Réindexation des blobs non supprimés
+
+Si vous supprimez un blob du stockage Blob Azure à l’aide de la suppression réversible native qui est activée sur votre compte de stockage, le blob passera à un état Supprimé de manière réversible, vous donnant la possibilité d’annuler la suppression de ce blob pendant la période de rétention. Quand une source de données Recherche cognitive Azure dispose d’une stratégie de suppression réversible native de blobs et que l’indexeur traite un blob supprimé de manière réversible, ce document est supprimé de l’index. Si la suppression de ce blob est annulée par la suite, l’indexeur ne réindexera pas toujours le blob en question. Cela est dû au fait que l’indexeur détermine les blobs à indexer en fonction du timestamp `LastModified` du blob. Lorsque la suppression de manière réversible d’un blob est annulée, son timestamp `LastModified` n’est pas mis à jour. Par conséquent, si l’indexeur a déjà traité des blobs dotés de timestamps `LastModified` plus récents que celui du blob dont la suppression a été annulée, il ne réindexe pas ce blob. Pour vous assurer qu’un blob dont la suppression a été annulée est réindexé, vous devez mettre à jour le timestamp `LastModified` du blob. Pour ce faire, vous pouvez réenregistrer les métadonnées de ce blob. Vous n’avez pas besoin de modifier les métadonnées, mais le fait de réenregistrer les métadonnées met à jour le timestamp `LastModified` du blob afin que l’indexeur sache qu’il doit réindexer ce dernier.
+
+### <a name="soft-delete-using-custom-metadata"></a>Suppression réversible à l’aide de métadonnées personnalisées
+
+Dans cette méthode, vous utiliserez les métadonnées d’un blob pour indiquer à quel moment un document doit être supprimé de l’index de recherche.
+
+Utiliser les étapes suivantes :
+
+1. Ajoutez une paire clé-valeur de métadonnées personnalisées au blob pour indiquer à Recherche cognitive Azure qu’il est logiquement supprimé.
+1. Configurez une stratégie de détection des colonnes de suppression réversible sur la source de données. Voici un exemple.
+1. Une fois que l’indexeur a traité le blob et supprimé le document de l’index, vous pouvez supprimer le blob du stockage Blob Azure.
 
 Par exemple, la stratégie suivante considère qu’un objet blob est supprimé s’il présente une propriété de métadonnées `IsDeleted` avec la valeur `true` :
 
@@ -310,13 +353,17 @@ Par exemple, la stratégie suivante considère qu’un objet blob est supprimé 
         "name" : "blob-datasource",
         "type" : "azureblob",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
+        "container" : { "name" : "my-container", "query" : null },
         "dataDeletionDetectionPolicy" : {
             "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",     
             "softDeleteColumnName" : "IsDeleted",
             "softDeleteMarkerValue" : "true"
         }
-    }   
+    }
+
+#### <a name="reindexing-undeleted-blobs"></a>Réindexation des blobs non supprimés
+
+Si vous définissez une stratégie de détection des colonnes de suppression réversible sur votre source de données, puis que vous ajoutez des métadonnées personnalisées à un blob avec la valeur du marqueur et exécutez l’indexeur, ce document sera supprimé de l’index. Si vous souhaitez réindexer ce document, il vous suffit de modifier la valeur des métadonnées de suppression réversible pour ce blob et de réexécuter l’indexeur.
 
 ## <a name="indexing-large-datasets"></a>Indexation de jeux de données volumineux
 
@@ -336,7 +383,7 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 
 - Créez un indexeur correspondant pour chaque source de données. Tous les indexeurs peuvent pointer vers le même index de recherche cible.  
 
-- Une unité de recherche dans votre service peut exécuter un indexeur à tout moment donné. La création de plusieurs indexeurs comme décrit ci-dessus est utile uniquement s’ils s’exécutent en parallèle. Pour exécuter plusieurs indexeurs en parallèle, augmentez la taille de votre service de recherche en créant un nombre approprié de partitions et réplicas. Par exemple, si votre service de recherche a 6 unités de recherche (2 partitions x 3 réplicas), 6 indexeurs peuvent s’exécuter simultanément, ce qui augmente le débit d’indexation par six. Pour plus d’informations sur la mise à l’échelle et la planification de capacité, consultez [Mettre à l’échelle des niveaux de ressources pour les requêtes et indexation des charges de travail dans la Recherche cognitive Azure](search-capacity-planning.md).
+- Une unité de recherche dans votre service peut exécuter un indexeur à tout moment donné. La création de plusieurs indexeurs comme décrit ci-dessus est utile uniquement s’ils s’exécutent en parallèle. Pour exécuter plusieurs indexeurs en parallèle, effectuez un scale-out de votre service de recherche en créant un nombre approprié de partitions et réplicas. Par exemple, si votre service de recherche a 6 unités de recherche (2 partitions x 3 réplicas), 6 indexeurs peuvent s’exécuter simultanément, ce qui augmente le débit d’indexation par six. Pour plus d’informations sur la mise à l’échelle et la planification de capacité, consultez [Mettre à l’échelle des niveaux de ressources pour les requêtes et indexation des charges de travail dans la Recherche cognitive Azure](search-capacity-planning.md).
 
 ## <a name="indexing-documents-along-with-related-data"></a>Indexation de documents et des données associées
 

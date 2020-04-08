@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784423"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problème lors de l’ajout d’une application de la galerie Azure AD
@@ -61,7 +61,7 @@ Vous pouvez afficher les détails d’une notification provenant du portail en s
 
 5.  Si vous avez encore besoin d’aide, vous pouvez également partager ces informations avec un ingénieur du support technique ou du groupe de produits qui vous assistera pour résoudre votre problème.
 
-6.  Cliquez sur **l’icône** de **copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
+6.  Cliquez sur l’**icône** de **copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique
 
@@ -99,7 +99,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 - **UPN** : utilisateur qui a effectué l’opération
 
-  -   Example : **tperkins\@f128.info**
+  -   Exemple : **tperkins\@f128.info**
 
 - **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
 
@@ -113,7 +113,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 -   **Nom d’affichage** : **(peut être vide)** nom d’affichage plus détaillé de l’erreur
 
-    -   Exemple : **paramètres de proxy d’application**
+    -   Exemple : **Paramètres de proxy d’application**
 
 -   **État** : état spécifique de la notification
 

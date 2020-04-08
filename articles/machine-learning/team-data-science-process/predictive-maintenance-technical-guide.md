@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 3b3a0b00ee6e1e170023584c2e643a5802166428
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79087669"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477168"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guide technique du modèle de solution pour la maintenance prédictive dans l'industrie aérospatiale
 
@@ -83,7 +83,7 @@ Azure Event Hub est générique ; les données peuvent être publiées sur le hu
 
 Ce document ne décrit pas le mode de réception de vos données, mais vous pouvez facilement envoyer des événements ou des données vers un service Azure Event Hub à l’aide des API Event Hub.
 
-### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics"></a><a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Utilisez la ressource Azure Stream Analytics pour fournir des analyses en temps quasi-réel grâce à une lecture des flux de données et à l’envoi de données vers diverses sources.
 
 Dans le cas du modèle de solution de maintenance prédictive pour le secteur aérospatial, la requête Azure Stream Analytics se compose de quatre sous-requêtes, chaque requête utilisant les événements dérivés du service Azure Event Hub, avec des sorties à quatre emplacements distincts. Ces sorties comprennent trois jeux de données Power BI et un emplacement Azure Storage.
@@ -142,7 +142,7 @@ L’expérience [Azure Machine Learning](https://azure.microsoft.com/services/ma
 Une fois le Générateur de données lancé, le pipeline commence à manquer de ressources et les différents composants de votre solution entrent en action selon les commandes émises par la fabrique de données. Il existe deux méthodes de surveillance du pipeline.
 
 * Un des travaux Stream Analytics enregistre les données brutes entrantes dans le stockage blob. Si vous cliquez sur le composant Stockage Blob de votre solution dans l’écran à partir duquel vous avez déployé la solution, puis cliquez sur Ouvrir dans le volet droit, vous accédez au [portail Azure](https://portal.azure.com/). Une fois dans le portail, cliquez sur Objets BLOB. Dans le panneau suivant figure la liste des conteneurs. Cliquez sur **maintenancesadata**. Dans le volet suivant se trouve le dossier **rawdata**. Le dossier rawdata comprend des dossiers nommés par exemple hour=17 et hour=18. La présence de ces dossiers signifie que des données brutes sont générées sur votre ordinateur et stockées dans des objets blob. Vous devriez voir des fichiers csv avec des tailles finies en Mo dans ces dossiers.
-* La dernière étape du pipeline consiste à écrire des données (par exemple, les prédictions générées à partir de l’apprentissage automatique) dans SQL Database. Vous devrez peut-être attendre un maximum de trois heures pour les données s'affichent dans la base de données SQL. Le [portail Azure](https://portal.azure.com/) offre un moyen de surveiller la quantité de données disponible dans votre base de données SQL Database. Dans le volet gauche, identifiez les BASES DE DONNÉES SQL ![icône SQL](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) et cliquez dessus. Recherchez ensuite votre base de données **pmaintenancedb** et cliquez dessus. En bas de la page suivante, cliquez sur Gérer
+* La dernière étape du pipeline consiste à écrire des données (par exemple, les prédictions générées à partir de l’apprentissage automatique) dans SQL Database. Vous devrez peut-être attendre un maximum de trois heures pour les données s'affichent dans la base de données SQL. Le [portail Azure](https://portal.azure.com/) offre un moyen de surveiller la quantité de données disponible dans votre base de données SQL Database. Dans le volet gauche, identifiez les BASES DE DONNÉES SQL ![icône SQL](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) et cliquez dessus. Recherchez ensuite votre base de données **pmaintenancedb** et cliquez dessus. En bas de la page suivante, cliquez sur GÉRER.
    
     ![Icône Gérer](./media/predictive-maintenance-technical-guide/icon-manage.png)
    
@@ -193,7 +193,8 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
      <br/>
    * Pour planifier l'actualisation des données, pointez votre souris sur le jeu de données **PredictiveMaintenanceAerospace**, puis cliquez sur les ![points de suspension](./media/predictive-maintenance-technical-guide/icon-elipsis.png) et sur **Planifier l'actualisation**.
      <br/>
-     **Remarque :** Si vous voyez un message d’avertissement, cliquez sur **Modifier les informations d’identification** et vérifiez que vos informations d’identification de base de données sont les mêmes que celles décrites à l’étape 1.
+     > [!NOTE]
+     > Si un message d’avertissement s’affiche, cliquez sur **Modifier les informations d’identification** et vérifiez que vos informations d’identification de base de données sont les mêmes que celles décrites à l’étape 1.
      <br/>
      ![Planifier l’actualisation](./media/predictive-maintenance-technical-guide/schedule-refresh.png)
      <br/>

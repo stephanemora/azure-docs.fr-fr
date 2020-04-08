@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 7787a765bf48adc15f4675c6c03ff3d04fa388c6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: cd9b5f8f182c4deab746d2c41e516a6ac23fb7aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918493"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477729"
 ---
 # <a name="add-rows-module"></a>Module Ajouter des lignes
 
@@ -36,7 +36,7 @@ Pour concaténer des lignes de deux jeux de données, les lignes doivent avoir e
 
 2. Connectez les jeux de données aux deux ports d’entrée. Le jeu de données que vous souhaitez ajouter doit être connecté au deuxième port (droite). 
   
-3.  Exécuter le pipeline. Le nombre de lignes dans le jeu de données de sortie doit être égal à la somme des lignes de deux jeux de données d’entrée.
+3.  Envoyez le pipeline. Le nombre de lignes dans le jeu de données de sortie doit être égal à la somme des lignes de deux jeux de données d’entrée.
 
     Si vous ajoutez le même jeu de données aux deux entrées du module **Ajouter des lignes**, le jeu de données est dupliqué. 
 

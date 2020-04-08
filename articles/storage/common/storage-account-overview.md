@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357602"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371549"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -108,7 +108,7 @@ Les niveaux d’accès disponibles sont les suivants :
 
 - Niveau d’accès **chaud**. Le niveau est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
 - Niveau d’accès **froid**. Le niveau est optimisé pour le stockage de grandes quantités de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être plus onéreux que celui du niveau chaud.
-- Niveau d’accès **archive**. Ce niveau est uniquement disponible pour les objets BLOB de blocs individuels et les objets BLOB d’ajout. Le niveau d’accès archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau d’accès archive pendant au moins 180 jours. Ce niveau est l’option la plus économique pour le stockage des données. Toutefois, l’accès à ces données est plus onéreux que l’accès aux données dans les niveaux d’accès chaud ou froid.
+- Niveau d’accès **archive**. Le niveau est disponible uniquement pour chaque objet blob de blocs. Le niveau d’accès archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui resteront dans le niveau d’accès archive pendant au moins 180 jours. Ce niveau est l’option la plus économique pour le stockage des données. Toutefois, l’accès à ces données est plus onéreux que l’accès aux données dans les niveaux d’accès chaud ou froid.
 
 En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 

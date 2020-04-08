@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: af0466299d1f972fe9334beb5f31c886c1928a1c
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: a9569c1f5de797c77f447b5df15e85a57e8be84b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328997"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472926"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Base de référence de sécurité Azure pour Batch
 
@@ -788,10 +788,10 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 **Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (calcul, stockage, réseau, etc.) dans vos abonnements. Vérifiez que vous avez les autorisations (lecture) appropriées dans votre locataire et que vous êtes en mesure d’établir une liste de tous les abonnements Azure et de toutes les ressources dans vos abonnements.
 
 
-Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d'utiliser des ressources Azure Resource Manager (ARM) à l'avenir.
+Même si les ressources Azure Classic peuvent être découvertes via l’Explorateur Azure Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources ARM (Azure Resource Manager) à partir de maintenant.
 
 
-Créer des requêtes avec Azure Graph :
+Comment créer des requêtes avec l’Explorateur Azure Resource Graph :
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -840,11 +840,11 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 
 
-Créer et utiliser des étiquettes :
+Créer et utiliser des balises :
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -870,9 +870,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Comment créer des requêtes avec l’Explorateur Azure Resource Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 

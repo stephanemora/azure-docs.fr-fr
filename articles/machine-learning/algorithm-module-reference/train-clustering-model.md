@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 7053fab28b4a231c92f31e344cf09ffef3a6b146
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c29baf3cdda998a2ab78c84f3311b84d37086bcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152106"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477423"
 ---
 # <a name="train-clustering-model"></a>Entraîner un modèle de clustering
 
@@ -43,7 +43,7 @@ Le module prend un modèle de clustering non entraîné que vous avez déjà con
 
     Si vous désélectionnez cette option, seuls les affectations de cluster sont générées. 
 
-7. Exécutez le pipeline ou cliquez sur le module **Effectuer l'apprentissage un modèle de clustering** et sélectionnez **Exécuter la sélection**.  
+7. Envoyez le pipeline ou cliquez sur le module **Effectuer l’apprentissage un modèle de clustering** et sélectionnez **Exécuter la sélection**.  
   
 ### <a name="results"></a>Résultats
 

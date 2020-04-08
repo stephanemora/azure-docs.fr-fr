@@ -3,12 +3,12 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390617"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480060"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
@@ -57,7 +57,7 @@ Pour en savoir plus sur la supervision, consultez [Supervision dans le Portail A
 
 Sauvegarde Azure simplifie la gestion d’une base de données SAP HANA sauvegardée grâce à une multitude d’opérations de gestion prises en charge. Ces opérations sont décrites plus en détail dans les sections suivantes.
 
-### <a name="run-an-ad-hoc-backup"></a>Exécuter une sauvegarde ad hoc
+### <a name="run-an-on-demand-backup"></a>Exécuter une sauvegarde à la demande
 
 Les sauvegardes s’exécutent conformément à la planification de la stratégie. Vous pouvez exécuter une sauvegarde à la demande en procédant comme suit :
 
@@ -65,6 +65,16 @@ Les sauvegardes s’exécutent conformément à la planification de la stratégi
 2. Dans **Éléments de sauvegarde**, sélectionnez la machine virtuelle exécutant la base de données SAP HANA, puis cliquez sur **Sauvegarder maintenant**.
 3. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Cliquez ensuite sur **OK**.
 4. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre base de données, la création de la sauvegarde initiale peut prendre un certain temps.
+
+### <a name="hana-native-client-integration"></a>Intégration du client natif HANA
+
+Désormais, les sauvegardes complètes à la demande déclenchées à partir d’un client natif HANA s’affichent en tant que sauvegardes complètes dans la page **Éléments de sauvegarde** .
+
+![Dernières sauvegardes exécutées](./media/sap-hana-db-manage/last-backups.png)
+
+Ces sauvegardes complètes ad hoc figurent aussi dans la liste des points de restauration pour la restauration.
+
+![Liste des points de restauration](./media/sap-hana-db-manage/list-restore-points.png)
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde de client natif SAP HANA sur une base de données pour laquelle la sauvegarde Azure est activée
 
@@ -112,6 +122,37 @@ Vous pouvez changer la stratégie sous-jacente d’un élément de sauvegarde SA
 > Toute modification de la période de rétention sera appliquée rétroactivement à tous les anciens points de récupération ainsi qu’aux nouveaux.
 >
 > Les stratégies de sauvegarde incrémentielle ne peuvent pas être utilisées pour les bases de données SAP HANA. La sauvegarde incrémentielle n’est actuellement pas prise en charge pour ces bases de données.
+
+### <a name="modify-policy"></a>Modifier la stratégie
+
+Modifiez la stratégie de façon à changer les types de sauvegarde, leur fréquence et leur durée de rétention.
+
+>[!NOTE]
+>Toute modification apportée à la période de rétention s’applique rétroactivement à tous les anciens points de récupération, en plus des nouveaux.
+
+1. Dans le tableau de bord du coffre, accédez à **Gérer > Stratégies de sauvegarde**, puis choisissez la stratégie que vous voulez modifier.
+
+   ![Choisir la stratégie à modifier](./media/sap-hana-db-manage/manage-backup-policies.png)
+
+1. Sélectionnez **Modifier**.
+
+   ![Sélectionner Modifier](./media/sap-hana-db-manage/modify-policy.png)
+
+1. Choisissez la fréquence pour les types de sauvegarde.
+
+   ![Choisir la fréquence de sauvegarde](./media/sap-hana-db-manage/choose-frequency.png)
+
+La modification de la stratégie a un impact sur tous les éléments de sauvegarde associés et déclenche les tâches de **configuration de la protection** correspondantes.
+
+### <a name="inconsistent-policy"></a>Stratégie incohérente
+
+Parfois, une opération de modification de la stratégie peut produire une version de stratégie **incohérente** pour certains éléments de sauvegarde. Cela se produit lorsque la tâche de **configuration de la protection** correspondante échoue pour l’élément de sauvegarde après le déclenchement d’une opération de modification de la stratégie. Elle se présente comme suit dans l’affichage des éléments de sauvegarde :
+
+![Stratégie incohérente](./media/sap-hana-db-manage/inconsistent-policy.png)
+
+Vous pouvez corriger la version de la stratégie pour tous les éléments concernés en un seul clic :
+
+![Corriger la version de la stratégie](./media/sap-hana-db-manage/fix-policy-version.png)
 
 ### <a name="stop-protection-for-an-sap-hana-database"></a>Arrêter la protection d’une base de données SAP HANA
 
@@ -167,7 +208,7 @@ Découvrez comment continuer la sauvegarde d’une base de données SAP HANA [ap
 
 Découvrez comment continuer la sauvegarde d’une base de données SAP HANA dont [le SID n’a pas été modifié après la mise à niveau](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change).
 
-### <a name="unregister-an-sap-hana-database"></a>Désinscrire une base de données SAP HANA
+### <a name="unregister-an-sap-hana-instance"></a>Désinscrire une instance SAP HANA
 
 Désinscrivez une instance SAP HANA après avoir désactivé la protection, mais avant de supprimer le coffre :
 
@@ -184,6 +225,12 @@ Désinscrivez une instance SAP HANA après avoir désactivé la protection, mais
 * Cliquez avec le bouton droit sur l’instance protégée, puis sélectionnez **Désinscrire**.
 
    ![Sélectionnez désinscrire](./media/sap-hana-db-manage/unregister.png)
+
+### <a name="re-register-extension-on-the-sap-hana-server-vm"></a>Réinscrire une extension sur la machine virtuelle du serveur SAP HANA
+
+Parfois, l’extension de charge de travail sur la machine virtuelle peut être affectée pour une raison ou une autre. Dans ce cas, toutes les opérations déclenchées sur la machine virtuelle commencent à échouer. Vous devrez alors réinscrire l’extension sur la machine virtuelle. L’opération de réinscription a pour effet de réinstaller l’extension de sauvegarde de charge de travail sur la machine virtuelle pour que les opérations se poursuivent.
+
+Utilisez cette option avec prudence, car une fois déclenchée sur une machine virtuelle avec une extension déjà saine, cette opération provoque le redémarrage de l’extension. Cela peut provoquer l’échec de tous les travaux en cours. Vérifiez la présence d’un ou plusieurs de ces [symptômes](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) avant de déclencher l’opération de réinscription.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

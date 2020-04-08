@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 34607b15dbffa8869cbb4e8d1dd0903aa0131304
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 89fc5196977f53e040e1a6553b46ca57f39b18b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169146"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217881"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Créer un modèle d’analyse des sentiments dans Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Vous pouvez utiliser Azure Machine Learning Studio (classique) pour créer des modèles d’analyse de texte et les rendre opérationnels. Ces modèles peuvent, par exemple, vous aider à résoudre des problèmes d’analyse de sentiments ou de classification de document.
 
@@ -29,7 +31,7 @@ Dans une expérience d’analyse de texte, vous devez généralement :
 4. noter et valider le modèle ;
 5. déployer le modèle en production.
 
-Dans ce tutoriel, vous allez vous familiariser avec ces étapes au cours de l’exploration d’un modèle d’analyse de sentiments à l’aide d’un jeu de données Amazon Book Reviews (consultez l’article scientifique « Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification » de John Blitzer, Mark Dredze et Fernando Pereira ; Association of Computational Linguistics (ACL), 2007). Ce jeu de données se compose de notes de critiques de livres (1-2 ou 4-5) et d’un texte de forme libre. L’objectif est de prédire la note de la critique : faible (1-2) ou élevée (4-5).
+Dans ce tutoriel, vous allez vous familiariser avec ces étapes au cours de l’exploration d’un modèle d’analyse de sentiments à l’aide d’un jeu de données Amazon Book Reviews (consultez l’article scientifique « Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification » de John Blitzer, Mark Dredze et Fernando Pereira ; Association of Computational Linguistics (ACL), 2007). Ce jeu de données se compose de notes de critiques de livres (1-2 ou 4-5) et d’un texte de forme libre. L’objectif est de prédire la note de la critique : faible (1-2) ou élevée (4-5).
 
 Vous trouverez les expériences traitées dans ce didacticiel dans la galerie Azure AI :
 

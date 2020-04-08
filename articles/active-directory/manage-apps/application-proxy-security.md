@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481226"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -81,13 +81,9 @@ Les logiciels sans correctifs sont toujours responsables d’un grand nombre d�
 
 Pour améliorer la sécurité des applications publiées par le proxy d’application Azure AD, nous empêchons les robots web d’indexer et d’archiver vos applications. Chaque fois qu’un robot d’indexation tente de récupérer les paramètres d’un robot d’une application publiée, le proxy d’application retourne un fichier robots.txt qui inclut `User-agent: * Disallow: /`.
 
-### <a name="ddos-prevention"></a>Prévention des attaques DDoS
+#### <a name="azure-ddos-protection-service"></a>Service Azure DDoS Protection
 
-Les applications publiées via le proxy d’application sont protégées contre les attaques par déni de service distribué (DDoS).
-
-Le service de proxy d’application surveille la quantité de trafic qui tente d’atteindre vos applications et réseau. Si le nombre d’appareils qui demandent un accès à distance à vos applications augmente nettement, Microsoft limite l’accès à votre réseau. 
-
-Microsoft surveille des modèles de trafic pour les applications individuelles et pour votre abonnement dans son ensemble. Si une application reçoit une quantité de demandes anormalement élevée, les demandes d’accès à cette application sont refusées pendant une courte période de temps. Si vous recevez une quantité de demandes anormalement élevée pour l’ensemble de votre abonnement, les demandes d’accès à toutes vos applications sont refusées. Avec cette mesure préventive, vos serveurs d’applications ne sont pas surchargés de demandes d’accès à distance, ce qui permet à vos utilisateurs locaux de continuer à accéder à leurs applications. 
+Les applications publiées via le proxy d’application sont protégées contre les attaques par déni de service distribué (DDoS). **Azure DDoS Protection** est un service proposé avec la plateforme Azure, qui permet de protéger vos ressources Azure contre les attaques par déni de service. Le niveau de service **De base** est automatiquement activé, ce qui permet de superviser en continu le trafic et d’atténuer en temps réel les risques associés aux attaques courantes au niveau du réseau. Un niveau **Standard** est également disponible. Il propose des fonctionnalités d’atténuation supplémentaires qui sont destinées spécialement aux ressources du réseau virtuel Azure. Pour plus d’informations, consultez [Vue d’ensemble d’Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Sous le capot
 
@@ -103,7 +99,7 @@ Un flux entre le connecteur et le service de proxy d’application est établi l
 * Un utilisateur accède à une application publiée.
 
 >[!NOTE]
->Toutes les communications se produisent sur le protocole SSL et proviennent du connecteur vers le service de proxy d’application. Le service est uniquement sortant.
+>Toutes les communications sont effectuées via le protocole TLS, et vont toujours du connecteur vers le service de proxy d’application. Le service est uniquement sortant.
 
 Le connecteur utilise un certificat client pour authentifier le service de proxy d’application pour presque tous les appels. La seule exception est l’étape initiale d’installation, au cours de laquelle le certificat client est établi.
 

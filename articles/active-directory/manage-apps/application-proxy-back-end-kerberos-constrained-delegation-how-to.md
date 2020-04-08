@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275693"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
@@ -56,13 +56,13 @@ Les connecteurs doivent être positionnés le plus près possible de leurs cible
 
 Quels sont les signes d'un problème de KCD ? Différents signes peuvent révéler un échec de l'authentification unique KCD. Les premiers signes d'un problème apparaissent dans le navigateur.
 
-![Exemple : Erreur de configuration incorrecte de KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Exemple : Erreur de configuration incorrecte de KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
-![Exemple : Échec dû à des autorisations manquantes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
+![Exemple : Échec dû à des autorisations manquantes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
 Ces deux illustrations présentent le même symptôme : un échec de l’authentification unique. L'accès à l’application est refusé à l'utilisateur.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Le mode de résolution varie selon le problème et les symptômes observés. Avant de poursuivre, lisez les articles suivants. Ils fournissent des informations utiles pour résoudre les problèmes :
 
@@ -84,9 +84,9 @@ Les communications externes entre le client et le serveur frontal Azure n'ont au
 
 Comme mentionné précédemment, les messages d’erreur du navigateur fournissent de bonnes indications sur les raisons d’un échec. Veillez à noter l’identifiant d’activité et le timestamp dans la réponse. Ces informations vous permettront de mettre le comportement en corrélation avec des événements réels dans le journal des événements Azure Proxy.
 
-![Exemple : Erreur de configuration incorrecte de KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
+![Exemple : Erreur de configuration incorrecte de KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-Les entrées correspondantes du journal des événements apparaissent en tant qu'événement 13019 ou 12027. Vous trouverez les journaux des événements des connecteurs sous **Journaux des applications et des services** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connecteur**&gt;**Admin**.
+Les entrées correspondantes du journal des événements apparaissent en tant qu'événement 13019 ou 12027. Vous trouverez les journaux des événements des connecteurs sous **Journaux des applications et des services** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connecteur** &gt; **Admin**.
 
 ![Événement 13019 du journal des événements du proxy d’application](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
@@ -135,7 +135,7 @@ Consommateur du ticket Kerberos fourni par le connecteur. À ce stade, attendez-
 
       ![Fenêtre de configuration d’application IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-      Une fois l’identité connue, vérifiez que ce compte est configuré avec le SPN en question. Par exemple `setspn –q http/spn.wacketywack.com`. Entrez le texte suivant dans une invite de commandes :
+      Une fois l’identité connue, vérifiez que ce compte est configuré avec le SPN en question. par exemple `setspn –q http/spn.wacketywack.com`. Entrez le texte suivant dans une invite de commandes :
 
       ![Affiche la fenêtre de commandes SetSPN](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 

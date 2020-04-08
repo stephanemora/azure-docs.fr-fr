@@ -6,13 +6,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a68f351276c47f623728a279ad551744c61b6d14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063230"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour MySQL
 
@@ -47,7 +47,7 @@ Des erreurs transitoires se produisent lorsque la maintenance est effectuée, lo
 Si l’application échoue de façon permanente à se connecter à la base de données Azure Database pour MySQL, cela indique généralement un problème avec l’un des éléments suivants :
 
 * Configuration du pare-feu côté serveur : assurez-vous que le pare-feu côté serveur d’Azure Database pour MySQL est configuré pour autoriser les connexions côté client, y compris les serveurs proxy et les passerelles.
-* Configuration du pare-feu côté client : le pare-feu côté client doit autoriser les connexions à votre serveur de base de données. Les adresses IP et les ports du serveur auxquels vous ne pouvez pas vous connecter doivent être autorisés ainsi que les noms d’application telles que MySQL sur certains pare-feu.
+* Configuration du pare-feu côté client : le pare-feu du client doit autoriser les connexions au serveur de base de données. Les adresses IP et les ports du serveur auxquels vous ne pouvez pas vous connecter doivent être autorisés ainsi que les noms d’application telles que MySQL sur certains pare-feu.
 * Erreur utilisateur : il se peut que vous ayez fait une erreur lors de la saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou le suffixe *\@servername* manquant dans le nom de l’utilisateur.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants

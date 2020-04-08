@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 35046d33a85eaed913454f188f2a4526715526a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 5b8dab14a9416795eccef1f71988a048c8bedb48
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168784"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218160"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Définir des modules R personnalisés pour Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Cette rubrique explique comment créer et déployer un module R Studio personnalisé (classique). Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
 
@@ -200,7 +202,7 @@ Par exemple, si vous souhaitez modifier le module **Custom Add Rows** pour sorti
     </Ports> 
 
 
-Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéquat dans « myAddRows.R » :
+Ensuite, retournez la liste des objets dans une liste respectant l’ordre adéquat dans « CustomAddRows » :
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -333,11 +335,11 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. Toutes les structures de répertoire présentes sont conservées. Cela signifie que l'approvisionnement du fichier fonctionne de la même façon en local et lors de l'exécution d'Azure Machine Learning Studio (classique). 
 
 > [!NOTE]
-> Notez que tous les fichiers sont extraits vers le répertoire « src ». Tous les chemins d’accès doivent donc comporter un préfixe « src/ ».
+> Notez que tous les fichiers sont extraits vers le répertoire « src ». Tous les chemins doivent donc comporter un préfixe « src/ ».
 > 
 > 
 
-Supposons que vous souhaitiez supprimer toutes les lignes présentant la mention « NA » et toutes les lignes en double dans le jeu de données avant de créer une sortie dans myAddRows, et que vous avez déjà créé une fonction R qui effectue cette opération dans un fichier, removeDupNARows.R :
+Supposons que vous souhaitiez supprimer du jeu de données toutes les lignes présentant la mention « NA » et toutes les lignes en double, avant de créer une sortie dans CustomAddRows, et que vous avez déjà créé une fonction R qui effectue cette opération dans un fichier, RemoveDupNARows.R :
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -359,7 +361,7 @@ Vous pouvez approvisionner le fichier auxiliaire RemoveDupNARows.R dans la fonct
         return (dataset)
     }
 
-Ensuite, chargez un fichier .zip contenant les éléments « CustomAddRows.R », « CustomAddRows.xml » et « RemoveDupNARows.R » en tant que module R personnalisé.
+Ensuite, chargez un fichier zip contenant les éléments « CustomAddRows.R », « CustomAddRows.xml » et « RemoveDupNARows.R » en tant que module R personnalisé.
 
 ## <a name="execution-environment"></a>Environnement d’exécution
 L’environnement d’exécution du script R utilise la même version de R que le module **Exécuter le script R** et vous pouvez utiliser les mêmes packages par défaut. Vous pouvez également ajouter des packages R supplémentaires à votre module personnalisé en les incluant dans le package zip du module personnalisé. Chargez-les simplement dans votre script R comme vous le feriez dans votre propre environnement R. 

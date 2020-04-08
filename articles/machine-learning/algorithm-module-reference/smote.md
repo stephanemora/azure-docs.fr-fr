@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 4b6944f7703500a2c3859e8e3111eceefbd5ff10
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311408"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477457"
 ---
 # <a name="smote"></a>SMOTE
 
-Cet article explique comment utiliser le module SMOTE dans le concepteur Azure Machine Learning pour augmenter le nombre de cas sous-représentés dans un jeu de données utilisé pour le machine learning. SMOTE représente un meilleur moyen d’augmenter le nombre de cas rares que la simple duplication de cas existants.  
+Cet article explique comment utiliser le module SMOTE dans le concepteur Azure Machine Learning (préversion) pour augmenter le nombre de cas sous-représentés dans un jeu de données utilisé pour le Machine Learning. SMOTE représente un meilleur moyen d’augmenter le nombre de cas rares que la simple duplication de cas existants.  
 
 Le module SMOTE doit être connecté à un jeu de données *déséquilibré*. Il existe de nombreuses raisons pour lesquelles un jeu de données peut être déséquilibré. Par exemple, la catégorie ciblée est rare dans la population ou les données sont difficiles à collecter. En général, SMOTE doit être utilisé lorsque la *classe* à analyser est sous-représentée. 
   
@@ -80,7 +80,7 @@ Pour augmenter le nombre de cas, vous pouvez définir la valeur du **Pourcentage
   
 7. Entrez une valeur dans la zone **Random seed** (Valeur de départ aléatoire) si vous souhaitez obtenir les mêmes résultats à chaque exécution du même pipeline avec les mêmes données. Sinon, le module génèrera une valeur de départ aléatoire à partir des valeurs d’horloge du processeur au moment du déploiement du pipeline. La génération d’une valeur de départ aléatoire peut provoquer de légères différences entre les résultats au fil des exécutions.
 
-8. Exécuter le pipeline.  
+8. Envoyez le pipeline.  
   
    La sortie du module est un jeu de données contenant les lignes d’origine ainsi que diverses lignes ajoutées avec des cas minoritaires.  
 

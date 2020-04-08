@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274653"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problème de configuration de l’authentification unique fédérée pour une application de la galerie Azure AD
@@ -64,7 +64,7 @@ Pour connaître les modèles préconfigurés pour l’application :
 
 10. Il existe trois façons de connaître les modèles pris en charge pour l’application :
 
-    * Dans la zone de texte, les modèles pris en charge apparaissent sous forme d’espace réservé. *Exemple :* <https://contoso.com>.
+    * Dans la zone de texte, les modèles pris en charge s’affichent sous forme d’espace réservé. *Exemple :* <https://contoso.com>.
 
     * Si le modèle n’est pas pris en charge, un point d’exclamation rouge s’affiche lorsque vous essayez d’entrer la valeur dans la zone de texte. Si vous placez le pointeur de la souris sur le point d’exclamation rouge, les modèles pris en charge s’affichent.
 
