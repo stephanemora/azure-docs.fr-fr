@@ -4,19 +4,17 @@ description: Adopter In-Memory OLTP pour améliorer les performances transaction
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: 0f10936867c101c07cc8d29d68dc45021bfad1b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 653ed75341d5d56ecbe06cb59f0efafa1e68aa0f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810305"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067271"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilisation de l’OLTP en mémoire pour améliorer les performances de votre SQL Database
 
@@ -28,7 +26,7 @@ ms.locfileid: "73810305"
 
 Suivez ces étapes pour adopter OLTP en mémoire dans votre base de données existante.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Étape 1 : vérifiez que vous utilisez une base de données de niveau Premium ou Critique pour l'entreprise
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Étape 1 : vérifiez que vous utilisez une base de données de niveau Premium ou Critique pour l'entreprise
 
 OLTP en mémoire est pris en charge uniquement dans les bases de données du niveau Premium et Critique pour l’entreprise. In-Memory est pris en charge si le résultat retourné est 1 (et nom 0) :
 
@@ -40,7 +38,7 @@ L’acronyme *XTP* signifie *Extreme Transaction Processing (Traitement de trans
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Étape 2 : identifiez les objets à migrer vers In-Memory OLTP
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Étape 2 : identifiez les objets à migrer vers In-Memory OLTP
 SSMS inclut un rapport de **présentation d’analyse des performances des transactions** que vous pouvez exécuter sur une base de données avec une charge de travail active. Le rapport identifie les tables et procédures stockées candidates pour la migration vers In-Memory OLTP.
 
 Dans SSMS, pour générer le rapport :

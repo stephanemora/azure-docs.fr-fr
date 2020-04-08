@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3c028a97c2fb554b13035026025437d5331104c2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669707"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294921"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
@@ -28,8 +28,6 @@ Vous pouvez configurer les paramètres suivants pour une règle de détection in
 
 Pour autoriser la configuration des paramètres de règle via Azure Resource Manager, la configuration de règle de détection intelligente est désormais disponible en tant que ressource interne au sein de la ressource Application Insights, nommée **ProactiveDetectionConfigs**.
 Pour une flexibilité maximale, chaque règle de détection intelligente peut être configurée avec les paramètres de notification unique.
-
-## 
 
 ## <a name="examples"></a>Exemples
 
@@ -131,6 +129,27 @@ Assurez-vous de remplacer le nom de la ressource Application Insights et de spé
 
 ```
 
+
+## <a name="smart-detection-rule-names"></a>Règles de détection intelligente
+
+Voici un tableau des noms de règle de détection intelligente tels qu’ils apparaissent dans le portail, ainsi que leurs noms internes, qui doit être utilisé dans le modèle Azure Resource Manager.
+
+> [!NOTE]
+> Les règles de détection intelligente indiquant _Préversion_ ne prennent pas en charge les notifications par e-mail. Par conséquent, vous pouvez uniquement définir la propriété _Activée_ pour ces règles. 
+
+| Nom de la règle du portail Azure | Nom interne
+|:---|:---|
+| Durée de chargement de page lente | slowpageloadtime |
+| Temps de réponse du serveur lent | slowserverresponsetime |
+| Durée de dépendance longue | longdependencyduration |
+| Dégradation du temps de réponse du serveur | degradationinserverresponsetime |
+| Dégradation de la durée de dépendance | degradationindependencyduration |
+| Dégradation du rapport entre les niveaux de gravité des suivis (préversion) | extension_traceseveritydetector |
+| Élévation anormale du volume des exceptions (préversion) | extension_exceptionchangeextension |
+| Fuite de mémoire potentielle détectée (préversion) | extension_memoryleakextension |
+| Problème de sécurité potentiel détecté (préversion) | extension_securityextensionspackage |
+| Élévation anormale du volume de données quotidien (préversion) | extension_billingdatavolumedailyspikeextension |
+
 ### <a name="failure-anomalies-alert-rule"></a>Règle d’alerte Anomalies des échecs
 
 Ce modèle Azure Resource Manager montre comment configurer une règle d’alerte pour les défaillances avec un niveau de gravité de 2. Cette nouvelle version de la règle d’alerte pour les défaillances fait partie de la nouvelle plateforme d’alertes d’Azure et remplace la version classique qui a été supprimée dans le cadre du [processus de suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
@@ -167,27 +186,7 @@ Ce modèle Azure Resource Manager montre comment configurer une règle d’alert
 ```
 
 > [!NOTE]
-> Ce modèle Azure Resource Manager est spécifique à la règle d’alerte Anomalies des échecs et il est différent des autres règles de détection intelligente classiques décrites dans cet article.
-
-## <a name="smart-detection-rule-names"></a>Règles de détection intelligente
-
-Voici un tableau des noms de règle de détection intelligente tels qu’ils apparaissent dans le portail, ainsi que leurs noms internes, qui doit être utilisé dans le modèle Azure Resource Manager.
-
-> [!NOTE]
-> Les règles de détection intelligente indiquant _Préversion_ ne prennent pas en charge les notifications par e-mail. Par conséquent, vous pouvez uniquement définir la propriété _Activée_ pour ces règles. 
-
-| Nom de la règle du portail Azure | Nom interne
-|:---|:---|
-| Durée de chargement de page lente | slowpageloadtime |
-| Temps de réponse du serveur lent | slowserverresponsetime |
-| Durée de dépendance longue | longdependencyduration |
-| Dégradation du temps de réponse du serveur | degradationinserverresponsetime |
-| Dégradation de la durée de dépendance | degradationindependencyduration |
-| Dégradation du rapport entre les niveaux de gravité des suivis (préversion) | extension_traceseveritydetector |
-| Élévation anormale du volume des exceptions (préversion) | extension_exceptionchangeextension |
-| Fuite de mémoire potentielle détectée (préversion) | extension_memoryleakextension |
-| Problème de sécurité potentiel détecté (préversion) | extension_securityextensionspackage |
-| Élévation anormale du volume de données quotidien (préversion) | extension_billingdatavolumedailyspikeextension |
+> Ce modèle Azure Resource Manager est spécifique à la règle d’alerte Anomalies des échecs et il est différent des autres règles de détection intelligente classiques décrites dans cet article. Si vous souhaitez gérer manuellement les défaillances, cette opération est effectuée dans les alertes Azure Monitor, tandis que toutes les autres règles de détection intelligente sont gérées dans le volet Détection intelligente de l’interface utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c238600d412e53ad665214492e292aa395655b78
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185841"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497524"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
 ## <a name="general-faq"></a>FAQ général
 
-### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ? Ou pourquoi le propriétaire de l’appareil est-il marqué N/A pour les appareils joints à Azure Active Directory (Azure AD) hybrides ?
+### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le Portail Microsoft Azure ? Ou pourquoi le propriétaire de l’appareil est-il marqué N/A pour les appareils joints à Azure Active Directory (Azure AD) hybrides ?
 
 **R :** Les appareils Windows 10 qui sont joints à Azure AD de manière hybride ne s’affichent pas en tant **qu’appareils UTILISATEUR**.
-Vous devez utiliser la vue **Tous les appareils** dans le portail Azure. Vous pouvez également utiliser une cmdlet PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
+Vous devez utiliser la vue **Tous les appareils** dans le portail Azure. Vous pouvez également utiliser une cmdlet PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISATEUR** :
 
@@ -62,7 +62,7 @@ Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISA
 - L’utilisateur désactive l’appareil à partir du portail Mes applications. 
 - Un administrateur (ou un utilisateur) supprime ou désactive l’appareil dans le portail Azure ou à l’aide de PowerShell.
 - Valable uniquement pour les appareils hybrides joints à Azure AD : Un administrateur supprime l’unité d’organisation Appareils de l’étendue de synchronisation, ce qui entraîne la suppression des appareils dans Azure AD.
-- Mise à niveau d’Azure AD connecté à la version 1.4.xx.x. [Comprendre Azure AD Connect 1.4.xx.x et la disparition des appareils](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Mise à niveau d’Azure AD connecté à la version 1.4.xx.x. [Comprendre Azure AD Connect 1.4.xx.x et la disparition des appareils](/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 Pour savoir comment remédier à cela, lisez la section ci-dessous.
@@ -128,7 +128,7 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 **R :** L’application d’une révocation peut prendre jusqu’à une heure à partir du moment où l’appareil Azure AD est marqué comme désactivé.
 
 >[!NOTE] 
->Pour les appareils inscrits, nous vous recommandons de réinitialiser l’appareil pour vous assurer que les utilisateurs ne puissent pas accéder aux ressources. Pour plus d’informations, consultez [Qu’est-ce que l’inscription d’appareil ?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Pour les appareils inscrits, nous vous recommandons de réinitialiser l’appareil pour vous assurer que les utilisateurs ne puissent pas accéder aux ressources. Pour plus d’informations, consultez [Qu’est-ce que l’inscription d’appareil ?](/mem/intune/user-help/use-managed-devices-to-get-work-done). 
 
 ---
 
@@ -180,13 +180,13 @@ Les utilisateurs supprimés ou désactivés qui ne se sont pas connectés préc�
 
 ### <a name="q-my-users-cant-search-printers-from-azure-ad-joined-devices-how-can-i-enable-printing-from-those-devices"></a>Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir de ces appareils ?
 
-**R :** Pour déployer des imprimantes pour les appareils joints à Azure AD, consultez [Déployer l’impression cloud hybride Windows Server avec l’authentification préalable](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
+**R :** Pour déployer des imprimantes pour les appareils joints à Azure AD, consultez [Déployer l’impression cloud hybride Windows Server avec l’authentification préalable](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
 
 ---
 
 ### <a name="q-how-do-i-connect-to-a-remote-azure-ad-joined-device"></a>Q : Comment faire pour me connecter à un appareil distant joint à Azure AD ?
 
-**R :** Consultez [Se connecter à un PC joint à Azure Active Directory à distance](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
+**R :** Consultez [Se connecter à un PC joint à Azure Active Directory à distance](/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
@@ -220,7 +220,7 @@ Ce comportement :
 
 ### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>Q : Pourquoi le message *Une erreur s’est produite* s’affiche-t-il lorsque je tente de joindre mon PC à Azure AD ?
 
-**R :** Cette erreur résulte de la configuration de l’inscription Azure Active Directory avec Intune. Assurez-vous que l’utilisateur qui tente de créer la jointure Azure AD dispose de la licence Intune appropriée. Pour plus d’informations, consultez [Configurer l’inscription des appareils Windows](https://docs.microsoft.com/intune/windows-enroll).  
+**R :** Cette erreur résulte de la configuration de l’inscription Azure Active Directory avec Intune. Assurez-vous que l’utilisateur qui tente de créer la jointure Azure AD dispose de la licence Intune appropriée. Pour plus d’informations, consultez [Configurer l’inscription des appareils Windows](/intune/windows-enroll).  
 
 ---
 
@@ -307,8 +307,8 @@ La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’A
 
 **R :** Procédez comme suit :
 
-1.  [Créez une stratégie de conformité](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-1.  [Définissez une stratégie d’accès conditionnel pour les appareils macOS](../active-directory-conditional-access-azure-portal.md) 
+1.    [Créez une stratégie de conformité](/intune/compliance-policy-create-mac-os)
+1.    [Définissez une stratégie d’accès conditionnel pour les appareils macOS](../active-directory-conditional-access-azure-portal.md) 
 
 **Remarques :**
 

@@ -1,5 +1,5 @@
 ---
-title: Mise à jour du schéma d’Azure Traffic Analytics – mars 2020 | Microsoft Docs
+title: Mise à jour du schéma Azure Traffic Analytics – Mars 2020 | Microsoft Docs
 description: Exemples de requêtes avec de nouveaux champs dans le schéma Traffic Analytics.
 services: network-watcher
 documentationcenter: na
@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
-ms.openlocfilehash: 0e9d37e3a89473e59b94168f8f8c80e7a6621107
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969062"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396624"
 ---
-# <a name="sample-queries-with-new-fields-in-traffic-analytics-schema-august-2019-schema-update"></a>Exemples de requêtes avec de nouveaux champs dans le schéma Traffic Analytics (mise à jour du schéma d’août 2019)
+# <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Exemples de requêtes avec de nouveaux champs dans le schéma Traffic Analytics (mise à jour du schéma d’août 2019)
 
-Le [schéma Traffic Analytics Log](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) a été mis à jour pour inclure les nouveaux champs suivants : **SrcPublicIPs_s**, **DestPublicIPs_s** et **NSGRule_s**. Dans les prochains mois, les anciens champs suivants seront déconseillés : **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s** et **FlowCount_d**.
-Les nouveaux champs fournissent des informations sur les adresses IP source et de destination et simplifient les requêtes.
+Le [schéma de journal Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) inclut les nouveaux champs suivants : **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. Les nouveaux champs fournissent des informations sur les adresses IP source et de destination et simplifient les requêtes.
 
-Voici trois exemples montrant comment remplacer les anciens champs par les nouveaux.
+Dans les prochains mois, les anciens champs suivants seront déconseillés : **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s** et **FlowCount_d**.
 
-## <a name="example-1---vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-publicips_s"></a>Exemple 1 : VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s et PublicIPs_s
+Les trois exemples suivants montrent comment remplacer les anciens champs par les nouveaux.
 
-Nous n’avons pas à déduire les cas source et de destination pour les flux publics Azure et Externe à partir du champ FlowDirection_s pour les flux AzurePublic et ExternalPublic en particulier. Dans le cas d’une appliance virtuelle réseau (NVA, Network Virtual Appliance), le champ FlowDirection_s peut également ne pas être approprié.
+## <a name="example-1-vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-and-publicips_s-fields"></a>Exemple 1 : Champs VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s et PublicIPs_s
+
+Nous n’avons pas à déduire les cas source et de destination à partir du champ **FlowDirection_s** pour les flux AzurePublic et ExternalPublic. Il peut également être inapproprié d’utiliser le champ **FlowDirection_s** pour une appliance virtuelle réseau.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -71,12 +72,13 @@ SourcePublicIPsAggregated = iif(isnotempty(SrcPublicIPs_s), SrcPublicIPs_s, "N/A
 DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A")
 ```
 
+## <a name="example-2-nsgrules_s-field"></a>Exemple 2 : Champ NSGRules_s
 
-## <a name="example-2---nsgrules_s"></a>Exemple 2 : NSGRules_s
+L’ancien champ utilise le format :
 
-Le champ précédent était au format : <Index value 0)>|<NSG_RULENAME>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>.
+<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 
-Auparavant, nous avions l’habitude d’agréger les données NSG et NSGRules. À présent, nous n’agrégeons plus. NSGList_s contient donc un seul NSG et NSGRules_s est également utilisé pour ne contenir qu’une seule règle. Nous avons donc supprimé le formatage compliqué ici et il est possible de trouver la même chose dans d’autres champs comme mentionné ci-dessous :
+Nous ne regroupons plus de données dans un groupe de sécurité réseau. Dans le schéma mis à jour, **NSGList_s** contient un seul groupe de sécurité réseau. En outre, **NSGRules** contient une seule règle. Nous avons supprimé la mise en forme compliquée ici et dans d’autres champs, comme indiqué dans l’exemple.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -101,16 +103,24 @@ FlowStatus = FlowStatus_s,
 FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d
 ```
 
-## <a name="example-3---flowcount_d"></a>Exemple 3 : FlowCount_d
+## <a name="example-3-flowcount_d-field"></a>Exemple 3 : Champ FlowCount_d
 
-Étant donné que nous ne recherchons pas de données dans NSG, le FlowCount_d correspond simplement à AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d.
-Seul 1 des 4 champs ci-dessus sera différent de zéro et les trois autres auront la valeur 0. Cela indiquera l’état et le nombre dans la carte réseau où le flux a été capturé.
+Étant donné que nous ne recherchons pas de données sur le groupe de sécurité réseau, le **FlowCount_d** est simplement :
 
-Si le flux est autorisé, l’un des champs précédés du préfixe « Allowed » sera rempli. Sinon, un champ précédé du préfixe « Denied » sera rempli.
-Si le flux est entrant, l’un des champs avec le suffixe « \_d » comme « InFlows_d » sera rempli. Sinon, c’est « OutFlows_d » qui sera rempli.
+**AllowedInFlows_d** + **DeniedInFlows_d** + **AllowedOutFlows_d** + **DeniedOutFlows_d**
 
-Selon les deux conditions ci-dessus, nous savons lequel des quatre champs sera rempli.
+Seul l’un des quatre champs sera différent de zéro. Les trois autres champs seront des valeurs nulles. Les champs sont renseignés pour indiquer l’état et le nombre dans la carte réseau où le flux a été capturé.
 
+Pour illustrer ces conditions :
+
+- Si le flux est autorisé, l’un des champs préfixés « autorisés » est rempli.
+- Si le flux est refusé, l’un des champs préfixés « refusés » est rempli.
+- Si le flux est entrant, l’un des champs préfixés « InFlows_d » est rempli.
+- Si le flux est sortant, l’un des champs préfixés « OutFlows_d » est rempli.
+
+Selon les conditions, nous savons que l’un des quatre champs est rempli.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des réponses aux questions fréquentes, consultez [Questions fréquentes (FAQ) sur Traffic Analytics](traffic-analytics-faq.md). Pour plus d’informations sur des fonctionnalités, consultez la [documentation Traffic Analytics](traffic-analytics.md)
+
+- Pour obtenir des réponses aux questions fréquemment posées, consultez [Traffic Analytics frequently asked questions](traffic-analytics-faq.md) (Forum aux questions Traffic Analytics).
+- Pour plus d’informations sur les fonctionnalités, consultez la [documentation sur Traffic Analytics](traffic-analytics.md).

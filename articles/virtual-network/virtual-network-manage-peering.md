@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 4103930e0d089f5f7c17586f22616431c8aa11d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 97acac61d0397a4e13fb64d39a6aba92e4de2afd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978356"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123307"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer un peering de réseau virtuel
 
@@ -60,9 +60,13 @@ Avant de créer un peering, familiarisez-vous avec les exigences et contraintes 
        En plus de transférer le trafic vers un réseau local, une passerelle VPN peut transférer le trafic réseau entre les réseaux virtuels qui sont homologués avec le réseau virtuel dans lequel la passerelle se trouve, sans que les réseaux virtuels n’aient besoin d’être homologués entre eux. L’utilisation d’une passerelle VPN pour le transfert du trafic est utile lorsque vous souhaitez utiliser une passerelle VPN dans un réseau virtuel Hub (consultez l’exemple de hub-and-spoke décrit pour **Autoriser le trafic transféré**) afin d’acheminer le trafic entre des réseaux virtuels spoke qui ne sont pas appairés. Pour en savoir plus sur l’autorisation d’utilisation d’une passerelle pour le transit, consultez [Configurer une passerelle VPN pour le transit dans un peering de réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ce scénario nécessite l’implémentation d’itinéraires définis par l’utilisateur qui spécifient la passerelle de réseau virtuel en tant que type de tronçon suivant. Pour en savoir plus, voir [Itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined). Vous ne pouvez spécifier une passerelle VPN en tant que type de tronçon suivant uniquement dans un itinéraire défini par l’utilisateur, vous ne pouvez pas spécifier une passerelle ExpressRoute en tant que type de tronçon suivant dans un itinéraire défini par l’utilisateur.
 
     - **Utiliser des passerelles distantes :** Cochez cette case pour autoriser le trafic en provenance de ce réseau virtuel à passer par une passerelle de réseau virtuel attachée au réseau virtuel avec lequel vous effectuez le peering. Par exemple, le réseau virtuel avec lequel vous effectuez le peering a une passerelle VPN attachée qui permet la communication avec un réseau local.  L’activation de cette case à cocher a pour effet d’autoriser que le trafic en provenance de ce réseau virtuel passe par la passerelle VPN attachée au réseau virtuel homologué. Si vous cochez cette case, le réseau virtuel homologué doit avoir une passerelle de réseau virtuel attachée, et la case à cocher **Autoriser le transit par passerelle** doit être activée pour ce réseau. Si vous laissez cette case à cocher désactivée (par défaut), le trafic en provenance du réseau virtuel homologué peut toujours être acheminé vers ce réseau virtuel, mais ne peut pas passer par une passerelle de réseau virtuel attachée à ce réseau virtuel.
-    Un seul peering pour ce réseau virtuel peut avoir ce paramètre activé.
+    
+      Un seul peering pour ce réseau virtuel peut avoir ce paramètre activé.
 
-        Vous ne pouvez pas utiliser de passerelles distantes si vous avez déjà configuré une passerelle dans votre réseau virtuel. Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configurer une passerelle VPN pour le transit dans un peering de réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+      Vous ne pouvez pas utiliser de passerelles distantes si vous avez déjà configuré une passerelle dans votre réseau virtuel. Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configurer une passerelle VPN pour le transit dans un peering de réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+        
+    > [!NOTE]
+    > Si vous utilisez une passerelle Réseau virtuel Microsoft Azure pour envoyer le trafic local de manière transitive vers un réseau virtuel homologué, la plage d’adresses IP du réseau virtuel homologué doit concerner le trafic « intéressant » pour le périphérique VPN local. Dans le cas contraire, vos ressources locales ne seront pas en mesure de communiquer avec les ressources du réseau virtuel homologué.
 
 6. Pour ajouter le peering au réseau virtuel que vous avez sélectionné, cliquez sur **OK**.
 
@@ -142,7 +146,7 @@ Les comptes pouvant être utilisés avec le peering de réseaux virtuels doivent
 
 Si votre compte n’a pas l’un des rôles ci-dessus, il doit avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) auquel sont assignées les actions appropriées répertoriées dans le tableau suivant :
 
-| Action                                                          | Name |
+| Action                                                          | Nom |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Action requise pour créer un peering entre un réseau virtuel A et un réseau virtuel B. Le réseau virtuel A doit être un réseau virtuel (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Action requise pour créer un peering entre un réseau virtuel B (Resource Manager) et un réseau virtuel A                                                       |
@@ -154,7 +158,7 @@ Si votre compte n’a pas l’un des rôles ci-dessus, il doit avoir un [rôle p
 
 - Un peering est généré entre des réseaux virtuels créés via des modèles de déploiement identiques ou différents qui existent dans des abonnements identiques ou différents. Suivez un didacticiel pour l’un des scénarios suivants :
 
-  |Modèle de déploiement Azure             | Subscription  |
+  |Modèle de déploiement Azure             | Abonnement  |
   |---------                          |---------|
   |Les deux modèles Resource Manager              |[Identique](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Différent](create-peering-different-subscriptions.md)|
