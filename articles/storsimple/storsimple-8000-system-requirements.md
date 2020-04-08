@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963349"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297704"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Configurations logicielles, de haute disponibilité et réseau requises pour StorSimple 8000 Series
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -66,10 +66,10 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 | Numéro de port <sup>1,2</sup> | Entrant ou sortant | Étendue de ports | Obligatoire | Notes |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Sortie |WAN |Non |<ul><li>Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour.</li><li>Le proxy web sortant est configurable par l’utilisateur.</li><li>Pour autoriser les mises à jour du système, ce port doit également être ouvert pour les adresses IP fixes du contrôleur.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Sortie |WAN |OUI |<ul><li>Le port de sortie est utilisé pour accéder aux données dans le cloud.</li><li>Le proxy web sortant est configurable par l’utilisateur.</li><li>Pour autoriser les mises à jour du système, ce port doit également être ouvert pour les adresses IP fixes du contrôleur.</li><li>Ce port est aussi utilisé sur les deux contrôleurs pour le garbage collection.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |Sortie |WAN |Oui |<ul><li>Le port de sortie est utilisé pour accéder aux données dans le cloud.</li><li>Le proxy web sortant est configurable par l’utilisateur.</li><li>Pour autoriser les mises à jour du système, ce port doit également être ouvert pour les adresses IP fixes du contrôleur.</li><li>Ce port est aussi utilisé sur les deux contrôleurs pour le garbage collection.</li></ul> |
 | UDP 53 (DNS) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur DNS Internet. |
 | UDP 123 (NTP) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur NTP Internet. |
-| TCP 9354 |Sortie |WAN |OUI |Le port de sortie est utilisé par l’appareil StorSimple Manager pour communiquer avec le service StorSimple Device Manager. |
+| TCP 9354 |Sortie |WAN |Oui |Le port de sortie est utilisé par l’appareil StorSimple Manager pour communiquer avec le service StorSimple Device Manager. |
 | 3260 (iSCSI) |Dans |LAN |Non |Ce port est utilisé pour accéder aux données via iSCSI. |
 | 5985 |Dans |LAN |Non |Le port entrant est utilisé par le gestionnaire d’instantanés StorSimple pour communiquer avec l’appareil StorSimple.<br>Ce port est également utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTP. |
 | 5986 |Dans |LAN |Non |Ce port est utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTPS. |
@@ -81,7 +81,7 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 <sup>3</sup> Les adresses IP fixes du contrôleur sur votre appareil StorSimple doivent être routables et doivent pouvoir se connecter à Internet directement ou via le proxy web configuré. Les adresses IP fixes servent à traiter les mises à jour de l’appareil et à nettoyer la mémoire. Si les contrôleurs de l’appareil ne peuvent pas se connecter à Internet via les adresses IP fixes, vous ne pouvez pas mettre à jour votre appareil StorSimple et l’opération de nettoyage de la mémoire ne se déroulera pas correctement.
 
 > [!IMPORTANT]
-> Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
+> Vérifiez que le pare-feu ne modifie ou ne déchiffre pas le trafic TLS entre l’appareil StorSimple et Azure.
 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Modèles d’URL pour règles de pare-feu
@@ -135,7 +135,7 @@ L’algorithme de métrique de routage utilisé pour la mise à jour 2 et versi
     | Data 1  | 2            | 20                       |
     | Data 2  | 3            | 30                       |
     | Data 3  | 4            | 40                       |
-    | Data 4  | 5\.            | 50                       |
+    | Data 4  | 5            | 50                       |
     | Data 5  | 6            | 60                       |
 
 
@@ -157,7 +157,7 @@ L’algorithme de métrique de routage utilisé pour la mise à jour 2 et versi
 * Une alerte est également émise sur votre appareil StorSimple en cas d’échec de l’adresse IP virtuelle. Pour plus d'informations, consultez la page [alerte aide-mémoire](storsimple-8000-manage-alerts.md).
 * En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
   
-    Considérez l'exemple suivant : un appareil StorSimple a deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
+    Prenons l’exemple suivant : un appareil StorSimple a deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
   
     Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
 

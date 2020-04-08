@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 811e3bc206b4d98106bdbb1ce2655cd69c8585a2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5a89c3f7d52c5717b902a69e9c64b3fcc422c481
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589247"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067209"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Supprimer un protecteur Transparent Data Encryption (TDE) à l’aide de PowerShell
 
@@ -134,7 +134,7 @@ Pour obtenir des informations de référence sur les commandes, consultez le [co
 
 2. Ajoutez la nouvelle clé au serveur et mettez-la à jour en tant que nouveau protecteur TDE du serveur.
 
-   ```powershell
+   ```azurecli
    # add the key from Key Vault to the server  
    az sql server key create --kid <KeyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
 
@@ -147,26 +147,26 @@ Pour obtenir des informations de référence sur les commandes, consultez le [co
    > [!NOTE]
    > Quelques minutes peuvent être nécessaires pour que le nouveau protecteur TDE soit distribué à l’ensemble des bases de données et bases de données secondaires du serveur.
 
-   ```powershell
+   ```azurecli
    az sql server tde-key show --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
    ```
 
 4. Faites une sauvegarde de la nouvelle clé dans Key Vault.
 
-   ```powershell
+   ```azurecli
    # --file parameter is optional; if removed, a file name is automatically generated.
    az keyvault key backup --file <DesiredBackupFilePath> --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
 5. Supprimez la clé compromise de Key Vault.
 
-   ```powershell
+   ```azurecli
    az keyvault key delete --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
 6. Pour restaurer une clé dans Key Vault à l’avenir.
 
-   ```powershell
+   ```azurecli
    az keyvault key restore --file <BackupFilePath> --vault-name <KeyVaultName>
    ```
 

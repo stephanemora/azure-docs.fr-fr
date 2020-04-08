@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: a2619293bf3641cdca370ff528a87ae879460a3b
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 11123ee04dd02a60dff0b88e2e6e85fcd613a7d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086776"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80068010"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Media Services v3
 
@@ -59,6 +59,21 @@ Pour plus d’informations, consultez [Différences de fonctionnalités par rapp
 Pour en savoir plus, consultez [Déplacement d’un compte Media Services entre abonnements](media-services-account-concept.md).
 
 ## <a name="live-streaming"></a>Vidéo en flux continu 
+
+### <a name="how-to-stop-the-live-stream-after-the-broadcast-is-done"></a>Comment arrêter le stream en direct une fois la diffusion terminée ?
+
+Vous pouvez choisir une approche côté client ou côté serveur.
+
+#### <a name="client-side"></a>Côté client
+
+Votre application web doit demander à l’utilisateur s’il souhaite mettre fin à la diffusion s’il ferme le navigateur. Il s’agit d’un événement de navigateur que votre application web peut gérer.
+
+#### <a name="server-side"></a>Côté serveur
+
+Vous pouvez surveiller les événements en direct en vous abonnant à des événements Event Grid. Pour plus d’informations, consultez le [schéma d’événement eventgrid](media-services-event-schemas.md#live-event-types).
+
+* Vous pouvez [vous abonner](reacting-to-media-services-events.md) au niveau de flux [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) et surveiller qu’aucune reconnexion ne survient pendant un certain temps pour arrêter et supprimer votre événement en direct.
+* Vous pouvez également [vous abonner](reacting-to-media-services-events.md) aux [événements de pulsation](media-services-event-schemas.md#liveeventingestheartbeat) au niveau de la piste. Si toutes les pistes ont une vitesse de transmission entrante de 0 ou que le dernier timestamp n’augmente plus, vous pouvez également arrêter en toute sécurité l’événement en direct. Les événements de pulsation sont générés toutes les 20 secondes pour chaque piste, ce qui peut être un peu trop régulier.
 
 ###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>Comment insérer des pauses/séquences d’images et de vidéos pendant le flux de données en direct ?
 
@@ -140,7 +155,7 @@ Vous pouvez actuellement utiliser le portail [Azure](https://portal.azure.com/) 
 * Consulter (et non gérer) les [actifs multimédias](assets-concept.md) v3. 
 * [Obtenir des informations sur l’accès aux API](access-api-portal.md). 
 
-Pour toutes les autres tâches de gestion (par exemple les [transformations et travaux](transforms-jobs-concept.md) et la [protection du contenu](content-protection-overview.md)), utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
+Pour toutes les autres tâches de gestion (par exemple les [transformations et travaux](transforms-jobs-concept.md) et la [protection du contenu](content-protection-overview.md)), utilisez l’[API REST](https://docs.microsoft.com/rest/api/media/), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe-t-il un concept de fichier d’élément multimédia dans v3 ?
 

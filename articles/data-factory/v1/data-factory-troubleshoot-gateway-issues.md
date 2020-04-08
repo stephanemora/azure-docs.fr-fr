@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0b8aee32869202a8cc24a27dec85c93ffd294c6b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931597"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065031"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
@@ -32,10 +32,10 @@ Ce message d’erreur s’affiche lors de l’installation et de l’enregistrem
 
 `Unable to connect to the remote server". Please check your local settings (Error Code: 10003).`
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 L’ordinateur sur lequel vous essayez d’installer la passerelle n’a pas pu télécharger le fichier d’installation de la dernière version de la passerelle à partir du Centre de téléchargement en raison d’un problème réseau.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Vérifiez si les paramètres de serveur proxy de votre pare-feu bloquent la connexion réseau de l’ordinateur vers le [Centre de téléchargement](https://download.microsoft.com/) et modifiez ces paramètres si nécessaire.
 
 Vous pouvez également télécharger le fichier d’installation de la dernière version de la passerelle à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) sur d’autres ordinateurs qui peuvent accéder à ce dernier. Copiez ensuite le fichier du programme d’installation sur l’ordinateur hôte de la passerelle et exécutez-le manuellement pour installer et mettre à jour la passerelle.
@@ -45,10 +45,10 @@ Cette erreur s’affiche lorsque vous tentez d’installer une passerelle en cli
 
 `Error:  Abort installing a new gateway on this computer because this computer has an existing installed gateway and a computer without any installed gateway is required for installing a new gateway.`  
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 Une passerelle est déjà installée sur l’ordinateur.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Désinstallez la passerelle existante sur l’ordinateur et cliquez de nouveau sur le lien **Installer directement sur cet ordinateur**.
 
 ### <a name="3-problem"></a>3. Problème
@@ -56,14 +56,14 @@ Cette erreur peut s’afficher lorsque vous inscrivez une nouvelle passerelle.
 
 `Error: The gateway has encountered an error during registration.`
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 Ce message peut s’afficher pour l’une des raisons suivantes :
 
 * Le format de la clé de passerelle n’est pas valide.
 * La clé de passerelle a été invalidée.
 * La clé de passerelle a été régénérée à partir du portail.  
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Vérifiez que vous utilisez la bonne clé de passerelle du portail. Si besoin, régénérez une clé et utilisez cette clé pour inscrire la passerelle.
 
 ### <a name="4-problem"></a>4. Problème
@@ -75,10 +75,10 @@ Le message d’erreur suivant peut s’afficher lors de l’inscription d’une 
 
 ![Contenu ou format de clé non valide](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 Le contenu ou le format de la clé de passerelle est incorrect. Vous avez peut-être copié uniquement une partie de la clé dans le portail ou vous utilisez une clé non valide.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Générez une clé de passerelle dans le portail et utilisez le bouton Copier pour copier la clé entière. Collez-la ensuite dans cette fenêtre pour inscrire la passerelle.
 
 ### <a name="5-problem"></a>5. Problème
@@ -88,10 +88,10 @@ Le message d’erreur suivant peut s’afficher lors de l’inscription d’une 
 
 ![La clé de passerelle n’est pas valide ou est vide.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 La clé de passerelle a été régénérée ou la passerelle a été supprimée dans le portail Azure. Cela peut également se produire si vous n’utilisez pas la configuration de passerelle de gestion des données la plus récente.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Vérifiez que la configuration de la passerelle de gestion des données correspond à la dernière version (vous trouverez la dernière version dans le [centre de téléchargement](https://go.microsoft.com/fwlink/p/?LinkId=271260) Microsoft).
 
 Si la configuration est à jour/correspond à la dernière version et que la passerelle existe encore sur le portail, régénérez la clé de la passerelle dans le portail Azure, utilisez le bouton Copier pour copier la clé et collez-la dans cette fenêtre pour inscrire la passerelle. Sinon, recréez la passerelle et recommencez.
@@ -103,10 +103,10 @@ Le message d’erreur suivant peut s’afficher lors de l’inscription d’une 
 
 ![La clé de passerelle n’est pas valide ou est vide.](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 Cette erreur peut se produire si la passerelle a été supprimée ou la clé de passerelle associée a été régénérée.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Si la passerelle a été supprimée, recréez-la à partir du portail, cliquez sur **Inscrire**, copiez la clé dans le portail, collez-la et essayez d’inscrire la passerelle.
 
 Si la passerelle existe encore, mais que sa clé a été régénérée, utilisez la nouvelle clé pour inscrire la passerelle. Si vous n’avez pas la clé, régénérez-la sur le portail.
@@ -116,14 +116,14 @@ Lorsque vous inscrivez une passerelle, il se peut que vous deviez entrer le chem
 
 ![Indiquer un certificat](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 La passerelle a été inscrite sur d’autres ordinateurs auparavant. Lors de l’inscription initiale de la passerelle, un certificat de chiffrement lui a été associé. Le certificat peut avoir été généré automatiquement par la passerelle ou fourni par l’utilisateur.  Ce certificat est utilisé pour chiffrer les informations d’identification de la banque de données (service lié).  
 
 ![Exportation du certificat](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
 
 Lorsque vous restaurez la passerelle sur un autre ordinateur hôte, l’Assistant Inscription demande ce certificat afin de déchiffrer les informations d’identification précédemment chiffrées avec ce certificat.  Sans ce certificat, les informations d’identification ne peuvent pas être déchiffrées par la nouvelle passerelle et les exécutions d’activités de copie suivantes associées à cette nouvelle passerelle échouent.  
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Si vous avez exporté le certificat d’informations d’identification de l’ordinateur d’origine de la passerelle avec le bouton **Exporter** de l’onglet **Paramètres** du Gestionnaire de configuration de passerelle de gestion des données, utilisez le certificat ici.
 
 Vous ne pouvez pas ignorer cette étape lors de la récupération d’une passerelle. Si le certificat est manquant, vous devez supprimer la passerelle depuis le portail et en recréer une.  Mettez également à jour tous les services liés associés à la passerelle en entrant à nouveau leurs informations d’identification.
@@ -133,17 +133,17 @@ Le message d’erreur suivant peut s’afficher.
 
 `Error: The remote server returned an error: (407) Proxy Authentication Required.`
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 Cette erreur se produit lorsque votre passerelle se trouve dans un environnement qui exige un proxy HTTP pour accéder aux ressources Internet ou lorsque le mot de passe d’authentification de votre serveur proxy est modifié, mais n’est pas actualisé dans votre passerelle.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Suivez les instructions de la section Considérations relatives aux serveurs proxy de cet article et configurez les paramètres de proxy à l’aide du Gestionnaire de configuration de passerelle de gestion des données.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>La passerelle est en ligne avec des fonctionnalités limitées
 ### <a name="1-problem"></a>1. Problème
 Vous constatez que la passerelle est connectée avec des fonctionnalités limitées.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 La passerelle peut être connectée avec des fonctionnalités limitées pour l’une des raisons suivantes :
 
 * La passerelle ne peut pas se connecter au service cloud via Azure Service Bus.
@@ -151,7 +151,7 @@ La passerelle peut être connectée avec des fonctionnalités limitées pour l�
 
 Lorsque la passerelle est connectée avec des fonctionnalités limitées, il se peut que vous ne soyez pas en mesure d’utiliser l’Assistant de copie Data Factory afin de créer des pipelines de données pour la copie de données vers des banques de données locales ou à partir de celles-ci. Pour résoudre ce problème, vous pouvez utiliser Data Factory Editor dans le portail, Visual Studio ou Azure PowerShell.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 La procédure de résolution de ce problème (passerelle connectée avec des fonctionnalités limitées) n’est pas la même si la passerelle ne peut pas se connecter au service cloud ou si c’est l’inverse. Les sections suivantes fournissent des solutions.
 
 ### <a name="2-problem"></a>2. Problème
@@ -161,10 +161,10 @@ Vous obtenez l’erreur suivante.
 
 ![La passerelle ne peut pas se connecter au service cloud](media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png)
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 La passerelle ne peut pas se connecter au service cloud via Service Bus.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Suivez ces étapes pour remettre la passerelle en ligne :
 
 1. Autorisez les règles de trafic sortant d’adresse IP sur l’ordinateur de la passerelle et le pare-feu d’entreprise. Vous pouvez trouver les adresses IP dans le journal des événements Windows (ID == 401) : Tentative d’accès à un socket de manière interdite par ses autorisations d’accès XX.XX.XX.XX:9350.
@@ -176,10 +176,10 @@ Vous obtenez l’erreur suivante.
 
 `Error: Cloud service cannot connect to gateway through service bus.`
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 erreur temporaire de connectivité réseau.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Suivez ces étapes pour remettre la passerelle en ligne :
 
 1. Attendez quelques minutes. La connectivité est récupérée automatiquement une fois que l’erreur a disparu.
@@ -195,20 +195,20 @@ Lorsque vous obtenez cette erreur, la page de paramètres du Gestionnaire de con
 
 ![Impossible de contacter la base de données](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
-#### <a name="cause"></a>Cause :
-Le certificat SSL a peut-être été perdu sur l’ordinateur de la passerelle. L’ordinateur de la passerelle ne peut pas charger le certificat actuellement utilisé pour le chiffrement SSL. Un message d’erreur similaire au message suivant peut également être affiché dans le journal des événements.
+#### <a name="cause"></a>Cause
+Le certificat TLS/SSL a peut-être été perdu sur l’ordinateur de la passerelle. L’ordinateur de la passerelle ne peut pas charger le certificat actuellement utilisé pour le chiffrement TLS. Un message d’erreur similaire au message suivant peut également être affiché dans le journal des événements.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Procédez comme suit pour résoudre le problème :
 
 1. Lancez le Gestionnaire de configuration de passerelle de gestion des données.
 2. Basculez vers l’onglet **Paramètres** .  
-3. Cliquez sur le bouton **Modifier** pour modifier le certificat SSL.
+3. Cliquez sur le bouton **Modifier** pour modifier le certificat TLS/SSL.
 
    ![Bouton de modification du certificat](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. Sélectionnez un nouveau certificat comme certificat SSL. Vous pouvez utiliser n’importe quel certificat SSL généré par vos soins ou par une organisation quelconque.
+4. Sélectionnez un nouveau certificat comme certificat TLS/SSL. Vous pouvez utiliser n’importe quel certificat TLS/SSL généré par vos soins ou par une organisation quelconque.
 
    ![Indiquer un certificat](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
@@ -218,10 +218,10 @@ Vous pouvez obtenir l’erreur « UserErrorFailedToConnectToSqlserver » suiva
 
 `Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 Cela peut se produire pour différentes raisons et la procédure de résolution varie en conséquence.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 Autorisez les connexions TCP sortantes sur le port TCP/1433 côté client de la passerelle de gestion des données avant la connexion à une base de données SQL.
 
 Si la base de données cible est une base de données Azure SQL, vérifiez également les paramètres de pare-feu SQL Server pour Azure.

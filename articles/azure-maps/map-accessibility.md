@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 5fa9e159fa0ac76ce8c585936059fb7f3151c7c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672461"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473317"
 ---
 # <a name="building-an-accessible-application"></a>Création d’une application accessible
 
@@ -41,7 +41,7 @@ Il existe plusieurs façons d’effectuer des zooms, des panoramiques, des rotat
 - Faites tourner la roulette de la souris pour faire un zoom sur la carte.
 - À l’aide d’un écran tactile, touchez la carte avec deux doigts et rapprochez-les pour faire un zoom arrière ou écartez-les pour faire un zoom avant.
 - À l’aide d’un écran tactile, appuyez deux fois sur la carte pour faire un zoom avant d’un niveau.
-- Quand le focus est placé sur la carte, utilisez le signe plus (`+`) ou le signe égal* (`=`) pour faire un zoom avant d’un niveau.
+- Quand le focus est placé sur la carte, utilisez le signe plus (`+`) ou le signe égal (`=`) pour faire un zoom avant d’un niveau.
 - Quand le focus est placé sur la carte, utilisez le signe moins, le trait d’union (`-`) ou le trait de soulignement (`_`) pour faire un zoom arrière d’un niveau.
 - Utilisez le contrôle de zoom avec une souris, une interaction tactile ou les touches Tab/Entrée du clavier.
 - Maintenez le bouton `Shift` enfoncé et appuyez sur la carte à l’aide du bouton gauche de la souris, puis faites glisser pour dessiner une zone dans laquelle faire un zoom sur la carte.

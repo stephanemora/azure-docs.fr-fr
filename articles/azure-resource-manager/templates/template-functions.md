@@ -3,16 +3,16 @@ title: Fonctions des modèles de gestionnaire des ressources Azure
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207040"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156257"
 ---
-# <a name="azure-resource-manager-template-functions"></a>Fonctions des modèles Azure Resource Manager
+# <a name="arm-template-functions"></a>Fonctions des modèles ARM
 
-Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager. Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, voir [Syntaxe du modèle](template-expressions.md).
+Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager (ARM). Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, voir [Syntaxe du modèle](template-expressions.md).
 
 Pour créer vos propres fonctions, consultez [Fonctions définies par l’utilisateur](template-syntax.md#functions).
 
@@ -228,7 +228,7 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](template-syntax.md)
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Création de modèles ARM](template-syntax.md)
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md)
 * Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
-* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](deploy-powershell.md)
+* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle ARM](deploy-powershell.md)

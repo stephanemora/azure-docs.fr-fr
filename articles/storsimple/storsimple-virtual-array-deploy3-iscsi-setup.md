@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516813"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228089"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration d’un serveur iSCSI via le portail Azure
 
 ![flux du processus d'installation iscsi](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -46,11 +46,11 @@ Avant de configurer votre solution StorSimple Virtual Array, assurez-vous que :
 Utilisez la procédure détaillée ci-dessous pour configurer votre solution StorSimple Virtual Array :
 
 * [Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* Étape 2 : Finalisation de la configuration requise pour l’appareil
-* [Étape 3 : Ajout d’un volume](#step-3-add-a-volume)
-* [Étape 4 : Monter, initialiser et formater un volume](#step-4-mount-initialize-and-format-a-volume)
+* Étape 2 : Finalisation de la configuration requise pour l’appareil
+* [Étape 3 : Ajout d’un volume](#step-3-add-a-volume)
+* [Étape 4 : Monter, initialiser et formater un volume](#step-4-mount-initialize-and-format-a-volume)
 
-## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil
+## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil
 
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Pour finaliser l'installation et l’inscription de l'appareil
 
@@ -81,7 +81,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
 6. Sur la page **Paramètres de l’appareil** :
    
    1. Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
-   2. Cliquez sur l’icône **Serveur iSCSI** ![icône Serveur iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) pour le **type** d’appareil que vous créez. Un serveur iSCSI vous permettra de configurer un stockage de bloc.
+   2. Cliquez sur l’icône **Serveur iSCSI**![icône Serveur iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) pour le **type** d’appareil que vous créez. Un serveur iSCSI vous permettra de configurer un stockage de bloc.
    3. Indiquez si vous souhaitez associer cet appareil à un domaine. Si votre appareil est un serveur iSCSI, l’association à un domaine est facultative. Si vous décidez de ne pas associer votre serveur iSCSI à un domaine, cliquez sur **Appliquer**, attendez que les paramètres soient appliqués, puis passez à l'étape suivante.
       
        Si vous souhaitez associer l'appareil à un domaine. Entrez un **nom de domaine**, puis cliquez sur **Appliquer**.
@@ -101,7 +101,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
     Dans la page **Proxy web** :
    
    1. Indiquez l’**URL du proxy web** au format suivant : *http:\//adresse IP-hôte* ou *nom de domaine complet:numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
-   2. Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
+   2. Définissez **Authentification** sur la valeur **De base** ou **Aucune**.
    3. Si vous utilisez une authentification, vous devez également fournir un **nom d’utilisateur** et un **mot de passe**.
    4. Cliquez sur **Appliquer**. Cette opération validera et appliquera les paramètres de proxy web configurés.
 8. (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
@@ -113,7 +113,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
    1. Dans la liste déroulante, définissez le **fuseau horaire** en fonction de l’emplacement géographique de l’appareil déployé. Le fuseau horaire par défaut de votre appareil est PST. Votre appareil utilise ce fuseau horaire pour toutes les opérations planifiées.
    2. Spécifiez un **serveur NTP principal** pour votre appareil ou acceptez la valeur par défaut time.windows.com. Vérifiez que votre réseau autorise le trafic NTP à passer de votre centre de données à Internet.
    3. (Facultatif) Spécifiez un **serveur NTP secondaire** pour votre appareil.
-   4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres d’heure configurés.
+   4. Cliquez sur **Appliquer**. Cette opération validera et appliquera les paramètres d’heure configurés.
 9. Configurez les paramètres de cloud de votre appareil. Dans le cadre de cette étape, vous allez effectuer la configuration de l’appareil local, puis inscrire l’appareil auprès de votre service StorSimple Device Manager.
    
    1. Entrez la **clé d'inscription au service** obtenue à l'**Étape 2 : Obtention de la clé d'inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
@@ -121,13 +121,13 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
    3. Cliquez sur **S'inscrire**. Cette opération redémarra l’appareil. Vous devrez peut-être attendre 2 à 3 minutes avant que l'appareil soit inscrit. Une fois que l’appareil a redémarré, vous êtes redirigé vers la page de connexion.
       
       ![enregistrer un appareil](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
-10. Revenez au portail Azure.
+10. Revenez au Portail Azure.
 11. Accédez au panneau **Appareils** de votre service. Si vous avez beaucoup de ressources, cliquez sur **Toutes les ressources**, cliquez sur votre nom de service (recherchez-le si nécessaire), puis cliquez sur **Appareils**.
 12. Sur la page **Appareils** , vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **Prêt pour la configuration**.
     
     ![enregistrer un appareil](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
-## <a name="step-2-configure-the-device-as-iscsi-server"></a>Étape 2 : Configurer l’appareil en tant que serveur iSCSI
+## <a name="step-2-configure-the-device-as-iscsi-server"></a>Étape 2 : Configurer l’appareil en tant que serveur iSCSI
 
 Pour exécuter la configuration d’appareil requise, procédez comme suit dans le Portail Azure.
 
@@ -139,7 +139,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
 2. Cliquez sur l’appareil. Un message de bannière s’affiche pour vous indiquer que l’appareil est prêt pour la configuration.
    
     ![Configurer l’appareil en tant que serveur iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
-3. Cliquez sur **Configurer** dans la barre de commandes de l’appareil. Le panneau **Configurer** s’affiche. Dans le panneau **Configurer**, procédez comme suit :
+3. Cliquez sur **Configurer** dans la barre de commandes de l’appareil. Le panneau **Configurer** s’affiche. Dans le panneau **Configurer**, procédez comme suit :
    
    * Le nom du serveur iSCSI est automatiquement renseigné.
    * Assurez-vous que le chiffrement du stockage cloud est défini sur **Activé**. Cela garantit que les données envoyées de l’appareil au cloud sont chiffrées.

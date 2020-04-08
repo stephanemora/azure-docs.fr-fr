@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: ba1bdd60a3363cfab694bae9b8ee3cf63e24b054
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907160"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79504248"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Procédure d’activation de l’authentification unique
 L’approvisionnement cloud fonctionne avec l’authentification unique.  Il n’existe actuellement aucune option permettant d’activer l’authentification unique lors de l’installation de l’agent. Toutefois, vous pouvez utiliser les étapes ci-dessous pour activer l’authentification unique et l’utiliser. 

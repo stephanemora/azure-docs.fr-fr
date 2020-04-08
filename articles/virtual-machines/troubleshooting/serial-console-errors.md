@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 697f7267437f750bbb751239001145cb1c8af000
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 61ae0ef92fe522a2a038a6076a5e0c0a10ee47b6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806828"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060691"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Erreurs courantes au sein de la console série Azure
 Il existe un ensemble d’erreurs connues au sein de la console série Azure. Voici une liste de ces erreurs et des étapes d’atténuation pour celles-ci.
 
 ## <a name="common-errors"></a>Erreurs courantes
 
-Error                             |   Atténuation
+Error                             |   Limitation des risques
 :---------------------------------|:--------------------------------------------|
 « La console série Azure requiert l’activation des diagnostics de démarrage. Cliquez ici pour configurer les diagnostics de démarrage pour votre machine virtuelle. » | Vérifiez que les [diagnostics de démarrage](boot-diagnostics.md) sont activés sur la machine virtuelle ou le groupe de machines virtuelles identiques. Si vous utilisez la console série sur une instance de groupe de machines virtuelles identiques, assurez-vous que votre instance possède le modèle le plus récent.
 « La console série Azure requiert l’exécution d’une machine virtuelle. Utilisez le bouton Démarrer ci-dessus pour démarrer votre machine virtuelle. »  | La machine virtuelle ou l’instance de groupe de machines virtuelles identiques doit être à l’état Démarré pour accéder à la console série (votre machine ne doit pas être arrêtée ou libérée). Assurez-vous que votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques soit en cours d’exécution, puis réessayez.
@@ -40,7 +40,7 @@ Unable to determine the resource group for the boot diagnostics storage account 
 L’approvisionnement pour cette machine virtuelle n’a pas encore réussi. Vérifiez que la machine virtuelle est entièrement déployée et recommencez la connexion à la console série. | Il se peut que votre machine virtuelle ou votre groupe de machines virtuelles identiques soit toujours en cours d’approvisionnement. Patientez quelques instants, puis réessayez.
 WebSocket est fermé ou n’a pas pu être ouvert. | Vous devrez peut-être ajouter l’accès du pare-feu à `*.console.azure.com`. Une approche plus détaillée mais plus longue consiste à autoriser l’accès du pare-feu aux [plages d’adresses IP du centre de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui changent assez régulièrement.
 La console série ne fonctionne pas avec un compte de stockage utilisant Azure Data Lake Storage Gen2 avec des espaces de noms hiérarchiques. | Il s’agit d’un problème connu avec les espaces de noms hiérarchiques. Pour atténuer ce problème, vérifiez que le compte de stockage des diagnostics de démarrage de la machine virtuelle n’est pas créé avec Azure Data Lake Storage Gen2. Cette option peut être définie seulement lors de la création du compte de stockage. Vous devrez peut-être créer un compte de stockage des diagnostics de démarrage distinct sans Azure Data Lake Storage Gen2 pour atténuer ce problème.
-
+Une erreur s’est produite lors de la connexion de la console série à la machine virtuelle : 'Forbidden'(SubscriptionNotEnabled) - Subscription name undefined, id \<subscription id> is in non-Enabled state undefined | Ce problème peut se produire si l’abonnement dans lequel un utilisateur a créé son compte de stockage Cloud Shell a été désactivé. Pour atténuer le problème, lancez Cloud Shell et [effectuez les étapes nécessaires](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#unmount-clouddrive-1) afin de réapprovisionner un compte de stockage de sauvegarde pour Cloud Shell dans l’abonnement actuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [console série Azure pour les machines virtuelles Linux](./serial-console-linux.md)

@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 398b6d9c3fc05a6cf164b4003f57b94ecd6c1972
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086263"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054013"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
@@ -228,7 +228,7 @@ Certaines des fonctions décrites dans le tableau précédent peuvent accepter u
 
 La valeur *doubleVecList* est convertie en un seul paramètre *doubleVec* avant l’évaluation. Par exemple, si `v = [1,2,3]`, alors appeler `avg(v)` revient à appeler `avg(1,2,3)`. Appeler `avg(v, 7)` équivaut à appeler `avg(1,2,3,7)`.
 
-## <a name="getsampledata"></a>Obtenir des échantillons de données
+## <a name="obtain-sample-data"></a><a name="getsampledata"></a>Obtenir des échantillons de données
 
 Les formules de mise à l’échelle automatique agissent sur les données métriques (échantillons) qui sont fournies par le service Batch. Une formule augmente ou réduit la taille du pool en fonction des valeurs obtenues à partir du service. Les variables qui sont définies par le service et illustrées ci-dessus sont des objets qui fournissent diverses méthodes pour accéder aux données associées à chaque objet. Par exemple, l’expression ci-après présente une requête visant à obtenir les cinq dernières minutes de l’utilisation du processeur :
 
@@ -668,6 +668,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
+Le paramètre `$curTime` peut être ajusté pour refléter votre fuseau horaire local en ajoutant `time()` au produit de `TimeZoneInterval_Hour` et votre décalage UTC. Par exemple, utilisez `$curTime = time() + (-6 * TimeInterval_Hour);` pour Heure des Rocheuses (heure d'été). Gardez à l’esprit que le décalage doit être ajusté au début et à la fin de l’heure d’été (le cas échéant).
 
 ### <a name="example-2-task-based-adjustment"></a>Exemple 2 : ajustement en fonction de la tâche
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 48324d252e22ca898f923e1f0ad9b76df1c10861
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5d89d123fe757b0502f4c6b3a0d33c185b25224b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80057311"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -28,19 +28,21 @@ Un profil technique fournit une infrastructure avec un mécanisme intégré pour
 
 Un profil technique permet les types de scénarios suivants :
 
+- [Application Insights](application-insights-technical-profile.md) - Envoi de données d’événement à [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md) : fournit une assistance pour la gestion des utilisateurs Azure Active Directory B2C.
+- [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) : gère la vérification d’un numéro de téléphone à l’aide d’Azure Multi-Factor Authentication (MFA). 
+- [Transformation de revendications](claims-transformation-technical-profile.md) : appelle les transformations de revendications de sortie pour manipuler les valeurs de revendications, valider des revendications ou définir des valeurs par défaut pour un ensemble de revendications de sortie.
 - [Émetteur de jeton JWT](jwt-issuer-technical-profile.md) : émet un jeton JWT qui est retourné à l’application par partie de confiance.
-- **Fournisseur de facteur de téléphone** : authentification multifacteur.
 - [OAuth1](oauth1-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole OAuth 2.0.
+- [Mot de passe à usage unique](one-time-password-technical-profile.md) : prend en charge la gestion de la génération et de la vérification d’un mot de passe à usage unique.
 - [OpenID Connect](openid-connect-technical-profile.md) : fédération avec n'importe quel fournisseur d'identité du protocole OpenID Connect.
-- [Transformation de revendications](claims-transformation-technical-profile.md) : appelle les transformations de revendications de sortie pour manipuler les valeurs de revendications, valider des revendications ou définir des valeurs par défaut pour un ensemble de revendications de sortie.
+- [Facteur de téléphone](phone-factor-technical-profile.md) : prise en charge de l’inscription et de la vérification des numéros de téléphone.
 - [Fournisseur RESTful](restful-technical-profile.md) : appel aux services d'API REST, comme la validation de l'entrée utilisateur, l'enrichissement des données utilisateur ou l'intégration avec les applications métier.
 - [SAML2](saml-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole SAML.
+- [Émetteur de jeton SAML](saml-issuer-technical-profile.md) : émet un jeton SAML qui est retourné à l’application par partie de confiance.
 - [Autodéclaré](self-asserted-technical-profile.md) : interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, afficher la page d’inscription ou la réinitialisation du mot de passe.
 - [Gestion des sessions](custom-policy-reference-sso.md) : gère différents types de sessions.
-- [Application Insights](../azure-monitor/app/usage-overview.md)
-- [Mot de passe à usage unique](one-time-password-technical-profile.md) : prend en charge la gestion de la génération et de la vérification d’un mot de passe à usage unique.
 
 ## <a name="technical-profile-flow"></a>Flux du profil technique
 

@@ -2,14 +2,14 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 10/06/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 2124b5241015ca74ff6507767396b1a27bd1191d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c71f35a06d904b45cb014d5199197220b57cf230
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935879"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79485976"
 ---
 Les entrées dans le document `deploymentconfig.json` correspondent aux paramètres pour [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). Le tableau suivant décrit le mappage entre les entités dans le document JSON et les paramètres de la méthode :
 
@@ -21,7 +21,7 @@ Les entrées dans le document `deploymentconfig.json` correspondent aux paramèt
 | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Nombre minimal de conteneurs à utiliser lors de la mise à l’échelle automatique de ce service web. Par défaut, `1`. |
 | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Nombre maximal de conteneurs à utiliser lors de la mise à l’échelle automatique de ce service web. Par défaut, `10`. |
 | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Fréquence à laquelle la mise à l’échelle automatique tente de mettre à l’échelle ce service web. Par défaut, `1`. |
-| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Utilisation cible (en pourcentage sur 100) que la mise à l’échelle automatique doit tenter de gérer pour ce service web. Par défaut, `70`. |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Utilisation cible (en pourcentage sur 100) que la mise à l’échelle automatique doit tenter de gérer pour ce service web. Par défaut, `70`. |
 | `dataCollection` | N/D | Contient les éléments de configuration pour la collecte de données. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Indique s’il faut activer la collecte des données de modèle pour le service Web. Par défaut, `False`. |
 | `authEnabled` | `auth_enabled` | Indique s’il faut ou non activer l’authentification de clé pour le service web. `tokenAuthEnabled` et `authEnabled` ne peuvent pas tous deux avoir la valeur `True`. Par défaut, `True`. |
@@ -33,11 +33,11 @@ Les entrées dans le document `deploymentconfig.json` correspondent aux paramèt
 | `scoringTimeoutMs` | `scoring_timeout_ms` | Délai d’expiration à appliquer pour les appels de scoring au service web. Par défaut, `60000`. |
 | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Nombre maximal de demandes simultanées par nœud pour ce service web. Par défaut, `1`. |
 | `maxQueueWaitMs` | `max_request_wait_time` | Durée maximale pendant laquelle une demande est conservée dans la file d’attente (en millisecondes) avant qu’une erreur 503 soit renvoyée. Par défaut, `500`. |
-| `numReplicas` | `num_replicas` | Nombre de conteneurs à allouer pour ce service web. Aucune valeur par défaut. Si ce paramètre n’est pas défini, la mise à l’échelle automatique est activée par défaut. |
+| `numReplicas` | `num_replicas` | Nombre de conteneurs à allouer pour ce service web. Pas de valeur par défaut. Si ce paramètre n’est pas défini, la mise à l’échelle automatique est activée par défaut. |
 | `keys` | N/D | Contient les éléments de configuration pour les clés. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | Clé d’authentification principale à utiliser pour ce service web |
 | &emsp;&emsp;`secondaryKey` | `secondary_key` | Clé d’authentification secondaire à utiliser pour ce service web |
-| `gpuCores` | `gpu_cores` | Nombre de cœurs GPU à allouer pour ce service web. 1 constitue la valeur par défaut. Prend en charge uniquement les valeurs numériques entières. |
+| `gpuCores` | `gpu_cores` | Nombre de cœurs GPU (par réplica de conteneur) à allouer pour ce service web. 1 constitue la valeur par défaut. Prend en charge uniquement les valeurs numériques entières. |
 | `livenessProbeRequirements` | N/D | Contient les éléments de configuration pour les exigences de probe liveness. |
 | &emsp;&emsp;`periodSeconds` | `period_seconds` | Fréquence (en secondes) d’exécution de probe liveness. La valeur par défaut est 10 secondes. La valeur minimale est 1. |
 | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Nombre de secondes après le démarrage du conteneur avant le lancement des probes liveness. La valeur par défaut est 310 |
@@ -46,7 +46,7 @@ Les entrées dans le document `deploymentconfig.json` correspondent aux paramèt
 | &emsp;&emsp;`failureThreshold` | `failure_threshold` | Quand un Pod démarre et que la probe liveness échoue, Kubernetes essaie FailureThreshold times avant d’abandonner. La valeur par défaut est 3. La valeur minimale est 1. |
 | `namespace` | `namespace` | Espace de noms Kubernetes dans lequel le service web est déployé. Jusqu’à 63 caractères alphanumériques ('a'-'z', '0'-'9') et le trait d’union ('-'). Le premier et le dernier caractères ne peuvent pas être des traits d’union. |
 
-Le code JSON suivant est un exemple de configuration de déploiement à utiliser avec l’interface CLI :
+Le code JSON suivant est un exemple de configuration de déploiement à utiliser avec l’interface CLI :
 
 ```json
 {

@@ -6,20 +6,20 @@ author: LauraBrenner
 manager: evansma
 ms.service: batch
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2020
 ms.author: labrenne
-ms.openlocfilehash: dd8046891362cf4d4d7eed805fbc13d0f784a99c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0fe859ac30e7b8050d1f4688d7cf106a465e7566
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019262"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531139"
 ---
 # <a name="creating-and-using-resource-files"></a>Création et utilisation de fichiers de ressources
 
 Une tâche Azure Batch requiert généralement une certaine forme de données à traiter. Les fichiers de ressources permettent de fournir ces données à votre machine virtuelle Batch via une tâche. Tous les types de tâches prennent en charge les fichiers de ressources : tâches, tâches de démarrage, tâches de préparation de travail, tâches de mise en production de travail, etc. Cet article décrit quelques méthodes courantes pour créer des fichiers de ressources et les placer sur une machine virtuelle.  
 
-Les fichiers de ressources sont un mécanisme permettant de placer des données sur une machine virtuelle dans Batch, mais le type de données et leur utilisation sont flexibles. Il existe toutefois des cas d’utilisation courants :
+Les fichiers de ressources permettent de placer des données sur une machine virtuelle dans Batch, mais le type de données et leur utilisation sont flexibles. Il existe toutefois des cas d’utilisation courants :
 
 1. Approvisionner des fichiers communs sur chaque machine virtuelle à l’aide de fichiers de ressources sur une tâche de démarrage
 1. Approvisionner des données d’entrée devant être traitées par des tâches
@@ -38,7 +38,7 @@ Options de création d’un fichier de ressources :
 
 ### <a name="storage-container-url"></a>URL de conteneur de stockage
 
-L’utilisation d’une URL de conteneur de stockage signifie que vous pouvez accéder aux fichiers d’un quelconque conteneur de stockage dans Azure avec les autorisations appropriées.
+L’utilisation d’une URL de conteneur de stockage, avec les autorisations appropriées, signifie que vous pouvez accéder aux fichiers d’un quelconque conteneur de stockage dans Azure. 
 
 Dans cet exemple C#, les fichiers ont déjà été chargés dans un conteneur de stockage Azure en tant que stockage d’objets blob. Pour accéder aux données nécessaires à la création d’un fichier de ressources, nous devons tout d’abord accéder au conteneur de stockage.
 
@@ -70,7 +70,7 @@ Une alternative à la génération d’une URL SAS consiste à activer l’accè
 
 ### <a name="storage-container-name"></a>Nom de conteneur de stockage
 
-Plutôt que de configurer et de créer une URL SAS, vous pouvez utiliser le nom de votre conteneur de stockage Azure pour accéder à vos données d’objet blob. Le conteneur de stockage utilisé doit se trouver dans le compte de stockage Azure lié à votre compte Batch, également appelé compte « autostorage ». L’utilisation du nom de conteneur de stockage d’un compte « autostorage » vous permet de contourner la configuration et la création d’une URL SAS pour accéder à un conteneur de stockage.
+Plutôt que de configurer et de créer une URL SAS, vous pouvez utiliser le nom de votre conteneur de stockage Azure pour accéder à vos données d’objet blob. Le conteneur de stockage que vous utilisez doit se trouver dans le compte de stockage Azure lié à votre compte Batch. Ce compte de stockage est également appelé compte « autostorage ». L’utilisation du conteneur « autostorage » vous permet de contourner la configuration et la création d’une URL SAS pour accéder à un conteneur de stockage.
 
 Dans cet exemple, nous partons du principe que les données à utiliser pour la création de fichier de ressources se trouvent déjà dans un compte de Stockage Azure lié à votre compte Batch. Si vous n’avez pas de compte « autostorage », consultez les étapes décrites dans [Créer un compte Batch](batch-account-create-portal.md) pour plus d’informations sur la création et la liaison d’un compte.
 
@@ -98,13 +98,13 @@ Chaque tâche Azure Batch utilise des fichiers différemment. C’est la raison 
 
 Votre travail Batch peut contenir plusieurs tâches qui utilisent toutes les mêmes fichiers communs. Si des fichiers de tâche communs sont partagés entre plusieurs tâches, l’utilisation d’un package d’application pour contenir les fichiers au lieu de fichiers de ressources peut être une meilleure option. Les packages d’application permettent d’optimiser la vitesse de téléchargement. Les données dans des packages d’application sont en outre mises en cache entre les tâches. Ainsi, si vos fichiers de tâche ne changent pas souvent, les packages d’application peuvent donc convenir à votre solution. Grâce aux packages d’application, vous n’avez pas besoin de gérer manuellement plusieurs fichiers de ressources ni de générer des URL SAS pour accéder aux fichiers dans le Stockage Azure. Batch fonctionne en arrière-plan avec le Stockage Azure pour stocker et déployer des packages d’application sur des nœuds de calcul.
 
-Si chaque tâche comporte de nombreux fichiers uniques à celle-ci, les fichiers de ressources sont très probablement la meilleure option. Les tâches qui utilisent des fichiers uniques doivent généralement être mises à jour ou remplacées, ce qui n’est pas si simple avec le contenu de packages d’application. Les fichiers de ressources offrent une flexibilité supplémentaire pour la mise à jour, l’ajout ou la modification de fichiers individuels.
+Si chaque tâche comporte de nombreux fichiers uniques à celle-ci, les fichiers de ressources sont très probablement la meilleure option car les tâches qui utilisent des fichiers uniques doivent généralement être mises à jour ou remplacées, ce qui n’est pas si simple avec le contenu de packages d’application. Les fichiers de ressources offrent une flexibilité supplémentaire pour la mise à jour, l’ajout ou la modification de fichiers individuels.
 
 ### <a name="number-of-resource-files-per-task"></a>Nombre de fichiers de ressources par tâche
 
 Si plusieurs centaines de fichiers de ressources sont spécifiés sur une tâche, Batch peut rejeter la tâche car trop importante. Des petites tâches sont préférables, en réduisant le nombre de fichiers de ressources sur la tâche elle-même.
 
-S’il est impossible de réduire le nombre de fichiers nécessaires à votre tâche, vous pouvez optimiser la tâche en créant un fichier de ressources unique qui fait référence à un conteneur de stockage de fichiers de ressources. Pour cela, placez vos fichiers de ressources dans un conteneur de Stockage Azure et utilisez les différents modes de « Conteneur » de fichiers de ressources. Utilisez les options de préfixe d’objet blob pour spécifier des collections de fichiers à télécharger pour vos tâches.
+S’il est impossible de réduire le nombre de fichiers nécessaires à votre tâche, vous pouvez optimiser la tâche en créant un fichier de ressources unique qui fait référence à un conteneur de stockage de fichiers de ressources. Pour cela, placez vos fichiers de ressources dans un conteneur de Stockage Azure et utilisez les différents [modes](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) de « Conteneur » de fichiers de ressources. Utilisez les options de préfixe d’objet blob pour spécifier des collections de fichiers à télécharger pour vos tâches.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

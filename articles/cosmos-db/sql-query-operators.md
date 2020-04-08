@@ -1,17 +1,17 @@
 ---
 title: Opérateurs de requête SQL pour Azure Cosmos DB
 description: Découvrez les opérateurs SQL, tels que les opérateurs d’égalité, de comparaison et logiques pris en charge par Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: mjbrown
-ms.openlocfilehash: f3efe4bee749f0d3132206ca68a33a60f0e16b81
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 03/19/2020
+ms.author: tisande
+ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870936"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063575"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Opérateurs dans Azure Cosmos DB
 
@@ -23,13 +23,13 @@ Le tableau suivant répertorie les résultats des comparaisons d'égalité dans 
 
 | **Opérateur** | **Undefined** | **Null** | **Booléen** | **Nombre** | **Chaîne** | **Object** | **Tableau** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Booléen** | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined |
-| **Nombre** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
-| **Chaîne** | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined |
-| **Tableau** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** |
+| **Undefined** | Indéfini | Indéfini | Indéfini | Indéfini | Indéfini | Indéfini | Indéfini |
+| **Null** | Indéfini | **OK** | Indéfini | Indéfini | Indéfini | Indéfini | Indéfini |
+| **Booléen** | Indéfini | Indéfini | **OK** | Indéfini | Indéfini | Indéfini | Indéfini |
+| **Nombre** | Indéfini | Indéfini | Indéfini | **OK** | Indéfini | Indéfini | Indéfini |
+| **Chaîne** | Indéfini | Indéfini | Indéfini | Indéfini | **OK** | Indéfini | Indéfini |
+| **Object** | Indéfini | Indéfini | Indéfini | Indéfini | Indéfini | **OK** | Indéfini |
+| **Tableau** | Indéfini | Indéfini | Indéfini | Indéfini | Indéfini | Indéfini | **OK** |
 
 Pour les opérateurs de comparaison tels que `>`, `>=`, `!=`, `<` et `<=`, la comparaison entre types ou entre deux objets ou tableaux génère `Undefined`.  
 
@@ -41,28 +41,43 @@ Les opérateurs logiques interviennent sur des valeurs booléennes. Les tableaux
 
 **Opérateur OR**
 
-| Ou | True | False | Undefined |
+Retourne la valeur `true` lorsque l'une ou l'autre des conditions est `true`.
+
+|  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
-| True |True |True |True |
-| False |True |False |Undefined |
-| Undefined |True |Undefined |Undefined |
+| **True** |True |True |True |
+| **False** |True |False |Indéfini |
+| **Undefined** |True |Indéfini |Indéfini |
 
 **Opérateur OR**
 
-| AND | True | False | Undefined |
+Retourne `true` lorsque les deux expressions sont `true`.
+
+|  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
-| True |True |False |Undefined |
-| False |False |False |False |
-| Undefined |Undefined |False |Undefined |
+| **True** |True |False |Indéfini |
+| **False** |False |False |False |
+| **Undefined** |Indéfini |False |Indéfini |
 
 **Opérateur NOT**
 
-| NOT |  |
-| --- | --- |
-| True |False |
-| False |True |
-| Undefined |Undefined |
+Inverse la valeur d'une expression booléenne.
 
+|  | **NOT** |
+| --- | --- |
+| **True** |False |
+| **False** |True |
+| **Undefined** |Indéfini |
+
+**Priorité des opérateurs**
+
+Les opérateurs logiques `OR`, `AND` et `NOT` ont le niveau de priorité indiqué ci-dessous :
+
+| **Opérateur** | **Priorité** |
+| --- | --- |
+| **NOT** |1 |
+| **AND** |2 |
+| **OR** |3 |
 
 ## <a name="-operator"></a>Opérateur *
 
@@ -70,7 +85,7 @@ L’opérateur spécial * projette l’élément entier en l’état. Une fois u
 
 ## <a name="-and--operators"></a>? et ?? , opérateurs
 
-Vous pouvez utiliser les opérateurs Ternary (?) et Coalesce (??) pour créer des expressions conditionnelles, comme dans des langages de programmation courants tels que C# et JavaScript. 
+Vous pouvez utiliser les opérateurs Ternary (?) et Coalesce (??) pour créer des expressions conditionnelles, comme dans des langages de programmation courants tels que C# et JavaScript.
 
 Vous pouvez utiliser l’opérateur ? pour construire de nouvelles propriétés JSON à la volée. Par exemple, la requête suivante classifie les niveaux de classe dans `elementary` ou `other` :
 

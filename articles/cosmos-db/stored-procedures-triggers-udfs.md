@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441238"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065893"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -55,7 +55,7 @@ Dans Azure Cosmos DB, le runtime JavaScript est hébergé dans le moteur de base
 
 ### <a name="scope-of-a-transaction"></a>Étendue d’une transaction
 
-Si une procédure stockée est associée à un conteneur Azure Cosmos, alors la procédure stockée est exécutée dans l’étendue de transaction d’une clé de partition logique. Chaque exécution de procédure stockée doit inclure une valeur de clé de partition logique correspondant à l’étendue de la transaction. Pour plus d’informations, consultez l’article [Partitionnement dans Azure Cosmos DB](partition-data.md).
+Les procédures stockées sont associées à un conteneur Azure Cosmos et l’exécution de la procédure stockée est limitée à une clé de partition logique. Les procédures stockées doivent inclure une valeur de clé de partition logique lors de l’exécution qui définit la partition logique pour l’étendue de la transaction. Pour plus d’informations, consultez l’article [Partitionnement dans Azure Cosmos DB](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Validation et restauration
 
@@ -88,11 +88,11 @@ Comme pour les prédéclencheurs, les post-déclencheurs sont également associ�
 > [!NOTE]
 > Les déclencheurs inscrits ne s’exécutent pas automatiquement lorsque leurs opérations correspondantes (créer / supprimer / remplacer / mettre à jour) sont effectuées. Ils doivent être appelés explicitement lors de l’exécution de ces opérations. Pour plus d’informations, consultez l’article [Comment exécuter des déclencheurs](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers).
 
-## <a id="udfs"></a>Fonctions définies par l’utilisateur
+## <a name="user-defined-functions"></a><a id="udfs"></a>Fonctions définies par l’utilisateur
 
 Les fonctions définies par l'utilisateur permettent d'étendre la syntaxe du langage de requête API SQL et de mettre en œuvre facilement une logique métier personnalisée. Elles ne peuvent être appelées que dans les requêtes. Les fonctions définies par l’utilisateur n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires. Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des fonctions définies par l’utilisateur](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
-## <a id="jsqueryapi"></a>API de requête intégrée au langage JavaScript
+## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>API de requête intégrée au langage JavaScript
 
 En plus de l’émission de requêtes à l’aide de la syntaxe de requête API SQL, le [kit SDK côté serveur](https://azure.github.io/azure-cosmosdb-js-server) vous permet d’effectuer des requêtes à l’aide d’une interface JavaScript sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer programmatiquement des requêtes en passant des fonctions de prédicat dans une séquence d’appels de fonctions. Les requêtes sont analysées par le runtime JavaScript et exécutées efficacement dans Azure Cosmos DB. Pour en savoir plus sur la prise en charge de l’API de requête JavaScript, consultez l’article [Utilisation de l’API de requête intégrée au langage JavaScript](javascript-query-api.md). Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des procédures stockées et des déclencheurs dans Azure Cosmos DB à l’aide de l’API de requête JavaScript](how-to-write-javascript-query-api.md).
 

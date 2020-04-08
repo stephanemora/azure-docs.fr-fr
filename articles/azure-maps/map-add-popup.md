@@ -1,7 +1,7 @@
 ---
 title: Ajouter une fenêtre contextuelle à un point sur une carte | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à ajouter une fenêtre contextuelle à un point à l’aide du Kit de développement logiciel (SDK) Web Microsoft Azure Maps.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 02/27/2020
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 588de08666930937c3ad965b2609f8e207b75eca
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: cf6424d2a6cbcfb7c5052201b5a9190c81fddaff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208846"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055947"
 ---
 # <a name="add-a-popup-to-the-map"></a>Ajouter une fenêtre contextuelle à la carte
 
@@ -22,7 +22,7 @@ Cet article vous explique comment ajouter une fenêtre contextuelle à un point 
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
-Le code suivant ajoute une caractéristique de point, qui a des propriétés `name` et `description`, à la carte à l’aide d’un calque de symboles. Une instance de la [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) est créée, mais elle n’est pas affichée. Les événements de souris sont ajoutés au calque de symboles pour déclencher l’ouverture et la fermeture de la fenêtre contextuelle. Quand vous survolez le symbole de marqueur, la propriété `position` de la fenêtre contextuelle est mise à jour avec la position du marqueur et l’option `content` est mise à jour avec du code HTML qui encapsule les propriétés `name` et `description` de la caractéristique de point survolée. La fenêtre contextuelle est ensuite affichée sur la carte à l’aide de sa fonction `open`.
+Le code suivant ajoute une caractéristique de point, qui a des propriétés `name` et `description`, à la carte à l’aide d’un calque de symboles. Une instance de la [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) est créée, mais elle n’est pas affichée. Les événements de souris sont ajoutés au calque de symboles pour déclencher l’ouverture et la fermeture de la fenêtre contextuelle. Quand vous survolez le symbole de marqueur, la propriété `position` de la fenêtre contextuelle est mise à jour avec la position du marqueur et l’option `content` est mise à jour avec du code HTML qui encapsule les propriétés `name` et `description` de la caractéristique de point survolée. La fenêtre contextuelle est ensuite affichée sur la carte à l’aide de sa fonction `open`.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -106,6 +106,14 @@ Consultez la page <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>Customized 
 
 Les modèles de fenêtre contextuelle facilitent la création de dispositions axées sur les données dans les fenêtres contextuelles. Les sections ci-dessous montrent comment différents modèles de fenêtre contextuelle sont utilisés pour générer du contenu mis en forme à l’aide des propriétés de fonctionnalités.
 
+> [!NOTE]
+> Par défaut, tout le contenu affiché dans le modèle de fenêtre contextuelle est placé dans un bac à sable (sandbox) à l’intérieur d’un IFrame en tant que fonctionnalité de sécurité. Toutefois, des limitations s’appliquent :
+>
+> - Les scripts, les formulaires, le verrou de pointeur et la fonctionnalité de navigation supérieure sont désactivés. Les liens sont autorisés à s’ouvrir dans un nouvel onglet en cas de clic. 
+> - Les navigateurs plus anciens qui ne prennent pas en charge le paramètre `srcdoc` sur Iframes sont limités au rendu d’une petite quantité de contenu.
+> 
+> Si vous avez confiance dans les données chargées dans les fenêtres contextuelles et souhaitez potentiellement que ces scripts chargés dans les fenêtres contextuelles puissent accéder à votre application, vous pouvez désactiver ce comportement en définissant l’option `sandboxContent` des modèles de fenêtre contextuelle sur la valeur False. 
+
 ### <a name="string-template"></a>Modèle String
 
 Le modèle String remplace les espaces réservés par les valeurs des propriétés de la fonctionnalité. Il n’est pas nécessaire d’attribuer des valeurs de type String aux propriétés de la fonctionnalité. Par exemple, `value1` contient un entier. Ces valeurs sont ensuite transmises à la propriété content de `popupTemplate`. 
@@ -116,20 +124,26 @@ L’option `numberFormat` spécifie le format du nombre à afficher. Si `numberF
 > Le modèle String ne peut afficher les images que d’une seule façon. Pour commencer, le modèle String doit contenir une balise d’image. La valeur transmise à la balise d’image doit être une URL qui mène à une image. Ensuite, le paramètre `isImage` de l’option `HyperLinkFormatOptions` du modèle String doit être défini sur true. L’option `isImage` indique que le lien hypertexte se rapporte à une image et qu’il sera chargé dans une balise d’image. L’image s’ouvrira une fois que l’utilisateur aura cliqué sur le lien hypertexte.
 
 ```javascript
-new atlas.data.Feature(new atlas.data.Point([-20, -20]), {
+var templateOptions = {
+  content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+  numberFormat: {
+    maximumFractionDigits: 2
+  }
+};
+
+var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     title: 'Template 1 - String template',
     value1: 1.2345678,
     value2: {
         subValue: 'Pizza'
     },
-    arrayValue: [3, 4, 5, 6],
-    popupTemplate: {
-        content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
-        numberFormat: {
-            maximumFractionDigits: 2
-        }
-    }
-}),
+    arrayValue: [3, 4, 5, 6]
+});
+
+var popup = new atlas.Popup({
+  content: atlas.PopupTemplate.applyTemplate(feature.properties, templateOptions),
+  position: feature.geometry.coordinates
+});
 ```
 
 ### <a name="propertyinfo-template"></a>Modèle PropertyInfo
@@ -139,51 +153,57 @@ Le modèle PropertyInfo affiche les propriétés disponibles de la fonctionnalit
 Avant de présenter les propriétés à l’utilisateur final, le modèle PropertyInfo vérifie de manière récursive que les propriétés sont bel et bien définies pour cette fonctionnalité. Par ailleurs, il n’affiche pas les propriétés de style et title. Par exemple, les propriétés `color`, `size`, `anchor`, `strokeOpacity` et `visibility` ne sont pas affichées. Ainsi, une fois la vérification du chemin des propriétés terminée en arrière-plan, le modèle PropertyInfo affiche le contenu sous forme de tableau.
 
 ```javascript
-new atlas.data.Feature(new atlas.data.Point([20, -20]), {
+var templateOptions = {
+  content: [
+    {
+        propertyPath: 'createDate',
+        label: 'Created Date'
+    },
+    {
+        propertyPath: 'dateNumber',
+        label: 'Formatted date from number',
+        dateFormat: {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          timeZone: 'UTC',
+          timeZoneName: 'short'
+        }
+    },
+    {
+        propertyPath: 'url',
+        label: 'Code samples',
+        hideLabel: true,
+        hyperlinkFormat: {
+          lable: 'Go to code samples!',
+          target: '_blank'
+        }
+    },
+    {
+        propertyPath: 'email',
+        label: 'Email us',
+        hideLabel: true,
+        hyperlinkFormat: {
+          target: '_blank',
+          scheme: 'mailto:'
+        }
+    }
+  ]
+};
+
+var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     title: 'Template 2 - PropertyInfo',
     createDate: new Date(),
     dateNumber: 1569880860542,
     url: 'https://aka.ms/AzureMapsSamples',
-    email: 'info@microsoft.com',
-    popupTemplate: {
-        content: [{
-    propertyPath: 'createDate',
-    label: 'Created Date'
-    },
-    {
-    propertyPath: 'dateNumber',
-    label: 'Formatted date from number',
-    dateFormat: {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        timeZone: 'UTC',
-        timeZoneName: 'short'
-    }
-    },
-    {
-    propertyPath: 'url',
-    label: 'Code samples',
-    hideLabel: true,
-    hyperlinkFormat: {
-        lable: 'Go to code samples!',
-        target: '_blank'
-    }
-    },
-    {
-    propertyPath: 'email',
-    label: 'Email us',
-    hideLabel: true,
-    hyperlinkFormat: {
-        target: '_blank',
-        scheme: 'mailto:'
-        }
-    }
-        ]
-    }
+    email: 'info@microsoft.com'
 }),
 
+var popup = new atlas.Popup({
+  content: atlas.PopupTemplate.applyTemplate(feature.properties, templateOptions),
+  position: feature.geometry.coordinates
+});
 ```
 
 ### <a name="multiple-content-templates"></a>Modèles multicontenus
@@ -191,32 +211,37 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
 Une fonctionnalité peut aussi afficher du contenu en combinant le modèle String et le modèle PropertyInfo. Dans ce cas, le modèle String affiche les valeurs des espaces réservés sur un arrière-plan blanc.  Parallèlement, le modèle PropertyInfo affiche une image en pleine largeur à l’intérieur d’un tableau. Dans cet exemple, les propriétés sont similaires à celles que nous avons expliquées dans les exemples précédents.
 
 ```javascript
-new atlas.data.Feature(new atlas.data.Point([0, 0]), {
+var templateOptions = {
+  content: [
+    'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+    [{
+      propertyPath: 'imageLink',
+      label: 'Image',
+      hideImageLabel: true,
+      hyperlinkFormat: {
+        isImage: true
+      }
+    }]
+  ],
+  numberFormat: {
+    maximumFractionDigits: 2
+  }
+};
+
+var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     title: 'Template 3 - Multiple content template',
     value1: 1.2345678,
     value2: {
     subValue: 'Pizza'
     },
     arrayValue: [3, 4, 5, 6],
-    imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
-    popupTemplate: {
-    content: [
-      'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
-      [{
-        propertyPath: 'imageLink',
-        label: 'Image',
-        hideImageLabel: true,
-        hyperlinkFormat: {
-          isImage: true
-        }
-      }]
-    ],
-    numberFormat: {
-      maximumFractionDigits: 2
-    }
-    }
-    }),
-]);
+    imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg'
+});
+
+var popup = new atlas.Popup({
+  content: atlas.PopupTemplate.applyTemplate(feature.properties, templateOptions),
+  position: feature.geometry.coordinates
+});
 ```
 
 ### <a name="points-without-a-defined-template"></a>Points sans modèle défini
@@ -254,10 +279,13 @@ Consultez la page <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>Popup event
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+
+> [!div class="nextstepaction"]
+> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 Pour voir des exemples de codes complets, consultez les articles suivants qui sont très intéressants :
 

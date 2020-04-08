@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/29/2020
+ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: fee3d9f0ef4f2c622d42373f4ed8c895f2c76adf
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 4c01321662b302103cdedfb5b78dadf89860fb8e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901067"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132059"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Créer et partager des tableaux de bord dans le portail Azure
 
@@ -39,7 +39,7 @@ Dans cet exemple, nous créons un tableau de bord privé auquel nous donnons un 
 
 1. Sélectionnez **Nouveau tableau de bord**.
 
-    ![Capture d’écran du tableau de bord par défaut](./media/azure-portal-dashboards/create-new-dashboard.png)
+    ![Capture d’écran du nouveau tableau de bord](./media/azure-portal-dashboards/create-new-dashboard.png)
 
     Cette action affiche la **Galerie de vignettes** dans laquelle vous sélectionnez les vignettes, ainsi qu’une grille vide sur laquelle vous disposez les vignettes.
 
@@ -49,13 +49,13 @@ Dans cet exemple, nous créons un tableau de bord privé auquel nous donnons un 
 
 1. Sélectionnez **Personnalisation terminée**  dans l’en-tête de page pour quitter le mode d’édition.
 
-La vue du tableau de bord affiche maintenant votre tableau de bord vide. Sélectionnez la flèche en regard du nom du tableau de bord pour afficher les tableaux de bord disponibles. La liste peut inclure des tableaux de bord que d’autres utilisateurs ont créés et partagés.
+La vue du tableau de bord affiche maintenant votre nouveau tableau de bord. Sélectionnez la flèche en regard du nom du tableau de bord pour afficher les tableaux de bord disponibles. La liste peut inclure des tableaux de bord que d’autres utilisateurs ont créés et partagés.
 
 ## <a name="edit-a-dashboard"></a>Modifier un tableau de bord
 
 Maintenant, nous allons modifier le tableau de bord pour ajouter, redimensionner et réorganiser les vignettes qui représentent vos ressources Azure.
 
-### <a name="add-tiles"></a>Ajouter des vignettes
+### <a name="add-tiles-from-the-dashboard"></a>Ajouter des vignettes à partir du tableau de bord
 
 Pour ajouter des vignettes à un tableau de bord, effectuez les étapes suivantes :
 
@@ -67,14 +67,14 @@ Pour ajouter des vignettes à un tableau de bord, effectuez les étapes suivante
 
 1. Sélectionnez **Ajouter** pour ajouter au tableau de bord la vignette de la taille et à l’emplacement par défaut. Vous pouvez aussi faire glisser la vignette dans la grille jusqu’à l’emplacement voulu.
 
-Bon nombre de pages de ressources contiennent une icône de punaise dans la barre de commandes. Si vous sélectionnez cette icône, une vignette représentant la page source est épinglée au tableau de bord actif. Cette méthode est une autre façon d’ajouter des vignettes à un tableau de bord.
-
-![Capture d’écran de la barre de commandes d’une page avec l’icône de punaise](./media/azure-portal-dashboards/dashboard-pin-blade.png)
-
 > [!TIP]
 > Si vous travaillez avec plusieurs organisations, ajoutez la vignette **Identité d’organisation** au tableau de bord pour montrer clairement à quelle organisation les ressources appartiennent.
->
->
+
+### <a name="add-tiles-from-a-resource-page"></a>Ajouter des vignettes à partir d’une page de ressources
+
+Il existe une autre façon d’ajouter des vignettes à votre tableau de bord. Bon nombre de pages de ressources contiennent une icône de punaise dans la barre de commandes. Si vous sélectionnez cette icône, une vignette représentant la page source est épinglée au tableau de bord actif. 
+
+![Capture d’écran de la barre de commandes d’une page avec l’icône de punaise](./media/azure-portal-dashboards/dashboard-pin-blade.png)
 
 ### <a name="resize-or-rearrange-tiles"></a>Redimensionner ou réorganiser des vignettes
 
@@ -92,14 +92,17 @@ Pour changer la taille d’une vignette ou réorganiser les vignettes dans un ta
 
 Certaines vignettes peuvent nécessiter une configuration supplémentaire pour afficher les informations dont vous avez besoin. Par exemple, la vignette **Graphique des métriques** doit être configurée pour afficher une métrique d’**Azure Monitor**. Vous pouvez également personnaliser les données des vignettes pour remplacer les paramètres de date et d’heure par défaut du tableau de bord.
 
-Une bannière **Configurer la vignette** reste affichée sur chaque vignette qui n’a pas encore été personnalisée. Sélectionnez cette bannière, puis effectuez la configuration requise.
+Une bannière **Configurer la vignette** reste affichée sur chaque vignette qui n’a pas encore été personnalisée. Pour personnaliser la vignette :
 
-![Capture d’écran d’une vignette à configurer](./media/azure-portal-dashboards/dashboard-configure-tile.png)
+1. Sélectionnez **Personnalisation terminée**  dans l’en-tête de page pour quitter le mode d’édition.
+
+1. Sélectionnez la bannière, puis effectuez la configuration requise.
+
+    ![Capture d’écran d’une vignette à configurer](./media/azure-portal-dashboards/dashboard-configure-tile.png)
 
 > [!NOTE]
 > Utilisez une étiquette Markdown pour afficher un contenu statique personnalisé dans votre tableau de bord. Par exemple, vous pouvez afficher des instructions de base, une image, un ensemble de liens hypertexte ou même des informations de contact. Pour plus d’informations sur l’utilisation d’une vignette Markdown, voir [Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé](azure-portal-markdown-tile.md).
->
->
+
 ### <a name="customize-tile-data"></a>Personnaliser les données de vignette
 
 Le tableau de bord affiche automatiquement les données d’activité des dernières 24 heures. Pour changer l’intervalle de temps des données de cette vignette, effectuez les étapes suivantes :
@@ -140,34 +143,7 @@ Pour utiliser un tableau de bord existant comme modèle dans un nouveau tableau 
 
 ## <a name="publish-and-share-a-dashboard"></a>Publier et partager un tableau de bord
 
-Quand vous créez un tableau de bord, celui-ci est privé par défaut, ce qui signifie que vous êtes la seule personne à pouvoir le voir. Pour rendre des tableaux de bord visibles par d’autres que vous, partagez-les avec d’autres utilisateurs. Tout d’abord, vous devez publier le tableau de bord en tant que ressource Azure. Pour publier et partager un tableau de bord personnalisé, effectuez les étapes suivantes :
-
-1. Sélectionnez ![icône de partage](./media/azure-portal-dashboards/dashboard-share-icon.png) **Partager** dans l’en-tête de page. La boîte de dialogue **Partage + contrôle d’accès** s’ouvre.
-
-1. Vérifiez que le nom de tableau de bord indiqué est correct.
-
-1. Sélectionnez un abonnement dans **Nom de l’abonnement**. Les utilisateurs ayant accès à l’abonnement peuvent utiliser le tableau de bord partagé. L’accès aux ressources représentées par les différentes vignettes est déterminé par le contrôle d’accès en fonction du rôle Azure.
-
-1. Cochez la case pour publier ce tableau de bord dans le groupe de ressources « tableaux de bord » pour l’abonnement sélectionné. Vous pouvez aussi décocher la case et choisir de le publier dans un groupe de ressources existant à la place.
-
-1. Choisissez un emplacement pour la ressource du tableau de bord. Nous vous recommandons de placer le tableau de bord avec les autres ressources. Si vous opérez un choix parmi des groupes de ressources existants, le tableau de bord est automatiquement placé avec le groupe de ressources choisi.
-
-1. Sélectionnez **Publier**.
-
-    ![Capture d’écran de la boîte de dialogue permettant de publier un tableau de bord](./media/azure-portal-dashboards/dashboard-publish.png)
-
-### <a name="set-access-control-on-a-shared-dashboard"></a>Définir le contrôle d’accès sur un tableau de bord partagé
-
-Une fois le tableau de bord publié, déterminez quels utilisateurs auront accès au tableau de bord en suivant ces étapes :
-
-1. Dans le volet **Partage + contrôle d’accès**, sélectionnez **Gérer les utilisateurs**.
-
-    ![Capture d’écran de la boîte de dialogue Partage + contrôle d’accès du tableau de bord](./media/azure-portal-dashboards/dashboard-share-access-control.png)
-
-1. La page **Contrôle d’accès** s’ouvre. Dans cette page, vous pouvez vérifier le niveau d’accès d’un utilisateur ou ajouter une nouvelle attribution de rôle. Quand vous ajoutez ici une attribution de rôle, vous accordez des autorisations d’accès au tableau de bord.
-
-> [!NOTE]
-> Les vignettes sont des vues représentant les ressources dans votre organisation. L’accès aux ressources est géré par l’attribution de contrôle d’accès en fonction du rôle, et les autorisations sont héritées de l’abonnement associé à la ressource. L’octroi de l’accès à un tableau de bord n’a pas pour effet d’attribuer automatiquement des autorisations sur les ressources affichées sur celui-ci. Pour plus d’informations concernant les autorisations sur les tableaux de bord partagés et le contrôle d’accès aux ressources en fonction du rôle, voir [Partager des tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle](azure-portal-dashboard-share-access.md).
+Quand vous créez un tableau de bord, celui-ci est privé par défaut, ce qui signifie que vous êtes la seule personne à pouvoir le voir. Pour rendre des tableaux de bord visibles par d’autres, vous pouvez les publier et les partager. Pour plus d’informations, consultez [Partager des tableaux de bord Azure en utilisant le contrôle d’accès en fonction du rôle](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Ouvrir un tableau de bord partagé
 
@@ -175,15 +151,19 @@ Pour rechercher et ouvrir un tableau de bord partagé, effectuez les étapes sui
 
 1. Sélectionnez la flèche en regard du nom du tableau de bord.
 
-1. Sélectionnez un tableau de bord dans la liste des tableaux de bord disponibles ou sélectionnez **Parcourir tous les tableaux de bord** si le tableau de bord recherché n’est pas listé.
+1. Effectuez une sélection dans la liste des tableaux de bord affichée. Si le tableau de bord que vous souhaitez ouvrir n’est pas listé :
 
-    ![Capture d’écran du menu de sélection du tableau de bord](./media/azure-portal-dashboards/dashboard-browse.png)
+    1. Sélectionnez **Parcourir tous les tableaux de bord**.
 
-1. Dans le champ **Type**, sélectionnez **Tableaux de bord partagés**.
+        ![Capture d’écran du menu de sélection du tableau de bord](./media/azure-portal-dashboards/dashboard-browse.png)
 
-1. Sélectionnez un ou plusieurs abonnements. Vous pouvez également entrer du texte pour filtrer les tableaux de bord par nom.
+    1. Dans le champ **Type**, sélectionnez **Tableaux de bord partagés**.
 
-1. Sélectionnez un tableau de bord dans la liste des tableaux de bord partagés.
+        ![Capture d’écran du menu de sélection de tous les tableaux de bord](./media/azure-portal-dashboards/dashboard-browse-all.png)
+
+    1. Sélectionnez un ou plusieurs abonnements. Vous pouvez également entrer du texte pour filtrer les tableaux de bord par nom.
+
+    1. Sélectionnez un tableau de bord dans la liste des tableaux de bord partagés.
 
 ## <a name="delete-a-dashboard"></a>Supprimer un tableau de bord
 

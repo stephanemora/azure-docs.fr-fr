@@ -12,17 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 145bc45e1b7faeddc23cf5f0662337e15ab51c29
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137363"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062190"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide de l’API REST
+
+> [!IMPORTANT]
+> L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment lister, créer, mettre à jour ou supprimer des rôles personnalisés à l’aide de l’API REST.
 
@@ -38,9 +43,10 @@ Pour répertorier tous les rôles personnalisés dans un répertoire, utilisez l
 
 1. Remplacez *{filter}* par le type de rôle.
 
-    | Filtrer | Description |
-    | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filtre basé sur le type CustomRole |
+    > [!div class="mx-tableFixed"]
+    > | Filtrer | Description |
+    > | --- | --- |
+    > | `$filter=type+eq+'CustomRole'` | Filtre basé sur le type CustomRole |
 
 ## <a name="list-custom-roles-at-a-scope"></a>Répertorier les rôles personnalisés dans une étendue
 
@@ -54,17 +60,20 @@ Pour répertorier les rôles personnalisés dans une étendue, utilisez l’API 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les rôles.
 
-    | Étendue | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    > [!div class="mx-tableFixed"]
+    > | Étendue | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Abonnement |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Ressource |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Groupe d’administration |
 
 1. Remplacez *{filter}* par le type de rôle.
 
-    | Filtrer | Description |
-    | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filtre basé sur le type CustomRole |
+    > [!div class="mx-tableFixed"]
+    > | Filtrer | Description |
+    > | --- | --- |
+    > | `$filter=type+eq+'CustomRole'` | Filtre basé sur le type CustomRole |
 
 ## <a name="list-a-custom-role-definition-by-name"></a>Lister une définition de rôle personnalisé par nom
 
@@ -78,17 +87,20 @@ Pour obtenir des informations sur le rôle personnalisé en fonction de son nom 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les rôles.
 
-    | Étendue | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    > [!div class="mx-tableFixed"]
+    > | Étendue | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Abonnement |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Ressource |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Groupe d’administration |
 
 1. Remplacez *{filter}* par le nom d’affichage du rôle.
 
-    | Filtrer | Description |
-    | --- | --- |
-    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Utilisez la forme codée de l’URL du nom d’affichage exact du rôle. Par exemple, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'`. |
+    > [!div class="mx-tableFixed"]
+    > | Filtrer | Description |
+    > | --- | --- |
+    > | `$filter=roleName+eq+'{roleDisplayName}'` | Utilisez la forme codée de l’URL du nom d’affichage exact du rôle. Par exemple, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'`. |
 
 ## <a name="list-a-custom-role-definition-by-id"></a>Lister une définition de rôle personnalisé par ID
 
@@ -104,11 +116,13 @@ Pour obtenir des informations sur un rôle personnalisé en fonction de son iden
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les rôles.
 
-    | Étendue | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    > [!div class="mx-tableFixed"]
+    > | Étendue | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Abonnement |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Ressource |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Groupe d’administration |
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur GUID de la définition du rôle.
 
@@ -144,7 +158,11 @@ Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôle
           }
         ],
         "assignableScopes": [
-          "/subscriptions/{subscriptionId}"
+          "/subscriptions/{subscriptionId1}",
+          "/subscriptions/{subscriptionId2}",
+          "/subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}",
+          "/subscriptions/{subscriptionId2}/resourceGroups/{resourceGroup2}",
+          "/providers/Microsoft.Management/managementGroups/{groupId1}"
         ]
       }
     }
@@ -152,17 +170,20 @@ Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôle
 
 1. Dans l’URI, remplacez *{scope}* par le premier élément `assignableScopes` du rôle personnalisé.
 
-    | Étendue | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    > [!div class="mx-tableFixed"]
+    > | Étendue | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Abonnement |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Groupe d’administration |
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur GUID du rôle personnalisé.
 
-1. Dans la propriété `assignableScopes` du corps de la demande, remplacez *{roleDefinitionId}* par l’identificateur GUID.
+1. Dans le corps de la demande, remplacez *{roleDefinitionId}* par l’identificateur GUID.
 
-1. Remplacez *{subscriptionId}* par votre identificateur d’abonnement.
+1. Si `assignableScopes` est un abonnement ou un groupe de ressources, remplacez les instances *{subscriptionId}* ou *{resourceGroup}* par vos identificateurs.
+
+1. Si `assignableScopes` est un groupe d’administration, remplacez l’instance *{groupId}* par l’identificateur de votre groupe d’administration. L’ajout d’un groupe d’administration à `assignableScopes` est actuellement en préversion.
 
 1. Dans la propriété `actions`, ajoutez les opérations autorisées par le rôle.
 
@@ -197,7 +218,8 @@ Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôle
           }
         ],
         "assignableScopes": [
-          "/subscriptions/00000000-0000-0000-0000-000000000000"
+          "/subscriptions/00000000-0000-0000-0000-000000000000",
+          "/providers/Microsoft.Management/managementGroups/marketing-group"
         ]
       }
     }
@@ -217,11 +239,12 @@ Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions 
 
 1. Dans l’URI, remplacez *{scope}* par le premier élément `assignableScopes` du rôle personnalisé.
 
-    | Étendue | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    > [!div class="mx-tableFixed"]
+    > | Étendue | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Abonnement |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Groupe d’administration |
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur GUID du rôle personnalisé.
 
@@ -245,7 +268,11 @@ Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions 
           }
         ],
         "assignableScopes": [
-          "/subscriptions/{subscriptionId}"
+          "/subscriptions/{subscriptionId1}",
+          "/subscriptions/{subscriptionId2}",
+          "/subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}",
+          "/subscriptions/{subscriptionId2}/resourceGroups/{resourceGroup2}",
+          "/providers/Microsoft.Management/managementGroups/{groupId1}"
         ]
       }
     }
@@ -281,7 +308,8 @@ Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions 
           }
         ],
         "assignableScopes": [
-          "/subscriptions/00000000-0000-0000-0000-000000000000"
+          "/subscriptions/00000000-0000-0000-0000-000000000000",
+          "/providers/Microsoft.Management/managementGroups/marketing-group"
         ]
       }
     }
@@ -301,11 +329,12 @@ Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de r�
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez supprimer le rôle personnalisé.
 
-    | Étendue | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    > [!div class="mx-tableFixed"]
+    > | Étendue | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Abonnement |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Groupe d’administration |
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur GUID du rôle personnalisé.
 

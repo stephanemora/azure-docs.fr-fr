@@ -1,19 +1,19 @@
 ---
-title: Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
+title: Interroger des journaux d’activité à partir d’Azure Monitor pour machines virtuelles
 description: Azure Monitor pour machines virtuelles collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670710"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396922"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
+# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Comment interroger des journaux d’activité à partir d’Azure Monitor pour les machines virtuelles
 
 Azure Monitor pour machines virtuelles collecte des métriques de performances et de connexion, les données d’inventaire des ordinateurs et processus et des informations concernant l’état d’intégrité, puis les transfère à l'espace de travail Log Analytics dans Azure Monitor.  Ces données sont disponibles pour la [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
@@ -208,13 +208,13 @@ Les enregistrements de type *VMComputer* ont des données d’inventaire pour le
 |AzureCloudServiceRoleType | Type de rôle de service cloud : *Worker* ou *Web* |
 |AzureCloudServiceInstanceId | ID d’instance du rôle de service cloud |
 |AzureVmScaleSetName | Nom du groupe de machines virtuelles identiques |
-|AzureVmScaleSetDeployment | ID de déploiement du groupe de machines virtuelles identiques |
+|AzureVmScaleSetDeployment | ID de déploiement d’un groupe de machines virtuelles identiques |
 |AzureVmScaleSetResourceId | Identificateur unique de la ressource de groupe de machines virtuelles identiques.|
 |AzureVmScaleSetInstanceId | Identificateur unique du groupe de machines virtuelles identiques |
 |AzureServiceFabricClusterId | Identificateur unique du cluster Azure Service Fabric | 
 |AzureServiceFabricClusterName | Nom du cluster Azure Service Fabric |
 
-### <a name="vmprocess-record"></a>Enregistrement VMProcess
+### <a name="vmprocess-records"></a>Enregistrements VMProcess
 
 Les enregistrements de type *VMProcess* ont des données d’inventaire pour les processus connectés à TCP sur les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
@@ -247,7 +247,8 @@ Les enregistrements de type *VMProcess* ont des données d’inventaire pour les
 |UserDomain | Domaine sous lequel le processus s’exécute |
 |_ResourceId | Identificateur unique d’un processus au sein de l’espace de travail |
 
-## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
+
+## <a name="sample-map-queries"></a>Exemple de requêtes de carte
 
 ### <a name="list-all-known-machines"></a>Liste de tous les ordinateurs connus
 
@@ -264,7 +265,7 @@ let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summar
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Résumé des machines virtuelles Azure par image, emplacement et référence SKU
 
 ```kusto
-VMComputer | where AzureLocation != "" | summarize by ComputerName, AzureImageOffering, AzureLocation, AzureImageSku
+VMComputer | where AzureLocation != "" | summarize by Computer, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Répertorier la capacité de mémoire physique de tous les ordinateurs gérés
@@ -282,7 +283,7 @@ VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Comput
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Rechercher tous les processus contenant "sql" dans la ligne de commande
 
 ```kusto
-VMComputer | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
+VMProcess | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Rechercher un ordinateur (enregistrement le plus récent) par nom de ressource
@@ -306,7 +307,7 @@ VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summariz
 ### <a name="list-all-computers-running-sql-server"></a>Répertorier tous les ordinateurs exécutant SQL Server
 
 ```kusto
-VMComputer | where AzureResourceName in ((search in (VMProcess) "\*sql\*" | distinct Machine)) | distinct Computer
+VMComputer | where AzureResourceName in ((search in (VMProcess) "*sql*" | distinct Machine)) | distinct Computer
 ```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Répertorier toutes les versions de produit uniques de CURL dans mon centre de données
@@ -318,7 +319,7 @@ VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Créer un groupe de tous les ordinateurs exécutant CentOS
 
 ```kusto
-VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct ComputerName
+VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct Computer
 ```
 
 ### <a name="bytes-sent-and-received-trends"></a>Tendances en matière d'octets envoyés et reçus
@@ -428,6 +429,47 @@ let remoteMachines = remote | summarize by RemoteMachine;
 // aggregate the remote information
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
+
+## <a name="performance-records"></a>Enregistrements de performances
+Les enregistrements de type *InsightsMetrics* contiennent des données de performances du système d’exploitation invité de la machine virtuelle. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+
+
+| Propriété | Description |
+|:--|:--|
+|TenantId | Identificateur unique de l’espace de travail |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Heure à laquelle la valeur a été collectée (UTC) |
+|Computer | Nom de domaine complet (FQDN) de l’ordinateur | 
+|Origine | *vm.azm.ms* |
+|Espace de noms | Catégorie du compteur de performances | 
+|Nom | Nom du compteur de performances. |
+|Val | Valeur collectée | 
+|Balises | Détails relatifs à l’enregistrement. Consultez le tableau ci-dessous pour les balises utilisées avec différents types d’enregistrements.  |
+|AgentID | Identificateur unique de l’agent de chaque ordinateur |
+|Type | *InsightsMetrics* |
+|_ResourceId_ | ID de ressource de la machine virtuelle |
+
+Les compteurs de performance actuellement collectés dans la table *InsightsMetrics* sont répertoriés dans le tableau suivant :
+
+| Espace de noms | Nom | Description | Unité | Balises |
+|:---|:---|:---|:---|:---|
+| Computer    | Heartbeat             | Pulsation de l’ordinateur                        | | |
+| Mémoire      | AvailableMB           | Mémoire en octets disponible                    | Octets          | memorySizeMB - Taille totale de la mémoire|
+| Réseau     | WriteBytesPerSecond   | Octets écrits sur le réseau par seconde            | BytesPerSecond | NetworkDeviceId - ID de l’appareil<br>bytes - Nombre total d’octets envoyés |
+| Réseau     | ReadBytesPerSecond    | Octets lus sur le réseau par seconde             | BytesPerSecond | networkDeviceId - ID de l’appareil<br>bytes - Nombre total d’octets reçus |
+| Processeur   | UtilizationPercentage | Pourcentage d’utilisation du processeur          | Pourcentage        | totalCpus - Nombre total de processeurs |
+| LogicalDisk | WritesPerSecond       | Écritures par seconde sur le disque logique            | CountPerSecond | mountId - ID de montage de l’appareil |
+| LogicalDisk | WriteLatencyMs        | Latence d’écriture sur le disque logique en millisecondes    | Millisecondes   | mountId - ID de montage de l’appareil |
+| LogicalDisk | WriteBytesPerSecond   | Octets d’écriture sur le disque logique par seconde       | BytesPerSecond | mountId - ID de montage de l’appareil |
+| LogicalDisk | TransfersPerSecond    | Transferts de disque logique par seconde         | CountPerSecond | mountId - ID de montage de l’appareil |
+| LogicalDisk | TransferLatencyMs     | Latence du transfert de disque logique en millisecondes | Millisecondes   | mountId - ID de montage de l’appareil |
+| LogicalDisk | ReadsPerSecond        | Lectures sur le disque logique par seconde             | CountPerSecond | mountId - ID de montage de l’appareil |
+| LogicalDisk | ReadLatencyMs         | Latence de lecture sur le disque logique en millisecondes     | Millisecondes   | mountId - ID de montage de l’appareil |
+| LogicalDisk | ReadBytesPerSecond    | Octets de lecture sur le disque logique par seconde        | BytesPerSecond | mountId - ID de montage de l’appareil |
+| LogicalDisk | FreeSpacePercentage   | Pourcentage d’espace libre sur le disque logique        | Pourcentage        | mountId - ID de montage de l’appareil |
+| LogicalDisk | FreeSpaceMB           | Espace libre du disque logique en octets             | Octets          | mountId - ID de montage de l’appareil<br>diskSizeMB - Taille totale du disque |
+| LogicalDisk | BytesPerSecond        | Octets par seconde sur le disque logique             | BytesPerSecond | mountId - ID de montage de l’appareil |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

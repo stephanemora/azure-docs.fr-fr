@@ -1,6 +1,6 @@
 ---
-title: Lister les définitions de rôles dans le RBAC Azure avec le portail Azure, Azure PowerShell ou Azure CLI | Microsoft Docs
-description: Découvrez comment lister les rôles intégrés et personnalisés dans le RBAC Azure en utilisant le portail Azure, Azure PowerShell ou Azure CLI.
+title: Lister les définitions de rôles dans le RBAC Azure avec le portail Azure, Azure PowerShell, Azure CLI ou l’API REST | Microsoft Docs
+description: Découvrez comment lister les rôles intégrés et personnalisés dans le RBAC Azure en utilisant le portail Azure, Azure PowerShell, Azure CLI ou l’API REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 839393d7535de530a27752f77e311c87c75825d9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74709865"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062981"
 ---
 # <a name="list-role-definitions-in-azure-rbac"></a>Lister les définitions de rôles dans le RBAC Azure
 
@@ -162,7 +162,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ...
 ```
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 ### <a name="list-all-roles"></a>Répertorier tous les rôles
 
@@ -312,9 +312,69 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
+## <a name="rest-api"></a>API REST
+
+### <a name="list-role-definitions"></a>Lister les définitions de rôles
+
+Pour répertorier les définitions de rôles, utilisez l’API REST [Définitions de rôles - Liste](/rest/api/authorization/roledefinitions/list). Pour affiner vos résultats, vous spécifiez une étendue et un filtre facultatif.
+
+1. Commencez par la requête suivante :
+
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2015-07-01
+    ```
+
+1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les définitions de rôles.
+
+    > [!div class="mx-tableFixed"]
+    > | Étendue | Type |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Groupe d’administration |
+    > | `subscriptions/{subscriptionId1}` | Abonnement |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Ressource |
+
+    Dans l’exemple précédent, microsoft.web est un fournisseur de ressources qui fait référence à une instance App Service. De la même façon, vous pouvez utiliser tout autre fournisseur de ressources et spécifier l’étendue. Pour plus d’informations, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md) et [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md) prises en charge.  
+     
+1. Remplacez *{filter}* par la condition que vous voulez appliquer pour filtrer la liste des définitions de rôles.
+
+    > [!div class="mx-tableFixed"]
+    > | Filtrer | Description |
+    > | --- | --- |
+    > | `$filter=atScopeAndBelow()` | Répertorie les définitions de rôles pour l’étendue spécifiée et toutes les sous-étendues. |
+    > | `$filter=type+eq+'{type}'` | Répertorie les définitions de rôles du type spécifié. Le type de rôle peut être `CustomRole` ou `BuiltInRole`. |
+
+### <a name="list-a-role-definition"></a>Lister les définitions de rôle
+
+Pour répertorier les détails d’un rôle spécifique, utilisez l'API REST [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) ou [Role Definitions - Get By Id](/rest/api/authorization/roledefinitions/getbyid).
+
+1. Commencez par la requête suivante :
+
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    ```
+
+    Pour une définition de rôle au niveau du répertoire, vous pouvez utiliser cette requête :
+
+    ```http
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
+    ```
+
+1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister la définition de rôle.
+
+    > [!div class="mx-tableFixed"]
+    > | Étendue | Type |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Groupe d’administration |
+    > | `subscriptions/{subscriptionId1}` | Abonnement |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Ressource |
+     
+1. Remplacez *{roleDefinitionId}* par l’identificateur de définition de rôle.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Rôles intégrés pour les ressources Azure](built-in-roles.md)
-- [Rôles personnalisés pour les ressources Azure](custom-roles.md)
+- [Rôles intégrés pour les ressources Azure](custom-roles.md)
 - [Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure](role-assignments-list-portal.md)
 - [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et du portail Azure](role-assignments-portal.md)

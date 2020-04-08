@@ -1,5 +1,6 @@
 ---
 title: Schéma de définition Microsoft Azure Cloud Services (fichier .csdef) | Microsoft Docs
+description: Un fichier de définition de service (.csdef) définit un modèle de service pour une application, contenant les rôles disponibles, les points de terminaison et les valeurs de configuration du service.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 42
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 11660fe4f76cad9577b66e72893670dd1b9b559d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dadb50bd0663f47e6a1bf3d58b5187c8b466964d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449071"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528368"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Schéma de définition Microsoft Azure Cloud Services (fichier .csdef)
 Le fichier de définition de service définit le modèle de service d’une application. Le fichier contient les définitions des rôles disponibles pour un service cloud, spécifie les points de terminaison de service et établit les paramètres de configuration du service. Les valeurs des paramètres de configuration sont définies dans le fichier de configuration de service, comme indiqué dans le [schéma de configuration de services cloud (classique)](/previous-versions/azure/reference/ee758710(v=azure.100)).
@@ -57,7 +58,7 @@ Les rubriques suivantes décrivent le schéma :
 - [Schéma WorkerRole](schema-csdef-workerrole.md)
 - [Schéma NetworkTrafficRules](schema-csdef-networktrafficrules.md)
 
-##  <a name="ServiceDefinition"></a> Élément ServiceDefinition
+##  <a name="servicedefinition-element"></a><a name="ServiceDefinition"></a> Élément ServiceDefinition
 L’élément `ServiceDefinition` correspond à l’élément de niveau supérieur du fichier de définition de service.
 
 Le tableau suivant décrit les attributs d’un de l’élément `ServiceDefinition`.

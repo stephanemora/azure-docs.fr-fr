@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 838145f8573e11deff8566c932a9c73c6f59f03b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: d6a63b6276c07b1fe6487b97f5c7fc255b6d3411
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561658"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335797"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Qu’est-ce qu’un contrôleur d’entrée Application Gateway ?
 Le contrôleur d’entrée Application Gateway (AGIC) est une application Kubernetes, qui permet aux clients d’[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) de tirer parti de l’équilibreur de charge L7 [Application Gateway](https://azure.microsoft.com/services/application-gateway/) natif d’Azure pour exposer un logiciel cloud à Internet. AGIC surveille le cluster Kubernetes sur lequel il est hébergé et met à jour en permanence une Application Gateway, afin que les services sélectionnés soient exposés à Internet.
@@ -31,8 +31,8 @@ L’utilisation d’Application Gateway en plus d’AGIC permet également de pr
 AGIC est configuré par le biais de la [ressource d’entrée](https://kubernetes.io/docs/user-guide/ingress/) Kubernetes, ainsi que du service et des déploiements/pods. Il offre un certain nombre de fonctionnalités, tirant parti de l’équilibreur de charge L7 Application Gateway natif d’Azure. Pour n’en nommer que quelques-unes :
   - Routage d’URL
   - Affinité basée sur les cookies
-  - Arrêt SSL
-  - SSL de bout en bout
+  - Arrêt TLS
+  - TLS de bout en bout
   - Prise en charge des sites web publics, privés et hybrides
   - Pare-feu d’applications web intégré
 

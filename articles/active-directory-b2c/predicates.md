@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc61ef5980a8019514f05c1db47f2300fff3603b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187234"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396887"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
@@ -45,7 +45,7 @@ L’élément **Predicate** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Id | Oui | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
-| Méthode | Oui | Type de la méthode à utiliser pour la validation. Valeurs possibles : **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. La valeur **IsLengthRange** vérifie si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés. La valeur **MatchesRegex** vérifie si une valeur de revendication de chaîne correspond à une expression régulière. La valeur **IncludesCharacters** vérifie si une valeur de revendication de chaîne contient un jeu de caractères. La valeur **IsDateRange** vérifie si une valeur de revendication de date est dans la plage des paramètres minimaux et maximaux spécifiés. |
+| Méthode | Oui | Type de la méthode à utiliser pour la validation. Valeurs possibles : [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) ou [IsDateRange](#isdaterange).  |
 | HelpText | Non | Message d’erreur présenté aux utilisateurs si la vérification échoue. Vous pouvez localiser cette chaîne à l’aide de la [personnalisation de la langue](localization.md). |
 
 L’élément **Predicate** contient les éléments suivants :
@@ -67,7 +67,19 @@ L’élément **Parameter** contient les attributs suivants :
 | ------- | ----------- | ----------- |
 | Id | 1:1 | Identificateur du paramètre. |
 
-L’exemple suivant montre une méthode `IsLengthRange` avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de la longueur de la chaîne :
+### <a name="predicate-methods"></a>Méthodes de prédicat
+
+#### <a name="islengthrange"></a>IsLengthRange
+
+La méthode IsLengthRange vérifie si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés. L’élément de prédicat prend en charge les paramètres suivants :
+
+| Paramètre | Obligatoire | Description |
+| ------- | ----------- | ----------- |
+| Maximale | Oui | Nombre maximal de caractères autorisé. |
+| Minimum | Oui | Nombre minimal de caractères autorisé. |
+
+
+L’exemple suivant montre une méthode IsLengthRange avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de la longueur de la chaîne :
 
 ```XML
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
@@ -77,6 +89,14 @@ L’exemple suivant montre une méthode `IsLengthRange` avec les paramètres `Mi
   </Parameters>
 </Predicate>
 ```
+
+#### <a name="matchesregex"></a>MatchesRegex
+
+La méthode MatchesRegex vérifie si une valeur de revendication de chaîne correspond à une expression régulière. L’élément de prédicat prend en charge les paramètres suivants :
+
+| Paramètre | Obligatoire | Description |
+| ------- | ----------- | ----------- |
+| RegularExpression | Oui | Modèle d'expression régulière à mettre en correspondance. |
 
 L’exemple suivant montre une méthode `MatchesRegex` avec le paramètre `RegularExpression` qui spécifie une expression régulière :
 
@@ -88,6 +108,14 @@ L’exemple suivant montre une méthode `MatchesRegex` avec le paramètre `Regul
 </Predicate>
 ```
 
+#### <a name="includescharacters"></a>IncludesCharacters
+
+La méthode IncludesCharacters vérifie si une valeur de revendication de chaîne contient un jeu de caractères. L’élément de prédicat prend en charge les paramètres suivants :
+
+| Paramètre | Obligatoire | Description |
+| ------- | ----------- | ----------- |
+| CharacterSet | Oui | Jeu de caractères qui peut être entré. Par exemple, les caractères minuscules `a-z`, les caractères majuscules `A-Z`, les chiffres `0-9` ou une liste de symboles, tels que `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`. |
+
 L’exemple suivant montre une méthode `IncludesCharacters` avec le paramètre `CharacterSet` qui spécifie le jeu de caractères :
 
 ```XML
@@ -98,7 +126,16 @@ L’exemple suivant montre une méthode `IncludesCharacters` avec le paramètre 
 </Predicate>
 ```
 
-L’exemple suivant montre une méthode `IsDateRange` avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de dates avec le format `yyyy-MM-dd` et `Today`.
+#### <a name="isdaterange"></a>IsDateRange
+
+La méthode IsDateRange vérifie si une valeur de revendication de date est dans la plage des paramètres minimaux et maximaux spécifiés. L’élément de prédicat prend en charge les paramètres suivants :
+
+| Paramètre | Obligatoire | Description |
+| ------- | ----------- | ----------- |
+| Maximale | Oui | La plus grande date possible qui peut être entrée. Le format de la date suit la convention `yyyy-mm-dd`, ou `Today`. |
+| Minimum | Oui | La plus petite date possible qui peut être entrée. Le format de la date suit la convention `yyyy-mm-dd`, ou `Today`.|
+
+L’exemple suivant montre une méthode `IsDateRange` avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de dates avec le format `yyyy-mm-dd` et `Today`.
 
 ```XML
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
@@ -388,3 +425,7 @@ Dans votre type de revendication, ajoutez un élément**PredicateValidationRefer
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
  ```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Découvrez comment [configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-password-complexity.md) à l’aide de validations de prédicat.

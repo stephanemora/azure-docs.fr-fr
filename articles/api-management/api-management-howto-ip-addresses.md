@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: cab63a17ddfed49684cc37609d9f2ae5bde9bdd3
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 45501fee9ae6ff47643a1ed197a07c4ba598e981
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689382"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047743"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Adresses IP du service Gestion des API Azure
 
@@ -63,7 +63,7 @@ Si votre service Gestion des API se trouve dans un réseau virtuel, il dispose d
 
 Les adresses IP publiques sont utilisées pour les communications internes sur le port `3443` - afin de gérer la configuration (par exemple, via Azure Resource Manager). Dans la configuration de réseau virtuel externe, elles sont également utilisées pour le trafic des API runtime. Quand une requête est envoyée du service Gestion des API vers un back-end public (Internet), une adresse IP publique est présentée comme origine de la requête.
 
-Les adresses IP virtuelles privées sont utilisées pour se connecter aux points de terminaison (passerelles, portail des développeurs et plan de gestion pour un accès direct à l'API) du service Gestion des API depuis le réseau. Vous pouvez les utiliser pour configurer des enregistrements DNS au sein du réseau.
+Les adresses IP virtuelles privées, disponibles **uniquement** dans le [mode réseau virtuel interne](api-management-using-with-internal-vnet.md), sont utilisées pour se connecter aux points de terminaison (passerelles, portail des développeurs et plan de gestion pour un accès direct à l’API) du service Gestion des API depuis le réseau. Vous pouvez les utiliser pour configurer des enregistrements DNS au sein du réseau.
 
 Vous verrez des adresses des deux types sur le portail Azure et dans la réponse de l'appel d'API :
 

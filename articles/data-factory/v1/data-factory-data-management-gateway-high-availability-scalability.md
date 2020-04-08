@@ -1,6 +1,6 @@
 ---
 title: Haute disponibilité avec la passerelle de gestion des données dans Azure Data Factory
-description: Cet article explique comment augmenter le nombre d’instances (scale out) d’une passerelle de gestion des données en ajoutant des nœuds et comment augmenter la taille des instances (scale up) en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud.
+description: Cet article explique comment effectuer un scale-out d’une passerelle de gestion des données en ajoutant des nœuds et comment effectuer un scale-up en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932028"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065205"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -31,7 +31,7 @@ Cet article vous aide à configurer la solution de haute disponibilité et scala
 > 
 > **Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez associer des passerelles de gestion des données installées sur plusieurs ordinateurs locaux à une seule passerelle logique du portail. Ces ordinateurs sont appelés **nœuds**. Vous pouvez associer jusqu’à **quatre nœuds** à une passerelle logique. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :  
 
 - Les performances du déplacement des données entre les magasins de données locaux et dans le cloud sont améliorées.  
@@ -51,7 +51,7 @@ Une **passerelle logique** est une passerelle que vous ajoutez à une fabrique d
 
 Tous ces nœuds sont **actifs**. Ils peuvent tous traiter des travaux de déplacement des données pour déplacer des données entre des magasins de données locaux et dans le cloud. Un des nœuds joue à la fois le rôle de répartiteur et le rôle de travail. Les autres nœuds inclus dans les groupes sont des nœuds de travail. Un nœud **répartiteur** extrait des tâches/travaux de déplacement des données auprès du service cloud et les répartit entre les nœuds de travail (y compris lui-même). Un nœud **rôle de travail** exécute les travaux de déplacement des données pour déplacer des données entre les magasins de données locaux et dans le cloud. Tous les nœuds sont des rôles de travail. Un seul nœud peut être à la fois répartiteur et rôle de travail.    
 
-En général, vous démarrez avec un seul nœud et vous **augmentez le nombre** (scale out) pour ajouter d’autres nœuds quand les nœuds existants sont submergés par la charge de déplacement des données. Vous pouvez également **augmenter la taille des instances** (scale up) pour déplacer des données d’un nœud de passerelle en augmentant le nombre de travaux simultanés qui peuvent s’exécuter sur le nœud. Cette fonctionnalité est également disponible avec une passerelle à nœud unique (même quand la fonctionnalité Haute disponibilité et scalabilité n’est pas activée). 
+En général, vous démarrez avec un seul nœud et vous **effectuez un scale-out** pour ajouter d’autres nœuds quand les nœuds existants sont submergés par la charge de déplacement des données. Vous pouvez également **augmenter la taille des instances** (scale up) pour déplacer des données d’un nœud de passerelle en augmentant le nombre de travaux simultanés qui peuvent s’exécuter sur le nœud. Cette fonctionnalité est également disponible avec une passerelle à nœud unique (même quand la fonctionnalité Haute disponibilité et scalabilité n’est pas activée). 
 
 Une passerelle à plusieurs nœuds maintient les informations d’identification des magasins de données synchronisées sur tous les nœuds. En cas de problème de connectivité nœud à nœud, les informations d’identification risquent de ne pas être synchronisées. Quand vous définissez des informations d’identification pour un magasin de données local qui utilise une passerelle, celui-ci les enregistre sur le nœud répartiteur/rôle de travail. Le nœud répartiteur se synchronise avec les autres nœuds rôles de travail. Ce processus est appelé **synchronisation des informations d’identification**. Le canal de communication entre les nœuds peut être **chiffré** par un certificat SSL/TLS public. 
 
@@ -108,7 +108,7 @@ Cette section part du principe que vous avez parcouru les deux articles suivants
 6. Dans le portail Azure, lancez la page **Passerelle** : 
     1. Dans la page d’accueil de la fabrique de données dans le portail, cliquez sur **Services liés**.
     
-        ![Page d'accueil Data Factory](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+        ![Page d’accueil Data Factory](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. Sélectionnez la **passerelle** pour afficher la page **Passerelle** :
     
         ![Page d’accueil Data Factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
@@ -166,7 +166,7 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
   > L’application du gestionnaire d’informations d’identification est utilisée lors de la définition en toute sécurité des informations d’identification à partir de l’Assistant Copie / portail Azure. Et elle peut être déclenchée à partir de n’importe quel ordinateur appartenant au même réseau que le magasin de données local ou privé.
 - Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser * **.domain.contoso.com** comme nom du sujet du certificat.
 - Les certificats SAN ne sont pas recommandés, car seul le dernier élément des Autres noms de l’objet sera utilisé et tous les autres seront ignorés en raison d’une limitation actuelle. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous ne pouvez utiliser ce certificat que sur l’ordinateur dont le FQDN est **node2.domain.contoso.com**.
-- Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
+- Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats TLS/SSL.
 - Les certificat utilisant des clés CNG ne sont pas pris en charge.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Questions fréquentes : Quand faut-il ne pas activer ce chiffrement ?
@@ -186,13 +186,13 @@ Vous pouvez activer l’option **Paramètres avancés** dans la page **Passerell
 Propriété de surveillance | Description
 :------------------ | :---------- 
 Nom | Nom de la passerelle logique et nœuds associés à la passerelle.  
-Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 
+Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 
 Version | Indique la version de la passerelle logique et de chaque nœud de passerelle. La version de la passerelle logique est déterminée selon la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans l’installation de la passerelle logique, seuls les nœuds dont le numéro de version est identique à celui de la passerelle logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue). 
 Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Utilisation du processeur | Utilisation du processeur d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Réseau (entrée/sortie) | Utilisation du réseau d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Tâches simultanées (en cours d’exécution/limite) | Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, où le processeur/la mémoire /le réseau sont sous-utilisés, alors que les activités expirent. Cette fonctionnalité est également disponible avec une passerelle à nœud unique (même quand la fonctionnalité Haute disponibilité et scalabilité n’est pas activée). Pour plus d’informations, consultez la section [Considérations d’échelle](#scale-considerations). 
-Rôle | Il existe deux types de rôles : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même). 
+Role | Il existe deux types de rôles : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même). 
 
 ![Passerelle de gestion des données - Surveillance avancée de plusieurs nœuds](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png)
 
@@ -203,7 +203,7 @@ Le tableau suivant indique les états possibles d’un **nœud de passerelle** 
 Statut  | Commentaires/Scénarios
 :------- | :------------------
 En ligne | Nœud connecté au service Data Factory.
-Hors ligne | Le nœud est hors connexion.
+Hors connexion | Le nœud est hors connexion.
 Mise à niveau | Le nœud est en cours de mise à jour automatique.
 Limité | Dû à un problème de connectivité. Éventuellement dû à un problème de port HTTP 8050, à un problème de connectivité du bus de service ou à un problème de synchronisation des informations d’identification. 
 Inactif | La configuration du nœud est différente de celle de la majorité des autres nœuds.<br/><br/> Un nœud peut être inactif quand il ne parvient pas à se connecter à d’autres nœuds. 
@@ -215,7 +215,7 @@ Statut | Commentaires
 :----- | :-------
 Doit être inscrite | Aucun nœud n’est encore inscrit sur cette passerelle logique.
 En ligne | Les nœuds de passerelle sont en ligne.
-Hors ligne | Aucun nœud n’est en ligne.
+Hors connexion | Aucun nœud n’est en ligne.
 Limité | Tous les nœuds inclus dans cette passerelle ne sont pas dans un état intègre. Cet état est un avertissement pouvant indiquer que certains nœuds sont en panne ! <br/><br/>Peut être dû à un problème de synchronisation des informations d’identification sur le nœud répartiteur/rôle de travail. 
 
 ### <a name="pipeline-activities-monitoring"></a>Surveillance de pipeline/des activités
@@ -227,10 +227,10 @@ Le portail Azure propose une expérience de surveillance de pipeline avec des d�
 
 ## <a name="scale-considerations"></a>Considérations d’échelle
 
-### <a name="scale-out"></a>Augmentation du nombre d’instances (scale out)
-Quand la **mémoire disponible est faible** et l’**utilisation du processeur est élevée**, l’ajout d’un nouveau nœud permet d’augmenter la taille des instances de la charge sur les ordinateurs. Si des activités échouent en raison d’un délai d’expiration ou de l’état hors connexion d’un nœud de passerelle, il est judicieux d’ajouter un nœud à la passerelle.
+### <a name="scale-out"></a>Scale-out
+Quand la **mémoire disponible est faible** et l’**utilisation du processeur est élevée**, l’ajout d’un nouveau nœud permet d’effectuer un scale-out de la charge sur les ordinateurs. Si des activités échouent en raison d’un délai d’expiration ou de l’état hors connexion d’un nœud de passerelle, il est judicieux d’ajouter un nœud à la passerelle.
  
-### <a name="scale-up"></a>Augmentation de la taille des instances (scale up)
+### <a name="scale-up"></a>Monter en puissance
 Quand la mémoire disponible et le processeur ne sont pas correctement utilisés, mais que la capacité inactive s’élève à 0, vous devez augmenter la taille des instances en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud. Vous pouvez également augmenter la taille des instances quand les activités expirent parce que la passerelle est surchargée. Comme le montre l’image suivante, vous pouvez augmenter la capacité maximale pour un nœud. Nous vous suggérons de la doubler dans un premier temps.  
 
 ![Passerelle de gestion des données - Considérations d’échelle](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-scale-considerations.png)
@@ -242,7 +242,7 @@ Quand la mémoire disponible et le processeur ne sont pas correctement utilisés
 - Vous ne pouvez pas réinscrire un nœud de passerelle avec la clé d’authentification d’une autre passerelle logique pour le permuter de la passerelle logique actuelle. Pour le réinscrire, désinstallez la passerelle du nœud, réinstallez la passerelle et inscrivez-le à l’aide de la clé d’authentification de l’autre passerelle logique. 
 - Si le proxy HTTP est exigé pour tous les nœuds de passerelle, définissez-le dans diahost.exe.config et diawp.exe.config, puis utilisez le gestionnaire de serveur pour vérifier que tous les nœuds ont les mêmes fichiers diahost.exe.config et diawip.exe.config. Consultez la section [Configurer les paramètres du proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) pour plus d’informations. 
 - Pour modifier le mode de chiffrement pour la communication nœud à nœud dans le Gestionnaire de configuration de passerelle, supprimez tous les nœuds dans le portail, sauf un. Ensuite, rajoutez les nœuds après avoir modifié le mode de chiffrement.
-- Utilisez un certificat SSL officiel si vous choisissez de chiffrer le canal de communication nœud à nœud. Un certificat auto-signé peut entraîner des problèmes de connectivité car le même certificat peut ne pas être approuvé dans la liste de l’autorité de certification sur les autres ordinateurs. 
+- Utilisez un certificat TLS/SSL officiel si vous choisissez de chiffrer le canal de communication nœud à nœud. Un certificat auto-signé peut entraîner des problèmes de connectivité car le même certificat peut ne pas être approuvé dans la liste de l’autorité de certification sur les autres ordinateurs. 
 - Vous ne pouvez pas inscrire un nœud de passerelle sur une passerelle logique quand la version du nœud est inférieure à celle de la passerelle logique. Supprimez tous les nœuds de la passerelle logique du portail pour pouvoir inscrire un nœud de version inférieure (le passer à une version antérieure). Si vous supprimez tous les nœuds d’une passerelle logique, installez et inscrivez manuellement de nouveaux nœuds sur cette passerelle logique. L’installation rapide n’est pas prise en charge dans ce cas.
 - Vous ne pouvez pas utiliser l’installation rapide pour installer des nœuds sur une passerelle logique existante, qui utilise encore des informations d’identification du cloud. Vous pouvez vérifier l’emplacement de stockage des informations d’identification à partir du Gestionnaire de configuration de passerelle sous l’onglet Paramètres.
 - Vous ne pouvez pas utiliser l’installation rapide pour installer des nœuds sur une passerelle logique existante, pour laquelle le chiffrement nœud à nœud est activé. Puisque la définition du mode de chiffrement implique d’ajouter manuellement des certificats, l’installation rapide n’est plus une option. 
