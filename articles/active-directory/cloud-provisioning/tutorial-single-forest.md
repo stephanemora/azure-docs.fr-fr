@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f7c348e29fa2234627a53095a99e913a6389a27
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 55dab553a93db4650a5d7126d7f1a0c3ca5f808f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280966"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332233"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutoriel : Intégrer une seule forêt à un seul locataire Azure AD
 
@@ -26,7 +26,7 @@ Ce tutoriel vous guide tout au long de la création d’un environnement d’ide
 
 Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des fins de test, ou pour vous familiariser avec le provisionnement cloud.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 ### <a name="in-the-azure-active-directory-admin-center"></a>Dans le Centre d’administration Azure Active Directory
 
 1. Créez un compte d’administrateur général « cloud uniquement » dans votre locataire Azure AD. De cette façon, vous pouvez gérer la configuration de votre locataire si vos services locaux venaient à échouer ou ne plus être disponibles. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle si vous voulez éviter de vous retrouver en dehors de votre locataire.
@@ -41,7 +41,7 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
 
      | Numéro de port | Utilisation |
      | --- | --- |
-     | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL |
+     | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat TLS/SSL |
      | **443** | Gère toutes les communications sortantes avec le service |
      | **8080** (facultatif) | Les agents signalent leur état toutes les 10 minutes sur le port 8080, si le port 443 n’est pas disponible. Cet état est affiché sur le portail Azure AD. |
      

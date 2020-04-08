@@ -1,6 +1,6 @@
 ---
-title: Connexions et utilisateurs
-description: Apprenez-en davantage sur la gestion de la sécurité SQL Database et SQL Data Warehouse, en particulier sur la façon de gérer la sécurité d’accès et de connexion aux bases de données par le biais du compte du principal au niveau du serveur.
+title: Autoriser l’accès aux serveurs et bases de données à l’aide de connexions et de comptes d’utilisateur
+description: Découvrez comment Azure SQL Database et Azure Synapse Analytics authentifient les utilisateurs à des fins d’accès à l’aide de connexions et de comptes d’utilisateur. Découvrez également comment utiliser des rôles de base de données et des autorisations explicites pour autoriser les connexions et les utilisateurs à effectuer des actions et à interroger des données.
 keywords: sécurité sql database, gestion de la sécurité de base de données, sécurité de connexion,sécurité de base de données, accès aux bases de données
 services: sql-database
 ms.service: sql-database
@@ -11,218 +11,162 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/26/2019
-ms.openlocfilehash: e9934f868fb62f9b1a19ef408dab69ab8a2c0e29
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 03/23/2020
+ms.openlocfilehash: 98c15fe11b64e8c177e60a2ea1eb7c50eaf69353
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159151"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124805"
 ---
-# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
+# <a name="authorizing-database-access-to-authenticated-users-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Autoriser l’accès aux bases de données aux utilisateurs authentifiés à SQL Database et Azure Synapse Analytics à l’aide de connexions et de comptes d’utilisateur
 
-Une fois que les règles de pare-feu ont été configurées, vous pouvez vous connecter à Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tant qu’un des comptes d’administrateur, en tant que propriétaire ou en tant qu’utilisateur de base de données dans la base de données.  
+Cet article porte sur les points suivants :
 
-> [!NOTE]  
-> Cette rubrique s’applique au serveur SQL Azure, ainsi qu’aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. 
-> [!TIP]
-> Pour un tutoriel, consultez [Sécuriser votre base de données Azure SQL](sql-database-security-tutorial.md). Ce tutoriel ne s’applique pas à **Azure SQL Database Managed Instance**.
+- Options de configuration d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) pour permettre aux utilisateurs d’effectuer des tâches d’administration et d’accéder aux données stockées dans ces bases de données.
+- Configuration de l’accès et des autorisations après la création initiale d’une nouvelle instance Azure SQL Database
+- Ajouter des connexions et des comptes d’utilisateur dans la base de données master et les comptes d’utilisateur, puis accorder ces autorisations d’administration aux comptes
+- Ajouter des comptes d’utilisateur dans des bases de données utilisateur, soit associés à des connexions, soit comme comptes d’utilisateur autonomes
+- Configurer des comptes d’utilisateur avec des autorisations dans les bases de données utilisateur à l’aide des rôles de base de données et des autorisations explicites
 
-## <a name="unrestricted-administrative-accounts"></a>Comptes d’administration non restreints
+> [!IMPORTANT]
+> Les bases de données dans Azure SQL Database et Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) sont appelées collectivement dans le reste de cet article « bases de données » ou « SQL Azure » (pour plus de simplicité).
 
-Il existe deux comptes d’administration (**Administrateur de serveur** et **Administrateur Active Directory**) qui agissent en tant qu’administrateurs. Afin d’identifier ces comptes d’administrateur pour votre serveur SQL, ouvrez le portail Azure et accédez à l’onglet Propriétés de votre serveur ou base de données SQL.
+## <a name="authentication-and-authorization"></a>Authentification et autorisation
+
+L’[**authentification**](sql-database-security-overview.md#authentication) est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Un utilisateur se connecte à une base de données à l’aide d’un compte d’utilisateur.
+Lorsqu’un utilisateur tente de se connecter à une base de données, il fournit un compte d’utilisateur et des informations d’authentification. L’utilisateur est authentifié à l’aide de l’une des deux méthodes d’authentification suivantes :
+
+- [Authentification SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
+
+  Avec cette méthode d’authentification, l’utilisateur envoie un nom de compte d’utilisateur et un mot de passe associé pour établir une connexion. Ce mot de passe est stocké dans la base de données master pour les comptes d’utilisateur liés à une connexion ou stockés dans la base de données contenant le compte d’utilisateur pour les comptes d’utilisateur non liés à une connexion.
+- [Authentification Azure Active Directory](sql-database-aad-authentication.md)
+
+  Avec cette méthode d’authentification, l’utilisateur envoie un nom de compte d’utilisateur et demande que le service utilise les informations d’identification stockées dans Azure Active Directory.
+
+**Connexions et utilisateurs** : dans Azure SQL, un compte d’utilisateur dans une base de données peut être associé à une connexion stockée dans la base de données master ou peut être un nom d’utilisateur stocké dans une base de données individuelle.
+
+- Une **connexion** est un compte individuel dans la base de données master, auquel un compte d’utilisateur dans une ou plusieurs bases de données peut être lié. Avec une connexion, les informations d’identification du compte d’utilisateur sont stockées avec la connexion.
+- Un **compte d’utilisateur** est un compte individuel dans une base de données qui peut être lié à une connexion, mais cela n’est pas obligatoire. Avec un compte d’utilisateur qui n’est pas lié à une connexion, les informations d’identification sont stockées avec le compte d’utilisateur.
+
+L’[**autorisation**](sql-database-security-overview.md#authorization) d’accéder aux données et d’effectuer diverses actions sont gérées à l’aide des rôles de base de données et des autorisations explicites. L’autorisation fait référence aux autorisations accordées à un utilisateur et détermine ce que l’utilisateur est autorisé à faire. Elle est contrôlée par les [appartenances aux rôles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) et les [autorisations au niveau objet](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) de la base de données de votre compte d’utilisateur. Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible.
+
+## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Connexions et comptes d’utilisateur existants après la création d’une base de données
+
+Lorsque vous créez votre premier déploiement Azure SQL, vous spécifiez une connexion d’administrateur et un mot de passe associé pour cette connexion. Ce compte d’administration est appelé **administration de serveur**. La configuration suivante des connexions et des utilisateurs dans les bases de données master et utilisateur se produit pendant le déploiement :
+
+- Une connexion SQL avec des privilèges d’administrateur est créée à l’aide du nom de connexion que vous avez spécifié. Une [connexion](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) est un compte d’utilisateur individuel pour la connexion à SQL Database.
+- Cette connexion se voit accorder des autorisations d’administration complètes sur toutes les bases de données en tant que [principal au niveau du serveur](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). Cette connexion dispose de toutes les autorisations disponibles dans SQL Database et ne peut pas être limitée. Dans une instance gérée, cette connexion est ajoutée au [rôle serveur fixe sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (ce rôle n’existe pas avec les bases de données uniques ou mises en pool).
+- Un [compte d’utilisateur](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) appelé `dbo` est créé pour cette connexion dans chaque base de données utilisateur. L’utilisateur [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) dispose de toutes les autorisations de base de données dans la base de données et est mappé au rôle de base de données fixe `db_owner`. Des rôles de bases de données fixes supplémentaires sont décrits plus loin dans cet article.
+
+Pour identifier les comptes d’administrateur d’une base de données, ouvrez le Portail Azure, puis accédez à l’onglet **Propriétés** de votre serveur ou instance gérée.
 
 ![Administrateurs SQL Server](media/sql-database-manage-logins/sql-admins.png)
 
-- **Administrateur de serveur**
-
-  Lorsque vous créez un serveur SQL Azure, vous devez désigner une **connexion d’administrateur de serveur**. Le serveur SQL crée ce compte comme une connexion dans la base de données MASTER. Ce compte se connecte à l’aide de l’authentification SQL Server (nom d’utilisateur et mot de passe). Un seul de ces comptes peut exister.
-
-  > [!NOTE]
-  > Pour réinitialiser le mot de passe pour l’administrateur du serveur, accédez au [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, sélectionnez le serveur dans la liste, puis cliquez sur **Réinitialiser le mot de passe**.
-
-- **Administrateur Azure Active Directory**
-
-  Un compte Azure Active Directory individuel ou de groupe de sécurité peut également être configuré en tant qu’administrateur. La configuration d’un administrateur Azure AD est facultative, mais un administrateur Azure AD **doit** être configuré si vous voulez utiliser les comptes Azure AD pour vous connecter à SQL Database. Pour plus d’informations sur la configuration de l’accès à Azure Active Directory, voir [Connexion à SQL Database ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) et [Prise en charge de SSMS pour Azure AD MFA avec SQL Database et SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
-
-Les comptes d’**administrateur de serveur** et d’**administrateur Azure AD** présentent les caractéristiques suivantes :
-
-- Ce sont les seuls comptes pouvant se connecter automatiquement à n’importe quelle base de données SQL sur le serveur. (Pour se connecter à une base de données utilisateur, vous devez disposer d’un compte de propriétaire de la base de données ou d’un compte d’utilisateur dans la base de données utilisateur.)
-- Ces comptes accèdent aux bases de données utilisateur en tant qu’`dbo` utilisateur et possèdent toutes les autorisations dans les bases de données utilisateur. (Le propriétaire d’une base de données utilisateur accède également à la base de données en tant qu’utilisateur `dbo`.) 
-- Ces comptes n’ont pas accès à la base de données `master` en tant qu’utilisateur `dbo` et ils ont des autorisations limitées dans MASTER. 
-- Ces comptes **ne sont pas** membres du rôle serveur fixe SQL standard `sysadmin`, qui n’est pas disponible dans la base de données SQL.  
-- Ces comptes peuvent créer, modifier et supprimer des bases de données, des connexions, des utilisateurs de MASTER et des règles de pare-feu IP au niveau du serveur.
-- Ces comptes peuvent ajouter et supprimer des membres aux rôles `dbmanager` et `loginmanager`.
-- Ces comptes peuvent afficher la table système `sys.sql_logins`.
-- Ne peut pas être renommé.
-- Pour modifier le compte Administrateur Azure AD, utilisez le portail ou l’interface de ligne de commande Azure.
-- Le compte Administrateur du serveur ne peut pas être modifié par la suite.
-
-### <a name="configuring-the-firewall"></a>Configuration du pare-feu
-
-Quand le pare-feu au niveau du serveur est configuré pour une plage d’adresses IP ou une adresse IP individuelle, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à la base de données MASTER et à toutes les bases de données utilisateur. Le pare-feu au niveau du serveur initial peut être configuré via le [portail Azure](sql-database-single-database-get-started.md), à l’aide de [PowerShell](sql-database-powershell-samples.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Une fois la connexion établie, des règles supplémentaires de pare-feu IP au niveau du serveur peuvent également être configurées à l'aide de [Transact-SQL](sql-database-configure-firewall-settings.md).
-
-### <a name="administrator-access-path"></a>Chemin d’accès administrateur
-
-Lorsque le pare-feu au niveau du serveur est correctement configuré, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à l’aide des outils clients tels que SQL Server Management Studio ou SQL Server Data Tools. Seuls les outils les plus récents fournissent toutes les fonctionnalités et capacités. Le diagramme suivant illustre une configuration classique avec deux comptes d’administrateur.
-
-![configuration des deux comptes d’administration](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
-
-Lorsque vous utilisez un port ouvert dans le pare-feu au niveau du serveur, les administrateurs peuvent se connecter à n’importe quelle base de données SQL.
-
-### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Connexion à la base de données à l’aide de SQL Server Management Studio
-
-Pour savoir comment créer un serveur, une base de données, des règles de pare-feu IP au niveau du serveur et utiliser SQL Server Management Studio pour interroger une base de données, consultez [Prise en main des serveurs, des bases de données et des règles de pare-feu Azure SQL Database à l'aide du portail Azure et de SQL Server Management Studio](sql-database-single-database-get-started.md).
+![Administrateurs SQL Server](media/sql-database-manage-logins/sql-admins2.png)
 
 > [!IMPORTANT]
-> Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Le nom de connexion de l’administrateur ne peut pas être modifié une fois qu’il a été créé. Pour réinitialiser le mot de passe pour l’administrateur du serveur logique, accédez au [Portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, sélectionnez le serveur dans la liste, puis cliquez sur **Réinitialiser le mot de passe**. Pour réinitialiser le mot de passe d’un serveur d’instance gérée, accédez au Portail Azure, cliquez sur l’instance, puis sur **Réinitialiser le mot de passe**. Vous pouvez également utiliser PowerShell ou Azure CLI.
 
-## <a name="additional-server-level-administrative-roles"></a>Rôles d’administration au niveau du serveur supplémentaires
+## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Créer des connexions et des utilisateurs supplémentaires disposant d’autorisations administratives
 
->[!IMPORTANT]
->Cette section ne s’applique pas à **Azure SQL Database Managed Instance**, car ces rôles sont propres à **Azure SQL Database**.
+À ce stade, votre instance Azure SQL est uniquement configurée pour l’accès à l’aide d’une connexion SQL unique et d’un compte d’utilisateur. Pour créer des connexions supplémentaires avec des autorisations d’administration complètes ou partielles, vous disposez des options suivantes (en fonction de votre mode de déploiement) :
 
-Outre les rôles d’administration au niveau du serveur abordés précédemment, SQL Database fournit deux rôles d’administration restreints dans la base de données MASTER. Vous pouvez y ajouter des comptes utilisateurs qui accordent des autorisations de création de bases de données ou de gestion des connexions.
+- **Créer un compte d’administrateur Azure Active Directory disposant d’autorisations d’administration complètes**
 
-### <a name="database-creators"></a>Créateurs de base de données
+  Activez l’authentification Azure Active Directory et créez une connexion d’administrateur Azure AD. Un compte Azure Active Directory peut être configuré en tant qu’administrateur du déploiement SQL Database avec des autorisations d’administration complètes. Il peut s’agir d’un compte de groupe de sécurité ou individuel. Un administrateur Azure AD **doit** être configuré si vous voulez utiliser les comptes Azure AD pour vous connecter à SQL Database. Pour plus d’informations sur l’activation de l’authentification Azure AD pour tous les types de déploiement de SQL Database, consultez les articles suivants :
 
-L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres de ce rôle peuvent créer des bases de données. Pour l’utiliser, vous créez un utilisateur dans la base de données `master`, puis vous ajoutez l’utilisateur au rôle de base de données **dbmanager**. Pour créer une base de données, l’utilisateur doit être un utilisateur basé sur une connexion SQL Server dans la base de données `master`, ou un utilisateur de base de données autonome basé sur un utilisateur Azure Active Directory.
+  - [Utiliser l’authentification Azure Active Directory pour l’authentification avec SQL](sql-database-aad-authentication.md)
+  - [Configurer et gérer l’authentification Azure Active Directory avec SQL](sql-database-aad-authentication-configure.md)
 
-1. À l’aide d’un compte d’administrateur, connectez-vous à la base de données `master`.
-2. créer une connexion d’authentification SQL Server à l’aide de l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemple d’instruction :
+- **Dans un déploiement d’instance gérée, créez des connexions SQL avec des autorisations d’administration complètes**
 
-   ```sql
-   CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
-   ```
+  - Créer une connexion SQL Server supplémentaire dans l’instance gérée
+  - Ajoutez la connexion au [rôle serveur fixe sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) à l’aide de l’instruction [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql). Cette connexion a des autorisations d’administration complètes.
+  - Vous pouvez également créer une [connexion Azure AD](sql-database-aad-authentication-configure.md?tabs=azure-powershell#new-azure-ad-admin-functionality-for-mi) à l’aide de la syntaxe <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
-   > [!NOTE]
-   > Utilisez un mot de passe fort au moment de la création d’une connexion ou d’un utilisateur de base de données autonome. Pour plus d’informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
+- **Dans un déploiement unique ou en pool, créez des connexions SQL avec des autorisations d’administration limitées**
 
-   Pour améliorer les performances, les connexions (principaux au niveau du serveur) sont temporairement mises en cache au niveau de la base de données. Pour actualiser le cache d’authentification, consultez [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+  - Créer une connexion SQL supplémentaire dans la base de données master pour un déploiement de base de données unique ou de bases de données mises en pool, ou un déploiement d’instance gérée
+  - Créer un compte d’utilisateur dans la base de données master associée à cette nouvelle connexion
+  - Ajoutez le compte d’utilisateur au `dbmanager`, le rôle `loginmanager` ou les deux dans la base de données `master` à l’aide de l’instruction [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (pour Azure Synapse Analytics, utilisez l’instruction [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)).
 
-3. Dans la base de données `master`, créez un utilisateur à l’aide de l’instruction [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données autonome de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données autonome de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Exemples d’instructions :
+  > [!NOTE]
+  > Les rôles `dbmanager` et `loginmanager` ne se rapportent **pas** aux déploiements d’instances gérées.
 
-   ```sql
-   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
-   CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
-   ```
+  Les membres de ces [rôles de base de données master spécifiques](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) pour les bases de données uniques ou mises en pool permettent aux utilisateurs de créer et de gérer des bases de données ou des connexions. Dans les bases de données créées par un utilisateur membre du rôle `dbmanager`, le membre est mappé au rôle de base de données fixe `db_owner` et peut se connecter à cette base de données et gérer celle-ci à l’aide du compte d’utilisateur `dbo`. Ces rôles n’ont pas d’autorisations explicites en dehors de la base de données master.
 
-4. Ajoutez le nouvel utilisateur au rôle de base de données **dbmanager** dans `master` à l’aide de l’instruction [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Exemples d’instructions :
+  > [!IMPORTANT]
+  > Vous ne pouvez pas créer une connexion SQL supplémentaire avec des autorisations d’administration complètes dans une base de données unique ou mise en pool.
 
-   ```sql
-   ALTER ROLE dbmanager ADD MEMBER Mary; 
-   ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
-   ```
+## <a name="create-accounts-for-non-administrator-users"></a>Créer des comptes pour les utilisateurs non-administrateurs
 
-   > [!NOTE]
-   > dbmanager étant un rôle de base de données dans une base de données MASTER, vous pouvez uniquement ajouter un utilisateur de base de données au rôle dbmanager. Vous ne pouvez pas ajouter une connexion au niveau du serveur au rôle au niveau de la base de données.
+Vous pouvez créer des comptes pour les utilisateurs non-administrateurs à l’aide de l’une des deux méthodes suivantes :
 
-5. Si nécessaire, configurez une règle de pare-feu pour permettre au nouvel utilisateur de se connecter. (Le nouvel utilisateur peut être couvert par une règle de pare-feu existante.)
+- **Créer une connexion**
 
-Désormais, l’utilisateur peut se connecter à la base de données `master` et créer de nouvelles bases de données. Le compte qui crée la base de données devient propriétaire de cette dernière.
+  Créez une connexion SQL dans la base de données master. Créez ensuite un compte d’utilisateur dans chaque base de données à laquelle cet utilisateur a besoin d’accéder et associez le compte d’utilisateur à cette connexion. Cette approche est préférable lorsque l’utilisateur doit accéder à plusieurs bases de données et que vous souhaitez synchroniser les mots de passe. Toutefois, cette approche présente des complexités lorsqu’elle est utilisée avec la géoréplication, car la connexion doit être créée sur le serveur principal et sur le ou les serveurs secondaires. Pour plus d’informations, consultez [Configurer et gérer la sécurité Azure SQL Database pour la géorestauration ou le basculement](sql-database-geo-replication-security-config.md).
+- **Créer un compte d’utilisateur**
 
-### <a name="login-managers"></a>Gestionnaires de connexion
+  Créez un compte d’utilisateur dans la base de données à laquelle un utilisateur a besoin d’accéder (également appelé [utilisateur autonome](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 
-L’autre rôle d’administration est le rôle loginmanager. Les membres de ce rôle peuvent créer des connexions dans la base de données MASTER. Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager**) pour permettre aux utilisateurs de créer des connexions dans la base de données MASTER. Cela n’est généralement pas nécessaire, car Microsoft recommande d’avoir recours aux utilisateurs de base de données autonome qui s’authentifient au niveau de la base de données plutôt qu’à des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+  - Avec une base de données unique ou mise en pool, vous pouvez toujours créer ce type de compte d’utilisateur.
+  - Avec une base de données d’instance gérée qui ne prend pas en charge [les principaux de serveur Azure AD](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities), vous pouvez uniquement créer ce type de compte d’utilisateur dans une [base de données autonome](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Avec l’instance gérée prenant en charge les [principaux de serveur Azure AD](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities), vous pouvez créer des comptes d’utilisateur pour l’authentification auprès de l’instance gérée sans que les utilisateurs de base de données soient créés en tant qu’utilisateur de base de données autonome.
 
-## <a name="non-administrator-users"></a>Utilisateurs non administrateurs
+  Avec cette approche, les informations d’authentification utilisateur sont stockées dans chaque base de données et répliquées automatiquement dans les bases de données géorépliquées. Toutefois, si le même compte existe dans plusieurs bases de données et que vous utilisez l’authentification SQL, vous devez synchroniser manuellement les mots de passe. En outre, si un utilisateur a un compte dans des bases de données différentes avec différents mots de passe, la mémorisation de ces mots de passe peut devenir un problème.
 
-En règle générale, les comptes non administrateurs n’ont pas besoin d’accéder à la base de données MASTER. Créez des utilisateurs de base de données autonome dans le niveau de base de données à l’aide de l’instruction [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). L’utilisateur peut être un utilisateur de base de données autonome de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données autonome de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente). Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). 
+> [!IMPORTANT]
+> Pour créer des utilisateurs autonomes mappés à des identités Azure AD, vous devez être connecté à l’aide d’un compte Azure AD qui est administrateur dans SQL Database. Dans l’instance gérée, une connexion SQL avec des autorisations `sysadmin` peut également créer une connexion ou un utilisateur Azure AD.
 
-Pour créer des utilisateurs, connectez-vous à la base de données et exécutez des instructions similaires eux exemples suivants :
+Pour obtenir des exemples montrant comment créer des connexions et des utilisateurs, consultez :
 
-```sql
-CREATE USER Mary FROM LOGIN Mary; 
-CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
-```
+- [Créer une connexion pour les bases de données uniques ou mises en pool](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
+- [Créer une connexion pour une base de données d’instance gérée](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
+- [Créer une connexion pour une base de données Azure Synapse Analytics](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Créer un utilisateur](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
+- [Création d’utilisateurs autonomes Azure AD](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
 
-Initialement, seul l’un des administrateurs ou le propriétaire de la base de données peut créer des utilisateurs. Pour autoriser des utilisateurs supplémentaires à créer des utilisateurs, accordez à l’utilisateur sélectionné l’autorisation `ALTER ANY USER` , en utilisant l’une des instructions suivantes :
+> [!TIP]
+> Pour accéder à un tutoriel sur la sécurité qui inclut la création d’utilisateurs autonomes SQL Server dans une base de données unique ou mise en pool, consultez [Tutoriel : Sécuriser une base de données unique ou mise en pool](sql-database-security-tutorial.md).
 
-```sql
-GRANT ALTER ANY USER TO Mary;
-```
+## <a name="using-fixed-and-custom-database-roles"></a>Utilisation des rôles de base de données fixes et personnalisés
 
-Pour donner le contrôle total de la base de données aux utilisateurs supplémentaires, faites-les membres du rôle de base de données fixe **db_owner**.
+Après avoir créé un compte d’utilisateur dans une base de données, sur la base d’une connexion ou d’un utilisateur autonome, vous pouvez autoriser cet utilisateur à effectuer diverses actions et à accéder aux données d’une base de données particulière. Vous pouvez utiliser les méthodes suivantes pour autoriser l’accès :
 
-Dans Azure SQL Database, utilisez l’instruction `ALTER ROLE`.
+- **Rôles de base de données fixes**
 
-```sql
-ALTER ROLE db_owner ADD MEMBER Mary;
-```
+  Ajoutez le compte d’utilisateur à un [rôle de base de données fixe](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles). Il existe 9 rôles de base de données fixes, chacun avec un ensemble défini d’autorisations. Les rôles de base de données fixes les plus courants sont les suivants : **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** et **db_denydatareader**. **db_owner** est couramment utilisé pour accorder toutes les autorisations à quelques utilisateurs seulement. Les autres rôles de base de données fixe sont utiles pour obtenir rapidement une base de données simple en développement, mais ne sont pas recommandés pour la plupart des bases de données de production. Par exemple, le rôle de base de données fixe **db_datareader** accorde l’accès en lecture à toutes les tables de la base de données, ce qui est plus que le minimum nécessaire.
 
-Dans Azure SQL Data Warehouse, utilisez [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
-```sql
-EXEC sp_addrolemember 'db_owner', 'Mary';
-```
+  - Pour ajouter un utilisateur de base de données à un rôle de base de données fixe :
 
+    - Dans Azure SQL Database, utilisez l’instruction [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql). Pour obtenir des exemples, consultez [Exemples ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql#examples).
+    - Dans Azure Synapse Analytics, utilisez l’instruction [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Pour obtenir des exemples, consultez [Exemples sp_addrolemember](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
 
-> [!NOTE]
-> L’un des motifs courants de création d’un utilisateur de base de données reposant sur une connexion serveur SQL Database correspond à la nécessité pour les utilisateurs d’accéder à plusieurs bases de données. Étant donné que les utilisateurs de base de données autonome constituent des entités individuelles, chaque base de données gère un utilisateur et un mot de passe qui lui sont propres. Cela risque d’entraîner un surcroît de complexité dans la mesure où l’utilisateur doit mémoriser le mot de passe de chacune des bases de données, cette situation pouvant même devenir intenable lorsqu’il devient nécessaire de modifier plusieurs mots de passe pour un grand nombre de bases de données. Toutefois, en cas d’utilisation des connexions SQL Server et de la haute disponibilité (géoréplication active et groupes de basculement), les connexions SQL Server doivent être définies manuellement sur chaque serveur. Dans le cas contraire, l’utilisateur de base de données ne sera plus mappé sur la connexion serveur après un basculement et ne sera pas en mesure d’accéder à la base de données suite au basculement. Pour plus d’informations sur la configuration de connexions pour la géoréplication, consultez [Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement](sql-database-geo-replication-security-config.md).
+- **Rôle de base de données personnalisé**
 
-### <a name="configuring-the-database-level-firewall"></a>Configuration du pare-feu au niveau de la base de données
+  Créez un rôle de base de données personnalisé à l’aide de l’instruction [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql). Un rôle personnalisé vous permet de créer vos propres rôles de base de données définis par l’utilisateur et d’accorder soigneusement à chaque rôle les autorisations minimales nécessaires aux besoins de l’entreprise. Vous pouvez ensuite ajouter des utilisateurs au rôle personnalisé. Lorsqu’un utilisateur est membre de plusieurs rôles, toutes les autorisations sont agrégées.
+- **Accorder des autorisations directement**
 
-En tant que meilleure pratique, les utilisateurs non administrateurs doivent uniquement bénéficier d’un accès via le pare-feu aux bases de données qu’ils utilisent. Au lieu d’autoriser leurs adresses IP via le pare-feu du niveau du serveur et de leur donner accès à toutes les bases de données, utilisez l’instruction [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) pour configurer le pare-feu au niveau de la base de données. Le pare-feu du niveau de base de données ne peut pas être configuré à l’aide du portail.
+  Accordez directement des [autorisations](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) au compte d’utilisateur. Il existe plus de 100 autorisations qui peuvent être accordées ou refusées individuellement dans la base de données SQL. La plupart de ces autorisations sont imbriquées. Par exemple, l’autorisation `UPDATE` sur un schéma inclut l’autorisation `UPDATE` sur chaque table dans ce schéma. Comme dans la plupart des systèmes d’autorisation, le refus d’une autorisation remplace l’octroi. En raison de la nature imbriquée et du nombre d’autorisations, la plus grande attention est requise pour concevoir un système d’autorisation approprié capable de protéger correctement votre base de données. Démarrez avec la liste des autorisations sous [Autorisations (moteur de base de données)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) et passez en revue le [graphique de taille affiche](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) des autorisations.
 
-### <a name="non-administrator-access-path"></a>Chemin d’accès non administrateur
+## <a name="using-groups"></a>Utilisation de groupes
 
-Lorsque le pare-feu du niveau de base de données est correctement configuré, les utilisateurs de base de données peuvent se connecter à l’aide des outils clients tels que SQL Server Management Studio ou SQL Server Data Tools. Seuls les outils les plus récents fournissent toutes les fonctionnalités et capacités. Le diagramme suivant montre un chemin d’accès non-administrateur classique.
+La gestion efficace de l’accès utilise des autorisations affectées à des groupes de sécurité Active Directory et des rôles fixes ou personnalisés plutôt qu’à des utilisateurs individuels.
 
-![Chemin d’accès non administrateur](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
+- Lorsque vous utilisez l’authentification Azure Active Directory, placez les utilisateurs Azure Active Directory dans un groupe de sécurité Azure Active Directory. Créez un utilisateur de base de données autonome pour le groupe. Placez un ou plusieurs utilisateurs de base de données dans un rôle de base de données personnalisé avec des autorisations spécifiques appropriées pour ce groupe d’utilisateurs.
 
-## <a name="groups-and-roles"></a>Groupes et rôles
+- Lorsque vous utilisez l’authentification SQL, créez des utilisateurs de base de données autonome dans la base de données. Placez un ou plusieurs utilisateurs de base de données dans un rôle de base de données personnalisé avec des autorisations spécifiques appropriées pour ce groupe d’utilisateurs.
 
-Une gestion des accès efficace utilise les autorisations assignées aux groupes et aux rôles plutôt qu’aux utilisateurs individuels. 
+  > [!NOTE]
+  > Vous pouvez également utiliser des groupes pour les utilisateurs de bases de données non autonomes.
 
-- Lorsque vous utilisez l’authentification Azure Active Directory, placez les utilisateurs Azure Active Directory dans un groupe Azure Active Directory. Créez un utilisateur de base de données autonome pour le groupe. Placez un ou plusieurs utilisateurs de base de données dans un [rôle de base de données](https://msdn.microsoft.com/library/ms189121), puis attribuez des [autorisations](https://msdn.microsoft.com/library/ms191291.aspx) au rôle de base de données.
+Vous devez vous familiariser avec les fonctionnalités suivantes qui peuvent être utilisées pour limiter ou élever les autorisations :
 
-- Lorsque vous utilisez l’authentification SQL Server, créez des utilisateurs de base de données autonome dans la base de données. Placez un ou plusieurs utilisateurs de base de données dans un [rôle de base de données](https://msdn.microsoft.com/library/ms189121), puis attribuez des [autorisations](https://msdn.microsoft.com/library/ms191291.aspx) au rôle de base de données.
-
-Les rôles de base de données peuvent être les rôles intégrés, tels que **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** et **db_denydatareader**. **db_owner** est couramment utilisé pour accorder toutes les autorisations à quelques utilisateurs seulement. Les autres rôles de base de données fixe sont utiles pour obtenir rapidement une base de données simple en développement, mais ne sont pas recommandés pour la plupart des bases de données de production. Par exemple, le rôle de base de données fixe **db_datareader** accorde l’accès en lecture à toutes les tables de la base de données, ce qui est généralement plus que le minimum nécessaire. Il est préférable d’utiliser l’instruction [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) pour créer vos propres rôles de base de données définis par l’utilisateur et accorder soigneusement à chaque rôle les autorisations minimales nécessaires aux besoins de l’entreprise. Lorsqu’un utilisateur est membre de plusieurs rôles, toutes les autorisations sont agrégées.
-
-## <a name="permissions"></a>Autorisations
-
-Il existe plus de 100 autorisations qui peuvent être accordées ou refusées individuellement dans la base de données SQL. La plupart de ces autorisations sont imbriquées. Par exemple, l’autorisation `UPDATE` sur un schéma inclut l’autorisation `UPDATE` sur chaque table dans ce schéma. Comme dans la plupart des systèmes d’autorisation, le refus d’une autorisation remplace l’octroi. En raison de la nature imbriquée et du nombre d’autorisations, la plus grande attention est requise pour concevoir un système d’autorisation approprié capable de protéger correctement votre base de données. Démarrez avec la liste des autorisations sous [Autorisations (moteur de base de données)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) et passez en revue le [graphique de taille affiche](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) des autorisations.
-
-
-### <a name="considerations-and-restrictions"></a>Considérations et restrictions
-
-Prenez en compte les aspects suivants lors de la gestion des connexions et des utilisateurs dans SQL Database :
-
-- Vous devez être connecté à la base de données **master** lors de l’exécution des instructions `CREATE/ALTER/DROP DATABASE`.   
-- L’utilisateur de base de données correspondant à la connexion **d’administrateur de serveur** ne peut pas être modifié ou supprimé. 
-- L’anglais américain est la langue par défaut de la connexion d’**administrateur de serveur**.
-- Seuls les administrateurs (connexion d’**administrateur de serveur** ou administrateur Azure AD) et les membres du rôle de base de données **dbmanager** dans la base de données **Master** sont autorisés à exécuter les instructions `CREATE DATABASE` et `DROP DATABASE`.
-- Vous devez être connecté à la base de données master lors de l’exécution des instructions `CREATE/ALTER/DROP LOGIN` . L’utilisation de connexions est toutefois déconseillée. Préférez l’emploi d’utilisateurs de base de données autonome.
-- Pour vous connecter à une base de données utilisateur, vous devez renseigner le nom de la base de données dans la chaîne de connexion.
-- Seule la connexion principale au niveau du serveur et les membres du rôle de base de données **loginmanager** dans la base de données **master** sont autorisés à exécuter les instructions `CREATE LOGIN`, `ALTER LOGIN` et `DROP LOGIN`.
-- Lors de l’exécution des instructions `CREATE/ALTER/DROP LOGIN` et `CREATE/ALTER/DROP DATABASE` dans une application ADO.NET, l’utilisation de commandes paramétrées est interdite. Pour plus d’informations, voir [Commandes et paramètres](https://msdn.microsoft.com/library/ms254953.aspx).
-- Lors de l’exécution des instructions `CREATE/ALTER/DROP DATABASE` et `CREATE/ALTER/DROP LOGIN`, chacune d’entre elles doit être la seule instruction dans un batch Transact-SQL. Sinon, une erreur se produit. Par exemple, l’instruction Transact-SQL suivant vérifie l’existence de la base de données. Si elle existe, une instruction `DROP DATABASE` est appelée pour supprimer la base de données. Comme l’instruction `DROP DATABASE` n’est pas la seule instruction du lot, l’exécution de l’instruction Transact-SQL suivante génère une erreur.
-
-  ```sql
-  IF EXISTS (SELECT [name]
-           FROM   [sys].[databases]
-           WHERE  [name] = N'database_name')
-  DROP DATABASE [database_name];
-  GO
-  ```
-  
-  Au lieu de cela, utilisez l’instruction Transact-SQL suivante :
-  
-  ```sql
-  DROP DATABASE IF EXISTS [database_name]
-  ```
-
-- Lors de l’exécution de l’instruction `CREATE USER` avec l’option `FOR/FROM LOGIN`, elle doit être la seule instruction du batch Transact-SQL.
-- Lors de l’exécution de l’instruction `ALTER USER` avec l’option `WITH LOGIN`, elle doit être la seule instruction du batch Transact-SQL.
-- Pour exécuter les instructions `CREATE/ALTER/DROP`, un utilisateur a besoin de l’autorisation `ALTER ANY USER` sur la base de données.
-- Quand le propriétaire d’un rôle de base de données tente d’ajouter un autre utilisateur de base de données à ce rôle de base de données (ou de le supprimer de ce dernier), l’erreur suivante peut se produire : **L’utilisateur ou le rôle « Nom » n’existe pas dans cette base de données.** Cette erreur survient, car l’utilisateur n’est pas visible par le propriétaire. Pour résoudre ce problème, accordez au propriétaire du rôle l’autorisation `VIEW DEFINITION` sur l’utilisateur. 
-
+- Vous pouvez recourir à l’[emprunt d’identité](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) et à la [signature de module](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) pour élever le niveau des autorisations temporairement, en toute sécurité.
+- [sécurité au niveau des lignes](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) peut être utilisée pour limiter le nombres de lignes accessibles par l’utilisateur.
+- [masquage des données](sql-database-dynamic-data-masking-get-started.md) permet de restreindre l’exposition des données sensibles.
+- [procédures stockées](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) , vous pouvez limiter le nombre d’actions susceptibles d’être exécutées sur la base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les règles de pare-feu, consultez [Vue d’ensemble des règles de pare-feu Azure SQL Database](sql-database-firewall-configure.md).
-- Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Vue d’ensemble de la sécurité SQL](sql-database-security-overview.md).
-- Pour un tutoriel, consultez [Sécuriser votre base de données Azure SQL](sql-database-security-tutorial.md).
-- Pour plus d’informations sur les vues et procédures stockées, consultez [Création des vues et des procédures stockées](https://msdn.microsoft.com/library/ms365311.aspx).
-- Pour plus d’informations sur l’octroi d’accès à un objet de base de données, consultez [Octroi de l’accès à un objet de base de données](https://msdn.microsoft.com/library/ms365327.aspx).
+Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Vue d’ensemble de la sécurité SQL](sql-database-security-overview.md).

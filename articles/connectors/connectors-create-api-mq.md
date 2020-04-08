@@ -7,14 +7,14 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, logicappspm
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 03/31/2020
 tags: connectors
-ms.openlocfilehash: 6bfd626c1ce69029ee720d24b0b143e7b4c3dd56
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 737c5b90b216156ca08346f4a64fd0b421ad6c19
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650945"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410270"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Se connecter à un serveur IBM MQ depuis Azure Logic Apps
 
@@ -22,91 +22,136 @@ Le connecteur IBM MQ envoie et récupère les messages stockés dans un serveur 
 
 Le connecteur IBM MQ inclut ces actions, mais ne fournit aucun déclencheur :
 
-- Parcourir un seul message sans le supprimer du serveur IBM MQ
-- Parcourir un lot de messages sans supprimer ceux-ci du serveur IBM MQ
-- Recevoir un message unique et supprimer le message à partir du serveur IBM MQ
-- Recevoir un lot de messages et supprimer les messages du serveur IBM MQ
-- Envoyer un message unique au serveur IBM MQ
+- Parcourez un seul message sans le supprimer du serveur IBM MQ.
+- Parcourez un lot de messages sans supprimer ceux-ci du serveur IBM MQ.
+- Recevez un message unique et supprimez le message à partir du serveur IBM MQ.
+- Recevez un lot de messages et supprimez les messages du serveur IBM MQ.
+- Envoyez un message unique au serveur IBM MQ.
 
-## <a name="prerequisites"></a>Prérequis
-
-* Si vous utilisez un serveur MQ local, [installez la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) sur un serveur au sein de votre réseau. Pour que le connecteur MQ fonctionne, .NET Framework 4.6 doit également être installé sur le serveur sur lequel la passerelle de données locale est installée. Vous devez également créer une ressource dans Azure pour la passerelle de données locale. Pour plus d’informations, consultez [Configurer la connexion à la passerelle de données](../logic-apps/logic-apps-gateway-connection.md).
-
-  Toutefois, si votre serveur MQ est disponible publiquement ou dans Azure, vous n’avez pas à utiliser la passerelle de données.
-
-* Versions d’IBM WebSphere MQ Officiellement prises en charge :
+Voici les versions d’IBM WebSphere MQ officiellement prises en charge :
 
   * MQ 7.5
   * MQ 8.0
   * MQ 9.0
 
-* L’application logique dans laquelle vous souhaitez ajouter l’action MQ. Cette application logique doit utiliser le même emplacement que la connexion de votre passerelle de données locale et vous devez avoir un déclencheur qui démarre votre workflow. 
+## <a name="prerequisites"></a>Prérequis
 
-  Le connecteur MQ ne possède aucun déclencheur. Vous devez donc d’abord en ajouter un à votre application logique. Par exemple, vous pouvez utiliser le déclencheur Recurrence. Si vous débutez avec les applications logiques, essayez ce [Démarrage rapide pour créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Si vous utilisez un serveur MQ local, [installez la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) sur un serveur au sein de votre réseau. Pour que le connecteur MQ fonctionne, .NET Framework 4.6 doit également être installé sur le serveur sur lequel la passerelle de données locale est installée.
 
-## <a name="browse-a-single-message"></a>Parcourir un seul message
+  Une fois que vous avez terminé l’installation de la passerelle, vous devez également créer une ressource dans Azure pour la passerelle de données locale. Pour plus d’informations, consultez [Configurer la connexion à la passerelle de données](../logic-apps/logic-apps-gateway-connection.md).
 
-1. Dans votre application logique, sous le déclencheur ou une autre action, choisissez **Nouvelle étape**. 
+  Si votre serveur MQ est disponible publiquement ou dans Azure, vous n’avez pas à utiliser la passerelle de données.
 
-1. Dans la zone de recherche, entrez « mq », puis sélectionnez cette action : **Parcourir un message**
+* L’application logique dans laquelle vous souhaitez ajouter l’action MQ. Cette application logique doit utiliser le même emplacement que la connexion de votre passerelle de données locale et vous devez avoir un déclencheur qui démarre votre workflow.
 
-   ![Parcourir un message](media/connectors-create-api-mq/Browse_message.png)
+  Le connecteur MQ ne possède aucun déclencheur. Vous devez donc d’abord en ajouter un à votre application logique. Par exemple, vous pouvez utiliser le déclencheur Recurrence. Si vous débutez avec les applications logiques, essayez ce [Démarrage rapide pour créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. À défaut de connexion MQ existante, créez la connexion :  
+<a name="create-connection"></a>
 
-   1. Dans l’action, sélectionnez l’option **Se connecter via la passerelle de données locale**.
-   
-   1. Renseignez les propriétés de votre serveur MQ.  
+## <a name="create-mq-connection"></a>Créer une connexion MQ
 
-      Pour **Serveur**, vous pouvez entrer le nom du serveur MQ, ou l’adresse IP suivie par un signe deux-points et le numéro de port.
-    
-   1. Ouvrez la liste des **passerelles**, ce qui affiche toutes les connexions de passerelle précédemment configurées. Sélectionnez votre passerelle.
-    
-   1. Lorsque vous êtes prêt, choisissez **Créer**. 
-   
-      Votre condition ressemble à cet exemple :
+Si vous n’avez pas encore de connexion à MQ lorsque vous ajoutez une action MQ, vous êtes invité à la créer, par exemple :
 
-      ![Propriétés de connexion](media/connectors-create-api-mq/Connection_Properties.png)
+![Fournir les informations de connexion](media/connectors-create-api-mq/connection-properties.png)
 
-1. Configurez les propriétés de l’action :
+1. Si vous vous connectez à un serveur MQ local, sélectionnez **Se connecter via une passerelle de données locale**.
 
-   * **Queue** (File d’attente) : Spécifiez une file d’attente différente de la connexion.
+1. Fournissez les informations de connexion pour votre serveur MQ.
 
-   * **MessageId**, **CorrelationId**, **GroupId**et d’autres propriétés : Recherchez un message basé sur les différentes propriétés de message MQ
+   * Pour **Serveur**, vous pouvez entrer le nom du serveur MQ, ou l’adresse IP suivie par un signe deux-points et le numéro de port.
 
-   * **IncludeInfo** : Définissez la propriété sur **True** pour inclure des informations supplémentaires dans la sortie. Ou bien définissez la propriété sur **False** pour ne pas inclure des informations supplémentaires dans la sortie.
+   * Pour utiliser le protocole SSL, sélectionnez **Activer SSL ?** .
 
-   * **Timeout** (Expiration du délai) : Entrer une valeur pour déterminer la durée d’attente de l’arrivée d’un message dans une file d’attente vide. Si aucune valeur n’est entrée, le premier message dans la file d’attente est récupéré et aucun temps n’est consacré à l’attente de l’affichage d’un message.
+     Actuellement, le connecteur MQ prend uniquement en charge l’authentification serveur, et pas l’authentification client. Pour plus d’informations, consultez [Problèmes de connexion et d’authentification](#connection-problems).
 
-     ![Parcourir les propriétés d’un message](media/connectors-create-api-mq/Browse_message_Props.png)
+1. Dans la section **Passerelle**, procédez comme suit :
 
-1. **Enregistrez** vos modifications, puis **exécutez** votre application logique.
+   1. Dans la liste **Abonnement**, sélectionnez l’abonnement Azure associé à votre ressource de passerelle Azure.
 
-   ![Enregistrer et exécuter](media/connectors-create-api-mq/Save_Run.png)
+   1. Dans la liste **Passerelle de connexion**, sélectionnez la ressource de passerelle Azure que vous souhaitez utiliser.
 
-   Une fois l’exécution terminée, les étapes de l’exécution sont affichées et vous pouvez consulter la sortie.
+1. Sélectionnez **Créer** lorsque vous avez terminé.
 
-1. Pour passer en revue les détails de chaque étape, choisissez la coche verte. Pour consulter plus d’informations sur les données de sortie, choisissez **Afficher les sorties brutes**.
+<a name="connection-problems"></a>
 
-   ![Parcourir une sortie de message](media/connectors-create-api-mq/Browse_message_output.png)  
+### <a name="connection-and-authentication-problems"></a>Problèmes de connexion et d’authentification
+
+Lorsque votre application logique tente de se connecter à votre serveur MQ local, vous pourriez recevoir cette erreur :
+
+`"MQ: Could not Connect the Queue Manager '<queue-manager-name>': The Server was expecting an SSL connection."`
+
+* Si vous utilisez le connecteur MQ directement dans Azure, le serveur MQ doit utiliser un certificat émis par une [autorité de certification](https://www.ssl.com/faqs/what-is-a-certificate-authority/) approuvée.
+
+* Si vous utilisez la passerelle de données locale, essayez d’utiliser un certificat émis par une [autorité de certification](https://www.ssl.com/faqs/what-is-a-certificate-authority/) approuvée dans la mesure du possible. Toutefois, si cette option n’est pas possible, vous pouvez utiliser un certificat auto-signé, qui n’est pas émis par une [autorité de certification](https://www.ssl.com/faqs/what-is-a-certificate-authority/) approuvée et est considéré comme moins sécurisé.
+
+  Pour installer le certificat auto-signé du serveur, vous pouvez utiliser l’outil **Windows Certification Manager** (Certmgr.msc). Pour ce scénario, sur votre ordinateur local sur lequel le service de passerelle de données locale est en cours d’exécution, vous devez installer le certificat dans votre magasin de certificats **Ordinateur local** au niveau **Autorités de certification racines de confiance**.
+
+  1. Sur l’ordinateur exécutant le service de passerelle de données locale, ouvrez le menu Démarrer, puis recherchez et sélectionnez **Gérer les certificats utilisateur**.
+
+  1. Après l’ouverture de l’outil Windows Certification Manager, accédez au dossier **Certificats - Ordinateur local** >  **Autorités de certification racines de confiance**, puis installez le certificat.
+
+     > [!IMPORTANT]
+     > Veillez à installer le certificat dans le magasin **Certificats - Ordinateur local** > **Autorités de certification racines de confiance**.
+
+* Le serveur MQ requiert la définition de la spécification de chiffrement que vous souhaitez utiliser pour les connexions SSL. Toutefois, SsLStream dans .NET ne vous permet pas de spécifier l’ordre des spécifications de chiffrement. Pour contourner cette limitation, vous pouvez modifier la configuration de votre serveur MQ afin qu’elle corresponde à la première spécification de chiffrement de la suite que le connecteur envoie dans la négociation SSL.
+
+  Lorsque vous essayez la connexion, le serveur MQ enregistre un message d’événement qui indique que la connexion a échoué, car l’autre terminaison a utilisé la mauvaise spécification de chiffrement. Le message d’événement contient la spécification de chiffrement qui apparaît en premier dans la liste. Mettez à jour la spécification de chiffrement dans la configuration du canal pour qu’elle corresponde à la spécification de chiffrement du message d’événement.
+
+## <a name="browse-single-message"></a>Parcourir un seul message
+
+1. Dans votre application logique, sous le déclencheur ou une autre action, sélectionnez **Nouvelle étape**.
+
+1. Dans la zone de recherche, saisissez `mq`, puis sélectionnez l’action **Parcourir le message**.
+
+   ![Sélectionner l’action « Parcourir le message »](media/connectors-create-api-mq/browse-message.png)
+
+1. Si vous n’avez pas encore créé de connexion MQ, vous êtes invité à [créer cette connexion](#create-connection).
+
+1. Après avoir créé la connexion, configurez les propriétés de l’action **Parcourir le message** :
+
+   | Propriété | Description |
+   |----------|-------------|
+   | **File d'attente** | Si la file d'attente est différente de celle spécifiée dans la connexion, spécifiez-la. |
+   | **MessageId**, **CorrelationId**, **GroupId** et d’autres propriétés | Recherchez un message basé sur les différentes propriétés de message MQ |
+   | **IncludeInfo** | Sélectionnez **true** pour inclure des informations supplémentaires dans la sortie. Pour omettre les informations supplémentaires sur les messages dans la sortie, sélectionnez **false**. |
+   | **Délai d'expiration** | Entrer une valeur pour déterminer la durée d’attente de l’arrivée d’un message dans une file d’attente vide. Si aucune valeur n’est entrée, le premier message dans la file d’attente est récupéré et aucun temps n’est consacré à l’attente de l’affichage d’un message. |
+   |||
+
+   Par exemple :
+
+   ![Propriétés de l’action « Parcourir le message »](media/connectors-create-api-mq/browse-message-properties.png)
+
+1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**. Pour tester votre application, sélectionnez **Exécuter**.
+
+   Une fois l’exécution terminée, le concepteur affiche les étapes du flux de travail et leur état afin que vous puissiez examiner la sortie.
+
+1. Pour afficher les détails de chaque étape, cliquez sur la barre de titre de l’étape. Pour consulter plus d’informations sur la sortie d’une étape, sélectionnez **Afficher les sorties brutes**.
+
+   ![Parcourir une sortie de message](media/connectors-create-api-mq/browse-message-output.png)
 
    Voici un exemple de sortie brute :
 
-   ![Parcourir une sortie brute de message](media/connectors-create-api-mq/Browse_message_raw_output.png)
+   ![Parcourir une sortie brute de message](media/connectors-create-api-mq/browse-message-raw-output.png)
 
-1. Si vous définissez l’option **IncludeInfo** sur true, la sortie suivante s’affiche :
+1. Si vous définissez **IncludeInfo** sur **true**, une sortie supplémentaire s’affiche :
 
-   ![Parcourir les informations include d’un message](media/connectors-create-api-mq/Browse_message_Include_Info.png)
+   ![Parcourir les informations include d’un message](media/connectors-create-api-mq/browse-message-include-info.png)
 
 ## <a name="browse-multiple-messages"></a>Parcourir plusieurs messages
 
-L’action **Parcourir des messages** inclut une option **BatchSize** permettant d’indiquer le nombre de messages à retourner à partir de la file d’attente.  Si l’option **BatchSize** ne comporte aucune entrée, tous les messages sont retournés. La sortie retournée est un tableau de messages.
+L’action **Parcourir les messages** inclut une option **BatchSize** permettant d’indiquer le nombre de messages à retourner à partir de la file d’attente. Si l’option **BatchSize** ne comporte aucune valeur, tous les messages sont retournés. La sortie retournée est un tableau de messages.
 
-1. Lorsque vous ajoutez l’action **Parcourir les messages**, la première connexion précédemment configurée est sélectionnée par défaut. Pour créer une nouvelle connexion, choisissez **Modifier la connexion**. Ou sélectionnez une autre connexion.
+1. Suivez les étapes précédentes, mais ajoutez l’action **Parcourir les messages** à la place.
 
-1. Lorsque l’exécution de l’application logique se termine, voici un exemple de sortie de l’action **Parcourir les messages** :
+1. Si vous n’avez pas encore créé de connexion MQ, vous êtes invité à [créer cette connexion](#create-connection). Sinon, par défaut, la première connexion précédemment configurée est utilisée. Pour créer une nouvelle connexion, sélectionnez **Modifier la connexion**. Ou sélectionnez une autre connexion.
 
-   ![Parcourir la sortie des messages](media/connectors-create-api-mq/Browse_messages_output.png)
+1. Entrez les informations pour l’action.
+
+1. Enregistrez et exécutez l’application logique.
+
+   Lorsque l’exécution de l’application logique se termine, voici un exemple de sortie de l’action **Parcourir les messages** :
+
+   ![Exemple de sortie « Parcourir les messages »](media/connectors-create-api-mq/browse-messages-output.png)
 
 ## <a name="receive-single-message"></a>Recevoir un seul message
 
@@ -116,28 +161,30 @@ L’action **Recevoir un message** a les mêmes entrées et sorties que l’acti
 
 L’action **Recevoir des messages** a les mêmes entrées et sorties que l’action **Parcourir des messages**. Lorsque vous utilisez l’action **Recevoir des messages**, les messages sont supprimés de la file d’attente.
 
-S’il n’existe aucun message dans la file d’attente lorsque vous effectuez une opération de recherche ou de réception, l’opération échoue en affichant cette sortie :  
-
-![Erreur MQ Aucun message](media/connectors-create-api-mq/MQ_No_Msg_Error.png)
+> [!NOTE]
+> Lors de l’exécution d’une action de navigation ou de réception sur une file d’attente qui n’a pas de messages, l’action échoue avec la sortie suivante :
+>
+> ![Erreur MQ « Aucun message »](media/connectors-create-api-mq/mq-no-message-error.png)
 
 ## <a name="send-message"></a>Envoyer un message
 
-Lorsque vous ajoutez l’action **Envoyer des messages**, la première connexion précédemment configurée est sélectionnée par défaut. Pour créer une nouvelle connexion, choisissez **Modifier la connexion**. Ou sélectionnez une autre connexion.
+1. Suivez les étapes précédentes, mais ajoutez à la place l’action **Envoyer un message**.
 
-1. Sélectionnez un type de message valide : **Datagramme**, **Réponse**, ou **Demande**  
+1. Si vous n’avez pas encore créé de connexion MQ, vous êtes invité à [créer cette connexion](#create-connection). Sinon, par défaut, la première connexion précédemment configurée est utilisée. Pour créer une nouvelle connexion, sélectionnez **Modifier la connexion**. Ou sélectionnez une autre connexion.
 
-   ![Propriétés d’envoi des messages](media/connectors-create-api-mq/Send_Msg_Props.png)
+1. Entrez les informations pour l’action. Pour **MessageType**, sélectionnez un type de message valide : **Datagramme**, **Réponse**, ou **Demande**
 
-1. Lorsque l’exécution de l’application logique se termine, voici un exemple de sortie de l’action **Envoyer des messages** :
+   ![Propriétés de l’action « Envoyer un message »](media/connectors-create-api-mq/send-message-properties.png)
 
-   ![Sortie Envoyer un message](media/connectors-create-api-mq/Send_Msg_Output.png)
+1. Enregistrez et exécutez l’application logique.
+
+   Lorsque l’exécution de l’application logique se termine, voici un exemple de sortie de l’action **Envoyer des messages** :
+
+   ![Exemple de sortie « Envoyer un message »](media/connectors-create-api-mq/send-message-output.png)
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/mq/).
-
-> [!NOTE]
-> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
+Pour obtenir des détails techniques, les actions et les limites, qui sont fournis par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/mq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

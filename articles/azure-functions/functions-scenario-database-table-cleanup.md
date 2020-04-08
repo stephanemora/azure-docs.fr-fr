@@ -4,12 +4,12 @@ description: Utilisez Azure Functions pour planifier une tâche qui se connecte 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972232"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79366805"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 
@@ -29,7 +29,7 @@ Si c’est la première fois que vous utilisez Azure Functions pour C#, vous dev
 
 Vous devez obtenir la chaîne de connexion pour la base de données que vous avez créée quand vous avez effectué les étapes de [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
@@ -43,7 +43,7 @@ Une Function App héberge l’exécution de vos fonctions dans Azure. En guise d
 
 Vous devez avoir publié votre application sur Azure. Si ce n’est déjà fait, [publiez votre application de fonction sur Azure](functions-develop-vs.md#publish-to-azure).
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet d’application de fonction et choisissez **Publier** > **Gérer les paramètres d’application...** . Sélectionnez **Ajouter un paramètre**, dans **Nom du nouveau paramètre d’application**, tapez `sqldb_connection`, puis sélectionnez **OK**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet d’application de fonction et choisissez **Publier** > **Modifier les paramètres d’Azure App Service**. Sélectionnez **Ajouter un paramètre**, dans **Nom du nouveau paramètre d’application**, tapez `sqldb_connection`, puis sélectionnez **OK**.
 
     ![Paramètres de l’application pour l’application de fonction.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 

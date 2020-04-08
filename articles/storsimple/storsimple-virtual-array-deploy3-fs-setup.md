@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2d93099f0f76f173cc7e77ab7f24f27d1560835
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516774"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297645"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration comme un serveur de fichiers via le portail Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -34,16 +34,16 @@ Cet article décrit comment effectuer la configuration initiale, inscrire votre 
 Le processus d’installation et de configuration peut prendre jusqu’à 10 minutes. Les informations fournies dans cet article s’appliquent uniquement au déploiement de la solution StorSimple Virtual Array. Pour le déploiement d'appareils StorSimple 8000, accédez à : [Déployer un appareil StorSimple 8000 exécutant Update 2](storsimple-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Configuration requise
-Avant de configurer votre solution StorSimple Virtual Array, assurez-vous que :
+Avant de configurer votre solution StorSimple Virtual Array, assurez-vous que :
 
 * Vous avez approvisionné une baie virtuelle et vous vous y êtes connecté comme indiqué dans l’article [Configurer StorSimple Virtual Array dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Configurer StorSimple Virtual Array dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Vous disposez de la clé d’inscription du service StorSimple Device Manager que vous avez créé pour gérer les baies StorSimple Virtual Array. Pour plus d'informations, consultez l'article [Étape 2 : Obtention de la clé d'inscription](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
+* Vous disposez de la clé d’inscription du service StorSimple Device Manager que vous avez créé pour gérer les baies StorSimple Virtual Array. Pour plus d'informations, consultez [Étape 2 : Obtention de la clé d'inscription](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
 * S’il s’agit de la deuxième baie virtuelle (ou d’une baie ultérieure) que vous inscrivez auprès d’un service StorSimple Device Manager existant, vous devez disposer de la clé de chiffrement des données du service. Cette clé a été générée lorsque le premier appareil a été correctement inscrit auprès de ce service. Si vous avez perdu cette clé, consultez la rubrique [Obtenir la clé de chiffrement des données de service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) pour votre StorSimple Virtual Array.
 
 ## <a name="step-by-step-setup"></a>Configuration étape par étape
 Utilisez la procédure détaillée ci-dessous pour configurer votre solution StorSimple Virtual Array.
 
-## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil
+## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Pour finaliser l'installation et l’inscription de l'appareil
 1. Ouvrez une fenêtre de navigateur et connectez-vous à l’interface utilisateur web locale. Tapez :
    
@@ -52,7 +52,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
    Utilisez l'URL de connexion notée à l'étape précédente. Une erreur vous indique qu’il existe un problème avec le certificat de sécurité du site web. Cliquez sur **Poursuivre sur cette page web**.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
-2. Connectez-vous à l’interface utilisateur web de votre baie virtuelle sous le nom **StorSimpleAdmin**. Entrez le mot de passe de l'administrateur de l'appareil que vous avez modifié à l'étape 3 relative au démarrage de la baie virtuelle de l'article [Configurer StorSimple Virtual Array dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Configurer StorSimple Virtual Array dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+2. Connectez-vous à l’interface utilisateur web de votre baie virtuelle sous le nom **StorSimpleAdmin**. Entrez le mot de passe de l'administrateur de l'appareil que vous avez modifié à l'Étape 3 : relative au démarrage de la baie virtuelle de l'article [Configurer StorSimple Virtual Array dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Configurer StorSimple Virtual Array dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. Vous accédez alors à la page **Accueil**. Cette page décrit les différents paramètres requis pour configurer et inscrire la baie virtuelle auprès du service StorSimple Device Manager. Les **paramètres réseau**, les **paramètres de proxy web** et les **paramètres de l’heure** sont facultatifs. Les seuls paramètres obligatoires sont les **paramètres de l’appareil** et les **paramètres du cloud**.
@@ -70,7 +70,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
 6. Sur la page **Paramètres de l’appareil** :
    
    1. Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
-   2. Cliquez sur l’icône **Serveur de fichiers** ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) pour le **type** d’appareil que vous créez. Un serveur de fichiers vous permettra de créer des dossiers partagés.
+   2. Cliquez sur l’icône **Serveur de fichiers**![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) pour le **type** d’appareil que vous créez. Un serveur de fichiers vous permettra de créer des dossiers partagés.
    3. Votre appareil étant un serveur de fichiers, vous devez l’associer à un domaine. Entrez un **nom de domaine**.
    4. Cliquez sur **Appliquer**.
 7. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône en forme de coche. Les informations d’identification de domaine sont vérifiées. Si les informations d’identification sont incorrectes, un message d’erreur apparaît.
@@ -103,7 +103,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
     1. Dans la liste déroulante, définissez le **fuseau horaire** en fonction de l’emplacement géographique de l’appareil déployé. Le fuseau horaire par défaut de votre appareil est PST. Votre appareil utilise ce fuseau horaire pour toutes les opérations planifiées.
     2. Spécifiez un **serveur NTP principal** pour votre appareil ou acceptez la valeur par défaut time.windows.com. Vérifiez que votre réseau autorise le trafic NTP à passer de votre centre de données à Internet.
     3. (Facultatif) Spécifiez un **serveur NTP secondaire** pour votre appareil.
-    4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres d’heure configurés.
+    4. Cliquez sur **Appliquer**. Cette opération validera et appliquera les paramètres d’heure configurés.
 11. Configurez les paramètres de cloud de votre appareil. Dans le cadre de cette étape, vous allez effectuer la configuration de l’appareil local, puis inscrire l’appareil auprès de votre service StorSimple Device Manager.
     
     1. Entrez la **clé d'inscription au service** obtenue à l'[Étape 2 : Obtention de la clé d'inscription](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) pour StorSimple Virtual Array.
@@ -120,7 +120,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
     
     ![Configurer un serveur de fichiers](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
-## <a name="step-2-configure-the-device-as-file-server"></a>Étape 2 : Configurer l'appareil en tant que serveur de fichiers
+## <a name="step-2-configure-the-device-as-file-server"></a>Étape 2 : Configurer l'appareil en tant que serveur de fichiers
 Pour exécuter la configuration d’appareil requise, procédez comme suit dans le [Portail Azure](https://portal.azure.com/) .
 
 #### <a name="to-configure-the-device-as-file-server"></a>Pour configurer l’appareil en tant que serveur de fichiers
@@ -149,7 +149,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
     
     3. L’emplacement est automatiquement renseigné en fonction du compte de stockage spécifié. 
     
-    4. Activez le protocole SSL pour garantir un canal de communication réseau sécurisé entre l’appareil et le cloud.
+    4. Activez le protocole TLS pour garantir un canal de communication réseau sécurisé entre l’appareil et le cloud.
     
     5. Cliquez sur **Ajouter** pour ajouter ces informations d’identification du compte de stockage. 
    
