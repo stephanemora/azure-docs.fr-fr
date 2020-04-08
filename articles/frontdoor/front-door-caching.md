@@ -1,6 +1,6 @@
 ---
-title: Mise en cache avec Azure Front Door Service | Microsoft Docs
-description: Cet article vous aide à comprendre comment Azure Front Door Service supervise l’intégrité de vos backends
+title: Azure Front Door – Mise en cache | Microsoft Docs
+description: Cet article explique comment Azure Front Door supervise l’intégrité de vos back-ends.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 70ee0af0b39e80aa90d143303b3c522fbb3cc780
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839219"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471742"
 ---
-# <a name="caching-with-azure-front-door-service"></a>Mise en cache avec Azure Front Door Service
-Le document suivant explique comment spécifier le comportement d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée.
+# <a name="caching-with-azure-front-door"></a>Mise en cache avec Azure Front Door
+Le document suivant explique comment spécifier le comportement d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée. Front Door est un réseau de distribution de contenu (CDN) moderne ; de ce fait, au même titre que l’accélération de site dynamique et l’équilibrage de charge, il prend en charge les comportements de mise en cache comme n’importe quel réseau CDN.
 
 ## <a name="delivery-of-large-files"></a>Distribution de fichiers volumineux
-Azure Front Door Service permet de distribuer des fichiers volumineux sans aucune limite de taille de fichier. Front Door utilise une technique appelée segmentation d’objets. Quand un fichier volumineux est demandé, la porte d’entrée récupère les petits éléments du fichier auprès du backend. Après avoir reçu une demande de fichier complet ou à plage d’octets, un environnement de porte d’entrée demande le fichier au backend par blocs de 8 Mo.
+Azure Front Door permet de distribuer des fichiers volumineux sans aucune plafond de taille de fichier. Front Door utilise une technique appelée segmentation d’objets. Quand un fichier volumineux est demandé, la porte d’entrée récupère les petits éléments du fichier auprès du backend. Après avoir reçu une demande de fichier complet ou à plage d’octets, un environnement de porte d’entrée demande le fichier au backend par blocs de 8 Mo.
 
 </br>Dès lors qu’un bloc parvient à l’environnement de porte d’entrée, il est mis en cache et immédiatement remis à l’utilisateur. La porte d’entrée se prépare ensuite à récupérer le bloc suivant en parallèle. Cette prérécupération est l’assurance que le contenu a un bloc d’avance sur l’utilisateur, ce qui réduit la latence. Ce processus se poursuit jusqu'à ce que le fichier entier soit téléchargé (si nécessaire), que toutes les plages d’octets soient disponibles (si nécessaire), ou que le client mette fin à la connexion.
 
@@ -92,8 +92,8 @@ Front Door met en cache les éléments multimédias tant que leur durée de vie 
 </br>La bonne pratique pour vous assurer que vos utilisateurs obtiennent toujours la dernière copie de vos éléments multimédia consiste à établir une version de vos ressources pour chaque mise à jour et à les publier en tant que nouvelles URL. Front Door récupère immédiatement les nouveaux éléments multimédias pour les demandes suivantes des clients. Il est parfois souhaitable de vider le contenu mis en cache sur tous les nœuds de périmètre et de tous les forcer à récupérer de nouveaux éléments multimédias mis à jour. Ce besoin peut être dû à des mises à jour de votre application web, ou à la nécessité de mettre à jour rapidement les éléments multimédias qui contiennent des informations incorrectes.
 
 </br>Sélectionnez les éléments multimédias que vous souhaitez vider sur les nœuds de périmètre. Si vous souhaitez effacer tous les éléments multimédias, cochez la case Vider tout. Sinon, tapez le chemin de chaque élément multimédia que vous souhaitez vider dans la zone de texte Chemin d’accès. Les formats suivants sont pris en charge dans le chemin d’accès.
-1. **Vidage d’URL unique** : videz un élément multimédia individuel en spécifiant l’URL complète, avec l’extension de fichier, par exemple /pictures/strasbourg.png;
-2. **Vidage de caractère générique** : l’astérisque (\*) peut être utilisé comme caractère générique. Videz tous les dossiers, sous-dossiers et fichiers dans un point de terminaison avec /\* dans le chemin ou videz tous les sous-dossiers et fichiers dans un dossier spécifique en spécifiant le dossier suivi de /\*, par exemple /pictures/\*.
+1. **Vidage à chemin unique** : videz un ou plusieurs éléments multimédias individuels en spécifiant leur chemin complet (sans le protocole ni le domaine), avec l’extension de fichier, par exemple /pictures/strasbourg.png;.
+2. **Vidage de caractère générique** : l’astérisque (\*) peut être utilisé comme caractère générique. Videz tous les dossiers, sous-dossiers et fichiers d’un point de terminaison en indiquant /\* dans le chemin ou videz tous les sous-dossiers et fichiers d’un certain dossier en spécifiant le dossier suivi de /\*, par exemple /pictures/\*.
 3. **Vidage du domaine racine** : videz la racine du point de terminaison avec « / » dans le chemin d’accès.
 
 Les vidages du cache dans la porte d’entrée ne respectent pas la casse. Par ailleurs, ils ne prennent pas en compte les chaînes de requête, ce qui signifie que le vidage d’une URL n’a pas pour effet de vider pas toutes ses variantes constituées de chaînes de requête. 
@@ -104,13 +104,11 @@ L’ordre suivant des en-têtes sert à déterminer la durée de stockage d’un
 2. Cache-Control: max-age=\<secondes>
 3. Expires: \<http-date>
 
-Les en-têtes de réponse Cache-Control qui indiquent que la réponse n’est pas mise en cache comme Cache-Control: private, Cache-Control: no cache et Cache-Control: no-store sont honorés. Cependant, s’il existe plusieurs demandes en cours au niveau d’un point de présence pour la même URL, il se peut qu’elles partagent la réponse. En l’absence de Cache-Control, AFD met en cache la ressource pendant une durée X par défaut, où X est choisi de manière aléatoire entre 1 et 3 jours.
-
+Les en-têtes de réponse Cache-Control qui indiquent que la réponse n’est pas mise en cache, comme Cache-Control: private, Cache-Control: no cache et Cache-Control: no-store, sont respectés. Cependant, s’il existe plusieurs demandes en cours au niveau d’un point de présence pour la même URL, il se peut qu’elles partagent la réponse. En l’absence de Cache-Control, AFD met en cache la ressource pendant une durée X par défaut, où X est choisi de manière aléatoire entre 1 et 3 jours.
 
 ## <a name="request-headers"></a>En-têtes de requête
 
 Les en-têtes de demande suivants ne sont pas transférés à un backend quand la mise en cache est utilisée.
-- Authorization
 - Content-Length
 - Transfer-Encoding
 
