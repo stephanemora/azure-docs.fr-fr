@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a621165210702e075f15fb61bd615e157f997fe1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 7db47eda47850c1c080b6a49256c8a0b37bb0d3c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79078868"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330382"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique Azure Active Directory dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -115,6 +115,7 @@ Le nom de la revendication est le nom de l’attribut Azure AD, sauf si l’attr
 ## <a name="requirements-of-an-operation"></a>Exigences d’une opération
 
 - Il doit y avoir exactement un élément **InputClaim** dans le panier de revendications pour tous les profils techniques Azure AD.
+- [L’article sur les attributs de profil utilisateur](user-profile-attributes.md) décrit les attributs de profil utilisateur Azure AD B2C pris en charge que vous pouvez utiliser dans les revendications d’entrée, les revendications de sortie et les revendications persistantes. 
 - Si l’opération est `Write` ou `DeleteClaims`, il doit également apparaître dans un élément **PersistedClaims**.
 - La valeur de la revendication **userPrincipalName** doit être au format `user@tenant.onmicrosoft.com`.
 - La revendication **displayName** est obligatoire et ne peut pas être une chaîne vide.
@@ -254,7 +255,7 @@ Le profil technique suivant supprime un compte d’utilisateur social en utilisa
 | ClientId | Non | Identificateur client pour accéder au locataire en tant que tiers. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](custom-policy-custom-attributes.md). |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
-### <a name="error-messages"></a>Messages d’erreur
+### <a name="ui-elements"></a>Éléments d’interface utilisateur
  
 Les paramètres suivants peuvent être utilisés pour configurer le message d’erreur affiché en cas d’échec. Les métadonnées doivent être configurées dans le profil technique [autodéclaré](self-asserted-technical-profile.md). Les messages d’erreur peuvent être [localisés](localization.md).
 

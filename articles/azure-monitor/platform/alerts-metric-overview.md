@@ -1,15 +1,15 @@
 ---
 title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
-ms.date: 12/5/2019
+ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 2f1734d30136be904aedf7d880922ba052130ec7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664727"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397974"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -122,15 +122,28 @@ L’allongement des périodes passées à vérifier et le nombre de violations p
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Surveillance à l’échelle à l’aide d’alertes de métrique dans Azure Monitor
 
-Pour l'instant, vous avez vu la manière d'utiliser une alerte de métrique unique pour surveiller une ou plusieurs séries chronologiques de métriques liées à une seule ressource Azure. Vous apprécierez de pouvoir appliquer la même règle d'alerte à de nombreuses ressources. Azure Monitor prend également en charge la supervision de plusieurs ressources (du même type) avec une seule règle d’alerte de métrique, pour les ressources qui existent dans la même région Azure. Cette fonctionnalité est actuellement prise en charge uniquement dans le cloud public Azure et uniquement pour les machines virtuelles, les bases de données du serveur SQL, les pools élastiques de serveur SQL et les appareils Data Box. Cette fonctionnalité est aussi uniquement disponible pour les métriques de plateforme et n’est pas prise en charge pour les métriques personnalisées.
+Pour l'instant, vous avez vu la manière d'utiliser une alerte de métrique unique pour surveiller une ou plusieurs séries chronologiques de métriques liées à une seule ressource Azure. Vous apprécierez de pouvoir appliquer la même règle d'alerte à de nombreuses ressources. Azure Monitor prend également en charge la supervision de plusieurs ressources (du même type) avec une seule règle d’alerte de métrique, pour les ressources qui existent dans la même région Azure. 
 
-Vous disposez de trois méthodes pour spécifier l’étendue de la supervision par une règle d’alerte de métrique unique :
+Cette fonctionnalité est actuellement prise en charge pour les métriques de plateforme (et non pour les métriques personnalisées) pour les services suivants dans les clouds Azure suivants :
 
-- sous la forme d’une liste de machines virtuelles dans une seule région Azure d’un abonnement ;
+| Service | Cloud public Azure | Gouvernement américain | Chine |
+|:--------|:--------|:--------|:--------|
+| Machines virtuelles  | **Oui** | Non | Non |
+| Bases de données SQL Server | **Oui** | **Oui** | Non |
+| Pools élastiques SQL Server | **Oui** | **Oui** | Non |
+| Appareils Data Box Edge | **Oui** | **Oui** | Non |
+
+Vous disposez de trois méthodes pour spécifier l’étendue de la supervision par une règle d’alerte de métrique unique. Par exemple, avec des machines virtuelles, vous pouvez spécifier l’étendue comme suit :  
+
+- sous la forme d’une liste de machines virtuelles dans une seule région Azure d’un abonnement
 - pour toutes les machines virtuelles (dans une seule région Azure) dans un ou plusieurs groupes de ressources d’un abonnement ;
 - pour toutes les machines virtuelles (dans une seule région Azure) d’un abonnement.
 
 La création de règles d'alerte de métrique surveillant plusieurs ressources est similaire à la [création de toute autre alerte de métrique](alerts-metric.md) surveillant une seule ressource, à la différence près que vous sélectionnez toutes les ressources que vous souhaitez surveiller. Vous pouvez également créer ces règles par le biais des [modèles Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Vous recevrez des notifications individuelles pour chaque ressource supervisée.
+
+> [!NOTE]
+>
+> Dans une règle d’alerte métrique qui surveille plusieurs ressources, une seule condition est autorisée.
 
 ## <a name="typical-latency"></a>Latence classique
 

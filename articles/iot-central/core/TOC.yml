@@ -21,8 +21,10 @@
   items:
     - name: Se connecter
       items:
-        - name: Connecter un appareil
-          href: tutorial-connect-device.md
+        - name: Connecter un appareil (Node.js)
+          href: tutorial-connect-device-nodejs.md
+        - name: Connecter un appareil (Python)
+          href: tutorial-connect-device-python.md
         - name: Connecter un appareil Plug-and-Play (préversion)
           href: tutorial-connect-pnp-device.md
         - name: Créer un modèle d’appareil de passerelle

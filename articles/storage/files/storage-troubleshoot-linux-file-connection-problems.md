@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9849e8ab918562267e93506771a4c32cf96533a4
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544937"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159487"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 
@@ -22,7 +22,7 @@ En plus des étapes de dépannage présentées dans cet article, vous pouvez uti
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Connexion ou montage impossible d’un partage de fichiers Azure
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Causes courantes de ce problème :
 
@@ -82,7 +82,7 @@ Dans Linux, vous recevez un message d’erreur semblable au suivant :
 
 **\<filename> [autorisation refusée] Quota de disque dépassé**
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Vous avez atteint la limite supérieure de handles ouverts simultanément autorisés pour un fichier.
 
@@ -120,7 +120,7 @@ Pour fermer les descripteurs ouverts pour un partage de fichiers, un répertoire
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>« Erreur de montage (115) : L’opération est en cours » quand vous montez Azure Files à l’aide de SMB 3.0
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Certaines distributions Linux ne prennent pas encore en charge les fonctionnalités de chiffrement dans SMB 3.0. Il est possible que les utilisateurs reçoivent un message d’erreur « 115 » s’ils essaient de monter Azure Files en utilisant SMB 3.0 en raison d’une fonctionnalité manquante. SMB 3.0 avec le chiffrement complet est pris en charge uniquement lorsque vous utilisez Ubuntu 16.04 ou version ultérieure.
 
@@ -152,7 +152,7 @@ Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliqu
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 Ce problème se produit généralement quand le fichier ou le répertoire a un descripteur ouvert. 
 
 ### <a name="solution"></a>Solution
@@ -204,7 +204,7 @@ Vérifiez que votre application est incluse dans les [objectifs de mise à l’�
 
 Sur les plateformes Linux/Unix, la commande **cp -p** échoue si les fichiers 1 et 2 sont détenus par différents utilisateurs.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 L’indicateur Force **f** de COPYFILE provoque l’exécution de la commande **cp -p -f** sur Unix. Cette commande échoue également dans la conservation de l’horodatage du fichier que vous ne possédez pas.
 
@@ -234,7 +234,7 @@ Mettez à niveau le noyau Linux vers les versions suivantes qui incluent un corr
 
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Impossible de créer des liens symboliques - ln : échec de création du lien symbolique « t » : Opération non prise en charge
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 Par défaut, le montage des partages de fichiers Azure sur Linux à l’aide de CIFS n’active pas la prise en charge des liens symboliques (symlinks). Une erreur comme celle-ci s’affiche :
 ```
 ln -s linked -n t
@@ -264,7 +264,7 @@ Vous pouvez ensuite créer des liens symboliques comme suggéré sur le [wiki](h
 
 L’erreur de montage 112 se produit sur le client Linux s’il est resté inactif pendant une période prolongée. Après une durée d’inactivité prolongée, le client se déconnecte, et la connexion arrive à expiration.  
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 La connexion peut être inactive pour les raisons suivantes :
 
@@ -287,6 +287,14 @@ Toutefois, il se peut que ces modifications n’aient pas encore été appliqué
 Vous pouvez contourner ce problème en spécifiant un montage inconditionnel. Un montage inconditionnel force le client à attendre jusqu'à ce qu’une connexion soit établie ou jusqu'à ce qu’elle soit explicitement interrompue. Vous pouvez l’utiliser pour empêcher des erreurs dues à des délais d’attente réseau. Toutefois, cette solution de contournement peut provoquer des attentes indéfinies. Préparez-vous à arrêter les connexions si nécessaire.
 
 Si vous ne pouvez pas effectuer de mise à niveau vers les dernières versions du noyau, vous pouvez contourner ce problème en conservant un fichier dans le partage de fichiers Azure dans lequel vous écrivez toutes les 30 secondes au plus. Il doit s’agir d’une opération d’écriture, telle que la réécriture de la date de création ou de modification du fichier. Sinon, vous pouvez obtenir les résultats mis en cache, et votre opération peut ne pas déclencher la reconnexion.
+
+## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>« CIFS VFS: error -22 on ioctl to get interface list » lorsque vous montez un partage de fichiers Azure à l’aide de SMB 3.0
+
+### <a name="cause"></a>Cause
+Cette erreur est consignée, car Azure Files [ne prend actuellement pas en charge SMB Multichannel](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+
+### <a name="solution"></a>Solution
+Cette erreur peut être ignorée.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

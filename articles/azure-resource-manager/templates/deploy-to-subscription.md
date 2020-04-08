@@ -2,17 +2,17 @@
 title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 50db0b4d46ff4e367411829aa75fa017a168372f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 03/23/2020
+ms.openlocfilehash: 65cc220d32d1e1149b7026fc438f5e34262511dd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207653"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131956"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
-En règle générale, vous déployez des ressources Azure sur un groupe de ressources dans votre abonnement Azure. Toutefois, vous pouvez également créer des ressources au niveau de l’abonnement. Vous utilisez les déploiements au niveau de l’abonnement pour effectuer des actions qui ont un sens à ce niveau, telles que la création de groupes de ressources ou l’affectation d’un [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md).
+Pour simplifier la gestion des ressources dans votre abonnement Azure, vous pouvez définir et affecter des [stratégies](../../governance/policy/overview.md) ou des [contrôles d’accès basés sur les rôles](../../role-based-access-control/overview.md) à travers l’abonnement. Avec les modèles au niveau de l’abonnement, vous appliquez de manière déclarative des stratégies et attribuez des rôles au niveau de l’abonnement. Vous pouvez également créer des groupes de ressources et déployer des ressources.
 
 Pour déployer des modèles au niveau de l’abonnement, utilisez l’interface de ligne de commande Azure, PowerShell ou l’API REST. Le portail Azure ne prend pas en charge le déploiement dans le niveau de l’abonnement.
 
@@ -20,14 +20,20 @@ Pour déployer des modèles au niveau de l’abonnement, utilisez l’interface 
 
 Vous pouvez déployer les types de ressources suivants au niveau de l’abonnement :
 
-* [deployments](/azure/templates/microsoft.resources/deployments)
+* [budgets](/azure/templates/microsoft.consumption/budgets)
+* [déploiements](/azure/templates/microsoft.resources/deployments) : pour les modèles imbriqués qui sont déployés sur des groupes de ressources.
+* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [remediations](/azure/templates/microsoft.policyinsights/remediations)
 * [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+* [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
+* [balises](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>schéma
 
@@ -39,34 +45,33 @@ Pour les modèles, utilisez :
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-Fichiers de fichiers de paramètres, utilisez :
+Le schéma d’un fichier de paramètres est le même pour toutes les étendues de déploiement. Fichiers de fichiers de paramètres, utilisez :
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Commandes de déploiement
 
 Les commandes utilisées pour les déploiements au niveau de l’abonnement sont différentes de celles utilisées pour les déploiements de groupes de ressources.
 
-Pour l’interface de ligne de commande Azure, utilisez [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
+Pour l’interface de ligne de commande Azure, utilisez [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
 
 ```azurecli-interactive
-az deployment create \
-  --name demoDeployment \
+az deployment sub create \
+  --name demoSubDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-
-Pour la commande de déploiement PowerShell, utilisez [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
+Pour la commande de déploiement PowerShell, utilisez [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **New-AzSubscriptionDeployment**. L’exemple suivant déploie un modèle pour créer un groupe de ressources :
 
 ```azurepowershell-interactive
-New-AzDeployment `
-  -Name demoDeployment `
+New-AzSubscriptionDeployment `
+  -Name demoSubDeployment `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
   -rgName demoResourceGroup `
   -rgLocation centralus
 ```
@@ -87,12 +92,12 @@ Pour les déploiements au niveau de l’abonnement, il existe quelques considér
 
 * La fonction [resourceGroup()](template-functions-resource.md#resourcegroup)**n’est pas** prise en charge.
 * Les fonctions [reference()](template-functions-resource.md#reference) et [list()](template-functions-resource.md#list) sont prises en charge.
-* La fonction [resourceId()](template-functions-resource.md#resourceid) est prise en charge. Elle permet d’obtenir l’ID des ressources qui sont utilisées dans les déploiements au niveau de l’abonnement. Ne fournissez pas de valeur pour le paramètre de groupe de ressources.
+* Ou utilisez la fonction [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) pour récupérer l’ID des ressources déployées au niveau abonnement.
 
   Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie, utilisez :
   
   ```json
-  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
   L’ID de ressource retourné possède le format suivant :
@@ -100,8 +105,6 @@ Pour les déploiements au niveau de l’abonnement, il existe quelques considér
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
-
-  Vous pouvez également utiliser la fonction [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) pour récupérer l’ID d’une ressource de niveau abonnement.
 
 ## <a name="create-resource-groups"></a>Créer des groupes de ressources
 
@@ -228,8 +231,8 @@ L’exemple suivant crée un groupe de ressources, et déploie un compte de stoc
               "location": "[parameters('rgLocation')]",
               "sku": {
                 "name": "Standard_LRS"
-              }
-              "kind": "StorageV2",
+              },
+              "kind": "StorageV2"
             }
           ],
           "outputs": {}
@@ -285,10 +288,10 @@ Pour déployer cet exemple de modèle avec Azure CLI, utilisez la commande suiva
 # Built-in policy that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
-az deployment create \
+az deployment sub create \
   --name demoDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json" \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
 ```
 
@@ -300,10 +303,10 @@ $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName 
 $locations = @("westus", "westus2")
 $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name policyassign `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json" `
   -policyDefinitionID $definition.PolicyDefinitionId `
   -policyName setLocation `
   -policyParameters $policyParams
@@ -357,30 +360,29 @@ Vous pouvez [définir](../../governance/policy/concepts/definition-structure.md)
 Pour créer la définition de stratégie dans votre abonnement et l’appliquer à l’abonnement, utilisez la commande CLI suivante :
 
 ```azurecli
-az deployment create \
+az deployment sub create \
   --name demoDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
 ```
 
 Pour déployer ce modèle avec PowerShell, utilisez :
 
 ```azurepowershell
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
 ```
 
 ## <a name="template-samples"></a>Exemples de modèles
 
-* Créez un groupe de ressources, verrouillez-le et accordez-lui des autorisations. Voir [ici](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
-* Créez un groupe de ressources, une stratégie et une attribution de stratégie.  Voir [ici](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
+* [Créez un groupe de ressources, verrouillez-le et accordez-lui des autorisations](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+* [Créez un groupe de ressources, une stratégie et une attribution de stratégie](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur l’attribution de rôles, voir [Gérer l’accès aux ressources Azure avec RBAC et les modèles Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Pour obtenir un exemple de déploiement des paramètres d’espace de travail pour Azure Security Center, consultez [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Vous trouverez des exemples de modèles dans [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md).
-* Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](template-functions.md).
+* Vous pouvez également déployer des modèles au [niveau du groupe de gestion](deploy-to-management-group.md) et au [niveau du locataire](deploy-to-tenant.md).

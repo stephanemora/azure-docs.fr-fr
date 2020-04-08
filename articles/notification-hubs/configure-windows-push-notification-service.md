@@ -12,14 +12,15 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: a7f7734d97cd67c133ff0cedc3ef2376967bcdf4
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 73304e191242725c80204efb132c26aede9ce7e9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212410"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127324"
 ---
-# <a name="configure-windows-push-notification-service-wns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurer les paramètres du service de notifications Push Windows pour un hub de notifications dans le portail Azure
+# <a name="configure-windows-push-notification-service-settings-in-the-azure-portal"></a>Configurer les paramètres du service de notifications Push Windows dans le portail Azure
+
 Cet article explique comment configurer les paramètres du service de notifications Push Windows pour un hub de notifications Azure à l’aide du portail Azure.  
 
 ## <a name="prerequisites"></a>Prérequis

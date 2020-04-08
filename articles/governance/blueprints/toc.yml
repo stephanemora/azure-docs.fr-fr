@@ -225,7 +225,7 @@
     - name: Ordre de séquencement du déploiement de blueprint
       displayName: customize
       href: ./concepts/sequencing-order.md
-    - name: Verrouillage de ressources dans les Blueprints
+    - name: Verrouillage de ressources dans Azure Blueprints
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: Guides pratiques

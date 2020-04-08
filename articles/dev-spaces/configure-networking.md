@@ -1,16 +1,16 @@
 ---
 title: Configurer la mise en réseau pour Azure Dev Spaces dans différentes topologies de réseau
 services: azure-dev-spaces
-ms.date: 01/10/2020
+ms.date: 03/17/2020
 ms.topic: conceptual
 description: Décrit la configuration réseau requise pour l’exécution d’Azure Dev Spaces dans Azure Kubernetes Service
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, CNI, kubenet, SDN, réseau
-ms.openlocfilehash: 9e32e3b65451dceefaeeaf7faed7c8337797e0b8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 82d046aa36fe9caf6337aa7f58ca0db525062283
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240567"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurer la mise en réseau pour Azure Dev Spaces dans différentes topologies de réseau
 
@@ -51,7 +51,7 @@ Azure Dev Spaces vous permet de communiquer directement avec un pod dans un espa
 
 ### <a name="ingress-only-network-traffic-requirements"></a>Exigences en matière de trafic réseau d’entrée uniquement
 
-Azure Dev Spaces assure le routage entre les pods dans les espaces de noms. Par exemple, les espaces de noms où Azure Dev Spaces est activé peuvent avoir une relation parent/enfant, ce qui permet de router le trafic réseau entre les pods dans les espaces de noms parent et enfant. Pour que cette fonctionnalité fonctionne, ajoutez une stratégie réseau autorisant le trafic entre les espaces de noms où le trafic réseau est routé, tels que les espaces de noms parent/enfant. En outre, si le contrôleur d’entrée est déployé sur l’espace de noms *azds*, le contrôleur d’entrée doit communiquer avec les pods instrumentés par un espace Azure Dev Spaces dans un autre espace de noms. Pour que le contrôleur d’entrée fonctionne correctement, le trafic réseau doit être autorisé depuis l’espace de noms *azds* vers l’espace de noms où les pods instrumentés sont en cours d’exécution.
+Azure Dev Spaces assure le routage entre les pods dans les espaces de noms. Par exemple, les espaces de noms où Azure Dev Spaces est activé peuvent avoir une relation parent/enfant, ce qui permet de router le trafic réseau entre les pods dans les espaces de noms parent et enfant. Azure Dev Spaces expose également les points de terminaison de service à l’aide de son propre nom de domaine complet. Pour configurer différentes façons d’exposer des services et leur impact sur le routage au niveau de l’espace de noms, consultez [Utilisation de différentes options de point de terminaison][endpoint-options].
 
 ## <a name="using-azure-cni"></a>Utilisation d’Azure CNI
 
@@ -64,6 +64,23 @@ Les clusters AKS vous permettent de configurer une sécurité supplémentaire qu
 ## <a name="using-aks-private-clusters"></a>Utilisation des clusters privés AKS
 
 À ce stade, Azure Dev Spaces n’est pas pris en charge avec des [clusters privés AKS][aks-private-clusters].
+
+## <a name="using-different-endpoint-options"></a>Utilisation de différentes options de point de terminaison
+
+Azure Dev Spaces a la possibilité d’exposer des points de terminaison pour vos services s’exécutant sur AKS. Lorsque vous activez Azure Dev Spaces sur votre cluster, vous disposez des options suivantes pour configurer le type de point de terminaison de votre cluster :
+
+* Un point de terminaison *public*, ce qui est le comportement par défaut, déploie un contrôleur d’entrée avec une adresse IP publique. L’adresse IP publique est inscrite sur le DNS du cluster, ce qui permet un accès public à vos services à l’aide d’une URL. Vous pouvez afficher cette URL à l’aide de `azds list-uris`.
+* Un point de terminaison *privé* déploie un contrôleur d’entrée avec une adresse IP privée. Avec une adresse IP privée, l’équilibreur de charge pour votre cluster est accessible uniquement à partir du réseau virtuel du cluster. L’adresse IP privée de l’équilibreur de charge est inscrite sur le DNS du cluster afin que les services à l’intérieur du réseau virtuel du cluster soient accessibles à l’aide d’une URL. Vous pouvez afficher cette URL à l’aide de `azds list-uris`.
+* Si vous définissez *aucun* pour l’option de point de terminaison, aucun contrôleur d’entrée n’est déployé. Si aucun contrôleur d’entrée n’est déployé, les [fonctionnalités de routage d’Azure Dev Spaces][dev-spaces-routing] ne fonctionneront pas. Si vous le souhaitez, vous pouvez implémenter votre propre solution de contrôleur d’entrée à l’aide de [traefik][traefik-ingress] ou [NGINX][nginx-ingress], ce qui permettra aux fonctionnalités de routage de fonctionner à nouveau.
+
+Pour configurer votre option de point de terminaison, utilisez *-e* ou *--endpoint* lors de l’activation d’Azure Dev Spaces sur votre cluster. Par exemple :
+
+> [!NOTE]
+> L’option de point de terminaison nécessite que vous exécutiez Azure CLI version 2.2.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
+```
 
 ## <a name="client-requirements"></a>Configuration requise des clients
 
@@ -86,7 +103,10 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 [aks-network-policies]: ../aks/use-network-policies.md
 [aks-private-clusters]: ../aks/private-clusters.md
 [auth-range-section]: #using-api-server-authorized-ip-ranges
+[azure-cli-install]: /cli/azure/install-azure-cli
 [dev-spaces-ip-auth-range-regions]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[dev-spaces-routing]: how-dev-spaces-works-routing.md
+[endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
 [team-quickstart]: quickstart-team-development.md

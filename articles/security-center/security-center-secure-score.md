@@ -13,21 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 15a94a9724fac29d36f6bb88ee4810b3bc7ca607
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 30405ce5cc875144fcd1cf83d4a3f883a0304989
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603483"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415765"
 ---
-# <a name="improve-your-secure-score-in-azure-security-center"></a>Améliorer votre degré de sécurisation dans Azure Security Center
+# <a name="improve-your-secure-score-in-azure-security-center"></a>Amélioration du degré de sécurisation dans Azure Security Center
 
 > [!NOTE]
-> La préversion comprend une fonctionnalité améliorée de degré de sécurisation. À terme, cette version améliorée remplacera la version existante. Cependant, pour faciliter la transition, ces deux versions vont être exécutées côte à côte pendant une certaine période.
+> Cet article concerne la version précédente du score sécurisé. Ce score sécurisé est toujours disponible à partir de l’interface utilisateur, mais il sera progressivement supprimé. Les deux expériences de score sécurisé s’exécutent côte à côte pour permettre une transition plus fluide.
 >
-> Pour plus d’informations sur les avantages que présente la version améliorée du degré de sécurisation, [cliquez ici](secure-score-security-controls.md).
+> Pour plus d’informations sur le score de sécurité plus récent, voir [ici](secure-score-security-controls.md).
 >
-> Pour participer à la préversion, ouvrez le portail Azure, lancez Azure Security Center, puis sélectionnez Degré de sécurisation. Vous verrez alors une bannière située en haut de la page qui propose la nouvelle version de Degré de sécurisation. Vous pouvez également [cliquer ici](https://aka.ms/ascnewscore).
 
 Avec autant de services offrant des avantages en matière de sécurité, il est souvent difficile de connaître les étapes à suivre en premier lieu pour sécuriser et renforcer votre charge de travail. L’outil Niveau de sécurité vérifie vos recommandations de sécurité et les classe par priorité pour que vous sachiez quelles recommandations appliquer en premier lieu. Cela vous permet de rechercher les vulnérabilités de sécurité les plus graves afin de définir les priorités d’investigation. L’outil Niveau de sécurité vous aide à évaluer l’état de sécurité de votre charge de travail.
 
@@ -75,14 +74,11 @@ L’**Impact de la recommandation** vous permet de connaître l’amélioration 
 
 La recommandation présente les menaces auxquelles votre charge de travail est exposée si les mesures correctives ne sont pas prises.
 
-![Niveau de sécurité de la recommandation individuelle](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
-
-
+![score de la recommandation individuelle](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment améliorer l’état de sécurité à l’aide du **niveau de sécurité** dans Azure Security Center. Pour plus d’informations sur Security Center, consultez :
 
-* [FAQ sur Azure Security Center](faq-general.md) : consultez les Questions fréquentes sur le service et le niveau de sécurité.
+* [FAQ de Azure Security Center](security-center-faq.md): forum aux questions concernant l’utilisation de ce service.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md): découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Version améliorée du niveau de sécurité](secure-score-security-controls.md) - Découvrez les avantages de la version améliorée du niveau de sécurité (en préversion).

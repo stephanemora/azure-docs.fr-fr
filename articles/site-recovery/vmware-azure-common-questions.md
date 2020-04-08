@@ -1,18 +1,14 @@
 ---
 title: Questions courantes sur la récupération d’urgence pour VMware avec Azure Site Recovery
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ae16138ae44262f53a8f9948d6287f0acf621244
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719549"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240021"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -69,7 +65,7 @@ Site Recovery doit pouvoir accéder aux serveurs VMware pour :
 
 ### <a name="is-replication-data-sent-to-site-recovery"></a>Est-ce que les données de réplication sont envoyées à Site Recovery ?
 
-Non, Site Recovery n’intercepte pas les données répliquées et n’a pas d’informations sur les éléments exécutés sur vos machines virtuelles. Les données de réplication sont échangées entre les hyperviseurs VMware et le Stockage Azure. Site Recovery n’a aucun moyen d’intercepter ces données. Seules les métadonnées nécessaires pour coordonner la réplication et le basculement sont envoyées au service Site Recovery.  
+Non, Site Recovery n’intercepte pas les données répliquées et n’a pas d’informations sur les éléments exécutés sur vos machines virtuelles. Les données de réplication sont échangées entre les hyperviseurs VMware et le Stockage Azure. Site Recovery n’a aucun moyen d’intercepter ces données. Seules les métadonnées nécessaires pour coordonner la réplication et le basculement sont envoyées au service Site Recovery.
 
 Site Recovery est certifié pour ISO 27001:2013 et 27018, HIPAA et DPA. Les évaluations SOC2 et JAB FedRAMP sont en cours.
 
@@ -305,6 +301,10 @@ Les mises à jour dans les versions 9.24 et ultérieures affichent désormais l�
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Comment puis-je mettre à jour le serveur de traitement vers la version 9.24 ou ultérieure pour obtenir des informations d’intégrité précises ?
 
 Depuis la [version 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups), davantage d’alertes ont été ajoutées pour indiquer l’intégrité du serveur de traitement. [Mettez à jour vos composants de Site Recovery vers la version 9.24 ou ultérieure](service-updates-how-to.md#links-to-currently-supported-update-rollups) pour que toutes les alertes soient générées.
+
+### <a name="how-can-i-ensure-high-availability-of-the-process-server"></a>Comment puis-je garantir une haute disponibilité du serveur de traitement ?
+
+En configurant plusieurs serveurs de processus, la conception offre la flexibilité nécessaire pour déplacer des machines protégées d’un serveur de traitement non sain vers un serveur de traitement opérationnel. Le déplacement d’une machine d’un serveur de traitement à un autre doit être initié explicitement/manuellement via les étapes définies ici : [Déplacement de machines virtuelles entre serveurs de traitement](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ## <a name="failover-and-failback"></a>Basculement et restauration automatique
 

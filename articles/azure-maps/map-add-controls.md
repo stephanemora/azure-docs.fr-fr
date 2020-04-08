@@ -1,19 +1,19 @@
 ---
 title: Ajouter des contrôles à une carte | Microsoft Azure Maps
 description: Comment ajouter un contrôle de zoom, un contrôle de tonalité, un contrôle de rotation et un sélecteur de styles à une carte dans Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e386c136e7d0258d00c22c627dfa5047ba803169
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 094dc9fd01ec71f378a173a2b4fa64cc672d7c97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209764"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334564"
 ---
 # <a name="add-controls-to-a-map"></a>Ajouter des commandes à une carte
 
@@ -75,7 +75,20 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonct
 
 ## <a name="a-map-with-all-controls"></a>Une carte avec tous les contrôles
 
-L’exemple de code suivant ajoute les contrôles de sélecteur de styles, de zoom, de pas et de boussole au coin inférieur droit de la carte. Notez la manière dont elles s’empilent automatiquement. L’ordre des objets de contrôle dans le script détermine l’ordre dans lequel ils apparaissent sur la carte. Pour modifier l’ordre des commandes sur la carte, vous pouvez changer leur ordre dans le script.
+Il est possible de placer plusieurs contrôles dans un tableau et de les ajouter à la carte en même temps et de les placer dans la même zone de la carte afin de simplifier le développement. L’exemple suivant ajoute les contrôles de navigation standard à la carte à l’aide de cette approche.
+
+```javascript
+map.controls.add([
+    new atlas.control.ZoomControl(),
+    new atlas.control.CompassControl(),
+    new atlas.control.PitchControl(),
+    new atlas.control.StyleControl()
+], {
+    position: "top-right"
+});
+```
+
+L’exemple de code suivant ajoute les contrôles de zoom, de boussole, de pas et de sélecteur de style dans le coin supérieur droit de la carte. Notez la manière dont elles s’empilent automatiquement. L’ordre des objets de contrôle dans le script détermine l’ordre dans lequel ils apparaissent sur la carte. Pour modifier l’ordre des commandes sur la carte, vous pouvez changer leur ordre dans le tableau.
 
 <br/>
 

@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: Documentation Azure Remote Rendering
+summary: Azure Remote Rendering (ARR) est un service qui vous permet d’afficher en temps réel des modèles 3D extrêmement complexes sur des appareils tels que HoloLens 2. ARR est actuellement en préversion publique.
+metadata:
+  title: Documentation Azure Remote Rendering
+  description: Découvrez comment utiliser le service Azure Remote Rendering (ARR) pour afficher des modèles 3D extrêmement complexes à distance et en temps réel et présenter le résultat sur des appareils tels que HoloLens 2.
+  ms.service: azure-remote-rendering
+  ms.topic: landing-page
+  author: florianborn71
+  ms.author: flborn
+  ms.date: 03/26/2020
+  ms.openlocfilehash: a257b294c105ca153a57afe90db95a1bd1b753e8
+  ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 04/06/2020
+  ms.locfileid: "80678312"
+landingContent:
+- title: À propos d’Azure Remote Rendering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Remote Rendering ?
+      url: overview/about.md
+    - text: Configuration système requise
+      url: overview/system-requirements.md
+    - text: Créer un compte Azure Remote Rendering
+      url: how-tos/create-an-account.md
+- title: Découvrir les concepts clés pour bien commencer avec Azure Remote Rendering
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: configurer l’authentification ;
+      url: how-tos/authentication.md
+    - text: Sessions Remote Rendering
+      url: concepts/sessions.md
+    - text: Entités
+      url: concepts/entities.md
+    - text: Components
+      url: concepts/components.md
+    - text: Modèles
+      url: concepts/models.md
+    - text: Convertir des modèles
+      url: how-tos/conversion/model-conversion.md
+- title: Convertir et afficher votre premier modèle
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Afficher un modèle avec Unity
+      url: quickstarts/render-model.md
+    - text: Déployer l’exemple Unity sur HoloLens
+      url: quickstarts/deploy-to-hololens.md
+    - text: Déployer l’exemple Unity sur un Bureau
+      url: quickstarts/deploy-to-desktop.md
+    - text: Convertir un modèle pour le rendu
+      url: quickstarts/convert-model.md
+- title: Apprendre à créer sa propre application dans Unity
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configuration d’un projet Unity en partant de zéro
+      url: tutorials/unity/project-setup.md
+    - text: Utilisation d’entités distantes dans Unity
+      url: tutorials/unity/working-with-remote-entities.md
+    - text: Changement d’environnement et de matériaux
+      url: tutorials/unity/changing-environment-and-materials.md

@@ -87,9 +87,9 @@
           displayName: 'metadata, pair'
         - name: Test
           href: How-To/test-knowledge-base.md
-    - name: Gérer les séries de Q/R
+    - name: Gérer les paires de Q/R
       items:
-        - name: Modifier une série de Q/R
+        - name: Modifier une paire de Q/R
           href: How-To/edit-knowledge-base.md
         - name: Ajouter des invites de suivi
           href: How-To/multiturn-conversation.md

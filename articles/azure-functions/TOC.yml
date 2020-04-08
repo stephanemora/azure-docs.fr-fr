@@ -22,8 +22,6 @@
           href: functions-create-your-first-function-visual-studio.md
         - name: Ligne de commande
           href: functions-create-first-azure-function-azure-cli.md
-        - name: Maven/Gradle (Java)
-          href: functions-create-first-java-maven.md
     - name: Se connecter au stockage
       items:
         - name: Visual Studio Code
@@ -32,8 +30,6 @@
           href: functions-add-output-binding-storage-queue-vs.md
         - name: Ligne de commande
           href: functions-add-output-binding-storage-queue-cli.md
-        - name: Maven/Gradle (Java)
-          href: functions-add-output-binding-storage-queue-java.md
 - name: Tutoriels
   items:
     - name: Fonctions avec Logic Apps
@@ -175,10 +171,16 @@
                   href: create-visual-studio.md
                 - name: Visual Studio Code
                   href: create-visual-studio-code.md
+                - name: Java avec Gradle
+                  href: functions-create-first-java-gradle.md
                 - name: Java avec Eclipse
                   href: functions-create-maven-eclipse.md
                 - name: Java avec IntelliJ IDEA
                   href: functions-create-maven-intellij.md
+                - name: Kotlin avec Maven
+                  href: functions-create-first-kotlin-maven.md
+                - name: Kotlin avec IntelliJ
+                  href: functions-create-maven-kotlin-intellij.md
                 - name: Plan App Service Linux
                   href: create-function-app-linux-app-service-plan.md
                 - name: Plan de consommation Linux
@@ -205,6 +207,8 @@
               href: add-output-binding-storage-queue-vs-code.md
             - name: Stockage - Visual Studio
               href: add-output-binding-storage-queue-vs.md
+            - name: Stockage - Java/Gradle
+              href: functions-add-output-binding-storage-queue-java.md
         - name: Déboguer et tester
           items:
             - name: Tester des fonctions
@@ -259,7 +263,7 @@
           href: disable-function.md
         - name: Géorécupération d’urgence
           href: functions-geo-disaster-recovery.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Surveiller des fonctions
           href: functions-monitoring.md

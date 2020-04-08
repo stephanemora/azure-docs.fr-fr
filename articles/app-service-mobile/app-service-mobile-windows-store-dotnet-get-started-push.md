@@ -6,12 +6,12 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 4438084a9471bf816b371b7e663856205f87f8ba
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 6f200e9649a00bfe890d46f86e62404f1a7e844f
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461417"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366279"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Ajouter des notifications Push à votre application Windows
 
@@ -23,13 +23,13 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
 
-## <a name="configure-hub"></a>Configurer un nouveau hub de notification
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>Configurer un nouveau hub de notification
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Inscription de votre application pour les notifications Push
 
-Vous devez soumettre votre application au Microsoft Store, puis configurer votre projet de serveur pour l’intégrer avec [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) pour envoyer des notifications push.
+Vous devez soumettre votre application au Microsoft Store, puis configurer votre projet de serveur pour l’intégrer avec [Windows Push Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) pour envoyer des notifications push.
 
 1. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet d’application UWP, puis cliquez sur **Store** > **Associer l’application au Windows Store...** .
 
@@ -51,11 +51,11 @@ Vous devez soumettre votre application au Microsoft Store, puis configurer votre
 
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-## <a id="update-service"></a>Mise à jour du serveur pour l'envoi de notifications Push
+## <a name="update-the-server-to-send-push-notifications"></a><a id="update-service"></a>Mise à jour du serveur pour l'envoi de notifications Push
 
 Utilisez la procédure ci-dessous qui correspond à votre type de projet de serveur principal &mdash;[serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
 
-### <a name="dotnet"></a>Projet de serveur principal .NET
+### <a name="net-backend-project"></a><a name="dotnet"></a>Projet de serveur principal .NET
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez Microsoft.Azure.NotificationHubs et cliquez sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
 2. Développez **Contrôleurs**, ouvrez TodoItemController.cs et ajoutez les instructions using suivantes :
@@ -106,7 +106,7 @@ Utilisez la procédure ci-dessous qui correspond à votre type de projet de serv
 
 4. Publier à nouveau le projet de serveur
 
-### <a name="nodejs"></a>Projet de back-end Node.js
+### <a name="nodejs-backend-project"></a><a name="nodejs"></a>Projet de back-end Node.js
 1. Configurez votre projet back-end.
 2. Remplacez le code présent dans le fichier todoitem.js par le code suivant :
 
@@ -156,7 +156,7 @@ Utilisez la procédure ci-dessous qui correspond à votre type de projet de serv
 
 3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
 
-## <a id="update-app"></a>Ajouter des notifications push à votre application
+## <a name="add-push-notifications-to-your-app"></a><a id="update-app"></a>Ajouter des notifications push à votre application
 Ensuite, votre application doit s’inscrire pour les notifications Push au démarrage. Si vous avez déjà activé l'authentification, assurez-vous que l'utilisateur est connecté avant d'essayer de s'inscrire aux notifications Push.
 
 1. Ouvrez le fichier de projet **App.xaml.cs** et ajoutez les instructions `using` suivantes :
@@ -197,11 +197,11 @@ Ensuite, votre application doit s’inscrire pour les notifications Push au dém
 
 4. Recréez votre projet d’application UWP. Votre application est maintenant prête à recevoir des notifications toast.
 
-## <a id="test"></a>Tester les notifications push dans votre application
+## <a name="test-push-notifications-in-your-app"></a><a id="test"></a>Tester les notifications push dans votre application
 
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-## <a id="more"></a>Étapes suivantes
+## <a name="next-steps"></a><a id="more"></a>Étapes suivantes
 
 Apprenez-en plus sur les notifications Push :
 

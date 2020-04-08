@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126529"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335910"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -30,7 +30,7 @@ Cet article décrit les différences entre la version auto-hébergée et la vers
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="managed-vs-self-hosted"></a> Version managée et version auto-hébergée
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Version managée et version auto-hébergée
 
 Vous pouvez générer votre portail des développeurs de deux manières :
 
@@ -64,11 +64,11 @@ Le *contenu Gestion des API* comprend des entités telles que les API, les Opér
 
 Le portail est basé sur une fourche adaptée du [framework Paperbits](https://paperbits.io/). La fonctionnalité Paperbits d’origine a été étendue de façon à fournir des widgets propres à la Gestion des API (par exemple, une liste d’API ou une liste de Produits) et un connecteur vers le service Gestion des API permettant d’enregistrer et de récupérer du contenu.
 
-## <a name="faq"></a> Forum aux questions
+## <a name="frequently-asked-questions"></a><a name="faq"></a> Forum aux questions
 
 Dans cette section, nous répondons aux questions courantes d’ordre général sur le portail des développeurs. Pour toute question spécifique à la version auto-hébergée, reportez-vous à la [section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> Comment migrer à partir de la préversion du portail ?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> Comment migrer à partir de la préversion du portail ?
 
 En utilisant la préversion du portail des développeurs, vous avez configuré le contenu en préversion dans votre service Gestion des API. Le contenu par défaut a été sensiblement modifié dans la version en disponibilité générale afin d’offrir une meilleure expérience utilisateur. Il comprend également de nouveaux widgets.
 
@@ -136,26 +136,22 @@ Après avoir configuré la délégation, vous devez [republier le portail](api-m
 
 La plupart des modifications de configuration (par exemple, réseau virtuel, connexion et conditions de produit) nécessitent une [republication du portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="cors"></a> J’obtiens une erreur CORS lorsque j’utilise la console interactive
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> J’obtiens une erreur CORS lorsque j’utilise la console interactive
 
-La console interactive effectue une requête d’API côté client à partir du navigateur. Vous pouvez résoudre le problème CORS en ajoutant une [stratégie CORS ](api-management-cross-domain-policies.md#CORS)sur vos API. Vous pouvez spécifier tous les paramètres manuellement ou utiliser la valeur de caractère générique `*`. Par exemple :
+La console interactive effectue une requête d’API côté client à partir du navigateur. Résolvez le problème CORS en ajoutant une [stratégie CORS ](api-management-cross-domain-policies.md#CORS)sur vos API.
 
-```XML
-<cors allow-credentials="true">
-    <allowed-origins>
-        <origin>https://contoso.com</origin>
-    </allowed-origins>
-    <allowed-methods preflight-result-max-age="300">
-        <method>*</method>
-    </allowed-methods>
-    <allowed-headers>
-        <header>*</header>
-    </allowed-headers>
-    <expose-headers>
-        <header>*</header>
-    </expose-headers>
-</cors>
-```
+Vous pouvez vérifier l’état de la stratégie CORS dans la section **Vue d’ensemble du portail** de votre service Gestion des API dans le Portail Azure. Une zone d’avertissement indique une stratégie absente ou mal configurée.
+
+![Portail des développeurs Gestion des API](media/api-management-howto-developer-portal/cors-azure-portal.png)
+
+Appliquez automatiquement la stratégie CORS en cliquant sur le bouton **Activer CORS**.
+
+Vous pouvez également activer CORS manuellement.
+
+1. Cliquez sur le lien **L’appliquer manuellement au niveau global** pour afficher le code de stratégie généré.
+2. Accédez à **Toutes les API** dans la section **API** de votre service Gestion des API dans le Portail Azure.
+3. Cliquez sur l’icône **</>** dans la section **Traitement entrant**.
+4. Insérez la stratégie dans la section **<inbound>** du fichier XML. Assurez-vous que la valeur **<origin>** correspond au domaine de votre portail des développeurs.
 
 > [!NOTE]
 > 
@@ -203,7 +199,7 @@ Cette erreur s’affiche lorsqu’un appel `GET` à `https://<management-endpoin
 
 Si votre service de gestion des API est un réseau virtuel, reportez-vous à la question sur la connectivité du réseau virtuel ci-dessus.
 
-L’échec de l’appel peut également être dû au fait qu’un certificat SSL attribué à un domaine personnalisé ne soit pas approuvé par le navigateur. Pour remédier à ce problème, vous pouvez supprimer le domaine personnalisé de point de terminaison de gestion. La gestion des API reviendra au point de terminaison par défaut avec un certificat approuvé.
+L’échec de l’appel peut également être dû au fait qu’un certificat TLS/SSL attribué à un domaine personnalisé ne soit pas approuvé par le navigateur. Pour remédier à ce problème, vous pouvez supprimer le domaine personnalisé de point de terminaison de gestion. La gestion des API reviendra au point de terminaison par défaut avec un certificat approuvé.
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Quelle est la prise en charge du navigateur pour le portail ?
 

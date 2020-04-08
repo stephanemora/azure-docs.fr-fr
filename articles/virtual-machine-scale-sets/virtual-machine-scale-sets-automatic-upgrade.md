@@ -1,18 +1,18 @@
 ---
 title: Mises à niveau automatiques d'images de système d'exploitation avec des groupes de machines virtuelles identiques Azure
 description: Découvrez comment mettre à niveau automatiquement l’image de système d’exploitation sur des instances de machines virtuelles dans un groupe identique
-author: shandilvarun
+author: mayanknayar
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.author: vashan
-ms.openlocfilehash: c452ba5b8abfce4227d72922139824d639c62755
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 03/18/2020
+ms.author: manayar
+ms.openlocfilehash: 6d550e8e960cb8e212702796467c91d1cd1ebb23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278156"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235181"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure
 
@@ -21,9 +21,9 @@ L’activation des mises à niveau automatiques des images de système d’explo
 La fonctionnalité de mise à niveau automatique du système d’exploitation présente les caractéristiques suivantes :
 
 - Une fois configurée, la dernière image du système d’exploitation publiée par les éditeurs de l’image est automatiquement appliquée au groupe identique, sans aucune intervention de l’utilisateur.
-- Elle effectue une mise à niveau propagée de lots d’instances chaque fois qu’une nouvelle image de plateforme est publiée par l’éditeur.
+- Elle effectue une mise à niveau propagée de lots d’instances chaque fois qu’une nouvelle image est publiée par l’éditeur.
 - Elle s’intègre avec les sondes d’intégrité d’application et l’[extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md).
-- Elle fonctionne pour toutes les tailles de machine virtuelle et pour les images de plateforme tant Windows que Linux.
+- Elle fonctionne pour toutes les tailles de machine virtuelle et pour les images tant Windows que Linux.
 - Vous pouvez désactiver les mises à niveau automatiques à tout moment (les mises à niveau du système d’exploitation peuvent également être démarrées manuellement).
 - Le disque du système d’exploitation d’une machine virtuelle est remplacé par le nouveau disque de système d’exploitation créé avec la dernière version de l’image. Les extensions configurées et les scripts de données personnalisés sont exécutés. Les disques de données persistantes sont conservés.
 - Le [séquencement d’extensions](virtual-machine-scale-sets-extension-sequencing.md) est pris en charge.
@@ -35,7 +35,7 @@ Une mise à niveau fonctionne en remplaçant le disque du système d’exploitat
 
 Le processus de mise à niveau se déroule comme suit :
 1. Avant de commencer le processus de mise à niveau, l’orchestrateur vérifie qu’il n’y a pas plus de 20 % des instances dans tout le groupe identique qui présentent un état non sain (pour une raison ou une autre).
-2. L’orchestrateur de mise à niveau identifie le lot d’instances de machines virtuelles à mettre à niveau, chaque lot devant compter au maximum 20 % du nombre total d’instances. Pour les groupes identiques plus petits possédant 5 instances ou moins, la taille de lot pour une mise à niveau est une instance de machine virtuelle.
+2. L’orchestrateur de mise à niveau identifie le lot d’instances de machines virtuelles à mettre à niveau, chaque lot devant compter au maximum 20 % du nombre total d’instances, sujet à une taille de lot maximale d’une machine virtuelle.
 3. Le disque du système d’exploitation du lot sélectionné d’instances de machine virtuelle est remplacé par un nouveau disque de système d’exploitation créé à partir de l’image la plus récente. Toutes les extensions et configurations spécifiées dans le modèle de groupe identique sont appliquées à l’instance mise à niveau.
 4. Pour les groupes identiques configurés avec des sondes d’intégrité d’application ou l’extension Intégrité de l’application, la mise à niveau attend (jusqu’à 5 minutes) que l’instance passe à l’état sain avant de commencer la mise à niveau du lot suivant. Si une instance ne récupère pas son intégrité en 5 minutes après une mise à niveau, le disque du système d’exploitation précédent pour l’instance est restauré par défaut.
 5. L’orchestrateur de mise à niveau suit également le pourcentage d’instances qui deviennent non saines après une mise à niveau. La mise à niveau s’arrête si plus de 20 % des instances mises à niveau passent à l’état non sain pendant le processus de mise à niveau.
@@ -44,9 +44,9 @@ Le processus de mise à niveau se déroule comme suit :
 L’orchestrateur de mise à niveau du système d’exploitation du groupe identique vérifie l’intégrité de tout le groupe identique avant de procéder à la mise à niveau de chaque lot. Durant la mise à niveau d’un lot, il peut arriver que d’autres activités de maintenance planifiées ou non planifiées aient lieu en même temps et impactent l’intégrité des instances du groupe identique. Si c’est le cas et que plus de 20 % des instances du groupe identique passent à l’état non sain, la mise à niveau du groupe identique s’arrête à la fin du lot en cours.
 
 ## <a name="supported-os-images"></a>Images de système d’exploitation prises en charge
-Seules certaines images de plateforme de système d’exploitation sont actuellement prises en charge. Les images personnalisées ne sont actuellement pas prises en charge.
+Seules certaines images de plateforme de système d’exploitation sont actuellement prises en charge. La prise en charge des images personnalisées est disponible [en préversion](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) pour les images personnalisées via la [Galerie d’images partagées](shared-image-galleries.md).
 
-Les références SKU suivantes sont prises en charge (et d’autres sont régulièrement ajoutées) :
+Les références SKU de plateforme suivantes sont prises en charge (et d’autres sont régulièrement ajoutées) :
 
 | Serveur de publication               | Offre de système d’exploitation      |  Sku               |
 |-------------------------|---------------|--------------------|
@@ -66,7 +66,7 @@ Les références SKU suivantes sont prises en charge (et d’autres sont réguli
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Conditions requises pour la configuration de la mise à niveau automatique d’image de système d’exploitation
 
-- La propriété *version* de l’image de plateforme doit être définie sur *latest*.
+- La propriété *version* de l’image doit être définie sur *latest*.
 - Utilisez des sondes d’intégrité d’application ou l’[extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md) pour des groupes identiques autres que Service Fabric.
 - Utilisez l’API de calcul de la version 2018-10-01 ou ultérieure.
 - Assurez-vous que les ressources externes spécifiées dans le modèle de groupe identique sont disponibles et à jour. Les ressources concernées sont l’URI SAS pour l’amorçage de la charge utile dans les propriétés d’extension de machine virtuelle et dans le compte de stockage, les références à des secrets dans le modèle, etc.
@@ -80,6 +80,86 @@ Si vous utilisez Service Fabric, assurez-vous que les conditions suivantes sont 
 -   Le niveau de durabilité doit être identique au cluster Service Fabric et à l’extension de Service Fabric de la définition du modèle de groupe identique.
 
 Assurez-vous que les paramètres de durabilité ne sont pas incompatibles avec le cluster Service Fabric et l’extension Service Fabric, car une incompatibilité entraînera des erreurs de mise à niveau. Les niveaux de durabilité peuvent être modifiés selon les instructions indiquées sur[cette page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+
+
+## <a name="automatic-os-image-upgrade-for-custom-images-preview"></a>Mise à niveau automatique de l’image du système d’exploitation pour les images personnalisées (préversion)
+
+> [!IMPORTANT]
+> La mise à niveau automatique de l’image du système d’exploitation pour les images personnalisées est actuellement en préversion publique. Une procédure de consentement est requise pour utiliser la fonctionnalité en préversion publique décrite ci-dessous.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+La mise à niveau automatique de l’image du système d’exploitation est disponible en préversion pour les images personnalisées déployées via la [Galerie d’images partagées](shared-image-galleries.md). Les autres images personnalisées ne sont pas prises en charge pour les mises à niveau automatiques de l’image du système d’exploitation.
+
+L’activation de la fonctionnalité en préversion requiert une inscription unique pour la fonctionnalité *AutomaticOSUpgradeWithGalleryImage* par abonnement, comme indiqué ci-dessous.
+
+### <a name="rest-api"></a>API REST
+L’exemple suivant décrit comment activer la préversion pour votre abonnement :
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
+```
+
+L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
+
+```
+GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
+```
+
+Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-10-01`
+```
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Utilisez l’applet de commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) pour activer la préversion pour votre abonnement.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+Utilisez [az feature register](/cli/azure/feature#az-feature-register) pour activer la préversion pour votre abonnement.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription :
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+
+### <a name="additional-requirements-for-custom-images"></a>Exigences supplémentaires pour les images personnalisées
+- Le processus d’abonnement décrit ci-dessus ne doit être effectué qu’une seule fois par abonnement. Après inscription, les mises à niveau automatiques du système d’exploitation peuvent être activées pour n’importe quel groupe identique de cet abonnement.
+- La Galerie d’images partagées peut se trouver dans n’importe quel abonnement et ne nécessite pas d’être choisie séparément. Seul l’abonnement à un groupe identique requiert l’acceptation de la fonctionnalité.
+- Le processus de configuration de la mise à niveau automatique de l’image du système d’exploitation est le même pour tous les groupes identiques, comme indiqué dans la [section Configuration](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) de cette page.
+- Les instances de groupes identiques configurées pour les mises à niveau automatiques de l’image du système d’exploitation sont mises à niveau vers la dernière version de l’image de la Galerie d’images partagées lorsqu’une nouvelle version de l’image est publiée et [répliquée](shared-image-galleries.md#replication) dans la région de ce groupe identique. Si la nouvelle image n’est pas répliquée vers la région où le groupe est déployé, les instances du groupe identique ne seront pas mises à niveau vers la dernière version. La réplication régionale d’images vous permet de contrôler le déploiement de la nouvelle image pour vos groupes identiques.
+- La nouvelle version de l’image ne doit pas être exclue de la version la plus récente pour cette image de la galerie. Les versions d’image exclues de la dernière version de l’image de la galerie ne sont pas déployées dans le groupe identique via la mise à niveau automatique de l’image du système d’exploitation.
+
+> [!NOTE]
+>Un groupe identique peut avoir besoin de jusqu’à 2 heures pour obtenir le premier déploiement d’image après la configuration du groupe identique pour les mises à niveau automatiques du système d’exploitation. Il s’agit d’un délai unique par groupe identique. Les lancements des images suivantes s’appliquent au groupe identique sans ce délai.
+
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configurer la mise à niveau automatique d’image de système d’exploitation
 Pour configurer la mise à niveau automatique d’image de système d’exploitation, vérifiez que la propriété *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* est définie sur *true* dans la définition du modèle de groupe identique.
@@ -143,13 +223,13 @@ La sonde d’équilibreur de charge peut être référencée dans la propriété
 > [!NOTE]
 > Lors de l’utilisation de mises à niveau automatiques du système d’exploitation avec Service Fabric, la nouvelle image du système d’exploitation est déployée, un domaine de mise à jour après l’autre, pour maintenir la haute disponibilité des services en cours d’exécution dans Service Fabric. Pour utiliser les mises à niveau automatiques du système d’exploitation dans Service Fabric, votre cluster doit être configuré pour utiliser le niveau de durabilité Silver ou une version supérieure. Pour plus d’informations sur les caractéristiques de durabilité des clusters Service Fabric, voir [cette documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-### <a name="keep-credentials-up-to-date"></a>Tenir à jour les informations d’identification
+### <a name="keep-credentials-up-to-date"></a>Tenez à jour toutes les informations d’identification
 Si votre groupe identique utilise des informations d’identification pour accéder à des ressources externes, telles qu’une extension de machine virtuelle configurée pour utiliser un jeton SAS pour le compte de stockage, assurez-vous que les informations d’identification sont mises à jour. Si les informations d’identification, y compris les certificats et les jetons, ont expiré, la mise à niveau échouera, et le premier lot de machines virtuelles restera dans un état d’échec.
 
 Pour récupérer les machines virtuelles et réactiver la mise à niveau automatique du système d’exploitation après un échec d’authentification des ressources, effectuez les étapes recommandées suivantes :
 
 * Regénérez le jeton (ou d’autres informations d’identification) qui a été passé à vos extensions.
-* Vérifiez que toutes les informations d’identification utilisées pour les communications entre les machines virtuelles et les entités externes sont tenues à jour.
+* Vérifiez que toutes les informations d’identification utilisées pour les communications entre les machines virtuelles et les entités externes sont à jour.
 * Mettez à jour chaque extension dans le modèle de groupe identique avec les nouveaux jetons.
 * Déployez le groupe identique mis à jour. Cette opération met à jour toutes les instances de machine virtuelle, y compris celles en échec.
 
@@ -249,7 +329,7 @@ Pour des cas spécifiques où vous ne souhaitez pas attendre que l’orchestrate
 > Le déclencheur manuel des mises à niveau d’images du système d’exploitation ne fournit pas de fonctionnalités de restauration automatique. Si une instance ne récupère pas son intégrité après une opération de mise à niveau, son disque de système d’exploitation précédent ne peut pas être restauré.
 
 ### <a name="rest-api"></a>API REST
-Utilisez l’appel démarrer l’API de [mise à niveau du système d’exploitation](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) pour démarrer une mise à niveau propagée afin de déplacer toutes les instances du groupe de machines virtuelles identiques vers la dernière version disponible de la plateforme du système d’exploitation. Les instances qui exécutent déjà la dernière version du système d’exploitation disponible ne sont pas affectées. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* :
+Utilisez l’appel démarrer l’API de [mise à niveau du système d’exploitation](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) pour démarrer une mise à niveau propagée afin de déplacer toutes les instances du groupe de machines virtuelles identiques vers la dernière version disponible du système d’exploitation. Les instances qui exécutent déjà la dernière version du système d’exploitation disponible ne sont pas affectées. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`

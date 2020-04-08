@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: ad56f1f15936bc3f3f1ac75396352206f68e7a61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671475"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410611"
 ---
 # <a name="connection-strings"></a>Chaînes de connexion
 
@@ -103,7 +103,7 @@ Voir aussi : https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints
 
 Dans cet exemple, seule la clé d’instrumentation a été définie.
 
-- Le schéma d’autorisation est défini par défaut sur « ikey ». 
+- Le schéma d’autorisation est défini par défaut sur « ikey » 
 - Clé d’instrumentation : 00000000-0000-0000-0000-000000000000
 - Les URI de services régionaux se basent sur les [valeurs par défaut du SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) et se connectent au service Azure global public :
    - Ingestion : https://dc.services.visualstudio.com/
@@ -119,7 +119,7 @@ Dans cet exemple, seule la clé d’instrumentation a été définie.
 
 Dans cet exemple, cette chaîne de connexion spécifie le suffixe du point de terminaison et le SDK construit les points de terminaison de service.
 
-- Le schéma d’autorisation est défini par défaut sur « ikey ». 
+- Le schéma d’autorisation est défini par défaut sur « ikey » 
 - Clé d’instrumentation : 00000000-0000-0000-0000-000000000000
 - Les URI de services régionaux se basent sur le suffixe de point de terminaison fourni : 
    - Ingestion : https://dc.ai.contoso.com
@@ -135,7 +135,7 @@ Dans cet exemple, cette chaîne de connexion spécifie le suffixe du point de te
 
 Dans cet exemple, cette chaîne de connexion spécifie des substitutions explicites pour chaque service. Le SDK utilise strictement les points de terminaison fournis sans apporter aucune modification.
 
-- Le schéma d’autorisation est défini par défaut sur « ikey ». 
+- Le schéma d’autorisation est défini par défaut sur « ikey » 
 - Clé d’instrumentation : 00000000-0000-0000-0000-000000000000
 - Les URI de services régionaux se basent sur les valeurs de remplacement explicites : 
    - Ingestion : https:\//custom.com:111/
@@ -148,7 +148,7 @@ Dans cet exemple, cette chaîne de connexion spécifie des substitutions explici
 
 Les chaînes de connexion sont prises en charge dans les versions de SDK suivantes :
 - .NET et .NET Core v2.12.0
-- Java v2.5.1
+- Java v2.5.1 et Java 3.0
 - Javascript v2.3.0
 - NodeJS v1.5.0
 - Python v1.0.0
@@ -161,7 +161,7 @@ Une chaîne de connexion peut être définie dans du code, une variable d’envi
 
 - Chaîne de connexion : `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-### <a name="net-sdk-example"></a>Exemple de SDK .Net
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 TelemetryConfiguration.ConnectionString : https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
@@ -194,10 +194,10 @@ NetCore config.json :
 ```
 
 
-### <a name="java-sdk-example"></a>Exemple de SDK Java
+# <a name="java"></a>[Java](#tab/java)
 
 
-Java défini explicitement :
+Java (v2.5.x) défini explicitement :
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -210,7 +210,7 @@ ApplicationInsights.xml
 </ApplicationInsights>
 ```
 
-### <a name="javascript-sdk-example"></a>Exemple de SDK JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 Important : JavaScript ne prend pas en charge l’utilisation de variables d’environnement.
 
@@ -239,7 +239,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-### <a name="node-sdk-example"></a>Exemple de SDK Node
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -247,7 +247,7 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
 ```
 
-### <a name="python-sdk-example"></a>Exemple de SDK Python
+# <a name="python"></a>[Python](#tab/python)
 
 Nous recommandons aux utilisateurs de définir la variable d’environnement.
 
@@ -276,4 +276,4 @@ Prise en main pendant le développement avec :
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
-* [Python (préversion)](../../azure-monitor/app/opencensus-python.md)
+* [Python](../../azure-monitor/app/opencensus-python.md)

@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773143"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156104"
 ---
-# <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Développer des modèles Azure Resource Manager de cohérence du cloud
+# <a name="develop-arm-templates-for-cloud-consistency"></a>Développer des modèles ARM pour la cohérence du cloud
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-La cohérence est l’un des principaux avantages d’Azure. Les investissements de développement pour un emplacement sont réutilisables pour un autre. Un modèle rend vos déploiements cohérents et reproductibles entre différents environnements, y compris Azure global, les clouds souverains Azure et Azure Stack. Toutefois, pour réutiliser des modèles dans différents clouds, vous devez prendre en compte les dépendances spécifiques au cloud, comme l’explique ce guide.
+La cohérence est l’un des principaux avantages d’Azure. Les investissements de développement pour un emplacement sont réutilisables pour un autre. Un modèle Azure Resource Manager (ARM) rend vos déploiements cohérents et reproductibles entre différents environnements, y compris Azure global, les clouds souverains Azure et Azure Stack. Toutefois, pour réutiliser des modèles dans différents clouds, vous devez prendre en compte les dépendances spécifiques au cloud, comme l’explique ce guide.
 
 Microsoft propose des services cloud intelligents adaptés à l’entreprise dans de nombreux emplacements, notamment :
 
@@ -33,7 +33,7 @@ La cohérence d’Azure global, les clouds souverains, les clouds hébergés, et
 
 Toutefois, même si les clouds hybrides, hébergés, souverains et globaux fournissent des services cohérents, les clouds ne sont pas tous identiques. Par conséquent, vous pouvez créer un modèle avec des dépendances de fonctionnalités disponibles uniquement dans un cloud spécifique.
 
-Le reste de ce guide décrit les domaines à prendre en compte lors de la planification du développement de nouveaux modèles ou de la mise à jour de modèles existants Azure Resource Manager pour Azure Stack. En général, votre checklist doit comprendre les éléments suivants :
+Le reste de ce guide décrit les domaines à prendre en compte lors de la planification du développement de nouveaux modèles ou de la mise à jour de modèles existants ARM pour Azure Stack. En général, votre checklist doit comprendre les éléments suivants :
 
 * Vérifiez que les fonctions, les points de terminaison, les services et les autres ressources de votre modèle sont disponibles dans les emplacements de déploiement cible.
 * Stockez les modèles imbriqués et les artefacts de configuration dans des emplacements accessibles, pour en assurer l’accès à travers les clouds.
@@ -41,11 +41,11 @@ Le reste de ce guide décrit les domaines à prendre en compte lors de la planif
 * Vérifiez que les paramètres de modèle que vous utilisez fonctionnent dans les clouds cibles.
 * Vérifiez que les propriétés propres aux ressources sont disponibles pour les clouds cibles.
 
-Pour une présentation des modèles Azure Resource Manager, consultez [Déploiement de modèle](overview.md).
+Pour une présentation des modèles ARM, consultez [Déploiement de modèle](overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Assurer le fonctionnement des fonctions des modèles
 
-La syntaxe de base d’un modèle Resource Manager est JSON. Les modèles utilisent un sur-ensemble de JSON, étendant la syntaxe avec des expressions et des fonctions. Le processeur de langage de modèle est fréquemment mis à jour pour prendre en charge les fonctions de modèle supplémentaires. Pour obtenir une explication détaillée des fonctions de modèle disponibles, consultez [Fonctions des modèles Azure Resource Manager](template-functions.md).
+La syntaxe de base du modèle ARM est JSON. Les modèles utilisent un sur-ensemble de JSON, étendant la syntaxe avec des expressions et des fonctions. Le processeur de langage de modèle est fréquemment mis à jour pour prendre en charge les fonctions de modèle supplémentaires. Pour obtenir une explication détaillée des fonctions de modèle disponibles, consultez [Fonctions des modèles ARM](template-functions.md).
 
 Les nouvelles fonctions de modèle intégrées à Azure Resource Manager ne sont pas immédiatement disponibles dans les clouds souverains ou dans Azure Stack. Pour déployer un modèle avec succès, toutes les fonctions référencées dans le modèle doivent être disponibles dans le cloud cible.
 
@@ -497,7 +497,7 @@ Cette commande prend quelques minutes pour retourner toutes les images disponibl
 
 Si vous avez mis ces images de machine virtuelle à disposition dans Azure Stack, la totalité du stockage disponible doit être utilisée. Pour prendre en compte même la plus petite unité d’échelle, Azure Stack vous permet de sélectionner les images que vous souhaitez ajouter à un environnement.
 
-L’exemple de code suivant propose une approche cohérente pour faire référence au serveur de publication, à l’offre et aux paramètres SKU dans vos modèles Azure Resource Manager :
+L’exemple de code suivant propose une approche cohérente pour faire référence au serveur de publication, à l’offre et aux paramètres SKU dans vos modèles ARM :
 
 ```json
 "storageProfile": {
@@ -668,4 +668,4 @@ Prenez en compte les conseils suivants relatifs aux tests et à l’automatisati
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Considérations relatives au modèle Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
-* [Meilleures pratiques relatives aux modèles Azure Resource Manager](template-syntax.md)
+* [Meilleures pratiques relatives aux modèles ARM](template-syntax.md)

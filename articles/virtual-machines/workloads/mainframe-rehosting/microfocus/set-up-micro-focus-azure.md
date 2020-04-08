@@ -8,22 +8,25 @@ ms.author: edprice
 manager: edprice
 editor: edprice
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 03/30/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: a5426c3cd7552b24739f9a20e01d5a4b42bd383c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 5b3fa5faccf17df17bc4f7cc2d8b023b868fdbe1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834573"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411192"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installer Micro Focus Enterprise Server 4.0 et Enterprise Developer 4.0 sur Azure
 
 Cet article explique comment configurer [Micro Focus Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) et [Micro Focus Enterprise Developer 4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) sur Azure.
 
 Dans Azure, l’environnement de développement et de test constitue une charge de travail courante. Ce scénario est courant, car il est très économique, ainsi que facile à déployer et à supprimer. Avec Enterprise Server, Micro Focus a créé l’une des plus grandes plateformes de réhébergement de mainframe actuellement disponibles. Dans Azure, vous pouvez exécuter des charges de travail z/OS sur une plateforme x86 moins coûteuse à l’aide de machines virtuelles Windows ou Linux.
+
+> [!NOTE]
+> Bientôt disponible : Instructions pour la configuration de [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) sur des machines virtuelles Azure.
 
 Cette configuration utilise des machines virtuelles Azure exécutant l’image Windows Server 2016 provenant de la place de marché Azure, avec Microsoft SQL Server 2017 déjà installé. Cette configuration s’applique également à Azure Stack.
 

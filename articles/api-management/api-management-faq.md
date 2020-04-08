@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967455"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335966"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -40,7 +40,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 * [Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité AD FS ?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [Quelle méthode de routage la gestion des API utilise-t-elle lors de déploiements sur plusieurs emplacements géographiques ?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Puis-je utiliser un modèle Azure Resource Manager pour créer une instance de service Gestion des API ?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
-* [Puis-je utiliser un certificat SSL auto-signé pour un service principal ?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
+* [Puis-je utiliser un certificat TLS/SSL auto-signé pour un service principal ?](#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)
 * [Pourquoi l’authentification échoue-t-elle lors d’une tentative de clonage d’un référentiel GIT ?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Le service Gestion des API est-il compatible avec Azure ExpressRoute ?](#does-api-management-work-with-azure-expressroute)
 * [Pourquoi exigeons-nous un sous-réseau dédié dans les réseaux virtuels de type Resource Manager lorsque le service Gestion des API est déployé dans ceux-ci ?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
@@ -62,7 +62,7 @@ Lorsqu’une fonctionnalité est disponible en version préliminaire, cela signi
 Il existe plusieurs manières de sécuriser la connexion entre la passerelle de gestion des API et vos services principaux. Vous pouvez :
 
 * Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Importer et publier votre première API](import-and-publish.md).
-* Utiliser l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
+* Utiliser l’authentification mutuelle TLS telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
 * Utiliser une liste verte des adresses IP sur votre service principal. Dans tous les niveaux de Gestion des API, sauf le niveau relatif à la consommation, l’adresse IP de la passerelle reste constante, avec quelques mises en garde dans l’[article de la documentation IP](api-management-howto-ip-addresses.md).
 * Connectez votre instance de gestion des API à un réseau virtuel Azure.
 
@@ -115,7 +115,7 @@ Le service Gestion des API utilise la [méthode de routage du trafic basé sur l
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Puis-je utiliser un modèle Azure Resource Manager pour créer une instance de service Gestion des API ?
 Oui. Consultez les modèles de démarrage rapide [Service Gestion des API Azure](https://aka.ms/apimtemplate).
 
-### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>Puis-je utiliser un certificat SSL auto-signé pour un service principal ?
+### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>Puis-je utiliser un certificat TLS/SSL auto-signé pour un service principal ?
 Oui. Vous pouvez utiliser PowerShell, ou l’envoyer directement à l’API. Cela désactive la validation de chaîne de certificat et vous permet d’utiliser des certificats auto-signés ou signés de manière privée lors des communications entre la fonction Gestion des API et les services back end.
 
 #### <a name="powershell-method"></a>Méthode PowerShell ####

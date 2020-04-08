@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3de4baa4eafe26cff18d9b1bcfb59398439994b0
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 8e014e7a1c564377582e4503218c4129619daa91
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969783"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410733"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Key Vault pour Windows
 
@@ -26,6 +26,11 @@ L’extension de machine virtuelle Key Vault prend en charge les versions ci-des
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
+
+### <a name="supported-certificate-content-types"></a>Types de contenu de certificat pris en charge
+
+- PKCS #12
+- PEM
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.date: 03/30/2020
+ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169812"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398181"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
@@ -27,7 +27,7 @@ Dans un cycle de vie de développement de modèle type, vous pouvez effectuer le
 
 Les ressources de calcul utilisées pour vos cibles de calcul sont associées à un [espace de travail](concept-workspace.md). Les cibles de calcul autres que l’ordinateur local sont partagées par les utilisateurs de l’espace de travail.
 
-## <a name="train"></a> Cibles de calcul d’entraînement
+## <a name="training-compute-targets"></a><a name="train"></a> Cibles de calcul d’entraînement
 
 La prise en charge d’Azure Machine Learning varie selon les ressources de calcul.  Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier.
 
@@ -35,7 +35,7 @@ La prise en charge d’Azure Machine Learning varie selon les ressources de calc
 
 En savoir plus sur [la configuration et l’utilisation d’une cible de calcul pour l’entraînement du modèle](how-to-set-up-training-targets.md).
 
-## <a name="deploy"></a>Cibles de déploiement
+## <a name="deployment-targets"></a><a name="deploy"></a>Cibles de déploiement
 
 Les cibles de calcul suivantes peuvent héberger le déploiement de votre modèle.
 
@@ -48,12 +48,14 @@ Découvrez [où et comment déployer votre modèle sur une cible de calcul](how-
 
 Une ressource de calcul managée est créée et managée par Azure Machine Learning. Ce calcul est optimisé pour les charges de travail Machine Learning. Les clusters de calcul Azure Machine Learning et les [instances de calcul](concept-compute-instance.md) sont les seuls calculs managés. Il se peut que d’autres ressources de calcul managées soient ajoutées à l’avenir.
 
-Vous pouvez créer des instances de calcul Azure Machine Learning (préversion) ou des clusters de calcul dans :
+Vous pouvez créer des instances de calcul Azure Machine Learning (préversion) ou des clusters de calcul à partir de :
+* Azure Machine Learning Studio
+* Portail Azure
+* Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) et [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) du Kit de développement logiciel (SDK) Python
+* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* Modèle Resource Manager
 
-| | Azure Machine Learning Studio | Portail Azure | Kit SDK | Modèle Resource Manager | Interface de ligne de commande |
-|---| ----- | ----- | ----- | ----- | ----- |
-| Instance de calcul | Oui | Oui | Oui | Oui |  |
-| Cluster de calcul | Oui | Oui | Oui | Oui | Oui |
+Vous pouvez également créer des clusters de calcul à l’aide de l’[extension Machine Learning pour l’interface de ligne de commande Azure](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
 Une fois créées, ces instances de calcul font automatiquement partie de votre espace de travail, contrairement à d’autres types de cibles de calcul.
 

@@ -220,6 +220,8 @@
               href: app/api-custom-events-metrics.md
             - name: Résoudre les problèmes ASP.NET
               href: app/asp-net-troubleshoot-no-data.md
+            - name: Supprimer Application Insights
+              href: app/remove-application-insights.md
         - name: Supervision sans code
           items:
             - name: Machine virtuelle Azure et groupe identique

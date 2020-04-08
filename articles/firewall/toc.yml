@@ -5,7 +5,6 @@
     - name: "Qu’est-ce qu’un pare-feu Azure\_?"
       href: overview.md
 - name: Tutoriels
-  expanded: true
   items:
     - name: Déployer et configurer
       href: tutorial-firewall-deploy-portal.md
@@ -15,6 +14,12 @@
       href: tutorial-firewall-dnat.md
     - name: Surveiller les journaux de diagnostics
       href: tutorial-diagnostics.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Déployer avec des groupes IP
+      displayName: Resource Manager
+      href: quick-create-ipgroup-template.md
 - name: Exemples
   items:
     - name: Azure PowerShell

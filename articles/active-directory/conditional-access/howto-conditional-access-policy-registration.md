@@ -1,26 +1,26 @@
 ---
 title: Accès conditionnel - Informations de sécurité combinées - Azure Active Directory
-description: Créer une stratégie d’accès conditionnel personnalisée pour exiger un emplacement approuvé pour l’inscription des informations de sécurité
+description: Créer une stratégie d’accès conditionnel personnalisée pour l’inscription des informations de sécurité
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c9b01cc06b3d0ef8f47b34e9ef86bec9adac03f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424847"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295176"
 ---
-# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Accès conditionnel : Exiger un emplacement approuvé pour l’inscription MFA
+# <a name="conditional-access-securing-security-info-registration"></a>Accès conditionnel : Sécurisation de l’inscription des informations de sécurité
 
-La sécurisation de l’inscription des utilisateurs pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service est désormais possible avec les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité en préversion est à la disposition des organisations qui ont activé l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité peut être activée dans les organisations qui souhaitent utiliser des conditions telles qu’un emplacement réseau approuvé afin de limiter l’accès pour s’inscrire à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service. Pour plus d’informations sur la création d’emplacements approuvés dans l’accès conditionnel, consultez l’article [Qu’est-ce que la condition d’emplacement de l’accès conditionnel Azure Active Directory ?](../conditional-access/location-condition.md#named-locations)
+La sécurisation de l’inscription des utilisateurs pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service est désormais possible avec les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité en préversion est à la disposition des organisations qui ont activé l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité peut être activée dans les organisations qui souhaitent utiliser des conditions telles qu’un emplacement réseau approuvé afin de limiter l’accès pour s’inscrire à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service (SSPR). Pour plus d’informations sur les conditions utilisables, consultez l’article [Accès conditionnel : Conditions](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Créer une stratégie pour exiger l’inscription à partir d’un emplacement approuvé
 
@@ -29,7 +29,7 @@ La stratégie suivante s’applique à tous les utilisateurs sélectionnés, qui
 1. Dans le portail **Azure**, accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel**.
 1. Sélectionnez **Nouvelle stratégie**.
 1. Sous Nom, entrez un nom pour cette stratégie. Par exemple, **Inscription d’informations de sécurité combinée sur les réseaux approuvés**.
-1. Sous **Affectations**, cliquez sur **Utilisateurs et groupes**, puis sélectionnez les utilisateurs et les groupes auxquels vous souhaitez appliquer cette stratégie.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**, puis sélectionnez les utilisateurs et les groupes auxquels vous souhaitez appliquer cette stratégie.
 
    > [!WARNING]
    > Les utilisateurs doivent être activés pour l’[inscription combinée en préversion](../authentication/howto-registration-mfa-sspr-combined.md).
@@ -39,18 +39,33 @@ La stratégie suivante s’applique à tous les utilisateurs sélectionnés, qui
    1. Configurez **Oui**.
    1. Incluez **N’importe quel emplacement**.
    1. Excluez **Tous les emplacements approuvés**.
-   1. Cliquez sur **Terminé** dans le panneau Emplacements.
-   1. Cliquez sur **Terminé** dans le panneau des conditions.
+   1. Sélectionnez **Terminé** dans le panneau Emplacements.
+   1. Sélectionnez **Terminé** dans le panneau des conditions.
+1. Sous **Conditions** > **Applications clientes (préversion)** , définissez **Configurer** sur **Oui**, puis sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Octroyer**.
-   1. Cliquez sur **Bloquer l’accès**.
+   1. Sélectionnez **Bloquer l’accès**.
    1. Puis cliquez sur **Sélectionner**.
 1. Définissez l’option **Appliquer la stratégie** sur **Activé**.
-1. Ensuite, cliquez sur **Enregistrer**.
+1. Ensuite, sélectionnez **Enregistrer**.
+
+À l’étape 6 de cette stratégie, les organisations ont la possibilité d’effectuer des choix. La stratégie ci-dessus requiert l’inscription à partir d’un emplacement réseau approuvé. Les organisations peuvent choisir d’utiliser les conditions disponibles à la place des **Emplacements**. N’oubliez pas que cette stratégie est une stratégie de blocage, de sorte que tout ce qui est inclus est bloqué et tout ce qui ne correspond pas à l’inclusion est autorisé. 
+
+Certains peuvent choisir d’utiliser l’état de l’appareil au lieu de l’emplacement à l’étape 6 ci-dessus :
+
+6. Sous **Conditions** > **État de l'appareil (préversion)** .
+   1. Configurez **Oui**.
+   1. Incluez **Tous les états d'appareils**.
+   1. Excluez **Appareil joint à une version Azure AD Hybride** et/ou **Appareil marqué comme conforme**.
+   1. Sélectionnez **Terminé** dans le panneau Emplacements.
+   1. Sélectionnez **Terminé** dans le panneau des conditions.
+
+> [!WARNING]
+> Si vous utilisez l’état de l’appareil comme condition dans votre stratégie, cela peut avoir un impact sur les utilisateurs invités dans l’annuaire. Le [Mode Rapport uniquement](concept-conditional-access-report-only.md) permet de déterminer l’impact des décisions stratégiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 
-[Déterminer l’impact à l’aide du mode de rapport d’accès conditionnel uniquement](howto-conditional-access-report-only.md)
+[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 7023651b09abc8c3124c7bf71608018d5cb72e25
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 4b265bb574895e4728ad93ee25c9dad0da226ea4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161996"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240298"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analyse de sentiments Twitter en temps réel dans Azure Stream Analytics
 
@@ -29,7 +29,7 @@ Une entreprise qui dispose d’un site web de médias souhaite obtenir un avanta
 
 Pour identifier les tendances en temps réel sur Twitter, l’entreprise doit analyser en temps réel le volume et les sentiments des tweets relatifs aux principaux sujets.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Dans ce guide pratique, vous utilisez une application cliente qui se connecte à Twitter, puis recherchez des tweets contenant certains mots-dièse (que vous pouvez définir). Pour exécuter l’application et analyser les tweets à l’aide d’Azure Stream Analytics, vous devez disposer des éléments suivants :
 
@@ -39,7 +39,7 @@ Dans ce guide pratique, vous utilisez une application cliente qui se connecte à
 
 * L’application TwitterClientCore, qui lit le flux Twitter. Pour obtenir à cette application, téléchargez [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
-* Installez le [CLI .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+* Installez le [CLI .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x) version 2.1.0.
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>Créer un Event Hub pour l’entrée de diffusion en continu
 
@@ -94,12 +94,6 @@ Pour qu’un processus puisse envoyer des données à un Event Hub, ce dernier 
    > [!NOTE]
    > Pour des raisons de sécurité, des parties de la chaîne de connexion indiquée dans l’exemple ont été supprimées.
 
-8.  Dans l’éditeur de texte, supprimez la paire `EntityPath` de la chaîne de connexion (n’oubliez pas de supprimer le point-virgule qui la précède). À l’issue de cette opération, la chaîne de connexion ressemble à ce qui suit :
-   
-   ```
-   Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
-   ```
-
 ## <a name="configure-and-start-the-twitter-client-application"></a>Configurer et démarrer l’application client Twitter
 
 L’application cliente obtient les événements de tweet directement à partir de Twitter. Pour ce faire, elle a besoin de l’autorisation d’appeler les API de diffusion Twitter. Pour configurer cette autorisation, créez une application dans Twitter, qui génère des informations d’identification uniques (par exemple, un jeton OAuth). Vous pouvez ensuite configurer l’application cliente pour qu’elle utilise ces informations d’identification lorsqu’elle émet des appels d’API. 
@@ -110,7 +104,7 @@ Si vous ne possédez pas encore une application Twitter que vous pouvez utiliser
 > [!NOTE]
 > Dans Twitter, il est possible que le processus exact pour créer une application et obtenir les clés, secrets ainsi que le jeton soit différent. Si les instructions qui suivent ne correspondent pas ce que vous voyez sur le site Twitter, consultez la documentation pour développeurs Twitter.
 
-1. Dans un navigateur web, accédez à [Twitter For Developers](https://developer.twitter.com/en/apps), puis sélectionnez **Create an app** (Créer une application). Vous voyez normalement un message indiquant que vous devez demander un compte de développeur Twitter. N’hésitez pas à le faire et, une fois votre application approuvée, vous devriez voir un e-mail de confirmation. L’approbation d’un compte de développeur peut prendre plusieurs jours.
+1. Dans un navigateur web, accédez à [Twitter For Developers](https://developer.twitter.com/en/apps), créez un compte de développeur, puis sélectionnez **Create an app** (Créer une application). Vous voyez normalement un message indiquant que vous devez demander un compte de développeur Twitter. N’hésitez pas à le faire et, une fois votre application approuvée, vous devriez voir un e-mail de confirmation. L’approbation d’un compte de développeur peut prendre plusieurs jours.
 
    ![Détails de l’application Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Détails de l’application Twitter")
 
@@ -139,7 +133,7 @@ Pour que l’application s’exécute, vous devez indiquer certaines information
    * Définissez `oauth_consumer_secret` sur le secret du client Twitter (clé secrète de l’API).
    * Définissez `oauth_token` sur le jeton d’accès Twitter.
    * Définissez `oauth_token_secret` sur le secret du jeton d’accès Twitter.
-   * Définissez `EventHubNameConnectionString` sur la chaîne de connexion. Assurez-vous d’utiliser la chaîne de connexion dans laquelle vous avez supprimé la paire clé-valeur `EntityPath`.
+   * Définissez `EventHubNameConnectionString` sur la chaîne de connexion.
    * Définissez `EventHubName` sur le nom de l’Event Hub (autrement dit, la valeur du chemin d’accès de l’entité).
 
 3. Ouvrez la ligne de commande et accédez au répertoire où se trouve votre application TwitterClientCore. Utilisez la commande `dotnet build` pour générer le projet. Utilisez ensuite la commande `dotnet run` pour exécuter l’application. L’application envoie des tweets à votre Event Hub.
@@ -165,7 +159,7 @@ Maintenant que nous avons un flux d’événements de tweet diffusé en temps r�
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Alias d’entrée| *TwitterStream* | Spécifiez un alias pour l’entrée. |
-   |Subscription  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
+   |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
    |Espace de noms Event Hub | *asa-twitter-eventhub* |
    |Nom de l’Event Hub | *socialtwitter-eh* | Choisissez *Utiliser l’existant*. Ensuite, sélectionnez l’Event Hub que vous avez créé.|
    |Type de compression d’événement| GZip | Type de compression des données.|

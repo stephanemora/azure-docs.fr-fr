@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096132"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396715"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 
 > [!IMPORTANT]
-> La méthode d’envoi du journal d’activité Azure dans Stockage Azure et Azure Event Hubs a été remplacée par des [paramètres de diagnostic](diagnostic-settings.md). Cet article décrit la méthode actuelle qui est en cours de dépréciation. Pour obtenir une comparaison, consultez [Mise à jour avec la collecte et l’exportation de journaux d’activité Azure](diagnostic-settings-legacy.md).
+> La méthode d’envoi du journal d’activité Azure dans Stockage Azure et Azure Event Hubs a été remplacée par des [paramètres de diagnostic](diagnostic-settings.md). Cet article décrit la méthode actuelle qui est en cours de dépréciation. Pour obtenir une comparaison, consultez la mise à jour de [Collecter et analyser le journal d’activité Azure dans Azure Monitor](activity-log-collect.md).
 
 
 Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. En plus d'afficher le journal d’activité dans le portail Azure ou de le copier dans un espace de travail Log Analytics où il peut être analysé avec d’autres données collectées par Azure Monitor, vous pouvez créer un profil de journal pour archiver le journal d’activité dans un compte de stockage Azure ou le diffuser en continu dans un Event Hub.

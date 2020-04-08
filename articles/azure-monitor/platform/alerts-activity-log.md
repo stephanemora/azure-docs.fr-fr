@@ -4,12 +4,12 @@ description: Créer des alertes de journal d’activité à l’aide du portail 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 9791ebaadeb1ee724692a9e1a0d61aff5cbae6a3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: bfbe2bc3ae3edf9285d3ec006ab0451f070cabd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668483"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132404"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -127,7 +127,7 @@ Pour bien comprendre les conditions dans lesquelles des règles d’alerte peuve
 
 
 ## <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
-Pour créer une alerte de journal d’activité à l’aide d’un modèle Azure Resource Manager, créez une ressource de type `microsoft.insights/activityLogAlerts`. Puis, renseignez toutes les propriétés associées. Voici un modèle qui crée une alerte de journal d’activité :
+Pour créer une règle d’alerte de journal d’activité à l’aide d’un modèle Azure Resource Manager, créez une ressource de type `microsoft.insights/activityLogAlerts`. Puis, renseignez toutes les propriétés associées. Voici un modèle qui crée une règle d’alerte de journal d’activité :
 
 ```json
 {
@@ -195,6 +195,39 @@ Pour créer une alerte de journal d’activité à l’aide d’un modèle Azure
 }
 ```
 L’exemple JSON précédent peut, par exemple, être enregistré en tant que sampleActivityLogAlert.json pour les besoins de cette procédure pas à pas, et peut être déployé à l’aide d’[Azure Resource Manager dans le portail Azure](../../azure-resource-manager/templates/deploy-portal.md).
+
+Les champs suivants sont les options que vous pouvez utiliser dans le modèle Azure Resource Manager pour les champs de conditions : Notez que « Resource Health », « Advisor » et « Service Health » ont des champs de propriétés supplémentaires pour leurs champs spéciaux. 
+1. resourceId :  ID de la ressource concernée dans l’événement du journal d’activité sur lequel l’alerte doit être générée.
+2. category : Catégorie de l’événement du journal d’activité. Par exemple : Administrative, ServiceHealth, ResourceHealth, Autoscale, Security, Recommendation, Policy.
+3. caller : Adresse e-mail ou identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération de l’événement du journal d’activité.
+4. level : Niveau de l’activité dans l’événement du journal d’activité sur lequel l’alerte doit être générée. Par exemple : Critical, Error, Warning, Informational, Verbose.
+5. operationName : Nom de l’opération dans l’événement du journal d’activité. Par exemple : Microsoft.Resources/deployments/write
+6. resourceGroup : Nom du groupe de ressources pour la ressource affectée dans l’événement du journal d’activité.
+7. resourceProvider : [Explication des fournisseurs et types de ressources Azure](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). Pour obtenir la liste qui mappe les fournisseurs de ressources aux services Azure, consultez [Fournisseurs de ressources pour les services Azure](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0).
+8. status : Chaîne décrivant l’état de l’opération dans l’événement d’activité. Par exemple : Started, In Progress, Succeeded, Failed, Active, Resolved
+9. subStatus : En général, le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état.   Par exemple : OK (code d’état HTTP : 200), Créé (code d’état HTTP : 201), Accepté (code d’état HTTP : 202, Aucun contenu (code d’état HTTP : 204, Requête incorrecte (code d’état HTTP : 400, Introuvable (code d’état HTTP : 404), Conflit (code d’état HTTP : 409), Erreur interne du serveur (code d’état HTTP : 500), Service indisponible (code d’état HTTP : 503), Dépassement de délai de la passerelle (code d'état HTTP : 504).
+10. resourceType: Type de la ressource affectée par l’événement. Par exemple : Microsoft.Resources/deployments
+
+Par exemple :
+
+```json
+"condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Administrative"
+            },
+            {
+              "field": "resourceType",
+              "equals": "Microsoft.Resources/deployments"
+            }
+          ]
+        }
+
+```
+Pour plus d’informations sur les champs du journal d’activité, consultez [ceci](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+
+
 
 > [!NOTE]
 > L'activation d'une nouvelle règle d'alerte de journal d'activité peut prendre jusqu'à 5 minutes.

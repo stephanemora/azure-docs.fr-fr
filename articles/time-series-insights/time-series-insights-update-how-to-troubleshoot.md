@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a306707f0ed47fba8fd854d820554bc1bd80e8bc
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80152646"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostiquer et dépanner un environnement d’évaluation
 
@@ -72,6 +72,20 @@ Il se peut que vous envoyiez des données sans l’ID de série chronologique.
 
     > [!NOTE]
     > À l’heure actuelle, Time Series Insights prend en charge un taux d’ingestion maximal de 6 Mbit/s.
+
+## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problème : Des données étaient affichées, mais la réception s’est arrêtée
+
+- Votre clé de source d’événement a peut-être été régénérée et votre environnement de préversion a besoin de la nouvelle clé de source d’événement.
+
+Ce problème se produit lorsque la clé fournie lors de la création de votre source d’événements n’est plus valide. Vous pouvez voir les données de télémétrie dans votre hub, mais aucun message n’a été reçu en entrée dans Time Series Insights. Si vous ne savez pas si la clé a été régénérée, vous pouvez effectuer une recherche dans le journal d’activité de votre Event Hub pour « Création ou mise à jour de règles d’autorisation d’espace de noms » ou rechercher « Création ou mise à jour d’une ressource IoT Hub » pour IoT Hub. 
+
+Pour mettre à jour votre environnement Time Series Insights (préversion) avec la nouvelle clé, ouvrez votre ressource de hub dans le portail Azure et copiez la nouvelle clé. Accédez à votre ressource TSI, puis cliquez sur Sources d’événements. 
+
+   [![Mettez à jour la clé.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+
+Sélectionnez la ou les sources d’événements à partir desquelles l’ingestion s’est arrêtée, collez la nouvelle clé, puis cliquez sur Enregistrer.
+
+   [![Mettez à jour la clé.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problème : le nom de la propriété Timestamp de ma source d’événement ne fonctionne pas
 

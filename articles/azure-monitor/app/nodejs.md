@@ -3,12 +3,12 @@ title: Surveiller les services Node.js avec Azure Application Insights | Micros
 description: Analysez les performances et diagnostiquez les problèmes dans les services Node.js avec Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670013"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411579"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -16,7 +16,7 @@ ms.locfileid: "77670013"
 
 Pour recevoir, stocker et explorer vos données d’analyse, incluez le kit de développement logiciel (SDK) dans votre code et configurez une ressource Application Insights correspondante dans Azure. Le kit de développement logiciel (SDK) envoie les données à cette ressource pour une analyse et une exploration plus approfondies.
 
-Le kit de développement logiciel (SDK) Node.js peut automatiquement analyser les demandes HTTP entrantes et sortantes, les exceptions et certaines mesures du système. À partir de la version 0.20, le kit de développement logiciel (SDK) peut surveiller des packages tiers communs comme MongoDB, MySQL et Redis. Tous les événements liés à une demande HTTP entrante sont mis en corrélation pour une résolution des problèmes plus rapide.
+Le kit de développement logiciel (SDK) Node.js peut automatiquement analyser les demandes HTTP entrantes et sortantes, les exceptions et certaines mesures du système. À partir de la version 0.20, le kit de développement logiciel (SDK) peut surveiller des [packages tiers](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules) communs comme MongoDB, MySQL et Redis. Tous les événements liés à une demande HTTP entrante sont mis en corrélation pour une résolution des problèmes plus rapide.
 
 Vous pouvez utiliser l’API TelemetryClient pour instrumenter et surveiller manuellement des aspects supplémentaires de votre application et de votre système. L’API TelemetryClient est décrite plus en détail plus loin dans cet article.
 
@@ -32,7 +32,7 @@ Avant de commencer, vérifiez que vous disposez d’un abonnement Azure ou [obte
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
 
 
-### <a name="resource"></a> Configurer une ressource Application Insights
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurer une ressource Application Insights
 
 
 1. Connectez-vous au [portail Azure][portal].
@@ -40,7 +40,7 @@ Avant de commencer, vérifiez que vous disposez d’un abonnement Azure ou [obte
 
 3. Sur la page de création de ressource, sélectionnez **Application Node.js** dans la zone **Application Type**. Le type d’application détermine les tableaux de bord et rapports créés par défaut. (Toutes les ressources Application Insights peuvent collecter des données à partir de n’importe quel langage et n’importe quelle plateforme.)
 
-### <a name="sdk"></a> Configurer le kit de développement logiciel (SDK) Node.js
+### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a> Configurer le kit de développement logiciel (SDK) Node.js
 
 Incluez le kit de développement logiciel dans votre application afin qu’il collecte des données. 
 
@@ -70,7 +70,7 @@ Incluez le kit de développement logiciel dans votre application afin qu’il co
 
    Vous pouvez essayer le kit de développement logiciel (SDK) sans envoyer de télémétrie en définissant `appInsights.defaultClient.config.disableAppInsights = true`.
 
-### <a name="monitor"></a> Surveiller votre application
+### <a name="monitor-your-app"></a><a name="monitor"></a> Surveiller votre application
 
 Le kit de développement logiciel (SDK) recueille automatiquement les données de télémétrie sur le runtime Node.js et certains modules tiers courants. Utilisez votre application pour générer certaines de ces données.
 

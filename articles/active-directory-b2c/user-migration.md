@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90ef9402e0891915be4ed6bb89573eced546c59a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183140"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332329"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrer des utilisateurs vers Azure AD B2C
 
@@ -43,7 +43,7 @@ Utilisez le flux de migration fluide si les mots de passe en texte en clair dans
 - Le mot de passe est stocké dans un format chiffré unidirectionnel, comme avec une fonction de hachage.
 - Le mot de passe est stocké par le fournisseur d’identité précédent de telle façon que vous ne pouvez pas y accéder. Par exemple, quand le fournisseur d’identité valide les informations d’identification en appelant un service web.
 
-Le flux de migration fluide nécessite néanmoins toujours la migration en bloc des comptes d’utilisateur, mais il utilise ensuite une [stratégie personnalisée](restful-technical-profile.md) pour interroger une [API REST](rest-api-claims-exchange-dotnet.md) (que vous créez) pour définir le mot de passe de chaque utilisateur lors de la première connexion.
+Le flux de migration fluide nécessite néanmoins toujours la migration en bloc des comptes d’utilisateur, mais il utilise ensuite une [stratégie personnalisée](custom-policy-get-started.md) pour interroger une [API REST](custom-policy-rest-api-intro.md) (que vous créez) pour définir le mot de passe de chaque utilisateur lors de la première connexion.
 
 Le flux de migration fluide comporte ainsi deux phases : *importation en bloc* et *définition des informations d’identification*.
 
@@ -73,7 +73,7 @@ Pour voir un exemple de stratégie personnalisée et d’API REST, consultez l�
 
 L’approche de la migration fluide utilise votre propre API REST personnalisée pour valider les informations d’identification d’un utilisateur par rapport au fournisseur d’identité précédent.
 
-**Vous devez protéger votre API REST contre les attaques par force brute.** Un attaquant peut envoyer plusieurs mots de passe en espérant finalement deviner les informations d’identification d’un utilisateur. Pour aider à contrer de telles attaques, cessez de répondre aux demandes effectuées auprès de votre API REST quand le nombre de tentatives de connexion dépasse un certain seuil. Sécurisez aussi la communication entre Azure AD B2C et votre API REST en utilisant un [certificat client](secure-rest-api-dotnet-certificate-auth.md).
+**Vous devez protéger votre API REST contre les attaques par force brute.** Un attaquant peut envoyer plusieurs mots de passe en espérant finalement deviner les informations d’identification d’un utilisateur. Pour aider à contrer de telles attaques, cessez de répondre aux demandes effectuées auprès de votre API REST quand le nombre de tentatives de connexion dépasse un certain seuil. Sécurisez aussi la communication entre Azure AD B2C et votre API REST. Pour savoir comment sécuriser vos API RESTful pour la production, consultez [API RESTful sécurisée](secure-rest-api.md).
 
 ### <a name="user-attributes"></a>Attributs utilisateur
 

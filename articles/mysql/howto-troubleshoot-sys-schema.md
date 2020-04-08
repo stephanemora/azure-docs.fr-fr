@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/30/2020
+ms.openlocfilehash: 59b8753007c3b9130c397dda30c571580cbb5326
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775943"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411088"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Guide pratique pour utiliser sys_schema à des fins de réglage des performances et de maintenance de base de données dans Azure Database pour MySQL
 
@@ -60,6 +60,9 @@ Dans cet exemple, Azure Database pour MySQL a passé 53 minutes à vider le jou
 ## <a name="database-maintenance"></a>Maintenance de base de données
 
 ### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
+
+[!IMPORTANT]
+> L’interrogation de cette vue peut avoir un impact sur les performances. Il est recommandé d’effectuer cette résolution des problèmes pendant les heures creuses.
 
 Le pool de mémoires tampons InnoDB réside en mémoire et constitue le principal mécanisme de cache entre le SGBD et le stockage. La taille du pool de mémoires tampons InnoDB est liée au niveau de performances et ne peut pas être changée, à moins de choisir une autre référence SKU de produit. Comme pour la mémoire de votre système d’exploitation, les pages anciennes sont écartées pour faire place à des données plus récentes. Pour identifier les tables qui consomment la majeure partie de la mémoire du pool de mémoires tampons InnoDB, vous pouvez interroger la vue *sys.innodb_buffer_stats_by_table*.
 

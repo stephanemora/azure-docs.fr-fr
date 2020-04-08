@@ -83,7 +83,7 @@
         - name: "3\_- Créer un pipeline"
           displayName: Devop
           href: deployment-tutorial-pipeline.md
-    - name: Avancé
+    - name: Modèles avancés
       items:
         - name: Utiliser la référence de modèle
           href: template-tutorial-use-template-reference.md
@@ -101,23 +101,21 @@
         - name: Intégrer Key Vault
           displayName: secrets
           href: template-tutorial-use-key-vault.md
-        - name: Créer des modèles liés
-          href: template-tutorial-create-linked-templates.md
         - name: Déployer des extensions de machine virtuelle
           displayName: virtual machine extensions
           href: template-tutorial-deploy-vm-extensions.md
         - name: Déployer des extensions SQL
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: Sécuriser des artefacts
-          href: template-tutorial-secure-artifacts.md
+        - name: Résoudre les problèmes de déploiement de modèles
+          href: template-tutorial-troubleshoot.md
+    - name: Gestionnaire de déploiement
+      items:
         - name: Utiliser des pratiques de déploiement sécurisé
           displayName: adm
           href: deployment-manager-tutorial.md
         - name: Utiliser le contrôle d’intégrité dans le Gestionnaire de déploiement
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-        - name: Résoudre les problèmes de déploiement de modèles
-          href: template-tutorial-troubleshoot.md
 - name: Exemples
   items:
     - name: "Modèles de démarrage rapide Microsoft\_Azure"

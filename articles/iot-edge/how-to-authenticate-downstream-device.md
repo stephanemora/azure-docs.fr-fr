@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1ca066729a81ff51d87c5d8063c94be86366811c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 999204cf2fc8ce18b42f873b9d34af4e6c08052b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548762"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411492"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -29,7 +29,7 @@ Pour s’authentifier auprès d’IoT Hub, les appareils en aval disposent de t
 
 Les étapes décrites dans cet article Montrent comment provisionner des appareils manuellement. Elles n’expliquent pas comment effectuer un approvisionnement automatique à l’aide du service Azure IoT Hub Device Provisioning (DPS). L’approvisionnement des appareils en aval avec DPS n’est pas pris en charge.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes décrites dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md). Si vous utilisez l’authentification X.509 pour votre appareil en aval, vous devez utiliser le même script de génération de certificat que celui que vous avez configuré dans l’article relatif à la passerelle transparente.
 
@@ -98,10 +98,10 @@ Si vous n’avez pas d’autorité de certification pour créer les certificats 
 5. Selon votre langue par défaut, consultez des exemples de référencement de certificats X.509 dans des applications IoT :
 
    * C# : [Configurer la sécurité X.509 dans votre Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)
-   * C : [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample)
+   * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js : [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
-   * Java : [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py)
-   * Python : [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/advanced-hub-scenarios/send_message_x509.py)
+   * Java : [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
+   * Python : [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
 Vous pouvez utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) afin d’effectuer la même opération de création d’appareil. L’exemple suivant crée un appareil IoT avec l’authentification par certificat X.509 autosigné et affecte un appareil parent :
 
@@ -141,10 +141,10 @@ Si vous n’avez pas d’autorité de certification pour créer les certificats 
 5. Selon votre langue par défaut, consultez des exemples de référencement de certificats X.509 dans des applications IoT :
 
    * C# : [Configurer la sécurité X.509 dans votre Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)
-   * C : [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample)
+   * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js : [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
-   * Java : [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py)
-   * Python : [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/advanced-hub-scenarios/send_message_x509.py)
+   * Java : [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
+   * Python : [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
 Vous pouvez utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) afin d’effectuer la même opération de création d’appareil. L’exemple suivant crée un appareil IoT avec l’authentification par certificat X.509 signé par l’autorité de certification, et affecte un appareil parent :
 

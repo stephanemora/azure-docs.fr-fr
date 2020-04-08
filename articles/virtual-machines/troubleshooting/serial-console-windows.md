@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451248"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410117"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console série Azure pour Windows
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur la console série pour Linux, consultez [Console série 
 > La console série est généralement disponible dans les régions Azure mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Resource Manager. Les déploiements classiques ne sont pas pris en charge.
 
@@ -60,7 +60,7 @@ Vous pouvez aussi activer manuellement la console série pour les machines virtu
 
 1. Connectez-vous à la machine virtuelle Windows à l’aide du Bureau à distance.
 1. À une invite de commandes d’administration, exécutez les commandes suivantes :
-    - `bcdedit /ems {current} on`
+    - `bcdedit /ems {current} on` ou `bcdedit /ems '{current}' on` si vous utilisez PowerShell
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. Redémarrez le système pour activer la console SAC.
 
@@ -102,15 +102,15 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
 
     ![Se connecter à la console SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.  Entrez `cmd` pour créer un canal qui a une instance CMD.
+1.    Entrez `cmd` pour créer un canal qui a une instance CMD.
 
-1.  Entrez `ch -si 1` ou appuyez sur les touches de raccourci `<esc>+<tab>` pour basculer vers le canal qui exécute l’instance CMD.
+1.    Entrez `ch -si 1` ou appuyez sur les touches de raccourci `<esc>+<tab>` pour basculer vers le canal qui exécute l’instance CMD.
 
-1.  Appuyez sur **Entrée**, puis entrez des informations de connexion disposant d’autorisations administratives.
+1.    Appuyez sur **Entrée**, puis entrez des informations de connexion disposant d’autorisations administratives.
 
-1.  Une fois que vous avez entré des informations d’identification valides, l’instance CMD s’ouvre.
+1.    Une fois que vous avez entré des informations d’identification valides, l’instance CMD s’ouvre.
 
-1.  Pour démarrer une instance de PowerShell, entrez `PowerShell` dans l’instance CMD, puis appuyez sur **Entrée**.
+1.    Pour démarrer une instance de PowerShell, entrez `PowerShell` dans l’instance CMD, puis appuyez sur **Entrée**.
 
     ![Ouvrir l’instance PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

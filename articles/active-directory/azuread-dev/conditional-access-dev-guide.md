@@ -12,12 +12,13 @@ ms.subservice: azuread-dev
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 5b7434af51cca2677b6b3d678ca8031cc6dbffab
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 92acb1a475fbd41bfb7351d73c61db866ce2bbc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163662"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154931"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -87,7 +88,7 @@ Les développeurs peuvent prendre ce défi et l’ajouter à une nouvelle demand
 
 ## <a name="scenarios"></a>Scénarios
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 L’accès conditionnel Azure AD est une fonctionnalité incluse dans [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Pour en savoir plus sur les conditions requises de licence, consultez le [Rapport d’utilisation sans licence](../active-directory-conditional-access-unlicensed-usage-report.md). Les développeurs peuvent joindre le [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), qui inclut un abonnement gratuit à la suite Enterprise Mobility, qui comprend Azure AD Premium.
 

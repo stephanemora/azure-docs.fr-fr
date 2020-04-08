@@ -3,12 +3,12 @@ title: Filtrage et prétraitement dans le Kit de développement logiciel (SDK) A
 description: Écrivez des processeurs de télémétrie et des initialiseurs de télémétrie que le Kit de développement logiciel (SDK) doit filtrer ou ajoutez des propriétés aux données avant que la télémétrie ne soit envoyée au portail Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: 9f4df83ed60ba94913702b9a32a298f0ac62f9f4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 53b6ecc51961feba35d571eab3115c8e7ccf9964
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666460"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366306"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -379,6 +379,14 @@ Vous pouvez ajouter autant d’initialiseurs que vous le souhaitez et ceux-ci so
 
 Les processeurs de télémétrie dans OpenCensus Python sont tout simplement des fonctions de rappel appelées pour traiter les données de télémétrie avant leur exportation. La fonction de rappel doit accepter un type de données [enveloppe](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) comme paramètre. Pour filtrer les données de télémétrie à ne pas exporter, vérifiez que la fonction de rappel retourne `False`. Vous pouvez voir le schéma des types de données Azure Monitor dans les enveloppes [ici](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
+> [!NOTE]
+> Vous pouvez modifier le `cloud_RoleName` en modifiant l’attribut `ai.cloud.role` dans le champ `tags`.
+
+```python
+def callback_function(envelope):
+    envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+```
+
 ```python
 # Example for log exporter
 import logging
@@ -486,7 +494,7 @@ L’exemple d’initialiseur suivant ajoute une propriété personnalisée à ch
 public void Initialize(ITelemetry item)
 {
   var itemProperties = item as ISupportProperties;
-  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+  if(itemProperties != null && !itemProperties.Properties.ContainsKey("customProp"))
     {
         itemProperties.Properties["customProp"] = "customValue";
     }
@@ -534,7 +542,7 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 * [SDK ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="next"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 * [Recherche d’événements et de journaux d’activité](../../azure-monitor/app/diagnostic-search.md)
 * [Échantillonnage](../../azure-monitor/app/sampling.md)
 * [Dépannage](../../azure-monitor/app/troubleshoot-faq.md)

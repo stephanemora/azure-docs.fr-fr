@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e104877ef641a87eac4ba19bb3342c6e029bf80c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662346"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294595"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
 
@@ -28,14 +28,14 @@ Les métriques personnalisées peuvent être envoyées à Azure Monitor à l’a
 
 Lorsque vous envoyez des métriques personnalisées à Azure Monitor, chaque point de données (ou valeur) rapporté doit inclure les informations qui suivent.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 Pour soumettre des métriques personnalisées à Azure Monitor, l’entité qui soumet la métrique doit disposer d’un jeton Azure Active Directory (Azure AD) valide, figurant dans l’en-tête **porteur** de la requête. Il existe plusieurs moyens d’acquérir un jeton du porteur valide :
 1. [Identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Donne une identité à une ressource Azure, par exemple, une machine virtuelle. Managed Service Identity (MSI) est conçu pour accorder aux ressources des autorisations permettant d’effectuer certaines opérations. Il peut s’agir, par exemple, d’autoriser une ressource à générer des métriques à propos d’elle-même. Une ressource (ou son MSI) peut recevoir des autorisations **Surveillance de l’éditeur de métriques** pour une autre ressource. Avec cette autorisation, le MSI peut également générer des métriques sur d’autres ressources.
 2. [Principal du service Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Dans ce scénario, une application (ou service) Azure AD peut se voir accorder les autorisations nécessaires pour générer des métriques concernant une ressource Azure.
 Pour authentifier la requête, Azure Monitor valide le jeton d’application à l’aide de clés publiques Azure AD. Le rôle **Surveillance de l’éditeur de métriques** dispose déjà de cette autorisation. Cette autorisation est disponible dans le portail Azure. En fonction des ressources pour lesquelles il émettra des métriques personnalisées, le principal de service peut se voir accorder le rôle **Surveillance de l’éditeur de métriques** selon la portée nécessaire. Il peut s’agir d’un abonnement, d’un groupe de ressources ou d’une ressource.
 
 > [!NOTE]  
-> Lorsque vous demandez à un jeton Azure AD de générer des métriques personnalisées, vérifiez que l’audience ou la ressource pour laquelle le jeton est demandé est https://monitoring.azure.com/. Veillez à inclure la barre oblique (/) à la fin.
+> Lorsque vous demandez à un jeton Azure AD de générer des métriques personnalisées, vérifiez que l’audience ou la ressource pour laquelle le jeton est demandé est `https://monitoring.azure.com/`. Veillez à inclure la barre oblique (/) à la fin.
 
 ### <a name="subject"></a>Objet
 Cette propriété capture l’ID de ressource Azure pour lequel la métrique personnalisée est rapportée. Cette information sera codée dans l’URL de l’appel d’API effectué. Chaque API peut soumettre des valeurs de métrique pour une ressource Azure uniquement.
@@ -156,13 +156,17 @@ Il n’est pas nécessaire de prédéfinir une métrique personnalisée dans Azu
 
 ## <a name="using-custom-metrics"></a>Utilisation de métriques personnalisées
 Une fois les métriques personnalisées envoyées à Azure Monitor, vous pouvez les parcourir dans le portail Azure et les interroger via les API REST Azure Monitor. Vous pouvez également créer des alertes les concernant, afin d’être averti lorsque certaines conditions sont remplies.
+
+> [!NOTE]
+> Vous devez avoir un rôle Lecteur ou Contributeur pour afficher des métriques personnalisées.
+
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Parcourir vos métriques personnalisées dans le Portail Azure
-1.  Accédez au [portail Azure](https://portal.azure.com).
-2.  Sélectionnez le volet **Surveiller**.
-3.  Sélectionnez **Métriques**.
-4.  Sélectionnez une ressource pour laquelle vous avez émis des métriques personnalisées.
-5.  Sélectionnez l’espace de noms de métrique de votre métrique personnalisée.
-6.  Sélectionnez la métrique personnalisée.
+1.    Accédez au [portail Azure](https://portal.azure.com).
+2.    Sélectionnez le volet **Surveiller**.
+3.    Sélectionnez **Métriques**.
+4.    Sélectionnez une ressource pour laquelle vous avez émis des métriques personnalisées.
+5.    Sélectionnez l’espace de noms de métrique de votre métrique personnalisée.
+6.    Sélectionnez la métrique personnalisée.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 Dans la préversion publique, la publication des métriques personnalisées n’est possible que dans un sous-ensemble de régions Azure. Cette restriction signifie que vous ne pouvez publier des métriques que pour les ressources qui sont situées dans l’une de ces régions. Le tableau suivant répertorie les régions Azure qui prennent en charge les métriques personnalisées. Il répertorie également les points de terminaison où peuvent être publiées les métriques concernant les ressources situées dans ces régions :

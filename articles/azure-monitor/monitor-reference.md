@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669112"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408489"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -198,7 +198,7 @@ D’autres solutions sont disponibles pour la supervision des différents servic
 |:---|:---|
 | [Contrôle d’intégrité d’Active Directory](insights/ad-assessment.md) | Évaluez les risques et l’intégrité de vos environnements Active Directory. |
 | [Active Directory Replication Status](insights/ad-replication-status.md) | Supervise régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent. |
-| [Analyse Log Analytics des activités](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analysez les entrées du journal d’activité à l’aide de requêtes et de vues de journal prédéfinies. |
+| [Analyse Log Analytics des activités](platform/activity-log-view.md#azure-portal) | Affichez les entrées du journal d’activité. |
 | [DNS Analytics (préversion)](insights/dns-analytics.md) | Collecte, analyse et met en corrélation les journaux d’audit et d’analyse DNS Windows et d’autres données connexes de vos serveurs DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Collectez, consultez et analysez l’intégrité et les métriques de performance de Cloud Foundry, et ce, sur plusieurs déploiements. |
 | [Containers](insights/containers.md) | Affichez et gérez les hôtes de conteneur Docker et Windows. |

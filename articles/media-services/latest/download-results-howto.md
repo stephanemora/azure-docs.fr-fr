@@ -11,18 +11,22 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 0c81523d43fd316c3dc65cc2a5b34557f24014b5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303407"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346286"
 ---
 # <a name="download-the-results-of-a-job"></a>Télécharger les résultats d’un travail
 
 Dans Azure Media Services, lors du traitement de vos vidéos (par exemple l’encodage ou l’analyse), vous devez créer un [actif multimédia](assets-concept.md) de sortie où stocker le résultat de votre [travail](transforms-jobs-concept.md). Vous pouvez ensuite télécharger ces résultats dans un dossier local à l’aide des API de stockage et Media Services. 
 
 Cet article montre comment télécharger les résultats à l’aide des SDK Java et .NET.
+
+## <a name="prerequisites"></a>Prérequis 
+
+Passez en revue [Gérer les ressources](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 

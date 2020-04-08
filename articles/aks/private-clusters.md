@@ -4,100 +4,23 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944197"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398046"
 ---
-# <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Créer un cluster Azure Kubernetes Service privé (préversion)
+# <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
 Dans un cluster privé, le plan de contrôle ou le serveur d’API a des adresses IP internes qui sont définies dans le document [RFC1918 - Address Allocation for Private Internets](https://tools.ietf.org/html/rfc1918) (RFC1918 - Allocation d’adresses pour les réseaux Internet privés). En utilisant un cluster privé, vous pouvez garantir que le trafic réseau entre votre serveur d’API et vos pools de nœuds reste uniquement sur le réseau privé.
 
 Le plan de contrôle ou le serveur d’API se trouve dans un abonnement Azure géré par Azure Kubernetes Service (AKS). Le cluster ou le pool de nœuds d’un client se trouve dans l’abonnement du client. Le serveur et le cluster ou le pool de nœuds peuvent communiquer entre eux par le biais du [service Azure Private Link][private-link-service] dans le réseau virtuel du serveur d’API et d’un point de terminaison privé exposé dans le sous-réseau du cluster AKS du client.
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et sont proposées sur la base d’un abonnement. Les préversions sont fournies *en l’état* et *en fonction des disponibilités*. De plus, elles sont exclues du contrat de niveau de service (SLA) et de la garantie limitée. Les préversions AKS sont, *dans la mesure du possible*, partiellement couvertes par le service clientèle. Par conséquent, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour plus d’informations, consultez les articles de support suivants :
->
-> * [Stratégies de support AKS](support-policies.md)
-> * [FAQ du support Azure](faq.md)
-
 ## <a name="prerequisites"></a>Prérequis
 
-* Azure CLI version 2.0.77 ou ultérieure et l’extension Azure CLI AKS version 0.4.18 en préversion
+* Azure CLI version 2.2.0 ou ultérieure
 
-## <a name="currently-supported-regions"></a>Régions actuellement prises en charge
-
-* Australie Est
-* Sud-Australie Est
-* Brésil Sud
-* Centre du Canada
-* Est du Canada
-* USA Centre
-* Asie Est
-* USA Est
-* USA Est 2
-* USA Est 2 (EUAP)
-* France Centre
-* Allemagne Nord
-* Japon Est
-* OuJapon Est
-* Centre de la Corée
-* Corée du Sud
-* Centre-Nord des États-Unis
-* Europe Nord
-* Europe Nord
-* États-Unis - partie centrale méridionale
-* Sud du Royaume-Uni
-* Europe Ouest
-* USA Ouest
-* USA Ouest 2
-* USA Est 2
-
-## <a name="currently-supported-availability-zones"></a>Zones de disponibilité actuellement prises en charge
-
-* USA Centre
-* USA Est
-* USA Est 2
-* France Centre
-* Japon Est
-* Europe Nord
-* Asie Sud-Est
-* Sud du Royaume-Uni
-* Europe Ouest
-* USA Ouest 2
-
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installer la dernière extension Azure CLI AKS en préversion
-
-Pour utiliser des clusters privés, vous devez disposer de l’extension Azure CLI AKS version 0.4.18 ou ultérieure en préversion. Installez l’extension Azure CLI AKS en préversion à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] suivante :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-> [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé certaines fonctionnalités d’évaluation, vous pouvez utiliser les paramètres par défaut pour tous les clusters AKS créés dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
-
-```azurecli-interactive
-az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
-```
-
-Quelques minutes peuvent être nécessaires pour que l’état d’inscription *Inscrit* s’affiche. Vous pouvez vérifier l’état à l’aide de la commande [az feature list][az-feature-list] suivante :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
-```
-
-Une fois que l’état est « Inscrit », actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] suivante :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-az provider register --namespace Microsoft.Network
-```
 ## <a name="create-a-private-aks-cluster"></a>Créer un cluster AKS privé
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
@@ -158,9 +81,22 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 8. Sélectionnez **Ajouter**, ajoutez le réseau virtuel de la machine virtuelle, puis créez l’appairage.  
 9. Accédez au réseau virtuel sur lequel se trouve la machine virtuelle, sélectionnez **Appairages**, sélectionnez le réseau virtuel AKS, puis créez l’appairage. Si les plages d’adresses sur le réseau virtuel AKS et le réseau virtuel de la machine virtuelle sont en conflit, l’appairage échoue. Pour plus d’informations, consultez [Appairage de réseaux virtuels][virtual-network-peering].
 
+## <a name="hub-and-spoke-with-custom-dns"></a>Hub-and-spoke avec DNS personnalisé
+
+[Les architectures Hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) sont couramment utilisées pour déployer des réseaux dans Azure. Dans la plupart de ces déploiements, les paramètres DNS des réseaux virtuels spoke sont configurés pour faire référence à un redirecteur DNS central afin d’autoriser la résolution DNS locale et basée sur Azure. Lors du déploiement d’un cluster AKS dans un environnement de mise en réseau de ce type, certaines considérations spéciales doivent être prises en compte.
+
+![Hub-and-spoke de cluster privé](media/private-clusters/aks-private-hub-spoke.png)
+
+1. Par défaut, lorsqu’un cluster privé est approvisionné, un point de terminaison privé (1) et une zone DNS privée (2) sont créés dans le groupe de ressources managées par le cluster. Le cluster utilise un enregistrement A dans la zone privée pour résoudre l’adresse IP du point de terminaison privé pour la communication avec le serveur d’API.
+
+2. La zone DNS privée est liée uniquement au réseau virtuel auquel les nœuds de cluster sont attachés (3). Cela signifie que le point de terminaison privé peut uniquement être résolu par les hôtes de ce réseau virtuel lié. Dans les scénarios où aucun DNS personnalisé n’est configuré sur le réseau virtuel (par défaut), cela fonctionne sans problème étant donné que les hôtes pointent vers l’adresse 168.63.129.16 pour le DNS, qui peut résoudre les enregistrements dans la zone DNS privée en raison du lien.
+
+3. Dans les scénarios où le réseau virtuel contenant votre cluster présente des paramètres DNS personnalisés (4), le déploiement du cluster échoue, sauf si la zone DNS privée est liée au réseau virtuel qui contient les programmes de résolution DNS personnalisés (5). Ce lien peut être créé manuellement après la création de la zone privée lors de l’approvisionnement du cluster ou via l’automation lors de la détection de la création de la zone à l’aide d’Azure Policy ou d’autres mécanismes de déploiement basés sur les événements (par exemple, Azure Event Grid et Azure Functions).
+
 ## <a name="dependencies"></a>Les dépendances  
+
 * Le service Liaison privée est pris en charge uniquement sur Azure Load Balancer Standard. Azure Load Balancer De base n’est pas pris en charge.  
-* Pour utiliser un serveur DNS personnalisé, déployez un serveur AD avec DNS à transférer à cette adresse IP : 168.63.129.16.
+* Pour utiliser un serveur DNS personnalisé, ajoutez l’IP Azure DNS 168.63.129.16 en tant que serveur DNS en amont dans le serveur DNS personnalisé.
 
 ## <a name="limitations"></a>Limites 
 * Les plages d’adresses IP autorisées ne peuvent pas être appliquées au point de terminaison du serveur d’API privé, elles sont uniquement applicables au serveur d’API public
@@ -173,7 +109,6 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 * Aucune prise en charge de la conversion de clusters AKS existants en clusters privés
 * La suppression ou la modification du point de terminaison privé dans le sous-réseau du client entraîne l’arrêt du fonctionnement du cluster. 
 * Les données actives Azure Monitor pour conteneurs ne sont actuellement pas prises en charge.
-* L’*apport de votre propre DNS* n’est actuellement pas pris en charge.
 
 
 <!-- LINKS - internal -->
@@ -181,7 +116,7 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /private-link/private-link-service-overview
+[private-link-service]: /azure/private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b84084dafe79a8caa9cdb70bc201f68834079845
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 8cb68b1a5363889e6ea7c49cf0cdda6ed5f0e027
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196074"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294555"
 ---
 # <a name="authentication-requests-and-responses"></a>Authentification, requêtes et réponses
 
@@ -88,7 +88,7 @@ Cette rubrique traite des caractéristiques du service Azure Key Vault. Pour obt
 
 ```  
 
-## <a name="authentication"></a>Authentication  
+## <a name="authentication"></a>Authentification  
  Toutes les requêtes auprès d’Azure Key Vault DOIVENT être authentifiées. Azure Key Vault prend en charge les jetons d’accès Azure Active Directory qui peuvent être obtenus à l’aide d’OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Pour plus d’informations sur l’enregistrement de votre application et l’authentification permettant d’utiliser Azure Key Vault, consultez [Register your client application with Azure AD (Inscrire votre application cliente avec Azure AD)](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
@@ -113,7 +113,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization : adresse du service d’autorisation OAuth2 qui peut être utilisé afin d’obtenir un jeton d’accès pour la requête.  
 
--   resource : nom de la ressource (https://vault.azure.net) à utiliser dans la requête d'autorisation.  
+-   resource : nom de la ressource (`https://vault.azure.net`) à utiliser dans la requête d'autorisation.  
 
 ## <a name="see-also"></a>Voir aussi  
  [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)

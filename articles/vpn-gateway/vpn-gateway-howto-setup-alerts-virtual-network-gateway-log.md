@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: eb8f0204771b204af740c4ddc8e359499520a012
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b587fa31f1aa42e8dbd5a9d2430c0117891f2091
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045935"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239787"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configurer des alertes sur les événements des journaux de diagnostic à partir de la passerelle VPN
 
@@ -28,7 +28,7 @@ Les journaux suivants sont disponibles dans Azure :
 |IKEDiagnosticLog | Consigne les événements et messages de contrôle IKE sur la passerelle |
 |P2SDiagnosticLog | Consigne les événements et messages de contrôle point à site sur la passerelle |
 
-## <a name="setup"></a>Configurer des alertes
+## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Configurer des alertes dans le portail Azure
 
 Les étapes de l’exemple suivant crée une alerte pour un événement de déconnexion qui implique un tunnel VPN de site à site :
 
@@ -97,6 +97,103 @@ Les étapes de l’exemple suivant crée une alerte pour un événement de déco
 12. Dans la page **Créer une règle**, renseignez les détails pour **Personnaliser les actions** et assurez-vous que le nom correct apparaît dans la section **NOM DU GROUPE D’ACTIONS**. Sélectionnez **Créer une règle d’alerte** pour créer la règle.
 
     ![Sélections pour la création d’une règle](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Sélectionnez")
+
+## <a name="set-up-alerts-by-using-powershell"></a><a name="setuppowershell"></a>Définition d’alertes à l’aide de PowerShell
+
+Les étapes de l’exemple suivant créent une alerte pour un événement de déconnexion qui implique un tunnel VPN de site à site.
+
+1. Créez un espace de travail Log Analytics :
+
+   ```powershell
+   $Location           = 'westus2'
+   $ResourceGroupName  = 'TestRG1'
+   $Sku                = 'pergb2018'
+   $WorkspaceName      = 'LogAnalyticsWS123'
+
+   New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku $Sku -ResourceGroupName $ResourceGroupName
+   ```
+
+2. Activez les diagnostics pour la passerelle VPN :
+
+   ```powershell
+   $ResourceGroupName  = 'TestRG1'
+   $VpnGatewayName     = 'VNet1GW'
+   $WorkspaceName      = 'LogAnalyticsWS123'
+
+   $VpnGateway         = Get-AzVirtualNetworkGateway -Name $VpnGatewayName -ResourceGroupName $ResourceGroupName
+   $Workspace          = Get-AzOperationalInsightsWorkspace -Name $WorkspaceName -ResourceGroupName $ResourceGroupName
+
+   Set-AzDiagnosticSetting `
+       -Name 'VPN tunnel' `
+       -ResourceId $VpnGateway.Id `
+       -WorkspaceId $Workspace.ResourceId `
+       -Enabled $true `
+       -Category 'TunnelDiagnosticLog'
+   ```
+
+3. Créez un groupe d’actions.
+
+   Ce code crée un groupe d’actions qui envoie une notification par courrier électronique lorsqu’une alerte est déclenchée :
+
+   ```powershell
+   $ActionGroupName            = 'EmailAdmins'   # Max. 60 characters long
+   $ActionGroupShortName       = 'EmailAdmins'   # Max. 12 characters long
+   $ActionGroupReceiverName    = 'My receiver Name'
+   $EmailAddress               = 'xyz@contoso.com'
+   $ResourceGroupName          = 'TestRG1'
+
+   $ActionGroupReceiver = New-AzActionGroupReceiver -Name $ActionGroupReceiverName -UseCommonAlertSchema -EmailReceiver -EmailAddress $EmailAddress
+
+   Set-AzActionGroup `
+      -ResourceGroupName $ResourceGroupName `
+      -Name $ActionGroupName `
+      -ShortName $ActionGroupShortName `
+      -Receiver @($ActionGroupReceiver)
+   ```
+
+4. Créer une règle d’alerte basée sur une recherche de journal personnalisée :
+
+   ```powershell
+   $ActionGroupName    = 'EmailAdmins'
+   $EmailSubject       = 'Redmond VPN tunnel is disconnected'
+   $Location           = 'westus2'
+   $RemoteIp           = '104.42.209.46'
+   $ResourceGroupName  = 'TestRG1'
+   $VpnGatewayName     = 'VNet1GW'
+   $WorkspaceName      = 'LogAnalyticsWS123'
+
+   $VpnGateway         = Get-AzVirtualNetworkGateway -Name $VpnGatewayName -ResourceGroupName $ResourceGroupName
+   $Workspace          = Get-AzOperationalInsightsWorkspace -Name $WorkspaceName -ResourceGroupName $ResourceGroupName
+
+   $Query = @"
+   AzureDiagnostics |
+   where Category == "TunnelDiagnosticLog" |
+   where TimeGenerated > ago(5m) |
+   where _ResourceId == tolower("$($VpnGateway.id)") |
+   where remoteIP_s == "$($RemoteIp)" |
+   where status_s == "Disconnected" |
+   project TimeGenerated, OperationName, instance_s, Resource, ResourceGroup, _ResourceId |
+   sort by TimeGenerated asc
+   "@
+
+   $Source             = New-AzScheduledQueryRuleSource -Query $Query -DataSourceId $Workspace.ResourceId
+   $Schedule           = New-AzScheduledQueryRuleSchedule -FrequencyInMinutes 5 -TimeWindowInMinutes 5
+   $TriggerCondition   = New-AzScheduledQueryRuleTriggerCondition -ThresholdOperator 'GreaterThan' -Threshold 0
+
+   $ActionGroup        = Get-AzActionGroup -ResourceGroupName $ResourceGroupName -Name $ActionGroupName
+   $AznsActionGroup    = New-AzScheduledQueryRuleAznsActionGroup -ActionGroup $ActionGroup.Id -EmailSubject $EmailSubject
+   $AlertingAction     = New-AzScheduledQueryRuleAlertingAction -AznsAction $AznsActionGroup -Severity '1' -Trigger $TriggerCondition
+
+   New-AzScheduledQueryRule `
+       -ResourceGroupName $ResourceGroupName `
+       -Location $Location `
+       -Action $AlertingAction `
+       -Enabled $true `
+       -Description 'The tunnel between Azure and Redmond with IP address 104.42.209.46 is disconnected' `
+       -Schedule $Schedule `
+       -Source $Source `
+       -Name 'The Azure to Redmond tunnel is disconnected'
+   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
