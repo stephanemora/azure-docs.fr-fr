@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a585ab059319b15be1f2a86bf10b7dc58da72494
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: b6d949b50be348e72cedfc3710383308b04de106
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299463"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336007"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacité d’une instance du service Gestion des API Azure
 
@@ -48,7 +48,7 @@ La **capacité** est un indicateur de charge sur une instance de gestion des API
 
 + Les services de plan de données de Gestion des API, tels que le traitement des demandes, qui incluent le transfert de demandes ou l’exécution d’une stratégie.
 + Les services de plan de gestion de Gestion des API, tels que les actions de gestion appliquées via le portail Azure ou ARM, ou une charge provenant du [portail des développeurs](api-management-howto-developer-portal.md).
-+ Les processus de système d’exploitation sélectionnés, y compris les processus qui impliquent le coût des négociations SSL sur les nouvelles connexions.
++ Les processus de système d’exploitation sélectionnés, y compris les processus qui impliquent le coût des négociations TLS sur les nouvelles connexions.
 
 La **capacité** totale est une moyenne de ses propres valeurs issues de chacune des unités d’une instance du service Gestion des API.
 

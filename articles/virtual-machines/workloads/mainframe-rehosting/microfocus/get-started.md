@@ -3,15 +3,15 @@ title: Environnements de dev/test Micro Focus sur Azure | Microsoft Docs
 description: Ré-hébergez vos charges de travail mainframe z/OS IBM à l’aide de solutions Micro Focus sur des machines virtuelles Azure.
 author: njray
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 62d3f7cc75a887605cdd3c19ac2e45990e541d5e
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498897"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410981"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Environnements de dev/test Micro Focus sur Azure
 
@@ -20,6 +20,9 @@ La prise en main d’Azure avec un environnement de développement et de test es
 Micro Focus a collaboré avec Microsoft pour offrir des outils mainframe de migration et de réhébergement attrayants. Vous pouvez exécuter des applications mainframe dans le cadre de scénarios de développement, de test, et de production sur Azure et la plateforme Microsoft Windows.
 
 Micro Focus offre des solutions de réhébergement à des fins de développement et de test qui étendent les applications professionnelles COBOL et PL/I existantes à Azure.
+
+> [!NOTE]
+> Bientôt disponible : Instructions pour la configuration de [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) sur des machines virtuelles Azure.
 
 **Étapes suivantes**
 
