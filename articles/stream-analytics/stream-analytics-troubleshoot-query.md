@@ -6,25 +6,30 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: bf0740bbdd4754aeba43e64f1076a1bea33cffc6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f049dc6d1261a8201cf79d1779e522b30d13c4b0
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844415"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409443"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Résoudre les problèmes liés aux requêtes Azure Stream Analytics
 
 Cet article décrit les problèmes courants liés au développement de requêtes Stream Analytics et les procédures à suivre pour les résoudre.
 
+Cet article décrit les problèmes courants liés au développement de requêtes Azure Stream Analytics, ainsi que la façon de résoudre les problèmes de requêtes et de corriger les problèmes. De nombreuses étapes de résolution des problèmes nécessitent que les journaux de diagnostic soient activés pour votre travail Stream Analytics. Si les journaux de diagnostic ne sont pas activés, consultez la section [Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic](stream-analytics-job-diagnostic-logs.md).
+
 ## <a name="query-is-not-producing-expected-output"></a>La requête ne produit pas la sortie attendue
+
 1.  Examinez les erreurs en effectuant un test local :
+
     - Sur le Portail Azure, sous l’onglet **Requête**, sélectionnez **Test**. Utilisez les exemples de données téléchargés pour [tester la requête](stream-analytics-test-query.md). Examinez les éventuelles erreurs et tentez de les corriger.   
     - Vous pouvez également [tester votre requête localement](stream-analytics-live-data-local-testing.md) à l’aide des outils Azure Stream Analytics pour Visual Studio ou [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Déboguer des requêtes étape par étape localement à l’aide du diagramme de travail](debug-locally-using-job-diagram.md) dans les outils Azure Stream Analytics pour Visual Studio. Le diagramme de travail vise à montrer la façon dont les données circulent des sources d’entrée (Event Hub, IoT Hub, etc.), via plusieurs étapes de requête et finalement sortent dans les récepteurs. Chaque étape de la requête est mappée à un jeu de résultats temporaire défini dans le script à l’aide de l’instruction WITH. Vous pouvez afficher les données et les métriques à chaque étape de la requête dans chaque jeu de résultats intermédiaire pour trouver la source du problème.
+2.  [Déboguer des requêtes étape par étape localement à l’aide du diagramme de travail](debug-locally-using-job-diagram.md) dans les outils Azure Stream Analytics pour Visual Studio. Le diagramme de travail montre la façon dont les données circulent des sources d’entrée (Event Hub, IoT Hub, etc.), via plusieurs étapes de requête et, enfin, jusqu’aux récepteurs de sortie. Chaque étape de la requête est mappée à un jeu de résultats temporaire défini dans le script à l’aide de l’instruction WITH. Vous pouvez afficher les données et les métriques dans chaque jeu de résultats intermédiaire pour trouver la source du problème.
+
     ![Aperçu des résultats dans le diagramme de travail](./media/debug-locally-using-job-diagram/preview-result.png)
 
 3.  Si vous utilisez l’objet [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), assurez-vous que les événements présentent des horodatages postérieurs à [l’heure de début du travail](stream-analytics-out-of-order-and-late-events.md).
@@ -34,6 +39,7 @@ Cet article décrit les problèmes courants liés au développement de requêtes
     - Une fonction [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) échoue, ce qui provoque l’échec du travail. Pour éviter les échecs de conversion de type, utilisez plutôt [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics).
     - Lorsque vous utilisez des fonctions de fenêtre, attendez la durée totale de la fenêtre pour obtenir une sortie.
     - L’horodatage des événements est antérieur à l’heure de début du travail, provoquant l’abandon des événements.
+    - Les conditions [**JOIN**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) ne correspondent pas. S’il n’y a aucune correspondance, aucune sortie ne pourra être produite.
 
 5.  Vérifiez que les stratégies d’ordre des événements sont configurées comme prévu. Accédez à **Paramètres** et sélectionnez [**Ordre des événements**](stream-analytics-out-of-order-and-late-events.md). La stratégie n’est *pas* appliquée lorsque vous utilisez le bouton **Test** pour tester la requête. C’est une des différences entre le test en navigateur et l’exécution réelle du travail. 
 
@@ -41,12 +47,15 @@ Cet article décrit les problèmes courants liés au développement de requêtes
     - Appliquez des filtres aux [journaux d’activité d’audit](../azure-resource-manager/resource-group-audit.md) pour identifier et déboguer les erreurs.
     - Utilisez les [journaux de diagnostic du travail](stream-analytics-job-diagnostic-logs.md) pour identifier et déboguer les erreurs.
 
-## <a name="job-is-consuming-too-many-streaming-units"></a>Le travail consomme trop d’unités de streaming
+## <a name="resource-utilization-is-high"></a>L’utilisation des ressources est élevée
+
 Veillez à tirer parti de la parallélisation dans Azure Stream Analytics. Vous pouvez apprendre à [mettre à l’échelle des travaux Stream Analytics avec parallélisation des requêtes](stream-analytics-parallelization.md) en configurant des partitions d’entrée et en réglant la définition des requêtes Analytics.
 
 ## <a name="debug-queries-progressively"></a>Déboguer les requêtes progressivement
 
-Lors du traitement de données en temps réel, savoir à quoi ressemblent les données au milieu de la requête peut être utile. Étant donné que les entrées ou les étapes d’un travail Azure Stream Analytics peuvent être lues plusieurs fois, vous pouvez écrire des instructions SELECT INTO supplémentaires. Cela génère des données intermédiaires dans le stockage et vous permet d’inspecter l’exactitude des données, tout comme le font les *variables espionnes* lorsque vous déboguez un programme.
+Lors du traitement de données en temps réel, savoir à quoi ressemblent les données au milieu de la requête peut être utile. Vous pouvez le voir à l’aide du diagramme de travail dans Visual Studio. Si vous n’avez pas Visual Studio, vous pouvez prendre des mesures supplémentaires pour générer des données intermédiaires.
+
+Étant donné que les entrées ou les étapes d’un travail Azure Stream Analytics peuvent être lues plusieurs fois, vous pouvez écrire des instructions SELECT INTO supplémentaires. Cela génère des données intermédiaires dans le stockage et vous permet d’inspecter l’exactitude des données, tout comme le font les *variables espionnes* lorsque vous déboguez un programme.
 
 L’exemple de requête suivant dans un travail Azure Stream Analytics a un flux d’entrée, deux entrées de données de référence et une sortie pour Stockage Table Azure. La requête joint les données du Event Hub et deux objets blob de référence pour obtenir les informations de nom et de catégorie :
 

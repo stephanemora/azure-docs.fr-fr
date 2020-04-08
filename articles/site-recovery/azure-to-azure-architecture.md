@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759804"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294113"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -135,11 +135,13 @@ Si un accès sortant aux machines virtuelles est contrôlé à l’aide d’URL,
 | login.microsoftonline.com | Fournit l’autorisation et l’authentification aux URL du service Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permet à la machine virtuelle de communiquer avec le service Site Recovery. |
 | *.servicebus.windows.net | Permet à la machine virtuelle d’écrire des données de surveillance et de diagnostic Site Recovery. |
+| *.vault.azure.net | Autorise l’accès à la réplication pour les machines virtuelles compatibles avec ADE via le portail
+| *.automation.ext.azure.com | Autorise l’activation de la mise à niveau automatique de l’agent de mobilité pour un élément répliqué via le portail
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
 Pour contrôler la connectivité sortante des machines virtuelles à l’aide d’adresses IP, vous devez autoriser ces adresses.
-Veuillez noter que les détails des exigences de connectivité réseau sont disponibles dans le [livre blanc de la mise en réseau](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
+Veuillez noter que les détails des exigences de connectivité réseau sont disponibles dans le [livre blanc de la mise en réseau](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### <a name="source-region-rules"></a>Règles de la région source
 
@@ -149,6 +151,8 @@ Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui c
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Event Hub dans la région cible. | EventsHub.\<region-name>
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Azure Site Recovery.  | AzureSiteRecovery
+Autoriser le trafic HTTPS sortant : port 443 | Autoriser les plages correspondant à Azure Key Vault (cela est nécessaire uniquement pour l’activation de la réplication des machines virtuelles compatibles avec ADE via le portail) | AzureKeyVault
+Autoriser le trafic HTTPS sortant : port 443 | Autoriser les plages correspondant à Azure Automation Controller (cela est nécessaire uniquement pour l’activation de la mise à niveau automatique de l’agent de mobilité pour un élément répliqué via le portail) | GuestAndHybridManagement
 
 #### <a name="target-region-rules"></a>Règles de la région cible
 
@@ -158,6 +162,8 @@ Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui c
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Azure AD  | AzureActiveDirectory
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Event Hub dans la région source. | EventsHub.\<region-name>
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Azure Site Recovery.  | AzureSiteRecovery
+Autoriser le trafic HTTPS sortant : port 443 | Autoriser les plages correspondant à Azure Key Vault (cela est nécessaire uniquement pour l’activation de la réplication des machines virtuelles compatibles avec ADE via le portail) | AzureKeyVault
+Autoriser le trafic HTTPS sortant : port 443 | Autoriser les plages correspondant à Azure Automation Controller (cela est nécessaire uniquement pour l’activation de la mise à niveau automatique de l’agent de mobilité pour un élément répliqué via le portail) | GuestAndHybridManagement
 
 
 #### <a name="control-access-with-nsg-rules"></a>Contrôler l’accès avec des règles de groupe de sécurité réseau
@@ -170,7 +176,7 @@ Si vous contrôlez la connectivité des machines virtuelles en filtrant le trafi
     - Les étiquettes de service correspondent à un groupe de préfixes d’adresses IP permettant de simplifier la création de règles de sécurité.
     - Microsoft met automatiquement à jour les étiquettes de service. 
  
-En savoir plus sur la [connectivité sortante](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) Site Recovery et sur le [contrôle de la connectivité à l’aide de groupes de sécurité réseau](concepts-network-security-group-with-site-recovery.md)
+En savoir plus sur la [connectivité sortante](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) Site Recovery et sur le [contrôle de la connectivité à l’aide de groupes de sécurité réseau](concepts-network-security-group-with-site-recovery.md)
 
 
 ### <a name="connectivity-for-multi-vm-consistency"></a>Connectivité pour la cohérence multimachine virtuelle

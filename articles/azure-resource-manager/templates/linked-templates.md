@@ -3,16 +3,16 @@ title: Lier des modèles pour déploiement
 description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 322797383ee865ceb66c44793387da827aeb8879
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355004"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131925"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
-Pour déployer des solutions complexes, vous pouvez diviser votre modèle en plusieurs modèles associés, puis les déployer ensemble au moyen d’un modèle principal. Les modèles associés peuvent être des fichiers distincts ou une syntaxe de modèle incorporée dans le modèle principal. Cet article utilise le terme **modèle lié** pour faire référence à un modèle de fichier distinct lié à partir du modèle principal, et le terme **modèle imbriqué** pour désigner la syntaxe de modèle incorporé dans le modèle principal.
+Pour déployer des solutions complexes, vous pouvez diviser votre modèle en plusieurs modèles associés, puis les déployer ensemble au moyen d’un modèle principal. Les modèles associés peuvent être des fichiers distincts ou une syntaxe de modèle incorporée dans le modèle principal. Cet article utilise le terme **modèle lié** pour faire référence à un modèle de fichier distinct référencé par un lien à partir du modèle principal, et le terme **modèle imbriqué** pour désigner la syntaxe de modèle incorporé dans le modèle principal.
 
 Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour des scénarios avancés, les modèles liés permettent de diviser la solution en composants ciblés. Vous pouvez facilement réutiliser ces modèles pour d’autres scénarios.
 
@@ -92,11 +92,11 @@ L’exemple suivant déploie un compte de stockage au moyen d’un modèle imbri
 }
 ```
 
-### <a name="scope-for-expressions-in-nested-templates"></a>Portée des expressions dans les modèles imbriqués
+### <a name="expression-evaluation-scope-in-nested-templates"></a>Étendue de l’évaluation d’expressions dans les modèles imbriqués
 
 Lorsque vous utilisez un modèle imbriqué, vous pouvez spécifier si les expressions de modèle sont évaluées dans la portée du modèle parent ou du modèle imbriqué. La portée détermine comment sont résolus les paramètres, les variables et les fonctions comme [resourceGroup](template-functions-resource.md#resourcegroup) et [subscription](template-functions-resource.md#subscription).
 
-La portée est définie par la propriété `expressionEvaluationOptions`. Par défaut, la propriété `expressionEvaluationOptions` est définie sur `outer`, ce qui signifie qu’elle utilise la portée du modèle parent. Définissez la valeur sur `inner` pour spécifier la portée du modèle imbriqué.
+La portée est définie par la propriété `expressionEvaluationOptions`. Par défaut, la propriété `expressionEvaluationOptions` est définie sur `outer`, ce qui signifie qu’elle utilise la portée du modèle parent. Définissez la valeur sur `inner` pour faire en sorte que les expressions soient évaluées dans l’étendue du modèle imbriqué.
 
 ```json
 {
@@ -158,14 +158,14 @@ Le modèle suivant montre la façon dont sont résolues les expressions de modè
 }
 ```
 
-La valeur de la variable change en fonction de la portée. Le tableau suivant montre les résultats pour les deux portées.
+La valeur de `exampleVar` varie en fonction de la valeur de la propriété `scope` dans `expressionEvaluationOptions`. Le tableau suivant montre les résultats pour les deux portées.
 
-| Étendue | Output |
+| `expressionEvaluationOptions` `scope` | Output |
 | ----- | ------ |
 | interne | from nested template |
 | externe (ou par défaut) | from parent template |
 
-L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de clés à utiliser pour le mot de passe. La portée est définie sur `inner`, car il crée dynamiquement l’ID de coffre de clés et le transmet sous forme de paramètre au modèle imbriqué.
+L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de clés à utiliser pour le mot de passe. L’étendue est définie sur `inner`, car elle crée dynamiquement l’ID de coffre de clés (voir `adminPassword.reference.keyVault` au niveau de `parameters` dans les modèles extérieurs) et la transmet sous forme de paramètre au modèle imbriqué.
 
 ```json
 {
@@ -215,6 +215,22 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
         "expressionEvaluationOptions": {
           "scope": "inner"
         },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "adminLogin": {
+            "value": "ghuser"
+          },
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
+            }
+          }
+        },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
@@ -250,22 +266,6 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
               "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
             }
           }
-        },
-        "parameters": {
-          "location": {
-            "value": "[parameters('location')]"
-          },
-          "adminLogin": {
-            "value": "ghuser"
-          },
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
-            }
-          }
         }
       }
     }
@@ -277,7 +277,7 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
 
 > [!NOTE]
 >
-> Lorsque la portée est définie sur `outer`, la fonction `reference` n’est pas utilisable dans la section outputs d’un modèle imbriqué pour une ressource déployée dans le modèle imbriqué. Pour retourner les valeurs d’une ressource déployée dans un modèle imbriqué, utilisez la portée interne ou bien convertissez votre modèle imbriqué en modèle lié.
+> Lorsque la portée est définie sur `outer`, la fonction `reference` n’est pas utilisable dans la section outputs d’un modèle imbriqué pour une ressource déployée dans le modèle imbriqué. Pour retourner les valeurs d’une ressource déployée dans un modèle imbriqué, utilisez l’étendue `inner` ou bien convertissez votre modèle imbriqué en modèle lié.
 
 ## <a name="linked-template"></a>Modèle lié
 
@@ -308,9 +308,15 @@ Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/m
 }
 ```
 
-Vous ne pouvez pas spécifier un fichier local ni un fichier uniquement disponible sur votre réseau local. Vous pouvez seulement fournir une valeur URI qui inclut soit **http** soit **https**. Resource Manager doit être en mesure d’accéder au modèle. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément.
+Lors du référencement d’un modèle lié, la valeur de `uri` ne doit pas être un fichier local ou un fichier disponible uniquement sur votre réseau local. Vous devez fournir une valeur d’URI téléchargeable utilisant le protocole **http** ou **https**. 
 
-Vous ne devez pas fournir la propriété `contentVersion` pour le modèle ou les paramètres. Si vous ne fournissez pas une valeur de version du contenu, la version actuelle du modèle est déployée. Si vous fournissez une valeur pour la version du contenu, elle doit correspondre à la version du modèle lié ; sinon, le déploiement échoue avec une erreur.
+> [!NOTE]
+>
+> Vous pouvez référencer des modèles à l’aide de paramètres qui, en fin de compte, sont résolus en une solution qui utilise **http** ou **https**, par exemple, à l’aide du paramètre `_artifactsLocation`, comme suit : `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+
+
+
+Resource Manager doit être en mesure d’accéder au modèle. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément.
 
 ### <a name="parameters-for-linked-template"></a>Paramètres du modèle lié
 
@@ -325,12 +331,12 @@ Les paramètres du modèle lié peuvent être indiqués dans un fichier externe 
   "properties": {
     "mode": "Incremental",
     "templateLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+      "contentVersion":"1.0.0.0"
     },
     "parametersLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+      "contentVersion":"1.0.0.0"
     }
   }
   }
@@ -360,6 +366,41 @@ Pour passer des valeurs de paramètre inline, utilisez la propriété **paramete
 ```
 
 Vous ne pouvez pas utiliser à la fois des paramètres inline et un lien vers un fichier de paramètres. Si `parametersLink` et `parameters` sont spécifiés tous les deux, le déploiement échoue.
+
+## `contentVersion`
+
+Vous n’avez pas besoin de fournir la propriété `contentVersion` pour la propriété `templateLink` ou `parametersLink`. Si vous ne fournissez pas une valeur de `contentVersion`, la version actuelle du modèle est déployée. Si vous fournissez une valeur pour la version du contenu, elle doit correspondre à la version du modèle lié ; sinon, le déploiement échoue avec une erreur.
+
+## <a name="using-variables-to-link-templates"></a>Utilisation de variables pour lier des modèles
+
+Les exemples précédents représentaient des valeurs d’URL codées en dur pour les liens de modèle. Cette approche peut fonctionner pour un modèle simple, mais elle ne fonctionne pas bien pour un grand ensemble de modèles modulaires. Au lieu de cela, vous pouvez créer une variable statique qui stocke une URL de base pour le modèle principal, avant de créer dynamiquement les URL pour les modèles liés à partir de cette URL de base. Cette approche permet notamment de déplacer ou de répliquer facilement le modèle. En effet, vous devez modifier uniquement la variable statique dans le modèle principal. Le modèle principal transmet les URI appropriés au modèle décomposé.
+
+L’exemple suivant indique comment utiliser une URL de base afin de créer deux URL pour des modèles liés (**sharedTemplateUrl** et **vmTemplate**).
+
+```json
+"variables": {
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
+  "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
+}
+```
+
+Vous pouvez également utiliser [deployment()](template-functions-deployment.md#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cette approche est pratique si l’emplacement des modèles change ou si vous voulez éviter de coder en dur les URL dans le fichier du modèle. La propriété templateLink n’est renvoyée qu’en cas de liaison à un modèle distant avec une URL. Si vous utilisez un modèle local, cette propriété n’est pas disponible.
+
+```json
+"variables": {
+  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+}
+```
+
+Au final, vous utiliseriez la variable dans la propriété `uri` d’une propriété `templateLink`.
+
+```json
+"templateLink": {
+ "uri": "[variables('sharedTemplateUrl')]",
+ "contentVersion":"1.0.0.0"
+}
+```
 
 ## <a name="using-copy"></a>Utilisation de la copie
 
@@ -410,35 +451,13 @@ L’exemple de modèle suivant montre comment utiliser copy avec un modèle imbr
 ]
 ```
 
-## <a name="using-variables-to-link-templates"></a>Utilisation de variables pour lier des modèles
-
-Les exemples précédents représentaient des valeurs d’URL codées en dur pour les liens de modèle. Cette approche peut fonctionner pour un modèle simple, mais elle ne fonctionne pas bien pour un grand ensemble de modèles modulaires. Au lieu de cela, vous pouvez créer une variable statique qui stocke une URL de base pour le modèle principal, avant de créer dynamiquement les URL pour les modèles liés à partir de cette URL de base. Cette approche permet notamment de déplacer ou de répliquer facilement le modèle. En effet, il vous suffit de modifier la variable statique dans le modèle principal. Le modèle principal transmet les URI appropriés au modèle décomposé.
-
-L’exemple suivant indique comment utiliser une URL de base afin de créer deux URL pour des modèles liés (**sharedTemplateUrl** et **vmTemplate**).
-
-```json
-"variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-  "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-  "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
-}
-```
-
-Vous pouvez également utiliser [deployment()](template-functions-deployment.md#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cette approche est pratique si l’emplacement des modèles change ou si vous voulez éviter de coder en dur les URL dans le fichier du modèle. La propriété templateLink n’est renvoyée qu’en cas de liaison à un modèle distant avec une URL. Si vous utilisez un modèle local, cette propriété n’est pas disponible.
-
-```json
-"variables": {
-  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
-}
-```
-
 ## <a name="get-values-from-linked-template"></a>Obtenir des valeurs du modèle lié
 
 Pour obtenir une valeur de sortie d’un modèle lié, récupérez la valeur de propriété à l’aide d’une syntaxe comme : `"[reference('deploymentName').outputs.propertyName.value]"`.
 
-Lors de l’obtention d’une propriété de sortie à partir d’un modèle lié, le nom de propriété ne peut pas inclure de tiret.
+Lors de l’obtention d’une propriété de sortie à partir d’un modèle lié, le nom de propriété ne doit pas inclure de tiret.
 
-Les exemples suivants montrent comment faire référence à un modèle lié pour récupérer une valeur de sortie. Le modèle lié retourne un message simple.
+Les exemples suivants montrent comment faire référence à un modèle lié pour récupérer une valeur de sortie. Le modèle lié retourne un message simple.  Tout d’abord, le modèle lié :
 
 ```json
 {
@@ -489,7 +508,7 @@ Le modèle principal déploie le modèle lié et obtient la valeur retournée. R
 
 Comme pour d’autres types de ressources, vous pouvez définir des dépendances entre le modèle lié et d’autres ressources. Lorsque d’autres ressources requièrent une valeur de sortie provenant du modèle lié, veillez à ce que celui-ci soit déployé avant les ressources. Sinon, lorsque le modèle lié s’appuie sur d’autres ressources, vérifiez que celles-ci sont déployées avant le modèle lié.
 
-L’exemple suivant montre un modèle qui déploie une adresse IP publique et retourne l’ID de ressource :
+L’exemple suivant montre un modèle qui déploie une adresse IP publique et retourne l’ID de ressource de la ressource Azure de cette adresse IP publique :
 
 ```json
 {
@@ -524,7 +543,7 @@ L’exemple suivant montre un modèle qui déploie une adresse IP publique et re
 }
 ```
 
-Pour utiliser l’adresse IP publique du modèle précédent lors du déploiement d’un équilibreur de charge, établissez un lien vers le modèle et ajoutez une dépendance vis-à-vis de la ressource de déploiement. L’adresse IP publique sur l’équilibreur de charge est définie sur la valeur de sortie du modèle lié.
+Pour utiliser l’adresse IP publique du modèle précédent lors du déploiement d’un équilibreur de charge, établissez un lien vers le modèle et déclarez une dépendance vis-à-vis de la ressource `Microsoft.Resources/deployments`. L’adresse IP publique sur l’équilibreur de charge est définie sur la valeur de sortie du modèle lié.
 
 ```json
 {
@@ -554,6 +573,7 @@ Pour utiliser l’adresse IP publique du modèle précédent lors du déploiemen
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
+                // this is where the output value from linkedTemplate is used
                 "id": "[reference('linkedTemplate').outputs.resourceID.value]"
               }
             }
@@ -566,6 +586,7 @@ Pour utiliser l’adresse IP publique du modèle précédent lors du déploiemen
         "outboundNatRules": [],
         "inboundNatPools": []
       },
+      // This is where the dependency is declared
       "dependsOn": [
         "linkedTemplate"
       ]
@@ -686,7 +707,7 @@ Vous pouvez aussi utiliser un script Azure CLI dans un interpréteur de commande
 for i in 0 1 2;
 do
   name="linkedTemplate$i";
-  deployment=$(az group deployment show -g examplegroup -n $name);
+  deployment=$(az deployment group show -g examplegroup -n $name);
   ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
   echo "deployment $name returned $ip";
 done
@@ -759,7 +780,7 @@ url=$(az storage blob url \
   --output tsv \
   --connection-string $connection)
 parameter='{"containerSasToken":{"value":"?'$token'"}}'
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
+az deployment group create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
 
 ## <a name="example-templates"></a>Exemples de modèles

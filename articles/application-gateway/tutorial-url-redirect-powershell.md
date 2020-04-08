@@ -4,21 +4,21 @@ description: Découvrez comment créer une passerelle d’application avec un tr
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/14/2019
+ms.date: 03/19/2020
 ms.author: victorh
-ms.topic: tutorial
-ms.openlocfilehash: 04cd390681d0492dc28308c3304753a6ecaf1c3c
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.topic: conceptual
+ms.openlocfilehash: c577859f6e8a44dd3573537aecadba638a5f6fa6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047608"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059381"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure PowerShell
 
-Vous pouvez utiliser Azure PowerShell pour configurer des [règles de routage basé sur une URL](application-gateway-url-route-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Ce didacticiel montre comment créer des pools principaux à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Vous créez ensuite des règles de routage d’URL garantissant que le trafic web est redirigé vers le pool principal approprié.
+Vous pouvez utiliser Azure PowerShell pour configurer des [règles de routage basé sur une URL](application-gateway-url-route-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Cet article montre comment créer des pools principaux à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Vous créez ensuite des règles de routage d’URL garantissant que le trafic web est redirigé vers le pool principal approprié.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Configurer le réseau
@@ -30,7 +30,7 @@ L’exemple suivant montre le trafic du site en provenance des ports 8080 et 808
 
 ![Exemple d’acheminement d’URL](./media/tutorial-url-redirect-powershell/scenario.png)
 
-Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](tutorial-url-redirect-cli.md).
+Si vous préférez, vous pouvez suivre cette procédure en utilisant [Azure CLI](tutorial-url-redirect-cli.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 1.0.0 ou version ultérieure pour les besoins de ce didacticiel. Pour trouver la version, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 1.0.0 ou ultérieure pour les besoins de cette procédure. Pour trouver la version, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -77,7 +77,7 @@ New-AzPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-Dans cette section, vous créez des ressources qui prennent en charge la passerelle d’application avant de créer cette dernière. Les ressources que vous créez sont les suivantes :
+Dans cette section, vous créez des ressources qui prennent en charge la passerelle d’application avant de créer cette dernière. Les ressources que vous créez sont les suivantes :
 
 - *Configurations IP et port frontend* : associe le sous-réseau que vous avez créé précédemment pour la passerelle d’application et assigne un port à utiliser pour y accéder.
 - *Pool par défaut* : toutes les passerelles d’application doivent avoir au moins un pool principal de serveurs.
@@ -129,7 +129,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Créer l’écouteur et la règle par défaut
 
-Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers un pool principal. Ce didacticiel montre comment créer plusieurs écouteurs. Le premier écouteur de base attend le trafic à l’URL racine. Les autres écouteurs attendent le trafic à des URL spécifiques, telles que `http://52.168.55.24:8080/images/` ou `http://52.168.55.24:8081/video/`.
+Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers un pool principal. Cet article montre comment créer plusieurs écouteurs. Le premier écouteur de base attend le trafic à l’URL racine. Les autres écouteurs attendent le trafic à des URL spécifiques, telles que `http://52.168.55.24:8080/images/` ou `http://52.168.55.24:8081/video/`.
 
 Créez un écouteur nommé *defaultListener* à l’aide de [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) avec la configuration frontale et le port frontal que vous avez créés précédemment. Une règle est requise pour que l’écouteur sache quel pool principal utiliser pour le trafic entrant. Créez une règle de base nommée *rule1* à l’aide de [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -391,7 +391,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Créer des groupes de machines virtuelles identiques
 
-Cet exemple crée trois groupes de machines virtuelles identiques prenant en charge les trois pools principaux qui ont été créés. Les groupes identiques créés se nomment *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles IIS sera installé. Vous assignez le groupe identique au pool principal lorsque vous configurez les paramètres IP.
+Cet exemple crée trois groupes de machines virtuelles identiques prenant en charge les trois pools principaux qui ont été créés. Ils sont nommés *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles IIS sera installé. Vous assignez le groupe identique au pool principal lorsque vous configurez les paramètres IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -509,7 +509,7 @@ Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant
 
 À présent, changez l’URL en http://&lt;ip-address&gt;:8081/images/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir le trafic redirigé vers le pool principal d’images à l’adresse http://&lt;ip-address&gt;:8080/images.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées à l’aide de [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

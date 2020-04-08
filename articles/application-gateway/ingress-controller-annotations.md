@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: a3583a5efd120733ce7f6b71a7594b5636593f99
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796005"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335819"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Annotations pour le contrôleur d’entrée Application Gateway 
 
@@ -27,7 +27,7 @@ Pour qu’une ressource d’entrée soit observée par AGIC, elle **doit être a
 | Clé d’annotation | Type de valeur | Valeur par défaut | Valeurs autorisées
 | -- | -- | -- | -- |
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
-| [appgw.ingress.kubernetes.io/ssl-redirect](#ssl-redirect) | `bool` | `false` | |
+| [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` (secondes) | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
@@ -45,7 +45,7 @@ Cette annotation permet de réécrire le chemin d’accès principal spécifié 
 appgw.ingress.kubernetes.io/backend-path-prefix: <path prefix>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -70,7 +70,7 @@ Dans l’exemple ci-dessus, nous avons défini une ressource d’entrée nommée
 > [!NOTE] 
 > Dans l’exemple ci-dessus, une seule règle est définie. Toutefois, les annotations sont applicables à l’ensemble de la ressource d’entrée. Par conséquent, si un utilisateur a défini plusieurs règles, le préfixe du chemin d’accès principal sera configuré pour chacun des chemins d’accès spécifiés. Ainsi, si un utilisateur souhaite des règles différentes avec différents préfixes de chemin d’accès (même pour le même service), il devra définir des ressources d’entrée différentes.
 
-## <a name="ssl-redirect"></a>Redirection SSL
+## <a name="tls-redirect"></a>Redirection TLS
 
 Application Gateway [peut être configurée](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) pour rediriger automatiquement les URL HTTP vers leur équivalent HTTPS. Lorsque cette annotation est présente et que le protocole TLS est correctement configuré, le contrôleur d’entrée Kubernetes créera une [règle d’acheminement avec une configuration de redirection](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) et appliquera les modifications à votre Application Gateway. La redirection créée sera HTTP `301 Moved Permanently`.
 
@@ -80,7 +80,7 @@ Application Gateway [peut être configurée](https://docs.microsoft.com/azure/ap
 appgw.ingress.kubernetes.io/ssl-redirect: "true"
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -117,7 +117,7 @@ appgw.ingress.kubernetes.io/connection-draining: "true"
 appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -149,7 +149,7 @@ Cette annotation permet de spécifier s’il faut activer l’affinité basée s
 appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -180,7 +180,7 @@ Cette annotation permet de spécifier le délai d’expiration de la requête en
 appgw.ingress.kubernetes.io/request-timeout: "20"
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -215,7 +215,7 @@ Cette annotation nous permet de spécifier s’il faut exposer ce point de termi
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -248,7 +248,7 @@ Cette annotation nous permet de spécifier le protocole qu’Application Gateway
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress

@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ac80262a39e410e1967cc964d04fa9b7d4879a4
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 757367e2b9773908b81ad35615a23b1b5c67aa3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312107"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80116927"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>Régions Azure au sein d’une région géopolitique
 
@@ -21,16 +21,19 @@ La connectivité VPN de site à site et l’architecture de réseau virtuel éte
 
 |Région géopolitique | Régions Azure|
 |---|---|
-| Amérique du Nord | USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |
-|Amérique du Sud |Brésil Sud |
-| Europe | France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |
-| Asie | Asie Est, Asie Sud-Est |
-| Japon  | Japon Ouest, Japon Est |
-| Australie | Australie Sud-Est, Australie Est |
 | Gouvernement australien | Australie Centre, Australie Centre 2 |
+| Europe | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Suisse Nord, Suisse Ouest, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |
+| Amérique du Nord | USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |
+| Asia | Asie Est, Asie Sud-Est |
 | Inde | Inde Ouest, Inde Centre, Inde Sud |
-| Corée du Sud | Centre de la Corée, Corée du Sud |
+| Japon  | Japon Ouest, Japon Est |
+| Océanie | Australie Sud-Est, Australie Est |
 | Afrique du Sud | Afrique du Sud Nord, Afrique du Sud Ouest |
+| Amérique du Sud |Brésil Sud |
+| Corée du Sud | Centre de la Corée, Corée du Sud |
+| UAE | Émirats arabes unis Nord, Émirats arabes unis Centre |
+
+
 
 ### <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Régions Azure et limites géopolitiques pour les clouds nationaux
 

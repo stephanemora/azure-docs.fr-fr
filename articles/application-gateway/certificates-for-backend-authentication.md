@@ -1,23 +1,23 @@
 ---
 title: Certificats requis pour autoriser les serveurs back-end
 titleSuffix: Azure Application Gateway
-description: Cet article fournit des exemples sur la manière de convertir un certificat SSL en certificat d’authentification et en certificat racine approuvé, lesquels sont nécessaires pour autoriser des instances back-end dans Azure Application Gateway.
+description: Cet article fournit des exemples sur la manière de convertir un certificat TLS/SSL en certificat d’authentification et en certificat racine approuvé, lesquels sont nécessaires pour autoriser des instances back-end dans Azure Application Gateway.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 48944c513bd075e3859503fdadc4001261dc8c4a
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 20f588639c54b0a8b7cd304f33b5a9d633a73be6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048171"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133044"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Créer des certificats pour autoriser le serveur back-end dans Azure Application Gateway
 
-Pour permettre l’utilisation du protocole SSL de bout en bout, Application Gateway impose l’autorisation des instances back-end en chargeant les certificats d’authentification/certificats racine approuvés. Pour la référence SKU v1, les certificats d’authentification sont requis, mais pour la référence SKU v2, les certificats racines approuvés sont requis pour autoriser les certificats.
+Pour permettre l’utilisation du protocole TLS de bout en bout, Application Gateway impose l’autorisation des instances back-end en chargeant les certificats d’authentification/certificats racine approuvés. Pour la référence SKU v1, les certificats d’authentification sont requis, mais pour la référence SKU v2, les certificats racines approuvés sont requis pour autoriser les certificats.
 
 Dans cet article, vous apprendrez comment :
 
@@ -28,17 +28,17 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’un certificat de serveur back-end existant pour générer les certificats d’authentification ou des certificats racine approuvés nécessaires à la création d’instances back-end avec Application Gateway. Le certificat de serveur back-end peut être identique au certificat SSL ou être différent pour une sécurité accrue. Application Gateway ne fournit aucun mécanisme permettant de créer ou d’acheter un certificat SSL. À des fins de test, vous pouvez créer un certificat auto-signé, mais vous ne devez pas l’utiliser pour les charges de travail de production. 
+Vous avez besoin d’un certificat de serveur back-end existant pour générer les certificats d’authentification ou des certificats racine approuvés nécessaires à la création d’instances back-end avec Application Gateway. Le certificat de serveur back-end peut être identique au certificat TLS/SSL ou être différent pour une sécurité accrue. Application Gateway ne fournit aucun mécanisme permettant de créer ou d’acheter un certificat TLS/SSL. À des fins de test, vous pouvez créer un certificat auto-signé, mais vous ne devez pas l’utiliser pour les charges de travail de production. 
 
 ## <a name="export-authentication-certificate-for-v1-sku"></a>Exporter le certificat d’authentification (pour le SKU v1)
 
-Un certificat d’authentification est nécessaire pour autoriser les instances back-end sans la référence SKU v1 d’Application Gateway. Le certificat d’authentification est la clé publique des certificats de serveur back-end au format X.509 avec codage base 64 (.CER). Dans cet exemple, vous allez utiliser un certificat SSL pour le certificat de serveur back-end et exporter sa clé publique afin qu’elle soit utilisée en tant que certification d’authentification. De plus, dans cet exemple, vous allez utiliser l’outil Windows Certificate Manager pour exporter les certificats nécessaires. Vous pouvez choisir d’utiliser un autre outil à votre convenance.
+Un certificat d’authentification est nécessaire pour autoriser les instances back-end sans la référence SKU v1 d’Application Gateway. Le certificat d’authentification est la clé publique des certificats de serveur back-end au format X.509 avec codage base 64 (.CER). Dans cet exemple, vous allez utiliser un certificat TLS/SSL pour le certificat de serveur back-end et exporter sa clé publique afin qu’elle soit utilisée en tant que certification d’authentification. De plus, dans cet exemple, vous allez utiliser l’outil Windows Certificate Manager pour exporter les certificats nécessaires. Vous pouvez choisir d’utiliser un autre outil à votre convenance.
 
-À partir de votre certificat SSL, exportez le fichier .cer de clé publique (et non la clé privée). Les étapes suivantes vous aident à exporter le fichier .cer au format X.509 avec codage base 64 (.CER) pour votre certificat :
+À partir de votre certificat TLS/SSL, exportez le fichier .cer de clé publique (et non la clé privée). Les étapes suivantes vous aident à exporter le fichier .cer au format X.509 avec codage base 64 (.CER) pour votre certificat :
 
 1. Pour obtenir un fichier .cer du certificat, ouvrez **Gérer les certificats utilisateur**. Recherchez le certificat, généralement dans « Certificats - Utilisateur actuel\Personnel\Certificats », puis cliquez dessus avec le bouton droit. Cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**. Si vous ne trouvez pas le certificat sous Current User\Personal\Certificates, il est possible que vous ayez ouvert par erreur « Certificats – Ordinateur local » et non « Certificats – Utilisateur actuel ». Si vous voulez ouvrir le Gestionnaire de certificats dans le champ d’application utilisateur actuel en utilisant PowerShell, tapez *certmgr* dans la fenêtre de la console.
 
-   ![Exportation](./media/certificates-for-backend-authentication/export.png)
+   ![Exporter](./media/certificates-for-backend-authentication/export.png)
 
 2. Dans l’assistant, cliquez sur **Suivant**.
 
@@ -54,7 +54,7 @@ Un certificat d’authentification est nécessaire pour autoriser les instances 
 
 5. Dans **Fichier à exporter**, cliquez sur **Parcourir** pour accéder à l’emplacement vers lequel vous souhaitez exporter le certificat. Pour la zone **Nom de fichier**, nommez le fichier de certificat. Cliquez ensuite sur **Suivant**.
 
-   ![Parcourir](./media/certificates-for-backend-authentication/browse.png)
+   ![...](./media/certificates-for-backend-authentication/browse.png)
 
 6. Cliquez sur **Terminer** pour exporter le certificat.
 
@@ -74,7 +74,7 @@ Un certificat d’authentification est nécessaire pour autoriser les instances 
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exporter le certificat racine approuvé (pour le SKU v2)
 
-Un certificat racine approuvé est nécessaire pour mettre les instances back-end en liste verte dans le SKU v2 d’Application Gateway. Le certificat racine est un certificat racine au format X.509 avec codage base 64 (.CER) provenant des certificats de serveur back-end. Dans cet exemple, nous allons utiliser un certificat SSL pour le certificat de serveur back-end, nous allons exporter sa clé publique, puis le certificat racine de l’autorité de certification approuvée à partir de la clé publique au format de codage base64 afin d’obtenir le certificat racine approuvé. Le ou les certificats intermédiaires doivent être regroupés avec le certificat de serveur et installés sur le serveur principal.
+Un certificat racine approuvé est nécessaire pour mettre les instances back-end en liste verte dans le SKU v2 d’Application Gateway. Le certificat racine est un certificat racine au format X.509 avec codage base 64 (.CER) provenant des certificats de serveur back-end. Dans cet exemple, nous allons utiliser un certificat TLS/SSL pour le certificat de serveur back-end, nous allons exporter sa clé publique, puis le certificat racine de l’autorité de certification approuvée à partir de la clé publique au format de codage base64 afin d’obtenir le certificat racine approuvé. Le ou les certificats intermédiaires doivent être regroupés avec le certificat de serveur et installés sur le serveur principal.
 
 Les étapes suivantes vous aident à exporter le fichier .cer de votre certificat :
 
@@ -106,5 +106,5 @@ Les étapes suivantes vous aident à exporter le fichier .cer de votre certifica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous disposez maintenant du certificat d’authentification/certificat racine approuvé au format X.509 avec codage base 64 (.CER). Vous pouvez l’ajouter à la passerelle d’application afin de mettre vos serveurs back-end en liste verte pour le chiffrement SSL de bout en bout. Consultez [Comment configurer le chiffrement SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Vous disposez maintenant du certificat d’authentification/certificat racine approuvé au format X.509 avec codage base 64 (.CER). Vous pouvez l’ajouter à la passerelle d’application afin de mettre vos serveurs back-end en liste verte pour le chiffrement TLS de bout en bout. Consultez [Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

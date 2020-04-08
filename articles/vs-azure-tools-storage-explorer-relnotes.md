@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 1adfb59843150ffaa6ed76411d07d8ec6cf6a44b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555262"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351057"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -39,7 +39,7 @@ Pour télécharger les versions précédentes de l’Explorateur Stockage, visit
       * Chargement, y compris glisser-déplacer
       * Téléchargement
       * Copier-coller #1249
-      * Supprimer
+      * DELETE
    * Objets blob ADLS Gen2
       * Chargement, y compris glisser-déplacer
       * Téléchargement
@@ -173,7 +173,9 @@ Pour télécharger les versions précédentes de l’Explorateur Stockage, visit
   * Télécharger un disque
   * Copier et coller des disques dans des groupes de ressources et des régions
   * Supprimer des disques
-  * Créer un instantané d’un disque – Le chargement, le téléchargement et la copie entre régions des disques reposent sur AzCopy v10.
+  * Créer un instantané d’un disque
+
+Le chargement, le téléchargement et la copie entre régions des disques reposent sur AzCopy v10.
 * Vous pouvez désormais installer l’Explorateur Stockage par le biais du Snap Store sur Linux. Si vous effectuez l’installation par le biais du Snap Store, toutes les dépendances sont installées pour vous, même .NET Core ! À l’heure actuelle, nous savons que Explorateur Stockage s’exécute correctement sur Ubuntu et CentOS. Si vous rencontrez des problèmes lors de l’installation à partir du Snap Store sur d’autres distributions Linux, [signalez le problème sur GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Pour en savoir plus sur l’installation à partir du Snap Store, consultez notre [guide de démarrage rapide](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux). #68
 * Deux changements majeurs ont été apportés à l’attachement à Azure Active Directory (Azure AD) pour rendre la fonctionnalité plus utile pour les utilisateurs d’ADLS Gen2 :
   * Vous sélectionnez à présent le locataire dans lequel se trouve la ressource que vous attachez. Vous n’avez donc plus besoin d’un accès RBAC à l’abonnement de la ressource.
@@ -751,7 +753,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * La résiliation de bail peut désormais être effectuée sur un seul objet blob à la fois. De plus, vous devez entrer le nom de l’objet blob dont vous résiliez le bail. Ce changement a été effectué pour réduire le risque de résiliation accidentelle de bail, en particulier pour les machines virtuelles. #394
 * Si vous rencontrez toujours des problèmes de connexion, vous pouvez maintenant essayer de réinitialiser l’authentification. Accédez au menu « Aide », puis cliquez sur « Réinitialiser » pour accéder à cette fonctionnalité. #419
 
-### <a name="fix"></a>Correctif
+### <a name="fix"></a>Fix
 
 * Suite à de nombreux commentaires des utilisateurs, le nœud d’émulateur par défaut a été réactivé. Vous pouvez toujours ajouter des connexions d’émulateur supplémentaires par le biais de la boîte de dialogue Se connecter, mais si votre émulateur est configuré pour utiliser les ports par défaut vous pouvez également utiliser le nœud « Émulateur * Ports par défaut » sous « Local & attaché/Comptes de stockage ». #669
 * Explorateur Stockage ne vous permet plus de définir des valeurs de métadonnées d’objets blob contenant des espaces blancs de début ou de fin. #760
@@ -1200,7 +1202,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Pour les comptes Azure Stack soutenus par AAD, l’Explorateur Stockage récupère à présent les abonnements Azure Stack lorsque l’option Target Azure Stack (Cibler Azure Stack) est activée. Vous n’avez plus besoin de créer un environnement de connexion personnalisée.
 * Plusieurs raccourcis ont été ajoutés pour accélérer la navigation. Il s’agit notamment de l’activation/de la désactivation de divers panneaux et du basculement d’un éditeur à l’autre. Pour plus d’informations, consultez le menu Affichage.
 * Les commentaires sur l’Explorateur Stockage sont maintenant actifs sur GitHub. Vous pouvez accéder à notre page Problèmes en cliquant sur le bouton Commentaires dans la partie inférieure gauche ou en accédant à [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). N’hésitez pas à effectuer des suggestions, à signaler des problèmes, à poser des questions ou à laisser toute autre forme de commentaires.
-* Si vous rencontrez des problèmes de certificat SSL et que vous ne parvenez pas à trouver le certificat qui pose problème, vous pouvez maintenant lancer l’Explorateur Stockage à partir de la ligne de commande avec l’indicateur `--ignore-certificate-errors`. Une fois lancé avec cet indicateur, l’Explorateur Stockage ignore les erreurs de certificat SSL.
+* Si vous rencontrez des problèmes de certificat TLS/SSL et que vous ne parvenez pas à trouver le certificat qui pose problème, vous pouvez maintenant lancer l’Explorateur Stockage à partir de la ligne de commande avec l’indicateur `--ignore-certificate-errors`. Une fois lancé avec cet indicateur, l’Explorateur Stockage ignore les erreurs de certificat TLS/SSL.
 * Il existe à présent une option Télécharger dans le menu contextuel pour les éléments blob et de fichier.
 * Prise en charge améliorée de l’accessibilité et des lecteurs d’écrans. Si vous vous appuyez sur des fonctionnalités d’accessibilité, consultez notre [documentation à ce sujet](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) pour plus d’informations.
 * L’Explorateur Stockage utilise à présent Electron 1.8.3
@@ -1586,12 +1588,12 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 #### <a name="fixes"></a>Correctifs
 
-* Problème résolu : le chargement du fichier peut provoquer très probablement une erreur de mémoire insuffisante
-* Problème résolu : vous pouvez désormais vous connecter avec le code PIN/carte à puce
-* Problème résolu : L’ouverture dans le portail fonctionne à présent avec Azure Chine 21Vianet, Azure Allemagne, Azure US Government et Azure Stack
-* Problème résolu : lors du téléchargement d’un dossier dans un conteneur d’objets blob, une erreur « Opération non conforme » peur se produit
-* Problème résolu : sélectionner tout est désactivé lors de gestion des instantanés
-* Problème résolu : les métadonnées de l’objet blob de base peuvent être remplacées lorsque vous avez affiché les propriétés de ses instantanés
+* Résolu : le chargement du fichier peut provoquer très probablement une erreur de mémoire insuffisante
+* Résolu : vous pouvez désormais vous connecter avec le code PIN/carte à puce
+* Résolu : L’ouverture dans le portail fonctionne à présent avec Azure Chine 21Vianet, Azure Allemagne, Azure US Government et Azure Stack
+* Résolu : lors du téléchargement d’un dossier dans un conteneur d’objets blob, une erreur « Opération non conforme » peur se produit
+* Résolu : sélectionner tout est désactivé lors de gestion des instantanés
+* Résolu : les métadonnées de l’objet blob de base peuvent être remplacées lorsque vous avez affiché les propriétés de ses instantanés
 
 #### <a name="known-issues"></a>Problèmes connus
 
@@ -1625,7 +1627,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Vous pouvez maintenant vous connecter à Azure Active Directory (AAD) basé sur les comptes Azure Stack.
 * Vous pouvez maintenant télécharger les fichiers d’archive de plus de 32 Mo sur les comptes de stockage Premium
 * Prise en charge de l’accessibilité améliorée
-* Vous pouvez maintenant ajouter des certificats SSL X.509 encodés de base 64 approuvés en accédant à Modifier -&gt; Certificats SSL -&gt; Importer certificats
+* Vous pouvez maintenant ajouter des certificats TLS/SSL X.509 encodés de base 64 approuvés en accédant à Modifier -&gt; Certificats SSL -&gt; Importer certificats
 
 #### <a name="fixes"></a>Correctifs
 
@@ -1700,13 +1702,13 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 #### <a name="fixes"></a>Correctifs
 
-* Problème résolu : l'Explorateur Stockage est désormais une application approuvée sur Mac
-* Problème résolu : Ubuntu 14.04 est de nouveau pris en charge
-* Problème résolu : l’interface utilisateur de compte d’ajout clignote parfois lors du chargement des abonnements
-* Problème résolu : certaines ressources de stockage ne sont pas répertoriées dans le volet de navigation de gauche
-* Problème résolu : le volet d’action affiche parfois des actions vides
-* Problème résolu : la taille de la fenêtre de la dernière session fermée est désormais conservée
-* Problème résolu : vous pouvez ouvrir plusieurs onglets pour la même ressource à l’aide du menu contextuel
+* Résolu : l'Explorateur Stockage est désormais une application approuvée sur Mac
+* Résolu : Ubuntu 14.04 est de nouveau pris en charge
+* Résolu : l’interface utilisateur de compte d’ajout clignote parfois lors du chargement des abonnements
+* Résolu : certaines ressources de stockage ne sont pas répertoriées dans le volet de navigation de gauche
+* Résolu : le volet d’action affiche parfois des actions vides
+* Résolu : la taille de la fenêtre de la dernière session fermée est désormais conservée
+* Résolu : vous pouvez ouvrir plusieurs onglets pour la même ressource à l’aide du menu contextuel
 
 #### <a name="known-issues"></a>Problèmes connus
 
@@ -1736,14 +1738,14 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 #### <a name="fixes"></a>Correctifs
 
-* Problème résolu : blocage de l’écran
-* Problème résolu : Sécurité améliorée
-* Problème résolu : il peut arriver que des comptes joints en double s’affichent
-* Problème résolu : un objet blob avec un type de contenu non défini peut générer une exception
-* Problème résolu : impossible d’ouvrir le panneau de requête sur une table vide
-* Problème résolu : bogues différents dans la recherche
-* Problème résolu : augmentation du nombre de ressources chargées de 50 à 100 lorsque vous cliquez sur « Charger plus »
-* Problème résolu : lors de la première exécution, si un compte est connecté, tous les abonnements sont sélectionnés pour ce compte par défaut
+* Résolu : blocage de l’écran
+* Résolu : Sécurité améliorée
+* Résolu : il peut arriver que des comptes joints en double s’affichent
+* Résolu : un objet blob avec un type de contenu non défini peut générer une exception
+* Résolu : impossible d’ouvrir le panneau de requête sur une table vide
+* Résolu : bogues différents dans la recherche
+* Résolu : augmentation du nombre de ressources chargées de 50 à 100 lorsque vous cliquez sur « Charger plus »
+* Résolu : lors de la première exécution, si un compte est connecté, tous les abonnements sont sélectionnés pour ce compte par défaut
 
 #### <a name="known-issues"></a>Problèmes connus
 
@@ -1764,8 +1766,8 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 #### <a name="fixes"></a>Correctifs
 
 * Problème résolu : la condition de concurrence lors de la recherche provoque parfois la non extensibilité des nœuds
-* Problème résolu : « Utiliser HTTP » ne fonctionne pas lors de la connexion à des comptes de stockage avec la clé et le nom du compte
-* Problème résolu : les clés SAP (en particulier celles qui sont générées par le portail) renvoient une erreur « barre oblique »
+* Résolu : « Utiliser HTTP » ne fonctionne pas lors de la connexion à des comptes de stockage avec la clé et le nom du compte
+* Résolu : les clés SAP (en particulier celles qui sont générées par le portail) renvoient une erreur « barre oblique »
 * Problème résolu : problèmes d’importation de tables
     * Parfois, la clé de partition et la clé de ligne ont été inversées
     * Impossible de lire les clés de partition « nul »
@@ -1811,7 +1813,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 #### <a name="fixes"></a>Correctifs
 
-* Problème résolu : les comptes Microsoft nécessitent une nouvelle authentification toutes les 8 à 12 heures
+* Résolu : les comptes Microsoft nécessitent une nouvelle authentification toutes les 8 à 12 heures
 
 #### <a name="known-issues"></a>Problèmes connus
 
@@ -1867,7 +1869,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 * Problème résolu : le chargement ou le téléchargement d’objets blob volumineux peut entraîner des chargements/téléchargements incomplets
 * Problème résolu : la modification, l’ajout ou l’importation d’une entité avec une valeur de chaîne numérique (« 1 ») la convertit en double
-* Problème résolu : impossible de développer le nœud de la table dans l’environnement de développement local
+* Résolu : impossible de développer le nœud de la table dans l’environnement de développement local
 
 #### <a name="known-issues"></a>Problèmes connus
 
