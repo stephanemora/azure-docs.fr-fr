@@ -4,16 +4,15 @@ description: Découvrez comment configurer la récupération d’urgence pour le
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74132992"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437503"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurer la récupération d’urgence des machines virtuelles Hyper-V vers un site local secondaire
 
@@ -45,7 +44,7 @@ Le [mappage réseau](hyper-v-vmm-network-mapping.md) effectue un mappage entre l
 
 - Connecte les machines virtuelles aux réseaux de machines virtuelles cibles appropriés après le basculement. 
 - Place de manière optimale les machines virtuelles de réplication sur les serveurs hôtes Hyper-V cibles. 
-- Si vous ne configurez pas le mappage réseau, les machines virtuelles de réplication ne se connecteront à aucun réseau de machines virtuelles après le basculement.
+- Si vous ne configurez pas le mappage réseau, les machines virtuelles réplica ne seront connectées à aucun réseau de machines virtuelles après le basculement.
 
 Préparez les serveurs VMM comme suit :
 

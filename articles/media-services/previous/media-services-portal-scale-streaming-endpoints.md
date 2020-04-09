@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 23eb51428dcf4961febfb592bf957bb8beeeda57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40820170bae275f090c5f898387698fc562e59ae
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61463110"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985539"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Mettre à l’échelle des points de terminaison de streaming avec le Portail Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -33,7 +33,7 @@ Les points de terminaison de streaming **Premium** sont conçus pour les charges
  
 Cette rubrique montre comment mettre à l’échelle un point de terminaison de streaming.
 
-Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](https://go.microsoft.com/fwlink/?LinkId=275107).
+Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="scale-streaming-endpoints"></a>Mettre à l’échelle les points de terminaison de streaming
 

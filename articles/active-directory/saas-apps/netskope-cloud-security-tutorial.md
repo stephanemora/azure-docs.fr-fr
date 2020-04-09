@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dec8f8065114b89dfa7bcaceee3f26855953dde2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c38900d4ded3d2ee08245674bda90d96226c1eb
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74081740"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396571"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netskope Administrator Console
 
@@ -82,7 +82,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `Netskope_<OrgKey>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<OrgKey>`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<tenant_host_name>/saml/acs`
 

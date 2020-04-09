@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442167"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982701"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilisation de la bibliothèque graphique de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB
 
 Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de l’exécuteur en bloc .NET d’Azure Cosmos DB pour importer et mettre à jour des objets graphiques au sein d’un conteneur d’API Gremlin Azure Cosmos DB. Ce processus se sert de la classe Graph dans la [bibliothèque de l’exécuteur en bloc](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) pour créer des objets Arête et Sommet par programmation puis en insérer plusieurs par requête réseau. Ce comportement est configurable par le biais de la bibliothèque de l’exécuteur en bloc pour une utilisation optimale des ressources de la base de données et de la mémoire locale.
 
-Par opposition à l’envoi de requêtes Gremlin à une base de données, où les commandes sont évaluées puis exécutées une par une, l’utilisation de la bibliothèque de l’exécuteur en bloc nécessite la création et la validation des objets localement. Une fois les objets créés, la bibliothèque vous permet d’envoyer des objets graphiques séquentiellement pour le service de base de données. À l’aide de cette méthode, les vitesses d’ingestion de données peuvent être multipliées jusqu'à 100 fois, ce qui en fait la méthode idéale pour les migrations de données initiales ou les opérations périodiques de déplacement de données. Pour en savoir plus, rendez-vous sur la page GitHub de l’[exemple d’application Graph de l’exécuteur en bloc Azure Cosmos DB](https://aka.ms/graph-bulkexecutor-sample).
+Par opposition à l’envoi de requêtes Gremlin à une base de données, où les commandes sont évaluées puis exécutées une par une, l’utilisation de la bibliothèque de l’exécuteur en bloc nécessite la création et la validation des objets localement. Une fois les objets créés, la bibliothèque vous permet d’envoyer des objets graphiques séquentiellement pour le service de base de données. À l’aide de cette méthode, les vitesses d’ingestion de données peuvent être multipliées jusqu'à 100 fois, ce qui en fait la méthode idéale pour les migrations de données initiales ou les opérations périodiques de déplacement de données. Pour en savoir plus, rendez-vous sur la page GitHub de l’[exemple d’application Graph de l’exécuteur en bloc Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
 
 ## <a name="bulk-operations-with-graph-data"></a>Opérations en bloc avec des données graphiques
 
@@ -120,7 +120,7 @@ e.AddProperty("customProperty", "value");
 * Git. Pour plus d’informations, consultez la [page des téléchargements Git](https://git-scm.com/downloads).
 
 ### <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
-Dans ce tutoriel, nous allons suivre les étapes de mise en route en utilisant l’[exemple d’exécuteur en bloc Graph Azure Cosmos DB](https://aka.ms/graph-bulkexecutor-sample) hébergé sur GitHub. Cette application se compose d’une solution .NET qui génère des objets de vertex et de bords de manière aléatoire, puis exécutez des insertions en bloc pour le compte spécifié de base de données de graphiques. Pour obtenir l’application, exécutez la commande `git clone` ci-dessous :
+Dans ce tutoriel, nous allons suivre les étapes de mise en route en utilisant l’[exemple d’exécuteur en bloc Graph Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) hébergé sur GitHub. Cette application se compose d’une solution .NET qui génère des objets de vertex et de bords de manière aléatoire, puis exécutez des insertions en bloc pour le compte spécifié de base de données de graphiques. Pour obtenir l’application, exécutez la commande `git clone` ci-dessous :
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git

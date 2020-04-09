@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 9111193bb441487b9e3c49bc9ee1a296d49f8a31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72882385"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984893"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Options de migration de vos données locales ou cloud vers Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Les facteurs suivants déterminent le choix de l’outil de migration :
 |Hors connexion|[Connecteur Spark Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector)|&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; Nécessite une configuration Spark personnalisée <br/>&bull; Spark est sensible aux incohérences de schéma et cela peut être un problème lors de la migration |
 |Hors connexion|[Outil personnalisé avec la bibliothèque d’exécuteur en bloc Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/migrate-cosmosdb-data)|&bull; Fournit des fonctionnalités de points de contrôle et de lettres mortes qui renforcent la résilience de la migration <br/>&bull; Adapté aux jeux de données très volumineux (plus de 10 To)  <br/>&bull; Nécessite l’installation personnalisée de cet outil exécuté en tant qu’App Service |
 |En ligne|[Fonctions Cosmos DB + API ChangeFeed](https://docs.microsoft.com/azure/cosmos-db/change-feed-functions)|&bull; Facilité de configuration <br/>&bull; Fonctionne uniquement si la source est un conteneur Azure Cosmos DB <br/>&bull; Non adapté aux jeux de données volumineux <br/>&bull; Ne capture pas les suppressions à partir du conteneur source |
-|En ligne|[Service de migration personnalisé utilisant ChangeFeed](https://aka.ms/CosmosDBMigrationSample)|&bull; Assure le suivi de la progression <br/>&bull; Fonctionne uniquement si la source est un conteneur Azure Cosmos DB <br/>&bull; Fonctionne également pour les jeux de données plus volumineux <br/>&bull; Exige de l’utilisateur qu’il configure un App Service pour héberger le processeur de flux de modification <br/>&bull; Ne capture pas les suppressions à partir du conteneur source|
+|En ligne|[Service de migration personnalisé utilisant ChangeFeed](https://github.com/nomiero/CosmosDBLiveETLSample)|&bull; Assure le suivi de la progression <br/>&bull; Fonctionne uniquement si la source est un conteneur Azure Cosmos DB <br/>&bull; Fonctionne également pour les jeux de données plus volumineux <br/>&bull; Exige de l’utilisateur qu’il configure un App Service pour héberger le processeur de flux de modification <br/>&bull; Ne capture pas les suppressions à partir du conteneur source|
 |En ligne|[Striim](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-sql-api-migrate-data-striim)|&bull; Fonctionne avec un vaste éventail de sources comme Oracle, DB2, SQL Server <br/>&bull; Facilite la génération de pipelines ETL et fournit un tableau de bord pour la surveillance <br/>&bull; Prend en charge des jeux de données plus volumineux <br/>&bull; Comme il s’agit d’un outil tiers, il doit être acheté sur la place de marché et installé dans l’environnement de l’utilisateur|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>API Mongo d’Azure Cosmos DB

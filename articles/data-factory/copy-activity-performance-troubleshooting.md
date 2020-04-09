@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531450"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421033"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -88,7 +88,7 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 
   - Vérifiez votre modèle de source et de récepteur de copie : 
 
-    - Si votre modèle de copie prend en charge plus de quatre unités d’intégration de données (DIU), reportez-vous à [cette section](copy-activity-performance.md#data-integration-units) pour plus de détails, vous pouvez généralement essayer d’augmenter les DIU pour obtenir de meilleures performances. 
+    - Si votre modèle de copie prend en charge plus de quatre unités d’intégration de données (DIU), reportez-vous à [cette section](copy-activity-performance-features.md#data-integration-units) pour plus de détails, vous pouvez généralement essayer d’augmenter les DIU pour obtenir de meilleures performances. 
 
     - Dans le cas contraire, envisagez de fractionner un jeu de données volumineux en plusieurs jeux de données plus petits et de laisser les travaux de copie s’exécuter simultanément, chacun s’attaquant à une partie des données. Vous pouvez le faire avec Lookup/GetMetadata + ForEach + Copy. Reportez-vous aux modèles de solution [Copie de fichiers à partir de plusieurs conteneurs](solution-template-copy-files-multiple-containers.md), [Migrer des données d’Amazon S3 vers ADLS Gen2](solution-template-migration-s3-azure.md) ou [Copie en bloc avec une table de contrôles](solution-template-bulk-copy-with-control-table.md) en guise d’exemple général.
 
@@ -102,7 +102,7 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 
   - Vérifiez votre modèle de source et de récepteur de copie : 
 
-    - Si votre modèle de copie prend en charge plus de quatre unités d’intégration de données (DIU), reportez-vous à [cette section](copy-activity-performance.md#data-integration-units) pour plus de détails, vous pouvez généralement essayer d’augmenter les DIU pour obtenir de meilleures performances. 
+    - Si votre modèle de copie prend en charge plus de quatre unités d’intégration de données (DIU), reportez-vous à [cette section](copy-activity-performance-features.md#data-integration-units) pour plus de détails, vous pouvez généralement essayer d’augmenter les DIU pour obtenir de meilleures performances. 
 
     - Dans le cas contraire, réglez progressivement les [copies parallèles](copy-activity-performance-features.md). Notez qu’un trop grand nombre de copies parallèles peut également nuire aux performances.
 

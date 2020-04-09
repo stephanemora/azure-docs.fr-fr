@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 94b65b4e7947bc02b1fdaae90c8f774ec216e7bb
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72754997"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981883"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.2) : fonctionnalités et syntaxe prises en charge
 
@@ -77,7 +77,7 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 ## <a name="aggregation-pipelinea"></a>Pipeline d’agrégation</a>
 
-Cosmos DB prend en charge le pipeline d’agrégation pour MongoDB 3.2 en préversion publique. Consultez le [blog Azure](https://aka.ms/mongodb-aggregation) pour obtenir des instructions sur l’obtention de la préversion publique.
+Cosmos DB prend en charge le pipeline d’agrégation pour MongoDB 3.2 en préversion publique. Consultez le [blog Azure](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/) pour obtenir des instructions sur l’obtention de la préversion publique.
 
 ### <a name="aggregation-commands"></a>Commandes d’agrégation
 
