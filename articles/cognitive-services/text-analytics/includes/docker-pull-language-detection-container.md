@@ -3,18 +3,18 @@ title: Docker pull du conteneur Détection de langue
 titleSuffix: Azure Cognitive Services
 description: Commande Docker pull pour le conteneur Détection de langue
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
-ms.openlocfilehash: 23669a5440799ff071b3a30e3e41ab5d49f212df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 3444d6267c09056697abf8339cc688a606b6dc17
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "70966809"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877011"
 ---
 #### <a name="docker-pull-for-the-language-detection-container"></a>Docker pull du conteneur Détection de langue
 

@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c7ec8db212a24f1f23f393e4cb0e7f4150605a56
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e3038617c6270acf9af295c910e9fd5c7dae2043
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350792"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633778"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul pour le pool SQL Synapse avec Azure PowerShell
 
-Vous pouvez mettre à l’échelle le calcul pour le pool SQL Synapse (entrepôt de données) à l’aide d’Azure PowerShell. [Effectuez un scale-out du calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts. 
+Vous pouvez mettre à l’échelle le calcul pour le pool SQL Synapse (entrepôt de données) à l’aide d’Azure PowerShell. [Effectuez un scale-out du calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -32,19 +32,19 @@ Ce guide de démarrage rapide part du principe que vous disposez déjà d’un p
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à votre abonnement Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) et suivez les instructions indiquées à l’écran.
+Connectez-vous à votre abonnement Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) et suivez les instructions indiquées à l’écran.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Pour voir l’abonnement que vous utilisez, exécutez [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Pour voir l’abonnement que vous utilisez, exécutez [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Si vous devez utiliser un autre abonnement que celui par défaut, exécutez [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Si vous devez utiliser un autre abonnement que celui par défaut, exécutez [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -69,7 +69,7 @@ Suivez ces étapes pour rechercher des informations sur l’emplacement de votre
 
 Dans le pool SQL, vous pouvez augmenter ou réduire les ressources de calcul en ajustant les unités DWU (Data Warehouse Unit). Le guide [Créer et connecter – Portail](create-data-warehouse-portal.md) a permis de créer **mySampleDataWarehouse** et de l’initialiser avec 400 DWU. Les étapes suivantes ajustent les DWU de **mySampleDataWarehouse**.
 
-Pour modifier les unités de l’entrepôt de données, utilisez la cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L’exemple suivant définit les unités DWU (Data Warehouse Units) sur DW300c pour la base de données **mySampleDataWarehouse** qui est hébergée dans le groupe de ressources **resourcegroupname** sur le serveur **sqlpoolservername**.
+Pour modifier les unités de l’entrepôt de données, utilisez la cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). L’exemple suivant définit les unités DWU (Data Warehouse Units) sur DW300c pour la base de données **mySampleDataWarehouse** qui est hébergée dans le groupe de ressources **resourcegroupname** sur le serveur **sqlpoolservername**.
 
 ```Powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
@@ -77,7 +77,7 @@ Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySample
 
 ## <a name="check-data-warehouse-state"></a>Vérifiez l’état de l’entrepôt de données
 
-Pour afficher l’état actuel de l’entrepôt de données, utilisez la cmdlet PowerShell [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase). Cette applet de commande obtient l’état de la base de données **mySampleDataWarehouse** dans le groupe de ressources **resourcegroupname** et le serveur **sqlpoolservername.database.windows.net**.
+Pour afficher l’état actuel de l’entrepôt de données, utilisez la cmdlet PowerShell [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Cette applet de commande obtient l’état de la base de données **mySampleDataWarehouse** dans le groupe de ressources **resourcegroupname** et le serveur **sqlpoolservername.database.windows.net**.
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
@@ -120,6 +120,7 @@ $database | Select-Object DatabaseName,Status
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Vous savez maintenant mettre à l’échelle le calcul pour le pool SQL. Pour en savoir plus sur le pool SQL, passez au tutoriel sur le chargement des données.
 
 > [!div class="nextstepaction"]

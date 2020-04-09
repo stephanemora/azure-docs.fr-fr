@@ -3,19 +3,19 @@ title: Installer des conteneurs Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Installez et exécutez des conteneurs Speech. La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 2beee81bc365d00e59a62cacabacc5f5d6b62a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474779"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879011"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
 

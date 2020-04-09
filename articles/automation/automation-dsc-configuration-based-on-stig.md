@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 275b3bd25f931b73e8a378433899ef9ade4d47c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6d257198fcae54b1214d77f6b905d876d2687f5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76028280"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585530"
 ---
 # <a name="configuration-based-on-stig"></a>Configuration basée sur STIG
 
@@ -37,7 +37,7 @@ Nombreuses sont les organisations à devoir [documenter les exceptions](https://
 PowerSTIG résout le problème en fournissant des [ressources composites](https://github.com/microsoft/powerstig#powerstigdsc) destinées à gérer chaque partie de la configuration au lieu de tenter de gérer l’ensemble des paramètres dans un même fichier volumineux.
 
 Une fois que les configurations ont été générées, vous pouvez utiliser les [scripts de configuration DSC](/powershell/scripting/dsc/configurations/configurations) pour générer des fichiers MOF et [charger ces mêmes fichiers MOF dans Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Inscrivez ensuite vos serveurs [localement](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [dans Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) pour extraire les configurations.
+Inscrivez ensuite vos serveurs [localement](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [dans Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) pour extraire les configurations.
 
 Pour tester PowerSTIG, accédez à [PowerShell Gallery](https://www.powershellgallery.com) et téléchargez la solution ou cliquez sur « Project Site » pour afficher la [documentation](https://github.com/microsoft/powerstig).
 

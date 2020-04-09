@@ -2,26 +2,21 @@
 title: Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
 description: Dans ce tutoriel, vous allez voir comment appeler une API web ASP.NET protégée par Azure Active Directory à partir d’une application de bureau Windows (WPF). Le client WPF authentifie un utilisateur, demande un jeton d’accès et appelle l’API web.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a4d7030f7a58a6252c6e596fc2c248163694a1e8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129948"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880871"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutoriel : Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
 

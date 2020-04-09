@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73839048"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528419"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance
 
@@ -120,7 +120,7 @@ Les étapes suivantes vous montrent comment vous connecter à votre machine virt
 
 4. Fermez le formulaire **Se connecter à la machine virtuelle**.
 5. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé.
-6. Lorsque vous y êtes invité, sélectionnez **Connexion**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponible sur le Mac App Store.
+6. Lorsque vous y êtes invité, sélectionnez **Connexion**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) disponible sur le Mac App Store.
 
 7. Entrez le nom d’utilisateur et le mot de passe que vous avez spécifiés au moment de créer la machine virtuelle, puis choisissez **OK**.
 

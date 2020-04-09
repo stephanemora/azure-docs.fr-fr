@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 9f694f3f0ec740d0a4e8dc4e6bf8845c408802c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a85b2554bbd69541b3081f72525d2b7deed625
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75899029"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529232"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importer ou exporter une base de données Azure SQL sans autoriser les services Azure à accéder au serveur
 
@@ -61,7 +61,7 @@ Les étapes suivantes vous montrent comment vous connecter à votre machine virt
 
 4. Fermez le formulaire **Se connecter à la machine virtuelle**.
 5. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé.
-6. Lorsque vous y êtes invité, sélectionnez **Connexion**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponible sur le Mac App Store.
+6. Lorsque vous y êtes invité, sélectionnez **Connexion**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) disponible sur le Mac App Store.
 
 7. Entrez le nom d’utilisateur et le mot de passe que vous avez spécifiés au moment de créer la machine virtuelle, puis choisissez **OK**.
 

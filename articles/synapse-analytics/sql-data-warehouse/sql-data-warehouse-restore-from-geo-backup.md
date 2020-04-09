@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4390ed39c86e041d3fbd776415f0ffbe71f605bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350164"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745083"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Géorestauration pour un pool SQL
 
@@ -30,20 +30,20 @@ Dans cet article, vous allez apprendre à restaurer votre pool SQL à partir gé
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurer à partir d’une région géographique Azure à l’aide de PowerShell
 
-Pour effectuer une restauration à partir d’une sauvegarde géo-redondante, utilisez les cmdlets [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) et [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
+Pour effectuer une restauration à partir d’une sauvegarde géo-redondante, utilisez les cmdlets [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) et [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 > [!NOTE]
 > Vous pouvez effectuer une géorestauration vers Gen2 ! Pour ce faire, spécifiez une valeur ServiceObjectiveName Gen2 (par exemple, DW1000**c**) comme paramètre facultatif.
 >
 
-1. Avant de commencer, veillez à [installer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Avant de commencer, veillez à [installer Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Ouvrez PowerShell.
-2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
-3. Sélectionnez l’abonnement contenant l’entrepôt de données à restaurer.
-4. Obtenez l’entrepôt de données à récupérer.
-5. Créez la requête de récupération de l’entrepôt de données.
-6. Vérifiez l’état de l’entrepôt de données affectée par la géo-restauration.
-7. Pour configurer votre entrepôt de données une fois la restauration terminée, consultez [Configurer votre base de données après récupération]( ../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+3. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
+4. Sélectionnez l’abonnement contenant l’entrepôt de données à restaurer.
+5. Obtenez l’entrepôt de données à récupérer.
+6. Créez la requête de récupération de l’entrepôt de données.
+7. Vérifiez l’état de l’entrepôt de données affectée par la géo-restauration.
+8. Pour configurer votre entrepôt de données une fois la restauration terminée, consultez [Configurer votre base de données après récupération]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -77,24 +77,25 @@ La base de données récupérée sera compatible avec le chiffrement transparent
 Suivez les étapes décrites ci-dessous pour restaurer un pool SQL à partir d’une géosauvegarde :
 
 1. Connectez-vous à votre compte [Portail Azure](https://portal.azure.com/).
-1. Cliquez sur **+ Créer une ressource**. 
+2. Cliquez sur **+ Créer une ressource**.
 
-![Nouveau DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Nouveau DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
 3. Cliquez sur **Bases de données**, puis sur Azure Synapse Analytics (anciennement SQL DW) **.
 
-![Nouveau DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![Nouveau DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
 4. Renseignez les informations demandées dans l' onglet **Bases**, puis cliquez sur **Suivant : Paramètres supplémentaires**.
 
-![Concepts de base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Concepts de base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. Pour **utiliser le paramètre de données existant**, sélectionnez **Sauvegarde** et sélectionnez la sauvegarde appropriée dans les options de défilement vers le dessous. Cliquez sur **Revoir + créer**.
- 
-![sauvegarde](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+   ![sauvegarde](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
 6. Une fois l’entrepôt de données restauré, vérifiez que l'**état** est En ligne.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - [Restaurer un pool SQL existant](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restaurer un pool SQL supprimé](sql-data-warehouse-restore-deleted-dw.md)

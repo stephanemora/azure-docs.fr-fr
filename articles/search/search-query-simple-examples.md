@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 525c20f5b6e24811ab092a63fa84fe6ebbd7b618
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72808190"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656422"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Créer une requête simple dans la Recherche cognitive Azure
 
-Dans la Recherche cognitive Azure, la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral sur un index. Cet analyseur rapide gère des scénarios courants, notamment la recherche en texte intégral, filtrée et à facettes ainsi que la recherche géographique. 
+Dans la Recherche cognitive Azure, la [syntaxe de requête simple](query-simple-syntax.md) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral sur un index. Cet analyseur rapide gère des scénarios courants, notamment la recherche en texte intégral, filtrée et à facettes ainsi que la recherche géographique. 
 
 Dans cet article, nous utilisons des exemples pour illustrer la syntaxe simple.
 
-L’autre syntaxe de requête disponible est la syntaxe [Lucene complète](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), qui prend en charge des structures de requête plus complexes comme la recherche approximative et par caractères génériques, dont le traitement peut être plus long. Pour plus d’informations et pour obtenir des exemples illustrant la syntaxe complète, consultez l’article sur l’[utilisation de la syntaxe Lucene complète](search-query-lucene-examples.md).
+L’autre syntaxe de requête disponible est la syntaxe [Lucene complète](query-lucene-syntax.md), qui prend en charge des structures de requête plus complexes comme la recherche approximative et par caractères génériques, dont le traitement peut être plus long. Pour plus d’informations et pour obtenir des exemples illustrant la syntaxe complète, consultez l’article sur l’[utilisation de la syntaxe Lucene complète](search-query-lucene-examples.md).
 
 ## <a name="formulate-requests-in-postman"></a>Formuler des requêtes dans Postman
 

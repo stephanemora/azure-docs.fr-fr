@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222946"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802550"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -85,7 +85,7 @@ Pour obtenir une vue d’ensemble des étapes requises par votre scénario, util
 | Configurer le point de connexion de service | ![Vérification][1] | ![Vérification][1] | ![Vérification][1] |
 | Configurer l’émission de revendications |     | ![Vérification][1] | ![Vérification][1] |
 | Activer les appareils non-Windows 10 |       |        | ![Vérification][1] |
-| Vérifier des appareils joints | ![Vérification][1] | ![Vérification][1] | [Vérification][1] |
+| Vérifier des appareils joints | ![Vérification][1] | ![Vérification][1] | ![Vérification][1] |
 
 ## <a name="configure-a-service-connection-point"></a>Configurer un point de connexion de service
 

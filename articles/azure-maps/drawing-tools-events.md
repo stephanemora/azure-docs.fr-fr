@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8509af7829910bdda8bba3d63553e83626fe784
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198307"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804671"
 ---
 # <a name="drawing-tool-events"></a>Événements des outils de dessin
 
@@ -31,7 +31,7 @@ Le code suivant illustre le fonctionnement des événements du module Outils de 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Événements des outils de dessin" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Événements des outils de dessin" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>Événements des outils de dessin</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -59,7 +59,7 @@ Ce code recherche des points d’intérêt à l’intérieur de la zone d’une 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Dessiner une zone polygonale et effectuer une recherche" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Dessiner une zone polygonale et effectuer une recherche" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Dessiner et effectuer une recherche dans une zone polygonale dessinée</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -71,7 +71,7 @@ Le code ci-dessous montre comment utiliser les événements de dessin pour crée
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Outil de mesure" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Outil de mesure" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Outil de mesure</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

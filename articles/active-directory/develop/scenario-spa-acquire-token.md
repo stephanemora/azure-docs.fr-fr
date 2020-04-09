@@ -2,24 +2,21 @@
 title: Acquérir un jeton pour appeler une API web (applications à page unique) - Plateforme d’identités Microsoft | Azure
 description: Découvrir comment créer une application monopage (acquérir un jeton pour appeler une API)
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160064"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882316"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Application monopage : Acquérir un jeton pour appeler une API
 
@@ -76,20 +73,40 @@ Le wrapper MSAL Angular fournit l’intercepteur HTTP, qui acquiert automatiquem
 Vous pouvez spécifier les étendues des API dans l’option de configuration `protectedResourceMap`. `MsalInterceptor` demande ces étendues lors de l’acquisition automatique de jetons.
 
 ```javascript
-//In app.module.ts
+// app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                protectedResourceMap: {"https://graph.microsoft.com/v1.0/me", ["user.read", "mail.send"]}
-            })]
-         })
-
-providers: [ ProductService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: MsalInterceptor,
-        multi: true
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+      }
+    },
+    {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ]
+    })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
     }
-   ],
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 Pour la réussite et l’échec de l’acquisition de jetons en mode silencieux, MSAL Angular fournit des rappels auxquels vous pouvez vous abonner. Il est également important de se souvenir d’annuler l’abonnement.
@@ -103,7 +120,7 @@ Pour la réussite et l’échec de l’acquisition de jetons en mode silencieux,
 
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
-   if(this.subscription) {
+   if (this.subscription) {
      this.subscription.unsubscribe();
    }
  }
@@ -149,16 +166,16 @@ Vous pouvez utiliser des revendications facultatives aux fins suivantes :
 
 - Inclure des revendications supplémentaires dans les jetons pour votre application.
 - Modifier le comportement de certaines revendications retournées par Azure AD dans les jetons.
-- Ajouter et accéder à des revendications personnalisées pour votre application. 
+- Ajouter et accéder à des revendications personnalisées pour votre application.
 
 Pour demander des revendications facultatives dans `IdToken`, vous pouvez envoyer un objet revendications stringifié au champ `claimsRequest` de la classe `AuthenticationParameters.ts`.
 
 ```javascript
-"optionalClaims":  
+"optionalClaims":
    {
       "idToken": [
             {
-                  "name": "auth_time", 
+                  "name": "auth_time",
                   "essential": true
              }
       ],

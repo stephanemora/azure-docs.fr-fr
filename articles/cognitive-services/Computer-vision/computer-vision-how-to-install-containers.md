@@ -3,20 +3,20 @@ title: Guide pratique pour installer et exécuter des conteneurs – Vision par 
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Vision par ordinateur.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: pafarley
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: f8d19ded32f7f4a90b23106b6cec53418eef407e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458033"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879341"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installer et exécuter des conteneurs Lire (préversion)
 

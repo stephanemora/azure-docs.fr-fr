@@ -3,7 +3,6 @@ title: Utilisation du service connecté Active Directory (Visual Studio)
 description: Ajouter un annuaire Azure Active Directory à l’aide de la boîte de dialogue Visual Studio Ajouter des services connectés
 author: ghogen
 manager: jillfra
-ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
@@ -11,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: f139fc8cb59c40ea169e195312326773296b0592
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3d068a8100cf78ccffac6d537fe71942239f383
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77159623"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886158"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Ajouter un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio
 

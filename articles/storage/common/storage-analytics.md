@@ -8,12 +8,12 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 86b399879807e480176ee9a3ca3feaba1ec5dd85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ad9f13bcdf36b67400adb62d58ee260ff256bb3
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250879"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637143"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -26,8 +26,6 @@ Les données agrégées sont stockées dans un objet blob connu (pour la journal
 Storage Analytics a une limite de 20 To pour la quantité de données stockées qui est indépendante de la limite totale pour votre compte de stockage. Pour plus d’informations sur les limites des comptes de stockage, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](scalability-targets-standard-account.md).
 
 Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="billing-for-storage-analytics"></a>Facturation pour Storage Analytics
 

@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5f0432cafee07dbed071d24aa8c24ee9b2176967
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d2e2fdb181b553d330368b043b75159e211dd0d2
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350172"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745132"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Restaurer un pool SQL supprimé à l’aide d’Azure Synapse Analytics
 
@@ -30,25 +30,25 @@ Dans cet article, vous allez apprendre à restaurer un pool SQL à l’aide du P
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Restaurer un entrepôt de données supprimé via PowerShell
 
-Pour restaurer un pool SQL supprimé, utilisez la cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase). Si le serveur logique correspondant a également été supprimé, vous ne pouvez pas restaurer cet entrepôt de données.
+Pour restaurer un pool SQL supprimé, utilisez la cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Si le serveur logique correspondant a également été supprimé, vous ne pouvez pas restaurer cet entrepôt de données.
 
-1. Avant de commencer, veillez à [installer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Avant de commencer, veillez à [installer Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Ouvrez PowerShell.
 3. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
 4. Sélectionnez l’abonnement qui contient l’entrepôt de données supprimé à restaurer.
 5. Récupérez l’entrepôt de données supprimé spécifique.
 6. Restaurez l’entrepôt de données supprimé
     1. Pour restaurer le SQL Data Warehouse sur un autre serveur logique, veillez à spécifier le nom de l’autre serveur logique.  Ce serveur logique peut également se trouver dans un groupe de ressources et une région différents.
-    1. Pour effectuer une restauration vers un autre abonnement, utilisez le bouton [Déplacer](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) pour déplacer le serveur logique vers un autre abonnement.
-1. Vérifiez que l’entrepôt de données restauré est en ligne.
-1. Une fois la restauration terminée, vous pouvez configurer votre entrepôt de données récupéré en suivant [Configurer votre base de données après récupération](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+    1. Pour effectuer une restauration vers un autre abonnement, utilisez le bouton [Déplacer](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) pour déplacer le serveur logique vers un autre abonnement.
+7. Vérifiez que l’entrepôt de données restauré est en ligne.
+8. Une fois la restauration terminée, vous pouvez configurer votre entrepôt de données récupéré en suivant [Configurer votre base de données après récupération](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 #$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different logical server.
-#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>" 
+#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
@@ -86,5 +86,6 @@ $RestoredDatabase.status
     ![Spécifier un nom de base de données](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - [Restaurer un pool SQL existant](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restaurer à partir d’un pool SQL de géosauvegarde](sql-data-warehouse-restore-from-geo-backup.md)

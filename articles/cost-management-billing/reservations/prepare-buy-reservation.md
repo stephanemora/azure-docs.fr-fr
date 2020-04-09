@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/07/2020
 ms.author: banders
-ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 1f44b0a0e2278bfcfbbf7cde1a3605fe334eaa3f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436984"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886515"
 ---
 # <a name="buy-a-reservation"></a>Acheter une réservation
 
@@ -43,8 +43,6 @@ Lors de l’application des remises de réservation sur votre utilisation, Azure
 1. Réservations limitées à un groupe de ressources
 2. Réservations à étendue unique
 3. Réservations à étendue partagée
-
-Un seul groupe de ressources peut obtenir des remises de réservation de plusieurs réservations, en fonction de la façon dont vous étendez vos réservations.
 
 Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour ce faire, accédez à la réservation, cliquez sur **Configuration** et redéfinissez la réservation. La modification de l’étendue de la réservation n’est pas une transaction commerciale. Le terme de votre réservation n’est pas modifié. Pour plus d’informations sur la mise à jour de l’étendue, consultez [Mettre à jour la portée après avoir acheté une réservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 

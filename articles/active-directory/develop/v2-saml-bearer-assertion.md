@@ -2,27 +2,22 @@
 title: Plateforme d’identités Microsoft et flux d’assertion du porteur SAML | Azure
 description: Découvrez comment récupérer des données à partir de Microsoft Graph sans inviter l’utilisateur à entrer des informations d’identification à l’aide du flux d’assertion du porteur SAML.
 services: active-directory
-documentationcenter: ''
 author: umeshbarapatre
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 16f30473ded5f1de5dc94c1cff9da96165b1a01c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cd79b1f9e4cd3afadee250da0c184c0c5b8ac07
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76700207"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886175"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plateforme d’identité Microsoft et flux d’assertion du porteur SAML OAuth 2.0
 Le flux d’assertion du porteur SAML OAuth 2.0 vous permet de demander un jeton d’accès OAuth à l’aide d’une assertion SAML lorsqu’un client doit utiliser une relation d’approbation existante. La signature appliquée à l’assertion SAML fournit l’authentification de l’application autorisée. Une assertion SAML est un jeton de sécurité XML émis par un fournisseur d’identité et consommé par un fournisseur de services. Le fournisseur de services s’appuie sur son contenu pour identifier l’objet de l’assertion à des fins de sécurité.

@@ -2,27 +2,22 @@
 title: Flux du code d’autorisation OAuth - Plateforme d’identités Microsoft | Azure
 description: Créez des applications web à l’aide de l’implémentation de la plateforme d’identités Microsoft du protocole d’authentification OAuth 2.0.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 366389ddf88cfb72c9ed9d0543c9985eb25f47ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f39ef8b334d142665944566f982f0bf7c4eb67b
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230521"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886311"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 

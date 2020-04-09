@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d224bd9e9e7b1f8fc9eb45d85e78811d8642fc78
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867504"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519558"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utiliser le Portail Azure afin d’attribuer un rôle RBAC pour l’accès aux données de blob et de file d’attente
 
@@ -23,13 +23,13 @@ Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources
 
 Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Cet article explique comment utiliser le portail Azure pour attribuer des rôles RBAC. Le portail Azure fournit une interface simple pour attribuer des rôles RBAC et gérer l’accès à vos ressources de stockage. Vous pouvez également attribuer des rôles RBAC pour les ressources d’objets blob et de files d’attente à l’aide des outils de ligne de commande Azure ou des API de gestion Stockage Azure. Pour plus d’informations sur les rôles RBAC pour les ressources de stockage, consultez [Authorize access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md) (Autoriser l’accès aux objets blob Azure et files d’attente à l’aide d’Azure Active Directory). 
+Cet article explique comment utiliser le portail Azure pour attribuer des rôles RBAC. Le portail Azure fournit une interface simple pour attribuer des rôles RBAC et gérer l’accès à vos ressources de stockage. Vous pouvez également attribuer des rôles RBAC pour les ressources d’objets blob et de files d’attente à l’aide des outils de ligne de commande Azure ou des API de gestion Stockage Azure. Pour plus d’informations sur les rôles RBAC pour les ressources de stockage, consultez [Authorize access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md) (Autoriser l’accès aux objets blob Azure et files d’attente à l’aide d’Azure Active Directory).
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Rôles RBAC pour objets blob et files d’attente
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Déterminer l’étendue de la ressource 
+## <a name="determine-resource-scope"></a>Déterminer l’étendue de la ressource
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -52,11 +52,11 @@ Les sections suivantes décrivent chacune de ces étapes plus en détail.
 
 Avant d’attribuer un rôle à un principal de sécurité, veillez à tenir compte de l’étendue des autorisations que vous accordez. Passez en revue la section [Déterminer l’étendue de la ressource](#determine-resource-scope) pour décider de l’étendue appropriée.
 
-La procédure illustrée ici attribue un rôle limité à un conteneur, mais vous pouvez suivre les mêmes étapes pour attribuer un rôle limité à une file d’attente : 
+La procédure illustrée ici attribue un rôle limité à un conteneur, mais vous pouvez suivre les mêmes étapes pour attribuer un rôle limité à une file d’attente :
 
 1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, puis affichez l’**Aperçu** du compte.
-1. Sous Services, sélectionnez **Blobs**. 
-1. Recherchez le conteneur pour lequel vous souhaitez attribuer un rôle, puis affichez les paramètres de ce conteneur. 
+1. Sous Services, sélectionnez **Blobs**.
+1. Recherchez le conteneur pour lequel vous souhaitez attribuer un rôle, puis affichez les paramètres de ce conteneur.
 1. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du conteneur. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
 
     ![Capture d’écran montrant les paramètres de contrôle d’accès du conteneur](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)

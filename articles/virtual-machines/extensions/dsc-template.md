@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: ef781653332984a7fb6d71ef91d53cbf77e6c91c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89bae60c30cfe82d38c61f385dbaef574b4152d8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72437956"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547795"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extension de configuration d’état souhaité avec des modèles Azure Resource Manager
 
-Cet article décrit le modèle Azure Resource Manager destiné au [gestionnaire de l’extension Configuration d’état souhaité (DSC)](dsc-overview.md). La plupart des exemples utilisent **RegistrationURL** (sous forme de chaîne) et **RegistrationKey** (sous forme de [PSCredential](/dotnet/api/system.management.automation.pscredential)) pour l'intégration à Azure Automation. Pour plus d’informations sur l’obtention de ces valeurs, consultez [Intégration des machines pour la gestion avec Azure Automation State Configuration - Enregistrement sécurisé](/azure/automation/automation-dsc-onboarding#secure-registration).
+Cet article décrit le modèle Azure Resource Manager destiné au [gestionnaire de l’extension Configuration d’état souhaité (DSC)](dsc-overview.md). La plupart des exemples utilisent **RegistrationURL** (sous forme de chaîne) et **RegistrationKey** (sous forme de [PSCredential](/dotnet/api/system.management.automation.pscredential)) pour l'intégration à Azure Automation. Pour plus d’informations sur l’obtention de ces valeurs, consultez [Intégration des machines pour la gestion avec Azure Automation State Configuration - Enregistrement sécurisé](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
 
 > [!NOTE]
 > Vous pouvez rencontrer des exemples de schéma légèrement différents. Le schéma a été modifié dans la version d’octobre 2016. Pour plus d’informations, consultez [Mettre à jour à partir d’un format antérieur](#update-from-a-previous-format).

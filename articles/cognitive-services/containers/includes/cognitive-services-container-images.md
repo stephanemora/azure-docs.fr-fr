@@ -1,19 +1,19 @@
 ---
 title: Images et référentiels de conteneurs
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 description: Deux tableaux représentant les registres de conteneurs, les dépôts et les noms d’images pour toutes les offres Cognitive Services.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 55a3bb5f894d3ab753cfec64687abc9c7cae53cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: a854a090af908da691e9b26f5b0714c6560fc0ba
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79082671"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876820"
 ---
 ### <a name="container-repositories-and-images"></a>Images et référentiels de conteneurs
 
@@ -28,7 +28,7 @@ Le registre de conteneurs Microsoft (MCR) regroupe tous les conteneurs « non 
 
 | Service | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |--|--|--|
-| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cogni'ive-services/luis` |
 | [Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extraction d’expressions clés | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Détection de la langue | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Analyse des sentiments | `mcr.microsoft.com/azure-cognitive-services/sentiment` |

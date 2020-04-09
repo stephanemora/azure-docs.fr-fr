@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: afc7a7406831568304c2ebd8d9a6c72b497e04e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972876"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546942"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -430,7 +430,7 @@ Cette section fournit des informations supplémentaires concernant le code dans 
     } while (continuationToken != null);
 
     ```
-   Pour plus d’informations, consultez la documentation de la méthode [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented).
+   Pour plus d’informations, consultez la documentation de la méthode [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented).
 
 1. Le code permettant de parcourir l’ensemble d’objets blob s’inscrit logiquement dans la boucle do-while. Dans la méthode **Execute**, la boucle do-while transmet la liste d’objets blob à une méthode nommée **Calculate**. La méthode renvoie une variable de chaîne nommée **output** , qui correspond au résultat de l’itération dans tous les objets blob du segment.
 

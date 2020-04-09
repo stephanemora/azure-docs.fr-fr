@@ -3,7 +3,7 @@ title: 'Gestion des identités et des accès : bonnes pratiques de sécurité Az
 description: Cet article détaille un ensemble de meilleures pratiques en matière de gestion des identités et du contrôle d’accès à l’aide de fonctionnalités Azure intégrées.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
-ms.author: barclayn
-ms.openlocfilehash: 52ef3a9b1df058d5d2e954b424094f9dbaeba15b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73053340"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548455"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 

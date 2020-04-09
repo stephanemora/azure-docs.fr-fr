@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228617"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878151"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Que sont les pools d’instances SQL Database (préversion) ?
 
@@ -59,7 +59,7 @@ La liste suivante répertorie les principaux cas d’utilisation où les pools d
 
 ## <a name="architecture-of-instance-pools"></a>Architecture des pools d’instances
 
-Les pools d’instances ont une architecture similaire aux instances gérées standard (*instances uniques*). Pour prendre en charge les  [déploiements dans les réseaux virtuels Azure](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks)  et assurer l’isolation et la sécurité des clients, les pools d'instances s’appuient sur des  [clusters virtuels](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Les clusters virtuels représentent un ensemble dédié de machines virtuelles isolées déployées dans le sous-réseau du réseau virtuel du client.
+Les pools d’instances ont une architecture similaire aux instances gérées standard (*instances uniques*). Pour prendre en charge les  [déploiements dans les réseaux virtuels Azure](../virtual-network/virtual-network-for-azure-services.md)  et assurer l’isolation et la sécurité des clients, les pools d'instances s’appuient sur des  [clusters virtuels](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Les clusters virtuels représentent un ensemble dédié de machines virtuelles isolées déployées dans le sous-réseau du réseau virtuel du client.
 
 La principale différence entre les deux modèles de déploiement est que les pools d’instances permettent plusieurs déploiements de processus SQL Server sur le même nœud de machine virtuelle, qui sont des ressources régies par des [objets de traitement Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), alors que les instances uniques sont toujours seules sur un nœud de machine virtuelle.
 

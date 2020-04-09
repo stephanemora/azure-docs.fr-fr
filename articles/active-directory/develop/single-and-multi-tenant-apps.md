@@ -3,26 +3,22 @@ title: Applications mono-locataires ou multi-locataires dans Azure AD
 titleSuffix: Microsoft identity platform
 description: Découvrez les fonctionnalités et les différences entre les applications mono-locataires et multi-locataires dans Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 38cb1222a64b1759528749caa15dfb1bb906cef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77159911"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881363"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Location dans Azure Active Directory
 

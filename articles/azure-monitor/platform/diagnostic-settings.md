@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ff9e62ed145b7892d2997193dae8e171ae49c98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672410"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585379"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure
 [Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme vers différentes destinations.
@@ -53,7 +53,7 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
     
         ![Paramètres de diagnostic](media/diagnostic-settings/menu-monitor.png)
 
-    - Pour le journal d’activité, dans le menu **Azure Monitor**, cliquez sur **Journal d’activité**, puis sur **Paramètres de diagnostic**. Veillez à désactiver toute configuration héritée pour le journal d’activité. Pour plus d’informations, voir [Désactiver des paramètres existants](diagnostic-settings-legacy.md#disable-existing-settings).
+    - Pour le journal d’activité, dans le menu **Azure Monitor**, cliquez sur **Journal d’activité**, puis sur **Paramètres de diagnostic**. Veillez à désactiver toute configuration héritée pour le journal d’activité. Pour plus d’informations, voir [Désactiver des paramètres existants](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log).
 
         ![Paramètres de diagnostic](media/diagnostic-settings/menu-activity-log.png)
 

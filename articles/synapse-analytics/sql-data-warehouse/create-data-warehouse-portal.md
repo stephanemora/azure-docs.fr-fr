@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5d5b2509b212172758fa867d9f27b829f43aeeaa
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 685d6970b0e88032fe503bf97a139c0b8c0f8a73
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349117"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631347"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Démarrage rapide : Créer et interroger un pool SQL Synapse avec le portail Azure
 
@@ -29,7 +29,7 @@ Créez et interrogez rapidement un pool SQL Synapse (entrepôt de données) dans
    > [!NOTE]
    > La création d’un pool SQL dans Azure Synapse peut donner lieu à un nouveau service facturable. Pour plus d’informations, consultez [Tarification Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+2. Téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -37,7 +37,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Créer un pool SQL
 
-Les entrepôts de données sont créés à l’aide d’un pool SQL dans Azure Synapse Analytics. Un pool SQL est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../../azure-resource-manager/management/overview.md) et dans un [serveur logique Azure SQL](../../sql-database/sql-database-servers.md).
+Les entrepôts de données sont créés à l’aide d’un pool SQL dans Azure Synapse Analytics. Un pool SQL est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) et dans un [serveur logique Azure SQL](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Suivez ces étapes pour créer un pool SQL qui contient l’exemple de données **AdventureWorksDW**.
 
@@ -54,9 +54,9 @@ Suivez ces étapes pour créer un pool SQL qui contient l’exemple de données 
    | Paramètre | Valeur suggérée | Description |
    | :------ | :-------------- | :---------- |
    | **Abonnement** | Votre abonnement | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
-   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
-   | **Nom du pool SQL** | Tout nom globalement unique (par exemple, *mySampleDataWarehouse*) | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). Notez qu’un pool SQL est un type de base de données. |
-   | **Serveur** | Nom globalement unique | Sélectionnez un serveur existant ou créez un nom de serveur en sélectionnant **Créer**. Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
+   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Conventions d’affectation de nom). |
+   | **Nom du pool SQL** | Tout nom globalement unique (par exemple, *mySampleDataWarehouse*) | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificateurs de base de données). Notez qu’un pool SQL est un type de base de données. |
+   | **Serveur** | Nom globalement unique | Sélectionnez un serveur existant ou créez un nom de serveur en sélectionnant **Créer**. Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Conventions d’affectation de nom). |
 
    ![détails de base de la création d’un entrepôt de données](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
@@ -78,7 +78,7 @@ Suivez ces étapes pour créer un pool SQL qui contient l’exemple de données 
 
 ## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 
-Le service Azure Synapse crée un pare-feu au niveau du serveur. Ce pare-feu empêche les outils et les applications externes de se connecter au serveur ou aux bases de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../../sql-database/sql-database-firewall-configure.md) pour l’adresse IP de votre client.
+Le service Azure Synapse crée un pare-feu au niveau du serveur. Ce pare-feu empêche les outils et les applications externes de se connecter au serveur ou aux bases de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour l’adresse IP de votre client.
 
 > [!NOTE]
 > Azure Synapse communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
@@ -124,7 +124,7 @@ Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utiliser
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
 
-Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour établir une connexion à votre serveur Azure SQL.
+Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) pour établir une connexion à votre serveur Azure SQL.
 
 1. Ouvrez SQL Server Management Studio.
 
@@ -141,11 +141,11 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
    ![connect to server](./media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
-3. Sélectionnez **Connecter**. La fenêtre Explorateur d’objets s’ouvre dans SSMS. 
+3. Sélectionnez **Connecter**. La fenêtre Explorateur d’objets s’ouvre dans SSMS.
 
 4. Dans l’Explorateur d’objets, développez **Bases de données**. Ensuite, développez **mySampleDatabase** pour afficher les objets dans votre nouvelle base de données.
 
-   ![objets de base de données](./media/create-data-warehouse-portal/connected-ssms.png) 
+   ![objets de base de données](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## <a name="run-some-queries"></a>Exécuter des requêtes
 
@@ -163,7 +163,7 @@ SQL Data Warehouse utilise T-SQL comme langage de requête. Pour ouvrir une fen�
 
    ![Interroger des bases de données](./media/create-data-warehouse-portal/query-databases.png)
 
-4. Pour examiner des données, utilisez la commande suivante pour afficher le nombre de clients dont le nom de famille est Adams et qui ont trois enfants au foyer. Les résultats donnent six clients. 
+4. Pour examiner des données, utilisez la commande suivante pour afficher le nombre de clients dont le nom de famille est Adams et qui ont trois enfants au foyer. Les résultats donnent six clients.
 
     ```sql
     SELECT LastName, FirstName FROM dbo.dimCustomer
@@ -196,4 +196,4 @@ Suivez ces étapes pour nettoyer les ressources dont vous n’avez plus besoin.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le chargement de données dans votre pool SQL, passez à l’article [Charger des données dans un pool SQL](load-data-from-azure-blob-storage-using-polybase.md). 
+Pour en savoir plus sur le chargement de données dans votre pool SQL, passez à l’article [Charger des données dans un pool SQL](load-data-from-azure-blob-storage-using-polybase.md).

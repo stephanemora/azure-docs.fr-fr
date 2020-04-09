@@ -2,24 +2,21 @@
 title: Passer en production une API web appelant des API web – Plateforme d’identités Microsoft | Azure
 description: Découvrez comment passer en production une API web qui appelle des API web.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 474f771f007666179295f4502108acee88d1dc33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d557c70c09824f3aead41a654dc92c4ec46e9238
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701720"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885053"
 ---
 # <a name="a-web-api-that-calls-web-apis-move-to-production"></a>Une API web qui appelle des API web : Passer en production
 

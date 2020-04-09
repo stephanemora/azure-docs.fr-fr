@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 29d837446960b7535b26284efdfab7a1c59ea968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132494"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802381"
 ---
 # <a name="http-features"></a>Fonctionnalités HTTP
 
@@ -232,7 +232,7 @@ Lors de l’exécution, la source de jeton configurée retourne automatiquement 
 * Les jetons ne sont jamais stockés dans l’état d’orchestration durable.
 * Vous n’êtes pas obligé d’écrire du code pour gérer l’acquisition des jetons.
 
-Vous trouverez un exemple plus complet dans l’[exemple « RestartVMs » C# précompilé](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+Vous trouverez un exemple plus complet dans l’[exemple « RestartVMs » C# précompilé](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
 Les identités managées ne sont pas limitées à la gestion des ressources Azure. Vous pouvez utiliser des identités managées pour accéder à n’importe quelle API acceptant des jetons du porteur Azure AD, notamment à des services Azure de Microsoft et à des applications web de partenaires. Une application web d’un partenaire peut même être une autre application de fonction. Pour obtenir la liste des services Azure de Microsoft qui prennent en charge l’authentification avec Azure AD, voir [Services Azure qui prennent en charge l’authentification Azure AD](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 

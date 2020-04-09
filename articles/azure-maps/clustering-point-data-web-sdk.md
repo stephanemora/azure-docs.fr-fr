@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: e65681aefc047ba540d4ad0d91ef6e4d2af5f3ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce2891201331ee1efd861d2f13cec78c0551b6ba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190258"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804569"
 ---
 # <a name="clustering-point-data"></a>Clustering de données de point
 
@@ -62,7 +62,7 @@ Pour afficher la taille du cluster en haut de la bulle, utilisez un calque de sy
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Clustering en couche de bulles de base" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Clustering en couche de bulles de base" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Clustering en couche de bulles de base</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -74,7 +74,7 @@ Utilisez le clustering pour montrer la densité des points de données tout en c
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Couche de symboles en cluster" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Couche de symboles en cluster" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>Couche de symboles en cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -84,7 +84,7 @@ Les cartes thermiques sont un excellent moyen pour afficher la densité des donn
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Carte thermique pondérée en fonction du cluster" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Carte thermique pondérée en fonction du cluster" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Carte thermique pondérée en fonction du cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -103,7 +103,7 @@ Cet exemple prend un calque de bulles qui affiche des points de cluster et ajout
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Méthode getClusterExpansionZoom du cluster" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Méthode getClusterExpansionZoom du cluster" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/moZWeV/'>Méthode getClusterExpansionZoom du cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -113,7 +113,7 @@ Les données de point représentées par un cluster sont réparties sur une zone
 
 <br/>
 
- <iframe height="500" style="width: 100%;" scrolling="no" title="Enveloppe convexe de la zone du cluster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+ <iframe height="500" style="width: 100%;" scrolling="no" title="Enveloppe convexe de la zone du cluster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Enveloppe convexe de la zone du cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -123,7 +123,7 @@ Souvent, les clusters sont représentés à l’aide d’un symbole avec le nomb
 
 L’exemple suivant utilise une expression d’agrégation. Le code calcule un nombre basé sur la propriété du type d’entité de chaque point de données dans un cluster. Quand un utilisateur clique sur un cluster, une fenêtre contextuelle s’affiche avec des informations supplémentaires sur le cluster.
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Agrégats de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Agrégats de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Agrégats de cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
