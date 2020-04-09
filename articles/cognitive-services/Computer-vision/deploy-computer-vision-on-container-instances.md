@@ -3,19 +3,19 @@ title: Exécuter le conteneur Vision par ordinateur dans Azure Container Instanc
 titleSuffix: Azure Cognitive Services
 description: Déployez le conteneur Vision par ordinateur sur Azure Container Instance, et testez-le dans un navigateur web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
-ms.openlocfilehash: 1c858432a3382e6dbc8e479aab11b18dc5eebfe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: ecb0b6a6577161a5349d9d701dd6c116f69411f0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73499085"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876075"
 ---
 # <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Déployer le conteneur Vision par ordinateur sur Azure Container Instances
 

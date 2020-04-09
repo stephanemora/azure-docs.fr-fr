@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0cf171da5f473a0d78fc5f37139c94b0e519bcfb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1da862a7994d7db5ee8c9f090119e14f19c6b13a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79289967"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637890"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Démarrage rapide : Collecter des données à partir d’un ordinateur Linux dans un environnement hybride avec Azure Monitor
 
 [Azure Monitor](../overview.md) est capable de collecter directement les données de vos ordinateurs Linux physiques ou virtuels de votre environnement dans un espace de travail Log Analytics pour ensuite procéder à une analyse et à une mise en corrélation détaillées. L’installation de l’[agent Log Analytics](../platform/log-analytics-agent.md) permet à Azure Monitor de collecter des données à partir d’un centre de données ou d’un autre environnement cloud. Ce guide de démarrage rapide montre comment configurer et collecter les données de votre serveur Linux en quelques étapes simples. Pour plus d’informations sur les machines virtuelles Linux Azure, consultez [Collecter des données sur les machines virtuelles Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-Pour comprendre la configuration prise en charge, consultez [Systèmes d’exploitation Windows pris en charge](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) et [Configuration du pare-feu réseau](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Pour comprendre la configuration prise en charge, consultez [Systèmes d’exploitation Windows pris en charge](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) et [Configuration du pare-feu réseau](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
  
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

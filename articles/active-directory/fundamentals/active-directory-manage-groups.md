@@ -13,19 +13,17 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 961444e15ae1c45db1fc7423a6ac3cc96cc7b3fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75768008"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982597"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gérer l’accès aux applications et aux ressources à l’aide de groupes Azure Active Directory
 Azure Active Directory (Azure AD) vous permet d’utiliser des groupes pour gérer l’accès à vos applications basées sur le cloud, applications locales et ressources. Vos ressources peuvent faire partie de l’organisation Azure AD, comme les autorisations de gestion des objets par le biais de rôles dans Azure AD, ou être externes à l’organisation, comme les applications Logiciel en tant que service (SaaS), les services Azure, les sites SharePoint et les ressources locales.
 
 >[!NOTE]
->Pour utiliser Azure Active Directory, vous avez besoin d'un compte Azure. Si vous ne possédez pas encore un compte Azure, vous pouvez [vous inscrire pour en obtenir un gratuitement](https://azure.microsoft.com/free/).
->
 > Dans le portail Azure, vous pouvez voir des groupes dont vous ne pouvez pas gérer l’appartenance et les détails dans le portail :
 >
 > - Les groupes synchronisés à partir d’Active Directory local ne peuvent être gérés que dans Active Directory local.

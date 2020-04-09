@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f193580ca03d4b1805f3c044658a34f468f3f44f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346561"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631609"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utiliser les planifications de maintenance pour gérer les mises à jour et la maintenance des services
 
-La fonctionnalité de planification de maintenance intègre les notifications de maintenance planifiée de Service Health, l’analyse de vérification de Resource Health et le service de planification de la maintenance pour le pool SQL Synapse (entrepôt de données) dans Azure Synapse Analytics. 
+La fonctionnalité de planification de maintenance intègre les notifications de maintenance planifiée de Service Health, l’analyse de vérification de Resource Health et le service de planification de la maintenance pour le pool SQL Synapse (entrepôt de données) dans Azure Synapse Analytics.
 
 Vous devez utiliser la planification de maintenance afin de choisir la bonne fenêtre pour recevoir les nouvelles fonctionnalités, les mises à niveau et les correctifs. Vous devrez choisir une fenêtre de maintenance principale et secondaire au cours d’une période de sept jours. Chaque fenêtre doit se trouver dans des plages de jours distinctes.
 
@@ -48,52 +48,55 @@ Tous les événements de maintenance actifs sont affichés dans la section **Ser
 
 Même si la planification de la maintenance n’est pas encore disponible dans votre région, vous pouvez l’afficher et la modifier à tout moment. Quand la planification de la maintenance sera disponible dans votre région, la planification identifiée deviendra immédiatement active dans votre pool SQL Synapse.
 
-## <a name="view-a-maintenance-schedule"></a>Afficher une planification de maintenance 
+## <a name="view-a-maintenance-schedule"></a>Afficher une planification de maintenance
 
 Par défaut, toutes les instances d’entrepôt de données récemment créées ont deux fenêtres de maintenance (une principale et une secondaire) de huit heures, appliquées pendant le déploiement. Comme indiqué ci-dessus, vous pouvez modifier les fenêtres dès que le déploiement est terminé. Aucune maintenance ne peut avoir lieu en dehors des fenêtres de maintenance définies, sans notification préalable.
 
 Pour voir la planification de maintenance qui a été appliquée à votre pool SQL Synapse, effectuez les étapes suivantes :
 
-1.    Connectez-vous au [portail Azure](https://portal.azure.com/).
-2.    Sélectionnez le pool SQL Synapse que vous voulez voir. 
-3.    Le pool SQL Synapse sélectionné s’ouvre dans le panneau Vue d’ensemble. La planification de maintenance appliquée à l’entrepôt de données s’affiche sous **Planification de la maintenance**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Sélectionnez le pool SQL Synapse que vous voulez voir.
+3. Le pool SQL Synapse sélectionné s’ouvre dans le panneau Vue d’ensemble. La planification de maintenance appliquée à l’entrepôt de données s’affiche sous **Planification de la maintenance**.
 
 ![Panneau Vue d’ensemble](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## <a name="change-a-maintenance-schedule"></a>Changer une planification de maintenance 
+## <a name="change-a-maintenance-schedule"></a>Changer une planification de maintenance
 
-Il est possible de mettre à jour ou de modifier une planification de maintenance à tout moment. Si l’instance sélectionnée se trouve dans un cycle de maintenance actif, les paramètres sont enregistrés. Ils deviennent actifs au cours de la prochaine période de maintenance identifiée. [Explorez](../../service-health/resource-health-overview.md) la supervision de votre entrepôt de données pendant un événement de maintenance actif. 
+Il est possible de mettre à jour ou de modifier une planification de maintenance à tout moment. Si l’instance sélectionnée se trouve dans un cycle de maintenance actif, les paramètres sont enregistrés. Ils deviennent actifs au cours de la prochaine période de maintenance identifiée. [Explorez](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) la supervision de votre entrepôt de données pendant un événement de maintenance actif.
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identification des fenêtres principale et secondaire
 
 Les fenêtres principale et secondaire doivent avoir des plages de jour distinctes. Par exemple, une fenêtre principale allant du mardi au jeudi, et une fenêtre secondaire allant du samedi au dimanche.
 
 Pour changer la planification de maintenance de votre pool SQL Synapse, effectuez les étapes suivantes :
-1.    Connectez-vous au [portail Azure](https://portal.azure.com/).
-2.    Sélectionnez le pool SQL Synapse que vous voulez mettre à jour. La page s’ouvre dans le panneau Vue d’ensemble. 
-3.    Ouvrez la page de paramètres de planification de maintenance en sélectionnant le lien **Résumé de la planification de maintenance** du panneau Vue d’ensemble. Ou sélectionnez l’option **Planification de la maintenance** dans le menu de ressource à gauche.  
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Sélectionnez le pool SQL Synapse que vous voulez mettre à jour. La page s’ouvre dans le panneau Vue d’ensemble.
+Ouvrez la page de paramètres de planification de maintenance en sélectionnant le lien **Résumé de la planification de maintenance** du panneau Vue d’ensemble. Ou sélectionnez l’option **Planification de la maintenance** dans le menu de ressource à gauche.
 
     ![Options du panneau Vue d’ensemble](./media/maintenance-scheduling/maintenance-change-option.png)
 
-4. Identifiez la plage de jours par défaut pour votre fenêtre de maintenance principale à l’aide des options en haut de la page. Cette sélection détermine si la fenêtre principale a lieu un jour de semaine ou pendant le week-end. Votre sélection met à jour les valeurs des listes déroulantes. Dans la préversion, il est possible que certaines régions ne prennent pas en charge l’ensemble complet des options **Jour** disponibles.
+3. Identifiez la plage de jours par défaut pour votre fenêtre de maintenance principale à l’aide des options en haut de la page. Cette sélection détermine si la fenêtre principale a lieu un jour de semaine ou pendant le week-end. Votre sélection met à jour les valeurs des listes déroulantes.
+Dans la préversion, il est possible que certaines régions ne prennent pas en charge l’ensemble complet des options **Jour** disponibles.
 
    ![Panneau Paramètres de maintenance](./media/maintenance-scheduling/maintenance-settings-page.png)
 
-5. Choisissez vos fenêtres de maintenance principale et secondaire par défaut à l’aide des zones de liste déroulante :
+4. Choisissez vos fenêtres de maintenance principale et secondaire par défaut à l’aide des zones de liste déroulante :
    - **Jour** : jour par défaut où doit avoir lieu la maintenance pendant la fenêtre sélectionnée.
    - **Heure de début** : heure par défaut à laquelle doit commencer la fenêtre de maintenance.
    - **Fenêtre de temps** : durée par défaut de la fenêtre de temps.
 
-   La zone **Résumé de la planification** en bas du panneau est mise à jour avec les valeurs que vous avez sélectionnées. 
+   La zone **Résumé de la planification** en bas du panneau est mise à jour avec les valeurs que vous avez sélectionnées.
   
-6. Sélectionnez **Enregistrer**. Un message s’affiche pour confirmer que votre nouvelle planification est maintenant active. 
+5. Sélectionnez **Enregistrer**. Un message s’affiche pour confirmer que votre nouvelle planification est maintenant active.
 
-   Si vous enregistrez une planification dans une région qui ne prend pas en charge la planification de maintenance, le message suivant s’affiche. Vos paramètres sont enregistrés et deviennent actifs dès que la fonctionnalité est disponible dans la région que vous avez sélectionnée.    
+   Si vous enregistrez une planification dans une région qui ne prend pas en charge la planification de maintenance, le message suivant s’affiche. Vos paramètres sont enregistrés et deviennent actifs dès que la fonctionnalité est disponible dans la région que vous avez sélectionnée.
 
    ![Message concernant la disponibilité dans la région](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [En savoir plus](../../azure-monitor/platform/alerts-metric.md) sur la création, l’affichage et la gestion des alertes à l’aide d’Azure Monitor.
-- [En savoir plus](../..//azure-monitor/platform/alerts-log-webhook.md) sur les actions webhook pour les règles d’alerte de journal.
-- [En savoir plus](../..//azure-monitor/platform/action-groups.md) sur la création et la gestion de groupes d’actions.
-- [En savoir plus](../../service-health/service-health-overview.md) sur Azure Service Health.
+
+- [En savoir plus](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sur la création, l’affichage et la gestion des alertes à l’aide d’Azure Monitor.
+- [En savoir plus](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sur les actions webhook pour les règles d’alerte de journal.
+- [En savoir plus](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sur la création et la gestion de groupes d’actions.
+- [En savoir plus](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sur Azure Service Health.

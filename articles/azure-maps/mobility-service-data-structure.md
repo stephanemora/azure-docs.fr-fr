@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334442"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478689"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Structure des données Azure Maps Mobility Service
 
@@ -31,13 +31,13 @@ Le paramètre `metroID` est l’ID d’une zone urbaine qui peut être utilisé 
 
 ## <a name="stop-ids"></a>ID d’arrêts
 
-Les arrêts de transport peuvent avoir deux types d’ID, l’ID [General Transit Feed Specification (GFTS)](https://gtfs.org/) et l’ID d’arrêt Azure Maps. L’ID GFTS est appelé stopKey, et l’ID d’arrêt Azure Maps stopID. Lorsque vous faites souvent référence à des arrêts de transport, vous êtes encouragé à utiliser l’ID d’arrêt Azure Maps. stopID est plus stable et susceptible de rester le même tant que l’arrêt physique existe. L’ID d’arrêt GTFS est mis à jour plus souvent. Par exemple, l’ID d’arrêt GTFS peut être mis à jour en fonction de la requête du fournisseur GTFS ou lors de la publication d’une nouvelle version de GTFS. Bien que l’arrêt physique n’ait pas changé, l’ID d’arrêt GTFS peut changer.
+Les arrêts de transport peuvent avoir deux types d’ID, l’ID [General Transit Feed Specification (GFTS)](http://gtfs.org/) et l’ID d’arrêt Azure Maps. L’ID GFTS est appelé stopKey, et l’ID d’arrêt Azure Maps stopID. Lorsque vous faites souvent référence à des arrêts de transport, vous êtes encouragé à utiliser l’ID d’arrêt Azure Maps. stopID est plus stable et susceptible de rester le même tant que l’arrêt physique existe. L’ID d’arrêt GTFS est mis à jour plus souvent. Par exemple, l’ID d’arrêt GTFS peut être mis à jour en fonction de la requête du fournisseur GTFS ou lors de la publication d’une nouvelle version de GTFS. Bien que l’arrêt physique n’ait pas changé, l’ID d’arrêt GTFS peut changer.
 
 Pour commencer, vous pouvez demander les arrêts de transport proches, en utilisant l’[API Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
 ## <a name="line-groups-and-lines"></a>Lignes et groupes de lignes
 
-Mobility Service utilise un modèle de données parallèle pour les lignes et les groupes de lignes. Ce modèle est utilisé pour mieux traiter les modifications héritées des itinéraires [GTFS](https://gtfs.org/) et des données sur les voyages.
+Mobility Service utilise un modèle de données parallèle pour les lignes et les groupes de lignes. Ce modèle est utilisé pour mieux traiter les modifications héritées des itinéraires [GTFS](http://gtfs.org/) et des données sur les voyages.
 
 
 ### <a name="line-groups"></a>Groupes de lignes

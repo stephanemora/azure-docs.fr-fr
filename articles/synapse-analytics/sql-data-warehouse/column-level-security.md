@@ -12,24 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 24ead458232b096a5c69ffe8b45c6298a9da9f75
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61a3e2eadaf79cdb30a931b31cff709298d0a22c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349090"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631298"
 ---
 # <a name="column-level-security"></a>Sécurité au niveau des colonnes
 
 La sécurité au niveau des colonnes permet aux clients de contrôler l'accès aux colonnes des tables de base de données en fonction du contexte d'exécution de l'utilisateur ou de son appartenance à un groupe.
 
-
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Depuis la publication de cette vidéo, la [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) a également été mise en place pour Azure Synapse. 
+Depuis la publication de cette vidéo, la [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) a également été mise en place pour Azure Synapse.
 
 La sécurité au niveau des colonnes simplifie la conception et le codage de la sécurité de votre application, ce qui vous permet de limiter l'accès aux colonnes afin de protéger les données sensibles. Vous pouvez, par exemple, vous assurer que des utilisateurs spécifiques peuvent accéder uniquement à certaines colonnes d’une table qui sont pertinentes par rapport à leur service. La logique de la restriction d'accès est située dans la couche de base de données plutôt que loin des données d'une autre couche Application. La base de données applique les restrictions d'accès à chaque tentative d'accès aux données à partir d'un niveau quelconque. Cette restriction renforce la fiabilité et la robustesse de votre sécurité en réduisant la surface d'exposition de votre système de sécurité global. En outre, la sécurité au niveau des colonnes élimine la nécessité d'ajouter des vues pour filtrer les colonnes afin d'imposer des restrictions d'accès aux utilisateurs.
 
-Vous pouvez implémenter la sécurité au niveau des colonnes à l'aide de l'instruction T-SQL [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql). Avec ce mécanisme, l’authentification SQL et AAD (Azure Active Directory) sont toutes deux prises en charge.
+Vous pouvez implémenter la sécurité au niveau des colonnes à l'aide de l'instruction T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Avec ce mécanisme, l’authentification SQL et AAD (Azure Active Directory) sont toutes deux prises en charge.
 
 ![sécurité au niveau des colonnes](./media/column-level-security/cls.png)
 
@@ -52,6 +51,7 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>Exemple
+
 L'exemple suivant montre comment empêcher l'utilisateur `TestUser` d'accéder à la colonne `SSN` de la table `Membership` :
 
 Créez la table `Membership` avec la colonne SSN utilisée pour stocker les numéros de sécurité sociale :

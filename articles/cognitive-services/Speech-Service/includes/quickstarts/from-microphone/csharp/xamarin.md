@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 2ed41f424dfe985cc078314da5b138c7d7bcdf37
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 699bbea9d50c24558f6c9d4671cb6035e4718a43
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925823"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671794"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -23,7 +23,7 @@ Avant de commencer :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=xamarin)
+> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
 > * Veiller à avoir accès à un microphone pour la capture audio
 
 Si vous l’avez déjà fait, c’est parfait. Poursuivons.
@@ -146,4 +146,4 @@ La génération et l’exécution des applications Android et iOS dans l’appar
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [footer](../footer.md)]

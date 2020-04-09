@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4877b136f197f226f142f5ad5eb4035c63c07d7a
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79212939"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887008"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Utiliser le Portail Azure pour gérer les partages de votre service Azure Data Box Edge
 
@@ -29,11 +29,11 @@ Pour transférer des données vers Azure, vous devez créer des partages sur vot
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
+>
 > * Ajouter un partage
 > * Supprimer un partage
 > * Actualiser les partages
 > * Synchroniser une clé de stockage
-
 
 ## <a name="add-a-share"></a>Ajouter un partage
 
@@ -57,14 +57,14 @@ Pour créer un partage, procédez comme suit dans le Portail Azure.
    > Vérifiez que le compte de stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Cette étape varie selon que vous créez un partage SMB ou NFS.
-    - **Si vous créez un partage SMB** : dans le champ **All privilege local user** (Utilisateur local avec tous les privilèges), choisissez **Créer** ou **Utiliser l’existant**. Si vous créez un utilisateur local, indiquez un **nom d’utilisateur**, un **mot de passe**, puis confirmez le mot de passe. Cela affecte les autorisations à l’utilisateur local. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
+   - **Si vous créez un partage SMB** : dans le champ **All privilege local user** (Utilisateur local avec tous les privilèges), choisissez **Créer** ou **Utiliser l’existant**. Si vous créez un utilisateur local, indiquez un **nom d’utilisateur**, un **mot de passe**, puis confirmez le mot de passe. Cela affecte les autorisations à l’utilisateur local. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
 
-        ![Ajouter un partage SMB](media/data-box-edge-manage-shares/add-smb-share.png)
+      ![Ajouter un partage SMB](media/data-box-edge-manage-shares/add-smb-share.png)
 
         Si vous cochez l’option permettant d’autoriser uniquement les opérations de lecture pour ces données de partage, vous avez la possibilité d’indiquer des utilisateurs en lecture seule.
-    - **Si vous créez un partage NFS** : vous devez fournir les **adresses IP des clients autorisés** qui peuvent accéder au partage.
+   - **Si vous créez un partage NFS** : vous devez fournir les **adresses IP des clients autorisés** qui peuvent accéder au partage.
 
-        ![Ajouter un partage NFS](media/data-box-edge-manage-shares/add-nfs-share.png)
+      ![Ajouter un partage NFS](media/data-box-edge-manage-shares/add-nfs-share.png)
 
 7. Pour accéder aisément aux partages à partir des modules de computing en périphérie, utilisez le point de montage local. Sélectionnez **Utiliser le partage avec le computing en périphérie** pour que le partage soit monté automatiquement après sa création. Lorsque cette option est sélectionnée, le module Edge peut également utiliser le computing avec le point de montage local.
 
@@ -74,7 +74,7 @@ Pour créer un partage, procédez comme suit dans le Portail Azure.
 
 1. Sur le portail Azure, accédez à votre ressource Data Box Edge, puis accédez à **Passerelle > Partages**. Sélectionnez **+ Ajouter un partage** dans la barre de commandes.
 
-    ![Sélectionner Ajouter un partage](media/data-box-edge-manage-shares/add-local-share-1.png)
+   ![Sélectionner Ajouter un partage](media/data-box-edge-manage-shares/add-local-share-1.png)
 
 2. Dans **Ajouter un partage**, spécifiez les paramètres du partage. Indiquez un nom unique pour votre partage.
     
@@ -90,40 +90,39 @@ Pour créer un partage, procédez comme suit dans le Portail Azure.
 
 7. Sélectionnez **Create** (Créer). 
 
-    ![Créer un partage local](media/data-box-edge-manage-shares/add-local-share-2.png)
+   ![Créer un partage local](media/data-box-edge-manage-shares/add-local-share-2.png)
 
     Un message de notification indique que le partage est en cours de création. Une fois le partage créé avec les paramètres spécifiés, le panneau **Partages** s’actualise pour refléter le nouveau partage.
 
-    ![Afficher les mises à jour dans le panneau Partages](media/data-box-edge-manage-shares/add-local-share-3.png)
+   ![Afficher les mises à jour dans le panneau Partages](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Sélectionnez le partage pour afficher le point de montage local des modules de computing en périphérie associés.
 
-    ![Afficher les détails de partage local](media/data-box-edge-manage-shares/add-local-share-4.png)
+   ![Afficher les détails de partage local](media/data-box-edge-manage-shares/add-local-share-4.png)
 
 ## <a name="mount-a-share"></a>Monter un partage
 
 Si vous avez créé un partage avant de procéder à la configuration du computing sur votre appareil Data Box Edge, vous devez monter le partage. Effectuez les étapes suivantes pour monter un partage.
 
-
 1. Sur le portail Azure, accédez à votre ressource Data Box Edge, puis accédez à **Passerelle > Partages**. Dans la liste des partages, sélectionnez le partage que vous souhaitez monter. La colonne **Utilisé pour le computing** affiche l’état **Désactivé** pour le partage sélectionné.
 
-    ![Sélectionner un partage](media/data-box-edge-manage-shares/select-share-mount.png)
+   ![Sélectionner un partage](media/data-box-edge-manage-shares/select-share-mount.png)
 
 2. Sélectionnez **Monter**.
 
-    ![Sélectionner l’option de montage](media/data-box-edge-manage-shares/select-mount.png)
+   ![Sélectionner l’option de montage](media/data-box-edge-manage-shares/select-mount.png)
 
 3. Quand vous êtes invité à confirmer l’opération, sélectionnez **Oui**. Le partage est alors monté.
 
-    ![Confirmer le montage](media/data-box-edge-manage-shares/confirm-mount.png)
+   ![Confirmer le montage](media/data-box-edge-manage-shares/confirm-mount.png)
 
 4. Une fois le partage monté, accédez à la liste des partages. Vous pouvez constater que la colonne **Utilisé pour le computing** indique l’état de partage **Activé**.
 
-    ![Partage monté](media/data-box-edge-manage-shares/share-mounted.png)
+   ![Partage monté](media/data-box-edge-manage-shares/share-mounted.png)
 
 5. Resélectionnez le partage pour voir le point de montage local du partage. Le module computing en périphérie utilise ce point de montage local pour le partage.
 
-    ![Point de montage local pour le partage](media/data-box-edge-manage-shares/share-mountpoint.png)
+   ![Point de montage local pour le partage](media/data-box-edge-manage-shares/share-mountpoint.png)
 
 ## <a name="unmount-a-share"></a>Démonter un partage
 
@@ -131,19 +130,19 @@ Effectuez les étapes suivantes dans le portail Azure pour démonter un partage.
 
 1. Sur le portail Azure, accédez à votre ressource Data Box Edge, puis accédez à **Passerelle > Partages**.
 
-    ![Sélectionner un partage](media/data-box-edge-manage-shares/select-share-unmount.png)
+   ![Sélectionner un partage](media/data-box-edge-manage-shares/select-share-unmount.png)
 
 2. Dans la liste des partages, sélectionnez le partage que vous souhaitez démonter. Vous devez vous assurer que le partage à démonter n’est pas utilisé par un module. Si le partage est utilisé par un module, vous verrez apparaître des problèmes avec le module correspondant. Sélectionnez **Démonter**.
 
-    ![Sélectionner l’option de démontage](media/data-box-edge-manage-shares/select-unmount.png)
+   ![Sélectionner l’option de démontage](media/data-box-edge-manage-shares/select-unmount.png)
 
 3. Quand vous êtes invité à confirmer l’opération, sélectionnez **Oui**. Le partage est alors démonté.
 
-    ![Confirmer le démontage](media/data-box-edge-manage-shares/confirm-unmount.png)
+   ![Confirmer le démontage](media/data-box-edge-manage-shares/confirm-unmount.png)
 
 4. Une fois le partage démonté, accédez à la liste des partages. Vous voyez que la colonne **Utilisé pour le computing** indique l’état de partage **Désactivé**.
 
-    ![Partage démonté](media/data-box-edge-manage-shares/share-unmounted.png)
+   ![Partage démonté](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Supprimer un partage
 
@@ -151,49 +150,48 @@ Pour supprimer un partage, procédez comme suit dans le Portail Azure.
 
 1. Dans la liste des partages, sélectionnez et cliquez sur le partage que vous souhaitez supprimer.
 
-    ![Sélectionner un partage](media/data-box-edge-manage-shares/delete-share-1.png)
+   ![Sélectionner un partage](media/data-box-edge-manage-shares/delete-share-1.png)
 
 2. Cliquez sur **Supprimer**.
 
-    ![Clic sur Supprimer](media/data-box-edge-manage-shares/delete-share-2.png)
+   ![Clic sur Supprimer](media/data-box-edge-manage-shares/delete-share-2.png)
 
 3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
 
-    ![Confirmation de suppression](media/data-box-edge-manage-shares/delete-share-3.png)
+   ![Confirmation de suppression](media/data-box-edge-manage-shares/delete-share-3.png)
 
 La liste des partages est mise à jour afin de tenir compte de la suppression.
-
 
 ## <a name="refresh-shares"></a>Actualiser les partages
 
 La fonctionnalité d’actualisation vous permet d’actualiser le contenu d’un partage. Lorsque vous actualisez un partage, une recherche est lancée pour rechercher tous les objets Azure, y compris les objets blob et les fichiers qui ont été ajoutés dans le cloud depuis la dernière actualisation. Ces fichiers supplémentaires sont ensuite téléchargés pour actualiser le contenu du partage sur l’appareil.
 
 > [!IMPORTANT]
+>
 > - Vous ne pouvez pas actualiser des partages locaux.
 > - Les autorisations et les listes de contrôle d’accès (ACL) ne sont pas conservées lors d’une opération d’actualisation. 
 
 Pour actualiser un partage, procédez comme suit dans le Portail Azure.
 
-1.   Accédez à **Partages** dans le Portail Azure. Sélectionnez et cliquez sur le partage que vous souhaitez actualiser.
+1. Accédez à **Partages** dans le Portail Azure. Sélectionnez et cliquez sur le partage que vous souhaitez actualiser.
 
-    ![Sélectionner un partage](media/data-box-edge-manage-shares/refresh-share-1.png)
+   ![Sélectionner un partage](media/data-box-edge-manage-shares/refresh-share-1.png)
 
-2.   Cliquez sur **Actualiser**. 
+2. Cliquez sur **Actualiser**.
 
-    ![Cliquer sur Actualiser](media/data-box-edge-manage-shares/refresh-share-2.png)
+   ![Cliquer sur Actualiser](media/data-box-edge-manage-shares/refresh-share-2.png)
  
-3.   Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. Un travail démarre pour actualiser le contenu du partage local.
+3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. Un travail démarre pour actualiser le contenu du partage local.
 
-    ![Confirmer l’actualisation](media/data-box-edge-manage-shares/refresh-share-3.png)
- 
-4.   Pendant l’actualisation, l’option d’actualisation du menu contextuel est grisée. Cliquez sur la notification de travail pour afficher l’état du travail d’actualisation.
+   ![Confirmer l’actualisation](media/data-box-edge-manage-shares/refresh-share-3.png)
 
-5.   La durée nécessaire pour l’actualisation varie en fonction du nombre de fichiers dans le conteneur Azure, ainsi que des fichiers sur l’appareil. Une fois l’actualisation terminée, le timestamp du partage est mis à jour. Même si l’actualisation présente des échecs partiels, l’opération est considérée comme réussie et le timestamp est mis à jour. Les journaux d’erreurs d’actualisation sont également mis à jour.
+4. Pendant l’actualisation, l’option d’actualisation du menu contextuel est grisée. Cliquez sur la notification de travail pour afficher l’état du travail d’actualisation.
 
-    ![Timestamp mis à jour](media/data-box-edge-manage-shares/refresh-share-4.png)
+5. La durée nécessaire pour l’actualisation varie en fonction du nombre de fichiers dans le conteneur Azure, ainsi que des fichiers sur l’appareil. Une fois l’actualisation terminée, le timestamp du partage est mis à jour. Même si l’actualisation présente des échecs partiels, l’opération est considérée comme réussie et le timestamp est mis à jour. Les journaux d’erreurs d’actualisation sont également mis à jour.
+
+   ![Timestamp mis à jour](media/data-box-edge-manage-shares/refresh-share-4.png)
  
 En cas d’échec, une alerte est déclenchée. L’alerte décrit en détail la cause du problème et la recommandation à suivre pour le résoudre. L’alerte contient également un lien vers un fichier présentant le résumé des échecs, notamment les fichiers qui n’ont pas pu être mis à jour ou supprimés.
-
 
 ## <a name="sync-storage-keys"></a>Synchroniser des clés de stockage
 
@@ -213,7 +211,6 @@ Procédez comme suit dans le Portail Azure pour synchroniser votre clé d’acc�
 
 >[!NOTE]
 > Cette opération est à faire une seule fois pour un compte de stockage donné. Vous n’avez pas besoin de répéter cette action pour tous les partages associés au même compte de stockage.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

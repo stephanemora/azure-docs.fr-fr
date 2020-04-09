@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: a58959904559cd3b2cec27762f2df93cfea72abd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fef3f0347d963b8a7d5fe2f1ca771293e9c3d2a9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75535321"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475506"
 ---
 # <a name="how-to-define-a-machine-learning-task"></a>Comment définir une tâche d’apprentissage automatique 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,6 +76,6 @@ Vous pouvez définir la tâche dans le cadre de la création de vos exécutions 
 
 + Apprenez-en davantage sur le [ML automatisé](concept-automated-ml.md) dans Azure Machine Learning.
 + En savoir plus sur l’[auto-formation d’un modèle de prévision de série chronologique](how-to-auto-train-forecast.md) dans Azure Machine Learning
-+ Essayez le tutoriel sur la [classification de Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation).
-+ Testez l’exemple de notebook [Régression du Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation).
++ Essayez le tutoriel sur la [classification de Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
++ Testez l’exemple de notebook [Régression du Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb).
 

@@ -11,17 +11,19 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c868d8c159bca0c8462acde48225dc45003cf84e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351004"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632683"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de mémoire et de concurrence pour Azure Synapse Analytics
+
 Consultez les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Paramètres de la capacité de l’entrepôt de données
+
 Les tableaux suivants présentent la capacité maximale pour l’entrepôt de données à différents niveaux de performance. Pour modifier le niveau de performance, consultez [Calcul de mise à l’échelle – portail](quickstart-scale-compute-portal.md).
 
 ### <a name="service-levels"></a>Niveaux de service
@@ -50,7 +52,8 @@ La plage des niveaux de service est comprise entre DW100c et DW30000c.
 Le niveau de service maximal est DW30000c, qui correspond à 60 nœuds de calcul et une distribution par nœud de calcul. Par exemple, un entrepôt de données de 600 To à DW30000c traite environ 10 To par nœud de calcul.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Valeurs maximales de concurrence pour les groupes de charge de travail
-Avec l’introduction des [groupes de charges de travail](sql-data-warehouse-workload-isolation.md), le concept d’emplacements de concurrence ne s’applique plus.  Les ressources par demande sont allouées selon un pourcentage et spécifiées dans la définition du groupe de charge de travail.  Toutefois, même avec la suppression des emplacements de concurrence, il existe des quantités minimales de ressources nécessaires par requête, en fonction du niveau de service.  Le tableau ci-dessous définit la quantité minimale de ressources nécessaires par requête entre les niveaux de service et la concurrence associée possible. 
+
+Avec l’introduction des [groupes de charges de travail](sql-data-warehouse-workload-isolation.md), le concept d’emplacements de concurrence ne s’applique plus.  Les ressources par demande sont allouées selon un pourcentage et spécifiées dans la définition du groupe de charge de travail.  Toutefois, même avec la suppression des emplacements de concurrence, il existe des quantités minimales de ressources nécessaires par requête, en fonction du niveau de service.  Le tableau ci-dessous définit la quantité minimale de ressources nécessaires par requête entre les niveaux de service et la concurrence associée possible.
 
 |Niveau de service|Nombre maximal de requêtes simultanées|% min. pris en charge pour REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
@@ -73,7 +76,8 @@ Avec l’introduction des [groupes de charges de travail](sql-data-warehouse-wor
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Valeurs maximales de concurrence pour les classes de ressources
-Pour vérifier que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Analytics dans Azure Synapse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et des emplacements de concurrence. Les requêtes attendent dans la file d’attente jusqu’à ce que suffisamment d’emplacements de concurrence soient disponibles. L’[importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) et les emplacements de concurrence déterminent la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
+
+Pour vérifier que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Analytics dans Azure Synapse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et des emplacements de concurrence. Les requêtes attendent dans la file d’attente jusqu’à ce que suffisamment d’emplacements de concurrence soient disponibles. L’[importance](sql-data-warehouse-workload-importance.md) et les emplacements de concurrence déterminent la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
 
 **Classes de ressources statiques**
 
@@ -121,11 +125,11 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-
-Quand il n’y a pas suffisamment d’emplacements de concurrence libres pour démarrer l’exécution des requêtes, celles-ci sont mises en file d’attente et exécutées en fonction de leur importance.  Si l’importance est équivalente, les requêtes sont exécutées sur la base du « premier entré, premier sorti ».  À mesure que les requêtes se terminent et que le nombre de requêtes et d’emplacements chute sous les limites, SQL Data Warehouse libère des requêtes en file d’attente. 
+Quand il n’y a pas suffisamment d’emplacements de concurrence libres pour démarrer l’exécution des requêtes, celles-ci sont mises en file d’attente et exécutées en fonction de leur importance.  Si l’importance est équivalente, les requêtes sont exécutées sur la base du « premier entré, premier sorti ».  À mesure que les requêtes se terminent et que le nombre de requêtes et d’emplacements chute sous les limites, SQL Data Warehouse libère des requêtes en file d’attente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la façon de tirer parti des classes de ressources pour optimiser davantage votre charge de travail, voir les articles suivants :
+
 * [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md)
 * [Analyse de votre charge de travail](analyze-your-workload.md)

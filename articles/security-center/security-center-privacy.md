@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75978615"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585969"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gérer les données utilisateur dans Azure Security Center
 Cet article fournit des informations sur la façon dont vous pouvez gérer les données utilisateur dans Azure Security Center. La gestion des données utilisateur inclut la possibilité d’accéder à des données, d’en supprimer ou d’en exporter.
@@ -98,6 +98,3 @@ Les [données d’alerte](security-center-managing-and-responding-alerts.md) son
 
 ## <a name="auditing-and-reporting"></a>Audit et création de rapports
 Les journaux d’audit des contacts de sécurité, des données juste-à-temps et des mises à jour d’alertes sont conservés dans les [journaux d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).
-
-## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la gestion des données utilisateur, consultez [Gérer les données utilisateur trouvées dans une enquête Azure Security Center](security-center-investigation-user-data.md).

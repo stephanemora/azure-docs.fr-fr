@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: acb0b0e84804ecf6025e05590133dee9b0d54c48
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76773496"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478643"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Démarrage rapide : Utiliser des files d’attente Azure Service Bus avec Python
 
@@ -32,7 +32,7 @@ Pour plus d’informations sur les bibliothèques Python Azure Service Bus, cons
 ## <a name="prerequisites"></a>Prérequis
 - Un abonnement Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Un espace de noms Service Bus, créé en suivant les étapes décrites dans [Démarrage rapide : Utilisez le portail Azure pour créer une rubrique Service Bus et des abonnements](service-bus-quickstart-topics-subscriptions-portal.md). Copiez la chaîne de connexion principale à partir de l’écran **Stratégies d’accès partagé** à utiliser plus loin dans cet article. 
-- Python 3.4x ou version ultérieure, avec le package [Python Azure Service Bus][Python Azure Service Bus package] installé. Pour plus d’informations, consultez le [Guide d’installation Python](/azure/python/python-sdk-azure-install). 
+- Python 3.4x ou version ultérieure, avec le package [Python Azure Service Bus][Python Azure Service Bus package] installé. Pour plus d’informations, consultez le [Guide d’installation Python](/azure/developer/python/azure-sdk-install). 
 
 ## <a name="create-a-queue"></a>Créer une file d’attente
 
