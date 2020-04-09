@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7913cb888e1799efae0f3ecdf3391d19736cc273
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970145"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239871"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Vue d’ensemble des images Red Hat Enterprise Linux
 
@@ -45,22 +45,22 @@ az vm image list --publisher RedHat --all
 
 Les images de machine virtuelle dans Azure sont organisées par éditeur, offre, référence SKU et version. La combinaison éditeur:offre:référence SKU:version est l’image URN et identifie de façon unique l’image à utiliser.
 
-Par exemple, `RedHat:RHEL:7-LVM:7.6.2018103108` fait référence à une image RHEL 7.6 partitionnée au format LVM, créée le 31 octobre 2018.
+Par exemple, `RedHat:RHEL:8-LVM:8.1.20200318` fait référence à une image RHEL 8.1 partitionnée au format LVM, créée le 18 mars 2020.
 
-Un exemple montrant comment créer une machine virtuelle RHEL 7.6 est présenté ici.
+Un exemple montrant comment créer une machine virtuelle RHEL 8.1 est présenté ici.
 
 ```azurecli-interactive
-az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:7.6.2018103108 --no-wait
+az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:8.1.20200318 --no-wait
 ```
 
 ### <a name="the-latest-moniker"></a>Moniker « latest »
 
 L’API REST Azure permet l’utilisation du moniker « latest » comme version au lieu de la version spécifique. Utiliser la version « latest » a pour effet de provisionner la dernière image disponible pour un éditeur, une offre et une référence SKU spécifiés.
 
-Par exemple, `RedHat:RHEL:7-LVM:latest` fait référence à la dernière image partitionnée au format LVM de la famille RHEL 7 disponible.
+Par exemple, `RedHat:RHEL:8-LVM:latest` fait référence à la dernière image partitionnée au format LVM de la famille RHEL 8 disponible.
 
 ```azurecli-interactive
-az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:latest --no-wait
+az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:latest --no-wait
 ```
 
 >[!NOTE]
@@ -104,8 +104,8 @@ Voici les détails des types d’images RHEL 8.
 
 |Serveur de publication | Offre | Valeur de référence SKU | Version | Détails
 |----------|-------|------------|---------|--------
-|Red Hat | RHEL | 8 | Valeurs concaténées de la version mineure RHEL et de la date de publication (par exemple, 8.0.20191023) | Il s’agit d’images RHEL 8.0 partitionnées au format LVM connectées à des référentiels Red Hat standard.
-|Red Hat | RHEL | 8-gen2 | Valeurs concaténées de la version mineure RHEL et de la date de publication (par exemple, 8.0.20191024) | Il s’agit d’images RHEL 8.0 partitionnées au format LVM Hyper-V deuxième génération connectées à des référentiels Red Hat standard. Pour plus d’informations sur les machines virtuelles de 2e génération dans Azure, consultez [Prise en charge des machines virtuelles de 2e génération dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|Red Hat | RHEL | 8 | Valeurs concaténées de la version mineure RHEL et de la date de publication (par exemple, 8.0.20191023) | Il s’agit d’images RHEL 8 partitionnées au format LVM connectées à des référentiels Red Hat standard.
+|Red Hat | RHEL | 8-gen2 | Valeurs concaténées de la version mineure RHEL et de la date de publication (par exemple, 8.0.20191024) | Il s’agit d’images RHEL 8 partitionnées au format LVM Hyper-V deuxième génération connectées à des référentiels Red Hat standard. Pour plus d’informations sur les machines virtuelles de 2e génération dans Azure, consultez [Prise en charge des machines virtuelles de 2e génération dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 ## <a name="rhel-longer-support-add-ons"></a>Modules complémentaires RHEL à prise en charge prolongée
 

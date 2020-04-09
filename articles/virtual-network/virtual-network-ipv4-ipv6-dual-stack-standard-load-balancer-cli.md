@@ -11,48 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: fa895a294e26b6c74ab72afa3136feac2b2ec986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb90858f7e87e31b8b6028a30a6000bbed4d3e4b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240248"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421096"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Déployer une application double pile IPv6 dans un réseau virtuel Azure - CLI (préversion)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli"></a>Déployer une application double pile IPv6 dans un réseau virtuel Azure - CLI
 
 Cet article montre comment déployer dans Azure une application double pile (IPv4 + IPv6) avec Standard Load Balancer incluant un réseau virtuel double pile avec un sous-réseau double pile, un Standard Load Balancer avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau ont une configuration double IP, des règles de Groupe de sécurité réseau doubles et des adresses IP publiques doubles.
-
-> [!Important]
-> La double pile IPv6 pour réseau virtuel Azure est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maintenant.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si vous décidez d’installer et d’utiliser Azure CLI en local, ce guide de démarrage rapide nécessite que vous utilisiez Azure CLI version 2.0.49 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Pour des informations d'installation ou de mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
-
-## <a name="prerequisites"></a>Conditions préalables requises
-Pour utiliser la fonctionnalité IPv6 pour un réseau virtuel Azure, vous devez configurer votre abonnement à l’aide d’Azure CLI comme suit :
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Il faut compter 30 minutes pour l’inscription de la fonctionnalité. Vous pouvez vérifier l’état de votre enregistrement en exécutant la commande Azure CLI suivante :
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-À l’issue de l’installation, exécutez la commande suivante :
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -385,10 +361,6 @@ Vous pouvez afficher le réseau virtuel double pile IPv6 dans le Portail Microso
 2. Quand la mention **myVirtualNetwork** apparaît dans les résultats de recherche, sélectionnez-la. Cette opération affiche la page **Vue d’ensemble** du réseau virtuel double pile nommé *dsVnet*. Le réseau virtuel de pile double présente les deux cartes réseau, avec des configurations IPv4 et IPv6 situées dans le sous-réseau double pile nommé *dsSubnet*.
 
   ![Réseau virtuel double pile IPv6 dans Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
-
-> [!NOTE]
-> L’adresse IPv6 du réseau virtuel Azure est disponible dans le Portail Microsoft Azure en lecture seule pour cette préversion.
-
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

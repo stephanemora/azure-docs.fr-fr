@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0743499b019bd1c7b985636e886eee9352284a55
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: d5c74ac760b5746d37468d692c2a46d5aedbee72
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616068"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436176"
 ---
-# <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Intégration d’Azure Kubernetes Service à Security Center (préversion)
+# <a name="azure-kubernetes-services-integration-with-security-center"></a>Intégration d’Azure Kubernetes Service à Security Center
+
 Azure Kubernetes Service (AKS) est le service managé de Microsoft conçu pour le développement, le déploiement et la gestion d’applications conteneurisées. 
 
 Utilisez AKS avec le niveau tarifaire Standard d’Azure Security Center (voir les [tarifs](security-center-pricing.md)) pour avoir une meilleure visibilité des nœuds, du trafic cloud et des contrôles de sécurité dans AKS.
@@ -34,10 +35,7 @@ Ensemble, ces deux outils constituent la meilleure solution de sécurité Kubern
 
 L’utilisation conjointe des deux services apporte les avantages suivants :
 
-* **Recommandations de sécurité** : Security Center identifie vos ressources AKS et les classe par catégorie : des clusters aux machines virtuelles individuelles. Vous pouvez ensuite examiner les recommandations de sécurité applicables à chaque ressource. Pour plus d’informations, consultez les recommandations relatives aux conteneurs dans la [liste de référence des recommandations](recommendations-reference.md#recs-computeapp). 
-
-    > [!NOTE]
-    > Quand le nom d’une recommandation de Security Center se termine par l’étiquette « (préversion) », cela fait référence au fait qu’il s’agit d’une préversion de la recommandation, et non de la fonctionnalité elle-même.
+* **Recommandations de sécurité** : Security Center identifie vos ressources AKS et les classe par catégorie : des clusters aux machines virtuelles individuelles. Vous pouvez ensuite examiner les recommandations de sécurité applicables à chaque ressource. Pour plus d’informations, consultez les recommandations relatives aux conteneurs dans la [liste de référence des recommandations](recommendations-reference.md#recs-containers). 
 
 * **Sécurisation renforcée de l’environnement** : Security Center supervise en permanence la configuration de vos clusters Kubernetes et vos configurations Docker. Il génère ensuite des recommandations de sécurité qui reflètent les normes du secteur.
 
@@ -63,4 +61,4 @@ Pour en savoir plus sur les fonctionnalités de sécurité des conteneurs de Sec
 
 * [Intégration à Azure Container Registry](azure-container-registry-integration.md)
 
-* [Gestion des données chez Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) : décrit les stratégies de données des services Microsoft (dont Azure, Intune et Office 365), la gestion des données de Microsoft et les stratégies de conservation qui s’appliquent à vos données.
+* [Gestion des données chez Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) : décrit les stratégies de données des services Microsoft (dont Azure, Intune et Office 365), la gestion des données de Microsoft et les stratégies de conservation qui s’appliquent à vos données

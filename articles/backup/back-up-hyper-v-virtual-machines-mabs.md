@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Hyper-V à l’aide de MABS
 description: Cet article contient les procédures de sauvegarde et de récupération des machines virtuelles à l’aide du serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 00d1dd04522c51e4d68450a7b8f25d7159d63724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71cf446472ef0cf4f50bf64e47d359ea08ccc087
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255063"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420416"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Sauvegarder des machines virtuelles Hyper-V avec le serveur de sauvegarde Azure
 
@@ -99,83 +99,6 @@ Voici les prérequis pour la sauvegarde des machines virtuelles Hyper-V avec MAB
 9. Dans la page **Options de vérification de cohérence**, indiquez comment vous voulez automatiser les vérifications de cohérence. Vous pouvez activer une vérification pour qu’elle s’exécute uniquement lorsque les données de réplication deviennent incohérentes ou selon une planification. Si vous ne souhaitez pas configurer une vérification de cohérence automatique, vous pouvez exécuter une vérification manuelle à tout moment en cliquant avec le bouton droit sur le groupe de protection et en sélectionnant **Effectuer une vérification de cohérence**.
 
     Une fois le groupe de protection créé, la réplication initiale des données se produit selon la méthode que vous avez sélectionnée. Après la réplication initiale, chaque sauvegarde a lieu conformément aux paramètres du groupe de protection. Si vous avez besoin de récupérer des données sauvegardées, notez les points suivants :
-
-## <a name="back-up-virtual-machines-configured-for-live-migration"></a>Sauvegarder des machines virtuelles configurées pour la migration dynamique
-
-Lorsque des machines virtuelles sont impliquées dans la migration dynamique, MABS continue de les protéger tant que l’agent de protection MABS est installé sur l’hôte Hyper-V. La façon dont MABS protège les machines virtuelles dépend du type de migration dynamique impliquée.
-
-**Migration dynamique au sein d’un cluster** : lorsqu’une machine virtuelle est migrée au sein d’un cluster, MABS détecte la migration et sauvegarde la machine virtuelle du nouveau nœud de cluster sans nécessiter l’intervention de l’utilisateur. Étant donné que l’emplacement de stockage n’a pas changé, MABS poursuit les sauvegardes complètes rapides.
-
-**Migration dynamique hors du cluster** : lorsqu’une machine virtuelle est migrée entre des serveurs autonomes, des clusters différents ou entre un serveur autonome et un cluster, MABS détecte la migration et peut sauvegarder la machine virtuelle sans intervention de l’utilisateur.
-
-### <a name="requirements-for-maintaining-protection"></a>Conditions requises pour assurer la protection
-
-Voici les conditions requises pour assurer la protection lors de la migration dynamique :
-
-- Les hôtes Hyper-V pour les machines virtuelles doivent se trouver dans un cloud VMM System Center, sur un serveur VMM, exécutant au moins System Center 2012 avec SP1.
-
-- L’agent de protection du serveur MABS doit être installé sur tous les hôtes Hyper-V.
-
-- Les serveurs MABS doivent être connectés au serveur VMM. Tous les serveurs hôtes Hyper-V dans le cloud VMM doivent également être connectés aux serveurs MABS. Cela permet à MABS de communiquer avec le serveur VMM pour que MABS puisse déterminer sur quel serveur hôte Hyper-V la machine virtuelle est en cours d’exécution, et de créer une sauvegarde à partir de ce serveur Hyper-V. Si une connexion au serveur Hyper-V ne peut pas être établie, la sauvegarde échoue avec un message indiquant que l’agent de protection MABS est inaccessible.
-
-- Tous les serveurs MABS, les serveurs VMM et les serveurs hôtes Hyper-V doivent se trouver dans le même domaine.
-
-### <a name="details-about-live-migration"></a>Détails sur la migration dynamique
-
-Notez les éléments suivants pour la sauvegarde pendant la migration dynamique :
-
-- Si une migration dynamique transfère le stockage, MABS effectue une vérification de cohérence complète de la machine virtuelle, puis poursuit les sauvegardes complètes rapides. En cas de migration dynamique du stockage, Hyper-V réorganise le disque dur virtuel (VHD) ou VHDX, ce qui entraîne un pic unique dans la taille des données de sauvegarde MABS.
-
-- Sur l’ordinateur hôte de l’ordinateur virtuel, activez le montage automatique pour activer la protection virtuelle et désactivez le déchargement TCP Chimney.
-
-- MABS utilise le port 6070 comme port par défaut pour l’hébergement du service d’assistance DPM-VMM. Pour modifier le Registre :
-
-    1. Accédez à **HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration**.
-    2. Créez une valeur DWORD 32 bits : DpmVmmHelperServicePort, et écrivez le numéro de port mis à jour dans le cadre de la clé de Registre.
-    3. Ouvrez ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```, puis remplacez le numéro de port 6070 par le nouveau port. Par exemple : ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
-    4. Redémarrez le service d’assistance DPM-VMM et redémarrez le service DPM.
-
-### <a name="set-up-protection-for-live-migration"></a>Configurer la protection pour la migration dynamique
-
-Pour configurer la protection pour la migration dynamique :
-
-1. Configurez le serveur MABS et son stockage, puis installez l’agent de protection MABS sur chaque serveur hôte Hyper-V ou nœud de cluster dans le cloud VMM. Si vous utilisez le stockage SMB dans un cluster, installez l’agent de protection MABS sur tous les nœuds de cluster.
-
-2. Installez la console VMM en tant que composant client sur le serveur MABS afin que MABS puisse communiquer avec le serveur VMM. La console doit être de la même version que celle en cours d’exécution sur le serveur VMM.
-
-3. Affectez le compte MABSMachineName$ en tant que compte d’administrateur en lecture seule sur le serveur d’administration VMM.
-
-4. Connectez tous les serveurs hôtes Hyper-V à tous les serveurs MABS à l’aide de l’applet de commande PowerShell `Set-DPMGlobalProperty`. L’applet de commande accepte plusieurs noms de serveurs MABS. Utilisez le format : `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Pour plus d’informations, consultez [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
-
-5. Une fois que toutes les machines virtuelles exécutées sur les hôtes Hyper-V dans les clouds VMM sont découvertes dans VMM, configurez un groupe de protection et ajoutez les machines virtuelles que vous souhaitez protéger. Les vérifications de cohérence automatiques doivent être activées au niveau du groupe de protection pour la protection dans les scénarios de mobilité des machines virtuelles.
-
-6. Une fois les paramètres configurés, quand une machine virtuelle migre d’un cluster à un autre, toutes les sauvegardes continuent comme prévu. Vous pouvez vérifier que la migration dynamique est activée comme prévu de la façon suivante :
-
-   1. Vérifiez que le service d’assistance DPM-VMM est en cours d’exécution. Si ce n’est pas le cas, démarrez-le.
-
-   2. Ouvrez Microsoft SQL Server Management Studio et connectez-vous à l’instance qui héberge la base de données MABS (DPMDB). Sur DPMDB, exécutez la requête suivante : `SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
-
-      Cette requête contient une propriété appelée `KnownVMMServer`. Cette valeur doit être la même que celle que vous avez fournie avec l’applet de commande `Set-DPMGlobalProperty`.
-
-   3. Exécutez la requête suivante pour valider le paramètre *VMMIdentifier* dans `PhysicalPathXML` pour une machine virtuelle particulière. Remplacez `VMName` par le nom de la machine virtuelle.
-
-      ```sql
-      select cast(PhysicalPath as XML) from tbl_IM_ProtectedObject where DataSourceId in (select datasourceid from tbl_IM_DataSource   where DataSourceName like '%<VMName>%')
-      ```
-
-   4. Ouvrez le fichier .xml que cette requête retourne et vérifiez que le champ *VMMIdentifier* contient une valeur.
-
-### <a name="run-manual-migration"></a>Exécuter une migration manuelle
-
-Une fois que vous avez effectué les étapes décrites dans les sections précédentes et que la tâche de gestionnaire de résumé MABS est terminée, la migration est activée. Par défaut, cette tâche démarre à minuit et s’exécute tous les matins. Si vous souhaitez exécuter une migration manuelle pour vérifier que tout fonctionne comme prévu, procédez comme suit :
-
-1. Ouvrez SQL Server Management Studio et connectez-vous à l’instance qui héberge la base de données MABS.
-
-2. Exécutez la requête suivante : `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. Cette requête retourne **ScheduleID**. Notez cet ID, car vous en aurez besoin à la prochaine étape.
-
-3. Dans SQL Server Management Studio, développez **SQL Server Agent**, puis **Travaux**. Cliquez avec le bouton droit sur l’ID **ScheduleID** que vous avez noté, puis sélectionnez **Démarrer le travail à l’étape**.
-
-Les performances de sauvegarde sont affectées lors de l’exécution du travail. La taille et l’échelle de votre déploiement déterminent le temps nécessaire pour terminer le travail.
 
 ## <a name="back-up-replica-virtual-machines"></a>Sauvegarder des machines virtuelles de réplication
 

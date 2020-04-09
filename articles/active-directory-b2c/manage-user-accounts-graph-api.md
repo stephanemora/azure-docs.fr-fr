@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8d65217a109a851275d3ba9205024f32bd182d4f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187314"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637328"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gérer les comptes d’utilisateur Azure AD B2C avec Microsoft Graph
 
@@ -64,6 +64,28 @@ Dans l’API Microsoft Graph, les identités locales et fédérées sont stocké
 |signInType|string| Spécifie les types de connexion utilisateur dans votre annuaire. Pour le compte local : `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName` ou tout autre type de votre choix. Le compte social doit être défini sur `federated`.|
 |émetteur|string|Spécifie l’émetteur de l’identité. Pour les comptes locaux (où  **signInType** n’est pas `federated`), cette propriété est le nom de domaine par défaut du locataire B2C local, par exemple `contoso.onmicrosoft.com`. Pour l’identité de réseaux sociaux (où **signInType** est `federated`), la valeur est le nom de l’émetteur, par exemple `facebook.com`|
 |issuerAssignedId|string|Spécifie l’identificateur unique affecté à l’utilisateur par l’émetteur. La combinaison de **issuer** et **issuerAssignedId** doit être unique au sein de votre locataire. Pour un compte local, quand **signInType** est défini sur `emailAddress` ou sur `userName`, il représente le nom de connexion pour l’utilisateur.<br>Quand **signInType** est défini sur : <ul><li>`emailAddress` (ou commence par `emailAddress`, comme `emailAddress1`), **issuerAssignedId** doit être une adresse e-mail valide</li><li>`userName` (ou toute autre valeur), **issuerAssignedId** doit être une [partie locale valide d’une adresse e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** représente l’identificateur unique du compte fédéré</li></ul>|
+
+Propriété **Identities** avec une identité de compte local comprenant un nom de connexion, une adresse e-mail comme identifiant de connexion et une identité sociale. 
+
+ ```JSON
+ "identities": [
+     {
+       "signInType": "userName",
+       "issuer": "contoso.onmicrosoft.com",
+       "issuerAssignedId": "johnsmith"
+     },
+     {
+       "signInType": "emailAddress",
+       "issuer": "contoso.onmicrosoft.com",
+       "issuerAssignedId": "jsmith@yahoo.com"
+     },
+     {
+       "signInType": "federated",
+       "issuer": "facebook.com",
+       "issuerAssignedId": "5eecb0cd"
+     }
+   ]
+ ```
 
 Pour les identités fédérées, en fonction du fournisseur d’identité, **issuerAssignedId** est une valeur unique pour un utilisateur donné par application ou par compte de développement. Configurez la stratégie Azure AD B2C avec le même ID d’application que celui précédemment attribué par le fournisseur d’identité sociale ou une autre application au sein du même compte de développement.
 
@@ -121,15 +143,15 @@ Une fois que vous avez obtenu l’exemple de code, configurez-le pour votre envi
     ```
 1. Exécutez l’application avec la commande `dotnet` :
 
-```console
-dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
-```
+    ```console
+    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    ```
 
 L’application affiche une liste de commandes que vous pouvez exécuter. Par exemple, obtenir tous les utilisateurs, obtenir un seul utilisateur, supprimer un utilisateur, mettre à jour le mot de passe d’un utilisateur et importer en bloc.
 
 ### <a name="code-discussion"></a>Considérations sur le code
 
-L’exemple de code utilise le kit [SDK Microsoft Graph](https://docs.microsoft.com/graph/sdks/sdks-overview), qui est conçu pour simplifier la création d’applications qualitatives, efficaces et résilientes qui accèdent à Microsoft Graph. Vous n’avez donc pas besoin d’effectuer un appel direct de l’API Microsoft Graph.
+L’exemple de code utilise le kit [SDK Microsoft Graph](https://docs.microsoft.com/graph/sdks/sdks-overview), qui est conçu pour simplifier la création d’applications qualitatives, efficaces et résilientes qui accèdent à Microsoft Graph.
 
 Toute requête envoyée à l’API Microsoft Graph nécessite un jeton d’accès pour l’authentification. La solution utilise le package NuGet [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) qui fournit un wrapper basé sur un scénario d’authentification de la bibliothèque d’authentification Microsoft (MSAL) à utiliser avec le SDK Microsoft Graph.
 

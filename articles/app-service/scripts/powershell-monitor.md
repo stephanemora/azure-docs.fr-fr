@@ -6,12 +6,12 @@ ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 79b5ef411abde3a4ef293516a43adaa1e669b6d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c9b3ab6f8115f68ead478c0de21e4661d3ca032c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74684627"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437928"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>Superviser une application web avec les journaux d’activité de serveur web
 
@@ -43,7 +43,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Crée un plan App Service. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crée une application web. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifie la configuration d’une application web. |
-| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | Obtient les mesures de l’application web. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

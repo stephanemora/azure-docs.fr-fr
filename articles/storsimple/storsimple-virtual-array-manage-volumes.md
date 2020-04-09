@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2dbbe6bcd4957a108cc3eae4d41816b130cf8f07
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62125795"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633861"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer les volumes sur l’instance StorSimple Virtual Array
 
@@ -33,8 +33,8 @@ Le service StorSimple Device Manager est une extension dans le portail Azure 
 
 Les volumes StorSimple peuvent être les suivants :
 
-* **Attaché localement** : les données de ces volumes demeurent à tout moment sur le tableau ; elles ne se dispersent pas dans le cloud.
-* **Hiérarchisé**: les données de ces volumes peuvent se disperser dans le cloud. Lorsque vous créez un volume à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un volume à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
+* **Épinglé localement** : les données de ces volumes demeurent à tout moment sur le tableau, sans jamais déborder dans le cloud.
+* **Hiérarchisé** : les données de ces volumes peuvent se disperser dans le cloud. Lorsque vous créez un volume à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un volume à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
 
 ### <a name="provisioned-capacity"></a>Capacité allouée
 Reportez-vous au tableau suivant pour connaître la capacité maximale allouée pour chaque type de volume.
@@ -44,7 +44,7 @@ Reportez-vous au tableau suivant pour connaître la capacité maximale allouée 
 | Taille minimale d’un volume hiérarchisé                            | 500 Go        |
 | Taille maximale d’un volume hiérarchisé                            | 5 To          |
 | Taille minimale d'un volume épinglé localement                    | 50 Go         |
-| Taille maximale d'un volume épinglé localement                    | 500 Go        |
+| Taille maximale d'un volume épinglé localement                    | 200 Go        |
 
 ## <a name="the-volumes-blade"></a>Le panneau Volumes
 Sur le panneau de synthèse du service StorSimple, le menu **Volumes** affiche la liste des volumes de stockage sur un tableau StorSimple considéré et vous donne les moyens de les gérer.

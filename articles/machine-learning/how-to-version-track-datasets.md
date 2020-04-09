@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: acbd2e3ba756255cbc69ae8a7b7ad62d7a1c1c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5bd4436fc63fb570f052606ab557dbcf243cf5e7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528470"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476860"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Gérer les versions et suivre des jeux de données dans les expériences
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Scénarios de contrôle de version classiques :
 * Quand de nouvelles données sont disponibles pour un nouvel entraînement
 * Quand vous appliquez différentes approches de préparation des données ou d’ingénierie des caractéristiques
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -60,7 +60,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
-Vous pouvez également inscrire une nouvelle version d’un jeu de données à l’adresse 
 
 ### <a name="retrieve-a-dataset-by-name"></a>Récupérer un jeu de données par nom
 

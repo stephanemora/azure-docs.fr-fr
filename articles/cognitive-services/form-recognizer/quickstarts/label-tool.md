@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205818"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397994"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -35,6 +35,10 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurer l’outil d’étiquetage des exemples
 
 Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage des exemples. Procédez comme suit pour configurer le conteneur Docker. Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
+
+> [!TIP]
+> OCR Form Labeling Tool est également disponible en tant que projet open source sur GitHub. Cet outil est une application web créée avec React + Redux qui est écrite en TypeScript. Pour en savoir plus ou apporter votre contribution, consultez [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
 1. Tout d’abord, installez Docker sur un ordinateur hôte. Ce guide va vous montrer comment utiliser l’ordinateur local en tant qu’hôte. Si vous voulez utiliser un service d’hébergement Docker dans Azure, consultez le guide pratique [Déployer l’outil d’étiquetage des exemples](../deploy-label-tool.md). 
 
    L’ordinateur hôte doit satisfaire à la configuration matérielle suivante :
@@ -46,7 +50,7 @@ Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage de
    Installez Docker sur votre ordinateur en suivant les instructions appropriées pour votre système d’exploitation : 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
-   * [Linux](https://docs.docker.com/install/).
+   * [Linux](https://docs.docker.com/install/)
 
 1. Récupérez le conteneur de l’outil d’étiquetage des exemples avec la commande `docker pull`.
     ```
@@ -185,6 +189,7 @@ Accédez à la page des paramètres du projet (icône en forme de curseurs) et p
 Quand vous souhaitez reprendre votre projet, vous devez d’abord créer une connexion au même conteneur de stockage d’objets blob. Pour ce faire, répétez les étapes ci-dessus. Ensuite, accédez à la page des paramètres de l’application (icône en forme d’engrenage) et vérifiez si le jeton de sécurité de votre projet y figure. Si ce n’est pas le cas, ajoutez un nouveau jeton de sécurité et copiez le nom et la clé de votre jeton obtenus à l’étape précédente. Cliquez ensuite sur Save Settings (Enregistrer les paramètres). 
 
 ### <a name="resume-a-project"></a>Reprendre un projet
+
 Enfin, accédez à la page principale (icône en forme de maison), puis cliquez sur Open Cloud Project (Ouvrir le projet cloud). Sélectionnez ensuite la connexion au stockage d’objets blob, puis sélectionnez le fichier *.vott* de votre projet. L’application chargera tous les paramètres du projet, car elle contient le jeton de sécurité.
 
 ## <a name="next-steps"></a>Étapes suivantes

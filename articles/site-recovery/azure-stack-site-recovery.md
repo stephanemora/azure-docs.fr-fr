@@ -1,23 +1,18 @@
 ---
 title: Répliquer des machines virtuelles Azure Stack à Azure en utilisant Azure Site Recovery | Microsoft Docs
 description: Découvrez comment configurer la reprise d’activité sur Azure de machines virtuelles Azure Stack avec le service Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.topic: conceptual
-ms.service: site-recovery
 ms.date: 08/05/2019
-ms.author: raynew
-ms.openlocfilehash: 15cd729063545914f791de39a075af9084f72bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426563"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478514"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
-Cet article explique comment configurer la reprise d’activité de machines virtuelles Azure Stack sur Azure en utilisant le [service Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+Cet article explique comment configurer la reprise d’activité de machines virtuelles Azure Stack sur Azure en utilisant le [service Azure Site Recovery](site-recovery-overview.md).
 
 Site Recovery contribue à votre stratégie de continuité d’activité et reprise d’activité (BCDR). Le service veille à ce que vos charges de travail de machine virtuelle restent disponibles en cas d’interruption attendue ou inattendue.
 
@@ -45,9 +40,9 @@ Une fois ces étapes terminées, vous pouvez exécuter un basculement complet ve
 
 **Lieu** | **Composant** |**Détails**
 --- | --- | ---
-**Serveur de configuration** | S’exécute sur une seule machine virtuelle Azure Stack. | Dans chaque abonnement, vous configurez une machine virtuelle serveur de configuration. Cette machine virtuelle exécute les composants Site Recovery suivants :<br/><br/> - Serveur de configuration : coordonne la communication entre les ordinateurs locaux et Azure, et gère la réplication des données. - Serveur de traitement : Fait office de passerelle de réplication. Il reçoit les données de réplication, optimise le processus avec la mise en cache, la compression et le chiffrement, puis envoie les données à Stockage Azure.<br/><br/> Si les machines virtuelles que vous souhaitez répliquer dépassent les limites indiquées ci-dessous, vous pouvez configurer un serveur de processus autonome distinct. [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale)
-**Service de mobilité** | Installé sur chaque machine virtuelle que vous souhaitez répliquer. | Les étapes décrites dans cet article permettent de préparer un compte de façon à ce que le service Mobilité soit installé automatiquement sur une machine virtuelle lorsque la réplication est activée. Si vous ne souhaitez pas installer le service automatiquement, vous pouvez utiliser d’autres méthodes. [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service)
-**Microsoft Azure** | Dans Azure, vous avez besoin d’un coffre Recovery Services, d’un compte de stockage et d’un réseau virtuel. |  Les données répliquées sont stockées dans le compte de stockage. Des machines virtuelles Azure sont ajoutées au réseau Azure lors du basculement. 
+**Serveur de configuration** | S’exécute sur une seule machine virtuelle Azure Stack. | Dans chaque abonnement, vous configurez une machine virtuelle serveur de configuration. Cette machine virtuelle exécute les composants Site Recovery suivants :<br/><br/> - Serveur de configuration : coordonne la communication entre les ordinateurs locaux et Azure, et gère la réplication des données. - Serveur de traitement : Fait office de passerelle de réplication. Il reçoit les données de réplication, optimise le processus avec la mise en cache, la compression et le chiffrement, puis envoie les données à Stockage Azure.<br/><br/> Si les machines virtuelles que vous souhaitez répliquer dépassent les limites indiquées ci-dessous, vous pouvez configurer un serveur de processus autonome distinct. [Plus d’informations](vmware-azure-set-up-process-server-scale.md)
+**Service de mobilité** | Installé sur chaque machine virtuelle que vous souhaitez répliquer. | Les étapes décrites dans cet article permettent de préparer un compte de façon à ce que le service Mobilité soit installé automatiquement sur une machine virtuelle lorsque la réplication est activée. Si vous ne souhaitez pas installer le service automatiquement, vous pouvez utiliser d’autres méthodes. [Plus d’informations](vmware-azure-install-mobility-service.md)
+**Microsoft Azure** | Dans Azure, vous avez besoin d’un coffre Recovery Services, d’un compte de stockage et d’un réseau virtuel. |  Les données répliquées sont stockées dans le compte de stockage. Des machines virtuelles Azure sont ajoutées au réseau Azure lors du basculement.
 
 
 La réplication fonctionne comme suit :
@@ -68,8 +63,8 @@ Voici les éléments requis pour configurer ce scénario.
 **Prérequis** | **Détails**
 --- | ---
 **Compte d’abonnement Azure** | Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-**Autorisations du compte Azure** | Le compte Azure que vous utilisez doit être autorisé à effectuer les actions suivantes :<br/><br/> - Créer un coffre Recovery Services<br/><br/> - Créer une machine virtuelle dans le groupe de ressources et le réseau virtuel que vous utilisez pour le scénario<br/><br/> - Écrire dans le compte de stockage que vous spécifiez<br/><br/> Notez les points suivants :<br/><br/> \- Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> - Si vous utilisez un abonnement existant dont vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous accorde les autorisations Propriétaire ou Contributeur.<br/><br/> - Si vous avez besoin d’autorisations plus précises, voir [cet article](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
-**Machine virtuelle Azure Stack** | Vous avez besoin d’une machine virtuelle Azure Stack dans l’abonnement du locataire, qui sera déployée en tant que serveur de configuration Site Recovery. 
+**Autorisations du compte Azure** | Le compte Azure que vous utilisez doit être autorisé à effectuer les actions suivantes :<br/><br/> - Créer un coffre Recovery Services<br/><br/> - Créer une machine virtuelle dans le groupe de ressources et le réseau virtuel que vous utilisez pour le scénario<br/><br/> - Écrire dans le compte de stockage que vous spécifiez<br/><br/> Notez les points suivants :<br/><br/> \- Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> - Si vous utilisez un abonnement existant dont vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous accorde les autorisations Propriétaire ou Contributeur.<br/><br/> - Si vous avez besoin d’autorisations plus précises, voir [cet article](site-recovery-role-based-linked-access-control.md).
+**Machine virtuelle Azure Stack** | Vous avez besoin d’une machine virtuelle Azure Stack dans l’abonnement du locataire, qui sera déployée en tant que serveur de configuration Site Recovery.
 
 
 ### <a name="prerequisites-for-the-configuration-server"></a>Conditions préalables pour le serveur de configuration
@@ -77,7 +72,7 @@ Voici les éléments requis pour configurer ce scénario.
 [!INCLUDE [site-recovery-config-server-reqs-physical](../../includes/site-recovery-config-server-reqs-physical.md)]
 
 
- 
+
 ## <a name="step-1-prepare-azure-stack-vms"></a>Étape 1 : Préparer les machines virtuelles Azure Stack
 
 ### <a name="verify-the-operating-system"></a>Vérifier le système d’exploitation
@@ -89,7 +84,7 @@ Assurez-vous que les machines virtuelles exécutent l’un des systèmes d’exp
 --- | ---
 **Windows 64 bits** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (à partir de SP1)
 **CentOS** | 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.3
-**Ubuntu** | Serveur LTS 14.04, Serveur LTS 16.04. Passer en revue les [noyaux pris en charge](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#ubuntu-kernel-versions)
+**Ubuntu** | Serveur LTS 14.04, Serveur LTS 16.04. Passer en revue les [noyaux pris en charge](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions)
 
 ### <a name="prepare-for-mobility-service-installation"></a>Préparer l’installation du service Mobilité
 
@@ -109,10 +104,10 @@ Le service Mobilité doit être installé sur toutes les machines virtuelles à 
     - Pour ce faire, exécutez **wf.msc** pour ouvrir la console du Pare-feu Windows. Cliquez avec le bouton droit sur **Règles de trafic entrant** > **Nouvelle règle**. Sélectionnez **Prédéfinie**, puis choisissez **Partage de fichiers et d’imprimantes** dans la liste. Suivez la procédure de l’Assistant, choisissez d’autoriser la connexion > **Terminer**.
     - Pour les ordinateurs du domaine, vous pouvez utiliser un objet de stratégie de groupe (GPO) à cette fin.
 
-    
+
 #### <a name="linux-machines"></a>Machines Linux
 
-- Vérifiez qu’il existe une connectivité réseau entre l’ordinateur Linux et le serveur de processus.
+- Vérifiez qu’il existe une connectivité réseau entre l’ordinateur Linux et le serveur de processus.
 - Sur la machine pour laquelle vous activez la réplication, vous avez besoin d’un compte d’utilisateur racine sur le serveur Linux source :
     - Vous spécifiez ce compte quand vous configurez Site Recovery. Le serveur de processus utilise ensuite ce compte pour installer le service Mobilité quand la réplication est activée.
     - Ce compte sera utilisé uniquement par Site Recovery pour l’installation push et la mise à jour du service Mobilité.
@@ -143,7 +138,7 @@ Pour chaque machine à répliquer, recherchez son adresse IP :
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Étape 2 : Créer un coffre et sélectionner un objectif de réplication
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery (Sauvegarde et Site Recovery)** .
-2. Dans **Name**, entrez un nom convivial pour identifier le coffre. 
+2. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 3. Dans **Groupe de ressources**, créez ou sélectionnez un groupe de ressources. Nous utilisons **contosoRG**.
 4. Dans **Emplacement**, entrez la région Azure. Nous utilisons **Europe Ouest**.
 5. Pour accéder rapidement au coffre à partir du tableau de bord, sélectionnez **Épingler au tableau de bord** > **Créer**.
@@ -182,7 +177,7 @@ Configurez la machine serveur de configuration, inscrivez-la dans le coffre, pui
 
 Pour installer et inscrire le serveur de configuration, établissez une connexion RDP à la machine virtuelle que vous souhaitez utiliser pour le serveur de configuration, puis exécutez Installation unifiée.
 
-Avant de commencer, assurez-vous que l’horloge est [synchronisée avec un serveur de temps](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) sur la machine virtuelle. L’installation échoue si l’heure est décalée de plus de cinq minutes par rapport à l’heure locale.
+Avant de commencer, assurez-vous que l’horloge est [synchronisée avec un serveur de temps](/windows-server/networking/windows-time-service/windows-time-service-top) sur la machine virtuelle. L’installation échoue si l’heure est décalée de plus de cinq minutes par rapport à l’heure locale.
 
 Installez à présent le serveur de configuration :
 
@@ -190,7 +185,7 @@ Installez à présent le serveur de configuration :
 
 > [!NOTE]
 > Vous pouvez également installer le serveur de configuration à partir de la ligne de commande. [Plus d’informations](physical-manage-configuration-server.md#install-from-the-command-line)
-> 
+>
 > L’affichage du nom de compte dans le portail peut prendre plus de 15 minutes. Pour procéder à une mise à jour immédiate, sélectionnez **Serveurs de configuration** > ***nom du serveur*** > **Actualiser le serveur**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Étape 4 : Configurer l’environnement cible
@@ -249,9 +244,9 @@ Vérifiez que vous avez accompli toutes les tâches décrites dans [Étape 1 :
 
 > [!NOTE]
 > Site Recovery installe le service Mobilité quand la réplication est activée pour une machine virtuelle.
-> 
+>
 > Il peut être nécessaire d’attendre 15 minutes ou plus avant que les modifications prennent effet et qu’elles apparaissent dans le portail.
-> 
+>
 > Pour surveiller les machines virtuelles que vous ajoutez, consultez l’heure de la dernière découverte des machines virtuelles dans **Serveurs de configuration** > **Dernier contact à**. Pour ajouter des machines virtuelles sans attendre la découverte planifiée, mettez en surbrillance le serveur de configuration (sans le sélectionner) et sélectionnez **Actualiser**.
 
 
@@ -261,16 +256,16 @@ Vous exécutez un test de basculement vers Azure pour vérifier que tout fonctio
 
 ### <a name="verify-machine-properties"></a>Vérifier les propriétés de la machine virtuelle
 
-Avant d’exécuter un test de basculement, vérifiez les propriétés de la machine virtuelle, et assurez-vous qu’elles sont conformes à la [configuration requise pour Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements). Vous pouvez afficher et modifier les propriétés comme suit :
+Avant d’exécuter un test de basculement, vérifiez les propriétés de la machine virtuelle, et assurez-vous qu’elles sont conformes à la [configuration requise pour Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements). Vous pouvez afficher et modifier les propriétés comme suit :
 
 1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine virtuelle.
 2. Dans le volet **Élément répliqué**, vous voyez un récapitulatif des informations de la machine virtuelle, son état d’intégrité et ses derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.
 3. Dans **Calcul et réseau**, modifiez les paramètres selon vos besoins.
 
-    - Vous pouvez modifier les paramètres de nom de machine virtuelle Azure, de groupe de ressources, de taille cible, de [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) et de disque managé.
+    - Vous pouvez modifier les paramètres de nom de machine virtuelle Azure, de groupe de ressources, de taille cible, de [groupe à haute disponibilité](/azure/virtual-machines/windows/tutorial-availability-sets) et de disque managé.
     - Vous pouvez également afficher et modifier les paramètres réseau. Ceux-ci incluent le réseau/sous-réseau auquel la machine virtuelle Azure sera jointe après le basculement, ainsi que l’adresse IP qui sera affectée à la machine virtuelle.
 1. Dans **Disques**, vous pouvez voir les informations relatives au système d’exploitation aux disques de données de la machine virtuelle.
-   
+
 
 ### <a name="run-a-test-failover"></a>Exécuter un test de basculement
 
@@ -288,19 +283,19 @@ Quand vous effectuez un test de basculement, voici ce qui se produit :
 Pour exécuter un test de basculement pour une machine virtuelle, procédez comme suit :
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur Machine virtuelle > **+Test de basculement**.
-2. Pour cette procédure pas à pas, nous allons utiliser le point de récupération **Dernier point traité**. 
+2. Pour cette procédure pas à pas, nous allons utiliser le point de récupération **Dernier point traité**.
 3. Dans **Test de basculement**, sélectionnez le réseau Azure cible.
 4. Cliquez sur **OK** pour commencer le basculement.
 5. Vous pouvez suivre la progression en cliquant sur la machine virtuelle pour ouvrir ses propriétés. Vous pouvez également cliquer sur le travail **Test de basculement** dans *nom du coffre* > **Paramètres** > **Travaux** >**Travaux Site Recovery**.
 6. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles**. Vérifiez que la machine virtuelle est de la taille appropriée, qu’elle est connectée au bon réseau et qu’elle est en cours d’exécution.
-7. Vous devriez à présent pouvoir vous connecter à la machine virtuelle répliquée dans Azure. [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover)
+7. Vous devriez à présent pouvoir vous connecter à la machine virtuelle répliquée dans Azure. [Plus d’informations](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 8. Pour supprimer les machines virtuelles créées lors du test de basculement, cliquez sur **Nettoyer le test de basculement** sur la machine virtuelle. Dans **Notes**, enregistrez d’éventuelles observations sur le test de basculement.
 
 ## <a name="fail-over-and-fail-back"></a>Basculement et restauration automatique
 
 Après avoir configuré la réplication et exécuté une simulation de vous assurer que tout fonctionne, vous pouvez basculer des machines vers Azure en fonction des besoins.
 
-Avant d’exécuter un basculement, si vous souhaitez vous connecter à la machine dans Azure après le basculement, vous devez [préparer la connexion](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover) avant de commencer.
+Avant d’exécuter un basculement, si vous souhaitez vous connecter à la machine dans Azure après le basculement, vous devez [préparer la connexion](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) avant de commencer.
 
 Ensuite, exécutez un basculement comme suit :
 
@@ -308,7 +303,7 @@ Ensuite, exécutez un basculement comme suit :
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine > **Basculement**.
 2. Sélectionnez le point de récupération que vous souhaitez utiliser.
 3. Dans **Test de basculement**, sélectionnez le réseau Azure cible.
-4. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Avec ce paramètre, Site Recovery tente d’arrêter la machine source avant de commencer le basculement. Le basculement se poursuit même en cas d’échec de l’arrêt. 
+4. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Avec ce paramètre, Site Recovery tente d’arrêter la machine source avant de commencer le basculement. Le basculement se poursuit même en cas d’échec de l’arrêt.
 5. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 6. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles**. Si vous avez préparé la connexion après basculement, vérifiez que la machine virtuelle est de la taille appropriée, qu’elle est connectée au bon réseau et qu’elle est en cours d’exécution.
 7. Après avoir vérifié la machine virtuelle, cliquez sur **Valider** pour achever le basculement. Cela a pour effet de supprimer tous les points de récupération disponibles.
@@ -321,18 +316,18 @@ Ensuite, exécutez un basculement comme suit :
 
 Lorsque votre site principal est à nouveau opérationnel, vous pouvez opérer une restauration automatique d’Azure vers Azure Stack. Pour ce faire, vous devez télécharger le disque dur virtuel de la machine virtuelle Azure, puis le charger sur Azure Stack.
 
-1. Arrêtez la machine virtuelle Azure pour permettre le téléchargement du disque dur virtuel. 
+1. Arrêtez la machine virtuelle Azure pour permettre le téléchargement du disque dur virtuel.
 2. Pour commencer à télécharger le disque dur virtuel, installez l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
 3. Accédez à la machine virtuelle dans le portail Azure (en utilisant le nom de la machine virtuelle).
 4. Dans **Disques**, cliquez sur le nom du disque, puis recueillez les paramètres.
 
-    - Par exemple, l’URI de disque dur virtuel utilisé dans notre test, https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd, peut être décomposé pour obtenir les paramètres d’entrée suivants qui sont utilisés pour télécharger le disque dur virtuel.
+    - Par exemple, l’URI de disque dur virtuel utilisé dans notre test, `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd`, peut être décomposé pour obtenir les paramètres d’entrée suivants qui sont utilisés pour télécharger le disque dur virtuel.
         - Compte de stockage : 502055westcentralus
         - Conteneur : wahv9b8d2ceb284fb59287
         - Nom du disque dur virtuel : copied-3676553984.vhd
 
 5. À présent, utilisez l’Explorateur Stockage Azure pour télécharger le disque dur virtuel.
-6. Chargez le disque dur virtuel sur Azure Stack en procédant de la manière décrite [ici](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
+6. Chargez le disque dur virtuel sur Azure Stack en procédant de la manière décrite [ici](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
 7. Dans la machine virtuelle existante ou une nouvelle machine virtuelle, attachez les disques durs virtuels chargés.
 8. Vérifiez que le disque du système d’exploitation est correct, puis démarrez la machine virtuelle.
 

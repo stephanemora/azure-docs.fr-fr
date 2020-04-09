@@ -1,5 +1,6 @@
 ---
 title: Schéma de définition d’Azure Cloud Services (fichier .cscfg) | Microsoft Docs
+description: Un fichier de configuration de service (.cscfg) spécifie le nombre d’instances de rôle à déployer pour chaque rôle, les valeurs de configuration et les empreintes numériques de certificats pour un rôle.
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 71c0bb1b09d480a05a9e5a54b269d0da8fde5bc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449113"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534743"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schéma de définition d’Azure Cloud Services (fichier .cscfg)
 Le fichier de configuration de service spécifie le nombre d’instances de rôle à déployer pour chaque rôle dans le service, les valeurs des paramètres de configuration et les empreintes des certificats associés à un rôle. Si le service fait partie d’un réseau virtuel, les informations de configuration pour le réseau doivent être fournies dans le fichier de configuration de service, ainsi que dans le fichier de configuration de réseau virtuel. L’extension par défaut du fichier de configuration de service est .cscfg.
@@ -50,7 +51,7 @@ Les rubriques suivantes décrivent le schéma pour l’élément `ServiceConfigu
 ## <a name="service-configuration-namespace"></a>Espace de noms de configuration de service
 L’espace de noms XML du fichier de configuration de service est : `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
 
-##  <a name="ServiceConfiguration"></a> Élément ServiceConfiguration
+##  <a name="serviceconfiguration-element"></a><a name="ServiceConfiguration"></a> Élément ServiceConfiguration
 L’élément `ServiceConfiguration` est l’élément de niveau supérieur du fichier de configuration de service.
 
 Le tableau suivant décrit les attributs d’un de l’élément `ServiceConfiguration`. Toutes les valeurs d’attribut sont des types de chaîne.

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 6b6d63d956f46587d89edf1b080f1bb9bd3ca67e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: feaa0c22ec98d170a65e5c9bee119ba3904a95cf
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649088"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673739"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -33,7 +33,6 @@ Avec les jeux de données Azure Machine Learning, vous pouvez :
 * Partager des données et collaborer avec d’autres utilisateurs.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour créer et utiliser des jeux de données, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’en avez pas, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
@@ -44,6 +43,16 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
 
 > [!NOTE]
 > Certaines classes de jeu de données ont des dépendances vis-à-vis du package [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
+
+## <a name="compute-size-guidance"></a>Conseils liés à la taille de calcul
+
+Quand vous créez un jeu de données, passez en revue la puissance de traitement de calcul et la taille de vos données en mémoire. La taille de vos données dans le stockage n’est pas la même que la taille des données dans un dataframe. Par exemple, les données des fichiers CSV peuvent décupler de volume dans un dataframe ; ainsi, un fichier CSV de 1 Go peut occuper 10 Go dans un dataframe. 
+
+Le principal facteur est la taille du jeu de données en mémoire, c’est-à-dire en tant que dataframe. Nous vous recommandons d’utiliser une taille de calcul et une puissance de traitement représentant le double de la taille de la mémoire vive. Ainsi, si votre dataframe est de 10 Go, il convient que la cible de calcul ait plus de 20 Go de RAM pour que le dataframe contienne aisément dans la mémoire et soit traité. Si vos données sont compressées, elles peuvent s’étendre davantage ; 20 Go de données relativement éparses stockées au format de compression Parquet peuvent s’étendre jusqu’à environ 800 Go en mémoire. Étant donné que les fichiers Parquet stockent les données dans un format en colonnes, si vous avez uniquement besoin de la moitié des colonnes, il vous suffit de charger environ 400 Go en mémoire.
+ 
+Si vous utilisez Pandas, un seul processeur virtuel fait l’affaire. Vous pouvez facilement effectuer une parallélisation sur un grand nombre de processeurs virtuels sur un seul nœud/instance de calcul Azure Machine Learning par le biais de Modin et Dask/Ray et effectuer un scale-out vers un grand cluster, si nécessaire, en remplaçant simplement `import pandas as pd` par `import modin.pandas as pd`. 
+ 
+Si vous ne pouvez pas en obtenir un assez grand pour les données, vous avez deux options : utiliser un framework comme Spark ou Dask pour effectuer le traitement sur les données « hors mémoire », c.-à-d. que le dataframe est chargé dans la RAM partition par partition, puis traité, le résultat final étant collecté à la fin. Si cette option est trop lente, Spark ou Dask vous permettent d’effectuer un scale-out vers un cluster qui peut toujours être utilisé de manière interactive. 
 
 ## <a name="dataset-types"></a>Types de jeux de données
 
@@ -57,9 +66,9 @@ Pour plus d’informations sur les futures modifications de l’API, consultez [
 
 ## <a name="create-datasets"></a>Créez les jeux de données
 
-En créant un jeu de données, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. Les données restant à leur emplacement existant, vous n’êtes soumis à aucun coût de stockage supplémentaire. Vous pouvez créer des jeux de données `TabularDataset` et `FileDataset` en utilisant le SDK Python ou la page d’accueil de l’espace de travail (préversion).
+En créant un jeu de données, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. Les données restant à leur emplacement existant, vous n’êtes soumis à aucun coût de stockage supplémentaire. Vous pouvez créer des jeux de données `TabularDataset` et `FileDataset` en utilisant le kit SDK Python ou sur https://ml.azure.com.
 
-Pour que les données soient accessibles par Azure Machine Learning, les jeux de données doivent être créés à partir de chemins dans des [magasins de données Azure](how-to-access-data.md) ou des URL web publiques.
+Pour que les données soient accessibles par Azure Machine Learning, les jeux de données doivent être créés à partir de chemins dans des [magasins de données Azure](how-to-access-data.md) ou des URL web publiques. 
 
 ### <a name="use-the-sdk"></a>Utiliser le SDK
 
@@ -71,12 +80,9 @@ Pour créer des jeux de données à partir d’un [magasin de données Azure](ho
 > [!Note]
 > Vous pouvez créer un jeu de données à partir de plusieurs chemins d’accès dans plusieurs magasins de données. Il n’existe aucune limite inconditionnelle quant au nombre de fichiers ou à la taille de données à partir desquels vous pouvez créer un jeu de données. Toutefois, pour chaque chemin d’accès aux données, quelques requêtes sont envoyées au service de stockage pour vérifier s’il pointe vers un fichier ou un dossier. Cette surcharge peut entraîner une dégradation des performances ou une défaillance. Un jeu de données référençant un dossier contenant 1 000 fichiers est considéré comme référençant un chemin d’accès de données. Nous vous recommandons de créer un jeu de données référençant moins de 100 chemins d’accès dans des magasins de données pour obtenir des performances optimales.
 
-
 #### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
 
-Vous pouvez créer des TabularDatasets via le SDK ou en utilisant Azure Machine Learning Studio. 
-
-Utilisez la méthode [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
+Utilisez la méthode [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -90,18 +96,19 @@ workspace = Workspace.from_config()
 datastore = Datastore.get(workspace, datastore_name)
 
 # create a TabularDataset from 3 paths in datastore
-datastore_paths = [(datastore, 'ather/2018/11.csv'),
+datastore_paths = [(datastore, 'weather/2018/11.csv'),
                    (datastore, 'weather/2018/12.csv'),
                    (datastore, 'weather/2019/*.csv')]
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-Par défaut, quand vous créez un TabularDataset, les types de données des colonnes sont inférés automatiquement. Si les types inférés ne sont pas ceux que vous attendez, vous pouvez les spécifier en utilisant le code suivant. Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, incluez les paramètres `validate=False` et `infer_column_types=False` dans votre méthode `from_delimited_files()`. Cela permet de contourner le contrôle de validation initial et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. Vous pouvez aussi découvrir plus d’informations sur les [types de données pris en charge](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+Par défaut, quand vous créez un TabularDataset, les types de données des colonnes sont inférés automatiquement. Si les types inférés ne sont pas ceux que vous attendez, vous pouvez les spécifier en utilisant le code suivant. Le paramètre `infer_column_type` s’applique uniquement aux jeux de données créés à partir de fichiers délimités. Vous pouvez également [en savoir plus sur les types de données pris en charge](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
 
-> [!NOTE] 
->Le paramètre `infer_column_type` s’applique uniquement aux jeux de données créés à partir de fichiers délimités. 
+> [!IMPORTANT] 
+> Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, seule la création d’un jeu de données via le Kit de développement logiciel (SDK) est prise en charge. Pour créer votre jeu de données, veillez à inclure les paramètres `validate=False` et `infer_column_types=False` dans votre méthode `from_delimited_files()`. Cela permet de contourner le contrôle de validation initial et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. 
 
 ```Python
+from azureml.core import Dataset
 from azureml.data.dataset_factory import DataType
 
 # create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean
@@ -118,7 +125,33 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7.9250||S
 
-Utilisez la méthode [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) sur la classe `TabularDatasetFactory` pour lire à partir d’Azure SQL Database :
+
+Pour créer un jeu de données à partir d’un dataframe pandas en mémoire, écrivez les données dans un fichier local (par exemple un fichier csv), puis créez votre jeu de données à partir de ce fichier. Le code suivant illustre ce workflow.
+
+```python
+local_path = 'data/prepared.csv'
+dataframe.to_csv(local_path)
+upload the local file to a datastore on the cloud
+# azureml-core of version 1.0.72 or higher is required
+# azureml-dataprep[pandas] of version 1.1.34 or higher is required
+from azureml.core import Workspace, Dataset
+
+subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
+resource_group = 'xxxxxx'
+workspace_name = 'xxxxxxxxxxxxxxxx'
+
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+# get the datastore to upload prepared data
+datastore = workspace.get_default_datastore()
+
+# upload the local file from src_dir to the target_path in datastore
+datastore.upload(src_dir='data', target_path='data')
+# create a dataset referencing the cloud location
+dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
+```
+
+Utilisez la méthode [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-) sur la classe `TabularDatasetFactory` pour lire à partir d’Azure SQL Database :
 
 ```Python
 
@@ -131,7 +164,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 Dans les TabularDatasets, vous pouvez spécifier un horodatage à partir d’une colonne dans les données ou à partir de là où les données du modèle de chemin sont stockées pour activer une caractéristique de série chronologique. Cette spécification permet un filtrage chronologique facile et efficace.
 
-Utilisez la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) sur la classe `TabularDataset` pour spécifier votre colonne d’horodatage et activer le filtrage chronologique. Pour plus d’informations, consultez [Démonstration de l’API pour une série chronologique tabulaire avec des données météo NOAA](https://aka.ms/azureml-tsd-notebook).
+Utilisez la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) sur la classe `TabularDataset` pour spécifier votre colonne d’horodatage et activer le filtrage chronologique. Pour plus d’informations, consultez [Démonstration de l’API pour une série chronologique tabulaire avec des données météo NOAA](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
 # create a TabularDataset with time series trait
@@ -177,7 +210,7 @@ Pour créer un jeu de données dans le studio :
 1. Sélectionnez le type de jeu de données **Tabulaire** ou **Fichier**.
 1. Sélectionnez **Suivant** pour ouvrir le formulaire **Sélection d’un magasin de données et de fichiers**. Sur ce formulaire, vous sélectionnez l’emplacement où conserver votre jeu de données après sa création, ainsi que les fichiers de données à utiliser pour votre jeu de données. 
 1. Sélectionnez **Suivant** pour renseigner les formulaires **Paramètres et aperçu** et **Schéma** ; ils sont renseignés intelligemment en fonction du type de fichier et vous pouvez configurer davantage votre jeu de données avant de le créer sur ces formulaires. 
-1. Sélectionnez **Suivant** pour passer en revue le formulaire **Confirmer les détails**. Vérifiez vos sélections et créez un profil de données facultatif pour votre jeu de données. En savoir plus sur le [profilage des données](how-to-create-portal-experiments.md#profile). 
+1. Sélectionnez **Suivant** pour passer en revue le formulaire **Confirmer les détails**. Vérifiez vos sélections et créez un profil de données facultatif pour votre jeu de données. En savoir plus sur le [profilage des données](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Sélectionnez **Créer** pour terminer la création de votre jeu de données.
 
 ## <a name="register-datasets"></a>Inscrire des jeux de données
@@ -212,7 +245,7 @@ file_dataset = MNIST.get_file_dataset()
 
 from azureml.opendatasets import Diabetes
 
-# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+# Diabetes class can return ONLY TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab129315f398061eaa427f05f3bd4b1cabff0dc3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 35f8172d418cb9926ba0be2de945ff559fba14cf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046768"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583100"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Box
 
@@ -87,6 +87,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.account.box.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `box.net`
+
+    c. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://sso.services.box.net/sp/ACS.saml2`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir la valeur, contactez [l’équipe du support Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

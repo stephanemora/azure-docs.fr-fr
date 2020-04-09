@@ -8,16 +8,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288357"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544279"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
 
-Des applications SaaS peuvent être publiées sur la place de marché avec trois différents appels à l’action : « Me contacter », « Essayer maintenant » et « Obtenir maintenant ». Ce guide détaille ces trois options, y compris les exigences propres à chacune. 
+Vous pouvez publier des applications SaaS sur la Place de marché de trois façons différentes : « Me contacter », « Essayer maintenant » et « Obtenir maintenant ». Ce guide détaille ces trois options, y compris les exigences propres à chacune. 
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre  
 
@@ -25,11 +25,11 @@ Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau 
 
 | Option de vitrine | Énumération | Essai/Transaction |  
 | --- | --- | --- |  
-| AppSource | Oui (Me contacter) | Oui (Power BI/Dynamics) |
-| Place de marché Azure | Non | Oui (Applications SaaS) |   
+| AppSource | Oui | Oui |
+| Place de marché Azure | Non | Oui |   
 
-**Liste :** L’option de publication Liste consiste en une offre de type Me contacter et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
-**Essai/Transaction :** Le client a la possibilité d’acheter directement votre solution ou de demander une version d’essai de celle-ci. Proposer une version d’évaluation augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation.  
+**Liste** :  l’option de publication Liste consiste en une offre de type Me contacter, et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
+**Essai/Transaction :**  le client a la possibilité d’acheter directement votre solution ou de demander un essai gratuit pour celle-ci. Proposer une version d’évaluation augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation.  
 
 | Offre d’applications SaaS | Exigences commerciales | Exigences techniques |  
 | --- | --- | --- |  
@@ -88,7 +88,7 @@ Pour des didacticiels vidéos, suivez les liens suivants :
 * [Vidéos Microsoft Azure axées sur Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Une formation gratuite à Azure Active Directory est accessible via le lien suivant :  
-* [Série de formations sur Microsoft Azure destinées aux professionnels de l’informatique : Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Série de formations sur Microsoft Azure destinées aux professionnels de l’informatique : Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 En outre, Azure Active Directory fournit un site pour vérifier la disponibilité de mises à jour du service :   
 * [Mises à jour du service Azure AD](https://azure.microsoft.com/updates/?product=active-directory)

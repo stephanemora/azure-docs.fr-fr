@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3b000776c04550e1deb883039d94deeb735061ce
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584539"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985879"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -51,19 +51,19 @@ La facturation est basée sur le nombre d’exécutions, la durée d’exécutio
 Le plan d’hébergement par défaut (le plan Consommation) présente les avantages suivants :
 
 * Paiement uniquement à l’exécution de vos fonctions
-* Augmentation automatique de la taille des instances même pendant les périodes de charge élevée
+* Effectuer un scale-out automatique même pendant les périodes de charge élevée
 
 Les Function App d’une même région peuvent être affectées au même plan Consommation. Avoir plusieurs applications qui s’exécutent dans le même plan Consommation n’entraîne aucun inconvénient ou impact. L’attribution de plusieurs applications au même plan Consommation n’affecte pas la résilience, la scalabilité ni la fiabilité de chaque application.
 
 Pour en savoir plus sur la façon d’estimer les coûts pour une exécution dans le cadre d’un plan Consommation, consultez [Compréhension des coûts d’un plan Consommation](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Plan Premium
+## <a name="premium-plan"></a><a name="premium-plan"></a>Plan Premium
 
 Quand vous utilisez le plan Premium, les instances de l’hôte Azure Functions sont ajoutées et supprimées en fonction du nombre d’événements entrants, comme avec le plan Consommation.  Le plan Premium prend en charge les fonctionnalités suivantes :
 
 * Les instances perpétuellement chaudes permettent d’éviter les démarrages à froid
 * Connectivité des réseaux virtuels
-* Durée d’exécution illimitée
+* Durée d’exécution illimitée (60 minutes garanties)
 * Tailles d’instance premium (instances à un, deux et quatre cœurs)
 * Tarification plus prévisible
 * Allocation d’application à haute densité pour les plans avec plusieurs Function App
@@ -82,7 +82,7 @@ Envisagez le plan Premium d’Azure Functions dans les situations suivantes :
 
 Lorsque vous exécutez des fonctions JavaScript dans un plan Premium, vous devez choisir une instance qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans Premium à cœur unique](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## <a name="app-service-plan"></a>Plan (App Service) dédié
+## <a name="dedicated-app-service-plan"></a><a name="app-service-plan"></a>Plan (App Service) dédié
 
 Vos Function App sont exécutées sur les mêmes machines virtuelles dédiées que d’autres applications App Service (références De base, Standard, Premium et Isolé).
 
@@ -98,7 +98,7 @@ Avec un plan App Service, vous pouvez effectuer un scale-out manuel en ajoutant 
 Lorsque vous exécutez des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans App Service à cœur unique](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-### <a name="always-on"></a> Always On
+### <a name="always-on"></a><a name="always-on"></a> Always On
 
 Si vous utilisez un plan App Service, vous devez activer le paramètre **Always On** afin que l’application de fonction s’exécute correctement. Dans un plan App Service, comme le runtime des fonctions devient inactif après quelques minutes d’inactivité, seuls des déclencheurs HTTP peuvent « relancer » vos fonctions. Le paramètre Always On est disponible uniquement dans un plan App Service. Dans un plan Consommation, la plateforme active automatiquement les applications de fonction.
 
@@ -132,7 +132,7 @@ Plusieurs applications de fonction peuvent partager le même compte de stockage.
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
-Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#azure-storage-services).
+Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#core-storage-services).
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>Fonctionnement des plans Consommation et Premium
 
@@ -142,7 +142,7 @@ Les fichiers de code de fonction sont stockés dans des partages Azure Files du 
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 
-Azure Functions utilise un composant appelé *contrôleur de mise à l’échelle* pour surveiller la fréquence des événements et déterminer s’il convient de monter en puissance ou de diminuer la taille des instances. Le contrôleur de mise à l’échelle utilise une méthode heuristique pour chaque type de déclencheur. Par exemple, si vous utilisez un déclencheur de stockage File d’attente Azure, il est mis à l’échelle en fonction de la longueur de la file d’attente et de l’âge du plus ancien message en file d’attente.
+Azure Functions utilise un composant appelé *contrôleur de mise à l’échelle* pour surveiller la fréquence des événements et déterminer s’il convient d’effectuer un scale-out ou un scale-in. Le contrôleur de mise à l’échelle utilise une méthode heuristique pour chaque type de déclencheur. Par exemple, si vous utilisez un déclencheur de stockage File d’attente Azure, il est mis à l’échelle en fonction de la longueur de la file d’attente et de l’âge du plus ancien message en file d’attente.
 
 L’unité d’échelle pour Azure Functions est la Function App. Quand les instances de l’application de fonction font l’objet d’une augmentation de taille, des ressources supplémentaires sont allouées pour exécuter plusieurs instances de l’hôte Azure Functions. À l’inverse, quand la demande de calcul est réduite, le contrôleur de mise à l’échelle supprime des instances de l’hôte de fonction. Le nombre d’instances est finalement *réduit à zéro* si aucune fonction n’est exécutée dans une application de fonction.
 
@@ -153,12 +153,10 @@ L’unité d’échelle pour Azure Functions est la Function App. Quand les inst
 La mise à l’échelle peut varier en fonction de certains facteurs et selon le déclencheur et le langage sélectionnés. Il est nécessaire de connaître certaines subtilités relatives aux comportements de mise à l’échelle :
 
 * Une application de fonction peut faire l’objet d’un scale-out jusqu’à 200 instances au maximum. Une seule instance, par contre, peut traiter plusieurs messages ou requêtes à la fois, ainsi il n’y a pas de limite définie sur le nombre d’exécutions simultanées.
-* Pour les déclencheurs HTTP, les nouvelles instances sont allouées une fois par seconde au maximum.
-* Pour les déclencheurs non HTTP, les nouvelles instances sont allouées une fois toutes les 30 secondes au maximum.
-
-Différents déclencheurs peuvent également avoir des limites de mise à l’échelle différentes, comme documentées ci-dessous :
-
-* [Concentrateur d’événements](functions-bindings-event-hubs-trigger.md#scaling)
+* Pour les déclencheurs HTTP, de nouvelles instances sont allouées, au plus, une fois par seconde.
+* Pour les déclencheurs non HTTP, de nouvelles instances sont allouées, au plus, une fois toutes les 30 secondes. La mise à l’échelle est plus rapide lors de l’exécution dans [plan Premium](#premium-plan).
+* Pour les déclencheurs Service Bus, utilisez des _Droits de gestion_ sur les ressources pour une mise à l’échelle d’une efficacité optimale. Avec des _Droits d’écoute_, la mise à l’échelle n’est pas aussi précise parce que la longueur de la file d’attente ne peut pas être utilisée pour informer des décisions de mise à l’échelle. Pour en savoir plus sur la définition de droits dans les stratégies d’accès Service Bus, consultez [Stratégie d’autorisation d’accès partagé](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* Pour les déclencheurs Event Hub, consultez les [conseils de mise à l’échelle](functions-bindings-event-hubs-trigger.md#scaling) dans l’article de référence. 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Bonnes pratiques et modèles pour les applications scalables
 

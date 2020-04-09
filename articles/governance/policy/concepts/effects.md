@@ -1,14 +1,14 @@
 ---
 title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
-ms.date: 11/04/2019
+ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544128"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422451"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -334,7 +334,7 @@ Comme pour AuditIfNotExists, une définition de stratégie DeployIfNotExists ex�
 DeployIfNotExists s’exécute environ 15 minutes après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour de ressource et a renvoyé un code d’état de réussite. Un déploiement de modèle est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true.
 La durée du déploiement dépend de la complexité des ressources incluses dans le modèle.
 
-Au cours d’un cycle d’évaluation, les définitions de stratégie ayant un effet DeployIfNotExists sur les ressources sont marquées comme non conformes, mais aucune action n’est effectuée sur ces ressources.
+Au cours d’un cycle d’évaluation, les définitions de stratégie ayant un effet DeployIfNotExists sur les ressources sont marquées comme non conformes, mais aucune action n’est effectuée sur ces ressources. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md).
 
 ### <a name="deployifnotexists-properties"></a>Propriétés de DeployIfNotExists
 
@@ -453,7 +453,7 @@ La propriété **details** de l’effet EnforceOPAConstraint contient les sous-p
 - **valeurs** [facultatif]
   - Définit des paramètres et valeurs à transmettre à la contrainte. Chaque valeur doit exister dans le modèle de contrainte CRD.
 
-### <a name="enforceregopolicy-example"></a>Exemple EnforceRegoPolicy
+### <a name="enforceopaconstraint-example"></a>Exemple EnforceOPAConstraint
 
 Exemple : Règle de contrôle d’admission de Gatekeeper v3 pour définir les limites de ressources de mémoire et d’UC du conteneur dans le moteur AKS.
 

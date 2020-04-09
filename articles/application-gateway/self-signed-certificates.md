@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975055"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548863"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Générer un certificat auto-signé Azure Application Gateway avec une autorité de certification racine personnalisée
 
@@ -230,9 +230,9 @@ $probe = Get-AzApplicationGatewayProbeConfig `
   -Name testprobe `
   -ApplicationGateway $gw
 
-## Add the configuration to the HTTP Setting and don’t forget to set the “hostname” field
+## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
-## will be used to verify the backend server’s certificate. Note that SSL handshake will
+## will be used to verify the backend server's certificate. Note that SSL handshake will
 ## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
 Add-AzApplicationGatewayBackendHttpSettings `
@@ -262,12 +262,13 @@ Add-AzApplicationGatewayRequestRoutingRule `
 
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
+
 ### <a name="verify-the-application-gateway-backend-health"></a>Vérifier l’intégrité du backend Application Gateway
 
 1. Cliquez sur l’affichage **Intégrité principale** de votre passerelle d’application pour vérifier si la sonde est saine.
-1.  Vous devez voir que l’état est **sain** pour la sonde HTTPS.
+1. Vous devez voir que l’état est **sain** pour la sonde HTTPS.
 
-    ![Sonde HTTPS](media/self-signed-certificates/https-probe.png)
+![Sonde HTTPS](media/self-signed-certificates/https-probe.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -39,6 +39,8 @@
       href: streaming-technologies.md
     - name: Choisir un outil de développement de travail
       href: feature-comparison.md
+    - name: Développer en local
+      href: develop-locally.md
     - name: Types d’entrée pour un travail
       items:
         - name: Vue d’ensemble des entrées
@@ -157,7 +159,7 @@
           maintainContext: true
         - name: Scénarios géospatiaux
           href: geospatial-scenarios.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Surveiller les travaux - Portail Azure
           href: stream-analytics-monitoring.md

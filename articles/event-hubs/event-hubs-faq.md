@@ -10,16 +10,16 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706376"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283665"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Qu’est-ce qu’un espace de noms Event Hubs ?
 Un espace de noms est un conteneur d’étendue pour les rubriques Event Hub/Kafka. Il vous donne une valeur unique de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Un espace de noms constitue un conteneur d’application qui peut héberger plusieurs rubriques Event Hub/Kafka. 
@@ -109,18 +109,18 @@ Si vous utilisez la redondance de zone pour votre espace de noms, vous devez sui
 Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos applications Apache Kafka. Pour bénéficier de l’expérience PaaS Kafka, il est nécessaire de modifier la configuration. Il fournit une alternative à l’exécution de votre cluster Kafka. Event Hubs prend en charge Apache Kafka 1.0 et les versions clientes plus récentes, et fonctionne avec vos applications, outils et frameworks Kafka. Pour plus d’informations, consultez [Dépôt Event Hubs pour Kafka](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Quels changements de configuration doivent être effectués pour que mon application existante puisse communiquer avec les Event Hubs ?
-Pour vous connecter à un Event Hub compatible avec Kafka, vous devez mettre à jour les configurations du client Kafka. Cela s’effectue en créant un espace de noms Event Hubs et en obtenant la [chaîne de connexion](event-hubs-get-connection-string.md). Modifiez le fichier bootstrap.servers pour qu’il pointe vers le FQDN Event Hubs et sur le port 9093. Mettez à jour le fichier sasl.jaas.config pour diriger le client Kafka vers votre point de terminaison Event Hubs prenant en charge Kafka (ce point de terminaison est la chaîne de connexion que vous avez obtenue), avec une authentification correcte comme indiqué ci-dessous :
+Pour vous connecter à un Event Hub, vous devez mettre à jour les configurations du client Kafka. Cela s’effectue en créant un espace de noms Event Hubs et en obtenant la [chaîne de connexion](event-hubs-get-connection-string.md). Modifiez le fichier bootstrap.servers pour qu’il pointe vers le FQDN Event Hubs et sur le port 9093. Mettez à jour le fichier sasl.jaas.config pour diriger le client Kafka vers votre point de terminaison Event Hubs (ce point de terminaison est la chaîne de connexion que vous avez obtenue), avec une authentification correcte comme indiqué ci-dessous :
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 
-Exemple :
+Exemple :
 
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
 Remarque : Si sasl.jaas.config n’est pas une configuration prise en charge dans votre framework, recherchez les configurations qui sont utilisées pour définir le nom d’utilisateur et le mot de passe SASL, et utilisez-les à la place. Définissez le nom d’utilisateur sur $ConnectionString et le mot de passe sur votre chaîne de connexion Event Hubs.
 
-### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Quelle est la taille du message ou de l’événement pour les Event Hubs compatibles avec Kafka ?
-La taille de message maximale autorisée pour les Event Hubs compatibles avec Kafka est de 1 Mo.
+### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Quelle est la taille du message ou de l’événement pour les Event Hubs ?
+La taille de message maximale autorisée pour les Event Hubs est de 1 Mo.
 
 ## <a name="throughput-units"></a>Unités de débit
 
@@ -184,7 +184,7 @@ Les résultats vous donnent une idée de ce qui peut être réalisé avec un clu
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Comment créer un cluster Event Hubs Dedicated ?
 Vous créez un cluster dédié Event Hubs en soumettant une [requête de support d’augmentation du quota](https://portal.azure.com/#create/Microsoft.Support) ou en contactant l’[équipe Event Hubs](mailto:askeventhubs@microsoft.com). Le déploiement et la mise à disposition de votre cluster demandent généralement deux semaines. Ce processus est temporaire jusqu’à ce qu’un libre-service complet soit disponible via le portail Azure ou les modèles Azure Resource Manager, ce qui prend environ deux heures pour déployer le cluster.
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 ### <a name="how-many-partitions-do-i-need"></a>De combien de partitions ai-je besoin ?
 Le nombre de partitions est spécifié lors de la création du concentrateur d’événements. Il doit être compris entre 2 et 32. Le nombre de partitions n’est pas modifiable. Lorsque vous le définissez, tenez compte de la mise à l’échelle sur le long terme. Les partitions constituent un mécanisme d’organisation des données. Elles sont liées au degré de parallélisme en aval requis lors de la consommation des applications. Le choix du nombre de partitions dans un concentrateur d’événements est directement lié au nombre de lecteurs simultanés que vous prévoyez d’avoir. Pour plus d’informations sur les partitions, consultez [Partitions](event-hubs-features.md#partitions).
@@ -233,7 +233,7 @@ Capture utilise un compte de stockage que vous fournissez lorsqu’il est activ�
 
 Pour obtenir la liste de tous les quotas d’Event Hubs, consultez la page [quotas](event-hubs-quotas.md).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Pourquoi ne suis-je pas en mesure de créer un espace de noms après l'avoir supprimé d'un autre abonnement ? 
 Lorsque vous supprimez un espace de noms d’un abonnement, patientez pendant 4 heures avant de le recréer avec le même nom dans un autre abonnement. Sinon, le message d’erreur suivant peut s’afficher : `Namespace already exists`. 

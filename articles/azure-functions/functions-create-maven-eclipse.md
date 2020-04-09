@@ -2,16 +2,16 @@
 title: Créer une application de fonction Azure avec Java et Eclipse
 description: Guide pratique pour créer et publier sur Azure Functions une application serverless simple déclenchée par HTTP avec Java et Eclipse.
 author: jeffhollan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2d353e6ccd7dad7be302a5f40c65012f32deba7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 42e9ed7c080c9274fad7eda8e4c8af3631ed41f5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227121"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756491"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Créer votre première fonction avec Java et Eclipse 
 
@@ -21,14 +21,14 @@ Cet article vous explique comment créer un projet de fonction [serverless](http
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 
 Pour développer une application de fonction avec Java et Eclipse, vous devez avoir installé les éléments suivants :
 
 -  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) version 8.
 -  [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), avec prise en charge de Java et Maven.
--  [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
+-  [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Pour pouvoir effectuer ce démarrage rapide, vous devez définir la variable d’environnement JAVA_HOME sur l’emplacement d’installation du JDK.
@@ -42,7 +42,7 @@ Il est vivement recommandé d’installer également [Azure Functions Core Tools
 1. Sélectionnez **Add Archetype** (Ajouter un archétype), puis ajoutez les entrées pour [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype Group ID (ID de groupe d’archétypes) : com.microsoft.azure
     - Archetype Artifact ID (ID d’artefact d’archétype) : azure-functions-archetype
-    - Version : Utilisez la version **1.22** la plus récente du [référentiel central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Version : recherchez et utilisez la dernière version du [référentiel central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Création de projet Maven dans Eclipse](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Cliquez sur **OK**, puis sur **Suivant**.  Veillez à renseigner les valeurs de tous les champs, y compris `resourceGroup`, `appName`et `appRegion` (utilisez un appName différent de **Fabrikam-Function-20170920120101928**), puis **Terminer**.
     ![Création de projet Maven dans Eclipse2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  

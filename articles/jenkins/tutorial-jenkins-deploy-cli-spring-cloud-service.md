@@ -3,12 +3,12 @@ title: Déployer des applications sur Azure Spring Cloud avec Jenkins et Azure C
 description: Découvrez comment utiliser Azure CLI dans un pipeline d’intégration et de déploiement continus pour déployer des microservices sur Azure Spring Cloud service.
 ms.topic: tutorial
 ms.date: 01/07/2020
-ms.openlocfilehash: 67ad97bb762ed302ef52c404d47c5755ea4b245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc48eecc9e73b95fd9112d645135409c24369e10
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75732852"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810226"
 ---
 # <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Tutoriel : Déployer des applications sur Azure Spring Cloud avec Jenkins et Azure CLI
 
@@ -28,7 +28,7 @@ Ce tutoriel suppose des connaissances de niveau intermédiaire dans les domaines
 >[!Note]
 > Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour en savoir plus sur le support offert avec les préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
 * Un compte GitHub. Si vous n’avez pas de compte GitHub, [créez-en un gratuitement](https://github.com/) avant de commencer.
 

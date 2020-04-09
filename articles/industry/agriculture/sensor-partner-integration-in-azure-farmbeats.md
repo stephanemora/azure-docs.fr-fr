@@ -5,18 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 3431576acbb01a0cc3a5f372460b28be05bf7ce7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132826"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437467"
 ---
 # <a name="sensor-partner-integration"></a>Intégration de partenaire de capteur
 
 Cet article fournit des informations sur le composant Azure FarmBeats **Translator**, qui permet l'intégration de partenaire de capteur.
 
-À l’aide de ce composant, les partenaires peuvent s’intégrer à FarmBeats en utilisant les API du hub de données FarmBeats et envoyer les données de télémétrie et les données d’appareils des clients au hub de données FarmBeats. Une fois que les données sont disponibles dans FarmBeats, il est possible de les visualiser avec l’accélérateur FarmBeats et de s’en servir pour fusionner des données et générer des modèles de Machine Learning et d’intelligence artificielle.
+À l’aide de ce composant, les partenaires peuvent s’intégrer à FarmBeats en utilisant les API FarmBeats Datahub et envoyer les données de télémétrie et les données d’appareils des clients à FarmBeats Datahub. Une fois que les données sont disponibles dans FarmBeats, il est possible de les visualiser avec l’accélérateur FarmBeats et de s’en servir pour fusionner des données et générer des modèles de Machine Learning et d’intelligence artificielle.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -42,7 +42,7 @@ Les données de télémétrie sont mappées à un message canonique publié sur 
 
 **Développement d’API**
 
-Les API incluent une documentation technique Swagger. Pour plus d’informations sur les API et leurs demandes ou réponses correspondantes, consultez [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+Les API incluent une documentation technique Swagger. Pour plus d’informations sur les API et leurs demandes ou réponses correspondantes, consultez [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 **Authentification**
 
@@ -50,7 +50,7 @@ FarmBeats utilise l’authentification Microsoft Azure Active Directory. Azure
 
 Pour plus d’informations, consultez [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-Le hub de données FarmBeats utilise l’authentification de porteur, qui nécessite les informations d’identification suivantes :
+FarmBeats Datahub utilise l’authentification du porteur, qui nécessite les informations d’identification suivantes :
    - ID client
    - Clé secrète client
    - ID client
@@ -85,14 +85,14 @@ access_token = token_response.get('accessToken') 
 
 **En-têtes de requête HTTP**
 
-Voici les en-têtes de demande les plus courants qui doivent être spécifiés au moment d’effectuer un appel d’API au hub de données FarmBeats.
+Voici les en-têtes de demande les plus courants qui doivent être spécifiés lors d’un appel d’API à FarmBeats Datahub.
 
 
 **En-tête** | **Description et exemple**
 --- | ---
-Content-Type | Format de la demande (Content-Type: application/<format>). Pour les API du hub de données FarmBeats, le format est JSON. Content-Type: application/json
+Content-Type | Format de la demande (Content-Type: application/<format>). Pour les API FarmBeats Datahub, le format est JSON. Content-Type: application/json
 Autorisation | Spécifie le jeton d’accès requis pour effectuer un appel d’API. Autorisation : Porteur <jeton-accès>
-Acceptation | Format de la réponse. Pour les API du hub de données FarmBeats, le format est JSON. Accept: application/json
+Acceptation | Format de la réponse. Pour les API FarmBeats Datahub, le format est JSON. Accept: application/json
 
 **Requêtes d’API**
 
@@ -119,7 +119,7 @@ JSON est un format de données courant, indépendant du langage, qui fournit une
 
 ## <a name="metadata-specifications"></a>Spécifications de métadonnées
 
-Le hub de données FarmBeats propose les API suivantes, qui permettent aux partenaires d’appareils de créer et gérer les métadonnées d’appareils ou de capteurs.
+FarmBeats Datahub offre les API suivantes, qui permettent aux partenaires d’appareil de créer et de gérer des métadonnées d’appareil ou de capteur.
 
 - /**DeviceModel** : DeviceModel correspond aux métadonnées de l’appareil, telles que le fabricant et le type d’appareil (passerelle ou nœud).
 - /**Device** : Device correspond à un appareil physique présent dans l’exploitation agricole.
@@ -132,16 +132,16 @@ Le hub de données FarmBeats propose les API suivantes, qui permettent aux parte
   Fabricant  | Nom du fabricant |
   ProductCode  | Code produit de l’appareil ou nom ou numéro du modèle. Par exemple, EnviroMonitor#6800. |
   Ports  | Nom et type du port (numérique ou analogique).  |
-  Name  | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit. |
+  Nom  | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit. |
   Description  | Description explicite du modèle. |
   Propriétés  | Propriétés supplémentaires fournies par le fabricant. |
   **Appareil** |  |
   DeviceModelId  |ID du modèle d’appareil associé. |
   HardwareId   |ID unique de l’appareil, par exemple l’adresse MAC.  |
   ReportingInterval |Intervalle de rapport en secondes. |
-  Location    |Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) de l’appareil. |
+  Emplacement    |Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) de l’appareil. |
   ParentDeviceId | ID de l’appareil parent auquel cet appareil est connecté. Par exemple, si un nœud est connecté à une passerelle, le nœud a parentDeviceID comme passerelle. |
-  Name  | Nom destiné à identifier la ressource. Les partenaires d’appareil doivent envoyer un nom correspondant à celui de l’appareil côté partenaire. Si le nom de l’appareil est défini par l’utilisateur côté partenaire, ce nom doit être propagé sur FarmBeats.  |
+  Nom  | Nom destiné à identifier la ressource. Les partenaires d’appareil doivent envoyer un nom correspondant à celui de l’appareil côté partenaire. Si le nom de l’appareil est défini par l’utilisateur côté partenaire, ce nom doit être propagé sur FarmBeats.  |
   Description  | Description explicite.  |
   Propriétés  |Propriétés supplémentaires fournies par le fabricant.  |
   **SensorModel** |  |
@@ -155,16 +155,16 @@ Le hub de données FarmBeats propose les API suivantes, qui permettent aux parte
   SensorMeasures > AggregationType  | Peut être none, average, maximum, minimum ou StandardDeviation.
   SensorMeasures > Depth  | Profondeur du capteur en centimètres. Par exemple, la mesure de l’humidité à 10 cm dans le sol.
   SensorMeasures > Description  | Description explicite de la mesure.
-  Name  | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.
+  Nom  | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.
   Description  | Description explicite du modèle.
   Propriétés  | Propriétés supplémentaires fournies par le fabricant.
   **Capteur**  |  |
   HardwareId  | ID unique du capteur défini par le fabricant.
   SensorModelId  | ID du modèle de capteur associé.
-  Location  | Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) du capteur.
+  Emplacement  | Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) du capteur.
   Port > Name  |Nom et type du port auquel le capteur est connecté sur l’appareil. Ce nom doit être identique à celui défini dans le modèle d’appareil.
   deviceId  | ID de l’appareil auquel le capteur est connecté.
-  Name  | Nom destiné à identifier la ressource. Par exemple, nom du capteur ou du produit et numéro de modèle ou code produit.
+  Nom  | Nom destiné à identifier la ressource. Par exemple, nom du capteur ou du produit et numéro de modèle ou code produit.
   Description  | Description explicite.
   Propriétés  | Propriétés supplémentaires fournies par le fabricant.
 
@@ -188,7 +188,7 @@ Le traducteur doit avoir la possibilité d’ajouter des appareils ou capteurs i
 
 ### <a name="add-new-types-and-units"></a>Ajouter de nouveaux types et unités
 
-FarmBeats prend en charge l’ajout de nouveaux types et unités de mesure de capteur. Pour plus d’informations sur l’API /ExtendedType, consultez [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+FarmBeats prend en charge l’ajout de nouveaux types et unités de mesure de capteur. Pour plus d’informations sur l’API /ExtendedType, consultez [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## <a name="telemetry-specifications"></a>Spécifications des données de télémétrie
 
@@ -304,7 +304,7 @@ Après avoir acheté et déployé des appareils ou des capteurs, les clients peu
 
 ## <a name="unlink-farmbeats"></a>Dissocier FarmBeats
 
-Les partenaires d’appareils peuvent permettre aux clients de dissocier une intégration FarmBeats existante. En principe, la dissociation de FarmBeats ne supprime pas les métadonnées d’appareils ou de capteurs qui ont été créées dans le hub de données FarmBeats. La dissociation les opérations suivantes :
+Les partenaires d’appareils peuvent permettre aux clients de dissocier une intégration FarmBeats existante. En principe, la dissociation de FarmBeats ne supprime pas les métadonnées d’appareils ou de capteurs qui ont été créées dans FarmBeats Datahub. La dissociation les opérations suivantes :
 
    - Arrête le workflow des données de télémétrie.
    - Supprime et efface les informations d’identification d’intégration sur le partenaire d’appareil.

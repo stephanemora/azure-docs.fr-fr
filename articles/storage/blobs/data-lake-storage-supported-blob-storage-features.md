@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196006"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637211"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2
 
@@ -38,7 +38,7 @@ Ce tableau répertorie les fonctionnalités de stockage de blobs que vous pouvez
 |API Stockage Blob|Mise à la disposition générale|[Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 pour .NET](storage-quickstart-blobs-dotnet.md)<br>[Démarrage rapide : Gérer les blobs avec le Kit de développement logiciel (SDK) Java v12](storage-quickstart-blobs-java.md)<br>[Démarrage rapide : Gérer les blobs avec le Kit de développement logiciel (SDK) Python v12](storage-quickstart-blobs-python.md)<br>[Démarrage rapide : Gérer les blobs avec le Kit de développement logiciel (SDK) JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md)|
 |Niveau d’accès archive|PRÉVERSION|[Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md)|
 |Stratégies de gestion du cycle de vie|PRÉVERSION|[Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md)|
-|Journaux de diagnostic|PRÉVERSION|[Journalisation Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Journaux de diagnostic|Mise à la disposition générale|[Journalisation Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Modifier le flux|Pas encore pris en charge|[Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)|
 |Basculement de compte|Pas encore pris en charge|[Récupération d’urgence et basculement de compte](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |ACL de conteneurs de blobs|Pas encore pris en charge|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 40c279a4beee9fbebe2de7f272fe51d9039f071c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668704"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637521"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Connecter des ordinateurs Linux à Azure Monitor
 
@@ -22,7 +22,7 @@ L'agent Log Analytics pour Linux peut être installé en utilisant l'une des mé
 * [Téléchargez et installez manuellement](#install-the-agent-manually) l’agent. Ceci est nécessaire lorsque l’ordinateur Linux n'a pas accès à Internet et communiquera avec Azure Monitor ou Azure Automation via la [passerelle Log Analytics](gateway.md). 
 * [Installez l’agent pour Linux à l’aide d’un script wrapper](#install-the-agent-using-wrapper-script) hébergé sur GitHub. Il s’agit de la méthode recommandée pour installer et mettre à niveau l'agent lorsque l'ordinateur dispose d’une connexion Internet, directement ou via un serveur proxy.
 
-Pour comprendre la configuration prise en charge, consultez la page [Prise en charge des systèmes d’exploitation Linux](log-analytics-agent.md#supported-linux-operating-systems) et [Configuration du pare-feu réseau](log-analytics-agent.md#network-firewall-requirements).
+Pour comprendre la configuration prise en charge, consultez la page [Prise en charge des systèmes d’exploitation Linux](log-analytics-agent.md#supported-linux-operating-systems) et [Configuration du pare-feu réseau](log-analytics-agent.md#network-requirements).
 
 >[!NOTE]
 >L’agent Log Analytics pour Linux ne peut pas être configuré pour envoyer des rapports à plus d’un espace de travail Log Analytics. Il ne peut être configuré que pour envoyer des rapports à un groupe de gestion System Center Operations Manager et à l'espace de travail Log Analytics, simultanément ou individuellement.

@@ -8,15 +8,15 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
-ms.date: 01/21/2020
+ms.topic: how-to
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613196"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654880"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 
@@ -45,6 +45,11 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 ## <a name="default-password-policy-settings"></a>Paramètres de la stratégie de mot de passe par défaut
 
 Les stratégies de mot de passe affinées (SMPA) vous permettent d’appliquer des restrictions spécifiques pour les stratégies de verrouillage de compte et de mot de passe à différents utilisateurs d’un domaine. Par exemple, vous pouvez sécuriser les comptes privilégiés en leur appliquant des paramètres de verrouillage de compte plus stricts que pour les comptes non privilégiés standard. Vous pouvez créer plusieurs stratégies de mot de passe affinées dans un domaine managé Azure AD DS et spécifier l’ordre de priorité selon lequel elles doivent être appliquées aux utilisateurs.
+
+Pour plus d’informations sur les stratégies de mot de passe et l’utilisation du Centre d’administration Active Directory, consultez les articles suivants :
+
+* [En savoir plus sur les stratégies de mot de passe affinées](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Configurer des stratégies de mot de passe affinées à partir du Centre d’administration Active Directory](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 Les stratégies sont distribuées par le biais de l’association de groupes dans un domaine managé Azure AD DS, et les modifications que vous apportez sont appliquées à la connexion utilisateur suivante. La modification de la stratégie ne déverrouille pas un compte d’utilisateur qui est déjà verrouillé.
 
@@ -105,20 +110,20 @@ Pour créer une stratégie de mot de passe personnalisée, utilisez les outils d
     * Les paramètres tels que la complexité, l’âge ou le délai d’expiration du mot de passe s’appliquent uniquement aux utilisateurs ayant été créés manuellement dans un domaine managé Azure AD DS.
     * Les paramètres de verrouillage de compte s’appliquent à tous les utilisateurs, mais prennent effet uniquement dans le domaine managé et non dans Azure AD lui-même.
 
-    ![Créer une stratégie de mot de passe affinée personnalisée](./media/how-to/custom-fgpp.png)
+    ![Créer une stratégie de mot de passe affinée personnalisée](./media/password-policy/custom-fgpp.png)
 
 1. Décochez **Protéger contre la suppression accidentelle**. Si cette option est sélectionnée, vous ne pouvez pas enregistrer la SMPA.
 1. Dans la section **S’applique directement à**, cliquez sur le bouton **Ajouter**. Dans la boîte de dialogue **Sélectionner Utilisateurs ou Groupes**, sélectionnez le bouton **Emplacements**.
 
-    ![Sélectionner les utilisateurs et les groupes auxquels appliquer la stratégie de mot de passe](./media/how-to/fgpp-applies-to.png)
+    ![Sélectionner les utilisateurs et les groupes auxquels appliquer la stratégie de mot de passe](./media/password-policy/fgpp-applies-to.png)
 
 1. Les stratégies de mot de passe peuvent uniquement être appliquées à des groupes. Dans la boîte de dialogue **Emplacements**, développez le nom de domaine, par exemple *aaddscontoso.com*, puis sélectionnez une unité d’organisation, par exemple **Utilisateurs AADDC**. Si vous avez à disposition une unité d’organisation personnalisée qui contient un groupe d’utilisateurs auquel vous souhaitez appliquer une stratégie, sélectionnez cette unité d’organisation.
 
-    ![Sélectionner l’unité d’organisation à laquelle le groupe appartient](./media/how-to/fgpp-container.png)
+    ![Sélectionner l’unité d’organisation à laquelle le groupe appartient](./media/password-policy/fgpp-container.png)
 
 1. Tapez le nom du groupe auquel vous souhaitez appliquer la stratégie, puis sélectionnez **Vérifier les noms** pour vérifier que le groupe existe.
 
-    ![Rechercher et sélectionner le groupe auquel appliquer la SMPA](./media/how-to/fgpp-apply-group.png)
+    ![Rechercher et sélectionner le groupe auquel appliquer la SMPA](./media/password-policy/fgpp-apply-group.png)
 
 1. Comme le nom du groupe que vous avez sélectionné figure dans la section **S’applique directement à**, sélectionnez **OK** pour enregistrer votre stratégie de mot de passe personnalisée.
 

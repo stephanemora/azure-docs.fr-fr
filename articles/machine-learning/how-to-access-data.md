@@ -1,5 +1,5 @@
 ---
-title: Accéder aux données dans les services de stockage Azure
+title: Se connecter aux services de stockage Azure
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser des magasins de données pour vous connecter en toute sécurité aux services de stockage Azure lors de l’entraînement avec Azure Machine Learning
 services: machine-learning
@@ -9,23 +9,24 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 01/15/2020
+ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: b31d0237f04ef535fa6528d5b3a04e5ee7256e22
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623676"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668660"
 ---
-# <a name="access-data-in-azure-storage-services"></a>Accéder aux données dans les services de stockage Azure
+# <a name="connect-to-azure-storage-services"></a>Se connecter aux services de stockage Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, découvrez comment accéder facilement à vos données dans les services de stockage Azure par le biais des magasins de données Azure Machine Learning. Les banques de données permettent de stocker les informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton. En utilisant des magasins de données, vous pouvez accéder à votre stockage sans avoir à coder en dur les informations de connexion dans vos scripts. 
+Dans cet article, découvrez comment vous connecter aux services de stockage Azure par le biais des magasins de données Azure Machine Learning. Les magasins de données stockent des informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton, dans votre [Key Vault](https://azure.microsoft.com/services/key-vault/) associé à l’espace de travail, de sorte que vous pouvez accéder à votre stockage en toute sécurité sans avoir à coder en dur ces informations dans vos scripts.
 
 Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix). Pour les solutions de stockage non prises en charge, nous vous recommandons de [déplacer vos données](#move) vers nos solutions de stockage Azure prises en charge afin de réduire le coût de sortie des données pendant les expériences de Machine Learning. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Vous devez disposer des éléments suivants :
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -35,7 +36,7 @@ Vous devez disposer des éléments suivants :
 
 - Un espace de travail Azure Machine Learning.
   
-  [Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md) ou utilisez un espace de travail existant avec le SDK Python :
+  [Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md) ou utilisez un espace de travail existant via le Kit de développement logiciel (SDK) Python. Importez les classes `Workspace` et `Datastore`, puis chargez vos informations d’abonnement à partir du fichier `config.json` à l’aide de la fonction `from_config()`. Cette fonction recherche le fichier JSON dans le répertoire actif par défaut, mais vous pouvez également spécifier un paramètre de chemin d’accès pour pointer vers le fichier à l’aide de `from_config(path="your/file/path")`.
 
    ```Python
    import azureml.core
@@ -47,7 +48,7 @@ Vous devez disposer des éléments suivants :
 
 ## <a name="supported-data-storage-service-types"></a>Types de services de stockage de données pris en charge
 
-Les magasins de données prennent actuellement en charge le stockage des informations de connexion dans les services de stockage figurant dans la matrice suivante. À l’heure actuelle, Azure Data Warehouse n’est pas pris en charge. 
+Les magasins de données prennent actuellement en charge le stockage des informations de connexion dans les services de stockage figurant dans la matrice suivante.
 
 | Type de&nbsp;stockage | Type&nbsp;d’authentification | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [SDK Azure&nbsp;Machine&nbsp;Learning&nbsp; Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [CLI Azure&nbsp;Machine&nbsp;Learning](reference-azure-machine-learning-cli.md) | [API REST Azure&nbsp;Machine&nbsp;Learning&nbsp;](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
@@ -55,19 +56,25 @@ Les magasins de données prennent actuellement en charge le stockage des informa
 [Partage&nbsp;de fichiers&nbsp;Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Clé de compte <br> Jeton SAS | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Principal du service| ✓ | ✓ | ✓ |✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Principal du service| ✓ | ✓ | ✓ |✓
-Azure&nbsp;SQL&nbsp;Database| Authentification SQL <br>Principal du service| ✓ | ✓ | ✓ |✓
-Azure&nbsp;PostgreSQL | Authentification SQL| ✓ | ✓ | ✓ |✓
-Azure&nbsp;Database&nbsp;pour&nbsp;MySQL | Authentification SQL|  | ✓* | ✓* |✓*
-Système&nbsp;de fichiers&nbsp;Databricks| Aucune authentification | | ✓** | ✓ ** |✓** 
+[Azure&nbsp;SQL&nbsp;Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Authentification SQL <br>Principal du service| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Authentification SQL| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;Database&nbsp;pour&nbsp;MySQL](https://docs.microsoft.com/azure/mysql/overview) | Authentification SQL|  | ✓* | ✓* |✓*
+[Databricks&nbsp;File&nbsp;System](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Aucune authentification | | ✓** | ✓ ** |✓** 
 
-*MySQL est uniquement pris en charge pour le pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br> \** Databricks est uniquement pris en charge pour le pipeline [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)
+* MySQL est uniquement pris en charge pour le pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br>
+** Databricks est uniquement pris en charge pour le pipeline [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py).
 
 ### <a name="storage-guidance"></a>Conseils liés au stockage
 
-Nous vous recommandons de créer un magasin de données pour un conteneur d’objets blob Azure.  
-Les stockages Standard et Premium sont tous deux disponibles pour les objets blob. Le stockage Premium est plus cher, mais ses vitesses de débit supérieures vous feront gagner du temps sur vos exécutions d’entraînement, en particulier si vous effectuez l’entraînement sur un jeu de données volumineux. Pour plus d’informations sur le coût des comptes de stockage, consultez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+Nous vous recommandons de créer un magasin de données pour un [conteneur Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Les stockages Standard et Premium sont tous deux disponibles pour les objets blob. Le stockage Premium est plus cher, mais ses vitesses de débit supérieures vous feront gagner du temps sur vos exécutions d’entraînement, en particulier si vous effectuez l’entraînement sur un jeu de données volumineux. Pour plus d’informations sur le coût des comptes de stockage, consultez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-Quand vous créez un espace de travail, un conteneur d’objets blob Azure et un partage de fichiers Azure sont inscrits automatiquement dans l’espace de travail, sous les noms `workspaceblobstore` et `workspacefilestore` respectivement. Ils stockent les informations de connexion pour le conteneur d’objets blob et le partage de fichiers qui sont provisionnés dans le compte de stockage attaché à l’espace de travail. Le conteneur `workspaceblobstore` est défini comme magasin de données par défaut.
+[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) s’appuie sur le stockage Blob Azure et a été conçu pour l’analytique Big Data des entreprises. Une caractéristique fondamentale de Data Lake Storage Gen2 est l’ajout d’un [espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) au stockage Blob. L’espace de noms hiérarchique organise les objets/fichiers dans une hiérarchie de répertoires pour offrir un accès efficace aux données.
+
+Quand vous créez un espace de travail, un conteneur d’objets blob Azure et un partage de fichiers Azure sont inscrits automatiquement dans l’espace de travail, sous les noms `workspaceblobstore` et `workspacefilestore` respectivement. `workspaceblobstore` est utilisé pour stocker les artefacts de l’espace de travail et vos journaux d’expérience de Machine Learning. `workspacefilestore` est utilisé pour stocker des notebooks et des scripts R autorisés via une [instance de calcul](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). Le conteneur `workspaceblobstore` est défini comme magasin de données par défaut.
+
+> [!IMPORTANT]
+> Le concepteur Azure Machine Learning (préversion) crée un magasin de données nommé **azureml_globaldatasets** automatiquement lorsque vous ouvrez un exemple dans la page d’accueil du concepteur. Ce magasin de données contient uniquement des exemples de jeux de données. Veuillez **ne pas** utiliser ce magasin de données pour accéder à des données confidentielles.
+> ![Auto-created datastore for designer sample datasets](media/how-to-access-data/datastore-designer-sample.png)
 
 <a name="access"></a>
 
@@ -76,9 +83,9 @@ Quand vous créez un espace de travail, un conteneur d’objets blob Azure et un
 Quand vous inscrivez une solution de stockage Azure en tant que magasin de données, ce dernier est automatiquement créé et inscrit dans un espace de travail spécifique. Vous pouvez créer des magasins de données et les inscrire auprès d’un espace de travail en utilisant le SDK Python ou Azure Machine Learning Studio.
 
 >[!IMPORTANT]
-> Dans le cadre du processus de création et d’inscription du magasin de données actuel, Azure Machine Learning valide que le principal fourni par l’utilisateur (nom d’utilisateur, principal du service ou jeton SAS) a accès au service de stockage sous-jacent. 
+> Dans le cadre du processus de création et d’inscription du magasin de données initial, Azure Machine Learning vérifie que le service de stockage sous-jacent existe et que le principal fourni par l’utilisateur (nom d’utilisateur, principal de service ou jeton SAS) a accès à ce stockage. Toutefois, pour les magasins de données Azure Data Lake Storage Gen 1 et 2, cette validation se produit plus tard, lorsque des méthodes d’accès aux données comme [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) ou [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) sont appelées. 
 <br><br>
-Toutefois, pour les magasins de données Azure Data Lake Storage Gen 1 et 2, cette validation se produit plus tard quand des méthodes d’accès aux données comme [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) ou [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) sont appelées. 
+Après la création du magasin de données, cette validation est effectuée uniquement pour les méthodes qui requièrent l’accès au conteneur de stockage sous-jacent, et **non** chaque fois que des objets du magasin de données sont récupérés. Par exemple, la validation se produit si vous souhaitez télécharger des fichiers à partir de votre magasin de données ; mais si vous souhaitez simplement modifier votre magasin de données par défaut, la validation ne se produit pas.
 
 ### <a name="python-sdk"></a>Kit de développement logiciel (SDK) Python
 
@@ -94,7 +101,7 @@ Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le c
 > [!IMPORTANT]
 > Si votre compte de stockage se trouve sur un réseau virtuel, seule la création de magasins de données Blob, Partage de fichiers, ADLS Gen 1 et ADLS Gen 2 **via le kit SDK** est prise en charge. Pour accorder à votre espace de travail l’accès à votre compte de stockage, définissez le paramètre `grant_workspace_access` sur `True`.
 
-Les exemples suivants montrent comment inscrire un conteneur d’objets blob Azure, un partage de fichiers Azure et Azure Data Lake Storage Gen 2 comme magasin de données. Pour les autres services de stockage, consultez la [documentation de référence des méthodes `register_azure_*`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
+Les exemples suivants montrent comment inscrire un conteneur d’objets blob Azure, un partage de fichiers Azure et Azure Data Lake Storage Gen 2 comme magasin de données. Pour les autres services de stockage, consultez la [documentation de référence des méthodes `register_azure_*` applicables](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
 #### <a name="blob-container"></a>Conteneur d’objets blob
 
@@ -136,7 +143,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Gen 2
 
-Pour un magasin de données Azure Data Lake Storage Gen 2 (ADLS Gen 2), utilisez [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) pour inscrire un magasin de données d’informations d’identification connecté à un stockage Azure DataLake Gen 2 avec des [autorisations de principal du service](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Pour utiliser votre principal de service, vous devez [inscrire votre application](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) et définir des attributions de rôle sur Lecteur et Accès aux données. Découvrez-en plus sur la [configuration du contrôle d’accès pour ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Pour un magasin de données Azure Data Lake Storage Gen 2 (ADLS Gen 2), utilisez [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) pour inscrire un magasin de données d’informations d’identification connecté à un stockage Azure DataLake Gen 2 avec des [autorisations de principal du service](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Pour utiliser votre principal de service, vous devez [inscrire votre application](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) et accorder l’accès aux données approprié au principal de service. Découvrez-en plus sur la [configuration du contrôle d’accès pour ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 Le code suivant crée le magasin de données `adlsgen2_datastore_name` et l’inscrit auprès de l’espace de travail `ws`. Ce magasin de données accède au système de fichiers `test` sur le compte de stockage `account_name`, à l’aide des informations d’identification du principal du service fournies.
 
@@ -208,13 +215,6 @@ Pour obtenir le magasin de données par défaut de l’espace de travail, utilis
 datastore = ws.get_default_datastore()
 ```
 
-Pour changer de magasin de données par défaut pour l’espace de travail actif, utilisez la méthode [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) sur l’espace de travail :
-
-```Python
-# Define the default datastore for the current workspace
-ws.set_default_datastore('your datastore name')
-```
-
 <a name="up-and-down"></a>
 ## <a name="upload-and-download-data"></a>Charger et télécharger des données
 
@@ -257,7 +257,7 @@ Pour interagir avec les données de vos magasins de données ou pour empaqueter 
 
 Le stockage Blob Azure offre des vitesses de débit supérieures à celles du partage de fichiers Azure et s’adapte à un grand nombre de travaux démarrés en parallèle. C’est pourquoi nous vous recommandons de configurer vos exécutions pour utiliser le stockage Blob pour le transfert des fichiers de code source.
 
-L’exemple de code suivant spécifie dans la configuration d’exécution le magasin de données d’objets blob à utiliser pour les transferts de code source :
+L’exemple de code suivant spécifie dans la configuration d’exécution le magasin de données d’objets blob à utiliser pour les transferts de code source.
 
 ```python 
 # workspaceblobstore is the default blob storage

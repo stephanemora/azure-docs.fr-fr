@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: def57dc125a148abd330643fc5848a35cd3b52bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 03/12/2020
+ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991001"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437791"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -45,7 +45,7 @@ Pour l’activité de copie, ce connecteur Azure SQL Database prend en charge le
 >Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) n’est actuellement pas pris en charge par ce connecteur. Pour contourner ce problème, vous pouvez utiliser un [connecteur ODBC générique](connector-odbc.md) et un pilote SQL Server ODBC via un runtime d’intégration auto-hébergé. Suivez [ces instructions](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) relatives au téléchargement du pilote ODBC et à la configuration des chaînes de connexion.
 
 > [!IMPORTANT]
-> Si vous copiez des données via le runtime d’intégration Azure Data Factory, configurez un [pare-feu Azure SQL Server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) de façon à ce que les services Azure puissent accéder au serveur.
+> Si vous copiez des données via le runtime d’intégration Azure Data Factory, configurez un [pare-feu Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de façon à ce que les services Azure puissent accéder au serveur.
 > Si vous copiez des données à l’aide d’un runtime d’intégration auto-hébergé, configurez le pare-feu Azure SQL Server pour qu’il autorise la plage IP appropriée. Cette plage inclut l’adresse IP de l’ordinateur utilisé pour se connecter à Azure SQL Database.
 
 ## <a name="get-started"></a>Bien démarrer
@@ -143,7 +143,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 4. Accordez les autorisations requises par le principal de service comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    ALTER ROLE [role name] ADD MEMBER [your application name];
     ```
 
 5. Dans Azure Data Factory, configurez un service lié Azure SQL Database.
@@ -173,7 +173,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 }
 ```
 
-### <a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
 
 Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser cette identité managée pour l’authentification Azure SQL Database. La fabrique en question peut accéder à votre base de données et copier des données depuis ou vers celle-ci à l’aide de cette identité.
 
@@ -190,7 +190,7 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
 3. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
     ```
 
 4. Dans Azure Data Factory, configurez un service lié Azure SQL Database.
@@ -261,6 +261,7 @@ Pour copier des données à partir d’Azure SQL Database, les propriétés suiv
 | sqlReaderQuery | Cette propriété utilise la requête SQL personnalisée pour lire les données. par exemple `select * from MyTable`. | Non |
 | sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non |
 | storedProcedureParameters | Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de procédure stockée. | Non |
+| isolationLevel | Spécifie le comportement de verrouillage des transactions pour la source SQL. Les valeurs autorisées sont les suivantes : **ReadCommitted** (valeur par défaut), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Pour plus d’informations, consultez [ce document](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel). | Non |
 
 **Points à noter :**
 
@@ -505,7 +506,7 @@ Les étapes permettant d’écrire des données à l’aide d’une logique pers
 - Charger les données dans une table temporaire de niveau base de données, puis appeler une procédure stockée. 
 - Appeler une procédure stockée pendant la copie.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Appel d'une procédure stockée à partir d'un récepteur SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Appel d'une procédure stockée à partir d'un récepteur SQL
 
 Quand vous copiez des données dans Azure SQL Database, vous pouvez également configurer et appeler une procédure stockée spécifiée par l’utilisateur avec des paramètres supplémentaires. La fonction de procédure stockée tire parti des [paramètres table](https://msdn.microsoft.com/library/bb675163.aspx).
 
@@ -521,7 +522,7 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
         [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL，
+        [State] [varchar](256) NOT NULL,
         [Category] [varchar](256) NOT NULL
     )
     ```

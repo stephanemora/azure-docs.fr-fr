@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: de2b40ea0339b564b97d17601415d1071bdc6a6e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367917"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877301"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -49,13 +49,9 @@ Non, ce scénario n’est pas pris en charge. Les paramètres par défaut sont :
 
 Pour obtenir des recommandations, consultez [Haute disponibilité et équilibrage de charge de vos applications et connecteurs de proxy d’application](application-proxy-high-availability-load-balancing.md).
 
-### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Puis-je placer un appareil proxy de transfert entre le ou les serveurs du connecteur et le serveur d’applications back-end ?
+### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>L’arrêt TLS (inspection ou accélération TLS/HTTPS) sur le trafic entre les serveurs du connecteur et Azure est-il pris en charge ?
 
-Non, ce scénario n’est pas pris en charge. Seuls le connecteur et les services de mise à jour peuvent être configurés pour utiliser un proxy de transfert pour le trafic sortant vers Azure. Consultez [Travailler avec des serveurs proxy locaux existants](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-
-### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>L’arrêt SSL (inspection ou accélération SSL/HTTPS) sur le trafic entre les serveurs du connecteur et Azure est-il pris en charge ?
-
-Le connecteur de proxy d’application effectue une authentification par certificat auprès d’Azure. L’arrêt SSL (inspection ou accélération SSL/HTTPS) interrompt cette méthode d’authentification et n’est pas pris en charge. Le trafic entre le connecteur et Azure doit ignorer tous les appareils qui effectuent un arrêt SSL.  
+Le connecteur de proxy d’application effectue une authentification par certificat auprès d’Azure. L’arrêt TLS (inspection ou accélération TLS/HTTPS) interrompt cette méthode d’authentification et n’est pas pris en charge. Le trafic entre le connecteur et Azure doit ignorer tous les appareils qui effectuent un arrêt TLS.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>Dois-je créer un compte dédié pour inscrire le connecteur auprès du proxy d’application Azure AD ?
 
@@ -113,7 +109,7 @@ Non, ce scénario n’est pas pris en charge, car le proxy d’application arrê
 
 Reportez-vous à [Publier le Bureau à distance avec le proxy d’application Azure AD](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-in-the-remote-desktop-gateway-publishing-scenario"></a>Puis-je utiliser la délégation contrainte Kerberos dans le scénario de publication de la passerelle des services Bureau à distance ?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Puis-je utiliser la délégation contrainte Kerberos (authentification unique - Authentification intégrée de Windows) dans le scénario de publication de la passerelle des services Bureau à distance ?
 
 Non, ce scénario n’est pas pris en charge.  
 
@@ -121,7 +117,7 @@ Non, ce scénario n’est pas pris en charge.
 
 Oui, c’est normal. Le scénario de préauthentification exige un contrôle ActiveX, qui n’est pas pris en charge dans les navigateurs tiers.
 
-### <a name="is-the-remote-desktop-web-client-supported"></a>Le client web Bureau à distance est-il pris en charge ?
+### <a name="is-the-remote-desktop-web-client-html5-supported"></a>Le client web Bureau à distance (HTML5) est-il pris en charge ?
 
 Non, ce scénario n’est pas pris en charge actuellement. Suivez notre forum de commentaires [UserVoice](https://aka.ms/aadapuservoice) pour être tenu informé de l’évolution de cette fonctionnalité.
 
@@ -135,6 +131,10 @@ Oui, c’est normal. Si l’ordinateur de l’utilisateur est joint à Azure AD,
 
 Reportez-vous à [Activer l’accès distant à SharePoint avec le proxy d’application Azure AD](application-proxy-integrate-with-sharepoint-server.md).
 
+### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>Puis-je utiliser l’application mobile SharePoint (iOS/Android) pour accéder à un serveur SharePoint publié ?
+
+Pour le moment, l’[application mobile SharePoint](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) ne prend pas en charge la préauthentification Azure Active Directory.
+
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Publication des services de fédération Active Directory (AD FS) 
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Puis-je utiliser le proxy d’application Azure AD en tant que proxy AD FS (comme le proxy d’application web) ?
@@ -147,7 +147,7 @@ Non. Le proxy d’application Azure AD est conçu pour fonctionner avec Azure AD
 
 Actuellement, la prise en charge du protocole WebSocket est toujours en préversion publique et peut ne pas fonctionner pour d’autres applications. Malgré tout, certains clients ont tant bien que mal réussi à utiliser le protocole WebSocket avec d’autres applications. Si vous testez de tels scénarios, nous serions ravis de connaître vos résultats. Envoyez-nous vos commentaires à l’adresse aadapfeedback@microsoft.com.
 
-Les fonctionnalités (Eventlogs, PowerShell et Services Bureau à distance) de Windows Admin Center (WAC) ou du client web Bureau à distance ne fonctionnent pas actuellement via Proxy d’application Azure Active Directory.
+Les fonctionnalités (Eventlogs, PowerShell et Services Bureau à distance) de Windows Admin Center (WAC) ou du client web Bureau à distance (HTML5) ne fonctionnent pas actuellement via Proxy d’application Azure Active Directory.
 
 ## <a name="link-translation"></a>Traduction de liens
 

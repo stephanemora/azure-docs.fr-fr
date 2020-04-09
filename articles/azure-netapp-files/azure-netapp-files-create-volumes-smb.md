@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 04/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 7affd408ce2471f34a8362ba32101b639aafc514
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c4e7566eeb28bc5709acd60ced9fcdffb7e8a725
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586601"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667999"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -35,7 +35,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
  Vous devez créer des connexions Active Directory avant de créer un volume SMB. La configuration requise pour les connexions Active Directory est la suivante : 
 
-* Le compte d’administrateur utilisé doit être en mesure de créer des comptes d’ordinateur dans le chemin d’accès de l’unité d’organisation (UO) que vous spécifiez.  
+* Le compte d’administrateur que vous utilisez doit avoir la capacité de créer des comptes d’ordinateur dans le chemin de l’unité d’organisation (UO) que vous allez spécifier.  
 
 * Les ports appropriés doivent être ouverts sur le serveur Windows Active Directory (AD) applicable.  
     Les ports requis sont les suivants : 
@@ -60,7 +60,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
 * La topologie de site pour les services de domaine Active Directory ciblés doit respecter les meilleures pratiques, en particulier le réseau virtuel Azure où Azure NetApp Files est déployé.  
 
-    L’espace d’adressage du réseau virtuel où Azure NetApp Files est déployé doit être ajouté à un site Active Directory nouveau ou existant (où réside un contrôleur de domaine accessible par Azure NetApp Files). 
+    L’espace d’adressage du réseau virtuel où Azure NetApp Files est déployé doit être ajouté à un site Active Directory nouveau ou existant (où se trouve un contrôleur de domaine accessible par Azure NetApp Files). 
 
 * Les serveurs DNS spécifiés doivent être accessibles à partir du [sous-réseau délégué](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) d’Azure NetApp Files.  
 
@@ -70,11 +70,62 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
 * Le sous-réseau délégué Azure NetApp Files doit pouvoir accéder à tous les contrôleurs de domaine Active Directory Domain Services (AD DS) dans le domaine, y compris tous les contrôleurs de domaine locaux et distants. Si ce n'est pas le cas, une interruption de service peut se produire.  
 
-    En présence de contrôleurs de domaine non accessibles via le sous-réseau délégué Azure NetApp Files, vous pouvez spécifier un site Active Directory lors de la création de la connexion Active Directory.  Azure NetApp Files doit uniquement communiquer avec les contrôleurs de domaine du site où réside l’espace d’adressage du sous-réseau délégué Azure NetApp Files.
+    Si vous avez des contrôleurs de domaine que le sous-réseau délégué Azure NetApp Files ne peut pas atteindre, vous pouvez spécifier un site Active Directory au moment de créer la connexion Active Directory.  Azure NetApp Files doit communiquer uniquement avec les contrôleurs de domaine du site où se trouve l’espace d’adressage du sous-réseau délégué Azure NetApp Files.
 
     Consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sur les sites et services Active Directory. 
     
+<!--
+* Azure NetApp Files supports DES, Kerberos AES 128, and Kerberos AES 256 encryption types (from the least secure to the most secure). The user credentials used to join Active Directory must have the highest corresponding account option enabled that matches the capabilities enabled for your Active Directory.   
+
+    For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
+
+    You can enable the account options in the properties of the Active Directory Users and Computers MMC console:   
+
+    ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
+-->
+
 Pour plus d’informations sur AD, consultez les [Questions fréquentes sur SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) pour Azure NetApp Files. 
+
+## <a name="decide-which-domain-services-to-use"></a>Déterminer quels services de domaine utiliser 
+
+Azure NetApp Files prend en charge à la fois [Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) et Azure Active Directory Domain Services (AADDS) pour les connexions AD.  Avant de créer une connexion AD, vous devez choisir entre ADDS et AADDS.  
+
+Pour plus d’informations, consultez [Comparer les services Active Directory Domain Services auto-gérés, Azure Active Directory et Azure Active Directory Domain Services managés](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). 
+
+### <a name="active-directory-domain-services"></a>Active Directory Domain Services
+
+Vous pouvez utiliser l’étendue [Sites et services Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) préférée pour Azure NetApp Files. Cette option autorise les accès en lecture et écriture aux contrôleurs de domaine Active Directory Domain Services (ADDS) [accessibles à Azure NetApp Files](azure-netapp-files-network-topologies.md). Par ailleurs, elle empêche le service de communiquer avec les contrôleurs de domaine qui ne se trouvent pas dans le site Sites et services Active Directory spécifié. 
+
+Si vous utilisez ADDS, vous pouvez obtenir le nom de votre site auprès du groupe d’administration de votre organisation qui est en charge d’Active Directory Domain Services. L’exemple ci-dessous illustre le plug-in Sites et services Active Directory dans lequel figure le nom du site : 
+
+![Sites et services Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
+
+Quand vous configurez une connexion AD pour Azure NetApp Files, vous devez spécifier le nom du site compris dans l’étendue dans le champ **Nom du site AD**.
+
+### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 
+
+Pour obtenir des recommandations et des informations sur la configuration d’Azure Active Directory Domain Services (AADDS), consultez la [documentation Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
+
+Des considérations supplémentaires liées à AADDS s’appliquent à Azure NetApp Files : 
+
+* Vérifiez que le réseau virtuel ou le sous-réseau dans lequel AADDS est déployé se trouve dans la même région Azure que le déploiement Azure NetApp Files.
+* Si vous utilisez un autre réseau virtuel dans la région où Azure NetApp Files est déployé, vous devez créer un appairage entre les deux réseaux virtuels.
+* Azure NetApp Files prend en charge les types `user` et `resource forest`.
+* Pour le type de synchronisation, vous pouvez sélectionner `All` ou `Scoped`.   
+    Si vous sélectionnez `Scoped`, vérifiez que le groupe Azure AD sélectionné pour accéder aux partages SMB convient.  Si vous n’en êtes pas certain, vous pouvez utiliser le type de synchronisation `All`.
+* L’utilisation de la référence SKU Entreprise ou Premium est obligatoire. La référence SKU Standard n’est pas prise en charge.
+
+Quand vous créez une connexion Active Directory, notez les détails suivants concernant AADDS :
+
+* Les informations **DNS principal**, **DNS secondaire** et **Nom de domaine AD DNS** se trouvent dans le menu AADDS.  
+Pour les serveurs DNS, deux adresses IP sont utilisées pour configurer la connexion Active Directory. 
+* Le **chemin de l’unité d’organisation** est `OU=AADDC Computers`.  
+Ce paramètre est configuré dans **Active Directory Connections** (Connexions Active Directory) en dessous de **NetApp Account** (Compte NetApp) :
+
+  ![Chemin de l’unité d’organisation](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
+
+* Les informations d’identification de **Username** (Nom d’utilisateur) peuvent être celles de n’importe quel utilisateur membre du groupe Azure AD **Azure AD DC Administrators** (Administrateurs Azure AD DC).
+
 
 ## <a name="create-an-active-directory-connection"></a>Créer une connexion Active Directory
 
@@ -82,7 +133,9 @@ Pour plus d’informations sur AD, consultez les [Questions fréquentes sur SMB]
 
     ![Connexions Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
-2. Dans la fenêtre Rejoindre Active Directory, entrez les informations suivantes :
+2. Dans la fenêtre Joindre Active Directory, entrez les informations suivantes, en fonction des services de domaine que vous voulez utiliser :  
+
+    Pour obtenir des informations propres aux services de domaine que vous utilisez, consultez [Déterminer quels services de domaine utiliser](#decide-which-domain-services-to-use). 
 
     * **DNS principal**  
         Il s’agit du serveur DNS requis pour la jonction de domaine Active Directory et les opérations d’authentification SMB. 
@@ -95,7 +148,7 @@ Pour plus d’informations sur AD, consultez les [Questions fréquentes sur SMB]
     * **Préfixe de serveur SMB (compte d’ordinateur)**  
         Préfixe de nom pour le compte d’ordinateur dans Active Directory que Azure NetApp Files utilise pour la création de nouveaux comptes.
 
-        Par exemple, si la norme d’affectation de noms utilisée par votre organisation pour les serveurs de fichiers est NAS-01, NAS-02..., NAS-045, entrez « NAS » comme préfixe. 
+        Par exemple, si la convention de nommage utilisée par votre organisation pour les serveurs de fichiers est NAS-01, NAS-02..., NAS-045, entrez « NAS » comme préfixe. 
 
         Le service crée des comptes d’ordinateurs supplémentaires dans Active Directory en fonction des besoins.
 
@@ -151,7 +204,7 @@ Pour plus d’informations sur AD, consultez les [Questions fréquentes sur SMB]
         Spécifiez le sous-réseau que vous souhaitez utiliser pour le volume.  
         Le sous-réseau que vous spécifiez doit être délégué à Azure NetApp Files. 
         
-        Si vous n’avez pas délégué un sous-réseau, vous pouvez cliquer sur **Créer** sur la page Créer un volume. Ensuite, dans la page Créer un sous-réseau, fournissez les informations sur le sous-réseau, puis sélectionnez **Microsoft.NetApp/volumes** pour déléguer le sous-réseau à Azure NetApp Files. Dans chaque réseau virtuel, un seul sous-réseau peut être délégué à Azure NetApp Files.   
+        Si vous n’avez pas délégué un sous-réseau, vous pouvez cliquer sur **Créer** dans la page Créer un volume. Ensuite, dans la page Créer un sous-réseau, fournissez les informations sur le sous-réseau, puis sélectionnez **Microsoft.NetApp/volumes** pour déléguer le sous-réseau à Azure NetApp Files. Dans chaque réseau virtuel, un seul sous-réseau peut être délégué à Azure NetApp Files.   
  
         ![Créer un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

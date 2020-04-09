@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 5a41d5653de0d8a9f674009904756892ac343609
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357247"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421217"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata Vantage à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -41,17 +41,11 @@ Plus précisément, ce connecteur Teradata prend en charge :
 - Copie des données avec l’authentification **De base** ou **Windows**.
 - Copie en parallèle à partir d’une source Teradata. Pour en savoir plus, voir [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata).
 
-> [!NOTE]
->
-> Après la publication de la version 3.18 du runtime d’intégration auto-hébergé, Azure Data Factory a mis à niveau le connecteur Teradata. Les charges de travail existantes qui utilisent le connecteur Teradata précédent sont toujours prises en charge. Cependant, il est préférable d’utiliser le nouveau connecteur pour les nouvelles charges de travail. Notez que le nouveau chemin d’accès requiert un ensemble différent de service lié, de jeu de données et de source de copie. Pour plus de détails de configuration, consultez les sections correspondantes ci-après.
-
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-Le runtime d’intégration fournit un pilote Teradata intégré, depuis la version 3.18. Vous n’avez pas besoin d’installer manuellement un pilote. Le pilote requiert l’installation du package Redistribuable Visual C++ pour Visual Studio 2012 Update 4 sur l’ordinateur du runtime d’intégration auto-hébergé. S’il n’est pas déjà installé, vous pouvez le télécharger [ici](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
-
-Pour une version du runtime d’intégration auto-hébergé antérieure à 3.18, vous devez installer le [fournisseur de données .NET pour Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) version 14 ou ultérieure sur la machine exécutant le runtime d’intégration. 
+Si vous utilisez un runtime d’intégration auto-hébergé, notez qu’il fournit un pilote Teradata intégré depuis la version 3.18. Vous n’avez pas besoin d’installer manuellement un pilote. Le pilote requiert l’installation du package Redistribuable Visual C++ pour Visual Studio 2012 Update 4 sur l’ordinateur du runtime d’intégration auto-hébergé. S’il n’est pas déjà installé, vous pouvez le télécharger [ici](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -69,7 +63,7 @@ Le service lié Teradata prend en charge les propriétés suivantes :
 | connectionString | Spécifie les informations requises pour se connecter à l’instance de Teradata. Consultez les exemples suivants.<br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez la section [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à Teradata. S’applique lors de l’utilisation de l’authentification Windows. | Non |
 | mot de passe | Spécifiez un mot de passe pour le compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Vous pouvez également choisir de [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br>S’applique lors de l’utilisation de l’authentification Windows ou du référencement du mot de passe dans Key Vault pour l’authentification de base. | Non |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 Autres propriétés de connexion que vous pouvez définir dans la chaîne de connexion selon votre cas :
 
@@ -208,7 +202,7 @@ Pour copier des données à partir de Teradata, les propriétés prises en charg
 |:--- |:--- |:--- |
 | type | La propriété type de la source de l’activité de copie doit être définie sur `TeradataSource`. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. par exemple `"SELECT * FROM MyTable"`.<br>Lorsque vous activez la charge partitionnée, vous devez utiliser les paramètres de partition intégrés correspondants dans votre requête. Pour consulter des exemples, voir [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata). | Non (si la table du jeu de données est spécifiée) |
-| partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir de Teradata. <br>Les valeurs autorisées sont : **Aucun** (par défaut), **Hachage** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (autrement dit, pas `None`), le degré de parallélisme pour charger simultanément des données à partir de Teradata est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) de l’activité de copie. | Non |
+| partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir de Teradata. <br>Les valeurs autorisées sont : **Aucun** (par défaut), **Hachage** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (autrement dit, pas `None`), le degré de parallélisme pour charger simultanément des données à partir de Teradata est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de l’activité de copie. | Non |
 | partitionSettings | Spécifiez le groupe de paramètres pour le partitionnement des données. <br>S’applique lorsque l’option de partitionnement n’est pas `None`. | Non |
 | partitionColumnName | Spécifiez le nom de la colonne source qu’utilisera le partitionnement par plages de valeurs ou hachage pour la copie en parallèle. S’il n’est pas spécifié, l'index primaire de la table sera automatiquement détecté et utilisé en tant que colonne de partition. <br>S’applique lorsque l’option de partitionnement est `Hash` ou `DynamicRange`. Si vous utilisez une requête pour récupérer des données sources, utilisez `?AdfHashPartitionCondition` ou `?AdfRangePartitionColumnName` dans la clause WHERE. Consultez l’exemple de la section [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata). | Non |
 | partitionUpperBound | Valeur maximale de la colonne de partition à partir de laquelle copier des données. <br>S’applique lorsque de l’option de partition est `DynamicRange`. Si vous avez recours à une requête pour récupérer des données sources, utilisez `?AdfRangePartitionUpbound` dans la clause WHERE. Pour consulter un exemple, voir [Copie en parallèle à partir de Teradata](#parallel-copy-from-teradata). | Non |
@@ -256,7 +250,7 @@ Le connecteur Teradata de Data Factory propose un partitionnement de données in
 
 ![Capture d’écran représentant les options de partition](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Lorsque vous activez la copie partitionnée, Data Factory exécute des requêtes en parallèle sur votre source Teradata, afin de charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l'option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de Teradata.
+Lorsque vous activez la copie partitionnée, Data Factory exécute des requêtes en parallèle sur votre source Teradata, afin de charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l'option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de Teradata.
 
 Il vous est recommandé d’activer la copie en parallèle avec partitionnement des données notamment lorsque vous chargez une grande quantité de données à partir de Teradata. Voici quelques suggestions de configurations pour différents scénarios. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est recommandé de les écrire dans un dossier sous la forme de plusieurs fichiers (spécifiez uniquement le nom du dossier). Les performances seront meilleures qu’avec l’écriture dans un seul fichier.
 

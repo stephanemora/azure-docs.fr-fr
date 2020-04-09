@@ -4,12 +4,12 @@ description: Prise en main d'Application Insights. Analyze usage, availability a
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234589"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985063"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Analyse des performances dans les applications web
 
@@ -26,8 +26,7 @@ Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inc
 * [Applications web ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Ajout de la surveillance des exceptions](../../azure-monitor/app/asp-net-exceptions.md)
   * [Ajout de la surveillance des dépendances](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Applications web Java EE](../../azure-monitor/app/java-get-started.md)
-  * [Ajout de la surveillance des dépendances](../../azure-monitor/app/java-agent.md)
+* [Applications web Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Exploration des mesures de performances
 Sur le [portail Azure](https://portal.azure.com), accédez à la ressource Application Insights que vous avez configurée pour votre application. Le panneau de vue d’ensemble présente les données de performances de base :

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759821"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283257"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -46,23 +46,27 @@ Les réseaux sont généralement protégés à l’aide de pare-feu et de groupe
 Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez ces URL Site Recovery :
 
 
-**URL** | **Détails**  
+**URL** | **Détails**
 --- | ---
 *.blob.core.windows.net | Nécessaire pour que les données puissent être écrites dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. Si vous connaissez tous les comptes de stockage de cache de vos machines virtuelles, vous pouvez autoriser l’accès aux URL de compte de stockage spécifiques (par exemple, cache1.blob.core.windows.net et cache2.blob.core.windows.net) au lieu de *.blob.core.windows.net.
 login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentification aux URL du service Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Nécessaire pour que la communication du service Site Recovery puisse avoir lieu à partir de la machine virtuelle.
 *.servicebus.windows.net | Nécessaire pour que les données de surveillance et de diagnostic Site Recovery puissent être écrites à partir de la machine virtuelle.
+*.vault.azure.net | Autorise l’accès à la réplication pour les machines virtuelles compatibles avec ADE via le portail
+*.automation.ext.azure.com | Autorise l’activation de la mise à niveau automatique de l’agent de mobilité pour un élément répliqué via le portail
 
-## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
+## <a name="outbound-connectivity-using-service-tags"></a>Connectivité sortante à l’aide d’étiquettes de service
 
 Si vous utilisez un groupe de sécurité réseau pour contrôler la connectivité sortante, ces étiquettes de services doivent être autorisées.
 
-- Toutes les plages d’adresses IP qui correspondent aux comptes de stockage dans la région source
+- Pour les comptes de stockage dans la région source :
     - Créez une règle de groupe de sécurité réseau basée sur une [balise de service de stockage](../virtual-network/security-overview.md#service-tags) pour la région source.
     - Autorisez ces adresses pour que les données puissent être écrites dans le compte de stockage de cache, à partir de la machine virtuelle.
 - Créer une règle de groupe de sécurité réseau basée sur une [balise de service Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à AAD
 - Créez une règle de groupe de sécurité réseau basée sur une balise du service EventsHub pour la région cible, en autorisant l’accès à la supervision de Site Recovery.
 - Créez une règle de groupe de sécurité réseau basée sur une balise du service AzureSiteRecovery pour autoriser l’accès au service Site Recovery dans n’importe quelle région.
+- Créez une règle NSG basée sur une étiquette de service AzureKeyVault. Cela est nécessaire uniquement pour l’activation de la réplication des machines virtuelles compatibles avec ADE via le portail.
+- Créez une règle NSG basée sur une balise de service GuestAndHybridManagement. Cela est nécessaire uniquement pour l’activation de la mise à niveau automatique de l’agent de mobilité pour un élément répliqué via le portail.
 - Nous vous recommandons de créer les règles de groupe de sécurité réseau requises sur un groupe de sécurité réseau de test, et de vérifier qu’il n’y a aucun problème avant de créer les règles sur un groupe de sécurité réseau de production.
 
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau

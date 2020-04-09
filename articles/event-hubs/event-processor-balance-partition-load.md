@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 1244fe64d0c23782fdae7a0f92415bada4bef55a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: bf90120157bf64bd62a3b5ec9d8a6b2c6260e024
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907184"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398293"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Équilibrer la charge de partition sur plusieurs instances de votre application
 Pour mettre à l’échelle votre application de traitement des événements, vous pouvez exécuter plusieurs instances de l’application et faire en sorte que celle-ci équilibre la charge entre elles. Dans les versions plus anciennes, [EventProcessorHost](event-hubs-event-processor-host.md) vous permettait d’équilibrer la charge entre plusieurs instances de votre programme et des événements de point de contrôle lors de la réception. Dans les versions plus récentes (à partir de 5.0), **EventProcessorClient** (.NET et Java) ou **EventHubConsumerClient** (Python et JavaScript) vous permet d’en faire de même. Le modèle de développement est simplifié par l’utilisation d’événements. Vous vous abonnez aux événements qui vous intéressent en inscrivant un gestionnaire d’événements.
@@ -75,13 +75,20 @@ Lorsque vous créez un processeur d’événements, vous spécifiez les fonction
 
 Nous vous recommandons d’opérer assez rapidement. Autrement dit, effectuez le moins de traitement possible. Si vous avez besoin d’écrire dans le stockage et d’effectuer du routage, mieux vaut utiliser deux groupes de consommateurs et avoir deux processeurs d’événements.
 
-## <a name="checkpointing"></a>Marquage de point de contrôle
+## <a name="checkpointing"></a>Points de contrôle
 
 Le *marquage de point de contrôle* est un processus par lequel un processeur d’événements marque ou valide la position du dernier événement correctement traité dans une partition. Le marquage d’un point de contrôle est généralement effectué à l’intérieur de la fonction qui traite les événements et se produit par partition au sein d’un groupe de consommateurs. 
 
 Si un processeur d’événements se déconnecte d’une partition, une autre instance peut reprendre le traitement de la partition au point de contrôle précédemment validé par le dernier processeur de cette partition dans ce groupe de consommateurs. Lorsque le processeur se connecte, il transmet le décalage au hub d’événements pour spécifier l’emplacement où commencer la lecture. De cette façon, vous pouvez utiliser des points de contrôle pour marquer des événements comme « terminés » par des applications en aval et pour offrir une résilience en cas d’arrêt d’un processeur d’événements. Il est possible de revenir à des données plus anciennes en spécifiant un décalage inférieur à partir de ce processus de vérification. 
 
 Lorsque le point de contrôle est appliqué pour marquer un événement comme traité, une entrée dans le magasin de points de contrôle est ajoutée ou mise à jour avec le décalage et le numéro de séquence de l’événement. Les utilisateurs doivent décider de la fréquence de mise à jour du point de contrôle. Une mise à jour après chaque événement traité avec succès peut avoir une incidence sur les performances et le coût, car elle déclenche une opération d’écriture dans le magasin de points de contrôle sous-jacent. De plus, l’application d’un point de contrôle à chaque événement indique un profil de courrier mis en file d’attente pour lequel une file d’attente Service Bus pourrait être une meilleure option qu’un hub d’événements. L’idée derrière Event Hubs est que vous obtenez une livraison « au moins une fois » à grande échelle. En octroyant la même puissance à vos systèmes en aval, il est facile de récupérer après des pannes ou des redémarrages qui se traduisent par la réception répétée des mêmes événements.
+
+> [!NOTE]
+> Si vous utilisez le stockage Blob Azure comme magasin de points de contrôle dans un environnement qui prend en charge une autre version du kit de développement logiciel (SDK) de stockage Blob que ceux généralement disponibles sur Azure, vous devez utiliser le code pour remplacer la version de l’API de service de stockage par la version prise en charge par cet environnement. Par exemple, si vous exécutez [Event Hubs sur Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service de stockage est la version 2017-11-09. Dans ce cas, vous devez utiliser le code pour cibler la version de l’API de service de stockage 2017-11-09. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants sur GitHub : 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
 
 ## <a name="thread-safety-and-processor-instances"></a>Cohérence de thread et instances de processeur
 

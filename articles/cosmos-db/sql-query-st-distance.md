@@ -4,18 +4,18 @@ description: Découvrez la fonction système SQL ST_DISTANCE dans Azure Cosmos D
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/12/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4908d5f9f6eccaaaf71308b868d712f0eb96cb52
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 02844569137a46ea030b2189191b84a9db24ed22
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303152"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537293"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
- Retourne la distance entre les deux expressions Point, Polygone ou LineString de GeoJSON.  
+ Retourne la distance entre les deux expressions Point, Polygon,MultiPolygon ou LineString de GeoJSON. Pour en savoir plus, consultez l’article [Données de localisation géospatiales et GeoJSON](sql-query-geospatial-intro.md).
   
 ## <a name="syntax"></a>Syntaxe
   

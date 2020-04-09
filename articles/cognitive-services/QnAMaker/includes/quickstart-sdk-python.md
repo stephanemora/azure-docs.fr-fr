@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a77041c0e53c2f0f8b6d0891a0f755e8ca474923
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 03aa3919e1da982bb8a8c235bb598f5b94df1ebf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75945990"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986644"
 ---
 
 Utilisez la bibliothèque de client QnA Maker pour Python afin de :
@@ -17,7 +17,7 @@ Utilisez la bibliothèque de client QnA Maker pour Python afin de :
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -68,7 +68,7 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 
 |Variable d’environnement|variable|Exemple|
 |--|--|--|
-|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|La clé est une chaîne de 32 caractères qui est disponible sur le portail Azure, dans la ressource QnA Maker, dans la page Démarrage rapide. Il ne s’agit pas de la clé du point de terminaison de prédiction.|
+|`QNAMAKER_KEY`|`subscription_key`|La clé est une chaîne de 32 caractères qui est disponible sur le portail Azure, dans la ressource QnA Maker, dans la page Démarrage rapide. Il ne s’agit pas de la clé du point de terminaison de prédiction.|
 |`QNAMAKER_HOST`|`host`| Votre point de terminaison de création, au format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, comprend votre **nom de ressource**. Il ne s’agit pas de l’URL employée pour interroger le point de terminaison de prédiction.|
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]

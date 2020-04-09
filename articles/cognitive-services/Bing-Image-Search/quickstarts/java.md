@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Utiliser Java pour appeler l’API REST Recherche d’images Bing'
+title: 'Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et Java'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour envoyer des requêtes de recherche d’images à l’API REST Recherche d’images Bing à l’aide de Java et recevoir des réponses JSON.
 services: cognitive-services
@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c1e339643613db188819e7eb8853cad8a48ea47f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 979bd034b2f4d3665de64fe8ffdb33efc7a370cb
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928136"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478571"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Démarrage rapide : Rechercher des images avec l’API Recherche d’images Bing, un service cognitif d’Azure 
 

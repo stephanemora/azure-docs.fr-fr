@@ -6,12 +6,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: a305914c5c870543e16c515880955693c2634044
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: e49fafc2889b98d013d77471f8177fd85a307cc8
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239179"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754880"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à votre déploiement de modèle ARM
 
@@ -198,7 +198,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez récupéré un secret dans votre coffre de clés Azure. Vous avez ensuite utilisé le secret dans votre déploiement de modèle. Pour savoir comment créer des modèles liés, consultez l’article suivant :
+Dans ce tutoriel, vous avez récupéré un secret dans votre coffre de clés Azure. Vous avez ensuite utilisé le secret dans votre déploiement de modèle. Pour découvrir comment utiliser les extensions de machine virtuelle afin d’exécuter les tâches post-déploiement, consultez :
 
 > [!div class="nextstepaction"]
-> [Créer des modèles liés](./template-tutorial-create-linked-templates.md)
+> [Déployer des extensions de machine virtuelle](./template-tutorial-deploy-vm-extensions.md)

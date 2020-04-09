@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/14/2019
+ms.date: 4/2/2020
 ms.author: swmachan
-ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: fcbaabac0961f1269a929fb4a56f81ac282bae29
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123040"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619160"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -48,7 +48,7 @@ Pour forcer la gestion de la requête par une zone géographique Azure spécifiq
 |Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asie-Pacifique|    api-apc.cognitive.microsofttranslator.com|
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Abonnez-vous à l’API de traduction de texte Translator Text ou à [un abonnement multiservice Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) dans Azure Cognitive Services, et utilisez votre clé d’abonnement (disponible dans le portail Azure) pour vous authentifier. 
 
@@ -57,18 +57,75 @@ Trois en-têtes sont à votre disposition pour authentifier votre abonnement. Ce
 |headers|Description|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*À utiliser avec un abonnement à Cognitive Services si vous transmettez votre clé secrète*.<br/>La valeur est la clé secrète Azure pour votre abonnement à l’API de traduction de texte Translator Text.|
-|Authorization|*À utiliser avec un abonnement à Cognitive Services si vous transmettez un jeton d'authentification.*<br/>La valeur est le jeton du porteur : `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*À utiliser avec un abonnement multiservice à Cognitive Services si vous passez une clé secrète multiservice.*<br/>La valeur est la région de l’abonnement multiservice. Cette valeur est facultative si vous n’utilisez pas un abonnement multiservice.|
+|Autorisation|*À utiliser avec un abonnement à Cognitive Services si vous transmettez un jeton d'authentification.*<br/>La valeur est le jeton du porteur : `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*Utilisation avec la ressource multiservice Cognitive Services et la ressource du traducteur régional.*<br/>La valeur est la région de la ressource multiservice ou de la ressource du traducteur régional. Cette valeur est facultative si vous utilisez une ressource de traducteur globale.|
 
 ###  <a name="secret-key"></a>Clé secrète
 La première option consiste à procéder à l’authentification à l’aide de l’en-tête `Ocp-Apim-Subscription-Key`. Ajoutez l’en-tête `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` à votre requête.
 
-### <a name="authorization-token"></a>Jeton d’autorisation
+#### <a name="authenticating-with-a-global-resource"></a>Authentification avec une ressource globale
+
+Lorsque vous utilisez une [ressource de traducteur globale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), vous devez inclure un en-tête pour appeler l’API Translator.
+
+|headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| La valeur est la clé secrète Azure pour votre abonnement à l’API de traduction de texte Translator Text.|
+
+Voici un exemple de demande d’appel de l’API Translator à l’aide de la ressource de traducteur globale
+
+```curl
+// Pass secret key using headers
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+#### <a name="authenticating-with-a-regional-resource"></a>Authentification avec une ressource régionale
+
+Lorsque vous utilisez une [ressource de traducteur régionale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+Il existe deux en-têtes dont vous avez besoin pour appeler l’API Translator.
+
+|headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| La valeur est la clé secrète Azure pour votre abonnement à l’API de traduction de texte Translator Text.|
+|Ocp-Apim-Subscription-Region| La valeur est la région de la ressource du traducteur. |
+
+Voici un exemple de demande d’appel de l’API Translator à l’aide de la ressource de traducteur régional
+
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+#### <a name="authenticating-with-a-multi-service-resource"></a>Authentification avec une ressource multiservice
+
+Lorsque vous utilisez une ressource multiservice Cognitive Services. Vous pouvez ainsi utiliser une clé secrète unique pour authentifier les requêtes de plusieurs services. 
+
+Quand vous utilisez une clé secrète multiservice, vous devez inclure deux en-têtes d’authentification avec votre requête. Il existe deux en-têtes dont vous avez besoin pour appeler l’API Translator.
+
+|headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| La valeur est la clé secrète Azure pour votre ressource multiservice.|
+|Ocp-Apim-Subscription-Region| La valeur est la région de la ressource multiservice. |
+
+La région est obligatoire pour l’abonnement à l’API Texte multiservice. La région que vous sélectionnez est la seule région que vous pouvez utiliser pour la traduction de texte lors de l’utilisation de la clé d’abonnement multiservice. En outre, il doit s’agir de la même région que celle sélectionnée lors de la souscription à votre abonnement multiservice via le portail Microsoft Azure.
+
+Les régions disponibles sont `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2` et `southafricanorth`.
+
+Si vous passez la clé secrète dans la chaîne de requête avec le paramètre `Subscription-Key`, vous devez spécifier la région avec le paramètre de requête `Subscription-Region`.
+
+### <a name="authenticating-with-an-access-token"></a>S’authentifier avec un jeton d’accès
 Vous pouvez également échanger votre clé secrète contre un jeton d’accès. Ce jeton est inclus avec chaque requête sous la forme de l’en-tête `Authorization`. Pour obtenir un jeton d’autorisation, exécutez une demande `POST` pour l’URL suivante :
 
-| Environnement     | URL du service d’authentification                                |
+| Type de ressource     | URL du service d’authentification                                |
 |-----------------|-----------------------------------------------------------|
-| Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Global          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Régional or multi-service | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 Voici des exemples de demandes pour obtenir un jeton avec une clé secrète :
 
@@ -88,24 +145,31 @@ Authorization: Bearer <Base64-access_token>
 
 Un jeton d’authentification est valide pour une durée de 10 minutes. Le jeton doit être réutilisé lorsque vous effectuez plusieurs appels aux API Translator. Toutefois, si votre programme effectue des demandes à l’API Translator sur une période prolongée, votre programme doit demander un nouveau jeton d’accès à intervalles réguliers (par exemple, toutes les 8 minutes).
 
-### <a name="multi-service-subscription"></a>Abonnement multiservice
+## <a name="virtual-network-support"></a>Prise en charge des réseaux virtuels
 
-La dernière option d’authentification consiste à utiliser un abonnement multiservice à Cognitive Service. Vous pouvez ainsi utiliser une clé secrète unique pour authentifier les requêtes de plusieurs services. 
+Le service Translator est désormais disponible avec des fonctionnalités de réseau virtuel dans certaines régions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`). Pour activer le réseau virtuel, consultez [Configuration de réseaux virtuels Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
-Quand vous utilisez une clé secrète multiservice, vous devez inclure deux en-têtes d’authentification avec votre requête. Le premier passe la clé secrète, et le second spécifie la région associée à votre abonnement. 
-* `Ocp-Apim-Subscription-Key`
-* `Ocp-Apim-Subscription-Region`
+Après avoir activé cette capacité, vous devez utiliser le point de terminaison personnalisé pour appeler l’API Translator. Vous ne pouvez pas utiliser le point de terminaison du traducteur global (« api.cognitive.microsofttranslator.com ») et vous ne pouvez pas vous authentifier avec un jeton d’accès.
 
-La région est obligatoire pour l’abonnement à l’API Texte multiservice. La région que vous sélectionnez est la seule région que vous pouvez utiliser pour la traduction de texte lors de l’utilisation de la clé d’abonnement multiservice. En outre, il doit s’agir de la même région que celle sélectionnée lors de la souscription à votre abonnement multiservice via le portail Microsoft Azure.
+Vous obtiendrez le point de terminaison personnalisé après avoir créé la [ressource du traducteur](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 
-Les régions disponibles sont `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2` et `southafricanorth`.
+|headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| La valeur est la clé secrète Azure pour votre abonnement à l’API de traduction de texte Translator Text.|
+|Ocp-Apim-Subscription-Region| La valeur est la région de la ressource du traducteur. Cette valeur est facultative si la ressource est `global`|
 
-Si vous passez la clé secrète dans la chaîne de requête avec le paramètre `Subscription-Key`, vous devez spécifier la région avec le paramètre de requête `Subscription-Region`.
+Voici un exemple de demande d’appel de l’API Translator à l’aide du point de terminaison personnalisé
 
-Si vous utilisez un jeton du porteur, vous devez obtenir le jeton du point de terminaison de la région : `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
 
-
-## <a name="errors"></a>Errors
+## <a name="errors"></a>Erreurs
 
 Une réponse d’erreur standard est un objet JSON avec une paire nom/valeur nommée `error`. La valeur est également un objet JSON avec les propriétés :
 

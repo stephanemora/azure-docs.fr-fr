@@ -1,23 +1,23 @@
 ---
 title: Journaux de diagnostic pour Azure SignalR Service
 description: Découvrez comment configurer les journaux de diagnostic pour Azure SignalR Service et utiliser ceux-ci pour résoudre les problèmes automatiquement.
-author: wanl
+author: wanlwanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 33d9a338e12fa4b3d2449f0c5b0576895364c3cf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72f57ba4bbbbde07f6d26edc88c158f301ebe2f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536732"
 ---
 # <a name="diagnostic-logs-for-azure-signalr-service"></a>Journaux de diagnostic pour Azure SignalR Service
 
 Ce didacticiel traite des journaux de diagnostic pour Azure SignalR Service et explique comment configurer les journaux de diagnostic et résoudre les problèmes à l’aide de ceux-ci.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour activer les journaux de diagnostic, vous avez besoin d’un emplacement pour stocker vos données de journal. Ce tutoriel utilise Stockage Azure et Log Analytics.
 
 * [Stockage Azure](../azure-monitor/platform/resource-logs-collect-storage.md) – Conserve les journaux de diagnostic pour l’audit de stratégie, l’analyse statique ou la sauvegarde.
@@ -31,22 +31,22 @@ Vous pouvez afficher les journaux de diagnostic pour Azure SignalR Service. Ces 
 
 Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, effectuez les étapes suivantes :
 
-1.  Dans le [portail Azure](https://portal.azure.com), sous **Analyse**, cliquez sur **Paramètres de diagnostic**.
+1. Dans le [portail Azure](https://portal.azure.com), sous **Analyse**, cliquez sur **Paramètres de diagnostic**.
 
     ![Navigation dans le volet vers les journaux de diagnostic](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
 
-1.  Cliquez ensuite sur **Ajouter un paramètre de diagnostic**.
+1. Cliquez ensuite sur **Ajouter un paramètre de diagnostic**.
 
     ![Ajouter des journaux de diagnostic](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
 
-1.  Définissez la cible d’archivage de votre choix. Les options actuellement disponibles sont **Archiver dans un compte de stockage** et **Envoyer à Log Analytics**.
+1. Définissez la cible d’archivage de votre choix. Les options actuellement disponibles sont **Archiver dans un compte de stockage** et **Envoyer à Log Analytics**.
 
 1. Sélectionnez les journaux à archiver.
 
     ![Volet Paramètres de diagnostic](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
 
 
-1.  Enregistrez les nouveaux paramètres de diagnostic.
+1. Enregistrez les nouveaux paramètres de diagnostic.
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux d’activité apparaissent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostic**.
 
@@ -68,7 +68,7 @@ Les chaînes JSON du journal d’archivage incluent les éléments répertoriés
 
 **Format**
 
-Name | Description
+Nom | Description
 ------- | -------
 time | Heure de l’événement de journal
 level | Niveau de l’événement de journal
@@ -81,7 +81,7 @@ properties | Propriétés détaillées relatives à cet événement de journal. 
 
 **Tableau des propriétés**
 
-Name | Description
+Nom | Description
 ------- | -------
 type | Type de l’événement de journal. Actuellement, nous fournissons des informations sur la connectivité à Azure SignalR Service. Seul le type de `ConnectivityLogs` est disponible
 collection | Collection de l’événement de journal. Les valeurs autorisées sont : `Connection`, `Authorization` et `Throttling`
@@ -128,12 +128,12 @@ Pour afficher les journaux de diagnostic, procédez comme suit :
 
 Les colonnes du journal d’archivage incluent les éléments répertoriés dans le tableau suivant :
 
-Name | Description
+Nom | Description
 ------- | ------- 
 TimeGenerated | Heure de l’événement de journal
 Collection | Collection de l’événement de journal. Les valeurs autorisées sont : `Connection`, `Authorization` et `Throttling`
 NomOpération | Nom d’opération de l’événement
-Location | Emplacement de votre Azure SignalR Service
+Emplacement | Emplacement de votre Azure SignalR Service
 Level | Niveau de l’événement de journal
 callerIpAddress | Adresse IP de votre serveur/client
 Message | Message détaillé de l’événement de journal
@@ -195,4 +195,5 @@ Procédez de la façon suivante :
 4. Journaux collectés du côté serveur/client et autres éléments pouvant être utiles
 5. [Facultatif] Code de reproduction
 
-> Remarque : si vous ouvrez un problème dans GitHub, gardez vos informations sensibles (par exemple, ID de ressource, journaux de serveur/client) confidentielles. Ne les envoyez à des membres de l’organisation Microsoft qu’en privé.  
+> [!NOTE]
+> Si vous ouvrez un problème dans GitHub, gardez vos informations sensibles (par exemple, ID de ressource, journaux de serveur/client) confidentielles. Ne les envoyez à des membres de l’organisation Microsoft qu’en privé.

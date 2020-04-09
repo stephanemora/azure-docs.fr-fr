@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: af7bfe74d8df177650cea76a9bed7b0d7311f87e
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: e2c4e5b6c10b06d82a1933962cb2d97e031876a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968996"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80068018"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -33,7 +33,7 @@ Azure Media Services vous permet de transmettre des événements en direct aupr�
 Cet article offre une vue d’ensemble et des conseils relatifs au streaming en direct avec Media Services ainsi que des liens vers d’autres articles pertinents.
  
 > [!NOTE]
-> Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [éléments multimédias](assets-concept.md) v3 et obtenir des informations sur l’accès aux API. Pour toutes les autres tâches de gestion (par exemple, les transformations et travaux), utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’[interface de ligne de commande](https://aka.ms/ams-v3-cli-ref) ou l’un des [Kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
+> Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [éléments multimédias](assets-concept.md) v3 et obtenir des informations sur l’accès aux API. Pour toutes les autres tâches de gestion (par exemple, les transformations et travaux), utilisez l’[API REST](https://docs.microsoft.com/rest/api/media/), l’[interface de ligne de commande](https://aka.ms/ams-v3-cli-ref) ou l’un des [Kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="dynamic-packaging"></a>Empaquetage dynamique
 
@@ -118,6 +118,10 @@ La ressource sur laquelle la sortie dynamique est archivée devient automatiquem
 - [Comparaison des fonctionnalités des types d'événements en direct](live-event-types-comparison.md)
 - [États et facturation](live-event-states-billing.md)
 - [Latence](live-event-latency.md)
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+Consultez l’article [Foire aux questions](frequently-asked-questions.md#live-streaming).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 

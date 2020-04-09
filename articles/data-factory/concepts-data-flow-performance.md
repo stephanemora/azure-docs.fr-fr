@@ -6,19 +6,22 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 02/24/2020
-ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/11/2020
+ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587581"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409838"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
 Les flux de données de mappage dans Azure Data Factory fournissent une interface sans code pour concevoir, déployer et orchestrer des transformations de données à grande échelle. Si vous n’êtes pas familiarisé avec les flux de données de mappage, consultez [Vue d’ensemble des flux de données de mappage](concepts-data-flow-overview.md).
 
 Quand vous concevez et testez des flux de données à partir de l’interface utilisateur ADF, veillez à activer le mode de débogage pour exécuter vos flux de données en temps réel sans attendre le préchauffage d’un cluster. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
+
+Cette vidéo montre des exemples de minutage qui transforment les données avec des flux de données :
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
 
 ## <a name="monitoring-data-flow-performance"></a>Supervision des performances de flux de données
 
@@ -59,11 +62,14 @@ Par défaut, l’activation du débogage utilise le runtime d’intégration Azu
 
 ![Partie source](media/data-flow/sourcepart3.png "Partie source")
 
+> [!NOTE]
+> Pour vous aider à choisir le nombre de partitions de votre source, prenez le nombre de cœurs que vous avez défini pour votre instance d'Azure Integration Runtime et multipliez-le par cinq. Par exemple, si vous transformez une série de fichiers dans vos dossiers ADLS et que vous comptez utiliser une instance d'Azure IR composée de 32 cœurs, le nombre de partitions à choisir est de 32 x 5 = 160 partitions.
+
 ### <a name="source-batch-size-input-and-isolation-level"></a>Taille de lot, entrée et niveau d’isolation de la source
 
 Sous **Options de la source** dans la transformation de la source, les paramètres suivants peuvent avoir une incidence sur les performances :
 
-* L’option Taille du lot indique à ADF que les données doivent être stockées dans des ensembles en mémoire, et non pas ligne par ligne. Il s’agit d’un paramètre facultatif. Il est possible que vous manquiez de ressources sur les nœuds de calcul s’ils sont mal dimensionnés.
+* L’option Taille du lot indique à ADF que les données doivent être stockées dans des ensembles en mémoire Spark, et non pas ligne par ligne. Il s’agit d’un paramètre facultatif. Il est possible que vous manquiez de ressources sur les nœuds de calcul s’ils sont mal dimensionnés. Si cette propriété n’est pas définie, les valeurs par défaut du lot de mise en cache Spark sont utilisées.
 * La définition d’une requête peut vous permettre de filtrer les lignes au niveau de la source avant qu’elles n’arrivent dans le flux de données pour être traitées. Cela peut accélérer l’acquisition initiale des données. Si vous utilisez une requête, vous pouvez ajouter des indicateurs de requête facultatifs pour votre instance Azure SQL DB, par exemple READ UNCOMMITTED.
 * La lecture non validée fournira des résultats plus rapides suite à une requête concernant la transformation de la source.
 
@@ -71,7 +77,7 @@ Sous **Options de la source** dans la transformation de la source, les paramètr
 
 ### <a name="sink-batch-size"></a>Taille de lot du récepteur
 
-Pour éviter un traitement ligne par ligne de vos flux de données, définissez **Taille du lot** sous l’onglet Paramètres des récepteurs Azure SQL DB et Azure SQL DW. Si la taille du lot est définie, ADF traite les écritures dans les bases de données par lots en fonction de la taille fournie.
+Pour éviter un traitement ligne par ligne de vos flux de données, définissez **Taille du lot** sous l’onglet Paramètres des récepteurs Azure SQL DB et Azure SQL DW. Si la taille du lot est définie, ADF traite les écritures dans les bases de données par lots en fonction de la taille fournie. Si cette propriété n’est pas définie, les valeurs par défaut du lot de mise en cache Spark sont utilisées.
 
 ![Section sink](media/data-flow/sink4.png "Récepteur")
 
@@ -100,7 +106,7 @@ Pour éviter les insertions ligne par ligne dans votre entrepôt de données, co
 
 À chaque transformation, vous pouvez définir sous l’onglet Optimiser le schéma de partitionnement que vous souhaitez que Data Factory utilise. Il est recommandé de commencer par tester les récepteurs basés sur des fichiers en conservant le partitionnement et les optimisations par défaut.
 
-* Pour les fichiers plus petits, vous pouvez trouver que sélectionner *Partition unique* fonctionne parfois mieux et plus rapidement que si vous demandez à Spark de partitionner vos fichiers de petite taille.
+* Pour les petits fichiers, il est parfois plus efficace et plus rapide de choisir un nombre moins élevé de partitions que de demander à Spark de partitionner ces petits fichiers.
 * Si vous n’avez pas suffisamment d’informations sur vos données sources, choisissez le partitionnement *Tourniquet (round robin)* , puis définissez le nombre de partitions.
 * Si vos données comportent des colonnes qui peuvent faire de bonnes clés de hachage, choisissez *Partitionnement de hachage*.
 

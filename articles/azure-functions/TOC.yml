@@ -207,7 +207,7 @@
               href: add-output-binding-storage-queue-vs-code.md
             - name: Stockage - Visual Studio
               href: add-output-binding-storage-queue-vs.md
-            - name: Stockage - Java/Gradle
+            - name: Stockage - Java
               href: functions-add-output-binding-storage-queue-java.md
         - name: Déboguer et tester
           items:

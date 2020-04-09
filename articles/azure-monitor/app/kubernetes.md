@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 15c75d4add9615df6c42aa6121557659e54354d0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666784"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132340"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>La surveillance d’applications sans instrumentation pour les applications hébergées Kubernetes
 
@@ -59,7 +59,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
 
 > [!NOTE]
-> Dans la mesure où la maille de service retire les données du fil, nous ne pouvons pas intercepter le trafic chiffré. Pour le trafic qui ne quitte pas le cluster, utilisez un protocole non chiffré (le protocole HTTP par exemple). Pour le trafic externe qui doit être chiffré, envisagez de [configurer un arrêt SSL](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) sur le contrôleur d’entrée.
+> Dans la mesure où la maille de service retire les données du fil, nous ne pouvons pas intercepter le trafic chiffré. Pour le trafic qui ne quitte pas le cluster, utilisez un protocole non chiffré (le protocole HTTP par exemple). Pour le trafic externe qui doit être chiffré, envisagez de [configurer un arrêt TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) sur le contrôleur d’entrée.
 
 Les applications exécutées en dehors de la maille de services ne sont pas affectées.
 

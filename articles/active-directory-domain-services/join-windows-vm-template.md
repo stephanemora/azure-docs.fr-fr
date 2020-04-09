@@ -8,15 +8,15 @@ ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/17/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: c9b25fe7bc47e05972aebb194e9d94c1ea6dd247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2108b4c6b81675e2df6789d412dbd7d36f58a4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298732"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655112"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Joindre une machine virtuelle Windows Server à un domaine managé Azure Active Directory Domain Services à l’aide d’un modèle Resource Manager
 
@@ -24,7 +24,7 @@ Pour automatiser le déploiement et la configuration de machines virtuelles Azur
 
 Cet article explique comment créer une machine virtuelle Windows Server et comment la joindre à un domaine managé Azure AD DS à l’aide de modèles Resource Manager. Vous allez aussi découvrir comment joindre une machine virtuelle Windows Server existante à un domaine Azure AD DS.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -86,9 +86,9 @@ Pour créer une machine virtuelle Windows Server et la joindre ensuite à un dom
 
     | Paramètre                   | Valeur |
     |---------------------------|-------|
-    | Subscription              | Choisissez le même abonnement Azure que celui dans lequel vous avez activé Azure AD Domain Services. |
+    | Abonnement              | Choisissez le même abonnement Azure que celui dans lequel vous avez activé Azure AD Domain Services. |
     | Resource group            | Choisissez le groupe de ressources de votre machine virtuelle. |
-    | Location                  | Sélectionnez l’emplacement de votre machine virtuelle. |
+    | Emplacement                  | Sélectionnez l’emplacement de votre machine virtuelle. |
     | Existing VNET Name        | Nom du réseau virtuel existant auquel connecter la machine virtuelle, par exemple *myVnet*. |
     | Existing Subnet Name      | Nom du sous-réseau du réseau virtuel existant, par exemple *Workloads*. |
     | DNS Label Prefix          | Entrez le nom DNS à utiliser pour la machine virtuelle, par exemple *myvm*. |
@@ -119,9 +119,9 @@ Pour joindre une machine virtuelle Windows Server existante à un domaine manag�
 
     | Paramètre                   | Valeur |
     |---------------------------|-------|
-    | Subscription              | Choisissez le même abonnement Azure que celui dans lequel vous avez activé Azure AD Domain Services. |
+    | Abonnement              | Choisissez le même abonnement Azure que celui dans lequel vous avez activé Azure AD Domain Services. |
     | Resource group            | Choisissez le groupe de ressources avec votre machine virtuelle existante. |
-    | Location                  | Sélectionnez l’emplacement de votre machine virtuelle existante. |
+    | Emplacement                  | Sélectionnez l’emplacement de votre machine virtuelle existante. |
     | VM list                   | Entrez la liste séparée par des virgules de la ou des machines virtuelles existantes à joindre au domaine managé Azure AD DS, par exemple *myVM1,myVM2*. |
     | Domain Join User Name     | Compte d’utilisateur dans le domaine managé Azure AD DS qui doit être utilisé pour joindre la machine virtuelle au domaine managé, par exemple `contosoadmin@aaddscontoso.com`. Ce compte doit faire partie du domaine managé Azure AD DS. |
     | Domain Join User Password | Mot de passe du compte d’utilisateur spécifié dans le paramètre précédent. |

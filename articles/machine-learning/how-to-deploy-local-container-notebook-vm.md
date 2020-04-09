@@ -10,12 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78398234"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756582"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Déployer un modèle sur des instances de calcul Azure Machine Learning
 
@@ -29,7 +29,7 @@ Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en 
 > [!TIP]
 > Le déploiement d’un modèle à partir d’un Jupyter Notebook sur une instance de calcul vers un service web sur la même machine virtuelle est un _déploiement local_. Dans ce cas, l’ordinateur « local » est l’instance de calcul. Pour plus d’informations sur les déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un espace de travail Azure Machine Learning avec une instance de calcul en cours d’exécution. Pour plus d’informations, consultez [Configuration de l’environnement et de l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
 
@@ -96,7 +96,7 @@ print("prediction:", resp.text)
 
 * [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
-* [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)
+* [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)

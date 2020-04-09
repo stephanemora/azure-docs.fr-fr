@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9f0a7425fc09d391828a748832f662f02c6022cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970781"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582286"
 ---
 # <a name="scaling-media-processing"></a>Mise à l’échelle du traitement multimédia
 
@@ -47,7 +47,7 @@ Le reste de l’article explique comment utiliser la [CLI Media Services v3](h
 > [!NOTE]
 > Pour les travaux d’analyse audio et vidéo déclenchés par Media Services v3 ou Video Indexer, nous vous recommandons de provisionner votre compte avec des MRU 10 S3. Si vous avez besoin de plus de 10 MRU S3, ouvrez un ticket de support à l’aide du [Portail Azure](https://portal.azure.com/).
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 
 [Créer un compte Media Services](create-account-cli-how-to.md).
 
@@ -73,5 +73,5 @@ Vous êtes facturé en fonction du nombre de minutes pendant lesquelles les unit
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Quotas et limitations](limits-quotas-constraints.md)
+* [Quotas et limites](limits-quotas-constraints.md)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

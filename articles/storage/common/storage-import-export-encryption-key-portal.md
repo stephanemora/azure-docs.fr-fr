@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ca1327a547e8550e47ff37e4ba100fcbd2b7a79f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282458"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811443"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utiliser des clés gérées par le client dans Azure Key Vault pour le service Import/Export
 
@@ -103,7 +103,7 @@ Si vous recevez des erreurs liées à votre clé gérée par le client, utilisez
 | CmkErrorAccessRevoked | Une clé gérée par le client a été appliquée, mais l’accès à la clé est actuellement révoqué. Pour plus d’informations, consultez [Activer l’accès à la clé](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Oui, vérifier si : <ol><li>Le coffre de clés contient toujours le fichier MSI dans la stratégie d’accès.</li><li>La stratégie d’accès fournit des autorisations pour recevoir, envelopper, désenvelopper.</li><li>Si le coffre de clés se trouve dans un réseau virtuel derrière le pare-feu, vérifiez si **Autoriser les services de confiance Microsoft** est activé.</li></ol>                                                                                            |
 | CmkErrorDisabled      | A appliqué une clé gérée par le client, mais la clé est désactivée. Pour plus d’informations, consultez [Activer la clé](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Oui, en activant la version de clé     |
 | CmkErrorNotFound      | A appliqué une clé gérée par le client, mais impossible de trouver la clé. <br>Si la clé est supprimée et purgée après la période de rétention, vous ne pouvez pas récupérer la clé. Si vous avez sauvegardé la clé, vous pouvez restaurer la clé pour résoudre ce problème. | Non, la clé a été supprimée et est également purgée après la période de rétention. <br>Oui, uniquement si le client dispose de la clé sauvegardée et la restaure.  |
-| CmkErrorVaultNotFound | Application d’une clé gérée par le client, mais impossible de trouver le coffre de clés associé à la clé.<br>Si vous avez supprimé le coffre de clés, vous ne pouvez pas récupérer la clé gérée par le client.  Si vous avez migré le coffre de clés vers un autre locataire, consultez [Modifier l’ID de client du coffre de clés après un déplacement d’abonnement](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Non, si le client a supprimé le coffre de clés.<br> Oui, si le coffre de clés a subi une migration de locataire ; effectuez l’une des opérations suivantes : <ol><li>Replacez le coffre de clés sur l’ancien locataire.</li><li>Définissez Identity = None, puis à nouveau sur Identity = SystemAssigned, ce qui supprime et recrée l’identité</li></ol><br>Remarque : Le cas de la migration du locataire est basé sur une compréhension limitée, comportement réel à tester et confirmer, peut être révisé ultérieurement. |
+| CmkErrorVaultNotFound | Application d’une clé gérée par le client, mais impossible de trouver le coffre de clés associé à la clé.<br>Si vous avez supprimé le coffre de clés, vous ne pouvez pas récupérer la clé gérée par le client.  Si vous avez migré le coffre de clés vers un autre locataire, consultez [Modifier l’ID de client du coffre de clés après un déplacement d’abonnement](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Non, si le client a supprimé le coffre de clés.<br> Oui, si le coffre de clés a subi une migration de locataire ; effectuez l’une des opérations suivantes : <ol><li>Replacez le coffre de clés sur l’ancien locataire.</li><li>Définissez Identity = None, puis à nouveau sur Identity = SystemAssigned, ce qui supprime et recrée l’identité</li></ol>|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/04/2019
-ms.openlocfilehash: 84098901d58e2087c7ece77049e445bb5c76f2a9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/24/2020
+ms.openlocfilehash: b905c75e920577e46017caeb456f8237421086b2
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357255"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421206"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
 
@@ -189,7 +189,7 @@ Pour copier des données à partir de SAP BW Open Hub, les propriétés prises e
 >[!TIP]
 >Si votre table Open Hub ne contient que les données générées par un seul ID de requête, par exemple, vous exécutez toujours un plein chargement et écrasez les données existantes dans la table, ou si vous n'exécutez le DTP qu'une fois à des fins de test, n'oubliez pas de décocher l'option « excludeLastRequest » afin de copier les données.
 
-Pour accélérer le chargement des données, vous pouvez définir [`parallelCopies`](copy-activity-performance.md#parallel-copy) sur l’activité de copie pour charger des données à partir du hub ouvert SAP BW en parallèle. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory exécute simultanément quatre appels RFC et chaque appel RFC récupère une partie des données de votre table de hubs ouverts SAP BW partitionnée par l’ID de la requête de PAO et l’ID du package. Cela s’applique lorsque le nombre d’ID de la requête de PAO unique et d’ID de package est supérieur à la valeur de `parallelCopies`. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est également recommandé de les écrire dans un dossier sous forme fichiers multiples (spécifiez uniquement le nom du dossier). Ceci offre de meilleures performances qu’une écriture dans un fichier unique.
+Pour accélérer le chargement des données, vous pouvez définir [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie pour charger des données à partir du hub ouvert SAP BW en parallèle. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory exécute simultanément quatre appels RFC et chaque appel RFC récupère une partie des données de votre table de hubs ouverts SAP BW partitionnée par l’ID de la requête de PAO et l’ID du package. Cela s’applique lorsque le nombre d’ID de la requête de PAO unique et d’ID de package est supérieur à la valeur de `parallelCopies`. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est également recommandé de les écrire dans un dossier sous forme fichiers multiples (spécifiez uniquement le nom du dossier). Ceci offre de meilleures performances qu’une écriture dans un fichier unique.
 
 **Exemple :**
 
@@ -243,6 +243,11 @@ Lors de la copie de données à partir de SAP BW Open Hub, les mappages suivants
 
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
+## <a name="troubleshooting-tips"></a>Conseils de dépannage
+
+**Symptômes :** Si vous exécutez SAP BW sur HANA et que seul un sous-ensemble de données est copié à l’aide de l’activité de copie ADF (1 million de lignes), la cause possible est que vous avez activé l’option « Exécution SAP HANA » dans votre DTP, auquel cas ADF peut récupérer seulement le premier lot de données.
+
+**Résolution :** Désactivez l’option « Exécution SAP HANA » dans DTP, retraitez les données, puis réessayez d’exécuter l’activité de copie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

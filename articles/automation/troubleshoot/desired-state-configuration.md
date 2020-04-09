@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dcd0371d275c3a46fe9bf07c96516a2d0820abb7
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 9f33dc9528d5f7043dda2c6fad207a9a51347a2b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430531"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631491"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Résoudre les problèmes liés à la configuration de l’état souhaité Azure Automation
 
@@ -48,11 +48,11 @@ Pour plus d’informations sur l’utilisation de xDscDiagnostics, consultez [Ut
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. S’assurer que les nœuds et l’espace de travail Automation disposent des modules nécessaires
 
-DSC dépend des modules installés sur le nœud. Lorsque vous utilisez Azure Automation State Configuration, importez tous les modules requis dans votre compte Automation à l’aide des étapes indiquées dans [Importer des modules](../shared-resources/modules.md#import-modules). Les configurations peuvent également avoir une dépendance sur des versions de modules spécifiques. Pour plus d’informations, consultez [Résoudre les problèmes liés aux modules](shared-resources.md#modules).
+DSC dépend des modules installés sur le nœud. Lorsque vous utilisez Azure Automation State Configuration, importez tous les modules requis dans votre compte Automation à l’aide des étapes indiquées dans [Importer des modules](../shared-resources/modules.md#importing-modules). Les configurations peuvent également avoir une dépendance sur des versions de modules spécifiques. Pour plus d’informations, consultez [Résoudre les problèmes liés aux modules](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-dsc"></a>Erreurs courantes avec DSC
 
-### <a name="unsupported-characters"></a>Scénario : Une configuration contenant des caractères spéciaux ne peut pas être supprimée à partir du portail
+### <a name="scenario-a-configuration-with-special-characters-cannot-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>Scénario : Une configuration contenant des caractères spéciaux ne peut pas être supprimée à partir du portail
 
 #### <a name="issue"></a>Problème
 
@@ -62,7 +62,7 @@ Lorsque vous tentez de supprimer une configuration DSC à partir du portail, vou
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur est due à un problème temporaire dont la résolution est prévue.
 
@@ -72,7 +72,7 @@ Cette erreur est due à un problème temporaire dont la résolution est prévue.
 * La documentation relative à cette applet de commande n’a pas encore été mise à jour.  En attendant, reportez-vous à la documentation du module AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Scénario : Impossible d’inscrire l’agent DSC
+### <a name="scenario-failed-to-register-dsc-agent"></a><a name="failed-to-register-agent"></a>Scénario : Impossible d’inscrire l’agent DSC
 
 #### <a name="issue"></a>Problème
 
@@ -89,7 +89,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
     + PSComputerName        : <computerName>
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur est habituellement due à un pare-feu, la machine se trouvant derrière un serveur proxy, ou à d’autres erreurs de réseau.
 
@@ -97,7 +97,7 @@ Cette erreur est habituellement due à un pare-feu, la machine se trouvant derri
 
 Vérifiez que votre machine a accès aux points de terminaison appropriés pour Azure Automation DSC et réessayez. Pour obtenir la liste des ports et adresses nécessaires, consultez [Planification réseau](../automation-dsc-overview.md#network-planning).
 
-### <a name="a-nameunauthorizedascenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>Scénario : Les rapports d’état retournent le code de réponse « Non autorisé »
+### <a name="a-nameunauthorizedscenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>Scénario : Les rapports d’état retournent le code de réponse « Non autorisé »
 
 #### <a name="issue"></a>Problème
 
@@ -111,9 +111,9 @@ The attempt to send status report to the server https://{your Automation account
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / Registration of the Dsc Agent with the server failed.
 ```
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
-Ce problème est dû à un certificat incorrect ou expiré.  Pour plus d’informations, consultez [Expiration du certificat et réinscription](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+Ce problème est dû à un certificat incorrect ou expiré.  Pour plus d’informations, consultez [Expiration du certificat et réinscription](../automation-dsc-onboarding.md#re-registering-a-node).
 
 ### <a name="resolution"></a>Résolution
 
@@ -159,7 +159,7 @@ Enfin, réinscrivez le nœud défaillant en procédant comme suit.
 4. Sélectionnez le nœud défaillant.
 5. Cliquez sur « Connexion », puis sélectionnez les options souhaitées.
 
-### <a name="failed-not-found"></a>Scénario : Le nœud est en état d’échec avec une erreur « Introuvable »
+### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>Scénario : Le nœud est en état d’échec avec une erreur « Introuvable »
 
 #### <a name="issue"></a>Problème
 
@@ -169,7 +169,7 @@ Un rapport pour le nœud indique un état **Échec** et contient l’erreur :
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur se produit généralement quand le nœud est affecté à un nom de configuration (par exemple ABC) au lieu d’un nom de configuration de nœud (par exemple ABC.WebServer).
 
@@ -181,7 +181,7 @@ Cette erreur se produit généralement quand le nœud est affecté à un nom de 
   * Pour affecter une configuration de nœud à un nœud à l’aide du Portail Azure, ouvrez la page **Nœuds DSC**, sélectionnez un nœud, puis cliquez sur le bouton **Attribuer une configuration de nœud**.
   * Pour affecter une configuration de nœud à un nœud à l’aide d’une applet de commande PowerShell, utilisez l’applet de commande **Set-AzureRmAutomationDscNode**.
 
-### <a name="no-mof-files"></a>Scénario : Aucune configuration de nœud (fichiers MOF) n’a été produite au cours d’une compilation de configuration
+### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a><a name="no-mof-files"></a>Scénario : Aucune configuration de nœud (fichiers MOF) n’a été produite au cours d’une compilation de configuration
 
 #### <a name="issue"></a>Problème
 
@@ -191,7 +191,7 @@ Votre tâche de compilation DSC s’interrompt avec l’erreur :
 Compilation completed successfully, but no node configuration.mofs were generated.
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Quand l’expression qui suit le mot-clé **Node** dans la configuration DSC s’évalue à `$null`, aucune configuration de nœud n’est générée.
 
@@ -202,7 +202,7 @@ Une des solutions suivantes corrige ce problème :
 * Vérifiez que l’expression en regard du mot clé **Node** dans la définition de la configuration n’est pas $null.
 * Si vous effectuez une transmission de ConfigurationData pendant la compilation de la configuration, vérifiez que vous transmettez les valeurs attendues nécessaires à la configuration depuis [ConfigurationData](../automation-dsc-compile.md).
 
-### <a name="dsc-in-progress"></a>Scénario : Le rapport du nœud DSC se bloque à l’état « en cours »
+### <a name="scenario-the-dsc-node-report-becomes-stuck-in-progress-state"></a><a name="dsc-in-progress"></a>Scénario : Le rapport du nœud DSC se bloque à l’état « en cours »
 
 #### <a name="issue"></a>Problème
 
@@ -212,7 +212,7 @@ La sortie de l’agent DSC est la suivante :
 No instance found with given property values
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Vous avez mis à niveau votre version de WMF et endommagé WMI.
 
@@ -220,7 +220,7 @@ Vous avez mis à niveau votre version de WMF et endommagé WMI.
 
 Pour résoudre ce problème, suivez les instructions fournies dans l’article [Problèmes connus liés à la Configuration d’état souhaité (DSC)](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc).
 
-### <a name="issue-using-credential"></a>Scénario : Il est impossible d’utiliser des informations d’identification dans une configuration DSC
+### <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a><a name="issue-using-credential"></a>Scénario : Il est impossible d’utiliser des informations d’identification dans une configuration DSC
 
 #### <a name="issue"></a>Problème
 
@@ -230,7 +230,7 @@ Votre tâche de compilation DSC a été interrompue avec l’erreur :
 System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Vous avez utilisé des informations d’identification dans une configuration, mais n’avez pas fourni la bonne valeur de **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud.
 
@@ -238,7 +238,7 @@ Vous avez utilisé des informations d’identification dans une configuration, m
 
 * Assurez-vous de transmettre la bonne valeur **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud mentionnée dans la configuration. Pour plus d’informations, consultez [Compilation de configurations DSC dans Azure Automation State Configuration](../automation-dsc-compile.md).
 
-### <a name="failure-processing-extension"></a>Scénario : Intégration à partir de l’extension dsc, erreur « Échec lors du traitement de l’extension »
+### <a name="scenario-onboarding-from-dsc-extension-failure-processing-extension-error"></a><a name="failure-processing-extension"></a>Scénario : Intégration à partir de l’extension dsc, erreur « Échec lors du traitement de l’extension »
 
 #### <a name="issue"></a>Problème
 
@@ -248,7 +248,7 @@ Lors de l’intégration à l’aide de l’extension DSC, un échec se produit 
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur se produit généralement quand le nœud est affecté à un nom de configuration de nœud qui n’existe pas dans le service.
 
@@ -257,7 +257,7 @@ Cette erreur se produit généralement quand le nœud est affecté à un nom de 
 * Assurez-vous que vous affectez le nœud avec un nom de configuration de nœud qui correspond exactement au nom dans le service.
 * Vous pouvez choisir de ne pas inclure le nom de configuration de nœud, ce qui entraîne l’intégration du nœud,sans affectation de configuration de nœud
 
-### <a name="cross-subscription"></a>Scénario : L’inscription d’un nœud avec PowerShell retourne l’erreur « Une ou plusieurs erreurs se sont produites »
+### <a name="scenario-registering-a-node-with-powershell-returns-the-error-one-or-more-errors-occurred"></a><a name="cross-subscription"></a>Scénario : L’inscription d’un nœud avec PowerShell retourne l’erreur « Une ou plusieurs erreurs se sont produites »
 
 #### <a name="issue"></a>Problème
 
@@ -267,7 +267,7 @@ Lors de l’inscription d’un nœud à l’aide de `Register-AzAutomationDSCNod
 One or more errors occurred.
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur se produit lorsque vous tentez d’inscrire un nœud qui réside dans un abonnement distinct du compte Automation.
 
@@ -277,10 +277,10 @@ Traitez ce nœud d’un autre abonnement comme s’il se trouvait dans un cloud 
 
 Suivez les étapes ci-dessous pour inscrire le nœud.
 
-* Windows : [Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
-* Linux : [Machines physiques/virtuelles Linux locales ou dans un cloud autre qu’Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+* Windows : [Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
+* Linux : [Machines physiques/virtuelles Linux locales ou dans un cloud autre qu’Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
-### <a name="agent-has-a-problem"></a>Scénario : Message d’erreur : « Échec de l’approvisionnement »
+### <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>Scénario : Message d’erreur : « Échec de l’approvisionnement »
 
 #### <a name="issue"></a>Problème
 
@@ -290,7 +290,7 @@ Lors de l’inscription d’un nœud, l’erreur suivante s’affiche :
 Provisioning has failed
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Ce message s’affiche lorsqu’il y a un problème de connectivité entre le nœud et Azure.
 
@@ -300,7 +300,7 @@ Déterminez si votre nœud se trouve dans un réseau virtuel privé ou s’il a 
 
 Pour plus d’informations, consultez [Résolution des erreurs d’intégration des solutions](onboarding.md).
 
-### <a name="failure-linux-temp-noexec"></a>Scénario : Pendant l’application d’une configuration dans Linux, un échec se produit avec une erreur générale
+### <a name="scenario-applying-a-configuration-in-linux-a-failure-occurs-with-a-general-error"></a><a name="failure-linux-temp-noexec"></a>Scénario : Pendant l’application d’une configuration dans Linux, un échec se produit avec une erreur générale
 
 #### <a name="issue"></a>Problème
 
@@ -310,7 +310,7 @@ Pendant l’application d’une configuration dans Linux, un échec se produit a
 This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Les clients ont déterminé que si l’emplacement `/tmp` est défini sur `noexec`, la version actuelle de DSC ne parvient pas à appliquer les configurations.
 
@@ -318,7 +318,7 @@ Les clients ont déterminé que si l’emplacement `/tmp` est défini sur `noexe
 
 * Supprimez l’option `noexec` de l’emplacement `/tmp`.
 
-### <a name="compilation-node-name-overlap"></a>Scénario : Les noms des configurations de nœuds qui se chevauchent peuvent entraîner une version incorrecte
+### <a name="scenario-node-configuration-names-that-overlap-could-result-in-bad-release"></a><a name="compilation-node-name-overlap"></a>Scénario : Les noms des configurations de nœuds qui se chevauchent peuvent entraîner une version incorrecte
 
 #### <a name="issue"></a>Problème
 
@@ -326,13 +326,27 @@ Si un script de configuration unique est utilisé pour générer plusieurs confi
 
 Par exemple, si un script de configuration unique est utilisé pour générer des configurations en fonction de données de nœuds transmises sous forme de table de hachage à l’aide d’applets de commande, et que les données de nœuds incluent un serveur nommé « serveur » et « 1serveur ».
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Problème connu avec le service de compilation.
 
 #### <a name="resolution"></a>Résolution
 
 La meilleure solution de contournement consiste à compiler localement ou dans un pipeline CI/CD, et à charger les fichiers MOF directement dans le service.  Si la compilation dans le service est une exigence, la meilleure solution suivante consiste à fractionner les travaux de compilation afin qu’il n’y ait pas de chevauchement des noms.
+
+### <a name="scenario-gateway-timeout-error-on-dsc-configuration-upload"></a><a name="gateway-timeout"></a>Scénario : Erreur de délai de dépassement de la passerelle lors du chargement de la configuration DSC
+
+#### <a name="issue"></a>Problème
+
+Une erreur `GatewayTimeout` s'affiche lors du chargement d’une configuration DSC. 
+
+#### <a name="cause"></a>Cause
+
+Les configurations DSC dont la compilation prennent beaucoup de temps peuvent provoquer cette erreur.
+
+#### <a name="resolution"></a>Résolution
+
+Vous pouvez accélérer l’analyse des configurations DSC en incluant explicitement le paramètre `ModuleName` pour tous les appels `Import-DscResource`. Pour plus d'informations, consultez [Utilisation d'Import-DSCResource](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

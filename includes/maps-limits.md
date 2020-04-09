@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: azure maps
 author: jinzh-azureiot
 ms.service: azure-maps
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: 2bf9f75442ccf57aa28e6a12f415fb6e4ede78ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ce91aede9328237aef8e5d5b7d74a3b72f10d50
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67177457"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887422"
 ---
 La table suivant indique la limite d’utilisation associée au niveau tarifaire S0 du service Azure Maps. Elle dépend du niveau tarifaire. 
 
@@ -26,6 +26,6 @@ Le tableau suivant présente la limite de taille relative aux données pour Azur
 
 | Ressource                              | Limite |
 |---------------------------------------|:---------------------:|
-| Taille maximale des données |   50 Mo  |
+| Taille maximale des données |   1 Go  |
 
 Pour en savoir plus sur les niveaux tarifaires Azure Maps, voir [Tarification Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).

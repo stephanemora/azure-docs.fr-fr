@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 21efb16cf519d4bcad520af1c7d8818f36a77218
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70fa66a96291e0c2a638bf69bdce7da531d32bb7
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234409"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637466"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Connecter des ordinateurs Windows à Azure Monitor
 
@@ -32,7 +32,7 @@ L’agent peut être installé à l’aide d’une des méthodes suivantes. La p
 
 Si vous avez besoin de configurer l’agent pour qu’il rende compte à plusieurs espaces de travail, cette opération ne peut être effectuée pendant l’installation initiale, mais uniquement plus tard en mettant à jour les paramètres dans le panneau de configuration ou PowerShell comme décrit dans [Ajout ou suppression d’un espace de travail](agent-manage.md#adding-or-removing-a-workspace).  
 
-Pour comprendre la configuration prise en charge, consultez les pages [Prise en charge des systèmes d’exploitation Windows](log-analytics-agent.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](log-analytics-agent.md#network-firewall-requirements).
+Pour comprendre la configuration prise en charge, consultez les pages [Prise en charge des systèmes d’exploitation Windows](log-analytics-agent.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](log-analytics-agent.md#network-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obtenir l’ID et la clé d’espace de travail
 Avant d’installer l’agent Log Analytics pour Windows, vous devez disposer de l’ID et de la clé de votre espace de travail Log Analytics.  Quelle que soit la méthode d’installation utilisée, ces informations sont nécessaires pendant l’installation afin que l’agent soit configuré correctement et qu’il puisse communiquer avec Azure Monitor dans le cloud Azure Commercial et le cloud du gouvernement des États-Unis. 
@@ -50,7 +50,7 @@ Pour configurer l’utilisation du protocole [TLS 1.2](https://docs.microsoft.co
 >Si vous configurez une machine virtuelle exécutant Windows Server 2008 SP2 x64 pour utiliser TLS 1.2, vous devez d’abord installer la [mise à jour de la prise en charge de la signature de code SHA-2](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) suivante avant d’effectuer les étapes ci-dessous. 
 >
 
-1. Recherchez la sous-clé de Registre suivante : **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**.
+1. Localisez les sous-clés de registre suivantes : **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Créez une sous-clé sous **Protocoles** pour TLS 1.2 : **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**.
 3. Créez une sous-clé **Client** sous la sous-clé de version du protocole TLS 1.2 que vous venez de créer. Par exemple, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
 4. Créez les valeurs DWORD suivantes sous **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client** :
@@ -60,9 +60,9 @@ Pour configurer l’utilisation du protocole [TLS 1.2](https://docs.microsoft.co
 
 Configurez .NET Framework 4.6 (ou version ultérieure) de façon à prendre en charge le chiffrement sécurisé, désactivé par défaut. Le [chiffrement fort](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) utilise des protocoles réseau sécurisés, comme TLS 1.2, et bloque les autres. 
 
-1. Recherchez la sous-clé de Registre suivante : **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
+1. Localisez les sous-clés de registre suivantes : **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
 2. Créez la valeur DWORD **SchUseStrongCrypto** sous cette sous-clé avec la valeur **1**.  
-3. Recherchez la sous-clé de Registre suivante : **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
+3. Localisez les sous-clés de registre suivantes : **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
 4. Créez la valeur DWORD **SchUseStrongCrypto** sous cette sous-clé avec la valeur **1**. 
 5. Redémarrez le système pour que les paramètres s’appliquent. 
 
@@ -131,49 +131,49 @@ L’exemple suivant installe l’agent 64 bits, identifié par la valeur `URI`. 
 >[!NOTE]
 >Cet exemple de procédure et de script ne prend pas en charge la mise à niveau de l’agent déjà déployé sur un ordinateur Windows.
 
-Les versions 32 bits et 64 bits du package de l’agent ont des codes de produit différents et les nouvelles versions publiées ont également une valeur unique.  Le code de produit est un GUID qui est l’identification principale d’une application ou d’un produit, et est représenté par la propriété **ProductCode** de Windows Installer.  Dans le script `ProductId`MMAgent.ps1 **, la valeur**  doit correspondre au code de produit dans le package du programme d’installation 32 bits ou 64 bits de l’agent.
+Les versions 32 bits et 64 bits du package de l’agent ont des codes de produit différents et les nouvelles versions publiées ont également une valeur unique.  Le code de produit est un GUID qui est l’identification principale d’une application ou d’un produit, et est représenté par la propriété **ProductCode** de Windows Installer.  Dans le script **MMAgent.ps1**, la valeur `ProductId` doit correspondre au code de produit dans le package du programme d’installation 32 bits ou 64 bits de l’agent.
 
 Pour récupérer le code de produit du package d’installation de l’agent directement, vous pouvez utiliser Orca.exe à partir des [composants SDK Windows pour les développeurs Windows Installer](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) (composant du SDK Windows) ou utiliser PowerShell en suivant un [exemple de script](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) écrit par un MVP (Microsoft Valuable Professional).  Pour les deux approches, vous devez tout d’abord extraire le fichier **MOMagent.msi** du package d’installation MMASetup.  Cela est indiqué plus haut dans la première étape, sous la section [Installer l’agent à l’aide de la ligne de commande](#install-the-agent-using-the-command-line).  
 
 1. Importer le Module DSC xPSDesiredStateConfiguration à partir de [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) dans Azure Automation.  
-2.  Créez des ressources variables Azure Automation pour *OPSINSIGHTS_WS_ID* et *OPSINSIGHTS_WS_KEY*. Affectez votre ID d’espace de travail Log Analytics comme valeur *OPSINSIGHTS_WS_ID* et affectez la clé primaire de votre espace de travail comme valeur *OPSINSIGHTS_WS_KEY*.
-3.  Copiez le script et enregistrez-le sous le nom MMAgent.ps1.
+2.    Créez des ressources variables Azure Automation pour *OPSINSIGHTS_WS_ID* et *OPSINSIGHTS_WS_KEY*. Affectez votre ID d’espace de travail Log Analytics comme valeur *OPSINSIGHTS_WS_ID* et affectez la clé primaire de votre espace de travail comme valeur *OPSINSIGHTS_WS_KEY*.
+3.    Copiez le script et enregistrez-le sous le nom MMAgent.ps1.
 
-    ```powershell
-    Configuration MMAgent
-    {
-        $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"
-        $OPSINSIGHTS_WS_ID = Get-AutomationVariable -Name "OPSINSIGHTS_WS_ID"
-        $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
+```powershell
+Configuration MMAgent
+{
+    $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"
+    $OPSINSIGHTS_WS_ID = Get-AutomationVariable -Name "OPSINSIGHTS_WS_ID"
+    $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
-        Import-DscResource -ModuleName xPSDesiredStateConfiguration
-        Import-DscResource -ModuleName PSDesiredStateConfiguration
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
 
-        Node OMSnode {
-            Service OIService
-            {
-                Name = "HealthService"
-                State = "Running"
-                DependsOn = "[Package]OI"
-            }
+    Node OMSnode {
+        Service OIService
+        {
+            Name = "HealthService"
+            State = "Running"
+            DependsOn = "[Package]OI"
+        }
 
-            xRemoteFile OIPackage {
-                Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
-                DestinationPath = $OIPackageLocalPath
-            }
+        xRemoteFile OIPackage {
+            Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
+            DestinationPath = $OIPackageLocalPath
+        }
 
-            Package OI {
-                Ensure = "Present"
-                Path  = $OIPackageLocalPath
-                Name = "Microsoft Monitoring Agent"
-                ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
-                Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
-                DependsOn = "[xRemoteFile]OIPackage"
-            }
+        Package OI {
+            Ensure = "Present"
+            Path  = $OIPackageLocalPath
+            Name = "Microsoft Monitoring Agent"
+            ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
+            Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
+            DependsOn = "[xRemoteFile]OIPackage"
         }
     }
+}
 
-    ```
+```
 
 4. Mettez à jour la valeur `ProductId` du script avec le code de produit extrait de la dernière version du package d'installation de l'agent à l'aide des méthodes recommandées précédemment. 
 5. [Importez le script de configuration MMAgent.ps1](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) dans votre compte Automation. 
@@ -183,7 +183,7 @@ Pour récupérer le code de produit du package d’installation de l’agent dir
 
 À l’issue de l’installation de l’agent, vous pouvez vérifier qu’il est bien connecté et qu’il rend compte correctement de deux façons différentes.  
 
-À partir de l’ordinateur, dans le **Panneau de configuration**, recherchez l’élément **Microsoft Monitoring Agent**.  Sélectionnez-le. Dans l’onglet **Azure Log Analytics**, l’agent doit alors afficher un message indiquant que **Microsoft Monitoring Agent s’est correctement connecté au service Microsoft Operations Management Suite**.<br><br> ![État de la connexion MMA à Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+À partir de l’ordinateur, dans le **Panneau de configuration**, recherchez l’élément **Microsoft Monitoring Agent**.  Sélectionnez-le. Sous l'onglet **Azure Log Analytics**, l’agent doit afficher le message suivant : **Microsoft Monitoring Agent s’est connecté au service Microsoft Operations Management Suite**.<br><br> ![État de la connexion MMA à Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Vous pouvez également effectuer une recherche simple dans les journaux dans le portail Azure.  
 

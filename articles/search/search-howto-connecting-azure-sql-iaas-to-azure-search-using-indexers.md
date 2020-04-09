@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7933e2608ae0b59a6dce89169f4bb1faba0aa25e
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 1ab2b7860e8a75da5f8acef2fc4fa54d4b73a30d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934148"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80256961"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurer une connexion d’un indexeur de Recherche cognitive Azure à SQL Server sur une machine virtuelle Azure
 
@@ -39,13 +39,13 @@ Le service Recherche cognitive Azure requiert un canal chiffré pour toutes les 
    * Dans regedit, accédez à la clé de Registre suivante : `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
      
      La partie `[MSSQL13.MSSQLSERVER]` varie en fonction du nom de version et de l’instance. 
-   * Définissez la valeur de la clé de **Certificat** sur l’**empreinte numérique** du certificat SSL que vous avez importé sur la machine virtuelle.
+   * Définissez la valeur de la clé de **Certificat** sur l’**empreinte numérique** du certificat TLS/SSL que vous avez importé sur la machine virtuelle.
      
      Il existe plusieurs manières d’obtenir l’empreinte numérique, certaines étant mieux que d’autres. Si vous la copiez à partir du composant logiciel enfichable **certificats** dans MMC, vous allez probablement choisir un caractère de début invisible [comme décrit dans cet article du support technique](https://support.microsoft.com/kb/2023869/), ce qui entraîne une erreur lors de la tentative de connexion. Il existe plusieurs solutions de contournement pour résoudre ce problème. La plus simple consiste à reculer et retaper le premier caractère de l’empreinte numérique pour supprimer le caractère de début dans le champ de la valeur de clé dans regedit. Vous pouvez également utiliser un autre outil pour copier l’empreinte numérique.
 
 3. Accordez des autorisations pour le compte de service. 
    
-    Assurez-vous que le compte de service SQL Server a l’autorisation appropriée sur la clé privée du certificat SSL. Si vous ignorez cette étape, SQL Server ne démarre pas. Vous pouvez utiliser le composant logiciel enfichable **Certificats** ou **CertUtils** pour cette tâche.
+    Assurez-vous que le compte de service SQL Server a l’autorisation appropriée sur la clé privée du certificat TLS/SSL. Si vous ignorez cette étape, SQL Server ne démarre pas. Vous pouvez utiliser le composant logiciel enfichable **Certificats** ou **CertUtils** pour cette tâche.
     
 4. Redémarrez le service SQL Server.
 

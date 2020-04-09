@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 65aa83731be97b59a36a5baf60ea308690a0dcf8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116339"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297742"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Utiliser le service StorSimple Device Manager pour gérer vos informations d’identification de compte de stockage
 
@@ -40,7 +40,7 @@ Les comptes de stockage contiennent les informations d’identification que l’
 Sur le panneau **Informations d’identification du compte de stockage**, l’ensemble des comptes de stockage créés pour l’abonnement à la facturation sont affichés sous forme de tableau, et contiennent les données suivantes :
 
 * **Nom** : nom unique attribué au compte lors de sa création.
-* **SSL activé** : permet d’indiquer si le protocole SSL est activé et si la communication appareil-cloud s’effectue sur le canal sécurisé.
+* **SSL activé** : permet d’indiquer si le protocole TLS est activé et si la communication appareil-cloud s’effectue sur le canal sécurisé.
 * **Utilisé par** : nombre de volumes utilisant le compte de stockage.
 
 Les tâches les plus courantes que vous pouvez effectuer sur les comptes de stockage sont les suivantes :
@@ -60,7 +60,7 @@ Vous pouvez utiliser trois types de compte de stockage avec votre appareil StorS
 
 ## <a name="add-a-storage-account"></a>Ajout d’un compte de stockage
 
-Vous pouvez ajouter un compte de stockage en fournissant un nom convivial unique et les informations d’accès liées au compte de stockage (du fournisseur de services cloud spécifié). Vous avez également la possibilité d’activer le mode SSL (Secure Sockets Layer) afin de créer un canal sécurisé pour la communication réseau entre l’appareil et le cloud.
+Vous pouvez ajouter un compte de stockage en fournissant un nom convivial unique et les informations d’accès liées au compte de stockage (du fournisseur de services cloud spécifié). Vous avez également la possibilité d’activer le mode TLS (Transport Layer Security), auparavant appelé SSL (Secure Sockets Layer), afin de créer un canal sécurisé pour la communication réseau entre l’appareil et le cloud.
 
 Vous pouvez créer plusieurs comptes pour un fournisseur de services cloud donné. Veuillez noter toutefois qu’une fois qu’un compte de stockage a été créé, vous ne pouvez plus modifier le fournisseur de services cloud.
 
@@ -86,7 +86,7 @@ Appliquez les procédures suivantes pour ajouter les informations d’identifica
    
     3. Dans la zone textuelle **Clé d’accès au compte de stockage**, fournissez la clé primaire d’accès pour vos informations d’identification de compte de stockage Azure. Pour obtenir cette clé, accédez au service du stockage Azure, sélectionnez vos informations d’identification du compte de stockage, puis cliquez sur **Gérer les clés d’accès**. Vous pouvez maintenant copier la clé d’accès primaire.
    
-    4. Pour activer le mode SSL, cliquez sur le bouton **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre service StorSimple Device Manager et le cloud. Cliquez sur le bouton **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
+    4. Pour activer le mode TLS, cliquez sur le bouton **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre service StorSimple Device Manager et le cloud. Cliquez sur le bouton **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
    
     5. Cliquez sur **Add**. Un message s’affiche pour vous informer de la création des informations d’identification du compte de stockage.
 

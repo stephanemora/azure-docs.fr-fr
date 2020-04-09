@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/15/2020
+ms.date: 03/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: cd2562974a689ecbca0d7016d3d970895ea211d9
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6482040f0d50f08f04ea87384a99af556f694075
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081758"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478797"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements de peering
 
@@ -37,7 +37,7 @@ Les emplacements ExpressRoute (parfois appelés emplacements de peering ou empla
 
 Vous aurez accès aux services Azure dans toutes les régions au sein d’une région géopolitique si vous êtes connecté à au moins un emplacement ExpressRoute dans la région géopolitique.
 
-## <a name="locations"></a>Régions Azure vers des emplacements ExpressRoute au sein d'une région géopolitique.
+## <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a><a name="locations"></a>Régions Azure vers des emplacements ExpressRoute au sein d'une région géopolitique.
 Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
@@ -67,7 +67,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
 
-## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
+## <a name="expressroute-connectivity-providers"></a><a name="partners"></a>Fournisseurs de connectivité ExpressRoute
 
 Le tableau suivant présente les emplacements, en fonction de chaque fournisseur de services. Si vous souhaitez afficher les fournisseurs disponibles par emplacement, consultez la liste des [fournisseurs de services par emplacement](expressroute-locations-providers.md).
 
@@ -78,10 +78,11 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Prise en charge |Prise en charge |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Prise en charge | Prise en charge | Chennai2, Mumbai2 |
-| **[AIS](http://business.ais.co.th/solution/microsoft-azure.html?category=cloud)** | Prise en charge | Prise en charge | Bangkok |
+| **[AIS](https://business.ais.co.th/solution/en/azure-expressroute.html)** | Prise en charge | Prise en charge | Bangkok |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Dallas, Hong Kong SAR, Sao Paulo, Seattle, Silicon Valley, Singapour, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Prise en charge |Prise en charge |Sao Paulo |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
+| **[À TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Prise en charge | Prise en charge | Tokyo2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Prise en charge | Prise en charge | Tokyo |
 | **[BCX](https://www.bcx.co.za/solutions)** |Prise en charge |Prise en charge |Le Cap|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Prise en charge |Prise en charge |Montréal, Toronto, Québec |
@@ -97,7 +98,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Chicago, Dublin, Francfort, Londres, Londres2, Newport, New York, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapour2, Tokyo, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Prise en charge |Prise en charge |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Prise en charge |Prise en charge |Chicago, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Prise en charge |Prise en charge |Amsterdam2, Francfort, Marseille|
+| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Prise en charge |Prise en charge |Amsterdam2, Francfort, Marseille|
 | **[Devoli](https://devoli.com/expressroute)** | Prise en charge |Prise en charge | Auckland, Melbourne, Sydney |
 | **du datamena** |Prise en charge |Prise en charge | Dubaï2 |
 | **eir** |Prise en charge |Prise en charge |Dublin|
@@ -240,7 +241,7 @@ Si vous êtes à distance et que vous n’avez pas de connectivité par fibre ou
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokyo |
 | **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
-| **[Beanfield Metroconnect](https://www.beanfield.com/cloud-exchange/)** |Megaport |Toronto|
+| **[Beanfield Metroconnect](https://www.beanfield.com/business/cloud-exchange)** |Megaport |Toronto|
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | Amsterdam, Francfort, Londres, Singapour, Washington DC |
 | **[BroadBand Tower, Inc.](https://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokyo |
@@ -263,7 +264,7 @@ Si vous êtes à distance et que vous n’avez pas de connectivité par fibre ou
 | **[Gulf Bridge International](https://www.gbiinc.com/microsoft-azure-expressroute/)** | Equinix | Amsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | Londres, Slough |
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
-| **[Kaalam Telecom Bahrain B.S.C](http://www.kalaam-telecom.com/en/inbusiness/expressroute.html)**| Level 3 Communications |Amsterdam |
+| **[Kaalam Telecom Bahrain B.S.C](http://www.kalaam-telecom.com/azure/)**| Level 3 Communications |Amsterdam |
 | **LGA Telecom** |Equinix |Singapour|
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hong Kong (R.A.S.) 
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |

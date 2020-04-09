@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656596"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246515"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -47,7 +47,11 @@ Cet article présente une vue d’ensemble du rapport de connexions.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
 
-* Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Quelques jours seront nécessaires pour que les données s’affichent dans les rapports après la mise à niveau vers une licence premium s’il n’y a aucune activité de données avant la mise à niveau.
+- Le rapport d’activité de connexion est disponible avec [toutes les éditions d’Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
+
+- Si vous souhaitez accéder aux données de connexion à l’aide d’une API, votre locataire doit avoir une licence [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) associée.
+
+
 
 ## <a name="sign-ins-report"></a>Rapport de connexions
 
@@ -172,13 +176,17 @@ Commencez par réduire les données signalées jusqu’au niveau qui vous convie
 **ID de corrélation** : ID de corrélation de l’activité.
 
 
+
+
 **Accès conditionnel** : état des règles d’accès conditionnel appliquées
 
-- Non applicable 
+- **Non applicable** : aucune stratégie n’est appliquée à l’utilisateur et à l’application lors de la connexion.
 
-- Succès
+- **Réussite** : une ou plusieurs stratégies d’accès conditionnel sont appliquées à l’utilisateur et à l’application (mais pas nécessairement les autres conditions) lors de la connexion. 
 
-- Échec
+- **Échec** : une ou plusieurs stratégies d’accès conditionnel sont appliquées et n’ont pas été satisfaites pendant la connexion.
+
+
 
 
 

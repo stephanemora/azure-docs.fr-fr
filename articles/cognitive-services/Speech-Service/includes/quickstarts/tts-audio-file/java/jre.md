@@ -2,20 +2,20 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/06/2019
+ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: c8de61d88417a19680b606be5e06583c36c94fbc
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 818a7abe6799846470ba60871ba01ea0ced80382
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78926085"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671383"
 ---
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
@@ -108,7 +108,7 @@ ms.locfileid: "78926085"
 
 1. Remplacez la chaîne `Hello world!` par votre propre texte.
 
-1. Enregistrez les modifications apportées au projet.
+1. Enregistrez les changements apportés au projet.
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 

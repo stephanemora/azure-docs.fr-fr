@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 4e08596e8cf71bbb0e88abdc51f5d8e69972464d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0006761126eb1d561da7eeff97e8a9928d62ddb0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74665253"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478933"
 ---
 # <a name="what-is-bing-local-business-search"></a>Présentation de Recherche d’entreprises locales Bing
 L’API Recherche d’entreprises locales Bing est un service RESTful permettant à vos applications de rechercher des informations sur des entreprises locales à l’aide de requêtes. Par exemple, `q=<business-name> in Redmond, Washington` ou `q=Italian restaurants near me`. 
@@ -23,7 +23,7 @@ L’API Recherche d’entreprises locales Bing est un service RESTful permettant
 ## <a name="features"></a>Fonctionnalités
 | Fonctionnalité | Description |  
 | -- | -- | 
-| [Rechercher des entreprises et des emplacements locaux](quickstarts/local-quickstart.md) | L’API Recherche d’entreprises locales Bing obtient les résultats localisés d’une requête. Les résultats incluent une URL pour le site web de l’entreprise et affichent un texte, un numéro de téléphone et un emplacement géographique, y compris : les coordonnées GPS, la ville et l’adresse |  
+| [Rechercher des entreprises et des emplacements locaux](quickstarts/local-quickstart.md) | L’API Recherche d’entreprises locales Bing obtient les résultats localisés d’une requête. Les résultats incluent une URL pour le site web de l’entreprise et présentent un texte, un numéro de téléphone et un emplacement géographique, notamment : les coordonnées GPS, la ville et l’adresse postale. |  
 | [Filtrer les résultats locaux avec des limites géographiques](specify-geographic-search.md) | Ajoutez des coordonnées comme paramètres de recherche pour limiter les résultats à une zone géographique spécifique, selon une zone circulaire ou un carré. | 
 | [Filtrer les résultats des entreprises locales par catégorie](local-categories.md) | Recherchez les résultats des entreprises locales par catégorie. Cette option utilise l’emplacement IP inverse ou les coordonnées GPS de l’appelant pour retourner des résultats localisés dans différentes catégories d’entreprise.|
 

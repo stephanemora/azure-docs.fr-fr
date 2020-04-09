@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bc5c983bc98c3b62df977c6765978cd45cd3c93b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500037"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584535"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
@@ -188,4 +188,4 @@ Le tableau suivant montre comment appliquer les options de filtrage et de classe
 * [Répertorier les stratégies de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 * [Répertorier les localisateurs de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Diffuser un fichier](stream-files-dotnet-quickstart.md)
-* [Quotas et limitations](limits-quotas-constraints.md)
+* [Quotas et limites](limits-quotas-constraints.md)

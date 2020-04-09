@@ -1,67 +1,74 @@
 ---
-title: Opérations de protection par mot de passe et rapports - Azure Active Directory
-description: Opérations et rapports post-déploiement de protection par mot de passe Azure AD
+title: Activer la protection par mot de passe Azure AD en local
+description: Découvrir comment activer la protection par mot de passe Azure AD dans un environnement Active Directory Domain Services local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 03/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2440d373b726b4f97cd5d9ba162daaa0714f79e0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155042"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652633"
 ---
-# <a name="azure-ad-password-protection-operational-procedures"></a>Protection par mot de passe Azure AD - Procédures opérationnelles
+# <a name="enable-on-premises-azure-active-directory-password-protection"></a>Activer la protection par mot de passe Azure Active Directory en local
 
-Au terme de l'[installation locale de la Protection par mot de passe Azure AD](howto-password-ban-bad-on-premises-deploy.md), quelques éléments doivent être configurés sur le portail Azure.
+Les utilisateurs créent souvent des mots de passe basés sur des mots locaux courants, par exemple une école, une équipe de sport ou une personne célèbre. Ces mots de passe sont faciles à deviner et offrent une faible protection contre les attaques par dictionnaire. Pour appliquer des mots de passe forts au sein de votre organisation, la protection par mot de passe Azure Active Directory (Azure AD) fournit une liste globale et personnalisée de mots de passe interdits. Toute demande de changement de mot de passe échoue s’il existe une correspondance dans la liste personnalisée de mots de passe interdits.
 
-## <a name="configure-the-custom-banned-password-list"></a>Configurer la liste des mots de passe interdits personnalisée
+Pour protéger votre environnement Active Directory Domain Services (AD DS) local, vous pouvez installer et configurer la protection par mot de passe Azure AD pour qu’elle fonctionne avec votre contrôleur de domaine local. Cet article explique comment activer la protection par mot de passe Azure AD pour votre environnement local.
 
-Suivez les instructions dans l’article [Configurer la liste des mots de passe interdits personnalisée](howto-password-ban-bad-configure.md) pour savoir comment personnaliser la liste des mots de passe interdits pour votre organisation.
+Pour plus d’informations sur le fonctionnement de la protection par mot de passe Azure AD dans un environnement local, voir [Comment appliquer la protection par mot de passe Azure AD pour Windows Server Active Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="enable-password-protection"></a>Activer la Protection par mot de passe
+## <a name="before-you-begin"></a>Avant de commencer
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory** >  **Sécurité** > **Méthodes d’authentification** > **Protection par mot de passe**.
-1. Définissez **Activer la Protection par mot de passe sur Windows Server Active Directory** sur**Oui**
-1. Comme mentionné dans le [Guide de déploiement](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), il est recommandé de régler de base le **Mode** sur **Audit**
-   * Une fois que vous êtes familiarisé avec la fonctionnalité, vous pouvez basculer le **Mode** sur **Appliqué**
-1. Cliquez sur **Enregistrer**.
+Cet article explique comment activer la protection par mot de passe Azure AD pour votre environnement local. Avant de pouvoir effectuer ce qui est décrit dans cet article, [installez et inscrivez les agents Contrôleur de domaine et le service proxy de la protection par mot de passe Azure AD](howto-password-ban-bad-on-premises-deploy.md) dans votre environnement Active Directory Domain Services local.
 
-![Activation des composants de la Protection par mot de passe Azure AD sur le portail Azure](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
+## <a name="enable-on-premises-password-protection"></a>Activer la protection par mot de passe en local
 
-## <a name="audit-mode"></a>Mode Audit
+1. Connectez-vous à la [Portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory** > **Sécurité** > **Méthodes d’identification** > **Protection des mots de passe**.
+1. Définissez l’option **Activer la protection par mot de passe sur Windows Server Active Directory** sur *Oui*.
 
-Le mode Audit est conçu comme un moyen d’exécuter le logiciel dans un mode de « simulation ». Chaque service d’agent DC évalue un mot de passe entrant en fonction de la stratégie active. Si la stratégie actuelle est configurée pour être en mode Audit, les « mauvais » mots de passe entraînent l’apparition de messages dans le journal des événements, mais sont acceptés. C’est la seule différence entre le mode d’Audit et le mode Appliquer ; toutes les autres opérations s’exécuteront de la même manière.
+    Lorsque ce paramètre est défini sur *Non*, tous les agents Contrôleur de domaine de la protection par mot de passe Azure AD déployés passent en mode inactif, mode dans lequel tous les mots de passe sont acceptés tels quels. Aucune activité de validation n’est effectuée et les événements d’audit ne sont pas générés.
 
-> [!NOTE]
-> Microsoft recommande que les déploiement et test initiaux soient toujours démarrés en mode Audit. Les événements dans le journal des événements doivent ensuite être surveillés pour tenter d’anticiper si un processus opérationnel existant serait dérangé une fois que le mode Appliquer est activé.
+1. Il est recommandé de définir initialement le **Mode** sur *Audit*. Une fois que vous êtes familiarisé avec la fonctionnalité et l’impact observé sur les utilisateurs de votre organisation, vous pouvez changer le **Mode** pour *Appliqué*. Pour plus d’informations, consultez la section suivante sur les [modes de fonctionnement](#modes-of-operation).
+1. Quand vous êtes prêt, sélectionnez **Enregistrer**.
 
-## <a name="enforce-mode"></a>Mode Appliquer
+    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
-Le mode Appliquer est conçu comme la configuration finale. Comme dans le mode Audit, chaque service d’agent DC évalue les mots de passe entrant en fonction de la stratégie active. Cependant, si le mode Appliquer est activé, un mot de passe qui est considéré comme non sécurisé, en accord avec la stratégie sera rejeté.
+## <a name="modes-of-operation"></a>Modes de fonctionnement
 
-Lorsqu'un mot de passe est refusé en mode Appliquer par l'agent DC de la Protection par mot de passe Azure AD, l'utilisateur final voit la même chose que si son mot de passe était rejeté par l'application en local de la règle traditionnelle de complexité du mot de passe. Par exemple, un utilisateur peut voir le message d’erreur traditionnel suivant sur l’écran de mot de passe logon\change Windows :
+Lorsque vous activez la protection par mot de passe Azure AD en local, vous pouvez utiliser le mode *Audit* ou le mode *Appliqué*. Nous suggérons que les déploiement et test initiaux soient toujours démarrés en mode d’audit. Les entrées dans le journal des événements doivent ensuite être supervisées pour anticiper les perturbations éventuelles d’un processus opérationnel existant une fois le mode *Appliqué* activé.
 
-`Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
+### <a name="audit-mode"></a>Mode Audit
 
-Ce message n’est qu’un seul exemple de plusieurs résultats possibles. Le message d’erreur spécifique peut varier selon le logiciel réel ou le scénario qui tente de définir un mot de passe non sécurisé.
+Le mode *Audit* est conçu comme un moyen d’exécuter le logiciel dans un mode de « simulation ». Chaque service d’agent Contrôleur de domaine de la protection par mot de passe Azure AD évalue un mot de passe entrant en fonction de la stratégie active.
 
-Les utilisateurs finaux concernés devront peut-être travailler avec leur service informatique pour comprendre les nouvelles exigences et être plus en mesure de choisir des mots de passe sécurisés.
+Si la stratégie actuelle est configurée pour être en mode d’audit, les « mauvais » mots de passe entraînent l’apparition de messages dans le journal des événements, mais ils sont traités et mis à jour. Ce comportement est la seule différence existant entre le mode d’audit et le mode d’application Toutes les autres opérations s’exécutent de la même façon.
+
+### <a name="enforced-mode"></a>Mode Appliqué
+
+Le mode *Appliqué* est destiné à être la configuration finale. Tout comme dans le mode d’audit, chaque service d’agent Contrôleur de domaine de la protection par mot de passe Azure AD évalue les mots de passe entrants en fonction de la stratégie active. Cependant, lorsque le mode d’application est activé, un mot de passe, considéré comme non sécurisé selon la stratégie, est rejeté.
+
+Lorsqu’un mot de passe est refusé en mode d’application par l’agent Contrôleur de domaine de la protection par mot de passe Azure AD, l’utilisateur final affiche le même genre d’erreur que si son mot de passe était rejeté par la mise en œuvre en local de la stratégie de complexité du mot de passe habituelle. Par exemple, un utilisateur peut voir le message d’erreur classique suivant sur l’écran de changement de mot de passe ou d’ouverture de session de Windows :
+
+*« Impossible de mettre à jour le mot de passe. La valeur fournie pour le nouveau mot de passe ne répond pas aux exigences de longueur, complexité ou historique du domaine. »*
+
+Ce message n’est qu’un seul exemple de plusieurs résultats possibles. Le message d’erreur spécifique peut varier selon le logiciel ou le scénario qui tente de définir un mot de passe non sécurisé.
+
+Les utilisateurs finals concernés devront peut-être se mettre en rapport avec leur service informatique pour comprendre les nouvelles conditions exigées et choisir des mots de passe sécurisés.
 
 > [!NOTE]
 > La protection par mot de passe Azure AD n’a aucun contrôle sur le message d’erreur spécifique affiché par l’ordinateur client lorsqu’un mot de passe faible est rejeté.
 
-## <a name="enable-mode"></a>Mode d’activation
-
-Ce paramètre doit être laissé à son état par défaut (Oui). Si vous désactivez ce paramètre (Non), tous les agents DC de la Protection par mot de passe Azure AD déployés passeront en mode inactif : tous les mots de passe seront acceptés tels quels et aucune activité de validation ne sera exécutée (par exemple, aucun événement d'audit ne sera émis).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Supervision de la Protection par mot de passe Azure AD](howto-password-ban-bad-on-premises-monitor.md)
+Pour personnaliser la liste des mots de passe interdits de votre organisation, consultez [Configurer la liste personnalisée des mots de passe interdits de la protection par mot de passe Azure AD](tutorial-configure-custom-password-protection.md).
+
+Pour superviser les événements en local, consultez [Supervision de la protection par mot de passe Azure AD en local](howto-password-ban-bad-on-premises-monitor.md).

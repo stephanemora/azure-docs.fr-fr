@@ -1,15 +1,15 @@
 ---
-title: Créer une Function App depuis le portail Azure
+title: Créer une Function App à l’aide du Portail Azure
 description: Créez une application de fonction dans Azure à l’aide du portail.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 086a543e75d083094d4dfa789e71afaba5da6d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368755"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985012"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Créer une Function App à l’aide du Portail Azure
 
@@ -36,7 +36,7 @@ Quand vous créez une application de fonction, vous devez créer un compte de st
 >[!NOTE]
 >Lorsque vous utilisez le plan d’hébergement de la consommation, les fichiers de code de fonction et de configuration de liaison sont stockés sur le Stockage Fichier Azure dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré.
 
-Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#azure-storage-services). 
+Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

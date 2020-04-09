@@ -3,16 +3,16 @@ title: Configurer des appareils pour des proxys réseau - Azure IoT Edge | Micro
 description: Découvrez comment configurer le runtime Azure IoT Edge et les modules IoT Edge accessibles sur Internet pour communiquer via un serveur proxy.
 author: kgremban
 ms.author: kgremban
-ms.date: 11/19/2019
+ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8ee1e07dafac46467aa26f89b609cd499346974
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 0600568ace5384cfb13688d14d1cf79e473f3208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186574"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133214"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -200,13 +200,13 @@ Cette étape s’effectue une seule fois sur l’appareil IoT Edge pendant la pr
 
 ## <a name="configure-deployment-manifests"></a>Configurer les manifestes de déploiement  
 
-Une fois que vous avez configuré votre appareil IoT Edge pour communiquer via votre serveur proxy, vous devez également déclarer les variables d’environnement dans les manifestes de déploiement que vous allez utiliser. Vous pouvez modifier les manifestes de déploiement à l’aide de l’Assistant du portail Azure ou en modifiant un fichier JSON de déploiement de manifeste.
+Une fois que vous avez configuré votre appareil IoT Edge pour communiquer via votre serveur proxy, vous devez également déclarer la variable d’environnement HTTPS_PROXY dans les manifestes de déploiement que vous allez utiliser. Vous pouvez modifier les manifestes de déploiement à l’aide de l’Assistant du portail Azure ou en modifiant un fichier JSON de déploiement de manifeste.
 
 Vous devez toujours configurer les deux modules de runtime, edgeAgent et edgeHub, pour communiquer via le serveur proxy afin qu’ils puissent conserver une connexion avec IoT Hub. Si vous supprimez les informations de proxy du module edgeAgent, vous ne pouvez rétablir la connexion qu’en modifiant le fichier config.yaml sur l’appareil, comme décrit dans la section précédente.
 
-Les autres modules IoT Edge qui se connectent à Internet doivent également être configurés de manière à communiquer via le serveur proxy. Toutefois, les modules qui routent leurs messages via edgeHub ou qui communiquent uniquement avec d’autres modules sur l’appareil n’ont pas besoin des détails du serveur proxy.
+Outre les modules edgeAgent et edgeHub, d’autres modules peuvent nécessiter la configuration du proxy. Il s’agit des modules qui doivent accéder aux ressources Azure en plus d’IoT Hub, comme le stockage Blob, et pour lesquels la variable HTTPS_PROXY doit être spécifiée pour ce module dans le fichier manifeste de déploiement.
 
-Cette étape s’effectue en continu tout au long de la vie de l’appareil IoT Edge.
+La procédure suivante s’applique tout au long de la durée de vie de l’appareil IoT Edge.
 
 ### <a name="azure-portal"></a>Portail Azure
 

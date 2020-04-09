@@ -1,5 +1,5 @@
 ---
-title: Notes de publication sur les mises à jour de StorSimple Virtual Array | Microsoft Docs
+title: Notes de version de StorSimple Virtual Array Update 0.2 et 0.1
 description: Décrit les problèmes critiques non résolus et les solutions possibles pour StorSimple Virtual Array exécuté sous Update 0.2 et 0.1.
 services: storsimple
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629286"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397877"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notes de publication de StorSimple Virtual Array Update 0.2 et 0.1
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les notes suivantes identifient les problèmes majeurs existants et les problèmes résolus dans les mises à jour Microsoft Azure StorSimple Virtual Array. Microsoft Azure StorSimple Virtual Array est également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple. 
 
 Les notes de publication sont régulièrement mises à jour ; les problèmes critiques nécessitant une solution de contournement sont ajoutés au fur et à mesure de leur découverte. Lisez les informations contenues dans les notes de publication avant de déployer votre appareil virtuel StorSimple.
@@ -60,7 +60,7 @@ Le tableau suivant récapitule les problèmes corrigés dans cette version.
 | 2 |Serveur iSCSI |Dans la dernière version, l’utilisateur devait spécifier une passerelle pour chaque interface réseau activée de l’appareil virtuel StorSimple. Ce comportement a été modifié dans cette version afin que l’utilisateur ait à configurer au moins une passerelle pour toutes les interfaces réseau activées. |
 | 3 |Package de prise en charge |Dans la version antérieure du logiciel, la collecte du package Support échouait dès lors que la taille du package excédait 1 Go. Ce problème a été résolu dans cette version. |
 | 4 |Accès au cloud |Dans la dernière version, si le StorSimple Virtuel Array était redémarré alors qu’il ne disposait pas de connectivité réseau, l’interface utilisateur locale rencontrait des problèmes de connectivité. Ce problème a été résolu dans cette version. |
-| 5\. |Graphiques de surveillance |Dans la version précédente, après un basculement de l’appareil, les graphiques d’utilisation de la capacité du cloud affichaient des valeurs incorrectes dans le portail Azure Classic. Ce problème a été résolu dans la version actuelle. |
+| 5 |Graphiques de surveillance |Dans la version précédente, après un basculement de l’appareil, les graphiques d’utilisation de la capacité du cloud affichaient des valeurs incorrectes dans le portail Azure Classic. Ce problème a été résolu dans la version actuelle. |
 
 ## <a name="known-issues-in-the-update-01"></a>Problèmes connus dans Update 0.1
 Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Array et décrit les problèmes signalés dans les notes de version des versions précédentes. **Les problèmes signalés dans la note de version sont repérés par un astérisque. Presque tous les problèmes de cette liste portent sur la version en disponibilité générale de StorSimple Virtual Array.**

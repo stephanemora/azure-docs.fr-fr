@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: f009b438cb0dc227289d65604d89c11fd382b675
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/25/2020
+ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892975"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422178"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide d’Azure Data Factory 
 
@@ -173,7 +173,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 }
 ```
 
-### <a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
 
 Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique. Vous pouvez utiliser cette identité managée pour l’authentification Azure Synapse Analytics. La fabrique désignée peut accéder et copier des données vers ou à partir de votre entrepôt de données à l’aide de cette identité.
 
@@ -261,6 +261,7 @@ Pour copier des données depuis Azure Synapse Analytics, affectez la valeur **Sq
 | sqlReaderQuery               | Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. | Non       |
 | sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non       |
 | storedProcedureParameters    | Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non       |
+| isolationLevel | Spécifie le comportement de verrouillage des transactions pour la source SQL. Les valeurs autorisées sont les suivantes : **ReadCommitted** (valeur par défaut), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Pour plus d’informations, consultez [ce document](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel). | Non |
 
 **Exemple : utilisation d’une requête SQL**
 
@@ -349,7 +350,7 @@ END
 GO
 ```
 
-### <a name="azure-sql-data-warehouse-as-sink"></a> Azure Synapse Analytics en tant que récepteur
+### <a name="azure-synapse-analytics-as-sink"></a><a name="azure-sql-data-warehouse-as-sink"></a> Azure Synapse Analytics en tant que récepteur
 
 Azure Data Factory prend en charge trois manières de charger des données dans SQL Data Warehouse.
 
@@ -443,7 +444,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
 
 3. Si votre source est un dossier, `recursive` dans l’activité de copie doit être défini sur true.
 
-4. `wildcardFolderPath`, `wildcardFilename`, `modifiedDateTimeStart` et `modifiedDateTimeEnd` ne sont pas spécifiés.
+4. `wildcardFolderPath`, `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` et `additionalColumns` ne sont pas spécifiés.
 
 >[!NOTE]
 >Si votre source est un dossier, notez que PolyBase récupère les fichiers du dossier et de tous ses sous-dossiers, mais qu’il ne récupère pas les données des fichiers dont le nom commence par un trait de soulignement (_) ou un point (.), comme indiqué [ici - argument LOCATION](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
@@ -484,7 +485,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
 
 ### <a name="staged-copy-by-using-polybase"></a>Copie intermédiaire à l’aide de PolyBase
 
-Lorsque vos données sources ne sont pas compatibles en mode natif avec PolyBase, activez la copie des données via une instance Stockage Blob Azure intermédiaire temporaire (il ne peut pas s’agir du Stockage Azure Premium). Dans ce cas, Azure Data Factory convertit automatiquement les données pour répondre aux exigences de format de données de PolyBase. Ensuite, il invoque PolyBase pour charger les données dans SQL Data Warehouse. Pour finir, il nettoie vos données temporaires du stockage Blob. Pour plus d’informations sur la copie des données par le biais d’une instance de Stockage Blob Azure, consultez [Copie intermédiaire](copy-activity-performance.md#staged-copy).
+Lorsque vos données sources ne sont pas compatibles en mode natif avec PolyBase, activez la copie des données via une instance Stockage Blob Azure intermédiaire temporaire (il ne peut pas s’agir du Stockage Azure Premium). Dans ce cas, Azure Data Factory convertit automatiquement les données pour répondre aux exigences de format de données de PolyBase. Ensuite, il invoque PolyBase pour charger les données dans SQL Data Warehouse. Pour finir, il nettoie vos données temporaires du stockage Blob. Pour plus d’informations sur la copie des données par le biais d’une instance de Stockage Blob Azure, consultez [Copie intermédiaire](copy-activity-performance-features.md#staged-copy).
 
 Pour utiliser cette fonctionnalité, créez un [service lié au Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) qui fait référence au compte de stockage Azure avec le stockage Blob intermédiaire. Spécifiez ensuite les propriétés `enableStaging` et `stagingSettings` de l’activité de copie comme indiqué dans le code suivant :
 
@@ -530,15 +531,15 @@ Pour utiliser cette fonctionnalité, créez un [service lié au Stockage Blob Az
 
 ### <a name="best-practices-for-using-polybase"></a>Bonnes pratiques d’utilisation de PolyBase
 
-Les sections suivantes contiennent des bonnes pratiques qui s’ajoutent à celles mentionnées dans [Bonnes pratiques pour Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Les sections suivantes contiennent des bonnes pratiques qui s’ajoutent à celles mentionnées dans [Bonnes pratiques pour Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 #### <a name="required-database-permission"></a>Autorisation de base de données requise
 
-Pour utiliser PolyBase, l’utilisateur qui charge des données dans SQL Data Warehouse doit avoir [l’autorisation « CONTROL »](https://msdn.microsoft.com/library/ms191291.aspx) sur la base de données cible. Vous pouvez pour cela l’ajouter en tant que membre du rôle **db_owner**. Découvrez comment procéder dans la [Présentation de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+Pour utiliser PolyBase, l’utilisateur qui charge des données dans SQL Data Warehouse doit avoir [l’autorisation « CONTROL »](https://msdn.microsoft.com/library/ms191291.aspx) sur la base de données cible. Vous pouvez pour cela l’ajouter en tant que membre du rôle **db_owner**. Découvrez comment procéder dans la [Présentation de SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 #### <a name="row-size-and-data-type-limits"></a>Limitations en matière de taille de ligne et de type de données
 
-Les chargements PolyBase sont limités aux lignes inférieures à 1 Mo. Vous ne pouvez pas l’utiliser pour charger VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX). Pour en savoir plus, consultez [Limites de la capacité de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+Les chargements PolyBase sont limités aux lignes inférieures à 1 Mo. Vous ne pouvez pas l’utiliser pour charger VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX). Pour en savoir plus, consultez [Limites de la capacité de SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 Quand votre source de données comporte des lignes supérieures à 1 Mo, vous pouvez fractionner verticalement les tables sources en plusieurs petites tables. Vérifiez que la taille maximale de chaque ligne ne dépasse pas la limite. Vous pouvez ensuite charger les tables plus petites à l’aide de PolyBase et les fusionner dans Azure Synapse Analytics.
 
@@ -588,7 +589,7 @@ All columns of the table must be specified in the INSERT BULK statement.
 
 La valeur NULL est une forme spéciale de la valeur par défaut. Si la colonne est nullable, les données d’entrée dans l’objet Blob pour cette colonne peuvent être vides. En revanche, elles ne peuvent pas être manquantes dans le jeu de données d’entrée. PolyBase insère NULL pour les données manquantes dans Azure Synapse Analytics.
 
-## <a name="use-copy-statement"></a> Utiliser l’instruction COPY (préversion) pour charger des données dans Azure SQL Data Warehouse
+## <a name="use-copy-statement-to-load-data-into-azure-sql-data-warehouse-preview"></a><a name="use-copy-statement"></a> Utiliser l’instruction COPY (préversion) pour charger des données dans Azure SQL Data Warehouse
 
 [L’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (préversion) de SQL Data Warehouse prend directement en charge le chargement de données à partir **d’Azure Blob et d’Azure Data Lake Storage Gen2**. Si vos données sources répondent aux critères décrits dans cette section, vous pouvez choisir d’utiliser l’instruction COPY dans ADF pour charger des données dans Azure SQL Data Warehouse. Azure Data Factory vérifie les paramètres et fait échouer l’exécution de l’activité de copie si les critères ne sont pas satisfaits.
 
@@ -612,7 +613,7 @@ L’utilisation de l’instruction COPY prend en charge la configuration suivant
 2. Les paramètres du format sont comme suit :
 
    1. Pour **Parquet** : `compression` peut être **sans compression**, **Snappy** ou **GZip**.
-   2. Pour **ORC** : `compression` peut être **sans compression**, **zlib** ou **Snappy**.
+   2. Pour **ORC** : `compression` peut être **sans compression**, **```zlib```** ou **Snappy**.
    3. Pour **Texte délimité** :
       1. `rowDelimiter` est explicitement défini comme **caractère unique** ou « **\r\n** », la valeur par défaut n’est pas prise en charge.
       2. `nullValue` conserve sa valeur par défaut ou est défini sur **chaîne vide** ("").
@@ -623,7 +624,7 @@ L’utilisation de l’instruction COPY prend en charge la configuration suivant
 
 3. Si votre source est un dossier, `recursive` dans l’activité de copie doit être défini sur true.
 
-4. `wildcardFolderPath`, `wildcardFilename`, `modifiedDateTimeStart` et `modifiedDateTimeEnd` ne sont pas spécifiés.
+4. `wildcardFolderPath`, `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` et `additionalColumns` ne sont pas spécifiés.
 
 Les paramètres de l’instruction COPY suivants sont pris en charge sous `allowCopyCommand` dans l’activité de copie :
 
@@ -704,7 +705,7 @@ Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l�
 
 * Exemple SQL : ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Taille du lot** : entrez la taille de lot que doivent avoir les lectures créées à partir d’un large volume de données.
+**Taille du lot** : entrez la taille de lot que doivent avoir les lectures créées à partir d’un large volume de données. Dans les flux de données, ADF utilise ce paramètre pour définir la mise en cache en colonnes Spark. Il s’agit d’un champ facultatif qui utilise les valeurs par défaut de Spark s’il est laissé vide.
 
 **Niveaux d’isolement** : La valeur par défaut pour les sources SQL dans le flux de données de mappage est Lecture non validée. Vous pouvez remplacer ici le niveau d’isolement par l’une des valeurs suivantes :
 * Lecture validée
@@ -739,7 +740,7 @@ Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l�
 Quand vous copiez des données depuis ou vers Azure Synapse Analytics, les mappages suivants sont utilisés entre les types de données Azure Synapse Analytics et les types de données intermédiaires Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données sources au récepteur, consultez [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
 >[!TIP]
->Reportez-vous à l’article [Types de tables de données dans Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) pour découvrir les types de données pris en charge par SQL DW et les solutions de contournement pour les types non pris en charge.
+>Reportez-vous à l’article [Types de tables de données dans Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) pour découvrir les types de données pris en charge par SQL DW et les solutions de contournement pour les types non pris en charge.
 
 | Type de données Azure Synapse Analytics    | Type de données intermédiaires d’Azure Data Factory |
 | :------------------------------------ | :----------------------------- |

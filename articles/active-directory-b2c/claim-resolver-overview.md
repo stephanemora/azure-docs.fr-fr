@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189835"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396070"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -72,10 +72,12 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 | {OIDC:LoginHint} |  Paramètre de chaîne de requête `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | Le `max_age`. | N/A |
 | {OIDC:Nonce} |Paramètre de chaîne de requête `Nonce`. | defaultNonce |
+| {OIDC:Password}| Mot de passe utilisateur du [flux des informations d’identification par mot de passe du propriétaire de ressource](ropc-custom.md).| password1| 
 | {OIDC:Prompt} | Paramètre de chaîne de requête `prompt`. | login |
-| {OIDC:Resource} |Paramètre de chaîne de requête `resource`. | N/A |
-| {OIDC:scope} |Paramètre de chaîne de requête `scope`. | openid |
 | {OIDC:RedirectUri} |Paramètre de chaîne de requête `redirect_uri`. | https://jwt.ms |
+| {OIDC:Resource} |Paramètre de chaîne de requête `resource`. | N/A |
+| {OIDC:Scope} |Paramètre de chaîne de requête `scope`. | openid |
+| {OIDC:Username}| Nom d’utilisateur de l’utilisateur du [flux des informations d’identification par mot de passe du propriétaire de ressource](ropc-custom.md).| emily@contoso.com| 
 
 ### <a name="context"></a>Context
 
@@ -94,7 +96,7 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 
 | Revendication | Description | Exemple |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV:campaignId} | Paramètre de chaîne de requête. | hawaii |
+| {OAUTH-KV:campaignId} | Paramètre de chaîne de requête. | Hawaii |
 | {OAUTH-KV:app_session} | Paramètre de chaîne de requête. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Paramètre de chaîne de requête. | 1234 |
 | {OAUTH-KV : n’importe quelle chaîne de requête personnalisée} | Paramètre de chaîne de requête. | N/A |
@@ -112,7 +114,7 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 | ----- | ----------- | --------|
 | {SAML:AuthnContextClassReferences} | Valeur de l'élément `AuthnContextClassRef`, provenant de la demande SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
 | {SAML:NameIdPolicyFormat} | Attribut `Format`, provenant de l'élément `NameIDPolicy` de la demande SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
-| {SAML:Issuer} |  Valeur de l'élément `Issuer` SAML de la demande SAML.| https://contoso.com |
+| {SAML:Issuer} |  Valeur de l'élément `Issuer` SAML de la demande SAML.| `https://contoso.com` |
 | {SAML:AllowCreate} | Valeur de l'attribut `AllowCreate`, provenant de l'élément `NameIDPolicy` de la demande SAML. | True |
 | {SAML:ForceAuthn} | Valeur de l'attribut `ForceAuthN`, provenant de l'élément `AuthnRequest` de la demande SAML. | True |
 | {SAML:ProviderName} | Valeur de l'attribut `ProviderName`, provenant de l'élément `AuthnRequest` de la demande SAML.| Contoso.com |
@@ -160,7 +162,7 @@ L'exemple suivant illustre un profil technique RESTful en lien avec ce scénario
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:Scope}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
@@ -173,9 +175,9 @@ L'exemple suivant illustre un profil technique RESTful en lien avec ce scénario
 
 ### <a name="dynamic-ui-customization"></a>Personnalisation dynamique de l’interface utilisateur
 
-Azure AD B2C vous permet de transmettre des paramètres de chaîne de requête à vos points de terminaison de définition de contenu HTML afin d'afficher dynamiquement le contenu de la page. Par exemple, cela permet de changer l'image d'arrière-plan sur la page de connexion ou d'inscription Azure AD B2C en fonction d'un paramètre personnalisé que vous transmettez depuis votre application web ou mobile. Pour plus d’informations, consultez [Configurer dynamiquement l’interface utilisateur à l’aide de stratégies personnalisées dans Azure Active Directory B2C](custom-policy-ui-customization.md). Vous pouvez également localiser votre page HTML en fonction d’un paramètre de langue ou changer le contenu selon l’ID client.
+Azure AD B2C vous permet de transmettre des paramètres de chaîne de requête à vos points de terminaison de définition de contenu HTML afin d'afficher dynamiquement le contenu de la page. Par exemple, cette fonctionnalité permet de changer l’image d’arrière-plan sur la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre personnalisé que vous transmettez depuis votre application web ou mobile. Pour plus d’informations, consultez [Configurer dynamiquement l’interface utilisateur à l’aide de stratégies personnalisées dans Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Vous pouvez également localiser votre page HTML en fonction d’un paramètre de langue ou changer le contenu selon l’ID client.
 
-L'exemple suivant transmet dans la chaîne de requête les paramètres **campaignId** (valeur `hawaii`), **language** (valeur `en-US`), et **app** (représentant l'ID client) :
+L'exemple suivant transmet dans la chaîne de requête les paramètres **campaignId** (valeur `Hawaii`), **language** (valeur `en-US`), et **app** (représentant l'ID client) :
 
 ```XML
 <UserJourneyBehaviors>

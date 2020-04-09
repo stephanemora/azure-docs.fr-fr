@@ -7,21 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 02/25/2020
+ms.date: 03/16/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1f581cf5971cfa4eafda60c679a64d827109bb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e8c890a6daf2411b09162ab0072aed594820b936
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78201986"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886345"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -186,3 +183,4 @@ Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA
 * Pour obtenir plus d’exemples de code Azure AD, consultez ces [exemples](sample-v2-code.md).
 * Pour plus d’informations sur les kits SDK MSAL et l’accès à la documentation de référence, consultez [Vue d’ensemble de Microsoft Authentication Library (MSAL)](msal-overview.md).
 * Pour en savoir plus sur les scénarios multi-locataire, consultez [comment connecter les utilisateurs à l’aide du modèle multi-locataire](howto-convert-app-to-be-multi-tenant.md).
+* Découvrez l’[accès conditionnel et la sécurisation de l’accès aux applications IoT](/azure/architecture/example-scenario/iot-aad/iot-aad).

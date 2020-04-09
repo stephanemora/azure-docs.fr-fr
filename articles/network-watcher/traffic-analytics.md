@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 83164a615cacc067e5f1ea6a1dd6ce0f0fd9d540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298851"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981543"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -183,8 +183,8 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 
 1. Sélectionnez *Actif* pour **État**.
 2. Sélectionnez *Version 2* comme **version de Journaux de flux**. La version 2 contient des statistiques de session des flux (octets et paquets).
-3. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage. Assurez-vous que « Data Lake Storage Gen2 Espace de noms hiérarchique activé » n’est pas défini sur True (vrai) dans votre espace de stockage.
-4. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données.
+3. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Assurez-vous que « Data Lake Storage Gen2 Espace de noms hiérarchique activé » n’est pas défini sur True (vrai) dans votre espace de stockage.
+4. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage. 
 5. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
 6. Sélectionnez l’intervalle de traitement. Suivant votre choix, les journaux d’activité de flux seront collectés à partir du compte de stockage et traités par Traffic Analytics. Vous pouvez choisir un intervalle de traitement et le définir pour toutes les heures ou toutes les 10 minutes. 
 7. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#supported-regions-log-analytics-workspaces) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).

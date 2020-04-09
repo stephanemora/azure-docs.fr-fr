@@ -3,16 +3,16 @@ title: Gérer les serveurs et les coffres Azure Recovery Services
 description: Dans cet article, découvrez comment utiliser le tableau de bord Vue d’ensemble du coffre Recovery Services pour gérer et effectuer le monitorage de vos coffres Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586442"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131973"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
-Cet article explique comment utiliser le tableau de bord **Vue d’ensemble** du coffre Recovery Services pour surveiller et gérer vos coffres Recovery Services. Lorsque vous ouvrez un coffre Recovery Services à partir de la liste, le tableau de bord **Vue d’ensemble** du coffre sélectionné s’ouvre. Le tableau de bord fournit des informations détaillées sur le coffre. Il s’y trouve des *vignettes* qui montrent l’état des alertes d’avertissement et des alertes critiques, les travaux de sauvegarde en cours et ceux qui ont échoué, ainsi que la quantité de stockage localement redondant (LRS) et la quantité de stockage géoredondant (GRS) utilisée. Si vous sauvegardez des machines virtuelles Azure dans le coffre, la vignette [**État de la prévérification de sauvegarde** affiche toutes les alertes d’avertissement et toutes les alertes critiques](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). L’image suivante représente le tableau de bord **Vue d’ensemble** pour **Contoso-vault**. La vignette **Éléments de sauvegarde** montre que neuf éléments sont inscrits dans le coffre.
+Cet article explique comment utiliser le tableau de bord **Vue d’ensemble** du coffre Recovery Services pour surveiller et gérer vos coffres Recovery Services. Lorsque vous ouvrez un coffre Recovery Services à partir de la liste, le tableau de bord **Vue d’ensemble** du coffre sélectionné s’ouvre. Le tableau de bord fournit des informations détaillées sur le coffre. Il s’y trouve des *vignettes* qui montrent l’état des alertes d’avertissement et des alertes critiques, les travaux de sauvegarde en cours et ceux qui ont échoué, ainsi que la quantité de stockage localement redondant (LRS) et la quantité de stockage géoredondant (GRS) utilisée. Si vous sauvegardez des machines virtuelles Azure dans le coffre, la vignette [**État de la prévérification de sauvegarde** affiche toutes les alertes d’avertissement et toutes les alertes critiques](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). L’image suivante représente le tableau de bord **Vue d’ensemble** pour **Contoso-vault**. La vignette **Éléments de sauvegarde** montre que neuf éléments sont inscrits dans le coffre.
 
 ![coffre recovery services tableau de bord](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -49,7 +49,7 @@ Le tableau de bord **Vue d’ensemble** du coffre Recovery Services fournit des 
 La section Surveillance montre les résultats des requêtes prédéfinies **Alertes de sauvegarde** et **Travaux de sauvegarde**. Les vignettes de la section Surveillance fournissent des informations à jour concernant :
 
 * Les alertes critiques et d’avertissement pour les travaux de sauvegarde (au cours des dernières 24 heures)
-* L’état de prévérification pour les machines virtuelles Azure : pour obtenir des informations complètes sur l’état de prévérification, consultez le [blog Introducing Backup Pre-Checks for Backup of Azure VMs](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/).
+* État de la prévérification de sauvegarde pour les machines virtuelles Azure. Pour obtenir des informations complètes sur l’état de la prévérification, consultez [État de prévérification de la sauvegarde](#backup-pre-check-status).
 * Les travaux de sauvegarde en cours et ceux ayant échoué (au cours des dernières 24 heures).
 
 Les vignettes de la section Utilisation fournissent les informations suivantes :
@@ -62,6 +62,22 @@ Cliquez sur les vignettes (à l’exception de Stockage de sauvegarde) pour ouvr
 ![Menu Alertes de sauvegarde filtré sur les alertes critiques](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
 Le menu Alertes de sauvegarde, dans l’image ci-dessus, est filtré par : l’état est actif, la gravité est critique et la période est sur les dernières 24 heures.
+
+### <a name="backup-pre-check-status"></a>État de la prévérification de sauvegarde
+
+Les vérifications préalables de la sauvegarde vérifient la configuration de vos machines virtuelles et recherchent les problèmes susceptibles de nuire aux sauvegardes. Elles compilent ces informations pour que vous puissiez les consulter directement dans le tableau de bord du coffre Recovery Services et fournissent des mesures correctives recommandées afin de garantir la réussite des sauvegardes des applications et des fichiers. Elles ne nécessitent aucune infrastructure et n’entraînent aucun coût supplémentaire.  
+
+Les prévérifications de sauvegarde s’exécutent dans le cadre des opérations de sauvegarde planifiée pour vos machines virtuelles Azure. Elles concluent à un des états suivants :
+
+* **Réussite** : cet état indique que la configuration de votre machine virtuelle doit déboucher sur des sauvegardes réussies et qu’aucune action corrective n’est nécessaire.
+* **Avertissement** : cet état indique un ou plusieurs problèmes dans la configuration de la machine virtuelle qui *peuvent* entraîner des échecs de la sauvegarde. Il fournit des étapes *recommandées* pour garantir la réussite des sauvegardes. Par exemple, si vous n’avez pas installé le dernier agent de machine virtuelle, les sauvegardes peuvent échouer par intermittence. Cette situation peut déboucher sur l’état Avertissement.
+* **Critique** : Cet état indique un ou plusieurs problèmes critiques dans la configuration de la machine virtuelle qui *vont* entraîner des échecs de la sauvegarde et fournit des étapes *obligatoires* pour garantir la réussite des sauvegardes. Par exemple, un problème réseau provoqué par une mise à jour des règles du groupe de sécurité réseau d’une machine virtuelle entraîne l’échec des sauvegardes, car il empêche la machine virtuelle de communiquer avec le service Azure Backup. Cette situation peut déboucher sur un état critique.
+
+Suivez les étapes ci-dessous pour commencer à résoudre les problèmes signalés par les vérifications préalables à la sauvegarde pour les sauvegardes de machines virtuelles sur votre coffre Recovery Services.
+
+* Sélectionnez la mosaïque **État des vérifications préalables de sauvegarde (machines virtuelles Azure)** sur le tableau de bord du coffre Recovery Services.
+* Sélectionnez une machine virtuelle dont l’état de vérification de la sauvegarde est **Critique** ou **Avertissement**. Cette action ouvre le volet des **détails de la machine virtuelle**.
+* Sélectionnez le volet de notification en haut du volet pour afficher la description du problème de configuration et les étapes de résolution.
 
 ## <a name="manage-backup-alerts"></a>Gérer les alertes de sauvegarde
 
@@ -162,7 +178,7 @@ Pour explorer un type d’instance protégée, cliquez sur l’élément corresp
 
 ![Liste des types de sauvegarde](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-La liste des machines virtuelles comprend des données utiles : le groupe de ressources associé, la [prévérification de sauvegarde](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/) précédente, l’état de la dernière sauvegarde, et la date du point de restauration le plus récent. Dans la dernière colonne, les points de suspension permettent d’ouvrir le menu pour déclencher les tâches courantes. Les données utiles fournies dans les colonnes sont différentes pour chaque type de sauvegarde.
+La liste des machines virtuelles comprend des données utiles : le groupe de ressources associé, la [prévérification de sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status) précédente, l’état de la dernière sauvegarde, et la date du point de restauration le plus récent. Dans la dernière colonne, les points de suspension permettent d’ouvrir le menu pour déclencher les tâches courantes. Les données utiles fournies dans les colonnes sont différentes pour chaque type de sauvegarde.
 
 ![Liste des types de sauvegarde](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -272,4 +288,3 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
 
 * [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 * Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
-

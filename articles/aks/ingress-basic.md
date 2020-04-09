@@ -1,15 +1,16 @@
 ---
-title: Créer un contrôleur d’entrée de base dans Azure Kubernetes Service (AKS)
+title: Créer un contrôleur d’entrée
+titleSuffix: Azure Kubernetes Service
 description: Découvrez comment installer et configurer un contrôleur d’entrée NGINX de base dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 12/20/2019
-ms.openlocfilehash: e37f7aa677be129aa9fe568880c53cc860947e30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b9e4537d6dd771697accc1f9fbdc3b6e2584863
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595635"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668536"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)
 

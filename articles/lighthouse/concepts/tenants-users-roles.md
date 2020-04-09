@@ -1,14 +1,14 @@
 ---
 title: Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 description: Découvrez les concepts d’Azure Active Directory pour les locataires, les utilisateurs et les rôles, ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
-ms.date: 01/16/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 32d9214e4d0d204db39b6e6decab4665e9b55069
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156333"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754086"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 
@@ -41,6 +41,9 @@ Lorsque vous créez vos autorisations, nous vous recommandons de suivre ces meil
 - Veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail, ce qui contribue à réduire le risque d’erreurs accidentelles. Pour plus d’informations, voir [Pratiques de sécurité recommandées](../concepts/recommended-security-practices.md).
 - Incluez un utilisateur avec le [rôle Supprimer l’attribution de l’inscription des services gérés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) afin de pouvoir [supprimer l’accès à la délégation](../how-to/onboard-customer.md#remove-access-to-a-delegation) ultérieurement si nécessaire. Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
 - Assurez-vous que tous les utilisateurs qui ont besoin [d’afficher la page Mes clients dans le portail Azure](../how-to/view-manage-customers.md) possèdent le rôle de [Lecteur](../../role-based-access-control/built-in-roles.md#reader) (ou un autre rôle intégré qui inclut l’accès Lecteur).
+
+> [!IMPORTANT]
+> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être **Sécurité** et non **Office 365**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

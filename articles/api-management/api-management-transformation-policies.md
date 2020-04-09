@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 34a70a4698b69881a06cfb7a7017fa0c30647197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047694"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803243"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -69,13 +69,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |json-to-xml|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|Oui|N/A|
 |consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format XML est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
@@ -113,13 +113,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |xml-to-json|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|Oui|N/A|
 |apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|Oui|N/A|
@@ -149,13 +149,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |find-and-replace|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |de|Chaîne à rechercher.|Oui|N/A|
 |to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|Oui|N/A|
@@ -187,7 +187,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |redirect-content-urls|Élément racine.|Oui|
 
@@ -260,13 +260,13 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-backend-service|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|Nouvelle URL de base du service principal.|`base-url` ou `backend-id` doit être présent.|N/A|
 |id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de back-end sont gérées via une [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|`base-url` ou `backend-id` doit être présent.|N/A|
@@ -287,11 +287,11 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
  Utilisez la stratégie `set-body` pour définir le corps du message pour les demandes entrantes et sortantes. Pour accéder au corps du message, vous pouvez utiliser la propriété `context.Request.Body` ou `context.Response.Body`, selon que la stratégie se trouve dans la section inbound ou outbound.
 
 > [!IMPORTANT]
->  Notez que, par défaut, lorsque vous accédez au corps du message avec `context.Request.Body` ou `context.Response.Body`, le corps du message d’origine est perdu et doit être défini en renvoyant le corps dans l’expression. Pour conserver le contenu du corps, donnez la valeur `preserveContent` au paramètre `true` lorsque vous accédez au message. Si `preserveContent` a la valeur `true` et qu’un autre corps est renvoyé par l’expression, le corps renvoyé est utilisé.
+>  Notez que, par défaut, lorsque vous accédez au corps du message avec `context.Request.Body` ou `context.Response.Body`, le corps du message d’origine est perdu et doit être défini en renvoyant le corps dans l’expression. Pour conserver le contenu du corps, donnez la valeur `true` au paramètre `preserveContent` lorsque vous accédez au message. Si `preserveContent` a la valeur `true` et qu’un autre corps est renvoyé par l’expression, le corps renvoyé est utilisé.
 >
 >  Notez les points suivants lorsque vous utilisez la stratégie `set-body`.
 >
-> - Si vous utilisez la stratégie `set-body` pour renvoyer un nouveau corps ou un corps mis à jour, vous n’avez pas besoin de donner la valeur `preserveContent` à `true` parce que vous fournissez explicitement le nouveau contenu du corps.
+> - Si vous utilisez la stratégie `set-body` pour renvoyer un nouveau corps ou un corps mis à jour, vous n’avez pas besoin de donner la valeur `true` à `preserveContent` parce que vous fournissez explicitement le nouveau contenu du corps.
 >   -   Conserver le contenu d’une réponse dans le pipeline inbound n’est pas judicieux, car il n’existe encore aucune réponse.
 >   -   Conserver le contenu d’une demande dans le pipeline de sortie n’est pas judicieux, car la demande a déjà été envoyée au service principal à ce stade.
 >   -   Si cette stratégie est utilisée en l’absence de corps de message, par exemple dans une requête GET inbound, une exception est levée.
@@ -342,7 +342,7 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 ```
 
 #### <a name="filter-response-based-on-product"></a>Filtrer la réponse en fonction du produit
- Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s pour voir une présentation de [l’API The Dark Sky Forecast](https://developer.forecast.io/) utilisée pour cette démonstration.
+ Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s pour voir une présentation de [l’API The Dark Sky Forecast](https://developer.forecast.io/) utilisée pour cette démonstration.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -396,13 +396,13 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|Oui|
 
 ### <a name="properties"></a>Propriétés
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |template|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non||
 
@@ -484,7 +484,7 @@ OriginalUrl.
 
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Transférer des informations de contexte au service principal
- Cet exemple montre comment appliquer la stratégie au niveau de l’API pour fournir des informations de contexte au service principal. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 10 min 30 s. À 12 min 10 s, une démonstration de l’appel d’une opération dans le portail des développeurs montre la stratégie à l’œuvre.
+ Cet exemple montre comment appliquer la stratégie au niveau de l’API pour fournir des informations de contexte au service principal. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 10 min 30 s. À 12 min 10 s, une démonstration de l’appel d’une opération dans le portail des développeurs montre la stratégie à l’œuvre.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -510,14 +510,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-header|Élément racine.|Oui|
 |value|Spécifie la valeur de l'en-tête à définir. Si plusieurs en-têtes portent le même nom, ajoutez d’autres éléments `value`.|Non|
 
 ### <a name="properties"></a>Propriétés
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
 |name|Spécifie le nom de l'en-tête à définir.|Oui|N/A|
@@ -540,23 +540,18 @@ OriginalUrl.
 </set-query-parameter>
 ```
 
-### <a name="examples"></a>Exemples
-
 #### <a name="example"></a>Exemple
 
 ```xml
 
-<set-query-parameter>
-  <parameter name="api-key" exists-action="skip">
-    <value>12345678901</value>
-  </parameter>
-  <!-- for multiple parameters with the same name add additional value elements -->
+<set-query-parameter name="api-key" exists-action="skip">
+  <value>12345678901</value>
 </set-query-parameter>
 
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Transférer des informations de contexte au service principal
- Cet exemple montre comment appliquer la stratégie au niveau de l’API pour fournir des informations de contexte au service principal. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 10 min 30 s. À 12 min 10 s, une démonstration de l’appel d’une opération dans le portail des développeurs montre la stratégie à l’œuvre.
+ Cet exemple montre comment appliquer la stratégie au niveau de l’API pour fournir des informations de contexte au service principal. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 10 min 30 s. À 12 min 10 s, une démonstration de l’appel d’une opération dans le portail des développeurs montre la stratégie à l’œuvre.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -570,14 +565,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-query-parameter|Élément racine.|Oui|
 |value|Fournissez une valeur au paramètre de requête à définir. Si plusieurs paramètres de requête portent le même nom, ajoutez d’autres éléments `value`.|Oui|
 
 ### <a name="properties"></a>Propriétés
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|Spécifie l’action à entreprendre lorsque le paramètre de requête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur du paramètre actuel.<br />- skip : ne remplace pas la valeur du paramètre de requête actuel.<br />- append : ajoute la valeur à celle du paramètre de requête actuel.<br />- delete : supprime le paramètre de requête de la demande.<br /><br /> S’il a la valeur `override`, l’ajout de plusieurs entrées portant le même nom fait que le paramètre de requête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
 |name|Spécifie le nom du paramètre de requête à définir.|Oui|N/A|
@@ -649,7 +644,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |rewrite-uri|Élément racine.|Oui|
 
@@ -718,7 +713,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |xsl-transform|Élément racine.|Oui|
 |paramètre|Permet de définir des variables utilisées dans la transformation|Non|

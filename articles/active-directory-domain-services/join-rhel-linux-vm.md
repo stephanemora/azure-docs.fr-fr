@@ -8,15 +8,15 @@ ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: d12dd0c79f2e9c1d2b0cc17956a0bb8d8fa35865
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81eec19cb4af3a6b668bbfc26105085b4eec2a19
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299140"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655142"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle Red Hat Enterprise Linux à un domaine managé Azure AD Domain Services
 
@@ -24,7 +24,7 @@ Pour permettre aux utilisateurs de se connecter à des machines virtuelles dans 
 
 Cet article montre comment joindre une machine virtuelle Red Hat Enterprise Linux (RHEL) à un domaine managé Azure AD DS.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 

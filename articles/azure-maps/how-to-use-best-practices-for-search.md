@@ -1,19 +1,19 @@
 ---
-title: Rechercher efficacement à l’aide du service Recherche Azure Maps | Microsoft Azure Maps
-description: Découvrir comment appliquer les meilleures pratiques pour le service Recherche à l’aide de Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+title: Meilleures pratiques d’utilisation du service Recherche Azure Maps | Microsoft Azure Maps
+description: Découvrez comment appliquer les meilleures pratiques du service de recherche de Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 82e0339e02fa2fb27e7b2ca24f65934e3ce4fe23
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 8d62d7d278323baa0ae49b9e12f46468efb067a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335308"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Meilleures pratiques d’utilisation du service Recherche Azure Maps
 
@@ -69,12 +69,12 @@ Nous vous suggérons d’utiliser l’[API de recherche approximative](https://d
 
 * Utilisez le paramètre `idxSet` pour hiérarchiser le jeu exact de types de résultats. Pour hiérarchiser un jeu exact de résultats, vous pouvez envoyer une liste d’index séparés par des virgules. L’ordre des éléments dans votre liste n’a pas d’importance. Azure Maps prend en charge les index suivants :
 
-    * `Addr` - **Plages d’adresses** : Points d’adresse interpolés à partir du début et de la fin de la rue. Ces points sont représentés en tant que plages d’adresses.
-    * `Geo` - **Zones géographiques** : Divisions administratives de territoire. Une zone géographique peut être, par exemple, un pays, un État ou une ville.
-    * `PAD` - **Adresses exactes** : Adresses incluant un nom et un numéro de rue. Des adresses exactes peuvent figurer dans un index. Exemple : *Soquel Dr 2501*. Une adresse exacte fournit le niveau de précision le plus élevé disponible pour des adresses.  
-    * `POI` - **Points d’intérêt** : Points sur une carte qui sont considérés comme dignes d’attention ou susceptibles d’être intéressants. L’[API de recherche d’adresse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) ne retourne pas POI.  
-    * `Str` - **Rues** : Rues sur la carte.
-    * `XStr` - **Croisements ou intersections** : Jonctions ou emplacements où deux rues se croisent.
+* `Addr` - **Plages d’adresses** : Points d’adresse interpolés à partir du début et de la fin de la rue. Ces points sont représentés en tant que plages d’adresses.
+* `Geo` - **Zones géographiques** : Divisions administratives de territoire. Une zone géographique peut être, par exemple, un pays, un État ou une ville.
+* `PAD` - **Adresses exactes** : Adresses incluant un nom et un numéro de rue. Des adresses exactes peuvent figurer dans un index. Exemple : *Soquel Dr 2501*. Une adresse exacte fournit le niveau de précision le plus élevé disponible pour des adresses.  
+* `POI` - **Points d’intérêt** : Points sur une carte qui sont considérés comme dignes d’attention ou susceptibles d’être intéressants. L’[API de recherche d’adresse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) ne retourne pas POI.  
+* `Str` - **Rues** : Rues sur la carte.
+* `XStr` - **Croisements ou intersections** : Jonctions ou emplacements où deux rues se croisent.
 
 
 #### <a name="usage-examples"></a>Exemples d'utilisation
@@ -114,7 +114,6 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
                 "municipality": "Redmond",
                 "country": "United States",
                 "countryCodeISO3": "USA",
-                },
                 "countrySubdivisionName": "Washington"
             },
             "position": "47.639454,-122.130455",
@@ -490,7 +489,6 @@ Pour améliorer la pertinence des résultats et des informations contenues dans 
 Dans une demande, vous pouvez envoyer une liste de noms de marques séparés par des virgules. Vous pouvez utiliser cette liste pour limiter les résultats à des marques spécifiques à l’aide du paramètre `brandSet`. L’ordre des éléments dans votre liste est sans importance. Lorsque vous fournissez plusieurs listes de marques, les résultats retournés doivent appartenir à au moins une de vos listes.
 
 Pour explorer la recherche de marque, nous allons effectuer une demande de [recherche de catégorie de POI](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory). Dans l’exemple suivant, nous recherchons des stations-service à proximité du campus Microsoft à Redmond, Washington. La réponse affiche des informations de marque pour chaque POI retourné.
-
 
 #### <a name="sample-query"></a>Exemple de requête
 
@@ -969,5 +967,10 @@ Les réponses pour l’API de [recherche d’adresse](https://docs.microsoft.com
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Apprendre à [générer des requêtes destinées au service Recherche Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address).
-* Explorer la [documentation sur l’API du service Recherche](https://docs.microsoft.com/rest/api/maps/search) Azure Maps. 
+Pour plus d’informations, consultez :
+
+> [!div class="nextstepaction"]
+> [Comment générer des demandes requêtes destinées au service Recherche Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+
+> [!div class="nextstepaction"]
+> [Documentation de l’API du service de recherche](https://docs.microsoft.com/rest/api/maps/search)

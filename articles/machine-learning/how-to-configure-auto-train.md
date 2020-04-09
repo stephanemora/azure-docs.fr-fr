@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f49529b0599f36ae4a26939bbbe171a45a1a53a
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 03e1d4aa74d2f71ab2f32ac55f4ad3d46f672f5c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127175"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618536"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -82,6 +82,7 @@ Configuration requise pour les données de formation :
 Les exemples de code suivants montrent comment stocker les données dans ces formats.
 
 * TabularDataset
+
   ```python
   from azureml.core.dataset import Dataset
   from azureml.opendatasets import Diabetes
@@ -93,14 +94,14 @@ Les exemples de code suivants montrent comment stocker les données dans ces for
 
 * Tramedonnées Pandas
 
-    ```python
-    import pandas as pd
-    from sklearn.model_selection import train_test_split
+  ```python
+  import pandas as pd
+  from sklearn.model_selection import train_test_split
 
-    df = pd.read_csv("your-local-file.csv")
-    train_data, test_data = train_test_split(df, test_size=0.1, random_state=42)
-    label = "label-col-name"
-    ```
+  df = pd.read_csv("your-local-file.csv")
+  train_data, test_data = train_test_split(df, test_size=0.1, random_state=42)
+  label = "label-col-name"
+  ```
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Récupérer des données pour exécuter une expérience sur une capacité de calcul distante
 
@@ -132,51 +133,51 @@ Utilisez un jeu de données de validation personnalisé si la division aléatoir
 ## <a name="compute-to-run-experiment"></a>Capacité de calcul pour exécuter l’expérience
 
 Ensuite, l’endroit où le modèle doit être entraîné est déterminé. Une expérience de machine learning automatisé peut s’exécuter sur les options de calcul suivantes :
-*    Votre machine locale, comme un poste de travail local ou un ordinateur portable : en général, quand vous avez un petit jeu de données et que vous êtes toujours dans la phase d’exploration.
-*    Une machine distante dans le cloud : la [capacité de calcul managée Azure Machine Learning](concept-compute-target.md#amlcompute) est un service managé qui permet d’entraîner des modèles de machine learning sur des clusters de machines virtuelles Azure.
+* Votre machine locale, comme un poste de travail local ou un ordinateur portable : en général, quand vous avez un petit jeu de données et que vous êtes toujours dans la phase d’exploration.
+* Une machine distante dans le cloud : la [capacité de calcul managée Azure Machine Learning](concept-compute-target.md#amlcompute) est un service managé qui permet d’entraîner des modèles de machine learning sur des clusters de machines virtuelles Azure.
 
-    Consultez ce [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) pour obtenir des exemples de notebooks avec des cibles de calcul locales et distantes.
+  Consultez ce [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) pour obtenir des exemples de notebooks avec des cibles de calcul locales et distantes.
 
-*   Un cluster Azure Databricks dans votre abonnement Azure. Vous trouverez plus de détails ici : [Configurer le cluster Azure Databricks pour ML automatisé](how-to-configure-environment.md#azure-databricks)
+* Un cluster Azure Databricks dans votre abonnement Azure. Vous trouverez plus de détails ici : [Configurer le cluster Azure Databricks pour ML automatisé](how-to-configure-environment.md#azure-databricks)
 
-    Consultez ce [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) pour voir des exemples de notebooks avec Azure Databricks.
+  Consultez ce [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) pour voir des exemples de notebooks avec Azure Databricks.
 
 <a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>Configurer les paramètres de votre expérience
 
-Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).
+Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 Voici quelques exemples :
 
-1.    Expérience de classification utilisant l’AUC pondéré comme métrique principale avec le délai d’expiration (exprimé en minutes) défini sur 30 minutes et 2 plis de validation croisée.
+1. Expérience de classification utilisant l’AUC pondéré comme métrique principale avec le délai d’expiration (exprimé en minutes) défini sur 30 minutes et 2 plis de validation croisée.
 
-    ```python
-    automl_classifier=AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        blacklist_models=['XGBoostClassifier'],
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=2)
-    ```
-2.    Voici un exemple d’une expérience de régression définie pour se terminer au bout de 60 minutes, avec cinq plis de validation croisée.
+   ```python
+       automl_classifier=AutoMLConfig(
+       task='classification',
+       primary_metric='AUC_weighted',
+       experiment_timeout_minutes=30,
+       blacklist_models=['XGBoostClassifier'],
+       training_data=train_data,
+       label_column_name=label,
+       n_cross_validations=2)
+   ```
+2. Voici un exemple d’une expérience de régression définie pour se terminer au bout de 60 minutes, avec cinq plis de validation croisée.
 
-    ```python
-    automl_regressor = AutoMLConfig(
-        task='regression',
-        experiment_timeout_minutes=60,
-        whitelist_models=['kNN regressor'],
-        primary_metric='r2_score',
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=5)
-    ```
+   ```python
+      automl_regressor = AutoMLConfig(
+      task='regression',
+      experiment_timeout_minutes=60,
+      whitelist_models=['KNN'],
+      primary_metric='r2_score',
+      training_data=train_data,
+      label_column_name=label,
+      n_cross_validations=5)
+   ```
 
 Les trois valeurs différentes du paramètre `task` (le troisième type de tâche `forecasting` utilise un pool d’algorithmes similaire à celui des tâches `regression`) déterminent la liste des modèles à appliquer. Utilisez les paramètres `whitelist` ou `blacklist` pour modifier les itérations avec les modèles disponibles à inclure ou à exclure. La liste des modèles pris en charge est accessible dans [Classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) pour les tâches [classification](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [prévisions](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting) et [régression](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression).
 
-Le service de validation du ML automatisé nécessite que `experiment_timeout_minutes` soit défini sur un délai d’expiration minimal de 15 minutes afin d’éviter les échecs de l’expérience dus aux délais d’expiration.
+Pour éviter les échecs de délais d’expérimentation, le service de validation du ML automatisé exige que `experiment_timeout_minutes` soit défini sur un minimum de 15 minutes, soit 60 minutes si la taille de ligne par colonne dépasse 10 millions.
 
 ### <a name="primary-metric"></a>Métrique principale
 La métrique principale détermine la métrique à utiliser pendant l’entraînement du modèle dans un but d’optimisation. Les métriques disponibles que vous pouvez sélectionner sont déterminées par le type de tâche choisi. Le tableau ci-dessous présente les métriques principales valides pour chaque type de tâche.
@@ -244,7 +245,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
                              **time_series_settings)
 ```
 
-### <a name="ensemble"></a> Configuration des ensembles
+### <a name="ensemble-configuration"></a><a name="ensemble"></a> Configuration des ensembles
 
 Les modèles ensemblistes sont activés par défaut, et leurs itérations apparaissent comme les dernières itérations d’une exécution de Machine Learning automatisé. Les méthodes ensemblistes prises en charge sont le vote et l’empilement. L’implémentation du vote est de type « soft-voting » (vote souple) et utilise des moyennes pondérées. La méthode d’empilement utilise une implémentation à deux couches, dans laquelle la première couche comprend les mêmes modèles que l’ensemble de vote, et où le modèle de la deuxième couche sert à trouver la combinaison optimale des modèles de la première couche. Si vous utilisez des modèles ONNX **ou** si vous avez activé l’explicabilité des modèles, l’empilement est désactivé et seul le vote est utilisé.
 

@@ -3,13 +3,15 @@ title: Migrer des machines virtuelles Hyper-V vers Azure avec la migration de se
 description: Découvrir comment migrer des machines virtuelles Hyper-V locales vers Azure avec la migration de serveurs Azure Migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: MVC
-ms.openlocfilehash: e1b670db3399857278c646d3793e8ec946d385b0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.custom:
+- MVC
+- fasttrack-edit
+ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943300"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422698"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrer des machines virtuelles Hyper-V vers Azure 
 
@@ -50,7 +52,7 @@ Avant de commencer ce didacticiel, vous devez :
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Ajouter l’outil Azure Migrate Server Migration
 
-Si vous n’avez pas suivi le deuxième tutoriel pour évaluer les machines virtuelles Hyper-V, vous devez [suivre ces instructions](how-to-add-tool-first-time.md) pour configurer un projet Azure Migrate et ajouter l’outil Azure Migrate Server Migration au projet.
+Si vous n’avez pas suivi le deuxième tutoriel pour évaluer les machines virtuelles Hyper-V, vous devez [suivre ces instructions](how-to-add-tool-first-time.md) pour configurer un projet Azure Migrate et ajouter l’outil Azure Migrate Server Assessment au projet.
 
 Si vous avez suivi le deuxième tutoriel et que vous avez déjà un projet Azure Migrate, ajoutez l’outil Azure Migrate Server Migration comme suit :
 
@@ -67,10 +69,10 @@ Si vous avez suivi le deuxième tutoriel et que vous avez déjà un projet Azure
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurer l’appliance Azure Migrate
 
-Azure Migrate Server Migration exécute une appliance de machines virtuelles Hyper-V légère.
+Azure Migrate Server Migration exécute un agent logiciel sur des nœuds de cluster ou des hôtes Hyper-V pour orchestrer la migration et répliquer les données sur Azure Migrate. Aucune appliance dédiée n’est nécessaire pour la migration.
 
-- L’appliance effectue la découverte des machines virtuelles et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate Server Migration.
-- L’appliance est également utilisée par l’outil Azure Migrate : Server Assessment pour migrer des machines virtuelles Hyper-V vers Azure.
+- L’appliance Azure Migrate Server Assessment effectue la découverte des machines virtuelles, puis envoie les métadonnées et données de performances des machines virtuelles à Azure Migrate Server Migration.
+- L’orchestration de la migration et la réplication des données sont gérées par le fournisseur Microsoft Azure Site Recovery et l’agent Microsoft Azure Recovery Service.
 
 Pour configurer l’appliance :
 - Si vous avez suivi le deuxième tutoriel pour évaluer des machines virtuelles Hyper-V, vous avez déjà configuré l’appliance au cours de ce tutoriel ; ce n’est donc pas nécessaire de le refaire.

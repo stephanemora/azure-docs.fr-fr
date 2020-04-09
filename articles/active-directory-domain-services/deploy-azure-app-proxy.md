@@ -8,15 +8,15 @@ ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/6/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1dc5216f758c2dda263e2f61b043dbde5f76604
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613984"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655501"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application Azure AD pour un accès sécurisé aux applications internes dans un domaine managé Azure AD Domain Services
 
@@ -25,8 +25,6 @@ Grâce à Azure AD Domain Services (Azure AD DS), vous pouvez transférer des ap
 Si vous débutez avec le Proxy d'application Azure AD et que vous souhaitez en savoir plus, consultez [Comment fournir un accès à distance sécurisé aux applications internes](../active-directory/manage-apps/application-proxy.md).
 
 Cet article explique comment créer et configurer un connecteur de Proxy d'application Azure AD pour fournir un accès sécurisé aux applications dans un domaine managé Azure AD DS.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

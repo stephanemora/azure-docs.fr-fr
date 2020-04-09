@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7c93538982b7fd7bb2f5ac25027ed92cc6ccbfa3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: faaff9e9ad5982efac6409f2284158a3d0711331
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357847"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548404"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Étendre la prise en charge pour SQL Server 2008 et SQL Server 2008 R2 avec Azure
 
@@ -66,7 +66,7 @@ Des captures instantanées Azure Site Recovery avec cohérence des applications 
 
 Les solutions de récupération d’urgence pour SQL Server en fin de support sur une machine virtuelle Azure sont les suivantes :
 
-- **Sauvegardes SQL Server** : utilisez la Sauvegarde Azure pour protéger votre instance SQL Server en fin de support contre les ransomwares, une suppression accidentelle et une altération des données. La solution est actuellement en préversion pour SQL Server en fin de support ; elle prend en charge SQL Server 2008 et 2008 R2 s’exécutant sur Windows 2008 R2 SP1. Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support).
+- **Sauvegardes SQL Server** : Utilisez Sauvegarde Azure pour protéger votre instance SQL Server 2008 et 2008 R2 en fin de support contre les ransomwares, une suppression accidentelle et une altération des données à l’aide d’un objectif de point de récupération de 15 minutes et de la récupération jusqu`à une date et heure. Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
 - **Copie des journaux de transaction** : Vous pouvez créer un réplica de la copie des journaux de transaction dans une autre zone ou région Azure, avec des restaurations continues pour réduire le RTO. Vous devez configurer manuellement la copie des journaux de transaction.
 - **Azure Site Recovery** : Vous pouvez répliquer votre machine virtuelle entre les zones et les régions par l’intermédiaire de la réplication d’Azure Site Recovery. Les captures instantanées avec cohérence des applications sont indispensables à SQL Server pour garantir une récupération en cas de sinistre. Azure Site Recovery offre un RPO d’une heure au minimum et un RTO de deux heures (plus le temps de récupération de SQL Server) pour la récupération d’urgence de SQL Server en fin de support.
 

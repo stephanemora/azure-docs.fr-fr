@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 4b2b388fb736997010a6cbbdf93b23b77c7ef3a3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603978"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887331"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Sécuriser vos ports de gestion avec un accès juste-à-temps
 
@@ -36,7 +36,7 @@ Trois méthodes s’offrent à vous pour configurer une stratégie juste-à-temp
 
 Dans Security Center, il est possible de configurer une stratégie JIT pour demander l’accès à une machine virtuelle.
 
-### Configurer un accès JIT sur une machine virtuelle dans Security Center <a name="jit-asc"></a>
+### <a name="configure-jit-access-on-a-vm-in-security-center"></a>Configurer un accès JIT sur une machine virtuelle dans Security Center <a name="jit-asc"></a>
 
 1. Ouvrez le tableau de bord **Security Center**.
 
@@ -77,7 +77,7 @@ Dans Security Center, il est possible de configurer une stratégie JIT pour dema
 1. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
->Lorsque l’accès juste-à-temps aux machines virtuelles est activé pour une machine virtuelle, Azure Security Center crée des règles de « refus de tout le trafic entrant » pour les ports sélectionnés dans les groupes de sécurité réseau associés et le pare-feu Azure. Si d’autres règles avaient été créées pour les ports sélectionnés, les règles existantes sont prioritaires sur les nouvelles règles de « refus de tout le trafic entrant ». S’il n’y a aucune règle sur les ports sélectionnés, alors les nouvelles règles de « refus de tout le trafic entrant » sont prioritaires sur les groupes de sécurité réseau et le pare-feu Azure.
+>Lorsque l’accès juste-à-temps aux machines virtuelles est activé pour une machine virtuelle, Azure Security Center crée des règles de « refus de tout le trafic entrant » pour les ports sélectionnés dans les groupes de sécurité réseau associés et le pare-feu Azure. Si d’autres règles avaient été créées pour les ports sélectionnés, les règles existantes sont prioritaires sur les nouvelles règles de « refus de tout le trafic entrant ». S’il n’y a aucune règle sur les ports sélectionnés, alors les nouvelles règles de « refus de tout le trafic entrant » sont prioritaires sur les groupes de sécurité réseau et le Pare-feu Azure.
 
 
 ## <a name="request-jit-access-via-security-center"></a>Demander un accès JIT dans Security Center
@@ -139,7 +139,7 @@ Modifiez les filtres et sélectionnez **Appliquer** pour créer une recherche et
 
 
 
-## Configurer un accès JIT sur la page d’une machine virtuelle Azure <a name="jit-vm"></a>
+## <a name="configure-jit-access-from-an-azure-vms-page"></a>Configurer un accès JIT sur la page d’une machine virtuelle Azure <a name="jit-vm"></a>
 
 Dans un souci de simplicité, il est possible de se connecter à une machine virtuelle en accès JIT, directement sur la page de cette machine virtuelle dans Security Center.
 
@@ -177,7 +177,7 @@ Dans le portail Azure, lorsque vous essayez de vous connecter à une machine vir
 
   L’accès est demandé avec les paramètres par défaut suivants :
 
-  - **IP source** : « Toutes » (*) (cette valeur n’est pas modifiable)
+  - **IP source** : « Toutes » (*) (cette valeur n’est pas modifiable)
   - **Intervalle de temps** : Trois heures (cette valeur n’est pas modifiable) <!--Isn't this set in the policy-->
   - **Numéro de port** : port RDP 3389 pour Windows/port 22 pour Linux (cette valeur est modifiable)
 
@@ -188,7 +188,7 @@ Dans le portail Azure, lorsque vous essayez de vous connecter à une machine vir
 
   ![invite jit](./media/security-center-just-in-time/jit-prompt.png)
 
-## Configurer une stratégie juste-à-temps sur une machine virtuelle par programme <a name="jit-program"></a>
+## <a name="configure-a-jit-policy-on-a-vm-programmatically"></a>Configurer une stratégie juste-à-temps sur une machine virtuelle par programme <a name="jit-program"></a>
 
 Vous pouvez configurer et utiliser la fonctionnalité juste-à-temps via les API REST et via PowerShell.
 
@@ -202,33 +202,22 @@ Pour utiliser la solution d’accès juste-à-temps aux machines virtuelles via 
 
 L’exemple suivant définit une stratégie d’accès juste-à-temps aux machines virtuelles pour une machine virtuelle spécifique et définit les éléments suivants :
 
-1.  Fermez les ports 22 et 3389.
+1.    Fermez les ports 22 et 3389.
 
-2.  Définissez une fenêtre de temps maximale de 3 heures pour chaque afin de pouvoir être ouverts pour chaque demande approuvée.
-3.  Cela permet à l’utilisateur demandant un accès de contrôler les adresses IP source et cela lui permet d’établir une session avec succès après une demande d’accès juste-à-temps approuvée.
+2.    Définissez une fenêtre de temps maximale de 3 heures pour chaque afin de pouvoir être ouverts pour chaque demande approuvée.
+3.    Cela permet à l’utilisateur demandant un accès de contrôler les adresses IP source et cela lui permet d’établir une session avec succès après une demande d’accès juste-à-temps approuvée.
 
 Pour ce faire, exécutez la commande suivante dans PowerShell :
 
-1.  Attribuez une variable qui conserve la stratégie d’accès juste-à-temps à une machine virtuelle pour une machine virtuelle :
+1.    Attribuez une variable qui conserve la stratégie d’accès juste-à-temps à une machine virtuelle pour une machine virtuelle :
 
-        $JitPolicy = (@{
-         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-             number=22;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"},
-             @{
-             number=3389;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"})})
+        $JitPolicy = (@{    id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"   ports=(@{        number=22;        protocol="\*";        allowedSourceAddressPrefix=@("\*");        maxRequestAccessDuration="PT3H"},        @{        number=3389;        protocol="\*";        allowedSourceAddressPrefix=@("\*");        maxRequestAccessDuration="PT3H"})})
 
-2.  Insérez la stratégie d’accès juste-à-temps à une machine virtuelle d’une machine virtuelle dans le tableau :
+2.    Insérez la stratégie d’accès juste-à-temps à une machine virtuelle d’une machine virtuelle dans le tableau :
     
         $JitPolicyArr=@($JitPolicy)
 
-3.  Configurez la stratégie d’accès juste-à-temps à une machine virtuelle de la machine virtuelle sélectionnée :
+3.    Configurez la stratégie d’accès juste-à-temps à une machine virtuelle de la machine virtuelle sélectionnée :
     
         Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
@@ -237,18 +226,13 @@ Pour ce faire, exécutez la commande suivante dans PowerShell :
 Dans l’exemple suivant, vous pouvez voir une demande d’accès juste-à-temps à une machine virtuelle pour une machine virtuelle spécifique. Dans cette dernière, l’ouverture du port 22 est requise pour une adresse IP et une durée spécifiques :
 
 Exécutez la commande suivante dans PowerShell :
-1.  Configurez les propriétés de la demande d’accès à une machine virtuelle
+1.    Configurez les propriétés de la demande d’accès à une machine virtuelle
 
-        $JitPolicyVm1 = (@{
-          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-           number=22;
-           endTimeUtc="2018-09-17T17:00:00.3658798Z";
-           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
-2.  Insérez les paramètres de la demande d’accès à la machine virtuelle dans un tableau :
+        $JitPolicyVm1 = (@{     id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"   ports=(@{      number=22;      endTimeUtc="2018-09-17T17:00:00.3658798Z";      allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+2.    Insérez les paramètres de la demande d’accès à la machine virtuelle dans un tableau :
 
         $JitPolicyArr=@($JitPolicyVm1)
-3.  Envoyez la demande d’accès (utilisez l’ID de ressource obtenu à l’étape 1)
+3.    Envoyez la demande d’accès (utilisez l’ID de ressource obtenu à l’étape 1)
 
         Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
@@ -271,6 +255,7 @@ Cet article vous a fait découvrir en quoi l’accès juste-à-temps à la machi
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
+- Le module Microsoft Learn [Protéger vos serveurs et machines virtuelles contre les attaques par force brute et les programmes malveillants avec Azure Security Center](https://docs.microsoft.com/learn/modules/secure-vms-with-azure-security-center/)
 - [Définition des stratégies de sécurité](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des recommandations de sécurité](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
 - [Surveillance de l’intégrité de la sécurité](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.

@@ -1,15 +1,16 @@
 ---
-title: Créer un équilibreur de charge interne dans Azure Kubernetes Service (AKS)
+title: Créer un équilibrage de charge interne
+titleSuffix: Azure Kubernetes Service
 description: Découvrez comment créer et utiliser un équilibreur de charge interne pour exposer vos services avec Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: ff102ebe50dd4d2169090718ced9e550701b1b09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4decd66a558b031f1aaaf9c64556dae545ed05d3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229601"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668406"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)
 

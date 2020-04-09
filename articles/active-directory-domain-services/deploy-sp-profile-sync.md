@@ -8,15 +8,15 @@ ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 9d983015927d2635f69a327a9c5b168056542519
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a684a669c491e35b5c6b62dd318b4fe61edeb52b
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613854"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655378"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configurer Azure Active Directory Domain Services pour prendre en charge la synchronisation de profils utilisateur pour SharePoint Server
 
@@ -62,7 +62,7 @@ Le compte de service pour SharePoint Server a besoin des privilèges adéquats p
 
 1. Dans l’écran d’accueil, sélectionnez **Outils d’administration**. La liste des outils de gestion disponibles qui ont été installés dans le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm] s’affiche à l’écran.
 1. Pour gérer l’appartenance au groupe, sélectionnez **Centre d’administration Active Directory** dans la liste des outils d’administration.
-1. Dans le volet gauche, choisissez votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*. Une liste d’unités d’organisation et de ressources existantes s’affiche.
+1. Dans le volet de gauche, choisissez votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*. Une liste d’unités d’organisation et de ressources existantes s’affiche.
 1. Sélectionnez l’unité d’organisation **Users**, puis choisissez le groupe de sécurité *AAD DC Service Accounts*.
 1. Sélectionnez **Membres**, puis choisissez **Ajouter...** .
 1. Entrez le nom du compte de service SharePoint, puis sélectionnez **OK**. Dans l’exemple suivant, le compte de service SharePoint se nomme *spadmin* :

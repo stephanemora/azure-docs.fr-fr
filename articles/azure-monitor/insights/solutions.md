@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: c2690ad7cc4dcaa295bfb08b8c0396438ada0807
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234461"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437539"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
 Les solutions de monitoring exploitent les services Azure pour offrir des insights supplémentaires sur le fonctionnement d’une application ou d’un service en particulier. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation.
@@ -83,11 +83,7 @@ Toutes les solutions de supervision ont besoin d’un [espace de travail Log Ana
 * Si une solution nécessite un compte Automation, l’espace de travail Log Analytics et le compte Automation doivent être liés l’un à l’autre. Un espace de travail Log Analytics ne peut être lié qu’à un seul compte Automation, et un compte Automation ne peut être lié qu’à un seul espace de travail Log Analytics.
 * Pour être liés, l’espace de travail Log Analytics et le compte Automation doivent se trouver dans le même groupe de ressources et la même région. La configuration suivante fait figure d’exception : un espace de travail Log Analytics dans la région USA Est et un compte Automation dans USA Est 2.
 
-### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Création d’un lien entre un espace de travail Log Analytics et un compte Automation
-Le mode de spécification de l’espace de travail Log Analytics et du compte Automation dépend de la méthode d’installation de votre solution.
-
-* Quand vous installez une solution par le biais de la Place de marché Azure, vous êtes invité à choisir un espace de travail et un compte Automation. Un lien est automatiquement créé entre les deux s’il n’existe pas déjà.
-* Pour les solutions extérieures à la Place de marché Azure, vous devez lier l’espace de travail Log Analytics et le compte Automation avant d’installer la solution. Pour ce faire, vous pouvez sélectionner n’importe quelle solution de la Place de marché Azure et choisir l’espace de travail Log Analytics et le compte Automation. Vous n’êtes pas obligé d’installer effectivement la solution, car le lien est créé dès que l’espace de travail Log Analytics et le compte Automation sont sélectionnés. Une fois le lien créé, vous pouvez utiliser cet espace de travail Log Analytics et ce compte Automation pour toutes les solutions.
+Quand vous installez une solution par le biais de la Place de marché Azure, vous êtes invité à choisir un espace de travail et un compte Automation. Un lien est automatiquement créé entre les deux s’il n’existe pas déjà.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Vérification du lien entre un espace de travail Log Analytics et un compte Automation
 Vous pouvez vérifier le lien entre un espace de travail Log Analytics et un compte Automation à l’aide de la procédure suivante.

@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.openlocfilehash: fd363f7b685db5e309827a0c5e635264e676b388
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 65e51258b3a24b14b5171968645e88420e92dd5a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926193"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421071"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copier des données d’une table SAP à l’aide d’Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir d’une table SAP. Pour plus d’informations, consultez l’article [Vue d’ensemble d’activité de copie](copy-activity-overview.md).
 
 >[!TIP]
->Pour en savoir plus sur la prise en charge générale de l'intégration de données SAP par ADF, consultez le [livre blanc Intégration de données SAP à l'aide d'Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) qui contient une présentation détaillée, une comparaison et des conseils.
+>Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée, une comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -62,7 +62,7 @@ Pour utiliser ce connecteur de table SAP, vous devez effectuer les opérations s
   - Autorisation d'utiliser des destinations RFC (Remote Function Call).
   - Autorisations relatives à l’activité Exécuter de l’objet d’autorisation S_SDSAUTH.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -74,23 +74,23 @@ Les propriétés prises en charge pour le service lié SAP BW Open Hub sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| `type` | La propriété `type` doit être définie sur `SapTable`. | OUI |
+| `type` | La propriété `type` doit être définie sur `SapTable`. | Oui |
 | `server` | Nom du serveur sur lequel réside l’instance SAP.<br/>Permet de se connecter à un serveur d'applications SAP. | Non |
 | `systemNumber` | Numéro du système SAP.<br/>Permet de se connecter à un serveur d'applications SAP.<br/>Valeur autorisée : Nombre décimal à deux chiffres représenté sous forme de chaîne. | Non |
 | `messageServer` | Nom d’hôte du serveur de messagerie SAP.<br/>Permet de se connecter à un serveur de messagerie SAP. | Non |
 | `messageServerService` | Nom de service ou numéro de port du serveur de messagerie.<br/>Permet de se connecter à un serveur de messagerie SAP. | Non |
 | `systemId` | ID du système SAP où se trouve la table.<br/>Permet de se connecter à un serveur de messagerie SAP. | Non |
 | `logonGroup` | Groupe de connexion du système SAP.<br/>Permet de se connecter à un serveur de messagerie SAP. | Non |
-| `clientId` | ID du client dans le système SAP.<br/>Valeur autorisée : Nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
+| `clientId` | ID du client dans le système SAP.<br/>Valeur autorisée : Nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
 | `language` | Langue utilisée par le système SAP.<br/>La valeur par défaut est `EN`.| Non |
-| `userName` | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
-| `password` | Mot de passe de l’utilisateur. Marquez ce champ avec le type `SecureString` afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| `userName` | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
+| `password` | Mot de passe de l’utilisateur. Marquez ce champ avec le type `SecureString` afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | `sncMode` | Indicateur d’activation SNC permettant d’accéder au serveur SAP où se trouve la table.<br/>Applicable si vous voulez utiliser SNC pour vous connecter au serveur SAP.<br/>Valeurs autorisées : `0` (off, valeur par défaut) ou `1` (on). | Non |
 | `sncMyName` | Nom SNC de l’indicateur permettant d’accéder au serveur SAP où se trouve la table.<br/>S’applique si `sncMode` est défini sur On. | Non |
 | `sncPartnerName` | Nom SNC du partenaire de communication permettant d’accéder au serveur SAP où se trouve la table.<br/>S’applique si `sncMode` est défini sur On. | Non |
 | `sncLibraryPath` | Bibliothèque du produit de sécurité externe permettant d’accéder au serveur SAP où se trouve la table.<br/>S’applique si `sncMode` est défini sur On. | Non |
 | `sncQop` | Niveau SNC Quality of Protection à appliquer.<br/>S’applique si `sncMode` est défini sur On. <br/>Les valeurs autorisées sont `1` (Authentification), `2` (Intégrité), `3` (Confidentialité), `8` (Par défaut), `9` (Maximum). | Non |
-| `connectVia` | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Un runtime d’intégration auto-hébergé est nécessaire, comme indiqué précédemment dans [Prérequis](#prerequisites). |OUI |
+| `connectVia` | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Un runtime d’intégration auto-hébergé est nécessaire, comme indiqué précédemment dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple 1 : Se connecter à un serveur d'applications SAP**
 
@@ -117,7 +117,7 @@ Les propriétés prises en charge pour le service lié SAP BW Open Hub sont les 
 }
 ```
 
-### <a name="example-2-connect-to-an-sap-message-server"></a>Exemple 2 : Se connecter à un serveur de messagerie SAP
+### <a name="example-2-connect-to-an-sap-message-server"></a>Exemple 2 : Se connecter à un serveur de messagerie SAP
 
 ```json
 {
@@ -144,7 +144,7 @@ Les propriétés prises en charge pour le service lié SAP BW Open Hub sont les 
 }
 ```
 
-### <a name="example-3-connect-by-using-snc"></a>Exemple 3 : Se connecter via SNC
+### <a name="example-3-connect-by-using-snc"></a>Exemple 3 : Se connecter via SNC
 
 ```json
 {
@@ -182,10 +182,10 @@ Pour copier des données depuis et vers le service lié SAP BW Open Hub, les pro
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| `type` | La propriété `type` doit être définie sur `SapTableResource`. | OUI |
-| `tableName` | Nom de la table SAP à partir de laquelle copier des données. | OUI |
+| `type` | La propriété `type` doit être définie sur `SapTableResource`. | Oui |
+| `tableName` | Nom de la table SAP à partir de laquelle copier des données. | Oui |
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -214,7 +214,7 @@ Pour copier des données à partir d’une table SAP, les propriétés suivantes
 
 | Propriété                         | Description                                                  | Obligatoire |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| `type`                             | La propriété `type` doit être définie sur `SapTableSource`.         | OUI      |
+| `type`                             | La propriété `type` doit être définie sur `SapTableSource`.         | Oui      |
 | `rowCount`                         | Nombre de lignes à récupérer.                              | Non       |
 | `rfcTableFields`                   | Champs (colonnes) à copier à partir de la table SAP. Par exemple : `column0, column1`. | Non       |
 | `rfcTableOptions`                  | Options permettant de filtrer les lignes d’une table SAP. Par exemple : `COLUMN0 EQ 'SOMEVALUE'`. Voir également la table des opérateurs de requête SAP plus loin dans cet article. | Non       |
@@ -222,7 +222,7 @@ Pour copier des données à partir d’une table SAP, les propriétés suivantes
 | `partitionOption`                  | Mécanisme de partition permettant d’effectuer une lecture à partir d’une table SAP. Les options prises en charge sont les suivantes : <ul><li>`None`</li><li>`PartitionOnInt` (entier normal ou valeurs entières avec remplissage à l’aide de zéros à gauche ; par exemple, `0000012345`)</li><li>`PartitionOnCalendarYear` (4 chiffres au format « AAAA »)</li><li>`PartitionOnCalendarMonth` (6 chiffres au format « AAAAMM »)</li><li>`PartitionOnCalendarDate` (8 chiffres au format « AAAAMMJJ »)</li></ul> | Non       |
 | `partitionColumnName`              | Nom de la colonne utilisée pour partitionner les données.                | Non       |
 | `partitionUpperBound`              | Valeur maximale de la colonne spécifiée dans `partitionColumnName` qui sera utilisée pour poursuivre le partitionnement. | Non       |
-| `partitionLowerBound`              | Valeur minimale de la colonne spécifiée dans `partitionColumnName` qui sera utilisée pour poursuivre le partitionnement. | Non       |
+| `partitionLowerBound`              | Valeur minimale de la colonne spécifiée dans `partitionColumnName` qui sera utilisée pour poursuivre le partitionnement. (Remarque : `partitionLowerBound` ne peut pas être « 0 » quand l’option de partition est `PartitionOnInt`) | Non       |
 | `maxPartitionsNumber`              | Nombre maximal de partitions à utiliser pour diviser les données.     | Non       |
 
 >[!TIP]
@@ -230,21 +230,21 @@ Pour copier des données à partir d’une table SAP, les propriétés suivantes
 <br/>
 >Si nous prenons l’exemple de `partitionOption` avec la valeur `partitionOnInt`, le nombre de lignes dans chaque partition est calculé à l’aide de cette formule : (nombre total de lignes comprises entre `partitionUpperBound` et `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
->Pour charger des partitions de données en parallèle afin d’accélérer la copie, le degré parallèle est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) de l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre table SAP. Nous vous recommandons vivement de faire de `maxPartitionsNumber` un multiple de la valeur de la propriété `parallelCopies`. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est également recommandé de les écrire dans un dossier sous la forme de plusieurs fichiers (spécifiez uniquement le nom du dossier). Les performances seront meilleures qu'avec l'écriture dans un seul fichier.
+>Pour charger des partitions de données en parallèle afin d’accélérer la copie, le degré parallèle est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre table SAP. Nous vous recommandons vivement de faire de `maxPartitionsNumber` un multiple de la valeur de la propriété `parallelCopies`. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est également recommandé de les écrire dans un dossier sous forme fichiers multiples (spécifiez uniquement le nom du dossier). Ceci offre de meilleures performances qu’une écriture dans un fichier unique.
 
 Dans `rfcTableOptions`, vous pouvez utiliser les opérateurs de requête SAP courants suivants pour filtrer les lignes :
 
-| Operator | Description |
+| Opérateur | Description |
 | :------- | :------- |
 | `EQ` | Égal à |
-| `NE` | Non égal à |
+| `NE` | Différent de |
 | `LT` | Inférieur à |
 | `LE` | Inférieur ou égal à |
 | `GT` | Supérieur à |
 | `GE` | Supérieur ou égal à |
 | `LIKE` | Comme dans `LIKE 'Emma%'` |
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```json
 "activities":[

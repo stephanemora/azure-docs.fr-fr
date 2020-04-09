@@ -3,19 +3,19 @@ title: Informations de référence sur l’API Synthèse vocale (REST) – Servi
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser les API REST Synthèse vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: ab0891653f449b13f50dc43b196cf16a2f71370e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 03/23/2020
+ms.author: dapine
+ms.openlocfilehash: 977c6ec9aa1cd6a8b8a545d123c5308bb8c51651
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975820"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409025"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
@@ -27,7 +27,7 @@ L’API REST de synthèse vocale prend en charge les voix de synthèse vocale ne
 * Pour obtenir des informations sur la disponibilité régionale, consultez [régions](regions.md#text-to-speech).
 
 > [!IMPORTANT]
-> Les prix varient pour les voix standard, personnalisées et neurales. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Les prix varient en fonction des voix standard, personnalisées et neurales. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 Avant d’utiliser cette API, tenez compte du point suivant :
 
@@ -56,7 +56,7 @@ Le point de terminaison `voices/list` vous permet d’obtenir une liste complèt
 | Centre de la Corée | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centre-Nord des États-Unis | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europe Nord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA Centre Sud | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| États-Unis - partie centrale méridionale | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -99,35 +99,44 @@ Cette réponse a été tronquée pour illustrer la structure d’une réponse.
         "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
         "ShortName": "ar-EG-Hoda",
         "Gender": "Female",
-        "Locale": "ar-EG"
+        "Locale": "ar-EG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
         "ShortName": "ar-SA-Naayf",
         "Gender": "Male",
-        "Locale": "ar-SA"
+        "Locale": "ar-SA",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
         "ShortName": "bg-BG-Ivan",
         "Gender": "Male",
-        "Locale": "bg-BG"
+        "Locale": "bg-BG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)",
         "ShortName": "ca-ES-HerenaRUS",
         "Gender": "Female",
-        "Locale": "ca-ES"
+        "Locale": "ca-ES",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
-        "Name": "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)",
-        "ShortName": "cs-CZ-Jakub",
-        "Gender": "Male",
-        "Locale": "cs-CZ"
+        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
+        "ShortName": "zh-CN-XiaoxiaoNeural",
+        "Gender": "Female",
+        "Locale": "zh-CN",
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural"
     },
 
     ...
-
 ]
 ```
 
@@ -141,7 +150,7 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 | 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
 | 401 | Non autorisé | La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée. |
 | 429 | Trop de demandes | Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement. |
-| 502 | Passerelle incorrecte | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides. |
+| 502 | Passerelle incorrecte    | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides. |
 
 
 ## <a name="convert-text-to-speech"></a>Convertir la synthèse vocale
@@ -163,7 +172,7 @@ Ce tableau liste les en-têtes obligatoires et facultatifs pour les demandes de 
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Obligatoire |
 | `Content-Type` | Spécifie le type de contenu pour le texte fourni. Valeur acceptée : `application/ssml+xml`. | Obligatoire |
 | `X-Microsoft-OutputFormat` | Spécifie le format de la sortie audio. Pour obtenir une liste complète des valeurs acceptées, consultez [Sorties audio](#audio-outputs). | Obligatoire |
-| `User-Agent` | Nom de l'application. La valeur fournie doit être inférieure à 255 caractères. | Obligatoire |
+| `User-Agent` | Nom d'application. La valeur fournie doit être inférieure à 255 caractères. | Obligatoire |
 
 ### <a name="audio-outputs"></a>Sorties audio
 
@@ -191,7 +200,7 @@ Le corps de chaque requête `POST` est envoyée en tant que [Speech Synthesis Ma
 
 ### <a name="sample-request"></a>Exemple de requête
 
-Cette requête HTTP utilise SSML pour spécifier la voix et la langue. Le corps ne doit pas dépasser 1 000 caractères.
+Cette requête HTTP utilise SSML pour spécifier la voix et la langue. Si la longueur du corps est grande et que le contenu audio obtenu dépasse 10 minutes, il est tronqué à 10 minutes. En d’autres termes, la durée du contenu audio ne peut pas dépasser 10 minutes.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
@@ -203,7 +212,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-JessaRUS'>
+    name='en-US-AriaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
@@ -224,14 +233,14 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 | 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
 | 401 | Non autorisé | La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée. |
 | 413 | Entité de requête trop volumineuse | L’entrée SSML comporte plus de 1 024 caractères. |
-| 415 | Type de média non pris en charge | Il est possible que le `Content-Type` indiqué était incorrect. `Content-Type` doit être définie sur `application/ssml+xml`. |
+| 415 | Type de support non pris en charge | Il est possible que le `Content-Type` indiqué était incorrect. `Content-Type` doit être définie sur `application/ssml+xml`. |
 | 429 | Trop de demandes | Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement. |
-| 502 | Passerelle incorrecte | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides. |
+| 502 | Passerelle incorrecte    | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides. |
 
 Si l’état HTTP est `200 OK`, le corps de la réponse contient un fichier audio au format demandé. Ce fichier peut être lu pendant son transfert ou pendant son enregistrement dans une mémoire tampon ou dans un fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
-- [Personnaliser les modèles de langage](how-to-customize-language-model.md)
+- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services)
+- [Synthèse asynchrone pour un contenu audio long](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Bien démarrer avec Custom Voice](how-to-custom-voice.md)

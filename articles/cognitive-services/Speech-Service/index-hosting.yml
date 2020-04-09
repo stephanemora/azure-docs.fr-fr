@@ -7,35 +7,34 @@ metadata:
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/23/2020
   ms.author: dapine
-  ms.openlocfilehash: ead45759891d4b2a41a380c88cf32f4e504b6e2c
-  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+  ms.openlocfilehash: c342b797dfe21fe4ffbd1bb9bc112e9726cdec42
+  ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/28/2020
-  ms.locfileid: "77920873"
+  ms.lasthandoff: 04/01/2020
+  ms.locfileid: "80529479"
 landingContent:
-- title: Bien démarrer
+- title: À propos de l’hébergement
   linkLists:
   - linkListType: concept
     links:
-    - text: Conteneurs du service Speech
+    - text: Installer et exécuter des conteneurs Speech
       url: speech-container-howto.md
-    - text: Conteneurs du service Speech avec Kubernetes
+    - text: Conteneurs Speech avec Kubernetes et Helm
       url: speech-container-howto-on-premises.md
-    - text: Conteneurs du service Speech sur Azure Container Instances
+    - text: Conteneurs Speech sur des instances de conteneur Azure
       url: deploy-speech-on-container-instances.md
-- title: Guides pas à pas
+- title: Créer et configurer
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Créer une ressource Azure Speech
       url: get-started.md#new-resource
-    - text: Configurer des conteneurs
+    - text: Configurer des conteneurs Speech
       url: speech-container-configuration.md
 - title: Informations de référence
   linkLists:
@@ -45,3 +44,5 @@ landingContent:
       url: regions.md
     - text: Clouds souverains
       url: sovereign-clouds.md
+    - text: Questions fréquentes (FAQ) sur les conteneurs
+      url: speech-container-faq.md

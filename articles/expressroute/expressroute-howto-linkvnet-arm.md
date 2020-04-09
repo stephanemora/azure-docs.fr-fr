@@ -2,24 +2,24 @@
 title: 'ExpressRoute : Connecter un réseau virtuel à un circuit : Azure PowerShell'
 description: Ce document explique comment lier des réseaux virtuels à des circuits ExpressRoute à l’aide du modèle de déploiement Resource Manager et de PowerShell.
 services: expressroute
-author: ganesr
+author: charwen
 ms.service: expressroute
 ms.topic: article
 ms.date: 05/20/2018
-ms.author: ganesr
+ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 22e235b16f834198f5edc2f9365d2b13e1e9c49f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 755b1898ee4cbc32de3a65a6bbc368ecf3eb3acf
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031733"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616381"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connecter un réseau virtuel à un circuit ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Interface de ligne de commande Azure](howto-linkvnet-cli.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-linkvnet-classic.md)
 >
@@ -177,17 +177,22 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 La plage de *RoutingWeight* est de 0 à 32000. La valeur par défaut est 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Configurer ExpressRoute FastPath 
-Vous pouvez activer [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si votre circuit ExpressRoute se trouve sur [ExpressRoute Direct](expressroute-erdirect-about.md) et que votre passerelle de réseau virtuel est Très hautes performances ou ErGw3AZ. FastPath améliore le niveau de performance de chemin d’accès de données comme le nombre de paquets et de connexions par seconde entre votre réseau local et votre réseau virtuel. 
+Vous pouvez activer [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si votre passerelle de réseau virtuel est Très hautes performances ou ErGw3AZ. FastPath améliore le niveau de performance de chemin d’accès de données comme le nombre de paquets et de connexions par seconde entre votre réseau local et votre réseau virtuel. 
 
-> [!NOTE] 
-> Si vous disposez d’une connexion de réseau virtuel sans avoir activé FastPath, vous devez supprimer la connexion de réseau virtuel et créez-en une. 
-> 
->  
+**Configurer FastPath sur une nouvelle connexion**
 
 ```azurepowershell-interactive 
 $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
 $gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
 $connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
+
+**Mise à jour d’une connexion existante pour activer FastPath**
+
+```azurepowershell-interactive 
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" 
+$connection.ExpressRouteGatewayBypass = $True
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
 ## <a name="next-steps"></a>Étapes suivantes

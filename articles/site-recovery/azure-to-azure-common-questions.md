@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 99fed1d2b1246e4c099f275708f694e5d7ea2f22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190818"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547886"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -49,7 +49,7 @@ L’équipe Site Recovery et l’équipe de gestion de la capacité Azure planif
 Oui. Site Recovery prend en charge la récupération d’urgence des machines virtuelles pour lesquelles le chiffrement Azure Disk Encryption est activé. Lorsque vous activez la réplication, Azure copie l’ensemble des clés de chiffrement de disque et des secrets requis de la région source vers la région cible dans le contexte utilisateur. Si vous ne disposez pas des autorisations appropriées, votre administrateur de la sécurité peut utiliser un script pour copier les clés et les secrets.
 
 - Site Recovery prend en charge Azure Disk Encryption pour les machines virtuelles Azure exécutant Windows.
-- Site Recovery prend en charge Azure Disk Encryption version 0.1 dont le schéma requiert Azure Active Directory (Azure AD). Site Recovery prend également en charge la version 1.1 qui ne requiert pas Azure AD. [Apprenez-en davantage sur les schémas d’extension pour Azure Disk Encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Site Recovery prend en charge Azure Disk Encryption version 0.1 dont le schéma requiert Azure Active Directory (Azure AD). Site Recovery prend également en charge la version 1.1 qui ne requiert pas Azure AD. [Apprenez-en davantage sur les schémas d’extension pour Azure Disk Encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - Pour Azure Disk Encryption version 1.1, vous devez utiliser les machines virtuelles Windows avec des disques managés.
   - [En savoir plus](azure-to-azure-how-to-enable-replication-ade-vms.md) sur l’activation de la réplication pour les machines virtuelles chiffrées.
 
@@ -73,7 +73,7 @@ Oui, l’ajout de nouveaux disques à des machines virtuelles répliquées et l�
 
 - Si vous activez la protection pour les disques ajoutés, l’avertissement disparaît après la réplication initiale.
 - Si vous n’activez pas la réplication pour le disque, vous pouvez ignorer l’avertissement.
-- Si vous basculez une machine virtuelle dotée d’un disque ajouté pour laquelle la réplication est activée, il y a des points de réplication. Les points de réplication affichent les disques qui sont disponibles pour la récupération. 
+- Si vous basculez une machine virtuelle dotée d’un disque ajouté pour laquelle la réplication est activée, il y a des points de réplication. Les points de réplication affichent les disques qui sont disponibles pour la récupération.
 
 Supposons, imaginons qu’une machine virtuelle dispose d’un seul disque et que vous en ajoutez un nouveau. Il peut y avoir un point de réplication créé avant l’ajout du disque. Ce point de réplication indique qu’il se compose de « 1 sur 2 disques ».
 
@@ -93,7 +93,7 @@ Site Recovery vous permet de répliquer et récupérer des machines virtuelles e
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>Site Recovery nécessite-t-il une connexion Internet ?
 
-Non. Site Recovery ne nécessite pas de connexion Internet. En revanche, il requiert un accès aux URL et aux plages d’adresses IP Site Recovery, comme indiqué dans [Informations sur les réseaux dans la récupération d’urgence de machines virtuelles Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
+Non. Site Recovery ne nécessite pas de connexion Internet. En revanche, il requiert un accès aux URL et aux plages d’adresses IP Site Recovery, comme indiqué dans [Informations sur les réseaux dans la récupération d’urgence de machines virtuelles Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>Puis-je répliquer une application disposant d’un groupe de ressources distinct pour des niveaux distincts ?
 
@@ -193,6 +193,10 @@ Vous pouvez répliquer 16 machines virtuelles ensemble dans un groupe de répli
 
 La cohérence multimachine virtuelle étant une fonction faisant un usage intensif du processeur, son activation peut affecter les performances de la charge de travail. Ne l’utilisez que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence entre plusieurs machines virtuelles. Par exemple, si vous avez deux instances SQL Server et deux serveurs web dans une application, vous n’avez besoin de cohérence multimachine virtuelle que pour les instances SQL Server.
 
+### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>Pouvez-vous ajouter une machine virtuelle en cours de réplication à un groupe de réplication ?
+
+Vous pouvez ajouter une machine virtuelle à un nouveau groupe de réplication tout en activant la réplication. Vous pouvez également ajouter une machine virtuelle à un groupe de réplication existant tout en activant la réplication. Toutefois, vous ne pouvez pas ajouter une machine virtuelle en cours de réplication à un nouveau groupe de réplication ou à un groupe de réplication existant.
+
 ## <a name="failover"></a>Basculement
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Comment est assurée la capacité dans la région cible pour les machines virtuelles Azure ?
@@ -207,7 +211,7 @@ Le basculement n’est pas automatique. Vous pouvez lancer des basculements d’
 
 Vous pouvez conserver l’adresse IP publique de l’application de production après un basculement.
 
-Lorsque vous impliquez une charge de travail dans le processus de basculement, vous devez attribuer une ressource IP publique Azure à la charge de travail. La ressource IP publique Azure doit être disponible dans la région cible. Vous pouvez attribuer la ressource IP publique Azure manuellement, ou vous automatiser cette opération avec un plan de récupération. Découvrez comment [configurer des adresses IP publiques après un basculement](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
+Lorsque vous impliquez une charge de travail dans le processus de basculement, vous devez attribuer une ressource IP publique Azure à la charge de travail. La ressource IP publique Azure doit être disponible dans la région cible. Vous pouvez attribuer la ressource IP publique Azure manuellement, ou vous automatiser cette opération avec un plan de récupération. Découvrez comment [configurer des adresses IP publiques après un basculement](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).
 
 ### <a name="can-i-keep-a-private-ip-address-during-a-failover"></a>Puis-je conserver une adresse IP privée pendant un basculement ?
 
@@ -281,7 +285,7 @@ Cela dépend de la situation. Si la machine virtuelle de la région source exist
 
 Une fois la reprotection effectuée, la restauration automatique prend à peu près le même temps que le basculement de la région primaire vers une région secondaire.
 
-## <a name="capacity"></a>Capacité
+## <a name="capacity"></a><a name="capacity"></a>Capacité
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Comment est assurée la capacité dans la région cible pour les machines virtuelles Azure ?
 
@@ -295,7 +299,7 @@ Oui, vous pouvez acheter des [instances réservées de machine virtuelle](https:
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Les données de réplication sont-elles envoyées vers le service Site Recovery ?
 
-Non, le service Site Recovery n’intercepte pas de données répliquées et ne dispose d’aucune information sur ce qu’exécutent vos machines virtuelles. Seules les métadonnées nécessaires pour coordonner la réplication et le basculement sont envoyées au service Site Recovery.  
+Non, le service Site Recovery n’intercepte pas de données répliquées et ne dispose d’aucune information sur ce qu’exécutent vos machines virtuelles. Seules les métadonnées nécessaires pour coordonner la réplication et le basculement sont envoyées au service Site Recovery.
 
 Le service Site Recovery est certifié ISO 27001:2013, 27018, HIPAA et DPA. Il fait actuellement l’objet des évaluations SOC2 et JAB FedRAMP sont en cours.
 

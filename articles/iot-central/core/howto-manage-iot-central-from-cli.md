@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/11/2020
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: c44b7cd045547d01d1a31f949a42087e78e88b21
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: df24a2dc6e9bd058a2f8b1355b8760653ed3128a
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198835"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365528"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gérer IoT Central à partir d’Azure CLI
 
@@ -31,6 +31,14 @@ Si vous préférez exécuter Azure CLI sur votre ordinateur local, consultez [In
 
 > [!TIP]
 > Si vous devez exécuter vos commandes CLI dans un autre abonnement Azure, consultez [Changer l’abonnement actif](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
+
+## <a name="install-the-extension"></a>Installer l’extension
+
+Les commandes de cet article font partie de l’extension CLI **azure-iot**. Exécutez la commande suivante pour installer l’extension :
+
+```azurecli-interactive
+az extension add --name azure-iot
+```
 
 ## <a name="create-an-application"></a>Créer une application
 
@@ -56,9 +64,9 @@ Ces commandes créent d’abord un groupe de ressources dans la région USA Est 
 | Paramètre         | Description |
 | ----------------- | ----------- |
 | resource-group    | Groupe de ressources qui contient l’application. Ce groupe de ressources doit déjà exister dans votre abonnement. |
-| location          | Par défaut, cette commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les zones géographiques **Australie**, **Asie-Pacifique**, **Europe** ou **États-Unis**. |
+| location          | Par défaut, cette commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les zones géographiques **Australie**, **Asie-Pacifique**, **Europe**, **États-Unis**, **Royaume-Uni** ou **Japon**. |
 | name              | Nom de l’application dans le portail Azure. |
-| subdomain         | Sous-domaine dans l’URL de l’application. Dans l’exemple, l’URL de l’application est https://mysubdomain.azureiotcentral.com. |
+| subdomain         | Sous-domaine dans l’URL de l’application. Dans l’exemple, l’URL de l’application est `https://mysubdomain.azureiotcentral.com`. |
 | sku               | Vous pouvez utiliser **ST1** ou **ST2**. Consultez [Tarifs Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | template          | Modèle d’application à utiliser. Pour plus d’informations, consultez le tableau suivant. |
 | display-name      | Nom de l’application tel qu’il est affiché dans l’interface utilisateur. |

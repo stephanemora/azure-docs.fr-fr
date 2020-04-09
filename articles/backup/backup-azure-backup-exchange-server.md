@@ -4,12 +4,12 @@ description: Apprenez à sauvegarder un serveur Exchange dans Azure Backup à l�
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 389713767409ff49c6fc83a4d6e8dc3c87272fc9
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b45efa0623edbec47b8ae12d3a97b1e032626530
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614370"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396421"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
 
@@ -49,7 +49,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 4. Sélectionnez la base de données du serveur Exchange que vous souhaitez protéger, puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Si vous protégez Exchange 2013, vérifiez les [Conditions préalables pour Exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
+   > Si vous protégez Exchange 2013, vérifiez les [Conditions préalables pour Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
    >
    >
 
@@ -76,7 +76,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 9. Sélectionnez la base de données pour **Sauvegarde de copie**, puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Si vous ne sélectionnez pas « Sauvegarde complète » pour au moins une copie DAG d’une base de données, les journaux d’activité ne seront pas tronqués.
+   > Si vous ne sélectionnez pas « Sauvegarde complète » pour au moins une copie DAG d’une base de données, les journaux ne seront pas tronqués.
    >
    >
 10. Configurez les objectifs de **Sauvegarde à court terme**, puis cliquez sur **Suivant**.

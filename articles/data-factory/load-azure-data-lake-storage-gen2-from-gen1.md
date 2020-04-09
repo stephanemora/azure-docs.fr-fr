@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 5809307ff8e047ebc6120cb5ebf36590f2a2a51a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f8577592f1d53627bc09a2f9ace8c060ad4660
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444020"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668853"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
 
@@ -31,7 +31,7 @@ Azure Data Factory offre une solution de déplacement des données managées qui
 
 Cet article vous explique comment utiliser l’outil de copie de données de Data Factory pour copier des données depuis Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2. Vous pouvez procéder de même pour copier des données à partir d’autres types de banques de données.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Compte Azure Data Lake Storage Gen1 contenant des données.
@@ -137,7 +137,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
-Pour évaluer la mise à niveau d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2 en général, consultez [Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). Les sections suivantes présentent les bonnes pratiques d’utilisation du service Data Factory pour effectuer une mise à niveau des données de Data Lake Storage Gen1 vers Data Lake Storage Gen2.
+Pour évaluer la mise à niveau d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2 en général, consultez [Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). Les sections suivantes présentent les bonnes pratiques d’utilisation du service Data Factory pour effectuer une mise à niveau des données de Data Lake Storage Gen1 vers Data Lake Storage Gen2.
 
 ### <a name="data-partition-for-historical-data-copy"></a>Partitionner les données pour la copie de données historiques
 
@@ -146,7 +146,7 @@ Pour évaluer la mise à niveau d’Azure Data Lake Storage Gen1 vers Azure Data
 
 Utilisez une preuve de concept pour vérifier la solution de bout en bout et tester le débit de copie dans votre environnement. Principales étapes de la preuve de concept : 
 
-1. Créez un pipeline Data Factory avec une seule activité de copie pour copier plusieurs téraoctets de données de Data Lake Storage Gen1 vers Data Lake Storage Gen2. Ceci vous donne une base de référence de copie. Démarrez avec 128 [unités d’intégration de données](copy-activity-performance.md#data-integration-units). 
+1. Créez un pipeline Data Factory avec une seule activité de copie pour copier plusieurs téraoctets de données de Data Lake Storage Gen1 vers Data Lake Storage Gen2. Ceci vous donne une base de référence de copie. Démarrez avec 128 [unités d’intégration de données](copy-activity-performance-features.md#data-integration-units). 
 2. Sur la base du débit de copie obtenu à l’étape 1, calculez la durée estimée à prévoir pour migrer toutes les données. 
 3. (Facultatif) Créez une table de contrôle et définissez le filtre de fichiers pour partitionner les fichiers à migrer. Il y a deux méthodes possibles pour partitionner les fichiers : 
 
@@ -163,7 +163,7 @@ Dans Data Factory, le [connecteur Data Lake Storage Gen1](connector-azure-data-l
 
 ### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Conserver les listes de contrôle d’accès de Data Lake Storage Gen1
 
-Si vous souhaitez répliquer les listes de contrôle d’accès ainsi que les fichiers de données quand vous migrez de Data Lake Storage Gen1 vers Data Lake Storage Gen2, consultez [Conserver les listes de contrôle d’accès à partir de Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+Si vous souhaitez répliquer les listes de contrôle d’accès ainsi que les fichiers de données quand vous migrez de Data Lake Storage Gen1 vers Data Lake Storage Gen2, consultez [Conserver les listes de contrôle d’accès à partir de Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
 
 ### <a name="incremental-copy"></a>Copie incrémentielle 
 

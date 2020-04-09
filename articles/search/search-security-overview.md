@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 44d5edd7b5808b6c212a832dd95de7a9cb4b7c08
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/25/2020
+ms.openlocfilehash: 6de6f23fe9564b28a5d436ac00999dbb3e9183e1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978586"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548959"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Sécurité et confidentialité des données dans Recherche cognitive Azure
 
@@ -52,13 +52,15 @@ Plusieurs mécanismes de sécurité sont disponibles dans Azure et, de ce fait, 
 + [Verrous au niveau des abonnements ou des ressources pour empêcher la suppression](../azure-resource-manager/management/lock-resources.md)
 + [Contrôle d'accès en fonction du rôle (RBAC) pour contrôler l’accès aux informations et aux opérations d’administration](../role-based-access-control/overview.md)
 
-Tous les services Azure prennent en charge les contrôles d’accès en fonction du rôle (RBAC) pour permettre une définition des niveaux d’accès cohérente à travers tous les services. Par exemple, l'affichage de données sensibles, comme la clé d'administration, est réservé aux rôles Propriétaire et Collaborateur, tandis que l'affichage de l'état du service est disponible aux membres de tous les rôles. RBAC fournit des rôles Propriétaire, Collaborateur et Lecteur. Par défaut, tous les administrateurs de service sont propriétaires.
+Tous les services Azure prennent en charge les contrôles d’accès en fonction du rôle (RBAC) pour permettre une définition des niveaux d’accès cohérente à travers tous les services. Par exemple, l’affichage de données sensibles, comme la clé d’administration, est réservé aux rôles Propriétaire et Collaborateur. En revanche, l’affichage de l’état du service est disponible pour les membres de tous les rôles. RBAC fournit des rôles Propriétaire, Collaborateur et Lecteur. Par défaut, tous les administrateurs de service sont propriétaires.
 
 <a name="service-access-and-authentication"></a>
 
-## <a name="service-access-and-authentication"></a>Accès au service et authentification
+## <a name="endpoint-access"></a>Accès au point de terminaison
 
-Alors que le service Recherche cognitive Azure hérite des fonctions de sécurité de la plateforme Azure, il fournit également sa propre authentification basée sur clé. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. 
+### <a name="public-access"></a>Accès public
+
+Le service Recherche cognitive Azure hérite des fonctions de sécurité de la plateforme Azure et fournit sa propre authentification basée sur une clé. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. 
 
 Il existe deux niveaux d’accès à votre service de recherche, activés par deux types de clés :
 
@@ -71,6 +73,16 @@ Des *clés de requête* sont créées en fonction des besoins pour les applicati
 
 L’authentification est requise à chaque requête, chaque requête étant composée d’une clé obligatoire, d’une opération et d’un objet. Quand ils sont chaînés, les deux niveaux d’autorisation (complet ou en lecture seule) et le contexte (par exemple, une opération de requête sur un index) sont suffisants pour fournir une sécurité couvrant l’ensemble des opérations de service. Pour plus d’informations sur les clés, consultez [Créer et gérer des clés de l’api](search-security-api-keys.md).
 
+### <a name="restricted-access"></a>ACCÈS RESTREINT
+
+Si vous disposez d’un service public et souhaitez restreindre son utilisation, vous pouvez utiliser la règle de restriction d’adresse IP dans la version de l’API REST de gestion : 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule). IpRule vous permet de restreindre l’accès à votre service en identifiant les adresses IP, individuellement ou dans une plage, auxquelles vous souhaitez autoriser votre service de recherche à accéder. 
+
+### <a name="private-access"></a>Accès privé
+
+Les [points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)de Recherche cognitive Azure permettent à un client d’un réseau virtuel d’accéder en toute sécurité aux données d’un index de recherche grâce à une [liaison privée](https://docs.microsoft.com/azure/private-link/private-link-overview). Ils utilisent une adresse IP de l’espace d’adressage du réseau virtuel pour votre service de recherche. Le trafic entre le client et le service Search traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public.
+
+Le [réseau virtuel Azure (VNet)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permet une communication sécurisée entre ressources, avec votre réseau local, ainsi qu’avec Internet. 
+
 ## <a name="index-access"></a>Accès aux index
 
 Dans Recherche cognitive Azure, les index individuels ne sont pas des objets sécurisables. En effet, l’accès aux index est déterminé au niveau de la couche de service (accès en lecture ou en écriture) et du contexte d’une opération.
@@ -81,11 +93,13 @@ Il n’existe aucune différence entre l’accès administrateur et l’accès d
 
 Pour les solutions d’architecture mutualisée qui nécessitent des limites de sécurité au niveau des index, ces solutions incluent généralement un niveau intermédiaire, que les clients utilisent pour gérer l’isolation des index. Pour plus d’informations sur les cas d’usage d’architecture mutualisée, consultez [Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure](search-modeling-multitenant-saas-applications.md).
 
-## <a name="admin-access"></a>Accès administrateur
+## <a name="authentication"></a>Authentification
+
+### <a name="admin-access"></a>Accès administrateur
 
 L’[accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) détermine si vous avez accès aux contrôles sur le service et son contenu. Si vous êtes propriétaire ou contributeur d’un service de Recherche cognitive Azure, vous pouvez utiliser le portail ou le module **Az.Search** PowerShell pour créer, mettre à jour ou supprimer des objets sur le service. Vous pouvez également utiliser l’[API REST de gestion de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-## <a name="user-access"></a>Accès utilisateur
+### <a name="user-access"></a>Accès utilisateur
 
 Par défaut, l’accès utilisateur à un index est déterminé par la clé d’accès sur la demande de requête. La plupart des développeurs créent et affectent des [*clés de requête*](search-security-api-keys.md) pour les demandes de recherche du côté client. Une clé de requête accorde un accès en lecture à l’ensemble du contenu dans l’index.
 

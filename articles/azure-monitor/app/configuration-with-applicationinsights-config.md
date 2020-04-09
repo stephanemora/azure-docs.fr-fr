@@ -4,12 +4,12 @@ description: Activez ou désactivez les modules de collecte de données et ajout
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: b2c407036277b17c0f8c08f3261c932a6dc66624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 460bd79e3a37c492301f7438112fef4487618fed
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234761"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982087"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier config permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
@@ -167,65 +167,6 @@ Il existe également un [processeur de télémétrie d’échantillonnage](../..
 
 ```
 
-
-
-## <a name="channel-parameters-java"></a>Paramètres de canal (Java)
-Ces paramètres ont un effet sur la manière dont le kit de développement logiciel (SDK) doit stocker et vider les données de télémétrie qu’il collecte.
-
-#### <a name="maxtelemetrybuffercapacity"></a>MaxTelemetryBufferCapacity
-Nombre d’éléments de télémétrie qui peuvent être stockés dans la mémoire du kit de développement logiciel (SDK). Une fois ce nombre atteint, la mémoire tampon de télémétrie est vidée : les éléments de télémétrie sont envoyés au serveur Application Insights.
-
-* Min : 1
-* Max : 1000
-* Valeur par défaut : 500
-
-```
-
-  <ApplicationInsights>
-      ...
-      <Channel>
-       <MaxTelemetryBufferCapacity>100</MaxTelemetryBufferCapacity>
-      </Channel>
-      ...
-  </ApplicationInsights>
-```
-
-#### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
-Détermine la fréquence à laquelle les données stockées en mémoire doivent être vidées (envoyées à Application Insights).
-
-* Min : 1
-* Max : 300
-* Valeur par défaut : 5
-
-```
-
-    <ApplicationInsights>
-      ...
-      <Channel>
-        <FlushIntervalInSeconds>100</FlushIntervalInSeconds>
-      </Channel>
-      ...
-    </ApplicationInsights>
-```
-
-#### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
-Détermine la taille maximale en Mo allouée au stockage persistant sur le disque local. Ce stockage est utilisé pour les éléments de télémétrie persistants qui n’ont pas pu être transmis au point de terminaison Application Insights. Une fois la capacité de stockage atteinte, les nouveaux éléments de télémétrie sont ignorés.
-
-* Min : 1
-* Max : 100
-* Valeur par défaut : 10
-
-```
-
-   <ApplicationInsights>
-      ...
-      <Channel>
-        <MaxTransmissionStorageCapacityInMB>50</MaxTransmissionStorageCapacityInMB>
-      </Channel>
-      ...
-   </ApplicationInsights>
-```
-
 ## <a name="instrumentationkey"></a>InstrumentationKey
 Ce paramètre détermine la ressource Application Insights dans laquelle vos données s’affichent. En général, vous créez une ressource séparée, avec une clé distincte, pour chacune de vos applications.
 
@@ -268,7 +209,7 @@ L’objectif de ce fournisseur est de rechercher un ID d’application à partir
 
 Cette option est disponible en définissant `TelemetryConfiguration.ApplicationIdProvider` dans le code ou dans la configuration.
 
-### <a name="interface-iapplicationidprovider"></a>Interface : IApplicationIdProvider
+### <a name="interface-iapplicationidprovider"></a>Interface : IApplicationIdProvider
 
 ```csharp
 public interface IApplicationIdProvider

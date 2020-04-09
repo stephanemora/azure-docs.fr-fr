@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77192966"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655938"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
@@ -153,7 +153,7 @@ Suivez les étapes ci-dessous pour ajouter des approbateurs après avoir sélect
 
     La justification est visible par les autres approbateurs et le demandeur.
 
-### <a name="2-stage-approval-preview"></a>Approbation en 2 étapes (préversion)
+### <a name="2-stage-approval"></a>Approbation en deux phases
 
 Si vous avez sélectionné l’approbation en 2 étapes, vous devez ajouter un deuxième approbateur.
 

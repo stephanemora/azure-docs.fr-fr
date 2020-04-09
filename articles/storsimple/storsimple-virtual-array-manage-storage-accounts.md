@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: ac539b44f09663e6eac5651646d3c9cd02e45b3c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5cedde1e7daa49aaa7a2786c9ad8a65fb8e452f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360002"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297573"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Utilisation de StorSimple Device Manager pour gérer les informations d’identification du compte de stockage pour StorSimple Virtual Array
 
@@ -38,7 +38,7 @@ Les informations d’identification des comptes de stockage contiennent les info
 Sur le panneau **Informations d’identification du compte de stockage**, l’ensemble des informations d’identification de compte de stockage créées pour l’abonnement à la facturation sont affichées sous forme de tableau, et contiennent les données suivantes :
 
 * **Nom** : nom unique attribué au compte lors de sa création.
-* **SSL activé** : permet d’indiquer si le protocole SSL est activé et si la communication appareil-cloud s’effectue sur le canal sécurisé.
+* **SSL activé** : permet d’indiquer si le protocole TLS est activé et si la communication appareil-cloud s’effectue sur le canal sécurisé.
   
   ![Section de configuration](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
 
@@ -56,7 +56,7 @@ Il existe trois types d’informations d’identification de compte de stockage
 * **Informations d’identification de compte de stockage en dehors de l’abonnement au service** : il s’agit ici des données qui ne sont pas associées à votre service et existaient probablement avant sa création.
 
 ## <a name="add-a-storage-account-credential"></a>Ajout des informations d’identification de compte de stockage
-Pour ajouter les informations d’identification du compte de stockage à votre configuration de service StorSimple Device Manager, vous pouvez fournir un nom convivial et des informations d’identification d’accès uniques liées au compte de stockage. Vous avez également la possibilité d’activer le mode SSL (Secure Sockets Layer) afin de créer un canal sécurisé pour la communication réseau entre l’appareil et le cloud.
+Pour ajouter les informations d’identification du compte de stockage à votre configuration de service StorSimple Device Manager, vous pouvez fournir un nom convivial et des informations d’identification d’accès uniques liées au compte de stockage. Vous avez également la possibilité d’activer le mode TLS (Transport Layer Security), auparavant appelé SSL (Secure Sockets Layer), afin de créer un canal sécurisé pour la communication réseau entre l’appareil et le cloud.
 
 Vous pouvez créer plusieurs comptes pour un fournisseur de services cloud donné. Pendant l’enregistrement des informations d’identification du compte de stockage, le service tente de communiquer avec votre fournisseur de services cloud. Les informations d’identification et les données d’accès fournies sont authentifiées à ce moment. Les informations d’identification du compte de stockage sont créées uniquement en cas de succès de l’authentification. Si l’authentification échoue, un message d’erreur approprié s’affiche.
 
@@ -92,7 +92,7 @@ Appliquez les procédures suivantes pour ajouter les informations d’identifica
    
     3. Dans la zone textuelle **Clé d’accès au compte de stockage**, fournissez la clé primaire d’accès pour vos informations d’identification de compte de stockage Azure. Pour obtenir cette clé, accédez au service du stockage Azure, sélectionnez vos informations d’identification du compte de stockage, puis cliquez sur **Gérer les clés d’accès**. Vous pouvez maintenant copier la clé d’accès primaire.
    
-    4. Pour activer le mode SSL, cliquez sur le bouton **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre service StorSimple Device Manager et le cloud. Cliquez sur le bouton **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
+    4. Pour activer le mode TLS, cliquez sur le bouton **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre service StorSimple Device Manager et le cloud. Cliquez sur le bouton **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
    
     5. Cliquez sur **Add**. Un message s’affiche pour vous informer de la création des informations d’identification du compte de stockage.
 
@@ -101,7 +101,7 @@ Appliquez les procédures suivantes pour ajouter les informations d’identifica
     ![Ajouter des informations d’identification en dehors de l’abonnement au service Device Manager](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
 
 ## <a name="edit-a-storage-account-credential"></a>Modification des informations d’identification de compte de stockage
-Vous pouvez modifier des informations d’identification du compte de stockage utilisées par votre appareil. Si vous modifiez des informations d’identification de compte de stockage actuellement utilisées, les champs modifiables seront celui de la clé d’accès et celui du mode SSL de ces données. Vous pouvez saisir la nouvelle clé d’accès de stockage ou modifier la sélection **Activer le mode SSL** , puis enregistrer les modifications.
+Vous pouvez modifier des informations d’identification du compte de stockage utilisées par votre appareil. Si vous modifiez des informations d’identification de compte de stockage actuellement utilisées, les champs modifiables seront celui de la clé d’accès et celui du mode TLS de ces données. Vous pouvez saisir la nouvelle clé d’accès de stockage ou modifier la sélection **Activer le mode SSL** , puis enregistrer les modifications.
 
 #### <a name="to-edit-a-storage-account-credential"></a>Pour modifier des informations d’identification de compte de stockage
 1. Accédez au service Device Manager, sélectionnez-le et double-cliquez. Cette opération provoque l’ouverture du panneau **Vue d’ensemble**.

@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669384"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631796"
 ---
 # <a name="azure-monitor-log-queries"></a>Requêtes de journal Azure Monitor
+
 Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les requêtes de journal Azure Monitor utilisent une version du même langage de requête Kusto. La [documentation du langage de requête Kusto](/azure/kusto/query), qui rassemble toutes les informations sur ce langage, doit constituer votre principale référence lorsque vous écrivez des requêtes de journal Azure Monitor. Cette page comporte des liens vers d’autres ressources permettant d’apprendre à écrire des requêtes et de découvrir les différences avec l’implémentation Azure Monitor du langage.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -24,6 +25,7 @@ Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les
 - [Bien démarrer avec les requêtes de journal Azure Monitor](get-started-queries.md) est une leçon d’écriture de requêtes à l’aide de données de journal Azure Monitor.
 
 ## <a name="concepts"></a>Concepts
+
 - [Analyser les données de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) donne une vue d’ensemble synthétique des requêtes de journal et décrit la structure des données de journal Azure Monitor.
 - [Afficher et analyser les données de journal dans Azure Monitor](../../azure-monitor/log-query/portals.md) décrit les portails permettant de créer et d’exécuter des requêtes de journal.
 
@@ -34,17 +36,14 @@ Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les
 - [Propriétés standard dans les enregistrements de journaux Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) décrit les propriétés communes à toutes les données de journal Azure Monitor.
 - [Effectuer des requêtes de journal inter-ressources dans Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) explique comment écrire des requêtes de journal qui utilisent des données provenant de plusieurs espaces de travail Log Analytics et applications Application Insights.
 
-
 ## <a name="examples"></a>Exemples
 
 - [Exemples de requête de journal Azure Monitor](examples.md) donne des exemples de requêtes utilisant des données de journal Azure Monitor.
 
-
-
 ## <a name="lessons"></a>Leçons
 
 - [Utiliser les chaînes dans les requêtes de journal Azure Monitor](string-operations.md) explique comment utiliser des données de type chaîne.
-- [Utiliser les valeurs Date/Heure dans les requêtes de journal Azure Monitor](datetime-operations.md) explique comment utiliser des données de type date et heure. 
+- [Utiliser les valeurs Date/Heure dans les requêtes de journal Azure Monitor](datetime-operations.md) explique comment utiliser des données de type date et heure.
 - [Agrégations dans les requêtes de journal Azure Monitor](aggregations.md) et [Agrégations avancées dans les requêtes de journal Azure Monitor](advanced-aggregations.md) expliquent comment agréger et synthétiser les données.
 - [Jointures dans les requêtes de journal Azure Monitor](joins.md) explique comment joindre des données provenant de plusieurs tables.
 - [Utiliser JSON et les structures de données dans des requêtes de journal Azure Monitor](json-data-structures.md) explique comment analyser des données JSON.
@@ -53,9 +52,9 @@ Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les
 
 ## <a name="cheatsheets"></a>Aide-mémoires
 
--  [De SQL à la requête de journal Azure Monitor](sql-cheatsheet.md) accompagne les utilisateurs qui connaissent déjà SQL.
--  [De Splunk à la requête de journal Azure Monitor](splunk-cheatsheet.md) accompagne les utilisateurs qui connaissent déjà Splunk.
- 
+- [De SQL à la requête de journal Azure Monitor](sql-cheatsheet.md) accompagne les utilisateurs qui connaissent déjà SQL.
+- [De Splunk à la requête de journal Azure Monitor](splunk-cheatsheet.md) accompagne les utilisateurs qui connaissent déjà Splunk.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Accédez à la [documentation de référence complète du langage de requête Kusto](/azure/kusto/query/).

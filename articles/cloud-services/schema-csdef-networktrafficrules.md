@@ -1,5 +1,6 @@
 ---
 title: Déf. Azure Cloud Services Schéma NetworkTrafficRules | Microsoft Docs
+description: En savoir plus sur NetworkTrafficRules, qui limite les rôles qui peuvent accéder aux points de terminaison internes d’un rôle. Il se combine avec les rôles dans un fichier de définition de service.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -12,12 +13,12 @@ ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: e6d156810b9fdee69ddac122eec06db7267ddf36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449037"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534726"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schéma NetworkTrafficRules de définition des services cloud Azure
 Le nœud `NetworkTrafficRules` est un élément facultatif dans le fichier de définition de service, qui spécifie comment les rôles communiquent entre eux. Il limite les rôles qui peuvent accéder aux points de terminaison internes du rôle spécifique. Le `NetworkTrafficRules` n’est pas un élément autonome ; il est associé à deux ou plusieurs rôles dans un fichier de définition de service.
@@ -63,16 +64,16 @@ Le nœud `NetworkTrafficRules` du fichier de définition de service inclut ces �
 
 [Élément FromRole](#FromRole)
 
-##  <a name="NetworkTrafficRules"></a> Élément NetworkTrafficRules
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a> Élément NetworkTrafficRules
 L’élément `NetworkTrafficRules` spécifie les rôles qui peuvent communiquer avec tel point de terminaison sur un autre rôle. Un service peut contenir une définition `NetworkTrafficRules`.
 
-##  <a name="OnlyAllowTrafficTo"></a> Élément OnlyAllowTrafficTo
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> Élément OnlyAllowTrafficTo
 L’élément `OnlyAllowTrafficTo` décrit une collection de points de terminaison de destination et les rôles qui peuvent communiquer avec eux. Vous pouvez spécifier plusieurs `OnlyAllowTrafficTo` nœuds.
 
-##  <a name="Destinations"></a> Élément Destinations
+##  <a name="destinations-element"></a><a name="Destinations"></a> Élément Destinations
 L’élément `Destinations` décrit une collection de RoleEndpoint qui peuvent communiquer avec eux.
 
-##  <a name="RoleEndpoint"></a> Élément RoleEndpoint
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a> Élément RoleEndpoint
 L’élément `RoleEndpoint` décrit un point de terminaison sur un rôle qui permet de communiquer avec lui. Vous pouvez spécifier plusieurs éléments `RoleEndpoint` s’il existe plus d’un point de terminaison sur le rôle.
 
 | Attribut      | Type     | Description |
@@ -83,14 +84,14 @@ L’élément `RoleEndpoint` décrit un point de terminaison sur un rôle qui pe
 ## <a name="allowalltraffic-element"></a>Élément AllowAllTraffic
 L’élément `AllowAllTraffic` est une règle qui autorise tous les rôles à communiquer avec les points de terminaison définis dans le nœud `Destinations`.
 
-##  <a name="WhenSource"></a> Élément WhenSource
+##  <a name="whensource-element"></a><a name="WhenSource"></a> Élément WhenSource
 L’élément `WhenSource` décrit une collection de rôles qui peuvent communiquer avec les points de terminaison définis dans le nœud `Destinations`.
 
 | Attribut | Type     | Description |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Obligatoire. Spécifie la règle à appliquer lorsque vous autorisez les communications. Actuellement, la seule valeur possible est `AnyRule`.|
   
-##  <a name="FromRole"></a> Élément FromRole
+##  <a name="fromrole-element"></a><a name="FromRole"></a> Élément FromRole
 L’élément `FromRole` spécifie les rôles qui peuvent communiquer avec les points de terminaison définis dans le nœud `Destinations`. Vous pouvez spécifier plusieurs éléments `FromRole` s’il existe plus d’un rôle capable de communiquer avec les points de terminaison.
 
 | Attribut  | Type     | Description |

@@ -2,27 +2,22 @@
 title: Types d’application pour la plateforme d’identité Microsoft | Azure
 description: Types d’applications et de scénarios pris en charge par le point de terminaison de la plateforme d’identité Microsoft (version 2.0).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bfe668dc2eb4e0e00de34231f4c232f5240a82d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 34ccddff3e42f69a50b44f4bfff391070063a5a1
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700751"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886362"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Types d’application pour la plateforme d’identité Microsoft
 
@@ -43,7 +38,7 @@ Pour en savoir plus, découvrez comment [inscrire une application](quickstart-re
 
 Une fois inscrite, l’application communique avec la plateforme d’identité Microsoft en transmettant les requêtes au point de terminaison. Nous fournissons les infrastructures et les bibliothèques open source qui gèrent les détails de ces requêtes. Vous avez également la possibilité d’implémenter la logique d’authentification vous-même en créant des requêtes à ces points de terminaison :
 
-```
+```HTTP
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
@@ -62,7 +57,7 @@ Pour voir ce scénario en action, exécutez l’un des exemples de code d’appl
 
 Pour les applications web (.NET, PHP, Java, Ruby, Python, Node, etc.) auxquelles l’utilisateur accède par le biais d’un navigateur, vous pouvez utiliser [OpenID Connect](active-directory-v2-protocols.md) pour la connexion de l’utilisateur. Dans OpenID Connect, l’application web reçoit un jeton d’ID. Un jeton d’ID est un jeton de sécurité qui vérifie l’identité de l’utilisateur et fournit des informations le concernant sous la forme de revendications :
 
-```
+```JSON
 // Partial raw ID token
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
@@ -91,7 +86,7 @@ En plus de la connexion simple, une application de serveur web peut également n
 
 Vous pouvez utiliser le point de terminaison de la plateforme d’identité Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Les API web peuvent être implémentées dans de nombreuses plateformes et langages. Elles peuvent également être implémentées à l’aide de déclencheurs HTTP dans Azure Functions. En lieu et place des jetons d’ID et des cookies de session, une API Web utilise les jetons d’accès OAuth 2.0 pour sécuriser les données et authentifier les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP de la manière suivante :
 
-```
+```HTTP
 GET /api/items HTTP/1.1
 Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
@@ -99,7 +94,7 @@ Accept: application/json
 ...
 ```
 
-L’API web utilise le jeton d’accès pour vérifier l’identité de l’appelant de l’API et extraire des informations à son sujet à partir de revendications encodées dans le jeton d’accès. Pour en savoir plus sur les différents types de jetons utilisés dans le point de terminaison de la plateforme d’identité Microsoft, consultez les articles de référence au [jeton d’accès](access-tokens.md) et à [id_token reference](id-tokens.md).
+L’API web utilise le jeton d’accès pour vérifier l’identité de l’appelant de l’API et extraire des informations à son sujet à partir de revendications encodées dans le jeton d’accès. Pour en savoir plus sur les différents types de jetons utilisés dans le point de terminaison de la plateforme d’identité Microsoft, consultez les articles de référence au [jeton d’accès](access-tokens.md) et à [id_token](id-tokens.md).
 
 Une API web peut octroyer aux utilisateurs la possibilité d’accepter/de refuser des fonctionnalités ou données spécifiques en exposant des autorisations (également appelées [étendues](v2-permissions-and-consent.md)). Pour qu’une application appelante puisse acquérir l’autorisation à une étendue, l’utilisateur doit accepter l’étendue au cours d’un flux. La plateforme d’identité demande l’autorisation à l’utilisateur, puis enregistre ces autorisations dans l’ensemble des jetons d’accès reçus par l’API web. L’API web valide les jetons d’accès qu’elle reçoit à chaque appel et effectue des vérifications d’autorisation.
 
@@ -121,7 +116,7 @@ Dans ce flux, l’application reçoit un code d’autorisation à partir du poin
 
 ## <a name="daemons-and-server-side-apps"></a>Applications démons et côté serveur
 
-Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans interaction d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s'authentifier et récupérer des jetons à l'aide de l'identité d'application plutôt qu'avec l'identité déléguée d'un utilisateur avec le flux des informations d'identification du client OAuth 2.0. Vous pouvez prouver l’identité de l’application à l’aide d’une clé secrète client ou d’un certificat. Pour en savoir plus, voir [Authenticating to Microsoft identity platform in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/) (Authentification auprès de la plateforme d’identités Microsoft dans les applications démon avec des certificats).
+Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans interaction d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s'authentifier et récupérer des jetons à l'aide de l'identité d'application plutôt qu'avec l'identité déléguée d'un utilisateur avec le flux des informations d'identification du client OAuth 2.0. Vous pouvez prouver l’identité de l’application à l’aide d’une clé secrète client ou d’un certificat. Pour plus d’informations, consultez [Application console démon .NET Core utilisant la plateforme d’identité Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
 
 Dans ce flux, l’application interagit directement avec le point de terminaison `/token` pour obtenir un accès :
 

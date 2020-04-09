@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607671"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331269"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
 Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se connecter aux ressources cloud et locales à l’aide des mêmes mots de passe. Cet article décrit les concepts clés pour chaque modèle d’identité afin de vous aider à choisir l’identité que vous souhaitez utiliser pour vous connecter à Azure AD.
@@ -85,7 +85,7 @@ Si vous déployez une nouvelle batterie, il vous faut :
 
 * Un serveur Windows Server 2012 R2 pour le serveur de fédération.
 * Un serveur Windows Server 2012 R2 pour le proxy d’application web.
-* Un fichier .pfx avec un certificat SSL unique pour le nom de votre service de fédération. Par exemple : fs.contoso.com.
+* Un fichier .pfx avec un certificat TLS/SSL unique pour le nom de votre service de fédération. Par exemple : fs.contoso.com.
 
 Si vous déployez une nouvelle batterie ou si vous utilisez une batterie existante, il vous faut :
 
@@ -126,7 +126,7 @@ L’expérience de connexion Azure AD dépend de la capacité d’Azure AD à fa
 Azure AD Connect répertorie les suffixes UPN qui sont définis pour les domaines et essaie de les mettre en correspondance avec un domaine personnalisé dans Azure AD. Il vous aide ensuite avec l’action appropriée à entreprendre.
 La page de connexion AD Azure répertorie les suffixes UPN définis pour Active Directory local et affiche l’état correspondant à chaque suffixe. L’état peut avoir une des valeurs suivantes :
 
-| État | Description | Action requise |
+| State | Description | Action requise |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect a trouvé un domaine vérifié correspondant dans Azure AD. Tous les utilisateurs de ce domaine peuvent se connecter en utilisant leurs informations d’identification locales. |Aucune action n'est nécessaire. |
 | Non vérifié |Azure AD Connect a trouvé un domaine personnalisé correspondant dans Azure AD mais il n’est pas vérifié. Si le domaine n’est pas vérifié, le suffixe UPN des utilisateurs de ce domaine sera remplacé par le suffixe .onmicrosoft.com par défaut après la synchronisation. | [Vérifiez le domaine personnalisé dans Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
@@ -155,7 +155,7 @@ Pour les informations suivantes, supposons que nous nous intéressons au suffixe
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Configuration rapide / Synchronisation de hachage de mot de passe
 
-| État | Effet sur l’expérience de connexion utilisateur Azure |
+| State | Effet sur l’expérience de connexion utilisateur Azure |
 |:---:|:--- |
 | Non ajouté |Dans ce cas, aucun domaine personnalisé pour contoso.com n’a été ajouté à l’annuaire Azure AD. Les utilisateurs possédant un UPN local avec le suffixe @contoso.com ne pourront pas utiliser leur UPN local pour se connecter à Azure. Ils devront utiliser un nouvel UPN fourni par Azure AD en ajoutant le suffixe de l’annuaire Azure AD par défaut. Par exemple, si vous synchronisez des utilisateurs sur l’annuaire Azure AD azurecontoso.onmicrosoft.com, l’utilisateur local user@contoso.com aura un nom UPN user@azurecontoso.onmicrosoft.com. |
 | Non vérifié |Dans ce cas, nous avons un domaine personnalisé contoso.com ajouté à l’annuaire Azure AD. Toutefois, la vérification n’est pas encore effectuée. Si vous poursuivez la synchronisation des utilisateurs sans vérifier le domaine, les utilisateurs se verront attribuer un nouvel UPN d’Azure AD, comme dans le scénario « Non ajouté ». |
@@ -166,7 +166,7 @@ Vous ne pouvez pas créer de fédération avec le domaine .onmicrosoft.com par d
 
 Si vous avez sélectionné l’option de connexion utilisateur **Fédération avec AD FS**, vous devez disposer d’un domaine personnalisé pour poursuivre la création d’une fédération dans Azure AD. Dans notre cas de figure, cela signifie que nous devons disposer d’un domaine personnalisé contoso.com ajouté dans l’annuaire Azure AD.
 
-| État | Effet sur l’expérience de connexion utilisateur Azure |
+| State | Effet sur l’expérience de connexion utilisateur Azure |
 |:---:|:--- |
 | Non ajouté |Dans ce cas, Azure AD Connect n’a pas trouvé de domaine personnalisé correspondant au suffixe UPN contoso.com dans l’annuaire Azure AD. Vous devez ajouter un domaine personnalisé contoso.com si vous avez besoin que les utilisateurs se connectent à l’aide d’AD FS avec leur UPN local (par exemple user@contoso.com). |
 | Non vérifié |Dans ce cas, Azure AD Connect vous fournira les informations appropriées sur les possibilités de vérification de votre domaine à un stade ultérieur. |

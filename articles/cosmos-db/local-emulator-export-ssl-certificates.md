@@ -1,29 +1,29 @@
 ---
 title: Exporter les certificats de l’émulateur Azure Cosmos DB
-description: Lors du développement des langages et des runtimes qui n’utilisent pas le magasin de certificats Windows, vous devrez exporter et gérer les certificats SSL. Cet article vous fournit des instructions pas à pas.
+description: Lors du développement des langages et des runtimes qui n’utilisent pas le magasin de certificats Windows, vous devrez exporter et gérer les certificats TLS/SSL. Cet article vous fournit des instructions pas à pas.
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 623837b30038ef8524aef1e87aeb5933204925a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4283ea7d500ca038d9f1cade89c772880ece199
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156019"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409063"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur Azure Cosmos DB pour une utilisation avec Java, Python et Node.js
 
 [**Téléchargement de l’émulateur**](https://aka.ms/cosmosdb-emulator)
 
-L’émulateur Azure Cosmos DB fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement, notamment pour l’utilisation des connexions SSL. Cet article vous explique comment exporter les certificats SSL pour une utilisation dans les langages et les runtimes qui ne s’intègrent pas avec le magasin de certificats Windows, comme Java, qui utilise son propre [magasin de certificats](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), Python, qui utilise des [wrappers de socket](https://docs.python.org/2/library/ssl.html) et Node.js qui utilise [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Pour en savoir plus sur l’émulateur, consultez l’article [Utilisation de l’émulateur Azure Cosmos DB pour le développement et le test](./local-emulator.md).
+L’émulateur Azure Cosmos DB fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement, notamment pour l’utilisation des connexions TLS. Cet article vous explique comment exporter les certificats TLS/SSL pour une utilisation dans les langages et les runtimes qui ne s’intègrent pas avec le magasin de certificats Windows, comme Java, qui utilise son propre [magasin de certificats](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), Python, qui utilise des [wrappers de socket](https://docs.python.org/2/library/ssl.html) et Node.js qui utilise [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Pour en savoir plus sur l’émulateur, consultez l’article [Utilisation de l’émulateur Azure Cosmos DB pour le développement et le test](./local-emulator.md).
 
 Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Rotation des certificats
-> * Exportation du certificat SSL
+> * Exportation du certificat TLS/SSL
 > * Apprentissage de l’utilisation du certificat dans Java, Python et Node.js
 
 ## <a name="certification-rotation"></a>Rotation de certification
@@ -34,7 +34,7 @@ Pour régénérer les certificats, cliquez sur **Réinitialiser les données** d
 
 ![Réinitialiser les données de l’émulateur local Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
 
-## <a name="how-to-export-the-azure-cosmos-db-ssl-certificate"></a>Comment exporter le certificat SSL Azure Cosmos DB
+## <a name="how-to-export-the-azure-cosmos-db-tlsssl-certificate"></a>Comment exporter le certificat TLS/SSL Azure Cosmos DB
 
 1. Démarrez le gestionnaire de certificats Windows en exécutant certlm.msc, puis accédez au dossier Personnel > Certificats et ouvrez le certificat portant le nom convivial **DocumentDbEmulatorCertificate**.
 
@@ -74,15 +74,15 @@ Lors de l’exécution d’applications Java ou MongoDB qui utilisent le client 
 
 Suivez les instructions figurant dans [Ajout d'un certificat au magasin de certificats d'autorité de certification Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) pour importer le certificat X.509 dans le magasin de certificats Java par défaut. Gardez à l’esprit que vous travaillerez dans le répertoire %JAVA_HOME% durant l’exécution de keytool.
 
-Une fois que le certificat SSL « Azure Cosmos DBEmulatorCertificate » est installé, votre application doit être en mesure de se connecter et d’utiliser l’émulateur local Azure Cosmos DB. Si les problèmes persistent, suivez les recommandations de l’article [Debugging SSL/TLS Connections](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) (Débogage des connexions SSL/TLS). Il est très probable que le certificat n’est pas installé dans le magasin %JAVA_HOME%/jre/lib/security/cacerts. Par exemple, si vous disposez de plusieurs versions de Java installées, votre application peut utiliser un magasin cacaerts différent de celui mis à jour.
+Une fois que le certificat TLS/SSL « Azure Cosmos DBEmulatorCertificate » est installé, votre application doit être en mesure de se connecter et d’utiliser l’émulateur local Azure Cosmos DB. Si les problèmes persistent, suivez les recommandations de l’article [Debugging SSL/TLS Connections](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) (Débogage des connexions SSL/TLS). Il est très probable que le certificat n’est pas installé dans le magasin %JAVA_HOME%/jre/lib/security/cacerts. Par exemple, si vous disposez de plusieurs versions de Java installées, votre application peut utiliser un magasin cacaerts différent de celui mis à jour.
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Comment utiliser le certificat en python
 
-Par défaut, le [SDK Python (version 2.0.0 ou ultérieure)](sql-api-sdk-python.md) pour l’API SQL ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la documentation des [wrappers de socket Python](https://docs.python.org/2/library/ssl.html).
+Par défaut, le [SDK Python (version 2.0.0 ou ultérieure)](sql-api-sdk-python.md) pour l’API SQL ne tente pas d’utiliser le certificat TLS/SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation TLS, vous pouvez suivre les exemples de la documentation des [wrappers de socket Python](https://docs.python.org/2/library/ssl.html).
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Comment utiliser le certificat en Node.js
 
-Par défaut, le [SDK Node.js (version 1.10.1 ou ultérieure)](sql-api-sdk-node.md) pour l’API SQL ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la [documentation Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Par défaut, le [SDK Node.js (version 1.10.1 ou ultérieure)](sql-api-sdk-node.md) pour l’API SQL ne tente pas d’utiliser le certificat TLS/SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation TLS, vous pouvez suivre les exemples de la [documentation Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -90,7 +90,7 @@ Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
 > * Rotation des certificats
-> * Exportation du certificat SSL
+> * Exportation du certificat TLS/SSL
 > * Apprentissage de l’utilisation du certificat dans Java, Python et Node.js
 
 Pour plus d’informations sur Azure Cosmos DB, vous pouvez maintenant passer à la section Concepts. 

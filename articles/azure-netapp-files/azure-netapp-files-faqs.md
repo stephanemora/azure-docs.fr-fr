@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 04/03/2020
 ms.author: b-juche
-ms.openlocfilehash: aaa7e5e65ced2a9899bef5a811ee74be42a8548f
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: aebc669a90511e48ddd2a7876553948c04b97710
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048807"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667827"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -60,7 +60,7 @@ Tous les volumes Azure NetApp Files sont chiffrés en suivant la norme FIPS 140-
 
 La gestion des clés pour Azure NetApp Files est assurée par le service. Une clé de chiffrement de données XTS-AES-256 unique est générée pour chaque volume. Une hiérarchie de clés de chiffrement est utilisée pour chiffrer et protéger toutes les clés de volume. Ces clés de chiffrement ne sont jamais affichées ou indiquées dans un format non chiffré. Les clés de chiffrement sont supprimées en même temps qu'un volume.
 
-Actuellement, les clés gérées par l’utilisateur (Bring Your Own Key (BYOK)) ne sont pas prises en charge.
+La prise en charge des clés gérées par l’utilisateur (Bring Your Own Key) à l’aide d’Azure Dedicated HSM est disponible de façon contrôlée dans les régions USA Est, USA Ouest 2 et USA Centre Sud.  Vous pouvez demander l’accès à **anffeedback@microsoft.com** . Une fois la capacité disponible, les demandes sont approuvées.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Puis-je configurer les règles de stratégie d’exportation NFS pour contrôler l’accès à la cible de montage du service Azure NetApp Files ?
 
@@ -113,11 +113,7 @@ La taille du volume signalée dans DF est la taille maximale que peut atteindre 
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Quelle version de NFS Azure NetApp Files prend-il en charge ?
 
-Azure NetApp Files prend en charge NFSv3 et NFSv4.1. Vous pouvez créer un volume à l’aide de l’une de ces versions NFS. 
-
-> [!IMPORTANT] 
-> L’accès à la fonctionnalité NFSv4.1 nécessite la mise en liste verte.  Pour demander une mise en liste verte, envoyez une demande à <anffeedback@microsoft.com>. 
-
+Azure NetApp Files prend en charge NFSv3 et NFSv4.1. Vous pouvez [créer un volume](azure-netapp-files-create-volumes.md) à l’aide de l’une de ces versions NFS. 
 
 ### <a name="how-do-i-enable-root-squashing"></a>Comment activer le root squash ?
 
@@ -149,6 +145,18 @@ Azure NetApp Files prend en charge les versions Windows Server 2008r2SP1-2019 d
 
 La taille du volume signalée dans le client SMB est la taille maximale que peut atteindre le volume Azure NetApp Files. La taille du volume Azure NetApp Files comme affichée sur le client SMB ne représente pas le quota ou la taille du volume. Vous pouvez obtenir la taille du volume Azure NetApp Files ou son quota par le biais du portail Azure ou de l’API.
 
+<!--
+### Does Azure NetApp Files support Kerberos encryption?
+
+Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
+-->
+
+<!--
+### Does Azure NetApp Files support LDAP signing? 
+
+Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
+--> 
+
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Comment surveiller l’utilisation du pool de capacité et du volume Azure NetApp Files ? 
@@ -158,6 +166,26 @@ Azure NetApp Files fournit des métriques de pool de capacité et de volume d’
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Puis-je gérer Azure NetApp Files via l’Explorateur Stockage Azure ?
 
 Non. Azure NetApp Files n’est pas pris en charge par l’Explorateur Stockage Azure.
+
+### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Comment déterminer si un répertoire approche de la taille limite ?
+
+Vous pouvez utiliser la commande `stat` à partir d’un client pour voir si un répertoire approche de la limite de taille maximale (320 Mo).
+
+Pour un répertoire de 320 Mo, le nombre de blocs est de 655 360, avec une taille de bloc de 512 octets.  (autrement dit, 320x1024x1024/512.)  
+
+Exemples :
+
+    [makam@cycrh6rtp07 ~]$ stat bin
+    File: 'bin'
+    Size: 4096            Blocks: 8          IO Block: 65536  directory
+
+    [makam@cycrh6rtp07 ~]$ stat tmp
+    File: 'tmp'
+    Size: 12288           Blocks: 24         IO Block: 65536  directory
+ 
+    [makam@cycrh6rtp07 ~]$ stat tmp1
+    File: 'tmp1'
+    Size: 4096            Blocks: 8          IO Block: 65536  directory
 
 ## <a name="data-migration-and-protection-faqs"></a>Questions fréquentes sur la migration et la protection des données
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 63c5f068adab58c901acf5fd26261d57e1183f0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09fcf88c6dfe90380f387c6d72c751634f5b1606
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481515"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475755"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure Active Directory Domain Services
 
@@ -87,9 +87,8 @@ Pour commencer, connectez-vous à la machine virtuelle Windows Server comme suit
 1. Dans le portail Azure, sélectionnez **Groupes de ressources** sur le côté gauche. Choisissez le groupe de ressources où votre machine virtuelle a été créée, par exemple *myResourceGroup*, puis sélectionnez la machine virtuelle, par exemple *myVM*.
 1. Dans le volet **Vue d’ensemble** de votre machine virtuelle, sélectionnez **Se connecter**, puis **Bastion**.
 
-    ![Se connecter à une machine virtuelle Windows à l’aide de Bastion dans le portail Azure](./media/join-windows-vm/connect-to-vm.png)
+    ![Se connecter à une machine virtuelle Windows avec Bastion dans le portail Azure](./media/join-windows-vm/connect-to-vm.png)
 
-    Vous pouvez également [créer et utiliser un hôte Azure Bastion (actuellement en préversion)][azure-bastion] pour autoriser l’accès uniquement via le portail Azure sur TLS.
 1. Entrez les informations d’identification pour votre machine virtuelle, puis sélectionnez **Se connecter**.
 
    ![Se connecter via l’hôte Bastion dans le portail Azure](./media/join-windows-vm/connect-to-bastion.png)

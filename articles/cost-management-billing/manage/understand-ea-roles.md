@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.author: banders
-ms.openlocfilehash: f31d8638e8672feafc1ab822acecb78ec0a48b11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 28fff2a24f703e0cff967bdde29a7b1238e197ee
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202771"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586145"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure
 
@@ -46,18 +46,18 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Structure de l’organisation et autorisations par rôle
 
-|Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)|Administrateur de service|Administrateur de service (lecture seule)|Propriétaire du compte|
-|---|---|---|---|---|---|
-|Voir les administrateurs d’entreprise|✔|✔|✘|✘|✘|
-|Ajouter ou supprimer des administrateurs d’entreprise|✔|✘|✘|✘|✘|
-|Voir les contacts de notification<sup>4</sup> |✔|✔|✘|✘|✘|
-|Ajouter ou supprimer des contacts de notification<sup>4</sup> |✔|✘|✘|✘|✘|
-|Créer et gérer des services |✔|✘|✘|✘|✘|
-|Voir les administrateurs de service|✔|✔|✔|✔|✘|
-|Ajouter ou supprimer des administrateurs de service|✔|✘|✔|✘|✘|
-|Voir les comptes de l’inscription |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|
-|Ajouter des comptes à l’inscription et changer le propriétaire du compte|✔|✘|✔<sup>5</sup>|✘|✘|
-|Créer et gérer des abonnements et des autorisations d’abonnement|✘|✘|✘|✘|✔|
+|Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)|Administrateur de service|Administrateur de service (lecture seule)|Propriétaire du compte| Partenaire|
+|---|---|---|---|---|---|---|
+|Voir les administrateurs d’entreprise|✔|✔|✘|✘|✘|✔|
+|Ajouter ou supprimer des administrateurs d’entreprise|✔|✘|✘|✘|✘|✘|
+|Voir les contacts de notification<sup>4</sup> |✔|✔|✘|✘|✘|✔|
+|Ajouter ou supprimer des contacts de notification<sup>4</sup> |✔|✘|✘|✘|✘|✘|
+|Créer et gérer des services |✔|✘|✘|✘|✘|✘|
+|Voir les administrateurs de service|✔|✔|✔|✔|✘|✔|
+|Ajouter ou supprimer des administrateurs de service|✔|✘|✔|✘|✘|✘|
+|Voir les comptes de l’inscription |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
+|Ajouter des comptes à l’inscription et changer le propriétaire du compte|✔|✘|✔<sup>5</sup>|✘|✘|✘|
+|Créer et gérer des abonnements et des autorisations d’abonnement|✘|✘|✘|✘|✔|✘|
 
 - <sup>4</sup> Les contacts de notification reçoivent des communications par e-mail à propos du Contrat Entreprise Azure.
 - <sup>5</sup> La tâche est limitée aux comptes de votre service.
@@ -65,14 +65,14 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 
 ## <a name="usage-and-costs-access-by-role"></a>Accès à l’utilisation et aux coûts par rôle
 
-|Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)|Administrateur de service|Administrateur de service (lecture seule) |Propriétaire du compte|
-|---|---|---|---|---|---|
-|Voir le solde de crédit, notamment l’engagement financier|✔|✔|✘|✘|✘|
-|Voir les quotas de dépenses des services|✔|✔|✘|✘|✘|
-|Définir les quotas de dépenses des services|✔|✘|✘|✘|✘|
-|Voir la grille tarifaire du Contrat Entreprise de l’organisation|✔|✔|✘|✘|✘|
-|Voir les détails relatifs à l’utilisation et aux coûts|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|
-|Gérer les ressources dans le portail Azure|✘|✘|✘|✘|✔|
+|Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)|Administrateur de service|Administrateur de service (lecture seule) |Propriétaire du compte| Partenaire|
+|---|---|---|---|---|---|---|
+|Voir le solde de crédit, notamment l’engagement financier|✔|✔|✘|✘|✘|✔|
+|Voir les quotas de dépenses des services|✔|✔|✘|✘|✘|✔|
+|Définir les quotas de dépenses des services|✔|✘|✘|✘|✘|✘|
+|Voir la grille tarifaire du Contrat Entreprise de l’organisation|✔|✔|✘|✘|✘|✔|
+|Voir les détails relatifs à l’utilisation et aux coûts|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|Gérer les ressources dans le portail Azure|✘|✘|✘|✘|✔|✘|
 
 - <sup>6</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour l’administrateur de service** dans Enterprise Portal. L’administrateur de service peut ensuite consulter le détail des coûts pour le service.
 - <sup>7</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour le propriétaire du compte** dans Enterprise Portal. Le propriétaire du compte peut ensuite consulter le détail des coûts pour le compte.

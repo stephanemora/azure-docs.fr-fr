@@ -5,16 +5,17 @@ description: Configurez la protection avancée contre les menaces pour Stockage 
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: common
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: d97b63aa87bfd8cf8ca1a3f5b213d6b16ca066df
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616857"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422800"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurer la protection avancée contre les menaces pour Stockage Azure
 
@@ -23,7 +24,7 @@ La protection avancée contre les menaces pour Stockage Azure offre une couche s
 Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent dans l’activité. Ces alertes de sécurité sont intégrées avec [Azure Security Center](https://azure.microsoft.com/services/security-center/) et sont également envoyées par e-mail aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de corriger les menaces.
 
 > [!NOTE]
-> La protection avancée contre les menaces pour Stockage Azure n’est actuellement disponible que pour le stockage d’objets blob. Elle n’est pas disponible dans les régions Azure Government et de cloud souverain. Pour plus d’informations sur la tarification, y compris une version d’évaluation gratuite de 30 jours, consultez la [page de tarification d’Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
+> La protection avancée contre les menaces pour Stockage Azure n’est actuellement disponible que pour le stockage d’objets blob. Ce service est disponible dans les clouds de l’État fédéral américain, mais pas dans d’autres régions de cloud souveraines ou Azure Government. Pour plus d’informations sur la tarification, y compris une version d’évaluation gratuite de 30 jours, consultez la [page de tarification d’Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 La protection avancée contre les menaces pour Stockage Azure ingère les journaux de diagnostic des demandes de lecture, d’écriture et de suppression adressées à Stockage Blob vue de détecter les menaces potentielles. Pour examiner les alertes de la protection avancée contre les menaces, vous pouvez afficher l’activité de stockage associée à l’aide de la journalisation Storage Analytics. Pour plus d’informations, consultez **Configuration de la journalisation** dans [Surveillance d’un compte de stockage dans le portail Azure](storage-monitor-storage-account.md#configure-logging).
 

@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 3/5/2020
 ms.subservice: alerts
-ms.openlocfilehash: 9585e74170d21ad899224462b6e41e7e9bb75727
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c036fa3708d718d6199d27989e60b11015a1227e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664812"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585851"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -60,6 +60,8 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.KeyVault/vaults| Non |Non |[Coffres](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows |N/A | Non |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.MachineLearningServices/workspaces|Oui| Non | [Machine Learning](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft.NetApp/netAppAccounts/capacityPools |Oui| Non | [Pools de capacités Azure NetApp](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
+|Microsoft.NetApp/netAppAccounts/capacityPools/volumes |Oui| Non | [Volumes Azure NetApp](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
 |Microsoft.Network/applicationGateways|N/A| Non |  |
 |Microsoft.Network/dnsZones | N/A| Non | [Zones DNS](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
 |Microsoft.Network/expressRouteCircuits | N/A | Non |[Circuits Express Route](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
@@ -75,12 +77,14 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.PowerBIDedicated/capacities | N/A | Non | [Capacités](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices |N/A|Non | [Services Recherche](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces |Oui| Non |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
-|Microsoft.Sql/servers/elasticPools |   Non | Oui |
+|Microsoft.Sql/servers/elasticPools |    Non | Oui |
 |Microsoft.Sql/servers/databases    | Non | Oui |
 |Microsoft.Storage/storageAccounts |Oui | Non | [Comptes de stockage](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAccounts/services | Oui| Non | [Services blob](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices), [Services de fichiers](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices), [Services de file d’attente](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) et [Services de table](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs |N/A| Non | [Stream Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.Microsoft.VMWareCloudSimple/virtualMachines |Oui|Non |[Machines virtuelles CloudSimple](../../azure-monitor/platform/metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines)|
+|Microsoft.Web/hostingEnvironments/multiRolePools | Oui | Non | [Pools multirôles App Service Environment](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
+|Microsoft.Web/hostingEnvironments/workerPools | Oui | Non | [Pools de workers App Service Environment](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Oui | Non | [Plans App Service](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)|
 |Microsoft.Web/sites | Oui | Non | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) et [Functions](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Oui | Non | [Slots App Service](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|

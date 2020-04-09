@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0d220d1d88d9d761d9f0eba6187abefb372681be
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e0a5e89f256b562ce5f702e9ff1388cb4d021bf5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131899"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437688"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingérer des données de télémétrie historiques
 
@@ -20,59 +20,74 @@ L’ingestion de données historiques à partir de ressources IoT (Internet des 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant de poursuivre cet article, vérifiez que vous avez installé FarmBeats et collecté des données historiques à partir de appareils IoT.
-Vous devez également activer l’accès partenaire comme indiqué dans les étapes suivantes.
+Avant de poursuivre cet article, vérifiez que vous avez installé FarmBeats et collecté des données historiques à partir de vos appareils IoT. Vous devez également activer l’accès partenaire comme indiqué dans les étapes suivantes.
 
 ## <a name="enable-partner-access"></a>Activer l’accès partenaire
 
 Vous devez activer l’intégration des partenaires à votre instance Azure FarmBeats. Cette étape consiste à créer un client qui a accès à votre instance Azure FarmBeats en tant que partenaire d’appareil. Elle vous permet également d’obtenir les valeurs ci-après qui sont exigées pour les étapes suivantes :
 
-- Point de terminaison d’API : URL du hub de données, par exemple https://\<hubdedonnées>.azurewebsites.net.
+- Point de terminaison d’API : URL du hub de données, par exemple https://\<hubdedonnées>.azurewebsites.net
 - ID client
 - ID client
 - Clé secrète client
 - Chaîne de connexion du hub d’événements
 
-Effectuez les opérations suivantes.
+Procédez comme suit :
 
->[!NOTE]
+> [!NOTE]
 > Pour effectuer les étapes suivantes, vous devez être administrateur.
 
-1. Téléchargez le [fichier zip](https://aka.ms/farmbeatspartnerscriptv2) et extrayez-le sur votre lecteur local. Il y aura un fichier dans le fichier zip.
-2. Connectez-vous à https://portal.azure.com/ et accédez à Azure Active Directory -> Inscriptions d’applications.
+1. Connectez-vous à https://portal.azure.com/.
 
-3. Cliquez sur l’inscription de l’application qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre DataHub FarmBeats.
+2. **Si vous êtes sur FarmBeats version 1.2.7 ou ultérieure, ignorez les étapes a, b et c et passez à l’étape 3.** . Vous pouvez vérifier la version de FarmBeats en sélectionnant l’icône **Paramètres** dans le coin supérieur droit de l’interface utilisateur de FarmBeats.
 
-4. Cliquez sur « Exposer une API » -> cliquez sur « Ajouter une application cliente », puis entrez **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** et cochez la case « Autoriser l’étendue ». Cela permet d’accéder à l’interface de ligne de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous.
+      a.  Accédez à **Azure Active Directory** > **Inscriptions des applications**.
 
-5. Ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
+      b. Sélectionnez l’**inscription d’application** qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre hub de données FarmBeats.
+
+      c. Sélectionnez **Exposer une API**, sélectionnez **Ajouter une application cliente**, entrez **04b07795-8ddb-461a-bbee-02f9e1bf7b46**, puis cochez **Autoriser l’étendue**. Cela permet d’accéder à l’interface de ligne de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous :
+
+3. Ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
 
     ![Barre d’outils du portail Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Veillez à ce que **PowerShell** soit défini comme environnement. Bash est sélectionné par défaut.
+4. Vérifiez que l’environnement est défini sur **PowerShell**. Bash est sélectionné par défaut.
 
     ![Paramètre de la barre d’outils PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Chargez le fichier obtenu à l’étape 1 dans votre instance Cloud Shell.
+5. Accédez à votre répertoire de base.
 
-    ![Bouton de chargement dans la barre d’outils](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ```azurepowershell-interactive 
+    cd  
+    ```
 
-8. Accédez au répertoire où le fichier a été chargé. Par défaut, les fichiers sont chargés dans le répertoire de base sous le nom d’utilisateur.
+6. Exécutez la commande suivante : Cela permet de télécharger un script dans votre répertoire de base.
 
-9. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui peut être obtenu à partir de la page Azure Active Directory > Vue d’ensemble.
+    ```azurepowershell-interactive 
 
-    ```azurepowershell-interactive 
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
+
+    ```
+
+7. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui est disponible dans **Azure Active Directory** > page **Vue d’ensemble**.
+
+    ```azurepowershell-interactive 
 
     ./generatePartnerCredentials.ps1   
 
     ```
 
-10. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
+8. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
+
+
 ## <a name="create-device-or-sensor-metadata"></a>Créer des métadonnées d’appareils ou de capteurs
 
- Maintenant que vous disposez des informations d’identification nécessaires, vous pouvez définir les appareils et les capteurs. Pour cela, créez les métadonnées en appelant les API FarmBeats. Sachez que vous devrez appeler les API en tant qu’application cliente créée dans la section ci-dessus.
+ Maintenant que vous disposez des informations d’identification nécessaires, vous pouvez définir les appareils et les capteurs. Pour cela, créez les métadonnées en appelant les API FarmBeats. Veillez à appeler les API en tant qu’application cliente créée dans la section ci-dessus.
 
- FarmBeats Datahub propose les API suivantes qui permettent de créer et de gérer les métadonnées d’appareils ou de capteurs. Notez que, en tant que partenaire, vous avez accès uniquement à la lecture, à la création et à la mise à jour des métadonnées ;. **la suppression n’est pas autorisée par un partenaire.**
+ FarmBeats Datahub propose les API suivantes qui permettent de créer et de gérer les métadonnées d’appareils ou de capteurs.
+
+ > [!NOTE]
+ > En tant que partenaire, vous avez uniquement accès aux option de lecture, de création et de mise à jour des métadonnées. **L’option de suppression est interdite au partenaire.**
 
 - /**DeviceModel** : DeviceModel correspond aux métadonnées de l’appareil, telles que le fabricant et le type d’appareil (passerelle ou nœud).
 - /**Device** : Device correspond à un appareil physique présent dans l’exploitation agricole.
@@ -86,16 +101,16 @@ Effectuez les opérations suivantes.
 |          Fabricant            |         Nom du fabricant    |
 |  ProductCode                    |  Code produit de l’appareil ou nom ou numéro du modèle. Par exemple, EnviroMonitor#6800.  |
 |            Ports          |     Nom et type du port (numérique ou analogique).
-|     Name                 |  Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.
+|     Nom                 |  Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.
       Description     | Description explicite du modèle.
 |    Propriétés          |    Propriétés supplémentaires fournies par le fabricant.   |
 |    **Appareil**             |                      |
 |   DeviceModelId     |     ID du modèle d’appareil associé.  |
 |  HardwareId          | ID unique de l’appareil, par exemple l’adresse MAC.
 |  ReportingInterval        |   Intervalle de rapport en secondes.
-|  Location            |  Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) de l’appareil.   
+|  Emplacement            |  Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) de l’appareil.   
 |ParentDeviceId       |    ID de l’appareil parent auquel cet appareil est connecté. Par exemple, un nœud connecté à une passerelle. Pour un nœud, le parentDeviceId est l’ID d’une passerelle.  |
-|    Name            | Nom destiné à identifier la ressource. Les partenaires d’appareil doivent envoyer un nom cohérent avec celui de l’appareil côté partenaire. Si le nom de l’appareil partenaire est défini par l’utilisateur, ce nom doit être propagé sur FarmBeats.|
+|    Nom            | Nom destiné à identifier la ressource. Les partenaires d’appareil doivent envoyer un nom cohérent avec celui de l’appareil côté partenaire. Si le nom de l’appareil partenaire est défini par l’utilisateur, ce nom doit être propagé sur FarmBeats.|
 |     Description       |      Description explicite. |
 |     Propriétés    |  Propriétés supplémentaires fournies par le fabricant.
 |     **SensorModel**        |          |
@@ -107,18 +122,18 @@ Effectuez les opérations suivantes.
 |    SensorMeasures > Type    |Type de mesure des données de télémétrie de capteur. Voici les types définis par le système : AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Pour en ajouter d’autres, reportez-vous à l’API /ExtendedType.|
 |        SensorMeasures > Unit              | Unité des données de télémétrie du capteur. Voici les unités définies par le système : NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour. Pour en ajouter d’autres, reportez-vous à la documentation sur l’API /ExtendedType.|
 |    SensorMeasures > AggregationType    |  Les valeurs peuvent être : none, average, maximum, minimum ou StandardDeviation.  |
-|          Name            | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.  |
-|    Description        | Description explicite du modèle.  |
-|   Propriétés       |  Propriétés supplémentaires fournies par le fabricant.  |
+|          Nom            | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.  |
+|    Description        | Description explicite du modèle.|
+|   Propriétés       |  Propriétés supplémentaires fournies par le fabricant.|
 |    **Capteur**      |          |
-| HardwareId          |   ID unique du capteur défini par le fabricant. |
-|  SensorModelId     |    ID du modèle de capteur associé.   |
-| Location          |  Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) du capteur.|
-|   Port > Name        |  Nom et type du port auquel le capteur est connecté sur l’appareil. Ce nom doit être identique à celui défini dans le modèle d’appareil. |
-|    DeviceID  |    ID de l’appareil auquel le capteur est connecté.     |
-| Name            |   Nom destiné à identifier la ressource. Par exemple, nom du capteur ou nom du produit et numéro de modèle ou code produit.|
-|    Description      | Description explicite. |
-|    Propriétés        |Propriétés supplémentaires fournies par le fabricant. |
+| HardwareId          |   ID unique du capteur défini par le fabricant.|
+|  SensorModelId     |    ID du modèle de capteur associé.|
+| Emplacement          |  Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) du capteur.|
+|   Port > Name        |  Nom et type du port auquel le capteur est connecté sur l’appareil. Ce nom doit être identique à celui défini dans le modèle d’appareil.|
+|    DeviceID  |    ID de l’appareil auquel le capteur est connecté. |
+| Nom            |   Nom destiné à identifier la ressource. Par exemple, nom du capteur ou nom du produit et numéro de modèle ou code produit.|
+|    Description      | Description explicite.|
+|    Propriétés        |Propriétés supplémentaires fournies par le fabricant.|
 
 Pour plus d’informations sur les objets, consultez [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -126,7 +141,7 @@ Pour plus d’informations sur les objets, consultez [Swagger](https://aka.ms/Fa
 
 Pour effectuer une requête d’API, vous devez associer la méthode HTTP (POST), l’URL du service d’API et l’URI d’une ressource (pour l’interrogation, l’envoi des données, la création ou la suppression d’une requête). Vous ajoutez ensuite un ou plusieurs en-têtes de requête HTTP. L’URL du service d’API est le point de terminaison d’API, c’est-à-dire l’URL du hub de données (https://\<vorehubdedonnées>.azurewebsites.net).  
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 FarmBeats Datahub utilise l’authentification de porteur, qui nécessite les informations d’identification suivantes (générées dans la section précédente) :
 
@@ -160,7 +175,6 @@ token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLI
 #Should get an access token here 
 access_token = token_response.get('accessToken') 
 ```
-
 
 **En-têtes de requête HTTP**
 
@@ -274,6 +288,7 @@ Capteur
   }
 }
 ```
+
 L’exemple de requête suivant crée un appareil. Cette requête comporte du code JSON d’entrée en tant que charge utile avec le corps de la requête.
 
 ```bash
@@ -282,6 +297,22 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
 \"reportingInterval\": 900,  \"name\": \"Device123\",  
 \"description\": \"Test Device 123\"}" *
+```
+
+Vous trouverez ci-dessous un exemple de code dans Python. Le jeton d’accès utilisé dans cet exemple est le même que celui reçu pendant l’authentification.
+
+```python
+import requests
+import json
+
+# Got access token - Calling the Device Model API
+
+headers = {
+    "Authorization": "Bearer " + access_token,
+    "Content-Type" : "application/json"
+    }
+payload = '{"type" : "Node", "productCode" : "TestCode", "ports": [{"name": "port1","type": "Analog"}], "name" : "DummyDevice"}'
+response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=headers)
 ```
 
 > [!NOTE]
@@ -392,8 +423,10 @@ Voici un exemple de message de télémétrie :
 
 **Action corrective** :
 
-1. Assurez-vous d’avoir correctement effectué l’inscription du partenaire. Pour le vérifier, accédez à votre Swagger DataHub et à /Partner API, entrez la commande GET et regardez si le partenaire est bien inscrit. Si ce n’est pas le cas, suivez les [étapes indiquées ici](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) pour ajouter un partenaire.
+1. Assurez-vous d’avoir effectué l’inscription du partenaire appropriée. Pour le vérifier, accédez à votre Swagger DataHub et à /Partner API, entrez la commande GET et regardez si le partenaire est bien inscrit. Si ce n’est pas le cas, suivez les [étapes indiquées ici](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) pour ajouter un partenaire.
+
 2. Assurez-vous que vous avez créé les métadonnées (DeviceModel, Appareil, SensorModel, Capteur) à l’aide des informations d’identification du client partenaire.
+
 3. Vérifiez que vous avez bien utilisé le bon format de message de télémétrie (comme indiqué ci-dessous) :
 
 ```json
@@ -418,7 +451,6 @@ Voici un exemple de message de télémétrie :
  ]
 }
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,7 +3,7 @@ title: Chiffrement des données au repos de Microsoft Azure | Microsoft Docs
 description: Cet article fournit une vue d’ensemble du chiffrement des données au repos de Microsoft Azure, avec ses fonctionnalités globales et des considérations générales.
 services: security
 documentationcenter: na
-author: barclayn
+author: msmbaldwin
 manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2020
-ms.author: barclayn
-ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/23/2020
+ms.author: mbaldwin
+ms.openlocfilehash: 42b83963dc4996a7347d57be712451086fa79b26
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087100"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548626"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -49,9 +49,9 @@ Le chiffrement au repos offre une protection des données pour les données stoc
 
 Le chiffrement au repos est conçu pour empêcher l’attaquant d’accéder aux données non chiffrées en garantissant que les données sont chiffrées quand elles sont sur le disque. Si un attaquant récupère un disque dur comprenant des données chiffrées, mais qu’il ne dispose pas des clés de chiffrement, il doit résoudre le chiffrement pour lire les données. Ce type d’attaque est beaucoup plus complexe et laborieux comparé aux attaques de données non chiffrées sur un disque dur. Pour cette raison, le chiffrement au repos est fortement recommandé et constitue une exigence de haute priorité pour de nombreuses organisations.
 
-Le chiffrement au repos peut également être nécessaire pour les besoins de l’organisation en matière de gouvernance et de conformité des données. Les réglementations publiques et de l’industrie, comme HIPAA, PCI et FedRAMP définissent des protections spécifiques quant aux exigences de protection et de chiffrement des données. Le chiffrement au repos est une mesure obligatoire nécessaire à la conformité avec certaines de ces réglementations.
+Le chiffrement au repos peut également être nécessaire pour les besoins de l’organisation en matière de gouvernance et de conformité des données. Les réglementations publiques et de l’industrie, comme HIPAA, PCI et FedRAMP définissent des protections spécifiques quant aux exigences de protection et de chiffrement des données. Le chiffrement au repos est une mesure obligatoire nécessaire à la conformité avec certaines de ces réglementations. Pour plus d’informations sur l’approche de Microsoft en matière de validation FIPS 140-2, consultez la [publication FIPS (Federal Information Processing Standard) 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2). 
 
-Non seulement le chiffrement au repos répond aux exigences de conformité et aux obligations réglementaires, mais il fournit une défense en profondeur. Microsoft Azure fournit une plateforme conforme destinée aux services, aux applications et aux données. Il fournit également une sécurité complète des équipements et des éléments physiques, un contrôle d’accès aux données et des fonctionnalités d’audit. Toutefois, il est important de mettre en œuvre des mesures de sécurité « superposées » supplémentaires en cas de défaillance de l’une des mesures de sécurité principales. Le chiffrement au repos propose une telle mesure de sécurité.
+Non seulement le chiffrement au repos répond aux exigences de conformité et aux obligations réglementaires, mais il fournit une défense en profondeur. Microsoft Azure fournit une plateforme conforme destinée aux services, aux applications et aux données. Il fournit également une sécurité complète des équipements et des éléments physiques, un contrôle d’accès aux données et des fonctionnalités d’audit. Toutefois, il est important de mettre en œuvre des mesures de sécurité « superposées » supplémentaires en cas de défaillance de l’une des mesures de sécurité principales. Le chiffrement au repos propose une telle mesure de sécurité.
 
 Microsoft s’engage à fournir des options de chiffrement au repos sur les services cloud et à donner aux clients le contrôle des clés de chiffrement et la journalisation de l’utilisation des clés. En outre, Microsoft s’emploie à mettre en œuvre par défaut le chiffrement au repos de toutes les données des clients.
 
@@ -299,7 +299,7 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | Azure SQL Database pour MariaDB   | Oui                | -                  | -                  |
 | Azure SQL Database pour MySQL     | Oui                | Oui                | -                  |
 | Azure SQL Database pour PostgreSQL | Oui               | Oui                | -                  |
-| Azure Synapse Analytics          | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Azure Synapse Analytics          | Oui                | Oui, RSA 2048 bits  | -                  |
 | SQL Server Stretch Database      | Oui                | Oui, RSA 2048 bits  | Oui                |
 | Stockage Table                    | Oui                | Oui                | Oui                |
 | Azure Cosmos DB                  | Oui                | Oui                | -                  |
