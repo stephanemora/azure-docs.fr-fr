@@ -3,19 +3,19 @@ title: Exécuter le conteneur Form Recognizer dans Azure Container Instances
 titleSuffix: Azure Cognitive Services
 description: Déployez le conteneur Form Recognizer sur un Azure Container Instance et testez-le dans un navigateur web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: dapine
-ms.openlocfilehash: 9a3456eb4d30aa8d163488f558b571dd97c73bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77605121"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879528"
 ---
 # <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Déployer le conteneur Form Recognizer sur Azure Container Instances
 

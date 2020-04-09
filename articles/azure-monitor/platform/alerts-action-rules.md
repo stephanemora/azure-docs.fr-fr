@@ -4,16 +4,18 @@ description: Pour comprendre ce que sont les règles d’action dans Azure Monit
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 42f8d9cd30caa48376cda049f6404aa897a6866c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668466"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618986"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (préversion)
 
 Les règles d’action vous permettent de définir ou de supprimer des actions à tout niveau d’Azure Resource Manager (abonnement Azure, groupe de ressources ou ressource cible). Elles disposent de différents filtres vous permettant de limiter le sous-ensemble des instances d’alerte sur lesquelles vous souhaitez agir.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
 ## <a name="why-and-when-should-you-use-action-rules"></a>Pourquoi et quand doit-on utilise des règles d’action ?
 

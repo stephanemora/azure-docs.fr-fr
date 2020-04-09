@@ -2,18 +2,18 @@
 title: 'ExpressRoute : Filtres de routage – Peering Microsoft : Azure PowerShell'
 description: Cet article décrit comment configurer des filtres de routage pour le peering Microsoft à l’aide de PowerShell.
 services: expressroute
-author: ganesr
+author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: ganesr
+ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: cade33e77eb0d3ddd818a6ce3dbd7c6cf72811d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fa53258321b22e1683122edca1816f6d4c291b5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74037401"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618613"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurer des filtres de routage pour le peering Microsoft : PowerShell
 > [!div class="op_single_selector"]
