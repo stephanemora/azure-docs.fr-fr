@@ -113,6 +113,8 @@
       items:
         - name: Qu’est-ce que la synthèse vocale ?
           href: text-to-speech.md
+        - name: Concepts de base de la synthèse vocale
+          href: text-to-speech-basics.md
     - name: Démarrage rapide
       items:
         - name: Synthétiser la voix vers un haut-parleur
@@ -545,6 +547,8 @@
       href: sovereign-clouds.md
     - name: Tarification et limites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Chiffrement

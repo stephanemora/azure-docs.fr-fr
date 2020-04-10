@@ -50,6 +50,8 @@
   items:
     - name: Rapports
       items:
+        - name: Gérer les comptes d’utilisateurs inactifs dans Azure AD
+          href: howto-manage-inactive-user-accounts.md
         - name: Rechercher des rapports d’activité
           href: howto-find-activity-reports.md
         - name: Résoudre les erreurs de connexion pour un utilisateur

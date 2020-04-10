@@ -15,24 +15,27 @@
 - name: Tutoriels
   expanded: true
   items:
-    - name: Studio et concepteur
+    - name: Studio
       items:
         - name: Concepteur (glisser-déposer)
           items:
-            - name: "Concepteur\_: 1. Entraîner un modèle de régression"
+            - name: 1. Entraîner un modèle de régression
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
-            - name: "Concepteur\_: 2. Déployer ce modèle"
+            - name: 2. Déployer ce modèle
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
         - name: ML automatisé (IU)
           items:
-            - name: Créer une expérience de machine learning automatisé
+            - name: Créer des expériences de machine learning automatisé
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-first-experiment-automated-ml.md
-            - name: Prévoir la demande avec le ML automatisé (données de partage de vélo)
+            - name: Prévoir la demande (données Bike Share)
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-automated-ml-forecast.md
+        - name: Étiqueter les données d’image
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: Kit de développement logiciel (SDK) Python
       items:
         - name: Créer votre première expérience ML
@@ -78,14 +81,14 @@
     - name: Notebooks Jupyter
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Azure Open Datasets
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Jeux de données dans le concepteur
       href: sample-designer-datasets.md
+    - name: Exemples de pipelines de concepteur
+      href: samples-designer.md
     - name: Exemples MLOps de bout en bout
       href: 'https://github.com/microsoft/MLOps'
-    - name: Pipelines du concepteur
-      href: samples-designer.md
+    - name: Open Datasets (public)
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items:
     - name: Espace de travail
@@ -115,10 +118,10 @@
       href: /azure/machine-learning/algorithm-cheat-sheet
     - name: Guide pratique pour sélectionner des algorithmes
       href: /azure/machine-learning/how-to-select-algorithms
-    - name: Machine learning automatisé
+    - name: ML automatisé
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Éviter les pièges du machine learning
+    - name: Surajustement et données déséquilibrées
       displayName: 'automl, auto ml, risks'
       href: concept-manage-ml-pitfalls.md
     - name: Instance de calcul
@@ -351,6 +354,8 @@
       items:
         - name: Créer des pipelines ML (Python)
           href: how-to-create-your-first-pipeline.md
+        - name: "Déplacement de données au sein d’un pipeline\_ML et vers un autre pipeline\_ML (Python)"
+          href: how-to-move-data-in-out-of-pipelines.md
         - name: Planifier un pipeline (Python)
           href: how-to-schedule-pipelines.md
         - name: Déclencher un pipeline

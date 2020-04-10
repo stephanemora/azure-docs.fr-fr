@@ -213,6 +213,8 @@
     - name: Dépanner
       items:
         - name: Guide de résolution des problèmes
+          href: service-bus-troubleshooting-guide.md
+        - name: Exceptions de messagerie
           href: service-bus-messaging-exceptions.md
         - name: Exceptions Resource Manager
           href: service-bus-resource-manager-exceptions.md

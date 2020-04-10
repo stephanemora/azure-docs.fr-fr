@@ -85,7 +85,7 @@
           href: deployment-tutorial-pipeline.md
     - name: Modèles avancés
       items:
-        - name: Utiliser la référence de modèle
+        - name: Utiliser des informations de référence sur les modèles
           href: template-tutorial-use-template-reference.md
         - name: Créer plusieurs instances
           displayName: 'iteration,copy'
@@ -291,6 +291,8 @@
           href: template-functions-array.md
         - name: Fonctions de comparaison
           href: template-functions-comparison.md
+        - name: Fonctions de date
+          href: template-functions-date.md
         - name: Fonctions de déploiement
           href: template-functions-deployment.md
         - name: Fonctions logiques

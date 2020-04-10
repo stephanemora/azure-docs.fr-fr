@@ -53,6 +53,8 @@
       href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: Authentification des utilisateurs
       href: app-service-web-tutorial-auth-aad.md
+    - name: Envoyer un e-mail ou un tweet
+      href: tutorial-send-email.md
 - name: Exemples
   items:
     - name: Azure CLI

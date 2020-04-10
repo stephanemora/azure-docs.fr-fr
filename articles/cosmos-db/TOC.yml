@@ -480,6 +480,8 @@
       items:
         - name: Vue d’ensemble du flux de modification
           href: change-feed.md
+        - name: Modèles de conception des flux de modification
+          href: change-feed-design-patterns.md
         - name: Lecture du flux de modification
           href: read-change-feed.md
         - name: Processeur de flux de modification
@@ -1033,6 +1035,8 @@
       items:
         - name: Superviser Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Superviser la latence côté serveur
+          href: monitor-server-side-latency.md
         - name: Superviser avec les journaux de diagnostic
           href: cosmosdb-monitor-resource-logs.md
         - name: Auditer les journaux du plan de contrôle
@@ -1155,7 +1159,7 @@
     - name: Interroger un aide-mémoire
       href: query-cheat-sheet.md
     - name: Query Playground
-      href: 'https://aka.ms/cosmos-db-playground'
+      href: 'https://www.documentdb.com/sql/demo'
     - name: Questions fréquentes (FAQ)
       href: faq.md
     - name: Livres blancs
