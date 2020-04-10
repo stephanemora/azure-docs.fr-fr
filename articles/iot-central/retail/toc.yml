@@ -3,45 +3,45 @@
 - name: Vue d’ensemble
   items:
     - name: Création de solutions de vente au détail avec Azure IoT Central
-      href: overview-iot-central-retail-pnp.md
+      href: overview-iot-central-retail.md
 - name: Tutoriels
   items:
     - name: Analytique dans le magasin - Paiement
       items:
         - name: 1 - Créer une application de vente au détail
-          href: tutorial-in-store-analytics-create-app-pnp.md
+          href: tutorial-in-store-analytics-create-app.md
         - name: 2 - Personnaliser le tableau de bord de l’opérateur
-          href: tutorial-in-store-analytics-customize-dashboard-pnp.md
+          href: tutorial-in-store-analytics-customize-dashboard.md
         - name: 3 - Exporter des données et visualiser des insights
-          href: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+          href: tutorial-in-store-analytics-export-data-visualize-insights.md
     - name: Gestion intelligente des stocks
       items:
         - name: Créer une application de gestion intelligente des stocks
-          href: tutorial-iot-central-smart-inventory-management-pnp.md
+          href: tutorial-iot-central-smart-inventory-management.md
     - name: Logistique connectée
       items:
         - name: Créer une application de logistique connectée
-          href: tutorial-iot-central-connected-logistics-pnp.md
+          href: tutorial-iot-central-connected-logistics.md
     - name: Centre de distribution numérique
       items:
         - name: Créer une application pour un centre de distribution numérique
-          href: tutorial-iot-central-digital-distribution-center-pnp.md
+          href: tutorial-iot-central-digital-distribution-center.md
     - name: Centre de microtraitement
       items:
         - name: Créer une application de centre de microtraitement
-          href: tutorial-micro-fulfillment-center-pnp.md
+          href: tutorial-micro-fulfillment-center.md
 - name: Concepts
   items:
     - name: Architecture du modèle d’application de logistique connectée
-      href: architecture-connected-logistics-pnp.md
+      href: architecture-connected-logistics.md
     - name: Architecture du modèle d’application de centre de distribution numérique
-      href: architecture-digital-distribution-center-pnp.md
+      href: architecture-digital-distribution-center.md
     - name: Architecture du modèle d’application de gestion intelligente des stocks
-      href: architecture-smart-inventory-management-pnp.md
+      href: architecture-smart-inventory-management.md
     - name: Architecture de l’analytique de magasins
       href: store-analytics-architecture.md
     - name: Architecture du modèle d’application de centre de microtraitement
-      href: architecture-micro-fulfillment-center-pnp.md
+      href: architecture-micro-fulfillment-center.md
     - name: Connectivité
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Présentation des modèles d’application
@@ -127,7 +127,7 @@
         - name: Accélérateurs de solution IoT
           href: /azure/iot-accelerators
         - name: IoT Plug-and-Play
-          href: /azure/iot-pnp
+          href: /azure/iot
         - name: Azure Maps
           href: /azure/azure-maps
         - name: Time Series Insights

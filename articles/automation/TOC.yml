@@ -262,7 +262,7 @@
           href: /powershell/scripting/dsc/overview/overview
     - name: Démarrages rapides
       items:
-        - name: Mise en route
+        - name: Découvrir
           href: automation-dsc-getting-started.md
           displayName: DSC
         - name: Gérer la configuration d’une machine
@@ -278,18 +278,15 @@
         - name: Configurer des serveurs à l’état souhaité et gérer la dérive avec la configuration de l’état
           href: tutorial-configure-servers-desired-state.md
           displayName: 'DSC, compliance'
-        - name: Intégration des machines pour la gestion
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
-        - name: Compilation de configurations d’état souhaité
+        - name: Compiler des configurations DSC
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
         - name: Remédier aux serveurs DSC non conformes
           href: automation-dsc-remediate.md
           displayName: 'state configuration, DSC, remediate'
-        - name: Composition de configurations d’état avec des ressources composites
+        - name: Composer des configurations DSC avec des ressources composites
           href: compose-configurationwithcompositeresources.md
-        - name: Déploiement continu avec Chocolatey
+        - name: Fournir un déploiement continu avec Chocolatey
           href: automation-dsc-cd-chocolatey.md
           displayName: 'dsc, state configuration'
         - name: Transférer des données de rapport de configuration d’état aux journaux d’activité Azure Monitor
@@ -297,12 +294,12 @@
           displayName: DSC
     - name: Dépanner
       items:
-        - name: Mise en route
+        - name: Résoudre les problèmes d’intégration
           href: troubleshoot/onboarding.md
           displayName: troubleshoot
         - name: Résoudre les problèmes de State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
-          displayName: 'Desired State Configuration, troubleshoot'
+          displayName: 'state configuration, DSC, troubleshoot'
     - name: Informations de référence
       items:
         - name: Solutions de la communauté

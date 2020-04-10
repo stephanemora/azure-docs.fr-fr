@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: dapine
-  ms.openlocfilehash: 0f0b9aa0109b7e63bffcbd330dbef3276821698e
-  ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+  ms.openlocfilehash: 43bd0afd1f3d40c144003b2c2cadfdcb885989a9
+  ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/06/2020
-  ms.locfileid: "80743909"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80991311"
 highlightedContent:
   items:
   - title: Qu’est-ce que le service de reconnaissance vocale ?
@@ -52,14 +52,14 @@ conceptualContent:
   - title: Synthèse vocale
     links:
     - itemType: quickstart
+      text: Bases de la synthèse vocale
+      url: text-to-speech-basics.md
+    - itemType: quickstart
       text: Synthétiser la voix vers un haut-parleur
       url: quickstarts/text-to-speech.md
     - itemType: quickstart
       text: Synthétiser la voix vers un fichier audio
       url: quickstarts/text-to-speech-audio-file.md
-    - itemType: quickstart
-      text: Personnaliser la synthèse vocale pour vos applications
-      url: how-to-custom-voice.md
     footerLink:
       text: En savoir plus
       url: index-text-to-speech.yml

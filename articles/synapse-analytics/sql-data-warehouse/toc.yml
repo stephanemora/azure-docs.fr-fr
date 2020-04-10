@@ -31,12 +31,10 @@
           href: create-data-warehouse-portal.md
         - name: PowerShell
           href: create-data-warehouse-powershell.md
-    - name: Suspension et reprise
+    - name: Charger les données
       items:
-        - name: Portail
-          href: pause-and-resume-compute-portal.md
-        - name: PowerShell
-          href: pause-and-resume-compute-powershell.md
+        - name: Instruction COPY
+          href: quickstart-bulk-load-copy-tsql.md
     - name: Scale
       items:
         - name: Portail
@@ -55,6 +53,12 @@
           items:
             - name: T-SQL
               href: quickstart-configure-workload-isolation-tsql.md
+    - name: Suspension et reprise
+      items:
+        - name: Portail
+          href: pause-and-resume-compute-portal.md
+        - name: PowerShell
+          href: pause-and-resume-compute-powershell.md
 - name: Concepts
   items:
     - name: Sécurité
