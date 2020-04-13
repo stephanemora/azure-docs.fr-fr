@@ -22,7 +22,7 @@ ms.locfileid: "78968768"
 
 En tant qu’administrateur, lorsque vous choisissez des méthodes d’authentification pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service, il est recommandé de demander aux utilisateurs d’inscrire plusieurs méthodes d’authentification. Quand une méthode d’authentification n’est pas disponible pour un utilisateur, il peut choisir de s’authentifier avec une autre méthode.
 
-Les administrateurs peuvent définir, dans la stratégie, les méthodes d’authentification disponibles pour les utilisateurs avec les fonctionnalités d’authentification multifacteur et de réinitialisation de mot de passe en libre-service. Certaines méthodes d’authentification peuvent ne pas être disponibles pour toutes les fonctionnalités. Pour plus d’informations sur la configuration de vos stratégies, consultez les articles [How to successfully roll out self-service password reset](howto-sspr-deployment.md) (Comment réussir le lancement de la réinitialisation de mot de passe en libre-service) et [Planning a cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md) (Planification d’une authentification multifacteur Azure basée sur le cloud).
+Les administrateurs peuvent définir, dans la stratégie, les méthodes d’authentification disponibles pour les utilisateurs avec les fonctionnalités d’authentification multifacteur et de réinitialisation de mot de passe en libre-service. Certaines méthodes d’authentification peuvent ne pas être disponibles pour toutes les fonctionnalités. Pour plus d’informations sur la configuration de vos stratégies, consultez les articles [Planifier une réinitialisation de mot de passe en libre-service Azure Active Directory](howto-sspr-deployment.md) et [Planning a cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md) (Planification d’une authentification multifacteur Azure basée sur le cloud).
 
 Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs de sélectionner plus que le nombre minimal requis de méthodes d’authentification au cas où une ne serait pas accessible.
 
@@ -156,13 +156,13 @@ Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des 
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Jetons matériels OATH (préversion publique)
 
-OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les secrets sont limités à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. La clé secrète peut contenir uniquement les caractères *a à z* ou *A à Z* et les chiffres *1 à 7*, et doit être encodée en Base32.
+OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les clés secrètes sont limitées à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. La clé secrète peut contenir uniquement les caractères *a à z* ou *A à Z* et les chiffres *1 à 7*, et doit être encodée en Base32.
 
 ![Chargement des jetons OATH dans le panneau de jetons OATH MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 Les jetons matériels OATH sont pris en charge dans le cadre d’une préversion publique. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-Après avoir obtenu les jetons, vous devez les charger dans un fichier de valeurs séparées par des virgules (CSV), contenant l’UPN, le numéro de série, la clé secrète, l’intervalle de temps, le fabricant et le modèle, comme indiqué dans l’exemple suivant :
+Après avoir obtenu les jetons, vous devez les charger dans un fichier de valeurs séparées par des virgules (CSV), contenant l'UPN, le numéro de série, la clé secrète, l’intervalle de temps, le fabricant et le modèle, comme indiqué dans l’exemple suivant :
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
@@ -195,7 +195,7 @@ Pour que tout fonctionne correctement, les numéros de téléphone doivent être
 >
 > La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format +1 4255551234X12345, les extensions sont supprimées avant l’appel.
 
-Microsoft ne garantit pas que les notifications Multi-Factor Authentication envoyées par SMS ou message vocale proviennent systématiquement du même numéro. Dans l’intérêt de ses utilisateurs, Microsoft peut à tout moment ajouter ou supprimer des codes courts pour refléter les ajustements apportés aux itinéraires dans le but d’améliorer la remise des SMS. Microsoft ne prend pas en charge les codes courts pour les pays/régions en dehors des États-Unis et du Canada.
+Microsoft ne garantit pas que les notifications Multi-Factor Authentication envoyées par SMS ou message vocal proviennent systématiquement du même numéro. Dans l’intérêt de ses utilisateurs, Microsoft peut à tout moment ajouter ou supprimer des codes courts pour refléter les ajustements apportés aux itinéraires dans le but d’améliorer la remise des SMS. Microsoft ne prend pas en charge les codes courts pour les pays/régions en dehors des États-Unis et du Canada.
 
 #### <a name="text-message"></a>SMS
 
@@ -235,7 +235,7 @@ Problèmes courants relatifs aux méthodes d’authentification utilisant un num
 * Code PIN entré incorrect
    * Confirmez que l’utilisateur a utilisé le bon code PIN inscrit dans Azure MFA Server.
 * Appel transféré vers la messagerie vocale
-   * Vérifiez que le téléphone de l’utilisateur est allumé et que le service est disponible dans leur zone ou utilisez une autre méthode.
+   * Vérifiez que le téléphone de l'utilisateur est allumé et que le service est disponible dans sa zone ou utilisez une autre méthode.
 * L’utilisateur est bloqué
    * Demander à l’administrateur de débloquer l’utilisateur dans le portail Azure.
 * L’option SMS n’est pas inscrite sur l’appareil
@@ -254,7 +254,7 @@ Si votre organisation est fédérée (SSO) avec Azure AD et si vous vous apprê
 * Le mot de passe est vérifié par Azure AD et il contourne ainsi la fédération. La fédération n’est utilisée activement que lorsque vous configurez le mot de passe d’application. Les mots de passe des utilisateurs fédérés (SSO) sont stockés dans l’ID d’organisation. Si l’utilisateur quitte l’entreprise, ces informations doivent être stockées dans l’ID d’organisation à l’aide de DirSync. La désactivation/suppression de compte peut mettre jusqu’à trois heures à se synchroniser, ce qui peut retarder la désactivation/suppression des mots de passe dans Azure AD.
 * Les paramètres de contrôle d'accès client locaux ne sont pas honorés par Mot de passe d’application
 * Aucune authentification locale de journalisation/fonctionnalité d’audit n’est disponible pour les mots de passe d’application.
-* Certaines conceptions architecturales avancées peuvent nécessiter l’utilisation d’une combinaison de noms d’utilisateur, de mots de passe et de mots de passe d’application durant l’utilisation de la vérification en deux étapes avec les clients, selon l’emplacement où ils s’authentifient. Pour les clients qui s’authentifient auprès d’une infrastructure locale, vous devez utiliser le nom d’utilisateur et le mot de passe d’une organisation. Pour les clients qui s'authentifient auprès d'Azure AD, vous utiliseriez le mot de passe d’application.
+* Certaines conceptions architecturales avancées peuvent nécessiter l’utilisation d’une combinaison de noms d’utilisateur, de mots de passe et de mots de passe d’application durant l’utilisation de la vérification en deux étapes avec les clients, selon l’emplacement où ils s’authentifient. Pour les clients qui s’authentifient auprès d’une infrastructure locale, vous devez utiliser le nom d’utilisateur et le mot de passe d’une organisation. Pour les clients qui s'authentifient auprès d'Azure AD, vous devez utiliser le mot de passe d'application.
 * Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d'application. Si vous avez besoin de permettre aux utilisateurs de créer des mots de passe d’application, sélectionnez l’option **Autoriser les utilisateurs à créer des mots de passe d’application pour se connecter à des applications sans navigateur** sous les paramètres de service.
 
 ## <a name="next-steps"></a>Étapes suivantes
