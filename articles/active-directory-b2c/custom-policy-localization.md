@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1401cbe1920c7c6df804aadbba1751612ba9cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126796"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545869"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Traduire l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La personnalisation de la langue dans Azure Active Directory B2C (Azure AD B2C) vous permet de prendre en charge plusieurs langues pour répondre aux besoins de votre client. Microsoft fournit les traductions en 36 langues, mais vous pouvez également utiliser vos propres traductions pour n’importe quelle langue. Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages. 
+La personnalisation de la langue dans Azure Active Directory B2C (Azure AD B2C) vous permet de prendre en charge plusieurs langues pour répondre aux besoins de votre client. Microsoft fournit les traductions en [36 langues](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), mais vous pouvez également fournir vos propres traductions pour n’importe quelle langue. Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages. 
 
 Cet article montre comment prendre en charge plusieurs paramètres régionaux ou langues dans la stratégie des parcours utilisateur. La traduction nécessite trois étapes : configurer la liste explicite des langues prises en charge, fournir des chaînes et collections spécifiques de la langue et modifier la [définition de contenu](contentdefinitions.md) de la page. 
 
 ## <a name="set-up-the-list-of-supported-languages"></a>Configurer la liste des langues prises en charge
 
-Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Recherchez l’élément [BuildingBlocks](buildingblocks.md). Si l’élément n’existe pas, ajoutez-le.
 1. Ajoutez l’élément `Localization` avec les langues prises en charge : anglais (par défaut) et espagnol.  
