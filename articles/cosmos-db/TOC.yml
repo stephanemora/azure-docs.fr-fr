@@ -1037,6 +1037,8 @@
           href: monitor-cosmos-db.md
         - name: Superviser la latence côté serveur
           href: monitor-server-side-latency.md
+        - name: Superviser l’utilisation des unités de requête
+          href: monitor-request-unit-usage.md
         - name: Superviser avec les journaux de diagnostic
           href: cosmosdb-monitor-resource-logs.md
         - name: Auditer les journaux du plan de contrôle
