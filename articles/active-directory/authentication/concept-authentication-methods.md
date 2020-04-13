@@ -146,7 +146,7 @@ Si vous activez l’utilisation de la notification par le biais de l’applicati
 
 ### <a name="verification-code-from-mobile-app"></a>Code de vérification de l’application mobile
 
-L'application Microsoft Authenticator ou une autre application tierce peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Après avoir saisi votre nom d’utilisateur et votre mot de passe, vous entrez le code fourni par l’application dans l’écran de connexion. Le code de vérification fournit une deuxième forme d'authentification.
+L'application Microsoft Authenticator ou une autre application tierce peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Après avoir saisi votre nom d’utilisateur et votre mot de passe, vous entrez le code fourni par l’application dans l’écran de connexion. Le code de vérification fournit un deuxième formulaire d’authentification.
 
 > [!WARNING]
 > Quand une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option à la disposition des utilisateurs **pour garantir le niveau de sécurité le plus élevé**.
@@ -193,15 +193,15 @@ Pour que tout fonctionne correctement, les numéros de téléphone doivent être
 > [!NOTE]
 > Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.
 >
-> La réinitialisation du mot de passe ne prend pas en charge les numéros de poste. Même au format +1 4255551234X12345, les extensions sont supprimées avant l’appel.
+> La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format +1 4255551234X12345, les extensions sont supprimées avant l’appel.
 
-Microsoft ne garantit pas l'acheminement cohérent et rapide de l'authenfication multifacteur par SMS ou message vocal envoyée depuis le même numéro. Dans l’intérêt de ses utilisateurs, Microsoft peut à tout moment ajouter ou supprimer des codes courts pour refléter les ajustements apportés aux itinéraires dans le but d’améliorer la remise des SMS. Microsoft ne prend pas en charge les codes courts pour les pays/régions en dehors des États-Unis et du Canada.
+Microsoft ne garantit pas que les notifications Multi-Factor Authentication envoyées par SMS ou message vocale proviennent systématiquement du même numéro. Dans l’intérêt de ses utilisateurs, Microsoft peut à tout moment ajouter ou supprimer des codes courts pour refléter les ajustements apportés aux itinéraires dans le but d’améliorer la remise des SMS. Microsoft ne prend pas en charge les codes courts pour les pays/régions en dehors des États-Unis et du Canada.
 
 #### <a name="text-message"></a>SMS
 
 Un SMS est envoyé au numéro de téléphone mobile. Il contient un code de vérification. Entrez le code de vérification fourni dans l’interface de connexion pour continuer.
 
-#### <a name="phone-call"></a>Appel téléphonique
+#### <a name="phone-call"></a>appel téléphonique
 
 Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répondez à l’appel et appuyez sur la touche # du clavier du téléphone pour vous authentifier.
 
@@ -222,7 +222,7 @@ L’attribut Téléphone de bureau est géré par l’administrateur.
 > [!NOTE]
 > Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.
 >
-> La réinitialisation du mot de passe ne prend pas en charge les numéros de poste. Même au format +1 4255551234X12345, les extensions sont supprimées avant l’appel.
+> La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format +1 4255551234X12345, les extensions sont supprimées avant l’appel.
 
 ### <a name="troubleshooting-phone-options"></a>Résolution des problèmes liés aux options du téléphone
 
@@ -245,14 +245,14 @@ Problèmes courants relatifs aux méthodes d’authentification utilisant un num
 
 ## <a name="app-passwords"></a>Mots de passe d'application
 
-Certaines applications sans navigateur ne prennent pas en charge l’authentification multifacteur. Si un utilisateur a été activé pour l’authentification multifacteur et tente d’utiliser des applications sans navigateur, il ne peut pas s’authentifier. Un mot de passe d'application permet aux utilisateurs de continuer pour s'authentifier.
+Certaines applications sans navigateur ne prennent pas en charge l’authentification multifacteur. Si un utilisateur a été activé pour l’authentification multifacteur et tente d’utiliser des applications sans navigateur, il ne peut pas s’authentifier. Un mot de passe d’application permet aux utilisateurs de continuer pour s’authentifier
 
 Si vous appliquez l’authentification multifacteur via des stratégies d’accès conditionnel et non via l’authentification multifacteur par utilisateur, vous ne pouvez pas créer des mots de passe d’application. Les applications qui utilisent des stratégies d’accès conditionnel pour contrôler l’accès n’ont pas besoin de mots de passe d’application.
 
 Si votre organisation est fédérée (SSO) avec Azure AD et si vous vous apprêtez à utiliser l’authentification Azure MFA, voici ce que vous devez absolument savoir :
 
 * Le mot de passe est vérifié par Azure AD et il contourne ainsi la fédération. La fédération n’est utilisée activement que lorsque vous configurez le mot de passe d’application. Les mots de passe des utilisateurs fédérés (SSO) sont stockés dans l’ID d’organisation. Si l’utilisateur quitte l’entreprise, ces informations doivent être stockées dans l’ID d’organisation à l’aide de DirSync. La désactivation/suppression de compte peut mettre jusqu’à trois heures à se synchroniser, ce qui peut retarder la désactivation/suppression des mots de passe dans Azure AD.
-* Les paramètres d'accès client locaux ne sont pas respectés par le mot de passe d'application.
+* Les paramètres de contrôle d'accès client locaux ne sont pas honorés par Mot de passe d’application
 * Aucune authentification locale de journalisation/fonctionnalité d’audit n’est disponible pour les mots de passe d’application.
 * Certaines conceptions architecturales avancées peuvent nécessiter l’utilisation d’une combinaison de noms d’utilisateur, de mots de passe et de mots de passe d’application durant l’utilisation de la vérification en deux étapes avec les clients, selon l’emplacement où ils s’authentifient. Pour les clients qui s’authentifient auprès d’une infrastructure locale, vous devez utiliser le nom d’utilisateur et le mot de passe d’une organisation. Pour les clients qui s'authentifient auprès d'Azure AD, vous utiliseriez le mot de passe d’application.
 * Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d'application. Si vous avez besoin de permettre aux utilisateurs de créer des mots de passe d’application, sélectionnez l’option **Autoriser les utilisateurs à créer des mots de passe d’application pour se connecter à des applications sans navigateur** sous les paramètres de service.
