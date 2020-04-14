@@ -214,6 +214,8 @@
       items:
         - name: "Qu’est-ce que la traduction vocale\_?"
           href: speech-translation.md
+        - name: Bases de la traduction vocale
+          href: speech-translation-basics.md
     - name: Démarrage rapide
       items:
         - name: Traduire la voix en texte
