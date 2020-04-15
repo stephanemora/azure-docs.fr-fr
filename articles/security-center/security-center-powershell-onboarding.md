@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603693"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435473"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell
 
@@ -33,15 +33,15 @@ Dans cet exemple, nous allons activer Azure Security Center sur un abonnement do
 
 1. Définissez le [niveau de protection Security Center standard](https://azure.microsoft.com/pricing/details/security-center/). 
  
-2. Définissez l’espace de travail Log Analytics auquel le Microsoft Monitoring Agent enverra les données collectées sur les machines virtuelles associées à l’abonnement. Dans cet exemple, il s’agit d’un espace de travail défini par l’utilisateur (myWorkspace).
+2. Définissez l’espace de travail Log Analytics auquel l’agent Log Analytics enverra les données collectées sur les machines virtuelles associées à l’abonnement. Dans cet exemple, il s’agit d’un espace de travail défini par l’utilisateur (myWorkspace).
 
-3. Activez la fonctionnalité d’approvisionnement automatique d’agent d’Azure Security Center qui [déploie Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
+3. Activez la fonctionnalité d’approvisionnement automatique d’agent d’Azure Security Center qui [déploie l’agent Log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
 
 5. Définissez le [CISO de l’organisation en tant que contact de sécurité pour les événements notables et alertes Security Center](security-center-provide-security-contact-details.md).
 
 6. Assignez les [stratégies de sécurité par défaut](tutorial-security-policy.md) d’Azure Security Center.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les étapes suivantes :
 
@@ -58,7 +58,7 @@ Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  Facultatif : définissez le niveau de couverture (niveau tarifaire) des abonnements (par défaut, le niveau tarifaire est défini sur Gratuit) :
+2.  Facultatif : définissez le niveau de couverture (niveau tarifaire) des abonnements (par défaut, le niveau tarifaire est défini sur Gratuit) :
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
@@ -68,7 +68,7 @@ Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les 
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.  Approvisionnez automatiquement l’installation du Microsoft Monitoring Agent sur vos machines virtuelles Azure :
+4.  Approvisionnez automatiquement l’installation de l’agent Log Analytics sur vos machines virtuelles Azure :
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
@@ -78,7 +78,7 @@ Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les 
     > Nous vous recommandons d’activer l’approvisionnement automatique pour vous assurer que vos machines virtuelles Azure sont automatiquement protégées par Azure Security Center.
     >
 
-5.  Facultatif : il est fortement recommandé de définir les contacts de sécurité pour les abonnements que vous intégrez, qui seront utilisés comme destinataires des alertes et notifications générées par Azure Security Center :
+5.  Facultatif : il est fortement recommandé de définir les contacts de sécurité pour les abonnements que vous intégrez, qui seront utilisés comme destinataires des alertes et notifications générées par Security Center :
 
         Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 

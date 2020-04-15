@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749937"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811082"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -160,7 +160,7 @@ Vous pouvez permettre à des développeurs ou à des membres du personnel d’ex
 
 La connexion VPN point à site vous permet de configurer une connexion privée et sécurisée entre l’utilisateur et le réseau virtuel. Une fois la connexion VPN établie, l’utilisateur peut utiliser le protocole RDP ou SSH sur la liaison VPN pour se connecter à une machine virtuelle sur le réseau virtuel. (En supposant que l’utilisateur peut s’authentifier et qu’il est autorisé à se connecter.) La connexion VPN point à site assure les prises en charge suivantes :
 
-* Le Protocole SSTP (Secure Socket Tunneling Protocol) est un protocole propriétaire VPN basé sur le protocole SSL. Une solution VPN SSL peut pénétrer des pare-feux puisque la plupart des pare-feux ouvrent le port TCP 443 utilisé par le protocole SSL. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP (Windows 7 et versions ultérieures).
+* Le Protocole SSTP (Secure Socket Tunneling Protocol) est un protocole propriétaire VPN basé sur le protocole SSL. Une solution VPN SSL peut pénétrer des pare-feux puisque la plupart des pare-feux ouvrent le port TCP 443 utilisé par le protocole TLS/SSL. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP (Windows 7 et versions ultérieures).
 
 * Un VPN IKEv2 est une solution VPN IPsec basée sur des normes. Un VPN IKEv2 peut être utilisé pour se connecter à partir d’appareils Mac (OSX 10.11 et versions ultérieures).
 
@@ -232,7 +232,7 @@ Les organisations qui exécutent des services basés sur le web privilégient so
 La passerelle Azure Application Gateway vous permet de mettre en place un équilibrage de charge basé sur HTTP pour vos services basés sur le web. Application Gateway prend en charge :
 
 * L’affinité de session basée sur les cookies. Cette fonctionnalité permet de s’assurer que les connexions établies avec l’un des serveurs situé derrière l’équilibreur de charge restent opérationnelles entre le client et le serveur. La stabilité des transactions est ainsi garantie.
-* Le déchargement SSL. Lorsqu’un client se connecte avec l’équilibreur de charge, cette session est chiffrée à l’aide du protocole HTTPS (SSL). Toutefois, afin d’améliorer les performances, vous pouvez utiliser le protocole HTTP (non chiffré) pour la connexion entre l’équilibreur de charge et le serveur web situé derrière l’équilibreur de charge. C’est le principe du « déchargement SSL ». En effet, les serveurs web situés derrière l’équilibreur de charge ne sont pas affectés par la surcharge de traitement inhérente au chiffrement. Les serveurs web peuvent donc traiter les demandes plus rapidement.
+* Déchargement TLS. Quand un client se connecte avec l’équilibreur de charge, cette session est chiffrée à l’aide du protocole HTTPS (TLS). Toutefois, afin d’améliorer les performances, vous pouvez utiliser le protocole HTTP (non chiffré) pour la connexion entre l’équilibreur de charge et le serveur web situé derrière l’équilibreur de charge. C’est le principe du « déchargement TLS ». En effet, les serveurs web situés derrière l’équilibreur de charge ne sont pas affectés par la surcharge de traitement inhérente au chiffrement. Les serveurs web peuvent donc traiter les demandes plus rapidement.
 * Le routage du contenu basé sur l’URL. Cette fonctionnalité permet à l’équilibreur de charge de répartir les connexions en fonction de l’URL cible. Cela offre une plus grande flexibilité que les solutions qui répartissent la charge en fonction des adresses IP.
 
 En savoir plus :
@@ -336,7 +336,7 @@ En savoir plus :
 
 ## <a name="azure-front-door"></a>Azure Front Door
 
-Azure Front Door Service vous permet de définir, gérer et surveiller le routage global de votre trafic web. Il optimise le routage de votre trafic pour des performances optimales et une haute disponibilité. Azure Front Door vous permet de créer des règles de pare-feu d’applications web (WAF) personnalisées pour le contrôle d’accès afin de protéger votre charge de travail HTTP/HTTPS de l’exploitation basée sur les adresses IP des clients, les codes de pays et les paramètres HTTP. En outre, Front Door vous permet de créer des règles de limitation de vitesse de transmission pour affronter le trafic des bots malveillants ; il inclut les fonctionnalités de déchargement SSL et de traitement de la couche Application par requête HTTP/HTTPS.
+Azure Front Door Service vous permet de définir, gérer et surveiller le routage global de votre trafic web. Il optimise le routage de votre trafic pour des performances optimales et une haute disponibilité. Azure Front Door vous permet de créer des règles de pare-feu d’applications web (WAF) personnalisées pour le contrôle d’accès afin de protéger votre charge de travail HTTP/HTTPS de l’exploitation basée sur les adresses IP des clients, les codes de pays et les paramètres HTTP. En outre, Front Door vous permet de créer des règles de limitation de vitesse de transmission pour affronter le trafic des bots malveillants ; il inclut les fonctionnalités de déchargement TLS et de traitement de la couche Application par requête HTTP/HTTPS.
 
 La plateforme Front Door elle-même est protégée par Azure DDoS Protection Basic. Pour renforcer la protection, vous pouvez activer Azure DDoS Protection Standard au niveau de vos réseaux virtuels et protéger les ressources contre les attaques de couche réseau (TCP/UDP) par le biais du réglage automatique et de l’atténuation. Front Door étant un proxy inverse de couche 7, il autorise uniquement l’acheminement du trafic web aux serveurs principaux et bloque les autres types de trafic par défaut.
 

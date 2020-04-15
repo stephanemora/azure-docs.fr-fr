@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310830"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546351"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -131,8 +131,8 @@ Mettez à jour vers la [version 1.0.0](https://pypi.org/project/azure-mgmt-hdins
 
 Mettez à jour vers la [version 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) ou versions ultérieures du SDK HDInsight pour Java. Des modifications minimes du code peuvent être nécessaires si vous utilisez une méthode affectée par ces changements :
 
-- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)**ne retournera plus de paramètres sensibles** comme les clés de stockage (core-site) ou les informations d'identification HTTP (passerelle).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) est désormais déprécié.
+- `ConfigurationsInner.get`**ne retournera plus de paramètres sensibles** comme les clés de stockage (core-site) ou les informations d'identification HTTP (passerelle).
+- `ConfigurationsInner.update` est désormais déconseillé.
 
 ### <a name="sdk-for-go"></a>Kit SDK pour Go
 
@@ -193,9 +193,9 @@ Les configurations de cluster se trouvent maintenant derrière un contrôle d’
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Pourquoi est-ce que je vois « Privilèges insuffisants pour effectuer l’opération » lors de l’exécution de la commande Azure CLI pour attribuer le rôle Opérateur de cluster HDInsight à un autre utilisateur ou principal de service ?
 
-En plus d’avoir le rôle Propriétaire, l’utilisateur ou le principal de service qui exécute la commande doit disposer des autorisations AAD suffisantes pour rechercher les ID d’objet de la personne responsable. Ce message indique des autorisations AAD insuffisantes. Essayez de remplacer l’argument `-–assignee` par `–assignee-object-id` et fournissez l’ID d’objet de la personne responsable en tant que paramètre au lieu du nom (ou l’ID du principal dans le cas d’une identité managée). Pour plus d’informations, consultez la section des paramètres facultatifs de la [documentation relative à az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create).
+En plus d’avoir le rôle Propriétaire, l’utilisateur ou le principal de service qui exécute la commande doit disposer des autorisations Azure AD suffisantes pour rechercher les ID d’objet de la personne responsable. Ce message indique des autorisations Azure AD insuffisantes. Essayez de remplacer l’argument `-–assignee` par `–assignee-object-id` et fournissez l’ID d’objet de la personne responsable en tant que paramètre au lieu du nom (ou l’ID du principal dans le cas d’une identité managée). Pour plus d’informations, consultez la section des paramètres facultatifs de la [documentation relative à az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create).
 
-Si cela ne fonctionne toujours pas, contactez votre administrateur AAD pour obtenir les autorisations appropriées.
+Si cela ne fonctionne toujours pas, contactez votre administrateur Azure AD pour obtenir les autorisations appropriées.
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>Que se passe-t-il si je n’effectue aucune action ?
 

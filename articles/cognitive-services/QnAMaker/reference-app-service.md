@@ -3,12 +3,12 @@ title: Configuration du service – QnA Maker
 description: Comprendre comment et où configurer les ressources.
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651803"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804258"
 ---
 # <a name="service-configuration"></a>Configuration de service
 
@@ -27,8 +27,8 @@ Vous pouvez définir un paramètre individuel via la liste des paramètres de l�
 
 |Ressource|Paramètre|
 |--|--|
-|AzureSearchAdminKey|Recherche cognitive : utilisé pour le stockage des ensembles QnA et le classement n °1|
-|AzureSearchName|Recherche cognitive : utilisé pour le stockage des ensembles QnA et le classement n °1|
+|AzureSearchAdminKey|Recherche cognitive : utilisée pour le stockage des paires de questions et réponses et le classement n°1|
+|AzureSearchName|Recherche cognitive : utilisée pour le stockage des paires de questions et réponses et le classement n°1|
 |DefaultAnswer|Texte de réponse quand aucune correspondance n’est trouvée|
 |UserAppInsightsAppId|Journal et télémétrie de conversation|
 |UserAppInsightsKey|Journal et télémétrie de conversation|

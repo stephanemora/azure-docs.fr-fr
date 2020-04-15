@@ -4,19 +4,19 @@ description: Forum aux questions concernant la réinitialisation du mot de passe
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061452"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654192"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -71,7 +71,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Comment le portail d’inscription détermine-t-il quelles options proposer à mes utilisateurs ?**
 
-  > **R :** Le portail d’inscription de réinitialisation de mot de passe affiche uniquement les options que vous avez activées pour vos utilisateurs. Ces options se trouvent sous la section **Stratégie de réinitialisation de mot de passe utilisateur** de l’onglet **Configurer** de votre annuaire. Par exemple, si vous n’activez pas les questions de sécurité, les utilisateurs ne peuvent pas s’inscrire pour cette option.
+  > **R :** Le portail d’inscription de réinitialisation de mot de passe affiche uniquement les options que vous avez activées pour vos utilisateurs. Ces options se trouvent sous la section **Stratégie de réinitialisation de mot de passe utilisateur** de l'onglet **Configurer** de votre annuaire. Par exemple, si vous n’activez pas les questions de sécurité, les utilisateurs ne peuvent pas s’inscrire pour cette option.
   >
   >
 * **Q :  Quand un utilisateur est-il considéré comme inscrit ?**
@@ -107,9 +107,9 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   > **R :** L’interface utilisateur pour la réinitialisation du mot de passe, les SMS et les appels vocaux sont localisés dans les mêmes langues que celles prises en charge dans Office 365.
   >
   >
-* **Q :  Quelles parties de l’expérience de réinitialisation de mot de passe sont personnalisées quand je configure les éléments de personnalisation de l’organisation sous l’onglet Configurer de mon annuaire ?**
+* **Q :  Quelles parties de l'expérience de réinitialisation de mot de passe sont personnalisées lorsque je configure des éléments de personnalisation de l'organisation sous l'onglet Configurer de mon annuaire ?**
 
-  > **R :** Le portail de réinitialisation de mot de passe affiche le logo de votre organisation et vous permet également de configurer le lien « Contactez votre administrateur » pour qu’il pointe vers une URL ou une adresse e-mail personnalisée. Tout e-mail envoyé par la réinitialisation de mot de passe inclut le logo, les couleurs et le nom de votre organisation dans le corps de l’e-mail, et il est personnalisé à partir des paramètres de ce nom spécifique.
+  > **R :** Le portail de réinitialisation de mot de passe affiche le logo de votre organisation et vous permet également de configurer le lien « Contactez votre administrateur » pour qu’il pointe vers une URL ou une adresse e-mail personnalisée. Tout e-mail envoyé par la fonctionnalité de réinitialisation de mot de passe inclut le logo, les couleurs et le nom de votre organisation dans le corps de l'e-mail, et il est personnalisé à partir des paramètres de ce nom spécifique.
   >
   >
 * **Q :  Comment puis-je informer mes utilisateurs des liens sur lesquels ils peuvent cliquer pour réinitialiser leur mot de passe ?**
@@ -124,10 +124,10 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Prenez-vous en charge le déverrouillage des comptes Active Directory locaux quand les utilisateurs réinitialisent leur mot de passe ?**
 
-  > **R :** Oui. Quand un utilisateur réinitialise son mot de passe, si la réécriture du mot de passe a été déployée par le biais d’Azure AD Connect, ce compte d’utilisateur est déverrouillé automatiquement quand il réinitialise son mot de passe.
+  > **R :** Oui. Si la réécriture du mot de passe a été déployée par le biais d'Azure AD Connect, le compte d'utilisateur est automatiquement déverrouillé au moment où l'utilisateur réinitialise son mot de passe.
   >
   >
-* **Q :  Comment puis-je intégrer la réinitialisation de mot de passe directement dans l’expérience de connexion de Bureau de mes utilisateurs ?**
+* **Q :  Comment puis-je intégrer la réinitialisation de mot de passe directement dans l'expérience de connexion de Bureau de mes utilisateurs ?**
 
   > **R :** Si vous êtes client Azure AD Premium, vous pouvez installer Microsoft Identity Manager sans coût supplémentaire et déployer la solution locale de réinitialisation de mot de passe.
   >
@@ -271,7 +271,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   > **R :** Oui. La réécriture du mot de passe applique l’âge du mot de passe, l’historique, la complexité, les filtres et toute autre restriction que vous pouvez mettre en place sur les mots de passe dans votre domaine local.
   >
   >
-* **Q :  La réécriture du mot de passe est-elle sécurisée ?  Comment puis-je être sûr de ne pas être piraté ?**
+* **Q :  La réécriture du mot de passe est-elle sécurisée ?  Comment puis-je être sûr que je ne me ferai pas pirater ?**
 
   > **R :** Oui, la réécriture du mot de passe est sécurisée. Pour en savoir plus sur les multiples couches de sécurité implémentées par le service de réécriture du mot de passe, consultez la section [Sécurité de réécriture du mot de passe](concept-sspr-writeback.md#password-writeback-security) dans l’article [Vue d’ensemble de la réécriture du mot de passe](howto-sspr-writeback.md).
   >

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 75890efebc42b74c56fb95ed1803152b516588b9
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385212"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811241"
 ---
 # <a name="develop-a-secure-web-app"></a>Développer une application web sécurisée
 
@@ -108,7 +108,7 @@ Cette application a utilisé :
 
 ### <a name="network"></a>Réseau
 
-L’exemple d’application utilise le chiffrement SSL de bout en bout pour le flux de données en transit vers et depuis le réseau. La passerelle est configurée avec un certificat auto-signé.
+L'exemple d'application utilise le chiffrement TLS/SSL de bout en bout pour le flux de données en transit vers et depuis le réseau. La passerelle est configurée avec un certificat auto-signé.
 > [!IMPORTANT]
 > Un certificat auto-signé est utilisé dans cette démonstration. Dans un environnement de production, vous devez obtenir les certificats auprès d’une autorité de certification vérifiée(CA).
 
@@ -363,7 +363,7 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-Pour plus d’informations sur la configuration de la vérification SSL et de l’autorité de certification pour PostgreSQL, consultez [Configurer la connectivité SSL dans Azure Database pour PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
+Pour plus d'informations sur la configuration de la vérification TLS et de l'autorité de certification pour PostgreSQL, consultez [Configurer la connectivité TLS dans Azure Database pour PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
 
 Un certificat racine est inclus dans le conteneur. Pour obtenir le certificat, procédez comme suit :
 
@@ -375,7 +375,7 @@ Un certificat racine est inclus dans le conteneur. Pour obtenir le certificat, p
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Pour plus d’informations sur la configuration de la sécurité SSL pour PostgreSQL, consultez [Configurer la sécurité de la connexion SSL](/azure/postgresql/concepts-ssl-connection-security).
+Pour plus d'informations sur la configuration de la sécurité TLS pour PostgreSQL, consultez [Configurer la sécurité de la connexion TLS](/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Déployer Azure Web Apps sur Linux
 

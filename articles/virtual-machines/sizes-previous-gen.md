@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: e0abae8ada603e4e6b98ab0dfe9d794186e00000
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 6cf43df756e9bed0438169c9c01b868653d84b57
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226784"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985726"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tailles de machines virtuelles des générations précédentes
 
@@ -67,6 +67,7 @@ MBps = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série Fs peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, voir la conception pour de hautes performances sous [Windows](windows/premium-storage-performance.md) ou [Linux](linux/premium-storage-performance.md).  
 
+
 ## <a name="nvv2-series"></a>Série NVv2
 
 **Recommandation de taille plus récente** : [Série NVv3](nvv3-series.md)
@@ -87,7 +88,7 @@ Chaque GPU dans les instances NVv2 est fourni avec une licence GRID. Cette licen
 
 Cette section fournit des informations sur les tailles de machines virtuelles des anciennes générations. Ces tailles sont toujours prises en charge mais ne peuvent pas recevoir de capacité supplémentaire. Il existe des tailles plus récentes ou alternatives qui sont généralement disponibles. Pour choisir les tailles de machine virtuelle les plus adaptées à vos besoins, voir [Tailles des machines virtuelles Linux dans Azure](linux/sizes.md).  
 
-Pour plus d’informations sur le redimensionnement d’une machine virtuelle Windows, voir [Redimensionner une machine virtuelle Linux](linux/change-vm-size.md).  
+Pour plus d’informations sur le redimensionnement d’une machine virtuelle Linux, consultez [Redimensionner une machine virtuelle Linux](linux/change-vm-size.md).  
 
 <br>
 
@@ -339,6 +340,30 @@ Mise en cache du Stockage Premium :  Non pris en charge
 | Standard_G5&nbsp;<sup>1</sup> | 32 | 448 | 6144 | 96 000/1 500/750| 64/64x500 | 8/20 000 |
 
 <sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.
+<br>
+
+## <a name="nv-series"></a>Série NV
+**Recommandation de taille plus récente** : [Série NVv3](nvv3-series.md) et [série NVv4](nvv4-series.md)
+
+Les machines virtuelles de la série NV sont optimisées par des GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) et la technologie NVIDIA GRID pour les applications de bureautique accélérées et les bureaux virtuels où les clients peuvent visualiser leurs données ou simulations. Les utilisateurs peuvent visualiser leurs flux de travail nécessitant beaucoup de graphismes sur les instances NV afin d’obtenir des fonctionnalités graphiques de qualité supérieure et exécuter par ailleurs des charges de travail simple précision comme le codage et le rendu. Les machines virtuelles de la série NV sont également dotées de processeurs Intel Xeon E5-2690 v3 (Haswell).
+
+Chaque GPU dans les instances NV est fourni avec une licence GRID. Cette licence vous donne la possibilité d’utiliser une instance NV comme station de travail virtuelle pour un seul utilisateur. 25 utilisateurs simultanés peuvent aussi se connecter à la machine virtuelle pour un scénario d’application virtuelle.
+
+Premium Storage :  Non pris en charge
+
+Mise en cache du Stockage Premium :  Non pris en charge
+
+Migration dynamique : Non pris en charge
+
+Mises à jour avec préservation de la mémoire : Non pris en charge
+
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau | Stations de travail virtuelles | Applications virtuelles |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV6  | 6  | 56  | 340  | 1 | 8  | 24 | 1 | 1 | 25  |
+| Standard_NV12 | 12 | 112 | 680  | 2 | 16 | 48 | 2 | 2 | 50  |
+| Standard_NV24 | 24 | 224 | 1440 | 4 | 32 | 64 | 4 | 4 | 100 |
+
+1 GPU = une moitié de carte M60.
 <br>
 
 ## <a name="other-sizes"></a>Autres tailles

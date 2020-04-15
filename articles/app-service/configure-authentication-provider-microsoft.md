@@ -1,22 +1,24 @@
 ---
 title: Configurer l’authentification Microsoft
-description: Découvrez comment configurer l’authentification avec un compte Microsoft pour en faire un fournisseur d’identité pour votre application App Service.
+description: Découvrez comment configurer l’authentification avec un compte Microsoft pour en faire un fournisseur d’identité pour votre application App Service ou Azure Functions.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: seodec18
-ms.openlocfilehash: 95c603d4a10eb0e4d0817e20755c0f9b36baa96f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: a78208ba592f86400e9b06b15d8a76923dda736f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842331"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519896"
 ---
-# <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configurer votre application App Service pour utiliser une connexion à un compte Microsoft
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion de compte Microsoft
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Cette rubrique montre comment configurer Azure App Service afin d’utiliser AAD pour prendre en charge les connexions de comptes Microsoft personnels.
+Cette rubrique montre comment configurer Azure App Service ou Azure Functions afin d’utiliser AAD pour prendre en charge les connexions de comptes Microsoft personnels.
 
 > [!NOTE]
 > Tant les comptes Microsoft personnels que les comptes professionnels utilisent le fournisseur d’identité AAD. Actuellement, il n’est pas possible de configurer ce fournisseur d’identité pour prendre en charge les deux types de connexions.

@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f99c4d096bcbe1fbdc42cac80a491d6017266cb2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445220"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583579"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser les commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec l’API Azure Cosmos DB pour MongoDB par le biais de n’importe quel [pilote du client open source MongoDB](https://docs.mongodb.org/ecosystem/drivers). L’API d’Azure Cosmos DB pour MongoDB permet d’utiliser les pilotes clients existants en adhérant au [protocole Wire MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec l'API Azure Cosmos DB pour MongoDB par le biais de n'importe quel [pilote du client MongoDB](https://docs.mongodb.org/ecosystem/drivers) open source. L’API d’Azure Cosmos DB pour MongoDB permet d’utiliser les pilotes clients existants en adhérant au [protocole Wire MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 En utilisant l’API d’Azure Cosmos DB pour MongoDB, vous pouvez profiter des nombreux avantages de Cosmos DB, comme la distribution mondiale, le partitionnement automatique, la haute disponibilité, les garanties de latence, le chiffrement automatique au repos, les sauvegardes, etc. tout en préservant vos investissements dans votre application MongoDB.
 
 ## <a name="mongodb-protocol-support"></a>Prise en charge des protocoles MongoDB
 
-Par défaut, l’API d’Azure Cosmos DB pour MongoDB est compatible avec la version 3.2 du serveur MongoDB. Pour plus d’informations, consultez les [fonctionnalités et la syntaxe prises en charge](mongodb-feature-support.md). Les opérateurs de requête ou les fonctionnalités ajoutés dans MongoDB version 3.4 sont actuellement disponibles en préversion dans l’API d’Azure Cosmos DB pour MongoDB. Les commandes d’extension suivantes prennent en charge les fonctionnalités spécifiques d’Azure Cosmos DB lors de l’exécution d’opérations CRUD sur les données stockées dans l’API d’Azure Cosmos DB pour MongoDB :
+Par défaut, l’API d’Azure Cosmos DB pour MongoDB est compatible avec la version 3.2 du serveur MongoDB. Pour plus d’informations, consultez les [fonctionnalités et la syntaxe prises en charge](mongodb-feature-support.md). Les opérateurs de requête ou les fonctionnalités ajoutés dans MongoDB version 3.4 sont actuellement disponibles en préversion dans l’API d’Azure Cosmos DB pour MongoDB. Les commandes d'extension suivantes prennent en charge des fonctionnalités spécifiques d'Azure Cosmos DB lors de l'exécution d'opérations CRUD sur les données stockées dans l'API Azure Cosmos DB pour MongoDB :
 
 * [Créer une base de données](#create-database)
 * [Mettre à jour la base de données](#update-database)
@@ -160,12 +160,12 @@ La commande d’extension de création de collection crée une collection MongoD
 
 Le tableau suivant décrit les paramètres inclus dans la commande :
 
-|**Champ**|**Type** |**Description** |
-|---------|---------|---------|
-| customAction    | string | Nom de la commande personnalisée. Il doit être "CreateCollection".     |
-| collection      | string | Nom de la collection                                   |
-| offerThroughput | int    | Débit approvisionné à définir sur la base de données. Ce paramètre est facultatif. |
-| shardKey        | string | Chemin d’accès des clés de partition pour créer une collection partitionnée. Ce paramètre est facultatif. |
+| **Champ** | **Type** | **Obligatoire** | **Description** |
+|---------|---------|---------|---------|
+| customAction | string | Obligatoire | Nom de la commande personnalisée. Doit être « CreateCollection ».|
+| collection | string | Obligatoire | Nom de la collection. Aucun caractère spécial n'est autorisé.|
+| offerThroughput | int | Facultatif* | Débit approvisionné à définir sur la base de données. Si ce paramètre n'est pas fourni, la valeur par défaut est la valeur minimum, 400 RU/s. * Pour spécifier un débit supérieur à 10 000 RU/s, le paramètre `shardKey` est obligatoire.|
+| shardKey | string | Facultatif* | Chemin d'accès à la clé de partition pour la collection partitionnée. Ce paramètre est obligatoire si vous définissez plus de 10 000 RU/s dans `offerThroughput`.  S'il est spécifié, tous les documents insérés auront besoin de cette valeur. |
 
 ### <a name="output"></a>Output
 
@@ -184,7 +184,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **Créer une collection partitionnée**
 
-Pour créer une collection partitionnée nommée « testCollection » avec un débit approvisionné de 1 000 unités de requête, utilisez la commande suivante :
+Pour créer une collection partitionnée nommée « testCollection » avec un débit approvisionné de 1 000 unités de requête, ainsi qu'une propriété de clé de partition « a.b », utilisez la commande suivante :
 
 ```shell
 use test

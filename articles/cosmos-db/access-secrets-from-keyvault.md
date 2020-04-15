@@ -9,16 +9,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72755222"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618769"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Sécuriser les clés Azure Cosmos à l’aide d’Azure Key Vault 
 
-Quand vous utilisez Azure Cosmos DB pour vos applications, vous pouvez accéder à la base de données, aux collections et aux documents à l’aide du point de terminaison et de la clé dans le fichier de configuration de l’application.  Toutefois, il est déconseillé de placer les clés et l’URI directement dans le code d’application, car ils sont en texte clair pour tous les utilisateurs. Vous voulez vous assurer que le point de terminaison et les clés sont disponibles, mais par le biais d’un mécanisme sécurisé. C’est ici qu’Azure Key Vault entre en jeu, en vous permettant de stocker et de gérer les secrets d’application de manière sécurisée.
+>[!IMPORTANT]
+> La solution recommandée pour accéder aux clés Azure Cosmos DB consiste à utiliser une [identité managée attribuée par le système](managed-identity-based-authentication.md). Si votre service ne peut pas tirer parti des identités managées, utilisez la [solution basée sur le certificat](certificate-based-authentication.md). Si la solution d'identité managée et la solution basée sur le certificat ne répondent pas à vos besoins, utilisez la solution de coffre de clés ci-dessous.
+
+Lorsque vous utilisez Azure Cosmos DB pour vos applications, vous pouvez accéder à la base de données, aux collections et aux documents à l'aide du point de terminaison et de la clé figurant dans le fichier de configuration de l'application.  Toutefois, il est déconseillé de placer les clés et l'URL directement dans le code d'application, car elles sont disponibles au format texte clair pour tous les utilisateurs. Vous voulez vous assurer que le point de terminaison et les clés sont disponibles, mais par le biais d’un mécanisme sécurisé. C’est ici qu’Azure Key Vault entre en jeu, en vous permettant de stocker et de gérer les secrets d’application de manière sécurisée.
 
 Les étapes suivantes sont nécessaires pour stocker et lire les clés d’accès Azure Cosmos DB à partir de Key Vault :
 
@@ -33,8 +36,8 @@ Les étapes suivantes sont nécessaires pour stocker et lire les clés d’accè
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).  
 2. Sélectionnez **Créer une ressource > Sécurité > Coffre de clés**.  
 3. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :  
-   * **Nom** : fournissez un nom unique pour votre coffre de clés.  
-   * **Abonnement** : choisissez l’abonnement à utiliser.  
+   * **Nom :** fournissez un nom unique pour votre coffre de clés.  
+   * **Abonnement :** choisissez l’abonnement à utiliser.  
    * Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.  
    * Dans le menu déroulant Emplacement, choisissez un emplacement.  
    * Conservez les valeurs par défaut des autres options.  

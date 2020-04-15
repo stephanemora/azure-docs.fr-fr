@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 1ad7677607d625f673546a6ea29ea58b80a8d1b5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942288"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546752"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importer vos données dans le concepteur Azure Machine Learning (préversion)
 
@@ -46,7 +46,6 @@ Vos jeux de données inscrits se trouvent dans la palette de modules, sous **Jeu
 ![Capture d’écran montrant l’emplacement des jeux de données enregistrés dans la palette du concepteur](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
-
 > [!NOTE]
 > Actuellement, le concepteur prend uniquement en charge le traitement des jeux de données [tabulaires](how-to-create-register-datasets.md#dataset-types). Si vous souhaitez utiliser des [jeux de données de fichier](how-to-create-register-datasets.md#dataset-types), utilisez le kit de développement logiciel (SDK) Azure Machine Learning disponible pour Python et R.
 
@@ -56,8 +55,8 @@ Bien que nous recommandions l'utilisation de jeux de données pour importer des 
 
 Pour plus d’informations sur l’utilisation du module Importer des données, consultez la [page de référence Importer des données](algorithm-module-reference/import-data.md).
 
-[!NOTE]
-> Si les données comportent de nombreuses colonnes, il se peut que vous rencontriez une erreur « Échec de la validation en raison d’une limitation de taille » dans le module Importer des données. Cela est dû au fait que les colonnes excluent la longueur maximale des paramètres du module après l’encodage. Dans ce cas, nous vous recommandons d’[inscrire le jeu de données dans l’interface utilisateur des jeux de données](how-to-create-register-datasets.md#use-the-ui), ce qui peut éviter l’erreur.  
+> [!NOTE]
+> Si votre jeu de données contient trop de colonnes, vous pouvez obtenir l’erreur suivante : « Échec de la validation en raison d’une limitation de taille ». Pour éviter cela, [inscrivez le jeu de données dans l’interface des jeux de données](how-to-create-register-datasets.md#use-the-ui).
 
 ## <a name="supported-sources"></a>Sources prises en charge
 

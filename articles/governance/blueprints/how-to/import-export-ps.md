@@ -3,16 +3,16 @@ title: Importer et exporter des blueprints avec PowerShell
 description: Découvrez comment utiliser vos définitions de blueprint en tant que code. Partagez-les, contrôlez leur code source et gérez-les à l’aide des commandes d’exportation et d’importation.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873197"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677134"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importer et exporter des définitions de blueprint avec PowerShell
 
-Vous pouvez gérer Azure Blueprints entièrement via le portail Azure. À mesure que les organisations progressent dans leur utilisation de blueprints, elles doivent commencer à considérer les définitions de blueprint comme du code géré. Ce concept est souvent appelé infrastructure en tant que code (IaC). Le traitement de vos définitions de blueprint en tant que code offre des avantages supplémentaires au-delà de ce que propose le portail Azure. Les avantages sont les suivants :
+Vous pouvez gérer Azure Blueprints entièrement via le portail Azure. À mesure que les organisations progressent dans leur utilisation d'Azure Blueprints, elles doivent commencer à considérer les définitions de blueprint comme du code géré. Ce concept est souvent appelé infrastructure en tant que code (IaC). Le traitement de vos définitions de blueprint en tant que code offre des avantages supplémentaires au-delà de ce que propose le portail Azure. Les avantages sont les suivants :
 
 - Partage de définitions de blueprint
 - Sauvegarde de vos définitions de blueprint
@@ -23,7 +23,7 @@ Vous pouvez gérer Azure Blueprints entièrement via le portail Azure. À mesure
 
 Quelles que soient vos raisons, la gestion de vos définitions de blueprint en tant que code présente des avantages. Cet article explique comment utiliser les commandes `Import-AzBlueprintWithArtifact` et `Export-AzBlueprintWithArtifact` dans le module [AZ.blueprint](https://powershellgallery.com/packages/Az.Blueprint/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet article part tu principe que vous disposez d’une connaissance pratique modérée d’Azure Blueprints. Si vous ne l’avez pas encore fait, consultez les articles suivants :
 

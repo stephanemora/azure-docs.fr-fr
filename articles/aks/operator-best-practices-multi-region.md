@@ -1,5 +1,5 @@
 ---
-title: Haute disponibilité et récupération d’urgence dans AKS (Azure Kubernetes Service)
+title: Meilleures pratiques en matière de continuité et de reprise d'activité AKS
 description: Découvrez les bonnes pratiques d’un opérateur de cluster pour optimiser le temps de fonctionnement des applications, en offrant une haute disponibilité et en étant prêt à faire face aux situations de récupération d’urgence dans AKS (Azure Kubernetes Service).
 services: container-service
 author: lastcoolnameleft
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594738"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668287"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
-Quand vous gérez des clusters dans AKS (Azure Kubernetes Service), le temps de fonctionnement des applications s’avère important. AKS offre une haute disponibilité en utilisant plusieurs nœuds dans un groupe à haute disponibilité. Mais ces nœuds multiples ne protègent pas votre système contre une défaillance régionale. Pour optimiser votre temps de fonctionnement, soyez prévoyant pour assurer la continuité de l’activité et faire face à une situation de récupération d’urgence.
+Quand vous gérez des clusters dans AKS (Azure Kubernetes Service), le temps de fonctionnement des applications s’avère important. Par défaut, AKS fournit une haute disponibilité en utilisant différents nœuds au sein d'un [groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Mais ces nœuds multiples ne protègent pas votre système contre une défaillance régionale. Pour optimiser votre temps de fonctionnement, soyez prévoyant pour assurer la continuité de l’activité et faire face à une situation de récupération d’urgence.
 
 Cet article porte essentiellement sur la planification de la continuité d’activité et la récupération d’urgence dans AKS. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -59,7 +59,7 @@ Pour savoir comment configurer des points de terminaison et le routage, consulte
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routage d’une application de couche 7 avec Azure Front Door Service
 
-Traffic Manager utilise DNS (couche 3) pour former le trafic. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) propose une option de routage HTTP/HTTPS (couche 7). Les fonctionnalités supplémentaires d’Azure Front Door Service incluent l’arrêt SSL, le domaine personnalisé, le pare-feu d’applications web, la réécriture d’URL et l’affinité de session. Passez en revue les besoins de trafic de votre application pour comprendre la solution qui est la plus adaptée.
+Traffic Manager utilise DNS (couche 3) pour former le trafic. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) propose une option de routage HTTP/HTTPS (couche 7). Les fonctionnalités supplémentaires d'Azure Front Door Service incluent l'arrêt TLS, le domaine personnalisé, le pare-feu d'applications web, la réécriture d'URL et l'affinité de session. Passez en revue les besoins de trafic de votre application pour comprendre la solution qui est la plus adaptée.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconnecter des régions avec l’appairage de réseau virtuel global
 

@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.date: 04/03/2020
+ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916504"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652189"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Vous pouvez [provisionner et gérer votre compte Azure Cosmos](how-to-manage-dat
 > [!NOTE]
 > Les basculements régionaux s’appliquent uniquement à des comptes d’écriture monorégions. Les comptes d’écriture multirégions ne requièrent pas ou n’ont pas de limite quant au changement de région d’écriture.
 
-Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Pour plus d’informations sur les fenêtres et intervalles de conservation des sauvegardes, consultez [Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB](online-backup-and-restore.md).
+Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Pour plus d’informations sur les fenêtres et intervalles de conservation des sauvegardes, consultez [Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Limites par compte
 
@@ -148,13 +148,13 @@ Cosmos DB prend en charge l’interrogation d’éléments à l’aide de [SQL](
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Longueur maximale d’une requête SQL| 256 Ko <sup>*</sup>|
+| Longueur maximale d’une requête SQL| 256 KB |
 | Nombre maximal de jointures par requête| 5 <sup>*</sup>|
-| Nombre maximal d’opérateurs AND par requête| 2 000 <sup>*</sup>|
-| Nombre maximal d’opérateurs OR par requête| 2 000 <sup>*</sup>|
 | Nombre maximal de fonctions définies par l’utilisateur par requête| 10 <sup>*</sup>|
-| Nombre maximal d’arguments par expression IN| 6 000 <sup>*</sup>|
-| Nombre maximal de points par polygone| 4 096 <sup>*</sup>|
+| Nombre maximal de points par polygone| 4096 |
+| Nombre maximal de chemins d'accès inclus par conteneur| 500 |
+| Nombre maximal de chemins d'accès exclus par conteneur| 500 |
+| Nombre maximal de propriétés dans un index composite| 8 |
 
 <sup>*</sup> Vous pouvez augmenter ces limites de requête SQL en contactant le Support Azure.
 
@@ -166,7 +166,7 @@ Le tableau suivant liste les limites propres à la prise en charge des fonctionn
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Taille de mémoire maximale pour les requêtes MongoDB | 40 Mo |
+| Taille de mémoire maximale pour les requêtes MongoDB (cette limitation s'applique uniquement à la version 3.2 du serveur) | 40 Mo |
 | Durée d’exécution maximale des opérations MongoDB| 30 s |
 | Délai d’expiration de connexion inactive pour la fermeture de connexion côté serveur* | 30 minutes |
 
@@ -186,6 +186,20 @@ Le tableau suivant liste les limites liées à l’[essai gratuit d’Azure Cosm
 | Volume total de stockage maximal par compte | 10 Go |
 
 L’essai de Cosmos DB ne prend en charge la distribution mondiale que dans les régions USA Centre, Europe Nord et Asie Sud-Est. Vous ne pouvez pas créer de tickets de support Azure pour les comptes d’essai d’Azure Cosmos DB. Toutefois, un support est fourni pour les abonnés détenant des plans de support.
+
+## <a name="free-tier-account-limits"></a>Limites du compte de niveau gratuit
+Le tableau suivant liste les limites des [comptes du niveau gratuit d’Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier).
+
+| Ressource | Limite par défaut |
+| --- | --- |
+| Nombre de comptes du niveau gratuit par abonnement Azure | 1 |
+| Durée de la remise du niveau gratuit | Durée de vie du compte. Acceptation requise au cours de la création du compte. |
+| Nombre maximal de RU/s gratuites | 400 RU/s |
+| Stockage maximal gratuit | 5 Go |
+| Nombre maximal de bases de données à débit partagé | 5 |
+| Nombre maximal de conteneurs dans une base de données à débit partagé | 25 <br>Dans les comptes du niveau gratuit, le nombre minimal de RU/s pour une base de données à débit partagé comptant jusqu’à 25 conteneurs est de 400 RU/s. |
+
+  En plus de ce qui précède, les [Limites par compte](#per-account-limits) s’appliquent également aux comptes du niveau gratuit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

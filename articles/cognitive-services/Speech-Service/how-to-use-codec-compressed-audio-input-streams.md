@@ -8,60 +8,60 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 03/30/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: 3fab02d3dc567a2c54edad5bfb05abe7d99f7b7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd6b500a823bde654da4442704b75451806d6a46
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78943758"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637300"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utiliser une entrée audio compressée par codec avec le SDK Speech
 
 L’API **Compressed Audio Input Stream** du SDK du service Speech permet de diffuser en streaming du contenu audio compressé vers le service Speech à l’aide d’un `PullStream` ou d’un `PushStream`.
 
-> [!IMPORTANT]
-> Le streaming de contenu audio d’entrée compressé est actuellement pris en charge pour C#, C++, Java sur Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Il est également pris en charge pour la plateforme Java dans Android et Objective-C dans iOS.
-> Le SDK Speech version 1.7.0 ou ultérieure est nécessaire (version 1.10.0 ou ultérieure pour RHEL 8, CentOS 8).
+La diffusion en continu de données d’audio en entrée est actuellement prise en charge pour C#, C++, Java sur Windows (les applications UWP ne sont pas prises en charge) et Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Il est également pris en charge pour la plateforme Java dans Android et Objective-C dans iOS.
+* Le Kit de développement logiciel (SDK) Speech version 1.10.0 ou ultérieure est requis pour RHEL 8 et CentOS 8.
+* Le Kit de développement logiciel (SDK) Speech version 1.11.0 ou ultérieure est requis pour Windows.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/csharp/prerequisites.md)]
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/cpp/prerequisites.md)]
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/cpp/prerequisites.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/java/prerequisites.md)]
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/prerequisites.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/objectivec/prerequisites.md)]
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/prerequisites.md)]
 ::: zone-end
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exemple de code utilisant une entrée audio compressé par codec
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/csharp/examples.md)]
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/examples.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/cpp/examples.md)]
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/cpp/examples.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/java/examples.md)]
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/examples.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/objectivec/examples.md)]
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/examples.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes

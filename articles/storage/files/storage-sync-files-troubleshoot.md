@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9d8aeba65a566cc93d3344a532a4636d709c1084
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: d46f513fccf9921d4cf47835bc9d5be4c6ffe241
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303662"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607495"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -220,7 +220,7 @@ Un point de terminaison de serveur risque de ne pas journaliser l’activité de
 <a id="serverendpoint-pending"></a>**L’intégrité du point de terminaison de serveur est en état d’attente pendant plusieurs heures**  
 Ce problème peut se produire si vous créez un point de terminaison cloud et que vous utilisez un partage de fichiers Azure contenant des données. Le travail d’énumération de modifications qui analyse les modifications dans le partage de fichiers Azure doit être terminé avant que les fichiers puissent être synchronisés entre le cloud et les points de terminaison serveur. La durée d’exécution du travail dépend de la taille de l’espace de noms dans le partage de fichiers Azure. L’intégrité du point de terminaison de serveur doit se mettre à jour une fois que le travail d’énumération des modifications est terminé.
 
-### <a id="broken-sync"></a>Comment surveiller l’intégrité de synchronisation ?
+### <a name="how-do-i-monitor-sync-health"></a><a id="broken-sync"></a>Comment surveiller l’intégrité de synchronisation ?
 # <a name="portal"></a>[Portail](#tab/portal1)
 Au sein de chaque groupe de synchronisation, vous pouvez zoomer sur ses points de terminaison serveur individuel pour afficher l’état des dernières sessions de synchronisation terminées. Une colonne de contrôle d’intégrité verte et des fichiers non synchronisés à la valeur 0 indiquent que la synchronisation fonctionne comme prévu. Si ce n’est pas le cas, voir ci-dessous pour obtenir la liste des erreurs de synchronisation courantes et savoir comment gérer les fichiers qui ne synchronisent pas. 
 
@@ -588,7 +588,7 @@ Si cette erreur persiste pendant plusieurs heures, créez une demande de support
 | **Chaîne d’erreur** | CERT_E_UNTRUSTEDROOT |
 | **Correction requise** | Oui |
 
-Cette erreur peut se produire si votre organisation utilise un proxy de terminaison SSL ou si une entité malveillante intercepte le trafic entre votre serveur et le service Azure File Sync. Si vous êtes certain que cela est prévu (car votre organisation utilise un certificat proxy de terminaison SSL), vous pouvez ignorer la vérification de certificat avec un remplacement du registre.
+Cette erreur peut se produire si votre organisation utilise un proxy de terminaison TLS ou si une entité malveillante intercepte le trafic entre votre serveur et le service Azure File Sync. Si vous êtes certain que cela est prévu (parce que votre organisation utilise un proxy de terminaison TLS), vous pouvez ignorer la vérification du certificat avec un remplacement du registre.
 
 1. Créez la valeur de Registre SkipVerifyingPinnedRootCertificate.
 
@@ -602,7 +602,7 @@ Cette erreur peut se produire si votre organisation utilise un proxy de terminai
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-En définissant cette valeur de Registre, l’agent Azure File Sync accepte n’importe quel certificat SSL approuvé localement lors du transfert de données entre le serveur et le service cloud.
+En définissant cette valeur de Registre, l'agent Azure File Sync accepte n'importe quel certificat TLS/SSL approuvé localement lors du transfert de données entre le serveur et le service cloud.
 
 <a id="-2147012894"></a>**Impossible d’établir une connexion avec le service.**  
 
@@ -992,19 +992,19 @@ if ($fileShare -eq $null) {
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Cliquez sur **Contrôle d’accès (IAM)** sur la table des matières de gauche.
 1. Cliquez sur l'onglet **Affectations de rôles** pour accéder à la liste des utilisations et applications (*principaux de service*) ayant accès à votre compte de stockage.
-1. Vérifiez que **Hybrid File Sync Service** apparaît dans la liste avec le rôle **Lecteur et Accès aux données**. 
+1. Vérifiez que **Microsoft.StorageSync** ou **Hybrid File Sync Service** (ancien nom de l’application) apparaît dans la liste avec le rôle **Lecteur et accès aux données**. 
 
     ![Capture d’écran du principal de service Hybrid File Sync Service dans l’onglet Contrôle d’accès du compte de stockage](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
-    Si le **service Hybrid File Sync** n’apparaît pas dans la liste, effectuez les étapes suivantes :
+    Si **Microsoft.StorageSync** ou **Hybrid File Sync Service** n’apparaît pas dans la liste, effectuez les étapes suivantes :
 
     - Cliquez sur **Add**.
     - Dans le champ **Rôle**, sélectionnez **Lecteur et accès aux données**.
-    - Dans le champ **Sélectionnez**, tapez **Hybrid File Sync Service**, sélectionnez le rôle et cliquez sur **Enregistrer**.
+    - Dans le champ **Sélectionner**, tapez **Microsoft.StorageSync**, sélectionnez le rôle, puis cliquez sur **Enregistrer**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
-$role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Hybrid File Sync Service" }
+$role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Microsoft.StorageSync" }
 
 if ($role -eq $null) {
     throw [System.Exception]::new("The storage account does not have the Azure File Sync " + `

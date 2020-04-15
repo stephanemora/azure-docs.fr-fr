@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b90910614bcd86a54198b1a0961a3378427ea87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a751fa193c8dd530707f790af0292d536a6f47d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73164151"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420457"
 ---
-# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure-preview"></a>Déployer des groupes de machines virtuelles identiques avec IPv6 dans Azure (préversion)
+# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Déployer des groupes de machines virtuelles identiques avec IPv6 dans Azure
 
-Cet article explique comment déployer un groupe de machines virtuelles identiques à double pile (IPv4 + IPv6) avec un équilibreur de charge externe à double pile dans un réseau virtuel Azure. Le processus de création d’un groupe de machines virtuelles identiques compatible IPv6 est quasiment identique au processus de création des machines virtuelles individuelles décrit [ici](ipv6-configure-standard-load-balancer-template-json.md). Vous allez commencer par les étapes similaires à celles décrites pour les machines virtuelles individuelles :
-1.  Créer des adresses IP publiques IPv4 et IPv6.
-2.  Créer un équilibreur de charge à double pile.  
-3.  Créer des règles du groupe de sécurité réseau.  
+Cet article explique comment déployer un groupe de machines virtuelles identiques à double pile (IPv4 + IPv6) avec un équilibreur de charge externe à double pile dans un réseau virtuel Azure. Le processus de création d’un groupe de machines virtuelles identiques compatible IPv6 est quasiment identique au processus de création des machines virtuelles individuelles décrit [ici](ipv6-configure-standard-load-balancer-template-json.md). Vous allez commencer par des étapes similaires à celles décrites pour les machines virtuelles individuelles :
+1.    Créer des adresses IP publiques IPv4 et IPv6.
+2.    Créer un équilibreur de charge à double pile.  
+3.    Créer des règles du groupe de sécurité réseau.  
 
-La seule étape qui diffère des machines virtuelles individuelles est la création de la configuration d’interface réseau (NIC) qui utilise la ressource de groupe de machines virtuelles identiques : networkProfile/networkInterfaceConfigurations. La structure JSON est similaire à celle de l’objet Microsoft.Network/networkInterfaces utilisé pour les machines virtuelles individuelles, avec l’ajout de la configuration de la carte réseau et de l’IpConfiguration IPv4 comme interface principale à l’aide de l’attribut **“primary”: true** comme indiqué dans l’exemple suivant :
+La seule étape qui diffère des machines virtuelles individuelles est la création de la configuration d’interface réseau (NIC) qui utilise la ressource de groupe de machines virtuelles identiques : networkProfile/networkInterfaceConfigurations. La structure JSON est similaire à celle de l'objet Microsoft.Network/networkInterfaces utilisé pour les machines virtuelles individuelles, avec en plus la configuration de la carte réseau et du paramètre IPv4 IpConfiguration comme interface principale à l'aide de l'attribut **"primary": true**, comme indiqué dans l'exemple suivant :
 
 ```json
           "networkProfile": {

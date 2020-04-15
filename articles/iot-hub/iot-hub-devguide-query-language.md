@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767729"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632929"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
@@ -233,7 +233,7 @@ L’objet de requête expose plusieurs valeurs **Next**, en fonction de l’opti
 ### <a name="limitations"></a>Limites
 
 > [!IMPORTANT]
-> Les résultats de la requête peuvent être produits avec quelques minutes de retard par rapport aux dernières valeurs dans les jumeaux d’appareil. Si vous interrogez des jumeaux d’appareil par ID, utilisez l’[API REST d’obtention de jumeau](https://docs.microsoft.com/rest/api/iothub/service/gettwin). Cette API retourne toujours les valeurs les plus récentes et ses seuils de limitation sont plus élevés. Vous pouvez émettre l’API REST directement ou utiliser la fonctionnalité équivalente dans l’un des [kits Azure IoT Hub Service SDK](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Les résultats de la requête peuvent être produits avec quelques minutes de retard par rapport aux dernières valeurs dans les jumeaux d’appareil. Si vous interrogez des jumeaux d’appareil par ID, utilisez l’[API REST d’obtention de jumeau](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Cette API retourne toujours les valeurs les plus récentes et ses seuils de limitation sont plus élevés. Vous pouvez émettre l’API REST directement ou utiliser la fonctionnalité équivalente dans l’un des [kits Azure IoT Hub Service SDK](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Actuellement, les comparaisons ne sont prises en charge qu’entre types primitifs (aucun objet), par exemple `... WHERE properties.desired.config = properties.reported.config` est pris en charge uniquement si ces propriétés ont des valeurs primitives.
 
@@ -440,7 +440,7 @@ Pour comprendre ce que signifie chaque symbole dans la syntaxe des expressions, 
 | binary_operator | Tout opérateur binaire répertorié dans la section [Operators](#operators). |
 | function_name| Toutes les fonctions répertoriées dans la section [Fonctions](#functions). |
 | decimal_literal |Variable exprimée en notation décimale. |
-| hexadecimal_literal |Nombre exprimé par la chaîne « 0x » suivi d’une chaîne de chiffres hexadécimaux. |
+| hexadecimal_literal |Nombre exprimé par la chaîne « 0x » suivie d’une chaîne de chiffres hexadécimaux. |
 | string_literal |Les littéraux de chaîne sont des chaînes Unicode représentées par une séquence de zéro ou plusieurs caractères Unicode ou séquences d’échappement. Les littéraux de chaîne sont placés entre guillemets simples ou guillemets doubles. Échappements autorisés : `\'`, `\"`, `\\`, `\uXXXX` pour les caractères Unicode définis par 4 chiffres hexadécimaux. |
 
 ### <a name="operators"></a>Opérateurs
@@ -468,7 +468,7 @@ Dans les conditions d’itinéraire, les fonctions mathématiques suivantes sont
 | ABS(x) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
 | EXP(x) | Retourne la valeur exponentielle de l'expression numérique spécifiée (e^x). |
 | POWER(x,y) | Retourne la valeur de l’expression spécifiée élevée à la puissance spécifiée (x^y).|
-| SQUARE(x) | Retourne le carré de la valeur numérique spécifiée. |
+| SQUARE(x)    | Retourne le carré de la valeur numérique spécifiée. |
 | CEILING(x) | Retourne le plus petit nombre entier qui est supérieur ou égal à l'expression numérique spécifiée. |
 | FLOOR(x) | Renvoie le nombre entier le plus grand, inférieur ou égal à l'expression numérique donnée. |
 | SIGN(x) | Retourne le signe positif (+1), nul (0) ou négatif (-1) de l'expression numérique spécifiée.|
@@ -481,7 +481,7 @@ Dans les conditions d’itinéraire, les fonctions de vérification et de conver
 | AS_NUMBER | Convertit la chaîne d’entrée en nombre. `noop` si l’entrée est un nombre ; `Undefined` si la chaîne ne représente pas un nombre.|
 | IS_ARRAY | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type tableau. |
 | IS_BOOL | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type booléen. |
-| IS_DEFINED | Retourne une valeur booléenne indiquant si une valeur a été attribuée à la propriété. |
+| IS_DEFINED | Retourne une valeur booléenne indiquant si une valeur a été attribuée à la propriété. Uniquement pris en charge lorsque la valeur est de type primitif. Exemples de types primitifs : chaîne, booléen, numérique ou `null`. DateHeure, les types d'objets et les tableaux ne sont pas pris en charge. |
 | IS_NULL | Retourne une valeur booléenne indiquant si l’expression spécifiée est de type null. |
 | IS_NUMBER | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type nombre. |
 | IS_OBJECT | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type objet JSON. |

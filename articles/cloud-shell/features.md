@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 0aa71e4b78df8087093f183b146c525d2a8a0f99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366238"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521012"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Fonctionnalités et outils pour Azure Cloud Shell
 
@@ -44,7 +44,7 @@ Les fichiers en dehors de `$HOME` et de l’état de la machine ne sont pas cons
 
 ### <a name="azure-drive-azure"></a>Lecteur Azure (Azure :)
 
-PowerShell dans Cloud Shell vous démarre dans le lecteur Azure (`Azure:`).
+PowerShell dans Cloud Shell fournit le lecteur Azure (`Azure:`). Vous pouvez basculer vers le lecteur Azure à l'aide de `cd Azure:` et revenir à votre répertoire personnel à l'aide de `cd  ~`.
 Le lecteur Azure facilite la détection et la navigation dans des ressources Azure, comme Calcul, Réseau, ou Stockage, de façon similaire à la navigation dans un système de fichiers.
 Vous pouvez continuer à utiliser les [applets de commande Azure PowerShell](https://docs.microsoft.com/powershell/azure) que vous connaissez pour gérer ces ressources quel que soit le lecteur où vous vous trouvez.
 Toutes les modifications apportées aux ressources Azure, effectuées directement dans le portail Azure ou via des applets de commande Azure PowerShell, sont répercutées dans le lecteur Azure.  Vous pouvez exécuter `dir -Force` pour actualiser vos ressources.

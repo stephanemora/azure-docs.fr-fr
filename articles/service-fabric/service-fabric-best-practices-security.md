@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229453"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478742"
 ---
 # <a name="azure-service-fabric-security"></a>Sécurité de Microsoft Azure Service Fabric 
 
@@ -208,7 +208,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Nous vous recommandons d’implémenter une configuration répondant aux normes du secteur largement connue et bien testée, telle que des lignes de base de sécurité Microsoft, plutôt que de créer une ligne de base vous-même](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) ; une option pour l’approvisionnement sur vos groupes de machines virtuelles identiques consiste à utiliser le gestionnaire d’extension DSC (Desired State Configuration) pour configurer les machines virtuelles comme elles sont fournies en ligne, afin qu’elles exécutent le logiciel en production.
 
 ## <a name="azure-firewall"></a>Pare-feu Azure
-[Pare-feu Azure est un service de sécurité réseau informatique managé qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu entièrement avec état, pourvu d’une haute disponibilité intégrée et de l’extensibilité du cloud sans limites.](https://docs.microsoft.com/azure/firewall/overview) ; cela permet de limiter le trafic HTTP/S sortant à une liste spécifiée des noms de domaine complet (FQDN), y compris les caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt SSL. Nous vous recommandons d’exploiter les [balises FQDN Pare-feu Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) pour Windows Update et pour activer le trafic réseau pour que les points de terminaison Microsoft Windows Update puissent transiter par votre pare-feu. [Déployer Pare-feu Azure à l’aide d’un modèle](https://docs.microsoft.com/azure/firewall/deploy-template) propose un exemple de définition de modèle de ressource Microsoft.Network/azureFirewalls. Les règles de pare-feu communes aux applications Service Fabric autorisent notamment les éléments suivants pour votre réseau virtuel de clusters :
+[Pare-feu Azure est un service de sécurité réseau informatique managé qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu entièrement avec état, pourvu d’une haute disponibilité intégrée et de l’extensibilité du cloud sans limites.](https://docs.microsoft.com/azure/firewall/overview) ; cela permet de limiter le trafic HTTP/S sortant à une liste spécifiée des noms de domaine complet (FQDN), y compris les caractères génériques. Cette fonctionnalité ne nécessite pas d'arrêt TLS/SSL. Nous vous recommandons d’exploiter les [balises FQDN Pare-feu Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) pour Windows Update et pour activer le trafic réseau pour que les points de terminaison Microsoft Windows Update puissent transiter par votre pare-feu. [Déployer Pare-feu Azure à l’aide d’un modèle](https://docs.microsoft.com/azure/firewall/deploy-template) propose un exemple de définition de modèle de ressource Microsoft.Network/azureFirewalls. Les règles de pare-feu communes aux applications Service Fabric autorisent notamment les éléments suivants pour votre réseau virtuel de clusters :
 
 - *download.microsoft.com
 - *servicefabric.azure.com

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e3a240901ffca2c126e2b61eaee0cf287cc31d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127513"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473848"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Résoudre des problèmes du client Bureau à distance
 
@@ -21,21 +21,15 @@ Cet article décrit les problèmes courants liés au client Bureau à distance e
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Le client Bureau à distance de Windows 7 ou Windows 10 ne répond plus ou ne peut pas être ouvert
 
-Nettoyez les registres de client hors bande (OOB) à l’aide des cmdlets PowerShell suivantes.
+Depuis la version 1.2.790, vous pouvez réinitialiser les données utilisateur à partir de la page À propos de ou à l’aide d’une commande.
 
-```PowerShell
-Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
+Utilisez la commande suivante pour supprimer vos données utilisateur, restaurer les paramètres par défaut et annuler l’abonnement à tous les espaces de travail.
 
-#Remove RdClientRadc registry key
-Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
-
-#Remove all files under %appdata%\RdClientRadc
-Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
+```cmd
+msrdcw.exe /reset [/f]
 ```
 
-Accédez à **%AppData%\RdClientRadc** et supprimez-en tout le contenu.
-
-Désinstallez, puis réinstallez le client Bureau à distance pour Windows 7 et Windows 10.
+Si vous utilisez une version antérieure du client Bureau à distance, nous vous recommandons de désinstaller et réinstaller le client.
 
 ## <a name="web-client-wont-open"></a>Le client Web ne s’ouvre pas
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d84085115816a8fe1cba65e191ea391dd91a4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599654"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436007"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>FAQ - Questions relatives aux machines virtuelles
 
@@ -51,7 +51,7 @@ Les temps de latence des analyses de Security Center en lien avec les vulnérabi
 Généralement, Security Center analyse les nouvelles données toutes les heures et actualise les suggestions en conséquence. 
 
 > [!NOTE]
-> Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Migration de plateforme Azure Security Center](security-center-platform-migration.md).
+> Security Center utilise l'agent Log Analytics pour collecter et stocker les données. Pour en savoir plus, consultez [Migration de plateforme Azure Security Center](security-center-platform-migration.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Pourquoi reçois-je le message « Agent de machine virtuelle manquant » ?

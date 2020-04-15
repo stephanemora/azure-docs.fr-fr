@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228377"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473936"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Liste de contrôle des performances et de la scalabilité pour le stockage Blob
 
@@ -267,7 +267,7 @@ Pour charger des objets blob rapidement, commencez par déterminer si vous charg
 Pour télécharger rapidement un seul objet blob de grande taille, une application cliente peut télécharger ses blocs ou pages en parallèle en tenant compte des objectifs d’extensibilité des différents objets blob et du compte de stockage dans son ensemble. Les bibliothèques clientes de Stockage Microsoft Azure prennent en charge le chargement en parallèle. Par exemple, vous pouvez utiliser les propriétés suivantes pour spécifier le nombre de requêtes simultanées autorisées dans .NET ou Java. Les bibliothèques clientes fournissent des options similaires pour d’autres langages pris en charge.
 
 - Pour .NET, définissez la propriété [BlobRequestOptions.ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount).
-- Pour Java/Android, appelez la méthode [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount).
+- Pour Java/Android, appelez la méthode [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount).
 
 ### <a name="upload-many-blobs-quickly"></a>Charger rapidement de nombreux objets BLOB
 

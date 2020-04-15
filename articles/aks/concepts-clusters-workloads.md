@@ -4,12 +4,12 @@ description: Découvrez les composants de charge de travail et de cluster de bas
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229673"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617435"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -96,7 +96,7 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
 
 1. Le démon kubelet est installé sur tous les nœuds de l’agent Kubernetes pour gérer la création et l’arrêt du conteneur. Par défaut sur AKS, ce démon a la règle d’éviction suivante : *memory.available<750Mi*, ce qui signifie qu’un nœud doit toujours avoir au moins 750 Mi allouable à tout moment.  Lorsqu’un hôte se trouve au-dessous de ce seuil de mémoire disponible, kubelet met fin à l’un des pods en cours d’exécution pour libérer de la mémoire sur l’ordinateur hôte et le protéger. Il s’agit d’une action réactive lorsque la mémoire disponible diminue au-delà du seuil 750Mi.
 
-2. La deuxième valeur est une vitesse progressive des réservations de la mémoire pour que le démon kubelet fonctionne correctement (kube-reserved).
+2. La deuxième valeur est une vitesse régressive des réservations de la mémoire pour que le démon kubelet fonctionne correctement (kube-reserved).
     - 25 % des 4 premiers Go de mémoire
     - 20 % des 4 Go suivants de mémoire (jusqu’à 8 Go)
     - 10 % des 8 Go suivants de mémoire (jusqu’à 16 Go)

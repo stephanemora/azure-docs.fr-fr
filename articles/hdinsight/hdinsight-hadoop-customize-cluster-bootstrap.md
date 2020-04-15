@@ -1,19 +1,19 @@
 ---
 title: Personnaliser les configurations de cluster Azure HDInsight à l’aide de Bootstrap
-description: Découvrez comment personnaliser la configuration du cluster HDInsight par programmation à l’aide de .Net, PowerShell et des modèles Resource Manager.
+description: Apprenez à personnaliser la configuration du cluster HDInsight par programmation à l'aide de .NET, PowerShell et des modèles Resource Manager.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/21/2019
-ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233637"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529347"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personnalisation de clusters HDInsight à l’aide de Bootstrap
 
@@ -46,7 +46,7 @@ Par exemple, à l’aide de ces méthodes de programmation, vous pouvez configur
 
 Pour plus d’informations sur l’installation de composants supplémentaires sur un cluster HDInsight pendant le processus de création, consultez [Personnaliser des clusters Azure HDInsight à l’aide des actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous utilisez PowerShell, vous aurez besoin du [module Az](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -126,6 +126,18 @@ Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 
 ![Hadoop personnalise le modèle Azure Resource Manager de démarrage de cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
+Exemple d'extrait de modèle Resource Manager permettant de modifier la configuration de spark2-defaults afin de nettoyer régulièrement les journaux des événements de l'espace de stockage.  
+
+```json
+"configurations": {
+    "spark2-defaults": {
+        "spark.history.fs.cleaner.enabled": "true",
+        "spark.history.fs.cleaner.interval": "7d",
+        "spark.history.fs.cleaner.maxAge": "90d"
+    }
+}
+```
+
 ## <a name="see-also"></a>Voir aussi
 
 * [Créer des clusters Apache Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md) pour obtenir des instructions sur la création d’un cluster HDInsight à l’aide d’autres options personnalisées.
@@ -133,7 +145,7 @@ Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 * [Installer et utiliser Apache Spark sur les clusters HDInsight](spark/apache-spark-jupyter-spark-sql-use-portal.md)
 * [Installer et utiliser Apache Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
-## <a name="appendix-powershell-sample"></a>Annexe : exemple PowerShell
+## <a name="appendix-powershell-sample"></a>Annexe : Exemple de code PowerShell
 
 Ce script PowerShell permet de créer un cluster HDInsight et de personnaliser un paramètre Hive. Veillez à entrer des valeurs pour `$nameToken`, `$httpPassword` et `$sshPassword`.
 

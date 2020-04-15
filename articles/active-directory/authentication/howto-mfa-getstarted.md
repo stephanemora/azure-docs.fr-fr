@@ -1,30 +1,37 @@
 ---
-title: Déployer Azure Multi-Factor Authentication - Azure Active Directory
-description: Planification de déploiement Microsoft Azure Multi-Factor Authentication
+title: Considérations relatives au déploiement d'Azure Multi-Factor Authentication
+description: Découvrez-en plus sur les considérations et la stratégie de déploiement pour une implémentation réussie d'Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230977"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667342"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud
+# <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planifier un déploiement d'Azure Multi-Factor Authentication
 
 Les personnes se connectent aux ressources d’organisation dans des scénarios plus en plus complexes. Les personnes se connectent à partir d’appareils personnels, publics et appartenant à l’organisation, sur le réseau d’entreprise ou non, à l’aide de smartphones, tablettes, PC et ordinateurs portables, souvent sur plusieurs plateformes. Dans ce monde toujours connecté, aux multiples appareils et plateformes, la sécurité des comptes d’utilisateur est plus importante que jamais. Les mots de passe, quelle que soit leur complexité, utilisés sur les appareils, les réseaux et les plateformes ne suffisent plus à garantir la sécurité des comptes d’utilisateur, en particulier lorsque les utilisateurs ont tendance à réutiliser les mots de passe sur plusieurs comptes. Des attaques sophistiquées d’hameçonnage et d’ingénierie sociale peuvent conduire à la publication et à la vente des noms d’utilisateur et des mots de passe sur le web invisible.
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) permet de protéger l’accès aux données et aux applications. Il fournit une couche supplémentaire de sécurité à l’aide d’une deuxième forme d’authentification. Les organisations peuvent utiliser l’[accès conditionnel](../conditional-access/overview.md) pour que la solution réponde à leurs besoins spécifiques.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+Ce guide de déploiement explique comment planifier puis tester un déploiement d'Azure Multi-Factor Authentication.
+
+Pour avoir un aperçu rapide d'Azure Multi-Factor Authentication, puis revenir en arrière afin d'examiner les considérations relatives au déploiement :
+
+> [!div class="nextstepaction"]
+> [Activation d’Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
+
+## <a name="prerequisites"></a>Prérequis
 
 Avant de lancer un déploiement d’Azure Multi-Factor Authentication, il existe des prérequis à prendre en compte.
 
@@ -137,7 +144,7 @@ L’utilisateur reçoit un SMS avec le code de vérification et il est invité �
 
 ## <a name="plan-registration-policy"></a>Planifier la stratégie d'inscription
 
-Les administrateurs doivent déterminer comment les utilisateurs inscrivent leurs méthodes. Les organisations doivent [activer la nouvelle expérience d’inscription combinée](howto-registration-mfa-sspr-combined.md) pour Azure MFA et la réinitialisation de mot de passe en libre-service (SSPR). La fonctionnalité SSPR permet aux utilisateurs de réinitialiser leur mot de passe de manière sécurisée avec les mêmes méthodes que l’authentification multifacteur. Nous vous recommandons cette inscription combinée, actuellement en préversion publique, car il s’agit d’une excellente expérience pour les utilisateurs, qui permet une inscription unique pour les deux services. L’activation des mêmes méthodes pour SSPR et Azure MFA permet aux utilisateurs de s’inscrire pour utiliser ces deux fonctionnalités.
+Les administrateurs doivent déterminer comment les utilisateurs inscrivent leurs méthodes. Les organisations doivent [activer la nouvelle expérience d’inscription combinée](howto-registration-mfa-sspr-combined.md) pour Azure MFA et la réinitialisation de mot de passe en libre-service (SSPR). La fonctionnalité SSPR permet aux utilisateurs de réinitialiser leur mot de passe de manière sécurisée avec les mêmes méthodes que l’authentification multifacteur. Nous vous recommandons cette inscription combinée, actuellement en préversion publique, car il s'agit d'une excellente expérience pour les utilisateurs puisqu'elle permet une inscription unique pour les deux services. L’activation des mêmes méthodes pour SSPR et Azure MFA permet aux utilisateurs de s’inscrire pour utiliser ces deux fonctionnalités.
 
 ### <a name="registration-with-identity-protection"></a>Inscription avec Identity Protection
 
@@ -173,7 +180,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 Si vos utilisateurs ont été activées l’authentification multifacteur appliquée par Azure ou reposant sur l’utilisateur, la commande PowerShell suivante peut vous aider à passer à une authentification multifacteur Azure en fonction de l’accès conditionnel.
 
-Exécutez ce script PowerShell dans une fenêtre ISE ou enregistrez-le en tant que fichier .PS1 à exécuter localement.
+Exécutez ce script PowerShell dans une fenêtre ISE ou enregistrez-le en tant que fichier `.PS1` à exécuter localement.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -230,11 +237,11 @@ Il est important que vous évitiez de perdre l’accès à votre locataire Azure
    * Dans l’onglet **Exclure**, cochez la case **Utilisateurs et groupes** et choisissez vos comptes d’accès d’urgence.
    * Cliquez sur **Done**.
 1. Sous **Applications Cloud**, sélectionnez la case d’option **Toutes les applications cloud**.
-   * FACULTATIF : Dans l’onglet **Exclure**, choisissez les applications cloud pour lesquelles votre organisation ne nécessite pas d’authentification multifacteur.
+   * FACULTATIF : sous l’onglet **Exclure**, choisissez les applications cloud pour lesquelles votre organisation ne nécessite pas d’authentification multifacteur.
    * Cliquez sur **Done**.
 1. Sous la section **Conditions** :
-   * FACULTATIF : Si vous avez activé Azure Identity Protection, vous pouvez choisir d’évaluer le risque de connexion dans le cadre de la stratégie.
-   * FACULTATIF : Si vous avez configuré des emplacements approuvés ou des emplacements nommés, vous pouvez spécifier l’inclusion ou l’exclusion de ces emplacements à partir de la stratégie.
+   * FACULTATIF : si vous avez activé Azure Identity Protection, vous pouvez choisir d’évaluer le risque de connexion dans le cadre de la stratégie.
+   * FACULTATIF : si vous avez configuré des emplacements approuvés ou des emplacements nommés, vous pouvez spécifier l’inclusion ou l’exclusion de ces emplacements à partir de la stratégie.
 1. Sous **Accord**, assurez-vous que la case d’option **Accorder l’accès** est sélectionnée.
     * Cochez la case **Exiger une authentification multifacteur**.
     * Cliquez sur **Sélectionner**.
@@ -275,7 +282,7 @@ Si vous avez une instance de serveur NPS déployée et en cours d’utilisation,
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Anticiper la présence d’utilisateurs qui ne sont pas inscrits pour l’authentification MFA sur le serveur NPS (Network Policy Server)
 
-Choisissez ce qui se passe lorsque les utilisateurs qui ne sont pas inscrits à MFA tentent de s’authentifier. Utilisez le paramètre de registre `REQUIRE_USER_MATCH` dans le chemin d’accès au registre `HKLM\Software\Microsoft\AzureMFA` pour contrôler le comportement de la fonctionnalité. Ce paramètre ne dispose que d’une seule option de configuration.
+Choisissez ce qui doit se passer lorsque des utilisateurs qui ne sont pas inscrits auprès de MFA tentent de s'authentifier. Utilisez le paramètre de registre `REQUIRE_USER_MATCH` dans le chemin d’accès au registre `HKLM\Software\Microsoft\AzureMFA` pour contrôler le comportement de la fonctionnalité. Ce paramètre ne dispose que d’une seule option de configuration.
 
 | Clé | Valeur | Default |
 | --- | --- | --- |
@@ -317,7 +324,7 @@ Sur chaque serveur AD FS, sous Mon Store sur l’ordinateur local, il y aura u
 
 Si la période de validité de vos certificats arrive à expiration, [générez et confirmez un nouveau certificat MFA sur chaque serveur AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-Les conseils suivants vous expliquent comment gérer les certificats Azure MFA sur vos serveurs AD FS. Lorsque vous configurez AD FS avec Azure MFA, les certificats générés par la cmdlet PowerShell `New-AdfsAzureMfaTenantCertificate` sont valides pendant 2 ans. Renouvelez les certificats et installez-les avant l’expiration pour éviter les interruptions de service d’authentification multifacteur.
+Les conseils suivants vous expliquent comment gérer les certificats Azure MFA sur vos serveurs AD FS. Lorsque vous configurez AD FS avec Azure MFA, les certificats générés par la cmdlet PowerShell `New-AdfsAzureMfaTenantCertificate` sont valides pendant deux ans. Renouvelez les certificats et installez-les avant l’expiration pour éviter les interruptions de service d’authentification multifacteur.
 
 ## <a name="implement-your-plan"></a>Implémenter votre planification
 
@@ -347,7 +354,7 @@ Rapports pour Azure MFA
 
 Azure MFA fournit des rapports via le portail Azure :
 
-| Rapport | Location | Description |
+| Rapport | Emplacement | Description |
 | --- | --- | --- |
 | Alertes relatives à l’utilisation et aux fraudes | Azure AD > Connexions | Fournit des informations sur l’utilisation globale, un récapitulatif par utilisateur, des informations détaillées sur les utilisateurs, ainsi que l’historique des alertes de fraude émises au cours de la plage de dates spécifiée. |
 
@@ -357,6 +364,7 @@ Trouvez des solutions aux problèmes fréquemment rencontrés avec Azure MFA dan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Que sont les méthodes d’authentification ?](concept-authentication-methods.md)
-* [Activer l’inscription convergée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
-* Qu’est-ce qui détermine qu’un utilisateur est ou n’est pas invité à effectuer une MFA ? Consultez la section [Rapport de connexion Azure AD du document Rapports dans Azure Multi-Factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+Pour avoir un aperçu d'Azure Multi-Factor Authentication, suivez ce tutoriel :
+
+> [!div class="nextstepaction"]
+> [Activation d’Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)

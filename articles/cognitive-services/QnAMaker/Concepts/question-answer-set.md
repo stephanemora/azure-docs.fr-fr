@@ -3,12 +3,12 @@ title: Concevoir une base de connaissances – QnA Maker
 description: Une base de connaissances QnA Maker est composée d’un jeu de questions-réponses (QnA) et de métadonnées facultatives associées à chaque paire QnA.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb71de0f6a3e372d8c1c1fede67ba0c0354532ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76844314"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756784"
 ---
 # <a name="question-and-answer-set-concepts"></a>Concepts des jeux de questions-réponses
 
@@ -33,7 +33,7 @@ Les paramètres **facultatifs** pour un jeu sont les suivants :
 
 ## <a name="editorially-add-to-knowledge-base"></a>Ajouter à la base de connaissances de manière éditoriale
 
-Si vous n’avez aucun contenu préexistant pour alimenter la base de connaissances, vous pouvez ajouter des séries QnA en tant que rédacteur dans le portail QnA Maker. Découvrez comment mettre à jour votre base de connaissances [ici](../How-To/edit-knowledge-base.md).
+En l'absence de contenu préexistant pour alimenter la base de connaissances, vous pouvez ajouter des paires QnA en tant que rédacteur sur le portail QnA Maker. Découvrez comment mettre à jour votre base de connaissances [ici](../How-To/edit-knowledge-base.md).
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modification de votre base de connaissances en local
 

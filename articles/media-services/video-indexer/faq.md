@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/30/2020
 ms.author: juliako
-ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd41596b6631bb63e1625325f8bec065b43881cd
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77619892"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421401"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Forum Aux Questions sur Video Indexer
 
@@ -175,6 +175,12 @@ Les jetons d’accès sont nécessaires pour utiliser les API Video Indexer pour
 ### <a name="how-often-do-i-need-to-get-a-new-access-token-when-do-access-tokens-expire"></a>À quelle fréquence dois-je demander un nouveau jeton d’accès ? Quand les jetons d’accès expirent-ils ?
 
 Les jetons d’accès expirent toutes les heures. Vous devez donc générer un nouveau jeton d’accès chaque heure. 
+
+### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Quelles sont les options de connexion au portail des développeurs Video Indexer ?
+
+Vous pouvez vous connecter à l’aide d’Azure AD, d’un compte Microsoft, d’un compte Google ou d’un compte Facebook. 
+
+Une fois que vous avez inscrit votre compte de courrier à l’aide d’un fournisseur d’identité, vous ne pouvez pas utiliser ce compte de courrier avec un autre fournisseur d’identité.
 
 ## <a name="billing-questions"></a>Questions sur la facturation
 

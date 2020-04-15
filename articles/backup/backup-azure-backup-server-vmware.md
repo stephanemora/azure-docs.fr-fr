@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde 
 description: Dans cet article, découvrez comment utiliser le serveur de sauvegarde Azure pour sauvegarder des machines virtuelles VMware s’exécutant sur un serveur VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 951016d393b095b0329ff18861421402e0e18a1a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233929"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529506"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 
@@ -130,41 +130,52 @@ Le serveur de sauvegarde Azure a besoin d’un compte d’utilisateur avec des a
 
 ### <a name="role-permissions"></a>Autorisations des rôles
 
-| **Privilèges du compte d’utilisateur vCenter 6.5 et versions ultérieures**        | **Privilèges du compte d’utilisateur vCenter 6.0**               | **Privilèges du compte d’utilisateur vCenter 5.5** |
-| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
-| Datastore.AllocateSpace                                      |                                                           |                                             |
-| Datastore.Browse datastore                                   | Datastore.AllocateSpace                                   | Network.Assign                              |
-| Opérations sur les fichiers Datastore.Low-level                          | Attributs personnalisés Global.Manage                           | Datastore.AllocateSpace                     |
-| Datastore cluster.Configure a datatstore cluster             | Global.Set custom attribute                               | VirtualMachine.Config.ChangeTracking        |
-| Global.Disable methods                                       | Host.Local operations.Create virtual machine              | VirtualMachine.State.RemoveSnapshot         |
-| Global.Enable methods                                        | Réseau. Attribuer un réseau                                   | VirtualMachine.State.CreateSnapshot         |
-| Global.Licenses                                              | Resource. Attribuer une machine virtuelle à une liste de ressources partagées         | VirtualMachine.Provisioning.DiskRandomRead  |
-| Global.Log event                                             | Virtual machine.Configuration.Add new disk                | VirtualMachine.Interact.PowerOff            |
-| Attributs personnalisés Global.Manage                              | Virtual machine.Configuration.Advanced                    | VirtualMachine.Inventory.Create             |
-| Global.Set custom attribute                                  | Virtual machine.Configuration.Disk change tracking        | VirtualMachine.Config.AddNewDisk            |
-| Network.Assign network                                       | Virtual machine.Configuration.Host USB device             | VirtualMachine.Config.HostUSBDevice         |
-| Resource. Attribuer une machine virtuelle à une liste de ressources partagées            | Virtual machine.Configuration.Query unowned files         | VirtualMachine.Config.AdvancedConfig        |
-| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Swapfile placement          | VirtualMachine.Config.SwapPlacement         |
-| Virtual machine.Configuration.Advanced                       | Virtual machine.Interaction.Power Off                     | Global.ManageCustomFields                   |
-| Virtual machine.Configuration.Disk change tracking           | Virtual machine.Inventory. Création                     |                                             |
-| Virtual machine.Configuration.Disk lease                     | Virtual machine.Provisioning.Allow disk access            |                                             |
-| Virtual machine.Configuration.Extend virtual disk            | Virtual machine.Provisioning. Autoriser l’accès au disque en lecture seule |                                             |
-| Virtual machine.Guest Operations.Guest Operation Modifications | Virtual machine.Snapshot management.Create snapshot       |                                             |
-| Virtual machine.Guest Operations.Guest Operation Program Execution | Virtual machine.Snapshot management.Remove Snapshot       |                                             |
-| Virtual machine.Guest Operations.Guest Operation Queries     |                                                           |                                             |
-| Virtual machine .Interaction .Device connection              |                                                           |                                             |
-| Virtual machine .Interaction .Guest operating system management by VIX API |                                                           |                                             |
-| Virtual machine .Inventory.Register                          |                                                           |                                             |
-| Virtual machine .Inventory.Remove                            |                                                           |                                             |
-| Virtual machine .Provisioning.Allow disk access              |                                                           |                                             |
-| Virtual machine .Provisioning.Allow read-only disk access    |                                                           |                                             |
-| Virtual machine .Provisioning.Allow virtual machine download |                                                           |                                             |
-| Virtual machine .Snapshot management. Créer l’instantané        |                                                           |                                             |
-| Virtual machine .Snapshot management.Remove Snapshot         |                                                           |                                             |
-| Virtual machine .Snapshot management.Revert to snapshot      |                                                           |                                             |
-| vApp.Add virtual machine                                     |                                                           |                                             |
-| vApp.Assign resource pool                                    |                                                           |                                             |
-| vApp.Unregister                                              |                                                           |                                             |
+| **Privilèges du compte d’utilisateur vCenter 6.7**              | **Privilèges du compte d’utilisateur vCenter 6.5**             |
+| --------------------------------------------------------- | -------------------------------------------------------- |
+| Datastore.Allocate Space                                  | Datastore.Allocate Space                                 |
+| Global.Log Event                                          | Global.Log Event                                         |
+| Global.Manage Custom Attributes                           | Global.Manage Custom Attributes                          |
+| Network.Assign                                            | Network.Assign                                           |
+| Resource. Attribuer une machine virtuelle à une liste de ressources partagées        | Resource. Attribuer une machine virtuelle à une liste de ressources partagées       |
+| VirtualMachine.Configuration.AddNewDisk                   | VirtualMachine.Configuration.AddNewDisk                  |
+| VirtualMachine.Configuration. Ajouter ou supprimer un appareil       | VirtualMachine.Configuration. Ajouter ou supprimer un appareil      |
+| VirtualMachine.Configuration.Advanced                     | VirtualMachine.Configuration.Advanced                    |
+| VirtualMachine.Configuration.Toggle Disk  Change Tracking | VirtualMachine.Configuration.Disk  Change Tracking       |
+| VirtualMachine.Configuration.Configure Host  USB Device   | VirtualMachine.Configuration.Host USB  Device            |
+| VirtualMachine.Configuration.Query  Unowned Files         | VirtualMachine.Configuration.Query  Unowned Files        |
+| VirtualMachine.Configuration.Change  Swapfile Placement   | VirtualMachine.Configuration.Swapfile  Placement         |
+| VirtualMachine.Interaction.Power Off                      | VirtualMachine.Interaction.Power Off                     |
+| VirtualMachine.Inventory.Create New                       | VirtualMachine.Inventory.Create New                      |
+| VirtualMachine.Provisioning.Allow  Disk Access            | VirtualMachine.Provisioning.Allow  Disk Access           |
+| VirtualMachine.Provisioning.Allow  File Access            | VirtualMachine.Provisioning.Allow  File Access           |
+| VirtualMachine.Provisioning.Allow  Read-only Disk Access  | VirtualMachine.Provisioning.Allow  Read-only Disk Access |
+| VirtualMachine.Snapshot  Management.Create Snapshot       | VirtualMachine.Snapshot  Management.Create Snapshot      |
+| VirtualMachine.Snapshot  Management.Remove Snapshot       | VirtualMachine.Snapshot  Management.Remove Snapshot      |
+
+<br>
+
+| **Privilèges du compte d’utilisateur vCenter 6.0**                | **Privilèges du compte d’utilisateur vCenter 5.5** |
+| ---------------------------------------------------------- | ------------------------------------------- |
+| Datastore.AllocateSpace                                    | Network.Assign                              |
+| Global.Manage  custom attributes                           | Datastore.AllocateSpace                     |
+| Global.Set  custom attribute                               | VirtualMachine.Config.ChangeTracking        |
+| Host.Local  operations.Create virtual machine              | VirtualMachine.State.RemoveSnapshot         |
+| Réseau.  Attribuer un réseau                                   | VirtualMachine.State.CreateSnapshot         |
+| Resource.  Attribuer une machine virtuelle à une liste de ressources partagées         | VirtualMachine.Provisioning.DiskRandomRead  |
+| Virtual  machine.Configuration.Add new disk                | VirtualMachine.Interact.PowerOff            |
+| Virtual  machine.Configuration.Advanced                    | VirtualMachine.Inventory.Create             |
+| Virtual  machine.Configuration.Disk change tracking        | VirtualMachine.Config.AddNewDisk            |
+| Virtual  machine.Configuration.Host USB device             | VirtualMachine.Config.HostUSBDevice         |
+| Virtual  machine.Configuration.Query unowned files         | VirtualMachine.Config.AdvancedConfig        |
+| Virtual  machine.Configuration.Swapfile placement          | VirtualMachine.Config.SwapPlacement         |
+| Virtual  machine.Interaction.Power Off                     | Global.ManageCustomFields                   |
+| Virtual  machine.Inventory. Création                     |                                             |
+| Virtual  machine.Provisioning.Allow disk access            |                                             |
+| Virtual  machine.Provisioning. Autoriser l’accès au disque en lecture seule |                                             |
+| Virtual  machine.Snapshot management.Create snapshot       |                                             |
+| Virtual  machine.Snapshot management.Remove Snapshot       |                                             |
+
+
 
 ## <a name="create-a-vmware-account"></a>Créer un compte VMware
 

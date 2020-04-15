@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
-ms.openlocfilehash: cac6bc9895f2b8778f2b27cc6b1dff4d4b898ae7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 611f5730afed4c3a84b81d6acfd33b633c532bbc
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471521"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874668"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door"></a>Autorités de certification autorisées pour l’activation du protocole HTTPS personnalisé sur Azure Front Door
 
-Pour un domaine personnalisé Azure Front Door, quand vous [activez la fonctionnalité HTTPS à l’aide de votre propre certificat](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate), vous devez utiliser une autorité de certification autorisée pour créer votre certificat SSL. Si vous utilisez une autorité de certification non autorisée ou un certificat auto-signé, votre demande sera rejetée.
+Pour un domaine personnalisé Azure Front Door, lorsque vous [activez la fonctionnalité HTTPS à l'aide de votre propre certificat](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate), vous devez utiliser une autorité de certification autorisée pour créer votre certificat TLS/SSL. Si vous utilisez une autorité de certification non autorisée ou un certificat auto-signé, votre demande sera rejetée.
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

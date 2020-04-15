@@ -1,15 +1,15 @@
 ---
 title: Limites d’Azure Blockchain Service
 description: Vue d’ensemble des limites de service et fonctionnelles dans Azure Blockchain Service
-ms.date: 11/22/2019
+ms.date: 04/02/2020
 ms.topic: conceptual
-ms.reviewer: janders
-ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455646"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676515"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limites dans Azure Blockchain Service
 
@@ -17,21 +17,24 @@ Azure Blockchain Service présente des limites de service et fonctionnelles tell
 
 ## <a name="pricing-tier"></a>Niveau tarifaire
 
-Les limites maximales sur les transactions et les nœuds validateurs varient selon que vous approvisionnez Azure Blockchain Service avec le niveau tarifaire De base ou Standard.
+Les limites maximales sur les transactions et les nœuds validateurs varient selon que vous approvisionnez Azure Blockchain Service avec le niveau tarifaire de base ou standard.
 
 | Niveau tarifaire | Nombre maximal de nœuds de transaction | Nombre maximal de nœuds validateurs |
 |:---|:---:|:---:|
 | De base | 10 | 1 |
 | standard | 10 | 2 |
 
-La modification du niveau tarifaire entre le niveau De base et le niveau Standard après la création du membre n’est pas prise en charge.
+Le réseau de votre consortium doit comporter au moins deux nœuds Azure Blockchain Service de niveau standard. Les nœuds de niveau standard incluent deux nœuds validateurs. Quatre nœuds validateurs sont requis pour satisfaire le [consensus IBFT (Istanbul Byzantine Fault Tolerant)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+
+Utilisez le niveau de base pour le développement, les tests et les preuves de concept. Utilisez le niveau standard pour les déploiements en production. Vous devez également avoirs recours au niveau *Standard* si vous utilisez Blockchain Data Manager ou si vous envoyez un volume élevé de transactions privées.
+
+Le passage du niveau tarifaire de base au niveau standard (ou inversement) après la création du membre n'est pas pris en charge.
 
 ## <a name="storage-capacity"></a>Capacité de stockage
 
 La quantité de stockage maximale qui peut être utilisée par nœud pour les journaux et données de registre est 1.8 To.
 
 La diminution de la taille de stockage des registres et journaux n’est pas prise en charge.
-
 ## <a name="consortium-limits"></a>Limites de consortium
 
 * **Les noms de membre et de consortium doivent être uniques** et différents des autres noms de membre et de consortium dans Azure Blockchain Service.
@@ -50,11 +53,17 @@ La diminution de la taille de stockage des registres et journaux n’est pas pri
 
 * **Les membres supprimés du consortium ne peuvent pas être ajoutés à nouveau**
 
-    Au lieu de cela, ils doivent être réinvités à rejoindre le consortium et créer un nouveau membre. Leurs ressources de membre existantes ne sont pas supprimées, de sorte que les transactions historiques soient conservées.
+    Au lieu de cela, ils doivent être réinvités à rejoindre le consortium et créer un nouveau membre. Leurs ressources de membre existantes ne sont pas supprimées afin de préserver les transactions historiques.
 
 * **Tous les membres d’un consortium doivent utiliser la même version de registre**
 
     Pour plus d’informations sur l’application de correctifs, les mises à jour et les versions de registre disponibles dans Azure Blockchain Service, consultez [Patching, updates, and versions](ledger-versions.md) (Application de correctifs, mises à jour et versions).
+
+## <a name="performance"></a>Performances
+
+N'utilisez pas la fonction de gaz *eth.estimate* pour chaque soumission de transaction. La fonction *eth.estimate* utilise beaucoup de mémoire. Le fait d'appeler la fonction plusieurs fois réduit considérablement le nombre de transactions par seconde.
+
+Si possible, utilisez une valeur de gaz prudente pour la soumission des transactions et n'abusez pas de l'utilisation de *eth.estimate*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

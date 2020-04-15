@@ -2,15 +2,16 @@
 title: Déployer un fichier exécutable existant sur Azure Service Fabric
 description: Découvrez comment empaqueter une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric.
 ms.topic: conceptual
-ms.date: 07/02/2017
-ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75377104"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520485"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
+
 Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
 
 > [!TIP]
@@ -18,6 +19,7 @@ Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable inv
 >
 
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Utiliser Visual Studio pour empaqueter et déployer un exécutable existant
+
 Visual Studio fournit un modèle de service Service Fabric pour vous aider à déployer un fichier exécutable invité sur un cluster Service Fabric.
 
 1. Sélectionnez **Fichier** > **Nouveau projet** pour créer une application Service Fabric.
@@ -37,6 +39,13 @@ Visual Studio fournit un modèle de service Service Fabric pour vous aider à d�
 
 Dans le cadre d’une procédure pas à pas, consultez [Créer votre première application de fichier exécutable invité à l’aide de Visual Studio](quickstart-guest-app.md).
 
+### <a name="packaging-multiple-executables-with-visual-studio"></a>Empaquetage de plusieurs exécutables avec Visual Studio
+
+Vous pouvez utiliser Visual Studio pour générer un package d’application contenant plusieurs fichiers exécutables invités. Après avoir ajouté le premier exécutable invité, cliquez avec le bouton droit sur le projet d’application, puis sélectionnez **Ajouter -> Nouveau service Service Fabric** pour ajouter le second projet exécutable invité à la solution.
+
+> [!NOTE]
+> Si vous choisissez d’établir un lien vers la source dans le projet Visual Studio, lors de la création de la solution Visual Studio, assurez-vous que votre package d’application est à jour avec les modifications dans la source.
+
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Utiliser Yeoman pour empaqueter et déployer un exécutable existant sous Linux
 
 La procédure de création et de déploiement d'un exécutable invité sur Linux est identique au déploiement d’une application csharp ou java.
@@ -47,9 +56,17 @@ La procédure de création et de déploiement d'un exécutable invité sur Linux
 
 Yeoman crée un package d’application avec l’application et les fichiers manifeste appropriés ainsi que les scripts d'installation et de désinstallation.
 
+### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>Empaquetage de plusieurs exécutables à l’aide de Yeoman sur Linux
+
+Pour ajouter un autre service à une application déjà créée à l’aide de `yo`, procédez comme suit :
+
+1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
+2. Exécutez `yo azuresfguest:AddService` et fournissez les informations nécessaires.
+
 <a id="manually"></a>
 
 ## <a name="manually-package-and-deploy-an-existing-executable"></a>Empaqueter et déployer manuellement d’un exécutable existant
+
 Le processus d’empaquetage manuel d’un exécutable invité est basé sur les étapes générales suivantes :
 
 1. Créez la structure de répertoires du package.
@@ -57,14 +74,12 @@ Le processus d’empaquetage manuel d’un exécutable invité est basé sur les
 3. Modifiez le fichier de manifeste de service.
 4. Modifiez le fichier de manifeste d’application.
 
-<!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
--->
-
 ### <a name="create-the-package-directory-structure"></a>Création de la structure de répertoires du package
+
 Vous pouvez commencer par créer la structure de répertoires, comme décrit dans [Empaqueter une application Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Ajout des fichiers de code et de configuration de l’application
+
 Après avoir créé la structure de répertoires, vous pouvez ajouter les fichiers de code et de configuration de l’application dans les répertoires code et config. Vous pouvez également créer d’autres répertoires ou sous-répertoires dans les répertoires code ou config.
 
 Service Fabric crée une `xcopy` du contenu du répertoire racine de l’application. Par conséquent, il n’existe aucune structure prédéfinie à utiliser, autre que la création des deux principaux répertoires code et paramètres. (Vous pouvez choisir des noms différents si vous le souhaitez. Pour plus d’informations, consultez la section suivante.)
@@ -75,6 +90,7 @@ Service Fabric crée une `xcopy` du contenu du répertoire racine de l’applica
 >
 
 ### <a name="edit-the-service-manifest-file"></a>Modification du fichier de manifeste de service
+
 L’étape suivante consiste à modifier le fichier de manifeste de service afin d’inclure les informations suivantes :
 
 * Le nom du type de service. Il s’agit d’un ID que Service Fabric utilise pour identifier un service.
@@ -114,6 +130,7 @@ Voici un exemple de fichier `ServiceManifest.xml` :
 Examinons les différentes parties du fichier que vous devez mettre à jour :
 
 #### <a name="update-servicetypes"></a>Mettre à jour ServiceTypes
+
 ```xml
 <ServiceTypes>
   <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true" />
@@ -132,7 +149,8 @@ L’élément CodePackage spécifie l’emplacement (et la version) du code du s
 
 L’élément `Name` est utilisé pour spécifier le nom du répertoire dans le package d’application qui contient le code du service. `CodePackage` a également l’attribut `version`. Cela peut être utilisé pour spécifier la version du code et peut également permettre de mettre à niveau le code de service en utilisant l’infrastructure de gestion du cycle de vie d’application dans Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Facultatif : mettre à jour SetupEntrypoint
+#### <a name="optional-update-setupentrypoint"></a>Facultatif : Mettre à jour SetupEntrypoint
+
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -147,6 +165,7 @@ Comme il n’existe qu’un seul paramètre SetupEntrypoint, les scripts d’ins
 Dans l’exemple ci-dessus, l’élément SetupEntryPoint exécute un fichier de commandes appelé `LaunchConfig.cmd`, qui se trouve dans le sous-répertoire `scripts` du répertoire du code (si l’on suppose que l’élément WorkingFolder est défini sur CodeBase).
 
 #### <a name="update-entrypoint"></a>Mettre à jour EntryPoint
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -171,12 +190,14 @@ L’élément `ExeHost` spécifie le fichier exécutable (et les arguments) à u
 L’élément WorkingFolder est utile pour définir le répertoire de travail correct, afin que des chemins d’accès relatifs puissent être utilisés par l’application ou des scripts d’initialisation.
 
 #### <a name="update-endpoints-and-register-with-naming-service-for-communication"></a>Mettre à jour des points de terminaison et les inscrire auprès du service d’affectation de noms à des fins de communication
+
 ```xml
 <Endpoints>
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
 </Endpoints>
 
 ```
+
 Dans l’exemple fourni précédemment, l’élément `Endpoint` spécifie les points de terminaison que l’application peut écouter. Dans cet exemple, l’application Node.js écoute sur le port HTTP 3000.
 
 En outre, vous pouvez demander à Service Fabric de publier ce point de terminaison auprès du service d’affectation de noms, afin que les autres services puissent découvrir l’adresse du point de terminaison de ce service. Ainsi, vous être en mesure d’assurer la communication entre les services qui sont des exécutables invités.
@@ -189,9 +210,11 @@ Dans l’exemple suivant, une fois que le service est déployé dans Service Fab
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000"  UriScheme="http" PathSuffix="myapp/" Type="Input" />
 </Endpoints>
 ```
+
 Vous pouvez utiliser ces adresses avec le [proxy inverse](service-fabric-reverseproxy.md) pour la communication entre les services.
 
 ### <a name="edit-the-application-manifest-file"></a>Modifiez le fichier de manifeste d’application
+
 Après avoir configuré le fichier `Servicemanifest.xml`, vous devez apporter des modifications au fichier `ApplicationManifest.xml` afin de garantir que le type et le nom du service utilisés sont corrects.
 
 ```xml
@@ -204,6 +227,7 @@ Après avoir configuré le fichier `Servicemanifest.xml`, vous devez apporter de
 ```
 
 #### <a name="servicemanifestimport"></a>ServiceManifestImport
+
 Dans l’élément `ServiceManifestImport` , vous pouvez spécifier un ou plusieurs services à inclure dans l’application. Les services sont référencés avec `ServiceManifestName`, qui spécifie le nom du répertoire dans lequel se trouve le fichier `ServiceManifest.xml`.
 
 ```xml
@@ -213,6 +237,7 @@ Dans l’élément `ServiceManifestImport` , vous pouvez spécifier un ou plusie
 ```
 
 ## <a name="set-up-logging"></a>Configurez la journalisation
+
 Pour les exécutables invités, il est utile de pouvoir consulter les journaux d’activité de la console afin de déterminer si les scripts de l’application et de configuration affichent une erreur.
 La redirection de la console peut être configurée dans le fichier `ServiceManifest.xml` à l’aide de l’élément `ConsoleRedirection`.
 
@@ -241,6 +266,7 @@ La redirection de la console peut être configurée dans le fichier `ServiceMani
 Les fichiers journaux sont enregistrés dans un des répertoires de travail du service. Pour déterminer l’emplacement des fichiers, utilisez Service Fabric Explorer afin d’identifier le nœud que le service exécute et le répertoire de travail utilisé. Cette procédure est décrite ultérieurement dans cet article.
 
 ## <a name="deployment"></a>Déploiement
+
 La dernière étape consiste à [déployer votre application](service-fabric-deploy-remove-applications.md). Le script PowerShell ci-dessous indique comment déployer votre application dans le cluster de développement local et comment démarrer un nouveau service Service Fabric.
 
 ```powershell
@@ -281,14 +307,14 @@ Si vous accédez au nœud, puis à l’application, vous voyez apparaître des i
 
 ![Emplacement sur le disque](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
-Si vous accédez au répertoire à l’aide de l’Explorateur de serveurs, vous trouverez le répertoire de travail et le dossier des journaux du service, comme indiqué dans la capture d’écran suivante : 
+Si vous accédez au répertoire à l’aide de l’Explorateur de serveurs, vous trouverez le répertoire de travail et le dossier des journaux du service, comme indiqué dans la capture d’écran suivante :
 
 ![Emplacement du journal](./media/service-fabric-deploy-existing-app/loglocation.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans cet article, vous avez appris à empaqueter un exécutable invité et à le déployer dans Service Fabric. Consultez les articles suivants pour obtenir des informations supplémentaires et connaître les tâches connexes.
 
 * [Exemple pour empaqueter et déployer un exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), avec un lien vers la version préliminaire de l’outil d’empaquetage
 * [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)
-* [Déploiement de plusieurs exécutables invités](service-fabric-deploy-multiple-apps.md)
 * [Créez votre première application Service Fabric avec Visual Studio](service-fabric-tutorial-create-dotnet-app.md)

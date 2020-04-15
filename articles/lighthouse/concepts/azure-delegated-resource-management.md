@@ -1,14 +1,14 @@
 ---
 title: Gestion des ressources déléguées Azure
 description: Les offres de services managés permettent aux fournisseurs de services de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
-ms.date: 01/30/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15814b1ca3b1b78de521033836e3614d18fd0c71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76904322"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548418"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 
@@ -23,11 +23,11 @@ La gestion des ressources déléguées Azure permet d’opérer une projection l
 
 Avec la gestion des ressources déléguées Azure, les utilisateurs autorisés peuvent travailler directement dans le contexte d’un abonnement client sans avoir de compte dans le locataire de ce client ou être copropriétaire du locataire du client. Ils peuvent également [voir et gérer tous les abonnements délégués du client**dans la nouvelle page**Mes clients](../how-to/view-manage-customers.md) du portail Azure.
 
-L’[expérience de gestion inter-locataire](cross-tenant-management-experience.md) vous aide à travailler plus efficacement avec des services de gestion Azure tels qu’Azure Policy, Azure Security Center et bien plus encore. Toute l’activité du fournisseur de services est suivie dans le journal d’activité qui est stocké dans les locataires tant du fournisseur de services que du client. Cela signifie que tant le client que le fournisseur de services peuvent facilement identifier l’utilisateur associé à toute modification.
+L’[expérience de gestion inter-locataire](cross-tenant-management-experience.md) vous aide à travailler plus efficacement avec des services de gestion Azure tels qu’Azure Policy, Azure Security Center et bien plus encore. Toute l'activité du fournisseur de services fait l'objet d'un suivi dans le journal d'activité, qui est stocké dans le locataire du client (et peut être consulté par les utilisateurs dans le locataire de gestion). Cela signifie que tant le client que le fournisseur de services peuvent facilement identifier l’utilisateur associé à toute modification.
 
 Lorsque vous intégrez un client à la gestion des ressources déléguées Azure, celui-ci a accès à la nouvelle page **Fournisseurs de services** du portail Azure, où il peut [confirmer et gérer ses offres, fournisseurs de services et ressources déléguées](../how-to/view-manage-service-providers.md). Si le client en vient à vouloir révoquer l’accès d’un fournisseur de services, il peut le faire à tout moment.
 
-Vous pouvez [publier le nouveau type d’offre de services managés sur la Place de marché Azure](../how-to/publish-managed-services-offers.md) afin intégrer facilement des clients à la gestion des ressources déléguées Azure. Vous pouvez également [accomplir le processus d’intégration en déployant des modèles Azure Resource Manager](../how-to/onboard-customer.md).
+Vous pouvez [publier le nouveau type d'offre de service managé sur la Place de marché Azure](../how-to/publish-managed-services-offers.md) pour intégrer facilement des clients à la gestion des ressources déléguées Azure. Vous pouvez également [accomplir le processus d’intégration en déployant des modèles Azure Resource Manager](../how-to/onboard-customer.md).
 
 ## <a name="how-azure-delegated-resource-management-works"></a>Fonctionnement de la gestion des ressources déléguées Azure
 
@@ -35,7 +35,7 @@ De façon générale, voici comment fonctionne la gestion des ressources délég
 
 1. En tant que fournisseur de services, vous identifiez l’accès (les rôles) dont vos groupes, principaux de service ou utilisateurs auront besoin pour gérer les ressources Azure du client. La définition de l’accès contient l’ID de locataire du fournisseur de services, ainsi que l’accès requis pour l’offre, définis à l’aide des identités **principalId** de votre locataire mappées aux [valeurs **roleDefinition** intégrées](../../role-based-access-control/built-in-roles.md) (Contributeur, Contributeur de machines virtuelles, Lecteur, etc.).
 2. Vous pouvez spécifier cet accès et intégrer le client à la gestion des ressources déléguées Azure de deux manières :
-   - [Publier une offre de services managés (privé ou publics) sur la Place de marché Azure](../how-to/publish-managed-services-offers.md), que le client acceptera.
+   - [Publier une offre de service managé (privé ou public) sur la Place de marché Azure](../how-to/publish-managed-services-offers.md), que le client acceptera.
    - [Déployer un modèle Azure Resource Manager sur le locataire du client](../how-to/onboard-customer.md) pour un ou plusieurs abonnements ou groupes de ressources spécifiques.
 3. Une fois le client intégré, les utilisateurs autorisés peuvent se connecter au locataire de votre fournisseur de services et effectuer des tâches de gestion dans l’étendue du client, en fonction de l’accès que vous avez défini.
 

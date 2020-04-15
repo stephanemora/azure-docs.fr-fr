@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 0dbbc9b09d5d4770296223db9dc909c17f574fe8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/30/2020
+ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767022"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422473"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurer la réplication des données entrantes dans Azure Database for MariaDB
 
 Cet article décrit comment configurer la réplication des données entrantes dans Azure Database for MariaDB en configurant les serveurs maître et réplica. Cet article suppose que vous ayez déjà utilisé des serveurs et des bases de données MariaDB.
 
 Pour créer un réplica dans Azure Database for MariaDB, réplication des données entrantes synchronise les données provenant d’un serveur MariaDB maître qui s’exécute en local, dans des machines virtuelles ou dans des services de base de données.
+
+Passez en revue les [limitations et conditions requises](concepts-data-in-replication.md#limitations-and-considerations) de la Réplication des données entrantes avant de suivre les étapes décrites dans cet article.
 
 > [!NOTE]
 > Si votre serveur maître correspond à la version 10.2 ou ultérieure, nous vous recommandons de définir la réplication des données entrantes à l’aide de l'[ID de transaction global](https://mariadb.com/kb/en/library/gtid/).
@@ -36,11 +38,21 @@ Pour créer un réplica dans Azure Database for MariaDB, réplication des donné
     
     Les comptes d’utilisateur ne sont pas répliqués à partir du serveur maître vers le serveur réplica. Pour fournir aux utilisateurs un accès au serveur réplica, vous devez créer manuellement tous les comptes et privilèges correspondants sur le nouveau serveur Azure Database for MariaDB.
 
+3. Ajoutez l’adresse IP du serveur maître aux règles de pare-feu du réplica. 
+
+   Mettez à jour les règles de pare-feu à l’aide du [portail Azure](howto-manage-firewall-portal.md) ou d’[Azure CLI](howto-manage-firewall-cli.md).
+
 ## <a name="configure-the-master-server"></a>Configurer le serveur maître
 
 Les étapes suivantes préparent et configurent le serveur MariaDB hébergé localement, dans une machine virtuelle ou dans un service de base de données cloud pour la réplication des données entrantes. Le serveur MariaDB correspond au maître dans la réplication de données entrantes.
 
-1. Activez la journalisation binaire.
+1. Avant de continuer, vérifiez la [configuration requise pour le serveur maître](concepts-data-in-replication.md#requirements). 
+
+   Par exemple, assurez-vous que le serveur maître autorise le trafic entrant et sortant sur le port 3306 et que le serveur maître dispose d’une **IP publique**, que le DNS est accessible publiquement ou possède un nom de domaine complet (FQDN). 
+   
+   Testez la connectivité au serveur maître en tentant de vous connecter à partir d'un outil tel que la ligne de commande MySQL hébergée sur un autre ordinateur ou à partir d'[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) accessible sur le portail Azure.
+
+2. Activez la journalisation binaire.
     
     Pour vérifier que la journalisation binaire est activée sur le serveur maître, entrez la commande suivante :
 
@@ -52,7 +64,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
    Si `log_bin` renvoie la valeur `OFF`, modifiez le fichier **my.cnf** pour permettre à `log_bin=ON` d'activer la journalisation binaire. Redémarrez le serveur pour que la modification prenne effet.
 
-2. Configurez les paramètres du serveur maître.
+3. Configurez les paramètres du serveur maître.
 
     La réplication des données entrantes implique que le paramètre `lower_case_table_names` soit cohérent entre les serveurs maître et réplica. Par défaut, le paramètre `lower_case_table_names` est défini sur `1` dans Azure Database for MariaDB.
 
@@ -60,7 +72,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Créez un nouveau rôle de réplication et définir des autorisations.
+4. Créez un nouveau rôle de réplication et définir des autorisations.
 
    Créez un compte d’utilisateur sur le serveur maître configuré avec des privilèges de réplication. Vous pouvez créer un compte à l’aide des commandes SQL ou MySQL Workbench. Si vous envisagez une réplication avec SSL, vous devez le spécifier lors de la création du compte d’utilisateur.
    
@@ -105,7 +117,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
    ![Subordonné de réplication](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Définissez le serveur maître en mode lecture seule.
+5. Définissez le serveur maître en mode lecture seule.
 
    Avant de vider une base de données, le serveur doit être placé en mode lecture seule. En mode lecture seule, le serveur maître ne peut traiter aucune transaction d’écriture. Pour éviter tout impact sur votre entreprise, planifiez la fenêtre en lecture seule lors d'une période creuse.
 
@@ -114,7 +126,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
    SET GLOBAL read_only = ON;
    ```
 
-5. Obtenez le nom actuel du fichier du journal binaire et le décalage.
+6. Obtenez le nom actuel du fichier du journal binaire et le décalage.
 
    Pour déterminer le nom de fichier du journal binaire actuel et le décalage, exécutez la commande [`show master status`](https://mariadb.com/kb/en/library/show-master-status/).
     
@@ -127,7 +139,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
    Notez le nom du fichier binaire car il sera utilisé lors des étapes ultérieures.
    
-6. Obtenez la position de l'identificateur GTID (facultatif, requis pour la réplication avec GTID).
+7. Obtenez la position de l'identificateur GTID (facultatif, requis pour la réplication avec GTID).
 
    Exécutez la fonction [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) pour obtenir la position de l'identificateur GTID pour le nom de fichier binlog correspondant et le décalage.
   
@@ -196,7 +208,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
-       PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+       PLACE YOUR PUBLIC KEY CERTIFICATE\'S CONTEXT HERE
        -----END CERTIFICATE-----'
        ```
 

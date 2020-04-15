@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: cfd4c113391f2ead238f5288c255b599e91b7e3a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201456"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475230"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -44,7 +44,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge.|
 | Encodage | Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format de codage actuellement pris en charge.|
 | Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale.|
-| Format | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque le travail s’arrête ou que Stream Analytics est passé à la période suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit.|
+| Format | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Si vous sélectionnez **Séparé par une ligne**, le JSON est lu un objet à la fois. Le contenu entier seul ne serait pas un JSON valide.  Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque le travail s’arrête ou que Stream Analytics est passé à la période suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit.|
 | Mode d'authentification | Vous pouvez autoriser l’accès à votre compte Data Lake Storage en utilisant une [identité managée](stream-analytics-managed-identities-adls.md) ou un jeton d’utilisateur. Une fois l’accès accordé, vous pouvez le révoquer en modifiant le mot de passe du compte d’utilisateur, en supprimant la sortie Data Lake Storage de ce travail ou en effaçant le travail Stream Analytics. |
 
 ## <a name="sql-database"></a>SQL Database
@@ -88,7 +88,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 |Durée maximum (Parquet uniquement)|Le délai d’attente maximum par lot. À l’issue de cette période, le lot est écrit dans la sortie même si l’exigence de lignes minimum n’est pas remplie. La valeur par défaut actuelle est de 1 minute et la valeur maximum autorisée est de 2 heures. Si la sortie de votre objet BLOB a une fréquence de modèle de chemin d’accès, le délai d’attente ne peut pas être supérieur à l’intervalle de temps de la partition.|
 | Encodage    | Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format de codage actuellement pris en charge. |
 | Délimiteur   | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
-| Format      | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque le travail s’arrête ou que Stream Analytics est passé à la période suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit. |
+| Format      | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Si vous sélectionnez **Séparé par une ligne**, le JSON est lu un objet à la fois. Le contenu entier seul ne serait pas un JSON valide. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque le travail s’arrête ou que Stream Analytics est passé à la période suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit. |
 
 Lorsque vous utilisez le stockage d’objets blob en tant que sortie, un fichier est créé dans l’objet blob dans les cas suivants :
 
@@ -118,7 +118,7 @@ Vous avez besoin de quelques paramètres pour configurer des flux de données à
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
 | Encodage | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge. |
 | Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
-| Format | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON.  |
+| Format | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Si vous sélectionnez **Séparé par une ligne**, le JSON est lu un objet à la fois. Le contenu entier seul ne serait pas un JSON valide. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON.  |
 | Colonnes de propriété | facultatif. Colonnes séparées par des virgules qui doivent être jointes en tant que propriétés de l’utilisateur du message sortant au lieu de la charge utile. Vous trouverez plus d’informations sur cette fonctionnalité dans la section [Propriétés de métadonnées personnalisées pour la sortie](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI
@@ -176,7 +176,7 @@ Datetime | String | String |  Datetime | String
 
 ## <a name="table-storage"></a>Stockage de tables
 
-[stockage de tables Azure](../storage/common/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu'une application puisse être mise à l'échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables correspond au magasin de clés/d’attributs NoSQL de Microsoft, que vous pouvez utiliser pour les données structurées, en présentant moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
+[stockage de tables Azure](../storage/common/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu'une application puisse être mise à l'échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables correspond au magasin de clés/d'attributs NoSQL de Microsoft, que vous pouvez utiliser pour les données structurées, avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
 
 Le tableau suivant répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
@@ -187,8 +187,8 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Clé du compte de stockage |Clé d’accès associée au compte de stockage. |
 | Nom de la table |Nom de la table. La table est créée si elle n’existe pas. |
 | Clé de partition |Nom de la colonne de sortie contenant la clé de partition. La clé de partition est un identificateur unique pour la partition dans une table qui constitue la première partie de la clé primaire d’une entité. C’est une valeur de chaîne qui peut atteindre 1 Ko. |
-| Clé de ligne |Nom de la colonne de sortie contenant la clé de ligne. La clé de ligne est un identificateur unique pour une entité dans une partition. Elle constitue la deuxième partie de la clé primaire d’une entité. La clé de ligne est une valeur de chaîne qui peut atteindre 1 Ko. |
-| Taille du lot |Nombre d’enregistrements d’une opération par lot. La valeur par défaut (100) est suffisante pour la plupart des travaux. Pour plus d’informations sur la modification de ce paramètre, consultez la spécification [TableBatchOperation Class](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) (Classe TableBatchOperation). |
+| Clé de ligne |Nom de la colonne de sortie contenant la clé de ligne. La clé de ligne est un identificateur unique pour une entité dans une partition. Elle constitue la deuxième partie de la clé primaire d'une entité. La clé de ligne est une valeur de chaîne qui peut atteindre 1 Ko. |
+| Taille du lot |Nombre d’enregistrements d’une opération par lot. La valeur par défaut (100) est suffisante pour la plupart des travaux. Pour plus d’informations sur la modification de ce paramètre, consultez la spécification [TableBatchOperation Class](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) (Classe TableBatchOperation). |
 
 ## <a name="service-bus-queues"></a>Files d’attente Service Bus
 
@@ -208,7 +208,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Format de sérialisation de l’événement |Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
 | Encodage |Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge. |
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
-| Format |Applicable uniquement pour le type JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. |
+| Format |Applicable uniquement pour le type JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Si vous sélectionnez **Séparé par une ligne**, le JSON est lu un objet à la fois. Le contenu entier seul ne serait pas un JSON valide. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. |
 | Colonnes de propriété | facultatif. Colonnes séparées par des virgules qui doivent être jointes en tant que propriétés de l’utilisateur du message sortant au lieu de la charge utile. Vous trouverez plus d’informations sur cette fonctionnalité dans la section [Propriétés de métadonnées personnalisées pour la sortie](#custom-metadata-properties-for-output). |
 | Colonnes de propriétés système | facultatif. Paires clé/valeur de propriétés système et noms de colonnes correspondants qui doivent être attachés au message sortant au lieu de la charge utile. Pour plus d’informations sur cette fonctionnalité, consultez la section [Propriétés système pour les sorties de rubrique et de file d’attente Service Bus](#system-properties-for-service-bus-queue-and-topic-outputs).  |
 
@@ -273,7 +273,7 @@ Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. L’a
 
 Azure Stream Analytics attend l’état HTTP 200 de l’application Functions pour les lots traités avec succès.
 
-Lorsqu’Azure Stream Analytics reçoit une erreur 413 (qui indique que l’entité de requête HTTP est trop volumineuse) de la part d’une fonction Azure, il réduit la taille des lots envoyés à Azure Functions. Dans le code de votre fonction Azure, utilisez cette exception pour vous assurer qu’Azure Stream Analytics n’envoie pas de lots trop volumineux. Vérifiez également que les valeurs de taille et de nombre de lots maximum utilisées dans la fonction correspondent à celles qui ont été saisies dans le portail Stream Analytics.
+Lorsqu’Azure Stream Analytics reçoit une erreur 413 (qui indique que l’entité de requête HTTP est trop volumineuse) de la part d’une fonction Azure, il réduit la taille des lots envoyés à Azure Functions. Dans le code de votre fonction Azure, utilisez cette exception pour vous assurer qu'Azure Stream Analytics n'envoie pas de lots trop volumineux. Vérifiez également que les valeurs de taille et de nombre de lots maximum utilisées dans la fonction correspondent à celles qui ont été saisies dans le portail Stream Analytics.
 
 > [!NOTE]
 > Lors du test de la connexion, Stream Analytics envoie un lot vide à Azure Functions pour s’assurer que la connexion entre les deux fonctionne. Assurez-vous que votre Function App gère les demandes de lots vides pour vérifier si la connexion de test est bien établie.
@@ -342,18 +342,18 @@ Azure Stream Analytics utilise des lots de taille variable pour traiter les év�
 
 Le tableau suivant expose certaines considérations relatives au traitement par lots des sorties :
 
-| Type de sortie | Taille de message maximale | Optimisation de la taille des lots |
+| Type de sortie |    Taille de message maximale | Optimisation de la taille des lots |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Consultez [Data Lake Store limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (Limites de Data Lake Store). | Utilisation jusqu’à 4 Mo par opération d’écriture. |
 | Azure SQL Database | Configurable à l’aide du nombre maximal de lots. 10 000 lignes maximum et 100 lignes minimum par insertion en bloc par défaut.<br />Consultez [SQL Database limits](../sql-database/sql-database-resource-limits.md) (Limites de SQL Database). |  Chaque lot est initialement inséré en bloc avec le nombre de lots maximum. Le lot est divisé de moitié (jusqu’au nombre de lots minimum) en fonction des erreurs renouvelables de SQL. |
 | Stockage Blob Azure | Consultez [Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits) (Limites de stockage). | Taille maximale de bloc d’objets blob : 4 Mo.<br />Nombre maximal de blocs d’objets blob : 50 000. |
-| Hubs d'événements Azure  | 256 Ko ou 1 Mo par message. <br />Consultez [Quotas et limites d’Azure Event Hubs](../event-hubs/event-hubs-quotas.md). |  Lorsque le partitionnement entrée/sortie ne s’aligne pas, chaque événement est empaqueté individuellement dans `EventData` et envoyé dans un lot dans la limite de la taille de message maximale. Cela se produit également si les [propriétés de métadonnées personnalisées](#custom-metadata-properties-for-output) sont utilisées. <br /><br />  Lorsque le partitionnement entrée/sortie est aligné, plusieurs événements sont empaquetés dans une seule instance `EventData`, dans la limite de la taille de message maximale, et envoyés. |
+| Hubs d'événements Azure    | 256 Ko ou 1 Mo par message. <br />Consultez [Quotas et limites d’Azure Event Hubs](../event-hubs/event-hubs-quotas.md). |    Lorsque le partitionnement entrée/sortie ne s’aligne pas, chaque événement est empaqueté individuellement dans `EventData` et envoyé dans un lot dans la limite de la taille de message maximale. Cela se produit également si les [propriétés de métadonnées personnalisées](#custom-metadata-properties-for-output) sont utilisées. <br /><br />  Lorsque le partitionnement entrée/sortie est aligné, plusieurs événements sont empaquetés dans une seule instance `EventData`, dans la limite de la taille de message maximale, et envoyés.    |
 | Power BI | Consultez [Power BI REST API limitations](https://msdn.microsoft.com/library/dn950053.aspx) (Limites de l’API REST Power BI). |
 | Stockage de tables Azure | Consultez [Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits) (Limites de stockage). | La valeur par défaut est 100 entités par transaction. Vous pouvez définir une valeur inférieure, en fonction des besoins. |
-| File d’attente Azure Service Bus   | 256 Ko par message pour le niveau Standard, 1 Mo pour le niveau Premium.<br /> Consultez [Quotas Service Bus](../service-bus-messaging/service-bus-quotas.md). | Un événement unique par message est utilisé. |
+| File d’attente Azure Service Bus    | 256 Ko par message pour le niveau Standard, 1 Mo pour le niveau Premium.<br /> Consultez [Quotas Service Bus](../service-bus-messaging/service-bus-quotas.md). | Un événement unique par message est utilisé. |
 | Rubrique Azure Service Bus | 256 Ko par message pour le niveau Standard, 1 Mo pour le niveau Premium.<br /> Consultez [Quotas Service Bus](../service-bus-messaging/service-bus-quotas.md). | Un événement unique par message est utilisé. |
-| Azure Cosmos DB   | Consultez [Azure Cosmos DB limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits) (Limites d’Azure Cosmos DB). | La taille des lots et la fréquence d’écriture sont ajustées dynamiquement en fonction des réponses Azure Cosmos DB. <br /> Stream Analytics n’impose aucune limite prédéterminée. |
-| Azure Functions   | | Taille de lot par défaut : 262 144 Ko (256 Ko). <br /> Nombre d’événements par défaut par lot : 100. <br /> La taille de lot, configurable, peut être augmentée ou diminuée dans les [options de sortie](#azure-functions) de Stream Analytics.
+| Azure Cosmos DB    | Consultez [Azure Cosmos DB limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits) (Limites d’Azure Cosmos DB). | La taille des lots et la fréquence d’écriture sont ajustées dynamiquement en fonction des réponses Azure Cosmos DB. <br /> Stream Analytics n’impose aucune limite prédéterminée. |
+| Azure Functions    | | Taille de lot par défaut : 262 144 Ko (256 Ko). <br /> Nombre d’événements par défaut par lot : 100. <br /> La taille de lot, configurable, peut être augmentée ou diminuée dans les [options de sortie](#azure-functions) de Stream Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

@@ -4,22 +4,22 @@ description: Utiliser un appareil simulé sur votre machine Windows pour tester 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee4f01c3ec57b0cf9e3ecf47254b57be95ea051a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc051e2a0ebbdae7c62ff8a249747d118d3c2ce4
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76510938"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668689"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Créer et provisionner un appareil IoT Edge simulé avec un TPM virtuel sous Windows
 
 Les appareils Azure IoT Edge peuvent être provisionnés automatiquement à l’aide du [service Device Provisioning](../iot-dps/index.yml) tout comme les appareils qui ne sont pas compatibles avec Edge. Si vous ne connaissez pas le processus de provisionnement automatique, révisez les [concepts du provisionnement automatique](../iot-dps/concepts-auto-provisioning.md) avant de poursuivre.
 
-DPS prend désormais en charge l’attestation de clé symétrique pour les appareils IoT Edge lors d’une inscription individuelle et d’une inscription de groupe. Pour une inscription de groupe, si l’option « Est un appareil IoT Edge » est définie sur true dans une attestation de clé symétrique, tous les appareils inscrits sous ce groupe d’inscriptions sont marqués en tant qu’appareils IoT Edge.
+DPS prend désormais en charge l’attestation de clé symétrique pour les appareils IoT Edge lors d’une inscription individuelle et d’une inscription de groupe. Pour une inscription de groupe, si l'option « Est un appareil IoT Edge » est définie sur true dans l'attestation de clé symétrique, tous les appareils inscrits sous ce groupe d'inscriptions sont marqués en tant qu'appareils IoT Edge.
 
 Cet article explique comment tester le provisionnement automatique sur un appareil IoT Edge simulé en procédant comme suit :
 
@@ -31,7 +31,7 @@ Cet article explique comment tester le provisionnement automatique sur un appare
 > [!TIP]
 > Cet article explique comment tester le provisionnement automatique à l'aide de l'attestation TPM sur des appareils virtuels, mais il s'applique principalement à l'utilisation de matériel TPM physique.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Une machine de développement Windows. Cet article utilise Windows 10.
 * Un hub IoT actif.
@@ -59,6 +59,9 @@ Lorsque vous créez une inscription auprès du service Device Provisioning, vous
 Choisissez le langage du kit SDK que vous souhaitez utiliser pour créer l’appareil simulé et suivez les étapes jusqu’à la création de l’inscription individuelle.
 
 Lorsque vous créez l’inscription individuelle, sélectionnez **True** pour déclarer que l’appareil TPM simulé sur votre machine de développement Windows est un **appareil IoT Edge**.
+
+> [!TIP]
+> Dans l'interface de ligne de commande Azure, vous pouvez créer une [inscription](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) ou un [groupe d'inscriptions](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) et utiliser l'indicateur **compatible avec Edge** pour spécifier qu'un appareil, ou un groupe d'appareils, est un appareil IoT Edge.
 
 Guides d’appareils simulés et d’inscriptions individuelles :
 

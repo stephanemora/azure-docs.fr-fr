@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272642"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984791"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
@@ -34,8 +34,7 @@ Les avantages du script de déploiement :
 - Permet la transmission des arguments de ligne de commande au script.
 - Peut spécifier des sorties de script et les renvoyer au déploiement.
 
-> [!NOTE]
-> Le script de déploiement est actuellement disponible en préversion. Pour l’utiliser, vous devez [vous inscrire à la préversion](https://aka.ms/armtemplatepreviews).
+La ressource de script de déploiement n'est disponible que dans les régions où Azure Container Instance est disponible.  Consultez [Disponibilité des ressources pour Azure Container Instances dans les régions Azure](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
 > Deux ressources de script de déploiement, un compte de stockage et une instance de conteneur, sont créées dans le même groupe de ressources pour l’exécution du script et la résolution de problèmes. Ces ressources sont généralement supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Vous êtes facturé pour les ressources jusqu’à ce qu’elles soient supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
@@ -45,7 +44,7 @@ Les avantages du script de déploiement :
 - **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au groupe de ressources cible**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour effectuer des opérations en dehors du groupe de ressources, vous devez accorder des autorisations supplémentaires. Par exemple, attribuez l’identité au niveau de l’abonnement si vous souhaitez créer un groupe de ressources.
 
   > [!NOTE]
-  > Le moteur de script de déploiement doit créer un compte de stockage et une instance de conteneur en arrière-plan.  Une identité managée affectée par l’utilisateur dotée du rôle de contributeur au niveau de l’abonnement est requise si l’abonnement n’a pas inscrit le compte de stockage Azure (Microsoft.Storage) ni les fournisseurs de ressources d’instance de conteneur Azure (Microsoft.ContainerInstance).
+  > Le moteur de script de déploiement crée un compte de stockage et une instance de conteneur en arrière-plan.  Une identité managée affectée par l’utilisateur dotée du rôle de contributeur au niveau de l’abonnement est requise si l’abonnement n’a pas inscrit le compte de stockage Azure (Microsoft.Storage) ni les fournisseurs de ressources d’instance de conteneur Azure (Microsoft.ContainerInstance).
 
   Pour créer une identité, consultez [Créer une identité managée affectée par l’utilisateur à l’aide du Portail Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [d’Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) ou [d’Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 
@@ -73,9 +72,15 @@ Les avantages du script de déploiement :
 
   (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name $idName).Id
   ```
+
   ---
 
-- **Azure PowerShell version 3.0.0, 2.8.0 ou 2.7.0** ou **Azure CLI version 2.0.80, 2.0.79, 2.0.78 ou 2.0.77**. Vous n’avez pas besoin de ces versions pour déployer des modèles. Par contre, ces versions sont nécessaires pour tester les scripts de déploiement localement. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Vous pouvez utiliser une image Docker préconfigurée.  Consultez [Configurer l’environnement de développement](#configure-development-environment).
+- **Azure PowerShell** ou **Azure CLI**. Pour obtenir la liste des versions d’Azure PowerShell prises en charge, consultez [ceci](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list) ; pour obtenir la liste des versions d’Azure CLI prises en charge, consultez [ceci](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+
+    >[!IMPORTANT]
+    > Le script de déploiement utilise les images CLI disponibles à partir de Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour le script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Si une version non prise en charge est utilisée, le message d’erreur répertorie les versions prises en charge.
+
+    Vous n’avez pas besoin de ces versions pour déployer des modèles. Par contre, ces versions sont nécessaires pour tester les scripts de déploiement localement. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Vous pouvez utiliser une image Docker préconfigurée.  Consultez [Configurer l’environnement de développement](#configure-development-environment).
 
 ## <a name="sample-templates"></a>Exemples de modèles
 
@@ -98,6 +103,12 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
     "forceUpdateTag": 1,
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
+    "environmentVariables": [
+      {
+        "name": "someSecret",
+        "secureValue": "if this is really a secret, don't put it here... in plain text..."
+      }
+    ],
     "scriptContent": "
       param([string] $name)
       $output = 'Hello {0}' -f $name
@@ -121,8 +132,9 @@ Détails des valeurs de propriété :
 - **Identité** : le service de script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
 - **kind** : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
 - **forceUpdateTag** : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Utilisez la fonction newGuid() ou utcNow() qui doit être définie comme defaultValue d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
-- **azPowerShellVersion**/**azCliVersion** : spécifie la version du module à utiliser. Le script de déploiement prend actuellement en charge Azure PowerShell version 2.7.0, 2.8.0 et 3.0.0 Azure CLI version 2.0.80, 2.0.79, 2.0.78 et 2.0.77.
+- **azPowerShellVersion**/**azCliVersion** : spécifie la version du module à utiliser. Pour obtenir la liste des versions prises en charge de PowerShell et de l’interface CLI, consultez les [conditions préalables](#prerequisites).
 - **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
+- **environmentVariables** : spécifie les variables d'environnement à transmettre au script. Pour plus d'informations, consultez [Développer des scripts de déploiement](#develop-deployment-scripts).
 - **scriptContent** : précise le contenu du script. Pour exécuter un script externe, utilisez plutôt `primaryScriptUri`. Pour obtenir des exemples, consultez [Utiliser un script inclus](#use-inline-scripts) et [Utiliser un script externe](#use-external-scripts).
 - **primaryScriptUri** : spécifie une URL accessible publiquement pour le script de déploiement principal avec les extensions de fichier prises en charge.
 - **supportingScriptUris** : spécifie un tableau d’URL accessibles publiquement pour les fichiers de prise en charge qui seront appelés dans `ScriptContent` ou `PrimaryScriptUri`.
@@ -141,16 +153,16 @@ Détails des valeurs de propriété :
 
 ## <a name="use-inline-scripts"></a>Utiliser des scripts inclus
 
-Le modèle suivant dispose d’une ressource définie avec le type `Microsoft.Resources/deploymentScripts`.
+Le modèle suivant dispose d’une ressource définie avec le type `Microsoft.Resources/deploymentScripts`. La partie en surbrillance est le script inclus.
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json?range=1-54)]
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
 > Étant donné que les scripts de déploiement inclus sont placés entre guillemets doubles, les chaînes contenues dans les scripts de déploiement doivent être mises entre guillemets simples. Le caractère d’échappement pour PowerShell est **&#92;** . Vous pouvez également envisager d’utiliser la substitution de chaîne, comme montré dans l’exemple JSON précédent. Regardez la valeur par défaut du paramètre name.
 
 Le script accepte un paramètre, et génère la valeur du paramètre. **DeploymentScriptOutputs** s’utilise pour stocker les sorties.  À la section outputs, la ligne **value** montre comment accéder aux valeurs stockées. `Write-Output` s’utilise pour le débogage. Pour savoir comment accéder au fichier de sortie, consultez [Déboguer les scripts de déploiement](#debug-deployment-scripts).  Pour obtenir les descriptions des propriétés, consultez [Exemples de modèles](#sample-templates).
 
-Afin d’exécuter le script, sélectionnez **Try it** (Essayer) pour ouvrir Azure Cloud Shell, puis collez le code suivant dans le volet de l’interpréteur de commandes.
+Afin d’exécuter le script, sélectionnez **Try it** (Essayer) pour ouvrir Cloud Shell, puis collez le code suivant dans le volet de l’interpréteur de commandes.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -180,6 +192,8 @@ Pour voir un exemple, sélectionnez [ici](https://github.com/Azure/azure-docs-js
 
 Les fichiers de script externe doivent être accessibles.  Pour sécuriser vos fichiers de script qui sont stockés dans les comptes de stockage Azure, consultez [Tutoriel : Sécuriser des artefacts dans les déploiements de modèles Azure Resource Manager](./template-tutorial-secure-artifacts.md).
 
+Vous êtes chargé de garantir l'intégrité des scripts référencés par le script de déploiement, à savoir **PrimaryScriptUri** ou **SupportingScriptUris**.  Référencez uniquement les scripts auxquels vous faites confiance.
+
 ## <a name="use-supporting-scripts"></a>Utiliser des scripts de prise en charge
 
 Vous pouvez séparer les logiques complexes en un ou plusieurs fichiers de script de prise en charge. La propriété `supportingScriptURI` vous permet de fournir un tableau d’URI pour les fichiers de script de prise en charge, le cas échéant :
@@ -204,7 +218,7 @@ Les fichiers de prise en charge sont copiés dans azscripts/azscriptinput au mom
 
 Le modèle suivant montre comment passer des valeurs entre deux ressources deploymentScripts :
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic.json?range=1-84)]
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
 
 Dans la première ressource, vous définissez une variable appelée **$DeploymentScriptOutputs** et l’utilisez pour stocker les valeurs de sortie. Pour accéder à la valeur de sortie à partir d’une autre ressource dans le modèle, utilisez :
 
@@ -216,9 +230,9 @@ reference('<ResourceName>').output.text
 
 À la différence du script de déploiement PowerShell, la prise en charge de CLI/Bash n’expose pas de variable courante permettant de stocker les sorties de script. Au lieu de cela, il existe une variable d’environnement appelée **AZ_SCRIPTS_OUTPUT_PATH** qui stocke l’emplacement où se trouve le fichier des sorties du script. Si un script de déploiement est exécuté à partir d’un modèle Resource Manager, cette variable d’environnement est automatiquement définie pour vous par l’interpréteur de commandes Bash.
 
-Les sorties de script de déploiement doivent être enregistrées à l’emplacement AZ_SCRIPTS_OUTPUT_PATH et être un objet de chaîne JSON valide. Le contenu du fichier doit être enregistré sous la forme d’une paire clé-valeur. Par exemple, un tableau de chaînes est stocké sous la forme { “MyResult”: [ “foo”, “bar”] }.  Le stockage des résultats du tableau uniquement, par exemple [ “foo”, “bar” ], n’est pas valide.
+Les sorties de script de déploiement doivent être enregistrées à l’emplacement AZ_SCRIPTS_OUTPUT_PATH et être un objet de chaîne JSON valide. Le contenu du fichier doit être enregistré sous la forme d’une paire clé-valeur. Par exemple, un tableau de chaînes est stocké sous la forme { "MyResult": [ "foo", "bar"] }.  Le stockage des résultats du tableau uniquement, par exemple [ "foo", "bar" ], n’est pas valide.
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json" range="1-44" highlight="32":::
 
 [jq](https://stedolan.github.io/jq/) est utilisé dans l’exemple précédent. Il est fourni avec les images conteneurs. Consultez [Configurer l’environnement de développement](#configure-development-environment).
 
@@ -231,7 +245,7 @@ Vous pouvez contrôler la façon dont PowerShell répond aux erreurs sans fin d�
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passer des chaînes sécurisées au script de déploiement
 
-Définir des variables d’environnement dans vos instances de conteneur vous permet de fournir une configuration dynamique de l’application ou du script exécuté par le conteneur. Le script de déploiement gère les variables d’environnement sécurisées et non sécurisées de la même manière qu’Azure Container Instance. Pour plus d’informations, consultez [Définir des variables d’environnement dans des instances de conteneur](../../container-instances/container-instances-environment-variables.md#secure-values).
+La définition de variables d'environnement (EnvironmentVariable) dans vos instances de conteneur vous permet de fournir une configuration dynamique de l'application ou du script exécuté par le conteneur. Le script de déploiement gère les variables d’environnement sécurisées et non sécurisées de la même manière qu’Azure Container Instance. Pour plus d’informations, consultez [Définir des variables d’environnement dans des instances de conteneur](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Déboguer les scripts de déploiement
 
@@ -262,7 +276,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 Le résultat ressemble à ce qui suit :
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-status.json?range=1-48)]
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-status.json" range="1-37" highlight="15,34":::
 
 La sortie renseigne sur l’état du déploiement, et les ID de ressource du script de déploiement.
 
@@ -299,7 +313,7 @@ Le cycle de vie de ces ressources est contrôlé par les propriétés suivantes 
 
 L’exécution d’un script de déploiement est une opération idempotente. Si aucune des propriétés de la ressource deploymentScripts (y compris le script inclus) n’est modifiée, le script n’est pas exécuté lorsque vous redéployez le modèle. Le service de script de déploiement compare les noms des ressource du modèle aux ressources existantes dans le même groupe de ressources. Vous avez deux options à votre disposition si vous souhaitez exécuter le même script de déploiement plusieurs fois :
 
-- Modifiez le nom de votre ressource deploymentScripts. Par exemple, utilisez la fonction de modèle [utcNow](./template-functions-string.md#utcnow) comme nom de ressource, ou comme partie du nom de la ressource. La modification du nom de la ressource crée une nouvelle ressource deploymentScripts. C’est un moyen pratique pour conserver un historique de l’exécution des scripts.
+- Modifiez le nom de votre ressource deploymentScripts. Par exemple, utilisez la fonction de modèle [utcNow](./template-functions-date.md#utcnow) comme nom de ressource, ou comme partie du nom de la ressource. La modification du nom de la ressource crée une nouvelle ressource deploymentScripts. C’est un moyen pratique pour conserver un historique de l’exécution des scripts.
 
     > [!NOTE]
     > La fonction utcNow ne peut être utilisée que dans la valeur par défaut d’un paramètre.

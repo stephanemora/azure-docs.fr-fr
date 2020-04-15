@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cabfc84d2bc0c9d08a457e67c0182d7550f04ceb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647881"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668885"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 Cette rubrique explique comment effectuer les opérations suivantes :
@@ -58,9 +58,13 @@ Si vous restreignez l’accès avec un groupe de sécurité réseau Azure, véri
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Déterminer la référence SKU requise pour l'équilibreur de charge
 
-Deux références SKU sont disponibles pour [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) : De base et Standard. L'équilibreur de charge standard est recommandé. Si les machines virtuelles se trouvent dans un groupe à haute disponibilité, l'équilibreur de charge de base est autorisé. L'équilibreur de charge standard exige que toutes les machines virtuelles utilisent des adresses IP standard.
+Deux références SKU sont disponibles pour [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) : De base et Standard. L'équilibreur de charge standard est recommandé. Si les machines virtuelles se trouvent dans un groupe à haute disponibilité, l'équilibreur de charge de base est autorisé. Si les machines virtuelles se trouvent dans une zone de disponibilité, un équilibreur de charge standard est requis. L'équilibreur de charge standard exige que toutes les machines virtuelles utilisent des adresses IP standard.
 
 Le [modèle Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) actuel de groupe de disponibilité utilise un équilibreur de charge de base avec des adresses IP de base.
+
+   > [!NOTE]
+   > Si vous utilisez un équilibreur de charge standard et Stockage Azure pour le témoin cloud, vous devez configurer un [point de terminaison de service](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network). 
+
 
 Les exemples présentés dans cet article spécifient un équilibreur de charge standard. Dans les exemples, le script inclut `-sku Standard`.
 
@@ -226,6 +230,8 @@ Notez les instructions suivantes concernant l’écouteur de groupe de disponibi
 * Avec un équilibreur de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
 
 * Si vous restreignez l’accès avec un groupe de sécurité réseau Azure, vérifiez que les règles d’autorisation comprennent l’adresse IP de la machine virtuelle du serveur backend SQL, les adresses IP flottantes de l’équilibreur de charge pour l’écouteur de groupe de disponibilité, et l’adresse IP du cluster principal, le cas échéant.
+
+* Créez un point de terminaison de service lorsque vous utilisez un équilibreur de charge standard avec Stockage Azure pour le témoin cloud. Pour plus d'informations, consultez [Accorder l'accès à partir d'un réseau virtuel](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Informations supplémentaires
 Pour plus d’informations, consultez [Configure Always On availability group in Azure VM manually (Configuration manuelle d’un groupe de disponibilité Always On dans une machine virtuelle Azure)](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

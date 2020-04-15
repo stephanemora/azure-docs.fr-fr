@@ -4,19 +4,19 @@ description: En savoir plus sur les scénarios pris en charge et la configuratio
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f38c160a72b6c414cdde7d29e4056a4068cdc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e0427398d05cbe9f76249ec8f7c25568d566d5d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848814"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654378"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Authentification par certificat Azure Active Directory sur Android
 
@@ -66,7 +66,7 @@ Une bonne pratique consiste à ajouter les informations suivantes aux pages d’
 
 Pour plus d’informations, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
-Certaines applications Office (avec l’authentification moderne activée) envoient « *prompt=login* » à Azure AD dans leur demande. Par défaut, Azure AD traduit « *prompt=login* » dans la requête aux services ADFS en « *wauth=usernamepassworduri* » (demande aux services ADFS d’effectuer l’authentification U/P) et « *wfresh=0* » (demande aux services ADFS d’ignorer l’état d’authentification unique et d’effectuer une nouvelle authentification). Si vous souhaitez activer l’authentification par certificat pour ces applications, vous devez modifier le comportement par défaut d’Azure AD. Définissez « *PromptLoginBehavior* » dans vos paramètres de domaine fédéré sur « *Désactivé* ».
+Certaines applications Office (pour lesquelles l'authentification moderne est activée) envoient « *prompt=login* » à Azure AD dans leur requête. Par défaut, Azure AD traduit l'instruction « *prompt=login* » de la requête adressée aux services ADFS par « *wauth=usernamepassworduri* » (demande aux services ADFS d'effectuer l'authentification U/P) et « *wfresh=0* » (demande aux services ADFS d'ignorer l'état d'authentification unique et d'effectuer une nouvelle authentification). Si vous souhaitez activer l’authentification par certificat pour ces applications, vous devez modifier le comportement par défaut d’Azure AD. Dans les paramètres du domaine fédéré, définissez « *PromptLoginBehavior* » sur « *Désactivé* ».
 Vous pouvez utiliser l’applet de commande [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) pour effectuer cette tâche :
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`

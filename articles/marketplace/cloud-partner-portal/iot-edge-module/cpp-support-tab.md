@@ -5,18 +5,21 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45304e12bf959cb1f695384535360af283ee3f10
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286504"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981866"
 ---
 # <a name="iot-edge-module-support-tab"></a>Onglet Support du module IoT Edge
 
-Dans l’onglet **Support** de la page **Nouvelle offre**, indiquez les ressources de support utilisateur et technique associées à votre offre.  Les zones d’entrée suivantes figurent sur le formulaire de support : **Engineering Contact** (Contact ingénierie), **Service clientèle** et **Support Urls** (URL de support). Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
+>[!Important]
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de module IoT Edge vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Créer une offre de module Azure IoT Edge](https://aka.ms/AzureCreateIoT) pour gérer vos offres migrées.
+
+Dans l’onglet **Support** de la page **Nouvelle offre**, indiquez les ressources de support utilisateur et technique associées à votre offre.  Les domaines d’entrée suivants sont fournis sur le formulaire de support : **Contact ingénierie**, **Service clientèle** et **URL du support**. Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 
 ![Onglet Support du formulaire Nouvelle offre pour les modules IoT Edge](./media/iot-edge-module-support-tab.png)
 

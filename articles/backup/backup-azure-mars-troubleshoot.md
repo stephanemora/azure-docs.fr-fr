@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les problèmes liés
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 24169356600c25e664221af397051bb0fec3e459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673090"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421270"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -132,6 +132,13 @@ Set-ExecutionPolicy Unrestricted
 
 > [!TIP]
 > Pour veiller à ce que les modifications soient appliquées de manière cohérente, redémarrez le serveur après avoir suivi les étapes ci-dessus.
+
+## <a name="resource-not-provisioned-in-service-stamp"></a>Ressource non approvisionnée dans l'horodatage du service
+
+Error | Causes possibles | Actions recommandées
+--- | --- | ---
+L'opération actuelle a échoué en raison d'une erreur de service interne « Ressource non approvisionnée dans l'horodatage du service ». Veuillez réessayer l’opération après un certain temps. (ID : 230006) | Le serveur protégé a été renommé. | <li> Renommez le serveur avec le nom d'origine inscrit auprès du coffre. <br> <li> Réinscrivez le serveur dans le coffre avec le nouveau nom.
+
 
 ## <a name="troubleshoot-restore-problems"></a>Résoudre les problèmes de restauration
 

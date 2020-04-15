@@ -1,7 +1,7 @@
 ---
 title: Déontologie et utilisation responsable - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Ces instructions ont pour but de vous aider à implémenter une personnalisation de façon à ce que votre entreprise et votre service inspirent confiance. Prenez le temps de faire des recherches, d’en savoir plus et de délibérer sur l’impact de la personnalisation sur la vie des gens. En cas de doute, demandez conseil.
+description: Ces instructions ont pour but de vous aider à implémenter une personnalisation de façon à ce que votre entreprise et votre service inspirent confiance. Prenez le temps de faire des recherches, d'en savoir plus et de délibérer sur l'impact de la personnalisation sur la vie des gens. En cas de doute, demandez conseil.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71720241"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478095"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Instructions pour une implémentation responsable de Personalizer
 
-Pour que les individus et la société soient en mesure de tirer pleinement parti du potentiel de l’intelligence artificielle, les implémentations doivent être conçues de manière à gagner la confiance de ceux qui ajoutent l’intelligence artificielle à leurs applications et des utilisateurs d’applications intégrant l’intelligence artificielle. Ces instructions ont pour but de vous aider à implémenter Personalizer de façon à ce que votre entreprise et votre service inspirent confiance. Prenez le temps de faire des recherches, d’en savoir plus et de délibérer sur l’impact de la personnalisation sur la vie des gens. En cas de doute, demandez conseil.
+Pour que les individus et la société soient en mesure de tirer pleinement parti du potentiel de l’intelligence artificielle, les implémentations doivent être conçues de manière à gagner la confiance de ceux qui ajoutent l’intelligence artificielle à leurs applications et des utilisateurs d’applications intégrant l’intelligence artificielle. Ces instructions ont pour but de vous aider à implémenter Personalizer de façon à ce que votre entreprise et votre service inspirent confiance. Prenez le temps de faire des recherches, d'en savoir plus et de délibérer sur l'impact de la personnalisation sur la vie des gens. En cas de doute, demandez conseil.
 
 Ces instructions n’ont pas vocation à constituer des conseils juridiques. Vous devez vous assurer par vous-même que votre application est conforme à l’évolution rapide de la législation dans ce domaine et dans votre secteur.
 
 De plus, dans le cadre de la conception de votre application avec Personalizer, vous devez prendre compte le large éventail de responsabilités qui vous incombent lors du développement de tout système d’intelligence artificielle centré sur les données, notamment en matière de déontologie, de confidentialité, de sécurité, d’inclusion et de transparence. Vous trouverez plus d’informations sur ces éléments dans la section [Lectures recommandées](#recommended-reading).
 
-Vous pouvez utiliser le contenu suivant comme check-list de démarrage, et la personnaliser et l’affiner en fonction de votre scénario. Ce document comporte deux sections principales : La première est dédiée à la mise en avant des considérations d’utilisation responsable lors du choix des scénarios, des caractéristiques et des récompenses pour Personalizer. La deuxième présente un ensemble de valeurs qui, selon Microsoft, doivent être prises en considération lors de la création de systèmes d’intelligence artificielle, et expose des suggestions actionnables et les risques quant à la manière dont votre utilisation de Personalizer peut avoir un impact sur ces valeurs. 
+Vous pouvez utiliser le contenu suivant comme check-list de démarrage, et la personnaliser et l’affiner en fonction de votre scénario. Ce document comporte deux sections principales : La première est dédiée à la mise en avant des considérations d’utilisation responsable lors du choix des scénarios, des caractéristiques et des récompenses pour Personalizer. La deuxième présente un ensemble de valeurs qui, selon Microsoft, doivent être prises en considération lors de la création de systèmes d’intelligence artificielle, et expose des suggestions actionnables et les risques quant à la manière dont votre utilisation de Personalizer peut avoir un impact sur ces valeurs.
 
 
 ## <a name="your-responsibility"></a>Votre responsabilité
@@ -42,18 +42,18 @@ Microsoft améliore sans cesse ses outils et sa documentation pour vous aider à
 L’implémentation de Personalizer peut apporter une belle valeur ajoutée à vos utilisateurs et à votre entreprise. Pour implémenter Personalizer de façon responsable, commencez par prendre en compte les consignes suivantes lors :
 
 * Du choix de cas d’usage pour appliquer la personnalisation.
-* De la création de [fonctions de récompense](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
-* Du choix des [caractéristiques](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) relatives au contexte et des actions possibles que vous utiliserez pour la personnalisation.
+* De la création de [fonctions de récompense](concept-rewards.md).
+* Du choix des [caractéristiques](concepts-features.md) relatives au contexte et des actions possibles que vous utiliserez pour la personnalisation.
 
 
 ## <a name="choosing-use-cases-for-personalizer"></a>Choix de cas d’usage pour Personalizer
 
-L’utilisation d’un service qui apprend à personnaliser le contenu et les interfaces utilisateur est très utile. Elle peut aussi être néfaste si la personnalisation crée des effets secondaires négatifs dans le monde réel, notamment si les utilisateurs n’ont pas connaissance de la personnalisation du contenu. 
+L’utilisation d’un service qui apprend à personnaliser le contenu et les interfaces utilisateur est très utile. Elle peut aussi être néfaste si la personnalisation crée des effets secondaires négatifs dans le monde réel, notamment si les utilisateurs n’ont pas connaissance de la personnalisation du contenu.
 
-L’utilisation de Personalizer peut présenter un risque accru d’effets secondaires négatifs ou un manque de transparence dans certains scénarios, par exemple si la « récompense » dépend de nombreux facteurs complexes à long terme qui, en cas de simplification exagérée en une récompense immédiate, peuvent générer des résultats défavorables pour les individus. Ces choix ont tendance à être considérés comme « ayant des conséquences », c’est-à-dire impliquant un risque de dommage. Par exemple : 
+L’utilisation de Personalizer peut présenter un risque accru d’effets secondaires négatifs ou un manque de transparence dans certains scénarios, par exemple si la « récompense » dépend de nombreux facteurs complexes à long terme qui, en cas de simplification exagérée en une récompense immédiate, peuvent générer des résultats défavorables pour les individus. Ces choix ont tendance à être considérés comme « ayant des conséquences », c'est-à-dire impliquant un risque de préjudice. Par exemple :
 
 
-* **Finances** : offres de personnalisation sur des produits de prêt, d’assurance ou financiers, où les facteurs de risque sont basés sur des données que les individus ne connaissent pas, ne peuvent pas obtenir ou ne peuvent pas contester. 
+* **Finances** : offres de personnalisation sur des produits de prêt, d’assurance ou financiers, où les facteurs de risque sont basés sur des données que les individus ne connaissent pas, ne peuvent pas obtenir ou ne peuvent pas contester.
 * **Formation :** classement personnalisé pour des formations et des établissements d’enseignement, où les recommandations peuvent propager des préjugés et réduire la connaissance des utilisateurs quant aux autres options disponibles.
 * **Démocratie et participation civique** : la personnalisation du contenu pour les utilisateurs dans le but d’influencer leurs opinions a des conséquences et un caractère manipulatoire.
 * **Évaluation des récompenses par un tiers** : personnalisation d’éléments où la récompense est basée sur une évaluation ultérieure de l’utilisateur par un tiers, au lieu de faire en sorte que la récompense soit générée par le comportement de l’utilisateur.
@@ -78,7 +78,7 @@ Réfléchissez à l’impact de ces caractéristiques :
 * **Données démographiques des utilisateurs** : Caractéristiques relatives au sexe, à l’âge, à la race et à la religion : Ces caractéristiques peuvent être interdites dans certaines applications pour des raisons légales, et leur appliquer une personnalisation peut ne pas être éthique car celle-ci transmettrait des généralisations et des préjugés. Exemple de ce genre de propagation biaisée : une offre d’emploi d’ingénieur qui ne serait pas présentée aux personnes d’un certain âge ou d’un certain sexe.
 * **Informations de localisation** : Dans de nombreuses régions du monde, les informations de localisation (par exemple un code postal ou un nom de quartier) peuvent être fortement corrélées avec un niveau de revenus, une race ou une religion.
 * **Perception de l’équité par l’utilisateur** : Même dans les cas où votre application prend des décisions saines, prenez en compte que les utilisateurs peuvent percevoir que le contenu affiché dans votre application change d’une manière qui semble être liée à des caractéristiques qui seraient discriminatoires.
-* **Préjugé involontaire dans les caractéristiques** :  Il existe des types de préjugés qui peuvent être introduits par l’utilisation de caractéristiques affectant uniquement une partie de la population. Vous devez faire doublement attention si des caractéristiques sont générées par un algorithme, par exemple en cas d’utilisation d’analyse d’images pour extraire des éléments dans une image ou d’analytique d’un texte pour découvrir des entités dans le texte. Familiarisez-vous avec les caractéristiques des services que vous utilisez pour créer ces caractéristiques.
+* **Préjugé involontaire dans les caractéristiques** :       Il existe des types de préjugés qui peuvent être introduits par l’utilisation de caractéristiques affectant uniquement une partie de la population. Vous devez faire doublement attention si des caractéristiques sont générées par un algorithme, par exemple en cas d’utilisation d’analyse d’images pour extraire des éléments dans une image ou d’analytique d’un texte pour découvrir des entités dans le texte. Familiarisez-vous avec les caractéristiques des services que vous utilisez pour créer ces caractéristiques.
 
 Appliquez les pratiques suivantes lors du choix des caractéristiques à envoyer dans les contextes et les actions à Personalizer :
 
@@ -86,7 +86,7 @@ Appliquez les pratiques suivantes lors du choix des caractéristiques à envoyer
 * Soyez transparent vis-à-vis des utilisateurs en leur précisant que des algorithmes et une analyse des données sont utilisés pour personnaliser les options qu’ils voient.
 * Posez-vous les questions suivantes : Mes utilisateurs se soucieraient-ils et seraient-ils contents si j’utilisais ces informations pour personnaliser leur contenu ? Me sentirais-je à l’aise de leur montrer comment la décision a été prise de souligner ou de masquer certains éléments ?
 * Utilisez des données comportementales plutôt que des données de classification ou de segmentation basées sur d’autres caractéristiques. Avant, les informations démographiques étaient utilisées par les détaillants pour des raisons historiques : il semblait simple de recueillir et d’agir sur des attributs démographiques avant l’ère numérique. Mais il convient aujourd’hui de questionner la pertinence des informations démographiques quand on dispose de données historiques, contextuelles et interactives réelles plus étroitement liées aux préférences et à l’identité des utilisateurs.
-* Réfléchissez à la façon d’empêcher que des caractéristiques ne soient « usurpées » par des utilisateurs malveillants. En cas d’exploitation à grande échelle, Personalizer risquerait d’être entraîné de manière trompeuse afin de perturber, embarrasser et harceler intentionnellement certaines classes d’utilisateurs. 
+* Réfléchissez à la façon d’empêcher que des caractéristiques ne soient « usurpées » par des utilisateurs malveillants. En cas d’exploitation à grande échelle, Personalizer risquerait d’être entraîné de manière trompeuse afin de perturber, embarrasser et harceler intentionnellement certaines classes d’utilisateurs.
 * Le cas échéant et dans la mesure du possible, concevez votre application de façon à autoriser les utilisateurs à accepter ou à refuser l’utilisation de certaines caractéristiques personnelles. Celles-ci pourraient être regroupées, par exemple dans des catégories telles que « Informations de localisation », « Informations d’appareil », « Historique des achats », et ainsi de suite.
 
 
@@ -101,7 +101,7 @@ Par exemple, si vous récompensez les clics, le service Personalizer recherchera
 Un site d’info, quant à lui, souhaitera peut-être définir des récompenses liées à quelque chose de plus significatif que les clics, par exemple « L’utilisateur a-t-il consacré assez de temps à la lecture du contenu ? » ou « A-t-il cliqué sur des références ou des articles pertinents ? ». Avec Personalizer, il est facile de lier étroitement des métriques à des récompenses. Mais veillez à ne pas confondre l’engagement utilisateur à court terme avec des résultats satisfaisants.
 
 ### <a name="unintended-consequences-from-reward-scores"></a>Conséquences inattendues des scores de récompense
-Même si les scores de récompense sont conçus avec la meilleure des intentions, ils peuvent toujours entraîner des conséquences inattendues ou des résultats indésirables quant à la façon dont Personalizer évalue le contenu. 
+Même si les scores de récompense sont conçus avec la meilleure des intentions, ils peuvent toujours entraîner des conséquences inattendues ou des résultats indésirables quant à la façon dont Personalizer évalue le contenu.
 
 Voici quelques exemples :
 
@@ -122,7 +122,7 @@ Voici une liste des domaines de conception pour des implémentations responsable
 ![Valeurs d’intelligence artificielle tirées de Future Computed](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
 ### <a name="accountability"></a>Responsabilité
-*Les personnes qui conçoivent et déploient des systèmes d’intelligence artificielle doivent être responsables du fonctionnement de leurs systèmes*. 
+*Les personnes qui conçoivent et déploient des systèmes d’intelligence artificielle doivent être responsables du fonctionnement de leurs systèmes*.
 
 * Créez des instructions internes expliquant comment implémenter Personalizer, documentez-les et communiquez-les à votre équipe, aux cadres dirigeants et aux fournisseurs.
 * Effectuez des revues périodiques du mode de calcul des scores de récompenses, effectuez des évaluations hors connexion pour identifier les caractéristiques qui ont un impact sur Personalizer, et utilisez les résultats pour éliminer les caractéristiques inutiles et superflues.
@@ -155,9 +155,9 @@ Voici une liste des domaines de conception pour des implémentations responsable
 *Les systèmes d’intelligence artificielle doivent être sécurisés et respecter la confidentialité*. Lors de l’utilisation de Personalizer :
 
 * *Informez immédiatement les utilisateurs des données qui seront collectées et de la façon dont elles seront utilisées, et obtenez leur accord au préalable*, conformément aux réglementations locales et de l’industrie.
-* *Fournissez des contrôles utilisateur de protection de la confidentialité.* Pour les applications qui stockent des informations personnelles, pensez à fournir un bouton facile à trouver pour des fonctions telles que : 
-   * `Show me all you know about me`    
-   * `Forget my last interaction` 
+* *Fournissez des contrôles utilisateur de protection de la confidentialité.* Pour les applications qui stockent des informations personnelles, pensez à fournir un bouton facile à trouver pour des fonctions telles que :
+   * `Show me all you know about me`
+   * `Forget my last interaction`
    * `Delete all you know about me`
 
 Dans certains cas, il pourra s’agir d’une exigence juridique. Évaluez les compromis liés à un ré-entraînement régulier des modèles afin qu’ils ne contiennent pas de traces de données supprimées.
@@ -165,7 +165,7 @@ Dans certains cas, il pourra s’agir d’une exigence juridique. Évaluez les c
 ### <a name="inclusiveness"></a>Intégration
 *Gérez un large éventail d’expériences et de besoins humains*.
 * *Fournissez des expériences personnalisées pour les interfaces d’accessibilité.* L’efficacité qui provient d’une bonne personnalisation - appliquée afin de réduire la quantité d’effort et de mouvements et la répétition inutile des interactions, peut être particulièrement bénéfique aux personnes présentant un handicap.
-* *Adaptez le comportement de l’application au contexte*. Vous pouvez utiliser Personalizer pour lever l’ambiguïté entre des intentions dans un bot conversationnel, par exemple quand l’interprétation correcte dépend du contexte. 
+* *Adaptez le comportement de l’application au contexte*. Vous pouvez utiliser Personalizer pour lever l’ambiguïté entre des intentions dans un bot conversationnel, par exemple quand l’interprétation correcte dépend du contexte.
 
 
 ## <a name="proactive-readiness-for-increased-data-protection-and-governance"></a>Préparation proactive pour une gouvernance et une protection des données accrues
@@ -185,14 +185,14 @@ Pensez à créer des méthodes permettant aux membres d’équipe, aux utilisate
 Toute personne réfléchissant aux effets secondaires de l’utilisation d’une technologie est limité par son point de vue et son vécu. Étendez la gamme d’opinions disponibles en introduisant des voix plus diversifiées dans vos équipes, utilisateurs ou comités consultatifs, en faisant en sorte de les encourager à partager leur avis. Utilisez des supports de formation afin de développer les connaissances de votre équipe dans ce domaine et de favoriser la discussion de sujets complexes et sensibles.
 
 Traitez les tâches relatives à une utilisation responsable comme toute autre tâche transversale dans le cycle de vie d’application, telles que celles liées à l’expérience utilisateur, à la sécurité ou à DevOps. Ces tâches et leurs exigences ne doivent pas être prises en considération à posteriori. L’utilisation responsable doit être discutée et vérifiée tout au long du cycle de vie d’application.
- 
+
 ## <a name="questions-and-feedback"></a>Questions et commentaires
 
 Microsoft améliore sans cesse ses outils et sa documentation pour vous aider à vous conformer à ces responsabilités. Notre équipe vous invite à [envoyer vos commentaires à Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) si vous pensez que des outils, des fonctionnalités de produit et de la documentation supplémentaires vous aideraient à implémenter ces instructions pour l’utilisation de Personalizer.
 
 ## <a name="recommended-reading"></a>Lectures recommandées
 
-* Consultez les six principes de Microsoft pour le développement responsable de l’intelligence artificielle publiés dans l’ouvrage de janvier 2018, [The Future Computed](https://news.microsoft.com/futurecomputed/).
+* Consultez les six principes de Microsoft pour le développement responsable de l'intelligence artificielle publiés dans l'ouvrage de janvier 2018, [The Future Computed](https://news.microsoft.com/futurecomputed/).
 * [Who Owns the Future?](https://www.goodreads.com/book/show/15802693-who-owns-the-future) de Jaron Lanier.
 * [Weapons of Math Destruction](https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction) de Cathy O’Neil.
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) de DJ Patil, Hilary Mason, Mike Loukides.
