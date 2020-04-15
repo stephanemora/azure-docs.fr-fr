@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76170283"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529418"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurer votre labo dans Azure DevTest Labs pour utiliser une passerelle des services Bureau à distance
 Dans Azure DevTest Labs, vous pouvez configurer une passerelle des services Bureau à distance pour votre labo afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP. Le labo fournit un emplacement centralisé permettant aux utilisateurs de votre labo de voir toutes les machines virtuelles auxquelles ils ont accès et de s’y connecter. Le bouton **Se connecter** dans la page **Machine virtuelle** crée un fichier RDP spécifique à la machine que vous pouvez ouvrir pour vous connecter à cette dernière. Vous pouvez personnaliser et sécuriser davantage la connexion RDP en connectant votre labo à une passerelle des services Bureau à distance. 
@@ -43,7 +43,7 @@ Cette approche est plus sécurisée car l’utilisateur du labo s’authentifie 
 Pour utiliser la fonctionnalité d’authentification du jeton DevTest Labs, il existe quelques exigences de configuration pour les machines, les services DNS (Domain Name Service) et les fonctions de passerelle.
 
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Exigences relatives aux machines de passerelle des services Bureau à distance
-- Un certificat SSL doit être installé sur la machine de passerelle pour gérer le trafic HTTPS. Le certificat doit correspondre le nom de domaine complet (FQDN) de l’équilibreur de charge de la batterie de serveurs de passerelle ou au nom de domaine complet de la machine elle-même s’il n’en existe qu’une. Les certificats SSL utilisant des caractères génériques ne fonctionnent pas.  
+- Un certificat TLS/SSL doit être installé sur la machine de passerelle pour gérer le trafic HTTPS. Le certificat doit correspondre le nom de domaine complet (FQDN) de l’équilibreur de charge de la batterie de serveurs de passerelle ou au nom de domaine complet de la machine elle-même s’il n’en existe qu’une. Les certificats TLS/SSL utilisant des caractères génériques ne fonctionnent pas.  
 - Un certificat de signature installé sur la ou les machines de passerelle. Créez un certificat de signature à l’aide du script [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1).
 - Installez le module d’[authentification enfichable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) qui prend en charge l’authentification du jeton pour la passerelle des services Bureau à distance. `RDGatewayFedAuth.msi`, qui est fourni avec des [images System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807), est un exemple de ce type de module. Pour plus d’informations sur System Center, consultez la [documentation de System Center](https://docs.microsoft.com/system-center/) et les [détails des tarifs](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - Le serveur de passerelle peut gérer les requêtes adressées à `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
@@ -58,7 +58,7 @@ La fonction Azure gère les requêtes au format `https://{function-app-uri}/app/
 
 ## <a name="requirements-for-network"></a>Exigences relatives au réseau
 
-- DNS pour le nom de domaine complet (FQDN) associé au certificat SSL installé sur les machines de passerelle doit diriger le trafic vers la machine de passerelle ou de l’équilibreur de charge de la batterie de serveurs de machines de passerelle.
+- DNS pour le nom de domaine complet (FQDN) associé au certificat TLS/SSL installé sur les machines de passerelle doit diriger le trafic vers la machine de passerelle ou de l’équilibreur de charge de la batterie de serveurs de machines de passerelle.
 - Si la machine de labo utilise des adresses IP privées, il doit y avoir un chemin réseau de la machine de passerelle à la machine de labo, soit en partageant le même réseau virtuel, soit en utilisant des réseaux virtuels appairés.
 
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configurer le labo pour utiliser une authentification du jeton 
@@ -79,7 +79,7 @@ Configurer le labo pour utiliser l’authentification du jeton à l’aide des �
 1. Dans la liste de labos, sélectionnez votre **labo**.
 1. Dans la page du labo, sélectionnez **Configuration et stratégies**.
 1. Dans le menu de gauche, dans la section **Paramètres**, sélectionnez **Paramètres lab**.
-1. Dans la section **Bureau à distance**, entrez le nom de domaine complet (FQDN) ou l’adresse IP de la machine ou la batterie de serveurs de passerelle des services Bureau à distance pour le champ **Nom d’hôte de passerelle**. Cette valeur doit correspondre au nom de domaine complet (FQDN) du certificat SSL utilisé sur les machines de passerelle.
+1. Dans la section **Bureau à distance**, entrez le nom de domaine complet (FQDN) ou l’adresse IP de la machine ou la batterie de serveurs de passerelle des services Bureau à distance pour le champ **Nom d’hôte de passerelle**. Cette valeur doit correspondre au nom de domaine complet (FQDN) du certificat TLS/SSL utilisé sur les machines de passerelle.
 
     ![Options de Bureau à distance dans les paramètres du labo](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
 1. Dans la section **Bureau à distance**, pour le **Secret du jeton de passerelle**, entrez le nom du secret créé précédemment. Cette valeur n’est pas la clé de la fonction proprement dite, mais le nom du secret dans le coffre de clés du labo qui la contient.
@@ -110,7 +110,7 @@ Le [dépôt GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestla
 Suivez ces étapes afin de configurer un exemple de solution pour la batterie de serveurs de passerelle des services Bureau à distance.
 
 1. Créez un certificat de signature.  Exécutez [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Enregistrez l’empreinte, le mot de passe et l’encodage en Base64 du certificat créé.
-2. Obtenir un certificat SSL. Le nom de domaine complet (FQDN) associé au certificat SSL doit être pour le domaine que vous contrôlez. Enregistrez l’empreinte, le mot de passe et l’encodage en Base64 de ce certificat. Pour obtenir l’empreinte à l’aide de PowerShell, utilisez les commandes suivantes.
+2. Obtenez un certificat TLS/SSL. Le nom de domaine complet (FQDN) associé au certificat TLS/SSL doit être pour le domaine que vous contrôlez. Enregistrez l’empreinte, le mot de passe et l’encodage en Base64 de ce certificat. Pour obtenir l’empreinte à l’aide de PowerShell, utilisez les commandes suivantes.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -132,9 +132,9 @@ Suivez ces étapes afin de configurer un exemple de solution pour la batterie de
     - instanceCount : nombre de machines de passerelle à créer.  
     - alwaysOn : indique s’il faut maintenir l’application Azure Functions créée dans un état actif ou non. Maintenir l’application Azure Functions active permet d’éviter des retards quand les utilisateurs tentent de se connecter pour la première fois à leur machine virtuelle de labo, mais cela a des implications en termes de coût.  
     - tokenLifetime : durée pendant laquelle le jeton créé sera valide. Le format est HH :MM:SS.
-    - sslCertificate : encodage en Base64 du certificat SSL pour la machine de passerelle.
-    - sslCertificatePassword : mot de passe du certificat SSL pour la machine de passerelle.
-    - sslCertificateThumbprint - empreinte du certificat pour l’identification dans le magasin de certificats local du certificat SSL.
+    - sslCertificate : encodage en Base64 du certificat TLS/SSL pour la machine de passerelle.
+    - sslCertificatePassword : mot de passe du certificat TLS/SSL pour la machine de passerelle.
+    - sslCertificateThumbprint : empreinte du certificat pour l’identification dans le magasin de certificats local du certificat TLS/SSL.
     - signCertificate : encodage en Base64 du certificat de signature pour la machine de passerelle.
     - signCertificatePassword : mot de passe du certificat de signature pour la machine de passerelle.
     - signCertificateThumbprint - empreinte du certificat pour l’identification dans le magasin de certificats local du certificat de signature.
@@ -157,7 +157,7 @@ Suivez ces étapes afin de configurer un exemple de solution pour la batterie de
         - {utc-expiration-date} est la date, au format UTC, à laquelle le jeton SAP expirera et à laquelle le jeton SAS ne peut plus être utilisé pour accéder au compte de stockage.
 
     Enregistrez les valeurs pour gatewayFQDN et gatewayIP à partir de la sortie de déploiement de modèle. Vous devez également enregistrer la valeur de la clé de fonction pour la fonction nouvellement créée, qui se trouve sous l’onglet [Paramètres Function App](../azure-functions/functions-how-to-use-azure-function-app-settings.md) .
-5. Configurez DNS de sorte que le nom de domaine complet (FQDN) du certificat SSL mène à l’adresse IP de gatewayIP de l’étape précédente.
+5. Configurez DNS de sorte que le nom de domaine complet (FQDN) du certificat TLS/SSL mène à l’adresse IP de gatewayIP de l’étape précédente.
 
     Une fois la batterie de serveurs de passerelle des services Bureau à distance créée et les mises à jour DNS appropriées effectuées, il est prêt à être utilisé par un labo dans DevTest Labs. Les paramètres de **nom d’hôte de passerelle** et de **secret du jeton de passerelle** doivent être configurés pour utiliser la ou les machines de passerelle que vous avez déployées. 
 

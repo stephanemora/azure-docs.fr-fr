@@ -42,17 +42,13 @@
       items:
         - name: Fonctionnement de l’authentification multifacteur (MFA)
           href: concept-mfa-howitworks.md
-        - name: Mettre vos utilisateurs sous licence
-          href: concept-mfa-licensing.md
-        - name: Gérer un fournisseur d’authentification
-          href: concept-mfa-authprovider.md
-        - name: Conseils de sécurité
-          href: multi-factor-authentication-security-best-practices.md
         - name: Résidence des données
           href: concept-mfa-data-residency.md
+        - name: Licences
+          href: concept-mfa-licensing.md
         - name: Authentification multifacteur (MFA) pour Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
-        - name: FAQ sur l’authentification multifacteur
+        - name: Questions fréquentes (FAQ)
           href: multi-factor-authentication-faq.md
     - name: Protection de mot de passe Azure AD
       items:
@@ -72,16 +68,18 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR pour les clients Windows
           href: howto-sspr-windows.md
-    - name: Authentification multifacteur sur le cloud
+    - name: Azure Multi-Factor Authentication
       items:
         - name: Guide de déploiement
           href: howto-mfa-getstarted.md
-        - name: Authentification multifacteur par utilisateur
-          href: howto-mfa-userstates.md
-        - name: Paramètres de l’appareil et utilisateur
-          href: howto-mfa-userdevicesettings.md
         - name: Configurer les paramètres
           href: howto-mfa-mfasettings.md
+        - name: Configurer des utilisateurs
+          href: howto-mfa-userdevicesettings.md
+        - name: Activer MFA par utilisateur
+          href: howto-mfa-userstates.md
+        - name: Configurer des fournisseurs d’authentification
+          href: concept-mfa-authprovider.md
         - name: Fédération d’annuaires
           items:
             - name: Adaptateur Windows Server 2016 AD FS
@@ -140,6 +138,8 @@
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello Entreprise
           href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+    - name: Utiliser l’authentification basée sur SMS (préversion)
+      href: howto-authentication-sms-signin.md
     - name: Authentification par certificat
       items:
         - name: Prise en main des certificats d’autorisation

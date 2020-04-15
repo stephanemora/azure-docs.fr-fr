@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud
 description: Vue d’ensemble et architecture de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud pour Azure.
-ms.date: 08/20/2019
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 08171a39c83ea6822243d7239882a19b053f213e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: d0328a590d86677e098504a7498a696697fc38c8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "74545491"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383541"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -20,7 +20,7 @@ L’exemple de blueprint de [base du framework d’adoption du cloud](../caf-fou
 
 L’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud déploie dans Azure des ressources d’infrastructure de base que les organisations peuvent utiliser pour préparer leur abonnement à accueillir la migration de machines virtuelles. Il aide également à mettre en place les contrôles de gouvernance nécessaires pour gérer leurs ressources cloud. Cet exemple déploie et applique des ressources, stratégies et modèles qui permettent à une organisation de commencer à utiliser Azure en toute confiance.
 
-![Zone d’accueil de migration du framework d’adoption du cloud, image décrivant ce qui est installé conformément à ce que préconise le framework d’adoption du cloud en lien avec la zone d’accueil de migration ](../../media/caf-blueprints/caf-migration-landing-zone-architecture.png)
+:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zone d’accueil de migration du framework d’adoption du cloud, image décrivant ce qui est installé conformément à ce que préconise le framework d’adoption du cloud en lien avec la zone d’accueil de migration" border="false":::
 
 Cet environnement se compose de plusieurs services Azure utilisés pour fournir une gouvernance sécurisée, entièrement supervisée et prête pour les entreprises. Cet environnement comporte les éléments suivants :
 

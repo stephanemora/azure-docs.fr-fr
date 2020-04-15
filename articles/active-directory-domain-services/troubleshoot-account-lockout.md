@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 29789f299f266c86d719d56cfbf8e262907f7264
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827076"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743453"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Résoudre les problèmes de verrouillage de compte avec un domaine managé Azure AD Domain Services
 
@@ -33,11 +33,11 @@ Les seuils de verrouillage de compte par défaut sont configurés à l’aide d�
 
 ### <a name="fine-grained-password-policy"></a>Stratégie de mot de passe affinée
 
-Les stratégies de mot de passe affinées (SMPA) vous permettent d’appliquer des restrictions spécifiques pour les stratégies de verrouillage de compte et de mot de passe à différents utilisateurs d’un domaine. Les stratégies SMPA affectent uniquement les utilisateurs créés dans Azure AD DS. Les utilisateurs du cloud et les utilisateurs de domaine synchronisés dans le domaine managé Azure AD DS à partir d’Azure AD ne sont pas affectés par les stratégies de mot de passe.
+Les stratégies de mot de passe affinées (SMPA) vous permettent d’appliquer des restrictions spécifiques pour les stratégies de verrouillage de compte et de mot de passe à différents utilisateurs d’un domaine. La SMPA affecte uniquement les utilisateurs au sein d’un domaine managé Azure AD DS. Les utilisateurs de cloud et de domaine synchronisés dans le domaine managé Azure AD DS à partir d’Azure AD ne sont affectés que par les stratégies de mot de passe définies à l’intérieur d’Azure AD DS. Leurs comptes dans Azure AD ou dans un répertoire local ne sont pas affectés.
 
 Les stratégies sont distribuées par le biais de l’association de groupes dans le domaine managé Azure AD DS, et les modifications que vous apportez sont appliquées à la connexion utilisateur suivante. La modification de la stratégie ne déverrouille pas un compte d’utilisateur qui est déjà verrouillé.
 
-Pour plus d’informations sur les stratégies de mot de passe affinées, consultez [Configurer des stratégies de mot de passe et de verrouillage de compte][configure-fgpp].
+Pour plus d’informations sur les stratégies de mot de passe affinées, ainsi que sur les différences entre les utilisateurs créés directement dans Azure AD Directory et synchronisés à partir d’Azure AD, consultez [Configurer des stratégies de mot de passe et de verrouillage de compte][configure-fgpp].
 
 ## <a name="common-account-lockout-reasons"></a>Raisons courantes d'un verrouillage de compte
 
@@ -54,7 +54,7 @@ Les raisons les plus courantes expliquant un verrouillage de compte, sans intent
 
 ## <a name="troubleshoot-account-lockouts-with-security-audits"></a>Résoudre les problèmes de verrouillage de compte avec les audits de sécurité
 
-Pour résoudre les problèmes liés aux événements de verrouillage de compte et à leur source, [activez les audits de sécurité pour Azure AD DS (actuellement en préversion)][security-audit-events]. Les événements d’audit sont uniquement capturés à partir du moment où vous activez cette fonctionnalité. Idéalement, vous devez activer les audits de sécurité *avant* d'être amené à remédier à un problème de verrouillage de compte. Si un compte d’utilisateur se heurte à des problèmes répétés de verrouillage, vous pouvez activer les audits de sécurité pour éviter qu'ils se reproduisent.
+Pour résoudre les problèmes liés aux événements de verrouillage de compte et à leur source, [activez les audits de sécurité pour Azure AD DS][security-audit-events]. Les événements d’audit sont uniquement capturés à partir du moment où vous activez cette fonctionnalité. Idéalement, vous devez activer les audits de sécurité *avant* d'être amené à remédier à un problème de verrouillage de compte. Si un compte d’utilisateur se heurte à des problèmes répétés de verrouillage, vous pouvez activer les audits de sécurité pour éviter qu'ils se reproduisent.
 
 Une fois les audits de sécurité activés, les exemples de requêtes suivants vous expliquent comment examiner les *Événements de verrouillage de compte*, code *4740*.
 

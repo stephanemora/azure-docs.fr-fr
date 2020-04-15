@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 description: Vue d’ensemble et architecture de l’exemple de blueprint Services partagés ISO 27001. Cet exemple de blueprint aide les clients à évaluer des contrôles ISO 27001 spécifiques.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75922541"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381570"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 
@@ -21,7 +21,7 @@ L’exemple de blueprint [Charge de travail App Service Environment/SQL Database
 L’exemple de blueprint Services partagés ISO 27001 déploie une infrastructure de base dans Azure que les organisations peuvent utiliser pour héberger plusieurs charges de travail selon l’approche du centre de données virtuel.
 Le centre de données virtuel est un ensemble éprouvé d’architectures de référence, d’outils d’automatisation et de modèles d’engagement utilisés par Microsoft avec ses grandes entreprises clientes. L’exemple de blueprint Services partagés s’appuie sur un environnement de centre de données virtuel Azure entièrement natif illustré ci-dessous.
 
-![Conception de l’exemple de blueprint Services partagés ISO 27001](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="Conception de l’exemple de blueprint Services partagés ISO 27001" border="false":::
 
 Cet environnement se compose de plusieurs services Azure utilisés pour fournir une infrastructure de services partagés sécurisée, entièrement supervisée et prête pour les entreprises, basée sur les normes ISO 27001. Cet environnement comporte les éléments suivants :
 

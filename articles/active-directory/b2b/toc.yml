@@ -63,6 +63,8 @@
               href: add-users-administrator.md
             - name: Ajout d’utilisateurs B2B par des membres de l’équipe informatique
               href: add-users-information-worker.md
+            - name: Inviter des utilisateurs internes sur B2B
+              href: invite-internal-users.md
             - name: Fédération des services Google
               href: google-federation.md
             - name: Authentification par code secret à usage unique

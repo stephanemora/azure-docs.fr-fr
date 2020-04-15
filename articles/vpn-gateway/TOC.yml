@@ -16,9 +16,11 @@
       href: powershell-samples.md
 - name: Concepts
   items:
-    - name: Prise en charge du travail à distance
+    - name: Travailler à distance
       items:
-        - name: Travailler à distance
+        - name: Support pour le travail à distance
+          href: ../networking/working-remotely-support.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+        - name: Optimisation du VPN Azure
           href: work-remotely-support.md
         - name: Configurations d’appliances virtuelles réseau et travail à distance
           href: nva-work-remotely-support.md

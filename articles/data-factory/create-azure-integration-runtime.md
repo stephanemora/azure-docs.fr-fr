@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf3bb7e6733ef55a85d0b4ae26a4ce05059a8fb9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230017"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887143"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Comment créer et configurer un runtime d’intégration Azure
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration, voir [Runtime d’intégration](concepts-integration-runtime.md).
@@ -30,7 +30,11 @@ Ce document décrit comment créer et configurer un runtime d’intégration Azu
 Par défaut, chaque fabrique de données a un runtime d’intégration Azure dans le service principal, qui prend en charge les opérations sur les banques de données et les services de calcul en ligne dans un réseau public. L’emplacement de ce runtime d’intégration Azure est résolu automatiquement. Si la propriété **connectVia** n’est pas spécifiée dans la définition du service lié, le runtime d’intégration Azure par défaut est utilisé. Vous devez uniquement créer explicitement un runtime d’intégration Azure lorsque vous souhaitez définir explicitement l’emplacement du runtime d’intégration, ou si vous souhaitez grouper virtuellement les exécutions d’activité sur différents runtimes d’intégration à des fins de gestion. 
 
 ## <a name="create-azure-ir"></a>Créer un runtime d’intégration Azure
-Vous pouvez créer un runtime d’intégration à l’aide de la cmdlet PowerShell **Set-AzDataFactoryV2IntegrationRuntime**. Pour créer un runtime d’intégration Azure, vous spécifiez le nom, l’emplacement et le type de la commande. Voici un exemple de commande pour créer un runtime d’intégration Azure avec l’emplacement défini sur « West Europe » (Europe Ouest) :
+
+Pour créer et configurer un Azure IR, vous pouvez suivre les procédures suivantes.
+
+### <a name="create-an-azure-ir-via-azure-powershell"></a>Créer un Azure IR via Azure PowerShell
+Vous pouvez créer un runtime d’intégration à l’aide de la cmdlet PowerShell **Set-AzDataFactoryV2IntegrationRuntime**. Pour créer un Azure IR, vous spécifiez le nom, l’emplacement et le type de la commande. Voici un exemple de commande pour créer un runtime d’intégration Azure avec l’emplacement défini sur « West Europe » (Europe Ouest) :
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
@@ -39,9 +43,30 @@ Pour un runtime d’intégration Azure, le type doit être défini sur **Géré*
 
 Vous pouvez configurer un runtime d’intégration Azure existant pour modifier son emplacement à l’aide de la cmdlet PowerShell Set-AzDataFactoryV2IntegrationRuntime. Pour plus d’informations sur l’emplacement d’un runtime d’intégration Azure, voir [Présentation du runtime d’intégration](concepts-integration-runtime.md).
 
+### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Créer une Azure IR via l’interface utilisateur Azure Data Factory
+Pour créer un Azure IR à l’aide de l’interface utilisateur Azure Data Factory, procédez comme suit.
+
+1. Dans la page **Prise en main** de l’interface utilisateur Azure Data Factory, sélectionnez l’onglet **Auteur** dans le volet gauche.
+
+   ![Bouton Auteur de la page d'accueil](media/doc-common-process/get-started-page-author-button.png)
+
+1. En bas du volet gauche, sélectionnez **Connexions**, puis **Runtimes d’intégration** dans la fenêtre **Connexions**. Sélectionnez **+Nouveau**.
+
+   ![Créer un runtime d’intégration](media/create-azure-integration-runtime/new-integration-runtime.png)
+
+1. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
+
+1. Sur la page suivante, sélectionnez **Azure** pour créer un Azure IR, puis choisissez **Continuer**.
+   ![Créer un runtime d’intégration](media/create-azure-integration-runtime/new-azure-ir.png)
+
+1. Entrez un nom pour votre Azure IR, puis sélectionnez **Créer**.
+   ![Créer un Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+
+1. Une notification contextuelle s’affiche lorsque la création est terminée. Dans la page **Runtimes d’intégration**, assurez-vous que le runtime d’intégration nouvellement créé est répertorié.
+
 ## <a name="use-azure-ir"></a>Utiliser un runtime d’intégration Azure
 
-Une fois un runtime d’intégration Azure créé, vous pouvez le référencer dans votre définition de service lié. Voici un exemple de la façon dont vous pouvez référencer le runtime d’intégration Azure créé ci-dessus à partir d’un service lié de Stockage Azure :  
+Une fois un runtime d’intégration Azure créé, vous pouvez le référencer dans votre définition de service lié. Voici un exemple de la façon dont vous pouvez référencer le runtime d’intégration Azure créé ci-dessus à partir d’un service lié de Stockage Azure :
 
 ```json
 {

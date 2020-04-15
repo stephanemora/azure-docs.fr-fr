@@ -1075,6 +1075,8 @@
               href: platform/itsmc-connections.md
             - name: Créer l’application web Service Manager
               href: platform/itsmc-service-manager-script.md
+            - name: Résoudre les problèmes de synchronisation d’ITSM ServiceNow
+              href: platform/itsmc-resync-servicenow.md
     - name: Automatisation
       items:
         - name: Mise à l’échelle automatique

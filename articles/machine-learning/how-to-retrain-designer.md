@@ -8,109 +8,111 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: keli19
 author: likebupt
-ms.date: 02/24/2020
-ms.openlocfilehash: c8791e933882832dc7b0037c860a4c4e1e9a54c7
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/06/2020
+ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389033"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810349"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Ce guide pratique explique comment utiliser le concepteur Azure Machine Learning pour réentraîner un modèle Machine Learning. Découvrez comment utiliser des pipelines publiés pour automatiser les workflows de Machine Learning en vue d’un réentraînement.
+Ce guide pratique explique comment utiliser le concepteur Azure Machine Learning pour réentraîner un modèle Machine Learning. Vous allez utiliser des pipelines publiés pour automatiser votre flux de travail et définir des paramètres pour effectuer l’apprentissage de votre modèle sur de nouvelles données. 
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Entraîner un modèle Machine Learning
+> * Effectuer l'apprentissage un modèle Machine Learning
 > * Créer un paramètre de pipeline
-> * Publier le pipeline d’entraînement
-> * Réentraîner le modèle
+> * Publier le pipeline d’apprentissage
+> * Ré-effectuer l’apprentissage de votre modèle avec de nouveaux paramètres.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree).
 * Un espace de travail Azure Machine Learning la référence SKU Entreprise.
+* Jeu de données accessible au concepteur. Il peut s'agir de l'une des ressources suivantes :
+   * Jeu de données Azure Machine Learning inscrit.
+    
+     **-ou-**
+   * Fichier de données stocké dans un magasin de données Azure Machine Learning.
+   
+Pour plus d’informations sur l’accès à des données à l’aide du concepteur, consultez [Comment importer des données dans le concepteur](how-to-designer-import-data.md).
 
-Cet article suppose des connaissances de base relatives à la création de pipelines dans le concepteur. Pour une présentation guidée du concepteur, suivez le [tutoriel](tutorial-designer-automobile-price-train-score.md). 
+Cet article présuppose également que vous disposez d’une connaissance de base de la création de pipelines dans le concepteur. Pour une présentation guidée, suivez le [tutoriel](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Exemple de pipeline
 
-Le pipeline utilisé dans cet article est une version modifiée de celui qui se trouve dans [Exemple 3 : Prédiction des revenus](how-to-designer-sample-classification-predict-income.md). Il se sert du module [Importer des données](algorithm-module-reference/import-data.md) au lieu de l’exemple de jeu de données pour vous montrer comment effectuer l’apprentissage d’un modèle à l’aide de vos propres données.
+Le pipeline utilisé dans cet article est une version modifiée de l’[Exemple 3 : Prédiction des revenus](samples-designer.md#classification-samples). Le pipeline se sert du module [Importer des données](algorithm-module-reference/import-data.md) plutôt que de l’exemple de jeu de données pour vous montrer comment effectuer l’apprentissage d’un modèle à l’aide de vos propres données.
 
 ![Capture d’écran montrant l’exemple de pipeline modifié avec une zone mettant en surbrillance le module Importer des données](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
-## <a name="train-a-machine-learning-model"></a>Entraîner un modèle Machine Learning
-
-Pour réentraîner un modèle, il faut disposer d’un modèle initial. Cette section explique comment effectuer l’apprentissage d’un modèle et accéder au modèle enregistré avec le concepteur.
-
-1. Sélectionnez le module **Importer des données**.
-1. Dans le volet Propriétés, indiquez une source de données.
-
-   ![Capture d’écran montrant un exemple de configuration du module Importer des données](./media/how-to-retrain-designer/import-data-settings.png)
-
-   Dans cet exemple, les données sont stockées dans un [magasin de données Azure](how-to-access-data.md). Si vous ne disposez pas déjà d’un magasin de données, vous pouvez en créer un maintenant en sélectionnant **Nouveau magasin de données**.
-
-1. Indiquez le chemin de vos données. Vous pouvez également sélectionner **Parcourir** pour accéder à votre magasin de données. 
-1. En haut du canevas, sélectionnez **Envoyer**.
-    
-   > [!NOTE]
-   > Si vous avez déjà défini un calcul par défaut pour ce brouillon de pipeline, le pipeline s’exécute automatiquement. Dans le cas contraire, vous pouvez suivre les invites du volet Paramètres pour en définir un maintenant.
-
-### <a name="find-your-trained-model"></a>Localiser le modèle formé
-
-Le concepteur enregistre toutes les sorties de pipeline, et notamment les modèles entraînés, dans le compte de stockage par défaut. Toutefois, vous pouvez aussi accéder directement aux modèles formés dans le concepteur :
-
-1. Attendez la fin de l’exécution du pipeline.
-1. Sélectionnez le module **Entraîner le modèle**.
-1. Dans le volet Paramètres, sélectionnez **Sorties+journaux**.
-1. Sélectionnez l’icône **Afficher la sortie** et suivez les instructions de la fenêtre contextuelle pour localiser le modèle formé.
-
-![Capture d’écran montrant comment télécharger le modèle formé](./media/how-to-retrain-designer/trained-model-view-output.png)
-
 ## <a name="create-a-pipeline-parameter"></a>Créer un paramètre de pipeline
 
-Ajoutez des paramètres de pipeline pour définir dynamiquement des variables au moment du runtime. Pour ce pipeline, ajoutez un paramètre pour le chemin des données d’entraînement afin de pouvoir réentraîner votre modèle sur un nouveau jeu de données.
+Créez des paramètres de pipeline pour définir des variables de façon dynamique lors du runtime. Pour cet exemple, vous allez convertir le chemin d’accès aux données d’apprentissage d’une valeur fixe en un paramètre, afin de pouvoir ré-effectuer l’apprentissage de votre modèle sur des données différentes.
 
 1. Sélectionnez le module **Importer des données**.
-1. Dans le volet Paramètres, sélectionnez les points de suspension situés au-dessus du champ **Chemin**.
+
+    > [!NOTE]
+    > Cet exemple utilise le module Importer des données pour accéder aux données d’un magasin de données inscrit. Vous cependant pouvez suivre une procédure similaire si vous utilisez d’autres modèles d’accès aux données.
+
+1. Dans le volet des détails du module à droite du canevas, sélectionnez votre source de données.
+
+1. Entrez le chemin de vos données. Vous pouvez également sélectionner **Parcourir le chemin** pour accéder à votre arborescence de fichiers. 
+
+1. Pointez la souris sur le champ **Chemin d’accès** et sélectionnez les points de suspension situés au-dessus du champ **Chemin d’accès** qui s’affiche.
+
+    ![Capture d’écran montrant comment créer un paramètre de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
+
 1. Sélectionnez **Ajouter au paramètre de pipeline**.
+
 1. Indiquez un nom de paramètre et une valeur par défaut.
 
    > [!NOTE]
    > Vous pouvez examiner et modifier vos paramètres de pipeline en sélectionnant l’icône d’engrenage **Paramètres** à côté du titre de votre brouillon de pipeline. 
 
-![Capture d’écran montrant comment créer un paramètre de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
+1. Sélectionnez **Enregistrer**.
+
+1. Soumettez l’exécution du pipeline.
+
+## <a name="find-a-trained-model"></a>Rechercher un modèle formé
+
+Le concepteur enregistre toute la sortie du pipeline, dont des modèles formés, dans le compte de stockage d’espace de travail par défaut. Vous pouvez cependant aussi accéder directement aux modèles formés dans le concepteur :
+
+1. Attendez la fin de l’exécution du pipeline.
+1. Sélectionnez le module **Entraîner le modèle**.
+1. Dans le volet des détails des modules à droite du canevas, sélectionnez **Sorties + journaux**.
+1. Vous pouvez trouver votre modèle dans **Autres sorties** ainsi que des journaux d’exécution.
+1. Vous pouvez également sélectionner l’icône **Afficher la sortie**. À partir de là, vous pouvez suivre l’instruction de la boîte de dialogue en accédant directement à votre magasin de données. 
+
+![Capture d’écran montrant comment télécharger le modèle formé](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publier un pipeline d’entraînement
 
-Le fait de publier un pipeline a pour effet de créer un point de terminaison de pipeline. Les points de terminaison de pipeline permettent de réutiliser et de gérer les pipelines à des fins de répétabilité et d’automatisation. Dans cet exemple, vous avez configuré votre pipeline pour le réentraînement.
+Publiez un pipeline sur un point de terminaison de pipeline pour réutiliser facilement vos pipelines à l’avenir. Un point de terminaison de pipeline crée un point de terminaison REST pour appeler le pipeline à l’avenir. Dans cet exemple, votre point de terminaison de pipeline vous permet de réutiliser votre pipeline pour ré-effectuer l’apprentissage d’un modèle sur des données différentes.
 
 1. Sélectionnez **Publier** au-dessus du canevas du concepteur.
 1. Sélectionnez ou créez un point de terminaison de pipeline.
 
    > [!NOTE]
-   > Vous pouvez publier plusieurs pipelines sur un même point de terminaison. Chacun reçoit un numéro de version, que vous pouvez spécifier lorsque vous appelez le point de terminaison de pipeline.
+   > Vous pouvez publier plusieurs pipelines sur un même point de terminaison. Chaque pipeline dans un point de terminaison reçoit un numéro de version que vous pouvez spécifier lorsque vous appelez le point de terminaison du pipeline.
 
 1. Sélectionnez **Publier**.
 
 ## <a name="retrain-your-model"></a>Réentraîner le modèle
 
-Maintenant que vous disposez d’un pipeline de formation publié, vous pouvez l’utiliser pour réentraîner votre modèle à l’aide de nouvelles données. Vous pouvez envoyer des exécutions à partir d’un point de terminaison de pipeline sur le Portail Azure ou par programmation.
+À présente que vous disposez d’un pipeline d’apprentissage publié, vous pouvez l’utiliser pour ré-effectuer l’apprentissage de votre modèle sur de nouvelles données. Vous pouvez envoyer des exécutions à partir d’un point de terminaison de pipeline de l’espace de travail Studio ou par programmation.
 
 ### <a name="submit-runs-by-using-the-designer"></a>Envoyer des exécutions à l’aide du concepteur
 
-Suivez les étapes ci-dessous pour envoyer une exécution de point de terminaison de pipeline à partir du concepteur :
+Suivez les étapes suivantes pour envoyer une exécution de point de terminaison de pipeline paramétré à partir du concepteur :
 
-1. Accédez à la page **Points de terminaison**.
-1. Sélectionnez l’onglet **Points de terminaison de pipeline**.
-1. Sélectionnez votre point de terminaison de pipeline.
-1. Sélectionnez l’onglet **Pipelines publiés**.
-1. Sélectionnez le pipeline que vous souhaitez exécuter.
+1. Accédez à la page **Points de terminaison** de votre espace de travail Studio.
+1. Sélectionnez l’onglet **Points de terminaison de pipeline**. Sélectionnez votre point de terminaison de pipeline.
+1. Sélectionnez l’onglet **Pipelines publiés**. Ensuite, sélectionnez la version de pipeline que vous souhaitez exécuter.
 1. Sélectionnez **Envoyer**.
-1. Dans la boîte de dialogue Installation, vous pouvez spécifier une nouvelle valeur pour la valeur du chemin d’accès aux données d’entrée. Cette valeur pointe vers votre nouveau jeu de données.
+1. Dans la boîte de dialogue de configuration, vous pouvez spécifier les valeurs des paramètres pour l’exécution. Pour cet exemple, mettez à jour le chemin d’accès des données pour effectuer l’apprentissage de votre modèle à l’aide d’un jeu de données non US.
 
 ![Capture d’écran montrant comment configurer une exécution de pipeline paramétrable dans le concepteur](./media/how-to-retrain-designer/published-pipeline-run.png)
 
@@ -122,4 +124,6 @@ Pour effectuer un appel REST, vous devez disposer d’un en-tête d’authentifi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez le [tutoriel sur le concepteur](tutorial-designer-automobile-price-train-score.md) pour effectuer l’apprentissage d’un modèle de régression et le déployer.
+Dans cet article, vous avez appris à créer un point de terminaison de pipeline d’apprentissage paramétré à l’aide du concepteur.
+
+Pour une procédure pas à pas complète de déploiement d’un modèle destiné à effectuer des prédictions, consultez le [tutoriel du concepteur](tutorial-designer-automobile-price-train-score.md) pour former et déployer un modèle de régression.

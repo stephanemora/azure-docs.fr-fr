@@ -8,16 +8,22 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: b285daa465c8d069b359e94c9203c1ffbea24c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970679"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985403"
 ---
-# <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
+# <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>FAQ sur Azure Disk Encryption pour machines virtuelles Linux
 
-Cet article offre des réponses aux questions fréquentes sur Azure Disk Encryption pour les machines virtuelles Linux. Pour plus d’informations sur ce service, consultez [Vue d’ensemble d’Azure Disk Encryption](disk-encryption-overview.md).
+Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Disk Encryption pour machines virtuelles Linux. Pour plus d’informations sur ce service, consultez [Vue d’ensemble d’Azure Disk Encryption](disk-encryption-overview.md).
+
+## <a name="what-is-azure-disk-encryption-for-linux-vms"></a>Qu’est-ce qu’Azure Disk Encryption pour machines virtuelles Linux
+
+Le service Azure Disk Encryption pour machines virtuelles Linux utilise la fonctionnalité dm-crypt de Linux pour effectuer un chiffrement complet du disque du système d’exploitation* et des disques de données. Il assure en outre le chiffrement du disque de ressources éphémères lors de l’utilisation de la [fonctionnalité EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). Le contenu est chiffré à partir de la machine virtuelle vers le serveur principal de stockage. Donc, en fournissant un chiffrement de bout en bout avec une clé gérée par le client.
+ 
+Consultez [Machines virtuelles et systèmes d’exploitation pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
 ## <a name="where-is-azure-disk-encryption-in-general-availability-ga"></a>Où se trouve Azure Disk Encryption en disponibilité générale (GA) ?
 
@@ -37,7 +43,7 @@ Pour commencer, consultez la [Vue d’ensemble d’Azure Disk Encryption](disk-e
 
 ## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Quels sont les tailles et les systèmes d’exploitation de machine virtuelle qui prennent en charge Azure Disk Encryption ?
 
-L’article [Vue d’ensemble d’Azure Disk Encryption](disk-encryption-overview.md) liste les [tailles de machine virtuelle](disk-encryption-overview.md#supported-vm-sizes) et les [systèmes d’exploitation de machine virtuelle](disk-encryption-overview.md#supported-operating-systems) qui prennent en charge Azure Disk Encryption.
+L’article [Vue d’ensemble d’Azure Disk Encryption](disk-encryption-overview.md) liste les [tailles de machine virtuelle](disk-encryption-overview.md#supported-vms) et les [systèmes d’exploitation de machine virtuelle](disk-encryption-overview.md#supported-operating-systems) qui prennent en charge Azure Disk Encryption.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Puis-je chiffrer des volumes de démarrage et de données avec Azure Disk Encryption ?
 
@@ -49,12 +55,26 @@ Une fois que vous avez chiffré le volume du système d’exploitation, la désa
 
 Non, Azure Disk Encryption chiffre uniquement les volumes montés.
 
+## <a name="what-is-storage-server-side-encryption"></a>Qu’est-ce que le chiffrement côté serveur de stockage ?
+
+Le chiffrement côté serveur de stockage chiffre les disques managés Azure dans Stockage Azure. Les disques managés sont chiffrés par défaut avec le chiffrement côté serveur à l’aide d’une clé gérée par la plateforme (à compter du 10 juin 2017). Vous pouvez gérer le chiffrement des disques managés avec vos propres clés en spécifiant une clé gérée par le client. Pour plus d’informations, consultez les pages suivantes : [Chiffrement côté serveur de disques managés Azure](disk-encryption.md).
+ 
+## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>En quoi Azure Disk Encryption diffère-t-il du chiffrement côté serveur de stockage avec clé gérée par le client, et quand dois-je utiliser chaque solution ?
+
+Azure Disk Encryption assure un chiffrement de bout en bout pour le disque du système d’exploitation, les disques de données et le disque de ressources éphémères avec une clé gérée par le client.
+- Si vos exigences incluent tout ce qui précède de bout en bout, optez pour Azure Disk Encryption. 
+- Si vos exigences incluent uniquement le chiffrement des données au repos avec clé gérée par le client, utilisez un [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md). Vous ne pouvez pas chiffrer un disque en utilisant Azure Disk Encryption et un chiffrement côté serveur de stockage avec clés gérées par le client. 
+- Si votre distribution Linux n’est pas répertoriée sous [Systèmes d’exploitation pris en charge pour Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems), ou si vous utilisez un scénario figurant parmi les [scénarios non pris en charge pour Windows](disk-encryption-linux.md#unsupported-scenarios), envisagez un [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).
+- Si la stratégie de votre organisation vous permet de chiffrer du contenu au repos avec une clé gérée par Azure, aucune action n’est nécessaire. Le contenu est chiffré par défaut. Pour les disques managés, le contenu du stockage est chiffré par défaut à l’aide d’un chiffrement côté serveur avec clé gérée par la plateforme. La clé est gérée par le service Stockage Azure. 
+
+
+
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Comment effectuer la rotation des secrets ou des clés de chiffrement ?
 
 Pour effectuer la rotation des secrets, appelez simplement la même commande que celle utilisée initialement pour activer le chiffrement de disque, en spécifiant un autre coffre de clés. Pour effectuer la rotation de la clé de chiffrement principale, appelez la même commande que celle utilisée initialement pour activer le chiffrement de disque, en spécifiant le nouveau chiffrement principal. 
 
 >[!WARNING]
-> - Si vous avez déjà utilisé [Azure Disk Encryption avec une application Azure AD](disk-encryption-linux-aad.md) avec des informations d’identification Azure AD pour chiffrer cette machine virtuelle, vous devrez continuer à utiliser cette option. Vous ne pouvez pas utiliser Azure Disk Encryption sur cette machine virtuelle chiffrée car un tel scénario n’est pas pris en charge. Autrement dit, l’utilisation d’une autre application que l’application AAD pour cette machine virtuelle n’est pas encore prise en charge.
+> - Si vous avez déjà utilisé [Azure Disk Encryption avec une application Azure AD](disk-encryption-linux-aad.md) avec des informations d’identification Azure AD pour chiffrer cette machine virtuelle, vous devrez continuer à utiliser cette option. Vous ne pouvez pas utiliser Azure Disk Encryption sur cette machine virtuelle chiffrée car ce scénario n’est pas pris en charge. Autrement dit, l’utilisation d’une application autre qu’AAD pour cette machine virtuelle n’est pas encore prise en charge.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Comment ajouter ou supprimer une clé de chiffrement principale si je n’en utilisais pas à l’origine ?
 

@@ -1,21 +1,21 @@
 ---
 title: Actions GitHub & Azure Kubernetes Service (préversion)
 services: azure-dev-spaces
-ms.date: 02/04/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 description: Passez en revue et testez les modifications à partir d’une demande de tirage (pull request) directement dans Azure Kubernetes Service avec des actions GitHub et Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Actions GitHub, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252372"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637948"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Actions GitHub & Azure Kubernetes Service (préversion)
 
-Azure Dev Spaces fournit un flux de travail à l’aide d’actions GitHub qui vous permettent de tester les modifications d’une demande de tirage (pull request) directement dans AKS avant de fusionner la requête de tirage dans la branche principale de votre référentiel. Avoir une application en cours d’exécution pour examiner les modifications apportées à une demande de tirage peut accroître la confiance du développeur et des membres de l’équipe. Cette application en cours d’exécution peut également aider les membres de son équipe, tels que les chefs de produits et les concepteurs, à faire partie du processus de révision lors des premières étapes du développement.
+Azure Dev Spaces fournit un flux de travail en utilisant GitHub Actions, qui vous permet de tester les modifications d’une demande de tirage (pull request) directement dans AKS avant de la fusionner dans la branche principale de votre dépôt. Avoir une application en cours d’exécution pour examiner les modifications apportées à une demande de tirage peut accroître la confiance du développeur et des membres de l’équipe. Cette application en cours d’exécution peut également aider les membres de son équipe, tels que les chefs de produits et les concepteurs, à faire partie du processus de révision lors des premières étapes du développement.
 
 Dans ce guide, vous allez apprendre à :
 
@@ -101,6 +101,11 @@ Accédez à votre référentiel dupliqué, puis cliquez sur *Paramètres*. Cliqu
 > Tous ces secrets sont utilisés par l’action GitHub et sont configurés dans [.gitHub/workflows/bikes.yml][github-action-yaml].
 
 Si vous souhaitez mettre à jour l’espace maître après la fusion de votre demande de tirage (pull request), ajoutez le secret *GATEWAY_HOST* au format *<ESPACE_MAÎTRE>.gateway.<SUFFIXE_HÔTE>* , comme dans l’exemple *dev.gateway.fedcab0987.eus.azds.io*. Une fois que vous avez fusionné vos modifications dans la branche maître de votre duplication (fork), une autre action est exécutée pour regénérer et exécuter l’intégralité de votre application dans l’espace de développement maître. Dans cet exemple, l’espace maître est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+
+En outre, si vous souhaitez que les modifications apportées à votre demande de tirage s’exécutent dans un espace petit-enfant, mettez à jour les secrets *MASTER_SPACE* et *HOST*. Par exemple, si votre application s’exécute dans *dev* avec un espace enfant *dev/azureuser1*, pour que la demande de tirage s’exécute dans un espace enfant de *dev/azureuser1* :
+
+* Mettez à jour *MASTER_SPACE* sur l’espace enfant souhaité en tant qu’espace parent, dans cet exemple *azureuser1*.
+* Mettez à jour *HOST* sur *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , dans cet exemple *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Créer une branche pour les modifications de code
 

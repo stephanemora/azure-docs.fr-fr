@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824938"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519701"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
@@ -32,9 +32,12 @@ Pour fonctionner, de nombreuses applications qui s’intègrent à Azure Active 
 Certaines conditions doivent être réunies pour qu’un utilisateur consente aux autorisations exigées par une application. Si ces conditions ne sont pas remplies, les erreurs suivantes peuvent se produire.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Erreur : demande d’autorisations dont l’octroi n’est pas autorisé
-* **AADSTS90093 :** &lt;clientAppDisplayName&gt; demande une ou plusieurs autorisations que vous ne pouvez pas accorder. Contactez un administrateur qui peut donner son consentement à cette application en votre nom.
+* **AADSTS90093 :** &lt;clientAppDisplayName&gt; demande une ou plusieurs autorisations que vous ne pouvez pas accorder. Contactez un administrateur qui peut donner son consentement à cette application en votre nom.
+* **AADSTS90094 :** pour accéder aux ressources de votre organisation, &lt;clientAppDisplayName&gt; a besoin d’une autorisation que seul un administrateur peut accorder. Avant d’utiliser cette application, demandez à un administrateur d’accorder une autorisation à celle-ci.
 
 Cette erreur se produit quand un utilisateur, qui n’est pas un administrateur d’entreprise, tente d’utiliser une application qui demande des autorisations pouvant uniquement être accordées par un administrateur. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
+
+Cette erreur peut également se produire quand un utilisateur est empêché de donner son consentement à une application parce que Microsoft a détecté que la demande d’autorisation présente un risque. Dans ce cas, un événement d’audit est également journalisé avec la catégorie « ApplicationManagement », le type d’activité « Consent to application » et la raison de l’état « Risky application detected ».
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Erreur : stratégie empêchant l’octroi d’autorisations
 * **AADSTS90093 :** Un administrateur de &lt;tenantDisplayName&gt; a défini une stratégie qui vous empêche d’octroyer à &lt;nom_application&gt; les autorisations qu’elle demande. Contactez un administrateur de &lt;tenantDisplayName&gt;, qui peut accorder des autorisations à cette application en votre nom.
@@ -52,7 +55,7 @@ Cette erreur indique qu’un problème intermittent côté service s’est produ
 Contactez le développeur de l’application.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Erreur : ressource non disponible dans le locataire
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; demande l’accès à une ressource &lt;resourceAppDisplayName&gt; qui n’est pas disponible dans votre organisation &lt;tenantDisplayName&gt;. 
+* **AADSTS65005 :** &lt;clientAppDisplayName&gt; demande l’accès à une ressource &lt;resourceAppDisplayName&gt; qui n’est pas disponible dans votre organisation &lt;tenantDisplayName&gt;. 
 
 Vérifiez que cette ressource est disponible ou contactez un administrateur de &lt;tenantDisplayName&gt;.
 

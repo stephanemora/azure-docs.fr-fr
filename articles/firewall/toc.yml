@@ -20,6 +20,9 @@
     - name: Déployer avec des groupes IP
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
+    - name: Déployer avec plusieurs adresses
+      displayName: Resource Manager
+      href: quick-create-multiple-ip-template.md
 - name: Exemples
   items:
     - name: Azure PowerShell

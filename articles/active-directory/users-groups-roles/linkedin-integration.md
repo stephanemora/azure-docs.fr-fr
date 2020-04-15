@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf65f69d9dcaf6de2236c98b56b58ec7e021099
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74025410"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755122"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Intégrer des connexions de compte LinkedIn dans Azure Active Directory
 
@@ -26,8 +26,9 @@ Vous pouvez autoriser des utilisateurs de votre organisation à accéder à leur
 
 > [!IMPORTANT]
 > Le paramètre Connexions au compte LinkedIn est en cours de déploiement vers les organisations Azure AD. Une fois déployé dans votre organisation, il est activé par défaut.
-> 
+>
 > Exceptions :
+>
 > * Le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud for US Government, Microsoft Cloud Germany ou Azure et Office 365 gérés par 21Vianet en Chine.
 > * Le paramètre est désactivé par défaut pour les locataires approvisionnés en Allemagne. Notez que le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud Germany.
 > * Le paramètre est désactivé par défaut pour les locataires approvisionnés en France.
@@ -40,7 +41,7 @@ Vous pouvez activer les connexions au compte LinkedIn pour les utilisateurs de v
 
 1. Connectez-vous au [centre d’administration d’Azure AD](https://aad.portal.azure.com/) avec un compte d’administrateur général pour l’organisation Azure AD.
 1. Sélectionnez **Utilisateurs**.
-1. Dans le panneau **Utilisateurs**, sélectionnez **Paramètres utilisateur**.
+1. Dans la page **Utilisateurs**, sélectionnez **Paramètres utilisateur**.
 1. Sous **Connexions au compte LinkedIn**, autorisez des utilisateurs à se connecter à leur compte pour accéder à leur connexions LinkedIn dans certaines applications Microsoft. Aucune donnée n’est partagée tant que l’utilisateur n’a pas consenti à la connexion à son compte.
 
     * Sélectionnez **Oui** pour activer le service pour tous les utilisateurs de votre organisation
@@ -55,6 +56,7 @@ Vous pouvez activer les connexions au compte LinkedIn pour les utilisateurs de v
 > L’intégration de LinkedIn n’est pas entièrement activée pour vos utilisateurs tant que ceux-ci n’ont pas consenti à la connexion à leur compte. Aucune donnée n’est partagée lorsque vous activez les connexions au compte pour vos utilisateurs.
 
 ### <a name="assign-selected-users-with-a-group"></a>Affecter des utilisateurs sélectionnés avec un groupe
+
 Nous avons remplacé l’option « Sélectionnés » qui spécifie une liste d’utilisateurs par la possibilité de sélectionner un groupe d’utilisateurs, de sorte que vous puissiez activer la possibilité de se connecter à des comptes LinkedIn et Microsoft pour un groupe plutôt que pour plusieurs utilisateurs individuels. Si vous n’avez pas de connexions au compte LinkedIn activées pour des utilisateurs sélectionnés, vous n’avez pas besoin de faire quoi que ce soit. Si vous avez précédemment activé les connexions au compte LinkedIn pour des utilisateurs sélectionnés, vous devez :
 
 1. Obtenir la liste actuelle des utilisateurs
@@ -64,15 +66,11 @@ Nous avons remplacé l’option « Sélectionnés » qui spécifie une liste d
 > [!NOTE]
 > Même si vous ne déplacez pas les utilisateurs actuellement sélectionnés vers un groupe, ils peuvent toujours voir les informations LinkedIn dans des applications Microsoft.
 
-### <a name="get-the-current-list-of-selected-users"></a>Obtenir la liste actuelle des utilisateurs sélectionnés
+### <a name="move-currently-selected-users-to-a-group"></a>Déplacer des utilisateurs sélectionnés vers un groupe
 
+1. Créez un fichier CSV des utilisateurs sélectionnés pour les connexions de compte LinkedIn.
 1. Connectez-vous à Microsoft 365 avec votre compte d’administrateur.
-1. Atteindre https://linkedinselectedusermigration.azurewebsites.net/. Vous voyez la liste des utilisateurs sélectionnés pour les connexions au compte LinkedIn.
-1. Exportez la liste vers un fichier CSV.
-
-### <a name="move-the-currently-selected-individual-users-to-a-group"></a>Déplacer les utilisateurs individuels sélectionnés vers un groupe
-
-1. Lancement de PowerShell
+1. Lancez PowerShell.
 1. Installez le module Azure AD en exécutant `Install-Module AzureAD`.
 1. Exécutez le script suivant :
 

@@ -1,11 +1,11 @@
-- name: Documentation sur la Place de marché Azure et d’AppSource
+- name: Documentation sur la Place de marché commerciale
   href: index.yml
   items:
-    - name: Feuille de route de la Place de marché Azure et d’AppSource
+    - name: Feuille de route de la Place de marché commerciale
       href: ./marketplace-roadmap.md
-    - name: Stratégies et conditions de la Place de marché Azure
+    - name: Stratégies et conditions de la Place de marché commerciale
       href: ./policies-terms.md
-    - name: Vue d’ensemble et avantages de la Place de marché Microsoft Azure et d’AppSource
+    - name: Vue d’ensemble et avantages de la Place de marché commerciale
       href: ./marketplace-publishers-guide.md
       items:
         - name: 'Une place de marché, deux vitrines'
@@ -15,7 +15,7 @@
           items:
             - name: Gestion des prospects
               href: ./lead-management-for-cloud-marketplace.md
-            - name: Négociations sur la Place de marché Azure
+            - name: Transaction dans la Place de marché commerciale
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
             - name: Offres privées
               href: ./private-offers.md
@@ -66,7 +66,7 @@
               href: ./preferred-solutions.md
             - name: Solutions intégrées
               href: ./integrated-solutions.md
-        - name: Support pour la Place de marché Azure et AppSource
+        - name: Support de la Place de marché commerciale
           href: ./support-azure-marketplace.md
           items:
             - name: Questions fréquentes (FAQ) sur la Place de marché
@@ -78,6 +78,8 @@
   items:
     - name: Migration du Portail des partenaires cloud vers l’Espace partenaires
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+    - name: Questions fréquentes (FAQ) sur la migration
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: Visite guidée du portail
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -427,12 +429,10 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Obtention d’une assistance
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: Portail de la Place de marché commerciale dans l’Espace partenaires
+- name: Place de marché commerciale dans l’Espace partenaires
   items:
-    - name: Vue d’ensemble
-      items:
-        - name: "Qu’est-ce que la Place de marché commerciale\_?"
-          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Vue d’ensemble de la Place de marché commerciale
+      href: ./partner-center-portal/commercial-marketplace-overview.md
     - name: Gestion de compte
       items:
         - name: Créer un compte Espace partenaires
@@ -453,6 +453,30 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API pour l’intégration
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Offres de conteneur Azure
+          items:
+            - name: Préparer des ressources techniques
+              href: ./partner-center-portal/create-azure-container-technical-assets.md
+            - name: Créer une offre de conteneur Azure
+              href: ./partner-center-portal/create-azure-container-offer.md
+        - name: Offre de machine virtuelle
+          items:
+            - name: Créer une offre de machine virtuelle Azure
+              href: ./partner-center-portal/azure-vm-create-offer.md
+            - name: Créer une ressource technique de machine virtuelle Azure
+              items:
+                - name: Créer une ressource technique de machine virtuelle Azure
+                  href: ./partner-center-portal/create-azure-vm-technical-asset.md
+                - name: Questions fréquentes (FAQ) sur une ressource technique de machine virtuelle Azure
+                  href: ./partner-center-portal/common-issues-during-vhd-creation.md
+                - name: Certifier une image de machine virtuelle Azure
+                  href: ./partner-center-portal/azure-vm-image-certification.md
+                - name: URI SAS
+                  items:
+                    - name: Obtenir un URI SAS
+                      href: ./partner-center-portal/get-sas-uri.md
+                    - name: Questions fréquentes (FAQ) sur les URI SAS
+                      href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Services de conseil
           items:
             - name: Prérequis

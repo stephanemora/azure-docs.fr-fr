@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint Charge de travail ASE/SQL IS
 description: Vue d’ensemble et architecture de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75920772"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381745"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 
@@ -24,7 +24,7 @@ Il existe deux exemples de blueprints ISO 27001, le présent exemple et [Servic
 
 L’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 déploie une plateforme en tant qu’environnement web basé sur des services. L’environnement peut servir à héberger plusieurs applications web, API web et instances SQL Database qui suivent les normes ISO 27001. Cet exemple de blueprint dépend de l’exemple de blueprint [Services partagés ISO 27001](../iso27001-shared/index.md).
 
-![Conception de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png" alt-text="Conception de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001" border="false":::
 
 Cet environnement se compose de plusieurs services Azure utilisés pour fournir une infrastructure de charge de travail sécurisée, entièrement supervisée et prête pour les entreprises, basée sur les normes ISO 27001. Cet environnement comporte les éléments suivants :
 
