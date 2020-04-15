@@ -74,7 +74,7 @@
           href: concepts-backup.md
     - name: Surveiller et régler
       items:
-        - name: Moniteur
+        - name: Superviser
           href: concepts-monitoring.md
         - name: Journaux des requêtes lentes
           href: concepts-server-logs.md
@@ -156,7 +156,9 @@
           items:
             - name: Portail Azure
               href: howto-configure-audit-logs-portal.md
-    - name: Moniteur
+            - name: Azure CLI
+              href: howto-configure-audit-logs-cli.md
+    - name: Superviser
       items:
         - name: Créer des alertes sur les mesures
           href: howto-alert-metric.md
