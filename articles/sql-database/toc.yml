@@ -708,6 +708,8 @@
               href: sql-database-managed-instance-configure-vm.md
             - name: Connexion de point à site
               href: sql-database-managed-instance-configure-p2s.md
+            - name: Rétention des sauvegardes à long terme
+              href: sql-database-managed-instance-long-term-backup-retention-configure.md
         - name: Charger les données
           items:
             - name: Restaurer une sauvegarde de base de données
