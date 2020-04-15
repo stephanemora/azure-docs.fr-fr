@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066888"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478155"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -106,7 +106,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 > Il n’est possible d’installer qu’une seule version d’une extension sur une machine virtuelle à un moment donné. Spécifier deux fois un script personnalisé dans le même modèle Azure Resource Manager pour une même machine virtuelle aboutira à un échec.
 
 > [!NOTE]
-> Nous pouvons utiliser ce schéma dans la ressource VirtualMachine ou en tant que ressource autonome. Le nom de la ressource doit être au format « NomMachineVirtuelle / NomExtension », si cette extension est utilisée en tant que ressource autonome dans le modèle Resource Manager. 
+> Nous pouvons utiliser ce schéma dans la ressource VirtualMachine ou en tant que ressource autonome. Le nom de la ressource doit être au format « NomMachineVirtuelle / NomExtension », si cette extension est utilisée en tant que ressource autonome dans le modèle Resource Manager.
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
@@ -146,6 +146,8 @@ L’utilisation des paramètres publics peut être utile pour le débogage, mais
 Les paramètres publics sont envoyés en texte clair à la machine virtuelle sur laquelle le script est exécuté.  Les paramètres protégés sont chiffrés à l’aide d’une clé connue uniquement d’Azure et de la machine virtuelle. Les paramètres sont enregistrés sur la machine virtuelle tels qu’ils ont été envoyés. Autrement dit, si les paramètres ont été chiffrés, ils sont enregistrés chiffrés sur la machine virtuelle. Le certificat utilisé pour déchiffrer les valeurs chiffrées est stocké sur la machine virtuelle et permet de déchiffrer les paramètres (si nécessaire) lors de l’exécution.
 
 ####  <a name="property-managedidentity"></a>Propriété : managedIdentity
+> [!NOTE]
+> Cette propriété **doit** uniquement être spécifiée dans les paramètres protégés.
 
 CustomScript (versions 1.10 et ultérieures) prend en charge l’[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour télécharger des fichiers à partir des URL fournies dans le paramètre « fileUris ». Il permet à CustomScript d’accéder aux objets blob/conteneurs privés de Stockage Azure sans que l’utilisateur doive passer des secrets comme des jetons SAS ou des clés de compte de stockage.
 

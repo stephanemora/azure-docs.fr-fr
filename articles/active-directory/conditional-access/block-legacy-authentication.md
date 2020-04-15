@@ -5,22 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/31/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158b3b34bf433c1da0d1c4bdc851fd99e5bd54d2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671956"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476663"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
 Pour permettre à vos utilisateurs d’accéder facilement à vos applications cloud, Azure Active Directory (Azure AD) prend en charge un large éventail de protocoles d’authentification, notamment l’authentification héritée. Toutefois, les protocoles hérités ne prennent pas en charge l’authentification multifacteur (MFA). L’authentification multifacteur est couramment requise dans de nombreux environnements pour lutter contre l’usurpation d’identité. 
+
+Alex Weinert, directeur de la sécurité des identités chez Microsoft, dans son billet de blog du 12 mars 2020, [Nouveaux outils pour bloquer l’authentification héritée dans votre organisation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#), met l’accent sur la raison pour laquelle les organisations doivent bloquer l’authentification héritée et sur les outils supplémentaires que Microsoft fournit pour accomplir cette tâche :
+
+> Pour que l’authentification multifacteur soit efficace, vous devez également bloquer l’authentification héritée. Cela est dû au fait que les protocoles d’authentification hérités, tels que POP, SMTP, IMAP et MAPI, ne peuvent pas appliquer une authentification multifacteur, ce qui en fait les points d’entrée de prédilection des attaques dirigées contre votre organisation...
+> 
+>...Les chiffres relatifs à l’authentification héritée que révèle une analyse du trafic Azure Active Directory (Azure AD) sont sans appel :
+> 
+> - Plus de 99 % des attaques par pulvérisation de mots de passe utilisent des protocoles d’authentification hérités
+> - Plus de 97 % des attaques par bourrage d’informations d’identification utilisent une authentification héritée
+> - Les comptes Azure AD dans les organisations qui ont désactivé l’authentification héritée sont 67 % moins compromis que ceux pour lesquels l’authentification héritée est activée
+>
 
 Si votre environnement est prêt à bloquer l’authentification héritée pour améliorer la protection de votre locataire, vous pouvez atteindre cet objectif grâce à l’accès conditionnel. Cet article explique comment configurer des stratégies d’accès conditionnel qui bloquent l’authentification héritée pour votre locataire.
 
@@ -65,6 +76,8 @@ Les options suivantes sont considérées comme des protocoles d’authentificati
 - Reporting Web Services : utilisé pour récupérer des données de rapports dans Exchange Online.
 - Autres clients : autres protocoles identifiés comme utilisant l’authentification héritée.
 
+Pour plus d’informations sur ces protocoles et services d’authentification, consultez [Rapports d’activité de connexion dans le portail Azure Active Directory](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
+
 ### <a name="identify-legacy-authentication-use"></a>Identifier l’utilisation de l’authentification héritée
 
 Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vous devez savoir si vos utilisateurs disposent d’applications qui utilisent l’authentification héritée, puis déterminer quel impact cela a sur l’ensemble de votre annuaire. Les journaux de connexion Azure AD peuvent servir à déterminer si vous utilisez une authentification héritée.
@@ -79,7 +92,7 @@ Ces journaux identifient les utilisateurs qui continuent de tirer parti de la fo
 
 ### <a name="block-legacy-authentication"></a>Bloquer l’authentification héritée 
 
-Dans une stratégie d’accès conditionnel, vous pouvez définir une condition liée aux applications clientes utilisées pour accéder à vos ressources. Cette condition vous permet de limiter la portée aux applications utilisant l’authentification héritée en sélectionnant **Autres clients** pour les **Applications mobiles et clients de bureau**.
+Dans une stratégie d’accès conditionnel, vous pouvez définir une condition liée aux applications clientes utilisées pour accéder à vos ressources. Cette condition vous permet de limiter la portée aux applications utilisant l’authentification héritée en sélectionnant **Clients Exchange ActiveSync** et **Autres clients** sous **Applications mobiles et clients de bureau**.
 
 ![Autres clients](./media/block-legacy-authentication/01.png)
 
@@ -106,6 +119,8 @@ Cette fonction de sécurité est nécessaire, car *bloquer tous les utilisateurs
 ![Configuration de stratégie non prise en charge](./media/block-legacy-authentication/05.png)
 
 Vous pouvez contourner cette fonction de sécurité en excluant un utilisateur de votre stratégie. Dans l’idéal, vous devez définir quelques [comptes d’administration pour l’accès en urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md) et les exclure de votre stratégie.
+
+L’utilisation du [mode rapport uniquement](concept-conditional-access-report-only.md) lors de l’activation de votre stratégie de blocage de l’authentification héritée permet à votre organisation d’analyser l’impact de cette stratégie.
 
 ## <a name="policy-deployment"></a>Déploiement de stratégie
 
@@ -136,5 +151,6 @@ Si vous bloquez l’authentification héritée à l’aide de la condition **Aut
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
 - Si vous ne savez pas encore configurer des stratégies d’accès conditionnel, consultez la section [Exiger l’authentification multifacteur (MFA) pour certaines applications disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md) pour en avoir un exemple.
 - Pour en savoir plus sur la prise en charge de l’authentification moderne, voir [Fonctionnement de l’authentification moderne pour les applications clientes Office 2013 et Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016). 

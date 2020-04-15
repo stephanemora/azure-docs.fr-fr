@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74545585"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521319"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé
 La signature d’accès partagé (SAS, shared access signature) vous offre un contrôle granulaire sur le type d’accès que vous octroyez aux clients qui la possèdent. Voici quelques-uns des contrôles que vous pouvez définir dans une signature d’accès partagé : 
@@ -33,7 +33,7 @@ Cet article traite de l’authentification de l’accès aux ressources Event Hu
 
 
 ## <a name="configuring-for-sas-authentication"></a>Configuration de l’authentification SAS
-Vous pouvez configurer la règle d’autorisation d’accès partagé EventHubs sur un espace de noms Event Hubs ou une entité (instance de hub d’événements ou rubrique Kafka dans des hubs d’événements pour un espace de noms compatible avec Kafka). La configuration d’une règle d’autorisation d’accès partagé sur un groupe de consommateurs n’est pas prise en charge pour l’instant. Cependant, vous pouvez utiliser les règles configurées sur un espace de noms ou une entité pour sécuriser l’accès au groupe de consommateurs. 
+Vous pouvez configurer la règle d’autorisation d’accès partagé EventHubs sur un espace de noms Event Hubs ou une entité (instance d’Event Hub ou rubrique Kafka dans un Event Hub). La configuration d’une règle d’autorisation d’accès partagé sur un groupe de consommateurs n’est pas prise en charge pour l’instant. Cependant, vous pouvez utiliser les règles configurées sur un espace de noms ou une entité pour sécuriser l’accès au groupe de consommateurs. 
 
 L’illustration suivante montre comment les règles d’autorisation s’appliquent à des exemples d’entités. 
 
@@ -63,7 +63,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Le jeton contient les valeurs non hachées afin que le destinataire puisse recalculer le hachage avec les mêmes paramètres, en vérifiant que l’émetteur est en possession d’une clé de signature valide.
 
-L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, <namespace> pour http://<entityPath>.servicebus.windows.net/`sb://<namespace>.servicebus.windows.net/<entityPath>;` ou `http://contoso.servicebus.windows.net/eventhubs/eh1`.
+L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, `http://contoso.servicebus.windows.net/eventhubs/eh1` pour http://<namespace>.servicebus.windows.net/<entityPath> ou `sb://<namespace>.servicebus.windows.net/<entityPath>;`.
 
 L’URI doit être encodée en pourcentage.
 

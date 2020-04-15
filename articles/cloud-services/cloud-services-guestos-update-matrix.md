@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/24/2020
+ms.date: 4/2/2020
 ms.author: raiye
-ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 95c27cd906717d52a232b5ed85eba2b93bc6569d
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765310"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618295"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -41,6 +41,12 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+###### <a name="april-2-2020"></a>**2 avril 2020**
+Le système d’exploitation invité de mars a été publié. 
+
+###### <a name="march-5-2020"></a>**5 mars 2020**
+Le SE invité de février a publié. 
 
 ###### <a name="january-24-2020"></a>**24 janvier 2020**
 Le SE invité de janvier a publié. 
@@ -114,12 +120,15 @@ Publication du système d’exploitation invité du mois de septembre.
 >5. Définir la famille de système d’exploitation sur 6 et générer un paquet
 >6. Déployer le paquet sur Azure à l’aide du portail Azure ou de Visual Studio
 >
+>La version de système d’exploitation Family 6 applique TLS 1.2 en désactivant explicitement TLS 1.0 et 1.1 et en définissant un ensemble spécifique de suites de chiffrement. En savoir [plus].
 
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.15_202001-01  |  24 janvier 2020  |  Billet 6.17  |  
-| WA-GUEST-OS-6.14_201912-01 | 8 janvier 2020 | Billet 6.16 |  
+|  WA-GUEST-OS-6.17_202003-01  |  2 avril 2020  |  Post 6.19  |  
+|  WA-GUEST-OS-6.16_202002-01  |  5 mars 2020  |  Post 6.18  |  
+|~~WA-GUEST-OS-6.15_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
+|~~WA-GUEST-OS-6.14_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-6.13_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-6.12_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-6.11_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
@@ -146,8 +155,10 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.39_202001-01  |  24 janvier 2020  |  Billet 5.41  |  
-| WA-GUEST-OS-5.38_201912-01 | 8 janvier 2020 | Billet 5.40 |  
+|  WA-GUEST-OS-5.41_202003-01  |  2 avril 2020  |  Post 5.43  |  
+|  WA-GUEST-OS-5.40_202002-01  |  5 mars 2020  |  Post 5.42  |  
+|~~WA-GUEST-OS-5.39_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
+|~~WA-GUEST-OS-5.38_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-5.37_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-5.36_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-5.35_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
@@ -171,8 +182,10 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.74_202001-01  |  24 janvier 2020  |  Billet 4.76  |  
-| WA-GUEST-OS-4.73_201912-01 | 8 janvier 2020 | Billet 4.75 |  
+|  WA-GUEST-OS-4.76_202003-01  |  2 avril 2020  |  Post 4.78  |  
+|  WA-GUEST-OS-4.75_202002-01  |  5 mars 2020  |  Post 4.77  |  
+|~~WA-GUEST-OS-4.74_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
+|~~WA-GUEST-OS-4.73_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-4.72_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-4.71_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-4.70_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
@@ -196,8 +209,10 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.81_202001-01  |  24 janvier 2020  |  Billet 3.83  |  
-| WA-GUEST-OS-3.80_201912-01 | 8 janvier 2020 | Billet 3.82 |  
+|  WA-GUEST-OS-3.83_202003-01  |  2 avril 2020  |  Post 3.85  |  
+|  WA-GUEST-OS-3.82_202002-01  |  5 mars 2020  |  Post 3.84  |  
+|~~WA-GUEST-OS-3.81_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
+|~~WA-GUEST-OS-3.80_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-3.79_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-3.78_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-3.77_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
@@ -221,8 +236,10 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.94_202001-01  |  24 janvier 2020  |  Billet 2.96  |  
-| WA-GUEST-OS-2.93_201912-01 | 8 janvier 2020 | Billet 2.95 |  
+|  WA-GUEST-OS-2.96_202003-01  |  2 avril 2020  |  Post 2.98  |  
+|  WA-GUEST-OS-2.95_202002-01  |  5 mars 2020  |  Post 2.97  |  
+|~~WA-GUEST-OS-2.94_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
+|~~WA-GUEST-OS-2.93_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-2.92_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-2.91_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-2.90_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
@@ -317,3 +334,4 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
+[plus]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  

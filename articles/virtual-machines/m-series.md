@@ -5,20 +5,20 @@ services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: lahugh
-ms.openlocfilehash: e8952218675493710cbdd1f92661e9a9c077f34c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.author: jushiman
+ms.openlocfilehash: 3e0552570d5bdb7f812852cd058710b833b7fdd4
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164047"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521343"
 ---
 # <a name="m-series"></a>Série M
 
-La série M propose un nombre élevé de processeurs virtuels (jusqu’à 128 processeurs virtuels) et une grande quantité de mémoire (jusqu’à 3,8 Tio). Elle est également idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire. Les tailles de la série M sont basées sur le processeur Intel® Xeon® E7-8890 v3 @ 2,50 GHz
+La série M propose un nombre élevé de processeurs virtuels (jusqu’à 128 processeurs virtuels) et une grande quantité de mémoire (jusqu’à 3,8 Tio). Elle est également idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire. Les tailles de la série M sont prises en charge à la fois sur l’Intel&reg; Xeon&reg; CPU E7-8890 v3 @ 2.50GHz et sur l’Intel&reg; Xeon&reg; Platinum 8280M 2.7GHz (Cascade Lake).
 
-Machines virtuelles de la série M dotées de la technologie Hyper-Threading d’Intel®
+Les machines virtuelles de la série M sont dotées de la technologie Hyper-Threading d’Intel&reg;.
 
 ACU : 160-180
 

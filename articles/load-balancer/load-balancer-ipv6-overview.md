@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 6bc7f45d84d525156a3d25bdceef4d1012844afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931982"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981849"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.locfileid: "75931982"
 >Ce contenu a été remplacé par [Vue d’ensemble d’IPv6 pour les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure recommande que les nouveaux déploiements IPv6 utilisent les nouvelles fonctionnalités IPv6 pour Réseaux virtuels Azure.
 
 >[!NOTE]
->Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
+>Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
 
 Des équilibreurs de charge de la référence SKU De base, accessibles sur Internet, peuvent être déployés avec une adresse IPv6. En plus d’une connectivité IPv4, les fonctionnalités suivantes sont activées :
 
@@ -81,6 +81,7 @@ Limites
 * La modification du paramètre loadDistributionMethod pour IPv6 n’est **pas prise en charge pour le moment**.
 * Les adresses IP IPv6 réservées (où IPAllocationMethod = static) ne sont **pas prises en charge pour le moment**.
 * NAT64 (traduction d’IPv6 vers IPv4) n’est pas pris en charge.
+* L’attachement d’une carte réseau secondaire qui fait référence à un sous-réseau IPv6 à un pool principal n’est **actuellement pas pris en charge**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

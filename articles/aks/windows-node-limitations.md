@@ -1,15 +1,16 @@
 ---
-title: Limitations pour les pools de nœuds Windows Server dans Azure Kubernetes Service (AKS)
+title: Limitations de pools de nœuds Windows Server
+titleSuffix: Azure Kubernetes Service
 description: En savoir plus sur les limitations connues lors de l’exécution de charges de travail d’application et de pools de nœuds Windows Server dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 12/18/2019
+ms.openlocfilehash: 934acf06a779c1c3b0b13e74b196b174dd944e66
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298170"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886668"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et les charges de travail d’application dans Azure Kubernetes Service (AKS)
 
@@ -53,7 +54,7 @@ Les clusters AKS comportant des pools de nœuds doivent utiliser le modèle de m
 
 ## <a name="can-i-change-the-max--of-pods-per-node"></a>Puis-je modifier le nombre maximal de pods par nœud ?
 
-Il est actuellement nécessaire de définir au maximum 30 pods pour garantir la fiabilité de vos clusters.
+Oui. Pour connaître les implications et les options disponibles, consultez [Nombre maximal de pods][maximum-number-of-pods].
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Comment corriger mes nœuds Windows ?
 
@@ -121,3 +122,4 @@ Pour vous lancer avec des conteneurs Windows Server dans AKS, [créez un pool de
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [preview-support]: support-policies.md#preview-features-or-feature-flags
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
+[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node

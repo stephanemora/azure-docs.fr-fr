@@ -3,12 +3,12 @@ title: Importation depuis des sources de données – QnA Maker
 description: Une base de connaissances QnA Maker est composée d’un jeu d’ensembles de questions-réponses (QnA) et de métadonnées facultatives associées à chaque paire QnA.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: e7772b2c76dfb92ced4d2c0d4b8dae97a59d1b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79457819"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804280"
 ---
 # <a name="importing-from-data-sources"></a>Importation depuis des sources de données
 
@@ -56,7 +56,7 @@ Le **displayOrder** est numérique et le **displayText** est un texte qui ne doi
 
 ## <a name="export-as-example"></a>Exporter en tant qu’exemple
 
-Si vous ne savez pas comment représenter votre ensemble QnA dans le fichier `.tsv` :
+Si vous ne savez pas comment représenter votre paire QnA dans le fichier `.tsv` :
 * Utilisez cet [exemple téléchargeable à partir de GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
 * Ou créez le jeu dans le portail QnA Maker, enregistrez, puis exportez la base de connaissances pour obtenir un exemple illustrant la façon de représenter le jeu.
 

@@ -16,12 +16,12 @@ ms.date: 02/26/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efb85b4a54b8f61e44f1f8bc75f893f93a0feb8a
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 5fa241a261b8dcb21dd39b5dacacac9aa4889304
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78165403"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519645"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell pour les rôles Azure AD dans Privileged Identity Management
 
@@ -29,7 +29,7 @@ Cet article contient des instructions concernant l’utilisation des applets de 
 
 > [!Note]
 > Notre module PowerShell officiel est pris en charge uniquement si vous utilisez la nouvelle version d’Azure AD Privileged Identity Management. Accédez à Privileged Identity Management et vérifiez que la bannière suivante apparaît dans le panneau Démarrage rapide.
-> [![vérifiez votre version de Privileged Identity Management](media/pim-how-to-add-role-to-user/pim-new-version.png "Sélectionnez Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Si cette bannière n’apparaît pas, veuillez patienter, car nous sommes actuellement en phase de déploiement de cette expérience mise à jour, laquelle sera disponible dans les prochaines semaines.
+> [![vérifiez votre version de Privileged Identity Management](media/pim-how-to-add-role-to-user/pim-new-version.png "Sélectionnez Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Si cette bannière n’apparaît pas, veuillez patienter, car nous sommes actuellement en phase de déploiement de cette expérience mise à jour qui sera disponible dans les prochaines semaines.
 > Les applets de commande PowerShell Privileged Identity Management sont prises en charge via le module Azure AD en préversion. Si vous utilisiez un module différent et que ce module renvoie à présent un message d’erreur, commencez à utiliser ce nouveau module. Si vous avez des systèmes de production basés sur un autre module, contactez pim_preview@microsoft.com
 
 ## <a name="installation-and-setup"></a>Installation et configuration
@@ -96,6 +96,8 @@ La planification, qui définit l’heure de début et l’heure de fin de l’at
     $schedule.Type = "Once"
     $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
     $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+> [!Note]
+> Une valeur endDateTime définie sur null indique une attribution permanente.
 
 ## <a name="activate-a-role-assignment"></a>Activer une attribution de rôle
 
@@ -103,7 +105,7 @@ Utilisez l’applet de commande suivante pour activer une attribution éligible.
 
     Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas" 
 
-Cette applet de commande est presque identique à l’applet de commande permettant de créer une attribution de rôle. La principale différence entre les applets de commande est que pour le paramètre –Type, l’activation est « userAdd » au lieu de « adminAdd ». L’autre différence est que le paramètre –AssignmentState a pour valeur « Active » au lieu de « Eligible ».
+Cette applet de commande est presque identique à l’applet de commande permettant de créer une attribution de rôle. La principale différence entre les cmdlets réside dans le fait que pour le paramètre –Type, l’activation est « userAdd » au lieu de « adminAdd ». L’autre différence tient au fait que le paramètre –AssignmentState a pour valeur « Active » au lieu de « Eligible ».
 
 > [!Note]
 > Il existe deux scénarios de limitation de l’activation de rôle via PowerShell.
@@ -128,7 +130,7 @@ Pour mettre à jour le paramètre de rôle, vous devez d’abord définir un obj
 
 Vous pouvez ensuite continuer et appliquer le paramètre à l’un des objets d’un rôle particulier, comme indiqué ci-dessous. Ici, l’ID est l’ID de paramètre de rôle qui peut être récupéré à partir du résultat de l’applet de commande qui liste les paramètres de rôle.
 
-    Set-AzureADMSPrivilegedRoleSetting -ProviderId ‘aadRoles’ -Id ‘ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId ‘3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId ‘2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+    Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

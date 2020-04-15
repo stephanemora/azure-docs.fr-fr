@@ -3,12 +3,12 @@ title: Comprendre l’ordre de la séquence de déploiement
 description: Découvrez l’ordre par défaut dans lequel les artefacts de blueprint sont déployés lors d’une affectation de blueprint, et comment personnaliser l’ordre de déploiement.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74128820"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677561"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendre la séquence de déploiement dans les blueprints Azure
 
@@ -42,7 +42,7 @@ Dans chaque artefact de **groupe de ressources**, l’ordre de séquence suivant
 
 ## <a name="customizing-the-sequencing-order"></a>Personnalisation de l’ordre de séquencement
 
-Au moment de composer des définitions de blueprints de grande taille, il peut être nécessaire de créer des ressources dans un ordre spécifique. Ce cas de figure se présente plus particulièrement quand une définition de blueprint inclut plusieurs modèles Azure Resource Manager. À cet effet, les blueprints permettent de définir l’ordre de séquencement.
+Au moment de composer des définitions de blueprints de grande taille, il peut être nécessaire de créer des ressources dans un ordre spécifique. Ce cas de figure se présente plus particulièrement quand une définition de blueprint inclut plusieurs modèles Azure Resource Manager. Azure Blueprints gère ce modèle en permettant de définir l’ordre de séquencement.
 
 Le classement est effectué en définissant une propriété `dependsOn` dans le JSON. La définition de blueprint, pour les groupes de ressources, et les objets artefact prennent en charge cette propriété. `dependsOn` est un tableau de chaînes de noms d’artefacts que l’artefact en question doit créer au préalable.
 

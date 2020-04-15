@@ -4,12 +4,12 @@ description: Résolvez les problèmes d’installation et d’enregistrement du 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc0cf7e91c1aacbc637d33ab1e5546cc54836b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673112"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421294"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -26,7 +26,7 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 - En cas d'échec d'inscription, vérifiez si le serveur sur lequel vous essayez d’installer le serveur de sauvegarde Azure n’est pas déjà inscrit sur un autre coffre
 - Si l’installation push échoue, vérifiez si l’agent DPM est déjà présent. Si c’est le cas, désinstallez l’agent et recommencez l’installation
 - [Assurez-vous qu’aucun autre processus ou logiciel antivirus n’interfère avec la sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
-- Vérifiez que le service SQL Agent est en cours d'exécution et défini sur automatique dans le serveur MAB<br>
+- Vérifiez que le service SQL Agent est en cours d'exécution et défini sur automatique dans le serveur MABS<br>
 
 ## <a name="invalid-vault-credentials-provided"></a>Informations d’identification du coffre fournies non valides
 

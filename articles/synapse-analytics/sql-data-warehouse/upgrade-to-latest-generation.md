@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 637e377e469eeb1a82b6c0ad3a845d94ac09c7db
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351192"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742757"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optimiser les performances en mettant à niveau le pool SQL Azure Synapse Analytics
 
@@ -24,13 +24,12 @@ Mettez à niveau le pool SQL vers la dernière génération de l’architecture 
 
 ## <a name="why-upgrade"></a>Pourquoi procéder à une mise à niveau ?
 
-Vous pouvez maintenant effectuer une mise à niveau de manière fluide vers le niveau Gen2 optimisé pour le calcul du pool SQL dans le portail Azure pour les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si votre région ne prend pas en charge la mise à niveau automatique, vous pouvez passer à une région prise en charge ou attendre que la mise à niveau automatique soit disponible dans votre région. Effectuez la mise à niveau dès maintenant pour bénéficier de la dernière génération de matériel et de l’architecture de stockage améliorée d’Azure, y compris de performances plus rapides, d’une plus grande évolutivité et d’un stockage en colonnes illimité. 
+Vous pouvez maintenant effectuer une mise à niveau de manière fluide vers le niveau Gen2 optimisé pour le calcul du pool SQL dans le portail Azure pour les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si votre région ne prend pas en charge la mise à niveau automatique, vous pouvez passer à une région prise en charge ou attendre que la mise à niveau automatique soit disponible dans votre région. Effectuez la mise à niveau dès maintenant pour bénéficier de la dernière génération de matériel et de l’architecture de stockage améliorée d’Azure, y compris de performances plus rapides, d’une plus grande évolutivité et d’un stockage en colonnes illimité.
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
-## <a name="applies-to"></a>S’applique à
-
-Cette mise à niveau s’applique aux pools SQL de niveau Gen1 optimisé pour le calcul dans les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
+> [!IMPORTANT]
+> Cette mise à niveau s’applique aux pools SQL de niveau Gen1 optimisé pour le calcul dans les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -54,28 +53,26 @@ Cette mise à niveau s’applique aux pools SQL de niveau Gen1 optimisé pour le
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
 
-> [!Note]
+> [!NOTE]
 > Les niveaux de performance suggérés ne constituent pas une conversion directe. Par exemple, nous recommandons de passer du DW600 au DW500c.
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Mise à niveau dans une région prise en charge à l’aide du Portail Azure
 
-## <a name="before-you-begin"></a>Avant de commencer
+- La migration de Gen1 vers Gen2 via le portail Azure est définitive. Il est impossible de revenir à Gen1.
+- Le pool SQL doit s’exécuter pour que la migration vers Gen2 soit possible.
+
+### <a name="before-you-begin"></a>Avant de commencer
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-> [!NOTE]
-> La migration de Gen1 vers Gen2 via le portail Azure est définitive. Il est impossible de revenir à Gen1.  
+- Connectez-vous au [portail Azure](https://portal.azure.com/).
+- Assurez-vous que le pool SQL est en cours d’exécution ; il doit être migré vers Gen2
 
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+### <a name="powershell-upgrade-commands"></a>Commandes de mise à niveau PowerShell
 
 1. Si le pool SQL de niveau Gen1 optimisé pour le calcul à mettre à niveau est suspendu, [reprenez l’exécution du pool SQL](pause-and-resume-compute-portal.md).
 
-   > [!NOTE]
-   > Le pool SQL doit s’exécuter pour que la migration vers Gen2 soit possible.
-
-2. Attendez-vous à quelques minutes de temps d’arrêt. 
+2. Attendez-vous à quelques minutes de temps d’arrêt.
 
 3. Identifiez les références de code à des niveaux de performances Gen1 optimisé pour le calcul et modifiez-les à leur niveau de performances Gen2 optimisé pour le calcul équivalent. Les deux exemples ci-dessous illustrent où vous devez mettre à jour les références de code avant la mise à niveau :
 
@@ -91,7 +88,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
    Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > -RequestedServiceObjectiveName "DW300" est remplacé par - RequestedServiceObjectiveName "DW300**c**"
    >
 
@@ -104,19 +101,20 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
    Remplacée par :
 
    ```sql
-   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ;
    ```
-   > [!NOTE] 
+
+   > [!NOTE]
    > SERVICE_OBJECTIVE = 'DW300' est remplacé par SERVICE_OBJECTIVE = 'DW300**c**'
 
 ## <a name="start-the-upgrade"></a>Lancer la mise à niveau
 
-1. Ouvrez votre pool SQL de niveau Gen1 optimisé pour le calcul dans le portail Azure. Si le pool SQL de niveau Gen1 optimisé pour le calcul à mettre à niveau est suspendu, [reprenez l’exécution du pool SQL](pause-and-resume-compute-portal.md). 
-2. Sous l’onglet Tâches, sélectionnez ensuite **Mettre à niveau vers Gen2** :  ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
-    
-    > [!NOTE]
-    > Si vous ne voyez pas la carte **Mettre à niveau vers la 2e génération** sous l’onglet Tâches, votre type d’abonnement est limité dans la région actuelle.
-    > [Envoyez un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) pour mettre votre abonnement sur liste verte.
+1. Ouvrez votre pool SQL de niveau Gen1 optimisé pour le calcul dans le portail Azure. Si le pool SQL de niveau Gen1 optimisé pour le calcul à mettre à niveau est suspendu, [reprenez l’exécution du pool SQL](pause-and-resume-compute-portal.md).
+2. Sous l’onglet Tâches, sélectionnez ensuite **Mettre à niveau vers Gen2** : ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+
+   > [!NOTE]
+   > Si vous ne voyez pas la carte **Mettre à niveau vers la 2e génération** sous l’onglet Tâches, votre type d’abonnement est limité dans la région actuelle.
+   > [Envoyez un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) pour mettre votre abonnement sur liste verte.
 
 3. Vérifiez que l’exécution de votre charge de travail est terminée et arrêtée avant de mettre à niveau. Vous subirez un temps d’arrêt de quelques minutes avant la remise en ligne de votre pool SQL comme pool SQL de niveau Gen2 optimisé pour le calcul. **Sélectionnez Upgrade**  (Mettre à niveau) :
 
@@ -126,58 +124,58 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
    ![Upgrade3](./media/upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
-   La première étape du processus de mise à niveau passe par l’opération de mise à l’échelle (« Mise à niveau - Hors connexion ») pendant laquelle toutes les sessions seront supprimées et les connexions fermées. 
+   La première étape du processus de mise à niveau passe par l’opération de mise à l’échelle (« Mise à niveau - Hors connexion ») pendant laquelle toutes les sessions seront supprimées et les connexions fermées.
 
-   La deuxième étape du processus de mise à niveau est la migration des données (« Mise à niveau - En ligne »). La migration des données est un processus en arrière-plan progressif en ligne. Ce processus déplace lentement les données en colonnes de l’ancienne architecture de stockage vers la nouvelle architecture de stockage, en utilisant un cache de disque SSD local. Pendant ce temps, votre pool SQL sera en ligne à des fins d’interrogation et de chargement. Vos données pourront être interrogées, qu’elles aient été migrées ou non. La migration des données se produit à des taux variables selon la taille de vos données, de votre niveau de performance et du nombre de vos segments de columnstore. 
+   La deuxième étape du processus de mise à niveau est la migration des données (« Mise à niveau - En ligne »). La migration des données est un processus en arrière-plan progressif en ligne. Ce processus déplace lentement les données en colonnes de l’ancienne architecture de stockage vers la nouvelle architecture de stockage, en utilisant un cache de disque SSD local. Pendant ce temps, votre pool SQL sera en ligne à des fins d’interrogation et de chargement. Vos données pourront être interrogées, qu’elles aient été migrées ou non. La migration des données se produit à des taux variables selon la taille de vos données, de votre niveau de performance et du nombre de vos segments de columnstore.
 
 5. **Recommandation facultative :** Une fois l’opération de mise à l’échelle est terminée, vous pouvez accélérer le processus de migration en arrière-plan. Vous pouvez forcer immédiatement le déplacement des données en exécutant la commande [Alter Index Rebuild](sql-data-warehouse-tables-index.md) sur toutes les tables columnstore primaires que vous interrogez sur une plus large classe de SLO et de ressources. Cette opération, par rapport au processus en arrière-plan progressif dont l’exécution peut prendre plusieurs heures en fonction du nombre et de la taille de vos tables, est en mode **hors connexion**. Toutefois, la migration des données sera beaucoup plus rapide et vous pourrez tirer pleinement parti de la nouvelle architecture de stockage améliorée avec des groupes de lignes de haute qualité.
- 
+
 > [!NOTE]
 > Alter Index Rebuild est une opération hors connexion et les tables ne seront pas disponibles tant que la reconstruction ne sera pas terminée.
 
 La requête suivante génère les commandes Alter Index Rebuild exigées pour accélérer la migration des données :
 
 ```sql
-SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
-       + Schema_name(tbl.schema_id) + '].[' 
-       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE 
-                                                         WHEN ( 
-                                                     (SELECT Count(*) 
-                                                      FROM   sys.partitions 
-                                                             part2 
-                                                      WHERE  part2.index_id 
-                                                             = idx.index_id 
-                                                             AND 
-                                                     idx.object_id = 
-                                                     part2.object_id) 
-                                                     > 1 ) THEN 
-              ' PARTITION = ' 
-              + Cast(part.partition_number AS NVARCHAR(256)) 
-              ELSE '' 
-                                                       END ) + '; SELECT ''[' + 
-              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' + 
-              Object_name(idx.object_id) + '] ' + ( 
-              CASE 
-                WHEN ( (SELECT Count(*) 
-                        FROM   sys.partitions 
-                               part2 
-                        WHERE 
-                     part2.index_id = 
-                     idx.index_id 
-                     AND idx.object_id 
-                         = part2.object_id) > 1 ) THEN 
-              ' PARTITION = ' 
-              + Cast(part.partition_number AS NVARCHAR(256)) 
-              + ' completed'';' 
-              ELSE ' completed'';' 
-                                                    END ) 
-FROM   sys.indexes idx 
-       INNER JOIN sys.tables tbl 
-               ON idx.object_id = tbl.object_id 
-       LEFT OUTER JOIN sys.partitions part 
-                    ON idx.index_id = part.index_id 
-                       AND idx.object_id = part.object_id 
-WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
+SELECT 'ALTER INDEX [' + idx.NAME + '] ON ['
+       + Schema_name(tbl.schema_id) + '].['
+       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE
+                                                         WHEN (
+                                                     (SELECT Count(*)
+                                                      FROM   sys.partitions
+                                                             part2
+                                                      WHERE  part2.index_id
+                                                             = idx.index_id
+                                                             AND
+                                                     idx.object_id =
+                                                     part2.object_id)
+                                                     > 1 ) THEN
+              ' PARTITION = '
+              + Cast(part.partition_number AS NVARCHAR(256))
+              ELSE ''
+                                                       END ) + '; SELECT ''[' +
+              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' +
+              Object_name(idx.object_id) + '] ' + (
+              CASE
+                WHEN ( (SELECT Count(*)
+                        FROM   sys.partitions
+                               part2
+                        WHERE
+                     part2.index_id =
+                     idx.index_id
+                     AND idx.object_id
+                         = part2.object_id) > 1 ) THEN
+              ' PARTITION = '
+              + Cast(part.partition_number AS NVARCHAR(256))
+              + ' completed'';'
+              ELSE ' completed'';'
+                                                    END )
+FROM   sys.indexes idx
+       INNER JOIN sys.tables tbl
+               ON idx.object_id = tbl.object_id
+       LEFT OUTER JOIN sys.partitions part
+                    ON idx.index_id = part.index_id
+                       AND idx.object_id = part.object_id
+WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ```
 
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Mettre à niveau à partir d’une région géographique Azure en utilisant la restauration via le portail Azure
@@ -204,7 +202,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
     ![ Présentation de la restauration](./media/upgrade-to-latest-generation/restoring_0.png)
 
-4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**. Pour l’option Points de restauration définis par l’utilisateur, **sélectionnez un point de restauration défini par l’utilisateur** ou **créez un point de restauration défini par l’utilisateur**. Pour le serveur, sélectionnez **Créer** et choisissez un serveur dans une région géographique prise en charge par Gen2. 
+4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**. Pour l’option Points de restauration définis par l’utilisateur, **sélectionnez un point de restauration défini par l’utilisateur** ou **créez un point de restauration défini par l’utilisateur**. Pour le serveur, sélectionnez **Créer** et choisissez un serveur dans une région géographique prise en charge par Gen2.
 
     ![Points de restauration automatiques](./media/upgrade-to-latest-generation/restoring_1.png)
 
@@ -212,7 +210,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Pour récupérer une base de données, utilisez la cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
+Pour récupérer une base de données, utilisez la cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 > [!NOTE]
 > Vous pouvez effectuer une géorestauration vers Gen2 ! Pour ce faire, spécifiez une valeur ServiceObjectiveName Gen2 (par exemple, DW1000**c**) comme paramètre facultatif.
@@ -240,10 +238,9 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+> Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
-
 
 Si vous rencontrez des problèmes avec votre pool SQL, créez une [demande de support](sql-data-warehouse-get-started-create-support-ticket.md) et indiquez « Mise à niveau vers Gen2 » comme cause possible.
 

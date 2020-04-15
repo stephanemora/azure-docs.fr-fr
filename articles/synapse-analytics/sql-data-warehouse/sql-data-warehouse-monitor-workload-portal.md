@@ -1,6 +1,6 @@
 ---
 title: Superviser une charge de travail dans le portail Azure
-description: Superviser SQL Analytics à l’aide du portail Azure
+description: Surveiller Synapse SQL à l’aide du portail Azure
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,25 +10,25 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 344e2cd03408b5bd1e966abc8abb72bce6078acc
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0658a775e40c1fc433c7c2e1d853493544e74ee4
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350327"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743201"
 ---
 # <a name="monitor-workload---azure-portal"></a>Superviser une charge de travail dans le portail Azure
 
-Cet article explique comment utiliser le portail Azure pour superviser votre charge de travail. Cela inclut la configuration des journaux Azure Monitor pour examiner les tendances de l’exécution des requêtes et de la charge de travail à l’aide de l’analytique des journaux pour [SQL Analytics](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
+Cet article explique comment utiliser le portail Azure pour superviser votre charge de travail. Cela inclut la configuration des journaux Azure Monitor pour examiner les tendances de l’exécution des requêtes et de la charge de travail à l’aide de l’analytique des journaux pour [SQL Synapse](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Pool SQL : Nous collecterons les journaux pour un pool SQL. Si vous n’avez pas de pool SQL provisionné, consultez les instructions fournies dans [Créer un pool SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Pool SQL : Nous collecterons les journaux pour un pool SQL. Si vous n’avez pas de pool SQL provisionné, consultez les instructions fournies dans [Créer un pool SQL](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 
-Accéder au panneau de navigation des espaces de travail Log Analytics et créer un espace de travail 
+Accéder au panneau de navigation des espaces de travail Log Analytics et créer un espace de travail
 
 ![Espaces de travail Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
@@ -36,18 +36,17 @@ Accéder au panneau de navigation des espaces de travail Log Analytics et créer
 
 ![Ajouter un espace de travail Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-Pour plus d’informations sur les espaces de travail, consultez cette [documentation](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace).
+Pour plus d’informations sur les espaces de travail, consultez cette [documentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
 ## <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
 
 Configurez les paramètres de diagnostic pour émettre des journaux à partir de votre pool SQL. Les journaux se composent de vues de données de télémétrie équivalentes aux vues de gestion dynamique (DMV) de résolution des problèmes de performances les plus fréquentes. À l’heure actuelle, les vues suivantes sont prises en charge :
 
-- [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
-- [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)
-- [sys.dm_pdw_dms_workers](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=aps-pdw-2016-au7)
-- [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=aps-pdw-2016-au7)
-- [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=aps-pdw-2016-au7)
-
+- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ![Activation des journaux de diagnostic](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
@@ -64,39 +63,38 @@ Accédez à votre espace de travail Log Analytics pour effectuer les étapes sui
 - Créer des alertes de journal
 - Épingler des résultats de requête sur un tableau de bord
 
-Pour plus d’informations sur les fonctionnalités des requêtes de journal, consultez cette [documentation](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Pour plus d’informations sur les fonctionnalités des requêtes de journal, consultez cette [documentation](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ![Éditeur d’espace de travail Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
-
-
 
 ![Requêtes d’espace de travail Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
 
 ## <a name="sample-log-queries"></a>Exemples de requêtes de journal
 
-
-
 ```Kusto
-//List all queries 
+//List all queries
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | project TimeGenerated, StartTime_t, EndTime_t, Status_s, Command_s, ResourceClass_s, duration=datetime_diff('millisecond',EndTime_t, StartTime_t)
 ```
+
 ```Kusto
 //Chart the most active resource classes
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | where Status_s == "Completed"
 | summarize totalQueries = dcount(RequestId_s) by ResourceClass_s
-| render barchart 
+| render barchart
 ```
+
 ```Kusto
 //Count of all queued queries
 AzureDiagnostics
-| where Category contains "waits" 
+| where Category contains "waits"
 | where Type_s == "UserConcurrencyResourceType"
 | summarize totalQueuedQueries = dcount(RequestId_s)
 ```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez installé et configuré des journaux Azure monitor, [personnalisez les tableaux de bord Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) pour les partager avec votre équipe.
+Maintenant que vous avez installé et configuré des journaux Azure monitor, [personnalisez les tableaux de bord Azure](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour les partager avec votre équipe.

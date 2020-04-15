@@ -5,27 +5,25 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: ''
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 87309e20efd9d6f8bd1a659451e5a603e6b95bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907452"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885750"
 ---
 # <a name="transport-layer-security-tls"></a>TLS (Transport Layer Security)
 
-Pour garantir un niveau de sécurité élevé, Notification Hubs désactivera la prise en charge des versions 1.0 et 1.1 de TLS à partir du 30 avril 2020. Ces protocoles anciens offrent un faible niveau de chiffrement et sont vulnérables aux attaques BEAST et POODLE. Les applications déployées sur des appareils exécutant Android version 5 ou ultérieure, ou iOS version 5 ou ultérieure, ne sont pas concernées par ce changement car ces systèmes d'exploitation prennent en charge TLS 1.2. Le client et le serveur négocieront la version la plus élevée mutuellement prise en charge lors de la connexion.
+Pour garantir un niveau de sécurité élevé, Notification Hubs désactivera la prise en charge des versions 1.0 et 1.1 de TLS le 31 mai 2020 (et non le 30 avril 2020). Ces protocoles anciens offrent un faible niveau de chiffrement et sont vulnérables aux attaques BEAST et POODLE. Les applications déployées sur des appareils exécutant Android version 5 ou ultérieure, ou iOS version 5 ou ultérieure, ne sont pas concernées par ce changement car ces systèmes d'exploitation prennent en charge TLS 1.2. Le client et le serveur négocieront la version la plus élevée mutuellement prise en charge lors de la connexion.
 
 Nous vous recommandons d'examiner toutes les applications qui utilisent Azure Notification Hubs pour vous assurer qu'elles utilisent les bibliothèques les plus pertinentes et des piles TLS qui prennent en charge TLS 1.2.
 

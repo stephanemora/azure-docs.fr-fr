@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235933"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810236"
 ---
 # <a name="azure-application-gateway-features"></a>Fonctionnalités Azure Application Gateway
 
@@ -160,6 +160,10 @@ Le tableau suivant présente un débit moyen de performances pour chaque instanc
 
 > [!NOTE]
 > Ces valeurs sont des valeurs approximatives pour un débit de passerelle d’application. Le débit réel dépend de divers détails d’environnement, tels que la taille de page moyenne, l’emplacement des instances de serveur principal et le temps de traitement d’une page par le serveur. Pour des calculs de performance exacts, vous devez exécuter vos propres tests. Ces valeurs sont fournies uniquement pour vous donner des conseils de planification de la capacité.
+
+## <a name="version-feature-comparison"></a>Comparaison des fonctionnalités des versions
+
+Pour une comparaison des fonctionnalités des versions 1 et 2 d’Application Gateway, consultez [Application Gateway v2 avec mise à l’échelle automatique et redondance interzone](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

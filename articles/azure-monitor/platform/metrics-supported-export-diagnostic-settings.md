@@ -3,14 +3,14 @@ title: Métriques de la plateforme Azure Monitor exportables par le biais des pa
 description: Liste des métriques disponibles pour chaque type de ressource avec Azure Monitor.
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 7a75655d1707dd2491065974ed8addc4c2da1a6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661360"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422105"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métriques de plateforme Azure Monitor exportables par le biais des paramètres de diagnostic
 
@@ -24,7 +24,9 @@ En raison des subtilités du back-end Azure Monitor, toutes les métriques ne so
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Changement de comportement pour les valeurs NULL et zéro 
  
-Pour les métriques de plateforme qui peuvent être exportées via les paramètres de diagnostic, il existe quelques mesures pour lesquelles Azure Monitor interprète « 0 » comme « Null ». Ceci a provoqué une certaine confusion entre les véritables « 0 » (émis par la ressource) et les « 0 » interprétés (Null). À compter du **1er avril 2020**, les métriques de plateforme exportées via les paramètres de diagnostic n’exportent plus de « 0 », sauf s’ils ont été réellement émis par la ressource sous-jacente. Notez ce qui suit :
+Pour les métriques de plateforme qui peuvent être exportées via les paramètres de diagnostic, il existe quelques mesures pour lesquelles Azure Monitor interprète « 0 » comme « Null ». Ceci a provoqué une certaine confusion entre les véritables « 0 » (émis par la ressource) et les « 0 » interprétés (Null). Un changement aura lieu bientôt et les métriques de plateforme exportées via les paramètres de diagnostic n’exporteront plus de « 0 », sauf si elles ont été réellement émises par la ressource sous-jacente. La modification avait été planifiée pour le 1er avril 2020, mais a été retardée en raison de décalages de priorité dus au COVID-19. 
+
+Notez ce qui suit :
 
 1.  Si vous supprimez un groupe de ressources ou une ressource spécifique, les données des métriques des ressources affectées ne seront plus envoyées aux destinations d’exportation des paramètres de diagnostic. Autrement dit, elles n’apparaissent plus dans Event Hubs, dans les comptes de stockage et dans les espaces de travail Log Analytics.
 2.  Cette amélioration est disponible dans tous les clouds publics et privés.
@@ -49,7 +51,7 @@ Le tableau contient les colonnes suivantes.
 > Le tableau ci-dessous peut comporter une barre de défilement horizontale en bas. Si vous pensez qu’il manque des informations, vérifiez que la barre de défilement est tout à fait à gauche.  
 
 
-| Exportable par le biais des paramètres de diagnostic ?  | Émet des valeurs NULL |  ResourceType  |  Métrique  |  Nom d’affichage de la métrique  |  Unité  |  AggregationType | 
+| Exportable par le biais des paramètres de diagnostic ?  | Émet déjà des valeurs NULL |  ResourceType  |  Métrique  |  Nom d’affichage de la métrique  |  Unité  |  AggregationType | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | ****Oui****  | Non |  Microsoft.AnalysisServices/servers  |  CleanerCurrentPrice  |  Mémoire : prix actuel du nettoyage  |  Count  |  Average | 
 | ****Oui****  | Non |  Microsoft.AnalysisServices/servers  |  CleanerMemoryNonshrinkable  |  Mémoire : mémoire de nettoyage non réductible  |  Octets  |  Average | 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 74e5a427d62d5249ffe6b0426b62a3577e43462f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444838"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757164"
 ---
 # <a name="ip-groups-preview-in-azure-firewall"></a>Groupes IP (préversion) dans Pare-feu Azure
 
@@ -54,7 +54,7 @@ Vous pouvez voir toutes les adresses IP dans le groupe IP et les règles ou le
 
 1. Pour afficher ou modifier les adresses IP, sélectionnez **Adresses IP** sous **Paramètres** dans le volet gauche.
 2. Pour ajouter une ou plusieurs adresses IP, sélectionnez **Ajouter des adresses IP**. Cela ouvre la page **Faire glisser ou parcourir** pour un chargement, ou vous pouvez entrer l’adresse manuellement.
-3.  Sélectionnez les points de suspension ( **…** ) à droite pour modifier ou supprimer des adresses IP. Pour modifier ou supprimer plusieurs adresses IP, activez les cases à cocher **Modifier** ou **Supprimer** en haut.
+3.    Sélectionnez les points de suspension ( **…** ) à droite pour modifier ou supprimer des adresses IP. Pour modifier ou supprimer plusieurs adresses IP, activez les cases à cocher **Modifier** ou **Supprimer** en haut.
 4. Enfin, vous pouvez exporter le fichier au format de fichier CSV.
 
 > [!NOTE]
@@ -72,24 +72,47 @@ Vous pouvez maintenant sélectionner **Groupe IP** comme **Type source** ou **T
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Les groupes IP sont actuellement disponibles dans les régions suivantes :
+Les groupes IP sont disponibles dans toutes les régions de cloud public.
 
-- USA Ouest
-- USA Ouest 2
-- USA Est
-- USA Est 2
-- USA Centre
-- Centre-Nord des États-Unis
-- Centre-USA Ouest
-- États-Unis - partie centrale méridionale
-- Centre du Canada
-- Europe Nord
-- Europe Ouest
-- France Centre
-- Sud du Royaume-Uni
-- Australie Est
-- Centre de l’Australie
-- Sud-Australie Est
+## <a name="ip-address-limits"></a>Limites d'adresses IP
+
+Pour 50 groupes IP ou moins : vous pouvez disposer d'un maximum de maximum 5 000 adresses IP individuelles par instance de pare-feu. Pour 51 à 100 groupes IP, vous pouvez disposer de 500 adresses IP individuelles par instance de pare-feu.
+
+### <a name="examples"></a>Exemples
+
+#### <a name="example-1-supported"></a>Exemple 1 : pris en charge
+
+|Groupes IP  |Nombre d'adresses IP  |Notation  |Règle  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
+|IPGroup2     |3|196.0.0.0 à 196.0.0.2|Rule1|
+|IPGroup3     |1|1.2.3.4|Rule1|
+|     |**Total 4100**|         |         |
+|     |         |         |         |
+
+#### <a name="example-2-supported"></a>Exemple 2 : pris en charge
+
+|Groupes IP  |Nombre d'adresses IP  |Notation  |Règle  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
+|IPGroup2     |4096|11.0.0.0/20|Rule1|
+|     |**Total 8192**|         |         |
+
+#### <a name="example-3-not-supported"></a>Exemple 3 : non pris en charge
+
+|Groupes IP  |Nombre d'adresses IP  |Notation  |Règle  |
+|---------|---------|---------|---------|
+|IPGroup1 |8 192     |10.0.0.0/20, 11.0.0.0/20  |Rule1|
+|     |**Total 8192**|||
+
+#### <a name="example-4-supported"></a>Exemple 4 : pris en charge
+
+|Groupes IP  |Nombre d'adresses IP  |Notation  |Règle  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
+|IPGroup2     |4096|11.0.0.0/20|Rule2|
+|     |**Total 8192**|         |         |
+
 
 ## <a name="related-azure-powershell-cmdlets"></a>Cmdlets Azure PowerShell connexes
 

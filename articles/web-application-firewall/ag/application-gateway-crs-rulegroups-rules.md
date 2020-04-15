@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563aa701c1403a1ef26c6073496e7e59c7c5096c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235705"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521838"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Règles et groupes de règles CRS de pare-feu d’applications web
 
@@ -281,6 +281,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |---|---|
 |942100|Attaque par injection de code SQL détectée via libinjection|
 |942110|Attaque par injection de code SQL : Test d’injection commune détecté|
+|942120|Attaque par injection de code SQL : Opérateur SQL détecté|
 |942130|Attaque par injection de code SQL : Tautologie SQL détectée.|
 |942140|Attaque par injection de code SQL = Noms de base de données courants détectés|
 |942150|Attaque par injection de code SQL|

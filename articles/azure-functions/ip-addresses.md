@@ -3,12 +3,12 @@ title: Adresses IP dans Azure Functions
 description: Découvrez comment trouver les adresses IP entrantes et sortantes des applications de fonction, et ce qui les fait changer.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234857"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656785"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -86,7 +86,7 @@ L’adresse IP entrante **peut** changer dans les cas suivants :
 
 - vous supprimez une application de fonction, puis la recréez dans un autre groupe de ressources ;
 - vous supprimez la dernière application de fonction dans une combinaison de groupe de ressources et de région, puis la recréez ;
-- vous supprimez une liaison SSL, par exemple, pendant le [renouvellement des certificats](../app-service/configure-ssl-certificate.md#renew-certificate).
+- vous supprimez une liaison TLS, par exemple, pendant le [renouvellement des certificats](../app-service/configure-ssl-certificate.md#renew-certificate).
 
 Lorsque votre application de fonction s’exécute dans un [Plan Consommation](functions-scale.md#consumption-plan), l’adresse IP entrante peut également changer, même quand vous n’avez effectué aucune des actions [répertoriées ci-dessus](#inbound-ip-address-changes).
 

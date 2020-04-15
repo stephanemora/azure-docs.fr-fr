@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 55bb6b620c7ba9ee13068213cbc867b165acc185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 532e3c297c42ea16b1f462a01699fc2fd71c6cce
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514882"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529109"
 ---
 # <a name="azure-relay-port-settings"></a>Paramètres de port d’Azure Relay
 
@@ -27,7 +27,7 @@ Le tableau suivant décrit la configuration requise pour les valeurs de port d�
 
 ## <a name="hybrid-connections"></a>les connexions hybrides
 
-Les connexions hybrides font appel à WebSockets sur le port 443 avec SSL comme mécanisme de transport sous-jacent, qui utilise **HTTPS** uniquement. 
+Les connexions hybrides font appel à WebSockets sur le port 443 avec TLS/SSL comme mécanisme de transport sous-jacent, qui utilise uniquement **HTTPS**. 
 
 ## <a name="wcf-relays"></a>Relais WCF
   

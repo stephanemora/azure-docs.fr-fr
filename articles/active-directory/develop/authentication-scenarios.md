@@ -4,7 +4,6 @@ description: Découvrez les principes de base de l’authentification dans la pl
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194993"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885563"
 ---
 # <a name="authentication-basics"></a>Principes fondamentaux de l’authentification
 
@@ -50,7 +49,7 @@ Azure AD fournit également Azure Active Directory B2C, afin que les organisatio
 
 Les jetons de sécurité contiennent des informations sur les utilisateurs et les applications. Azure AD utilise des jetons JSON (jetons JWT) qui comportent des revendications.
 
-Une revendications fournit des assertions sur une entité, telle qu’une [application cliente](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) ou un [propriétaire de ressources](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner), à une autre entité, telle que le [serveur de ressources](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server).
+Une revendication fournit des assertions sur une entité (telle qu’une [application cliente](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) ou un [propriétaire de ressources](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner)) à une autre entité, telle que le [serveur de ressources](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server).
 
 Les revendications sont des paires nom/valeur qui relaient des faits sur le sujet du jeton. Par exemple, une revendication peut contenir des faits sur le principal de sécurité authentifié par le [serveur d’autorisation](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server). Les revendications présentes dans un jeton donné dépendent de plusieurs variables, notamment le type de jeton, le type d’informations d’identification utilisées pour authentifier le sujet, la configuration de l’application et ainsi de suite.
 
@@ -76,6 +75,23 @@ La validation du jeton revient à l’application pour laquelle le jeton a été
 Les jetons ne sont valides que pour une durée limitée. En règle générale, le STS fournit une paire de jetons : un jeton d’accès pour accéder à l’application ou à la ressource protégée, et un jeton d’actualisation utilisé pour actualiser le jeton d’accès lorsque celui-ci est proche de l’expiration.
 
 Les jetons d’accès sont passés à une API web en tant que jeton du porteur dans l’en-tête `Authorization`. Une application peut fournir un jeton d’actualisation au STS et, si l’accès de l’utilisateur à l’application n’a pas été révoqué, un nouveau jeton d’accès et un nouveau jeton d’actualisation sont obtenus en retour. C’est de cette façon que le scénario d’une personne quittant l’entreprise est géré. Lorsque le STS reçoit le jeton d’actualisation, il n’émet pas d’autre jeton d’accès valide si l’utilisateur n’est plus autorisé.
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Comment chaque flux émet des jetons et des codes
+
+Selon la façon dont votre client est créé, il peut utiliser un ou plusieurs des flux d’authentification pris en charge par Azure AD. Ces flux peuvent produire divers jetons (id_tokens, jetons d’actualisation, jetons d’accès) ainsi que des codes d’autorisation, et ils nécessitent des jetons différents pour les faire fonctionner. Ce graphique offre une vue d’ensemble :
+
+|Flux | Nécessite | id_token | access token | jeton d'actualisation | code d’autorisation | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flux du code d’autorisation](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flux implicite](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Circuit OIDC hybride](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Échange de jetons d’actualisation](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | jeton d'actualisation | x | x | x| |
+|[Flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
+|[Informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) | | | x (application uniquement)| | |
+
+Les jetons émis via le mode implicite ont une longueur maximale du fait qu’ils sont renvoyés au navigateur via l’URL (où `response_mode` est `query` ou `fragment`).  Certains navigateurs limitent la taille de l’URL qui peut être placée dans la barre d’adresse et refusent les URL trop longues.  Par conséquent, ces jetons n’ont pas de revendications `groups` ou `wids`. 
+
+Maintenant que vous avez une vue d’ensemble des principes fondamentaux, poursuivez votre lecture pour comprendre le modèle d’application et l’API relatifs à l’identité, découvrez comment fonctionne le provisionnement dans Azure AD et consultez les liens permettant d’obtenir des informations détaillées sur les scénarios courants pris en charge par Azure AD.
 
 ## <a name="application-model"></a>Modèle d'application
 
@@ -153,7 +169,7 @@ Cet attribut force ASP.NET à vérifier la présence d’un cookie de session co
 L’authentification de l’utilisateur s’effectue via le navigateur. Le protocole OpenID utilise des messages de protocole HTTP standard.
 * L’application web envoie un état HTTP 302 (redirection) au navigateur pour utiliser Azure AD.
 * Lorsque l’utilisateur est authentifié, Azure AD envoie le jeton à l’application web en utilisant une redirection via le navigateur.
-* La redirection est fournie par l’application web sous la forme d’un URI de redirection. Cet URI de redirection est inscrit auprès de l’objet d’application Azure AD. Il peut y avoir plusieurs URI de redirection, car l’application peut être déployée sur plusieurs URL. Par conséquent, l’application web doit également spécifier l’URi de redirection à utiliser.
+* La redirection est fournie par l’application web sous la forme d’un URI de redirection. Cet URI de redirection est inscrit auprès de l’objet d’application Azure AD. Il peut y avoir plusieurs URI de redirection, car l’application peut être déployée sur plusieurs URL. Par conséquent, l’application web doit également spécifier l’URI de redirection à utiliser.
 * Azure AD vérifie que l’URI de redirection envoyé par l’application web est l’un des URI de redirection inscrits pour l’application.
 
 ## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Flux de connexion d’application mobile et de bureau avec Azure AD

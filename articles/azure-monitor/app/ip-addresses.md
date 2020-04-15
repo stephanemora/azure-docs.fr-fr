@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: 74d696c19ac2a2d0d367f5a018fde8cd3a0eedb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 454138f8e0d92935126f446455810a444b0a053a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535202"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984144"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Adresses IP utilisées par Application Insights et Log Analytics
 Le service [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utilise plusieurs adresses IP. Vous devrez peut-être connaître ces adresses si l’application que vous surveillez est hébergée derrière un pare-feu.
@@ -55,6 +55,8 @@ Configuration de Status Monitor (nécessaire uniquement pour apporter des modifi
 ## <a name="availability-tests"></a>Tests de disponibilité
 Voici la liste des adresses à partir desquelles les [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) sont exécutés. Si vous souhaitez exécuter des tests web sur votre application, mais que votre serveur web est limité au service de clients spécifiques, vous devrez alors autoriser le trafic entrant depuis nos serveurs de test de disponibilité.
 
+### <a name="service-tag"></a>Balise du service
+
 Si vous utilisez des groupes de sécurité réseau Azure, ajoutez simplement une **règle de port d’entrée** pour autoriser le trafic à partir de tests de disponibilité Application Insights en sélectionnant **Balise de service** en tant que **Source**, et **ApplicationInsightsAvailability** en tant que **Balise du service source**.
 
 >[!div class="mx-imgBorder"]
@@ -64,6 +66,11 @@ Si vous utilisez des groupes de sécurité réseau Azure, ajoutez simplement une
 >![Onglet Ajouter une règle de sécurité de trafic entrant](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Ouvrez les ports 80 (http) et 443 (https) pour le trafic entrant à partir de ces adresses (les adresses IP sont regroupées par emplacement) :
+
+### <a name="addresses-grouped-by-location"></a>Adresses regroupées par emplacement
+
+> [!NOTE]
+> Ces adresses sont répertoriées à l'aide de la notation CIDR (Classless Inter-Domain Routing). Cela signifie qu’une entrée comme `51.144.56.112/28` équivaut à 16 adresses IP entre `51.144.56.112` et `51.144.56.127`.
 
 ```
 Australia East

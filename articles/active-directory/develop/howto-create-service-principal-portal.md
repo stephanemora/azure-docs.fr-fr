@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231049"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546135"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -42,7 +42,7 @@ Vous avez créé votre application Azure AD et le principal de service.
 
 ## <a name="assign-a-role-to-the-application"></a>Attribuer un rôle à l’application
 
-Pour accéder aux ressources de votre abonnement, vous devez attribuer un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
+Pour accéder aux ressources de votre abonnement, vous devez attribuer un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
@@ -99,7 +99,7 @@ Exportez ce certificat dans un fichier à l’aide du composant logiciel enficha
 
 1. Pour afficher vos certificats, sous **Certificats - Utilisateur actuel** dans le volet gauche, développez le répertoire **Personnel**.
 1. Cliquez avec le bouton droit sur le certificat que vous avez créé, sélectionnez **Toutes les tâches->Exporter**.
-1. Suivez les instructions de l’Assistant Exportation de certificat.  Exportez la clé privée, spécifiez un mot de passe pour le fichier de certificat, puis exportez-le vers un fichier.
+1. Suivez les instructions de l’Assistant Exportation de certificat.  N’exportez pas la clé privée. Procédez à une exportation vers un fichier .CER.
 
 Pour charger le certificat :
 

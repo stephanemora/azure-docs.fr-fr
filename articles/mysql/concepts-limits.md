@@ -5,35 +5,38 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/9/2019
-ms.openlocfilehash: 757a061bff72ca9fc34d408cd94cec9966d1157f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 4/1/2020
+ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191110"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548469"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
 
-## <a name="maximum-connections"></a>Nombre maximal de connexions
-Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant : 
+## <a name="server-parameters"></a>Paramètres de serveur
 
-|**Niveau tarifaire**|**vCore(s)**| **Nombre maximal de connexions**|
-|---|---|---|
-|De base| 1| 50|
-|De base| 2| 100|
-|Usage général| 2| 600|
-|Usage général| 4| 1250|
-|Usage général| 8| 2 500|
-|Usage général| 16| 5 000|
-|Usage général| 32| 10000|
-|Usage général| 64| 20000|
-|Mémoire optimisée| 2| 1250|
-|Mémoire optimisée| 4| 2 500|
-|Mémoire optimisée| 8| 5 000|
-|Mémoire optimisée| 16| 10000|
-|Mémoire optimisée| 32| 20000|
+Les valeurs minimales et maximales de plusieurs paramètres de serveur populaires sont déterminées par le niveau tarifaire et les vCores. Reportez-vous aux tableaux ci-dessous pour connaître les limites.
+
+### <a name="max_connections"></a>max_connections
+
+|**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut**|**Valeur minimale**|**Valeur maximale**|
+|---|---|---|---|---|
+|De base|1|50|10|50|
+|De base|2|100|10|100|
+|Usage général|2|300|10|600|
+|Usage général|4|625|10|1250|
+|Usage général|8|1250|10|2 500|
+|Usage général|16|2 500|10|5 000|
+|Usage général|32|5 000|10|10000|
+|Usage général|64|10000|10|20000|
+|Mémoire optimisée|2|600|10|800|
+|Mémoire optimisée|4|1250|10|2 500|
+|Mémoire optimisée|8|2 500|10|5 000|
+|Mémoire optimisée|16|5 000|10|10000|
+|Mémoire optimisée|32|10000|10|20000|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > ERREUR 1040 (08004) : Trop de connexions
@@ -42,6 +45,115 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 > Pour une expérience optimale, nous vous recommandons d’utiliser un regroupement de connexions comme ProxySQL pour gérer efficacement les connexions.
 
 La création de connexions clientes à MySQL prend du temps et, une fois établies, ces connexions occupent des ressources de base de données, même lorsqu’elles sont inactives. La plupart des applications requièrent de nombreuses connexions à courte durée, ce qui aggrave la situation. Par conséquent, il y a moins de ressources disponibles pour votre charge de travail réelle; ce qui entraîne une diminution des performances. Un regroupement de connexions qui réduit les connexions inactives et réutilise les connexions existantes permet d’éviter cela. Pour en savoir plus sur la configuration de ProxySQL, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+
+### <a name="query_cache_size"></a>query_cache_size
+
+Le cache des requêtes est désactivé par défaut. Pour activer le cache des requêtes, configurez le paramètre `query_cache_type`. 
+
+Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) pour en savoir plus sur ce paramètre.
+
+> [!NOTE]
+> Le cache des requêtes est déconseillé à partir de MySQL 5.7.20 et a été supprimé de MySQL 8.0
+
+|**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut**|**Valeur minimale**|**Valeur maximale**|
+|---|---|---|---|---|
+|De base|1|Non configurable dans le niveau de base|N/A|N/A|
+|De base|2|Non configurable dans le niveau de base|N/A|N/A|
+|Usage général|2|0|0|16777216|
+|Usage général|4|0|0|33554432|
+|Usage général|8|0|0|67108864|
+|Usage général|16|0|0|134217728|
+|Usage général|32|0|0|134217728|
+|Usage général|64|0|0|134217728|
+|Mémoire optimisée|2|0|0|33554432|
+|Mémoire optimisée|4|0|0|67108864|
+|Mémoire optimisée|8|0|0|134217728|
+|Mémoire optimisée|16|0|0|134217728|
+|Mémoire optimisée|32|0|0|134217728|
+
+### <a name="sort_buffer_size"></a>sort_buffer_size
+
+Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) pour en savoir plus sur ce paramètre.
+
+|**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut**|**Valeur minimale**|**Valeur maximale**|
+|---|---|---|---|---|
+|De base|1|Non configurable dans le niveau de base|N/A|N/A|
+|De base|2|Non configurable dans le niveau de base|N/A|N/A|
+|Usage général|2|524 288|32 768|4 194 304|
+|Usage général|4|524 288|32 768|8388608|
+|Usage général|8|524 288|32 768|16777216|
+|Usage général|16|524 288|32 768|33554432|
+|Usage général|32|524 288|32 768|33554432|
+|Usage général|64|524 288|32 768|33554432|
+|Mémoire optimisée|2|524 288|32 768|8388608|
+|Mémoire optimisée|4|524 288|32 768|16777216|
+|Mémoire optimisée|8|524 288|32 768|33554432|
+|Mémoire optimisée|16|524 288|32 768|33554432|
+|Mémoire optimisée|32|524 288|32 768|33554432|
+
+### <a name="join_buffer_size"></a>join_buffer_size
+
+Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) pour en savoir plus sur ce paramètre.
+
+|**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut**|**Valeur minimale**|**Valeur maximale**|
+|---|---|---|---|---|
+|De base|1|Non configurable dans le niveau de base|N/A|N/A|
+|De base|2|Non configurable dans le niveau de base|N/A|N/A|
+|Usage général|2|262 144|128|268435455|
+|Usage général|4|262 144|128|536870912|
+|Usage général|8|262 144|128|1073741824|
+|Usage général|16|262 144|128|2147483648|
+|Usage général|32|262 144|128|4294967295|
+|Usage général|64|262 144|128|4294967295|
+|Mémoire optimisée|2|262 144|128|536870912|
+|Mémoire optimisée|4|262 144|128|1073741824|
+|Mémoire optimisée|8|262 144|128|2147483648|
+|Mémoire optimisée|16|262 144|128|4294967295|
+|Mémoire optimisée|32|262 144|128|4294967295|
+
+### <a name="max_heap_table_size"></a>max_heap_table_size
+
+Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) pour en savoir plus sur ce paramètre.
+
+|**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut**|**Valeur minimale**|**Valeur maximale**|
+|---|---|---|---|---|
+|De base|1|Non configurable dans le niveau de base|N/A|N/A|
+|De base|2|Non configurable dans le niveau de base|N/A|N/A|
+|Usage général|2|16777216|16384|268435455|
+|Usage général|4|16777216|16384|536870912|
+|Usage général|8|16777216|16384|1073741824|
+|Usage général|16|16777216|16384|2147483648|
+|Usage général|32|16777216|16384|4294967295|
+|Usage général|64|16777216|16384|4294967295|
+|Mémoire optimisée|2|16777216|16384|536870912|
+|Mémoire optimisée|4|16777216|16384|1073741824|
+|Mémoire optimisée|8|16777216|16384|2147483648|
+|Mémoire optimisée|16|16777216|16384|4294967295|
+|Mémoire optimisée|32|16777216|16384|4294967295|
+
+### <a name="tmp_table_size"></a>tmp_table_size
+
+Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) pour en savoir plus sur ce paramètre.
+
+|**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut**|**Valeur minimale**|**Valeur maximale**|
+|---|---|---|---|---|
+|De base|1|Non configurable dans le niveau de base|N/A|N/A|
+|De base|2|Non configurable dans le niveau de base|N/A|N/A|
+|Usage général|2|16777216|1 024|67108864|
+|Usage général|4|16777216|1 024|134217728|
+|Usage général|8|16777216|1 024|268435456|
+|Usage général|16|16777216|1 024|536870912|
+|Usage général|32|16777216|1 024|1073741824|
+|Usage général|64|16777216|1 024|1073741824|
+|Mémoire optimisée|2|16777216|1 024|134217728|
+|Mémoire optimisée|4|16777216|1 024|268435456|
+|Mémoire optimisée|8|16777216|1 024|536870912|
+|Mémoire optimisée|16|16777216|1 024|1073741824|
+|Mémoire optimisée|32|16777216|1 024|1073741824|
+
+### <a name="time_zone"></a>time_zone
+
+Les tables de fuseaux horaires peuvent être remplies en appelant la procédure stockée `mysql.az_load_timezone` à partir d’un outil tel que la ligne de commande MySQL ou MySQL Workbench. Pour savoir comment appeler la procédure stockée et définir les fuseaux horaires au niveau global ou au niveau de la session, consultez les articles relatifs au [Portail Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou à [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter).
 
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
 

@@ -1,22 +1,14 @@
 ---
 title: Limites - LUIS
-titleSuffix: Azure Cognitive Services
 description: Cet article liste les limites connues d’Azure Cognitive Services Language Understanding (LUIS). LUIS comporte plusieurs domaines limites. La limite de modèle contrôle les intentions, les entités et les caractéristiques dans LUIS. La limite de quota dépend du type de clé. La combinaison de touches contrôle le site web de LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/07/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 4aa69cb0fd36fe5bf4ea2928022aea602b8830d6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218835"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618865"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS.
@@ -40,7 +32,7 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 | [Préversion - Entités de liste dynamique](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listes de 1 000 environ par demande pour interroger le point de terminaison de prédiction|
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
 | [Pattern.any](./luis-concept-entity-types.md)|100 par application, 3 entités pattern.any par modèle |
-| [Liste d’expressions][phrase-list]|500 listes d’expressions. La liste d’expressions non interchangeable comprend un maximum de 5 000 expressions. La liste d’expressions interchangeable comprend un maximum de 50 000 expressions. Nombre maximum d’expressions au total par application de 500 000 expressions.|
+| [Liste d’expressions][phrase-list]|500 listes d’expressions. 10 listes d’expressions globales liées au modèle en tant que limite de fonctionnalité. La liste d’expressions non interchangeables comprend un maximum de 5 000 expressions. La liste d’expressions interchangeables comprend un maximum de 50 000 expressions. Nombre maximum d’expressions au total par application de 500 000 expressions.|
 | [Entités prédéfinies](./luis-prebuilt-entities.md) | aucune limite|
 | [Entité d’expression régulière](./luis-concept-entity-types.md)|20 entités<br>500 caractères maximum par modèle d’entité d’expression régulière|
 | [Rôles](luis-concept-roles.md)|300 rôles par application. 10 rôles par entité|
@@ -77,26 +69,41 @@ N’utilisez pas les caractères suivants dans les noms suivants.
 |Noms d’intention, d’entité et de rôle|`:`<br>`$` <br> `&`|
 |Nom de version|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## <a name="key-usage"></a>Utilisation de la clé
+## <a name="resource-usage-and-limits"></a>Utilisation et limites des ressources
 
-Language Understanding possède des clés séparées, un type pour la création et un type pour l'interrogation du point de terminaison de prédiction. Pour en savoir plus sur les différences entre les types de clés, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-concept-keys.md).
+Language Understanding possède des ressources distinctes, un type pour la création et un type pour l'interrogation du point de terminaison de prédiction. Pour en savoir plus sur les différences entre les types de clés, voir [Clés de point de terminaison de création et de prédiction de requête dans LUIS](luis-concept-keys.md).
 
 <a name="key-limits"></a>
 
-## <a name="resource-key-limits"></a>Limités de clés de ressources
+### <a name="authoring-resource-limits"></a>Limites des ressources de création
 
-Les clés de ressources ont différentes limites pour la création et le point de terminaison. La clé de point de terminaison de requête de prédiction LUIS n’est valide que pour les requêtes de point de terminaison.
+Utilisez le _genre_, `LUIS.Authoring`, lors du filtrage des ressources dans le portail Azure. LUIS limite à 500 applications par ressource de création Azure.
 
-* 500 applications par ressource de création Azure
+|Ressource de création|TPS de création|
+|--|--|
+|Starter|1 000 000/mois, 5/seconde|
+|F0 - Niveau gratuit |1 000 000/mois, 5/seconde|
 
-|Clé|Création|Point de terminaison|Objectif|
-|--|--|--|--|
-|Starter|1 000 000/mois, 5/seconde|1 000/mois, 5/seconde|Création de votre application LUIS|
-|F0 - Niveau gratuit |1 000 000/mois, 5/seconde|10 000 par mois, 5/seconde|Interrogation de votre point de terminaison LUIS|
-|S0 - Niveau de base|-|50/seconde|Interrogation de votre point de terminaison LUIS|
-|S0 - Niveau Standard|-|50/seconde|Interrogation de votre point de terminaison LUIS|
-|[Intégration de l’analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|L'ajout d'informations sur les sentiments, y compris l'extraction de données de phrases clés, est fourni sans nécessiter une autre ressource Azure. |
-|[Intégration de Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 000 requêtes de point de terminaison pour coût unitaire|Convertir un énoncé vocal en énoncé de texte et retourner des résultats LUIS|
+* TPS = Transactions par seconde
+
+[Apprenez-en davantage sur la tarification.][pricing]
+
+### <a name="query-prediction-resource-limits"></a>Interroger les limites des ressources de prédiction
+
+Utilisez le _genre_, `LUIS`, lors du filtrage des ressources dans le portail Azure. La ressource de point de terminaison de prédiction de requête LUIS, utilisée dans le runtime, est uniquement valide pour les requêtes de point de terminaison.
+
+|Interroger la ressource de prédiction|TPS des requêtes|
+|--|--|
+|F0 - Niveau gratuit |10 000 par mois, 5/seconde|
+|S0 - Niveau Standard|50/seconde|
+
+### <a name="sentiment-analysis"></a>analyse de sentiments
+
+L'[intégration de l'analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis), qui fournit des informations sur les sentiments, est fournie sans nécessiter une autre ressource Azure.
+
+### <a name="speech-integration"></a>Intégration du Speech
+
+L'[intégration du Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md) fournit 1 000 requêtes de point de terminaison par coût unitaire.
 
 [Apprenez-en davantage sur la tarification.][pricing]
 

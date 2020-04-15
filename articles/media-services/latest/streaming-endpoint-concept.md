@@ -12,23 +12,25 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562358"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582729"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Points de terminaison de streaming (origine) dans Azure Media Services
 
-Dans Microsoft Azure Media Services, un [point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un empaquetage dynamique (juste-à-temps) et un service d’origine qui permet de transmettre votre contenu en direct et à la demande directement à une application de lecteur cliente, à l’aide de l’un des protocoles de streaming multimédia courants (HLS ou DASH). En outre, le **point de terminaison de streaming** offre un chiffrement dynamique (juste-à-temps) aux systèmes DRM de pointe.
+Dans Microsoft Azure Media Services, un [point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un empaquetage dynamique (juste-à-temps) et un service d’origine qui permet de transmettre votre contenu en direct et à la demande directement à une application de lecteur cliente, à l’aide de l’un des protocoles de streaming multimédia courants (HLS ou DASH). En outre, le **point de terminaison de streaming** offre un chiffrement dynamique (juste-à-temps) aux systèmes DRM de pointe. 
 
-Quand vous créez un compte Media Services, un point de terminaison de streaming **par défaut** est créé pour vous dans l’état Arrêté. Vous ne pouvez pas supprimer le point de terminaison de streaming **par défaut**. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte (voir [Quotas et limitations](limits-quotas-constraints.md)).
+Quand vous créez un compte Media Services, un point de terminaison de streaming **par défaut** est créé pour vous dans l’état Arrêté. Vous ne pouvez pas supprimer le point de terminaison de streaming **par défaut**. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte (voir [Quotas et limites](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > Pour démarrer le streaming de vidéos, vous devez démarrer le **point de terminaison de streaming** à partir duquel vous souhaitez diffuser la vidéo.
 >
 > Vous êtes facturé uniquement lorsque votre point de terminaison de streaming est en cours d’exécution.
+
+Veillez à consulter également la rubrique [Empaquetage dynamique](dynamic-packaging-overview.md). 
 
 ## <a name="naming-convention"></a>Conventions d’affectation de noms
 
@@ -116,7 +118,7 @@ Cette section fournit des détails sur certaines propriétés du point de termin
     > [!NOTE]
     > Des points de terminaison de streaming qui se trouvent dans le même centre de données ne peuvent pas partager le même nom d’hôte personnalisé.
 
-    Actuellement, Media Services ne prend pas en charge SSL avec les domaines personnalisés.
+    Actuellement, Media Services ne prend pas en charge TLS avec des domaines personnalisés.
 
 - `maxCacheAge` : remplace l’en-tête de contrôle du cache HTTP max-age par défaut défini par le point de terminaison de streaming sur des fragments de médias et des manifestes à la demande. La valeur est définie en secondes.
 - `resourceState` -
@@ -157,10 +159,14 @@ Voir les articles suivants :
 - [Présentation du CDN](../../cdn/cdn-overview.md)
 - [Mise à l’échelle du streaming avec un CDN](scale-streaming-cdn.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
+## <a name="ask-questions-and--get-updates"></a>Poser des questions et obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
+## <a name="see-also"></a>Voir aussi
+
+[mise en package dynamique](dynamic-packaging-overview.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’exemple [de ce dépôt](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) montre comment démarrer le point de terminaison de streaming par défaut avec .NET.
+[Gérer les points de terminaison de streaming](manage-streaming-endpoints-howto.md)

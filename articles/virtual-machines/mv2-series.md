@@ -5,14 +5,14 @@ services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/07/2020
 ms.author: lahugh
-ms.openlocfilehash: 6fb0f93d3ac124b21bbc52ddc57bc720de6406e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764dc93608ae3b8882b7048a722c6d3415cbc644
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163894"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885784"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -34,12 +34,17 @@ Accélérateur d’écriture : [Pris en charge](https://docs.microsoft.com/azur
 |---|---|---|---|---|---|---|---|
 | Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16 000 |
 | Standard_M208s_v2<sup>1</sup> | 208 | 2 850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16 000 |
-| Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8 192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
-| Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8 192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8 192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8 192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
-<sup>1</sup> Les machines virtuelles de la série Mv2 sont de la 2e génération uniquement. Si vous utilisez Linux, consultez [Support des machines virtuelles de 2e génération dans Azure](./linux/generation-2.md) pour obtenir des instructions sur la façon de rechercher et sélectionner une image.
+<sup>1</sup> Les machines virtuelles de la série Mv2 sont de la 2e génération uniquement. Si vous utilisez Linux, consultez [Support des machines virtuelles de 2e génération dans Azure](./linux/generation-2.md) pour obtenir des instructions sur la façon de rechercher et sélectionner une image. Si vous utilisez Windows, consultez [Support des machines virtuelles de 2e génération dans Azure](./windows/generation-2.md) pour obtenir des instructions sur la façon de rechercher et sélectionner une image. Les versions minimales du système d’exploitation requises pour les quatre types de machines virtuelles de série MV2 diffèrent comme suit :
 
-<sup>2</sup> Pour les tailles M416ms_v2 et M416s_v2, notez qu’il existe une prise en charge initiale de l’image suivante uniquement : « GEN2 : SUSE Linux Enterprise Server (SLES) 12 SP4 pour applications SAP. »
+- Windows Server 2019 ou version ultérieure
+- SUSE Linux Enterprise Server 12 SP4 et versions ultérieures ou SUSE Linux Enterprise Server 15 SP1 et versions ultérieures
+- Red Hat Enterprise Linux 7.6, 7.7, 8.1 ou version ultérieure 
+- Oracle Enterprise Linux 7.7 ou version ultérieure
+
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

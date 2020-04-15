@@ -3,12 +3,12 @@ title: Déployer à grande échelle Azure Policy vers des abonnements délégué
 description: Découvrez comment la gestion des ressources déléguées Azure vous permet de déployer une définition et une affectation de stratégie sur plusieurs locataires.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9015351c3fc8f374c5ce85712907fa05249cde11
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456845"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984570"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Déployer à grande échelle Azure Policy vers des abonnements délégués
 
@@ -32,7 +32,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Déployer une stratégie sur plusieurs locataires clients
 
-L’exemple ci-dessous illustre comment utiliser un [modèle Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) pour déployer une définition de stratégie et une affectation de stratégie sur des abonnements délégués dans plusieurs locataires clients. Cette définition de stratégie exige que tous les comptes de stockage utilisent du trafic HTTPS. Elle empêche la création de comptes de stockage non conformes et marquent comme non conformes les comptes de stockage existants qui n'utilisent pas ce paramètre.
+L’exemple ci-dessous illustre comment utiliser un [modèle Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) pour déployer une définition de stratégie et une affectation de stratégie sur des abonnements délégués dans plusieurs locataires clients. Cette définition de stratégie exige que tous les comptes de stockage utilisent du trafic HTTPS. Elle empêche la création de comptes de stockage non conformes et marquent comme non conformes les comptes de stockage existants qui n'utilisent pas ce paramètre.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -43,7 +43,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
     New-AzDeployment -Name mgmt `
                      -Location eastus `
-                     -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
+                     -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
                      -AsJob
 }
 ```

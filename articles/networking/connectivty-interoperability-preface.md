@@ -1,5 +1,5 @@
 ---
-title: 'Interopérabilité des fonctionnalités de connectivité de back-end Azure : configuration de test | Microsoft Docs'
+title: 'Interopérabilité dans Azure : Configuration de test | Microsoft Docs'
 description: Cet article décrit une configuration de test que vous pouvez utiliser pour analyser l’interopérabilité entre ExpressRoute, un réseau virtuel de site à site et le peering de réseau virtuel dans Azure.
 documentationcenter: na
 services: networking
@@ -10,20 +10,20 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 0cbd4b620a03ed26e95679cf7cb1abef277a9471
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3aec41a145d2c94a45a453393831902069b9c41b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873793"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518187"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : configuration de test
+# <a name="interoperability-in-azure--test-setup"></a>Interopérabilité dans Azure : Configuration des tests
 
 Cet article décrit une configuration de test que vous pouvez utiliser pour analyser l’interopérabilité des services de mise en réseau au niveau du plan de contrôle et du plan de données. Nous allons examiner brièvement les composants de la mise en réseau Azure :
 
--   **Azure ExpressRoute** : utilisez le peering privé d’Azure ExpressRoute pour connecter directement des espaces IP privés de votre réseau local à vos déploiements de réseau virtuel Azure. ExpressRoute vous permet d’obtenir une bande passante supérieure et une connexion privée. De nombreux partenaires de l’écosystème ExpressRoute proposent une connectivité ExpressRoute avec des contrats SLA. Pour en savoir plus sur ExpressRoute et sa configuration, consultez [Présentation d’ExpressRoute][ExpressRoute].
--   **VPN de site à site** : vous pouvez utiliser la passerelle VPN Azure comme un VPN de site à site pour connecter en toute sécurité un réseau local à Azure via Internet ou ExpressRoute. Pour savoir comment configurer un VPN site à site pour se connecter à Azure, consultez [Configurer une passerelle VPN][VPN].
--   **Peering de réseaux virtuels** : utilisez le peering de réseaux virtuels (VNet) pour établir la connectivité entre les réseaux virtuels d’un réseau virtuel Azure. Pour en savoir plus sur le Peering de réseaux virtuels, consultez le [tutoriel sur le Peering de réseaux virtuels][VNet].
+-   **Azure ExpressRoute** : Utilisez le peering privé d’Azure ExpressRoute pour connecter directement des espaces IP privés de votre réseau local à vos déploiements de réseau virtuel Azure. ExpressRoute vous permet d’obtenir une bande passante supérieure et une connexion privée. De nombreux partenaires de l’écosystème ExpressRoute proposent une connectivité ExpressRoute avec des contrats SLA. Pour en savoir plus sur ExpressRoute et sa configuration, consultez [Présentation d’ExpressRoute][ExpressRoute].
+-   **VPN de site à site** : Vous pouvez utiliser la passerelle VPN Azure comme un VPN de site à site pour connecter en toute sécurité un réseau local à Azure via Internet ou ExpressRoute. Pour savoir comment configurer un VPN site à site pour se connecter à Azure, consultez [Configurer une passerelle VPN][VPN].
+-   **Peering de réseaux virtuels** : Utilisez le peering de réseaux virtuels (VNet) pour établir la connectivité entre les réseaux virtuels d’un réseau virtuel Azure. Pour en savoir plus sur le Peering de réseaux virtuels, consultez le [tutoriel sur le Peering de réseaux virtuels][VNet].
 
 ## <a name="test-setup"></a>Configuration des tests
 

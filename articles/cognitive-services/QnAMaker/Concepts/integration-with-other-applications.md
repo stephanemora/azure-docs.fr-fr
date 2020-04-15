@@ -3,12 +3,12 @@ title: S’intégrer à d’autres applications - QnA Maker
 description: QnA Maker s’intègre aux applications clientes telles que les chatbots, ainsi qu’à d’autres services de traitement en langage naturel tels que Language Understanding (LUIS).
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1edbfb6badfb73ce08a99709da0f8bfb61b7dc3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300517"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804185"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>Concevoir une base de connaissances pour les applications clientes
 
@@ -24,7 +24,7 @@ Après avoir publié votre base de connaissances, créez un bot à partir de la 
 
 ## <a name="providing-multi-turn-conversations"></a>Conversations multitours
 
-Un client bot fournit la meilleure réponse sélectionnée à partir de votre base de connaissances, et peut fournir des invites de suivi si la réponse fait partie d’un jeu de questions-réponses multitour. Découvrez [comment](../how-to/multiturn-conversation.md) ajouter des jeux de questions et réponses de conversation multitour à votre base de connaissances.
+Un client bot fournit la meilleure réponse sélectionnée à partir de votre base de connaissances, et peut fournir des invites de suivi si la réponse fait partie d’une paire de questions-réponses multitour. Découvrez [comment](../how-to/multiturn-conversation.md) ajouter des jeux de questions et réponses de conversation multitour à votre base de connaissances.
 
 ## <a name="natural-language-processing"></a>Traitement en langage naturel
 

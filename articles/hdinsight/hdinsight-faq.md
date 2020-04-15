@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a37e1b9bc4a0b953dc727dbab2813dd938ed576
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720348"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652213"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight : Forum aux questions
 
@@ -135,7 +135,7 @@ Oui, vous pouvez procéder à la migration d’un metastore Hive entre un cluste
 
 ### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>Comment estimer la taille d’une base de données metastore Hive ?
 
-Un metastore Hive est utilisé pour stocker les métadonnées des sources de données que le serveur Hive utilise. La taille requise dépendant en partie du nombre et de la complexité de vos sources de données Hive, il n’est pas possible de l’estimer à l’avance. Comme indiqué dans les [Meilleures pratiques pour les metastores Hive](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices), vous pouvez commencer avec un niveau S2 qui fournit 50 DTU et 250 Go de stockage, puis, si vous constatez un goulot d’étranglement, augmenter la taille des instances de la base de données.
+Un metastore Hive est utilisé pour stocker les métadonnées des sources de données que le serveur Hive utilise. La taille requise dépendant en partie du nombre et de la complexité de vos sources de données Hive, il n’est pas possible de l’estimer à l’avance. Comme indiqué dans les [Lignes directrices relatives aux metastores Hive](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines), vous pouvez commencer avec un niveau S2 qui fournit 50 DTU et 250 Go de stockage, puis, si vous constatez un goulot d’étranglement, augmenter la taille des instances de la base de données.
 
 ### <a name="do-you-support-any-other-database-other-than-azure-sql-database-as-an-external-metastore"></a>En dehors d’Azure SQL Database, existe-t-il d’autres bases de données qui peuvent être utilisées en tant que metastore externe ?
 

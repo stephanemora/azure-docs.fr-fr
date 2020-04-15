@@ -1,28 +1,27 @@
 ---
 title: Utiliser Apache Flink pour Apache Kafka - Azure Event Hubs | Microsoft Docs
-description: Cet article fournit des informations sur la connexion d’Apache Flink à un hub d’événements Azure Apache Kafka
+description: Cet article fournit des informations sur la connexion d’Apache Flink à un hub d’événements Azure
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: 881546a97b01bef993cc24c6b868ec97ddf5ac36
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2e5a2924cdc00c1cc057d71c40645085df4bae6a
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555719"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632808"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Utilisation d’Apache Flink avec Azure Event Hubs pour Apache Kafka
-Ce tutoriel vous montre comment connecter Apache Flink à des Event Hubs prenant en charge Kafka sans modifier vos protocoles clients ni exécuter vos propres clusters. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html).
+Ce tutoriel vous montre comment connecter Apache Flink à un Event Hub sans modifier vos protocoles clients ni exécuter vos propres clusters. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html).
 
-Un des principaux avantages de l’utilisation d’Apache Kafka est l’écosystème d’infrastructures auquel il peut se connecter. Les Event Hubs prenant en charge Kafka associent la flexibilité de Kafka à l’évolutivité, à la cohérence et à la prise en charge de l’écosystème Azure.
+Un des principaux avantages de l’utilisation d’Apache Kafka est l’écosystème d’infrastructures auquel il peut se connecter. Les Event Hubs associent la flexibilité de Kafka à l’évolutivité, à la cohérence et à la prise en charge de l’écosystème Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer un espace de noms Event Hubs
 > * Cloner l’exemple de projet
@@ -48,11 +47,11 @@ Pour suivre ce tutoriel, vérifiez que les conditions préalables ci-dessous son
 
 ## <a name="create-an-event-hubs-namespace"></a>Créer un espace de noms Event Hubs
 
-Un espace de noms Event Hubs est requis pour échanger avec tout service Event Hubs. Pour obtenir des instructions sur l’obtention d’un point de terminaison Kafka pour Event Hubs, voir [Création d’un Event Hub prenant en charge Kafka](event-hubs-create-kafka-enabled.md). Veillez à copier la chaîne de connexion Event Hubs pour une utilisation ultérieure.
+Un espace de noms Event Hubs est requis pour échanger avec tout service Event Hubs. Pour obtenir des instructions sur la création d’un espace de noms et d’un Event Hub, consultez [Créer un Event Hub](event-hubs-create.md). Veillez à copier la chaîne de connexion Event Hubs pour une utilisation ultérieure.
 
 ## <a name="clone-the-example-project"></a>Cloner l’exemple de projet
 
-Maintenant que vous disposez d’une chaîne de connexion Event Hubs prenant en charge Kafka, clonez le référentiel Azure Event Hubs pour Kafka, puis accédez au sous-dossier `flink` :
+Maintenant que vous disposez d’une chaîne de connexion Event Hubs, clonez le dépôt Azure Event Hubs pour Kafka, puis accédez au sous-dossier `flink` :
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -88,11 +87,11 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestProducer"
 ```
 
-le producteur va maintenant commencer à envoyer des événement à l’Event Hub prenant en charge Kafka au niveau de la rubrique `test` et imprimer les événements dans stdout.
+le producteur va maintenant commencer à envoyer des événement à l’Event Hub au niveau de la rubrique `test` et imprimer les événements dans stdout.
 
 ## <a name="run-flink-consumer"></a>Exécuter le consommateur de Flink
 
-À l’aide de l’exemple de contrôle serveur consommateur fourni, recevez des messages à partir des Event Hubs prenant en charge Kafka.
+À l’aide de l’exemple de contrôle serveur consommateur fourni, recevez des messages à partir de l’Event Hub. 
 
 ### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fournir un point de terminaison Event Hubs Kafka
 
@@ -119,27 +118,16 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ```
 
-Si l’Event Hub prenant en charge Kafka a des événements (par exemple, si votre producteur est également en cours d’exécution), le contrôle serveur consommateur commence maintenant à recevoir les événements provenant de la rubrique `test`.
+Si l’Event Hub a des événements (par exemple, si votre producteur est également en cours d’exécution), le contrôle serveur consommateur commence maintenant à recevoir les événements provenant de la rubrique `test`.
 
 Extraire le [Guide de connecteur Kafka de Flink](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) pour plus d’informations sur la connexion Flink à Kafka.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à connecter Apache Flink à des Event Hubs prenant en charge Kafka sans modifier vos protocoles clients ni exécuter vos propres clusters. Dans ce didacticiel, vous avez effectué les étapes suivantes : 
+Pour plus d'informations sur Event Hubs pour Kafka, consultez les articles suivants :  
 
-> [!div class="checklist"]
-> * Créer un espace de noms Event Hubs
-> * Cloner l’exemple de projet
-> * Exécuter le producteur de Flink 
-> * Exécuter le consommateur de Flink
-
-Pour plus d’informations sur Event Hubs et sur Event Hubs pour Kafka, consultez les articles suivants :  
-
-- [En savoir plus sur Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs pour Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Créer un espace de noms Event Hubs prenant en charge Kafka](event-hubs-create-kafka-enabled.md)
-- [Diffuser dans Event Hubs à partir de vos applications Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Mettre en miroir un répartiteur Kafka dans un Event Hub prenant en charge Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connecter Apache Spark à un Event Hub prenant en charge Kafka](event-hubs-kafka-spark-tutorial.md)
-- [Intégrer Kafka Connect à un Event Hub prenant en charge Kafka](event-hubs-kafka-connect-tutorial.md)
-- [Connecter Akka Streams à un Event Hub prenant en charge Kafka](event-hubs-kafka-akka-streams-tutorial.md)
+- [Mettre en miroir un broker Kafka dans un hub d’événements](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Connecter Apache Spark à un hub d’événements](event-hubs-kafka-spark-tutorial.md)
+- [Intégrer Kafka Connect à un hub d’événements](event-hubs-kafka-connect-tutorial.md)
 - [Explorer des exemples sur GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Connecter Akka Streams à un hub d’événements](event-hubs-kafka-akka-streams-tutorial.md)
+- [Guide du développeur Apache Kafka pour Azure Event Hubs](apache-kafka-developer-guide.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462443"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985250"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -110,7 +110,7 @@ Dans tous ces cas d’usage, étant donné que la fonction a découplé l’appl
 
 L’intégration native entre Azure Cosmos DB et Azure Functions est disponible dans le portail Azure et dans Visual Studio 2019.
 
-* Dans le portail Azure Functions, vous pouvez créer un déclencheur. Pour obtenir des instructions de démarrage rapide, consultez [Créer un déclencheur Azure Functions pour Cosmos DB dans le portail Azure](https://aka.ms/cosmosdbtriggerportalfunc).
+* Dans le portail Azure Functions, vous pouvez créer un déclencheur. Pour obtenir des instructions de démarrage rapide, consultez [Créer un déclencheur Azure Functions pour Cosmos DB dans le portail Azure](../azure-functions/functions-create-cosmos-db-triggered-function.md).
 * Dans le portail Azure Cosmos DB, vous pouvez ajouter un déclencheur Azure Functions pour Cosmos DB à une application Azure Functions existante dans le même groupe de ressources.
 * Dans Visual Studio 2019, vous pouvez créer le déclencheur en utilisant [Azure Functions Tools](../azure-functions/functions-develop-vs.md) :
 
@@ -146,6 +146,6 @@ Si vous n’êtes pas sûr de la meilleure option entre Flow, Logic Apps, Azure 
 
 À présent, connectons réellement Azure Cosmos DB et Azure Functions : 
 
-* [Créer un déclencheur Azure Functions pour Cosmos DB dans le portail Azure](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
+* [Créer un déclencheur Azure Functions pour Cosmos DB dans le portail Azure](../azure-functions/functions-create-cosmos-db-triggered-function.md)
+* [Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md?tabs=csharp)
 * [Liaisons et déclencheurs Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md)

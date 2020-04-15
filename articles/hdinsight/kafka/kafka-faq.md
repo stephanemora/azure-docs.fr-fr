@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206977"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436909"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Forum aux questions sur Apache Kafka dans Azure HDInsight
 
@@ -50,7 +50,7 @@ Avec le [Package de sécurité d'entreprise (ESP)](../domain-joined/apache-domai
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>Mes données sont-elles chiffrées ? Puis-je utiliser mes propres clés ?
 
-Tous les messages Kafka sur les disques managés sont chiffrés avec [Azure Storage Service Encryption (SSE).](../../storage/common/storage-service-encryption.md) Les données en transit (par exemple, les données transmises par les clients aux répartiteurs et inversement) ne sont pas chiffrées par défaut. Il est possible de chiffrer ce trafic en [configurant SSL vous-même](./apache-kafka-ssl-encryption-authentication.md). En outre, HDInsight vous permet de gérer ses propres clés pour chiffrer les données au repos. Pour plus d'informations, consultez [Chiffrement de disque avec clé gérée par le client](../disk-encryption.md).
+Tous les messages Kafka sur les disques managés sont chiffrés avec [Azure Storage Service Encryption (SSE).](../../storage/common/storage-service-encryption.md) Les données en transit (par exemple, les données transmises par les clients aux répartiteurs et inversement) ne sont pas chiffrées par défaut. Il est possible de chiffrer ce trafic en [configurant TLS vous-même](./apache-kafka-ssl-encryption-authentication.md). En outre, HDInsight vous permet de gérer ses propres clés pour chiffrer les données au repos. Pour plus d'informations, consultez [Chiffrement de disque avec clé gérée par le client](../disk-encryption.md).
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>Comment connecter des clients à mon cluster ?
 
@@ -96,5 +96,5 @@ Utilisez Azure Monitor pour analyser vos [journaux Kafka](./apache-kafka-log-ana
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer le chiffrement et l’authentification SSL pour Apache Kafka dans Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
+* [Configurer le chiffrement et l’authentification TLS pour Apache Kafka dans Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
 * [Utiliser MirrorMaker pour répliquer des rubriques Apache Kafka avec Kafka sur HDInsight](./apache-kafka-mirroring.md)

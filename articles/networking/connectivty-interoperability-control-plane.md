@@ -1,5 +1,5 @@
 ---
-title: 'Interopérabilité des fonctionnalités de connectivité de back-end Azure : Analyse du plan de contrôle | Microsoft Docs'
+title: 'Interopérabilité dans Azure : Analyse du plan de contrôle'
 description: Cet article fournit l’analyse du plan de contrôle de la configuration de test que vous pouvez utiliser pour analyser l’interopérabilité entre ExpressRoute, un réseau virtuel de site à site et le peering de réseau virtuel dans Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4921e4c4fc0da95250a0171c66d6a69093b10687
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873843"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518274"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : Analyse du plan de contrôle
+# <a name="interoperability-in-azure--control-plane-analysis"></a>Interopérabilité dans Azure : Analyse du plan de contrôle
 
 Cet article décrit l’analyse du plan de contrôle de [l’initialisation (tearDown) de test][Setup]. Vous pouvez également consulter la [configuration de l’initialisation (tearDown) de test][Configuration] et [l’analyse du plan de données][Data-Analysis] de l’initialisation (tearDown) de test.
 

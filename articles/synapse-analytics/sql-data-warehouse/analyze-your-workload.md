@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a382ef2d93f10e69569ecbbed1399f256a7afbb3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351220"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631226"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analyser la charge de travail dans Azure Synapse Analytics
 
-Techniques d’analyse des priorités de votre charge de travail SQL Analytics dans Azure Synapse Analytics.
+Techniques d’analyse des priorités de votre charge de travail SQL Synapse dans Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Classes de ressources
 
-SQL Analytics fournit des classes de ressources pour attribuer des ressources système aux requêtes.  Pour plus d’informations sur les classes de ressources, consultez [Classes de ressources et gestion des charges de travail](resource-classes-for-workload-management.md).  Les requêtes attendront si la classe de ressources affectée à une requête nécessite plus de ressources que de ressources actuellement disponibles.
+SQL Synapse fournit des classes de ressources pour attribuer des ressources système aux requêtes.  Pour plus d’informations sur les classes de ressources, consultez [Classes de ressources et gestion des charges de travail](resource-classes-for-workload-management.md).  Les requêtes attendront si la classe de ressources affectée à une requête nécessite plus de ressources que de ressources actuellement disponibles.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Détection des requêtes en file d’attente et autres vues de gestion dynamique
 
@@ -63,12 +63,12 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Analytics offre les types d’attente suivants :
+Synapse SQL a les types d’attente suivants :
 
-* **LocalQueriesConcurrencyResourceType**: requêtes qui figurent à l’extérieur de l’infrastructure d’emplacements de concurrence. Les requêtes DMV et les fonctions système telles que `SELECT @@VERSION` sont des exemples de requête locale.
-* **UserConcurrencyResourceType**: requêtes qui figurent à l’intérieur de l’infrastructure d’emplacements de concurrence. Les requêtes exécutées sur des tables d’utilisateurs finaux sont des exemples de requêtes qui doivent utiliser ce type de ressource.
-* **DmsConcurrencyResourceType**: attentes résultant d’opérations de déplacement de données.
-* **BackupConcurrencyResourceType**: cette attente indique qu’une base de données est en cours de sauvegarde. La valeur maximale de ce type de ressource est égale à 1. Si plusieurs sauvegardes ont été demandées en même temps, les autres sont placées en file d’attente. En général, nous recommandons une durée minimale de 10 minutes entre deux instantanés consécutifs. 
+* **LocalQueriesConcurrencyResourceType** : requêtes qui figurent à l’extérieur de l’infrastructure d’emplacements de concurrence. Les requêtes DMV et les fonctions système telles que `SELECT @@VERSION` sont des exemples de requête locale.
+* **UserConcurrencyResourceType** : requêtes qui figurent à l’intérieur de l’infrastructure d’emplacements de concurrence. Les requêtes exécutées sur des tables d’utilisateurs finaux sont des exemples de requêtes qui doivent utiliser ce type de ressource.
+* **DmsConcurrencyResourceType** : attentes résultant d’opérations de déplacement des données.
+* **BackupConcurrencyResourceType** : cette attente indique qu’une base de données est en cours de sauvegarde. La valeur maximale de ce type de ressource est égale à 1. Si plusieurs sauvegardes ont été demandées en même temps, les autres sont placées en file d’attente. En général, nous recommandons une durée minimale de 10 minutes entre deux instantanés consécutifs.
 
 Vous pouvez utiliser la DMV `sys.dm_pdw_waits` pour connaître les ressources attendues par une demande.
 
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Analytics](sql-data-warehouse-overview-manage-security.md). Pour plus d’informations sur la façon dont les classes de ressources plus élevées peuvent améliorer la qualité des index columnstore en cluster, consultez [Reconstruire des index pour améliorer la qualité de segment](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Synapse](sql-data-warehouse-overview-manage-security.md). Pour plus d’informations sur la façon dont les classes de ressources plus élevées peuvent améliorer la qualité des index columnstore en cluster, consultez [Reconstruire des index pour améliorer la qualité de segment](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

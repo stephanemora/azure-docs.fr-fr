@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225293"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583220"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Mise hors service de fonctionnalités de Security Center (juillet 2019)
 
@@ -43,7 +43,7 @@ Cet article fournit des informations détaillées pour chaque fonctionnalité mi
 
 ## <a name="events-dashboard"></a>Tableau de bord des événements<a name="menu_events"></a>
 
-Security Center utilise Microsoft Monitoring Agent pour collecter différents événements et configurations liées à la sécurité à partir de vos machines. Il stocke ces événements dans vos espaces de travail. Le [tableau de bord des événements](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) vous permet d’afficher ces données et vous donne un point d’entrée vers Log Analytics.
+Security Center utilise l’agent Log Analytics pour collecter différents événements et configurations liés à la sécurité à partir de vos machines. Il stocke ces événements dans vos espaces de travail. Le [tableau de bord des événements](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) vous permet d’afficher ces données et vous donne un point d’entrée vers Log Analytics.
 
 Nous avons supprimé le tableau de bord des événements qui s’affichait lorsque vous sélectionniez un espace de travail :
 
@@ -97,7 +97,7 @@ Vous pouvez accéder à toutes les fonctionnalités du tableau de bord **Identit
 
 ## <a name="security-events-map"></a>Carte des événements de sécurité<a name="menu_securityeventsmap"></a>
 
-Security Center fournit une [Carte des événements de sécurité](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) pour vous aider à identifier les menaces de sécurité. Le bouton **Accéder à la carte des événements de sécurité** dans cette carte ouvre un tableau de bord qui vous permet de consulter les événements de sécurité bruts sur l’espace de travail sélectionné.
+Security Center fournit une Carte des événements de sécurité pour vous aider à identifier les menaces de sécurité. Le bouton **Accéder à la carte des événements de sécurité** dans cette carte ouvre un tableau de bord qui vous permet de consulter les événements de sécurité bruts sur l’espace de travail sélectionné.
 
 Nous avons retiré le bouton **Accéder à la carte des événements de sécurité** ainsi que le tableau de bord par espace de travail.
 
@@ -136,7 +136,7 @@ Si vous souhaitez en savoir plus sur la mise hors service des alertes personnali
 
 ## <a name="security-alerts-investigation"></a>Examen des alertes de sécurité<a name="menu_investigate"></a>
 
-[La fonctionnalité Examen](https://docs.microsoft.com/azure/security-center/security-center-investigation) de Security Center vous aide à trier un incident de sécurité éventuel. Cette fonctionnalité vous permet de comprendre l’étendue d’un incident et de repérer sa cause racine. Nous avons retiré cette fonctionnalité de Security Center, car nous l’avons remplacée par une expérience améliorée dans [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+La fonctionnalité Examen de Security Center vous aide à trier un incident de sécurité éventuel. Cette fonctionnalité vous permet de comprendre l’étendue d’un incident et de repérer sa cause racine. Nous avons retiré cette fonctionnalité de Security Center, car nous l’avons remplacée par une expérience améliorée dans [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Incident de sécurité][14]
 
@@ -169,7 +169,7 @@ Si vous disposez de solutions connectées, nous vous conseillons de migrer vers 
 
 Azure Security Center supervise les configurations de sécurité en appliquant un ensemble de [plus de 150 règles recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour renforcer le système d’exploitation. Ces règles concernent les pare-feux, l’audit, les stratégies de mot de passe et bien plus encore. Si une configuration vulnérable est identifiée sur un ordinateur, Security Center génère une recommandation de sécurité. L’écran [Modification des paramètres de configuration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permet aux clients de personnaliser la configuration de sécurité par défaut de leur système d’exploitation dans Security Center.
 
-Nous avons mis hors service cette fonctionnalité en préversion. Si vous voulez réinitialiser vos configurations de sécurité à leurs valeurs par défaut après la date de mise hors service, vous pouvez le faire via l’API ou Powershell en suivant les [instructions suivantes](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization).
+Nous avons mis hors service cette fonctionnalité en préversion. Si vous voulez réinitialiser vos configurations de sécurité à leurs valeurs par défaut après la date de mise hors service, vous pouvez le faire via l’API ou Powershell en suivant les [instructions suivantes](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/Reset%20security%20configurations%20customization).
 
 ![Modifier les configurations de la sécurité][17]
 

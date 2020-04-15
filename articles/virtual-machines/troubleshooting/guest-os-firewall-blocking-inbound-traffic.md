@@ -1,6 +1,6 @@
 ---
 title: Le pare-feu du système d’exploitation invité des machines virtuelles Azure bloque le trafic entrant | Microsoft Docs
-description: ''
+description: Découvrez comment résoudre le problème de connexion RDP (Remote Desktop Protocol) qui se produit si le pare-feu du système d’exploitation invité bloque le trafic entrant.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72028801"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422553"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Le pare-feu du système d’exploitation invité des machines virtuelles Azure bloque le trafic entrant
 
@@ -29,7 +29,7 @@ Cet article explique comment résoudre le problème RDP (Remote Desktop Protocol
 
 Vous ne pouvez pas utiliser une connexion RDP pour vous connecter à une machine virtuelle Azure. Dans Diagnostics de démarrage -> Capture d’écran, il est indiqué que le système d’exploitation est entièrement chargé sur l’écran d’accueil (Ctrl + Alt + Suppr).
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 ### <a name="cause-1"></a>Cause 1
 
@@ -112,8 +112,8 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
 
     > [!Note]
     > Les instructions suivantes s’appliquent à la stratégie de pare-feu, en fonction de la façon dont elle est configurée :
-    >    * *BlockInbound* : L’ensemble du trafic entrant est bloqué, sauf si vous avez une règle effective pour autoriser ce trafic.
-    >    * *BlockInboundAlways* : Toutes les règles de pare-feu sont ignorées et l’ensemble du trafic est bloqué.
+    >    * *BlockInbound* : l’ensemble du trafic entrant est bloqué, sauf si vous avez une règle effective pour autoriser ce trafic.
+    >    * *BlockInboundAlways* : toutes les règles de pare-feu sont ignorées et l’ensemble du trafic est bloqué.
 
 2.  Modifiez l’action *DefaultInboundAction* de sorte que ces profils **autorisent** le trafic. Pour ce faire, exécutez la commande suivante :
 

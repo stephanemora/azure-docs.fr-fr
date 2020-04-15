@@ -1,26 +1,28 @@
 ---
 title: Configurer l’authentification Facebook
-description: Découvrez comment configurer l’authentification Facebook pour en faire un fournisseur d’identité pour votre application App Service.
+description: Découvrez comment configurer l’authentification Facebook pour en faire un fournisseur d’identité pour votre application App Service ou Azure Functions.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671934"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519954"
 ---
-# <a name="configure-your-app-service-app-to-use-facebook-login"></a>Configurer votre application App Service pour pouvoir utiliser une connexion Facebook
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Facebook
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Cet article vous montre comment configurer Azure App Service pour utiliser Facebook comme fournisseur d’authentification.
+Cet article vous montre comment configurer Azure App Service ou Azure Functions pour utiliser Facebook comme fournisseur d’authentification.
 
 Pour effectuer la procédure de cet article, vous avez besoin d’un compte Facebook avec une adresse e-mail vérifiée et un numéro de téléphone mobile. Pour créer un compte Facebook, allez sur [facebook.com].
 
-## <a name="register"></a>Inscription de votre application sur Facebook
+## <a name="register-your-application-with-facebook"></a><a name="register"> </a>Inscrire votre application auprès de Facebook
 
 1. Accédez au site web [Développeurs Facebook] et connectez-vous à l’aide des informations d’identification de votre compte Facebook.
 
@@ -48,9 +50,9 @@ Pour effectuer la procédure de cet article, vous avez besoin d’un compte Face
 
    Pour authentifier d’autres comptes Facebook, sélectionnez **Révision de l’application** et activez **Rendre public \<nom-de-votre-application** pour activer l’accès public général à l’application à l’aide de l’authentification Facebook.
 
-## <a name="secrets"></a>Ajout des informations Facebook à votre application
+## <a name="add-facebook-information-to-your-application"></a><a name="secrets"> </a>Ajouter des informations Facebook à votre application
 
-1. Connectez-vous au [portail Azure]et accédez à votre application App Service.
+1. Connectez-vous au [Azure portal]et accédez à votre application App Service.
 1. Sélectionnez **Paramètres** > **Authentification/Autorisation**, puis vérifiez que **l’authentification App Service** est activée, sur **On**.
 1. Sélectionnez **Facebook**, puis collez-y les valeurs d’ID d’application et de secret d’application que vous avez obtenues précédemment. Activez toutes les étendues nécessaires à votre application.
 1. Sélectionnez **OK**.
@@ -67,7 +69,7 @@ Pour effectuer la procédure de cet article, vous avez besoin d’un compte Face
 
 Vous êtes maintenant prêt à utiliser Facebook pour l’authentification dans votre application.
 
-## <a name="related-content"> </a>Étapes suivantes
+## <a name="next-steps"></a><a name="related-content"> </a>Étapes suivantes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
@@ -78,4 +80,4 @@ Vous êtes maintenant prêt à utiliser Facebook pour l’authentification dans 
 [Développeurs Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

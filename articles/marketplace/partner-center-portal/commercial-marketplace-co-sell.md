@@ -6,27 +6,27 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
-ms.openlocfilehash: 3b0b38b767495b1a06405f0d41222b73baee8d53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277071"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80517935"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
-La saisie d'informations dans l'onglet Co-vente est entièrement facultative. Ces informations sont toutefois nécessaires pour devenir « Co-sell Ready » et « IP Co-sell Ready ». Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre solution lors de l'évaluation de son adéquation avec les besoins des clients. Les clients n'y auront pas directement accès. Pour plus d'informations, consultez [Vendre via Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
+La saisie d'informations dans l'onglet Co-vente est entièrement facultative. Ces informations sont toutefois nécessaires pour devenir « Co-sell Ready » et « IP Co-sell Ready ». Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre solution lors de l'évaluation de son adéquation avec les besoins des clients. Les clients n'y auront pas directement accès. Pour plus d'informations, consultez [Vendre via Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 L’option Co-vente dans l’Espace partenaires est disponible pour certains types d’offres. La prise en charge d’autres types d’offres se fera progressivement.
 
 | **Type d’offre** | **Page Co-vente disponible dans l’Espace partenaires** |
 |    -----------------------    |    -----------------------------  |
-| SaaS (software as a service) |     Disponibilité générale autour de février 2020      |
+| SaaS (software as a service) |     Disponibilité générale - Avril 2020      |
 | Dynamics 365 for Customer Engagement et PowerApps      |     Déjà disponible      |
 | Dynamics 365 for Operations     |     Déjà disponible       |
-| Dynamics 365 Business Central      |  Disponibilité générale autour de février 2020     |
-| Azure Application     |     Disponibilité générale autour de février 2020     |
+| Dynamics 365 Business Central      |  Disponibilité générale - Avril 2020     |
+| Azure Application     |     Disponibilité générale - Avril 2020     |
 | Machine virtuelle Azure      |     Annoncé prochainement       |
 | Conteneur Azure     |     Annoncé prochainement       |
 | Service de conseil      |     Annoncé prochainement       |
@@ -66,8 +66,7 @@ Vous pouvez fournir à Microsoft des documents à utiliser pour évaluer les bes
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Une page client* | Description prête à l'emploi de votre offre. Les équipes commerciales de Microsoft peuvent partager ces informations avec les clients afin de déterminer si votre offre est adaptée à leurs besoins et de s'assurer qu'elle est prête à l'emploi. <br> <br> Utilisez l'un des modèles appropriés disponibles dans l’Espace partenaires : <br> <ul> <li> Modèle d'une page Microsoft Azure </li> <li> Modèle d'une page Microsoft Dynamics 365 </li> <li> Modèle d'une page Office 365 </li> <li> Modèle d'une page Windows 10 </li> </ul>
- |
+| *Une page client* | Description prête à l'emploi de votre offre. Les équipes commerciales de Microsoft peuvent partager ces informations avec les clients afin de déterminer si votre offre est adaptée à leurs besoins et de s'assurer qu'elle est prête à l'emploi. <br> <br> Utilisez l'un des modèles appropriés disponibles dans l’Espace partenaires : <br> <ul> <li> Modèle d'une page Microsoft Azure </li> <li> Modèle d'une page Microsoft Dynamics 365 </li> <li> Modèle d'une page Office 365 </li> <li> Modèle d'une page Windows 10 </li> </ul> |
 | *Présentation client* | Jeu de diapositives destiné à présenter votre solution et sa proposition de valeur. Après avoir vérifié que votre offre est prête à l'emploi, les équipes commerciales de Microsoft peuvent partager la présentation avec les clients afin de mettre en avant la valeur que les deux sociétés apportent lors du déploiement d'une solution conjointe. La présentation doit décrire la fonction de votre solution, expliquer ce qu'elle apporte aux clients, indiquer à quels secteurs d'activité elle s'adresse et mettre en avant ses atouts par rapport aux solutions concurrentes. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires.|
 | *Étude de cas client* | Ces informations montrent à un client potentiel que Microsoft et vous avez déjà déployé cette solution avec succès chez d'autres clients. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires. |
 | *Succès clients vérifiables (facultatif)* | Exemples concrets de succès clients découlant du déploiement de votre solution. |

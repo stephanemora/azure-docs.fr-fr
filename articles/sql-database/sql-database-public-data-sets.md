@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fe20c90cf857ce09a83c6ac53e6fe77eb512153
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973541"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528190"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests
 
@@ -31,7 +31,7 @@ Parcourez cette liste de jeux de données publics pour trouver des données que 
 | [Données de sciences de la terre de la NASA](https://earthdata.nasa.gov/) | Plus de 32 000 collections de données couvrant l’agriculture, l’atmosphère, la biosphère, le climat, la cryosphère, les dimensions humaines, l’hydrosphère, la surface terrestre, les océans, les interactions Terre-soleil et plus. | Les jeux de données se trouvent dans différents formats. |
 | [Retards de vols d’avion et autres données de transport](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | « Le statistiques du bureau des transports (BTC) du ministère des transports (DOT) américain suivant la ponctualité des vols intérieurs exploités par de grands transporteurs aériens. Un résumé des informations sur le nombre de vols à l’heure, différés, annulés et déviés est présenté (...) dans des tableaux récapitulatifs publiés sur ce site web. » | Les fichiers sont au format CSV. |
 | [Décès sur les routes - Système de rapport d’analyse des décès (FARS) des États-Unis ](https://www.nhtsa.gov/FARS) | « Le FARS est un recensement à l’échelle nationale fournissant au NHTSA, au Congrès et au public américain des informations annuelles sur les décès liés aux accidents de la route. » | « Créez vos propres données liées aux décès à l’aide du système de requêtes FARS en ligne. Vous pouvez également télécharger toutes les données FARS de 1975 à maintenant sur notre site FTP. » |
-| [Données sur les produits chimiques toxiques - Données de Toxicity ForeCaster (ToxCast™) de l’EPA](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | « Les données de toxicité à haut débit les plus récentes de l’EPA mises à la disposition du public sur des milliers de produits chimiques. Ces données sont générées grâce aux efforts de recherche de ToxCast de l’EPA. » | Les jeux de données sont disponibles dans différents formats, notamment des feuilles de calcul, des paquets R et des fichiers de base de données MySQL. |
+| [Données sur les produits chimiques toxiques – Données de Toxicity ForeCaster (ToxCast&trade;) de l’EPA](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | « Les données de toxicité à haut débit les plus récentes de l’EPA mises à la disposition du public sur des milliers de produits chimiques. Ces données sont générées grâce aux efforts de recherche de ToxCast de l’EPA. » | Les jeux de données sont disponibles dans différents formats, notamment des feuilles de calcul, des paquets R et des fichiers de base de données MySQL. |
 | [Données sur les produits chimiques toxiques - NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | « Le NIH Tox21 Data Challenge 2014 est conçu pour aider les chercheurs à comprendre le potentiel des produits chimiques et composés testés via l’initiative Toxicology in the 21st Century pour perturber les voies biologiques de façons qui peuvent entraîner des effets toxiques. » | Les jeux de données sont disponibles aux formats SMILES et SDF. Les données fournissent des « données d’activité d’essai et des structures chimiques sur la collection Tox21 d’environ 10 000 composés (Tox21 10K). » |
 | [Données de biotechnologie et de génome du NCBI](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Plusieurs jeux de données couvrant les protéines, les génomes et les gènes. | Les jeux de données sont disponibles aux formats texte, XML, BLAST et autres. Une application BLAST est disponible. |
 
@@ -41,7 +41,6 @@ Parcourez cette liste de jeux de données publics pour trouver des données que 
 |---|---|---|
 | [Données des taxis de la ville de New York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | « Les enregistrements de trajets en taxi incluent les dates et heures de début et fin de trajet, les emplacements respectifs, la distance des trajets, les tarifs détaillés, les types de tarifs, les types de paiement et le nombre de passagers signalé par le conducteur ». | Les jeux de données sont des fichiers CSV (un par mois). |
 | [Jeux de données de Microsoft Research - « Science des données pour la recherche »](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Plusieurs jeux de données couvrant l’interaction homme-ordinateur, l’audio/la vidéo, la récupération/l’exploration de données, la localisation géographique, traitement de langage naturel et la vision par informatique/robotique. | Les jeux de données sont disponibles dans différents formats, compressés pour le téléchargement. |
-| [Données publiques de génome](https://www.completegenomics.com/public-data/) | « Un vaste jeu de données pour des génomes humains entiers est librement accessible au public pour améliorer les études génomiques... » Le fournisseur, Complete Genomics, est une société privée à but lucratif. | Les jeux de données, après extraction, sont au format UNIX. Des outils d’analyse sont également disponibles. |
 | [Données de l’Open Science Data Cloud](https://www.opensciencedatacloud.org/projects/) | « L’Open Science Data Cloud offre à la communauté scientifiques des ressources pour stocker, partager et analyser des jeux de données scientifiques à l’échelle du téraoctet et du pétaoctet. »| Les jeux de données se trouvent dans différents formats. |
 | [Données climatiques mondiales - WorldClim](https://worldclim.org/) | « WorldClim est un ensemble de couches climatiques mondiales (données climatiques en grille) avec une résolution spatiale d’environ 1 km2. Ces données peuvent être utilisées pour le mappage et la modélisation spatiale. » | Ces fichiers contiennent des données géospatiales. Pour plus d’informations, consultez [Format de données](https://worldclim.org/formats1). |
 | [Données sur la société humaine - Le projet GDELT](https://www.gdeltproject.org/data.html) | « Le projet GDELT est la plus grande base, la plus complète et la plus détaillée base de données ouverte sur la société humaine jamais créée. » | Les fichiers de données brutes sont au format CSV. |

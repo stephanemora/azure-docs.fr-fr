@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 0a9c32affc50a6d357d4160e00486c896d762e3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6030cbb756525137497834ac911835033858401
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75385811"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652093"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
 Lorsque vous créez un rôle de travail, vous étendez la classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) qui vous fournit des méthodes à substituer, vous permettant de répondre aux événements de cycle de vie. Cette classe est facultative pour les rôles Web. Vous devez donc l’utiliser pour répondre aux événements de cycle de vie.
@@ -23,7 +23,7 @@ La classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.1
 
 Lors de l'extension de **RoleEntryPoint**, vous devez tenir compte des comportements de méthodes suivants :
 
-* Les méthodes [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) et [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) retournent une valeur booléenne, ce qui veut dire qu’elles peuvent retourner la valeur **false**.
+* La méthode [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) retournant une valeur booléenne, il est possible de retourner **false** à partir de cette méthode.
   
    Si votre code retourne la valeur **false**, le processus de rôle se termine soudainement, sans exécuter de séquence d'arrêt. En général, vous devez éviter de retourner la valeur **false** à partir de la méthode **OnStart**.
 * Une exception non interceptée dans la surcharge d'une méthode **RoleEntryPoint** est traitée comme une exception non gérée.

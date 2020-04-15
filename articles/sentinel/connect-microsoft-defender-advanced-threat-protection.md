@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: ee2c917d02a442ebabc0e1b40bc245982af794f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 831baabcc26130d9b2c730afd85f2ed4b3842690
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588210"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756342"
 ---
 # <a name="connect-alerts-from-microsoft-defender-advanced-threat-protection"></a>Connecter des alertes de Microsoft Defender Advanced Threat Protection 
 
 
 > [!IMPORTANT]
-> L’ingestion des journaux Microsoft Defender Advanced Threat Protection est actuellement disponible en préversion publique.
+> L’ingestion des alertes Microsoft Defender Advanced Threat Protection est actuellement disponible en préversion publique.
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 
-Vous pouvez diffuser des alertes depuis [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) dans Azure Sentinel en un seul clic. Cette connexion vous permet de diffuser les alertes de Microsoft Defender Advanced Threat Protection dans Azure Sentinel. 
+Le connecteur [Microsoft Defender - Protection avancée contre les menaces](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) vous permet de transmettre en continu les alertes de Microsoft Defender - Protection avancée contre les menaces vers Azure Sentinel. Vous pouvez ainsi analyser de manière plus détaillée les événements de sécurité se produisant dans votre organisation et générer des playbooks afin d'y répondre immédiatement et efficacement.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-- Licence valide de Microsoft Defender Advanced Threat Protection activée comme cela est décrit dans [Valider l’attribution de licence et terminer la configuration de Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Vous devez disposer d’une licence valide pour Microsoft Defender Advanced Threat Protection, comme décrit dans [Configurer le déploiement de Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 - Vous devez être administrateur ou administrateur de la sécurité sur le locataire Azure Sentinel.
 
 

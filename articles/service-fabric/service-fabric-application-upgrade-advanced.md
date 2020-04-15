@@ -3,12 +3,12 @@ title: Rubriques avancées sur la mise à niveau d’application
 description: Cet article traite de sujets avancés se rapportant à la mise à niveau d’une application Service Fabric.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845430"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422806"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau des applications Service Fabric : Rubriques avancées
 
@@ -20,9 +20,9 @@ De même, des types de services peuvent également être supprimés d’une appl
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Éviter les abandons de connexion pendant les temps d’arrêt planifiés de service sans état (préversion)
 
-Pour des temps d’arrêt planifiés d’instance sans état, tels que pour la mise à niveau d’application/de cluster ou la désactivation de nœud, des connexions peuvent être abandonnées en raison de la suppression du point de terminaison exposé après son arrêt.
+Pour des temps d’arrêt planifiés d’instance sans état, tels que pour la mise à niveau d’application/de cluster ou la désactivation de nœud, des connexions peuvent être abandonnées en raison de la suppression du point de terminaison une fois l'instance arrêtée, ce qui se traduit par des fermetures de connexion forcées.
 
-Pour éviter cela, configurez la fonctionnalité *RequestDrain* (préversion) en ajoutant une *durée de délai de fermeture d’instance* de réplica dans la configuration du service. Cela garantit que le point de terminaison publié par l’instance sans état est supprimé *avant* le démarrage du minuteur du délai pour la fermeture de l’instance. Ce délai permet un vidage correct des demandes existantes avant l’arrêt réel de l’instance. Les clients sont avertis du changement de point de terminaison par la fonction de rappel. Ils peuvent ainsi résoudre le point de terminaison et éviter d’envoyer de nouvelles demandes à l’instance en cours d’arrêt.
+Pour éviter cela, configurez la fonctionnalité *RequestDrain* (préversion) en ajoutant une *durée de délai de fermeture d’instance* à la configuration du service afin d'autoriser le vidage tout en recevant des requêtes d’autres services du cluster au sein du cluster et en utilisant un proxy inversé ou l'API Resolve avec un modèle de notification pour mettre à jour les points de terminaison. Cela garantit que le point de terminaison publié par l’instance sans état est supprimé *avant* le démarrage du délai précédant la fermeture de l’instance. Ce délai permet un vidage correct des demandes existantes avant l’arrêt réel de l’instance. Les clients sont avertis du changement de point de terminaison par la fonction de rappel, au moment du démarrage du délai, et peuvent ainsi résoudre le point de terminaison et éviter d’envoyer de nouvelles demandes à l’instance en cours d’arrêt.
 
 ### <a name="service-configuration"></a>Configuration de service
 
@@ -50,23 +50,7 @@ Il existe plusieurs façons de configurer le délai côté service.
 
 ### <a name="client-configuration"></a>Configuration de client
 
-Pour recevoir une notification suite à la modification d’un point de terminaison, les clients peuvent inscrire un rappel (`ServiceManager_ServiceNotificationFilterMatched`) comme suit : 
-
-```csharp
-    var filterDescription = new ServiceNotificationFilterDescription
-    {
-        Name = new Uri(serviceName),
-        MatchNamePrefix = true
-    };
-    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
-    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
-
-private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
-{
-      // Resolve service to get a new endpoint list
-}
-```
-
+Pour recevoir une notification suite à la modification d’un point de terminaison, les clients doivent inscrire un rappel. Pour plus d'informations, consultez [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)
 La notification de modification est une indication que les points de terminaison ont changé, et que le client doit les résoudre et cesser d’utiliser ceux qui ne sont plus publiés, car ils seront bientôt indisponibles.
 
 ### <a name="optional-upgrade-overrides"></a>Substitutions de mise à niveau facultatives
@@ -80,6 +64,16 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 ```
 
 La durée du délai s’applique uniquement à l’instance de mise à niveau appelée, et ne modifie pas les configurations de délai de services individuels. Par exemple, vous pouvez l’utiliser pour spécifier un délai de `0` afin d’ignorer des délais de mise à niveau préconfigurés.
+
+> [!NOTE]
+> Le paramètre permettant de vider les requêtes n’est pas respecté pour les requêtes émanant d’Azure Load Balancer. Le paramètre n’est pas respecté si le service appelant utilise une résolution basée sur une réclamation.
+>
+>
+
+> [!NOTE]
+> Cette fonctionnalité peut être configurée dans les services existants à l’aide de la cmdlet Update-ServiceFabricService, comme indiqué ci-dessus, lorsque la version du code de cluster est 7.1.XXX ou supérieure.
+>
+>
 
 ## <a name="manual-upgrade-mode"></a>Mode de mise à niveau manuelle
 

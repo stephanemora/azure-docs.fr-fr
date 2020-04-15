@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8941c097fbb2d05c3a28be87d216b7a2679ebc68
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020044"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804892"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -39,13 +39,15 @@ Azure Data Factory a accès à plus de [90 connecteurs natifs](connector-overvi
 
 ## <a name="sink-settings"></a>Paramètres de récepteur
 
-Après avoir ajouté un récepteur, configurez-le via l'onglet **Récepteur**. Sous cet onglet, vous pouvez sélectionner ou créer le jeu de données dans lequel votre récepteur écrira 
+Après avoir ajouté un récepteur, configurez-le via l'onglet **Récepteur**. Sous cet onglet, vous pouvez sélectionner ou créer le jeu de données dans lequel votre récepteur écrira. Vous trouverez ci-dessous une vidéo expliquant un certain nombre d’options de récepteur pour les types de fichiers délimités par du texte :
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
 
 ![Paramètres du récepteur](media/data-flow/sink-settings.png "Paramètres du récepteur")
 
 **Dérive de schéma :** La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de la fabrique de données à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes. Activez **Autoriser la dérive de schéma** pour écrire des colonnes supplémentaires, en plus de ce qui est défini dans le schéma de données du récepteur.
 
-**Valider le schéma :** Lorsque la case Valider le schéma est cochée, le flux de données échoue si une colonne du schéma défini du jeu de données est introuvable.
+**Valider le schéma :** Si l’option Valider le schéma est sélectionnée, le flux de données échoue si une colonne du schéma source entrant est introuvable dans la projection source ou que les types de données ne correspondent pas. Utilisez ce paramètre pour que les données sources respectent le contrat de votre projection définie. Il est très utile dans les scénarios de source de base de données pour signaler que les noms ou les types de colonne ont changé.
 
 ## <a name="field-mapping"></a>Mappages de champs
 

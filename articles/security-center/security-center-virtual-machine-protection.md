@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236749"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435628"
 ---
 # <a name="protect-your-machines-and-applications"></a>Protéger vos machines et applications
 Quand Azure Security Center identifie des failles de sécurité potentielles, des suggestions sont émises pour vous guider tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -85,17 +85,17 @@ Ce panneau comporte des informations détaillées sur la sécurité de la machin
 
 
 ### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Groupes de machines virtuelles identiques
-Security Center détecte automatiquement si vous avez des groupes identiques et vous recommande d’y installer Microsoft Monitoring Agent.
+Security Center détecte automatiquement si vous avez des groupes identiques et vous recommande d’y installer l'agent Log Analytics.
 
-Pour installer Microsoft Monitoring Agent : 
+Pour installer l'agent Log Analytics : 
 
 1. Sélectionnez la suggestion **Installer l’agent de surveillance sur les groupes de machines virtuelles identiques**. Vous obtenez la liste des jeux identiques non contrôlés.
 
-1. Sélectionnez un groupe identique défectueux. Suivez les instructions pour installer l’agent de surveillance à l’aide d’un espace de travail rempli existant, ou créez-en un. Veillez à définir l’espace de travail [niveau tarifaire](security-center-pricing.md) s’il ne l’est pas.
+1. Sélectionnez un groupe identique défectueux. Suivez les instructions pour installer l’agent de surveillance à l’aide d’un espace de travail rempli existant, ou créez-en un. Veillez à définir l’espace de travail [niveau tarifaire](security-center-pricing.md) le cas échéant.
 
    ![Installer MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Pour définir de nouveaux groupes identiques afin d’installer automatiquement Microsoft Monitoring Agent :
+Pour définir de nouveaux groupes identiques afin d’installer automatiquement l'agent Log Analytics :
 1. Accédez à Azure Policy et cliquez sur **Définitions**.
 
 1. Recherchez la stratégie **Déployer un agent Log Analytics pour des groupes de machines virtuelles identiques Windows**, puis cliquez sur celle-ci.
@@ -104,7 +104,7 @@ Pour définir de nouveaux groupes identiques afin d’installer automatiquement 
 
 1. Définir l’**Étendue** et l’**Espace de travail Log Analytics**, puis cliquez sur **Assigner**.
 
-Si vous souhaitez paramétrer tous les groupes identiques existants pour installer Microsoft Monitoring Agent, dans Azure Policy, accédez à **Correction**, puis appliquez la stratégie existante aux groupes identiques existants.
+Si vous souhaitez paramétrer tous les groupes identiques existants pour installer l'agent Log Analytics, dans Azure Policy, accédez à **Correction**, puis appliquez la stratégie existante aux groupes identiques existants.
 
 
 
@@ -195,7 +195,7 @@ Lorsque vous cliquez sur l’une des machines virtuelles exécutant Docker, vous
 
 Security Center analyse vos configurations Docker afin d’en détecter les erreurs en fournissant la liste de toutes les règles ayant échoué qui ont été évaluées. Security Center fournit des instructions pour vous aider à résoudre ces problèmes rapidement sans perdre de temps. Security Center évalue continuellement les configurations Docker pour vous indiquer leur état le plus récent.
 
-![onglet Conteneur](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![onglet Conteneur](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

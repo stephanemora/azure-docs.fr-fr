@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 842c7c81e3bf9615eb56d50ee2d6fce794845b6e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: cbbdf724b9d7fe4948553e7526410b994f491b49
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960694"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435258"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center-preview"></a>Intégrer Azure Security Center à Windows Admin Center (préversion)
+# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Intégrer Azure Security Center à Windows Admin Center
 
 Windows Admin Center est un outil de gestion pour vos serveurs Windows. Il s’agit d’un emplacement unique permettant aux administrateurs système d’accéder à la plupart des outils d’administration les plus couramment utilisés. Dans Windows Admin Center, vous pouvez directement intégrer vos serveurs locaux dans Azure Security Center. Vous pouvez ensuite afficher un résumé de vos recommandations et alertes de sécurité directement dans l’expérience Windows Admin Center.
 
@@ -48,7 +48,7 @@ En combinant ces deux outils, Security Center devient votre fenêtre unique pour
     * Le serveur dispose d’un espace de travail pour les rapports et d’un abonnement associé.
     * La solution Log Analytics de niveau Standard de Security Center est activée sur l’espace de travail. Cette solution fournit les fonctionnalités de niveau Standard de Security Center pour *tous* les serveurs et toutes les machines virtuelles qui produisent des rapports sur cet espace de travail.
     * La tarification du niveau Standard de Security Center pour les machines virtuelles est activée sur l’abonnement.
-    * Microsoft Monitoring Agent (MMA) est installé sur le serveur et configuré pour créer des rapports sur l’espace de travail sélectionné. Si le serveur est déjà dans un autre espace de travail, il est configuré pour créer des rapports sur l’espace de travail nouvellement sélectionné.
+    * L’agent Log Analytics est installé sur le serveur et configuré pour rendre compte à l’espace de travail sélectionné. Si le serveur est déjà dans un autre espace de travail, il est configuré pour créer des rapports sur l’espace de travail nouvellement sélectionné.
 
     > [!NOTE]
     > L’intégration des recommandations peut prendre un certain temps. En fait, en fonction de l’activité de votre serveur, vous risquez de ne recevoir *aucune* alerte. Pour générer des alertes de test pour vérifier que vos alertes fonctionnent correctement, suivez les instructions de [la procédure de validation d’alerte](security-center-alert-validation.md).

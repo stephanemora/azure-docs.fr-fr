@@ -1,15 +1,16 @@
 ---
-title: Meilleures pratiques de l’opérateur – Connectivité réseau dans Azure Kubernetes Service (AKS)
+title: Meilleures pratiques pour les ressources réseau
+titleSuffix: Azure Kubernetes Service
 description: Découvrez les meilleures pratiques de l’opérateur pour les ressources de réseau virtuel et la connectivité dans Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 93659a0891b09c83db9f63fe0756fcf4d7e87f6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8aee9967e09d2ae8bec3ee170756d8d22de0fe4
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594683"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668204"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 

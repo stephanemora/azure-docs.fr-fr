@@ -1,5 +1,5 @@
 ---
-title: Chiffrement des ressources sécurisées dans Automation
+title: Chiffrer les ressources sécurisées dans Azure Automation
 description: Azure Automation protège les ressources sécurisées avec plusieurs niveaux de chiffrement. Par défaut, le chiffrement est effectué à l’aide de clés gérées par Microsoft. Les clients peuvent configurer leurs comptes Automation afin d’utiliser des clés gérées par le client pour le chiffrement. Cet article décrit en détail les deux modes de chiffrement et comment vous pouvez basculer entre les deux.
 services: automation
 ms.service: automation
@@ -9,18 +9,18 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246247"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547752"
 ---
-# <a name="secure-assets-in-azure-automation"></a>Ressources sécurisées dans Azure Automation
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Chiffrer les ressources sécurisées dans Azure Automation
 
 Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont protégées dans Azure Automation avec plusieurs niveaux de chiffrement. En fonction de la clé de niveau supérieur utilisée pour le chiffrement, il existe deux modèles de chiffrement :
--   Utilisation de clés gérées par Microsoft
--   Utilisation de clés gérées par le client
+-    Utilisation de clés gérées par Microsoft
+-    Utilisation de clés gérées par le client
 
 ## <a name="microsoft-managed-keys"></a>Clés gérées par Microsoft
 

@@ -4,19 +4,19 @@ description: Intégrez votre infrastructure VPN à Azure MFA en utilisant l’ex
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425402"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654127"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -108,8 +108,8 @@ L’extension de serveur NPS nécessite Windows Server 2008 R2 SP1 ou version 
 
 Les bibliothèques suivantes sont installées automatiquement avec l’extension de serveur NPS :
 
--   [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-    [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 Si le module PowerShell Microsoft Azure Active Directory n’est pas déjà présent, il est installé par le biais d’un script de configuration que vous exécutez dans le cadre du processus d’installation. Il est inutile d’installer ce module en avance s’il n’est pas déjà installé.
 
@@ -361,7 +361,7 @@ Le script effectue les actions suivantes :
 * Crée un certificat auto-signé
 * Associe la clé publique du certificat au principal du service sur Azure AD
 * Stocke le certificat dans le magasin de la machine locale
-* Accorde l’accès de la clé privée du certificat à l’utilisateur réseau
+* Accorde l’accès de la clé privée du certificat à l’utilisateur réseau.
 * Redémarre le service NPS
 
 Si vous souhaitez utiliser vos propres certificats, vous devez associer la clé publique de votre certificat au principal de service sur Azure AD, et ainsi de suite.

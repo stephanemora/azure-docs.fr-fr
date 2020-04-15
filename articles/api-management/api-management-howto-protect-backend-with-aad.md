@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190366"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804365"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -27,7 +27,7 @@ Ce guide montre comment configurer votre instance de Gestion des API pour proté
 > [!NOTE]
 > Cette fonctionnalité est disponible dans les niveaux **Développeur**, **Standard** et **Premium** de Gestion des API.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
 * Une instance Gestion des API
 * Une API publiée qui utilise l’instance Gestion des API
@@ -137,7 +137,7 @@ Dans cet exemple, la console de développeur est l’application cliente. Les é
 
 1. Si vous utilisez des points de terminaison **v1**, ajoutez un paramètre de corps nommé **Ressource**. Comme valeur pour ce paramètre, utilisez l’**ID d’application** de l’application back-end. 
 
-1. Si vous utilisez des points de terminaison **v2**, utilisez l’étendue que vous avez créée pour l’application back-end dans le champ **Étendue par défaut**.
+1. Si vous utilisez des points de terminaison **v2**, utilisez l’étendue que vous avez créée pour l’application back-end dans le champ **Étendue par défaut**. En outre, veillez à définir la valeur de la propriété [`accessTokenAcceptedVersion`](/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) sur `2` dans le [manifeste de votre application](/azure/active-directory/develop/reference-app-manifest).
 
 1. Ensuite, spécifiez les informations d’identification du client. Il s’agit des informations d’identification de client-app.
 

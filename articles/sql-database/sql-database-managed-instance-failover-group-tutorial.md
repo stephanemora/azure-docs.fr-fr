@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: bf83155e971061f22e5f5fc33d216b58621c9249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f1a56fa6ea38acd8061180407eb47fe416b61e9
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462647"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631712"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutoriel : Ajouter une instance managée SQL Database à un groupe de basculement
 
@@ -756,7 +756,7 @@ Créez la passerelle pour le réseau virtuel de votre instance managée principa
     | --- | --- |
     | **Abonnement** |  L’abonnement dans lequel votre instance managée principale se trouve. |
     | **Nom** | Le nom de votre passerelle de réseau virtuel, par exemple `primary-mi-gateway`. | 
-    | **Région** | La région dans laquelle votre instance managée secondaire se trouve. |
+    | **Région** | La région dans laquelle se trouve votre instance gérée principale. |
     | **Type de passerelle** | Sélectionnez **VPN**. |
     | **Type de VPN** | Sélectionnez **Route-based** |
     | **Référence (SKU)**| Laissez la valeur `VpnGw1` par défaut. |
