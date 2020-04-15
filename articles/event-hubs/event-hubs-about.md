@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9b3af6a6cee4375a110c894b6b72655605ad077d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45276ab59f1a3dabea42b904ff54bd37326fdeca
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372240"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398108"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - plateforme de streaming de Big Data et service d’ingestion d’événements
 Azure Event Hubs est une plateforme de streaming de Big Data et un service d’ingestion d’événements. Il peut recevoir et traiter des millions d’événements par seconde. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel.
@@ -61,20 +61,27 @@ Avec Event Hubs, vous pouvez commencer avec des flux de données en mégaoctets 
 
 [Event Hubs pour les écosystèmes Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permet aux clients et aux applications [Apache Kafka (1.0 et ultérieur)](https://kafka.apache.org/) de communiquer avec Event Hub. Vous n’avez pas besoin d’installer, de configurer et de gérer vos propres clusters Kafka.
 
-Avec un vaste écosystème disponible dans différents [langages (.NET, Java, Python, Go, JavaScript)](https://github.com/Azure/azure-event-hubs), vous pouvez facilement lancer le traitement de vos flux en provenance d’Event Hubs. Tous les langages client pris en charge fournissent une intégration de faible niveau. L’écosystème vous fournit également une intégration fluide aux services Azure tels qu’Azure Stream Analytics et Azure Functions, et vous permet donc de générer des architectures serverless.
+Avec un vaste écosystème disponible dans différents langages [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/), [JavaScript](https://github.com/Azure/azure-sdk-for-js/), vous pouvez facilement lancer le traitement de vos flux en provenance d’Event Hubs. Tous les langages client pris en charge fournissent une intégration de faible niveau. L’écosystème vous fournit également une intégration fluide aux services Azure tels qu’Azure Stream Analytics et Azure Functions, et vous permet donc de générer des architectures serverless.
 
 ## <a name="key-architecture-components"></a>Composants clés de l’architecture
 Les concentrateurs d’événements incluent les [éléments clés suivants](event-hubs-features.md) :
 
-- **Producteurs d’événements** : entité qui envoie des données à un concentrateur d’événements. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 et plus récent).
-- **Partition** : chaque consommateur lit uniquement un sous-ensemble spécifique (partition) du flux de messages.
-- **Groupes de consommateurs** : une vue (état, position ou décalage) d’un concentrateur d’événements dans sa totalité. Les groupes de consommateurs permettent que les applications de consommation aient chacune une vue distincte du flux d’événements. Ils lisent le flux de manière indépendante à leur propre rythme et avec leurs propres décalages.
-- **Unités de débit** : unités de capacité qui contrôlent la capacité de débit d’Event Hubs, achetées préalablement.
-- **Récepteurs d’événements** : entité qui lit des données d’événement à partir d’un concentrateur d’événements. Tous les consommateurs Event Hubs se connectent à l’aide de la session AMQP 1.0. Le service Event Hubs remet les événements au cours d’une session dès qu’ils sont disponibles. Tous les consommateurs de Kafka se connectent via le protocole Kafka 1.0 et versions ultérieures.
+- **Producteurs d’événements** : entité qui envoie des données à un hub d'événements. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 et plus récent).
+- **Partitions** : chaque consommateur lit uniquement un sous-ensemble spécifique (partition) du flux de messages.
+- **Groupes de consommateurs** : vue (état, position ou décalage) d'un hub d'événements dans sa totalité. Les groupes de consommateurs permettent que les applications de consommation aient chacune une vue distincte du flux d’événements. Ils lisent le flux de manière indépendante à leur propre rythme et avec leurs propres décalages.
+- **Unités de débit** : unités de capacité qui contrôlent la capacité de débit d'Event Hubs, achetées préalablement.
+- **Récepteurs d’événements** : entité qui lit des données d'événement à partir d'un hub d’événements. Tous les consommateurs Event Hubs se connectent à l’aide de la session AMQP 1.0. Le service Event Hubs remet les événements au cours d’une session dès qu’ils sont disponibles. Tous les consommateurs de Kafka se connectent via le protocole Kafka 1.0 et versions ultérieures.
 
 La figure suivante montre l’architecture de traitement de flux Event Hubs :
 
 ![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+
+## <a name="event-hubs-on-azure-stack-hub"></a>Event Hubs sur Azure Stack Hub
+Event Hubs sur Azure Stack Hub vous permet de réaliser des scénarios de cloud hybride. Le streaming et les solutions basées sur les événements sont pris en charge pour le traitement par le cloud Azure et local. Que votre scénario soit hybride (connecté) ou déconnecté, votre solution peut prendre en charge le traitement des événements/flux à grande échelle. Votre scénario est limité uniquement par la taille du cluster Event Hubs, que vous pouvez provisionner en fonction de vos besoins. 
+
+Les éditions Event Hubs (sur Azure Stack Hub et sur Azure) offrent un degré élevé de parité des fonctionnalités. Cette parité signifie que les SDK, les exemples, PowerShell, l’interface CLI et les portails offrent une expérience similaire, avec quelques différences. 
+
+Event Hubs sur Stack est gratuit pendant la préversion publique. Pour plus d’informations, consultez [Vue d’ensemble d’Event Hubs sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

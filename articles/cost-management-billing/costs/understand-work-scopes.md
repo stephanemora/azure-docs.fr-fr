@@ -3,17 +3,17 @@ title: Comprendre et utiliser les étendues d’Azure Cost Management
 description: Cet article vous explique les étendues de facturation et de gestion des ressources disponibles dans Azure, et comment les utiliser dans Cost Management et les API.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80131355"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877930"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -26,6 +26,10 @@ Une _étendue_ est un nœud de la hiérarchie des ressources Azure dans lequel l
 - Des services cloud, comme la gouvernance des coûts et des stratégies
 
 Les étendues vous permettent de gérer les données de facturation, de définir des rôles propres aux paiements, d’afficher les factures et de gérer les comptes de manière générale. Les rôles de facturation et de gestion des comptes sont gérés séparément de ceux utilisés pour la gestion des ressources, qui eux sont des rôles [RBAC Azure](../../role-based-access-control/overview.md). Pour distinguer clairement l’intention des différentes étendues, y compris les différences en termes de contrôle d’accès, elles sont désignées comme _étendues de facturation_ et _étendues RBAC_, respectivement.
+
+Pour en savoir plus sur les étendues, regardez la vidéo [Cost Management - Configuration de hiérarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY). Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
 
 ## <a name="how-cost-management-uses-scopes"></a>Utilisation des étendues par Cost Management
 
@@ -71,7 +75,7 @@ Le rôle recommandé avec le niveau de privilège minimum est celui de Contribut
 
 Les comptes de facturation Contrat Entreprise (EA), également appelés inscriptions, offrent les étendues suivantes :
 
-- [**Compte de facturation**](../manage/view-all-accounts.md) : représente une inscription EA. Les factures sont générées dans cette étendue. Les achats qui ne sont pas basés sur l’utilisation (par exemple Place de marché et réservations), sont uniquement disponibles dans cette étendue. Ils ne sont pas représentés dans les départements ou les comptes d’inscription.
+- [**Compte de facturation**](../manage/view-all-accounts.md) : représente une inscription EA. Les factures sont générées dans cette étendue. Les achats qui ne sont pas basés sur l’utilisation (par exemple Place de marché et réservations), sont uniquement disponibles dans cette étendue. Ils ne sont pas représentés dans les départements ou les comptes d’inscription. L’utilisation de la réservation, de même que toute autre utilisation, est appliquée à des ressources individuelles. L’utilisation est cumulée dans les abonnements présents le compte de facturation. Pour voir les coûts de réservation répartis entre chaque ressource, basculez vers la vue **Coût amorti** dans l’analyse des coûts.
 
     Type de ressource : `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Département** : regroupement facultatif des comptes d’inscription.

@@ -3,12 +3,12 @@ title: Découvrir la sécurité des applications Azure Service Fabric
 description: Explique comment exécuter des applications de microservices de manière sécurisée dans Service Fabric. Découvrez comment exécuter des services et un script de démarrage sous différents comptes de sécurité, authentifier et autoriser des utilisateurs, gérer les secrets des applications, sécuriser les communications avec les services, utiliser une passerelle API et sécuriser des données d’application au repos.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9b4a1209838bdd5eee401b0defb01839b5cf684
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75452255"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756242"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sécurité des applications et des services Service Fabric
 Une architecture de microservices peut présenter de [nombreux avantages](service-fabric-overview-microservices.md). Cependant, la gestion de la sécurité des microservices représente un défi autrement plus complexe que celui constitué par la gestion de la sécurité des applications monolithiques traditionnelles. 
@@ -33,7 +33,7 @@ Après l’authentification, les services doivent autoriser l’accès utilisate
 [L’autorisation ASP.NET Core](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) peut être basée sur les rôles d’utilisateurs ou sur une stratégie personnalisée pouvant inclure l’inspection de revendications ou autres méthodes heuristiques.
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Limiter et sécuriser l’accès à l’aide d’une passerelle API
-Les applications cloud ont généralement besoin d’une passerelle frontale afin de fournir un point d’entrée unique pour les utilisateurs, les appareils ou d’autres applications. Une [passerelle API](/azure/architecture/microservices/gateway) est située entre les clients et les services, et constitue le point d’entrée de tous les services fournis par votre application. Elle agit comme un proxy inverse, en acheminant les requêtes des clients vers les services. Elle peut également effectuer diverses tâches transversales telles que l’authentification et l’autorisation, l’arrêt SSL et la limitation du débit. Si vous ne pouvez pas déployer de passerelle, les clients doivent envoyer des requêtes directement aux services frontaux.
+Les applications cloud ont généralement besoin d’une passerelle frontale afin de fournir un point d’entrée unique pour les utilisateurs, les appareils ou d’autres applications. Une [passerelle API](/azure/architecture/microservices/gateway) est située entre les clients et les services, et constitue le point d’entrée de tous les services fournis par votre application. Elle agit comme un proxy inverse, en acheminant les requêtes des clients vers les services. Elle peut également effectuer diverses tâches transversales telles que l’authentification et l’autorisation, l’arrêt TLS et la limitation du débit. Si vous ne pouvez pas déployer de passerelle, les clients doivent envoyer des requêtes directement aux services frontaux.
 
 Dans Service Fabric, une passerelle peut être n’importe quel service sans état, comme une [application ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou un autre service conçu pour l’entrée de trafic, par exemple [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) ou la [ Gestion des API Azure](https://docs.microsoft.com/azure/api-management).
 

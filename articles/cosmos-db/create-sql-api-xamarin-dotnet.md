@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 74d34705a6541b396fa2c2bf5028254f5f2e8d21
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 125cc2516fbd694bbe62545e85d4e14225fb2a6a
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77586765"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756433"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application todo avec Xamarin à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 > [!NOTE]
 > Des exemples de code pour un exemple d’application Xamarin complète incluant plusieurs offres Azure, y compris CosmosDB, sont disponibles sur GitHub, [ici](https://github.com/xamarinhq/app-geocontacts). Cette application montre l’affichage de contacts géographiquement dispersés et indique comment autoriser ces contacts à mettre à jour leur emplacement.
 
-Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte API SQL d’Azure Cosmos DB, une base de données de documents, ainsi qu’un conteneur. Vous allez ensuite générer et déployer une application web de liste de tâches qui repose sur [l’API .NET SQL](sql-api-sdk-dotnet.md) et [Xamarin](https://docs.microsoft.com/xamarin/) en utilisant [Xamarin.Forms](https://docs.microsoft.com/xamarin/) et le [modèle d’architecture MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte API SQL d’Azure Cosmos DB, une base de données de documents, ainsi qu’un conteneur. Vous allez ensuite générer et déployer une application mobile de liste de tâches qui repose sur [l’API .NET SQL](sql-api-sdk-dotnet.md) et [Xamarin](https://docs.microsoft.com/xamarin/) en utilisant [Xamarin.Forms](https://docs.microsoft.com/xamarin/) et le [modèle d’architecture MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![Application de liste de tâches Xamarin s’exécutant sur iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
@@ -91,15 +91,15 @@ Revenez dans le portail Azure pour récupérer vos informations de clé API et l
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Dans Visual Studio 2019 ou Visual Studio pour Mac, ouvrez le fichier APIKeys.cs dans le dossier azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers.
+2. Dans Visual Studio 2019 ou Visual Studio pour Mac, ouvrez le fichier APIKeys.cs dans le dossier azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers.
 
 3. Copiez la valeur de votre URI dans le portail (à l’aide du bouton de copie) et définissez-la comme valeur de la variable `CosmosEndpointUrl` dans APIKeys.cs.
 
-    `public static readonly string CosmosEndpointUrl = "{Azure Cosmos DB account URL}";`
+    `public static readonly string CosmosEndpointUrl = "";`
 
 4. Puis, copiez votre valeur de CLÉ PRIMAIRE à partir du portail et définissez-la comme la valeur de `Cosmos Auth Key` dans APIKeys.cs.
 
-    `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+    `public static readonly string CosmosAuthKey = "";`
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 

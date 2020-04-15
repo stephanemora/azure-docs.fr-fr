@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 01/21/2020
-ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232485"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879069"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Qu’est-ce que l’instance managée Azure SQL Database ?
 
@@ -67,7 +67,7 @@ Les fonctionnalités clés des instances managées figurent dans le tableau suiv
 | Prise en charge du portail | Oui|
 | Integration Services (SSIS) intégré | Non : SSIS fait partie de la [plateforme PaaS Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) intégré | Non : SSAS est une [plateforme PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distincte |
-| Reporting Services (SSRS) intégré | Non : utilisez Power BI ou l’infrastructure IaaS SSRS |
+| Reporting Services (SSRS) intégré | Non : utilisez les [Rapports paginés Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) à la place ou hébergez SSRS sur une machine virtuelle Azure. Même si Managed Instance ne peut pas exécuter SSRS en tant que service, il peut héberger des bases de données de catalogue SSRS 2019 pour un serveur de rapports externe à l’aide de l’authentification SQL Server. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
@@ -121,7 +121,7 @@ Vous trouverez plus d’informations sur les différences entre les niveaux de s
 
 Azure SQL Database fournit des opérations de gestion que vous pouvez utiliser pour déployer automatiquement de nouvelles instances managées, mettre à jour les propriétés des instances et supprimer des instances quand vous n’en avez plus besoin. Cette section fournit des informations sur les opérations de gestion et leurs durées habituelles.
 
-Pour prendre en charge les [déploiements sur les réseaux virtuels Azure](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) et assurer l’isolation et la sécurité des clients, l’instance managée s’appuie sur des [clusters virtuels](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), qui représentent un ensemble dédié de machines virtuelles isolées déployées sur le sous-réseau du réseau virtuel du client. Fondamentalement, chaque déploiement d’instance managée sur un sous-réseau vide génère une nouvelle structure de cluster virtuel.
+Pour prendre en charge les [déploiements sur les réseaux virtuels Azure](../virtual-network/virtual-network-for-azure-services.md) et assurer l’isolation et la sécurité des clients, l’instance managée s’appuie sur des [clusters virtuels](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), qui représentent un ensemble dédié de machines virtuelles isolées déployées sur le sous-réseau du réseau virtuel du client. Fondamentalement, chaque déploiement d’instance managée sur un sous-réseau vide génère une nouvelle structure de cluster virtuel.
 
 Les opérations ultérieures sur les instances managées déployées peuvent également avoir des effets sur son cluster virtuel sous-jacent. Cela affecte la durée des opérations de gestion, car le déploiement de machines virtuelles supplémentaires entraîne une surcharge qui doit être prise en compte quand vous planifiez de nouveaux déploiements ou des mises à jour d’instances managées existantes.
 
@@ -239,7 +239,7 @@ Azure SQL Database fournit un ensemble de fonctionnalités de sécurité avancé
 - [L’audit d’instance managée](sql-database-managed-instance-auditing.md) suit les événements de base de données et les écrit dans un fichier journal d’audit placé dans votre compte de stockage Azure. L’audit permet de respecter une conformité réglementaire, de comprendre l’activité de la base de données et de découvrir des discordances et des anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
 - Chiffrement des données en mouvement : une instance managée sécurise vos données par le biais d’un chiffrement des données en mouvement à l’aide du protocole TLS. En plus du protocole TLS, l’option de déploiement d’instance managée offre une protection des données sensibles en vol, au repos et pendant le traitement des requêtes avec [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted est une nouveauté qui offre une protection inégalée des données contre les failles de sécurité impliquant le vol de données critiques. Par exemple, avec Always Encrypted, les numéros de carte de crédit sont toujours chiffrés dans la base de données, même pendant le traitement des requêtes, ce qui permet le déchiffrement au point d’utilisation par les applications ou le personnel autorisés qui doivent traiter ces données.
 - [Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) complète l’[audit](sql-database-managed-instance-auditing.md) en fournissant une couche supplémentaire d’informations de sécurité intégrée au service qui détecte les tentatives d’accès ou d’exploitation de base de données inhabituelles et potentiellement dangereuses. Vous êtes alerté en cas d’activités suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les Advanced Threat Protection peuvent être consultées dans [Azure Security Center](https://azure.microsoft.com/services/security-center/). Elles fournissent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et atténuer la menace.  
-- Le [masquage dynamique des données](/sql/relational-databases/security/dynamic-data-masking) limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilèges. Le masquage des données dynamique contribue à empêcher tout accès non autorisé aux données sensibles en vous permettant d’indiquer la quantité de données sensibles à révéler avec un impact minimal sur la couche Application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête sur des champs de base de données désignés (les données dans la base de données ne sont pas modifiées).
+- Le [masquage dynamique des données](/sql/relational-databases/security/dynamic-data-masking) limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilèges. Le masquage des données dynamique contribue à empêcher tout accès non autorisé aux données sensibles en vous permettant d’indiquer la quantité de données sensibles à révéler avec un impact minimal sur la couche Application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête, sur des champs de base de données désignés (les données dans la base de données ne sont pas modifiées).
 - La [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) vous permet de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution). La sécurité au niveau des lignes (RLS) simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux lignes de données. Par exemple, en s’assurant que les employés ne peuvent accéder qu’aux lignes de données utiles à leur service, ou en limitant l’accès aux données aux seules données pertinentes.
 - [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) : également appelé chiffrement des données au repos, chiffre les fichiers de données d’instance managée. TDE effectue le chiffrement et le déchiffrement d’E/S en temps réel des données et des fichiers journaux. Le chiffrement utilise une clé de chiffrement de base de données stockée dans l’enregistrement de démarrage de base de données à des fins de disponibilité lors de la récupération. Vous pouvez protéger toutes vos bases de données dans une instance managée avec Transparent Data Encryption. Il s’agit de la technologie de chiffrement au repos éprouvée de SQL Server, qui est requise par de nombreuses normes de conformité comme protection contre le vol d’un support de stockage.
 

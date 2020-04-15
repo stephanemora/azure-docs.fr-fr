@@ -1,19 +1,19 @@
 ---
-title: Présentation d'Azure Dev Spaces
+title: Qu’est-ce qu’Azure Dev Spaces ?
 services: azure-dev-spaces
 ms.date: 05/07/2019
 ms.topic: overview
 description: Découvrez comment Azure Dev Spaces fournit aux équipes une expérience de développement Kubernetes rapide et itérative dans les clusters Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 586b19070ec36517add21f7aac86ddf15121be2d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8b22181bcddda9e4156c0e0dbe61d7d813498d96
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215687"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529726"
 ---
-# <a name="introduction-to-azure-dev-spaces"></a>Présentation d'Azure Dev Spaces
+# <a name="what-is-azure-dev-spaces"></a>Qu’est-ce qu’Azure Dev Spaces ?
 
 Azure Dev Spaces fournit aux équipes une expérience de développement Kubernetes rapide et itérative dans les clusters Azure Kubernetes Service (AKS). Azure Dev Spaces vous permet également de tester et déboguer tous les composants de votre application dans AKS avec une configuration minimale de machine de développement, sans répliquer ou simuler des dépendances.
 
@@ -38,15 +38,11 @@ Pour plus d’informations sur le fonctionnement d’Azure Dev Spaces, consultez
 
 ## <a name="supported-regions-and-configurations"></a>Régions et configurations prises en charge
 
-Azure Dev Spaces est pris en charge par les clusters AKS dans [certaines régions][supported-regions] uniquement. Azure Dev Spaces prend en charge l’utilisation de l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou de [Visual Studio Code](https://code.visualstudio.com/download) avec l’[extension Azure Dev espaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installée sur Linux, MacOS ou Windows 8 ou ultérieur pour créer et exécuter vos applications sur AKS. Il prend également en charge l’utilisation de [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installé sur Windows 8 ou version ultérieure. Pour Visual Studio 2019, vous aurez besoin de la charge de travail de développement Azure. Pour Visual Studio 2017, vous aurez besoin de la charge de travail de développement web et [Visual Studio Tools pour Kubernetes](https://aka.ms/get-vsk8stools).
+Azure Dev Spaces est pris en charge par les clusters AKS dans [certaines régions][supported-regions] uniquement. Azure Dev Spaces prend en charge l’utilisation de l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou de [Visual Studio Code](https://code.visualstudio.com/download) avec l’[extension Azure Dev espaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installée sur Linux, macOS, Windows 8 ou ultérieur pour créer et exécuter vos applications sur AKS. Il prend également en charge l’utilisation de [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installé sur Windows 8 ou version ultérieure. Pour Visual Studio 2019, vous aurez besoin de la charge de travail de développement Azure. Pour Visual Studio 2017, vous aurez besoin de la charge de travail de développement web et [Visual Studio Tools pour Kubernetes](https://aka.ms/get-vsk8stools).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez le développement rapide et itératif pour les équipes avec Azure Dev Spaces grâce au guide de démarrage rapide sur le développement en équipe.
-
-> [!div class="nextstepaction"]
-> [Guide de démarrage rapide sur le développement en équipe](quickstart-team-development.md)
-
+Apprenez-en davantage sur le développement rapide et itératif des équipes avec Azure Dev Spaces à l’aide du [Guide de démarrage rapide sur le développement en équipe][team-development-quickstart].
 
 [how-dev-spaces-works]: how-dev-spaces-works.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

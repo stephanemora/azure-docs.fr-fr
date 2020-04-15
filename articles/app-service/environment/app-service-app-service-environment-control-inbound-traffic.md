@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687393"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804399"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Contrôle du trafic entrant vers un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -31,10 +31,10 @@ Avant de verrouiller le trafic réseau entrant à l'aide d'un groupe de sécurit
 
 La liste suivante présente les ports utilisés par un environnement App Service. Tous les ports sont **TCP**, sauf indication contraire clairement spécifiée :
 
-* 454 :  **Port obligatoire** utilisé par l’infrastructure Azure pour la gestion et la maintenance des environnements App Service par le biais de SSL.  Ne bloquez pas le trafic vers ce port.  Ce port est toujours lié à l’adresse IP virtuelle publique d’un ASE.
-* 455 :  **Port obligatoire** utilisé par l’infrastructure Azure pour la gestion et la maintenance des environnements App Service par le biais de SSL.  Ne bloquez pas le trafic vers ce port.  Ce port est toujours lié à l’adresse IP virtuelle publique d’un ASE.
+* 454 :  **Port obligatoire** utilisé par l’infrastructure Azure pour la gestion et la maintenance des environnements App Service par le biais de TLS.  Ne bloquez pas le trafic vers ce port.  Ce port est toujours lié à l’adresse IP virtuelle publique d’un ASE.
+* 455 :  **Port obligatoire** utilisé par l’infrastructure Azure pour la gestion et la maintenance des environnements App Service par le biais de TLS.  Ne bloquez pas le trafic vers ce port.  Ce port est toujours lié à l’adresse IP virtuelle publique d’un ASE.
 * 80 :  Port par défaut pour le trafic HTTP entrant vers des applications s’exécutant dans plans App Service d’un environnement App Service.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
-* 443 : port par défaut pour le trafic SSL entrant vers des applications s’exécutant dans plans App Service d’un environnement App Service.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
+* 443 : port par défaut pour le trafic TLS entrant vers des applications s’exécutant dans plans App Service d’un environnement App Service.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
 * 21 :  Canal de contrôle pour FTP.  Ce port peut être bloqué en toute sécurité si FTP n'est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne d’un ASE.
 * 990 :  Canal de contrôle pour FTPS.  Ce port peut être bloqué en toute sécurité si FTPS n’est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne d’un ASE.
 * 10001-10020 : Canaux de données pour FTP.  Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n’est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne de l’ASE.
@@ -62,7 +62,7 @@ Voici un exemple de création d'un groupe de sécurité réseau :
 
 Une fois un groupe de sécurité réseau créé, une ou plusieurs règles de sécurité réseau lui sont ajoutées.  Étant donné que l'ensemble de règles peut changer au fil du temps, il est recommandé d'espacer le modèle de numérotation utilisé pour les priorités des règles pour faciliter l'insertion de règles supplémentaires dans le temps.
 
-L'exemple ci-dessous montre une règle qui accorde explicitement l'accès aux ports de gestion requis par l'infrastructure Azure pour gérer et maintenir un environnement App Service.  Notez que tout le trafic de gestion transite sur SSL et est sécurisé par des certificats clients. Par conséquent, même si les ports sont ouverts, ils sont inaccessibles à toute entité autre que l'infrastructure de gestion Azure.
+L'exemple ci-dessous montre une règle qui accorde explicitement l'accès aux ports de gestion requis par l'infrastructure Azure pour gérer et maintenir un environnement App Service.  Notez que tout le trafic de gestion transite sur TLS et est sécurisé par des certificats clients. Par conséquent, même si les ports sont ouverts, ils sont inaccessibles à toute entité autre que l'infrastructure de gestion Azure.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 

@@ -1,22 +1,15 @@
 ---
 title: 'Tutoriel : Révision des énoncés de point de terminaison - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, améliorez les prédictions d’application en vérifiant ou corrigeant les énoncés reçus via le point de terminaison HTTP de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843971"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548720"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison
 Dans ce tutoriel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus via le point de terminaison HTTPS de LUIS dont ce dernier n’est pas sûr. Vous devez examiner les énoncés de point de terminaison régulièrement dans le cadre de la maintenance LUIS planifiée.
@@ -46,15 +39,11 @@ Utilisez les étapes suivantes pour importer une application.
 
 1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. Dans le [portail LUIS en préversion](https://preview.luis.ai), importez le fichier .json dans une nouvelle application.
+[!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `review`.
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Effectuer l’apprentissage de l’application pour appliquer les modifications d’entité à l’application
 
-    > [!TIP]
-    > Le clonage dans une nouvelle version est considéré comme une bonne pratique avant la modification de votre application. Lorsque vous en avez terminé avec une version, exportez-la (au format .json ou .lu), puis vérifiez le fichier dans votre système de contrôle de code source.
-
-
-1. Pour effectuer l’apprentissage de l’application, sélectionnez **Former**.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publier l’application pour y accéder à partir du point de terminaison HTTP
 
@@ -66,7 +55,7 @@ Dans cette application, vous avez des intentions et des entités, mais vous n’
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Utilisez le point de terminaison pour ajouter les énoncés suivants.
+1. Allez à la fin de l’URL dans la barre d’adresses, puis remplacez _YOUR_QUERY_HERE_ par les énoncés du tableau suivant. Pour chaque énoncé, soumettez l’énoncé et obtenez le résultat. Remplacez ensuite l’énoncé à la fin par l’énoncé suivant.
 
     |Énoncé du point de terminaison|Intention alignée|
     |--|--|
@@ -110,9 +99,9 @@ Passez en revue les énoncés du point de terminaison pour une intention correct
 
 Pour vérifier que les exemples d’énoncés correctement alignés ont amélioré la prédiction de l’application, essayez un énoncé proche de l’énoncé corrigé.
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Are there any natural language processing jobs in my department right now?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**.
+1. Allez à la fin de l’URL dans la barre d’adresses, puis remplacez _YOUR_QUERY_HERE_ par `Are there any natural language processing jobs in my department right now?`.
 
    ```json
     {

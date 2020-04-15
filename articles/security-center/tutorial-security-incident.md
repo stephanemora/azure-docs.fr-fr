@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74559200"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585768"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Didacticiel : Répondre aux incidents de sécurité
+# <a name="tutorial-respond-to-security-incidents"></a>Tutoriel : Répondre à des incidents de sécurité
 Security center analyse continuellement vos charges de travail de cloud hybride à l’aide d’analyses avancées et d’informations sur les menaces pour vous avertir des activités malveillantes. En outre, vous pouvez intégrer des alertes à partir d’autres produits et services de sécurité dans Security Center et créer des alertes personnalisées en fonction de vos propres indicateurs ou sources d’informations. Une fois une alerte générée, une action rapide est nécessaire pour examiner et résoudre la situation. Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
@@ -31,8 +31,8 @@ Security center analyse continuellement vos charges de travail de cloud hybride 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
-Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
+## <a name="prerequisites"></a>Prérequis
+Pour parcourir les fonctionnalités traitées dans ce tutoriel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
 
 ## <a name="scenario"></a>Scénario
 Contoso a récemment migré une partie de ses ressources locales dans Azure, notamment certaines bases de données SQL et charges de travail métier reposant sur des machines virtuelles. L’équipe principale de réponse aux incidents de sécurité informatique (CSIRT) de Contoso rencontre aujourd’hui des difficultés pour étudier les problèmes de sécurité car les renseignements sur la sécurité ne sont pas intégrés à leurs outils actuels de réponse aux incidents. Cette absence d’intégration pose un problème durant l’étape de détection (trop de faux positifs) et durant les étapes d’évaluation et de diagnostic. Dans le cadre de la migration, l’équipe a décidé d’opter pour Security Center pour l’aider à résoudre ce problème.
@@ -114,7 +114,7 @@ Si vous voulez désactiver l’approvisionnement automatique :
 4. Sélectionnez **Enregistrer**.
 
 >[!NOTE]
-> La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
+> La désactivation du provisionnement automatique ne supprime pas l’agent Log Analytics des machines virtuelles Azure sur lesquelles l’agent a été provisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -124,8 +124,3 @@ Dans ce didacticiel, vous avez appris les fonctionnalités de Security Center à
 > * Un incident de sécurité qui est une agrégation d’alertes associées pour une ressource
 > * Un mappage d’investigation est une représentation graphique des entités connectées à cette alerte ou cet incident de sécurité
 > * Les fonctionnalités de recherche afin de rechercher plus de preuves des systèmes compromis
-
-Pour en savoir plus sur les fonctionnalités d’investigation de Security Center, consultez :
-
-> [!div class="nextstepaction"]
-> [Investiguer les incidents et les alertes](security-center-investigation.md)

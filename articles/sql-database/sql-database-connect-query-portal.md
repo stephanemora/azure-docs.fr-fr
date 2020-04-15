@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
-ms.openlocfilehash: 5847ef3033d257faef4831785b8abd864d54e835
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c072161db7a477b7973571a18d4f686b1b9c6202
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79209609"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985675"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Démarrage rapide : Utiliser l’éditeur de requête du portail Azure pour interroger une base de données SQL
 
@@ -175,7 +175,7 @@ Il y a quelques informations à connaître quand vous travaillez avec l’édite
 
 * L’éditeur de requête utilise les ports 443 et 1443 pour communiquer. Vérifiez que vous avez activé le trafic HTTPS sortant sur ces ports. Vous devrez également ajouter votre adresse IP sortante aux les règles d’autorisation de pare-feu du serveur pour accéder à vos bases de données et entrepôts de données.
 
-* L’éditeur de requête fonctionne avec Private Link sans qu’il soit nécessaire d’ajouter l’adresse IP du client au pare-feu SQL Database.
+* Si vous avez une connexion Private Link, l’éditeur de requête fonctionne sans qu’il soit nécessaire d’ajouter l’adresse IP du client au pare-feu SQL Database.
 
 * Le fait d’appuyer sur **F5** réinitialise la page de l’éditeur de requête, effaçant la requête sur laquelle vous travaillez.
 

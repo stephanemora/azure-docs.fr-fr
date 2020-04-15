@@ -1,10 +1,9 @@
 ---
-title: Intégration à Azure Active Directory | Microsoft Docs
+title: Intégration à Azure Active Directory
 description: Découvrez les avantages de l’intégration de votre application avec Azure Active Directory et obtenez des ressources pour des fonctionnalités telles que la connexion simplifiée, la gestion d’identités, l’authentification multifacteur et le contrôle d’accès.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 5e4c6fb91b93b1035c68350a5f77a3c16db7323f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4eaca7350ac006a2fcf2eed8d3eb0cb8ef274841
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300110"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885699"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Intégration avec Azure Active Directory
 

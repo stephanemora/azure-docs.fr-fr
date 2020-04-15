@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 64c900e01496dad0d5f6a96d8d790ae0c2a8c95a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 408fb2c40e645d9a8b10f1e04d282e134c5489a1
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78927364"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80502151"
 ---
 Vous pouvez utiliser des requêtes dans l’Explorateur de données pour récupérer et filtrer vos données.
 
-1. Dans l’Explorateur de données, en haut de l’onglet **Éléments**, examinez la requête par défaut `SELECT * FROM c`. Cette requête par défaut récupère et affiche tous les documents de la collection, classés par ID. 
+1. Dans l’Explorateur de données, en haut de l’onglet **Éléments**, examinez la requête par défaut `SELECT * FROM c`. Cette requête récupère et affiche tous les documents du conteneur, classés par ID. 
    
    ![La requête par défaut dans l’Explorateur de données est « SELECT * FROM c »](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
    

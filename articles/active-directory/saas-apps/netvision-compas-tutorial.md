@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12a83c6381d3f068eecc2dda4838b981a8b59ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c3015ea26d81505c4f058846dbcb3b7858f79267
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135778"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520061"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netvision Compas
 
@@ -44,7 +44,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Netvision Compas prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
-* Après avoir configuré Netvision Compas, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré Netvision Compas, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 
 ## <a name="adding-netvision-compas-from-the-gallery"></a>Ajout de Netvision Compas depuis la galerie
@@ -69,7 +69,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Netvision C
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Netvision Compas](#configure-netvision-compas-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Netvision Compas](#create-netvision-compas-test-user)** pour avoir un équivalent de B.Simon dans Netvision Compas lié à la représentation Azure AD associée.
+    1. **[Configurer un utilisateur de test Netvision Compas](#configure-netvision-compas-test-user)** pour avoir un équivalent de B.Simon dans Netvision Compas lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -95,13 +95,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support client de Netvision Compas](mailto:contact@net.vision). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le fichier de métadonnées et l’enregistrer sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/certificatebase64.png)
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. Dans la section **Configurer Netvision Compas**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -135,17 +133,58 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
 ## <a name="configure-netvision-compas-sso"></a>Configurer l’authentification unique Netvision Compas
 
-Pour configurer l’authentification unique côté **Netvision Compas**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique Netvision Compas](mailto:contact@net.vision). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Dans cette section, vous allez activer l’authentification unique SAML dans **Netvision Compas**.
+1. Connectez-vous à **Netvision Compas** avec un compte d’administrateur et accédez à la zone administration.
 
-### <a name="create-netvision-compas-test-user"></a>Créer un utilisateur de test Netvision Compas
+    ![Zone d’administration](media/netvision-compas-tutorial/admin.png)
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Netvision Compas. Travaillez en collaboration avec l’[équipe du support technique Netvision Compas](mailto:contact@net.vision) 2pour ajouter les utilisateurs sur la plateforme Netvision Compas. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+1. Localisez la zone **Système** et sélectionnez **Fournisseurs d’identité**.
+
+    ![Fournisseurs d’identité d’administrateur](media/netvision-compas-tutorial/admin-idps.png)
+
+1. Sélectionnez l’action **Ajouter** pour inscrire Azure AD en tant que nouveau fournisseur d’identité.
+
+    ![Ajouter un fournisseur d’identité](media/netvision-compas-tutorial/idps-add.png)
+
+1. Pour **SAML** pour le **Type de fournisseur**.
+1. Entrez des valeurs significatives pour les champs **Nom d’affichage** et **Description**.
+1. Affectez des utilisateurs **Netvision Compas** au fournisseur d’identité en les sélectionnant dans la liste **Utilisateurs disponibles**, puis en sélectionnant le bouton **Ajouter la sélection**. Les utilisateurs peuvent également être affectés au fournisseur d’identité tout en suivant la procédure de provisionnement.
+1. Pour l’option **Métadonnées** de SAML, cliquez sur le bouton **Choisir un fichier** et sélectionnez le fichier de métadonnées précédemment enregistré sur votre ordinateur.
+1. Cliquez sur **Enregistrer**.
+
+    ![Modifier le fournisseur d’identité](media/netvision-compas-tutorial/idp-edit.png)
+
+
+### <a name="configure-netvision-compas-test-user"></a>Configurer un utilisateur de test Netvision Compas
+
+Dans cette section, vous configurez un utilisateur existant dans **Netvision Compas** pour l’utilisation d’Azure AD pour l’authentification unique.
+1. Suivez la procédure de provisionnement d’utilisateurs de **Netvision Compas**, telle qu’elle est définie par votre entreprise, ou bien modifiez un compte d’utilisateur existant.
+1. Lors de la définition du profil de l’utilisateur, vérifiez que l’adresse **E-mail (personnel)** correspond au nom d’utilisateur d’Azure AD : username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+
+    ![Edit User](media/netvision-compas-tutorial/user-config.png)
+
+Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD.
+
+### <a name="using-the-access-panel-idp-initiated"></a>Utilisation du volet d’accès (lancé par le fournisseur d’identité).
 
 Quand vous cliquez sur la vignette Netvision Compas dans le volet d’accès, vous devez vous connecter automatiquement à l’application Netvision Compas pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="directly-accessing-netvision-compas-sp-initiated"></a>Accès direct à Netvision Compas (lancé par le fournisseur de service).
+
+1. Accédez à l’URL de **Netvision Compas**. Par exemple : `https://tenant.compas.cloud`.
+1. Entrez le nom d’utilisateur de **Netvision Compas**, puis sélectionnez **Suivant**.
+
+    ![Utilisateur de la connexion](media/netvision-compas-tutorial/login-user.png)
+
+1. **(facultatif)** Si plusieurs fournisseurs sont affectés à l’utilisateur dans **Netvision Compas**, une liste des fournisseurs d’identité disponibles s’affiche. Sélectionnez le fournisseur d’identité Azure AD configuré précédemment dans **Netvision Compas**.
+
+    ![Choix de la connexion](media/netvision-compas-tutorial/login-choose.png)
+
+1. Vous êtes redirigé vers Azure AD pour effectuer l’authentification. Une fois que vous êtes authentifié, vous devez être connecté automatiquement à **Netvision Compas** pour lequel vous configurez l’authentification unique.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

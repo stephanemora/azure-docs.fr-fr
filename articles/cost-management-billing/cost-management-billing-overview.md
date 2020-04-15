@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474524"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879086"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Présentation d’Azure Cost Management + Facturation
 
@@ -67,7 +67,7 @@ Une étendue est un nœud à l’intérieur d’un compte de facturation que vou
 ## <a name="understand-azure-cost-management"></a>Présentation d’Azure Cost Management
 La gestion des coûts est le processus qui vous permet de prévoir et de maîtriser les coûts de votre entreprise avec efficacité. Les tâches de gestion des coûts sont normalement effectuées par les équipes de finance, d’administration et d’application. La solution Azure Cost Management + Facturation permet aux organisations de planifier tout en gardant les coûts à l’esprit. Elle permet aussi d’analyser efficacement les coûts et de prendre des mesures pour optimiser les dépenses cloud. Pour découvrir plus en détail comment une organisation doit approcher la gestion des coûts, consultez l’article [Bonnes pratiques pour Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
-Regardez la [vidéo de présentation d’Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) pour avoir une vue d’ensemble rapide de la façon dont Azure Cost Management peut vous aider à économiser de l’argent dans Azure.
+Regardez la [vidéo de présentation d’Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) pour avoir une vue d’ensemble rapide de la façon dont Azure Cost Management peut vous aider à économiser de l’argent dans Azure. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -93,7 +93,7 @@ Si vous utilisez des systèmes externes pour accéder ou consulter les données 
 
 [Cloudyn](./cloudyn/overview.md) est un service Azure lié à Cost Management, qui sera déprécié d’ici la fin de l’année 2020. Les fonctionnalités existantes de Cloudyn sont intégrées directement au portail Azure dans la mesure du possible. Aucun nouveau client n’est actuellement intégré pour le moment. Cependant, le produit restera pris en charge jusqu’à ce qu’il soit complètement déprécié.
  
-Regardez la [vidéo Azure Cost Management et Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) pour en savoir plus sur l’opportunité d’utiliser Azure Cost Management ou Cloudyn, en fonction de vos besoins métier.
+Regardez la [vidéo Azure Cost Management et Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) pour en savoir plus sur l’opportunité d’utiliser Azure Cost Management ou Cloudyn, en fonction de vos besoins métier. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
  
 >[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 

@@ -1,15 +1,15 @@
 ---
 title: Vue d’ensemble d’Azure Blockchain Service
 description: Vue d’ensemble d’Azure Blockchain Service
-ms.date: 03/12/2020
+ms.date: 03/30/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 821bac0da13209e5126f5bab109aa0895ade840a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205069"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529155"
 ---
 # <a name="what-is-azure-blockchain-service"></a>À propos d’Azure Blockchain Service
 
@@ -19,7 +19,7 @@ Azure Blockchain Service est un service de registre complètement managé qui pe
 * Gestion de consortium intégrée
 * Développer des contrats intelligents avec des outils de développement familiers
 
-Azure Blockchain Service est conçu pour prendre en charge plusieurs protocoles de registre. Actuellement, il prend en charge le registre [Quorum](https://www.goquorum.com/) Ethereum à l’aide du mécanisme de consensus [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+Azure Blockchain Service est conçu pour prendre en charge plusieurs protocoles de registre. Actuellement, il prend en charge le registre [Quorum](https://www.goquorum.com/) Ethereum à l’aide du mécanisme de consensus [IBFT (Istanbul Byzantine Fault Tolerance)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
 Ces fonctionnalités ne demandent pratiquement aucune administration, et toutes sont fournies sans coût supplémentaire. Vous pouvez vous concentrer sur la logique métier et le développement d’applications plutôt que sur le temps et les ressources nécessaires à la gestion des machines virtuelles et de l’infrastructure. Vous pouvez également continuer à développer votre application avec les outils open source et la plateforme de votre choix, ce qui vous permet de fournir vos solutions sans avoir besoin d’acquérir de nouvelles compétences.
 
@@ -33,7 +33,7 @@ Azure Blockchain Service propose deux niveaux de service : *De base* et *Standa
 
 ![Niveaux de tarification](./media/overview/pricing-tiers.png)
 
-En plus d’offrir deux nœuds validateur, le niveau *Standard* fournit deux mémoires *vCore* pour chaque nœud validateur et de transaction, tandis que le niveau De base offre une configuration contenant un seul vCore.  En proposant deux mémoires vCore pour les nœuds validateur et de transaction, vous pouvez dédier un vCore au registre Quorum. Le vCore restant peut alors être utilisé pour d’autres services liés à l’infrastructure, offrant des performances optimales pour les charges de travail de blockchain de production. Pour plus d’informations sur la tarification, consultez [Tarification Azure Blockchain Service](https://azure.microsoft.com/pricing/details/blockchain-service).
+En plus d’offrir deux nœuds validateur, le niveau *Standard* fournit deux mémoires *vCore* pour chaque nœud validateur et de transaction, tandis que le niveau *De base* offre une configuration contenant un seul vCore.  En proposant deux mémoires vCore pour les nœuds validateur et de transaction, vous pouvez dédier un vCore au registre Quorum. Le vCore restant peut alors être utilisé pour d’autres services liés à l’infrastructure, offrant des performances optimales pour les charges de travail de blockchain de production. Pour plus d’informations sur la tarification, consultez [Tarification Azure Blockchain Service](https://azure.microsoft.com/pricing/details/blockchain-service).
 
 ### <a name="security-and-maintenance"></a>Sécurité et maintenance
 

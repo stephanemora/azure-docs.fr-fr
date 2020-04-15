@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 967d391d4ac9a9704688dce9636d9a71b2002549
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290197"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879358"
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
@@ -76,6 +76,15 @@ Les itinéraires Azure se chargent de l’acheminement entre les sous-réseaux, 
 
 - **Tables de routage :** vous pouvez créer des tables de routage personnalisées avec des itinéraires qui contrôlent où le trafic est acheminé pour chaque sous-réseau. Découvrez-en plus sur les [tables de routage](virtual-networks-udr-overview.md#user-defined).
 - **Itinéraires BGP :** si vous connectez votre réseau virtuel à votre réseau local via une connexion ExpressRoute ou la passerelle VPN Azure, vous pouvez propager vos itinéraires BGP locaux à vos réseaux virtuels. En savoir plus sur l’utilisation du protocole BGP avec [la passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+
+## <a name="virtual-network-integration-for-azure-services"></a>Intégration d’un réseau virtuel pour les services Azure
+
+L’intégration des services Azure à un réseau virtuel Azure permet un accès privé au service à partir de machines virtuelles ou de ressources de calcul dans le réseau virtuel.
+Vous pouvez intégrer des services Azure dans votre réseau virtuel, grâce aux options suivantes :
+- Déploiement d’[instances dédiées du service](virtual-network-for-azure-services.md) dans un réseau virtuel. Les services sont alors accessibles de manière privée dans le réseau virtuel, et à partir des réseaux locaux.
+- Utilisation de [Liaison privée](../private-link/private-link-overview.md) pour accéder en privé à une instance spécifique du service à partir de votre réseau virtuel et de réseaux locaux.
+- Vous pouvez également accéder au service à l’aide de points de terminaison publics en étendant un réseau virtuel au service par le biais de [points de terminaison de service](virtual-network-service-endpoints-overview.md). Les points de terminaison de service permettent de sécuriser les ressources de service au sein du réseau virtuel.
+ 
 
 ## <a name="azure-vnet-limits"></a>Limites des réseaux virtuels Azure
 

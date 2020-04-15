@@ -2,21 +2,21 @@
 title: Tutoriel - Ajouter des fonctions de modèle
 description: Ajoutez des fonctions de modèle à votre modèle Azure Resource Manager pour élaborer des valeurs.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1db391f42aeb4fdf80baf001150f845daef3bf4f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e4984b286bf031b66272919a487d09a90f972ce0
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773221"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410979"
 ---
-# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutoriel : Ajouter des fonctions de modèle à votre modèle Resource Manager
+# <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutoriel : Ajouter des fonctions de modèle à votre modèle ARM
 
-Dans ce tutoriel, vous apprenez à ajouter des [fonctions de modèle](template-functions.md) à votre modèle. Vous utilisez des fonctions pour élaborer des valeurs de façon dynamique. Outre ces fonctions de modèle fournies par le système, vous pouvez aussi créer des [fonctions définies par l’utilisateur](./template-user-defined-functions.md). Ce tutoriel dure environ **7 minutes**.
+Dans ce tutoriel, vous allez apprendre à ajouter des [fonctions de modèle](template-functions.md) à votre modèle Azure Resource Manager (ARM). Vous utilisez des fonctions pour élaborer des valeurs de façon dynamique. Outre ces fonctions de modèle fournies par le système, vous pouvez aussi créer des [fonctions définies par l’utilisateur](./template-user-defined-functions.md). Ce tutoriel dure environ **7 minutes**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Nous vous recommandons de suivre le [tutoriel sur les paramètres](template-tutorial-add-parameters.md), mais il n’est pas obligatoire.
 
@@ -48,7 +48,7 @@ Dans les tutoriels précédents, vous avez créé un compte de stockage dans la 
 
 Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable **templateFile** sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -58,10 +58,12 @@ New-AzResourceGroupDeployment `
   -storageName "{new-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addlocationparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -69,6 +71,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

@@ -2,21 +2,21 @@
 title: Tutoriel - Ajouter des paramètres au modèle
 description: Ajoutez des paramètres à votre modèle Azure Resource Manager pour le rendre réutilisable.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773202"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437835"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutoriel : Ajouter des paramètres à votre modèle Resource Manager
+# <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutoriel : Ajouter des paramètres à votre modèle ARM
 
-Dans le [tutoriel précédent](template-tutorial-add-resource.md) vous avez appris à ajouter un compte de stockage au modèle, et à le déployer. Dans ce tutoriel, vous allez découvrir comment améliorer le modèle en ajoutant des paramètres. Ce tutoriel dure environ **14 minutes**.
+Dans le [tutoriel précédent](template-tutorial-add-resource.md) vous avez appris à ajouter un compte de stockage au modèle, et à le déployer. Dans ce tutoriel, vous allez apprendre à améliorer le modèle Azure Resource Manager (ARM) en ajoutant des paramètres. Ce tutoriel dure environ **14 minutes**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Nous vous recommandons de suivre le [tutoriel sur les ressources](template-tutorial-add-resource.md), mais il n’est pas obligatoire.
 
@@ -44,7 +44,7 @@ Déployons le modèle. L’exemple suivant déploie le modèle avec Azure CLI ou
 
 Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable **templateFile** sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -54,10 +54,12 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnameparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -88,7 +90,7 @@ Le paramètre **storageSKU** possède une valeur par défaut. Cette valeur est u
 
 Vous êtes prêt à déployer de nouveau. La référence SKU par défaut étant définie sur **Standard_LRS**, vous n’avez pas besoin de fournir de valeur pour ce paramètre.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -98,10 +100,10 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -110,24 +112,27 @@ az group deployment create \
 
 ---
 
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
+
 Pour voir la flexibilité de votre modèle, procédez de nouveau au redéploiement. Cette fois-ci, définissez le paramètre SKU sur **Standard_GRS**. Vous pouvez soit passer un nouveau nom pour créer un compte de stockage différent, soit utiliser le même nom pour mettre à jour votre compte de stockage existant. Les deux options fonctionnent.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Name usedefaultsku `
+  -Name usenondefaultsku `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storageName "{your-unique-name}" `
   -storageSKU Standard_GRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
-  --name usedefaultsku \
+az deployment group create \
+  --name usenondefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
   --parameters storageSKU=Standard_GRS storageName={your-unique-name}
@@ -137,7 +142,7 @@ az group deployment create \
 
 Pour finir, nous allons exécuter un test supplémentaire et voir ce qui se passe lorsque vous transmettez une référence qui ne fait pas partie des valeurs autorisées. Dans ce cas, nous testons le scénario dans lequel un utilisateur de votre modèle pense que **basic** fait partie des références (SKU).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -148,10 +153,10 @@ New-AzResourceGroupDeployment `
   -storageSKU basic
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name testskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \

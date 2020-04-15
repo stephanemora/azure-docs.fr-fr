@@ -2,34 +2,42 @@
 title: Créer une ressource LUIS
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/23/2019
-ms.author: dapine
-ms.openlocfilehash: a765ac27936da9da5a2f41464c17491e3561f44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.author: aahi
+ms.openlocfilehash: ebfe7e80577b163218a7bc501fa4e3e9b206fd62
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73465939"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879198"
 ---
-## <a name="create-a-luis-resource"></a>Créer une ressource LUIS
+<a name="create-luis-resources"></a>
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Cliquez sur [Créer**Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+## <a name="create-luis-resources-in-azure-portal"></a>Créer des ressources LUIS sur le portail Azure
+
+1. Utilisez [ce lien](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) pour commencer à créer des ressources LUIS sur le portail Azure.
+
 1. Entrez tous les paramètres obligatoires :
 
-    |Paramètre|Valeur|
+    |Nom|Objectif|
     |--|--|
-    |Name|Nom de votre choix (2-64 caractères)|
-    |Subscription|Sélectionner l’abonnement approprié|
-    |Location|Sélectionnez n’importe quel emplacement disponible et proche|
-    |Niveau de tarification|`F0` - le niveau tarifaire minimal|
-    |Groupe de ressources|Sélectionner un groupe de ressources disponible|
+    |Nom d’abonnement| Abonnement auquel la ressource sera facturée.|
+    |Resource group| Nom de groupe de ressources personnalisé que vous choisissez ou créez. Les groupes de ressources vous permettent de regrouper des ressources Azure pour l’accès et la gestion.|
+    |Nom| Nom personnalisé que vous choisissez, utilisé comme sous-domaine personnalisé pour vos requêtes de point de terminaison de création et de prédiction.|
+    |Emplacement de création|Région associée à votre modèle.|
+    |Niveau tarifaire de création|Le niveau tarifaire détermine le nombre maximal de transactions par seconde et par mois.|
+    |Emplacement du runtime|Région associée à votre runtime de point de terminaison de prédiction publié.|
+    |Niveau tarifaire du runtime|Le niveau tarifaire détermine le nombre maximal de transactions par seconde et par mois.|
 
-1. Cliquez sur **Créer** et attendez que la ressource soit créée. Après sa création, accédez à la page de ressources.
-1. Collectez les `endpoint` configurées et une clé API, consultez [Collecte des paramètres requis](#gathering-required-parameters).
+    > [!div class="mx-imgBorder"]
+    > [![Créer la ressource Language Understanding](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
-[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+1. Cliquez sur **Vérifier + créer** et attendez que la ressource soit créée.
+1. Une fois les deux ressources créées, toujours dans le portail Azure, sélectionnez la nouvelle ressource de création, puis choisissez **Démarrages rapides** pour obtenir l’**URL du point de terminaison** de création et la **clé** pour créer programmatiquement.
+
+> [!TIP]
+> Pour utiliser les ressources, sur le portail LUIS, [affectez-les](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).

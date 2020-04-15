@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fd1f06bcb92ea97e0e9e9a6eefeac957031575a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471555"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879290"
 ---
 # <a name="routing-architecture-overview"></a>Vue d’ensemble de l’architecture de routage
 
@@ -35,7 +35,7 @@ Le routage vers les environnements Azure Front Door utilise [Anycast](https://en
 Le [TCP de fractionnement](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) est une technique permettant de réduire les latences et les problèmes liés aux protocole TCP en fractionnant les connexions dont les durées de parcours circulaire seraient trop élevées.  En plaçant les environnements Front Door plus près des utilisateurs finaux et en fermant les connexions TCP à l’intérieur de l’environnement Front Door, une connexion TCP avec une durée de parcours circulaire élevée vers le backend d’application est fractionnée en deux connexions TCP. La courte connexion entre l’utilisateur final et l’environnement Front Door signifie que la connexion est établie sur trois brefs parcours circulaires plutôt que trois longs parcours circulaires, réduisant ainsi la latence.  La longue connexion entre l’environnement Front Door et le backend peut être préalablement établie et réutilisée pour plusieurs appels de l’utilisateur final, réduisant là encore la durée de connexion TCP.  L’effet est multipliée lors de l’établissement d’une connexion SSL/TLS (Transport Layer Security), car il y a davantage de parcours circulaires pour sécuriser la connexion.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Traitement de la requête pour la mise en correspondance avec une règle de routage
-Une fois la connexion établie et la négociation SSL effectuée, quand une requête parvient à un environnement Front Door, la mise en correspondance avec une règle de routage est la première étape. Cette étape permet de déterminer, parmi toutes les configurations Front Door, avec quelle règle de routage spécifique mettre la requête en correspondance. Pour en savoir plus sur la façon dont Front Door effectue la mise en correspondance d’itinéraire, consultez [cet article](front-door-route-matching.md).
+Une fois la connexion établie et la négociation TLS effectuée, quand une requête parvient à un environnement Front Door, la mise en correspondance avec une règle de routage est la première étape. Cette étape permet de déterminer, parmi toutes les configurations Front Door, avec quelle règle de routage spécifique mettre la requête en correspondance. Pour en savoir plus sur la façon dont Front Door effectue la mise en correspondance d’itinéraire, consultez [cet article](front-door-route-matching.md).
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identification des backends disponibles dans le pool de backends pour la règle de routage
 Une fois que Front Door a établi une correspondance pour une règle de routage en fonction de la requête entrante, et s’il n’existe aucune mise en cache, l’étape suivante consiste à extraire l’état de la sonde d’intégrité pour le pool de backends associé à l’itinéraire correspondant. Pour en savoir plus sur la façon dont Front Door supervise l’intégrité des backends à l’aide de sondes d’intégrité, consultez [cet article](front-door-health-probes.md).

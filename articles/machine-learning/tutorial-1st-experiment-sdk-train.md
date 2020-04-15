@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c8f259d2d4df46470a042c3f65ac1b8e1f66b1dd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222366"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546057"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutoriel : Entraîner votre premier modèle ML
 
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 > [!div class="checklist"]
 > * Connecter votre espace de travail et créer une expérience
 > * Charger des données et effectuer l’apprentissage de modèles scikit-Learn
-> * Afficher les résultats de l’apprentissage sur le portail
+> * Afficher les résultats de l’entraînement dans le studio
 > * Récupérer le meilleur modèle
 
 ## <a name="prerequisites"></a>Prérequis
@@ -124,32 +124,33 @@ Le code ci-dessus effectue les opérations suivantes :
 
 1. Pour chaque valeur d’hyperparamètre alpha dans le tableau `alphas`, un nouveau cycle est cré dans l’expérience. La valeur alpha est journalisée afin de pouvoir faire la distinction entre les différents cycles.
 1. À chaque cycle, un modèle d’arête est instancié, formé et utilisé pour effectuer des prédictions. La mesure root-mean-squared-error (racine carrée de l’erreur quadratique moyenne) est calculée pour les valeurs prévues et observées, puis journalisée dans le cycle. À ce stade, le cycle génère des métadonnées qui sont jointes tant pour la valeur alpha que pour la précision de la mesure RMSE.
-1. Ensuite, le modèle de chaque cycle est sérialisé et chargé dans le cycle. Cela vous permet de télécharger le fichier de modèle à partir du cycle sur le portail.
+1. Ensuite, le modèle de chaque cycle est sérialisé et chargé dans le cycle. Cela vous permet de télécharger le fichier de modèle à partir de l’exécution dans le studio.
 1. À la fin de chaque itération, le cycle s’achève par l’appel de `run.complete()`.
 
-Une fois l’apprentissage terminé, appelez la variable `experiment` pour extraire un lien vers l’expérience dans le portail.
+Une fois l’entraînement terminé, appelez la variable `experiment` pour extraire un lien vers l’expérience dans le studio.
 
 ```python
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nom</th><th>Espace de travail</th><th>Page du rapport</th><th>Page des documents</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Lien vers le portail Azure</td><td>Lien vers la documentation</td></tr></table>
+<table style="width:100%"><tr><th>Nom</th><th>Espace de travail</th><th>Page du rapport</th><th>Page de la documentation</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Lien vers le studio Azure Machine Learning</td><td>Lien vers la documentation</td></tr></table>
 
-## <a name="view-training-results-in-portal"></a>Afficher les résultats de l’apprentissage sur le portail
+## <a name="view-training-results-in-studio"></a>Afficher les résultats de l’entraînement dans le studio
 
-En suivant le **Lien vers le portail Azure**, vous accédez à la page de l’expérience principale. Vous voyez ici toutes les cycles individuels dans l’expérience. Toutes les valeurs journalisées de manière personnalisée (`alpha_value` et `rmse` dans ce cas) deviennent des champs pour chaque cycle, et deviennent également disponibles pour les graphiques et les vignettes en haut de la page de l’expérience. Pour ajouter une métrique journalisée à un graphique ou à une vignette, pointez dessus, cliquez sur le bouton Modifier, puis recherchez votre métrique journalisée de manière personnalisée.
+En suivant le **lien vers le studio Azure Machine Learning**, vous accédez à la page de l’expérience principale. Vous voyez ici toutes les cycles individuels dans l’expérience. Toutes les valeurs journalisées de manière personnalisée (`alpha_value` et `rmse` dans ce cas) deviennent des champs pour chaque cycle, et deviennent également disponibles pour les graphiques et les vignettes en haut de la page de l’expérience. Pour ajouter une métrique journalisée à un graphique ou à une vignette, pointez dessus, cliquez sur le bouton Modifier, puis recherchez votre métrique journalisée de manière personnalisée.
 
 Lorsque vous effectuez l’apprentissage de modèles à grande échelle sur des centaines et des milliers de cycles, cette page facilite la visualisation de tous les modèles que vous avez formés, et singulièrement de la façon dont ils ont été formés ainsi que de l’évolution de vos métriques uniques au fil du temps.
 
-![Page d’expérience principale sur le portail](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Page de l’expérience principale dans le studio.":::
 
-Cliquez sur un lien de numéro de cycle dans la colonne `RUN NUMBER` pour accéder à la page du cycle correspondant. L’onglet par défaut **Détails** affiche des informations plus détaillées sur chaque exécution. Accédez à l’onglet **Sorties** pour voir le fichier `.pkl` pour le modèle chargé dans le cycle durant chaque itération d’apprentissage. Ici, vous pouvez télécharger le fichier de modèle au lieu de devoir ré-effectuer son apprentissage manuellement.
 
-![Page Détails de l’exécution sur le portail](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+Sélectionnez le lien d’un numéro d’exécution dans la colonne `RUN NUMBER` pour afficher la page d’une exécution individuelle. L’onglet par défaut **Détails** affiche des informations plus détaillées sur chaque exécution. Accédez à l’onglet **Sorties + journaux** afin de voir le fichier `.pkl` pour le modèle chargé sur l’exécution durant chaque itération d’entraînement. Ici, vous pouvez télécharger le fichier de modèle au lieu de devoir ré-effectuer son apprentissage manuellement.
+
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Page Détails de l’exécution dans le studio.":::
 
 ## <a name="get-the-best-model"></a>Obtenir le meilleur modèle
 
-En plus de la possibilité de télécharger des fichiers de modèle à partir de l’expérience du portail, vous pouvez les télécharger par programme. Le code suivant effectue une itération à chaque cycle de l’expérience, et accède tant aux métriques d’exécution journalisées qu’aux détails de l’exécution (qui contiennent l’identificateur du cycle). Cela permet de suivre le meilleur cycle, en l’occurrence, celui dont la mesure root-mean-squared-error est la plus faible.
+En plus de la possibilité de télécharger des fichiers de modèle à partir de l’expérience du studio, vous pouvez les télécharger programmatiquement. Le code suivant effectue une itération à chaque cycle de l’expérience, et accède tant aux métriques d’exécution journalisées qu’aux détails de l’exécution (qui contiennent l’identificateur du cycle). Cela permet de suivre le meilleur cycle, en l’occurrence, celui dont la mesure root-mean-squared-error est la plus faible.
 
 ```python
 minimum_rmse_runid = None
@@ -214,7 +215,7 @@ Dans le cadre de ce didacticiel, vous avez accompli les tâches suivantes :
 > [!div class="checklist"]
 > * Connexion de votre espace de travail et création d’une expérience
 > * Chargement de données et apprentissage des modèles scikit-Learn
-> * Affichage des résultats de l’apprentissage sur le portail et récupération des modèles
+> * Affichage des résultats de l’entraînement dans le studio et récupération des modèles
 
 [Déployez votre modèle](tutorial-deploy-models-with-aml.md) avec Azure Machine Learning.
 Découvrez comment développer des expériences de [Machine Learning automatisé](tutorial-auto-train-models.md).

@@ -1,21 +1,14 @@
 ---
 title: 'Démarrage rapide : Déployer une application avec le portail LUIS'
-titleSuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide montre comment déployer une application en créant une ressource de point de terminaison de prédiction, en affectant la ressource à l’application, puis en entraînant et en publiant l’application.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
-ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/06/2020
+ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79218497"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756293"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
 
@@ -29,35 +22,13 @@ Dans ce démarrage rapide, vous allez apprendre à déployer une application. Cr
 * Suivez le guide de [démarrage rapide du portail précédent](get-started-portal-build-app.md) ou [téléchargez et importez l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
 * Si vous disposez d’applications qui sont antérieures à l’authentification des ressources Azure, [effectuez une migration vers une ressource Azure](luis-migration-authoring.md). Certaines pages du portail s’affichent différemment lorsque l’authentification par e-mail est appliquée.
 
-## <a name="create-the-endpoint-resource"></a>Créer la ressource de point de terminaison
+<a name="create-the-endpoint-resource"></a>
 
-Vous créez la ressource de point de terminaison de prédiction dans le portail Azure. Cette ressource doit être utilisée seulement pour les requêtes de prédiction du point de terminaison. N’utilisez pas cette ressource pour apporter des modifications à l’application.
-
-1. Connectez-vous et créez une ressource dans le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
-
-1. Configurez l’abonnement avec les paramètres suivants :
-
-   |Paramètre|Valeur|Objectif|
-   |--|--|--|
-   |Nom|`my-luis-resource`|Nom de la ressource Azure. Vous avez besoin de ce nom quand vous affectez la ressource à l’application dans le portail LUIS.|
-   |Abonnement|Votre abonnement|Sélectionnez un des abonnements associés à votre compte.|
-   |Resource group|`my-resource-group`|Créez un groupe de ressources pour toutes vos ressources Cognitive Services. Quand vous en avez terminé avec les ressources, vous pouvez supprimer le groupe de ressources pour nettoyer votre abonnement. |
-   |Emplacement de création|**USA Ouest**|Région Azure pour la création.|
-   |Niveau tarifaire de création|**F0**|Niveau tarifaire par défaut pour la création.|
-   |Emplacement du runtime|**USA Ouest**|Région Azure pour les requêtes de point de terminaison de prédiction.|
-   |Niveau tarifaire du runtime|**S0**|Ce niveau tarifaire convient pour les sites web à fort trafic.|
-   | | | |
-
-
-   ![Choix d’API Azure](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. Sélectionnez **Créer** pour créer la ressource Azure.
-
-   Dans la section suivante, vous découvrez comment connecter cette nouvelle ressource à une application LUIS dans le portail LUIS.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Affecter la clé de ressource à l’application de LUIS dans le portail LUIS
 
-Chaque fois que vous créez une ressource pour LUIS, vous devez l’affecter à l’application LUIS. Une fois qu’elle est affectée, vous n’avez plus besoin d’effectuer cette étape, sauf si vous créez une nouvelle ressource. Vous pouvez être amené à créer une nouvelle ressource pour étendre les régions de votre application ou pour prendre en charge un nombre plus élevé de requêtes de prédiction.
+Chaque fois que vous créez une ressource de création ou de prédiction de requête pour LUIS, vous devez l’affecter à l’application LUIS. Une fois qu’elle est affectée, vous n’avez plus besoin d’effectuer cette étape, sauf si vous créez une nouvelle ressource. Vous pouvez être amené à créer une nouvelle ressource pour étendre les régions de votre application ou pour prendre en charge un nombre plus élevé de requêtes de prédiction.
 
 1. Connectez-vous à la [préversion du portail LUIS](https://preview.luis.ai), puis choisissez l’application **myEnglishApp** dans la liste des applications.
 

@@ -1,6 +1,6 @@
 ---
-title: Résoudre les problèmes de connectivité NAT du réseau virtuel Azure
-titleSuffix: Azure Virtual Network NAT troubleshooting
+title: Résoudre les problèmes de connectivité du service NAT de réseau virtuel Azure
+titleSuffix: Azure Virtual Network
 description: Résoudre les problèmes liés au service NAT du réseau virtuel.
 services: virtual-network
 documentationcenter: na
@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/30/2020
 ms.author: allensu
-ms.openlocfilehash: c629b3425cd095a6ac9d305b5cd6de58ed9d572a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674326"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396088"
 ---
-# <a name="troubleshoot-azure-virtual-network-nat-connectivity-problems"></a>Résoudre les problèmes de connectivité NAT du réseau virtuel Azure
+# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Résoudre les problèmes de connectivité du service NAT de réseau virtuel Azure
 
 Cet article permet aux administrateurs de diagnostiquer et de résoudre les problèmes de connectivité lors de l’utilisation du service NAT du réseau virtuel.
-
->[!NOTE] 
->Le service NAT de Réseau virtuel est disponible en préversion publique pour l’instant. Actuellement, il n’est disponible que dans un ensemble limité de [régions](nat-overview.md#region-availability). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="problems"></a>Problèmes
 
@@ -43,27 +40,39 @@ Pour résoudre ces problèmes, effectuez les étapes de la section suivante.
 
 Une seule [ressource de passerelle NAT](nat-gateway-resource.md) prend en charge entre 64 000 et 1 million de flux simultanés.  Chaque adresse IP fournit 64 000 ports SNAT à l’inventaire disponible. Vous pouvez utiliser jusqu’à 16 adresses IP par ressource de passerelle NAT.  Le mécanisme SNAT est décrit [ici](nat-gateway-resource.md#source-network-address-translation) de manière plus détaillée.
 
-Souvent, la cause racine de l’épuisement des ressources SNAT est un anti-modèle du mode d’établissement et de gestion de la connectivité sortante.  Lisez attentivement cette section.
+Souvent, la cause racine de l’épuisement des ressources SNAT est un anti-modèle du mode d’établissement et de gestion de la connectivité sortante, ou des minuteurs configurables dont la valeur par défaut a été changée.  Lisez attentivement cette section.
 
 #### <a name="steps"></a>Étapes
 
-1. Examinez comment votre application crée une connectivité sortante (par exemple, la révision de code ou la capture de paquets). 
-2. Déterminez si cette activité est un comportement attendu ou si l’application ne fonctionne pas correctement.  Utilisez des [métriques](nat-metrics.md) dans Azure Monitor pour justifier vos découvertes. Utilisez la catégorie « Échec » pour la métrique Connexions SNAT.
-3. Évaluez si les modèles appropriés sont suivis.
-4. Évaluez si l’épuisement des ports SNAT doit être atténué avec des adresses IP supplémentaires affectées à la ressource de passerelle NAT.
+1. Vérifiez si vous avez remplacé le délai d’inactivité par défaut par une valeur supérieure à 4 minutes.
+2. Examinez comment votre application crée une connectivité sortante (par exemple, la révision de code ou la capture de paquets). 
+3. Déterminez si cette activité est un comportement attendu ou si l’application ne fonctionne pas correctement.  Utilisez des [métriques](nat-metrics.md) dans Azure Monitor pour justifier vos découvertes. Utilisez la catégorie « Échec » pour la métrique Connexions SNAT.
+4. Évaluez si les modèles appropriés sont suivis.
+5. Évaluez si l’épuisement des ports SNAT doit être atténué avec des adresses IP supplémentaires affectées à la ressource de passerelle NAT.
 
 #### <a name="design-patterns"></a>Modèles de conception
 
-Tirez toujours parti de la réutilisation des connexions et du regroupement de connexions chaque fois que c’est possible.  Ces modèles offrent une solution radicale pour éviter les problèmes d’épuisement des ressources et assurent un comportement prévisible, fiable et scalable. Des primitives pour ces modèles sont disponibles dans beaucoup de frameworks et de bibliothèques de développement.
+Tirez toujours parti de la réutilisation des connexions et du regroupement de connexions chaque fois que c’est possible.  Ces modèles évitent les problèmes d’épuisement des ressources et entraînent un comportement prévisible. Des primitives pour ces modèles sont disponibles dans beaucoup de frameworks et de bibliothèques de développement.
 
-_**Solution :**_ Utiliser les modèles appropriés
+_**Solution :**_ Utiliser les modèles et bonnes pratiques appropriés
 
+- Les ressources de passerelle NAT ont un délai d’inactivité TCP par défaut de 4 minutes.  Si ce paramètre est défini sur une valeur plus élevée, la traduction d’adresses réseau (NAT) accapare des flux plus longs et peut entraîner une [pression inutile sur l’inventaire des ports SNAT](nat-gateway-resource.md#timers).
+- Les demandes atomiques (une demande par connexion) ne sont pas un bon choix de conception. Ce type d’anti-modèle limite la mise à l’échelle, réduit les performances et diminue la fiabilité. À la place, réutilisez les connexions HTTP/S pour réduire le nombre de connexions et les ports SNAT associés. L’échelle de l’application et les performances augmentent grâce à la réduction des connexions (handshakes), de la surcharge et du coût des opérations de chiffrement pendant l’utilisation de TLS.
+- Le système DNS peut introduire un grand nombre de flux individuels quand le client ne met pas en cache le résultat des programmes de résolution DNS. Utilisez la mise en cache.
+- Les flux UDP (par exemple, les recherches DNS) allouent des ports SNAT pour la durée du délai d’inactivité. Plus le délai d’inactivité est long, plus la sollicitation des ports SNAT est forte. Utilisez un délai d’inactivité court (par exemple, 4 minutes).
+- Utilisez des pools de connexions pour déterminer votre volume de connexions.
+- N’abandonnez jamais un flux TCP en mode silencieux et ne vous fiez pas aux minuteries TCP pour nettoyer un flux. Si vous ne laissez pas le protocole TCP fermer explicitement la connexion, l’état reste alloué aux systèmes intermédiaires et aux points de terminaison, et les ports SNAT ne sont alors pas disponibles pour les autres connexions. Cela peut déclencher des échecs d’application et l’épuisement des ports SNAT. 
+- Ne changez pas les valeurs de minuteur lié à la fermeture TCP au niveau du système d’exploitation sans en connaître précisément l’impact. Même si la pile TCP est récupérée, les performances de votre application risquent d’être affectées si les points de terminaison d’une connexion ont des attentes incompatibles. Quand vous voulez changer les minuteurs, c’est généralement qu’il y a un problème de conception sous-jacent. Tenez compte des recommandations suivantes.
+
+Souvent, l’épuisement des ports SNAT peut aussi être amplifié par d’autres anti-modèles dans l’application sous-jacente. Passez en revue ces modèles et bonnes pratiques supplémentaires pour améliorer la mise à l’échelle et la fiabilité de votre service.
+
+- Explorez l’impact de la réduction du [délai d’inactivité TCP](nat-gateway-resource.md#timers) à des valeurs inférieures, notamment le délai d’inactivité par défaut de 4 minutes, pour libérer plus tôt l’inventaire des ports SNAT.
 - Envisagez d’utiliser les [modèles d’interrogation asynchrone](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) pour les opérations de longue durée afin de libérer des ressources de connexion pour d’autres opérations.
-- Les flux de longue durée (par exemple, les connexions TCP réutilisées) doivent utiliser des conservations de connexion TCP active ou des conservations de connexion active de la couche Application pour éviter l’expiration des systèmes intermédiaires.
+- Les flux de longue durée (par exemple, les connexions TCP réutilisées) doivent utiliser des conservations de connexion TCP active ou des conservations de connexion active de la couche Application pour éviter l’expiration des systèmes intermédiaires. L’augmentation du délai d’inactivité est un dernier recours qui peut ne pas résoudre la cause racine. Un long délai d’expiration peut entraîner des échecs lié au bas débit quand le délai d’attente expire, ainsi qu’un retard et des échecs inutiles.
 - Les [modèles de nouvelle tentative](https://docs.microsoft.com/azure/architecture/patterns/retry) sans perte de données doivent être utilisés pour éviter les nouvelles tentatives agressives/rafales en cas de défaillance temporaire ou de reprise d’activité après défaillance.
 La création d’une connexion TCP pour chaque opération HTTP (également appelée « connexions atomiques ») est un anti-modèle.  Les connexions atomiques empêchent votre application d’être correctement mise à l’échelle et gaspillent des ressources.  Canalisez toujours plusieurs opérations dans la même connexion.  Votre application tire parti de la vitesse des transactions et des coûts des ressources.  Quand votre application utilise le chiffrement de la couche de transport (par exemple, TLS), un coût élevé est associé au traitement des nouvelles connexions.  Passez en revue les [Modèles de conception Azure Cloud](https://docs.microsoft.com/azure/architecture/patterns/) pour obtenir des modèles de bonnes pratiques supplémentaires.
 
-#### <a name="possible-mitigations"></a>Atténuations possibles
+#### <a name="additional-possible-mitigations"></a>Atténuations supplémentaires possibles
 
 _**Solution :**_ Mettez à l’échelle la connectivité sortante comme suit :
 
@@ -97,7 +106,7 @@ Les échecs de connectivité avec le service [NAT de réseau virtuel](nat-overvi
 * Défaillances temporaires au niveau du chemin entre Azure et la destination Internet publique 
 * Défaillances temporaires ou persistantes au niveau de la destination Internet publique
 
-Utilisez des outils tels que ceux mentionnés ci-après pour la validation de la connectivité. [Le ping ICMP n’est pas prise en charge](#icmp-ping-is-failing).
+Utilisez des outils tels que ceux mentionnés ci-après pour la validation de la connectivité. [Le ping ICMP n’est pas pris en charge](#icmp-ping-is-failing).
 
 | Système d’exploitation | Test de connexion TCP générique | Test de la couche Application TCP | UDP |
 |---|---|---|---|
@@ -110,7 +119,7 @@ Consultez la section de cet article relative à l’[épuisement des ressources 
 
 #### <a name="azure-infrastructure"></a>Infrastructure Azure
 
-Même si Azure supervise et exploite son infrastructure avec une grande rigueur, des défaillances temporaires peuvent se produire. En effet, rien ne garantit des transmissions sans perte.  Utilisez des modèles de conception qui autorisent les retransmissions SYN pour les applications TCP. Utilisez des délais de connexion suffisamment longs pour que la retransmission SYN TCP puisse réduire les impacts temporaires causés par un paquet SYN perdu.
+Azure supervise et exécute son infrastructure avec beaucoup de soin. Des échecs temporaires peuvent se produire, il n’y aucune garantie de non-perte des transmissions.  Utilisez des modèles de conception qui autorisent les retransmissions SYN pour les applications TCP. Utilisez des délais de connexion suffisamment longs pour que la retransmission SYN TCP puisse réduire les impacts temporaires causés par un paquet SYN perdu.
 
 _**Solution :**_
 
@@ -118,17 +127,17 @@ _**Solution :**_
 * Le paramètre de configuration d’une pile TCP qui contrôle le comportement de la retransmission SYN est le [délai d’attente de retransmission](https://tools.ietf.org/html/rfc793) (RTO, Retransmission Time-Out). La valeur RTO peut être ajustée. En général, elle est d’au moins 1 seconde par défaut avec une temporisation exponentielle.  Si le délai de connexion de votre application est trop court (par exemple, 1 seconde), vous pouvez constater des expirations de connexion sporadiques.  Augmentez le délai de connexion de l’application.
 * Si vous observez des délais plus longs ou inattendus avec les comportements de l’application par défaut, ouvrez un cas de support pour obtenir une assistance supplémentaire en vue de la résolution du problème.
 
-Nous vous déconseillons de réduire le délai de connexion TCP de façon artificielle ou d’ajuster le paramètre RTO.
+Nous vous déconseillons de réduire le délai d’expiration de connexion TCP de façon artificielle ou d’ajuster le paramètre RTO.
 
 #### <a name="public-internet-transit"></a>Transit Internet public
 
-Plus le chemin jusqu’à la destination est long et plus il existe de systèmes intermédiaires, plus la probabilité de défaillances temporaires est élevée. Nous savons que la fréquence des défaillances temporaires sur l’[infrastructure Azure](#azure-infrastructure) peut augmenter. 
+Plus le chemin jusqu’à la destination est long et plus il existe de systèmes intermédiaires, plus les chances de défaillances temporaires sont élevées. Nous savons que la fréquence des défaillances temporaires sur l’[infrastructure Azure](#azure-infrastructure) peut augmenter. 
 
 Suivez les instructions fournies dans la section précédente [Infrastructure Azure](#azure-infrastructure).
 
 #### <a name="internet-endpoint"></a>Point de terminaison Internet
 
-Les sections précédentes s’appliquent en plus des considérations relatives au point de terminaison Internet avec lequel votre communication est établie. D’autres facteurs peuvent impacter la réussite de la connectivité :
+Les sections précédentes s’appliquent, ainsi que le point de terminaison Internet avec lequel la communication est établie. D’autres facteurs peuvent impacter la réussite de la connectivité :
 
 * Gestion du trafic côté destination, y compris
 - Limitation du taux d’API imposée côté destination
@@ -147,9 +156,11 @@ _**Solution :**_
 
 #### <a name="tcp-resets-received"></a>Réinitialisations TCP reçues
 
-Si vous constatez que des réinitialisations TCP (paquets RST TCP) sont reçues sur la machine virtuelle source, elles peuvent être générées par la passerelle NAT côté privé pour les flux qui ne sont pas reconnus comme étant en cours.  Ceci peut être dû, par exemple, à l’expiration du délai d’inactivité de la connexion TCP.  Vous pouvez définir le délai d’inactivité entre 4 minutes et 120 minutes.
+La passerelle NAT génère des réinitialisations TCP sur la machine virtuelle source pour le trafic qui n’est pas reconnu comme étant en cours.
 
-Les réinitialisations TCP ne sont pas générées du côté public des ressources de passerelle NAT. Si vous recevez des réinitialisations TCP côté destination, elles sont générées par la pile de la machine virtuelle source et non par la ressource de passerelle NAT.
+Ceci peut être dû, par exemple, à l’expiration du délai d’inactivité de la connexion TCP.  Vous pouvez définir le délai d’inactivité entre 4 minutes et 120 minutes.
+
+Les réinitialisations TCP ne sont pas générées du côté public des ressources de passerelle NAT. Les réinitialisations TCP côté destination sont générées par la machine virtuelle source et non par la ressource de passerelle NAT.
 
 _**Solution :**_
 

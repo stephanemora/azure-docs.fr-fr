@@ -1,6 +1,6 @@
 ---
 title: Intégrer des ordinateurs Windows à Azure Security Center
-description: Ce guide de démarrage rapide explique comment approvisionner Microsoft Monitoring Agent sur un ordinateur Windows.
+description: Ce guide de démarrage rapide explique comment provisionner l’agent Log Analytics sur un ordinateur Windows.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73686508"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435922"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center
-Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour des ressources qui s’exécutent en dehors d’Azure, par exemple, en local ou dans d’autres clouds, en approvisionnant Microsoft Monitoring Agent.
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center
+Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour les ressources s’exécutant en dehors d’Azure, par exemple, localement ou dans d’autres clouds, en provisionnant l’agent Log Analytics.
 
-Ce guide de démarrage rapide explique comment installer Microsoft Monitoring Agent sur un ordinateur Windows.
+Ce guide de démarrage rapide explique comment installer l’agent Log Analytics sur un ordinateur Windows.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Vous devez utiliser le niveau tarifaire Standard de Security Center pour commencer ce guide de démarrage rapide. Vous trouverez des instructions sur la mise à niveau sur la page [Intégrer un abonnement Azure à Security Center Standard](security-center-get-started.md). Vous pouvez essayer le niveau Standard de Security Center gratuitement pendant 60 jours. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
@@ -72,7 +72,7 @@ Vous devez maintenant installer le fichier téléchargé sur l’ordinateur cibl
 9. Sur la page **Prêt pour l’installation**, vérifiez vos choix, puis sélectionnez **Installer**.
 10. Sur la page **Configuration effectuée**, sélectionnez **Terminer**.
 
-Lorsque vous avez terminé, **Microsoft Monitoring Agent** apparaît dans le **Panneau de configuration**. Vous pouvez vérifier votre configuration et vous assurer que l’agent est connecté.
+Quand vous avez terminé, l’**agent Log Analytics** apparaît dans le **Panneau de configuration**. Vous pouvez vérifier votre configuration et vous assurer que l’agent est connecté.
 
 Pour plus d’informations sur l’installation et la configuration de l’agent, consultez la page [Connecter des ordinateurs Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -93,13 +93,13 @@ Pour supprimer l’agent :
 
 1. Ouvrez le **Panneau de configuration**.
 2. Ouvrez **Programmes et fonctionnalités**.
-3. Dans **Programmes et fonctionnalités**, sélectionnez **Microsoft Monitoring Agent**, puis cliquez sur **Désinstaller**.
+3. Dans **Programmes et fonctionnalités**, sélectionnez **Agent Log Analytics**, puis cliquez sur **Désinstaller**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez approvisionné Microsoft Monitoring Agent sur un ordinateur Windows. Pour en savoir plus sur Security Center, enchaînez avec le didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité des ressources.
+Dans ce guide de démarrage rapide, vous avez provisionné l’agent Log Analytics sur un ordinateur Windows. Pour en savoir plus sur Security Center, enchaînez avec le didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité des ressources.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Définir et évaluer des stratégies de sécurité](tutorial-security-policy.md)
+> [Tutoriel : Définir et évaluer les stratégies de sécurité](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

@@ -2,21 +2,21 @@
 title: Tutoriel - Créer et déployer un modèle
 description: Créez votre premier modèle Azure Resource Manager. Dans ce tutoriel, vous découvrirez la syntaxe des fichiers de modèle et comment déployer un compte de stockage.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e31d4a5f513355e61cb53a6548b3091637bfe9a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471504"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411722"
 ---
-# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager
+# <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutoriel : Créer et déployer votre premier modèle ARM
 
-Ce tutoriel vous présente les modèles Azure Resource Manager. Il vous montre comment créer un modèle de démarrage et le déployer sur Azure. Vous allez découvrir la structure du modèle et les outils dont vous avez besoin pour utiliser les modèles. Il faut environ **12 minutes** pour suivre ce tutoriel, mais le temps réel varie en fonction du nombre d’outils que vous devez installer.
+Ce tutoriel vous présente les modèles Azure Resource Manager (ARM). Il vous montre comment créer un modèle de démarrage et le déployer sur Azure. Vous allez découvrir la structure du modèle et les outils dont vous avez besoin pour utiliser les modèles. Il faut environ **12 minutes** pour suivre ce tutoriel, mais le temps réel varie en fonction du nombre d’outils que vous devez installer.
 
-Ce tutoriel est le premier d’une série. Au fur et à mesure que vous progressez dans la série, vous modifiez petit à petit le modèle de démarrage, jusqu’à ce que vous ayez exploré toutes les parties vitales qui composent un modèle Resource Manager. Il s’agit des éléments constitutifs de modèles bien plus complexes. Nous espérons qu’à la fin de la série, vous vous lancerez dans la création de vos propres modèles et que vous serez prêt à automatiser vos déploiements à l’aide de modèles.
+Ce tutoriel est le premier d’une série. Au fur et à mesure que vous progressez dans la série, vous modifiez petit à petit le modèle de départ jusqu’à ce que vous ayez exploré toutes les parties vitales qui composent un modèle ARM. Il s’agit des éléments constitutifs de modèles bien plus complexes. Nous espérons qu’à la fin de la série, vous vous lancerez dans la création de vos propres modèles et que vous serez prêt à automatiser vos déploiements à l’aide de modèles.
 
 Si vous souhaitez découvrir les avantages qu’offre l’utilisation de modèles et les raisons pour lesquelles vous devriez automatiser le déploiement avec des modèles, consultez [Modèles Azure Resource Manager](overview.md).
 
@@ -28,11 +28,11 @@ Commençons par nous assurer que vous disposez des outils indispensables pour cr
 
 ### <a name="editor"></a>Éditeur
 
-Les modèles sont des fichiers JSON. Pour créer des modèles, vous avez besoin d’un bon éditeur JSON. Nous conseillons Visual Studio Code avec l’extension Outils Resource Manager. Si vous devez installer ces outils, consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+Les modèles sont des fichiers JSON. Pour créer des modèles, vous avez besoin d’un bon éditeur JSON. Nous conseillons Visual Studio Code avec l’extension Outils Resource Manager. Si vous devez installer ces outils, consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
 
 ### <a name="command-line-deployment"></a>Déploiement en ligne de commande
 
-Vous avez également besoin d’Azure PowerShell ou d’Azure CLI pour déployer le modèle. Pour les instructions d’installation, consultez :
+Vous avez également besoin d’Azure PowerShell ou d’Azure CLI pour déployer le modèle. Si vous utilisez Azure CLI, vous devez disposer de la dernière version. Pour les instructions d’installation, consultez :
 
 - [Installation d'Azure PowerShell](/powershell/azure/install-az-ps)
 - [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows)
@@ -53,7 +53,7 @@ Bien, vous êtes prêt à découvrir les modèles.
 
     ```json
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": []
     }
@@ -67,7 +67,7 @@ Bien, vous êtes prêt à découvrir les modèles.
 
     Le fichier JSON contient les éléments suivants :
 
-    - **$schema** : précise l’emplacement du fichier de schéma JSON. Le fichier de schéma décrit les propriétés qui sont disponibles dans un modèle. Par exemple, le schéma définit **resources** comme faisant partie des propriétés valides d’un modèle. Ne vous inquiétez pas de voir 2015-01-01 comme date du schéma. Cette version de schéma est à jour et comprend toutes les fonctionnalités les plus récentes. La date du schéma n’a pas été modifiée, car il n’y a eu aucun changement cassant depuis sa création.
+    - **$schema** : précise l’emplacement du fichier de schéma JSON. Le fichier de schéma décrit les propriétés qui sont disponibles dans un modèle. Par exemple, le schéma définit **resources** comme faisant partie des propriétés valides d’un modèle. Ne vous inquiétez pas de voir 2019-04-01 comme date du schéma. Cette version de schéma est à jour et comprend toutes les fonctionnalités les plus récentes. La date du schéma n’a pas été modifiée, car il n’y a eu aucun changement cassant depuis sa création.
     - **contentVersion** : spécifie la version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Utilisez cette valeur pour documenter les modifications importantes dans votre modèle. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé.
     - **Ressources** : contient les ressources que vous souhaitez déployer ou mettre à jour. Actuellement, il est vide, mais vous ajouterez des ressources ultérieurement.
 
@@ -79,13 +79,13 @@ Félicitations, vous avez créé votre premier modèle.
 
 Pour commencer à utiliser Azure PowerShell/Azure CLI, connectez-vous à l’aide de vos informations d’identification Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -96,7 +96,7 @@ az login
 
 Lorsque vous déployez un modèle, vous indiquez un groupe de ressources pour contenir les ressources. Avant d’exécuter la commande de déploiement, créez le groupe de ressources avec Azure CLI ou Azure PowerShell. Sélectionnez les onglets dans la section de code suivante pour choisir entre Azure PowerShell et Azure CLI. Les exemples CLI de cet article sont écrits pour l’interpréteur de commandes Bash.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -104,7 +104,7 @@ New-AzResourceGroup `
   -Location "Central US"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group create \
@@ -118,21 +118,23 @@ az group create \
 
 Pour déployer le modèle, utilisez au choix Azure CLI ou Azure PowerShell. Utilisez le groupe de ressources que vous avez créé. Donnez un nom au déploiement pour pouvoir l’identifier facilement dans l’historique des déploiements. Par souci pratique, créez également une variable qui stocke le chemin du fichier de modèle. Cette variable vous permet d’exécuter plus facilement les commandes de déploiement, car vous n’êtes pas obligé de retaper le chemin chaque fois que vous déployez.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile
+  -TemplateFile $templateFile 
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
-az group deployment create \
+az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \
   --template-file $templateFile
@@ -142,15 +144,18 @@ az group deployment create \
 
 La commande de déploiement retourne des résultats. Recherchez `ProvisioningState` pour voir si le déploiement s’est déroulé correctement.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ![État de provisionnement du déploiement PowerShell](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ![État de provisionnement du déploiement Azure CLI](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
+
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

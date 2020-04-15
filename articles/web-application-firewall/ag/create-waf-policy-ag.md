@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086980"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886923"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Créer des stratégies de pare-feu d’applications web pour Application Gateway
 
@@ -24,6 +24,8 @@ Si une stratégie est appliquée à votre Application Gateway, puis que vous app
 
    > [!NOTE]
    > Les stratégies WAF par site et par URI sont en préversion publique. Cela signifie que cette fonctionnalité est soumise aux conditions d’utilisation supplémentaires de Microsoft. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > [!NOTE]
+   > Une fois qu’une stratégie de pare-feu est associée à un pare-feu d'applications web (WAF), ce dernier doit toujours avoir une stratégie associée. Vous pouvez remplacer cette stratégie, mais le fait de dissocier entièrement une stratégie du WAF n’est pas pris en charge. 
 
 Tous les nouveaux paramètres WAF du pare-feu d’applications web (règles personnalisées, configurations d’ensemble de règles managé, exclusions, etc.) résident dans une stratégie WAF. Si vous disposez d’un WAF, ces paramètres peuvent toujours exister dans la configuration de votre WAF. Pour savoir comment passer à la nouvelle stratégie WAF, voir [Migrer votre configuration WAF vers une stratégie WAF](#migrate) plus loin dans cet article. 
 

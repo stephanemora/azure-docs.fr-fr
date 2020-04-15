@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b12aa860bee189f706bd98df63fc194a3a0cc71
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73825705"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874702"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Démarrage rapide : Restaurer une base de données sur une instance managée
 
@@ -46,7 +46,7 @@ Dans ce guide de démarrage rapide :
 
 Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Importers vers votre instance managée. Le fichier de sauvegarde de base de données est stocké dans un compte de stockage Blob Azure préconfiguré.
 
-1. Ouvrez SMSS et connectez-vous à votre instance managée.
+1. Ouvrez SSMS et connectez-vous à votre instance managée.
 2. Dans le menu de gauche, cliquez avec le bouton droit sur votre instance managée et sélectionnez **Nouvelle requête** pour ouvrir une nouvelle fenêtre de requête.
 3. Exécutez le script SQL suivant, qui crée un compte de stockage préconfiguré et une clé SAS pour [créer des informations d’identification](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) dans votre instance managée.
 

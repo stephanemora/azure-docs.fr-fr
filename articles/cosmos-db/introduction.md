@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215247"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983022"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
 Les applications actuelles doivent être hautement réactives et toujours en ligne. Pour obtenir une faible latence et une haute disponibilité, les instances de ces applications doivent être déployées dans des centres de données qui sont proches des utilisateurs. Les applications doivent répondre en temps réel à des changements importants d’utilisation aux heures de pointe, pour stocker des volumes croissants de données et pour rendre ces données disponibles aux utilisateurs en quelques millisecondes.
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. D’un simple clic, Cosmos DB vous permet de mettre à l’échelle de façon élastique et indépendante le débit et le stockage dans autant de régions Azure que nécessaire à l’échelon mondial. Vous pouvez mettre à l’échelle de manière élastique le débit et le stockage, et bénéficier d’un accès rapide aux données (moins de 10 millisecondes) à l’aide de votre API favorite, notamment : SQL, MongoDB, Cassandra, Tables ou Gremlin. Cosmos DB offre des garanties en matière de débit, de latence, de disponibilité et de cohérence avec des [contrats de niveau de service](https://aka.ms/acdbsla) (SLA) complets, ce que n’offre aucun autre service de base de données.
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. D’un simple clic, Cosmos DB vous permet de mettre à l’échelle de façon élastique et indépendante le débit et le stockage dans autant de régions Azure que nécessaire à l’échelon mondial. Vous pouvez mettre à l’échelle de manière élastique le débit et le stockage, et bénéficier d’un accès rapide aux données (moins de 10 millisecondes) à l’aide de votre API favorite, notamment : SQL, MongoDB, Cassandra, Tables ou Gremlin. Cosmos DB offre des garanties en matière de débit, de latence, de disponibilité et de cohérence avec des [contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) (SLA) complets, ce que n’offre aucun autre service de base de données.
 
 Vous pouvez [essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, sans frais ni engagement, ou utiliser le [niveau gratuit d’Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier) pour obtenir un compte avec les 400 premières RU/s (unités de requête par seconde) et les 5 premiers Go de stockage gratuits.
 
@@ -52,7 +52,7 @@ Quand vous créez des applications distribuées à l’échelle mondiale dans Co
 
 ### <a name="no-schema-or-index-management"></a>Aucune gestion des schémas ou des index
 
-Pour les applications distribuées à l’échelle mondiale, il est particulièrement difficile de garder le schéma de la base de données et les index synchronisés avec le schéma d’une application. Avec Cosmos DB, vous n’avez pas besoin de gérer les schémas ni les index. Le moteur de base de données est entièrement sans schéma.  Comme aucune gestion de schéma ni d’index n’est requise, vous n’avez pas à vous soucier des temps d’arrêt des applications lors de la migration des schémas. Cosmos DB [indexe automatiquement toutes les données](index-policy.md) et envoie les requêtes rapidement.
+Pour les applications distribuées à l’échelle mondiale, il est particulièrement difficile de garder le schéma de la base de données et les index synchronisés avec le schéma d’une application. Avec Cosmos DB, vous n’avez pas besoin de gérer les schémas ni les index. Le moteur de base de données est entièrement sans schéma.  Comme aucune gestion de schéma ni d’index n’est nécessaire, vous n’avez pas à vous soucier des temps d’arrêt des applications lors de la migration des schémas. Cosmos DB [indexe automatiquement toutes les données](index-policy.md) et envoie les requêtes rapidement.
 
 ### <a name="battle-tested-database-service"></a>Service de base de données à toute épreuve
 

@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer un blueprint avec PowerShell'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 53fcf53bdcc3b5fcd1c6ec07a7d8ab45b39955b6
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75436637"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676583"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec PowerShell
 
@@ -377,7 +377,7 @@ Une fois qu’un blueprint a été publié à l’aide de PowerShell, il peut ê
      L’**identité managée affectée par l’utilisateur** peut être dans n’importe quels abonnement et groupe de ressources pour lesquels l’utilisateur qui affecte le blueprint a les autorisations nécessaires.
 
      > [!IMPORTANT]
-     > Les blueprints ne gèrent pas l’identité managée affectée par l’utilisateur. Les utilisateurs doivent attribuer des rôles et autorisations suffisants. À défaut, l’affectation du blueprint échouera.
+     > Azure Blueprints ne gère pas l’identité managée affectée par l’utilisateur. Les utilisateurs doivent attribuer des rôles et autorisations suffisants. À défaut, l’affectation du blueprint échouera.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

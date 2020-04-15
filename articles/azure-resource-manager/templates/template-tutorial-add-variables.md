@@ -2,21 +2,21 @@
 title: Tutoriel - Ajouter une variable au modèle
 description: Ajoutez des variables à votre modèle Azure Resource Manager pour simplifier la syntaxe.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b1df86e5b593edec784de21e21a4399274d820bb
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765502"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411686"
 ---
-# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutoriel : Ajouter des variables à votre modèle Resource Manager
+# <a name="tutorial-add-variables-to-your-arm-template"></a>Tutoriel : Ajouter des variables à votre modèle ARM
 
-Dans ce tutoriel, vous apprenez à ajouter une variable à votre modèle. Les variables simplifient vos modèles en vous permettant d’écrire une expression une fois et de la réutiliser dans tout le modèle. Ce tutoriel dure environ **7 minutes**.
+Dans ce tutoriel, vous allez apprendre à ajouter une variable à votre modèle Azure Resource Manager (ARM). Les variables simplifient vos modèles en vous permettant d’écrire une expression une fois et de la réutiliser dans tout le modèle. Ce tutoriel dure environ **7 minutes**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Nous vous recommandons de suivre le [tutoriel sur les fonctions](template-tutorial-add-functions.md), mais ce n’est pas obligatoire.
 
@@ -56,7 +56,7 @@ Déployons le modèle. Le déploiement de ce modèle est plus facile que les mod
 
 Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable **templateFile** sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,10 +67,12 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -78,6 +80,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

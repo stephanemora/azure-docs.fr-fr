@@ -2,16 +2,16 @@
 title: 'Démarrage rapide : Créer une application Python Linux'
 description: Découvrez comment bien démarrer avec les applications Linux sur Azure App Service en déployant votre première application Python sur un conteneur Linux dans App Service.
 ms.topic: quickstart
-ms.date: 10/22/2019
+ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 9cc314edf35d6a327522ed49fcc0c7798c7dcf63
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 63daecca710e0e4d7b3326cea59c0c025c24f619
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045668"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811159"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Démarrage rapide : Créer une application Python dans Azure App Service sur Linux
 
@@ -24,7 +24,7 @@ Si vous préférez déployer des applications via un IDE, consultez [Déployer d
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (Python 3.6 est également pris en charge)
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
-- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>
+- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 ou version ultérieure. Exécutez `az --version` pour vérifier votre version.
 
 ## <a name="download-the-sample"></a>Télécharger l’exemple
 
@@ -98,39 +98,44 @@ az login
 
 La commande [`az webapp up`](/cli/azure/webapp#az-webapp-up) crée l’application web sur App Service et déploie votre code.
 
-Dans le dossier *python-docs-hello-world* contenant l’exemple de code, exécutez la commande `az webapp up` suivante. Remplacez `<app-name>` par un nom d’application global unique (les *caractères valides sont `a-z`, `0-9` et `-`* ). Remplacez également `<location-name>` par une région Azure telle que **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, etc. (Vous pouvez récupérer une liste de régions autorisées pour votre compte Azure en exécutant la commande [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations).)
+Dans le dossier *python-docs-hello-world* contenant l’exemple de code, exécutez la commande `az webapp up` suivante. Remplacez `<app-name>` par un nom d’application global unique (les *caractères valides sont `a-z`, `0-9` et `-`* ).
 
 
 ```azurecli
-az webapp up --sku F1 -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name>
 ```
 
-Cette commande peut prendre plusieurs minutes. Pendant son exécution, des informations semblables à ce qui suit s’affichent :
+L’argument `--sku F1` crée l’application web sur le niveau tarifaire Gratuit. Vous pouvez omettre cet argument pour utiliser un niveau Premium à la place, ce qui entraîne un coût horaire.
 
-```output
-The behavior of this command has been altered by the following extension: webapp
+Si vous le souhaitez, vous pouvez inclure l’argument `-l <location-name>`, dans lequel `<location_name>` est une région Azure, telle que **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, etc. Vous pouvez récupérer une liste de régions autorisées pour votre compte Azure en exécutant la commande [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations).
+
+La commande `az webapp up` peut prendre plusieurs minutes. Pendant son exécution, des informations semblables à ce qui suit s’affichent, sachant que `<app_name>` sera le nom que vous avez précédemment fourni :
+
+<pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
 Creating app '<app-name>' ....
-Webapp creation complete
-Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
-Preparing to deploy contents to app.
-All done.
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://<app-name>.azurewebsites.net
 {
-  "app_url": "https:/<app-name>.azurewebsites.net",
-  "location": "Central US",
+  "URL": "http://<app-name>.net",
+  "appserviceplan": "appsvc_asp_Linux_centralus",
+  "location": "eastus",
   "name": "<app-name>",
   "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_centralus ",
-  "serverfarm": "appsvc_asp_Linux_centralus",
-  "sku": "BASIC",
-  "src_path": "/home/username/quickstart/python-docs-hello-world ",
-  "version_detected": "-",
-  "version_to_create": "python|3.7"
+  "resourcegroup": "appsvc_rg_Linux_centralus",
+  "runtime_version": "python|3.7",
+  "runtime_version_detected": "-",
+  "sku": "FREE",
+  "src_path": "D:\\Examples\\python-docs-hello-world"
 }
-```
+</pre>
 
 [!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
@@ -146,20 +151,23 @@ L’exemple de code Python exécute un conteneur Linux dans App Service avec une
 
 ## <a name="redeploy-updates"></a>Redéployer les mises à jour
 
-Dans votre éditeur de code favori, ouvrez *application.py* et modifiez l’instruction `return` sur la dernière ligne pour qu’elle corresponde au code suivant. L’instruction `print` est incluse ici pour générer la sortie de journalisation que vous utilisez dans la section suivante. 
+Dans l’éditeur de code de votre choix, ouvrez *application.py* et mettez à jour la fonction `hello` comme suit. Cette modification ajoute une instruction `print` pour générer la sortie de journalisation que vous allez utiliser à la section suivante. 
 
 ```python
-print("Handling request to home page.")
-return "Hello Azure!"
+def hello():
+    print("Handling request to home page.")
+    return "Hello Azure!"
 ```
 
 Enregistrez vos modifications et quittez l’éditeur. 
 
-Redéployez l’application à l’aide de la commande `az webapp up` suivante, en utilisant la même commande que celle utilisée pour déployer l’application la première fois, en remplaçant `<app-name>` et `<location-name>` par les mêmes noms que ceux que vous avez utilisés précédemment. 
+Redéployez l’application en utilisant de nouveau la commande `az webapp up` :
 
 ```azurecli
-az webapp up --sku F1 -n <app-name> -l <location-name>
+az webapp up
 ```
+
+Cette commande utilise des valeurs qui sont mises en cache dans le fichier *.azure/config*, notamment le nom de l’application, le groupe de ressources et le plan App Service.
 
 Une fois le déploiement terminé, revenez à la fenêtre du navigateur ouverte pour `http://<app-name>.azurewebsites.net` et actualisez la page, qui doit afficher le message modifié :
 
@@ -172,24 +180,18 @@ Une fois le déploiement terminé, revenez à la fenêtre du navigateur ouverte 
 
 Vous pouvez accéder aux journaux de la console générés à l’intérieur de l’application et au conteneur dans lequel elle s’exécute. Les journaux incluent toute sortie générée à l’aide d’instructions `print`.
 
-Tout d’abord, activez la journalisation de conteneur en exécutant la commande suivante dans un terminal, en remplaçant `<app-name>` par le nom de votre application et `<resource-group-name>` par le nom du groupe de ressources indiqué dans la sortie de la commande `az webapp up` que vous avez utilisée (par exemple « appsvc_rg_Linux_centralus » ) :
+Pour envoyer les journaux en streaming, exécutez la commande suivante :
 
 ```azurecli
-az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
-```
-
-Une fois la journalisation du conteneur activée, exécutez la commande suivante pour voir le flux de journal :
-
-```azurecli
-az webapp log tail --name <app-name> --resource-group <resource-group-name>
+az webapp log tail
 ```
 
 Actualisez l’application dans le navigateur pour générer des journaux de console, qui doivent inclure des lignes similaires au texte suivant. Si vous ne voyez pas la sortie immédiatement, réessayez dans 30 secondes.
 
-```output
-2019-10-23T12:40:03.815574424Z Handling request to home page.
-2019-10-23T12:40:03.815602424Z 172.16.0.1 - - [23/Oct/2019:12:40:03 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.63 Safari/537.36 Edg/78.0.276.19"
-```
+<pre>
+2020-04-03T22:54:04.236405938Z Handling request to home page.
+2020-04-03T22:54:04.236497641Z 172.16.0.1 - - [03/Apr/2020:22:54:04 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41"
+</pre>
 
 Vous pouvez également inspecter les fichiers journaux à partir du navigateur sur `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
@@ -213,7 +215,7 @@ Le menu App Service fournit différentes pages vous permettant de configurer vot
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Le groupe de ressources a un nom tel que « appsvc_rg_Linux_CentralUS » en fonction de votre emplacement. Si vous utilisez une référence App Service autre que le niveau F1 gratuit, ces ressources génèrent des coûts permanents.
+Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Le groupe de ressources a un nom tel que « appsvc_rg_Linux_CentralUS » en fonction de votre emplacement. Si vous utilisez une référence SKU App Service autre que le niveau F1 gratuit, ces ressources entraînent des coûts récurrents (consultez [Tarifs App Service](https://azure.microsoft.com/pricing/details/app-service/linux/)).
 
 Si vous n’envisagez pas d’avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante, en remplaçant `<resource-group-name>` par le groupe de ressources affiché dans la sortie de la commande `az webapp up`, par exemple « appsvc_rg_Linux_centralus ». L’exécution de cette commande peut prendre une minute.
 

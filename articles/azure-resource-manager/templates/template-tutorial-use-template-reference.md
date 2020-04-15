@@ -1,19 +1,19 @@
 ---
-title: Utiliser la référence de modèle
-description: Utilisez les informations de référence sur le modèle Azure Resource Manager.
+title: Utiliser les informations de référence des modèles
+description: Utilisez les informations de référence des modèles Azure Resource Manager pour créer un modèle.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b742982121a20a2b057eba4211584b0386dde411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373175"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878489"
 ---
-# <a name="tutorial-utilize-the-arm-template-reference"></a>Tutoriel : Utiliser les informations de référence sur le modèle ARM
+# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutoriel : Utiliser les informations de référence des modèles Resource Manager
 
 Découvrez comment trouver les informations concernant le schéma de modèle et s’en servir pour créer des modèles Azure Resource Manager (ARM).
 
@@ -65,9 +65,13 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
     * **ressources** : spécifiez les types de ressource déployés ou mis à jour dans un groupe de ressources.
     * **outputs** : spécifiez les valeurs retournées après le déploiement.
 
-1. Développer des **ressources**. Une ressource `Microsoft.Storage/storageAccounts` est définie.
+1. Développer des **ressources**. Une ressource `Microsoft.Storage/storageAccounts` est définie. Le nom de la référence SKU utilise une valeur de paramètre.  Le paramètre est appelé **storageAccountType**.
 
     ![Définition du modèle de compte de stockage Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
+
+1. Développez la section **parameters** pour voir la définition de **storageAccountType**. Le paramètre a quatre valeurs autorisées. Vous allez rechercher les autres valeurs autorisées, puis modifier la définition du paramètre.
+
+    ![Références SKU des ressources de compte de stockage du modèle Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
 ## <a name="find-the-template-reference"></a>Trouver la référence du modèle
 
@@ -84,7 +88,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
     ![Resource Manager modèle référence compte de stockage types versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Sélectionnez la dernière version du type de ressource **storageAccount**.  La dernière version était **2019-06-01** au moment où cet article a été rédigé.
+1. Sélectionnez la dernière version du type de ressource **storageAccount**. La dernière version était **2019-06-01** au moment où cet article a été rédigé. Assurez-vous que cette version correspond à la version utilisée pour la ressource de compte de stockage dans votre modèle. Si vous mettez à jour la version de l’API, vérifiez que la définition de ressource correspond à la référence de modèle.
 
 1. Cette page liste les détails du type de ressource storageAccount.  Par exemple, elle présente les valeurs autorisées pour l’objet **Sku**. Il existe davantage de références SKU qui n’en sont listées dans le modèle de démarrage rapide que vous avez ouvert précédemment. Vous pouvez personnaliser le modèle de démarrage rapide pour inclure tous les types de stockage disponibles.
 
@@ -98,7 +102,21 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Reportez-vous à la section [Déployer le modèle](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) dans le guide de démarrage rapide Visual Studio Code pour connaître la procédure de déploiement. Au moment de déployer le modèle, spécifiez le paramètre **storageAccountType** avec une valeur nouvellement ajoutée, par exemple **Premium_ZRS**. Si vous utilisez le modèle de démarrage rapide d’origine, le déploiement échoue, car **Premium_ZRS** n’était pas une valeur autorisée.
+Reportez-vous à la section [Déployer le modèle](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) dans le guide de démarrage rapide Visual Studio Code pour connaître la procédure de déploiement. Au moment de déployer le modèle, spécifiez le paramètre **storageAccountType** avec une valeur nouvellement ajoutée, par exemple **Premium_ZRS**. Si vous utilisez le modèle de démarrage rapide d’origine, le déploiement échoue, car **Premium_ZRS** n’était pas une valeur autorisée.  Pour passer la valeur du paramètre, ajoutez le commutateur suivant à la commande de déploiement :
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
+
+```azurecli
+--parameters storageAccountType='Premium_ZRS'
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+-storageAccountType "Premium_ZRS"
+```
+
+---
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

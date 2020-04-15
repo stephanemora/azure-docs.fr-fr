@@ -2,17 +2,17 @@
 title: Tutoriel - Ajouter une ressource au modèle
 description: Décrit les étapes de la création de votre premier modèle Azure Resource Manager. Vous découvrez la syntaxe du fichier de modèle et comment déployer un compte de stockage.
 author: mumian
-ms.date: 02/24/2020
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dcdbbb325e6589669abe6cf3d25ac5191e29118b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586680"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411732"
 ---
-# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutoriel : Ajouter une ressource à votre modèle Resource Manager
+# <a name="tutorial-add-a-resource-to-your-arm-template"></a>Tutoriel : Ajouter une ressource à votre modèle ARM
 
 Dans le [précédent tutoriel](template-tutorial-create-first-template.md), vous avez appris à créer un modèle vide et à le déployer. Vous voici prêt à déployer une ressource réelle. Dans ce tutoriel, vous ajoutez un compte de stockage. Comptez environ **9 minutes** pour suivre ce tutoriel.
 
@@ -26,7 +26,7 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 Pour ajouter une définition de compte de stockage au modèle existant, examinez le code JSON mis en évidence dans l’exemple suivant. Plutôt que d’essayer de copier des sections du modèle, copiez l’intégralité du fichier et remplacez votre modèle par son contenu.
 
-Remplacez **{provide-unique-name}** par un nom de compte de stockage unique.
+Remplacez **{provide-unique-name}** (y compris les accolades) par un nom de compte de stockage unique.
 
 > [!IMPORTANT]
 > Le nom du compte de stockage doit être unique dans Azure. Le nom ne doit contenir que des lettres minuscules ou des chiffres. Il ne doit pas compter plus de 24 caractères. Vous pouvez essayer un modèle de nommage, par exemple en utilisant **store1** comme préfixe et le faisant suivre de vos initiales et de la date du jour. Ainsi, le nom que vous utilisez peut ressembler à **store1abc09092019**.
@@ -37,7 +37,7 @@ Trouver un nom unique pour un compte de stockage n’est pas facile, et ne fonct
 
 ## <a name="resource-properties"></a>Propriétés de la ressource
 
-Vous vous demandez peut-être comment trouver les propriétés à utiliser pour chaque type de ressource. Vous pouvez utiliser la [référence de modèle Resource Manager](/azure/templates/) pour rechercher les types de ressources que vous souhaitez déployer.
+Vous vous demandez peut-être comment trouver les propriétés à utiliser pour chaque type de ressource. Vous pouvez utiliser la [référence de modèle ARM](/azure/templates/) pour rechercher les types de ressources que vous souhaitez déployer.
 
 Chaque ressource que vous déployez présente au moins les trois propriétés suivantes :
 
@@ -72,14 +72,19 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addstorage \
   --resource-group myResourceGroup \
   --template-file $templateFile
 ```
 
 ---
+
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
 
 Deux échecs de déploiement peuvent se produire :
 

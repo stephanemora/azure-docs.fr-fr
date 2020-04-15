@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7f229162ed745408121d898f5af516d22a0c039
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614806"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984927"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Mettre à jour le nom d’utilisateur et le mot de passe administrateur des machines virtuelles dans un cluster
 
@@ -35,13 +35,17 @@ Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes : Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Obtient les propriétés d’un type de nœud de cluster (dans un groupe de machines virtuelles identiques).   |
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Ajoute une extension au groupe de machines virtuelles identiques.|
 | [Update-AzVmss](/powershell/module/az.compute/update-azvmss)|Met à jour l’état d’un groupe de machines virtuelles identiques sur l’état d’un objet VMSS local.|
+
+## <a name="duration"></a>Duration
+
+Par exemple, un type de nœud unique avec cinq nœuds dispose de 45 à 60 minutes pour modifier le nom d’utilisateur ou le mot de passe. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

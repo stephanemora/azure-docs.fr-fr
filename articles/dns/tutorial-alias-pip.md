@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
-ms.openlocfilehash: d4517314742f3ec8e9968d20745ffb697d96f324
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77149930"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985437"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutoriel : Configurer un enregistrement d’alias pour faire référence à une adresse IP publique 
 
@@ -20,8 +20,8 @@ Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une infrastructure réseau.
-> * Créez une machine virtuelle de serveur web.
-> * Créer un enregistrement d’alias.
+> * Créer une machine virtuelle de serveur web avec une adresse IP publique.
+> * Créer un enregistrement d’alias qui pointe vers l’adresse IP publique.
 > * Tester l’enregistrement d’alias.
 
 
@@ -48,7 +48,7 @@ Créez d’abord un réseau virtuel et un sous-réseau pour y placer vos serveur
 4. Pour **Paramètres**, sélectionnez le réseau virtuel **VNet-Servers** et le sous-réseau **SN-Web**. Pour les ports d’entrée publics, sélectionnez **HTTP** > **HTTPS** > **RDP (3389)** , puis **OK**.
 5. Dans la page **Résumé**, sélectionnez **Créer**.
 
-Cette procédure s’achève après quelques minutes.
+Cette procédure s’achève après quelques minutes. La machine virtuelle est attachée à une carte réseau, qui a une adresse IP publique dynamique de base appelée Web-01-ip. L’adresse IP publique change à chaque redémarrage de la machine virtuelle.
 
 ### <a name="install-iis"></a>Installer IIS
 

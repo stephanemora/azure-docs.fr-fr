@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1ac508fc9fee07482e475c46e1db262c8bfa1a12
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481583"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476255"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutoriel : Joindre une machine virtuelle Windows Server à un domaine géré
 
@@ -76,8 +76,6 @@ Si vous disposez déjà d’une machine virtuelle que vous voulez joindre à un 
 
     RDP doit être activé seulement quand c’est nécessaire et être limité à un ensemble de plages d’adresses IP autorisées. Cette configuration permet d’améliorer la sécurité de la machine virtuelle et de réduire le champ des attaques potentielles. Vous pouvez aussi créer et utiliser un hôte Azure Bastion qui autorise l’accès uniquement via le portail Azure sur TLS. Dans l’étape suivante de ce tutoriel, vous allez utiliser un hôte Azure Bastion pour vous connecter de façon sécurisée à la machine virtuelle.
 
-    Pour le moment, désactivez les connexions RDP directes à la machine virtuelle.
-
     Sous **Ports d’entrée publics**, sélectionnez *Aucun*.
 
 1. Quand vous avez terminé, sélectionnez **Suivant : Disques**.
@@ -96,22 +94,23 @@ Si vous disposez déjà d’une machine virtuelle que vous voulez joindre à un 
 
     ![Choisir de gérer la configuration du sous-réseau dans le portail Azure](./media/join-windows-vm/manage-subnet.png)
 
-1. Dans le menu à gauche dans la fenêtre du réseau virtuel, sélectionnez **Espace d’adressage**. Le réseau virtuel est créé avec l’espace d’adressage unique *10.0.1.0/24*, qui est utilisé par le sous-réseau par défaut.
+1. Dans le menu à gauche dans la fenêtre du réseau virtuel, sélectionnez **Espace d’adressage**. Le réseau virtuel est créé avec l’espace d’adressage unique *10.0.2.0/24*, qui est utilisé par le sous-réseau par défaut. D’autres sous-réseaux, comme pour *workloads* ou Azure Bastion, peuvent aussi déjà exister.
 
     Ajoutez une plage d’adresses IP supplémentaire au réseau virtuel. La taille de cette plage d’adresses et la plage d’adresses IP réelle à utiliser dépendent des autres ressources réseau qui sont déjà déployées. La plage d’adresses IP ne doit pas chevaucher les plages d’adresses existantes dans votre environnement Azure ou local. Assurez-vous d’utiliser une plage d’adresses IP suffisamment grande pour le nombre de machines virtuelles que vous prévoyez de déployer dans le sous-réseau.
 
-    Dans l’exemple suivant, la plage d’adresses IP supplémentaire *10.0.2.0/24* est ajoutée. Quand vous êtes prêt, sélectionnez **Enregistrer**.
+    Dans l’exemple suivant, la plage d’adresses IP supplémentaire *10.0.5.0/24* est ajoutée. Quand vous êtes prêt, sélectionnez **Enregistrer**.
 
-    ![Ajouter une plage d’adresses IP de réseau virtuel supplémentaire dans le portail Azure](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Ajouter une plage d’adresses IP de réseau virtuel supplémentaire dans le portail Azure](./media/join-windows-vm/add-vnet-address-range.png)
 
 1. Ensuite, dans le menu à gauche dans la fenêtre du réseau virtuel, sélectionnez **Sous-réseaux**, puis choisissez **+ Sous-réseau** pour ajouter un sous-réseau.
 
-1. Sélectionnez **+ Sous-réseau**, puis entrez un nom pour le sous-réseau, par exemple *gestion*. Spécifiez une **Plage d’adresses (bloc CIDR)** , par exemple *10.0.2.0/24*. Vérifiez que cette plage d’adresses IP ne chevauche pas d’autres plages d’adresses Azure ou locales existantes. Laissez les autres options avec leur valeur par défaut, puis sélectionnez **OK**.
+1. Sélectionnez **+ Sous-réseau**, puis entrez un nom pour le sous-réseau, par exemple *gestion*. Spécifiez une **Plage d’adresses (bloc CIDR)** , par exemple *10.0.5.0/24*. Vérifiez que cette plage d’adresses IP ne chevauche pas d’autres plages d’adresses Azure ou locales existantes. Laissez les autres options avec leur valeur par défaut, puis sélectionnez **OK**.
 
     ![Créer une configuration de sous-réseau dans le portail Azure](./media/join-windows-vm/create-subnet.png)
 
 1. La création du sous-réseau prend quelques secondes. Une fois qu’il est créé, sélectionnez le *X* pour fermer la fenêtre du sous-réseau.
 1. De retour dans le volet **Mise en réseau** pour créer une machine virtuelle, choisissez le sous-réseau que vous avez créé dans le menu déroulant, par exemple *gestion*. Là encore, veillez à choisir le sous-réseau approprié et ne déployez pas votre machine virtuelle dans le même sous-réseau que votre domaine managé Azure AD DS.
+1. Pour **Adresse IP publique**, sélectionnez *Aucun* dans le menu déroulant, car vous utilisez Azure Bastion pour vous connecter à la gestion et vous n’avez pas besoin d’affecter une adresse IP publique.
 1. Laissez les autres options avec leur valeur par défaut, puis sélectionnez **Gestion**.
 1. Définissez **Diagnostics de démarrage** sur *Désactivé*. Laissez les autres options avec leur valeur par défaut, puis sélectionnez **Vérifier + créer**.
 1. Passez en revue vos paramètres de la machine virtuelle, puis sélectionnez **Créer**.

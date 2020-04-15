@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d7c7d9f6d59ffd57ddb14f7c060d0a3f6f2a6eb
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967749"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877386"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
@@ -27,6 +27,7 @@ Nous allons commencer par examiner les scénarios de déploiement principaux sui
 
 * Configurer des connecteurs pour contourner vos proxys sortants locaux.
 * Configurer des connecteurs pour utiliser un proxy sortant afin d’accéder au proxy d’application Azure AD.
+* Configurer à l’aide d’un proxy entre le connecteur et l’application principale.
 
 Pour plus d’informations sur le fonctionnement des connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md).
 
@@ -104,7 +105,7 @@ Il y a quatre aspects à prendre en compte au niveau du proxy sortant :
 * Règles sortantes du proxy
 * Authentification du proxy
 * Ports du proxy
-* Inspection SSL
+* Inspection TLS
 
 #### <a name="proxy-outbound-rules"></a>Règles sortantes du proxy
 
@@ -129,14 +130,31 @@ L’authentification proxy n'est actuellement pas prise en charge. Notre recomma
 
 #### <a name="proxy-ports"></a>Ports du proxy
 
-Le connecteur établit les connexions sortantes SSL à l’aide de la méthode CONNECT. Cette méthode sert à définir un tunnel via le serveur proxy sortant. Configurez le serveur proxy pour autoriser le tunneling vers les ports 443 et 80.
+Le connecteur établit les connexions sortantes TLS à l’aide de la méthode CONNECT. Cette méthode sert à définir un tunnel via le serveur proxy sortant. Configurez le serveur proxy pour autoriser le tunneling vers les ports 443 et 80.
 
 > [!NOTE]
 > Lorsque Service Bus s’exécute via le protocole HTTPS, il utilise le port 443. Toutefois, par défaut, Service Bus tente des connexions TCP directes et bascule sur HTTPS uniquement si la connectivité directe échoue.
 
-#### <a name="ssl-inspection"></a>Inspection SSL
+#### <a name="tls-inspection"></a>Inspection TLS
 
-N’utilisez pas l’inspection SSL pour le trafic de connecteur, car cela entraîne des problèmes pour le trafic du connecteur. Le connecteur utilise un certificat pour s’authentifier auprès du service Proxy d’application et ce certificat peut se perdre pendant l’inspection SSL.
+N’utilisez pas l’inspection TLS pour le trafic de connecteur, car cela entraîne des problèmes au niveau de celui-ci. Le connecteur utilise un certificat pour s’authentifier auprès du service Proxy d’application, et ce certificat peut se perdre pendant l’inspection TLS.
+
+## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>Configurer à l’aide d’un proxy entre le connecteur et l’application principale
+L’utilisation d’un proxy direct pour la communication vers l’application principale peut être une exigence spéciale dans certains environnements.
+Pour ce faire, suivez les étapes suivantes :
+
+### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Étape 1 : Ajouter la valeur de registre requise au serveur
+1. Pour activer l’utilisation du proxy par défaut, ajoutez la valeur de registre suivante (DWORD) `UseDefaultProxyForBackendRequests = 1` à la clé de registre de configuration du connecteur située dans « HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector ».
+
+### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Étape 2 : Configurer manuellement le serveur proxy à l’aide de la commande netsh
+1.  Activez la stratégie de groupe Paramètres machine du serveur proxy. Elle se trouve à l’emplacement suivant : Configuration ordinateur\Stratégies\Modèles d’administration\Composants Windows\Internet Explorer. Cela doit être défini sur cette valeur au lieu d’avoir cette stratégie définie avec des paramètres individualisés.
+2.  Exécutez `gpupdate /force` sur le serveur ou redémarrez le serveur pour vous assurer qu’il utilise les paramètres de stratégie de groupe mis à jour.
+3.  Lancez une invite de commandes avec élévation de privilèges avec des droits d’administrateur et saisissez `control inetcpl.cpl`.
+4.  Configurez les paramètres de proxy requis. 
+
+Ces paramètres font en sorte que le connecteur utilise le même proxy de transfert pour la communication avec Azure et avec l’application principale. Si le connecteur pour la communication avec Azure ne requiert pas de proxy de transfert ou requiert un proxy de transfert différent, vous pouvez le configurer en modifiant le fichier ApplicationProxyConnectorService.exe.config, comme décrit dans les sections Proxys sortants de contournement et Utiliser le serveur proxy sortant.
+
+Le service de mise à jour du connecteur utilisera également le proxy de la machine. Ce comportement peut être modifié en modifiant le fichier ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Résoudre les problèmes courants de proxy de connecteur et de connectivité du service
 

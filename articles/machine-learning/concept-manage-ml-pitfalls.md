@@ -1,5 +1,5 @@
 ---
-title: Gérer les pièges courants des modèles ML à l’aide du Machine Learning automatisé
+title: Éviter le surajustement et les données déséquilibrées avec AutoML
 titleSuffix: Azure Machine Learning
 description: Identifiez et gérez les pièges courants des modèles ML grâce aux solutions de Machine Learning automatisé d’Azure Machine Learning.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/27/2020
-ms.openlocfilehash: e0bc1aa48dfb40ea146fa79fdfd57da841ca1404
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 04/09/2020
+ms.openlocfilehash: 76f920ad6aae68defb567a7a6623d1ffd488af5f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385338"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874855"
 ---
-# <a name="manage-ml-pitfalls-with-automated-machine-learning"></a>Gérer les pièges du ML à l’aide du Machine Learning automatisé
+# <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Empêcher le surajustement et les données déséquilibrées avec le Machine Learning automatisé
 
 Les données surajustées et déséquilibrées sont des pièges courants lorsque vous générez des modèles Machine Learning. Par défaut, le Machine Learning automatisé d’Azure Machine Learning fournit des graphiques et des métriques vous permettant d’identifier ces risques et met en œuvre les meilleures pratiques pour les atténuer. 
 

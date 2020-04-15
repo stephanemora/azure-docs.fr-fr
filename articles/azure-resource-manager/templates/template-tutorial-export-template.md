@@ -2,15 +2,15 @@
 title: Tutoriel - Exporter un modèle à partir du portail Azure
 description: Découvrez comment utiliser un modèle exporté pour procéder au développement de votre modèle.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 95d54a0661f0a0cebdbfc225074be0ce0d83a5cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f95efbaedc2718c968062c47427ab7765756bde7
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79368891"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408562"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutoriel : Utiliser un modèle exporté depuis le portail Azure
 
@@ -97,6 +97,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
+
 ```azurecli
 az deployment group create \
   --name addappserviceplan \
@@ -106,6 +108,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

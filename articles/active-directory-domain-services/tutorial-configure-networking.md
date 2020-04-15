@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: af284e4c10487123c8c2a2105a25a2285ae0aa99
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73172668"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474370"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Tutoriel : Configurer un réseau virtuel pour une instance Azure Active Directory Domain Services
 
@@ -72,18 +72,18 @@ Par défaut, le réseau virtuel Azure créé avec le domaine managé Azure AD DS
 Pour créer un sous-réseau de réseau virtuel dédié aux machines virtuelles et aux charges de travail des applications, effectuez les étapes suivantes :
 
 1. Dans le portail Azure, sélectionnez le groupe de ressources de votre domaine managé Azure AD DS, *myResourceGroup*, par exemple. Dans la liste des ressources, choisissez le réseau virtuel par défaut, comme *aadds-vnet* ici.
-1. Dans le menu à gauche dans la fenêtre du réseau virtuel, sélectionnez **Espace d’adressage**. Le réseau virtuel est créé avec l’espace d’adressage unique *10.0.1.0/24*, qui est utilisé par le sous-réseau par défaut.
+1. Dans le menu à gauche dans la fenêtre du réseau virtuel, sélectionnez **Espace d’adressage**. Le réseau virtuel est créé avec l’espace d’adressage unique *10.0.2.0/24*, qui est utilisé par le sous-réseau par défaut.
 
     Ajoutez une plage d’adresses IP supplémentaire au réseau virtuel. La taille de cette plage d’adresses et la plage d’adresses IP réelle à utiliser dépendent des autres ressources réseau qui sont déjà déployées. La plage d’adresses IP ne doit pas chevaucher les plages d’adresses existantes dans votre environnement Azure ou local. Assurez-vous d’utiliser une plage d’adresses IP suffisamment grande pour le nombre de machines virtuelles que vous prévoyez de déployer dans le sous-réseau.
 
-    Dans l’exemple suivant, la plage d’adresses IP supplémentaire *10.0.2.0/24* est ajoutée. Quand vous êtes prêt, sélectionnez **Enregistrer**.
+    Dans l’exemple suivant, la plage d’adresses IP supplémentaire *10.0.3.0/24* est ajoutée. Quand vous êtes prêt, sélectionnez **Enregistrer**.
 
     ![Ajouter une plage d’adresses IP de réseau virtuel supplémentaire dans le portail Azure](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
 1. Ensuite, dans le menu à gauche dans la fenêtre du réseau virtuel, sélectionnez **Sous-réseaux**, puis choisissez **+ Sous-réseau** pour ajouter un sous-réseau.
 1. Entrez un nom pour le sous-réseau, par exemple, *workloads* (charges de travail). Si nécessaire, mettez à jour la **plage d’adresses** si vous souhaitez utiliser un sous-ensemble de la plage d’adresses IP qui a été configurée pour le réseau virtuel lors des étapes précédentes. Pour le moment, conservez les valeurs par défaut des options telles que le groupe de sécurité réseau, la table de routage et les points de terminaison de service.
 
-    Dans l’exemple suivant, le sous-réseau *workloads* qui est créé utilise la plage d’adresses IP *10.0.2.0/24* :
+    Dans l’exemple suivant, le sous-réseau *workloads* qui est créé utilise la plage d’adresses IP *10.0.3.0/24* :
 
     ![Ajouter un sous-réseau de réseau virtuel supplémentaire dans le portail Azure](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
@@ -130,7 +130,7 @@ Dans ce tutoriel, vous configurez les serveurs DNS du réseau virtuel Azure afin
 
 1. Dans le portail Azure, sélectionnez le groupe de ressources du réseau virtuel appairé, *myResourceGroup*, par exemple. Dans la liste des ressources, choisissez le réseau virtuel appairé, *myVnet* ici.
 1. Dans le menu à gauche dans la fenêtre du réseau virtuel, sélectionnez **Serveurs DNS**.
-1. Par défaut, un réseau virtuel utilise les serveurs DNS intégrés fournis par Azure. Choisissez d’utiliser des serveurs DNS **Personnalisés**. Entrez les adresses IP des contrôleurs de domaine Azure AD DS, *10.0.1.4* et *10.0.1.5* généralement. Vérifiez ces adresses IP dans la fenêtre **Vue d’ensemble** de votre domaine managé Azure AD DS dans le portail.
+1. Par défaut, un réseau virtuel utilise les serveurs DNS intégrés fournis par Azure. Choisissez d’utiliser des serveurs DNS **Personnalisés**. Entrez les adresses IP des contrôleurs de domaine Azure AD DS, qui sont habituellement *10.0.2.4* et *10.0.2.5*. Vérifiez ces adresses IP dans la fenêtre **Vue d’ensemble** de votre domaine managé Azure AD DS dans le portail.
 
     ![Configurer les serveurs DNS du réseau virtuel pour qu’ils utilisent les contrôleurs de domaine Azure AD DS](./media/tutorial-configure-networking/custom-dns.png)
 

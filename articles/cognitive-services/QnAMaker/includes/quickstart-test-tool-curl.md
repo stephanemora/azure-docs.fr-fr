@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4bd483e40e3a85a2934e58abdf46d09b17a33ed4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77495491"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758176"
 ---
 Ce démarrage rapide basé sur cURL vous montre pas à pas comment obtenir une réponse de votre base de connaissances.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Dernière version de [**cURL**](https://curl.haxx.se/).
 * Vous devez avoir :
@@ -34,13 +34,13 @@ Ce démarrage rapide basé sur cURL vous montre pas à pas comment obtenir une r
 Utilisez la base de connaissances issue du démarrage rapide précédent pour demander une réponse basée sur les métadonnées.
 
 1. À partir de la page **Paramètres** de la base de connaissances, sélectionnez l’onglet **CURL** pour voir un exemple de commande cURL permettant de générer une réponse issue de la base de connaissances.
-1. Copiez la commande dans un environnement modifiable (comme un fichier texte) afin de pouvoir modifier la commande. Modifiez la valeur de la question comme suit afin que les métadonnées de `service:qna_maker` soient utilisées comme filtre des jeux QnA.
+1. Copiez la commande dans un environnement modifiable (comme un fichier texte) afin de pouvoir modifier la commande. Modifiez la valeur de la question comme suit pour faire en sorte que les métadonnées de `service:qna_maker` soient utilisées comme filtre pour les paires de Q/R.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    La question comporte un seul mot, `size`, qui peut retourner l’un des deux jeux QnA. Le paramètre `strictFilters` indique à la réponse de se réduire uniquement aux réponses de `qna_maker`.
+    La question n’est qu’un seul mot, `size`, qui peut retourner une des deux paires de Q/R. Le paramètre `strictFilters` indique à la réponse de se réduire uniquement aux réponses de `qna_maker`.
 
 1. La réponse inclut uniquement la réponse qui répond aux critères de filtre. La réponse cURL suivante a été mise en forme pour en améliorer la lisibilité :
 

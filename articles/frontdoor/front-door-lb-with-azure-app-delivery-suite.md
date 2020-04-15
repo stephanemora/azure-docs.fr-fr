@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 9f8d1959549eaddfb4a2c9ea271094db0073c788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44af14a01e7b045b7abb6a84db89a67f3dd22445
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471708"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875280"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Équilibrage de charge avec la suite de livraison d’application Azure
 
@@ -45,7 +45,7 @@ Le client se connecte directement à ce backend. Azure Traffic Manager détect
 Front Door met fin aux requêtes HTTP à la périphérie du réseau Microsoft, et détecte de manière active les changements d’intégrité ou de latence d’application ou d’infrastructure.  Front Door achemine ensuite toujours le trafic vers le backend (sain) le plus rapide et disponible. Pour en savoir plus sur ce service, consultez les détails sur l’[architecture de routage](front-door-routing-architecture.md) et sur les [méthodes de routage du trafic](front-door-routing-methods.md) de Front Door.
 
 ## <a name="regional-load-balancing"></a>Équilibrage de charge régional
-Application Gateway propose Application Delivery Controller (ADC) en tant que service, mettant ainsi plusieurs fonctionnalités d’équilibrage de charge de couche 7 à la disposition de votre application. Il permet aux clients d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison SSL gourmande en ressources du processeur vers la passerelle Application Gateway. Parmi les autres fonctionnalités de routage de couche 7, citons la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin des URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. Cette dernière peut être configurée en tant que passerelle accessible sur Internet, passerelle interne uniquement ou une combinaison des deux. La passerelle Application Gateway est une solution Azure entièrement gérée, très évolutive et hautement disponible. Elle fournit un ensemble complet de fonctionnalités de diagnostics et de journalisation, pour une meilleure gérabilité.
+Application Gateway propose Application Delivery Controller (ADC) en tant que service, mettant ainsi plusieurs fonctionnalités d’équilibrage de charge de couche 7 à la disposition de votre application. Elle permet aux clients d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison TLS gourmande en ressources du processeur vers la passerelle Application Gateway. Parmi les autres fonctionnalités de routage de couche 7, citons la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin des URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. Cette dernière peut être configurée en tant que passerelle accessible sur Internet, passerelle interne uniquement ou une combinaison des deux. La passerelle Application Gateway est une solution Azure entièrement gérée, très évolutive et hautement disponible. Elle fournit un ensemble complet de fonctionnalités de diagnostics et de journalisation, pour une meilleure gérabilité.
 Load Balancer fait partie intégrante de la pile Azure SDN, et fournit des services d’équilibrage de charge de couche 4 hautement performants et à faible latence pour tous les protocoles UDP et TCP. Il gère les connexions entrantes et sortantes. Vous pouvez configurer des points de terminaison publics et internes avec équilibrage de charge, et définir des règles de mappage des connexions entrantes aux destinations du pool principal, en utilisant des options d’analyse d’intégrité TCP et HTTP de façon à gérer la disponibilité du service.
 
 
@@ -58,7 +58,7 @@ Quand vous devez choisir qui de Traffic Manager ou d’Azure Front Door utiliser
 
 | Traffic Manager | Azure Front Door |
 | --------------- | ------------------------ |
-|**N'importe quel protocole :** Traffic Manager fonctionnant au niveau de la couche DNS, vous pouvez acheminer tous les types de trafic réseau : HTTP, TCP, UDP, etc. | **Accélération HTTP :** avec Front Door, le trafic est proxysé à la périphérie du réseau Microsoft.  Pour cette raison, la latence et le débit des requêtes HTTP(S) sont améliorées, ce qui réduit la latence pour la négociation SSL et l’utilisation de connexions à chaud d’AFD vers votre application.|
+|**N'importe quel protocole :** Traffic Manager fonctionnant au niveau de la couche DNS, vous pouvez acheminer tous les types de trafic réseau : HTTP, TCP, UDP, etc. | **Accélération HTTP :** avec Front Door, le trafic est proxysé à la périphérie du réseau Microsoft.  Pour cette raison, la latence et le débit des requêtes HTTP(S) sont améliorés, ce qui réduit la latence pour la négociation TLS et l’utilisation de connexions à chaud d’AFD vers votre application.|
 |**Routage local :** avec le routage au niveau d’une couche DNS, le trafic va toujours de point à point.  Le routage de votre filiale vers votre centre de données local peut prendre un chemin direct, même sur votre propre réseau à l’aide de Traffic Manager. | **Extensibilité indépendante :** comme Front Door fonctionne avec la requête HTTP, les requêtes pour différents chemins d’URL peuvent être routées vers différents pools de backends / services régionaux (microservices) en fonction de règles et de l’intégrité de chaque microservice d’application.|
 |**Format de facturation :** la facturation basée sur DNS est mise à l’échelle en fonction du nombre d’utilisateurs et, pour les services à davantage d’utilisateurs, se stabilise afin de réduire le coût. |**Sécurité incluse :** Front Door active des règles telles que la limitation du débit et les listes ACL d’adresses IP pour vous permettre de protéger vos backends avant que le trafic n’atteigne votre application. 
 
@@ -78,7 +78,7 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 ![Architecture détaillée de la suite de livraison d’application][2] 
 
 > [!NOTE]
-> Cet exemple est l’une des innombrables configurations possibles offertes par les services d’équilibrage de charge Azure. Les services Traffic Manager, Front Door, Application Gateway et Load Balancer peuvent être combinés et associés pour répondre au mieux à vos besoins d’équilibrage de charge. Par exemple, s’il n’est pas nécessaire de faire appel au déchargement SSL ou au traitement de la couche 7, Load Balancer peut être utilisé à la place d’Application Gateway.
+> Cet exemple est l’une des innombrables configurations possibles offertes par les services d’équilibrage de charge Azure. Les services Traffic Manager, Front Door, Application Gateway et Load Balancer peuvent être combinés et associés pour répondre au mieux à vos besoins d’équilibrage de charge. Par exemple, s’il n’est pas nécessaire de faire appel au déchargement TLS/SSL ou au traitement de la couche 7, Load Balancer peut être utilisé à la place d’Application Gateway.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79409556"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879426"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage
 
-Une fois que votre administrateur de projet a [créé un projet d’étiquetage](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage pour préparer rapidement les données d’un projet Machine Learning. Cet article aborde les points suivants :
+Une fois que votre administrateur de projet a [créé un projet d’étiquetage](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage (préversion publique) pour préparer rapidement les données d’un projet Machine Learning. Cet article aborde les points suivants :
 
 > [!div class="checklist"]
 > * Comment accéder à vos projets d’étiquetage
@@ -45,7 +45,9 @@ Accédez à **Afficher les instructions détaillées**. Ces instructions sont sp
 
 Dans toutes les tâches d’étiquetage d’images, vous devez choisir une ou plusieurs étiquettes appropriées parmi un ensemble spécifié par l’administrateur du projet. Vous pouvez sélectionner les neuf premières étiquettes à l’aide des touches numériques du clavier.  
 
-Dans les tâches de classification d’images, vous pouvez choisir de voir plusieurs images simultanément. Utilisez les icônes au-dessus de la zone d’images pour sélectionner la disposition. Pour sélectionner toutes les images affichées simultanément, utilisez **Tout sélectionner**. Pour sélectionner des images individuelles, utilisez le bouton de sélection circulaire situé en haut à droite de l’image. Pour appliquer une balise, vous devez sélectionner au moins une image. Si vous sélectionnez plusieurs images, les étiquettes sélectionnées sont appliquées à l’ensemble de ces images.
+Dans les tâches de classification d’images, vous pouvez choisir de voir plusieurs images simultanément. Utilisez les icônes au-dessus de la zone d’images pour sélectionner la disposition. 
+
+Pour sélectionner toutes les images affichées simultanément, utilisez **Tout sélectionner**. Pour sélectionner des images individuelles, utilisez le bouton de sélection circulaire situé en haut à droite de l’image. Pour appliquer une balise, vous devez sélectionner au moins une image. Si vous sélectionnez plusieurs images, les étiquettes sélectionnées sont appliquées à l’ensemble de ces images.
 
 Ici, nous avons choisi une disposition deux par deux, et nous sommes sur le point d’appliquer l’étiquette « Mammal » (Mammifère) aux images de l’ours et de l’orque. L’image du requin a déjà été étiquetée en tant que « Cartilaginous fish » (Poisson cartilagineux) alors que celle de l’iguane n’a pas encore été étiquetée.
 

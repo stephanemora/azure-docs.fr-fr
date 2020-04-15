@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd922d0e65da627f11e6aab3827cb848c3dd635
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c6db9ed92161e968b36c75b8bee5a847137c072
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75560486"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631882"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à JIRA SAML SSO by Microsoft
 
@@ -42,7 +42,7 @@ Utilisez votre compte Microsoft Azure Active Directory avec le serveur Atlassian
 Pour configurer l’intégration d’Azure AD à JIRA SAML SSO by Microsoft, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-- JIRA Core et Software versions 6.4 à 8.5.1 ou JIRA Service Desk versions 3.0 à 4.6.0 doivent être installés et configurés dans Windows version 64 bits
+- JIRA Core et Software 6.4 à 8.8.0 ou JIRA Service Desk 3.0 à 4.8.0 doivent être installés et configurés dans Windows version 64 bits
 - L’activation du HTTPS dans le serveur JIRA
 - Notez que les versions prises en charge par le plug-in JIRA sont mentionnées dans la section ci-dessous.
 - L’accessibilité du serveur JIRA via Internet (particulièrement pour la page de connexion Azure AD pour l’authentification) et la capacité à recevoir le jeton d’Azure AD
@@ -60,8 +60,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 ## <a name="supported-versions-of-jira"></a>Versions de JIRA prises en charge
 
-* JIRA Core et Software : 6.4 à 8.5.1
-* JIRA Service Desk 3.0.0 à 4.6.0
+* JIRA Core et Software : 6.4 à 8.8.0
+* JIRA Service Desk 3.0.0 à 4.8.0
 * JIRA prend également en charge la version 5.2. Pour plus d’informations, cliquez sur [Authentification unique Microsoft Azure Active Directory pour JIRA 5.2](jira52microsoft-tutorial.md).
 
 > [!NOTE]

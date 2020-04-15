@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb0b5e37843413667e51112f52e6a69534e3425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f4a961e601949689db89f8819f0a1fe1c5a7b3a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063626"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875790"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -29,7 +29,8 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory 
 ## <a name="access-azure-and-azure-active-directory"></a>Accédez à Azure et à Azure Active Directory
 **Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche quand j’essaie d’accéder à Azure AD dans le portail Azure ?**
 
-**R :** Pour accéder au portail Azure, chaque utilisateur doit y être autorisé dans le cadre d’un abonnement Azure. Si vous possédez un abonnement Office 365 ou Azure AD payant, accédez à [https://aka.ms/accessAAD](https://aka.ms/accessAAD) pour procéder à une étape d’activation unique. Si ce n’est pas le cas, vous devez activer un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) gratuit ou un abonnement payant.
+**R :** Pour accéder au portail Azure, chaque utilisateur doit y être autorisé dans le cadre d’un abonnement Azure. Si vous n’avez pas d’abonnement Office 365 ou Azure AD payant, vous devez activer un [compte Azure](https://azure.microsoft.com/free/
+) gratuit ou un abonnement payant.
 
 Pour plus d'informations, consultez les pages suivantes :
 
@@ -199,7 +200,7 @@ Pour plus d’informations, consultez [Offrir un accès à distance sécurisé a
 
 **R :** L’accès conditionnel Azure AD vous permet d’affecter une stratégie d’accès unique à chaque application. Dans votre stratégie, vous pouvez exiger l’authentification multificateur en permanence ou lorsque les utilisateurs ne sont pas connectés au réseau local.  
 
-Pour plus d’informations, consultez [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Pour plus d’informations, consultez [Sécurisation de l’accès à Office 365 et à d’autres applications connectées à Azure Active Directory](../conditional-access/overview.md).
 
 ---
 **Q : Qu’est-ce que l’attribution automatique des utilisateurs dans les applications SaaS ?**
@@ -211,4 +212,4 @@ Pour plus d’informations, consultez [Automatisation de l’approvisionnement e
 ---
 **Q :  Puis-je configurer une connexion LDAP sécurisée avec Azure AD ?**
 
-**R :**  Non. Azure AD ne prend pas directement en charge le protocole LDAP (Lightweight Directory Access Protocol) (LDAP) ou LDAP sécurisé. Il est cependant possible d’activer l’instance Azure AD Domain Services (Azure AD DS) sur votre locataire Azure AD avec des groupes de sécurité réseau correctement configurés via la mise en réseau Azure afin d'obtenir une connectivité LDAP. Pour plus d’informations, consultez https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.
+**R :**  Non. Azure AD ne prend pas directement en charge le protocole LDAP (Lightweight Directory Access Protocol) (LDAP) ou LDAP sécurisé. Il est cependant possible d’activer l’instance Azure AD Domain Services (Azure AD DS) sur votre locataire Azure AD avec des groupes de sécurité réseau correctement configurés via la mise en réseau Azure afin d'obtenir une connectivité LDAP. Pour plus d’informations, consultez [Configurer le protocole LDAP pour un domaine géré par les services de domaine Azure Active Directory](../../active-directory-domain-services/tutorial-configure-ldaps.md)

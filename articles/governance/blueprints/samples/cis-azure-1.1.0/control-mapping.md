@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint CIS Microsoft Azure Foundations Bench
 description: Correspondance des recommandations de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark avec Azure Policy.
 ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74707420"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656960"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark : correspondance des recommandations
 
@@ -245,7 +245,7 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Vérifier que l’option « Appliquer une connexion SSL » est définie sur « ACTIVÉ » pour le serveur de base de données MySQL
 
-Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de base de données MySQL appliquent les connexions SSL.
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de base de données MySQL appliquent les connexions TLS/SSL.
 
 - L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL
 
@@ -257,7 +257,7 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Vérifier que l’option « Appliquer une connexion SSL » est définie sur « ACTIVÉ » pour le serveur de base de données PostgreSQL
 
-Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de base de données PostgreSQL appliquent les connexions SSL.
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les serveurs de base de données PostgreSQL appliquent les connexions TLS/SSL.
 
 - L’application de la connexion SSL doit être activée pour les serveurs de base de données PostgreSQL
 

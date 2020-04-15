@@ -2,21 +2,21 @@
 title: Tutoriel - Ajouter des sorties au modèle
 description: Ajoutez des sorties à votre modèle Azure Resource Manager pour simplifier la syntaxe.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765747"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743551"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutoriel : Ajouter des sorties à votre modèle Resource Manager
+# <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutoriel : Ajouter des sorties à votre modèle ARM
 
-Dans ce tutoriel, vous apprenez à retourner une valeur à partir de votre modèle. Vous utilisez des sorties lorsque vous avez besoin d’une valeur provenant d’une ressource déployée. Ce tutoriel dure environ **7 minutes**.
+Dans ce tutoriel, vous allez apprendre à retourner une valeur à partir de votre modèle Azure Resource Manager (ARM). Vous utilisez des sorties lorsque vous avez besoin d’une valeur provenant d’une ressource déployée. Ce tutoriel dure environ **7 minutes**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Nous vous recommandons de suivre le [tutoriel sur les variables](template-tutorial-add-variables.md), mais ce n’est pas obligatoire.
 
@@ -52,7 +52,7 @@ Vous êtes prêt à déployer le modèle et à examiner la valeur retournée.
 
 Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable **templateFile** sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -63,10 +63,12 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addoutputs \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -75,7 +77,7 @@ az group deployment create \
 
 ---
 
-Dans la sortie de la commande de déploiement, vous verrez un objet semblable à ceci :
+Dans la sortie de la commande de déploiement, un objet semblable à l’exemple suivant s’affiche uniquement si la sortie est au format JSON :
 
 ```json
 {
@@ -87,6 +89,9 @@ Dans la sortie de la commande de déploiement, vous verrez un objet semblable à
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
 
 ## <a name="review-your-work"></a>Passer en revue votre travail
 

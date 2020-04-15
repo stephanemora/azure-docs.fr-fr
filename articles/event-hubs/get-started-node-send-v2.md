@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: e296ae36eeeb816d8704ab03824f8cbb80082ea6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 063f2e1005db177420da7f81b799ab01fd212d7e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77163005"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478479"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Recevoir des événements des hubs d’événements ou leur en envoyer à l’aide de JavaScript (azure/event-hubs version 5)
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide du package JavaScript **azure/event-hubs version 5**. 
@@ -109,6 +109,10 @@ Félicitations ! Vous venez d’envoyer des événements à un hub d’événeme
 
 ## <a name="receive-events"></a>Recevoir des événements
 Dans cette section, vous recevez des événements d’un hub d’événements à l’aide d’un magasin de points de contrôle de stockage Blob Azure dans une application JavaScript. Il effectue des points de contrôle de métadonnées sur les messages reçus à intervalles réguliers dans un blob Stockage Azure. Cette approche permet ultérieurement de continuer à recevoir des messages à partir du point où vous vous étiez arrêté.
+
+> [!NOTE]
+> Si vous exécutez sur Azure Stack Hub, cette plateforme peut prendre en charge une autre version du kit SDK Storage Blob que celles généralement disponibles sur Azure. Par exemple, si vous exécutez [sur Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service Stockage est la version 2017-11-09. Dans ce cas, en plus des étapes suivantes de cette section, vous devrez également ajouter du code pour cibler la version 2017-11-09 de l’API du service Stockage. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) et [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) sur GitHub. Pour plus d’informations sur les versions du service Stockage Azure prises en charge sur Azure Stack Hub, reportez-vous à [Stockage Azure Stack Hub : différences et considérations](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Créer un compte de stockage Azure et un conteneur d’objets blob
 Pour créer un compte de stockage Azure et un conteneur d’objets blob dans celui-ci, effectuez les actions suivantes :

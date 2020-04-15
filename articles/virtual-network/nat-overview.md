@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 4b34d4208d8686cdac3f8164d2cf7efb2d881346
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 50fc8b9cefe88a80f3f954ce363139b6a4a38589
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79409896"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548389"
 ---
 # <a name="what-is-virtual-network-nat"></a>Qu’est-ce que le service NAT de Réseau virtuel ?
 
@@ -40,11 +40,11 @@ Le service NAT (traduction d’adresses réseau) de Réseau virtuel simplifie la
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Adresses IP statiques pour le trafic sortant uniquement
 
-Une connectivité sortante peut être définie pour chaque sous-réseau avec NAT.  Plusieurs sous-réseaux au sein du même réseau virtuel peuvent avoir différents services NAT. Un sous-réseau est configuré en spécifiant la [ressource de passerelle NAT](./nat-gateway-resource.md) à utiliser. Tous les flux sortants UDP et TCP en provenance de toute instance de machine virtuelle utilisent la traduction d’adresses réseau (NAT). 
+Une connectivité sortante peut être définie pour chaque sous-réseau avec NAT.  Plusieurs sous-réseaux au sein du même réseau virtuel peuvent avoir différents services NAT. Un sous-réseau est configuré en spécifiant la ressource de passerelle NAT à utiliser. Tous les flux sortants UDP et TCP en provenance de toute instance de machine virtuelle utilisent la traduction d’adresses réseau (NAT). 
 
-NAT est compatible avec les [ressources d’adresses IP publiques](./virtual-network-ip-addresses-overview-arm.md#standard) ou les [ressources de préfixes d’adresses IP publiques](./public-ip-address-prefix.md) de la référence SKU standard, ou avec une combinaison des deux.  Vous pouvez utiliser directement un préfixe d’adresse IP publique ou distribuer les adresses IP publiques du préfixe entre plusieurs ressources de passerelle NAT. NAT nettoie tout le trafic vers la plage d’adresses IP du préfixe.  Toute mise en liste verte des adresses IP de vos déploiements est à présent très simple.
+NAT est compatible avec les ressources d’adresses IP publiques ou les ressources de préfixes d’adresses IP publiques de la référence SKU standard, ou avec une combinaison des deux.  Vous pouvez utiliser directement un préfixe d’adresse IP publique ou distribuer les adresses IP publiques du préfixe entre plusieurs ressources de passerelle NAT. NAT nettoie tout le trafic vers la plage d’adresses IP du préfixe.  Toute mise en liste verte des adresses IP de vos déploiements est à présent très simple.
 
-Tout le trafic sortant du sous-réseau est traité par NAT automatiquement sans aucune configuration par le client.  Les routes définies par l’utilisateur ne sont pas nécessaires. NAT est prioritaire sur les autres [scénarios de trafic sortant](../load-balancer/load-balancer-outbound-connections.md) et remplace la destination Internet par défaut d’un sous-réseau.
+Tout le trafic sortant du sous-réseau est traité par NAT automatiquement sans aucune configuration par le client.  Les routes définies par l’utilisateur ne sont pas nécessaires. NAT est prioritaire sur les autres scénarios de trafic sortant et remplace la destination Internet par défaut d’un sous-réseau.
 
 ## <a name="on-demand-snat-with-multiple-ip-addresses-for-scale"></a>SNAT à la demande avec plusieurs adresses IP à mettre à l’échelle
 
@@ -60,9 +60,9 @@ Contrairement au service SNAT de flux sortant d’équilibreur de charge, NAT ne
 
 NAT est compatible avec les ressources SKU standard suivantes :
 
-- [Équilibreur de charge](../load-balancer/load-balancer-overview.md)
-- [Adresse IP publique](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Préfixe d’adresse IP publique](../virtual-network/public-ip-address-prefix.md)
+- Équilibrage de charge
+- Adresse IP publique
+- Préfixe d’adresse IP publique
 
 Utilisées avec NAT, ces ressources fournissent une connectivité Internet entrante à vos sous-réseaux. NAT fournit toute la connectivité Internet sortante à partir de vos sous-réseaux.
 

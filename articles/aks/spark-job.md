@@ -1,17 +1,17 @@
 ---
 title: Exécuter une tâche Apache Spark avec Azure Kubernetes Service (AKS)
-description: Utiliser Azure Kubernetes Service (AKS) pour exécuter une tâche Apache Spark
+description: Utilisez Azure Kubernetes Service (AKS) pour créer et exécuter une tâche Apache Spark pour le traitement des données à grande échelle.
 author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 4b3248cb9ab61a158f70b5a2d6ae9dd846501816
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473623"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877625"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Exécution de tâches Apache Spark sur AKS
 
@@ -293,7 +293,7 @@ Pi is roughly 3.152155760778804
 
 Dans l’exemple ci-dessus, le fichier jar Spark a été chargé dans le stockage Azure. L’autre possibilité consiste à empaqueter le fichier jar dans des images Docker personnalisées.
 
-Pour ce faire, recherchez le `dockerfile` de l’image Spark située dans le répertoire `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Ajoutez une instruction `ADD` pour le travail Spark `jar` quelque part entre les déclarations`WORKDIR` et `ENTRYPOINT`.
+Pour ce faire, recherchez le `dockerfile` de l’image Spark située dans le répertoire `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Ajoutez une instruction `ADD` pour le travail Spark `jar` quelque part entre les déclarations `WORKDIR` et `ENTRYPOINT`.
 
 Mettez à jour le chemin du fichier jar en définissant l’emplacement du fichier `SparkPi-assembly-0.1.0-SNAPSHOT.jar` sur votre système de développement. Vous pouvez également utiliser votre propre fichier jar.
 

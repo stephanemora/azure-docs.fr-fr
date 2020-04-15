@@ -4,44 +4,42 @@ description: Découvrez comment préparer l’évaluation/la migration des machi
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: f00d5ba4841427098b0ab79ad1930e357008b6e0
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 2e8aa72300c840832168138015e0a01ab054f954
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030793"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619429"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Préparer l’évaluation de machines virtuelles VMware et leur migration vers Azure
 
 Cet article vous aide à préparer l’évaluation de machines virtuelles VMware locales et/ou leur migration vers Azure à l’aide d’[Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers.
 
 
 Ce tutoriel est le premier d’une série qui explique comment évaluer et migrer des machines virtuelles VMware. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Préparez Azure pour qu’il fonctionne avec Azure Migrate.
-> * Préparez VMware pour l’évaluation des machines virtuelles.
-> * Préparez VMware pour la migration des machines virtuelles.
+> * Préparez VMware pour l’évaluation de machine virtuelle avec l’outil Azure Migrate : évaluation de serveur.
+> * Préparez VMware pour la migration de machine virtuelle à l’aide de l’outil Azure Migrate : évaluation de serveur. 
 
 > [!NOTE]
-> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils sont utiles lorsque vous apprenez à configurer un déploiement et comme preuve de concept rapide. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, passez en revue les procédures d’évaluation et de migration relatives à VMware.
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils sont utiles lorsque vous apprenez à configurer un déploiement et comme preuve de concept rapide. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 
 ## <a name="prepare-azure"></a>Préparer Azure
 
-Vous devez disposer des autorisations suivantes.
+Pour pouvoir évaluer ou migrer des machines virtuelles VMware, vous avez besoin de ces autorisations pour ces tâches dans Azure.
 
-**Tâche** | **autorisations**
---- | ---
-**Créer un projet Azure Migrate** | Votre compte Azure doit être autorisé à créer un projet.
-**Inscrire l’appliance Azure Migrate** | Azure Migrate utilise une appliance Azure Migrate légère pour évaluer les machines virtuelles VMware avec Azure Migrate Server Assessment et pour exécuter la [migration sans agent](server-migrate-overview.md) des machines virtuelles VMware avec Azure Migrate Server Migration. Cette appliance effectue la découverte des machines virtuelles et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate.<br/><br/>Lors de l’inscription de l’appliance, les fournisseurs de ressources suivants sont inscrits dans l’abonnement choisi dans l’appliance : Microsoft.OffAzure, Microsoft.Migrate et Microsoft.KeyVault. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. Pour inscrire les fournisseurs de ressources, vous avez besoin d’un rôle Contributeur ou Propriétaire sur l’abonnement.<br/><br/> Dans le cadre de l’intégration, Azure Migrate crée deux applications Azure Active Directory (Azure AD) :<br/> - La première application est utilisée pour la communication (authentification et autorisation) entre les agents exécutés sur l’appliance et leurs services respectifs exécutés sur Azure. Cette application n’a pas les privilèges requis pour effectuer des appels ARM ou des accès RBAC sur une ressource.<br/> - La deuxième application est exclusivement utilisée pour accéder au coffre Key Vault créé dans l’abonnement de l’utilisateur pour la migration sans agent. Elle est fournie avec un accès RBAC sur le coffre Azure Key Vault (créé dans le locataire du client) lorsque la découverte est lancée à partir de l’appliance.
-**Créer un coffre de clés** | Pour migrer des machines virtuelles VMware avec Azure Migrate Server Migration, Azure Migrate crée un coffre de clés afin de gérer les clés d’accès au compte de stockage de réplication de votre abonnement. Pour créer le coffre, vous devez disposer d’autorisations d’attribution de rôle sur le groupe de ressources dans lequel réside le projet Azure Migrate.
-
-
+**Tâche** | **Détails** 
+--- | --- 
+**Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour créer un projet. 
+**Inscrire des fournisseurs de ressources** | Azure Migrate utilise une appliance Azure Migrate légère pour, d’une part, découvrir et évaluer les machines virtuelles VMware et, d’autre part, les migrer vers Azure avec Azure Migrate Server Assessment.<br/><br/> Lors de l’inscription d’appliances, les fournisseurs de ressources sont inscrits auprès de l’abonnement choisi dans l’appliance. [Plus d’informations](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Pour inscrire les fournisseurs de ressources, vous avez besoin d’un rôle Contributeur ou Propriétaire sur l’abonnement.
+**Créer des applications Azure AD** | Lors de l’inscription de l’appliance, Azure Migrate crée des applications Azure AD (Azure Active Directory). <br/><br/> - La première application est utilisée pour la communication entre les agents exécutés sur l’appliance et leurs services respectifs exécutés sur Azure.<br/><br/> - La deuxième application est exclusivement utilisée pour accéder au coffre de clés créé dans l’abonnement de l’utilisateur pour la migration de machines virtuelles VMware sans agent. [Plus d’informations](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Vous devez disposer d’autorisations pour créer des applications Azure AD (disponibles dans le rôle Développeur d’applications).
+**Créer un coffre de clés** | Pour migrer des machines virtuelles VMware à l’aide d’une migration sans agent, Azure Migrate crée un coffre de clés pour gérer les clés d’accès au compte de stockage de réplication de votre abonnement.<br/><br/> Pour créer le coffre, vous devez disposer d’autorisations d’attribution de rôle sur le groupe de ressources dans lequel réside le projet Azure Migrate.
 
 
 
@@ -58,8 +56,8 @@ Vous devez disposer des autorisations suivantes.
 
 Pour inscrire l’appliance, vous affectez des autorisations pour permettre à Azure Migrate de créer les applications Azure AD durant l’inscription d’appliance. Les autorisations peuvent être affectées à l’aide de l’une des méthodes suivantes :
 
-- L’administrateur général ou le locataire peuvent accorder des autorisations aux utilisateurs du locataire pour créer et inscrire des applications Azure AD.
-- L’administrateur général ou le locataire peuvent attribuer au compte le rôle Développeur d’applications (qui dispose des autorisations appropriées).
+- **Accorder des autorisations** : L’administrateur général ou le locataire peuvent accorder des autorisations aux utilisateurs du locataire pour créer et inscrire des applications Azure AD.
+- **Attribuer le rôle de développeur d’applications** : L’administrateur général ou le locataire peuvent attribuer au compte le rôle Développeur d’applications (qui dispose des autorisations appropriées).
 
 > [!NOTE]
 > - Les applications n’ont aucune autre autorisation d’accès sur l’abonnement que celles décrites ci-dessus.
@@ -68,7 +66,7 @@ Pour inscrire l’appliance, vous affectez des autorisations pour permettre à A
 
 #### <a name="grant-account-permissions"></a>Accorder des autorisations au compte
 
-L’administrateur général ou le locataire peuvent octroyer des autorisations de la façon suivante :
+Si vous souhaitez que le locataire/l’administrateur général accorde des autorisations, procédez comme suit :
 
 1. Dans Azure AD, l’administrateur général/locataire doit accéder à **Azure Active Directory** > **Utilisateurs** > **Paramètres utilisateur**.
 2. L’administrateur doit affecter la valeur **Oui** à **Inscriptions des applications**. Il s’agit d’un paramètre par défaut qui n’est pas sensible. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
@@ -79,7 +77,7 @@ L’administrateur général ou le locataire peuvent octroyer des autorisations 
 
 #### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications
 
-L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+L’administrateur général ou le locataire peuvent également attribuer à un compte le rôle Développeur d’applications. [Découvrez-en plus](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) sur l’affectation d’un rôle.
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Attribuer des autorisations pour créer un coffre Key Vault
 
@@ -100,8 +98,8 @@ Pour permettre à Azure Migrate de créer un coffre Key Vault, attribuez les aut
 Pour préparer l’évaluation des machines virtuelles VMware, vous devez :
 
 - **Vérifier les paramètres VMware**. Vérifiez que vCenter Server et les machines virtuelles que vous voulez migrer répondent aux exigences.
-- **Configurer un compte d’évaluation**. Azure Migrate doit accéder à vCenter Server pour découvrir les machines virtuelles à des fins d’évaluation.
-- **Vérifiez la configuration requise de l’appliance**. Vérifiez les exigences relatives au déploiement pour l’appliance Azure Migrate utilisée dans le cadre de l’évaluation.
+- **Configurer un compte pour l’évaluation**. Azure Migrate utilise ce compte pour accéder à vCenter Server afin de découvrir les machines virtuelles à des fins d’évaluation.
+- **Vérifiez la configuration requise de l’appliance**. Vérifiez les exigences relatives au déploiement pour l’appliance Azure Migrate, avant de la déployer.
 
 ### <a name="verify-vmware-settings"></a>Vérifier les paramètres VMware
 
@@ -124,9 +122,9 @@ Azure Migrate doit accéder à vCenter Server pour découvrir les machines virtu
 
 Avant de configurer l’appliance Azure Migrate et de commencer l’évaluation dans le prochain tutoriel, préparez le déploiement de l’appliance.
 
-1. [Vérifiez](migrate-appliance.md#appliance---vmware) la configuration requise de l’appliance pour les machines virtuelles VMware.
+1. [Vérifiez ](migrate-appliance.md#appliance---vmware) les exigences pour l’appliance Azure Migrate.
 2. [Passez en revue](migrate-appliance.md#url-access) les URL Azure auxquelles l’appliance doit accéder. Si vous utilisez un pare-feu ou un proxy basé sur des URL, vérifiez qu’il autorise l’accès aux URL nécessaires.
-3. [Passez en revue](migrate-appliance.md#collected-data---vmware) les données que l’appliance recueillera pendant la détection et l’évaluation.
+3. [Passez en revue les données](migrate-appliance.md#collected-data---vmware) que l’appliance collecte pendant la découverte et l’évaluation.
 4. [Notez](migrate-support-matrix-vmware.md#port-access) les conditions d’accès aux ports pour l’appliance.
 
 
@@ -134,22 +132,24 @@ Avant de configurer l’appliance Azure Migrate et de commencer l’évaluation 
 
 ## <a name="prepare-for-agentless-vmware-migration"></a>Préparer une migration VMware sans agent
 
-Passez en revue les exigences relatives à la migration sans agent des machines virtuelles VMware.
+Passez en revue les exigences relatives à la [migration sans agent](server-migrate-overview.md) des machines virtuelles VMware.
 
-1. [Passez en revue](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) la configuration requise pour les serveurs VMware et les [autorisations](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) dont Azure Migrate a besoin pour accéder au vCenter Server pour la migration sans agent à l’aide d’Azure Migrate Server Migration.
-2. [Passez en revue](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) les exigences relatives aux machines virtuelles VMware à migrer vers Azure à l’aide de la migration sans agent.
-4. [Passez en revue](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) les exigences relatives à l’utilisation de l’appliance Azure Migrate pour la migration sans agent.
-5. Notez les conditions d’[accès aux URL](migrate-appliance.md#url-access) et d’[accès aux ports](migrate-support-matrix-vmware-migration.md#agentless-ports) pour la migration sans agent.
-
+1. [Vérifiez](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) les exigences des serveurs VMware.
+2. [Passez en revue les autorisations](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) dont Azure Migrate a besoin pour accéder à vCenter Server.
+3. [Vérifiez](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) les exigences des machines virtuelles VMware.
+4. [Vérifiez](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) les exigences de l’appliance Azure Migrate.
+5. Notez les exigences de l’[accès URL](migrate-appliance.md#url-access) et de l’[accès aux ports](migrate-support-matrix-vmware-migration.md#agentless-ports).
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>Préparer une migration VMware basée sur un agent
 
 Passez en revue les exigences relatives à la [migration basée sur un agent](server-migrate-overview.md) des machines virtuelles VMware.
 
-1. [Passez en revue](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) la configuration requise pour les serveurs VMware et les autorisations dont Azure Migrate a besoin pour accéder au vCenter Server pour la migration basée sur un agent à l’aide d’Azure Migrate Server Migration.
-2. [Passez en revue](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) les exigences relatives aux machines virtuelles VMware à migrer vers Azure à l’aide de la migration basée sur un agent, notamment l’installation de Mobility Service sur chaque machine virtuelle à migrer.
-3. Les migrations basées sur un agent utilisent une appliance de réplication :
-    - [Passez en revue](migrate-replication-appliance.md#appliance-requirements) la configuration requise pour le déploiement de l’appliance de réplication et les [options](migrate-replication-appliance.md#mysql-installation) d’installation de MySQL sur l’appliance.
+1. [Vérifiez](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) les exigences des serveurs VMware.
+2. [Passez en revue les autorisations](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) dont Azure Migrate a besoin pour accéder à vCenter Server.
+2. [Passez en revue](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) les exigences des machines virtuelles VMware, y compris l’installation du service Mobility sur chaque machine virtuelle que vous souhaitez migrer.
+3. La migration basée sur un agent utilise une appliance de réplication :
+    - [Passez en revue](migrate-replication-appliance.md#appliance-requirements) les exigences de déploiement pour l’appliance de réplication.
+    - [Passez en revue les options](migrate-replication-appliance.md#mysql-installation) d’installation de MySQL sur l’appliance.
     - Passez en revue les conditions d’accès aux [URL](migrate-replication-appliance.md#url-access) et aux [ports](migrate-replication-appliance.md#port-access) pour l’appliance de réplication.
     
 ## <a name="next-steps"></a>Étapes suivantes

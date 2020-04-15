@@ -4,14 +4,14 @@ description: Dans le cadre de ce didacticiel, vous allez apprendre à ajouter un
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222726"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756086"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Didacticiel : Ajouter un point de terminaison HTTPS à un service frontal API Web ASP.NET Core à l’aide de Kestrel
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutoriel : Ajouter un point de terminaison HTTPS à un service frontal API Web ASP.NET Core à l’aide de Kestrel
 
 Ce tutoriel est le troisième de la série.  Vous allez apprendre à activer HTTPS dans un service ASP.NET Core s’exécutant sur Service Fabric. À l’issue de cette procédure, vous disposerez d’une application de vote avec un service web frontal ASP.NET Core HTTPS écoutant le port 443. Si vous ne souhaitez pas créer l’application de vote manuellement en suivant les instructions de l’article [Créer une application .NET Service Fabric](service-fabric-tutorial-deploy-app-to-party-cluster.md), vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée.
 
@@ -20,7 +20,7 @@ Dans ce troisième volet, vous apprenez à :
 > [!div class="checklist"]
 > * Définir un point de terminaison HTTPS dans le service
 > * Configurer Kestrel pour l’utilisation de HTTPS
-> * Installer le certificat SSL sur les nœuds du cluster distant
+> * Installer le certificat TLS/SSL sur les nœuds du cluster distant
 > * Accorder l’accès SERVICE RÉSEAU à la clé privée du certificat
 > * Ouvrir le port 443 dans l’équilibreur de charge Azure
 > * Déployer l’application sur un cluster distant
@@ -36,7 +36,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
@@ -396,7 +396,7 @@ Dans cette partie du tutoriel, vous avez appris à :
 > [!div class="checklist"]
 > * Définir un point de terminaison HTTPS dans le service
 > * Configurer Kestrel pour l’utilisation de HTTPS
-> * Installer le certificat SSL sur les nœuds du cluster distant
+> * Installer le certificat TLS/SSL sur les nœuds du cluster distant
 > * Accorder l’accès SERVICE RÉSEAU à la clé privée du certificat
 > * Ouvrir le port 443 dans l’équilibreur de charge Azure
 > * Déployer l’application sur un cluster distant

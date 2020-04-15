@@ -16,12 +16,12 @@ ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79741557e6eea1b4252e5ab4d9976b124cea1169
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6446b039d90e04c9fe7fca28b361f620183a0292
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346901"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875739"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -87,7 +87,7 @@ Pour plus d'informations, consultez les rubriques suivantes :
 ### <a name="accounts"></a>Comptes
 * Le compte d’administrateur global Azure AD du locataire Azure AD que vous souhaitez intégrer. Ce compte doit être un **compte scolaire ou d’organisation** et non d’un **compte Microsoft**.
 * Si vous utilisez la [configuration rapide](reference-connect-accounts-permissions.md#express-settings-installation) ou effectuez une mise à niveau depuis DirSync, vous devez disposer d’un compte d’administrateur d’entreprise pour votre annuaire Active Directory local.
-* Si vous utilisez le chemin d’installation des paramètres personnalisés, vous avez plus d’options (voir [Comptes dans Active Directory](reference-connect-accounts-permissions.md#custom-installation-settings)).
+* Si vous utilisez le chemin d’installation des paramètres personnalisés, vous avez plus d’options. Pour plus d’informations, consultez [Paramètres d’installation personnalisée](reference-connect-accounts-permissions.md#custom-installation-settings).
 
 ### <a name="connectivity"></a>Connectivité
 * Le serveur Azure AD Connect nécessite une résolution DNS Intranet et Internet. Le serveur DNS doit pouvoir résoudre des noms sur votre domaine Active Directory local et sur les points de terminaison Azure AD.
@@ -173,7 +173,7 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
       * To validate remote PowerShell connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PowerShell session should open to ensure remote PowerShell sessions can be established.
 
 ### TLS/SSL Certificate Requirements
-* It’s strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
+* It's strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
 * The certificate must be an X509 certificate.
 * You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
   * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers

@@ -7,19 +7,19 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 559ce4d1500dc5f1b67a3b3dbdbeb5d8dda7e487
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79475800"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754286"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Pare-feu d’applications web Azure sur Azure Content Delivery Network
 
-Le pare-feu d’applications web (WAF) Azure sur Azure Content Delivery Network (CDN) offre une protection centralisée pour votre contenu web. WAF protège vos services web contre les vulnérabilités et les attaques courantes. Il assure la haute disponibilité de votre service pour vos utilisateurs et vous aide à répondre aux exigences de conformité.
+Le pare-feu d’applications web (WAF) Azure sur Azure Content Delivery Network (CDN) de Microsoft offre une protection centralisée pour votre contenu web. WAF protège vos services web contre les vulnérabilités et les attaques courantes. Il assure la haute disponibilité de votre service pour vos utilisateurs et vous aide à répondre aux exigences de conformité.
 
 > [!IMPORTANT]
-> WAF sur Azure CDN est actuellement en préversion publique et est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> WAF sur Azure CDN de Microsoft est actuellement en préversion publique et est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 WAF sur Azure CDN est une solution mondiale et centralisée. Il est déployé sur les sites de périphérie du réseau Azure dans le monde entier. WAF empêche les attaques malveillantes proches des sources d’attaque avant qu’elles atteignent votre origine. Vous bénéficiez d’une protection globale à grande échelle sans sacrifier les performances. 
 

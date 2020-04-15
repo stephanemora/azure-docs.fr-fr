@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
-ms.openlocfilehash: d53c41752d57a27ebea9bd60f7e723dab1e7308a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 749b733039e89421ac33ef76a11f3291b296e718
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78190845"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673165"
 ---
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement
 
@@ -25,6 +25,13 @@ func start
 ```
 npm install
 npm start
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+```
+mvn clean package 
+mvn azure-functions:run
 ```
 ::: zone-end
 
@@ -44,12 +51,12 @@ Http Functions:
 </pre>
 
 >[!NOTE]  
-> Si HttpExample n’apparaît pas comme indiqué ci-dessous, cela signifie probablement que vous avez démarré l’hôte à partir du dossier *HttpExample*. Dans ce cas, utilisez **Ctrl**+**C** pour arrêter l’hôte, accédez au dossier *LocalFunctionProj* parent, puis réexécutez la commande précédente.
+> Si HttpExample n’apparaît pas comme indiqué ci-dessous, cela signifie probablement que vous avez démarré l’hôte à partir d’un emplacement autre que le dossier racine du projet. Dans ce cas, utilisez **Ctrl**+**C** pour arrêter l’hôte, accédez au dossier racine du projet, puis réexécutez la commande précédente.
 
 Copiez dans un navigateur l’URL de votre fonction `HttpExample` à partir de cette sortie, puis ajoutez la chaîne de requête `?name=<your-name>` pour obtenir une URL complète semblable à `http://localhost:7071/api/HttpExample?name=Functions`. Le navigateur doit afficher un message similaire à `Hello Functions` :
 
 ![Résultat de la fonction exécutée localement dans le navigateur](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
-Le terminal dans lequel vous avez exécuté `func start` affiche également une sortie de journal quand vous effectuez des requêtes.
+Le terminal dans lequel vous avez démarré votre projet affiche également une sortie de journal quand vous effectuez des requêtes.
 
 Quand vous êtes prêt, utilisez **Ctrl**+**C**, puis choisissez `y` pour arrêter l’hôte de fonctions.

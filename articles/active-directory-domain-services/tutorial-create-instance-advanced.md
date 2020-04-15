@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f6817c1ec308e75a4af88825d46848b504775e19
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a7ab79fe7ccfbf6d292b6ba7be58026955a06516
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223036"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519320"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutoriel : Créer et configurer une instance Azure Active Directory Domain Services avec des options de configuration avancées
 
 Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP, et l’authentification Kerberos/NTLM entièrement compatible avec Windows Server Active Directory. Vous consommez ces services de domaine sans déployer, gérer et mettre à jour avec des correctifs les contrôleurs de domaine vous-même. Azure AD DS s’intègre à votre locataire Azure AD existant. Cette intégration permet aux utilisateurs de se connecter en utilisant leurs informations d’identification d’entreprise, et vous pouvez utiliser des groupes et des comptes d’utilisateur existants pour sécuriser l’accès aux ressources.
 
-Vous pouvez [créer un domaine managé avec des options de configuration par défaut][tutorial-create-instance] pour la mise en réseau et la synchronisation, ou définir manuellement ces paramètres. Ce tutoriel vous montre comment définir des options de configuration avancées pour créer et configurer une instance Azure AD DS avec le portail Azure.
+Vous pouvez [créer un domaine managé avec des options de configuration par défaut][tutorial-create-instance] pour la mise en réseau et la synchronisation, ou définir manuellement ces paramètres. Ce tutoriel vous montre comment définir ces options de configuration avancées pour créer et configurer une instance Azure AD DS avec le portail Azure.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -90,7 +90,7 @@ Renseignez les champs de la fenêtre *De base* du portail Azure pour créer une 
 1. Entrez un **Nom de domaine DNS** pour votre domaine managé, en tenant compte des points précédents.
 1. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Si vous choisissez une région qui prend en charge les Zones de disponibilité, les ressources Azure AD DS sont réparties entre les zones pour assurer une redondance supplémentaire.
 
-    Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées.
+    Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, un minimum de trois zones distinctes sont activées dans toutes les régions.
 
     Vous ne devez rien configurer pour la répartition d’Azure AD DS entre les zones. La plateforme Azure gère automatiquement la répartition de zone des ressources. Pour plus d’informations et pour connaître la disponibilité régionale, consultez [Que sont les zones de disponibilité dans Azure ?][availability-zones]
 

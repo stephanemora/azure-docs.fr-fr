@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e3c33bb7493f07d9fbf19710f21d0114e7abec8
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73807704"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757071"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 
@@ -54,7 +54,7 @@ Vous n’êtes pas impacté dans les cas suivants :
 
 Nous vous recommandons d’autoriser le trafic sortant vers les adresses IP pour l’ensemble des [adresses IP de passerelles Azure SQL Database](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) dans la région sur le port TCP 1433, et sur la plage de ports 11000-11999. Cette recommandation s’applique aux clients qui se connectent localement et à ceux qui se connectent via des points de terminaison de service. Pour en savoir plus sur les plages de ports, voir [Stratégie de connexion](sql-database-connectivity-architecture.md#connection-policy).
 
-La validation des certificats risque d’échouer pour les connexions établies à partir d’applications à l’aide d’une version de Microsoft JDBC Driver antérieure à 4.0. Les versions inférieures de Microsoft JDBC s’appuient sur un nom courant (CN) dans le champ d’objet du certificat. L’atténuation consiste à s’assurer que la propriété hostNameInCertificate est définie sur *.database.windows.net. Pour savoir comment définir la propriété hostNameInCertificate, voir [Connexion avec chiffrement SSL](/sql/connect/jdbc/connecting-with-ssl-encryption).
+La validation des certificats risque d’échouer pour les connexions établies à partir d’applications à l’aide d’une version de Microsoft JDBC Driver antérieure à 4.0. Les versions inférieures de Microsoft JDBC s’appuient sur un nom courant (CN) dans le champ d’objet du certificat. L’atténuation consiste à s’assurer que la propriété hostNameInCertificate est définie sur *.database.windows.net. Pour savoir comment définir la propriété hostNameInCertificate, voir [Connexion avec chiffrement](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
 Si l’atténuation ci-dessus ne fonctionne pas, envoyez une demande de support concernant SQL Database, à l’aide de l’URL suivante : https://aka.ms/getazuresupport
 

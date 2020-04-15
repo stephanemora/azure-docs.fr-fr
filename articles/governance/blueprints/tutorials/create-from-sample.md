@@ -3,18 +3,18 @@ title: 'Tutoriel : Exemple de blueprint dans un nouvel environnement'
 description: Dans ce tutoriel, vous utilisez un exemple de blueprint pour créer une définition de blueprint qui définit jusqu’à deux groupes de ressources et configure une attribution de rôle pour chacun.
 ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80282016"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677091"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutoriel : Créer un nouvel environnement à partir d’un exemple de blueprint
 
 Les exemples de blueprint illustrent ce qui est réalisable à l’aide d’Azure Blueprints. Chaque exemple a été conçu avec une intention ou un but spécifique, mais ne permet pas de créer un environnement complet à lui seul. Chacun d’eux est conçu comme base d’exploration d’Azure Blueprints avec diverses combinaisons d’artefacts, de conceptions et de paramètres.
 
-Le didacticiel suivant utilise l’exemple de blueprint **Groupes de ressources avec RBAC** pour présenter les différents aspects du service Blueprints. Cet article contient les étapes suivantes :
+Le tutoriel suivant utilise l’exemple de blueprint **Groupes de ressources avec RBAC** pour présenter différents aspects du service Azure Blueprints. Cet article contient les étapes suivantes :
 
 > [!div class="checklist"]
 > - Créer une définition de blueprint à partir de l’exemple

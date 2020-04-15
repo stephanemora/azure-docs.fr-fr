@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f1c884edf6841b65495cd31ed4c7d6e63aedd9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 07ea6824975d0cb3f4b909db41188c490bbba6d2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977930"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477943"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Citrix NetScaler (authentification par en-tête)
 
@@ -244,7 +244,7 @@ Pour lier l’équilibreur de charge au serveur virtuel :
 
 ### <a name="bind-the-certificate"></a>Lier le certificat
 
-Pour publier ce service en tant que SSL, liez le certificat de serveur, puis testez votre application :
+Pour publier ce service en tant que TLS, liez le certificat serveur, puis testez votre application :
 
 1. Sous **Certificat**, sélectionnez **Aucun certificat de serveur**.
 

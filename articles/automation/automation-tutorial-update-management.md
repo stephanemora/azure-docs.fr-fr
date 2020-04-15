@@ -4,14 +4,14 @@ description: Cet article fournit une vue d’ensemble de l’utilisation d’Azu
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 01/21/2020
+ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 3922f8a2478f00c632b6daf294f23c7b5ad8c261
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310133"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677034"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
@@ -22,55 +22,27 @@ Pour plus d’informations sur les prix, consultez [Tarification d’Automation 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Intégrer une machine virtuelle pour la gestion des mises à jour
 > * Afficher une évaluation des mises à jour
 > * Configurer les alertes
 > * Planifier un déploiement de mises à jour
 > * Afficher les résultats d’un déploiement
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure. Si vous n’en avez pas encore, vous pouvez [activer votre crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire pour obtenir un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [compte Azure Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche Watcher.
+* La solution [Update Management](automation-update-management.md), activée pour une ou plusieurs de vos machines virtuelles.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) à intégrer.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur https://portal.azure.com.
 
-## <a name="enable-update-management"></a>Activer Update Management
-
-Pour ce tutoriel, vous devez d’abord activer la gestion des mises à jour sur votre machine virtuelle :
-
-1. Dans le menu [Portail Azure](https://portal.azure.com), sélectionnez **Machines virtuelles**, ou recherchez et sélectionnez **Machines virtuelles** sur la page **Accueil**.
-1. Sélectionnez la machine virtuelle pour laquelle vous souhaitez activer Update Management.
-1. Sur la page de la machine virtuelle, sous **OPÉRATIONS**, sélectionnez **Gestion des mises à jour**. Le volet **Activer la gestion des mises à jour** s’ouvre.
-
-Une validation est effectuée pour déterminer si la gestion des mises à jour est activée pour cette machine virtuelle. Cette validation inclut la recherche d’un espace de travail Log Analytics et d’un compte Automation lié, et détermine si la solution Update Management est activée dans l’espace de travail.
-
-Un espace de travail [Log Analytics](../azure-monitor/platform/data-platform-logs.md) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme la gestion des mises à jour. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
-
-Le processus de validation vérifie également si la machine virtuelle est provisionnée avec l’agent Log Analytics et un runbook Worker hybride Automation. Cet agent est utilisé pour communiquer avec Azure Automation et obtenir des informations sur l’état des mises à jour. L’agent nécessite que le port 443 soit ouvert pour communiquer avec le service Azure Automation et télécharger des mises à jour.
-
-Si l’intégration n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
-
-* Espace de travail [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
-* Un [compte Automation](./automation-offering-get-started.md)
-* Un [runbook Worker hybride](./automation-hybrid-runbook-worker.md) (activé sur la machine virtuelle)
-
-Sous **Gestion des mises à jour**, définissez l’emplacement, l’espace de travail Log Analytics et le compte Automation à utiliser. Ensuite, sélectionnez **Activer**. Si ces options ne sont pas disponibles, cela signifie qu’une autre solution Automation est activée pour la machine virtuelle. Dans ce cas, les mêmes espace de travail et compte Automation doivent être utilisés.
-
-![Fenêtre Activer la solution de gestion des mises à jour](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
-
-L’activation de la solution peut prendre quelques minutes. Pendant ce temps, ne fermez pas la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
-
 ## <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 
-Une fois la gestion des mises à jour activée, le volet **Gestion des mises à jour** s’ouvre. Si des mises à jour sont identifiées comme manquantes, une liste des mises à jour manquantes s’affiche sous l’onglet **Mises à jour manquantes**.
+Une fois que vous avez activé Update Management, la page **Gestion des mises à jour** s’ouvre. Si des mises à jour sont identifiées comme manquantes, une liste des mises à jour manquantes s’affiche sous l’onglet **Mises à jour manquantes**.
 
-Sous **LIEN D’INFORMATIONS**, sélectionnez le lien de mise à jour pour ouvrir l’article du support de la mise à jour. Vous y trouverez des informations importantes sur la mise à jour.
+Sous **Lien d’informations**, sélectionnez le lien de mise à jour pour ouvrir l’article du support de la mise à jour. Vous y trouverez des informations importantes sur la mise à jour.
 
 ![Afficher l’état des mises à jour](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
@@ -84,18 +56,18 @@ Lors de cette étape, vous allez configurer une alerte afin d’être informé d
 
 ### <a name="alert-conditions"></a>Conditions d’alerte
 
-Dans votre compte Automation, sous **Supervision** accédez à **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
+Dans votre compte Automation, accédez à **Alertes** sous **Supervision**, puis cliquez sur **Nouvelle règle d’alerte**.
 
-Votre compte Automation est déjà sélectionné en tant que ressource. Si vous souhaitez changer, vous pouvez cliquer sur **Sélectionner** puis, dans la page **Sélectionner une ressource**, sélectionner **Comptes Automation** dans la liste déroulante **Filtrer par type de ressource**. Sélectionnez votre compte Automation, puis **Terminé**.
+Votre compte Automation est déjà sélectionné en tant que ressource. Si vous souhaitez le changer, cliquez sur **Sélectionner**. Dans la page **Sélectionner une ressource**, choisissez **Comptes Automation** dans le menu déroulant **Filtrer par type de ressource**. Sélectionnez votre compte Automation, puis cliquez sur **Terminé**.
 
-Cliquez sur **Ajouter une condition** pour sélectionner le signal qui convient à votre déploiement de mises à jour. Le tableau suivant présente les détails des deux signaux disponibles pour les déploiements de mises à jour :
+Cliquez sur **Ajouter une condition** pour sélectionner le signal qui convient à votre déploiement de mises à jour. Le tableau suivant présente les détails des deux signaux disponibles.
 
 |Nom du signal|Dimensions|Description|
 |---|---|---|
-|**Nombre total d’exécutions de déploiement de mises à jour**|- Nom du déploiement de mises à jour</br>- Statut|Ce signal sert à générer des alertes concernant le statut global d’un déploiement de mises à jour.|
-|**Nombre total d’exécutions de déploiement de mises à jour d’ordinateurs**|- Nom du déploiement de mises à jour</br>- Statut</br>- Ordinateur cible</br>- ID d’exécution du déploiement des mises à jour|Ce signal sert à générer des alertes concernant le statut d’un déploiement de mises à jour ciblant des ordinateurs spécifiques|
+|`Total Update Deployment Runs`|- Nom du déploiement de mises à jour<br>- Statut|Ce signal génère des alertes concernant le statut global d’un déploiement de mises à jour.|
+|`Total Update Deployment Machine Runs`|- Nom du déploiement de mises à jour</br>- Statut</br>- Ordinateur cible</br>- ID d’exécution du déploiement des mises à jour|Ce signal génère des alertes concernant le statut d’un déploiement de mises à jour ciblant des machines spécifiques.|
 
-Pour les valeurs de dimension, sélectionnez une valeur valide dans la liste. Si la valeur que vous recherchez ne figure pas dans la liste, cliquez sur le signe **\+** à côté de la dimension et tapez le nom personnalisé. Vous pouvez ensuite sélectionner la valeur que vous souhaitez rechercher. Si vous souhaitez sélectionner toutes les valeurs d’une dimension, cliquez sur le bouton **Sélectionner \*** . Si vous ne choisissez pas une valeur pour une dimension, celle-ci sera ignorée lors de l’évaluation.
+Pour une dimension, sélectionnez une valeur valide dans la liste. Si la valeur souhaitée ne figure pas dans la liste, cliquez sur le signe **\+** à côté de la dimension et tapez le nom personnalisé. Sélectionnez ensuite la valeur à rechercher. Si vous voulez sélectionner toutes les valeurs d’une dimension, cliquez sur le bouton **Sélectionner \*** . Si vous ne choisissez aucune valeur de dimension, Update Management ignore cette dimension.
 
 ![Configurer la logique du signal](./media/automation-tutorial-update-management/signal-logic.png)
 
@@ -107,17 +79,17 @@ Sous **2. Définissez les détails de l’alerte**, entrez un nom et une descrip
 
 ![Configurer la logique du signal](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Sous **Groupes d’action**, sélectionnez **Créer**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/platform/action-groups.md).
+Sous **Groupes d’action**, sélectionnez **Créer**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/platform/action-groups.md).
 
-Dans la zone **Nom du groupe d’actions** , entrez un nom pour l’alerte et un nom court. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
+Dans le champ **Nom du groupe d’actions**, entrez un nom pour l’alerte et un nom court. Update Management utilise le nom abrégé à la place d’un nom complet de groupe d’actions lors de l’envoi de notifications pour le groupe spécifié.
 
-Sous **Actions**, entrez un nom pour l’action, tel que **Notifications par e-mail**. Sous **TYPE D’ACTION**, sélectionnez **E-mail/SMS/Push/Voix**. Sous **DÉTAILS**, sélectionnez **Modifier les détails**.
+Sous **Actions**, entrez un nom pour l’action, par exemple **Notification par e-mail**. Comme **Type d’action**, sélectionnez **E-mail/SMS/Push/Voix**. Pour **Détails**, sélectionnez **Modifier les détails**.
 
 Dans le volet **E-mail/SMS/Push/Voix**, entrez un nom. Sélectionnez la case à cocher **E-mail**, puis entrez une adresse e-mail valide.
 
 ![Configurer l’e-mail du groupe d’actions](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-Dans le volet **E-mail/SMS/Push/Voix**, sélectionnez **OK**. Dans le volet **Ajouter un groupe d’actions**, sélectionnez **OK**.
+Dans le volet **E-mail/SMS/Push/Voix**, cliquez sur **OK**. Dans le volet **Ajouter un groupe d’actions**, cliquez sur **OK**.
 
 Pour personnaliser l’objet de l’e-mail d’alerte, sous **Créer une règle**, sous **Personnaliser les actions**, sélectionnez **Objet de l’e-mail**. Lorsque vous avez terminé, cliquez sur **Créer une règle d’alerte**. L’alerte vous avertit quand un déploiement de mises à jour s’est correctement déroulé et précise quelles machines en ont bénéficié.
 
@@ -126,8 +98,7 @@ Pour personnaliser l’objet de l’e-mail d’alerte, sous **Créer une règle*
 Ensuite, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions pour installer les mises à jour. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
 >[!NOTE]
->Quand vous planifiez un déploiement de mises à jour, cela entraîne la création d’une ressource de [planification](shared-resources/schedules.md) liée au runbook **Patch-MicrosoftOMSComputers**, qui gère le déploiement des mises à jour sur les machines cibles. Si vous supprimez la ressource de planification du portail Azure, ou si vous utilisez PowerShell après la création du déploiement, le déploiement de mises à jour planifié est interrompu. De plus, une erreur est générée quand vous essayez de le reconfigurer à partir du portail. Vous ne pouvez supprimer la ressource de planification qu’en supprimant la planification de déploiement correspondante.  
->
+>La planification d’un déploiement de mises à jour entraîne la création d’une ressource de [planification](shared-resources/schedules.md) liée au runbook **Patch-MicrosoftOMSComputers**, qui gère le déploiement des mises à jour sur les machines cibles. Si vous supprimez la ressource de planification dans le Portail Azure ou si vous utilisez PowerShell après la création du déploiement, l’opération de suppression arrête le déploiement de mises à jour planifié. De plus, une erreur est générée quand vous essayez de reconfigurer la ressource de planification à partir du Portail. Vous ne pouvez supprimer la ressource de planification qu’en supprimant la planification de déploiement correspondante.  
 
 Pour planifier un nouveau déploiement de mises à jour pour la machine virtuelle, accédez à **Gestion des mises à jour**, puis cliquez sur **Planifier le déploiement de la mise à jour**.
 
@@ -137,25 +108,25 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Système d’exploitation** : sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
-* **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management-groups.md)
+* **Groupes à mettre à jour (préversion)**  : Définissez une requête qui combine un abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management-groups.md).
 
-* **Machines à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
+* **Machines à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez **Machines** dans la liste déroulante et sélectionnez des machines individuelles. Si vous choisissez **Machines**, l’état de préparation de chaque machine est indiqué dans la colonne **Préparation de la mise à jour de l’agent**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
-* **Classification des mises à jour** : Sélectionnez les classifications de mise à jour prises en charge disponibles pour chaque produit qui peut être inclus dans le déploiement des mises à jour. Pour ce didacticiel, conservez tous les types sélectionnés.
+* **Classification des mises à jour** : Pour chaque produit, désélectionnez toutes les classifications de mises à jour prises en charge, à l’exception de celles que vous souhaitez inclure dans votre déploiement de mises à jour. Pour ce tutoriel, laissez tous les types sélectionnés pour tous les produits.
 
   Les types de classification sont les suivants :
 
    |Système d''exploitation  |Type  |
    |---------|---------|
-   |Windows     | Mises à jour critiques</br>Mises à jour de sécurité</br>Correctifs cumulatifs</br>Packs de fonctionnalités</br>Service Packs</br>Mises à jour de définitions</br>Outils</br>Mises à jour        |
+   |Windows     | Mises à jour critiques</br>Mises à jour de sécurité</br>Correctifs cumulatifs</br>Packs de fonctionnalités</br>Service Packs</br>Mises à jour de définitions</br>Outils</br>Mises à jour<br>Pilote        |
    |Linux     | Mises à jour critiques et de sécurité</br>Autres mises à jour       |
 
-   Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-view-update-assessments.md#update-classifications).
+   Pour les descriptions des types de classifications, consultez [Classifications des mises à jour](automation-view-update-assessments.md#update-classifications).
 
-* **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts.
+* **Mises à jour à inclure/exclure** : ouvre la page Inclure/Exclure. Les mises à jour à inclure ou à exclure sont présentées dans des onglets séparés en fonction des numéros d’identification des articles de la Base de connaissances que vous spécifiez. Quand vous indiquez un ou plusieurs numéros d’identification, vous devez supprimer ou décocher toutes les classifications pour le déploiement de mises à jour. Cela garantit qu’aucune autre mise à jour n’est incluse dans votre package de mises à jour lors de la spécification des ID de mises à jour.
 
 > [!NOTE]
-> Il est important de se souvenir que les exclusions sont prioritaires sur les inclusions. Par exemple, si vous définissez une règle d’exclusion de `*`, aucun correctif ou package n’est installé puisque cette règle les exclut tous. Les correctifs exclus sont toujours affichés comme étant manquants sur l’ordinateur. Sur les machines Linux, si un package est inclus, mais qu’il a un package dépendant exclu, le package n’est pas installé.
+> Il est important de se souvenir que les exclusions sont prioritaires sur les inclusions. Par exemple, si vous définissez une règle d’exclusion de `*`, Update Management n’installe aucuns correctifs ou packages puisque cette règle les exclut tous. Les correctifs exclus sont toujours affichés comme étant manquants sur l’ordinateur. Sur les machines Linux, si vous incluez un package qui a un package dépendant ayant été exclu, Update Management n’installe pas le package principal.
 
 > [!NOTE]
 > Vous ne pouvez pas spécifier des mises à jour qui ont été remplacées pour être incluses dans le déploiement des mises à jour.
@@ -163,13 +134,13 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Paramètres de planification** : le volet **Paramètres de planification** s’affiche. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
 
-   Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Sous **Récurrence**, sélectionnez **Une fois**. Laissez la valeur par défaut sur 1 jour et sélectionnez **OK**. Cela configure une planification récurrente.
+   Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Sous **Récurrence**, sélectionnez **Une fois**. Conservez la valeur par défaut de 1 jour et cliquez sur **OK**. Ces entrées configurent une planification périodique.
 
 * **Préscripts + postscripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
 
-* **Fenêtre de maintenance (minutes)**  : Conservez la valeur par défaut. Les fenêtres de maintenance contrôlent la période pendant laquelle les mises à jour doivent être installées. Tenez compte des détails suivants au moment de spécifier une fenêtre de maintenance.
+* **Fenêtre de maintenance (minutes)**  : Conservez la valeur par défaut. Les fenêtres de maintenance contrôlent la période pendant laquelle les mises à jour doivent être installées. Tenez compte des détails suivants au moment de spécifier une fenêtre de maintenance :
 
-  * Les fenêtres de maintenance contrôlent le nombre de tentatives d’installation des mises à jour.
+  * Les fenêtres de maintenance contrôlent le nombre de mises à jour installées.
   * Update Management n’arrête pas l’installation de nouvelles mises à jour si la fin d’une fenêtre de maintenance est proche.
   * Update Management ne met pas fin aux mises à jour en cours si la fenêtre de maintenance est dépassée.
   * Le dépassement de la fenêtre de maintenance sur Windows est souvent le signe que l’installation d’une mise à jour de Service Pack prend beaucoup de temps.
@@ -177,49 +148,49 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
   > [!NOTE]
   > Pour éviter que les mises à jour soient appliquées en dehors d’une fenêtre de maintenance sur Ubuntu, reconfigurez le package Unattended-Upgrade pour désactiver les mises à jour automatiques. Pour plus d’informations sur la configuration du package, consultez la rubrique [Mises à jour automatiques du Guide du serveur Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-* **Options de redémarrage** : ce paramètre détermine comment les redémarrages doivent être traités. Options disponibles :
-  * Redémarrer si nécessaire (par défaut)
+* **Options de redémarrage** : permettent de spécifier les options de gestion des redémarrages. Les options suivantes sont disponibles :
+  * Redémarrer si nécessaire (option par défaut)
   * Toujours redémarrer
   * Ne jamais redémarrer
-  * Redémarrer uniquement : les mises à jour ne sont pas installées
+  * Redémarrer uniquement : n’installe pas les mises à jour
 
 > [!NOTE]
-> Les clés de Registre répertoriées sous [Clés de Registre utilisées pour gérer le redémarrage](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) peuvent entraîner un événement de redémarrage même si l’option **Contrôle de redémarrage** est définie sur **Ne jamais redémarrer**.
+> Les clés de Registre listées sous [Clés de Registre utilisées pour gérer le redémarrage](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) peuvent provoquer un événement de redémarrage même si **Options de redémarrage** est défini sur **Ne jamais redémarrer**.
 
-Lorsque vous avez terminé de configurer la planification, sélectionnez **Créer**.
+Quand vous avez terminé de configurer la planification, cliquez sur **Créer**.
 
 ![Volet Paramètres de planification des mises à jour](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Vous revenez au tableau de bord d’état. Sélectionnez **Déploiements des mises à jour planifiés** pour afficher la planification de déploiement que vous avez créée.
+Vous revenez au tableau de bord d’état. Sélectionnez **Déploiements des mises à jour planifiés** pour afficher la planification de déploiement que vous venez de créer.
 
 > [!NOTE]
-> Update Management prend en charge le déploiement des mises à jour principales et le téléchargement préalable des correctifs. Cela nécessite des modifications sur les systèmes en cours de correction, consultez [first party and pre-download support](automation-configure-windows-update.md) (prise en charge principale et téléchargement préalable) pour apprendre à configurer ces paramètres sur vos systèmes.
+> Update Management prend en charge le déploiement des mises à jour internes et le pré-téléchargement des correctifs. Cette prise en charge nécessite la modification de certains paramètres sur les systèmes corrigés. Pour savoir comment configurer ces paramètres sur vos systèmes, consultez les [informations de support sur les mises à jour internes et les pré-téléchargements](automation-configure-windows-update.md).
 
-Vous pouvez également créer des **déploiements de mises à jour** par programmation. Pour savoir comment créer un **déploiement de mises à jour** avec l’API REST, consultez [Configurations des mises à jour logicielles - Créer](/rest/api/automation/softwareupdateconfigurations/create). Vous pouvez également utiliser un exemple de runbook fourni pour créer un **déploiement de mises à jour** hebdomadaires. Pour en savoir plus sur ce runbook, consultez [Créer un déploiement de mises à jour hebdomadaires pour une ou plusieurs machines virtuelles dans un groupe de ressources](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+Vous pouvez également créer des déploiements de mises à jour par programmation. Pour savoir comment créer un déploiement de mises à jour avec l’API REST, consultez [Configurations des mises à jour logicielles - Créer](/rest/api/automation/softwareupdateconfigurations/create). Vous pouvez également utiliser un exemple de runbook fourni pour créer un déploiement de mises à jour hebdomadaires. Pour en savoir plus sur ce runbook, consultez [Créer un déploiement de mises à jour hebdomadaires pour une ou plusieurs machines virtuelles dans un groupe de ressources](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-results-of-an-update-deployment"></a>Afficher les résultats d’un déploiement de mises à jour
 
-Une fois que le déploiement planifié démarre, vous pouvez voir l’état de ce déploiement sous l’onglet **Déploiements des mises à jour** sous **Gestion des mises à jour**. Si le déploiement est en cours d’exécution, son état est **En cours**. Une fois le déploiement terminé, s’il a réussi, l’état passe à **Réussi**. En cas d’échec avec une ou plusieurs mises à jour dans le déploiement, l’état est **Échec partiel**.
+Une fois que le déploiement planifié démarre, vous pouvez voir l’état de ce déploiement sous l’onglet **Déploiements des mises à jour** sous **Gestion des mises à jour**. Si le déploiement est en cours d’exécution, son état est **En cours**. Quand le déploiement s’est déroulé correctement, son état passe à **Réussi**. Si une ou plusieurs mises à jour ont échoué pendant le déploiement, l’état passe à **Échec partiel**.
 
-Sélectionnez le déploiement des mises à jour terminé pour voir le tableau de bord dédié à ce déploiement de mises à jour.
+Sélectionnez le déploiement de mises à jour terminé pour voir le tableau de bord associé.
 
 ![Tableau de bord des états de déploiement des mises à jour pour un déploiement spécifique](./media/automation-tutorial-update-management/manageupdates-view-results.png)
 
 Sous **Résultats des mises à jour**, un récapitulatif indique le nombre total de mises à jour et de résultats du déploiement sur la machine virtuelle. Le tableau de droite montre une répartition détaillée de chaque mise à jour et les résultats de l’installation.
 
-La liste suivante présente les valeurs disponibles :
+Les valeurs disponibles sont :
 
 * **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée définie pour la fenêtre de maintenance.
 * **Opération réussie** : la mise à jour a réussi.
 * **Échec** : la mise à jour a échoué.
 
-Pour afficher toutes les entrées de journal d’activité créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
+Pour voir toutes les entrées de journal d’activité créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
 
 Cliquez sur **Sortie** pour voir le flux des tâches du runbook chargé de gérer le déploiement des mises à jour sur la machine virtuelle cible.
 
 Pour afficher les informations détaillées sur les erreurs du déploiement, sélectionnez **Erreurs**.
 
-Une fois que votre déploiement de mises à jour a réussi, un e-mail similaire à l’exemple suivant est envoyé pour en témoigner :
+Une fois que vous avez effectué le déploiement des mises à jour, vous recevez un e-mail de confirmation similaire à ceci :
 
 ![Configurer l’e-mail du groupe d’actions](./media/automation-tutorial-update-management/email-notification.png)
 
@@ -237,5 +208,4 @@ Dans ce didacticiel, vous avez appris à :
 Passez à la vue d’ensemble de la solution de gestion des mises à jour.
 
 > [!div class="nextstepaction"]
-> [Solution de gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
-
+> [Solution de gestion des mises à jour](automation-update-management.md)

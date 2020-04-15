@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77108996"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756703"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Démarrage rapide : Base de connaissances de test avec des questions par lots et les réponses attendues
 
@@ -149,7 +149,7 @@ Aidez-vous du tableau suivant pour savoir comment trouver les valeurs de champs 
     |Charge your Surface Pro 4 (Charger votre Surface Pro 4)|
     |Check the battery level (Vérifiez le niveau de la batterie)|
 
-    Les métadonnées sont définies pour deux séries de questions-réponses.
+    Les métadonnées sont définies pour deux paires de Q/R.
 
     > [!TIP]
     > Pour voir les métadonnées et les ID de questions-réponses de chaque série, exportez la base de connaissances. Sélectionnez la page **Settings** (Paramètres), puis **Export** (Exporter) en tant que fichier `.xls`. Recherchez ce fichier téléchargé et ouvrez-le dans Excel pour examiner les métadonnées et les ID.
@@ -169,7 +169,7 @@ Il existe deux scénarios principaux pour le test par lot :
 
 La procédure suivante suppose que le scénario consiste à traiter les journaux de conversations avec
 
-1. Créez un fichier de test par lot pour inclure des données facultatives, `batch-test-data-2.tsv`. Ajoutez les six lignes du fichier d’entrée de test par lot d’origine, puis ajoutez les colonnes medatada, top et QnA set ID pour chaque ligne.
+1. Créez un fichier de test par lot pour inclure des données facultatives, `batch-test-data-2.tsv`. Ajoutez les six lignes du fichier d’entrée de test par lot d’origine, puis ajoutez les colonnes medatada, top et QnA pair ID pour chaque ligne.
 
     Pour simuler le processus automatisé de vérification de texte nouveau dans les journaux de conversations par rapport à la base de connaissances, attribuez aux métadonnées de chaque colonne la même valeur : `topic:power`.
 

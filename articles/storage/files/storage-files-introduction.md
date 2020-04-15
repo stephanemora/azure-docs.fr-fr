@@ -7,20 +7,24 @@ ms.topic: overview
 ms.date: 03/10/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3a7bb7939921bfcc3a870193cb9025a8f3dff72c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: aff6f99c119ba2854fd7923d2a15efb2e1a6b601
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78969133"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666792"
 ---
 # <a name="what-is-azure-files"></a>Qu’est-ce qu’Azure Files ?
 Azure Files offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Les partages de fichiers Azure peuvent être montés simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. En outre, les partages de fichiers Azure peuvent être mis en cache sur les serveurs Windows avec Azure File Sync pour un accès rapide à proximité de l’endroit où les données sont utilisées.
 
 ## <a name="videos"></a>Videos
-| Présentation d’Azure File Sync (2 min) | Azure Files et Sync (Ignite 2017) (85 min)  |
+| Présentation d’Azure File Sync | Azure Files et Sync (Ignite 2019)  |
 |-|-|
-| [![Capture vidéo de la présentation d’Azure File Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Capture vidéo de la présentation d’Azure Files et Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
+| [![Capture vidéo de la présentation d’Azure File Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Capture vidéo de la présentation d’Azure Files et Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
+
+Voici quelques vidéos sur les cas d’utilisation courants d’Azure Files :
+* [Remplacer votre serveur de fichiers par un partage de fichiers Azure serverless](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
+* [Bien démarrer avec les conteneurs de profils FSLogix sur Azure Files dans Windows Virtual Desktop en tirant parti de l’authentification AD](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
 ## <a name="why-azure-files-is-useful"></a>Pourquoi Azure Files est-il utile ?
 Les partages de fichiers Azure peuvent être utilisés pour :

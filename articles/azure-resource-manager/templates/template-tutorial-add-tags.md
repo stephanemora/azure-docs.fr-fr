@@ -2,21 +2,21 @@
 title: Tutoriel - Ajouter des étiquettes aux ressources dans un modèle
 description: Ajoutez des étiquettes aux ressources que vous déployez dans votre modèle Azure Resource Manager. Les étiquettes vous permettent d’organiser logiquement les ressources.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3e0deb53e57cd29cbfce4c37f2d6c6729f15bebd
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773193"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411703"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutoriel : Ajouter des étiquettes à votre modèle Resource Manager
+# <a name="tutorial-add-tags-in-your-arm-template"></a>Tutoriel : Ajouter des étiquettes dans votre modèle ARM
 
-Dans ce tutoriel, vous apprenez à ajouter des étiquettes aux ressources dans votre modèle. Les [étiquettes](../management/tag-resources.md) vous aident à organiser logiquement vos ressources. Les valeurs des étiquettes apparaissent dans les rapports financiers. Ce tutoriel dure environ **8 minutes**.
+Dans ce tutoriel, vous allez apprendre à ajouter des étiquettes aux ressources dans votre modèle Azure Resource Manager (ARM). Les [étiquettes](../management/tag-resources.md) vous aident à organiser logiquement vos ressources. Les valeurs des étiquettes apparaissent dans les rapports financiers. Ce tutoriel dure environ **8 minutes**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Nous vous recommandons de suivre le [tutoriel sur les modèles de démarrage rapide](template-tutorial-quickstart-template.md), mais il n’est pas obligatoire.
 
@@ -44,7 +44,7 @@ Le moment est venu de déployer le modèle et d’examiner les résultats.
 
 Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable **templateFile** sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -56,10 +56,12 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -67,6 +69,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

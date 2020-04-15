@@ -3,12 +3,12 @@ title: Ressources Azure – QnA Maker
 description: QnA Maker utilise plusieurs sources Azure, dont chacune a un objectif différent. Comprendre comment elles sont utilisées individuellement vous permet de planifier et de sélectionner le niveau tarifaire approprié ou de savoir quand modifier celui-ci. Comprendre comment elles sont utilisées en combinaison vous permet d’épingler et de résoudre des problèmes quand ils se produisent.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 8a5cc0f4889e31470514015035a92d230c40ed43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284243"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873903"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -50,11 +50,21 @@ Le tableau suivant vous donne des indications d’ordre général.
 | Environnement de test/développement   | Référence SKU standard         | Partagé      | De base        | Publier jusqu’à 14 Ko, taille de 2 Go    |
 | Environnement de production | Référence SKU standard         | De base       | standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
 
+## <a name="recommended-settings"></a>Paramètres recommandés
+
+|RPS cible | App Service | Recherche cognitive Azure |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 instance   | S1, 1 instance    |
+| 50         | S3, 10 instances       | S1, 12 instances         |
+| 80         | S3, 10 instances      |  S3, 12 instances  |
+| 100         | P3V2, 10 instances  | S3, 12 instances, 3 partitions   |
+| 200 à 250         | P3V2, 20 instances | S3, 12 instances, 3 partitions    |
+
 ## <a name="when-to-change-a-pricing-tier"></a>Quand modifier un niveau tarifaire
 
 |Mettre à niveau|Motif|
 |--|--|
-|[Mise à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) de la référence SKU de gestion de QnA Maker|Vous souhaitez avoir plus d’ensembles de questions-réponses ou sources de documents dans votre base de connaissances.|
+|[Mise à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) de la référence SKU de gestion de QnA Maker|Vous souhaitez avoir plus de paires de questions-réponses ou sources de documents dans votre base de connaissances.|
 |[Mettre à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) la référence SKU App Service et vérifier le niveau de la Recherche cognitive et [créer des réplicas de Recherche cognitive](../../../search/search-capacity-planning.md)|Votre base de connaissances doit traiter plus de demandes de votre application cliente, comme un bot de conversation.|
 |[Mettre à niveau](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) le service Recherche cognitive Azure|Vous envisagez de disposer de nombreuses bases de connaissances.|
 
@@ -95,8 +105,8 @@ Chaque ressource Azure créée avec QnA Maker a un objectif spécifique :
 
 La ressource [Recherche cognitive](../../../search/index.yml) est utilisée pour :
 
-* stocker les ensembles de questions-réponses ;
-* fournir le classement initial (ranker #1) des ensembles de questions-réponses lors du runtime.
+* Stocker les paires de questions-réponses
+* fournir le classement initial (ranker #1) des paires de questions-réponses lors du runtime
 
 #### <a name="index-usage"></a>Utilisation de l’index
 
@@ -110,7 +120,7 @@ La première base de connaissances créée dans la ressource QnA Maker est utili
 
 ### <a name="qna-maker-resource"></a>Ressource QnA Maker
 
-La ressource QnA Maker donne accès aux API de création et de publication, ainsi qu’à la deuxième couche de classement (ranker #2) basé sur le traitement en langage naturel des ensembles de questions-réponses au moment de l’exécution.
+La ressource QnA Maker donne accès aux API de création et de publication, ainsi qu’à la deuxième couche de classement (ranker #2) basé sur le traitement en langage naturel des paires de questions-réponses au moment de l’exécution.
 
 Le deuxième classement applique des filtres intelligents qui peuvent inclure des métadonnées et des invites de suivi.
 

@@ -1,28 +1,23 @@
 ---
-title: Changements importants dans Azure Active Directory | Microsoft Docs
+title: Changements importants dans Azure Active Directory
 description: Découvrez les modifications apportées aux protocoles Azure AD, qui peuvent avoir un impact sur votre application.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 3/13/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c6ed72e5c94191411572c6ab67533141e2fe47d6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 52ede7d66bd657b5002272e34673b4b01c9ab1aa
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185819"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883455"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ? 
 
@@ -41,6 +36,28 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 ## <a name="upcoming-changes"></a>Changements à venir
 
 Aucun n’est planifié pour l’instant.  Pour connaître les changements qui sont en production ou qui vont y être, consultez les changements ci-dessous. 
+
+## <a name="march-2020"></a>Mars 2020 
+
+### <a name="user-passwords-will-be-restricted-to-256-characters"></a>Les mots de passe utilisateur sont limités à 256 caractères.
+
+**Date d’effet** : 13 mars 2020
+
+**Points de terminaison impactés** : V1.0 et v2.0
+
+**Protocole impacté** : Tous les flux d’utilisateur. 
+
+Les utilisateurs dont le mot de passe comprend plus de 256 caractères et qui se connectent directement à Azure AD (par opposition à un fournisseur d’identité fédéré comme ADFS) ne pourront plus se connecter à partir du 13 mars 2020, et seront invités à réinitialiser leur mot de passe.  Les administrateurs peuvent recevoir des demandes d’aide concernant la réinitialisation des mots de passe utilisateur. 
+
+L’erreur qui s’affiche dans les journaux de connexion est la suivante : AADSTS 50052: InvalidPasswordExceedsMaxLength
+
+Message : `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+
+Correction :
+
+L’utilisateur ne peut pas se connecter, car son mot de passe dépasse la longueur maximale autorisée. Il doit contacter son administrateur pour réinitialiser son mot de passe. Si le SSPR est activé pour son locataire, il peut réinitialiser son mot de passe en suivant le lien « Mot de passe oublié ? ».
+
+
 
 ## <a name="february-2020"></a>Février 2020 
 
@@ -104,7 +121,7 @@ Si l’application de la passerelle Contoso était une application mutualisée, 
 
 **Protocole impacté** : Tous les flux
 
-Selon la norme [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), les applications Azure AD peuvent désormais inscrire et utiliser des URI de redirection (réponse) avec des paramètres de requêtes statiques (par exemple, https://contoso.com/oauth2?idp=microsoft) pour les requêtes OAuth 2.0).  Les URI de redirection dynamiques sont toujours interdites, car elles représentent un risque pour la sécurité, et cela ne peut pas être utilisé pour conserver les informations d’état sur une demande d’authentification. Pour cela, utilisez le paramètre `state`.
+Selon la norme [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), les applications Azure AD peuvent désormais inscrire et utiliser des URI de redirection (de réponse) avec des paramètres de requêtes statiques (par exemple, `https://contoso.com/oauth2?idp=microsoft`) pour les requêtes OAuth 2.0.  Les URI de redirection dynamiques sont toujours interdites, car elles représentent un risque pour la sécurité, et cela ne peut pas être utilisé pour conserver les informations d’état sur une demande d’authentification. Pour cela, utilisez le paramètre `state`.
 
 Le paramètre de requête statique est soumis à la correspondance de chaînes pour les URI de redirection comme toute autre partie de l’URI de redirection. Si aucune chaîne n’est inscrite correspondant à la valeur redirect_uri décodée par l’URI, la demande est rejetée.  Si l’URI est trouvée dans l’inscription de l’application, la chaîne entière sera utilisée pour rediriger l’utilisateur, y compris le paramètre de requête statique. 
 

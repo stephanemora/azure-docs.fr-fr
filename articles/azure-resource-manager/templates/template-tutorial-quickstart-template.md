@@ -2,15 +2,15 @@
 title: Tutoriel - Utiliser les modèles de démarrage rapide
 description: Découvrez comment utiliser les modèles de démarrage rapide Azure pour effectuer le développement de votre modèle.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1e110bb4711490f53da7628f608f150a2bc3186c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4b82e02ecc009e587b89d1fd151fd13f75a4bcf8
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79368874"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408511"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutoriel : Utiliser les modèles de démarrage rapide Azure
 
@@ -77,6 +77,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+Pour exécuter cette commande de déploiement, vous devez disposer de la [dernière version](/cli/azure/install-azure-cli) d’Azure CLI.
+
 ```azurecli
 az deployment group create \
   --name addwebapp \
@@ -86,6 +88,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

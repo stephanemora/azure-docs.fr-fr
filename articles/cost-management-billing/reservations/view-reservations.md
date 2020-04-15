@@ -5,77 +5,53 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/31/2020
 ms.author: banders
-ms.openlocfilehash: 5c9d9074e4b8d0d9e36417daee4d58c1d9b28b64
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0635c21ee30a40344281f31c8f9aedf9d74a1284
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199243"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633852"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Afficher les réservations Azure dans le portail Azure
+# <a name="view-azure-reservations"></a>Voir les réservations Azure
 
-Selon votre type d’abonnement et vos autorisations, il existe deux manières d’afficher les réservations pour Azure.
+Vous pouvez voir et gérer la réservation achetée dans le portail Azure.   
 
-## <a name="view-purchased-reservations"></a>Afficher les réservations achetées
+## <a name="permissions-to-view-a-reservation"></a>Autorisations pour voir une réservation
 
-Par défaut, lorsque vous achetez une réservation, l’administrateur de compte et vous pouvez afficher la réservation. L’administrateur de compte et vous obtenez automatiquement le rôle de propriétaire sur la réservation et l’ordre de réservation. Pour autoriser d’autres personnes à afficher la réservation, vous devez les ajouter en tant que **propriétaire** ou **lecteur** sur celle-ci.
+Pour voir ou gérer une réservation, vous devez disposer d’une autorisation de lecteur ou de propriétaire. Par défaut, quand vous achetez une réservation, vous et l’administrateur de compte recevez automatiquement le rôle Propriétaire sur la réservation et l’ordre de réservation. Pour autoriser d’autres personnes à afficher la réservation, vous devez les ajouter en tant que **propriétaire** ou **lecteur** sur celle-ci. Le fait d’ajouter une personne à l’abonnement fourni pour la facturation de la réservation n’ajoute pas automatiquement cette personne à la réservation. 
 
 Pour plus d’informations, consultez la rubrique [Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-Pour afficher une réservation en tant que propriétaire ou lecteur, procédez comme suit :
+## <a name="view-reservation-and-utilization-in-azure-portal"></a>Afficher la réservation et l’utilisation dans le portail Azure
+
+Pour afficher une réservation en tant que propriétaire ou que lecteur
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Recherchez **Réservations**.
-    ![Capture d’écran montrant une recherche dans le portail Azure](./media/view-reservations/portal-reservation-search.png)  
-3. La liste répertorie toutes les réservations sur lesquelles vous avez le rôle propriétaire ou lecteur. Chaque réservation affiche le dernier pourcentage d’utilisation connu.  
-    ![Exemple montrant une liste des réservations](./media/view-reservations/view-reservations.png)
-4. Sélectionnez une réservation pour voir la tendance d’utilisation sur les cinq derniers jours.  
-    ![Exemple montrant une tendance d’utilisation de réservation](./media/view-reservations/reservation-utilization.png)
-5. Vous pouvez également obtenir l’[utilisation de la réservation](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) à l’aide de l’API d’utilisation Instance réservée et avec le [pack de contenu Power BI Microsoft Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
+2. Accédez à [Réservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+3. La liste montre toutes les réservations pour lesquelles vous disposez du rôle Propriétaire ou Lecteur. Chaque réservation affiche le dernier pourcentage d’utilisation connu.
+4. Cliquez sur le pourcentage d’utilisation pour voir l’historique et les détails de l’utilisation. Consultez les détails dans la vidéo ci-dessous.
+   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4sYwk] 
 
-Si vous avez besoin de modifier la portée d’une réservation, de la fractionner ou de changer les utilisateurs autorisés à la gérer, consultez la rubrique [Gérer les réservations Azure](manage-reserved-vm-instance.md).
+## <a name="get-reservations-and-utilization-using-apis-powershell-cli"></a>Obtenir des réservations et leur utilisation à l’aide d’API, de PowerShell et de l’interface CLI
 
-## <a name="view-reservation-transactions-for-enterprise-enrollments"></a>Afficher les transactions de réservation pour les inscriptions Entreprise
+Obtenir la liste de toutes les réservations à l’aide des ressources suivantes
+- [API : Ordre de réservation - Liste](/rest/api/reserved-vm-instances/reservationorder/list)
+- [PowerShell : Ordre de réservation - Liste](/powershell/module/azurerm.reservations/get-azurermreservationorder)
+- [CLI : Ordre de réservation - Liste](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
 
- Si vous avez une inscription Entreprise reposant sur un partenaire, affichez les réservations en accédant à **Rapports** dans le portail EA. Pour les autres inscriptions Entreprise, vous pouvez afficher les réservations dans le portail EA et dans le portail Azure. Vous devez être administrateur EA pour afficher les transactions de réservation.
+Vous pouvez également obtenir l’[utilisation des réservations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) à l’aide de l’API d’utilisation d’instances réservées. 
 
-Pour afficher les transactions de réservation dans le portail Azure, procédez comme suit :
+## <a name="see-reservations-and-utilization-in-power-bi"></a>Voir les réservations et leur utilisation dans Power BI
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Recherchez **Gestion des coûts + facturation**.
-
-    ![Capture d’écran montrant la recherche dans le portail Azure](./media/view-reservations/portal-cm-billing-search.png)
-
-1. Sélectionnez **Transactions de réservation**.
-1. Pour filtrer les résultats, sélectionnez **Intervalle de temps**, **Type** ou **Description**.
-1. Sélectionnez **Appliquer**.
-
-    ![Capture d’écran montrant les résultats de transactions de réservation](./media/view-reservations/portal-billing-reservation-transaction-results.png)
-
-Pour obtenir les données à l’aide d’une API, consultez la rubrique [Get Reserved Instance transaction charges for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) (Obtenir les frais de transaction des instances réservées pour les clients Entreprise).
+Les utilisateurs de Power BI ont deux options.
+- Pack de contenu : Les achats de réservation et les données d’utilisation sont disponibles dans le [pack de contenu Power BI Consumption Insights](/power-bi/desktop-connect-azure-cost-management). Créez les rapports souhaités à l’aide de ce pack de contenu. 
+- Application Cost Management : Utilisez l’[application Cost Management](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) pour accéder à des rapports précréés que vous pouvez personnaliser.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
-
-- [Qu’est-ce qu’une réservation Azure ?](save-compute-costs-reservations.md)
-- [Gérer les réservations pour Azure](manage-reserved-vm-instance.md)
-
-Acheter un plan de service :
-
-- [Prépayer une capacité réservée Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-- [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../../sql-database/sql-database-reserved-capacity.md)
-- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-
-Acheter un abonnement logiciel :
-
-- [Prépayer des abonnements logiciels Red Hat dans Réservations Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Prépayer des logiciels SUSE avec des réservations Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Comprendre l’utilisation :
-
+- [Gérer les réservations Azure](manage-reserved-vm-instance.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](understand-reserved-instance-usage-ea.md)
 - [Comprendre l’utilisation d’une réservations pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)

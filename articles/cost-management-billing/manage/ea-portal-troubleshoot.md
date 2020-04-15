@@ -3,16 +3,16 @@ title: Résoudre les problèmes d’accès au portail Azure EA
 description: Cet article décrit certains problèmes courants qui peuvent se produire avec un Contrat Entreprise Azure (EA) dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3bf1c10e28ef9e3e4008968c9dbaef576bccdb5f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ee8363a76db93f0c2bd4734151e3d250de5402fc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411549"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586204"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Résoudre les problèmes d’accès au portail Azure EA
 
@@ -108,11 +108,11 @@ Notez que s’il existe d’autres administrateurs EA sur l’inscription, nous 
 
 ### <a name="my-enrollment-is-showing-in-pending-status-how-do-i-activate-my-enrollment"></a>L’état affiché de mon inscription est En attente. Comment activer mon inscription ?
 
-Les inscriptions sont à l’état En attente si l’administrateur EA initial ne s’est pas connecté à l’inscription auparavant. Si vous êtes l’administrateur EA, connectez-vous au portail Azure EA. Sur la page d’accueil avec tous vos numéros d’inscription, vous ne verrez peut-être pas votre inscription en attente. Décochez la case « actif » dans le coin supérieur droit de votre portail EA. Cette action affiche l’inscription en attente. Cliquez sur l’inscription pour accéder aux informations puis, une fois que vous avez atteint la page Gérer de l’inscription, l’état est mis à jour de En attente à Actif.
+Les inscriptions sont à l’état En attente si l’administrateur EA initial ne s’est pas connecté à l’inscription auparavant. Si vous êtes l’administrateur EA, connectez-vous au portail Azure EA. Sur la page d’accueil avec tous vos numéros d’inscription, vous ne verrez peut-être pas votre inscription en attente. Décochez la case « actif » en haut à droite de votre portail EA. Cette action affiche l’inscription en attente. Cliquez sur l’inscription pour accéder aux informations puis, une fois que vous avez atteint la page Gérer de l’inscription, l’état est mis à jour de En attente à Actif.
 
 ### <a name="why-is-my-account-stuck-in-pending-status"></a>Pourquoi mon compte est-il bloqué à l’état En attente ?
 
-Lorsque de nouveaux propriétaires de compte sont ajoutés pour la première fois à l’inscription, « En attente » apparaît toujours sous l’état. Lors de la réception de l’e-mail de bienvenue et d’activation, l’AO peut se connecter pour activer son compte. La connexion met à jour l’état du compte de « en attente » à « actif ».
+Quand de nouveaux propriétaires de comptes sont ajoutés pour la première fois à l’inscription, « En attente » s’affiche toujours sous l’état. Lors de la réception de l’e-mail de bienvenue et d’activation, l’AO peut se connecter pour activer son compte. La connexion met à jour l’état du compte de « en attente » à « actif ».
 
 ### <a name="i-received-an-error-when-signing-in-to-azure-ea-portal"></a>J’ai reçu une erreur lors de la connexion au portail Azure EA
 
@@ -122,10 +122,10 @@ Plusieurs raisons sont possibles pour un message d’erreur sur le portail Azure
  1. Déterminez si votre accès au portail Azure EA a été ajouté en tant que compte professionnel ou scolaire ou Microsoft Live ID. Si vous utilisez votre compte professionnel, veuillez entrer votre adresse e-mail professionnelle et votre mot de passe professionnel. Si vous utilisez Microsoft Live ID, veuillez entrer votre adresse e-mail Live ID et votre mot de passe Microsoft Live ID. Si vous avez oublié votre mot de passe Microsoft Live ID, réinitialisez-le à [https://account.live.com/password/reset](https://account.live.com/password/reset).
  1. Il est recommandé d’utiliser un navigateur privé pour vous connecter afin qu’aucun cookie ou cache des sessions précédentes/existantes ne soit conservé. Effacez le cache, puis utilisez une fenêtre de mode de navigation privée/incognito pour ouvrir [https://ea.azure.com](https://ea.azure.com).
  1. Si vous obtenez une erreur « Utilisateur non valide » lors de l’utilisation d’un compte Microsoft, cela peut être dû au fait que vous avez plusieurs comptes Microsoft et que celui avec lequel vous tentez de vous connecter n’est pas l’alias principal. Pour vérifier l’alias principal, accédez à account.live.com :
-    - Accédez à « Vos informations » > « Gérer votre adresse e-mail de connexion ou numéro de téléphone ».
+    - Accédez à « Vos informations » > « Gérer votre adresse e-mail de connexion ou numéro de téléphone ».
     - Suivez les invites à l’écran pour vérifier une autre adresse e-mail et obtenir un code pour accéder aux informations sensibles.
     - Entrez le code de sécurité.
-    - Si vous préférez configurer l’authentification en deux étapes ultérieurement, sélectionnez « Configurer ultérieurement ».
+    - Si vous préférez configurer l’authentification en deux étapes ultérieurement, sélectionnez « Configurer ultérieurement ».
     - Vous allez accéder à la page « Gérer vos alias de compte » dans laquelle vous verrez les alias de compte dont vous disposez. Vérifiez que l’alias principal est celui que vous utilisez pour vous connecter au portail Azure EA. Si ce n’est pas le cas, vous pouvez en faire votre alias principal ou utiliser l’alias principal pour le portail Azure EA à la place.
 
 En cas d’échec des étapes de résolution des problèmes ci-dessus, envoyez une requête à [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) en fournissant des informations telles que :
@@ -161,7 +161,7 @@ Si vous avez oublié votre mot de passe professionnel, contactez l’administrat
 
 ### <a name="i-have-a-valid-work-or-school-account-but-i-cant-add-it-to-the-ea-portal"></a>Je dispose d’un compte professionnel ou scolaire valide, mais je ne peux pas l’ajouter au portail EA
 
-Si vous disposez d’un compte professionnel ou scolaire sous un autre locataire, modifiez le niveau d’autorisation dans la page des détails de l’inscription en « compte professionnel ou scolaire inter-client », et vous pourrez ajouter le compte.
+Si vous disposez d’un compte professionnel ou scolaire sous un autre locataire, définissez « compte professionnel ou scolaire inter-locataire » comme niveau d’autorisation dans la page des détails de l’inscription. Vous pourrez alors ajouter le compte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

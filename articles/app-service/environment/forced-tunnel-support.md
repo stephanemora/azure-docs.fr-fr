@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3e0c56ed669ecda5a130dcf9df103bc8a19faf06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057426"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983908"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
@@ -60,7 +60,7 @@ Vous pouvez configurer votre sous-réseau ASE de manière à ignorer les itinér
 Pour configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP :
 
 * créez un UDR et affectez-le à votre sous-réseau ASE si vous n’en n’avez pas encore.
-* Dans le portail Azure, ouvrez l’interface utilisateur pour la table de routage affectée à votre sous-réseau ASE.  Sélectionnez une configuration.  Désactivez la propagation des itinéraires BGP.  Cliquez sur Enregistrer. La documentation sur la désactivation se trouve dans le document [Créer une table de routage][routetable].
+* Dans le portail Azure, ouvrez l’interface utilisateur pour la table de routage affectée à votre sous-réseau ASE.  Sélectionnez une configuration.  Définissez la Propagation de la route de la passerelle de réseau virtuel sur Désactivée.  Cliquez sur Enregistrer. La documentation sur la désactivation se trouve dans le document [Créer une table de routage][routetable].
 
 Une fois que vous avez configuré le sous-réseau ASE de façon à ignorer toutes les routes BGP, vos applications ne peuvent plus accéder aux ressources locales. Pour permettre aux applications d’accéder aux ressources locales, modifiez l’UDR affecté à votre sous-réseau ASE, puis ajoutez des routes pour vos plages d’adresses locales. Le type de tronçon suivant doit être défini sur Passerelle de réseau virtuel. 
 

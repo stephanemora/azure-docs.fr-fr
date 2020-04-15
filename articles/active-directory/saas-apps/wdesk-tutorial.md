@@ -12,14 +12,14 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: a4cfcf20fc7a6a3532f65c3e797da6c876844d2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 349a9920adc0d9353ee8e8e821f54bc2ea2f2616
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76985507"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Wdesk
 
@@ -181,6 +181,10 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
+1. Sous **SAML User ID Settings** (Paramètres d’ID utilisateur SAML), cochez **SAML User ID is Wdesk Username** (L’ID utilisateur SAML est le nom d’utilisateur Wdesk).
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/wdesk-username.png)
+
 4. Dans **Paramètres généraux**, cochez l’option **Activer l’authentification unique SAML** :
 
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
@@ -223,7 +227,7 @@ Pour se connecter à Wdesk, les utilisateurs d’Azure AD doivent être provisi
    
     ![Création d’un utilisateur de test Azure AD](./media/wdesk-tutorial/createuser1.png)  
 
-5. Dans la zone de texte **Utilisateur**, entrez un nom d’utilisateur, par exemple brittasimon@contoso.com, puis cliquez sur le bouton **Continuer**.
+5. Dans la zone de texte **Utilisateur**, entrez un nom d’utilisateur, par exemple b.simon@contoso.com, puis cliquez sur le bouton **Continuer**.
 
     ![Création d’un utilisateur de test Azure AD](./media/wdesk-tutorial/createuser3.png)
 
@@ -231,9 +235,9 @@ Pour se connecter à Wdesk, les utilisateurs d’Azure AD doivent être provisi
   
     ![Création d’un utilisateur de test Azure AD](./media/wdesk-tutorial/createuser4.png)
  
-    a. Dans la zone de texte **E-mail**, entrez une adresse e-mail d’utilisateur, par exemple brittasimon@contoso.com.
+    a. Dans la zone de texte **E-mail**, entrez une adresse e-mail d’utilisateur, par exemple b.simon@contoso.com.
 
-    b. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
+    b. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **B**.
 
     c. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 

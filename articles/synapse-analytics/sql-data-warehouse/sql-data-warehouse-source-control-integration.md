@@ -10,22 +10,22 @@ ms.subservice: ''
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9898addfa840752e27de8716d2185e767aac809b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0ffa33811957af95fc10396ffecef0b3de7959fe
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350088"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633016"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Intégration du contrôle de code source pour le pool SQL
 
-Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQL Server Data Tools) au contrôle de code source.  L’intégration du contrôle de code source est la première étape de la génération de votre pipeline d’intégration et de déploiement continus avec la ressource de pool SQL dans Azure Synapse Analytics. 
+Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQL Server Data Tools) au contrôle de code source.  L’intégration du contrôle de code source est la première étape de la génération de votre pipeline d’intégration et de déploiement continus avec la ressource de pool SQL dans Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 - Inscrivez-vous pour créer une [organisation Azure DevOps](https://azure.microsoft.com/services/devops/).
-- Parcourez le tutoriel [Créer et connecter](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal).
--  [Installez Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/). 
+- Parcourez le tutoriel [Créer et connecter](create-data-warehouse-portal.md).
+- [Installez Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/).
 
 ## <a name="set-up-and-connect-to-azure-devops"></a>Configurer Azure DevOps et s’y connecter
 
@@ -53,7 +53,7 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 
    ![Importer un projet](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importer un projet")  
 
-3. Dans Team Explorer dans Visual Studio, validez tous les changements apportés à votre dépôt Git local. 
+3. Dans Team Explorer dans Visual Studio, validez tous les changements apportés à votre dépôt Git local.
 
    ![Commiter](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 

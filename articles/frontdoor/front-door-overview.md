@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: 0ee35f4f0b4bd8c46a0445e2905ae3b50d11f721
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471643"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879120"
 ---
 # <a name="what-is-azure-front-door"></a>Qu’est-ce qu’Azure Front Door ?
 Azure Front Door vous permet de définir, gérer et superviser le routage global de votre trafic web en privilégiant l’optimisation des performances et le basculement instantané global à des fins de haute disponibilité. Avec Front Door, vous pouvez transformer vos applications globales (multirégion) d’entreprise et grand public en applications, API et contenus qui seront modernes, personnalisés, robustes et hautes performances pour toucher une audience mondiale avec Azure.
@@ -51,12 +51,12 @@ De même, vous pouvez avoir deux domaines différents, `www.contoso.com` et `www
 ## <a name="session-affinity"></a>Affinité de session
 La fonctionnalité d’affinité de session basée sur les cookies est utile quand vous souhaitez conserver une session utilisateur sur le même backend d’application. Grâce aux cookies gérés par Front Door, le trafic suivant en provenance d’une session utilisateur est dirigé vers le même backend d’application pour traitement. Cette fonctionnalité est importante quand l’état de la session est enregistré localement sur le backend pour une session utilisateur.
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Terminaison SSL (Secure Sockets Layer)
-Front Door prend en charge la terminaison SSL au niveau de la périphérie. Les utilisateurs individuels peuvent ainsi configurer une connexion SSL avec des environnements Front Door au lieu de l’établir sur des connexions longue distance avec le backend d’application. Front Door prend également en charge la connectivité HTTP et HTTPS entre les environnements Front Door et vos backends. Vous pouvez donc configurer le chiffrement SSL de bout en bout. Prenons un exemple de charge de travail d’application où Front Door reçoit plus de 5 000 demandes par minute. En raison de la réutilisation des connexions à chaud pour les services actifs, Front Door n’établit peut-être que 500 connexions à votre backend d’application. La charge sur vos backends est donc considérablement réduite.
+## <a name="tls-termination"></a>Arrêt TLS
+Front Door prend en charge la terminaison TLS au niveau de la périphérie. Les utilisateurs individuels peuvent ainsi configurer une connexion TLS avec des environnements Front Door au lieu de l’établir sur des connexions longue distance avec le back-end d’application. Front Door prend également en charge la connectivité HTTP et HTTPS entre les environnements Front Door et vos backends. Vous pouvez donc configurer le chiffrement TLS de bout en bout. Prenons un exemple de charge de travail d’application où Front Door reçoit plus de 5 000 demandes par minute. En raison de la réutilisation des connexions à chaud pour les services actifs, Front Door n’établit peut-être que 500 connexions à votre backend d’application. La charge sur vos backends est donc considérablement réduite.
 
 ## <a name="custom-domains-and-certificate-management"></a>Domaines personnalisés et gestion des certificats
 Quand vous utilisez Front Door pour distribuer du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL de Front Door. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation.
-Front Door prend également en charge HTTPS pour les noms de domaine personnalisé. Pour utiliser cette fonctionnalité, choisissez des certificats gérés par Front Door pour votre trafic ou chargez votre propre certificat SSL personnalisé.
+Front Door prend également en charge HTTPS pour les noms de domaine personnalisé. Pour utiliser cette fonctionnalité, choisissez des certificats managés par Front Door pour votre trafic ou chargez votre propre certificat TLS/SSL personnalisé.
 
 ## <a name="application-layer-security"></a>Sécurité de la couche Application
 Azure Front Door permet de créer des règles de pare-feu d’applications web (WAF) personnalisées pour le contrôle d’accès afin de protéger une charge de travail HTTP/HTTPS de l’exploitation basée sur les adresses IP des clients, le code du pays et les paramètres HTTP. Front Door vous permet également de créer des règles de limitation du débit pour lutter contre le trafic de bots malveillants. Pour plus d’informations sur le pare-feu d’applications web, voir [Présentation du pare-feu d’applications web Azure](../web-application-firewall/overview.md).

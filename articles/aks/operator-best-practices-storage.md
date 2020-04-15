@@ -1,15 +1,16 @@
 ---
-title: Meilleures pratiques de l’opérateur - Stockage dans Azure Kubernetes Service (AKS)
+title: Meilleures pratiques relatives au stockage et aux sauvegardes
+titleSuffix: Azure Kubernetes Service
 description: Découvrir les meilleures pratiques relatives au stockage, au chiffrement des données et aux sauvegardes dans Azure Kubernetes Service (AKS) pour les opérateurs de clusters
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399473"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877896"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)
 
@@ -39,7 +40,7 @@ Le tableau suivant présente les types de stockage disponibles et leurs fonction
 
 Les deux principaux types de stockage fournis pour les volumes dans AKS reposent sur des disques Azure ou Azure Files. Pour améliorer la sécurité, ces deux types de stockage utilisent Azure Storage Service Encryption (SSE) par défaut pour chiffrer les données au repos. Les disques ne peuvent actuellement pas être chiffrés à l’aide d’Azure Disk Encryption au niveau des nœuds AKS.
 
-Azure Files est actuellement disponible pour le niveau de performance Standard. Les disques Azure sont disponibles pour les niveaux de performance Standard et Premium :
+Azure Files et les disques Azure sont disponibles pour les niveaux de performance Standard et Premium :
 
 - Les disques *Premium* sont assortis de disques SSD hautes performances. Les disques Premium sont recommandés pour toutes les charges de travail de production.
 - Les disques *Standard* sont assortis de disques rotatifs ordinaires (HDD) et sont adaptés en cas de données d’archivage ou rarement utilisées.

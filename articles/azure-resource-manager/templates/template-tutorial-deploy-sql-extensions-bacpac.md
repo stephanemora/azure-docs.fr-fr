@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239272"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754332"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles ARM
 
-Découvrez comment utiliser les extensions Azure SQL Database pour importer un fichier BACPAC avec des modèles Azure Resource Manager (ARM). Les artefacts de déploiement correspondent à tous les fichiers, en plus des principaux fichiers modèles requis pour effectuer un déploiement. Le fichier BACPAC est un artefact. 
+Découvrez comment utiliser les extensions Azure SQL Database pour importer un fichier BACPAC avec des modèles Azure Resource Manager (ARM). Les artefacts de déploiement correspondent à tous les fichiers, en plus des principaux fichiers modèles requis pour effectuer un déploiement. Le fichier BACPAC est un artefact.
 
 Dans ce tutoriel, vous allez créer un modèle pour déployer un serveur Azure SQL et une base de données SQL et importer un fichier BACPAC. Pour plus d’informations sur la façon de déployer des extensions de machine virtuelle Azure à l’aide de modèles ARM, consultez [Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM](./template-tutorial-deploy-vm-extensions.md).
 
@@ -255,7 +255,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez déployé un serveur SQL et une base de données SQL, et vous avez importé un fichier BACPAC. Le fichier BACPAC est stocké dans un compte Stockage Azure. Toute personne en possession de l'URL peut y accéder. Pour découvrir comment sécuriser le fichier BACPAC (artefact), consultez :
+Dans ce tutoriel, vous avez déployé un serveur SQL et une base de données SQL, et vous avez importé un fichier BACPAC. Pour savoir comment résoudre les problèmes de déploiement de modèle, consultez :
 
 > [!div class="nextstepaction"]
-> [Sécuriser des artefacts](./template-tutorial-secure-artifacts.md)
+> [Résoudre les problèmes des déploiements de modèles ARM](./template-tutorial-troubleshoot.md)

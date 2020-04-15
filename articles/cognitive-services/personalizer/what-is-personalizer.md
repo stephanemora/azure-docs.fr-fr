@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ac6d72cbb69796851e58098138d51bb0988be4ec
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80052062"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520975"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -59,7 +59,7 @@ Personalizer a utilisé l’apprentissage par renforcement pour sélectionner l�
 
 L’[API](https://go.microsoft.com/fwlink/?linkid=2092082) **Rank** de Personalizer est appelée _chaque fois_ que vous présentez du contenu, en temps réel. Il s’agit d’un **événement**, qui est associé à un _ID d’événement_.
 
-L’[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Reward** de Personalizer peut être appelée en temps réel ou retardée pour mieux répondre aux besoins de votre infrastructure. Vous déterminez le score de récompense en fonction des besoins de votre entreprise. Il peut s’agir d’une valeur unique comme 1 pour Bon ou 0 pour Mauvais, ou d’un nombre produit par un algorithme que vous créez en tenant compte de vos objectifs et métriques métier.
+L’[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Reward** de Personalizer peut être appelée en temps réel ou retardée pour mieux répondre aux besoins de votre infrastructure. Vous déterminez le score de récompense en fonction des besoins de votre entreprise. Le score de récompense est compris entre 0 et 1. Il peut s’agir d’une valeur unique comme 1 pour Bon ou 0 pour Mauvais, ou d’un nombre produit par un algorithme que vous créez en tenant compte de vos objectifs et métriques métier.
 
 ## <a name="personalizer-content-requirements"></a>Conditions relatives au contenu Personalizer
 

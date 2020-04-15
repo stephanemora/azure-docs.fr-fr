@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 06/26/2019
-ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,mvc
+ms.date: 04/07/2020
+ms.openlocfilehash: 963f5bd4dfdd9dda78a437bdb1111c9eec2795dc
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494568"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878440"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutoriel : Créer une application de machine learning Apache Spark dans Azure HDInsight
 
-Dans ce tutoriel, vous allez apprendre à utiliser [Jupyter Notebook](https://jupyter.org/) afin de créer une application d’apprentissage automatique [Apache Spark](https://spark.apache.org/) pour Azure HDInsight.
+Dans ce tutoriel, vous allez apprendre à utiliser [Jupyter Notebook](https://jupyter.org/) afin de créer une application d’apprentissage automatique [Apache Spark](./apache-spark-overview.md) pour Azure HDInsight.
 
-[MLib](https://spark.apache.org/docs/latest/ml-guide.html) est une bibliothèque de Machine Learning de Spark constituée d’utilitaires et d’algorithmes d’apprentissage courants, notamment la classification, la régression, le clustering, le filtrage collaboratif, la réduction de dimensionnalité, ainsi que les primitives d’optimisation sous-jacentes.
+[MLlib](https://spark.apache.org/docs/latest/ml-guide.html) est une bibliothèque Machine Learning adaptable de Spark constituée d’utilitaires et d’algorithmes d’apprentissage courants (notamment la classification, la régression, le clustering, le filtrage collaboratif, la réduction de dimensionnalité ainsi que les primitives d’optimisation sous-jacentes).
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
@@ -33,13 +33,13 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="understand-the-data-set"></a>Comprendre le jeu de données
 
-L’application utilise l’exemple de données **HVAC.csv**, qui est disponible par défaut sur tous les clusters. Le fichier se trouve sous `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Les données indiquent la température cible et la température réelle de bâtiments dans lesquels un système HVAC est installé. La colonne **System** représente l’ID système et la colonne **SystemAge** représente le nombre d’années écoulées depuis la mise en place du système HVAC dans le bâtiment. Avec ces données, vous pouvez prédire si un bâtiment sera plus chaud ou plus froid en fonction de la température cible, selon un ID système et l’ancienneté du système.
+L’application utilise l’exemple de données **HVAC.csv**, qui est disponible par défaut sur tous les clusters. Le fichier se trouve sous `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Les données indiquent la température cible et la température réelle de bâtiments dans lesquels un système HVAC est installé. La colonne **System** représente l’ID système et la colonne **SystemAge** représente le nombre d’années écoulées depuis la mise en place du système HVAC dans le bâtiment. Vous pouvez prédire si un bâtiment sera plus chaud ou plus froid en fonction de la température cible, selon un ID système et l’ancienneté du système.
 
 ![Capture instantanée des données utilisées pour l’exemple de Machine Learning Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Capture instantanée des données utilisées pour l’exemple de Machine Learning Spark")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Développer une application de Machine Learning Spark à l’aide de Spark MLlib
 
-Dans cette application, vous utilisez un [pipeline ML](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) Spark pour effectuer une classification de documents. Les pipelines ML fournissent un ensemble d’API de haut niveau basées sur des trames de données qui permettent aux utilisateurs de créer et d’ajuster des pipelines d’apprentissage automatique pratique. Dans le pipeline, vous fractionnez le document en mots, convertissez ces mots en un vecteur de fonctionnalité numérique avant de créer un modèle de prédiction utilisant les étiquettes et vecteurs de fonctionnalité. Procédez comme suit pour créer l’application.
+Cette application utilise un [pipeline Spark ML](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) pour effectuer une classification de documents. Les pipelines ML fournissent un ensemble uniforme d’API générales reposant sur des DataFrames. Les DataFrames permettent aux utilisateurs de créer et d’ajuster des pipelines Machine Learning pratiques. Dans le pipeline, vous fractionnez le document en mots, convertissez ces mots en un vecteur de fonctionnalité numérique avant de créer un modèle de prédiction utilisant les étiquettes et vecteurs de fonctionnalité. Procédez comme suit pour créer l’application.
 
 1. Créez un bloc-notes Jupyter à l’aide du noyau PySpark. Pour obtenir des instructions, consultez [Créer un bloc-notes Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
@@ -143,9 +143,9 @@ Dans cette application, vous utilisez un [pipeline ML](https://spark.apache.org/
 
     ![Capture instantanée des données de sortie pour l’exemple de Machine Learning Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Capture instantanée des données de sortie pour l’exemple de Machine Learning Spark")
 
-    Notez que la température réelle est inférieure à la température cible, suggérant que le bâtiment est froid. De ce fait, dans le résultat, l’**étiquette** de la première ligne a pour valeur **0,0**,, ce qui signifie que le bâtiment n’est pas chaud.
+    Notez que la température réelle est inférieure à la température cible, suggérant que le bâtiment est froid. La valeur de **label** dans la première ligne est **0.0**, ce qui signifie que le bâtiment n’est pas chaud.
 
-1. Préparez un jeu de données sur lequel exécuter le modèle d’apprentissage. Pour ce faire, vous transmettez un ID système et l’ancienneté du système (indiqués par **SystemInfo** dans le résultat de l’apprentissage). Le modèle prédira si le bâtiment ayant cet ID système et cette ancienneté de système sera plus chaud (indiqué par la valeur 1,0) ou plus froid (indiqué par la valeur 0,0).
+1. Préparez un jeu de données sur lequel exécuter le modèle d’apprentissage. Pour ce faire, vous transmettez un ID système et l’ancienneté du système (indiqués par **SystemInfo** dans le résultat de l’entraînement). Le modèle prédit si le bâtiment ayant cet ID système et cette ancienneté de système sera plus chaud (indiqué par la valeur 1.0) ou plus froid (indiqué par la valeur 0.0).
 
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
@@ -180,7 +180,7 @@ Dans cette application, vous utilisez un [pipeline ML](https://spark.apache.org/
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
 
-   Dans la première ligne de la prédiction, vous pouvez voir que pour un système HVAC avec l’ID 20 et une ancienneté de 25 ans, le bâtiment est chaud (**prediction=1.0**). La première valeur de DenseVector (0,49999) correspond à la prédiction 0.0, et la seconde valeur (0,5001) correspond à la prédiction 1.0. Dans le résultat, même si la seconde valeur n’est que légèrement supérieure, le modèle indique **prediction=1,0**.
+   Examinez la première ligne dans la prédiction. Pour un système HVAC avec l’ID 20 et une ancienneté de 25 ans, le bâtiment est chaud (**prediction=1.0**). La première valeur de DenseVector (0,49999) correspond à la prédiction 0.0, et la seconde valeur (0,5001) correspond à la prédiction 1.0. Dans le résultat, même si la seconde valeur n’est que légèrement supérieure, le modèle indique **prediction=1,0**.
 
 1. Arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, sélectionnez **Fermer et arrêter**. Cela a pour effet d’arrêter et de fermer le bloc-notes.
 
@@ -202,7 +202,7 @@ Si vous ne comptez pas continuer à utiliser cette application, effectuez les é
 
 1. Sélectionnez **Supprimer**. Sélectionnez **Oui**.
 
-![Portail Azure - Supprimer un cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Supprimer un cluster HDInsight")
+![Le portail Azure supprime un cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Supprimer un cluster HDInsight")
 
 ## <a name="next-steps"></a>Étapes suivantes
 

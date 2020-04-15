@@ -3,17 +3,17 @@ title: Attribuer une autorisation d’accès aux données Azure Cost Management
 description: Cet article vous explique comment affecter une autorisation aux données Azure Cost Management pour différentes étendues d’accès.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 56090798defd9209c3587aa701c88db6958d1b97
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b3ede4dcc4df8bf10ce24b3d74dc5af0424de5a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065841"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879103"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
@@ -21,9 +21,9 @@ Pour la plupart des utilisateurs disposant d’un Contrat Entreprise Azure, une 
 
 L’étendue sélectionnée par l’utilisateur est utilisée dans Cost Management pour regrouper les données et contrôler l’accès aux informations sur les coûts. Quand les utilisateurs emploient des étendues, ils n’effectuent pas plusieurs sélections. À la place, ils sélectionnent une étendue plus grande qui englobe les étendues enfants, puis appliquent un filtre pour voir ce qui les intéresse. Il est important de bien comprendre le fonctionnement du regroupement des données, car certaines personnes ne doivent pas accéder à l’étendue parente qui englobe les étendues enfants.
 
-Regardez la vidéo servant de [guide pratique pour attribuer l’accès avec Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) pour en savoir plus sur l’attribution d’accès pour voir les frais et les coûts du contrôle d’accès en fonction du rôle Azure.
+Regardez la vidéo servant [Cost Management - Contrôle d’accès](https://www.youtube.com/watch?v=_uQzQ9puPyM) pour en savoir plus sur l’attribution de l’accès permettant de voir les frais et les coûts du contrôle d’accès en fonction du rôle Azure. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
->[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
+>[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
 ## <a name="cost-management-scopes"></a>Étendues de Cost Management
 

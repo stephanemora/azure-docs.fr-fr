@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481532"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475876"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -114,13 +114,13 @@ Ces deux clés, les clés *privées* et *publiques*, permettent de garantir que 
 
 Avant de pouvoir utiliser le certificat numérique créé à l’étape précédente avec votre domaine managé Azure AD DS, exportez le certificat vers un fichier de certificat *.PFX* qui contient la clé privée.
 
-1. Pour ouvrir la boîte de dialogue *Exécuter*, sélectionnez les touches **Windows** et **R**.
+1. Pour ouvrir la boîte de dialogue *Exécuter*, sélectionnez les touches **Windows** + **R**.
 1. Ouvrez la console MMC (Microsoft Management Console) en entrant **mmc** dans la boîte de dialogue *Exécuter*, puis sélectionnez **OK**.
-1. Sur l’invite **Contrôle de compte d’utilisateur**, cliquez sur **Oui** pour démarrer la console MMC en tant qu’administrateur.
-1. Dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable...** .
+1. Sur l’invite **Contrôle de compte d’utilisateur**, cliquez sur **Oui** pour lancer la console MMC en tant qu’administrateur.
+1. Dans le menu **Fichier**, sélectionnez **Ajouter/Supprimer un composant logiciel enfichable**.
 1. Dans l’Assistant **Composant logiciel enfichable Certificats**, choisissez **Compte d’ordinateur**, puis cliquez sur **Suivant**.
 1. Dans la page **Sélectionner un ordinateur**, sélectionnez **Ordinateur local (celui sur lequel s’exécute cette console)** , puis sélectionnez **Terminer**.
-1. Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, cliquez sur **OK** et ajoutez le composant logiciel enfichable Certificats dans la console MMC.
+1. Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, sélectionnez **OK** et ajoutez le composant logiciel enfichable Certificats dans la console MMC.
 1. Dans la fenêtre MMC, développez **Racine de la console**. Sélectionnez **Certificats (ordinateur local)** , puis développez le nœud **Personnel**, puis le nœud **Certificats**.
 
     ![Ouvrir le magasin de certificats personnels dans la console MMC](./media/tutorial-configure-ldaps/open-personal-store.png)
@@ -177,9 +177,6 @@ Le fichier de certificat *.CER* peut désormais être distribué aux ordinateurs
 Avec un certificat numérique créé et exporté incluant la clé privée, et l’ordinateur client défini pour approuver la connexion, activez maintenant le protocole LDAP sécurisé sur votre domaine managé Azure AD DS. Pour activer le protocole LDAP sécurisé sur un domaine managé Azure AD DS, effectuez les étapes de configuration suivantes :
 
 1. Dans le [portail Azure](https://portal.azure.com), entrez *domain services* (services de domaine) dans la zone **Rechercher des ressources**. Sélectionnez **Azure AD Domain Services** dans les résultats de la recherche.
-
-    ![Rechercher et sélectionner votre domaine managé Azure AD DS dans le portail Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
-
 1. Choisissez votre domaine managé, par exemple *aaddscontoso.com*.
 1. Sur le côté gauche de la fenêtre Azure AD DS, choisissez **LDAP sécurisé**.
 1. Par défaut, l’accès LDAP sécurisé à votre domaine managé est désactivé. Basculez **LDAP sécurisé** sur **Activer**.
@@ -235,10 +232,10 @@ Avec l’accès LDAP sécurisé activé via Internet, mettez à jour la zone DNS
 
 Configurez votre fournisseur DNS externe pour créer un enregistrement d’hôte, par exemple *ldaps*, qui doit être résolu en cette adresse IP externe. Pour tester localement d’abord sur votre ordinateur, vous pouvez ’abord créer une entrée dans le fichier hosts de Windows. Pour modifier le fichier hosts sur votre ordinateur local, ouvrez le *Bloc-notes* en tant qu’administrateur , puis ouvrez le fichier *C:\Windows\System32\drivers\etc*
 
-L’exemple d’entrée DNS suivant, avec votre fournisseur DNS externe ou dans le fichier hosts local, résout le trafic pour *ldaps.aaddscontoso.com* avec l’adresse IP externe *40.121.19.239* :
+L’exemple d’entrée DNS suivant, avec votre fournisseur DNS externe ou dans le fichier hosts local, résout le trafic pour *ldaps.aaddscontoso.com* avec l’adresse IP externe *168.62.205.103* :
 
 ```
-40.121.19.239    ldaps.aaddscontoso.com
+168.62.205.103    ldaps.aaddscontoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>Tester les requêtes sur le domaine managé
@@ -261,7 +258,7 @@ Pour voir les objets stockés dans votre domaine managé Azure AD DS :
 1. Sélectionnez l’option de menu **Afficher**, puis choisissez **Arborescence**.
 1. Laissez le champ *BaseDN* vide, puis sélectionnez **OK**.
 1. Choisissez un conteneur, par exemple *Utilisateurs AADDC*, puis cliquez avec le bouton droit sur le conteneur et choisissez **Rechercher**.
-1. Laissez tels quels les champs préremplis, puis sélectionnez **Exécuter**. Les résultats de la requête sont affichés dans la fenêtre de droite.
+1. Laissez tels quels les champs préremplis, puis sélectionnez **Exécuter**. Les résultats de la requête sont affichés dans la fenêtre de droite, comme illustré dans l’exemple de sortie suivant :
 
     ![Rechercher des objets dans votre domaine managé Azure AD DS en utilisant LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
@@ -273,7 +270,7 @@ Si vous avez ajouté une entrée DNS au fichier hosts local de votre ordinateur 
 
 1. Sur votre machine locale, ouvrez le *Bloc-notes* en tant qu’administrateur.
 1. Recherchez et ouvrez le fichier *C:\Windows\System32\drivers\etc*
-1. Supprimez la ligne de l’enregistrement que vous avez ajouté, par exemple `40.121.19.239    ldaps.aaddscontoso.com`
+1. Supprimez la ligne de l’enregistrement que vous avez ajouté, par exemple `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

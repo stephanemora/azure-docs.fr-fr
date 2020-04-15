@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/01/2020
-ms.openlocfilehash: d39cf8745c6f53cb11bb12561fd452325fe52ac6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79296946"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873886"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -20,14 +20,14 @@ ms.locfileid: "79296946"
 
 L’étiquetage de grandes quantités de données est souvent un casse-tête dans les projets de Machine Learning. Les projets qui ont un composant de vision par ordinateur, par exemple la classification d’images ou la détection d’objet, nécessitent généralement des étiquettes pour des milliers d’images.
  
-[Azure Machine Learning](https://ml.azure.com/) vous fournit un emplacement central pour créer, gérer et superviser les projets d’étiquetage. Il vous permet de coordonner les données, les étiquettes et les membres de l’équipe pour gérer efficacement les tâches d’étiquetage. Machine Learning prend en charge la classification d’images (multiétiquette ou multiclasse) ainsi que l’identification d’objets avec des cadres englobants.
+[Azure Machine Learning](https://ml.azure.com/) vous fournit un emplacement central pour créer, gérer et superviser les projets d’étiquetage (préversion publique). Il vous permet de coordonner les données, les étiquettes et les membres de l’équipe pour gérer efficacement les tâches d’étiquetage. Machine Learning prend en charge la classification d’images (multiétiquette ou multiclasse) ainsi que l’identification d’objets avec des cadres englobants.
 
 Machine Learning effectue un suivi de la progression et gère la file d’attente des tâches d’étiquetage incomplètes. Les étiqueteurs n’ont pas besoin d’un compte Azure pour participer. Une fois qu’ils se sont authentifiés à l’aide de votre compte Microsoft ou d’[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), ils peuvent effectuer autant d’étiquetage que le temps le leur permet.
 
 Vous pouvez démarrer et arrêter le projet, ajouter et supprimer des étiqueteurs et des équipes, et superviser la progression de l’étiquetage. Vous pouvez exporter des données étiquetées au format COCO ou en tant que jeu de données Azure Machine Learning.
 
 > [!Important]
-> Seuls les projets d’étiquetage de classification des images et d’identification des objets sont actuellement pris en charge. De plus, les images de données doivent être disponibles dans un magasin de données blob Azure. (Si vous ne disposez pas d’un magasin de données, vous pouvez charger des images pendant la création du projet.) 
+> Seuls les projets d’étiquetage de classification des images et d’identification des objets sont actuellement pris en charge. De plus, les images de données doivent être disponibles dans un magasin de données blob Azure. (Si vous ne disposez pas d’un magasin de données, vous pouvez charger des images pendant la création du projet.)
 
 Dans cet article, vous allez apprendre à :
 
@@ -41,6 +41,7 @@ Dans cet article, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 * Les données à étiqueter, dans des fichiers locaux ou un stockage Blog Azure.
 * L’ensemble d’étiquettes à appliquer.
 * Des instructions pour l’étiquetage.
@@ -51,11 +52,12 @@ Dans cet article, vous allez apprendre à :
 
 Les projets d’étiquetage sont administrés à partir d’Azure Machine Learning. La page **Projets d’étiquetage** vous permet de gérer les projets et les personnes. Une ou plusieurs équipes sont attribuées à un projet, et chaque équipe comprend une ou plusieurs personnes attribuées à celui-ci.
 
-Si vos données se trouvent déjà dans le Stockage Blob Azure, vous devez les rendre disponibles sous la forme d’un magasin de données avant de créer le projet d’étiquetage. Pour plus d’informations, consultez [Créer et inscrire des magasins de données](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores).
+Si vos données se trouvent déjà dans le Stockage Blob Azure, vous devez les rendre disponibles sous la forme d’un magasin de données avant de créer le projet d’étiquetage. Pour obtenir un exemple d’utilisation d’un magasin de données, consultez [Tutoriel : Créer votre premier projet d’étiquetage de classification d’images](tutorial-labeling.md).
 
 Pour créer un projet, sélectionnez **Ajouter un projet**. Donnez-lui un nom approprié, puis sélectionnez **Type de tâche d’étiquetage**.
 
 ![Assistant Création de projet d’étiquetage](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
+
 
 * Choisissez **Classification d’images multiclasses** pour les projets où vous souhaitez appliquer uniquement une *seule classe* d’un ensemble de classes à une image.
 * Choisissez **Classification d’images multiétiquettes** pour les projets où vous souhaitez appliquer *une ou plusieurs* étiquettes d’un ensemble de classes à une image. Par exemple, vous pouvez étiqueter la photo d’un chien avec *dog* (chien) et *daytime* (jour).
@@ -168,9 +170,9 @@ Une fois le projet d’étiquetage initialisé, certains de ses aspects sont non
 
 ## <a name="manage-teams-and-people"></a>Gérer les équipes et les personnes
 
-Par défaut, chaque projet d’étiquetage que vous créez se voit affecter une nouvelle équipe dont vous êtes membre. Toutefois, les équipes peuvent également être partagées entre les projets. Et les projets peuvent avoir plus d’une équipe. Pour créer une équipe, sélectionnez **Ajouter une équipe** dans la page **Équipes**.
+Par défaut, chaque projet d’étiquetage que vous créez se voit affecter une nouvelle équipe dont vous êtes membre. Toutefois, les équipes peuvent également être partagées entre les projets. Et les projets peuvent avoir plus d’une équipe. Pour créer une équipe, sélectionnez **Ajouter une équipe** dans la page **Équipes**. 
 
-Vous gérez les personnes concernées dans la page **Personnes**. Ajoutez et supprimez des personnes à l’aide de leur adresse e-mail. Chaque étiqueteur doit s’authentifier via votre compte Microsoft ou Azure Active Directory, si vous l’utilisez.  
+Vous gérez les personnes dans la page **Étiqueteurs**. Ajoutez et supprimez des personnes à l’aide de leur adresse e-mail. Chaque étiqueteur doit s’authentifier via votre compte Microsoft ou Azure Active Directory, si vous l’utilisez.  
 
 Après avoir ajouté une personne, vous pouvez l’affecter à une ou plusieurs équipes : Accédez à la page **Équipes**, sélectionnez l’équipe, puis sélectionnez **Affecter des personnes** ou **Supprimer des personnes**.
 
@@ -216,5 +218,6 @@ Le fichier COCO est créé dans le magasin d’objets blob par défaut de l’es
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Tutoriel : Créer votre premier projet d’étiquetage de classification d’images](tutorial-labeling.md).
 * Étiqueter des images pour [la classification d’images ou la détection d’objets](how-to-label-images.md)
 * En savoir plus sur [Azure Machine Learning et Machine Learning Studio (classique)](compare-azure-ml-to-studio-classic.md)

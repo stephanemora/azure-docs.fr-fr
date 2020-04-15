@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0f94f4d312cefec80a0f294e256ee1ad908b903c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 59bf06d2b279bad792bdc42a7c3b6acc2bc304b8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74068130"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985709"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Didacticiel : créer et déployer des machines virtuelles hautement disponibles avec Azure PowerShell
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure PowerShell
 
 Dans ce tutoriel, vous allez apprendre à augmenter la disponibilité et la fiabilité de vos machines virtuelles à l’aide de groupes à haute disponibilité. Les groupes à haute disponibilité garantissent que les machines virtuelles que vous déployez sur Azure sont distribuées, sur plusieurs nœuds matériels isolés, dans un cluster. 
 
@@ -113,7 +113,7 @@ Si vous examinez le groupe à haute disponibilité dans le portail en accédant 
 
 ## <a name="check-for-available-vm-sizes"></a>Vérifier les tailles de machines virtuelles disponibles 
 
-Vous pouvez ajouter ultérieurement d’autres machines virtuelles au groupe à haute disponibilité, mais vous devez connaître les tailles des machines virtuelles qui sont disponibles sur le matériel. Utilisez [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) pour lister toutes les tailles disponibles sur le cluster matériel pour le groupe à haute disponibilité.
+Lorsque vous créez une machine virtuelle à l’intérieur d’un groupe à haute disponibilité, vous devez connaître les tailles de machine virtuelle qui sont disponibles sur le matériel. Utilisez la commande [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) afin d’obtenir toutes les tailles disponibles pour les machines virtuelles que vous pouvez déployer dans le groupe à haute disponibilité.
 
 ```azurepowershell-interactive
 Get-AzVMSize `

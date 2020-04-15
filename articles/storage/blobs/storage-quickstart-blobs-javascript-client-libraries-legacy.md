@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061464"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619128"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -90,7 +90,7 @@ Vous trouverez peut-être la série de valeurs après chaque paramètre un peu d
 Maintenant que la SAS est générée, copiez la valeur de retour et enregistrez-la quelque part pour une utilisation dans une prochaine étape. Si vous avez généré votre SAS à l’aide d’une méthode autre que l’interface Azure CLI, vous devrez supprimer le `?` initial, s’il est présent. Ce caractère est un séparateur d’URL qui est déjà fourni dans le modèle d’URL plus loin dans cette rubrique où la SAS est utilisée.
 
 > [!IMPORTANT]
-> En production, transférez toujours les jetons SAP à l’aide de SSL. En outre, les jetons SAP doivent être générés sur le serveur et envoyés à la page HTML afin d’être transférés au stockage Blob Azure. Vous pouvez envisager d’utiliser une fonction sans serveur pour générer des jetons SAP. Le portail Azure inclut des modèles de fonction qui offrent la possibilité de générer une SAP avec une fonction JavaScript.
+> En production, transférez toujours les jetons SAS à l’aide de TLS. En outre, les jetons SAP doivent être générés sur le serveur et envoyés à la page HTML afin d’être transférés au stockage Blob Azure. Vous pouvez envisager d’utiliser une fonction sans serveur pour générer des jetons SAP. Le portail Azure inclut des modèles de fonction qui offrent la possibilité de générer une SAP avec une fonction JavaScript.
 
 ## <a name="implement-the-html-page"></a>Mettre en œuvre la page HTML
 

@@ -4,12 +4,12 @@ description: Découvrez comment déployer un modèle lié
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a09315b0947f41e7602e630460cb3e674a7bf8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 177a994450b6ffe5489a8c95c3b484521fd9b77b
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081798"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672918"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutoriel : Déployer un modèle lié
 
@@ -90,6 +90,9 @@ Write-Host "Press [ENTER] to continue ..."
 Pour déployer un modèle dans un compte de stockage privé, générez un jeton SAP et incluez-le dans l’URI du modèle. Définissez le délai d’expiration de façon à laisser suffisamment de temps pour terminer le déploiement. L’objet blob contenant le modèle n’est accessible qu’au propriétaire du compte. Toutefois, lorsque vous créez un jeton SAP pour l’objet blob, celui-ci est accessible à toute personne ayant cet URI. Si un autre utilisateur intercepte l’URI, il pourra accéder au modèle. Un jeton SAP est un bon moyen de limiter l’accès à vos modèles, mais vous ne devez pas inclure de données sensibles comme des mots de passe directement dans le modèle.
 
 Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](./deployment-tutorial-local-template.md#create-resource-group).
+
+> [!NOTE]
+> Dans le code Azure CLI ci-dessous, le paramètre de date -d ne serait pas un argument valide sur macOS. Sur macOS, les utilisateurs doivent utiliser « -v+2H » à la place pour ajouter deux heures à l’heure actuelle dans le terminal macOS.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368042"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876290"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -64,7 +64,7 @@ Utilisez le tableau ci-dessous pour trouver la solution recommandée permettant 
 | Pas de mécanisme de protection contre les mots de passe faibles | Activez [la réinitialisation du mot de passe en libre-service (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) et [la protection par mot de passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) d’Azure AD |
 | Pas de mécanisme de détection des mots de passe ayant fuité | Activez la [synchronisation du hachage de mot de passe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) pour obtenir des insights |
 | Utilisation d’AD FS et impossibilité de passer à l’authentification managée | Activez le [verrouillage intelligent d’extranet AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) et/ou le [verrouillage intelligent Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) |
-| La stratégie de mot de passe utilise des règles de complexité telles que la longueur, les jeux de caractères multiples ou l’expiration | Reconsidérez-la conformément aux [pratiques recommandées par Microsoft](https://aka.ms/passwordguidance), passez à la gestion des mots de passe et déployez la [Protection par mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
+| La stratégie de mot de passe utilise des règles de complexité telles que la longueur, les jeux de caractères multiples ou l’expiration | Reconsidérez-la conformément aux [pratiques recommandées par Microsoft](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf), passez à la gestion des mots de passe et déployez la [Protection par mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
 | Les utilisateurs ne sont pas inscrits pour l’utilisation de l’authentification multifacteur (MFA) | [Inscrivez toutes les informations de sécurité de l’utilisateur](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) pour qu’elles puissent être utilisées comme un mécanisme permettant de vérifier l’identité de l’utilisateur avec son mot de passe |
 | Il n’y a pas de révocation des mots de passe en fonction du risque de l’utilisateur | Déployez des [stratégies de risque utilisateur d’Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) pour forcer avec SSPR le changement des mots de passe sur les informations d’identification divulguées |
 | Il n’existe pas de mécanisme de verrouillage intelligent pour protéger contre l’authentification malveillante d’acteurs malveillants provenant d’adresses IP identifiées | Déployez l’authentification managée par le cloud avec la synchronisation du hachage de mot de passe ou l’[authentification directe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) |
@@ -101,11 +101,11 @@ Si votre organisation locale ne dispose pas d’une stratégie de résilience en
 
 ![Flux de la synchronisation du hachage de mot de passe](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-Pour mieux comprendre les options d’authentification disponibles, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+Pour mieux comprendre les options d’authentification disponibles, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../hybrid/choose-ad-authn.md).
 
 ### <a name="programmatic-usage-of-credentials"></a>Utilisation par programmation des informations d’identification
 
-Les scripts Azure AD utilisant PowerShell ou les applications utilisant l’API Microsoft Graph nécessitent une authentification sécurisée. Une mauvaise gestion des informations d’identification pour l’exécution de ces scripts et outils augmente le risque de vol des informations d’identification. Si vous utilisez des scripts ou des applications qui s’appuient sur des mots de passe ou des invites de mot de passe codés en dur, vous devez d’abord examiner les mots de passe dans les fichiers de configuration ou le code source, puis remplacer ces dépendances et utiliser les identités managées par Azure, l’authentification Windows intégrée ou des [certificats](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) quand c’est possible. Pour les applications où les solutions qui précèdent ne sont pas possibles, envisagez d’utiliser [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Les scripts Azure AD utilisant PowerShell ou les applications utilisant l’API Microsoft Graph nécessitent une authentification sécurisée. Une mauvaise gestion des informations d’identification pour l’exécution de ces scripts et outils augmente le risque de vol des informations d’identification. Si vous utilisez des scripts ou des applications qui s’appuient sur des mots de passe ou des invites de mot de passe codés en dur, vous devez d’abord examiner les mots de passe dans les fichiers de configuration ou le code source, puis remplacer ces dépendances et utiliser les identités managées par Azure, l’authentification Windows intégrée ou des [certificats](../reports-monitoring/tutorial-access-api-with-certificates.md) quand c’est possible. Pour les applications où les solutions qui précèdent ne sont pas possibles, envisagez d’utiliser [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Si vous déterminez qu’il existe des principaux de service avec des informations d’identification de mot de passe, et que vous ne savez pas dans quelle mesure ces informations d’identification de mot de passe sont sécurisées par des scripts ou des applications, contactez le propriétaire de l’application pour mieux comprendre les modèles d’utilisation.
 
@@ -115,7 +115,7 @@ Microsoft vous recommande également de contacter les propriétaires d’applica
 
 ### <a name="on-premises-authentication"></a>Authentification locale
 
-L’authentification fédérée avec l’authentification Windows intégrée ou l’authentification unique (SSO) fluide avec la synchronisation de hachage de mot de passe ou l’authentification directe est la meilleure expérience utilisateur au sein du réseau d’entreprise avec une visibilité sur les contrôleurs de domaine locaux. Elle réduit le nombre de demandes d’informations d’identification et le risque des utilisateurs victimes d’attaques par hameçonnage. Si vous utilisez déjà l’authentification managée par le cloud avec la synchronisation de hachage de mot de passe ou l’authentification directe, mais que les utilisateurs doivent néanmoins toujours de taper leur mot de passe lors de l’authentification locale, vous devez immédiatement [déployer l’authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). D’autre part, si vous êtes actuellement fédéré avec des plans de migration vers l’authentification managée par le cloud, vous devez implémenter l’authentification unique fluide dans le cadre du projet de migration.
+L’authentification fédérée avec l’authentification Windows intégrée ou l’authentification unique (SSO) fluide avec la synchronisation de hachage de mot de passe ou l’authentification directe est la meilleure expérience utilisateur au sein du réseau d’entreprise avec une visibilité sur les contrôleurs de domaine locaux. Elle réduit le nombre de demandes d’informations d’identification et le risque des utilisateurs victimes d’attaques par hameçonnage. Si vous utilisez déjà l’authentification managée par le cloud avec la synchronisation de hachage de mot de passe ou l’authentification directe, mais que les utilisateurs doivent néanmoins toujours de taper leur mot de passe lors de l’authentification locale, vous devez immédiatement [déployer l’authentification unique fluide](../hybrid/how-to-connect-sso.md). D’autre part, si vous êtes actuellement fédéré avec des plans de migration vers l’authentification managée par le cloud, vous devez implémenter l’authentification unique fluide dans le cadre du projet de migration.
 
 ### <a name="device-trust-access-policies"></a>Stratégies d’accès approuvé aux appareils
 
@@ -123,66 +123,66 @@ Comme n’importe quel utilisateur de votre organisation, un appareil est une id
 
 - En évitant les conflits, par exemple avec MFA, quand l’appareil est approuvé
 - En bloquant l’accès depuis des appareils non approuvés
-- Pour les appareils Windows 10, fournissez l’[authentification unique fluide aux ressources locales](https://docs.microsoft.com/azure/active-directory/devices/azuread-join-sso).
+- Pour les appareils Windows 10, fournissez l’[authentification unique fluide aux ressources locales](../devices/azuread-join-sso.md).
 
 Pour atteindre cet objectif, vous devez intégrer et gérer les identités des appareils dans Azure AD en utilisant une des méthodes suivantes :
 
 - Les organisations peuvent utiliser [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) pour gérer l’appareil et appliquer des stratégies de conformité, attester l’intégrité de l’appareil et définir des stratégies d’accès conditionnel selon que l’appareil est ou non conforme. Microsoft Endpoint Configuration Manager peut gérer des appareils iOS, des bureaux Mac (via l’intégration JAMF), des bureaux Windows (en mode natif à l’aide de la gestion des appareils mobiles pour Windows 10, et la cogestion avec Microsoft Endpoint Configuration Manager) et les appareils mobiles Android.
-- [La jointure Azure AD Hybride](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) permet une gestion avec des stratégies de groupe ou de Microsoft Endpoint Configuration Manager dans un environnement avec des ordinateurs appartenant à un domaine Active Directory. Les organisations peuvent déployer un environnement managé via la synchronisation de hachage de mot de passe ou l’authentification directe avec l’authentification unique fluide. L’intégration de vos appareils à Azure AD optimise la productivité des utilisateurs via l’authentification unique pour vos ressources cloud et locales, tout en vous permettant de sécuriser en même temps l’accès à vos ressources cloud et locales avec l’ [accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) .
+- [La jointure Azure AD Hybride](../devices/hybrid-azuread-join-managed-domains.md) permet une gestion avec des stratégies de groupe ou de Microsoft Endpoint Configuration Manager dans un environnement avec des ordinateurs appartenant à un domaine Active Directory. Les organisations peuvent déployer un environnement managé via la synchronisation de hachage de mot de passe ou l’authentification directe avec l’authentification unique fluide. L’intégration de vos appareils à Azure AD optimise la productivité des utilisateurs via l’authentification unique pour vos ressources cloud et locales, tout en vous permettant de sécuriser en même temps l’accès à vos ressources cloud et locales avec l’ [accès conditionnel](../conditional-access/overview.md) .
 
-Si vous avez des appareils Windows joints à un domaine qui ne sont pas inscrits dans le cloud, ou des appareils Windows joints à un domaine qui sont inscrits dans le cloud mais sans stratégies d’accès conditionnel, vous devez inscrire les appareils non inscrits et, dans les deux cas, [utiliser la jonction Azure AD Hybride en tant que contrôle](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) dans vos stratégies d’accès conditionnel.
+Si vous avez des appareils Windows joints à un domaine qui ne sont pas inscrits dans le cloud, ou des appareils Windows joints à un domaine qui sont inscrits dans le cloud mais sans stratégies d’accès conditionnel, vous devez inscrire les appareils non inscrits et, dans les deux cas, [utiliser la jonction Azure AD Hybride en tant que contrôle](../conditional-access/require-managed-devices.md) dans vos stratégies d’accès conditionnel.
 
 ![Capture d’écran de l’octroi d’une autorisation dans une stratégie d’accès conditionnel nécessitant un appareil hybride](./media/active-directory-ops-guide/active-directory-ops-img6.png)
 
-Si vous gérez des appareils avec MDM ou Microsoft Intune, mais vous n’utilisez pas de contrôles d’appareils dans vos stratégies d’accès conditionnel, nous vous recommandons d’utiliser [Exiger que l’appareil soit marqué comme conforme](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices#require-device-to-be-marked-as-compliant) comme contrôle dans ces stratégies.
+Si vous gérez des appareils avec MDM ou Microsoft Intune, mais vous n’utilisez pas de contrôles d’appareils dans vos stratégies d’accès conditionnel, nous vous recommandons d’utiliser [Exiger que l’appareil soit marqué comme conforme](../conditional-access/require-managed-devices.md#require-device-to-be-marked-as-compliant) comme contrôle dans ces stratégies.
 
 ![Capture d’écran de l’octroi d’une autorisation dans une stratégie d’accès conditionnel nécessitant la conformité des appareils](./media/active-directory-ops-guide/active-directory-ops-img7.png)
 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Lectures recommandées pour les stratégies d’accès des appareils approuvés
 
-- [Guide pratique pour Planifier l’implémentation de la jonction Azure Active Directory Hybride](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+- [Guide pratique pour Planifier l’implémentation de la jonction Azure Active Directory Hybride](../devices/hybrid-azuread-join-plan.md)
 - [Configurations des identités et de l’accès aux appareils](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello Entreprise
 
 Dans Windows 10, [Windows Hello Entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) remplace les mots de passe par une authentification à deux facteurs forte sur les PC. Windows Hello Entreprise permet une expérience plus fluide de MFA pour les utilisateurs et réduit votre dépendance vis-à-vis des mots de passe. Si vous n’avez pas commencé à déployer des appareils Windows 10 ou si vous ne les avez que partiellement déployés, nous vous recommandons de procéder à une mise à niveau vers Windows 10 et d’[activer Windows Hello Entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) sur tous les appareils.
 
-Si vous voulez en savoir plus sur l’authentification sans mot de passe, consultez [Un monde sans mot de passe avec Azure Active Directory](https://aka.ms/passwordlessdoc).
+Si vous voulez en savoir plus sur l’authentification sans mot de passe, consultez [Un monde sans mot de passe avec Azure Active Directory](../authentication/concept-authentication-passwordless.md).
 
 ## <a name="application-authentication-and-assignment"></a>Authentification et affectation des applications
 
 ### <a name="single-sign-on-for-apps"></a>Authentification unique pour les applications
 
-La fourniture d’un mécanisme d’authentification unique standardisé à l’échelle de l’entreprise est essentielle pour une meilleure expérience utilisateur, réduire les risques, la possibilité de signaler et la gouvernance. Si vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD mais qui sont actuellement configurées pour utiliser des comptes locaux, vous devez reconfigurer ces applications pour qu’elles utilisent l’authentification unique avec Azure AD. De même, si vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD mais qui utilisent actuellement un autre fournisseur d’identité, vous devez aussi reconfigurer ces applications pour qu’elles utilisent l’authentification unique avec Azure AD. Pour les applications qui ne prennent pas en charge les protocoles de fédération mais qui prennent en charge l’authentification basée sur des formulaires, nous vous recommandons de configurer ces applications pour qu’elles utilisent des [coffres de mots de passe](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting) avec le proxy d’application Azure AD.
+La fourniture d’un mécanisme d’authentification unique standardisé à l’échelle de l’entreprise est essentielle pour une meilleure expérience utilisateur, réduire les risques, la possibilité de signaler et la gouvernance. Si vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD mais qui sont actuellement configurées pour utiliser des comptes locaux, vous devez reconfigurer ces applications pour qu’elles utilisent l’authentification unique avec Azure AD. De même, si vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD mais qui utilisent actuellement un autre fournisseur d’identité, vous devez aussi reconfigurer ces applications pour qu’elles utilisent l’authentification unique avec Azure AD. Pour les applications qui ne prennent pas en charge les protocoles de fédération mais qui prennent en charge l’authentification basée sur des formulaires, nous vous recommandons de configurer ces applications pour qu’elles utilisent des [coffres de mots de passe](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) avec le proxy d’application Azure AD.
 
 ![Connexion au proxy d’application basée sur des mots de passe](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
 > [!NOTE]
 > Si vous n’avez pas de mécanisme pour découvrir des applications non managées dans votre organisation, nous vous recommandons d’implémenter un processus de découverte en utilisant une solution CASB (Cloud Access Security Broker), comme [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Enfin, si vous disposez d’une galerie d’applications Azure AD et que vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD, nous vous recommandons de [placer les applications dans la galerie d’applications](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing).
+Enfin, si vous disposez d’une galerie d’applications Azure AD et que vous utilisez des applications qui prennent en charge l’authentification unique avec Azure AD, nous vous recommandons de [placer les applications dans la galerie d’applications](../azuread-dev/howto-app-gallery-listing.md).
 
 #### <a name="single-sign-on-recommended-reading"></a>Lectures recommandées pour l’authentification unique
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ### <a name="migration-of-ad-fs-applications-to-azure-ad"></a>Migration des applications AD FS vers Azure AD
 
-La [migration des applications depuis AD FS vers Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) active des fonctionnalités supplémentaires sur la sécurité, une gestion plus cohérente et une meilleure expérience de collaboration. Si vous avez des applications configurées dans AD FS qui prennent en charge l’authentification unique, vous devez les reconfigurer pour qu’elles utilisent l’authentification unique avec Azure AD. Si vous avez des applications configurées dans AD FS avec des configurations peu courantes qui ne sont pas prises en charge par Azure AD, vous devez contacter les propriétaires des applications pour déterminer si la configuration spéciale est une exigence absolue de l’application. Si ce n’est pas le cas, vous devez reconfigurer l’application pour qu’elle utilise l’authentification unique avec Azure AD.
+La [migration des applications depuis AD FS vers Azure AD](../manage-apps/migrate-adfs-apps-to-azure.md) active des fonctionnalités supplémentaires sur la sécurité, une gestion plus cohérente et une meilleure expérience de collaboration. Si vous avez des applications configurées dans AD FS qui prennent en charge l’authentification unique, vous devez les reconfigurer pour qu’elles utilisent l’authentification unique avec Azure AD. Si vous avez des applications configurées dans AD FS avec des configurations peu courantes qui ne sont pas prises en charge par Azure AD, vous devez contacter les propriétaires des applications pour déterminer si la configuration spéciale est une exigence absolue de l’application. Si ce n’est pas le cas, vous devez reconfigurer l’application pour qu’elle utilise l’authentification unique avec Azure AD.
 
 ![Azure AD comme fournisseur d’identité principal](./media/active-directory-ops-guide/active-directory-ops-img9.png)
 
 > [!NOTE]
-> [Azure AD Connect Health pour ADFS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs) peut être utilisé pour collecter les détails de configuration de chaque application qui peut potentiellement être migrée vers Azure AD.
+> [Azure AD Connect Health pour ADFS](../hybrid/how-to-connect-health-adfs.md) peut être utilisé pour collecter les détails de configuration de chaque application qui peut potentiellement être migrée vers Azure AD.
 
 ### <a name="assign-users-to-applications"></a>Affecter des utilisateurs à des applications
 
-L’[affectation d’utilisateurs à des applications](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) est plus pratique quand des groupes sont utilisés, car ils permettent une plus grande flexibilité et une gestion à grande échelle. Les avantages liés à l’utilisation de groupes sont [l’appartenance dynamique à des groupes en fonction d’attributs](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) et la [délégation aux propriétaires d’application](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners). Par conséquent, si vous utilisez et que vous gérez déjà des groupes, nous vous recommandons d’effectuer les actions suivantes pour améliorer la gestion à grande échelle :
+L’[affectation d’utilisateurs à des applications](../manage-apps/assign-user-or-group-access-portal.md) est plus pratique quand des groupes sont utilisés, car ils permettent une plus grande flexibilité et une gestion à grande échelle. Les avantages liés à l’utilisation de groupes sont [l’appartenance dynamique à des groupes en fonction d’attributs](../users-groups-roles/groups-dynamic-membership.md) et la [délégation aux propriétaires d’application](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Par conséquent, si vous utilisez et que vous gérez déjà des groupes, nous vous recommandons d’effectuer les actions suivantes pour améliorer la gestion à grande échelle :
 
 - Déléguez la gestion des groupes et la gouvernance aux propriétaires d’application.
 - Autorisez l’accès en libre-service à l’application.
 - Définissez des groupes dynamiques si les attributs utilisateur peuvent déterminer de façon cohérente l’accès aux applications.
-- Implémentez l’attestation sur les groupes utilisés pour l’accès aux applications en utilisant des [révisions d’accès Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview).
+- Implémentez l’attestation sur les groupes utilisés pour l’accès aux applications en utilisant des [révisions d’accès Azure AD](../governance/access-reviews-overview.md).
 
 En revanche, si vous trouvez des applications auxquelles des utilisateurs individuels sont affectés, veillez à implémenter une [gouvernance](https://docs.microsoft.com/azure/active-directory/governance/index) pour ces applications.
 
@@ -223,12 +223,12 @@ Si vous avez déjà des licences Azure AD Premium P2 qui prennent en charge l’
 
 #### <a name="risk-based-access-policies-recommended-reading"></a>Lectures recommandées pour les stratégies d’accès basées sur le risque
 
-- [Guide pratique pour configurer la stratégie en matière de risque à la connexion](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)
-- [Guide pratique pour configurer la stratégie en matière de risque utilisateur](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)
+- [Guide pratique pour configurer la stratégie en matière de risque à la connexion](../identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [Guide pratique pour configurer la stratégie en matière de risque utilisateur](../identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 ### <a name="client-application-access-policies"></a>Stratégies d’accès des applications clientes
 
-La gestion des applications Microsoft Intune (GAM) offre la possibilité d’envoyer des contrôles de protection des données, comme le chiffrement du stockage, un code PIN, le nettoyage du stockage à distance, etc., vers des applications mobiles clientes compatibles, comme Outlook Mobile. En outre, des stratégies d’accès conditionnel peuvent être créées pour [limiter l’accès](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) aux services cloud, comme Exchange Online, à partir d’applications approuvées ou compatibles.
+La gestion des applications Microsoft Intune (GAM) offre la possibilité d’envoyer des contrôles de protection des données, comme le chiffrement du stockage, un code PIN, le nettoyage du stockage à distance, etc., vers des applications mobiles clientes compatibles, comme Outlook Mobile. En outre, des stratégies d’accès conditionnel peuvent être créées pour [limiter l’accès](../conditional-access/app-based-conditional-access.md) aux services cloud, comme Exchange Online, à partir d’applications approuvées ou compatibles.
 
 Si vos employés installent des applications compatibles GAM, comme des applications mobiles Office, pour accéder à des ressources d’entreprise comme Exchange Online ou SharePoint Online, et que vous prenez également en charge BYOD, nous vous recommandons de déployer des stratégies GAM d’application pour gérer la configuration des applications dans les appareils personnels sans inscription MDM, puis de mettre à jour vos stratégies d’accès conditionnel pour autoriser l’accès seulement à partir de clients compatibles GAM.
 
@@ -245,10 +245,10 @@ L’accès conditionnel est un outil essentiel pour améliorer l’attitude de v
 - Éviter d’utiliser le filtre **Tous les utilisateurs** et d’ajouter par inadvertance **Invités**
 - **Migrer toutes les stratégies « héritées » vers le Portail Azure**
 - Définir tous les critères pour les utilisateurs, les appareils et les applications
-- Utiliser des stratégies d’accès conditionnel pour [implémenter l’authentification MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) au lieu d’utiliser une **authentification MFA par utilisateur**
+- Utiliser des stratégies d’accès conditionnel pour [implémenter l’authentification MFA](../conditional-access/plan-conditional-access.md) au lieu d’utiliser une **authentification MFA par utilisateur**
 - Disposer un petit ensemble de stratégies principales qui peuvent s’appliquer à plusieurs applications
 - Définir des groupes d’exceptions vides et les ajouter aux stratégies pour disposer d’une stratégie d’exception
-- Prévoir des comptes [d’urgence](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency) sans contrôles MFA
+- Prévoir des comptes [d’urgence](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sans contrôles MFA
 - Veiller à garantir une expérience cohérente entre les applications clientes Office 365 (par exemple Teams, OneDrive Entreprise, Outlook, etc.) en implémentant le même ensemble de contrôles pour des services comme Exchange Online et SharePoint Online
 - L’affectation aux stratégies doit être implémentée via des groupes et non pas via des personnes individuelles
 - Effectuez des revues régulières des groupes d’exceptions utilisés dans les stratégies de façon à limiter le temps pendant lequel les utilisateurs sont en dehors de l’attitude de sécurité. Si vous avez Azure AD P2, vous pouvez utiliser les révisions d’accès pour automatiser le processus.
@@ -268,7 +268,7 @@ Des informations d’identification fortes comme MFA ne peuvent pas protéger le
 
 L’authentification héritée est un terme qui fait référence aux protocoles d’authentification utilisés par des applications comme :
 
-- D’anciennes versions de clients Office qui n’utilisent pas l’authentification moderne (par exemple le client Office 2010).
+- D’anciennes versions de clients Office qui n’utilisent pas l’authentification moderne (par exemple le client Office 2010)
 - Des clients qui utilisent des protocoles de messagerie comme IMAP/SMTP/POP
 
 Les attaquants préfèrent nettement ces protocoles : en fait, presque [100 % des attaques par pulvérisation de mot de passe](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984) utilisent des protocoles d’authentification hérités ! Les pirates utilisent des protocoles d’authentification hérités, car ils ne prennent pas en charge la connexion interactive, qui est nécessaire pour les demandes de sécurité supplémentaires, comme l’authentification multifacteur et l’authentification des appareils.

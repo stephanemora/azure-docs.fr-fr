@@ -1,21 +1,15 @@
 ---
-title: 'Démarrage rapide : Kit de développement logiciel (SDK) Speech pour la configuration de la plateforme Python – Service de reconnaissance vocale'
-titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide pour configurer votre plateforme pour l’utilisation de Python avec le kit SDK du service Speech.
-services: cognitive-services
-author: markamos
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/09/2019
-ms.author: erhopf
-ms.openlocfilehash: 458a6940ce214ef1931a2cc9ee95f2cb5ca16779
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/04/2020
+ms.author: dapine
+ms.openlocfilehash: 327000173b4c5c378f60c76eb1a24bd155901671
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925411"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666912"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour Python. Si vous voulez simplement le nom du package pour commencer seul, exécutez `pip install azure-cognitiveservices-speech`.
 
@@ -26,7 +20,7 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
 - Le package Python du kit SDK Speech est disponible pour les systèmes d’exploitation suivants :
   - Windows : x64 et x86
   - Mac : macOS X version 10.12 ou ultérieure
-  - Linux : Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 sur x64
+  - Linux : Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 sur x64
 
 ## <a name="prerequisites"></a>Prérequis
 

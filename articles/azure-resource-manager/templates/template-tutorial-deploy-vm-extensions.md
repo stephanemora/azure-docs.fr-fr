@@ -2,15 +2,15 @@
 title: Déployer des extensions de machine virtuelle avec un modèle
 description: Découvrez comment déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager
 author: mumian
-ms.date: 11/13/2018
+ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 469948d3d3207dd684d5a9b752e0c448ac7e83a9
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 7397e9387fe3354a926ed607a9132ab6ddc7e785
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239267"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477599"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM
 
@@ -76,25 +76,25 @@ Ajoutez une ressource d’extension de machine virtuelle au modèle existant ave
 
 ```json
 {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "apiVersion": "2018-06-01",
-    "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
-    "location": "[parameters('location')]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.7",
-        "autoUpgradeMinorVersion":true,
-        "settings": {
-            "fileUris": [
-                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
-            ],
-            "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
-        }
-    }
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "apiVersion": "2018-06-01",
+  "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+      "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
+  ],
+  "properties": {
+      "publisher": "Microsoft.Compute",
+      "type": "CustomScriptExtension",
+      "typeHandlerVersion": "1.7",
+      "autoUpgradeMinorVersion":true,
+      "settings": {
+        "fileUris": [
+          "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
+        ],
+        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
+      }
+  }
 }
 ```
 
@@ -104,6 +104,27 @@ Pour plus d’informations sur la définition de cette ressource, consultez les 
 * **dependsOn** : créez la ressource d’extension après avoir créé la machine virtuelle.
 * **fileUris** : il s’agit des emplacements où sont stockés les fichiers de script. Si vous choisissez de ne pas utiliser l’emplacement fourni, vous devez mettre à jour les valeurs.
 * **commandToExecute** : cette commande appelle le script.
+
+Vous devez également ouvrir le port HTTP pour pouvoir accéder au serveur web.
+
+1. Recherchez **securityRules** dans le modèle.
+1. Ajoutez la règle suivante à côté de **default-allow-3389**.
+
+    ```json
+    {
+      "name": "AllowHTTPInBound",
+      "properties": {
+        "priority": 1010,
+        "access": "Allow",
+        "direction": "Inbound",
+        "destinationPortRange": "80",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*"
+      }
+    }
+    ```
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 

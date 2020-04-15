@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1848610250e696807acef118384f43d2a51442ca
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158666"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984484"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutoriel : Intégrer Bynder à Azure Active Directory
 
@@ -84,13 +84,25 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.getbynder.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+    
+    Pour un domaine par défaut :  `https://<company name>.getbynder.com`
+    
+    Pour un domaine personnalisé :  `https;//<subdomain>.<domain>.com`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
+    
+     Pour un domaine par défaut :  `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    
+    Pour un domaine personnalisé :  `https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.getbynder.com/login/`
+    Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
+    
+     Pour un domaine par défaut :  `https://<company name>.getbynder.com/login/`
+    
+     Pour un domaine personnalisé :  ` https://<subdomain>.<domain>.com/login/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Bynder](https://www.bynder.com/en/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

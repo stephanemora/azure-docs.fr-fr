@@ -3,16 +3,16 @@ title: Contrats et avenants Azure EA
 description: Cet article explique dans quelle mesure les contrats et avenants Azure EA affectent votre utilisation du portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/04/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78301418"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586226"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contrats et avenants Azure EA
 
@@ -105,7 +105,7 @@ Veillez à consulter les informations commerciales, informations sur le solde fi
 
 **Étape 2 : Réviser et valider**
 
-Passez en revue le prix de la majoration dans le _Résumé de l’utilisation_ pour la période d’engagement dans la vue client. Le tarif Microsoft sera toujours disponible dans la vue partenaire. Les vues peuvent être changées à l’aide du bouton « personnes » de la majoration partenaire en haut à droite.
+Passez en revue le prix de la majoration dans le _Résumé de l’utilisation_ pour la période d’engagement dans la vue client. Le tarif Microsoft sera toujours disponible dans la vue partenaire. Vous pouvez changer de vue avec le bouton bascule « personnes » de la majoration partenaire en haut à droite.
 
 1. Consultez les prix dans la grille tarifaire.
 1. Des modifications peuvent être apportées avant la publication en sélectionnant **Modifier** dans l’onglet _Afficher le résumé d’utilisation > Vue client_.  
@@ -164,17 +164,17 @@ L’offre préachat Azure Compute (CPP, précédemment connu sous le nom de prom
 
 Si vous avez commandé une référence SKU CPP, elle s’applique à un type d’ordinateur spécifique dans un centre de données spécifique. Comme nous l’avons vu aujourd’hui, nous ne fournissons pas de liste de tous les achats CPP effectués par un client, ce qui signifie qu’il n’y a aucune liste de crédits en attente. Toutefois, lorsque vous configurez les types d’ordinateurs achetés dans le centre de données dans lequel ils ont été achetés, vous verrez l’allocation mensuelle dans le rapport Résumé de l’utilisation sur le portail EA.
 
-Le montant préalablement acheté s’affiche comme un crédit dans la colonne « Unités incluses » et l’utilisation sur ce montant n’entraîne aucun frais d’utilisation tant que les « Unités incluses » ne sont pas consommées. Une fois qu’elles sont consommées, l’utilisation supplémentaire sera facturée au tarif négocié dans la grille tarifaire normale du client EA.
+Le montant préalablement acheté s’affiche comme un crédit dans la colonne « Unités incluses » et l’utilisation sur ce montant n’entraîne aucun frais d’utilisation tant que les « Unités incluses » ne sont pas consommées. Une fois qu’elles sont consommées, l’utilisation supplémentaire sera facturée au tarif négocié dans la grille tarifaire normale du client EA.
 
 La façon dont les crédits sont achetés est basée sur le nombre d’ordinateurs d’une classe par mois. Par exemple : si vous avez acheté 70 machines virtuelles A2 par an dans la région USA Est 2, vous ne le verrez pas vraiment dans le portail EA comment vous l’avez acheté.
 
-Les machines mensuelles sont calculées comme s’exécutant 744 heures par mois. La conversion en heures serait de 70 fois 744 ou 52 080 heures achetées de machines virtuelles A2 par mois. Dans le résumé de l’utilisation du portail EA, les machines virtuelles A2 sont rapportées par incréments de 100 heures. Vous pouvez donc voir un crédit de 520,8 (52 080/100) « Unités incluses » par mois et voir les unités consommées jusqu’à présent au cours du mois. Les frais d’utilisation doivent être de zéro jusqu’à ce que les unités consommées mensuellement dépassent les unités incluses mensuellement.
+Les machines mensuelles sont calculées comme s’exécutant 744 heures par mois. La conversion en heures serait de 70 fois 744 ou 52 080 heures achetées de machines virtuelles A2 par mois. Dans le récapitulatif de l’utilisation de EA Portal, les machines virtuelles A2 sont signalées par incréments de 100 heures. Vous pouvez donc voir un crédit de 520,8 (52 080/100) « Unités incluses » par mois et voir les unités consommées jusqu’à présent au cours du mois. Les frais d’utilisation doivent être de zéro jusqu’à ce que les unités consommées mensuellement dépassent les unités incluses mensuellement.
 
 Différents types d’ordinateurs utilisent des unités de mesure différentes. Ainsi, par exemple, les machines virtuelles D3 et D4 utilisent une unité de mesure de 10 heures dans notre rapport de résumé de l’utilisation. Ainsi, un achat de 70 de celles-ci peut afficher jusqu’à 5 208 unités incluses par mois (52 080/10).
 
 En général, la formule ci-dessous vous fournira le nombre de machines virtuelles achetées en fonction de leurs unités de mesure :
 
-<center><b> (« Quantité incluse » * « Unités de mesure ») / 744 </b></center>
+<center><b> (« Quantité incluse » * « Unités de mesure ») / 744 </b></center>
 
 ## <a name="plan-skus"></a>Références SKU de plan
 
@@ -190,7 +190,7 @@ Les administrateurs d’entreprise peuvent attribuer des propriétaires de compt
 1. Cliquez sur **Rapports** dans la barre de navigation à gauche.
 1. Cliquez sur l’onglet **Grille tarifaire**.
 1. Cliquez sur l’icône « Télécharger » dans le coin supérieur droit.
-1. Recherchez les numéros de références SKU de plan correspondants avec un filtre sur la colonne « Quantité incluse », puis sélectionnez des valeurs supérieures à « 0 ».
+1. Recherchez les numéros de références SKU de plan correspondants avec un filtre sur la colonne « Quantité incluse », puis sélectionnez des valeurs supérieures à « 0 ».
 
 ### <a name="provision-the-plan-skus"></a>Approvisionner les références SKU de plan
 
@@ -219,7 +219,7 @@ Les administrateurs d’entreprise peuvent ajouter de nouveaux propriétaires de
 1. Spécifiez le nom à utiliser pour identifier ce compte dans les rapports.
 1. Cliquez sur **Add**.
 1. Vous pouvez ajouter un compte supplémentaire en sélectionnant à nouveau l’option **+ Ajouter un compte**, ou bien revenir à la page d’accueil en sélectionnant le bouton **Admin**.  
-1. Si vous cliquez pour afficher la page Compte, le compte que vous venez d’ajouter s’affiche avec l’état « En attente ». Il passe à l’état « Actif » lorsque le propriétaire du compte se connecte pour la première fois au portail EA.
+1. Si vous cliquez pour afficher la page Compte, le compte que vous venez d’ajouter s’affiche avec l’état « En attente ». Il passe à l’état « Actif » quand le propriétaire du compte se connecte pour la première fois au portail EA.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Propriétaires de comptes existants/nouveaux pour créer de nouveaux abonnements
 
@@ -235,7 +235,7 @@ La première fois que vous ajoutez un abonnement à votre compte, vous êtes inv
 
 **Étape 2 : Mettre à jour le nom de l’abonnement**
 
-Tous les nouveaux abonnements sont ajoutés avec le nom d’abonnement « Microsoft Azure Enterprise » par défaut. Il est important de mettre à jour le nom de l’abonnement pour le différencier des autres abonnements au sein de votre inscription Enterprise et vous assurer qu’il est reconnaissable sur les rapports au niveau de l’entreprise.
+Tous les nouveaux abonnements sont ajoutés avec le nom d’abonnement « Microsoft Azure Enterprise » par défaut. Il est important de mettre à jour le nom de l’abonnement pour le différencier des autres abonnements au sein de votre inscription Enterprise et vous assurer qu’il est reconnaissable sur les rapports au niveau de l’entreprise.
 
 Cliquez sur **Abonnements**, cliquez sur l’abonnement que vous avez créé, puis cliquez sur **Edit Subscription Details** (Modifier les détails de l’abonnement).
 
@@ -248,13 +248,13 @@ Seuls les propriétaires de comptes peuvent consulter et gérer les abonnements.
 
 **Propriétaire du compte affiché à l’état En attente**
 
-Lorsque de nouveaux propriétaires de compte sont ajoutés pour la première fois à l’inscription, « En attente » apparaît toujours sous l’état. Lors de la réception de l’e-mail de bienvenue et d’activation, l’AO peut se connecter pour activer son compte. Cette activation met à jour l’état du compte de « en attente » à « actif ».
+Quand de nouveaux propriétaires de compte sont ajoutés pour la première fois à l’inscription, « En attente » apparaît toujours sous l’état. Lors de la réception de l’e-mail de bienvenue et d’activation, l’AO peut se connecter pour activer son compte. Cette activation met à jour l’état de son compte de « en attente » à « actif ».
 
 **Utilisations facturées après l’achat de références SKU de plan**
 
 Ce scénario se produit lorsque le client a déployé des services sous un numéro d’inscription incorrect ou a sélectionné des services incorrects.
 
-Pour valider si vous effectuez un déploiement dans le cadre de l’inscription appropriée, vous pouvez vérifier les informations sur les unités incluses via la grille tarifaire. Connectez-vous en tant qu’administrateur d’entreprise, cliquez sur **Rapports** dans le volet de navigation gauche, puis sélectionnez l’onglet **Grille tarifaire**. Cliquez sur l’icône Télécharger dans le coin supérieur droit et recherchez les numéros de références SKU de plan correspondants avec un filtre sur la colonne « Quantité incluse », puis sélectionnez des valeurs supérieures à « 0 ».
+Pour valider si vous effectuez un déploiement dans le cadre de l’inscription appropriée, vous pouvez vérifier les informations sur les unités incluses via la grille tarifaire. Connectez-vous en tant qu’administrateur d’entreprise, cliquez sur **Rapports** dans le volet de navigation gauche, puis sélectionnez l’onglet **Grille tarifaire**. Cliquez sur l’icône Télécharger en haut à droite, puis recherchez les numéros de références SKU de plan correspondants avec un filtre sur la colonne « Quantité incluse », puis sélectionnez des valeurs supérieures à « 0 ».
 
 Assurez-vous que votre plan OMS est affiché sur la grille tarifaire, sous les unités incluses. S’il n’existe aucune unité incluse pour le plan OMS sur votre inscription, votre plan OMS se trouve peut-être sous une autre inscription. Veuillez contacter le support Azure Enterprise Portal à l’adresse [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 

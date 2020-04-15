@@ -2,24 +2,21 @@
 title: Générer une application web appelant des API web – Plateforme d’identités Microsoft | Azure
 description: Apprenez à générer une application web qui appelle des API web (vue d’ensemble)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d121d6c198cb0d92cd098a40096e2f2300f65537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5af9e34baf6115e801fbfe35e6e3895e48b360e7
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76758987"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881721"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scénario : Application web qui appelle des API web
 
@@ -48,7 +45,7 @@ C’est pourquoi elles inscrivent un secret (un mot de passe ou un certificat d�
 > [!NOTE]
 > L’ajout de la connexion à une application web vise à protéger l’application web elle-même. Cette protection est obtenue à l’aide de bibliothèques *intergicielles*, et non de la bibliothèque d’authentification Microsoft (MSAL). Le scénario précédent, [Application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md), a traité ce sujet.
 >
-> Ce scénario explique comment appeler des API web à partir d’une application web. Vous devez obtenir des jetons d’accès pour ces API web. Pour obtenir ces jetons, vous utilisez des bibliothèques MSAL.
+> Ce scénario explique comment appeler des API web à partir d’une application web. Vous devez obtenir des jetons d’accès pour ces API web. Vous obtenez ces jetons à l’aide des bibliothèques MSAL.
 
 Le développement de ce scénario implique ces tâches spécifiques :
 

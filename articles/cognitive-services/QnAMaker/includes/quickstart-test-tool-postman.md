@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 services: cognitive-services
 author: diberry
@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd44d9cb01ff072d89afeb4efc4a59071c621315
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77112268"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758228"
 ---
-Ce démarrage rapide basé sur Postman vous aide à obtenir une réponse à partir de votre base de connaissances.
+Ce guide de démarrage rapide basé sur Postman vous aide à obtenir une réponse de votre base de connaissances.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Dernière version de [**Postman**](https://www.getpostman.com/).
 * Vous devez avoir :
@@ -37,7 +37,7 @@ Utilisez cette procédure pour configurer Postman, puis lisez chaque section sui
 
 1. À partir de la page **Paramètres** de la base de connaissances, sélectionnez l’onglet **Postman** pour voir la configuration utilisée pour générer une réponse de la base de connaissances. Copiez les informations suivantes à utiliser dans Postman.
 
-    |Name|Paramètre|Objectif et valeur|
+    |Nom|Paramètre|Objectif et valeur|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Il s’agit de la méthode HTTP et de la route de l’URL.|
     |`Host`|`https://diberry-qna-s0-s.azurewebsites.net/qnamaker`|Il s’agit de l’hôte de l’URL. Concaténez les valeurs Host et Post pour obtenir l’URL generateAnswer complète.|
@@ -49,7 +49,7 @@ Utilisez cette procédure pour configurer Postman, puis lisez chaque section sui
 
 ## <a name="use-metadata-to-filter-answer"></a>Utiliser des métadonnées pour filtrer la réponse
 
-Dans le cadre d’un démarrage rapide précédent, des métadonnées ont été ajoutées à deux jeux QnA pour faire la distinction entre deux questions différentes. Ajoutez les métadonnées à la requête pour limiter le filtre au seul jeu QnA approprié.
+Dans un démarrage rapide précédent, des métadonnées ont été ajoutées à deux paires de Q/R pour faire la distinction entre deux questions différentes. Ajoutez les métadonnées à la requête pour limiter le filtre à la paire de Q/R appropriée.
 
 1. Dans Postman, changez uniquement le JSON de la requête en ajoutant la propriété `strictFilters` avec la paire nom/valeur de `service:qna_maker`. Le JSON du corps doit être :
 

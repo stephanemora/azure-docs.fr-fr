@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad6b7150a43a286a4bec39a0482e08f50d95c06
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 352f52a2a6d84d352bb46e09f104efde303307f5
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77048062"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478055"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5
 
@@ -281,7 +281,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 
-Cette section vous sera utile si vous ne pouvez pas utiliser la configuration guidée ou si vous souhaitez ajouter/modifier des paramètres supplémentaires. Vous aurez besoin d’un certificat SSL pour le nom d’hôte de l’application.
+Cette section vous sera utile si vous ne pouvez pas utiliser la configuration guidée ou si vous souhaitez ajouter/modifier des paramètres supplémentaires. Vous aurez besoin d’un certificat TLS/SSL pour le nom d’hôte de l’application.
 
 1. Accédez à **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (Système > Gestion des certificats > Gestion des certificats de trafic > Liste des certificats SSL). Sélectionnez **Import** (Importer) en haut à droite. **Import Type** (Type d’importation) aura la valeur **PKCS 12 (IIS)** . Spécifiez un nom de clé dans le champ **Key Name** (sera référencé plus tard dans la configuration), puis le fichier PFX. Spécifiez le mot de passe du fichier PFX dans le champ **Password**. Cliquez sur **Importer**.
 
@@ -298,7 +298,7 @@ Cette section vous sera utile si vous ne pouvez pas utiliser la configuration gu
  
     ![Configuration de F5 (basé sur l’en-tête)](./media/headerf5-tutorial/configure18.png)
 
-1. Nous publierons notre HeaderApp2 en externe en HTTPS dans ce cas. Pour **How should the BIG-IP system handle SSL Traffic?** (Comment le système BIG-IP gère-t-il le trafic SSL ?), nous spécifions **Terminate SSL from Client, Plaintext to servers (SSL Offload)** [Mettre fin à SSL à partir du client, Texte clair vers les serveurs (Déchargement SSL)]. Spécifiez votre certificat et votre clé sous Which SSL certificate do you want to use? (Quel certificat SSL voulez-vous utiliser ?) et **Which SSL private key do you want to use?** (Quelle clé privée SSL voulez-vous utiliser ?). Spécifiez l’adresse IP du serveur virtuel sous **What IP Address do you want to use for the Virtual Server?** (Quelle adresse IP voulez-vous utiliser pour le serveur virtuel ?). 
+1. Nous publierons notre HeaderApp2 en externe en HTTPS dans ce cas. Pour **How should the BIG-IP system handle SSL Traffic?** (Comment le système BIG-IP gère-t-il le trafic SSL ?), nous spécifions **Terminate SSL from Client, Plaintext to servers (SSL Offload)** [Mettre fin à SSL à partir du client, Texte clair vers les serveurs (Déchargement SSL)]. Spécifiez votre certificat et votre clé sous **Which SSL certificate do you want to use?** (Quel certificat SSL voulez-vous utiliser ?) et **Which SSL private key do you want to use?** (Quelle clé privée SSL voulez-vous utiliser ?). Spécifiez l’adresse IP du serveur virtuel sous **What IP Address do you want to use for the Virtual Server?** (Quelle adresse IP voulez-vous utiliser pour le serveur virtuel ?). 
 
     * **Spécifiez d’autres détails**
 

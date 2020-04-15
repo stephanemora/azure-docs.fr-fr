@@ -1,26 +1,18 @@
 ---
 title: 'Tutoriel : Données contextuelles avec des rôles - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Recherchez des données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination d’un déménagement physique depuis un bâtiment et un bureau vers un autre bâtiment et un autre bureau sont liés.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 03/30/2020
+ms.openlocfilehash: fdb463896e531619ea7ebe7c384729763dc84138
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75447865"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475824"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutoriel : Extraire des données connexes en fonction du contexte d’un énoncé
 
-Dans ce tutoriel, vous allez rechercher des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination pour un transfert entre une ville à une autre. Les deux ensembles de données peuvent être nécessaires et ils sont liés entre eux.
+Dans ce tutoriel, vous allez rechercher des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination pour un transfert d’une ville à une autre. Les deux ensembles de données peuvent être nécessaires et ils sont liés entre eux.
 
 Un rôle peut être utilisé avec un type d’entité prédéfini ou personnalisé, à la fois dans les exemple d’énoncés et de modèles.
 
@@ -49,24 +41,26 @@ Un rôle doit être utilisé quand les données d’entité à extraire :
 
 ## <a name="create-a-new-app"></a>Créer une application
 
-1. Connectez-vous au portail LUIS en préversion avec l’URL de [https://preview.luis.ai](https://preview.luis.ai).
+1. Connectez-vous au [portail LUIS en **préversion**](https://preview.luis.ai).
 
-1. Sélectionnez **Créer une application**, entrez le nom `HumanResources` et conservez la culture par défaut, **Anglais**. Ne renseignez pas la description.
-
-1. Sélectionnez **Terminé**.
+1. Sélectionnez **+ Nouvelle application de conversation**, entrez le nom `HumanResources`, puis conservez la culture par défaut, **Anglais**. Laissez la description et la ressource de prédiction vides. Sélectionnez **Terminé**.
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>Créer une intention de déplacer des employés entre des villes
 
+Une intention sert à classifier les énoncés utilisateur en fonction de l’intention de l’utilisateur, déterminée à partir du texte en langage naturel.
+
+Pour classifier un énoncé, l’intention a besoin d’exemples d’énoncés utilisateur qui doivent être classifiés avec cette intention.
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Sélectionnez **Créer une intention**.
+1. Sélectionnez **+ Créer**.
 
 1. Entrez `MoveEmployeeToCity` dans la boîte de dialogue contextuelle, puis sélectionnez **Terminé**.
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de la boîte de dialogue contextuelle Créer une intention](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
-1. Ajoutez des exemples d’énoncés à l’intention.
+1. Ajoutez plusieurs exemples d’énoncés à cette intention qui, selon vous, sont susceptibles d’être demandés par un utilisateur.
 
     |Exemples d’énoncés|
     |--|
@@ -85,24 +79,29 @@ Un rôle doit être utilisé quand les données d’entité à extraire :
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>Ajouter l’entité prédéfinie geographyV2
 
-L’entité prédéfinie, geographyV2, extrait des informations de localisation, notamment des noms de ville. Dans la mesure où les énoncés comportent deux noms de ville, liés entre eux dans le contexte, utilisez des rôles pour extraire ce contexte.
+L’entité prédéfinie, **geographyV2**, extrait des informations de localisation, notamment des noms de ville. Dans la mesure où les énoncés comportent deux noms de ville, liés entre eux dans le contexte, utilisez des rôles pour extraire ce contexte.
 
 1. Dans le panneau de navigation côté gauche, sélectionnez **Entités**.
 
-1. Sélectionnez **Ajouter une entité prédéfinie**, puis `geo` dans la barre de recherche pour filtrer les entités prédéfinies.
+1. Sélectionnez **+ Ajouter une entité prédéfinie**, puis entrez `geo` dans la barre de recherche pour filtrer les entités prédéfinies.
 
     > [!div class="mx-imgBorder"]
     > ![Ajouter l’entité prédéfinie geographyV2 à l’application](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 
 1. Cochez la case et sélectionnez **Terminé**.
+
+## <a name="add-roles-to-prebuilt-entity"></a>Ajouter des rôles à des entités prédéfinies
+
 1. Dans la liste **Entités**, sélectionnez **geographyV2** pour ouvrir la nouvelle entité.
-1. Ajoutez deux rôles, `Origin` et `Destination`.
+1. Pour ajouter un rôle, sélectionnez **+** et ajoutez les deux rôles suivants : `Origin` et `Destination`.
 
     > [!div class="mx-imgBorder"]
     > ![Ajouter des rôles à l’entité prédéfinie](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+## <a name="label-entity-roles-in-example-utterances"></a>Étiqueter des rôles d’entité dans les exemples d’énoncés
+
 1. Sélectionnez **Intentions** dans le panneau de navigation côté gauche, puis sélectionnez l’intention **MoveEmployeeToCity**. Notez que les noms des villes sont étiquetés avec l’entité prédéfinie **geographyV2**.
-1. Dans la barre d’outils contextuelle, sélectionnez la **palette d’entités**.
+1. Dans la barre d’outils contextuelle, sélectionnez la **palette d’entités** représentée par l’_icône de crayon_.
 
     > [!div class="mx-imgBorder"]
     > ![Sélectionner la palette d’entités dans la barre d’outils de contenu](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
@@ -122,18 +121,21 @@ L’entité prédéfinie, geographyV2, extrait des informations de localisation,
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entraîner l’application pour que les changements apportés à l’intention puissent être testés
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+Pour effectuer l’apprentissage de l’application, sélectionnez **Former**. La formation applique les modifications, telles que les nouvelles entités et les énoncés étiquetés, au modèle actif.
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publier l’application pour que le modèle entraîné soit interrogeable à partir du point de terminaison
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publier l’application pour y accéder à partir du point de terminaison HTTP
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+
 
 ## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtenir l’intention et la prédiction d’entité à partir du point de terminaison
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
 
-1. Allez à la fin de l’URL dans la barre d’adresses, puis entrez `Please move Carl Chamerlin from Tampa to Portland`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `MoveEmployee` avec l’entité extraite.
+1. Allez à la fin de l’URL dans la barre d’adresses, puis remplacez _YOUR_QUERY_HERE_ par `Please move Carl Chamerlin from Tampa to Portland`.
+
+Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `MoveEmployee` avec l’entité extraite.
 
     ```json
     {
@@ -171,11 +173,9 @@ L’entité prédéfinie, geographyV2, extrait des informations de localisation,
     }
     ```
 
-    L’intention correcte est prédite et le tableau d’entités présente les rôles d’origine et de destination dans la propriété **entities** correspondante.
+    The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
 
-## <a name="clean-up-resources"></a>Nettoyer les ressources
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Informations connexes
 

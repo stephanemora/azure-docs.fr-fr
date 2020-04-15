@@ -5,15 +5,15 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 673c20355e9ad4abf2c8318b3eb2ebbcc36ed8fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ac3ee8d44d68f5c7929c2f93f1a1182c7f6083b
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128229"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891252"
 ---
 # <a name="connect-with-the-macos-client"></a>Se connecter avec le client macOS
 
@@ -31,11 +31,11 @@ Abonnez-vous au flux que votre administrateur vous a indiqué pour obtenir la li
 
 Pour s’abonner à un flux :
 
-1. Sélectionnez **Add Feed** (Ajouter un flux) sur la page principale pour vous connecter au service et récupérer vos ressources.
+1. Sélectionnez **Add Workspace** (Ajouter un espace de travail) sur la page principale pour vous connecter au service et récupérer vos ressources.
 2. Entrez l’URL du flux. Il peut s’agir d’une URL ou d’une adresse e-mail :
    - Si vous utilisez une URL, utilisez celle que votre administrateur vous a donnée. Normalement, l’URL est <https://rdweb.wvd.microsoft.com>.
    - Pour utiliser l’e-mail, entrez votre adresse e-mail. Cela indique au client de rechercher une URL associée à votre adresse e-mail si votre administrateur a configuré le serveur de cette manière.
-3. Sélectionnez **Subscribe** (S’abonner).
+3. Sélectionnez **Ajouter**.
 4. Connectez-vous avec votre compte d’utilisateur quand vous y êtes invité.
 
 Une fois connecté, vous devez voir la liste des ressources disponibles.

@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/19/2019
+ms.topic: tutorial
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612516"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654413"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutoriel : Créer une approbation de forêt sortante vers un domaine local dans Azure Active Directory Domain Services (préversion)
 
@@ -59,7 +59,7 @@ Avant de configurer une approbation de forêt dans Azure AD DS, assurez-vous que
 
 * Utilisez des adresses IP privées. Ne vous fiez pas à DHCP avec attribution d’adresses IP dynamiques.
 * Évitez les espaces d’adressage IP qui se chevauchent pour permettre au routage et à l’appairage de réseaux virtuels de bien communiquer entre Azure et les réseaux locaux.
-* Un réseau virtuel Azure a besoin d’un sous-réseau de passerelle pour configurer une connexion VPN de site à site (S2S) ou ExpressRoute.
+* Un réseau virtuel Azure a besoin d’un sous-réseau de passerelle pour configurer une connexion [Azure VPN de site à site (S2S)][vpn-gateway] ou [ExpressRoute][expressroute].
 * Créez des sous-réseaux avec suffisamment d’adresses IP pour prendre en charge votre scénario.
 * Assurez-vous qu'Azure AD DS possède son propre sous-réseau. Ne partagez pas ce sous-réseau de réseau virtuel avec les machines virtuelles et services d’application.
 * Les réseaux virtuels appairés ne sont PAS transitifs.
@@ -74,7 +74,7 @@ Pour résoudre correctement le domaine managé Azure AD à partir de l’environ
 1. Sélectionnez **Démarrer | Outils d'administration | DNS**.
 1. Cliquez avec le bouton droit sur le serveur DNS, comme *myAD01*, sélectionnez **Propriétés**.
 1. Sélectionnez **Redirecteurs**, puis **Modifier** pour ajouter des redirecteurs supplémentaires.
-1. Ajoutez les adresses IP du domaine managé Azure AD DS, comme *10.0.1.4* et *10.0.1.5*.
+1. Ajoutez les adresses IP du domaine managé Azure AD DS, pas exemple *10.0.2.4* et *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Créer une approbation de forêt entrante dans le domaine local
 
@@ -85,10 +85,6 @@ Pour configurer l’approbation entrante sur le domaine AD DS local, procédez c
 1. Sélectionnez **Démarrer | Outils d'administration | Domaines et approbations Active Directory**
 1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com*, sélectionnez **Propriétés**.
 1. Sélectionnez l'onglet **Approbations**, puis **Nouvelle approbation**.
-
-   > [!NOTE]
-   > Si vous ne voyez pas l’option de menu **Approbations**, vérifiez le **Type de forêt** sous *Propriétés*. Seules les forêts de *ressources* peuvent créer des approbations. Si le type de forêt est *Utilisateur*, vous ne pouvez pas créer de relations d’approbation. Il n’existe actuellement aucun moyen de modifier le type de forêt d’un domaine géré par Azure AD DS. Vous devez supprimer et recréer le domaine géré comme une forêt de ressources.
-
 1. Entrez un nom dans le nom de domaine Azure AD DS, comme *aaddscontoso.com*, puis sélectionnez **Suivant**.
 1. Sélectionnez l’option permettant de créer une **approbation de forêt**, puis une approbation **unidirectionnelle : entrante**.
 1. Choisissez de créer l’approbation pour **ce domaine uniquement**. À l’étape suivante, vous créez l’approbation dans le portail Azure pour le domaine managé Azure AD DS.
@@ -104,12 +100,16 @@ Pour créer l’approbation sortante destinée au domaine managé Azure AD DS da
 
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**, puis sélectionnez votre domaine managé, par exemple *aaddscontoso.com*
 1. Dans le menu de gauche du domaine managé Azure AD DS, sélectionnez **Approbations**, puis **+ Ajouter** une approbation.
+
+   > [!NOTE]
+   > Si vous ne voyez pas l’option de menu **Approbations**, vérifiez le **Type de forêt** sous *Propriétés*. Seules les forêts de *ressources* peuvent créer des approbations. Si le type de forêt est *Utilisateur*, vous ne pouvez pas créer de relations d’approbation. Il n’existe actuellement aucun moyen de modifier le type de forêt d’un domaine géré par Azure AD DS. Vous devez supprimer et recréer le domaine géré comme une forêt de ressources.
+
 1. Entrez un nom d’affichage qui identifie votre approbation, puis le nom DNS de la forêt locale approuvée, par exemple *onprem.contoso.com*
 1. Indiquez le même mot de passe d’approbation que celui utilisé à la section précédente lors de la configuration de l’approbation de forêt entrante pour le domaine AD DS local.
-1. Fournissez au moins deux serveurs DNS pour le domaine AD DS local, par exemple *10.0.2.4* et *10.0.2.5*.
+1. Fournissez au moins deux serveurs DNS pour le domaine AD DS local, par exemple *10.1.1.4* et *10.1.1.5*.
 1. Lorsque vous êtes prêt, **enregistrez** l’approbation de forêt sortante.
 
-    [Créer une approbation de forêt sortante dans le portail Azure](./media/create-forest-trust/portal-create-outbound-trust.png)
+    ![Créer une approbation de forêt sortante dans le portail Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
 ## <a name="validate-resource-authentication"></a>Valider l’authentification des ressources
 
@@ -126,11 +126,7 @@ Les scénarios courants suivants vous permettent de vérifier que l’approbatio
 
 Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine de ressources Azure AD DS. Utilisez cette machine virtuelle pour vérifier que votre utilisateur local peut s’authentifier sur une machine virtuelle.
 
-1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS à l’aide de Bureau à distance et de vos informations d’identification d’administrateur Azure AD DS. Si une erreur d'authentification au niveau du réseau s'affiche, vérifiez que le compte d’utilisateur que vous avez utilisé ne correspond pas un compte d’utilisateur de domaine.
-
-    > [!NOTE]
-    > Pour vous connecter en toute sécurité à vos machines virtuelles jointes à Azure AD Domain Services, vous pouvez utiliser le [service hôte Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) dans les régions Azure prises en charge.
-
+1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS en utilisant [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) et vos informations d’identification d’administrateur Azure AD DS.
 1. Ouvrez une invite de commandes et utilisez la commande `whoami` pour afficher le nom unique de l’utilisateur actuellement authentifié :
 
     ```console
@@ -152,10 +148,7 @@ Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine d
 
 #### <a name="enable-file-and-printer-sharing"></a>Activer le partage de fichiers et d’imprimantes
 
-1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS à l’aide de Bureau à distance et de vos informations d’identification d’administrateur Azure AD DS. Si une erreur d'authentification au niveau du réseau s'affiche, vérifiez que le compte d’utilisateur que vous avez utilisé ne correspond pas un compte d’utilisateur de domaine.
-
-    > [!NOTE]
-    > Pour vous connecter en toute sécurité à vos machines virtuelles jointes à Azure AD Domain Services, vous pouvez utiliser le [service hôte Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) dans les régions Azure prises en charge.
+1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS en utilisant [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) et vos informations d’identification d’administrateur Azure AD DS.
 
 1. Ouvrez **Paramètres Windows**, puis recherchez et sélectionnez **Centre Réseau et partage**.
 1. Sélectionnez l’option permettant de **modifier les paramètres de partage avancés**.
@@ -221,3 +214,5 @@ Pour plus d’informations conceptuelles sur les types de forêts dans Azure AD 
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
 [howto-change-sku]: change-sku.md
+[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[expressroute]: ../expressroute/expressroute-introduction.md

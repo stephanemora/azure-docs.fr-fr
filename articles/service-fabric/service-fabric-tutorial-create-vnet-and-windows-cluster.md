@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment déployer un cluste
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75551707"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756035"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutoriel : Déployer un cluster Service Fabric exécutant Windows sur un réseau virtuel Azure
 
@@ -156,7 +156,7 @@ Le fichier de paramètres [azuredeploy.parameters.json][parameters] déclare de 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Configurer l’authentification client Azure Active Directory
 Pour les clusters Service Fabric déployés dans un réseau public hébergé dans Azure, les recommandations concernant l’authentification mutuelle client à nœud sont les suivantes :
 * Utiliser Azure Active Directory pour l’identité client
-* Utiliser un certificat pour l’identité du serveur et le chiffrement SSL de la communication HTTP
+* Utiliser un certificat pour l’identité du serveur et le chiffrement TLS de la communication HTTP
 
 La configuration d’Azure Active Directory (Azure AD) pour authentifier les clients d’un cluster Service Fabric doit être effectuée avant de [créer le cluster](#createvaultandcert). Azure AD permet aux organisation (appelées locataires) de gérer l’accès utilisateur aux applications. 
 

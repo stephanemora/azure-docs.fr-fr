@@ -3,17 +3,17 @@ title: Guide de démarrage rapide - Explorer les coûts Azure avec l’analyse d
 description: Ce guide de démarrage rapide vous aide à utiliser l’analyse du coût pour explorer et analyser les coûts Azure de votre organisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155951"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874498"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -45,7 +45,7 @@ Pour examiner vos coûts via la fonctionnalité d’analyse des coûts, ouvrez l
 
 L’étendue que vous sélectionnez est utilisée à travers Cost Management pour consolider les données et contrôler l’accès aux informations sur les coûts. Quand vous utilisez des étendues, vous n’opérez pas une sélection multiple. Au lieu de cela, vous sélectionnez une étendue plus grande qui en regroupe d’autres, puis vous filtrez jusqu’aux portées imbriquées dont vous avez besoin. Il est important de comprendre cette approche, car il est possible que certaines personnes n’aient pas accès à une étendue parente unique qui couvre plusieurs étendues imbriquées.
 
-Regardez la vidéo [Guide pratique pour utiliser Cost Management dans le portail Azure](https://www.youtube.com/watch?v=mfxysF-kTFA) pour en savoir plus sur l’utilisation de l’analyse du coût.
+Regardez la vidéo [Guide pratique pour utiliser Cost Management dans le portail Azure](https://www.youtube.com/watch?v=mfxysF-kTFA) pour en savoir plus sur l’utilisation de l’analyse du coût. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
@@ -145,6 +145,10 @@ Vous pouvez afficher le jeu de données complet pour n’importe quelle vue. L�
 
 ## <a name="understanding-grouping-and-filtering-options"></a>Options de regroupement et de filtrage
 
+L’analyse des coûts dispose de nombreuses options de regroupement et de filtrage. Pour visionner une vidéo sur les options de regroupement et de filtrage, regardez la vidéo [Cost Management - Génération de rapports en fonction des dimensions et des balises](https://www.youtube.com/watch?v=2Vx7V17zbmk). Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
+
 Le tableau suivant répertorie quelques options courantes de regroupement et de filtrage, et indique à quel moment les utiliser.
 
 | Propriété | Quand l’utiliser | Notes |
@@ -178,7 +182,7 @@ Pour plus d’informations sur ces termes, consultez [Comprendre les termes util
 
 Enregistrez des vues personnalisées et partagez-les avec d’autres utilisateurs en épinglant l’analyse des coûts au tableau de bord du portail Azure, ou en copiant un lien dans l’analyse des coûts.
 
-Regardez la vidéo [Partager et enregistrer des vues dans Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) pour en savoir plus sur l’utilisation du portail pour partager les connaissances sur les coûts dans votre organisation.
+Regardez la vidéo [Partager et enregistrer des vues dans Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) pour en savoir plus sur l’utilisation du portail pour partager les connaissances sur les coûts dans votre organisation. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 

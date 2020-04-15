@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/22/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: d2495605cccf658b15e812fd85fd65671e84d15b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76544274"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655525"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparer les services Active Directory Domain Services automanagés, Azure Active Directory et les services Azure Active Directory Domain Services managés
 
@@ -25,12 +25,16 @@ Même si les trois solutions d’identité basées sur Active Directory ont un n
 
 * **Active Directory Domain Services (AD DS)** : serveur LDAP (Lightweight Directory Access Protocol) prêt pour l’entreprise qui fournit des fonctionnalités clés telles que l’identité et l’authentification, la gestion des objets ordinateur, la stratégie de groupe et les approbations.
     * AD DS est un composant central dans de nombreuses organisations disposant d’un environnement informatique local et fournit des fonctionnalités d’authentification de compte d’utilisateur et de gestion d’ordinateurs de base.
+    * Pour plus d’informations, consultez [Vue d’ensemble d’Active Directory Domain Services dans la documentation de Windows Server][overview-adds].
 * **Azure Active Directory (Azure AD)** : gestion des identités et des appareils mobiles basée sur le cloud qui fournit des services d’authentification et de compte d’utilisateur pour les ressources telles que Office 365, le portail Azure ou les applications SaaS.
     * Azure AD peut être synchronisé avec un environnement AD DS local pour fournir une identité unique aux utilisateurs qui travaillent en mode natif dans le cloud.
+    * Pour plus d’informations sur Azure AD, consultez [Qu’est-ce qu’Azure Active Directory ?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)**  : fournit des services de domaine managés avec un sous-ensemble de fonctionnalités AD DS traditionnelles entièrement compatibles, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP et l’authentification Kerberos/NTLM.
     * Azure AD DS s’intègre à Azure AD, qui peut lui-même se synchroniser avec un environnement AD DS local. Cette capacité étend les cas d’usage de l’identité centrale aux applications web traditionnelles qui s’exécutent dans Azure dans le cadre d’une stratégie lift-and-shift.
 
 Cet article de vue d’ensemble compare la façon dont ces solutions d’identité peuvent fonctionner ensemble ou être utilisées indépendamment, en fonction des besoins de votre organisation.
+
+Pour bien démarrer, [créez un domaine managé Azure AD DS à l’aide du portail Azure][tutorial-create].
 
 ## <a name="azure-ad-ds-and-self-managed-ad-ds"></a>Azure AD DS et instance AD DS automanagée
 
@@ -102,7 +106,7 @@ Avec les appareils joints à Azure AD DS, les applications peuvent utiliser les 
 |:--------------------------------| --------------------------------------------------- | ------------------------------------------------------------------------- |
 | Appareil contrôlé par            | Azure AD                                            | Domaine managé Azure AD DS                                                |
 | Représentation dans l’annuaire | Objets appareil dans le répertoire Azure AD            | Objets ordinateur dans le domaine managé Azure AD DS                        |
-| Authentication                  | Protocoles OAuth et OpenID Connect              | Protocoles Kerberos et NTLM                                               |
+| Authentification                  | Protocoles OAuth et OpenID Connect              | Protocoles Kerberos et NTLM                                               |
 | Gestion                      | Logiciels de gestion des appareils mobiles (GAM) tels qu’Intune | Stratégie de groupe                                                              |
 | Mise en réseau                      | Fonctionne sur Internet                             | Doit être connecté ou appairé au réseau virtuel sur lequel le domaine managé est déployé |
 | Idéal pour...                    | Appareils mobiles ou de bureau des utilisateurs finaux                  | Machines virtuelles de serveur déployées dans Azure                                              |
@@ -118,3 +122,5 @@ Pour bien démarrer avec l’utilisation d’Azure AD DS, [créez un domaine man
 [manage-gpos]: manage-group-policy.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-create]: tutorial-create-instance.md
+[whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
+[overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview

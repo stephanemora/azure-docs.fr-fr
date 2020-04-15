@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/04/2020
+ms.date: 04/03/2020
 ms.author: labrenne
 ms.custom: include file
-ms.openlocfilehash: e9460108499ca76d1b149b61cebe3d3081bf6544
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086250"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657469"
 ---
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -75,6 +75,9 @@ Configurez le trafic entrant sur le port 3389 (Windows) ou 22 (Linux) uniquemen
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | [Étiquette de service](../articles/virtual-network/security-overview.md#service-tags) `BatchNodeManagement` (si vous utilisez une variante régionale, dans la même région que votre compte Batch) | * | Quelconque | 29876-29877 | TCP | Allow |
 | Adresses IP sources utilisateurs pour accéder à distance à des nœuds de calcul et/ou à un sous-réseau de nœuds de calcul pour les tâches multi-instances de Linux, si nécessaire. | N/A | * | Quelconque | 3389 (Windows), 22 (Linux) | TCP | Allow |
+
+> [!WARNING]
+> Les adresses IP du service Batch peuvent changer au fil du temps. Par conséquent, il est fortement recommandé d’utiliser l’étiquette de service `BatchNodeManagement` (ou une variante régionale) pour les règles de groupe de sécurité réseau. Il n’est pas recommandé de définir les règles de groupe de sécurité réseau directement avec des adresses IP du service Batch.
 
 **Règles de sécurité de trafic entrant**
 

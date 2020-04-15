@@ -4,14 +4,14 @@ description: Dans ce didacticiel, vous découvrez comment utiliser PowerShell po
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a21de9d76a010b01da95b050a521178d8808bbdf
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78252732"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756076"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
 
 Ce didacticiel est la quatrième partie d’une série de didacticiels et vous montre comment mettre à niveau le runtime Service Fabric sur un cluster Azure Service Fabric. Cette partie du didacticiel concerne les clusters Service Fabric s’exécutant sur Azure ; elle ne s’applique pas aux clusters Service Fabric autonomes.
 
@@ -37,7 +37,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
@@ -75,7 +75,7 @@ Notez la valeur **ClusterCodeVersion**. Vous l’utiliserez dans la section suiv
 
 ## <a name="upgrade-the-runtime"></a>Mettre à niveau le runtime
 
-Avec l’applet de commande **, utilisez la valeur** ClusterCodeVersion`Get-ServiceFabricRuntimeUpgradeVersion` obtenue dans la section précédente pour découvrir les versions vers lesquelles vous pouvez effectuer la mise à niveau. Vous pouvez exécuter cette applet de commande uniquement à partir d’un ordinateur connecté à Internet. Par exemple, pour connaître les versions de runtime vers lesquelles vous pouvez effectuer une mise à niveau depuis la version `5.7.198.9494`, utilisez la commande suivante :
+Avec l’applet de commande `Get-ServiceFabricRuntimeUpgradeVersion`, utilisez la valeur **ClusterCodeVersion** obtenue dans la section précédente pour découvrir les versions vers lesquelles vous pouvez effectuer la mise à niveau. Vous pouvez exécuter cette applet de commande uniquement à partir d’un ordinateur connecté à Internet. Par exemple, pour connaître les versions de runtime vers lesquelles vous pouvez effectuer une mise à niveau depuis la version `5.7.198.9494`, utilisez la commande suivante :
 
 ```powershell
 Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
@@ -95,7 +95,7 @@ Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 
 Vous pouvez surveiller l’état de la mise à niveau avec PowerShell ou Azure Service Fabric CLI (sfctl).
 
-Tout d’abord, connectez-vous au cluster avec le certificat SSL créé dans la première partie du didacticiel. Utilisez l’applet de commande `Connect-ServiceFabricCluster` ou `sfctl cluster upgrade-status`.
+Tout d’abord, connectez-vous au cluster avec le certificat TLS/SSL créé dans la première partie du tutoriel. Utilisez l’applet de commande `Connect-ServiceFabricCluster` ou `sfctl cluster upgrade-status`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"

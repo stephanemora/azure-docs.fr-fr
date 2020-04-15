@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/22/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75422653"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410597"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -84,79 +84,83 @@ Un *package d’accès* est un bundle de ressources dont une équipe ou un proje
 
 1. Dans le portail Azure, dans le volet de navigation gauche, cliquez sur **Azure Active Directory**.
 
-1. Dans le menu gauche, cliquez sur **Identity Governance**.
+2. Dans le menu gauche, cliquez sur **Identity Governance**.
 
-1. Dans le menu gauche, cliquez sur **Packages d’accès**.  Si vous voyez **Accès refusé**, vérifiez qu’une licence Azure AD Premium P2 est présente dans votre annuaire.
+3. Dans le menu gauche, cliquez sur **Packages d’accès**.  Si vous voyez **Accès refusé**, vérifiez qu’une licence Azure AD Premium P2 est présente dans votre annuaire.
 
-1. Cliquez sur **Nouveau package d’accès**.
+4. Cliquez sur **Nouveau package d’accès**.
 
     ![Gestion des droits d’utilisation dans le portail Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-1. Sous l’onglet **Bases**, tapez le nom de package d’accès **Marketing Campaign** (Campagne marketing) et la description **Access to resources for the campaign** (Accès aux ressources de la campagne).
+5. Sous l’onglet **Bases**, tapez le nom de package d’accès **Marketing Campaign** (Campagne marketing) et la description **Access to resources for the campaign** (Accès aux ressources de la campagne).
 
-1. Dans la liste déroulante **Catalogue**, conservez la sélection **Général**.
+6. Dans la liste déroulante **Catalogue**, conservez la sélection **Général**.
 
     ![Nouveau package d’accès - Onglet De base](./media/entitlement-management-access-package-first/basics.png)
 
-1. Cliquez sur **Suivant** pour ouvrir l’onglet **Rôles des ressources**.
+7. Cliquez sur **Suivant** pour ouvrir l’onglet **Rôles des ressources**.
 
     Sous cet onglet, sélectionnez les ressources et le rôle de ressource à inclure dans le package d’accès.
 
-1. Cliquez sur **Groupes et équipes**.
+8. Cliquez sur **Groupes et équipes**.
 
-1. Dans le volet Sélectionner les groupes, recherchez le groupe **Marketing resources** créé précédemment et sélectionnez-le.
+9. Dans le volet Sélectionner les groupes, recherchez le groupe **Marketing resources** créé précédemment et sélectionnez-le.
 
     Par défaut, des groupes sont présents à l’intérieur et à l’extérieur du catalogue **Général**. Quand vous sélectionnez un groupe à l’extérieur du catalogue **Général**, il est ajouté au catalogue **Général**.
 
     ![Nouveau package d’accès - Onglet Rôles des ressources](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. Cliquez sur **Sélectionner** pour ajouter le groupe à la liste.
+10. Cliquez sur **Sélectionner** pour ajouter le groupe à la liste.
 
-1. Dans la liste déroulante **Rôle**, sélectionnez **Membre**.
+11. Dans la liste déroulante **Rôle**, sélectionnez **Membre**.
 
     ![Nouveau package d’accès - Onglet Rôles des ressources](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Cliquez sur **Suivant** pour ouvrir l’onglet **Requêtes**.
+    >[!NOTE]
+    > Quand vous utilisez des [groupes dynamiques](../users-groups-roles/groups-create-rule.md), vous ne voyez pas d’autres rôles disponibles en plus du propriétaire. C'est la procédure normale.
+    > ![Vue d’ensemble du scénario](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+
+12. Cliquez sur **Suivant** pour ouvrir l’onglet **Requêtes**.
 
     Sous cet onglet, vous créez une stratégie de demande. Une *stratégie* définit les règles ou barrières mises en place pour accéder à un package d’accès. Vous créez une stratégie qui permet à un utilisateur spécifique de l’annuaire de ressources de demander ce package d’accès.
 
-1. Dans la section **Utilisateurs qui peuvent demander l’accès**, cliquez sur **Pour les utilisateurs de votre annuaire**, puis cliquez sur **Utilisateurs et groupes spécifiques**.
+13. Dans la section **Utilisateurs qui peuvent demander l’accès**, cliquez sur **Pour les utilisateurs de votre annuaire**, puis cliquez sur **Utilisateurs et groupes spécifiques**.
 
     ![Nouveau package d’accès - Onglet Demandes](./media/entitlement-management-access-package-first/requests.png)
 
-1. Cliquez sur **Ajouter des utilisateurs et des groupes**.
+14. Cliquez sur **Ajouter des utilisateurs et des groupes**.
 
-1. Dans le volet Sélectionner des utilisateurs et des groupes, sélectionnez l’utilisateur **Requestor1** que vous avez créé.
+15. Dans le volet Sélectionner des utilisateurs et des groupes, sélectionnez l’utilisateur **Requestor1** que vous avez créé.
 
     ![Nouveau package d’accès - Onglet Demandes - Sélectionner des utilisateurs et des groupes](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. Cliquez sur **Sélectionner**.
+16. Cliquez sur **Sélectionner**.
 
-1. Faites défiler jusqu’aux sections **Approbation** et **Activer les demandes**.
+17. Faites défiler jusqu’aux sections **Approbation** et **Activer les demandes**.
 
-1. Laissez l’option **Exiger l’approbation** définie sur **Non**.
+18. Laissez l’option **Exiger l’approbation** définie sur **Non**.
 
-1. Pour **Activer les demandes**, cliquez sur **Oui** afin que ce package d’accès puisse être demandé dès qu’il est créé.
+19. Pour **Activer les demandes**, cliquez sur **Oui** afin que ce package d’accès puisse être demandé dès qu’il est créé.
 
     ![Nouveau package d’accès - Onglet Demandes - Approbation et Activer les demandes](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-1. Cliquez sur **Suivant** pour ouvrir l’onglet **Cycle de vie**.
+20. Cliquez sur **Suivant** pour ouvrir l’onglet **Cycle de vie**.
 
-1. Dans la section **Expiration**, sélectionnez **Nombre de jours** en regard de **Les attributions de package d’accès expirent**.
+21. Dans la section **Expiration**, sélectionnez **Nombre de jours** en regard de **Les attributions de package d’accès expirent**.
 
-1. Définissez **Les attributions expirent après** sur **30** jours.
+22. Définissez **Les attributions expirent après** sur **30** jours.
 
     ![Nouveau package d’accès - Onglet Cycle de vie](./media/entitlement-management-access-package-first/lifecycle.png)
 
-1. Cliquez sur **Suivant** pour ouvrir l’onglet **Vérifier + créer**.
+23. Cliquez sur **Suivant** pour ouvrir l’onglet **Vérifier + créer**.
 
     ![Nouveau package d’accès - Onglet Vérifier + créer](./media/entitlement-management-access-package-first/review-create.png)
 
     Après quelques instants, vous devez obtenir une notification indiquant que le package d’accès a été créé.
 
-1. Dans le menu gauche du package de campagne marketing, cliquez sur **Vue d’ensemble**.
+24. Dans le menu gauche du package de campagne marketing, cliquez sur **Vue d’ensemble**.
 
-1. Copiez le lien sous **Lien du portail Mon Accès**.
+25. Copiez le lien sous **Lien du portail Mon Accès**.
 
     Vous en aurez besoin à l’étape suivante.
 

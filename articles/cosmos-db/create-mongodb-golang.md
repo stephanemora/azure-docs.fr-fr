@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 94be0ec16aedc317f1be41998356bc52b66f7e86
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75441946"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619210"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Démarrage rapide : Générer une application console en utilisant l’API Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) Golang
 
@@ -93,7 +93,7 @@ Tous les extraits de code suivants proviennent du fichier main.go.
 
 ### <a name="connecting-the-go-app-to-cosmos-db"></a>Connecter l’application Go à Cosmos DB
 
-L’API Azure Cosmos DB pour MongoDB prend en charge la connexion SSL. Pour vous connecter, vous devez configurer la fonction **DialServer** dans [mgo. DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) et vérifier que la fonction [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) assure la connexion.
+L’API d’Azure Cosmos DB pour MongoDB prend en charge la connexion TLS. Pour vous connecter, vous devez configurer la fonction **DialServer** dans [mgo. DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) et vérifier que la fonction [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) assure la connexion.
 
 L’extrait de code Golang suivant connecte l’application Go à l’API Azure Cosmos DB pour MongoDB. La classe *DialInfo* contient des options permettant d’établir une session.
 
@@ -129,7 +129,7 @@ defer session.Close()
 session.SetSafe(&mgo.Safe{})
 ```
 
-La méthode **mgo. Dial()** est utilisée lorsqu’il n’existe aucune connexion SSL. Pour établir une connexion SSL, la méthode **mgo. DialWithInfo()** est requise.
+La méthode **mgo.Dial()** est utilisée lorsqu’il n’existe aucune connexion TLS. Pour établir une connexion TLS, la méthode **mgo.DialWithInfo()** est nécessaire.
 
 Une instance de l’objet **DialWIthInfo{}** est utilisée pour créer l’objet de session. Une fois la session établie, vous pouvez accéder à la collection à l’aide de l’extrait de code suivant :
 

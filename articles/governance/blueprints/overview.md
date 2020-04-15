@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Blueprint
 description: Découvrez comment Azure Blueprints vous permet de créer, de définir et de déployer des artefacts dans votre environnement Azure.
 ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74321764"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677411"
 ---
 # <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
 
@@ -22,17 +22,17 @@ Les blueprints sont un moyen déclaratif d’orchestrer le déploiement de diver
 - Groupes de ressources
 
 Le service Azure Blueprints est soutenu par le service globalement distribué [Azure Cosmos DB](../../cosmos-db/introduction.md).
-Les objets Blueprint sont répliqués dans plusieurs régions Azure. Cette réplication offre une faible latence, une haute disponibilité et un accès cohérent à vos objets blueprint, quelle que soit la région dans laquelle Blueprints déploie vos ressources.
+Les objets Blueprint sont répliqués dans plusieurs régions Azure. Cette réplication offre une faible latence, une haute disponibilité et un accès cohérent à vos objets blueprint, quelle que soit la région dans laquelle Azure Blueprints déploie vos ressources.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Différences par rapport aux modèles Resource Manager
 
 Le service est conçu pour faciliter la _configuration de l’environnement_. Cette configuration se compose souvent d’un ensemble de groupes de ressources, de stratégies, d’attributions de rôles et de déploiements de modèle Resource Manager. Un blueprint est un package qui vous permet de regrouper ces types _d’artefact_. Vous pouvez composer ce package et gérer ses versions, notamment par le biais d’un pipeline CI/CD. Au final, chaque blueprint est affecté à un abonnement dans une opération unique qui peut faire l’objet d’un audit et d’un suivi.
 
-Vous pouvez utiliser un modèle Resource Manager pour accomplir la plupart des choses que vous souhaitez ajouter au déploiement dans Azure Blueprint. Toutefois, un modèle Resource Manager est un document qui n’existe pas en mode natif dans Azure et qui est stocké localement ou dans le contrôle de code source. Le modèle peut servir aux déploiements d’une ou plusieurs ressources Azure, mais une fois ces ressources déployées, il n’existe aucune connexion et relation active au modèle.
+Vous pouvez utiliser un modèle Resource Manager pour accomplir la plupart des choses que vous souhaitez ajouter au déploiement dans Azure Blueprints. Toutefois, un modèle Resource Manager est un document qui n’existe pas en mode natif dans Azure et qui est stocké localement ou dans le contrôle de code source. Le modèle peut servir aux déploiements d’une ou plusieurs ressources Azure, mais une fois ces ressources déployées, il n’existe aucune connexion et relation active au modèle.
 
-Avec Blueprint, la relation entre la définition du blueprint (ce qui _doit_ être déployé) et l’affectation du blueprint (ce qui _a été_ déployé) est conservée. Cette connexion prend en charge le suivi et l’audit améliorés des déploiements. Les blueprints peuvent également mettre à niveau plusieurs abonnements régis par le même blueprint simultanément.
+Avec Azure Blueprints, la relation entre la définition du blueprint (ce qui _doit_ être déployé) et l’affectation du blueprint (ce qui _a été_ déployé) est conservée. Cette connexion prend en charge le suivi et l’audit améliorés des déploiements. Azure Blueprints peut également mettre à niveau plusieurs abonnements régis par le même blueprint simultanément.
 
-Il est inutile de choisir entre un modèle Resource Manager et un blueprint. Chaque blueprint peut comprendre zéro ou plusieurs _artefacts_ d’un modèle Resource Manager. Cette prise en charge implique que les précédents efforts visant à développer et à maintenir une bibliothèque de modèles Resource Manager peuvent être réutilisés dans Blueprint.
+Il est inutile de choisir entre un modèle Resource Manager et un blueprint. Chaque blueprint peut comprendre zéro ou plusieurs _artefacts_ d’un modèle Resource Manager. Cette prise en charge signifie que les précédents efforts visant à développer et à maintenir une bibliothèque de modèles Resource Manager peuvent être réutilisés dans Azure Blueprints.
 
 ## <a name="how-its-different-from-azure-policy"></a>Différences par rapport à Azure Policy
 
@@ -46,7 +46,7 @@ Une stratégie peut constituer l’un des nombreux _artefacts_ d’une définiti
 
 ## <a name="blueprint-definition"></a>Définition de blueprint
 
-Un blueprint est composé _d’artefacts_. Les blueprints prennent actuellement en charge les ressources suivantes comme artefacts :
+Un blueprint est composé _d’artefacts_. Azure Blueprints prend actuellement en charge les ressources suivantes comme artefacts :
 
 |Ressource  | Options de hiérarchie| Description  |
 |---------|---------|---------|

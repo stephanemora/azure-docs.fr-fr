@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8c3f5dae62aef6c8e8ec1eeaeb712ebff67397c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cca5680d307874a565dec47f643bf9320192c270
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77566180"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656097"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-javascript"></a>Démarrage rapide : Extraire du texte imprimé et manuscrit à l’aide de l’API REST Vision par ordinateur 2.0 ou 2.1 et de JavaScript
 
@@ -45,7 +45,7 @@ Par rapport à Vision par ordinateur 2.0 et 2.1, la préversion publique Vision
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
-Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommées respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
+Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Enregistrez votre clé d’abonnement et l’URL du point de terminaison à un emplacement temporaire.
 
 ## <a name="create-and-run-the-sample"></a>Création et exécution de l’exemple
 
@@ -53,12 +53,12 @@ Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. V
 
 Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-1. Copiez le code ci-après dans un éditeur de texte.
+1. Créez un fichier appelé _get-tex.html_, ouvrez-le dans un éditeur de texte, puis copiez-y le code suivant.
 1. Remplacez éventuellement la valeur de l’attribut `value` du contrôle `inputImage` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte.
-1. Enregistrez le code dans un fichier avec une extension `.html`. Par exemple : `get-text.html`.
 1. Ouvrez une fenêtre de navigateur.
 1. Dans le navigateur, faites glisser et déposez le fichier dans la fenêtre du navigateur.
-1. Quand la page web s’affiche dans le navigateur, choisissez le bouton **Lire l’image**.
+1. Quand la page web s’affiche dans le navigateur, collez votre clé d’abonnement et l’URL du point de terminaison dans les zones d’entrée appropriées.
+1. Sélectionnez le bouton **Lire l’image**.
 
 ```html
 <!DOCTYPE html>
@@ -75,9 +75,8 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
         // *** Update or verify the following values. ***
         // **********************************************
 
-        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
-        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        var subscriptionKey = document.getElementById("subscriptionKey").value;
+        var endpoint = document.getElementById("endpointUrl").value;
         
         var uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
 
@@ -170,6 +169,13 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 <h1>Read text from image:</h1>
 Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
+<br><br>
+Subscription key: 
+<input type="text" name="subscriptionKey" id="subscriptionKey"
+    value="" /> 
+Endpoint URL:
+<input type="text" name="endpointUrl" id="endpointUrl"
+    value="" />
 <br><br>
 Image to read:
 <input type="text" name="inputImage" id="inputImage"

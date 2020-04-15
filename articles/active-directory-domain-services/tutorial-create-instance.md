@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 14b3292a08e9bb0a60710053cd0b7ffc9d0db115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1bd5248e0a6a6c7c569c85e8c1af3e30f8b7f9e4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223076"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474265"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutoriel : Créer et configurer une instance Azure Active Directory Domain Services
 
@@ -89,7 +89,7 @@ Renseignez les champs de la fenêtre *De base* du portail Azure pour créer une 
 1. Entrez un **Nom de domaine DNS** pour votre domaine managé, en tenant compte des points précédents.
 1. Choisissez l’**Emplacement** Azure dans lequel créer le domaine managé. Si vous choisissez une région qui prend en charge les Zones de disponibilité, les ressources Azure AD DS sont réparties entre les zones pour assurer une redondance supplémentaire.
 
-    Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées.
+    Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, un minimum de trois zones distinctes sont activées dans toutes les régions.
 
     Vous ne devez rien configurer pour la répartition d’Azure AD DS entre les zones. La plateforme Azure gère automatiquement la répartition de zone des ressources. Pour plus d’informations et pour connaître la disponibilité régionale, consultez [Que sont les zones de disponibilité dans Azure ?][availability-zones]
 
@@ -104,8 +104,8 @@ Renseignez les champs de la fenêtre *De base* du portail Azure pour créer une 
 
 Pour créer rapidement un domaine managé Azure AD DS, vous pouvez sélectionner **Vérifier + créer** afin d’accepter d’autres options de configuration par défaut. Quand vous choisissez cette option de création, les paramètres par défaut suivants sont configurés :
 
-* Crée un réseau virtuel nommé *aadds-vnet* qui utilise la plage d’adresses IP *10.0.1.0/24*.
-* Crée un sous-réseau appelé *aadds-subnet* qui utilise la plage d’adresses IP *10.0.1.0/24*.
+* Crée un réseau virtuel nommé *aadds-vnet* qui utilise la plage d’adresses IP *10.0.2.0/24*.
+* Crée un sous-réseau appelé *aadds-subnet* qui utilise la plage d’adresses IP *10.0.2.0/24*.
 * Synchronise *tous* les utilisateurs entre Azure AD et le domaine managé Azure AD DS.
 
 Sélectionnez **Vérifier + créer** pour accepter ces options de configuration par défaut.
@@ -136,7 +136,7 @@ Avec Azure AD DS correctement déployé, configurez maintenant le réseau virtue
 
 1. L’onglet **Vue d’ensemble** pour votre domaine managé montre quelques **Étapes de configuration obligatoires**. La première étape de configuration est de mettre à jour les paramètres du serveur DNS pour votre réseau virtuel. Une fois les paramètres DNS correctement configurés, cette étape n’apparaît plus.
 
-    Les adresses listées sont les contrôleurs de domaine à utiliser dans le réseau virtuel. Dans cet exemple, ces adresses sont *10.0.1.4* et *10.0.1.5*. Vous pouvez trouver ultérieurement ces adresses IP sous l’onglet **Propriétés**.
+    Les adresses listées sont les contrôleurs de domaine à utiliser dans le réseau virtuel. Dans cet exemple, ces adresses sont *10.0.2.4* et *10.0.2.5*. Vous pouvez trouver ultérieurement ces adresses IP sous l’onglet **Propriétés**.
 
     ![Configurer les paramètres DNS pour votre réseau virtuel avec les adresses IP d’Azure AD Domain Services](./media/tutorial-create-instance/configure-dns.png)
 

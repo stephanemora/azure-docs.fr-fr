@@ -1,22 +1,22 @@
 ---
 title: Qu’est-ce que l’API Recherche Web Bing ?
 titleSuffix: Azure Cognitive Services
-description: L’API Recherche Web Bing est un service RESTful fournissant des réponses instantanées aux requêtes utilisateur. Les résultats de la recherche sont facilement configurés pour inclure des pages web, des images, des vidéos, des actualités, des traductions et bien davantage. Les résultats sont fournis au format JSON et basés sur la pertinence de la recherche et sur vos abonnements API Recherche Web Bing.
+description: L’API Recherche Web Bing est un service RESTful qui fournit des réponses instantanées aux requêtes de recherche web. Vous pouvez configurez les résultats de façon à inclure pages web, images, vidéos, actualités et plus encore. Les résultats sont fournis au format JSON et basés sur la pertinence de la recherche et sur vos abonnements API Recherche Web Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7b2627b5837a124ebbcd76783bb49679cbe6313
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5ea98a4ef759937c5962dc86f0384051b8fa0bb3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77650280"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477469"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Qu’est-ce que l’API Recherche Web Bing ?
 

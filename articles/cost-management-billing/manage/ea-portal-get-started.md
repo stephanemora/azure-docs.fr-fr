@@ -3,16 +3,16 @@ title: Bien démarrer avec le portail Azure Enterprise
 description: Cet article explique comment les clients Contrat Entreprise Azure (Azure EA) utilisent le portail Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5b84cbf4ae7065f13442852cfbf646aa49771e1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: da63960b312bde6ae8aafb659ef08ef2f52600cc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78272427"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586298"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Bien démarrer avec le portail Azure Enterprise
 
@@ -111,7 +111,7 @@ Le contact de notification reçoit des notifications d’utilisation liées à l
 
 Pour activer votre service, l’administrateur d’entreprise initial ouvre le [portail Azure Enterprise](https://ea.azure.com) et se connecte en utilisant l’adresse e-mail indiquée dans son e-mail d’invitation.
 
-Si vous avez été configuré comme administrateur d’entreprise, vous n’êtes pas obligé de recevoir l’e-mail d’activation. Accédez au [portail Azure Enterprise](https://ea.azure.com) et connectez-vous avec l’adresse e-mail de votre compte professionnel, scolaire ou Microsoft et votre mot de passe.
+Si vous avez été configuré comme administrateur d’entreprise, vous n’avez pas besoin de recevoir l’e-mail d’activation. Accédez au [portail Azure Enterprise](https://ea.azure.com) et connectez-vous avec l’adresse e-mail de votre compte professionnel, scolaire ou Microsoft et votre mot de passe.
 
 Si vous avez plusieurs inscriptions, choisissez celle à activer. Par défaut, seules les inscriptions actives sont affichées. Pour afficher l’historique des inscriptions, désactivez l’option **Active** en haut à droite du portail Azure Enterprise.
 

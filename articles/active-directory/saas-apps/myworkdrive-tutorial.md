@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 60fdd9b0a8fb272da885df97e39804a98e48de67
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74074081"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478872"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutoriel : Intégrer MyWorkDrive à Azure Active Directory
 
@@ -92,7 +92,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > 
     > URL de connexion :`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
-    > Contactez l’[équipe de support MyWorkDrive](mailto:support@myworkdrive.com) si vous avez des doutes sur la façon de configurer vos propres nom d’hôte et certificat SSL pour ces valeurs.
+    > Contactez l’[équipe de support MyWorkDrive](mailto:support@myworkdrive.com) si vous avez des doutes sur la façon de configurer vos propres nom d’hôte et certificat TLS/SSL pour ces valeurs.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, accédez à la section **Certificat de signature SAML** et cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application** dans le Presse-papiers.
 

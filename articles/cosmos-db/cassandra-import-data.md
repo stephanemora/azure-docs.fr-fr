@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: c754740369da6d0a8084b9b60ef178fb28e32f1b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d94ad56508d5e5f1e28a24e82460a68ffce5592f
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445668"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666884"
 ---
-# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutoriel : Migrer vos données vers un compte d’API Cassandra dans Azure Cosmos DB
+# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutoriel : Migrer vos données vers un compte d'API Cassandra dans Azure Cosmos DB
 
 Si vous êtes développeur, vous avez peut-être des charges de travail Cassandra exécutées localement ou dans le cloud que vous aimeriez faire migrer vers Azure. Vous pouvez migrer de telles charges de travail vers un compte d’API Cassandra dans Azure Cosmos DB. Ce tutoriel fournit des instructions sur les différentes options permettant de migrer des données Apache Cassandra vers le compte d’API Cassandra dans Azure Cosmos DB.
 
@@ -33,9 +33,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites-for-migration"></a>Prérequis pour la migration
 
-* **Estimer vos besoins en débit :** avant de migrer des données vers le compte d’API Cassandra dans Azure Cosmos DB, vous devez estimer les besoins en débit de votre charge de travail. D’une façon générale, il est recommandé de commencer par le débit moyen nécessaire pour les opérations CRUD, puis d’inclure le débit supplémentaire nécessaire pour les opérations ETL (Extract Transform Load) ou entraînant une charge ponctuelle importante. Vous avez besoin des informations suivantes pour planifier la migration : 
+* **Estimer vos besoins en débit :** avant de migrer des données vers le compte d'API Cassandra dans Azure Cosmos DB, vous devez estimer les besoins en débit de votre charge de travail. D’une façon générale, il est recommandé de commencer par le débit moyen nécessaire pour les opérations CRUD, puis d’inclure le débit supplémentaire nécessaire pour les opérations ETL (Extract Transform Load) ou entraînant une charge ponctuelle importante. Vous avez besoin des informations suivantes pour planifier la migration : 
 
-  * **Taille des données existantes ou taille estimée des données :** définit les exigences minimales de taille de la base de données et de débit. Si vous estimez la taille des données pour une nouvelle application, vous pouvez supposer que les données sont réparties uniformément entre les lignes et estimer la valeur en multipliant par la taille des données. 
+  * **Taille des données existantes ou estimation de la taille des données :** Définit la taille minimale de la base de données et le débit requis. Si vous estimez la taille des données pour une nouvelle application, vous pouvez supposer que les données sont réparties uniformément entre les lignes et estimer la valeur en multipliant par la taille des données. 
 
   * **Débit nécessaire :** débit approximatif en lecture (interroger/obtenir) et en écriture (mettre à jour/supprimer/insérer). Cette valeur est nécessaire pour calculer les unités de requête nécessaires, ainsi que la taille des données à l’état stable.  
 
@@ -47,7 +47,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
     Après avoir identifié les exigences de votre charge de travail existante, vous devez créer un compte, une base de données et des conteneurs Azure Cosmos, conformément aux spécifications établies en matière de débit.  
 
-  * **Déterminer le coût en unités de requête pour une opération :** vous pouvez déterminer les unités de requête avec n’importe quel kit SDK pris en charge par l’API Cassandra. Cet exemple montre la version .NET pour obtenir les frais de RU.
+  * **Déterminer le coût en unités de requête pour une opération :** vous pouvez déterminer les unités de requête avec n'importe quel kit de développement logiciel (SDK) pris en charge par l'API Cassandra. Cet exemple montre la version .NET pour obtenir les frais de RU.
 
     ```csharp
     var tableInsertStatement = table.Insert(sampleEntity);
@@ -61,13 +61,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
       }
     ```
 
-* **Allouer le débit requis :** Azure Cosmos DB peut mettre à l’échelle automatiquement le stockage et le débit au fil de l’accroissement de vos besoins. Vous pouvez estimer vos besoins en débit en utilisant le [calculateur d’unités de requête d’Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
+* **Allouer le débit requis :** Azure Cosmos DB peut procéder à la mise à l'échelle automatique du stockage et du débit au fil de l'accroissement de vos besoins. Vous pouvez estimer vos besoins en débit en utilisant le [calculateur d’unités de requête d’Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 
-* **Créer des tables dans le compte d’API Cassandra :** avant de commencer la migration des données, créez au préalable toutes vos tables à partir du portail Azure ou de cqlsh. Si vous migrez vers un compte Azure Cosmos qui a un débit de niveau de base de données, veillez à fournir une clé de partition lors de la création de conteneurs Azure Cosmos.
+* **Créer des tables sur le compte d'API Cassandra :** avant de commencer à migrer des données, créez au préalable toutes vos tables à partir du portail Azure ou de cqlsh. Si vous migrez vers un compte Azure Cosmos qui a un débit de niveau de base de données, veillez à fournir une clé de partition lors de la création de conteneurs Azure Cosmos.
 
-* **Augmenter le débit :** la durée de la migration de vos données dépend de la quantité de débit que vous avez provisionnée pour les tables dans Azure Cosmos DB. Augmentez le débit pendant la durée de la migration. Si le débit est plus élevé, vous pouvez éviter la limitation de débit et procéder à une migration plus rapide. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Il est également recommandé d’avoir le compte Azure Cosmos dans la même région que votre base de données source. 
+* **Augmenter le débit :** la durée de la migration de vos données dépend de la quantité de débit que vous avez provisionnée pour les tables dans Azure Cosmos DB. Augmentez le débit pendant la durée de la migration. Si le débit est plus élevé, vous pouvez éviter la limitation de débit et procéder à une migration plus rapide. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Il est également recommandé d’avoir le compte Azure Cosmos dans la même région que votre base de données source. 
 
-* **Activer SSL :** Azure Cosmos DB a des spécifications et des standards de sécurité stricts. Veillez à activer SSL lorsque vous interagissez avec votre compte. Lorsque vous utilisez CQL avec SSH, vous pouvez fournir des informations sur SSL.
+* **Activer TLS** : Azure Cosmos DB obéit à des normes et à des exigences strictes en matière de sécurité. Veillez à activer TLS lorsque vous interagissez avec votre compte. Quand vous utilisez CQL avec SSH, vous pouvez fournir des informations sur TLS.
 
 ## <a name="options-to-migrate-data"></a>Options pour migrer des données
 

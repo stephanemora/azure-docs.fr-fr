@@ -6,12 +6,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 2dcf1bef27b5d9e1a740f136361b756f59293b00
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c03e2b5e8c035b53b874a8e7751283fdbe3d516
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80046759"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811292"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutoriel : Créer une application PHP et MySQL dans Azure
 
@@ -267,9 +267,9 @@ Enregistrez les modifications.
 > Pour sécuriser vos informations de connexion MySQL, ce fichier est déjà exclu du référentiel Git (consultez _.gitignore_ dans la racine du référentiel). Vous apprendrez ultérieurement à configurer les variables d’environnement dans App Service pour vous connecter à votre base de données dans Azure Database pour MySQL. Avec les variables d’environnement, vous n’avez pas besoin du fichier *.env* dans App Service.
 >
 
-### <a name="configure-ssl-certificate"></a>Configuration du certificat SSL
+### <a name="configure-tlsssl-certificate"></a>Configurer le certificat TLS/SSL
 
-Par défaut, la base de données Azure pour MySQL applique les connexions SSL à partir des clients. Pour vous connecter à votre base de données MySQL dans Azure, vous devez utiliser le certificat [ _.pem_ fourni par Azure Database pour MySQL](../mysql/howto-configure-ssl.md).
+Par défaut, la base de données Azure Database pour MySQL exige des connexions TLS de la part des clients. Pour vous connecter à votre base de données MySQL dans Azure, vous devez utiliser le certificat [ _.pem_ fourni par Azure Database pour MySQL](../mysql/howto-configure-ssl.md).
 
 Ouvrez _config/database.php_ et ajoutez les paramètres `sslmode` et `options` à `connections.mysql`, comme illustré dans le code suivant.
 

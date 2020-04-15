@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109932"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756688"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Démarrage rapide : Ajouter des questions et des réponses à l’aide du portail QnA Maker
 
@@ -27,7 +27,7 @@ Une fois qu’une base de connaissances est créée, ajoutez des jeux de questio
 |No 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |No 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
-Une fois les métadonnées ajoutées à un jeu QnA, l’application cliente peut :
+Une fois les métadonnées ajoutées à une paire de Q/R, l’application cliente peut :
 
 * Demander les réponses qui correspondent uniquement à certaines métadonnées
 * Recevoir toutes les réponses, mais les traiter ensuite en fonction des métadonnées de chaque réponse
@@ -45,7 +45,7 @@ Une fois les métadonnées ajoutées à un jeu QnA, l’application cliente peut
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Ajouter des questions supplémentaires formulées différemment
 
-La base de connaissances actuelle contient les jeux QnA de résolution des problèmes liés à QnA Maker. Ces séries ont été créées au moment où l’URL a été ajoutée à la base de connaissances durant le processus de création.
+La base de connaissances actuelle contient des paires de Q/R de résolution des problèmes liés à QnA Maker. Ces séries ont été créées au moment où l’URL a été ajoutée à la base de connaissances durant le processus de création.
 
 Une fois que cette URL a été importée, une seule question a été créée avec une seule réponse. Dans cette procédure, ajoutez des questions supplémentaires.
 
@@ -82,7 +82,7 @@ L’ajout de métadonnées à une série de questions et réponses permet à vot
 
 1. Sélectionnez **View options** (Options d’affichage), puis **Show metadata** (Afficher les métadonnées).
 
-1. Pour le jeu QnA que vous venez d’ajouter, sélectionnez **Add metadata tags** (Ajouter des étiquettes de métadonnées), puis ajoutez le nom de `service` et la valeur de `search`. Voici à quoi cela ressemble : `service:search`.
+1. Pour la paire de Q/R que vous venez d’ajouter, sélectionnez **Add metadata tags** (Ajouter des étiquettes de métadonnées), puis ajoutez le nom de `service` et la valeur de `search`. Voici à quoi cela ressemble : `service:search`.
 
 1. Ajoutez une autre étiquette de métadonnées portant le nom `link_in_answer` et ayant pour valeur `false`. Voici à quoi cela ressemble : `link_in_answer:false`.
 

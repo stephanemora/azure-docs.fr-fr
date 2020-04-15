@@ -1,23 +1,23 @@
 ---
-title: 'Tutoriel : Comment charger une image - Recherche visuelle Bing'
+title: 'Tutoriel : Comment charger une image à l’aide de la l’API Recherche visuelle Bing'
 titleSuffix: Azure Cognitive Services
-description: Décompose le processus de chargement d’une image vers Bing pour obtenir des informations sur cette image, avant d’analyser puis d’afficher la réponse.
+description: Découvrez comment charger une image sur Bing, obtenir des insights à son sujet, afficher la réponse.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2020
 ms.author: scottwhi
-ms.openlocfilehash: 84a8219221525400a9d3241c2f183d24344c2f6a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ecd1ab5e613bb326b65f6aa50f3f85172bc334ac
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689174"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477937"
 ---
-# <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Didacticiel : Charger des images vers l’API Recherche visuelle Bing
+# <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutoriel : Charger des images vers l’API Recherche visuelle Bing
 
 L’API Recherche visuelle Bing vous permet de rechercher sur le web des images similaires à celles que vous chargez. Utilisez ce tutoriel pour créer une application web qui peut envoyer une image à l’API et afficher les aperçus que cette dernière retourne dans la page web. Notez que cette application n’est pas conforme à toutes les [conditions d’utilisation et d’affichage de Bing](../bing-web-search/use-display-requirements.md) concernant l’utilisation de l’API.
 
@@ -773,4 +773,4 @@ Ajoutez la section `<style>` suivante à la balise `<head>` pour organiser la di
 ## <a name="next-steps"></a>Étapes suivantes
 
 >[!div class="nextstepaction"]
-> [Tutoriel : Rechercher des images similaires dans des recherches précédentes à l’aide du jeton ImageInsightsToken](./tutorial-visual-search-insights-token.md)
+> [Tutoriel : Rechercher des images similaires dans des recherches précédentes à l’aide du jeton ImageInsightsToken](./tutorial-visual-search-insights-token.md)

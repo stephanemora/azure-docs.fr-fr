@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez créer un cluster Kubernetes avec Azur
 keywords: azure devops terraform aks kubernetes
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7a84d7562e99e53ff7be75b7d40795cd3f9e203
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78945306"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618936"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutoriel : Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 
 - **Configurez Terraform** : Suivez les instructions de l’article [Terraform et configuration de l’accès à Azure ](terraform-install-configure.md)
 
-- **Principal de service Azure** : suivez les instructions de la section **Créer le principal de service** de l’article [Créer un principal de service Azure avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Notez les valeurs de l’appId, du nom d’affichage, du mot de passe et du locataire.
+- **Principal de service Azure** : Suivez les instructions de la section **Créer le principal de service** de l’article intitulé [Créer un principal de service Azure avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Notez les valeurs de l’appId, du nom d’affichage, du mot de passe et du locataire.
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
 

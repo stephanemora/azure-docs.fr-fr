@@ -1,5 +1,5 @@
 ---
-title: Déployer une instance Prometheus autonome dans un cluster Azure Red Hat OpenShift | Microsoft Docs
+title: Déployer une instance Prometheus dans un cluster Azure Red Hat OpenShift
 description: Créez une instance Prometheus sur un cluster Azure Red Hat OpenShift pour superviser les métriques de votre application.
 author: makdaam
 ms.author: b-lejaku
@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, métriques, red hat
-ms.openlocfilehash: f81a993caa31578e689fb3a90108f3cf0ca81fc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69875133"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886886"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Déployer une instance Prometheus autonome dans un cluster Azure Red Hat OpenShift
 

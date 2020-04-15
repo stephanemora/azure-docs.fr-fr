@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/10/2020
-ms.openlocfilehash: 6302a7d6ffe7218d339121ec98a624f8e98356f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065595"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887292"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -62,11 +62,14 @@ Suivez les étapes ci-dessous pour créer un runtime d’intégration auto-hébe
 
    ![Créer un runtime d’intégration](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 
-1. Dans la fenêtre **Installation du runtime d'intégration**, sélectionnez **Effectuer des activités de déplacement et de distribution des données vers des ressources de calcul externes**, puis **Continuer**.
+1. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
+
+1. Sur la page suivante, sélectionnez **Auto-hébergé** pour créer un runtime d’intégration auto-hébergé, puis sélectionnez **Continuer**.
+   ![Créer un runtime d'intégration auto-hébergé](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
 
 1. Entrez un nom pour votre runtime d’intégration, puis sélectionnez **Créer**.
 
-1. Sélectionnez le lien sous **Option 1** pour ouvrir l'installation rapide sur votre ordinateur. Vous pouvez également suivre la procédure décrite sous **Option 2** pour une installation manuelle. Les instructions suivantes sont basées sur l'installation manuelle :
+1. Sur la page **Configuration du runtime d'intégration**, sélectionnez le lien sous **Option 1** pour ouvrir l'installation rapide sur votre ordinateur. Vous pouvez également suivre la procédure décrite sous **Option 2** pour une installation manuelle. Les instructions suivantes sont basées sur l'installation manuelle :
 
    ![Installation du runtime d’intégration](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 

@@ -6,28 +6,31 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 10/14/2019
+ms.date: 04/04/2020
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 435800d9c6bfd9131d50681a9808f9836104fac0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d7cd437f597fc34fe83904715fc2e459dfe4550f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183337"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875551"
 ---
-# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutoriel : Activer l’authentification dans une application monopage avec Azure Active Directory B2C (Azure AD B2C)
+# <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutoriel : Activer l’authentification dans une application monopage avec Azure AD B2C
 
-Ce tutoriel vous montre comment utiliser Azure Active Directory B2C (Azure AD B2C) pour connecter et inscrire des utilisateurs dans une application monopage. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes de réseaux sociaux, de comptes d’entreprise et de comptes Azure Active Directory à l’aide de protocoles standards ouverts.
+Ce tutoriel vous montre comment utiliser Azure Active Directory B2C (Azure AD B2C) pour inscrire et connecter des utilisateurs dans une application monopage.
 
-Dans ce tutoriel, vous allez apprendre à :
+Dans ce tutoriel, qui est le premier d’une série de deux, vous allez :
 
 > [!div class="checklist"]
-> * Mettre à jour l’application dans Azure AD B2C
-> * Configurer l’exemple pour utiliser l’application
-> * S’inscrire à l’aide du flux utilisateur
+> * Ajouter une URL de réponse à une application inscrite dans votre locataire Azure AD B2C
+> * Télécharger un exemple de code depuis GitHub
+> * Modifier le code de l’exemple d’application pour qu’il fonctionne avec votre locataire
+> * Inscrire en utilisant votre flux utilisateur d’inscription/connexion
+
+Le [tutoriel suivant](tutorial-single-page-app-webapi.md) de la série active la partie API web de l’exemple de code.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,13 +44,12 @@ Avant de poursuivre les étapes de ce tutoriel, vous devez disposer des ressourc
 
 De plus, vous devez disposer des éléments suivants dans votre environnement de développement local :
 
-* Éditeur de code, par exemple [Visual Studio Code](https://code.visualstudio.com/) ou [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [SDK .NET Core 2.2](https://dotnet.microsoft.com/download) ou ultérieur
+* [Visual Studio Code](https://code.visualstudio.com/) ou un autre éditeur de code
 * [Node.JS](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Mettre à jour l’application
 
-Au cours du deuxième tutoriel que vous avez effectué dans le cadre des prérequis, vous avez inscrit une application web dans Azure AD B2C. Pour permettre la communication avec l’exemple de ce tutoriel, vous devez ajouter un URI de redirection à l’application dans Azure AD B2C.
+Au cours du deuxième tutoriel que vous avez effectué dans le cadre des prérequis, vous avez inscrit une application web dans Azure AD B2C. Pour permettre la communication avec l’exemple de code de ce tutoriel, ajoutez une URL de réponse (également appelée URI de redirection) à l’inscription d’application.
 
 Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** pour mettre à jour l’application. [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
 
@@ -76,7 +78,7 @@ Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle
 
 ## <a name="get-the-sample-code"></a>Obtention de l'exemple de code
 
-Dans ce tutoriel, vous configurez un exemple de code que vous téléchargez depuis GitHub. L’exemple montre comment une application monopage peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et pour appeler une API web protégée.
+Dans ce tutoriel, vous configurez un exemple de code que vous téléchargez depuis GitHub pour qu’il fonctionne avec votre locataire B2C. L’exemple montre comment une application monopage peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et pour appeler une API web protégée (vous activez l’API web dans le tutoriel suivant de la série).
 
 [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple à partir de GitHub.
 
@@ -88,14 +90,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Une fois que vous avez obtenu l’exemple, mettez à jour le code à l’aide de votre nom de locataire Azure AD B2C et de l’ID d’application que vous avez enregistré au cours d’une étape précédente.
 
-1. Ouvrez le fichier `index.html` à la racine du répertoire de l’exemple.
-1. Dans la définition de `msalConfig`, modifiez la valeur de **clientId** à l’aide de l’ID d’application que vous avez enregistré au cours d’une étape précédente. Mettez ensuite à jour la valeur de l’URI **authority** à l’aide de votre nom de locataire Azure AD B2C. Mettez également à jour l’URI à l’aide du nom du flux d’utilisateurs d’inscription/de connexion créé dans l’un des prérequis (par exemple *B2C_1_signupsignin1*).
+1. Ouvrez le fichier *authConfig.js* dans le dossier *JavaScriptSPA*.
+1. Dans l’objet `msalConfig`, mettez à jour :
+    * `clientId` avec la valeur de l’**ID d’application (client)** que vous avez noté dans une étape précédente
+    * L’URI de `authority` avec le nom du locataire Azure AD B2C et le nom du flux utilisateur d’inscription/connexion créé dans le cadre des prérequis (par exemple *B2C_1_signupsignin1*).
 
     ```javascript
-    var msalConfig = {
+    const msalConfig = {
         auth: {
-            clientId: "00000000-0000-0000-0000-000000000000", //This is your client ID
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
+            authority: "https://your-b2c-tenant.b2clogin.com/your-b2c-tenant.onmicrosoft.com/B2C_1_signupsignin1", // Update with your tenant and user flow names
             validateAuthority: false
         },
         cache: {
@@ -104,8 +108,6 @@ Une fois que vous avez obtenu l’exemple, mettez à jour le code à l’aide de
         }
     };
     ```
-
-    Le nom de flux d’utilisateur utilisé dans ce tutoriel est **B2C_1_signupsignin1**. Si vous utilisez un autre nom de flux d’utilisateurs, indiquez-le dans la valeur `authority`.
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
@@ -116,64 +118,59 @@ Une fois que vous avez obtenu l’exemple, mettez à jour le code à l’aide de
     ```
 1. Exécutez les commandes suivantes :
 
-    ```
+    ```console
     npm install && npm update
-    node server.js
+    npm start
     ```
 
     La fenêtre de console affiche le numéro de port du serveur Node.js s’exécutant localement :
 
-    ```
+    ```console
     Listening on port 6420...
     ```
+1. Accédez à `http://localhost:6420` pour voir l’application web en cours d’exécution sur votre machine locale.
 
-1. Accédez à `http://localhost:6420` dans votre navigateur pour voir l’application.
-
-L’exemple prend en charge l’inscription et la connexion des utilisateurs, la modification d’un profil, et la réinitialisation d’un mot de passe. Ce tutoriel met en évidence la manière dont un utilisateur s’inscrit à l’aide d’une adresse e-mail.
+    :::image type="content" source="media/tutorial-single-page-app/web-app-spa-01-not-logged-in.png" alt-text="Navigateur web montrant l’application monopage s’exécutant localement":::
 
 ### <a name="sign-up-using-an-email-address"></a>S’inscrire au moyen d’une adresse e-mail
 
-> [!WARNING]
-> Après l’inscription ou la connexion, une [erreur indiquant une insuffisance d’autorisations](#error-insufficient-permissions) peut apparaître. En raison de l’implémentation actuelle de l’exemple de code, cette erreur est attendue. Ce problème sera résolu dans une version ultérieure de l’exemple de code, et cet avertissement sera supprimé.
+Cet exemple d’application prend en charge l’inscription, la connexion et la réinitialisation du mot de passe. Dans ce tutoriel, vous vous inscrivez en utilisant une adresse e-mail.
 
-1. Sélectionnez **Connexion** pour démarrer le flux utilisateur *B2C_1_signupsignin1* que vous avez spécifié lors d’une étape précédente.
-1. Azure AD B2C présente une page de connexion avec un lien pour l’abonnement. Étant donné que vous n’avez pas encore de compte, sélectionnez le lien **Inscrivez-vous maintenant**.
-1. Le flux de travail d’abonnement présente une page pour collecter et vérifier l’identité de l’utilisateur à l’aide d’une adresse e-mail. Le flux de travail d’inscription collecte également le mot de passe et les attributs demandés, qui sont définis dans le flux d’utilisateur.
+1. Sélectionnez **Se connecter** pour démarrer le flux utilisateur *B2C_1_signupsignin1* que vous avez spécifié lors d’une étape précédente.
+1. Azure AD B2C présente une page de connexion qui inclut un lien d’inscription. Étant donné que vous n’avez pas encore de compte, sélectionnez le lien **Inscrivez-vous maintenant**.
+1. Le flux de travail d’inscription présente une page pour collecter et vérifier l’identité de l’utilisateur avec une adresse e-mail. Le flux de travail d’inscription collecte également le mot de passe de l’utilisateur et les attributs demandés qui sont définis dans le flux utilisateur.
 
     Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis.
 
-    ![Page d’inscription présentée par le flux utilisateur de connexion/inscription](./media/tutorial-single-page-app/azure-ad-b2c-sign-up-workflow.png)
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Page d’inscription affichée par le flux utilisateur Azure AD B2C":::
 
 1. Sélectionnez **Créer** pour créer un compte local dans le répertoire Azure AD B2C.
 
-Quand vous sélectionnez **Créer**, la page d’inscription se ferme et la page de connexion réapparaît.
+Quand vous sélectionnez **Créer**, l’application affiche le nom de l’utilisateur connecté.
 
-Vous pouvez désormais utiliser votre adresse e-mail et votre mot de passe pour vous connecter à l’application.
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Navigateur web montrant l’application monopage avec l’utilisateur connecté":::
 
-### <a name="error-insufficient-permissions"></a>Erreur : autorisations insuffisantes
+Si vous voulez tester la connexion, sélectionnez le bouton **Se déconnecter**, puis sélectionnez **Se connecter**, et connectez-vous avec l’adresse e-mail et le mot de passe que vous avez entrés lors de votre inscription.
 
-Une fois que vous êtes connecté, l’application peut afficher une erreur indiquant une insuffisance d’autorisations :
+### <a name="what-about-calling-the-api"></a>Qu’en est-il de l’appel de l’API ?
 
-```Output
-ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
-Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
-Timestamp: 2019-07-20 22:17:27Z
-```
+Si vous sélectionnez le bouton **Appeler l’API** après vous être connecté, la page d’inscription/connexion du flux utilisateur s’affiche à la place des résultats de l’appel de l’API. Cela est dû au fait que vous n’avez pas encore configuré la partie API de l’application pour communiquer avec une application d’API web inscrite dans *votre*  locataire Azure AD B2C.
 
-Cette erreur s’affiche car l’application web tente d’accéder à une API web qui est protégée par l’annuaire de démonstration *fabrikamb2c*. Étant donné que votre jeton d’accès n’est valide que pour votre annuaire Azure AD, l’appel d’API n’est pas autorisé.
+À ce stade, l’application tente encore de communiquer avec l’API inscrite dans le locataire de démonstration (fabrikamb2c.onmicrosoft.com) et, comme vous n’êtes pas authentifié auprès de ce locataire, la page d’inscription/connexion est affichée.
 
-Pour corriger cette erreur, passez au tutoriel suivant de la série (voir [Étapes suivantes](#next-steps)) afin de créer une API web protégée pour votre annuaire.
+Passez au tutoriel suivant de la série dans pour activer l’API protégée (consultez la section [Étapes suivantes](#next-steps)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à effectuer les opérations suivantes :
+Dans ce tutoriel, vous avez configuré une application monopage pour qu’elle fonctionne avec un flux utilisateur dans votre locataire Azure AD B2C pour fournir une fonctionnalité d’inscription et de connexion. Vous avez effectué ces étapes :
 
 > [!div class="checklist"]
-> * Mettre à jour l’application dans Azure AD B2C
-> * Configurer l’exemple pour utiliser l’application
-> * S’inscrire à l’aide du flux utilisateur
+> * Ajouter une URL de réponse à une application inscrite dans votre locataire Azure AD B2C
+> * Télécharger un exemple de code depuis GitHub
+> * Modifier le code de l’exemple d’application pour qu’il fonctionne avec votre locataire
+> * Inscrire en utilisant votre flux utilisateur d’inscription/connexion
 
 Passez maintenant au prochain tutoriel de la série pour octroyer l’accès à une API web protégée à partir de l’application SPA :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C >](tutorial-single-page-app-webapi.md)
+> [Tutoriel : Protéger et accorder l’accès à une API web à partir d’une application monopage >](tutorial-single-page-app-webapi.md)

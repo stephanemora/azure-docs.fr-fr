@@ -1,28 +1,24 @@
 ---
-title: Protocole SAML d’authentification unique Azure | Microsoft Docs
+title: Authentification unique Azure - protocole SAML
 description: Cet article décrit le protocole SAML d’authentification unique dans Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230529"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881280"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -84,7 +80,7 @@ Si `NameIDPolicy` est fourni, vous pouvez inclure son attribut `Format` facultat
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory émet la revendication NameID sous la forme d’un identificateur par paire.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory émet la revendication NameID sous la forme d’une adresse e-mail.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: cette valeur permet à Azure Active Directory de sélectionner le format de revendication. Azure Active Directory émet la revendication NameID sous la forme d’un identificateur par paire.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` : Azure Active Directory émet la revendication NameID sous la forme d’une valeur générée de manière aléatoire et propre à l’opération d’authentification unique en cours. Cela signifie que la valeur est temporaire et ne peut pas être utilisée pour identifier l’utilisateur à l’origine de l’authentification.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory émet la revendication NameID sous la forme d’une valeur générée de manière aléatoire et propre à l’opération d’authentification unique en cours. Cela signifie que la valeur est temporaire et ne peut pas être utilisée pour identifier l’utilisateur à l’origine de l’authentification.
 
 Azure AD ignore l’attribut `AllowCreate` .
 
@@ -152,8 +148,8 @@ Lorsqu’une demande d’authentification aboutit, Azure AD publie une réponse 
 
 L’élément `Response` inclut le résultat de la demande d’autorisation. Azure AD définit les valeurs `ID`, `Version` et `IssueInstant` dans l’élément `Response`. Il définit également les attributs suivants :
 
-* `Destination` : lorsque l’authentification aboutit, il est défini sur l’élément `RedirectUri` du fournisseur de services (service cloud).
-* `InResponseTo` : cet attribut est définit sur l’attribut `ID` de l’élément `AuthnRequest` qui a émis la réponse.
+* `Destination`: lorsque l’authentification aboutit, il est défini sur l’élément `RedirectUri` du fournisseur de services (service cloud).
+* `InResponseTo`: cet attribut est défini sur l’attribut `ID` de l’élément `AuthnRequest` qui a émis la réponse.
 
 ### <a name="issuer"></a>Émetteur
 

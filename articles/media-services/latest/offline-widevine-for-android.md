@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 04/07/2020
 ms.author: willzhan
-ms.openlocfilehash: 64cd93acc78f4cb5b7ebc4266e7359aec662890c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295416"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887195"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Diffusion en continu Widevine hors connexion pour Android avec Media Services v3
 
@@ -153,65 +153,13 @@ L’application PWA open source ci-dessus a été créée dans Node.js. Si vous 
     - Le certificat doit avoir une certification approuvée et un certificat auto-signé de développement ne fonctionne pas
     - Le certificat doit avoir un CN correspondant au nom DNS de la passerelle ou du serveur web
 
-## <a name="frequently-asked-questions"></a>Forum aux questions
+## <a name="faqs"></a>FAQ
 
-### <a name="question"></a>Question
-
-Comment puis-je remettre des licences persistantes (activées en mode hors connexion) pour certains clients/utilisateurs et des licences non persistantes (désactivées en mode hors connexion) pour d’autres ? Dois-je dupliquer le contenu et utiliser une clé de contenu distincte ?
-
-### <a name="answer"></a>Réponse
-Étant donné que Media Services v3 permet à un actif multimédia d’avoir plusieurs StreamingLocators, vous pouvez avoir :
-
-1.    Un ContentKeyPolicy avec license_type = "persistent", ContentKeyPolicyRestriction avec claim sur "persistent" ainsi que son StreamingLocator
-2.    Un autre ContentKeyPolicy avec license_type = "nonpersistent", ContentKeyPolicyRestriction avec claim sur "nonpersistent" ainsi que son StreamingLocator
-3.    Les deux StreamingLocators ont un ContentKey différent.
-
-En fonction de la logique métier du service d’émission de jeton de sécurité personnalisé, différentes revendications peuvent être émises dans le jeton JWT. Avec le jeton, seule la licence correspondante peut être obtenue et seule l’URL correspondante peut être lue.
-
-### <a name="question"></a>Question
-
-Pour les niveaux de sécurité Widevine, la documentation « Vue d'ensemble de l'architecture DRM Widevine » de Google définit trois niveaux de sécurité différents. Toutefois, dans [Documentation Azure Media Services sur le modèle de licence Widevine](widevine-license-template-overview.md), cinq niveaux de sécurité différents sont soulignés. Quelle est la relation ou le mappage entre les deux différents ensembles de niveaux de sécurité ?
-
-### <a name="answer"></a>Réponse
-
-La documentation « Vue d'ensemble de l'architecture DRM Widevine » de Google définit les trois niveaux de sécurité suivants :
-
-1.  Niveau de sécurité 1 : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de la sécurité peut être effectué dans différentes puces.
-2.  Niveau de sécurité 2 : effectue le chiffrement (mais pas le traitement vidéo) dans l’environnement TEE : les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par le biais d’un matériel ou d’un logiciel vidéo distinct. Au niveau 2, toutefois, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.
-3.  Le niveau de sécurité 3 n’a pas d’environnement TEE sur l’appareil. Les mesures appropriées peuvent être prises pour protéger les informations de chiffrement et le contenu déchiffré sur le système d’exploitation hôte. Une mise en œuvre de niveau 3 peut également inclure un moteur de chiffrement matériel, mais qui améliore seulement la performance, pas la sécurité.
-
-Dans le même temps, dans [Documentation Azure Media Services sur le modèle de licence Widevine](widevine-license-template-overview.md), la propriété security_level de content_key_specs peut avoir les cinq différentes valeurs suivantes (exigences de robustesse client pour la lecture) :
-
-1.  Le chiffrement whitebox basé sur le logiciel est requis.
-2.  Le chiffrement logiciel et un décodeur masqué sont requis.
-3.  Les opérations de matériel clé et de chiffrement doivent être effectuées dans un environnement TEE soutenu par le matériel.
-4.  Le chiffrement et le décodage du contenu doivent être effectués dans un environnement TEE soutenu par le matériel.
-5.  Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement TEE soutenu par le matériel.
-
-Les deux niveaux de sécurité sont définis par Google Widevine. La différence réside dans son niveau d’utilisation : niveau d’architecture ou d’API. Les cinq niveaux de sécurité sont utilisés dans l’API Widevine. L’objet content_key_specs, qui contient security_level est désérialisé et transmis au service de remise globale Widevine par le service de licence Azure Media Services Widevine. Le tableau ci-dessous montre le mappage entre les deux ensembles de niveaux de sécurité.
-
-| **Niveaux de sécurité définis dans l’architecture de Widevine** |**Niveaux de sécurité utilisés dans l’API de Widevine**|
-|---|---| 
-| **Niveau de sécurité 1** : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de la sécurité peut être effectué dans différentes puces.|**security_level=5** : Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement TEE soutenu par le matériel.<br/><br/>**security_level=4** : Le chiffrement et le décodage du contenu doivent être effectués dans un environnement TEE soutenu par le matériel.|
-**Niveau de sécurité 2** : effectue le chiffrement (mais pas le traitement vidéo) dans l’environnement TEE : les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par le biais d’un matériel ou d’un logiciel vidéo distinct. Au niveau 2, toutefois, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.| **security_level=3** : Les opérations de matériel clé et de chiffrement doivent être effectuées dans un environnement TEE soutenu par le matériel. |
-| **Niveau de sécurité 3** : l’environnement TEE ne se trouve pas sur l’appareil. Les mesures appropriées peuvent être prises pour protéger les informations de chiffrement et le contenu déchiffré sur le système d’exploitation hôte. Une mise en œuvre de niveau 3 peut également inclure un moteur de chiffrement matériel, mais qui améliore seulement la performance, pas la sécurité. | **security_level=2** : le chiffrement logiciel et un décodeur masqué sont nécessaires.<br/><br/>**security_level=1** : Le chiffrement whitebox basé sur le logiciel est requis.|
-
-### <a name="question"></a>Question
-
-Pourquoi le téléchargement de contenu prend-il tant de temps ?
-
-### <a name="answer"></a>Réponse
-
-Il existe deux façons d’améliorer la vitesse du téléchargement :
-
-1.  Activer le CDN afin que les utilisateurs finaux soient plus susceptibles d’atteindre le CDN au lieu du point de terminaison de streaming pour le téléchargement du contenu. Si l’utilisateur atteint un point de terminaison de streaming, chaque segment HLS ou fragment DASH est dynamiquement empaqueté et chiffré. Bien que cette latence soit dans une échelle de millisecondes pour chaque segment/fragment, lorsque vous disposez d’une vidéo d’une durée d’une heure, la latence cumulée peut être volumineuse, entraînant un téléchargement plus long.
-2.  Fournir aux utilisateurs finaux la possibilité de télécharger de manière sélective des couches de qualité vidéo et des pistes audio plutôt que tout le contenu. En ce qui concerne le mode hors connexion, il est inutile de télécharger toutes les couches de qualité. Il existe deux moyens de parvenir à cet objectif :
-    1.  Contrôlé par le client : sélection automatique d’applications de lecteur ou sélection utilisateur de la couche de qualité vidéo et des pistes audio à télécharger ;
-    2.  Contrôlé par le service : il est possible d’utiliser la fonctionnalité manifeste dynamique dans Azure Media Services pour créer un filtre (global), ce qui limite la sélection de HLS ou DASH MPD à une couche unique de qualité vidéo et des pistes audio sélectionnées. Ainsi, l’URL de téléchargement présentée aux utilisateurs finaux inclut ce filtre.
+Pour plus d’informations, consultez la [FAQ de Widevine](frequently-asked-questions.md#widevine-streaming-for-android).
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 
-* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
+Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="summary"></a>Résumé
 
