@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: c24c7ce1d47a4734d79d7e17e9fb4b3a2d4d70e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fcfc7c15f94d7b569629e53534d731126172260
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064138"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399062"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning (préversion)
 
@@ -24,7 +24,7 @@ Chaque module représente un ensemble de code qui peut s’exécuter indépendam
 
 Pour savoir quels algorithmes choisir, consultez 
 * [Comment sélectionner des algorithmes](../how-to-select-algorithms.md)
-* [Aide-mémoire d’algorithme Azure Machine Learning](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md)
+* [Aide-mémoire d’algorithme Azure Machine Learning](../algorithm-cheat-sheet.md)
 
 > [!TIP]
 > Quel que soit le pipeline dans le concepteur, vous pouvez obtenir des informations sur un module spécifique. Sélectionnez le module, puis sélectionnez le lien **Plus d’aide** dans le volet **Aide rapide**.

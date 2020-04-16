@@ -11,12 +11,12 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 1d8975f8fa0d298384b72f66c0958ce725a28dcd
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 1696e227b26283cdb26a0493bef819768de756e6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874381"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411659"
 ---
 # <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Éléments du langage T-SQL pris en charge dans le pool SQL Synapse
 
@@ -290,4 +290,4 @@ Liens vers la documentation relative aux éléments du langage T-SQL pris en cha
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Déclarations de langage T-SQL dans le pool SQL Synapse](sql-data-warehouse-reference-tsql-statements.md) et [Vues système dans le pool SQL Synapse](sql-data-warehouse-reference-tsql-system-views.md).
+Pour plus d’informations, consultez [Déclarations de langage T-SQL dans le pool SQL Synapse](sql-data-warehouse-reference-tsql-statements.md) et [Vues système dans le pool SQL Synapse](../sql/reference-tsql-system-views.md).

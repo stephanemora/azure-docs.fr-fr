@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231341"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393461"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -35,7 +35,7 @@ Un éditeur est l’utilisateur ou organisation qui décide d’envoyer des év�
 
 La source d’un événement désigne l’endroit où l’événement se produit. Chaque source de l’événement est liée à un ou plusieurs types d’événements. Par exemple, le stockage Azure est la source d’événement des événements créés pour l’objet blob. IoT Hub est la source d’événements pour les événements créés par l’appareil. Votre application est la source d’événements pour les événements personnalisés que vous définissez. Les sources d’événements sont responsables de l’envoi des événements à Event Grid.
 
-Pour plus d’informations sur l’implémentation d’une source Event Grid prise en charge, consultez [Sources d’événements dans Azure Event Grid](event-sources.md).
+Pour plus d’informations sur l’implémentation d’une source Event Grid prise en charge, consultez [Sources d’événements dans Azure Event Grid](overview.md#event-sources).
 
 ## <a name="topics"></a>Rubriques
 

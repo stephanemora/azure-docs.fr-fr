@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : résoudre les problèmes de synchronisation d’objets | Microsoft Docs'
+title: 'Azure AD Connect : Résoudre les problèmes de synchronisation d’objets | Microsoft Docs'
 description: Cet article explique comment résoudre les problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64919117"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407014"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation d’objets avec la synchronisation Azure AD Connect
 Cet article explique les étapes de résolution des problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes. Pour voir le fonctionnement de la résolution des problèmes dans Azure Active Directory (Azure AD) Connect, regardez [cette courte vidéo](https://aka.ms/AADCTSVideo).
@@ -61,11 +61,6 @@ Le reste de cette section décrit les résultats spécifiques qui sont renvoyés
 Lorsque le suffixe d’UPN/ID de connexion alternatif n’est pas vérifié auprès du locataire Azure AD, Azure Active Directory remplace les suffixes UPN par le nom de domaine par défaut « onmicrosoft.com ».
 
 ![Azure AD remplace UPN](media/tshoot-connect-objectsync/objsynch2.png)
-
-### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Remplacement du suffixe UPN d’un domaine fédéré par celui d’un autre domaine fédéré
-Azure Active Directory n’autorise pas la synchronisation d’un remplacement de suffixe d’UPN/ID de connexion alternatif d’un domaine fédéré par celui d’un autre domaine fédéré. Ceci s’applique aux domaines qui sont vérifiés auprès du locataire Azure AD et qui présentent le type d’authentification Fédéré.
-
-![Aucune synchronisation UPN d’un domaine fédéré à un autre](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Fonctionnalité DirSync « SynchronizeUpnForManagedUsers » du locataire Azure AD désactivée
 Lorsque la fonctionnalité DirSync « SynchronizeUpnForManagedUsers » du locataire Azure AD est désactivée, Azure Active Directory n’autorise pas les mises à jour de synchronisation d’UPN/ID de connexion alternatif pour les comptes d’utilisateur sous licence avec authentification gérée.
