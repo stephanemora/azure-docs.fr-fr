@@ -4,12 +4,12 @@ description: Découvrez comment générer, tester et déployer des modèles Azur
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 303edac9221b2a58986129388e33c84c3817d96e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369379"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255071"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -44,7 +44,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="prepare-a-github-repository"></a>Préparer un dépôt GitHub
 
-GitHub est utilisé pour stocker le code source de votre projet, y compris les modèles Resource Manager. Pour connaître les autres référentiels pris en charge, veuillez consulter [Référentiels pris en charge par Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+GitHub est utilisé pour stocker le code source de votre projet, y compris les modèles Resource Manager. Pour connaître les autres référentiels pris en charge, veuillez consulter [Référentiels pris en charge par Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### <a name="create-a-github-repository"></a>Créer un référentiel GitHub
 

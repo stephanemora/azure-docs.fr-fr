@@ -1,21 +1,21 @@
 ---
 title: Tutoriel - Créer et utiliser des disques pour les groupes identiques avec Azure CLI
 description: Découvrez comment utiliser Azure CLI pour créer et utiliser la fonctionnalité Disques managés avec un groupe de machines virtuelles identiques, notamment comment ajouter, préparer, répertorier et détacher les disques.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3759fa426a712308e1956376d559c1ac84eadbd7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067055"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008826"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utilisez des disques avec un groupe de machines virtuelles identiques au moyen d’Azure CLI
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure CLI
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -51,18 +51,7 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 
 
 ## <a name="azure-data-disks"></a>Disques de données Azure
-Des disques de données supplémentaires peuvent être ajoutés si vous avez besoin d’installer des applications et de stocker des données. Les disques de données doivent être utilisés dans les cas où un stockage des données durable et réactif est souhaité. Chaque disque de données offre une capacité maximale de 4 To. La taille de l’instance de machine virtuelle détermine le nombre de disques de données pouvant être attachés. Pour chaque processeur virtuel de la machine virtuelle, deux disques de données peuvent être attachés.
-
-### <a name="max-data-disks-per-vm"></a>Disques de données max. par machine virtuelle
-| Type | Tailles courantes | Disques de données max. par machine virtuelle |
-|----|----|----|
-| [Usage général](../virtual-machines/linux/sizes-general.md) | Séries A, B et D | 64 |
-| [Optimisé pour le calcul](../virtual-machines/linux/sizes-compute.md) | Série F | 64 |
-| [Mémoire optimisée](../virtual-machines/linux/sizes-memory.md) | Séries D, E, G et M | 64 |
-| [Optimisé pour le stockage](../virtual-machines/linux/sizes-storage.md) | Série L | 64 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Série N | 64 |
-| [Hautes performances](../virtual-machines/linux/sizes-hpc.md) | Séries A et H | 64 |
-
+Des disques de données supplémentaires peuvent être ajoutés si vous avez besoin d’installer des applications et de stocker des données. Les disques de données doivent être utilisés dans les cas où un stockage des données durable et réactif est souhaité. Chaque disque de données offre une capacité maximale de 4 To. La taille de l’instance de machine virtuelle détermine le nombre de disques de données pouvant être attachés. Pour chaque processeur virtuel de machine virtuelle, vous pouvez attacher deux disques de données à un maximum de 64 disques par machine virtuelle.
 
 ## <a name="vm-disk-types"></a>Type de disque de machine virtuelle
 Azure propose deux types de disque.

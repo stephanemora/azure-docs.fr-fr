@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 7237bb7e0538ba1a9b6333ccb6589efe657a247d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f91ee5654b4add37d3cce4f875be1f9c2b398ab9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74423948"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259491"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -30,7 +30,7 @@ Nous vous recommandons de surveiller l’intégrité des serveurs de processus d
 
 ## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>Étape 2 : Détecter les problèmes de connectivité et de réplication
 
-Les défaillances de réplication initiales et en cours résultent souvent de problèmes de connectivité entre le serveur source et le serveur de processus, ou entre ce dernier et Azure. 
+Les défaillances de réplication initiales et en cours résultent souvent de problèmes de connectivité entre le serveur source et le serveur de processus, ou entre ce dernier et Azure.
 
 Pour résoudre ces difficultés, [détectez les problèmes de connectivité et de réplication](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
 
@@ -96,7 +96,7 @@ Pour résoudre ce problème, procédez comme suit pour vérifier la connectivit�
 4. Sur la machine source, examinez les journaux à l’emplacement ci-après pour obtenir les détails de l’erreur :
 
        C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
-    
+
 ### <a name="process-server-with-no-heartbeat-error-806"></a>Serveur de processus dépourvu de pulsation [erreur 806]
 Si le serveur de processus est dépourvu de pulsation, vérifiez les points suivants :
 1. La machine virtuelle du serveur de processus est opérationnelle.
@@ -116,7 +116,7 @@ Pour résoudre ce problème, vérifiez l’état du service en procédant comme 
 2. Connectez-vous à la machine virtuelle cible maître à l’aide d’un compte disposant de privilèges d’administrateur.
     - Vérifiez que le service svagents est en cours d’exécution. S’il l’est, redémarrez-le.
     - Vérifiez les journaux à l’emplacement ci-après pour obtenir les détails de l’erreur :
-        
+
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 3. Pour inscrire le serveur cible maître auprès du serveur de configuration, accédez au dossier **%PROGRAMDATA%\ASR\Agent**, puis exécutez ce qui suit dans l’invite de commandes :
    ```
@@ -132,38 +132,38 @@ Pour résoudre ce problème, vérifiez l’état du service en procédant comme 
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID d’erreur 78144 : aucun point de récupération cohérent avec l’application disponible pour la machine virtuelle pendant les « XXX » dernières minutes
 
-Des améliorations ont été apportées aux versions [9.23](vmware-physical-mobility-service-overview.md#from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) de l’agent de mobilité pour gérer les comportements d’échec d’installation VSS. Vérifiez que vous disposez des dernières versions pour obtenir les meilleurs conseils en matière de résolution des défaillances VSS.
+Des améliorations ont été apportées aux versions [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new.md#update-rollup-39) de l’agent de mobilité pour gérer les comportements d’échec d’installation VSS. Vérifiez que vous disposez des dernières versions pour obtenir les meilleurs conseils en matière de résolution des défaillances VSS.
 
 Certains des problèmes les plus courants sont répertoriés ci-dessous
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Cause 1 : Problème connu dans SQL Server 2008/2008 R2 
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Cause 1 : Problème connu dans SQL Server 2008/2008 R2
 **Procédure de résolution** : Il existe un problème connu dans SQL Server 2008/2008 R2. Référez-vous à cet article de la base de connaissances : [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2) (L’agent Azure Site Recovery ou une autre sauvegarde VSS sans composant échoue sur un serveur hébergeant une instance SQL Server 2008 R2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Cause 2 : Les tâches Azure Site Recovery échouent lorsque des serveurs hébergent les instances de n’importe quelle version de SQL Server avec des bases de données AUTO_CLOSE 
-**Procédure de résolution** : Référez-vous à cet [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) de la base de connaissances 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Cause 2 : Les tâches Azure Site Recovery échouent lorsque des serveurs hébergent les instances de n’importe quelle version de SQL Server avec des bases de données AUTO_CLOSE
+**Procédure de résolution** : Référez-vous à cet [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) de la base de connaissances
 
 
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Cause 3 : Problème connu dans SQL Server 2016 et 2017
-**Procédure de résolution** : Référez-vous à cet [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) de la base de connaissances 
+**Procédure de résolution** : Référez-vous à cet [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) de la base de connaissances
 
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Autres causes provoquées par des problèmes liés à VSS :
 
 Pour mieux résoudre le problème, vérifiez les fichiers sur la machine source pour obtenir le code d’erreur exact de l’échec :
-    
+
     C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 Comment localiser les erreurs dans le fichier ?
 Recherchez la chaîne « vacpError » en ouvrant le fichier vacp.log dans un éditeur
-        
+
     Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 Dans l’exemple ci-dessus, **2147754994** est le code d’erreur qui vous informe de l’échec, comme indiqué ci-dessous
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>L’enregistreur VSS n’est pas installé - erreur 2147221164 
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>L’enregistreur VSS n’est pas installé - erreur 2147221164
 
 *Procédure de résolution* : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft. Il installe un fournisseur VSS pour que l’opération prenne des clichés instantanés de la cohérence d’application. Ce fournisseur VSS est installé en tant que service. Si le service de fournisseur VSS n’est pas installé, la création de clichés instantanés de la cohérence d’application échoue et l’ID d’erreur 0x80040154 « Classe non inscrite » s’affiche. </br>
-Consultez [l’article relatif au dépannage de l’installation de l’enregistreur VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+Consultez [l’article relatif au dépannage de l’installation de l’enregistreur VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>L’enregistreur VSS est désactivé - erreur 2147943458
 
@@ -178,12 +178,13 @@ Consultez [l’article relatif au dépannage de l’installation de l’enregist
 
 ####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - erreur 2147754756
 
-**Procédure de résolution** : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft. Vérifiez si le service de fournisseur VSS d’Azure Site Recovery est installé. </br>
+**Procédure de résolution** : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft.
+Vérifiez si le service de fournisseur VSS d’Azure Site Recovery est installé. </br>
 
 - Réessayez d’installer le fournisseur à l’aide des commandes suivantes :
 - Désinstallez le fournisseur existant : C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
 - Réinstallez : C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
- 
+
 Vérifiez que le type de démarrage du service fournisseur VSS est défini sur **Automatique**.
     - Redémarrez les services suivants :
         - Service VSS

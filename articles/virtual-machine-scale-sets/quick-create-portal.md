@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure'
 description: Commencez vos déploiements en apprenant à créer rapidement un groupe de machines virtuelles identiques dans le portail Azure.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -9,15 +9,15 @@ ms.tgt_pltfrm: vm
 ms.topic: quickstart
 ms.custom: mvc, H1Hack27Feb2017
 ms.date: 10/23/2019
-ms.author: cynthn
-ms.openlocfilehash: 41bfe86f4635a54c56a8313fabefa1f381f4a4ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.author: jushiman
+ms.openlocfilehash: 410ae93ea109e5757ccb5b65d353a600574dd595
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80062758"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010475"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Guide de démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
+# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
 
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans ce guide de démarrage rapide, vous créez un groupe de machines virtuelles identiques dans le portail Azure.
 
@@ -38,9 +38,9 @@ Commencez par créer un équilibreur de charge Standard public en utilisant le p
 
     | Paramètre                 | Valeur   |
     | ---| ---|
-    | Subscription  | Sélectionnez votre abonnement.    |    
+    | Abonnement  | Sélectionnez votre abonnement.    |    
     | Resource group | Sélectionnez **Créer**, puis entrez *myVMSSResourceGroup* dans la zone de texte.|
-    | Name           | *myLoadBalancer*         |
+    | Nom           | *myLoadBalancer*         |
     | Région         | Sélectionnez **USA Est**.       |
     | Type          | Sélectionnez **Public**.       |
     | SKU           | Sélectionnez **Standard**.       |

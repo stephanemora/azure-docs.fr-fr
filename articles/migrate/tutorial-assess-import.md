@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79453644"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115060"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Évaluer des serveurs à l’aide de données importées
 
@@ -126,22 +126,8 @@ Le tableau suivant récapitule les champs du fichier à remplir :
 **Débit d’entrée réseau** | Non | Données reçues par le serveur, en Mo par seconde.
 **Débit de sortie réseau** | Non | Données transmises par le serveur, en Mo par seconde.
 **Type de microprogramme** | Non | Microprogramme du serveur. Les valeurs peuvent être « BIOS » ou « UEFI ».
-**Type de serveur** | Non | Les valeurs peuvent être « Physique » ou « Virtuel ».
-**Hyperviseur** | Non | Hyperviseur sur lequel un ordinateur est en cours d’exécution. <br/> Les valeurs peuvent être « VMware », « Hyper-V », « Xen », « AWS », « GCP » ou « Autre ».
-**Numéro de version de l’hyperviseur** | Non | Version de l’hyperviseur.
-**ID de machine virtuelle** | Non | Identificateur de la machine virtuelle. Il s’agit de la valeur **InstanceUUid** pour la machine virtuelle VMware vCenter, ou de l’**ID de machine virtuelle Hyper-V** pour Hyper-V.
-**ID Virtual Machine Manager** | Non | Il s’agit de la valeur **InstanceUUid** pour VMWare vCenter. Elle n’est pas nécessaire pour Hyper-V.
 **Adresse MAC**| Non | Adresse MAC du serveur.
-**ID BIOS** | Non | ID BIOS du serveur.
-**ID de serveur personnalisé** | Non | ID de serveur uniques locaux sur site. <br/> Utiles pour le suivi du serveur importé par ID local.
-**Nom de l’application 1** | Non | Nom de la charge de travail exécutée sur le serveur.<br/>Vous pouvez ajouter les détails d’autres applications en [ajoutant des colonnes](#add-multiple-applications) dans le modèle. Vous pouvez ajouter jusqu’à cinq applications.
-**Type d’application 1** | Non | Type de charge de travail en cours d’exécution sur le serveur
-**Version d’application 1** | Non | Version de la charge de travail en cours d’exécution sur le serveur.
-**Expiration de la licence de l’application 1** | Non | Expiration de la licence de la charge de travail (le cas échéant).
-**Unité commerciale** | Non | Unité commerciale à laquelle appartient le serveur.
-**Propriétaire commercial** | Non | Propriétaire de l’unité commerciale.
-**Nom de l’application métier** | Non | Nom de l’application à laquelle l’application appartient.
-**Lieu** | Non | Centre de données dans lequel se trouve le serveur.
+
 
 ### <a name="add-operating-systems"></a>Ajouter des systèmes d’exploitation
 
@@ -159,19 +145,6 @@ Par exemple, pour spécifier tous les champs pour un deuxième disque, ajoutez c
 - Débit de lecture sur le disque 2
 - Débit d’écriture sur le disque 2
 
-### <a name="add-multiple-applications"></a>Ajouter plusieurs applications
-
-Le modèle fournit des champs pour une seule application. Vous pouvez ajouter des colonnes similaires pour un maximum de 5 applications.  
-
-Par exemple, pour spécifier tous les champs pour une deuxième application, ajoutez ces colonnes :
-
-- Nom de l’application 2
-- Type de l’application 2
-- Version de l’application 2
-- Expiration de la licence de l’application 2
-
-> [!NOTE]
-> Les informations sur l’application sont utiles lors de l’évaluation de votre environnement local pour la migration. Toutefois, Azure Migrate Server Assessment n’effectue pas actuellement d’évaluation au niveau de l’application, et ne prend pas en compte les applications lors de la création d’une évaluation.
 
 ## <a name="import-the-server-information"></a>Importer les informations du serveur
 
