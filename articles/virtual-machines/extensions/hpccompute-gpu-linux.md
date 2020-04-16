@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7f6653043d46925d6a4c35eedaf81224ea6c36d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226881"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415783"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
@@ -141,15 +141,15 @@ Set-AzVMExtension
 L’exemple suivant reprend les exemples Azure Resource Manager et PowerShell ci-dessus et ajoute des paramètres personnalisés afin d’illustrer l’installation personnalisée du pilote. Plus précisément, il met à jour le noyau du système d’exploitation et installe un pilote de la version spécifique du kit de ressources CUDA.
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverLinux `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
-    "updateOS": true, `
-    "driverVersion": "9.1.85", `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.2 \
+  --settings '{ \
+    "updateOS": true, \
+    "driverVersion": "9.1.85", \
   }'
 ```
 

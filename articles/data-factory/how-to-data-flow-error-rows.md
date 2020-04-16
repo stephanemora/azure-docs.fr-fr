@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: makromer
-ms.openlocfilehash: 3fe3403ad06d82ba5ccd33d2718bf0e5eff64490
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73164627"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414356"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gérer les lignes d’erreur de troncation SQL dans Data Factory en mappant les flux de données
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Un scénario courant dans Data Factory lors de l’utilisation du mappage de flux de données consiste à écrire vos données transformées dans une base de données SQL Azure. Dans ce scénario, une condition d’erreur courante que vous devez éviter est une troncation de colonne possible. Procédez comme suit pour fournir la journalisation des colonnes qui ne tiennent pas dans une colonne de chaîne cible. Cela permet à votre workflow de continuer dans ces scénarios.
 

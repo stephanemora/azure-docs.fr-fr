@@ -10,14 +10,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 15aac35a7ebc505e76ddfd0c538c4fddb7b2d9ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca88e42438c7cb48b062aa67d82053afbb9244bf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930541"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418284"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 Cet article décrit comment configurer Azure-SSIS Integration Runtime pour de hautes performances. Le Azure-SSIS Integration Runtime vous permet de déployer et d’exécuter des packages SQL Server Integration Services (SSIS) dans Azure. Pour en savoir plus sur Azure-SSIS Integration Runtime, consultez l’article [Runtime d’intégration](concepts-integration-runtime.md#azure-ssis-integration-runtime). Pour plus d’informations sur le déploiement et l’exécution de packages SSIS sur Azure, consultez [Migration « lift-and-shift » des charges de travail SQL Server Integration Services dans le cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 

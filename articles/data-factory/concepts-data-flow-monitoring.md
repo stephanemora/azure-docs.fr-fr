@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 93d92286fa9eecbc64229059274cc8f9ed99e21e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06000d6b3cd7a429b7ad0fc9c453595f21bd893
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928277"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418471"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Après avoir généré et débogué votre flux de données, vous pouvez le planifier de façon à l’exécuter selon une planification dans le contexte d’un pipeline. Vous pouvez planifier le pipeline à partir d’Azure Data Factory à l’aide de déclencheurs. Vous pouvez également utiliser l’option Déclencher maintenant à partir du Générateur de pipeline d’Azure Data Factory pour déclencher une exécution unique afin de tester votre flux de données dans le contexte du pipeline.
 

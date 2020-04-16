@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f40ad7346219b48a38ade38b2a75ddf71940875
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122642"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416417"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d’Amazon S3 vers le stockage Azure 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory fournit un mécanisme performant, robuste et rentable pour migrer des données à l’échelle d’Amazon S3 vers le stockage Blob Azure ou Azure Data Lake Storage Gen2.  Cet article fournit les informations suivantes à l’attention des ingénieurs et des développeurs de données : 
 

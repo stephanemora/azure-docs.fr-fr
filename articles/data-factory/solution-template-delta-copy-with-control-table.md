@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01a6d796a9a8306da5bb707111b07786136a66cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439669"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414783"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copie delta à partir d’une base de données avec une table de contrôle
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit un modèle disponible pour charger de façon incrémentielle des lignes nouvelles ou mises à jour à partir d’une table de base de données vers Azure à l’aide d’une table de contrôle externe qui stocke une valeur limite supérieure.
 

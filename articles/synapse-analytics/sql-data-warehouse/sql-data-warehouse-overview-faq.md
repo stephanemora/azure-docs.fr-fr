@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: dcefe6a6144c9a8f9c6ab7daf5b34b2d81a73c3f
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 260086d186f7e2b2d6f76c437057f5fbc8af39b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743005"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416071"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Forum aux questions sur Azure Synapse Analytics (anciennement SQL DW)
 
@@ -92,7 +92,7 @@ R. Oui. La plupart des fonctionnalités REST utilisables avec SQL Database sont 
 
 Q. Quels pilotes clients prenez-vous en charge ?
 
-R. La prise en charge du pool SQL Synapse est détaillée dans la page [Chaînes de connexion](sql-data-warehouse-connection-strings.md).
+R. La prise en charge du pool SQL Synapse est détaillée dans la page [Chaînes de connexion](../sql/connection-strings.md).
 
 Q : Quels sont les formats de fichiers pris en charge par PolyBase ?
 

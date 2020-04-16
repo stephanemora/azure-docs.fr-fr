@@ -2,19 +2,19 @@
 title: Service Speech
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/02/2019
-ms.author: dapine
-ms.openlocfilehash: ceb062cc5272fae0030c331ad7c9c6c870763df7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 5d1ec3fcc817431622c4f50a49afe8d61797c690
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74828994"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422124"
 ---
 > [!NOTE]
 > Lors des tests, le système effectue une transcription. Il est important de garder à l’esprit que les tarifs varient en fonction de l’offre de service et du niveau d’abonnement. Pour obtenir les [informations les plus récentes](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services), reportez-vous toujours aux tarifs officiels d’Azure Cognitive Services dans le service Speech.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: dcb63031e6c033ce2372dc05e588b0f54cb1609f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c61ba0840b75bff10af1d802a9b90c922ef1f12f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294819"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415867"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 
@@ -73,7 +73,7 @@ Lorsque vous utilisez l’extension DSC pour inscrire un nœud auprès du servic
 - RegistrationKey - Secret partagé utilisé pour inscrire des nœuds auprès du service
 - NodeConfigurationName - Nom de la configuration de nœuds (MOF) à tirer (pull) du service pour configurer le rôle serveur
 
-Ces informations peuvent être consultées dans le [portail Azure](../../automation/automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal) ou dans PowerShell.
+Ces informations peuvent être consultées dans le [portail Azure](../../automation/automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal) ou dans PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint

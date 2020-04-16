@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46dd89694857138d28255d5b1a86a8c947680520
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "65604093"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398668"
 ---
-# <a name="tutorial-order-azure-data-box"></a>Didacticiel : Commander une Azure Data Box
+# <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
 Azure Data Box est une solution hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers un périphérique de stockage de 80 To (capacité utilisable) fourni par Microsoft, puis renvoyez l’appareil. Ces données sont ensuite chargées dans Azure.
 
@@ -27,27 +27,19 @@ Ce tutoriel explique comment commander une Azure Data Box. Ce tutoriel vous four
 > * Suivre la commande
 > * Annuler la commande
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez les prérequis de configuration suivants pour l’appareil et le service Data Box avant de déployer l’appareil.
 
 ### <a name="for-service"></a>Pour le service
 
-Avant de commencer, assurez-vous que :
-- Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
-- L’abonnement que vous utilisez pour le service Data Box est un des types suivants :
-    - Contrat Entreprise (EA) Microsoft. En savoir plus sur les [abonnements EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Fournisseur de solutions cloud (CSP). En savoir plus sur le [programme Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. En savoir plus sur le [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Vous disposez d’un accès propriétaire ou contributeur à l’abonnement pour créer une commande Data Box.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Pour l’appareil
 
 Avant de commencer, assurez-vous que :
 - Vous disposez d’un ordinateur hôte connecté au réseau du centre de données. La Data Box va copier les données de cet ordinateur. Votre ordinateur hôte doit exécuter un système d’exploitation pris en charge comme décrit dans [Conditions requises pour le système Azure Data Box](data-box-system-requirements.md).
 - Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie.
-
 
 ## <a name="order-data-box"></a>Commander une Data Box
 
@@ -64,7 +56,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Subscription     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
+    |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
     |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
     |Pays source     |   Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
     |Région Azure de destination     |     Sélectionnez la région Azure où vous souhaitez transférer des données.        |
@@ -77,7 +69,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
     
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Name     |  Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.      |
+    |Nom     |  Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.      |
     |Resource group     |   Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble.         |
     |Région Azure de destination     | Sélectionnez une région pour votre compte de stockage. <br> Pour plus d’informations, consultez la [disponibilité des régions](data-box-overview.md#region-availability).        |
     |Destination de stockage     | Choisissez un compte de stockage, des disques managés ou les deux. <br> Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. <br> Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**. <br>Les comptes de stockage avec des réseaux virtuels sont pris en charge. Pour autoriser le service Data Box à travailler avec des comptes de stockage sécurisés, activez les services approuvés dans les paramètres de pare-feu réseau du compte de stockage. Pour plus d’informations, découvrez comment [Ajouter Azure Data Box en tant que service approuvé](../storage/common/storage-network-security.md#exceptions).|

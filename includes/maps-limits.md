@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: 1ce91aede9328237aef8e5d5b7d74a3b72f10d50
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: cbf43f60a438c740c087ddd2344c982da09da634
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887422"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "81007833"
 ---
 La table suivant indique la limite d’utilisation associée au niveau tarifaire S0 du service Azure Maps. Elle dépend du niveau tarifaire. 
 
@@ -26,6 +26,7 @@ Le tableau suivant présente la limite de taille relative aux données pour Azur
 
 | Ressource                              | Limite |
 |---------------------------------------|:---------------------:|
-| Taille maximale des données |   1 Go  |
+| Taille maximale des données |   50 Mo  |
+
 
 Pour en savoir plus sur les niveaux tarifaires Azure Maps, voir [Tarification Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).

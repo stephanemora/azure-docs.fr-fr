@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 383b70bbb02e7a200c7ec0a994f7cf11e9b9520e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439845"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414819"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copier des fichiers issus de plusieurs conteneurs avec Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit un modèle de solution que vous pouvez utiliser pour copier des fichiers à partir de plusieurs conteneurs entre des magasins de fichiers. Vous pouvez par exemple l’utiliser pour migrer votre lac de données d’AWS S3 vers Azure Data Lake Store, ou pour tout répliquer d’un compte Stockage Blob Azure vers un autre.
 

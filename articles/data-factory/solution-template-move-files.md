@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941906"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414759"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Déplacer des fichiers à l’aide de Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit un modèle de solution que vous pouvez utiliser pour déplacer des fichiers d’un dossier à un autre entre les stockages basés sur fichier. L’un des scénarios courants d’utilisation de ce modèle est le suivant : Les fichiers sont continuellement déposés dans un dossier de destination de votre magasin source. En créant un déclencheur de planification, le pipeline de ADF peut déplacer régulièrement ces fichiers de la source vers le magasin de destination.  La façon dont le pipeline ADF crée des « fichiers mobiles » consiste à récupérer les fichiers du dossier de destination, à copier chacun d’eux dans un autre dossier sur le magasin de destination, puis à supprimer les mêmes fichiers du dossier de destination du magasin source.
 

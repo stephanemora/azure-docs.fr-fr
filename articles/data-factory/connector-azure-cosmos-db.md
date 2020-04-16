@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 7096b429145a54b5a09fe38eb8099c4ff24ac452
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0aa70333454b327a0ca76beef2985062ce56715
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224741"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415379"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 
@@ -24,7 +24,11 @@ ms.locfileid: "79224741"
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Version actuelle](connector-azure-cosmos-db.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Cosmos DB (API SQL), et utiliser Data Flow pour transformer les données dans Azure Cosmos DB (API SQL). Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+
+
 
 >[!NOTE]
 >Ce connecteur prend uniquement en charge l’API SQL Cosmos DB. Pour l'API MongoDB, reportez-vous à [Connecteur de l'API Azure Cosmos DB pour MongoDB](connector-azure-cosmos-db-mongodb-api.md). Les autres types d’API ne sont pas pris en charge actuellement.

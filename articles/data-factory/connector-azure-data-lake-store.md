@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: a8ba8b212a504a8f8e4e29fbd50126189998e81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61bb8fe950de8cd9be91bc76bd24aa0151f3fb79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065480"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415413"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-azure-datalake-connector.md)
 > * [Version actuelle](connector-azure-data-lake-store.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment copier des données vers et depuis Azure Data Lake Storage Gen1. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 

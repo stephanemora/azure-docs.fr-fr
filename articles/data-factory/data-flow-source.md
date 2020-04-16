@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4f1369aa850a244128da470aee81b2efc2e09be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023512"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413211"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Une transformation de la source configure votre source de données pour le flux de données. Lors de la conception de flux de données, la première étape consiste toujours à configurer une transformation de source. Pour ajouter une source, cliquez sur **Ajouter une source** dans le canevas de flux de données.
 

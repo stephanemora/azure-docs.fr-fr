@@ -8,13 +8,13 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 38088503fee016651a8c1c9a1f57ad4bbe102456
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128349"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257145"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 
@@ -29,7 +29,7 @@ Au cours de cette procédure pas à pas, nous analysons le jeu de données [spam
 Avant de pouvoir utiliser une DSVM Linux, vous devez posséder les composants requis suivants :
 
 * **Abonnement Azure**. pour obtenir un abonnement Azure, consultez [Créer votre compte Azure gratuit aujourd'hui](https://azure.microsoft.com/free/).
-* [**Data Science Virtual Machine Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Pour plus d’informations sur l’approvisionnement de cette machine virtuelle, consultez [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md).
+* [**Data Science Virtual Machine Linux**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Pour plus d’informations sur l’approvisionnement de cette machine virtuelle, consultez [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations, consultez [Installer et configurer le client X2Go](linux-dsvm-intro.md#x2go).
 * Pour une expérience de défilement plus fluide, dans le navigateur web Firefox de la DSVM, basculez l'indicateur `gfx.xrender.enabled`dans `about:config`. [Plus d’informations](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Envisagez également de régler `mousewheel.enable_pixel_scrolling` sur `False`. [Plus d’informations](https://support.mozilla.org/questions/981140)
 * **Compte Azure Machine Learning**. Si vous n’en avez pas déjà un, inscrivez-vous pour obtenir un compte sur la [page d’espace d’Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
@@ -39,22 +39,28 @@ Avant de pouvoir utiliser une DSVM Linux, vous devez posséder les composants re
 Le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) est un ensemble de données relativement réduit qui ne contient que 4 601 exemples. Le jeu de données est une taille pratique pour illustrer certaines des fonctionnalités clés de la DSVM, car il a des besoins en ressources modestes.
 
 > [!NOTE]
-> Cette procédure pas à pas a été créée à l’aide d’une DSVM Linux de taille D2 v2 (édition CentOS). Vous pouvez utiliser une DSVM cette taille pour effectuer les procédures décrites dans cette procédure pas à pas.
+> Cette procédure pas à pas a été créée à l’aide d’une DSVM Linux de taille D2 v2 (édition Ubuntu 18.04). Vous pouvez utiliser une DSVM cette taille pour effectuer les procédures décrites dans cette procédure pas à pas.
 
 Si vous avez besoin de plus d’espace de stockage, vous pouvez créer des disques supplémentaires et les joindre à votre DSVM. Les disques utilisent le stockage Azure persistant ; ainsi, leurs données sont conservées même si le serveur est réapprovisionné en raison d’un redimensionnement ou d’un arrêt. Pour ajouter un disque et l’attacher à votre DSVM, suivez les étapes de la section [Ajouter un disque à une machine virtuelle Linux](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes d’ajout d’un disque utilisent Azure CLI, qui est déjà installée sur la DSVM. Vous pouvez effectuer l’intégralité des étapes à partir de la DSVM elle-même. Une autre option pour augmenter le stockage consiste à utiliser [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 
 Pour télécharger les données, ouvrez une fenêtre de terminal et exécutez cette commande :
 
-    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+```bash
+wget --no-check-certificate https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+```
 
 Le fichier téléchargé n’a pas de ligne d’en-tête. Nous allons créer un autre fichier qui possède un en-tête. Exécutez cette commande pour créer un fichier avec les en-têtes appropriés :
 
-    echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
+```bash
+echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
+```
 
 Ensuite, concaténez les deux fichiers :
 
-    cat spambase.data >> headers
-    mv headers spambaseHeaders.data
+```bash
+cat spambase.data >> headers
+mv headers spambaseHeaders.data
+```
 
 Le jeu de données possède plusieurs types de statistiques pour chaque e-mail :
 
@@ -71,51 +77,69 @@ Nous allons examiner les données et découvrir certaines fonctionnalités de ba
 
 Pour récupérer des copies des exemples de code utilisés dans cette procédure pas à pas, utilisez git pour cloner le référentiel Azure-Machine-Learning-Data-Science. Git est préinstallé sur la DSVM. Depuis la ligne de commande git, exécutez :
 
-    git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
+```bash
+git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
+```
 
 Ouvrez une fenêtre de terminal et démarrez une nouvelle session R dans la console interactive R. Vous pouvez également utiliser RStudio, qui est préinstallé sur la DSVM.
 
 Pour importer les données et configurer l’environnement :
 
-    data <- read.csv("spambaseHeaders.data")
-    set.seed(123)
+```R
+data <- read.csv("spambaseHeaders.data")
+set.seed(123)
+```
 
 Pour afficher un résumé des statistiques de chaque colonne :
 
-    summary(data)
+```R
+summary(data)
+```
 
 Pour une vue différente des données :
 
-    str(data)
+```R
+str(data)
+```
 
 Dans cette vue, vous voyez le type de chaque variable et les premières valeurs dans le jeu de données.
 
 La colonne **spam** a été lue comme un entier, mais il s’agit en fait d’une variable par catégorie (ou facteur). Pour définir son type :
 
-    data$spam <- as.factor(data$spam)
+```R
+data$spam <- as.factor(data$spam)
+```
 
 Pour effectuer une analyse exploratoire, utilisez le package [ggplot2](https://ggplot2.tidyverse.org/) , une bibliothèque de graphiques populaire pour R qui est préinstallée sur la Data Science VM. À partir des données récapitulatives affichées précédemment, nous disposons de statistiques résumées sur la fréquence du point d’exclamation. Nous allons tracer ces fréquences ici en exécutant les commandes suivantes :
 
-    library(ggplot2)
-    ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+library(ggplot2)
+ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
 Étant donné que la barre de zéro décale le tracé, nous allons l’éliminer :
 
-    email_with_exclamation = data[data$char_freq_exclamation > 0, ]
-    ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+email_with_exclamation = data[data$char_freq_exclamation > 0, ]
+ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
 Il existe une densité non triviale au-dessus de 1 qui semble intéressante. Examinons uniquement ces données :
 
-    ggplot(data[data$char_freq_exclamation > 1, ]) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+ggplot(data[data$char_freq_exclamation > 1, ]) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
 Ensuite, répartissez-les en courrier indésirable et courrier légitime :
 
-    ggplot(data[data$char_freq_exclamation > 1, ], aes(x=char_freq_exclamation)) +
-    geom_density(lty=3) +
-    geom_density(aes(fill=spam, colour=spam), alpha=0.55) +
-    xlab("spam") +
-    ggtitle("Distribution of spam \nby frequency of !") +
-    labs(fill="spam", y="Density")
+```R
+ggplot(data[data$char_freq_exclamation > 1, ], aes(x=char_freq_exclamation)) +
+geom_density(lty=3) +
+geom_density(aes(fill=spam, colour=spam), alpha=0.55) +
+xlab("spam") +
+ggtitle("Distribution of spam \nby frequency of !") +
+labs(fill="spam", y="Density")
+```
 
 Ces exemples devraient vous aider à effectuer des tracés similaires et à explorer les données dans les autres colonnes.
 
@@ -128,16 +152,20 @@ Nous allons effectuer l’apprentissage de quelques modèles de Machine Learning
 
 Nous allons commencer par diviser le jeu de données en jeu d’apprentissage et jeu de test :
 
-    rnd <- runif(dim(data)[1])
-    trainSet = subset(data, rnd <= 0.7)
-    testSet = subset(data, rnd > 0.7)
+```R
+rnd <- runif(dim(data)[1])
+trainSet = subset(data, rnd <= 0.7)
+testSet = subset(data, rnd > 0.7)
+```
 
 Ensuite, créez un arbre de décision pour classer les e-mails :
 
-    require(rpart)
-    model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
-    plot(model.rpart)
-    text(model.rpart)
+```R
+require(rpart)
+model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
+plot(model.rpart)
+text(model.rpart)
+```
 
 Voici le résultat :
 
@@ -145,99 +173,37 @@ Voici le résultat :
 
 Pour déterminer la qualité d’exécution sur l’ensemble d’apprentissage, utilisez le code suivant :
 
-    trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
-    t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
+```R
+trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
+t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
 Pour déterminer la qualité d’exécution sur le jeu de test :
 
-    testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
-    t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
+```R
+testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
+t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
 Essayons également un modèle de forêts aléatoires. Les forêts aléatoires effectuent l’apprentissage d’une multitude d’arbres de décision et génèrent une classe qui constitue le mode de classification de tous les arbres de décision individuels. Elles fournissent une approche de Machine Learning plus puissante, car elles corrigent la tendance d’un modèle d’arbre de décision à dépasser un jeu de données d’apprentissage.
 
-    require(randomForest)
-    trainVars <- setdiff(colnames(data), 'spam')
-    model.rf <- randomForest(x=trainSet[, trainVars], y=trainSet$spam)
+```R
+require(randomForest)
+trainVars <- setdiff(colnames(data), 'spam')
+model.rf <- randomForest(x=trainSet[, trainVars], y=trainSet$spam)
 
-    trainSetPred <- predict(model.rf, newdata = trainSet[, trainVars], type = "class")
-    table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
+trainSetPred <- predict(model.rf, newdata = trainSet[, trainVars], type = "class")
+table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
 
-    testSetPred <- predict(model.rf, newdata = testSet[, trainVars], type = "class")
-    t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
-
-
-## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Déployer un modèle sur Azure Machine Learning Studio (classique)
-
-[Azure Machine Learning Studio (classique)](https://studio.azureml.net/) est un service cloud qui facilite la création et le déploiement des modèles d’analyse prédictive. Une fonctionnalité intéressante d’Azure Machine Learning Studio (classique) est sa capacité à publier toute fonction R comme un service web. Le package R Azure Machine Learning Studio (classique) rend le déploiement facile à réaliser à partir de votre session R sur la Data Science Virtual Machine.
-
-Pour déployer le code de l’arbre de décision à partir de la section précédente, connectez-vous à Azure Machine Learning Studio (classique). Vous avez besoin de votre ID d’espace de travail et d’un jeton d’autorisation pour vous connecter. Pour rechercher ces valeurs et initialiser les variables Azure Machine Learning avec celles-ci, effectuez ces étapes :
-
-1. Dans le menu de gauche, sélectionnez **Paramètres**. Notez la valeur de **l’ID d’espace de travail**.
-
-   ![ID de l’espace de travail Azure Machine Learning Studio (classique)](./media/linux-dsvm-walkthrough/workspace-id.png)
-
-1. Sélectionnez l’onglet **Jetons d’autorisation**. Notez la valeur **du jeton d’autorisation principal**.
-
-   ![Le jeton d’autorisation principal d’Azure Machine Learning Studio (classique)](./media/linux-dsvm-walkthrough/workspace-token.png)
-1. Chargez le package **AzureML** , puis définissez les valeurs des variables avec votre jeton et votre ID d’espace de travail dans votre session R sur la machine virtuelle de science des données :
-
-        if(!require("devtools")) install.packages("devtools")
-        devtools::install_github("RevolutionAnalytics/AzureML")
-        if(!require("AzureML")) install.packages("AzureML")
-        require(AzureML)
-        wsAuth = "<authorization-token>"
-        wsID = "<workspace-id>"
-
-1. Nous allons simplifier le modèle afin de rendre cette démonstration plus facile à implémenter. Choisissez les trois variables dans l’arbre de décision le plus proche de la racine, et créez un arbre à l’aide de ces trois variables uniquement :
-
-        colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
-        smallTrainSet <- trainSet[, colNames]
-        smallTestSet <- testSet[, colNames]
-        model.rpart <- rpart(spam ~ ., method = "class", data = smallTrainSet)
-
-1. Nous avons besoin d’une fonction de prédiction qui prend les fonctionnalités comme une entrée et renvoie les valeurs prédites :
-
-        predictSpam <- function(newdata) {
-        predictDF <- predict(model.rpart, newdata = newdata)
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
-        }
-
-1. Créez un fichier settings.json pour cet espace de travail :
-
-        vim ~/.azureml/settings.json
-
-1. Assurez-vous que le contenu suivant est placé dans settings.json :
-
-         {"workspace":{
-           "id": "<workspace-id>",
-           "authorization_token": "<authorization-token>",
-           "api_endpoint": "https://studioapi.azureml.net",
-           "management_endpoint": "https://management.azureml.net"
-         }
-
-
-1. Publiez la fonction **predictSpam** sur AzureML à l’aide de la fonction **publishWebService** :
-
-        ws <- workspace()
-        spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
-
-1. Cette fonction prend la fonction **predictSpam**, crée un service web nommé **spamWebService** avec des entrées et des sorties définies, et renvoie des informations sur le nouveau point de terminaison.
-
-    Affichez les détails du dernier service web publié, notamment son point de terminaison d’API et ses clés d’accès avec cette commande :
-
-        s<-tail(services(ws, name = "spamWebService"), 1)
-        ep <- endpoints(ws,s)
-        ep
-
-1. Pour l’essayer sur les 10 premières lignes du test défini :
-
-        consume(ep, smallTestSet[1:10, ])
+testSetPred <- predict(model.rf, newdata = testSet[, trainVars], type = "class")
+t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
 <a name="deep-learning"></a>
 
@@ -268,19 +234,21 @@ Les sections restantes vous montrent comment utiliser certains des outils instal
 
 [XGBoost](https://xgboost.readthedocs.org/en/latest/) offre une implémentation rapide et précise des arborescences optimisées.
 
-    require(xgboost)
-    data <- read.csv("spambaseHeaders.data")
-    set.seed(123)
+```R
+require(xgboost)
+data <- read.csv("spambaseHeaders.data")
+set.seed(123)
 
-    rnd <- runif(dim(data)[1])
-    trainSet = subset(data, rnd <= 0.7)
-    testSet = subset(data, rnd > 0.7)
+rnd <- runif(dim(data)[1])
+trainSet = subset(data, rnd <= 0.7)
+testSet = subset(data, rnd > 0.7)
 
-    bst <- xgboost(data = data.matrix(trainSet[,0:57]), label = trainSet$spam, nthread = 2, nrounds = 2, objective = "binary:logistic")
+bst <- xgboost(data = data.matrix(trainSet[,0:57]), label = trainSet$spam, nthread = 2, nrounds = 2, objective = "binary:logistic")
 
-    pred <- predict(bst, data.matrix(testSet[, 0:57]))
-    accuracy <- 1.0 - mean(as.numeric(pred > 0.5) != testSet$spam)
-    print(paste("test accuracy = ", accuracy))
+pred <- predict(bst, data.matrix(testSet[, 0:57]))
+accuracy <- 1.0 - mean(as.numeric(pred > 0.5) != testSet$spam)
+print(paste("test accuracy = ", accuracy))
+```
 
 XGBoost peut également appeler à partir de Python ou d’une ligne de commande.
 
@@ -293,45 +261,52 @@ Pour le développement Python, les distributions Python Anaconda 3.5 et 2.7 sont
 
 Nous allons lire le jeu de données spambase et classer les e-mails avec des machines à vecteurs de support dans Scikit-learn :
 
-    import pandas
-    from sklearn import svm
-    data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
-    X = data.ix[:, 0:57]
-    y = data.ix[:, 57]
-    clf = svm.SVC()
-    clf.fit(X, y)
+```Python
+import pandas
+from sklearn import svm
+data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
+X = data.ix[:, 0:57]
+y = data.ix[:, 57]
+clf = svm.SVC()
+clf.fit(X, y)
+```
 
 Pour effectuer des prédictions :
 
-    clf.predict(X.ix[0:20, :])
+```Python
+clf.predict(X.ix[0:20, :])
+```
 
 Pour montrer comment publier un point de terminaison Azure Machine Learning, nous allons créer un modèle plus basique. Nous utiliserons les trois variables que nous avons utilisées quand nous avons publié le modèle R plus tôt :
 
-    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
-    y = data.ix[:, 57]
-    clf = svm.SVC()
-    clf.fit(X, y)
+```Python
+X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+y = data.ix[:, 57]
+clf = svm.SVC()
+clf.fit(X, y)
+```
 
 Pour publier le modèle dans Azure Machine Learning :
 
-    # Publish the model.
-    workspace_id = "<workspace-id>"
-    workspace_token = "<workspace-token>"
-    from azureml import services
-    @services.publish(workspace_id, workspace_token)
-    @services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
-    @services.returns(int) # 0 or 1
-    def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
-        inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
-        return clf.predict(inputArray)
+```Python
+# Publish the model.
+workspace_id = "<workspace-id>"
+workspace_token = "<workspace-token>"
+from azureml import services
+@services.publish(workspace_id, workspace_token)
+@services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
+@services.returns(int) # 0 or 1
+def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
+    inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
+    return clf.predict(inputArray)
 
-    # Get some info about the resulting model.
-    predictSpam.service.url
-    predictSpam.service.api_key
+# Get some info about the resulting model.
+predictSpam.service.url
+predictSpam.service.api_key
 
-    # Call the model
-    predictSpam.service(1, 1, 1)
-
+# Call the model
+predictSpam.service(1, 1, 1)
+```
 
 > [!NOTE]
 > Cette option est disponible uniquement pour Python 2.7. Elle n’est pas encore prise en charge sur Python 3.5. Pour exécuter, utilisez **/anaconda/bin/python2.7**.
@@ -343,14 +318,14 @@ La distribution Anaconda dans la machine virtuelle de science des données est f
 > [!NOTE]
 > Pour utiliser le gestionnaire de package Python (via la commande `pip`) à partir d’un Jupyter Notebook dans le noyau actif, utilisez cette commande dans la cellule de code :
 >
->   ```python
+>   ```Python
 >    import sys
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
 > Pour utiliser le programme d'installation Conda (via la commande `conda`) à partir d’un Jupyter Notebook dans le noyau actif, utilisez cette commande dans une cellule de code :
 >
->   ```python
+>   ```Python
 >    import sys
 >    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
 >   ```
@@ -372,9 +347,11 @@ Plusieurs exemples de notebooks sont déjà installés sur la DSVM :
 
 Installez et démarrez Rattle en exécutant les commandes suivantes :
 
-    if(!require("rattle")) install.packages("rattle")
-    require(rattle)
-    rattle()
+```R
+if(!require("rattle")) install.packages("rattle")
+require(rattle)
+rattle()
+```
 
 > [!NOTE]
 > Vous n’avez pas besoin d’installer Rattle sur la DSVM. Toutefois, vous pouvez être invité à installer des packages supplémentaires quand Rattle s’ouvre.
@@ -452,48 +429,64 @@ La machine virtuelle de science des données est fournie avec PostgreSQL install
 
 Avant de pouvoir charger les données, vous devez autoriser l’authentification par mot de passe à partir de l’hôte local. À l’invite de commandes, exécutez :
 
-    sudo gedit /var/lib/pgsql/data/pg_hba.conf
+```Bash
+sudo gedit /var/lib/pgsql/data/pg_hba.conf
+```
 
 Au bas du fichier de configuration, plusieurs lignes détaillent les connexions autorisées :
 
-    # "local" is only for Unix domain socket connections:
-    local   all             all                                     trust
-    # IPv4 local connections:
-    host    all             all             127.0.0.1/32            ident
-    # IPv6 local connections:
-    host    all             all             ::1/128                 ident
+```
+# "local" is only for Unix domain socket connections:
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            ident
+# IPv6 local connections:
+host    all             all             ::1/128                 ident
+```
 
 Modifiez la ligne **connexions locales IPv4** pour utiliser **md5** au lieu d’**ident**, afin de permettre la connexion avec un nom d’utilisateur et un mot de passe :
 
-    # IPv4 local connections:
-    host    all             all             127.0.0.1/32            md5
+```
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+```
 
 Ensuite, redémarrez le service PostgreSQL :
 
-    sudo systemctl restart postgresql
+```Bash
+sudo systemctl restart postgresql
+```
 
 Pour lancer *psql*, un terminal interactif pour PostgreSQL, en tant qu’utilisateur postgres intégré, exécutez la commande suivante :
 
-    sudo -u postgres psql
+```Bash
+sudo -u postgres psql
+```
 
 Créez un nouveau compte d’utilisateur en utilisant le nom d’utilisateur du compte Linux que vous avez utilisé pour vous connecter. Créez un mot de passe :
 
-    CREATE USER <username> WITH CREATEDB;
-    CREATE DATABASE <username>;
-    ALTER USER <username> password '<password>';
-    \quit
+```Bash
+CREATE USER <username> WITH CREATEDB;
+CREATE DATABASE <username>;
+ALTER USER <username> password '<password>';
+\quit
+```
 
 Connectez-vous à psql :
 
-    psql
+```Bash
+psql
+```
 
 Importez les données dans une base de données :
 
-    CREATE DATABASE spam;
-    \c spam
-    CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer);
-    \copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
-    \quit
+```SQL
+CREATE DATABASE spam;
+\c spam
+CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer);
+\copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
+\quit
+```
 
 À présent, nous allons explorer les données et exécuter des requêtes à l’aide de SQuirreL SQL, un outil graphique que vous pouvez utiliser pour interagir avec les bases de données via un pilote JDBC.
 
@@ -525,11 +518,15 @@ Pour exécuter des requêtes :
 
 Il existe de nombreuses requêtes supplémentaires, que vous pouvez exécuter pour explorer ces données. Par exemple, en quoi la fréquence du mot *make* diffère-t-elle entre le courrier indésirable et le courrier légitime ?
 
-    SELECT avg(word_freq_make), spam from data group by spam;
+```SQL
+SELECT avg(word_freq_make), spam from data group by spam;
+```
 
 Ou quelles sont les caractéristiques des e-mails qui contiennent souvent le terme *3d* ?
 
-    SELECT * from data order by word_freq_3d desc;
+```SQL
+SELECT * from data order by word_freq_3d desc;
+```
 
 La plupart des e-mails qui ont une occurrence élevée de *3d* sont apparemment du spam. Ces informations peuvent être utiles pour la création d’un modèle prédictif afin de classer les e-mails.
 
@@ -541,24 +538,32 @@ Azure SQL Data Warehouse est une base de données de mise à l’échelle basée
 
 Pour vous connecter à l’entrepôt de données et créer la table, exécutez la commande suivante depuis une invite de commandes :
 
-    sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
+```Bash
+sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
+```
 
 À l’invite sqlcmd, exécutez la commande suivante :
 
-    CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
-    GO
+```SQL
+CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
+GO
+```
 
 Copiez les données à l’aide de bcp :
 
-    bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
+```bash
+bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
+```
 
 > [!NOTE]
 > Le fichier téléchargé contient des fins de ligne de style Windows. L’outil bcp attend des fins de ligne de style Unix. Utilisez l’indicateur -r pour l’indiquer à bcp.
 
 Ensuite, interrogez à l’aide de sqlcmd :
 
-    select top 10 spam, char_freq_dollar from spam;
-    GO
+```sql
+select top 10 spam, char_freq_dollar from spam;
+GO
+```
 
 Vous pouvez également interroger à l’aide de SQuirreL SQL. Suivez des étapes similaires à PostgreSQL avec le pilote JDBC SQL Server. Le pilote JDBC se trouve dans le dossier /usr/share/java/jdbcdrivers/sqljdbc42.jar.
 

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124745"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414390"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour les serveurs de base de données
 
@@ -64,6 +64,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 
 > [!NOTE]
 > Il peut arriver que la base de données Azure SQL et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+>
 > - Les deux abonnements doivent se trouver dans le même locataire Azure Active Directory.
 > - L’utilisateur dispose des autorisations requises pour lancer des opérations, telles que l’activation des points de terminaison de service et l’ajout d’un sous-réseau de réseau virtuel sur le serveur donné.
 > - Le fournisseur Microsoft.Sql doit être inscrit pour les deux abonnements.
@@ -134,7 +135,7 @@ La technologie PolyBase est couramment utilisée pour charger des données dans 
    > [!NOTE]
    > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Pour examiner les problèmes connus liés à Azure Data Lake Storage Gen2, consultez ce [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-    
+
 1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis cliquez sur **Ajouter une attribution de rôle**. Attribuez le rôle RBAC de **Contributeur aux données blob du stockage** au serveur SQL Azure qui héberge l'instance d'Azure SQL Data Warehouse que vous avez enregistrée auprès d'Azure Active Directory (AAD), comme à l'étape 1.
 
    > [!NOTE]
@@ -264,6 +265,7 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 
 > [!NOTE]
 > Les états suivants s’appliquent aux règles :
+>
 > - **Prêt :** indique que l’opération que vous avez lancée a abouti.
 > - **Échec :** indique que l’opération que vous avez lancée a échoué.
 > - **Supprimé :** s’applique uniquement à l’opération de suppression et indique que la règle a été supprimée et qu’elle ne s’applique plus.

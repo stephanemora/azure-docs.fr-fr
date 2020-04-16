@@ -6,17 +6,21 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/9/2019
-ms.openlocfilehash: 1dd782092ce91f7b71a3a2a6f2ed1646ee39a7e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: c28305cc55fcc561863670a15480782ce63e75b4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444531"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415513"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Générer des expressions dans un flux de données de mappage
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Dans un flux de données de mappage, de nombreuses propriétés de transformation sont entrées en tant qu’expressions. Ces expressions sont composées de valeurs de colonne, de paramètres, de fonctions, d’opérateurs et de littéraux qui correspondent à un type de données Spark au moment de l’exécution.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
 
 ## <a name="open-expression-builder"></a>Générateur d’expressions ouvert
 

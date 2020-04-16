@@ -10,14 +10,17 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e964be548a2f82ecc268a147dd20817b232f51a6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ea625fbe28dad08ec2c3e2a64bada96460a04225
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74924802"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415566"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparer Azure Data Factory et Azure Data Factory version 1
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Cet article compare Data Factory et Data Factory version 1. Pour une présentation de Data Factory, consultez [Présentation de Data Factory](introduction.md). Pour une présentation de Data Factory version 1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). 
 
 ## <a name="feature-comparison"></a>Comparaison des fonctionnalités
@@ -25,7 +28,7 @@ Le tableau suivant compare les fonctionnalités de Data Factory et les fonctionn
 
 | Fonctionnalité | version 1 | Version actuelle | 
 | ------- | --------- | --------- | 
-| Groupes de données | Une vue de données nommée qui fait référence aux données que vous souhaitez utiliser dans vos activités en tant qu’entrées et sorties. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets blob Azure spécifie le conteneur et le dossier du stockage Blob Azure à partir duquel l’activité doit lire les données.<br/><br/>**Disponibilité** définit le modèle de découpage de fenêtre de traitement du jeu de données (par exemple, horaire, journalier, etc.). | Les jeux de données sont les mêmes dans la version actuelle. Toutefois, vous n’avez pas besoin de définir de planifications de **disponibilité** pour les jeux de données. Vous pouvez définir une ressource de déclencheur qui permet de planifier des pipelines à partir d’un paradigme de planificateur d’horloge. Pour plus d’informations, consultez [Déclencheurs](concepts-pipeline-execution-triggers.md#triggers) et [Jeux de données](concepts-datasets-linked-services.md). | 
+| Groupes de données | Une vue de données nommée qui fait référence aux données que vous souhaitez utiliser dans vos activités en tant qu’entrées et sorties. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets blob Azure spécifie le conteneur et le dossier du stockage Blob Azure à partir duquel l’activité doit lire les données.<br/><br/>**Disponibilité** définit le modèle de découpage de fenêtre de traitement du jeu de données (par exemple, horaire, journalier, etc.). | Les jeux de données sont les mêmes dans la version actuelle. Toutefois, vous n’avez pas besoin de définir de planifications de **disponibilité** pour les jeux de données. Vous pouvez définir une ressource de déclencheur qui permet de planifier des pipelines à partir d’un paradigme de planificateur d’horloge. Pour plus d’informations, consultez [Déclencheurs](concepts-pipeline-execution-triggers.md#trigger-execution) et [Jeux de données](concepts-datasets-linked-services.md). | 
 | Services liés | Les services liés ressemblent à des chaînes de connexion. Ils définissent les informations de connexion nécessaires à Data Factory pour se connecter à des ressources externes. | Les services liés sont identiques à ceux de Data Factory V1, mais avec une nouvelle propriété **connectVia** qui permet d’utiliser l’environnement Compute de runtime d’intégration de la version actuelle de Data Factory. Pour plus d’informations, consultez [Runtimes d’intégration dans Azure Data Factory](concepts-integration-runtime.md) et [Propriétés de service lié pour le stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). |
 | Pipelines | Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Vous utilisez startTime, endTime et isPaused pour planifier et exécuter des pipelines. | Les pipelines sont des groupes d’activités qui sont effectuées sur les données. Toutefois, la planification des activités dans le pipeline a été divisée en nouvelles ressources de déclencheur. Vous pouvez davantage considérer les pipelines dans la version actuelle de Data Factory comme des « unités de workflow » que vous planifiez séparément via des déclencheurs. <br/><br/>Les pipelines n’ont pas de « fenêtres » d’exécution dans la version actuelle de Data Factory. Les concepts startTime, endTime et isPaused de Data Factory V1 ne sont plus présents dans la version actuelle de Data Factory. Pour plus d’informations, consultez [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md) et [Pipelines et activités](concepts-pipelines-activities.md). |
 | Activités | Les activités définissent les actions à effectuer sur vos données dans un pipeline. Le déplacement des données (activité de copie) et des activités de transformation des données (tels que Hive, Pig et MapReduce) sont pris en charge. | Dans la version actuelle de Data Factory, les activités sont toujours des actions définies dans un pipeline. La version actuelle de Data Factory introduit de [nouvelles activités de flux de contrôle](concepts-pipelines-activities.md#control-flow-activities). Vous utilisez ces activités dans un flux de contrôle (bouclage et création de branche). Le déplacement des données et les activités de transformation des données qui étaient prises en charge dans V1 le sont également dans la version actuelle. Vous pouvez définir des activités de transformation sans utiliser de jeux de données dans la version actuelle. |

@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443910"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415812"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Charger des données d’Office 365 à l’aide d’Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Cet article vous montre comment _charger des données d’Office 365 dans le stockage d’objets blob Azure_ à l’aide de Data Factory. Vous pouvez suivre une procédure similaire pour copier des données vers Azure Data Lake Gen1 ou Gen2. Reportez-vous à l’[article sur le connecteur Office 365](connector-office-365.md) traitant de la copie des données à partir d’Office 365 en général.
 

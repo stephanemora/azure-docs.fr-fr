@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 94bbfb16a967a97b1ee6f6d51a5f55bc8ba13227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6113759cc68d07af4c22edf03b3274d92dcbe780
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281763"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416291"
 ---
 # <a name="azure-application-marketplace-tab"></a>Onglet Place de marché - Application Azure
 
@@ -32,7 +32,7 @@ Le tableau suivant décrit les paramètres à utiliser pour la création d’une
 | **Résumé\***      | Court résumé de l’offre. La longueur maximale est de 100 caractères.           |
 | **Long Summary (Résumé long)\*** | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ Résumé). La longueur maximale est de 256 caractères.           |
 | **Description\***  | Description de l’offre. La longueur maximale est de 3 000 caractères. Mise en forme HTML simple, comprenant des balises&lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; et header.  |
-| **Marketing Identifier\*** (Identificateur marketing) | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères. Choisissez un identificateur marketing court et convivial pour votre service. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est « contoso » et votre identificateur marketing « sampleApp », l’URL de votre offre sur la Place de marché Azure sera https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Marketing Identifier\*** (Identificateur marketing) | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères. Choisissez un identificateur marketing court et convivial pour votre service. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est « contoso » et votre identificateur marketing « sampleApp », l’URL de votre offre sur la Place de marché Azure sera `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  
 | **ID d’abonnement à la préversion\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès qu’elle est disponible en préversion et après sa publication, avant sa mise en service.          |
 | **Liens utiles**    | Vous pouvez éventuellement fournir des liens vers diverses ressources pour les utilisateurs de votre offre, comme la prise en charge, la documentation, les forums, etc.  Il vous est recommandé d’ajouter au moins un lien vers votre documentation.            |
 | **Catégories suggérées (5 maximum)\*** | Sélectionnez cinq catégories maximum. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la Place de marché Microsoft Azure et le portail Azure. Elles sont affichées sur les pages de navigation et la page des détails de votre produit. |

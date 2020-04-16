@@ -10,14 +10,16 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: cf3bb7e6733ef55a85d0b4ae26a4ce05059a8fb9
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887143"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414079"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Comment créer et configurer un runtime d’intégration Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration, voir [Runtime d’intégration](concepts-integration-runtime.md).
 
 Un runtime d’intégration Azure fournit un calcul entièrement géré pour effectuer en mode natif un déplacement de données et distribuer des activités de transformation de données à des services de calcul tels que HDInsight. Il est hébergé dans l’environnement Azure et prend en charge la connexion à des ressources dans un environnement de réseau public avec des points de terminaison accessibles au public.

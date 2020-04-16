@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: b24d7db679bb9cb9dacd5e1db8e6410b883548cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652189"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415706"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Vous pouvez [provisionner et gérer votre compte Azure Cosmos](how-to-manage-dat
 > [!NOTE]
 > Les basculements régionaux s’appliquent uniquement à des comptes d’écriture monorégions. Les comptes d’écriture multirégions ne requièrent pas ou n’ont pas de limite quant au changement de région d’écriture.
 
-Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Pour plus d’informations sur les fenêtres et intervalles de conservation des sauvegardes, consultez [Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Pour plus d’informations sur les fenêtres et intervalles de conservation des sauvegardes, consultez [Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB](online-backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Limites par compte
 

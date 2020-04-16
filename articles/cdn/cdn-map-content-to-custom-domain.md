@@ -3,7 +3,7 @@ title: Tutoriel - Ajouter un domaine personnalisé à votre point de terminaison
 description: Dans ce tutoriel, vous mappez le contenu du point de terminaison Azure CDN à un domaine personnalisé.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/11/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ab4845a93771bace5bca15ea3afa7027884e36f4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222406"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260579"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
@@ -50,7 +50,7 @@ Avant de pouvoir utiliser un domaine personnalisé avec un point de terminaison 
 Un domaine personnalisé et son sous-domaine peuvent être associés à un seul point de terminaison à la fois. Toutefois, vous pouvez utiliser différents sous-domaines du même domaine personnalisé pour différents points de terminaison de service Azure en utilisant plusieurs enregistrements CNAME. Vous pouvez également mapper un domaine personnalisé ayant différents sous-domaines au même point de terminaison CDN.
 
 > [!NOTE]
-> Il est possible d’utiliser n’importe quel type d’enregistrement d’alias pour les domaines personnalisés si vous utilisez Azure DNS comme fournisseur de domaine. Cette procédure pas à pas utilise le type d’enregistrement CNAME. Si vous utilisez les types d’enregistrements A ou AAAA, suivez les mêmes étapes ci-dessous et remplacez CNAME par le type d’enregistrement de votre choix. Si vous utilisez un enregistrement d’alias pour ajouter un domaine racine comme domaine personnalisé et que vous voulez activer SSL, vous devez utiliser la validation manuelle comme décrit dans [cet article](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Pour plus d’informations, consultez [Pointer la zone apex vers les points de terminaison Azure CDN](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
+> Il est possible d’utiliser n’importe quel type d’enregistrement d’alias pour les domaines personnalisés si vous utilisez Azure DNS comme fournisseur de domaine. Cette procédure pas à pas utilise le type d’enregistrement CNAME. Si vous utilisez les types d’enregistrements A ou AAAA, suivez les mêmes étapes ci-dessous et remplacez CNAME par le type d’enregistrement de votre choix. Si vous utilisez un enregistrement d’alias pour ajouter un domaine racine comme domaine personnalisé et que vous voulez activer TLS/SSL, vous devez utiliser la validation manuelle comme décrit dans [cet article](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Pour plus d’informations, consultez [Pointer la zone apex vers les points de terminaison Azure CDN](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Mapper le sous-domaine temporaire cdnverify
 

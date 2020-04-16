@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 426294f20dd51538920182a0e7a2915f6a47ba54
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037542"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383558"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utiliser le client Apache Beeline avec Apache Hive
 
@@ -40,8 +40,7 @@ Lors de la connexion d’un client à HDInsight sur un réseau virtuel Azure, vo
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-Remplacez `<headnode-FQDN>` par le nom de domaine complet d’un nœud principal de cluster. Pour rechercher le nom de domaine complet d’un nœud principal, utilisez les informations contenues dans le document [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
-
+<a name="replace-headnode-fqdn-with-the-fully-qualified-domain-name-of-a-cluster-headnode-to-find-the-fully-qualified-domain-name-of-a-headnode-use-the-information-in-the-manage-hdinsight-using-the-apache-ambari-rest-api-document"></a>Remplacez `<headnode-FQDN>` par le nom de domaine complet d’un nœud principal de cluster. Pour rechercher le nom de domaine complet d’un nœud principal, utilisez les informations contenues dans le document [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 ---
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Vers un cluster du Pack Sécurité Entreprise (ESP) HDInsight à l'aide de Kerberos
@@ -65,7 +64,7 @@ Pour rechercher l’URL JDBC à partir d’Ambari :
 
 ### <a name="over-public-or-private-endpoints"></a>Via des points de terminaison publics ou privés
 
-En cas de connexion à un cluster utilisant des points de terminaison publics ou privés, vous devez fournir le nom de compte de connexion de cluster (par défaut `admin`) et le mot de passe. Par exemple, utilisation de Beeline à partir d’un système client pour se connecter à l’adresse `clustername.azurehdinsight.net`. Cette connexion est établie via le port `443` et est chiffrée à l’aide du protocole SSL.
+En cas de connexion à un cluster utilisant des points de terminaison publics ou privés, vous devez fournir le nom de compte de connexion de cluster (par défaut `admin`) et le mot de passe. Par exemple, utilisation de Beeline à partir d’un système client pour se connecter à l’adresse `clustername.azurehdinsight.net`. Cette connexion est établie via le port `443` et est chiffrée à l'aide du protocole TLS/SSL.
 
 Remplacez `clustername` par le nom de votre cluster HDInsight : Remplacez `admin` par le compte de connexion de votre cluster. Pour des clusters ESP, utilisez l’UPN complet (par exemple, user@domain.com). Remplacez `password` par le mot de passe du compte de connexion du cluster.
 

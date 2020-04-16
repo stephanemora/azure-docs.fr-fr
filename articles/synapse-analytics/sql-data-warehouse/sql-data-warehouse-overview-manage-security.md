@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 0c30294f2ca139a602074a980810e7c6737c4e2d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 27d3a242d91a79ea00974748f4a8b5460d2dd247
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742991"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416052"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Sécuriser une base de données dans Azure Synapse
 
@@ -104,4 +104,4 @@ Vous pouvez chiffrer votre base de données à l’aide du [Portail Azure](sql-d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir des détails et des exemples sur la connexion à votre entrepôt de données avec différents protocoles, consultez [Se connecter au pool SQL](sql-data-warehouse-connect-overview.md).
+Pour obtenir des détails et des exemples sur la connexion à votre entrepôt de données avec différents protocoles, consultez [Se connecter au pool SQL](../sql/connect-overview.md).

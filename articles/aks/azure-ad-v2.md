@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
-ms.openlocfilehash: 1ca4b70139ed5e0a136f6f5f2b0382b8c1688983
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: b121830192a2b88185bbbbc9a92934e51b32a61c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389407"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114643"
 ---
 # <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Intégrer Azure AD à Azure Kubernetes Service (préversion)
 
@@ -50,10 +50,9 @@ az extension list
 ```
 
 Pour installer kubectl, utilisez la commande suivante :
+
 ```azurecli
-curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.18.0-beta.2/bin/linux/amd64/kubectl"
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+sudo az aks install-cli
 kubectl version --client
 ```
 
@@ -99,12 +98,12 @@ La commande ci-dessus crée un cluster AKS à trois nœuds, mais l’utilisateur
 Une fois que vous avez créé un groupe et que vous vous êtes ajouté (et avez ajouté d’autres personnes) en tant que membre, vous pouvez mettre à jour le cluster avec le groupe Azure AD à l’aide de la commande suivante :
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 Si vous créez d’abord un groupe et que vous ajoutez des membres, vous pouvez également activer le groupe Azure AD au moment de la création à l’aide de la commande suivante :
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
 Lorsqu’un cluster v2 Azure AD a bien été créé, vous trouvez la section suivante dans le corps de la réponse.

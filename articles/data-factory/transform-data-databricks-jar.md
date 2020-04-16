@@ -11,14 +11,15 @@ ms.author: abnarain
 author: nabhishek
 manager: shwang
 ms.date: 03/15/2018
-ms.openlocfilehash: 20858069b745beeaf64951c4ef23c2eb85251985
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b010000a674e351051c664dd5eeacd40e802439
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929111"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414613"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformer des données en exécutant une activité Jar dans Azure Databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 L’activité Azure Databricks Jar dans un [pipeline Data Factory](concepts-pipelines-activities.md) exécute un fichier Spark Jar dans votre cluster Azure Databricks. Cet article s’appuie sur l’article  [Activités de transformation des données](transform-data.md) , qui présente une vue d’ensemble de la transformation des données et les activités de transformation prises en charge. Azure Databricks est une plateforme gérée pour exécuter Apache Spark.
 

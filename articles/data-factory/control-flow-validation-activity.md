@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: f63c78c59d7d6be3c66ea0785389eff73e3bff60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678367"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417927"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Activité Validation dans Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Vous pouvez utiliser une Validation dans un pipeline pour garantir que l’exécution du pipeline se poursuit uniquement une fois qu’elle a confirmé que la référence du jeu de données attaché existe, qu’elle remplit les critères spécifiés ou que le délai d’attente a été atteint.
 
 

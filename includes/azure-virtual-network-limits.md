@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8752585e731f905636f57d31741e2be67f7140b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee4d629d80ff8265d58a1d05b8dca1652ddac6fb
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335041"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112889"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -72,10 +72,12 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300                           |
 | Configurations d’adresses IP frontales              | 600                           |
 | Taille de pool de serveur principal                       | 1 000 configurations d’adresses IP, réseau virtuel unique |
+| Ressources back-end par équilibreur de charge <sup>1<sup> | 150                   |
 | Ports de haute disponibilité                 | 1 par serveur frontal interne       |
-| Règles de trafic sortant par Load Balancer        | 20                            |
+| Règles de trafic sortant par Load Balancer        | 600                           |
 | [Délai d’inactivité TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutes/30 minutes          |
 
+<sup>1</sup>La limite est fixée à 150 ressources, toute combinaison de ressources de machines virtuelles autonomes, ressources de groupes à haute disponibilité et ressources de groupes de machines virtuelles identiques.
 
 **Load Balancer de base**
 

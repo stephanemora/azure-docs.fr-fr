@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187482"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414690"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Cet article contient des erreurs les plus courantes que vous pouvez rencontrer quand vous exécutez des packages SQL Server Integration Services (SSIS) dans le runtime d’intégration SSIS. Il décrit les causes possibles et les actions permettant de résoudre les erreurs.
 

@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 03/16/2020
-ms.openlocfilehash: 115cb3e499117457629e130b6432a1cbc2224edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32088dd712cd0c70fc01de48add17a0b6a828dc8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79463048"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415326"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utilisez l’activité de flux de données pour transformer et déplacer des données par le biais des flux de données de mappage. Si vous débutez avec les flux de données, consultez [Vue d’ensemble des flux de données de mappage](concepts-data-flow-overview.md)
 

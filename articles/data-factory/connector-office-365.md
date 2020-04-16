@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: d97b3caccc92f0fdfeb229d94e30ee6499c26181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416869"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données dans Azure depuis Office 365 avec Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory s’intègre avec [Microsoft Graph data connect](https://docs.microsoft.com/graph/data-connect-concept-overview) et vous permet de transférer de façon progressive vers Azure les données de votre organisation présentes dans votre locataire Office 365, de créer des applications d’analytique et d’extraire des insights basés sur ces riches ressources de données. L’intégration avec Privileged Access Management fournit un contrôle d’accès sécurisé pour les données organisées dans Office 365.  Reportez-vous à [ce lien](https://docs.microsoft.com/graph/data-connect-concept-overview) pour une vue d’ensemble sur Microsoft Graph data connect et à [ce lien](https://docs.microsoft.com/graph/data-connect-policies#licensing) pour les informations de licence.
 

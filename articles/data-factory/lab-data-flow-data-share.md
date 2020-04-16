@@ -7,16 +7,20 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76156724"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415921"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Intégration de données avec Azure Data Factory et Azure Data Share
 
-À mesure que les clients se lancent dans des projets modernes basés sur l’analytique et les entrepôts de données, ils nécessitent non seulement une plus grande quantité de données mais également une meilleure visibilité sur l’ensemble de leurs données. Cet atelier explique comment les améliorations apportées à Azure Data Factory et Azure Data Share simplifient l’intégration et la gestion des données dans Azure. De l’activation des processus ETL/ELT sans code à la création d’une vue complète de vos données, les améliorations apportées à Azure Data Factory vont donner les moyens à vos ingénieurs Données d’apporter en toute confiance davantage de données, et donc plus de valeur, à votre entreprise. Azure Data Share va vous permettre de faire du partage B2B (interentreprise) de manière régie.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+À mesure que les clients se lancent dans des projets modernes basés sur l’analytique et les entrepôts de données, ils nécessitent non seulement une plus grande quantité de données mais également une meilleure visibilité sur l’ensemble de leurs données. Cet atelier explique comment les améliorations apportées à Azure Data Factory et Azure Data Share simplifient l’intégration et la gestion des données dans Azure. 
+
+De l’activation des processus ETL/ELT sans code à la création d’une vue complète de vos données, les améliorations apportées à Azure Data Factory vont donner les moyens à vos ingénieurs Données d’apporter en toute confiance davantage de données, et donc plus de valeur, à votre entreprise. Azure Data Share va vous permettre de faire du partage B2B (interentreprise) de manière régie.
 
 Dans cet atelier, vous allez utiliser ADF (Azure Data Factory) pour ingérer les données d’une base de données Azure SQL (SQL DB) dans Azure Data Lake Storage Gen2 (ADLS Gen2). Une fois que vous avez placé les données dans le lac, vous les transformez via les flux de données de mappage, le service de transformation natif de Data Factory, et vous les déposez dans Azure Synapse Analytics (anciennement SQL DW). Vous partagez ensuite la table contenant les données transformées avec des données supplémentaires, à l’aide d’Azure Data Share. 
 
