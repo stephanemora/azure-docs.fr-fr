@@ -1,18 +1,18 @@
 ---
 title: Utiliser le séquencement d’extensions avec des groupes de machines virtuelles identiques Azure
 description: Découvrez comment séquencer le provisionnement des extensions quand vous déployez plusieurs extensions dans des groupes de machines virtuelles identiques.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: manayar
-ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278054"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273747"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Séquencer le provisionnement des extensions dans des groupes de machines virtuelles identiques
 Les extensions de machine virtuelle Azure apportent diverses fonctionnalités, telles que la configuration et la gestion après le déploiement, la supervision, la sécurité, et bien plus encore. Les déploiements de production utilisent généralement une combinaison de plusieurs extensions configurées pour les instances de machine virtuelle afin d’obtenir les résultats souhaités.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: f9758678708338a284a35b45f7f9dd43b9a9017c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335955"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260987"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -131,7 +131,7 @@ Remplacez `{tenant id}`, `{application id}` et `{redirect uri}` en suivant les i
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Appel d’opérations de sauvegarde et de restauration
 
-Les API REST sont [Service Gestion des API - Sauvegarde](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) et [Service Gestion des API - Restauration](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
+Les API REST sont [Service Gestion des API - Sauvegarde](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) et [Service Gestion des API - Restauration](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore).
 
 Avant d’appeler les opérations de « sauvegarde et de restauration » décrites dans les sections suivantes, définissez l’en-tête de demande d’autorisation de votre appel REST.
 

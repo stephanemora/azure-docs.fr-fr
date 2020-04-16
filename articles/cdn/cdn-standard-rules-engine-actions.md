@@ -2,17 +2,17 @@
 title: Actions du moteur de règles Standard pour Azure CDN | Microsoft Docs
 description: Documentation de référence sur les actions du moteur de règles Standard pour Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171634"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259950"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Actions du moteur de règles Standard pour Azure CDN
 

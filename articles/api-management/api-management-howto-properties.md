@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75834297"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260919"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 
@@ -59,7 +59,7 @@ Les valeurs nommées peuvent contenir des chaînes littérales et des [expressio
 
 Une fois la valeur nommée créée, vous pouvez la modifier en cliquant dessus. Si vous modifiez le nom de valeur nommée, toutes les stratégies qui font référence à cette valeur nommée sont automatiquement mises à jour pour utiliser le nouveau nom.
 
-Pour plus d’informations sur la modification d’une valeur nommée à l’aide de l’API REST, consultez [Modifier une valeur nommée à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property?patch).
+Pour plus d’informations sur la modification d’une valeur nommée à l’aide de l’API REST, consultez [Modifier une valeur nommée à l’aide de l’API REST](/rest/api/apimanagement/2019-12-01/property?patch).
 
 ## <a name="to-delete-a-named-value"></a>Pour supprimer une valeur nommée
 
@@ -68,7 +68,7 @@ Pour supprimer une valeur nommée, cliquez sur **Supprimer** en regard de la val
 > [!IMPORTANT]
 > Si la valeur nommée est référencée par des stratégies, vous ne pouvez pas la supprimer correctement tant que vous ne l’avez pas supprimée de toutes les stratégies qui l’utilisent.
 
-Pour plus d’informations sur la suppression d’une valeur nommée à l’aide de l’API REST, consultez [Supprimer une valeur nommée à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property/delete).
+Pour plus d’informations sur la suppression d’une valeur nommée à l’aide de l’API REST, consultez [Supprimer une valeur nommée à l’aide de l’API REST](/rest/api/apimanagement/2019-12-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Pour rechercher et filtrer des valeurs nommées
 

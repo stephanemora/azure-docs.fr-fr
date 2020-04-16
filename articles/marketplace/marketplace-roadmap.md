@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: c9c69bb475c943003f78a69df1142653c3d5249e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6a3ac701442fb30e471bcc2c8f317e3988980f7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288374"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261973"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Feuille de route de la place de marché commerciale de Microsoft
 
@@ -29,7 +29,7 @@ Une fois qu’une fonctionnalité est en ligne, elle est supprimée de la feuill
 
 * [Blog sur la mise à jour de CSP + Place de marché](https://aka.ms/marketplacemarchupdateblog)
 * [Publication des offres dans le canal CSP (ISV)](https://aka.ms/publishtocsp)
-* [Revendre des offres de la Place de marché (CSP)](hhttps://aka.ms/marketplaceincsp)
+* [Revendre des offres de la Place de marché (CSP)](https://aka.ms/marketplaceincsp)
 * [Contrat standard](https://aka.ms/standardcontract)
 * [API de traitement SaaS](https://aka.ms/saasapiv2)
 * [Devises et zones géographiques de la Place de marché](https://aka.ms/marketplacegeos)

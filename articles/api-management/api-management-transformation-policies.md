@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803243"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260902"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -214,7 +214,7 @@ or
 ```
 
 > [!NOTE]
-> Les entités de back-end peuvent être gérées via l’[API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) de gestion et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Les entités de back-end peuvent être gérées via l’[API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) de gestion et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exemple
 
@@ -269,7 +269,7 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|Nouvelle URL de base du service principal.|`base-url` ou `backend-id` doit être présent.|N/A|
-|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de back-end sont gérées via une [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|`base-url` ou `backend-id` doit être présent.|N/A|
+|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de back-end sont gérées via une [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|`base-url` ou `backend-id` doit être présent.|N/A|
 |clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non|N/A|
 |type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non|N/A|
 |condition de résolution SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Condition identifiant si l’appel au serveur principal Service Fabric doit être répété avec une nouvelle résolution.|Non|N/A|

@@ -1,19 +1,19 @@
 ---
 title: Vue d’ensemble des groupes de machines virtuelles identiques Azure
 description: En savoir plus sur les groupes identiques de machines virtuelles Azure et comment mettre automatiquement à l’échelle vos applications
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
-ms.author: manayar
-ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.author: mimckitt
+ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76273705"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272540"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Que sont les groupes de machines virtuelles identiques ?
 Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles identiques et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée un grand nombre de machines virtuelles. Avec les groupes identiques de machines virtuelles, vous pouvez créer des services à grande échelle pour des zones telles que le calcul, Big Data et des charges de travail de conteneur.
@@ -27,7 +27,7 @@ Les groupes identiques de machines virtuelles Azure fournissent les fonctionnali
 - **Création et gestion faciles de plusieurs machines virtuelles**
     - Lorsque vous disposez de nombreuses machines virtuelles qui exécutent votre application, il est important de conserver une configuration cohérente dans votre environnement. Pour des performances fiables de votre application, la taille de la machine virtuelle, la configuration du disque et les installations de l’application doivent correspondre entre toutes les machines virtuelles.
     - Avec les groupes identiques, toutes les instances de machine virtuelle sont créées à partir de la même image de système d’exploitation de base et de la même configuration. Cette approche vous permet de gérer facilement des centaines de machines virtuelles sans tâches de configuration supplémentaires ou gestion de réseau.
-    - Les groupes identiques prennent en charge l’utilisation de [l’équilibreur de charge Azure](../load-balancer/load-balancer-overview.md) pour la distribution du trafic de type Couche 4 de base, et [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) pour une distribution du trafic de type Couche 7 plus avancée et une terminaison SSL.
+    - Les groupes identiques prennent en charge l’utilisation de l’[équilibreur de charge Azure](../load-balancer/load-balancer-overview.md) pour la distribution du trafic de type Couche 4 de base, et [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) pour une distribution du trafic de type Couche 7 plus avancée et un arrêt TLS.
 
 - **Offre une haute disponibilité et une résilience des applications**
     - Les groupes identiques sont utilisés pour exécuter plusieurs instances de votre application. Si l’une de ces instances de machine virtuelle a un problème, les clients continuent d’accéder à votre application via l’une des autres instances de machine virtuelle avec une interruption minimale.

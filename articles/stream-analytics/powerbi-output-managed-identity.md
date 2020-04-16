@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31a5195038ef25acadc08e2acbedf8471b25833c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086331"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261412"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Utiliser une identité managée pour authentifier votre travail Azure Stream Analytics vers Power BI
 
@@ -160,7 +160,7 @@ Azure Resource Manager vous permet d’automatiser entièrement le déploiement 
 ### <a name="use-the-power-bi-ui"></a>Utiliser l’interface utilisateur Power BI
 
    > [!Note]
-   > Pour ajouter le travail Stream Analytics à votre espace de travail Power BI à l’aide de l’interface utilisateur, vous devez également activer l’accès au principal du service dans les **Paramètres du développeur** dans le portail d’administration Power BI. Pour plus d’informations, consultez [Bien démarrer avec un principal de service](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal).
+   > Pour ajouter le travail Stream Analytics à votre espace de travail Power BI à l’aide de l’interface utilisateur, vous devez également activer l’accès au principal du service dans les **Paramètres du développeur** dans le portail d’administration Power BI. Pour plus d’informations, consultez [Bien démarrer avec un principal de service](https://docs.microsoft.com/power-bi/developer/embed-service-principal).
 
 1. Accédez aux paramètres d’accès de l’espace de travail. Consultez cet article pour plus de détails : [Autoriser l’accès à votre espace de travail](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
