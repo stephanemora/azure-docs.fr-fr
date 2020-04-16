@@ -3,23 +3,62 @@ title: Simulation de déploiement de modèle (préversion)
 description: Déterminez les modifications qui seront apportées à vos ressources avant de déployer un modèle Azure Resource Manager.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/09/2020
 ms.author: jgao
-ms.openlocfilehash: bc42585204e5cc2c3ece5293a3934fd22fe8507b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156444"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010186"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Opération de simulation de déploiement de modèle ARM (préversion)
 
 Avant de déployer un modèle Azure Resource Manager (ARM), vous pouvez prévisualiser les changements. Azure Resource Manager met à votre disposition l’opération de simulation, qui vous permet de voir comment les ressources changent si vous déployez le modèle. L’opération de simulation n’apporte aucune modification aux ressources existantes. Au lieu de cela, elle prédit les modifications si le modèle spécifié est déployé.
 
 > [!NOTE]
-> L’opération de simulation est disponible en préversion. Pour l’utiliser, vous devez [vous inscrire à la préversion](https://aka.ms/armtemplatepreviews). Dans la préversion, les résultats peuvent parfois indiquer qu’une ressource changera alors qu’aucune modification ne se produira. Nous nous efforçons de réduire ces problèmes, mais nous avons besoin de votre aide. Signalez ces problèmes à l’adresse [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> L’opération de simulation est disponible en préversion. Dans la préversion, les résultats peuvent parfois indiquer qu’une ressource changera alors qu’aucune modification ne se produira. Nous nous efforçons de réduire ces problèmes, mais nous avons besoin de votre aide. Signalez ces problèmes à l’adresse [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
 Vous pouvez utiliser l’opération de simulation avec les commandes PowerShell ou des opérations de l’API REST.
+
+## <a name="install-powershell-module"></a>Installer le module PowerShell
+
+Pour utiliser la simulation dans PowerShell, installez une préversion du module Az.Resources à partir de PowerShell Gallery.
+
+### <a name="install-preview-version"></a>Installer la préversion
+
+Pour installer le module en préversion, utilisez :
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
+
+### <a name="uninstall-alpha-version"></a>Désinstaller la version alpha
+
+Si vous avez déjà installé une version alpha du module de simulation, désinstallez ce module. La version alpha était uniquement disponible pour les utilisateurs qui s’étaient inscrits à une préversion anticipée. Si vous n’avez pas installé cette préversion, vous pouvez ignorer cette section.
+
+1. Exécutez PowerShell en tant qu’administrateur
+1. Vérifiez les versions installées du module Az.Resources.
+
+   ```powershell
+   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
+   ```
+
+1. Si vous disposez d’une version installée avec un numéro de version au format **2.x.x-alpha**, désinstallez cette version.
+
+   ```powershell
+   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
+   ```
+
+1. Désinscrivez le dépôt de simulation que vous avez utilisé pour installer la préversion.
+
+   ```powershell
+   Unregister-PSRepository -Name WhatIfRepository
+   ```
+
+Vous êtes prêt à utiliser la simulation.
+
+## <a name="see-results"></a>Afficher les résultats
 
 Dans PowerShell, la sortie comprend des résultats à code de couleurs qui vous permettent de voir les différents types de modifications.
 
@@ -72,11 +111,8 @@ Vous pouvez utiliser le paramètre de commutateur `-Confirm` pour afficher un ap
 
 Les commandes précédentes retournent un résumé sous forme de texte que vous pouvez inspecter manuellement. Pour obtenir un objet que vous pouvez inspecter par programme pour y détecter des modifications, utilisez :
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf` pour des déploiements de groupes de ressources
-* `$results = Get-AzSubscriptionDeploymentWhatIf` ou `$results = Get-AzDeploymentWhatIf` pour des déploiements au niveau de l’abonnement
-
-> [!NOTE]
-> Avant la mise en production de la version 2.0.1-alpha5, vous utilisiez la commande `New-AzDeploymentWhatIf`. Cette commande a été remplacée par les commandes `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf` et `Get-AzSubscriptionDeploymentWhatIf`. Si vous avez utilisé une version antérieure, vous devez mettre à jour cette syntaxe. Le paramètre `-ScopeType` a été supprimé.
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` pour des déploiements de groupes de ressources
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` ou `$results = Get-AzDeploymentWhatIfResult` pour des déploiements au niveau de l’abonnement
 
 ### <a name="azure-rest-api"></a>API REST Azure
 
@@ -223,7 +259,7 @@ Certaines des propriétés répertoriées comme supprimées ne seront pas modifi
 À présent, nous allons évaluer par programmation les résultats de l’opération de simulation en définissant la commande sur une variable.
 
 ```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```

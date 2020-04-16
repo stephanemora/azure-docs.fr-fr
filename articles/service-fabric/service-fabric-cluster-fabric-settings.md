@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: f42cfd1b41ab463c3c3042987b5d0a0b3b00f67e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c2e280af814a3e10ad84c5ba07fc376868fcd851
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986187"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416242"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -29,7 +29,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |BodyChunkSize |Valeur Uint (valeur par défaut : 16384) |Dynamique| Indique la taille en octets du bloc utilisé pour lire le corps. |
 |CrlCheckingFlag|uint, valeur par défaut : 0x40000000 |Dynamique| Indicateurs pour la validation de la chaîne de certificats de l’application/service, par exemple CRL checking 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Si définie sur 0, cette valeur désactive la vérification CRL La liste complète des valeurs prises en charge est documentée par dwFlags de CertGetCertificateChain : https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Durée en secondes. La valeur par défaut est 120 |Dynamique|Spécifiez la durée en secondes.  Indique le délai d’expiration par défaut des requêtes HTTP traitées par la passerelle HTTP. |
-|ForwardClientCertificate|valeur booléenne, valeur par défaut : FALSE|Dynamique|Lorsque la valeur est FALSE, le proxy inversé ne demande pas le certificat client. Lorsque la valeur est TRUE, le proxy inversé demande le certificat client pendant l’établissement de connexion SSL et transfère la chaîne de format PEM encodée en base64 au service dans un en-tête nommé X-Client-Certificate. Ce service peut faire échouer la requête avec le code d’état approprié après avoir inspecté les données du certificat. Si la valeur est TRUE et que le client ne présente pas de certificat, le proxy inversé transfère un en-tête vide et laisse le service gérer le cas. Le proxy inverse agit comme une couche transparente. Pour plus d’informations, consultez [Configurer l’authentification du certificat client](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
+|ForwardClientCertificate|valeur booléenne, valeur par défaut : FALSE|Dynamique|Quand la valeur définie est false, le proxy inversé ne demande pas le certificat client. Quand la valeur définie est true, il demande le certificat client pendant la négociation TLS et transfère la chaîne de format PEM encodée en base 64 au service dans un en-tête nommé X-Client-Certificate. Ce service peut faire échouer la requête avec le code d’état approprié après avoir inspecté les données du certificat. Si la valeur est TRUE et que le client ne présente pas de certificat, le proxy inversé transfère un en-tête vide et laisse le service gérer le cas. Le proxy inverse agit comme une couche transparente. Pour plus d’informations, consultez [Configurer l’authentification du certificat client](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |Chaîne (valeur par défaut : "None") |statique| Indique le type d’informations d’identification de sécurité à utiliser au niveau du point de terminaison de passerelle d’application HTTP. Les valeurs valides sont None/X509. |
 |GatewayX509CertificateFindType |Chaîne (valeur par défaut : "FindByThumbprint") |Dynamique| Indique comment rechercher un certificat dans le magasin spécifié par GatewayX509CertificateStoreName. Valeur prise en charge : FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | Chaîne (valeur par défaut : "") |Dynamique| Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté. |
@@ -55,10 +55,10 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|entier (valeur par défaut : 0)|statique|Paramètre MinReplicaSetSize pour BackupRestoreService |
-|PlacementConstraints|chaîne, valeur par défaut : « »|statique|  Paramètre PlacementConstraints pour le service BackupRestore |
+|PlacementConstraints|chaîne, valeur par défaut : « »|statique|    Paramètre PlacementConstraints pour le service BackupRestore |
 |SecretEncryptionCertThumbprint|chaîne, valeur par défaut : « »|Dynamique|Empreinte numérique du certificat X509 de chiffrement de secret |
-|SecretEncryptionCertX509StoreName|chaîne, valeur par défaut : « MY »|   Dynamique|    Ce paramètre indique le certificat à utiliser pour le chiffrement et le déchiffrement des informations d’identification. Nom du magasin de certificats X.509 utilisé pour le chiffrement et le déchiffrement des informations d’identification de magasin qu’utilise le service de restauration de sauvegarde |
-|TargetReplicaSetSize|entier (valeur par défaut : 0)|statique| Paramètre TargetReplicaSetSize pour BackupRestoreService |
+|SecretEncryptionCertX509StoreName|chaîne, valeur par défaut : « My »|    Dynamique|    Ce paramètre indique le certificat à utiliser pour le chiffrement et le déchiffrement des informations d’identification. Nom du magasin de certificats X.509 utilisé pour le chiffrement et le déchiffrement des informations d’identification de magasin qu’utilise le service de restauration de sauvegarde |
+|TargetReplicaSetSize|entier, valeur par défaut : 0|statique| Paramètre TargetReplicaSetSize pour BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
 
@@ -147,8 +147,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|entier (valeur par défaut : 0)|statique|MinReplicaSetSize pour le service EventStore |
-|PlacementConstraints|chaîne, valeur par défaut : « »|statique|  PlacementConstraints pour le service EventStore |
-|TargetReplicaSetSize|entier (valeur par défaut : 0)|statique| TargetReplicaSetSize pour le service EventStore |
+|PlacementConstraints|chaîne, valeur par défaut : « »|statique|    PlacementConstraints pour le service EventStore |
+|TargetReplicaSetSize|entier, valeur par défaut : 0|statique| TargetReplicaSetSize pour le service EventStore |
 
 ## <a name="fabricclient"></a>FabricClient
 
@@ -270,7 +270,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |CommonNameNtlmPasswordSecret|SecureString, valeur par défaut : Common::SecureString("")| statique|Secret de mot de passe utilisé comme valeur initiale pour générer le même mot de passe en cas d’authentification NTLM |
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, valeur par défaut : Common::TimeSpan::FromMinutes(5)|Dynamique|Spécifiez la durée en secondes. Intervalle de temps entre la vérification de l’espace disque et le signalement d’un événement d’intégrité lorsque le disque est proche de l’espace insuffisant. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(15)|Dynamique|Spécifiez la durée en secondes. Intervalle de temps entre la vérification de l’espace disque et le signalement d’un événement d’intégrité lorsque l’espace sur le disque est suffisant. |
-|EnableImageStoreHealthReporting |Valeur booléenne, valeur par défaut : TRUE |statique|Configuration pour déterminer si le service de magasin de fichiers doit signaler son intégrité. |
+|EnableImageStoreHealthReporting |Valeur booléenne, valeur par défaut : TRUE    |statique|Configuration pour déterminer si le service de magasin de fichiers doit signaler son intégrité. |
 |FreeDiskSpaceNotificationSizeInKB|int64, la valeur par défaut est 25\*1024 |Dynamique|Taille de l’espace disque disponible au-dessous de laquelle un avertissement d’intégrité peut se produire. La valeur minimale de cette configuration et de la configuration de FreeDiskSpaceNotificationThresholdPercentage est utilisée pour déterminer l’envoi de l’avertissement d’intégrité. |
 |FreeDiskSpaceNotificationThresholdPercentage|double, la valeur par défaut est 0.02 |Dynamique|Pourcentage d’espace disque disponible au-dessous duquel un avertissement d’intégrité peut se produire. La valeur minimale de cette configuration et de la configuration de FreeDiskSpaceNotificationInMB est utilisée pour déterminer l’envoi de l’avertissement d’intégrité. |
 |GenerateV1CommonNameAccount| Valeur booléenne, valeur par défaut : TRUE|statique|Spécifie s’il faut générer un compte avec l’algorithme de génération V1 de nom d’utilisateur. Depuis Service Fabric version 6.1, un compte avec la génération v2 est toujours créé. Le compte V1 est nécessaire pour les mises à niveau à partir de/vers des versions qui ne prennent pas en charge la génération V2 (avant 6.1).|
@@ -340,7 +340,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |CreateFabricRuntimeTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. La valeur du délai d’expiration pour l’appel de synchronisation FabricCreateRuntime |
 |DefaultContainerRepositoryAccountName|Chaîne (valeur par défaut : "")|statique|Informations d’identification par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|Chaîne (valeur par défaut : "")|statique|Informations d’identification de mot de passe par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml|
-|DefaultContainerRepositoryPasswordType|Chaîne (valeur par défaut : "")|statique|Quand ce n’est pas une chaîne vide, la valeur peut être « Encrypted » ou « SecretsStoreRef ».|
+|DefaultContainerRepositoryPasswordType|Chaîne (valeur par défaut : "")|statique|Quand la valeur n’est pas une chaîne vide, elle peut être « Encrypted » ou « SecretsStoreRef ».|
 |DefaultDnsSearchSuffixEmpty|valeur booléenne, valeur par défaut : FALSE|statique|Par défaut, le nom du service est ajouté au nom DNS SF pour les services de conteneur. Cette fonctionnalité met fin à ce comportement, si bien que rien n’est ajouté au nom DNS SF par défaut dans le cheminement de la résolution.|
 |DeploymentMaxFailureCount|entier, valeur par défaut : 20| Dynamique|Le déploiement de l’application sera retenté DeploymentMaxFailureCount fois avant l’échec du déploiement de cette application sur le nœud.| 
 |DeploymentMaxRetryInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600)|Dynamique| Spécifiez la durée en secondes. Intervalle maximum avant une nouvelle tentative de déploiement. À chaque échec continu, l’intervalle avant nouvelle tentative est calculé de la manière suivante : Min( DeploymentMaxRetryInterval; Nombre d’échecs continus * DeploymentRetryBackoffInterval) |
@@ -556,16 +556,20 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |PlacementSearchTimeout | Durée en secondes (valeur par défaut est 0.5) |Dynamique| Spécifiez la durée en secondes. Lors du placement de services, effectuez une recherche au moins aussi longue avant de renvoyer un résultat. |
 |PLBRefreshGap | Durée en secondes (valeur par défaut : 1) |Dynamique| Spécifiez la durée en secondes. Définit le délai minimum à respecter avant que PLB ne réactualise l’état. |
 |PreferredLocationConstraintPriority | Entier (valeur par défaut : 2)| Dynamique|Détermine la priorité de la contrainte d’emplacement préféré : 0 : Stricte ; 1 : Souple ; 2 : optimisation ; valeur négative : Ignorer |
+|PreferredPrimaryDomainsConstraintPriority| Entier (valeur par défaut : 1) | Dynamique| Détermine la priorité de la contrainte de domaine principal préféré : 0 : Stricte ; 1 : Souple ; valeur négative : Ignorer |
 |PreferUpgradedUDs|valeur booléenne,valeur par défaut : FALSE|Dynamique|Active ou désactive la logique qui préfère le déplacement vers des UD déjà mis à niveau. À partir de SF 7.0, la valeur par défaut de ce paramètre passe de TRUE à FALSE.|
 |PreventTransientOvercommit | Valeur booléenne (valeur par défaut : false) | Dynamique|Détermine si PLB doit immédiatement compter sur les ressources qui seront libérées par les déplacements initiés. Par défaut, PLB peut initier un mouvement sortant et un mouvement entrant sur le même nœud, ce qui peut créer une survalidation temporaire. Le réglage de ce paramètre sur true empêche ces types de survalidation et désactive la défragmentation à la demande (également appelée placementWithMove). |
 |ScaleoutCountConstraintPriority | Entier (valeur par défaut : 0) |Dynamique| Détermine la priorité de la contrainte de nombre d’opérations de scale-out : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
+|SubclusteringEnabled|Valeur booléenne, valeur par défaut : FALSE | Dynamique |Reconnaît le sous-clustering lors du calcul de l’écart-type pour l’équilibrage |
+|SubclusteringReportingPolicy| Entier (valeur par défaut : 1) |Dynamique|Définit l’activation et le mode d’envoi des rapports d’intégrité du sous-clustering : 0 : Ne pas envoyer de rapport ; 1 : Avertissement ; 2 : OK |
 |SwapPrimaryThrottlingAssociatedMetric | Chaîne (valeur par défaut : "")|statique| Nom de la mesure associée à cette limitation. |
 |SwapPrimaryThrottlingEnabled | Valeur booléenne (valeur par défaut : false)|Dynamique| Détermine si la limitation de basculement vers le réplica principal est activée. |
 |SwapPrimaryThrottlingGlobalMaxValue | Entier (valeur par défaut : 0) |Dynamique| Nombre maximum de réplicas principaux basculés autorisés globalement. |
 |TraceCRMReasons |Valeur booléenne (valeur par défaut : true) |Dynamique|Spécifie si les raisons des mouvements effectués par CRM doivent être envoyés au canal des événements opérationnels. |
 |UpgradeDomainConstraintPriority | Entier (valeur par défaut : 1)| Dynamique|Détermine la priorité de la contrainte de domaine de mise à niveau : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
 |UseMoveCostReports | Valeur booléenne (valeur par défaut : false) | Dynamique|Demande à LB d’ignorer l’élément de coût de la fonction de score, ce qui génère un nombre potentiellement important de déplacements et, donc, un placement mieux équilibré. |
-|UseSeparateSecondaryLoad | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre déterminant s’il convient d’utiliser une charge secondaire différente. |
+|UseSeparateSecondaryLoad | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre déterminant si une charge distincte doit être utilisée pour les réplicas secondaires. |
+|UseSeparateSecondaryMoveCost | Valeur booléenne (valeur par défaut : false) | Dynamique|Paramètre déterminant si un coût de déplacement distinct doit être utilisé pour les réplicas secondaires. |
 |ValidatePlacementConstraint | Valeur booléenne (valeur par défaut : true) |Dynamique| Spécifie si l’expression PlacementConstraint d’un service est validée lors de la mise à jour du paramètre ServiceDescription d’un service. |
 |ValidatePrimaryPlacementConstraintOnPromote| Valeur booléenne, valeur par défaut : TRUE |Dynamique|Spécifie si l’expression PlacementConstraint pour un service est évaluée ou non pour la préférence principale lors du basculement. |
 |VerboseHealthReportLimit | Entier (valeur par défaut : 20) | Dynamique|Définit le nombre de fois que le placement d’un réplica doit être annulé avant qu’un avertissement d’intégrité ne soit émis (si le rapport d’intégrité détaillé est activé). |
@@ -671,7 +675,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |DisableFirewallRuleForDomainProfile| Valeur booléenne, valeur par défaut : TRUE |statique| Indique si la règle de pare-feu ne doit pas être activée pour le profil de domaine |
 |DisableFirewallRuleForPrivateProfile| Valeur booléenne, valeur par défaut : TRUE |statique| Indique si la règle de pare-feu ne doit pas être activée pour le profil privé | 
 |DisableFirewallRuleForPublicProfile| Valeur booléenne, valeur par défaut : TRUE | statique|Indique si la règle de pare-feu ne doit pas être activée pour le profil public |
-| EnforceLinuxMinTlsVersion | valeur booléenne, valeur par défaut : FALSE | Dynamique | Si la valeur est true, seule la version 1.2 et les versions ultérieures de TLS sont prises en charge.  Si la valeur est false, les versions antérieures de TLS sont prises en charge. S’applique à Linux uniquement. |
+| EnforceLinuxMinTlsVersion | valeur booléenne, valeur par défaut : FALSE | statique | Si la valeur est true, seule la version 1.2 et les versions ultérieures de TLS sont prises en charge.  Si la valeur est false, les versions antérieures de TLS sont prises en charge. S’applique à Linux uniquement. |
+| EnforcePrevalidationOnSecurityChanges | valeur booléenne, valeur par défaut : FALSE| Dynamique | Indicateur contrôlant le comportement de mise à niveau du cluster lors de la détection de modification des paramètres de sécurité. S’il est défini sur « true », la mise à niveau du cluster tente de s’assurer qu’au moins l’un des certificats répondant à l’une des règles de présentation peut transmettre une règle de validation correspondante. La validation préalable est exécutée avant que les nouveaux paramètres ne soient appliqués à un nœud, mais elle n’est exécutée que sur le nœud qui héberge le réplica principal du service Cluster Manager au démarrage de la mise à niveau. La valeur par défaut est actuellement « false » ; à partir de la version 7.1, le paramètre sera défini sur « true » pour les nouveaux clusters Azure Service Fabric.|
 |FabricHostSpn| Chaîne (valeur par défaut : "") |statique| Nom de principal du service de FabricHost ; lorsque Fabric s’exécute en tant qu’utilisateur de domaine unique (gMSA/compte d’utilisateur de domaine) et que FabricHost s’exécute sous le compte d’ordinateur. Il s’agit du SPN de l’écouteur IPC pour FabricHost ; qui par défaut doit être vide car FabricHost s’exécute sous le compte d’ordinateur |
 |IgnoreCrlOfflineError|valeur booléenne, valeur par défaut : FALSE|Dynamique|Indique s’il faut ou non ignorer l’erreur en mode hors connexion de la liste CRL lorsque le côté serveur vérifie des certificats de client entrants |
 |IgnoreSvrCrlOfflineError|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Indique s’il faut ou non ignorer l’erreur en mode hors connexion de la liste CRL lorsque le côté client vérifie des certificats clients entrants ; valeur par défaut : true. Les attaques avec des certificats serveurs révoqués exigent de compromettre le DNS ; plus difficile qu’avec des certificats clients révoqués. |
@@ -680,12 +685,13 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |SettingsX509StoreName| Chaîne (valeur par défaut : "MY")| Dynamique|Magasin de certificats X509 utilisé par l’infrastructure pour protéger la configuration |
 |UseClusterCertForIpcServerTlsSecurity|valeur booléenne, valeur par défaut : FALSE|statique|Indique s’il faut utiliser le certificat de cluster pour sécuriser l’unité de transport TLS du serveur IPC |
 |X509Folder|chaîne, valeur par défaut : /var/lib/waagent|statique|Dossier dans lequel se trouvent les certificats X509 et les clés privées |
+|TLS1_2_CipherList| string| statique|Si la valeur est une chaîne non vide : remplace la liste de chiffrement prise en charge par TLS 1.2 ou une version antérieure. Consultez la documentation « openssl-ciphers » pour récupérer la liste de chiffrement prise en charge et le format de la liste. Exemple de liste de chiffrement forte pour TLS 1.2 : « ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256 » ; s’applique à Linux uniquement. |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations du client administrateur. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats client administrateur doit être dans la liste. |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paires « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations du client d’administration. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si cette chaîne est non vide, l’émetteur direct de certificats clients d’administration doit être dans la liste. |
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
 
@@ -800,7 +806,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de client. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats client doit être dans la liste.|
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paires « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de client. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si cette chaîne est non vide, l’émetteur direct de certificats clients doit être dans la liste.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 
@@ -812,7 +818,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de cluster. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats de cluster doit être dans la liste.|
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paires « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de cluster. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si cette chaîne est non vide, l’émetteur direct de certificats de cluster doit être dans la liste.|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 
@@ -824,7 +830,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de serveur. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats de serveur doit être dans la liste.|
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paires « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de serveur. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si cette chaîne est non vide, l’émetteur direct de certificats de serveur doit être dans la liste.|
 
 ## <a name="setup"></a>Programme d’installation
 

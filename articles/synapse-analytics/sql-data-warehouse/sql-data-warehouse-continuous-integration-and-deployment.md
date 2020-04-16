@@ -11,23 +11,22 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f73fbbc42085b3a0cb6ab7dd1c0e32838a166ccf
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: ddd24eb510405d49465ca4e0e0f326f7260e2ed1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350631"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416227"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Intégration et déploiement continus pour l’entreposage de données
 
-Ce tutoriel simple décrit comment intégrer votre projet de base de données SQL Server Data Tools (SSDT) à Azure DevOps et comment tirer parti d’Azure Pipelines pour configurer l’intégration et le déploiement continus. Ce tutoriel constitue la deuxième étape de la génération de votre pipeline d’intégration et de déploiement continus pour l’entreposage de données. 
+Ce tutoriel simple décrit comment intégrer votre projet de base de données SQL Server Data Tools (SSDT) à Azure DevOps et comment tirer parti d’Azure Pipelines pour configurer l’intégration et le déploiement continus. Ce tutoriel constitue la deuxième étape de la génération de votre pipeline d’intégration et de déploiement continus pour l’entreposage de données.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-- Parcourez le [tutoriel sur l’intégration du contrôle de code source](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
+- Parcourez le [tutoriel sur l’intégration du contrôle de code source](sql-data-warehouse-source-control-integration.md)
 
 - Configurer Azure DevOps et s’y connecter
-
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Intégration continue avec la build Visual Studio
 
@@ -37,7 +36,7 @@ Ce tutoriel simple décrit comment intégrer votre projet de base de données SQ
 
 2. Sélectionnez votre référentiel de code source (Azure Repos Git) et sélectionnez le modèle d’application de bureau .NET.
 
-      ![Configuration du pipeline](./media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Configuration du pipeline") 
+      ![Configuration du pipeline](./media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Configuration du pipeline")
 
 3. Modifiez votre fichier YAML pour utiliser le pool approprié de votre agent. Votre fichier YAML doit ressembler à ce qui suit :
 
@@ -45,10 +44,9 @@ Ce tutoriel simple décrit comment intégrer votre projet de base de données SQ
 
 À ce stade, vous disposez d’un environnement simple dans lequel tout enregistrement dans la branche principale de votre référentiel de contrôle de code source doit déclencher automatiquement une build Visual Studio réussie de votre projet de base de données. Vérifiez que l’automatisation fonctionne de bout en bout en apportant une modification dans votre projet de base de données locale et en enregistrant cette modification dans votre branche principale.
 
-
 ## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Déploiement continu avec la tâche de déploiement Azure SQL Data Warehouse (ou Database)
 
-1. Ajoutez une nouvelle tâche à l’aide de la [tâche de déploiement Azure SQL Database](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) et renseignez les champs obligatoires pour vous connecter à votre entrepôt de données cible. Pendant l’exécution de cette tâche, le DACPAC généré à partir du processus de génération précédent est déployé dans l’entrepôt de données cible. Vous pouvez également utiliser la [tâche de déploiement Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment). 
+1. Ajoutez une nouvelle tâche à l’aide de la [tâche de déploiement Azure SQL Database](/devops/pipelines/targets/azure-sqldb?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) et renseignez les champs obligatoires pour vous connecter à votre entrepôt de données cible. Pendant l’exécution de cette tâche, le DACPAC généré à partir du processus de génération précédent est déployé dans l’entrepôt de données cible. Vous pouvez également utiliser la [tâche de déploiement Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
       ![Tâche de déploiement](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tâche de déploiement")
 
@@ -62,7 +60,7 @@ Ce tutoriel simple décrit comment intégrer votre projet de base de données SQ
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Explorer l’[architecture MPP SQL Analytics](massively-parallel-processing-mpp-architecture.md)
+- Explorer l’[architecture MPP du pool SQL Synapse](massively-parallel-processing-mpp-architecture.md)
 - [Créer rapidement un pool SQL](create-data-warehouse-portal.md)
 - [Charger des exemples de données](load-data-from-azure-blob-storage-using-polybase.md)
-- Explorer les [vidéos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+- Explorer les [vidéos](sql-data-warehouse-videos.md)

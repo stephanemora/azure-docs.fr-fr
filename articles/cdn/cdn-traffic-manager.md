@@ -3,7 +3,7 @@ title: Basculer entre plusieurs points de terminaison Azure CDN avec Traffic Man
 description: Découvrez comment configurer Azure Traffic Manager avec des points de terminaison Azure CDN.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d4f77a0fb9b8005729a6e9d35f254eb522b690e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082999"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259848"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurer le basculement entre plusieurs points de terminaison Azure CDN avec Azure Traffic Manager
 
@@ -82,7 +82,7 @@ Après avoir configuré vos profils CDN et Traffic Manager, suivez ces étapes p
     Azure CDN utilise le sous-domaine *cdnverify* pour valider le mappage DNS et terminer ce processus d’inscription. Pour plus d’informations, voir [Créer un enregistrement CNAME DNS](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Cette étape permet à Azure CDN de reconnaître le domaine personnalisé afin de répondre à ses requêtes.
     
     > [!NOTE]
-    > Pour activer SSL sur des profils **Azure CDN d’Akamai**, vous devez définir directement le cname du domaine personnalisé sur votre point de terminaison. L’utilisation de cdnverify pour l’activation de SSL n’est pas encore prise en charge. 
+    > Pour activer TLS sur des profils **Azure CDN d’Akamai**, vous devez définir directement le cname du domaine personnalisé sur votre point de terminaison. L’utilisation de cdnverify pour l’activation de TLS n’est pas encore prise en charge. 
     >
 
 3.  Retournez sur le site web du fournisseur de votre domaine personnalisé et mettez à jour le premier mappage DNS, que vous avez créé afin que le domaine personnalisé soit mappé à votre deuxième point de terminaison CDN.

@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 8e607a4447448ee0e822dbee721b701d677d4f63
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: ed5acf2e2d3ae09bcd629d9afbbb3b10d0bb3d44
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197451"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413705"
 ---
-# <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage 
+# <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="expression-functions"></a>Fonctions d’expression
 
@@ -106,6 +108,12 @@ ___
 Renvoie la première valeur non nulle d'un jeu d'entrées. Toutes les entrées doivent être du même type * ``coalesce(10, 20) -> 10``
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``
 ___
+### <code>columnNames</code>
+<code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
+Obtient toutes les colonnes de sortie pour un flux. Vous pouvez transmettre un nom de flux facultatif en tant que deuxième argument.
+* ``columnNames()``
+* ``columnNames('DeriveStream')``
+___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
 Compare deux valeurs du même type. Renvoie un entier négatif si valeur1 < valeur2, 0 si valeur1 == valeur2, une valeur positive si valeur1 > valeur2 * ``(compare(12, 24) < 1) -> true``
@@ -142,7 +150,8 @@ Calcule le code de hachage CRC32 de l’ensemble de colonnes comprenant différ
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Obtient la date à laquelle l’exécution du travail commence. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. (https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``currentDate() == toDate('2250-12-31') -> false``
+Obtient la date à laquelle l’exécution du travail commence. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
+* ``currentDate() == toDate('2250-12-31') -> false``
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``
 ___

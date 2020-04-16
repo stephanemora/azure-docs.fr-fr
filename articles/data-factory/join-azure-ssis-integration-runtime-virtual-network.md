@@ -11,14 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf13dbe17738ca1ae658c73bb0092a219b4823d1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964323"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415900"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Lorsque vous utilisez SQL Server Integration Services (SSIS) dans Azure Data Factory , vous devez joindre votre runtime d’intégration Azure-SSIS IR à un réseau virtuel Azure dans les scénarios suivants :
 
@@ -129,7 +131,7 @@ Lorsque vous choisissez un sous-réseau :
 
 Si vous voulez apporter vos propres adresses IP publiques statiques pour Azure-SSIS IR tout en le joignant à un réseau virtuel, vérifiez qu’elles remplissent les conditions suivantes :
 
-- Vous devez en fournir exactement deux non utilisées qui ne soient pas déjà associées à d’autres ressources Azure. L’adresse supplémentaire est utilisée lors de la mise à niveau régulière de votre Azure-SSIS IR.
+- Vous devez en fournir exactement deux non utilisées qui ne soient pas déjà associées à d’autres ressources Azure. L’adresse supplémentaire est utilisée lors de la mise à niveau régulière de votre Azure-SSIS IR. Notez qu’une adresse IP publique ne peut pas être partagée parmi vos instances Azure-SSIS IR actives.
 
 - Il doit s’agir de deux adresses statiques de type standard. Pour plus d’informations, reportez-vous à [SKU d’adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
 
@@ -191,10 +193,56 @@ Par exemple, si votre Azure-SSIS IR se trouve dans la région `UK South` et que 
 > [!NOTE]
 > Cette approche nécessite une maintenance supplémentaire. Vous devez vérifier régulièrement la plage d’adresses IP et en ajouter une nouvelle à votre itinéraire défini par l’utilisateur pour éviter d’interrompre le runtime d’intégration Azure-SSIS IR. Nous vous recommandons de vérifier la plage d’adresses IP mensuellement car, lorsque la nouvelle adresse IP apparaît dans la balise de service, sa validation prend un mois supplémentaire. 
 
+Pour faciliter la configuration des règles UDR, vous pouvez exécuter le script PowerShell suivant afin d’ajouter des règles UDR pour les services de gestion Azure Batch :
+```powershell
+$Location = "[location of your Azure-SSIS IR]"
+$RouteTableResourceGroupName = "[name of Azure resource group that contains your Route Table]"
+$RouteTableResourceName = "[resource name of your Azure Route Table ]"
+$RouteTable = Get-AzRouteTable -ResourceGroupName $RouteTableResourceGroupName -Name $RouteTableResourceName
+$ServiceTags = Get-AzNetworkServiceTag -Location $Location
+$BatchServiceTagName = "BatchNodeManagement." + $Location
+$UdrRulePrefixForBatch = $BatchServiceTagName
+if ($ServiceTags -ne $null)
+{
+    $BatchIPRanges = $ServiceTags.Values | Where-Object { $_.Name -ieq $BatchServiceTagName }
+    if ($BatchIPRanges -ne $null)
+    {
+        Write-Host "Start to add rule for your route table..."
+        for ($i = 0; $i -lt $BatchIPRanges.Properties.AddressPrefixes.Count; $i++)
+        {
+            $UdrRuleName = "$($UdrRulePrefixForBatch)_$($i)"
+            Add-AzRouteConfig -Name $UdrRuleName `
+                -AddressPrefix $BatchIPRanges.Properties.AddressPrefixes[$i] `
+                -NextHopType "Internet" `
+                -RouteTable $RouteTable `
+                | Out-Null
+            Write-Host "Add rule $UdrRuleName to your route table..."
+        }
+        Set-AzRouteTable -RouteTable $RouteTable
+    }
+}
+else
+{
+    Write-Host "Failed to fetch service tags, please confirm that your Location is valid."
+}
+```
+
 Pour que l’appliance de pare-feu autorise le trafic sortant, vous devez autoriser la sortie vers les ports ci-dessous comme exigences dans les règles de trafic sortant du groupe de sécurité réseau.
 -   Port 443 avec pour destination des services cloud Azure.
 
-    Si vous utilisez le Pare-feu Azure, vous pouvez spécifier une règle de réseau avec la balise de service AzureCloud, ou autoriser comme destination tout dans l’appliance de pare-feu.
+    Si vous utilisez le Pare-feu Azure, vous pouvez spécifier la règle de réseau avec une balise de service AzureCloud. Pour les pare-feu des autres types, vous pouvez simplement autoriser la destination pour le port 443 ou autoriser les noms de domaine complets en fonction du type de votre environnement Azure :
+
+    | Environnement Azure | Points de terminaison                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure (public)      | <ul><li><b>Azure Data Factory (gestion)</b><ul><li>\*.frontend.clouddatahub.net</li></ul></li><li><b>Stockage Azure (gestion)</b><ul><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li></ul></li><li><b>Azure Container Registry (installation personnalisée)</b><ul><li>\*.azurecr.io</li></ul></li><li><b>Event Hub (journalisation)</b><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Service de journalisation Microsoft (utilisation interne)</b><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
+    | Azure Government  | <ul><li><b>Azure Data Factory (gestion)</b><ul><li>\*.frontend.datamovement.azure.us</li></ul></li><li><b>Stockage Azure (gestion)</b><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li></ul></li><li><b>Azure Container Registry (installation personnalisée)</b><ul><li>\*.azurecr.us</li></ul></li><li><b>Event Hub (journalisation)</b><ul><li>\*.servicebus.usgovcloudapi.net</li></ul></li><li><b>Service de journalisation Microsoft (utilisation interne)</b><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
+    | Azure China 21Vianet     | <ul><li><b>Azure Data Factory (gestion)</b><ul><li>\*.frontend.datamovement.azure.cn</li></ul></li><li><b>Stockage Azure (gestion)</b><ul><li>\*.blob.core.chinacloudapi.cn</li><li>\*.table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (installation personnalisée)</b><ul><li>\*.azurecr.cn</li></ul></li><li><b>Event Hub (journalisation)</b><ul><li>\*.servicebus.chinacloudapi.cn</li></ul></li><li><b>Service de journalisation Microsoft (utilisation interne)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
+
+    Comme pour les noms de domaine complets de Stockage Azure, Azure Container Registry et Event Hub, vous pouvez également choisir d’activer les points de terminaison de service suivants pour votre réseau virtuel afin que le trafic réseau vers ces points de terminaison passe par le réseau principal Azure au lieu d’être routé vers votre appliance de pare-feu :
+    -  Microsoft.Storage
+    -  Microsoft.ContainerRegistry
+    -  Microsoft.EventHub
+
 
 -   Port 80 avec pour destination des sites de téléchargement de liste de révocation de certificats.
 
@@ -241,7 +289,7 @@ Le runtime d’intégration Azure-SSIS doit créer certaines ressources réseau 
 > [!NOTE]
 > Vous pouvez maintenant apporter vos propres adresses IP publiques statiques pour Azure-SSIS IR. Dans ce scénario, nous allons créer uniquement l’équilibreur de charge Azure et le groupe de sécurité réseau sous le même groupe de ressources que vos adresses IP publiques statiques au lieu du réseau virtuel.
 
-Ces ressources sont créées au démarrage de votre Azure-SSIS IR. Elles sont supprimées lorsqu’il est arrêté. Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, elles ne seront pas supprimées lors de l’arrêt de votre Azure-SSIS IR. Pour éviter de bloquer l’arrêt du runtime d’intégration Azure-SSIS IR, ne réutilisez pas ces ressources réseau dans vos autres ressources. 
+Ces ressources sont créées au démarrage de votre Azure-SSIS IR. Elles sont supprimées lorsqu’il est arrêté. Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, elles ne seront pas supprimées lors de l’arrêt de votre Azure-SSIS IR. Pour éviter de bloquer l’arrêt du runtime d’intégration Azure-SSIS IR, ne réutilisez pas ces ressources réseau dans vos autres ressources.
 
 Vérifiez que vous n’avez pas de verrou sur le groupe de ressources ou l’abonnement auquel appartiennent le réseau virtuel ou vos adresses IP publiques statiques. Si vous configurez un verrou en lecture seule ou de suppression, le démarrage et l’arrêt du runtime d’intégration Azure-SSIS IR échoueront ou celui-ci ne répondra plus.
 
@@ -249,6 +297,8 @@ Vérifiez qu’aucune stratégie Azure n’empêche la création des ressources 
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresses 
+
+Vérifiez que le quota de ressources de votre abonnement est suffisant pour les trois ressources réseau ci-dessus. Plus précisément, pour chaque instance Azure-SSIS IR créée sur le réseau virtuel, vous devez réserver deux quotas gratuits pour chacune des trois ressources réseau ci-dessus. Le quota supplémentaire est utilisé lors de la mise à niveau régulière de votre instance Azure-SSIS IR.
 
 ### <a name="faq"></a><a name="faq"></a> FAQ
 

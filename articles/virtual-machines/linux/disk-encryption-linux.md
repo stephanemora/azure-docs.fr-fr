@@ -8,18 +8,19 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19dcfb96f29939fd92f49ba288ddb6d9264e0f9a
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 6b60ccc7a635e4b6071b43d7ff75e182aa96cd08
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970591"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313622"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
-Azure Disk Encryption utilise la fonctionnalité DM-Crypt de Linux afin de fournir un chiffrement de volume pour le système d’exploitation et les disques de données des machines virtuelles Azure. Il s’intègre à Azure Key Vault pour vous aider à contrôler et à gérer les clés de chiffrement de disque et les secrets. Pour obtenir une vue d’ensemble du service, consultez [Azure Disk Encryption pour les machines virtuelles Linux](disk-encryption-overview.md).
 
-Il existe de nombreux scénarios de chiffrement de disque, et les étapes peuvent varier en fonction du scénario. Les sections suivantes décrivent ces scénarios de façon plus détaillée pour les machines virtuelles Linux.
+Azure Disk Encryption pour machines virtuelles Linux utilise la fonctionnalité DM-Crypt de Linux pour effectuer un chiffrement complet du disque du système d’exploitation et des disques de données. Il assure en outre le chiffrement des disques de ressources éphémères lors de l’utilisation de la fonctionnalité EncryptFormatAll.
+
+Azure Disk Encryption est [intégré à Azure Key Vault](disk-encryption-key-vault.md) pour faciliter le contrôle et la gestion des clés et des secrets de chiffrement des disques. Pour obtenir une vue d’ensemble du service, consultez [Azure Disk Encryption pour les machines virtuelles Linux](disk-encryption-overview.md).
 
 Vous pouvez appliquer le chiffrement de disque uniquement aux machines virtuelles dont [la taille et le système d’exploitation sont pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems). Vous devez également satisfaire les prérequis suivants :
 
@@ -202,9 +203,9 @@ Le tableau suivant répertorie des paramètres du modèle Resource Manager pour 
 |  keyEncryptionKeyURL | URL de la clé de chiffrement principale utilisée pour chiffrer la clé de chiffrement. Ce paramètre est facultatif si vous sélectionnez **nokek** dans la liste déroulante UseExistingKek. Si vous sélectionnez **kek** dans la liste déroulante UseExistingKek, vous devez entrer la valeur _keyEncryptionKeyURL_. |
 | volumeType | Type de volume sur lequel l’opération de chiffrement est effectuée. Les valeurs valides sont _Système d’exploitation_, _Données_ et _Tous_. 
 | forceUpdateTag | Passez à une valeur unique comme un GUID chaque fois que l’opération doit être exécutée de force. |
-| resizeOSDisk | Si la partition du système d’exploitation doit être redimensionnée pour occuper tout le disque dur virtuel du système d’exploitation avant de fractionner le volume système. |
 | location | Emplacement pour toutes les ressources. |
 
+Pour plus d’informations sur la configuration du modèle de chiffrement de disque de machine virtuelle Linux, consultez [Azure Disk Encryption pour Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur les machines virtuelles Linux
 
@@ -214,7 +215,7 @@ Le paramètre **EncryptFormatAll** réduit le temps de chiffrement des disques d
 
 >[!WARNING]
 > EncryptFormatAll ne doit pas être utilisé quand des données indispensables se trouvent sur les volumes de données d’une machine virtuelle. Vous pouvez exclure des disques du chiffrement en les démontant. Vous devez d’abord essayer EncryptFormatAll sur une machine virtuelle de test, comprendre le paramètre de la fonctionnalité et son implication, avant de l’essayer sur la machine virtuelle de production. L’option EncryptFormatAll formate le disque de données et toutes ses données seront perdues. Avant de continuer, vérifiez que les disques que vous souhaitez exclure sont correctement démontés. </br></br>
- >Si vous définissez ce paramètre lors de la mise à jour des paramètres de chiffrement, il peut entraîner un redémarrage avant le chiffrement proprement dit. Dans ce cas, vous pouvez aussi supprimer du fichier fstab le disque que vous ne voulez pas formater. De même, vous devez ajouter la partition que vous voulez chiffrer-formater au fichier fstab avant de lancer l’opération de chiffrement. 
+ >Si ce paramètre est défini durant la mise à jour des paramètres de chiffrement, un redémarrage peut se produire avant le chiffrement proprement dit. Dans ce cas, il peut être utile de supprimer du fichier fstab le disque que vous ne voulez pas formater. De même, vous devez ajouter la partition que vous voulez chiffrer-formater au fichier fstab avant de lancer l’opération de chiffrement. 
 
 ### <a name="encryptformatall-criteria"></a>Critères pour EncryptFormatAll
 Ce paramètre fait que la commande parcourt toutes les partitions et les chiffre, à condition qu’elles répondent à **tous** les critères ci-dessous : 
@@ -260,17 +261,22 @@ Nous recommandons une installation LVM-on-crypt. Pour les exemples suivants, rem
 - Ajoutez les disques de données qui constitueront la machine virtuelle.
 - Formatez, montez et ajoutez ces disques au fichier fstab.
 
-    1. Formatez le disque nouvellement ajouté. Nous utilisons ici des liens symboliques générés par Azure. L’utilisation de liens symboliques évite les problèmes liés à la modification des noms des périphériques. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux noms des périphériques](troubleshoot-device-names-problems.md).
+    1. Choisissez un standard de partition, créez une partition qui couvre la totalité du lecteur, puis formatez-la. Nous utilisons ici des liens symboliques générés par Azure. L’utilisation de liens symboliques évite les problèmes liés à la modification des noms des périphériques. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux noms des périphériques](troubleshoot-device-names-problems.md).
     
-         `mkfs -t ext4 /dev/disk/azure/scsi1/lun0`
+         ```azurepowershell-interactive
+         parted /dev/disk/azure/scsi1/lun0 mklabel gpt
+         parted -a opt /dev/disk/azure/scsi1/lun0 mkpart primary ext4 0% 100%
+         
+         mkfs -t ext4 /dev/disk/azure/scsi1/lun0-part1
+         ```
     
     1. Montez les disques.
          
-         `mount /dev/disk/azure/scsi1/lun0 /mnt/mountpoint`
+         `mount /dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint`
     
     1. Ajoutez-les à fstab.
          
-        `echo "/dev/disk/azure/scsi1/lun0 /mnt/mountpoint ext4 defaults,nofail 1 2" >> /etc/fstab`
+        `echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab`
     
     1. Exécutez l’applet de commande PowerShell Set-AzVMDiskEncryptionExtension avec -EncryptFormatAll pour chiffrer ces disques.
 
@@ -400,7 +406,11 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Volumes dynamiques.
 - Disques de système d’exploitation éphémères.
 - Chiffrement des systèmes de fichiers partagés/distribués comme (liste non exhaustive) : DFS, GFS, DRDB et CephFS.
+- Déplacement d’une machine virtuelle chiffrée vers un autre abonnement.
 - Vidage sur incident du noyau (kdump)
+- Oracle ACFS (ASM Cluster File System)
+- Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Machines virtuelles de la série Lsv2 (consultez : [Série Lsv2](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,7 +3,7 @@ title: Solutions Oracle sur Microsoft Azure | Microsoft Docs
 description: Découvrez les options possibles pour déployer des applications et des solutions Oracle sur Microsoft Azure, notamment l’exécution complète sur l’infrastructure Azure ou l’utilisation de la connectivité entre clouds avec OCI (Oracle Cloud Infrastructure).
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: azure-resource-management
 ms.assetid: ''
@@ -11,18 +11,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
-ms.author: rogirdh
-ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/16/2020
+ms.author: mimckitt
+ms.openlocfilehash: 8c266986ac795be48f3a8439afc5ae4752ff3ed7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74806607"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263248"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Vue d’ensemble des applications et des solutions Oracle sur Azure
 
-Cet article présente les fonctionnalités permettant d’exécuter des solutions Oracle avec l’infrastructure Azure. Consultez aussi les introductions détaillées des [images de machine virtuelle Oracle](oracle-vm-solutions.md) disponibles sur la Place de marché Azure et la fonctionnalité en préversion [d’interconnexion Azure avec Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+Cet article présente les fonctionnalités permettant d’exécuter des solutions Oracle avec l’infrastructure Azure. Consultez aussi les introductions détaillées des [images de machine virtuelle Oracle](oracle-vm-solutions.md) disponibles sur la Place de marché Azure et la fonctionnalité [d’interconnexion Azure avec Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Bases de données Oracle sur l’infrastructure Azure
 
@@ -58,7 +58,7 @@ Exécutez des applications d’entreprise dans Azure sur les systèmes d’explo
 
 * Sauvegardez votre base de données Oracle à l’aide d’Oracle RMAN et, si vous le souhaitez, utilisez [blobfuse pour Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) pour monter un [compte de stockage Blob Azure hautement redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy) et y stocker vos sauvegardes RMAN en bénéficiant d’une résilience accrue.
 
-## <a name="integration-of-azure-with-oci-preview"></a>Intégration d’Azure avec OCI (préversion)
+## <a name="integration-of-azure-with-oci"></a>Intégration d’Azure à OCI
 
 Exécutez des applications Oracle dans l’infrastructure Azure, connectées à des bases de données back-end dans OCI (Oracle Cloud Infrastructure). Cette solution utilise les fonctionnalités suivantes : 
 
@@ -67,7 +67,10 @@ Exécutez des applications Oracle dans l’infrastructure Azure, connectées à 
 
 ### <a name="deploy-oracle-applications-on-azure"></a>Déployer des applications Oracle sur Azure
 
-Utilisez des modèles Terraform pour configurer une infrastructure Azure et installer des applications Oracle validées et prises en charge en vue d’une exécution dans la configuration entre clouds :
+Utilisez les modèles Terraform pour configurer l’infrastructure Azure et installer des applications Oracle. 
+
+> [!IMPORTANT]
+> Oracle certifie que ces applications s’exécutent dans Azure lors de l’utilisation de la solution d’interconnexion Azure / Oracle Cloud en mai 2020.
 
 * E-Business Suite
 * JD Edwards EnterpriseOne

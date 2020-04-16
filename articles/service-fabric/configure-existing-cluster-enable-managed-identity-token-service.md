@@ -2,16 +2,16 @@
 title: Configurer la prise en charge des identités managées dans un cluster Service Fabric existant
 description: Voici comment activer la prise en charge des identités managées dans un cluster Azure Service Fabric existant
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 03/11/2019
 ms.custom: sfrev
-ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934943"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415686"
 ---
-# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configurer la prise en charge des identités managées dans un cluster Service Fabric existant (préversion)
+# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configurer la prise en charge des identités managées dans un cluster Service Fabric existant
 
 Pour utiliser des [identités managées pour des ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) dans vos applications Service Fabric, commencez par activer le *service de jeton d’identité managée* sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet de gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService**.
 
@@ -40,7 +40,7 @@ Pour activer le service de jeton d’identité managée dans un cluster existant
 ]
 ```
 
-Pour que les modifications prennent effet, vous devez également modifier la stratégie de mise à niveau pour spécifier un redémarrage forcé du runtime Service Fabric sur chaque nœud à mesure que la mise à niveau progresse au sein du cluster. Ce redémarrage garantit que le service système qui vient d’être activé est démarré et en cours d’exécution sur chaque nœud. Dans l’extrait de code ci-dessous, `forceRestart` est le paramètre essentiel ; utilisez vos valeurs existantes pour les autres paramètres.  
+Pour que les modifications prennent effet, vous devez également modifier la stratégie de mise à niveau pour spécifier un redémarrage forcé du runtime Service Fabric sur chaque nœud à mesure que la mise à niveau progresse au sein du cluster. Ce redémarrage garantit que le service système qui vient d’être activé est démarré et en cours d’exécution sur chaque nœud. Dans l’extrait de code ci-dessous, `forceRestart` est le paramètre essentiel permettant d’activer le redémarrage. Pour les paramètres restants, utilisez les valeurs décrites ci-dessous ou utilisez les valeurs personnalisées existantes déjà spécifiées pour la ressource de cluster. Les paramètres personnalisés pour la stratégie de mise à niveau de l’infrastructure (« upgradeDescription ») peuvent être consultés à partir du portail Azure en sélectionnant l’option « Mises à niveau de la structure » sur la ressource Service Fabric ou sur resources.azure.com. Les options par défaut pour la stratégie de mise à niveau (« upgradeDescription ») ne peuvent pas être consultées à partir de PowerShell ou de resources.azure.com. Pour plus d’informations, consultez [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet).  
 
 ```json
 "upgradeDescription": {

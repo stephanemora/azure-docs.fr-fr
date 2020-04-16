@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908851"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393050"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Vous pouvez créer autant de serveurs NPS compatibles avec Azure MFA que vous le
 
 Comme les serveurs VPN acheminent les demandes d’authentification, ils doivent connaître les nouveaux serveurs NPS compatibles avec Azure MFA.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 L’extension NPS est conçue pour fonctionner avec votre infrastructure existante. Vérifiez que les conditions préalables suivantes sont remplies avant de commencer.
 
@@ -78,6 +78,7 @@ Le serveur NPS (Network Policy Server) doit pouvoir communiquer avec les URL sui
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 En outre, la connectivité aux adresses URL suivantes est nécessaire pour terminer la [configuration de l’adaptateur à l’aide du script PowerShell fourni](#run-the-powershell-script).
 
@@ -168,7 +169,7 @@ Le programme d’installation crée un script PowerShell à cet emplacement : `
 - Vous pouvez créer un certificat auto-signé.
 - Associer la clé publique du certificat au principal du service sur Azure AD.
 - Stocker le certificat dans le magasin de certificats de l’ordinateur local.
-- Accorder l’accès à la clé privée du certificat à l’utilisateur réseau.
+- Accorder à l’utilisateur réseau un accès à la clé privée du certificat.
 - Redémarrer le serveur NPS.
 
 À moins que vous ne souhaitiez utiliser vos propres certificats (au lieu des certificats auto-signés générés par le script PowerShell), exécutez le script PowerShell pour terminer l’installation. Si vous installez l’extension sur plusieurs serveurs, chacun d’eux doit avoir son propre certificat.
@@ -250,9 +251,9 @@ Vous pouvez choisir de créer cette clé et de lui affecter la valeur FALSE pour
 
 ### <a name="nps-extension-health-check-script"></a>Script de vérification de l’intégrité de l’extension NPS
 
-Le script suivant est disponible dans la galerie TechNet pour effectuer des étapes de vérification de l’intégrité de base lors de la résolution des problèmes de l’extension NPS.
+Le script suivant permet de vérifier l’intégrité de base lors de la résolution des problèmes relatifs à l’extension NPS.
 
-[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -281,7 +282,7 @@ La commande suivante crée un fichier nommé « npscertificate » sur votre le
 ``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer
 ```
 
 Une fois que vous exécutez cette commande, accédez à votre lecteur C, recherchez le fichier et double-cliquez dessus. Accédez aux détails et faites défiler jusqu'à « empreinte », comparez avec l’empreinte du certificat installé sur le serveur. Les empreintes des certificats doivent correspondre.
@@ -303,7 +304,7 @@ Cette erreur peut être due à plusieurs raisons. Suivez ces étapes pour résou
 1. Redémarrez votre serveur NPS.
 2. Vérifiez que le certificat client est installé comme prévu.
 3. Vérifiez que le certificat est associé à votre client sur Azure AD.
-4. Vérifiez que https://login.microsoftonline.com/ est accessible depuis le serveur exécutant l’extension.
+4. Vérifiez que `https://login.microsoftonline.com/` est accessible depuis le serveur exécutant l’extension.
 
 ---
 
@@ -334,6 +335,8 @@ Il est recommandé de désactiver ou de supprimer les suites de chiffrement plus
 Vous trouverez des conseils supplémentaires et des solutions possibles dans l’article [Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+- [Vue d’ensemble et configuration du serveur NPS dans Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 
 - Configurez d’autres ID de connexion, ou créez une liste d’exceptions pour les adresses IP qui ne nécessitent pas de vérification en deux étapes dans [Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur](howto-mfa-nps-extension-advanced.md)
 
