@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4e9077d06341ce5ecf6b2238374ce1ac8e13dca3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70241403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415158"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Tutoriel : Commander Azure Data Box Heavy
 
@@ -41,17 +41,9 @@ Avant de commencer, assurez-vous que :
 - Si son installation est effectuée à un étage autre que le rez-de-chaussée, vous avez besoin d’un accès par le biais d’un ascenseur ou d’une rampe pour l’appareil. L’appareil pèse environ 500 livres (226,8 kg).
 - Veillez à avoir une surface plane dans le centre de données à proximité d’une connexion réseau disponible et pouvant loger un appareil avec cet encombrement.
 
-
 ### <a name="for-service"></a>Pour le service
 
-Avant de commencer, assurez-vous que :
-- Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
-- L’abonnement que vous utilisez pour le service Data Box est un des types suivants :
-    - Contrat Entreprise (EA) Microsoft. En savoir plus sur les [abonnements EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Fournisseur de solutions cloud (CSP). En savoir plus sur le [programme Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. En savoir plus sur le [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Veillez à disposer d’un accès propriétaire ou contributeur à l’abonnement pour créer une commande Data Box Heavy.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Pour l’appareil
 

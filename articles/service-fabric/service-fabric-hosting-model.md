@@ -5,12 +5,12 @@ author: harahma
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82bc5068be651b05eb24efa3b05e46c1e7c1e24d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236673"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115038"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modèle d’hébergement Azure Service Fabric
 Cet article fournit une vue d’ensemble des modèles d’hébergement d’applications fournis par Azure Service Fabric et décrit les différences entre les modèles à **processus partagé** et à **processus exclusif**. Il décrit le fonctionnement d’une application déployée sur un nœud Service Fabric, et présente la relation entre les réplicas (ou instances) du service et le processus hôte du service.
@@ -111,7 +111,7 @@ Pour connaître le **ServicePackageActivationId** d’un package de services dé
 > [!NOTE]
 >- Sous le modèle d’hébergement à processus partagé, une seule copie d’un *ServicePackage* est activée sur un nœud donné et pour une application donnée. Le **ServicePackageActivationId** est alors égal à une *chaîne vide* et il n’est pas nécessaire de le spécifier lors de l’exécution des opérations associées au package de services déployé. 
 >
-> - Sous le modèle d’hébergement à processus exclusif, une ou plusieurs copies d’un *ServicePackage* peuvent être actives sur un nœud donné et pour une application donnée. Chaque activation est associée à un *ServicePackageActivationId* **non vide**, spécifié lors de l’exécution des opérations associées au package de services déployé. 
+> - Sous le modèle d’hébergement à processus exclusif, une ou plusieurs copies d’un *ServicePackage* peuvent être actives sur un nœud donné et pour une application donnée. Chaque activation est associée à un **ServicePackageActivationId** *non vide*, spécifié lors de l’exécution des opérations associées au package de services déployé. 
 >
 > - Si le **ServicePackageActivationId** est omis, la valeur par défaut est une *chaîne vide*. En présence d’un package de services déployé qui a été activé sous le modèle à processus partagé, l’opération est exécutée dans ce package. Dans le cas contraire, l’opération échoue.
 >
@@ -168,6 +168,10 @@ Dans l’activation de « MultiTypeServicePackage » pour le réplica de la pa
 
 
 Dans l’exemple précédent, vous pourriez penser que si « MyCodePackageA » inscrit « MyServiceTypeA » et « MyServiceTypeB », alors qu’il n’existe pas de « MyCodePackageB », aucun *CodePackage* redondant n’est exécuté. Même si vous avez raison, ce modèle d’application n’est pas aligné sur le modèle d’hébergement à processus exclusif. Si l’objectif est de placer chaque réplica dans son propre processus dédié, il n’est pas nécessaire d’inscrire les deux *ServiceTypes* du même *CodePackage*. Il suffit de placer chaque *ServiceType* dans son propre *ServicePackage*.
+
+### <a name="reliable-services-and-actor-forking-subprocesses"></a>Sous-processus de duplication Reliable Services et Actor
+
+Service Fabric ne prend pas en charge les sous-processus de duplication de Reliable Services et Reliable Actors. À titre d'exemple sur la raison de cette absence de prise en charge, [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) ne peut pas être utilisé pour inscrire un sous-processus non pris en charge et les jetons d’annulation sont uniquement envoyés à des processus enregistrés, ce qui engendre toutes sortes de problèmes, telles que les échecs de mise à niveau, lorsque les sous-processus ne ferment pas une fois le jeton d’annulation reçu par le processus parent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Empaquetez une application][a4] et préparez-la pour le déploiement.

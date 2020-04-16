@@ -3,14 +3,14 @@ title: Déployer une application Service Fabric avec une identité managée attr
 description: Cet article explique comment attribuer une identité managée attribuée par le système à une application Azure Service Fabric
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614823"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415656"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Déployer une application Azure Service Fabric avec une identité managée attribuée par le système (préversion)
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Déployer une application Azure Service Fabric avec une identité managée attribuée par le système
 
 Pour accéder à la fonctionnalité d’identité managée pour les applications Azure Service Fabric, vous devez d’abord activer le service de jeton d’identité managée sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService** à côté d’autre services système.
 

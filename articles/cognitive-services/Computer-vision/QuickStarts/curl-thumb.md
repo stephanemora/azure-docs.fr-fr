@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d60f1101fc858e9dcaa22162be97417544e13693
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977299"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405042"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST Vision par ordinateur et de cURL
 
@@ -28,23 +28,6 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 - Vous devez avoir [cURL](https://curl.haxx.se/windows).
 - Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
-
-## <a name="get-thumbnail-request"></a>Requête d’obtention de miniature
-
-Avec la [méthode Obtenir une miniature](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), vous pouvez générer une miniature d’une image.
-
-Pour exécuter l’exemple, effectuez les étapes suivantes :
-
-1. Copiez le code ci-après dans un éditeur.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez `<File>` par le chemin d’accès et le nom de fichier pour enregistrer la miniature.
-1. Remplacez l’URL de requête (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-1. Modifiez éventuellement l’image (`{\"url\":\"...`) à analyser.
-1. Ouvrez une fenêtre de commandes sur un ordinateur sur lequel cURL est installé.
-1. Collez le code dans la fenêtre et exécutez la commande.
-
->[!NOTE]
->Dans votre appel REST, vous devez utiliser le même emplacement que celui à partir duquel vous avez obtenu vos clés d’abonnement. Par exemple, si vous avez obtenu vos clés d’abonnement à l’emplacement westus, remplacez « westcentralus » par « westus » dans l’URL ci-après.
 
 ## <a name="create-and-run-the-sample-command"></a>Créer et exécuter l’exemple de commande
 

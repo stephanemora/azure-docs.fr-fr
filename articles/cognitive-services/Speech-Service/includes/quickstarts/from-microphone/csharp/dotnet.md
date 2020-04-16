@@ -1,86 +1,102 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix venant d’un microphone, C# (.NET) – Service Speech'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: erhopf
-ms.openlocfilehash: c969b5e5daa4c4cfd84695fef70f0a2a5c50ce02
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/03/2020
+ms.author: trbye
+ms.openlocfilehash: 871f992f6457a846d29a7145d53a7e382cbe10dd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925979"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400648"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 
 > [!div class="checklist"]
-> * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Créer une ressource Azure Speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 > * Veiller à avoir accès à un microphone pour la capture audio
 
 ## <a name="open-your-project-in-visual-studio"></a>Ouvrez votre projet dans Visual Studio.
 
 La première étape consiste à vérifier que votre projet est ouvert dans Visual Studio.
 
-1. Lancez Visual Studio 2019.
-2. Chargez votre projet et ouvrez `Program.cs`.
+1. Lancez **Visual Studio 2019**.
+2. Chargez votre projet et ouvrez *Program.cs*.
 
-## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
+## <a name="source-code"></a>Code source
 
-Nous allons ajouter du code qui servira de squelette à notre projet Notez que vous avez créé une méthode asynchrone appelée `RecognizeSpeechAsync()`.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=5-15,43-52)]
+Remplacez le contenu du fichier *Program.cs* par le code C# suivant.
 
-## <a name="create-a-speech-configuration"></a>Créer une configuration Speech
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
 
-Avant de pouvoir initialiser un objet `SpeechRecognizer`, vous devez créer une configuration qui utilise votre clé d’abonnement et la région de votre abonnement. Choisissez l’**identificateur Région** de la [région](https://aka.ms/speech/sdkregion). Insérez ce code dans la méthode `RecognizeSpeechAsync()`.
+namespace Speech.Recognition
+{
+    class Program
+    {
+        static async Task Main()
+        {
+            await RecognizeSpeechAsync();
 
-> [!NOTE]
-> Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=16)]
-> Le SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
+            Console.WriteLine("Please press any key to continue...");
+            Console.ReadLine();
+        }
 
-## <a name="initialize-a-speechrecognizer"></a>Initialiser un SpeechRecognizer
+        static async Task RecognizeSpeechAsync()
+        {
+            var config =
+                SpeechConfig.FromSubscription(
+                    "YourSubscriptionKey",
+                    "YourServiceRegion");
 
-Créons maintenant un `SpeechRecognizer`. Cet objet est créé à l’intérieur d’une instruction using pour garantir la bonne libération des ressources non managées. Insérez ce code dans la méthode `RecognizeSpeechAsync()`, juste en dessous de votre configuration Speech.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=17-19,42)]
+            using var recognizer = new SpeechRecognizer(config);
+            
+            var result = await recognizer.RecognizeOnceAsync();
+            switch (result.Reason)
+            {
+                case ResultReason.RecognizedSpeech:
+                    Console.WriteLine($"We recognized: {result.Text}");
+                    break;
+                case ResultReason.NoMatch:
+                    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                    break;
+                case ResultReason.Canceled:
+                    var cancellation = CancellationDetails.FromResult(result);
+                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+    
+                    if (cancellation.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    }
+                    break;
+            }
+        }
+    }
+}
+```
 
-## <a name="recognize-a-phrase"></a>Reconnaître une expression
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-À partir de l’objet `SpeechRecognizer`, vous devez appeler la méthode `RecognizeOnceAsync()`. Cette méthode permet au service Speech de savoir que vous envoyez une seule expression pour reconnaissance, et d’arrêter la reconnaissance une fois que l’expression a été identifiée.
+## <a name="code-explanation"></a>Explication du code
 
-À l’intérieur de l’instruction using, ajoutez le code suivant.
+[!INCLUDE [code explanation](../code-explanation.md)]
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=20)]
+## <a name="build-and-run-app"></a>Générer et exécuter l’application
 
-## <a name="display-the-recognition-results-or-errors"></a>Afficher les résultats de la reconnaissance (ou les erreurs)
-
-Lorsque le résultat de la reconnaissance est retourné par le service de reconnaissance vocale, vous pouvez effectuer une opération avec celui-ci. Nous allons faire simple et imprimer le résultat dans la console.
-
-À l’intérieur de l’instruction using, sous `RecognizeOnceAsync()`, ajoutez ce code.
-
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
-
-## <a name="check-your-code"></a>Vérifier votre code
-
-À ce stade, votre code doit ressembler à ceci.
-
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs)]
-
-## <a name="build-and-run-your-app"></a>Générer et exécuter votre application
-
-Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service de reconnaissance vocale.
+Vous êtes maintenant prêt à regénérer votre application et à tester la fonctionnalité de reconnaissance vocale à l’aide du service Speech.
 
 1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
-2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5**.
+2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur <kbd>F5</kbd>.
 3. **Démarrer la reconnaissance** : vous êtes invité à prononcer une phrase. Celle-ci est envoyée au service de reconnaissance vocale, transcrite sous forme de texte, puis affichée sur la console.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

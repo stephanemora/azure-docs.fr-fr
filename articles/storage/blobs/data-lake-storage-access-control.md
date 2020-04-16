@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 192e46fd7f86b6053eaf658fa65e3c6cdfa3a4e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528606"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992213"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -54,7 +54,7 @@ Les jetons SAP incluent les autorisations accordées dans le jeton. Les autorisa
 Vous pouvez associer un principal de sécurité à un niveau d’accès pour les fichiers et répertoires. Ces associations sont capturées dans une *liste de contrôle d’accès (ACL)* . Chaque fichier et répertoire de votre compte de stockage a une liste de contrôle d’accès.
 
 > [!NOTE]
-> Les listes de contrôle d’accès s’appliquent uniquement aux principaux de sécurité du même locataire. Vous ne pouvez pas associer un utilisateur invité à un niveau d’accès.  
+> Les listes de contrôle d’accès s’appliquent uniquement aux principaux de sécurité du même locataire. 
 
 Si vous attribuez un rôle à un principal de sécurité au niveau du compte de stockage, vous pouvez utiliser des listes de contrôle d’accès pour accorder à ce principal de sécurité un accès élevé à des répertoires et fichiers spécifiques.
 

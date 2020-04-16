@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 362b35af191c1caebeb30149ce060a5366182ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cffefb294aaeeb4d66358ceae72c98becd04cc58
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289338"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261956"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Base de référence de sécurité Azure pour Azure Database pour MySQL
 
@@ -112,7 +112,7 @@ Comment configurer Advanced Threat Protection pour Azure Database pour MySQL : 
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
-**Aide** : Pour les ressources qui doivent accéder à vos instances Azure Database pour MySQL, utilisez des étiquettes de service de réseau virtuel afin de définir des contrôles d’accès réseau sur des groupes de sécurité réseau ou le pare-feu Azure. Vous pouvez utiliser des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple SQL.WestUs) dans le champ de source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent.
+**Aide** : Pour les ressources qui doivent accéder à vos instances Azure Database pour MySQL, utilisez des étiquettes de service de réseau virtuel afin de définir des contrôles d’accès réseau sur des groupes de sécurité réseau ou le pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple SQL.WestUs) dans le champ de source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
 Remarque : Azure Database pour MySQL utilise les étiquettes de service « Microsoft.Sql ».
 
@@ -134,7 +134,7 @@ Comprendre l’utilisation des étiquettes de service pour Azure Database pour M
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Exemples Azure Policy pour le réseau : https://docs.microsoft.com/azure/governance/policy/samples/#network
+Exemples Azure Policy pour le réseau : https://docs.microsoft.com/azure/governance/policy/samples/
 
 Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -406,7 +406,7 @@ Comment configurer des emplacements nommés dans Azure : https://docs.microsoft
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Utilisez Azure Active Directory (AD) comme système d’authentification et d’autorisation central. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
+**Aide** : Utiliser Azure Active Directory (AD) comme système d’authentification et d’autorisation central. Azure AD protège les données en utilisant un chiffrement fort pour les données au repos et en transit. De plus, AAD sale, hache et stocke de manière sécurisée les informations d’identification utilisateur.
 
 Pour la connexion à Azure Database pour MySQL, il est recommandé d’utiliser Azure AD et un jeton Azure AD pour se connecter. Quand vous utilisez un jeton Azure AD, différentes méthodes sont prises en charge comme un utilisateur Azure AD, un groupe Azure AD ou une application Azure AD qui se connecte à la base de données. 
 
@@ -664,7 +664,7 @@ Comprendre Azure RBAC : https://docs.microsoft.com/azure/role-based-access-cont
 
 **Aide** : Appliquez des étiquettes à des instances Azure Database pour MySQL et à d’autres ressources associées en ajoutant des métadonnées pour les organiser logiquement en une taxonomie.
 
-Créer et utiliser des étiquettes : https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Créer et utiliser des balises : https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -966,7 +966,7 @@ Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte so
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : garantir des sauvegardes automatisées régulières
 
-**Aide** : Azure Database pour MySQL effectue des sauvegardes des fichiers de données et du journal des transactions. Selon la taille de stockage maximale prise en charge, nous prenons en charge des sauvegardes complètes et différentielles (serveurs de stockage de 4 To maximum) ou des sauvegardes d’instantanés (serveurs de stockage jusqu’à 16 To maximum). Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de conservation de sauvegarde configurée. La période de conservation de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
+**Aide** : Azure Database pour MySQL effectue des sauvegardes des fichiers de données et du journal des transactions. Selon la taille de stockage maximale prise en charge, nous prenons en charge des sauvegardes complètes et différentielles (serveurs de stockage de 4 To maximum) ou des sauvegardes d’instantanés (serveurs de stockage jusqu’à 16 To maximum). Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
 
 Comprendre les sauvegardes pour Azure Database pour MySQL : https://docs.microsoft.com/azure/mysql/concepts-backup
 
@@ -1007,7 +1007,7 @@ Comprendre la sauvegarde et la restauration dans Azure Database pour MySQL : ht
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : garantir la protection des sauvegardes et des clés gérées par le client
 
-**Aide** : Azure Database pour MySQL accepte les sauvegardes complètes, différentielles et de fichier journal. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de conservation de sauvegarde configurée. La période de conservation de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits. Vérifiez que la suppression réversible est activée dans Key Vault.
+**Aide** : Azure Database pour MySQL accepte les sauvegardes complètes, différentielles et de fichier journal. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits. Vérifiez que la suppression réversible est activée dans Key Vault.
 
 Comprendre la sauvegarde et la restauration dans Azure Database pour MySQL : https://docs.microsoft.com/azure/mysql/concepts-backup
 

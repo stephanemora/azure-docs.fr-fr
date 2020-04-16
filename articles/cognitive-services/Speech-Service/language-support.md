@@ -3,20 +3,20 @@ title: Prise en charge des langues – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Le service Speech prend en charge de nombreuses langues, que ce soit pour la reconnaissance vocale, la synthèse vocale ou la traduction vocale. Cet article fournit une liste complète des langues prise en charge, par fonctionnalité de service.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.author: dapine
+ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: d01ab60790311649e424a98d5a08c6af0bca90f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a876349af2bd53a46737dda82961afe442bae05
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336035"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401080"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 

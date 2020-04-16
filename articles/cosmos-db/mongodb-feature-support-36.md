@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: cde731f9d9e673446bc4d08117004b028db2a7f9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5df21b2c1926803a65eca911c66b059f36ee18aa
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77462460"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393612"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.6) : fonctionnalités et syntaxe prises en charge
 
@@ -44,7 +44,7 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 |getPrevError | Non  |
 |insert  |   Oui  |
 |parallelCollectionScan  | Oui   |
-|resetError |   Non  |
+|resetError |    Non  |
 |update  |   Oui  |
 |[Flux de modification](mongodb-change-streams.md)  |  Oui  |
 |GridFS |   Oui  |
@@ -88,18 +88,18 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 |Commande  |Prise en charge |
 |---------|---------|
-|buildInfo       |   Oui      |
+|buildInfo         |   Oui      |
 |collStats    |  Oui       |
 |connPoolStats     |  Non       |
 |ConnectionStatus     |  Non       |
 |dataSize     |   Non      |
 |dbHash    |    Non     |
 |dbStats     |   Oui      |
-|explain     | Non        |
-|explain : executionStats     |     Non    |
+|explain     |   Oui      |
+|explain : executionStats     |   Oui      |
 |features     |    Non     |
 |hostInfo     |   Non      |
-|listDatabases       |   Oui      |
+|listDatabases         |   Oui      |
 |listCommands     |  Non       |
 |profiler     |  Non       |
 |serverStatus     |  Non       |
@@ -123,31 +123,31 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$collStats |Non|
-|$project   |Oui|
-|$match |Oui|
-|$redact|   Oui|
-|$limit |Oui|
-|$skip  |Oui|
-|$unwind|   Oui|
-|$group |   Oui|
-|$sample|       Oui|
-|$sort  |Oui|
-|$geoNear|  Non|
-|$lookup    |   Oui|
-|$out       |Oui|
-|$indexStats|       Non|
-|$facet |Non|
-|$bucket|   Non|
-|$bucketAuto|   Non|
-|$sortByCount|  Oui|
-|$addFields |Oui|
-|$replaceRoot|  Oui|
-|$count |Oui|
+|$collStats    |Non|
+|$project    |Oui|
+|$match    |Oui|
+|$redact|    Oui|
+|$limit    |Oui|
+|$skip    |Oui|
+|$unwind|    Oui|
+|$group    |    Oui|
+|$sample|        Oui|
+|$sort    |Oui|
+|$geoNear|    Non|
+|$lookup    |    Oui|
+|$out        |Oui|
+|$indexStats|        Non|
+|$facet    |Non|
+|$bucket|    Non|
+|$bucketAuto|    Non|
+|$sortByCount|    Oui|
+|$addFields    |Oui|
+|$replaceRoot|    Oui|
+|$count    |Oui|
 |$currentOp|    Non|
-|$listLocalSessions |Non|
-|$listSessions  |Non|
-|$graphLookup   |Non|
+|$listLocalSessions    |Non|
+|$listSessions    |Non|
+|$graphLookup    |Non|
 
 ### <a name="boolean-expressions"></a>Expressions booléennes
 
@@ -174,14 +174,14 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 |Commande  |Prise en charge |
 |---------|---------|
 |$cmp     |  Oui       |
-|$eq|   Oui| 
-|$gt |  Oui| 
-|$gte|  Oui| 
+|$eq|    Oui| 
+|$gt |    Oui| 
+|$gte|    Oui| 
 |$lt    |Oui|
-|$lte|  Oui| 
-|$ne    |   Oui| 
-|$in    |   Oui| 
-|$nin   |   Oui| 
+|$lte|    Oui| 
+|$ne    |    Oui| 
+|$in    |    Oui| 
+|$nin    |    Oui| 
 
 ### <a name="arithmetic-expressions"></a>Expressions arithmétiques
 
@@ -230,66 +230,66 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$arrayElemAt   |   Oui|
+|$arrayElemAt    |    Oui|
 |$arrayToObject|    Oui|
-|$concatArrays  |   Oui|
-|$filter    |   Oui|
-|$indexOfArray  |Oui|
-|$isArray   |   Oui|
-|$objectToArray |Oui|
-|$range |Oui|
-|$reverseArray  |   Oui|
-|$reduce|   Oui|
-|$size  |   Oui|
-|$slice |   Oui|
-|$zip   |   Oui|
-|$in    |   Oui|
+|$concatArrays    |    Oui|
+|$filter    |    Oui|
+|$indexOfArray    |Oui|
+|$isArray    |    Oui|
+|$objectToArray    |Oui|
+|$range    |Oui|
+|$reverseArray    |    Oui|
+|$reduce|    Oui|
+|$size    |    Oui|
+|$slice    |    Oui|
+|$zip    |    Oui|
+|$in    |    Oui|
 
 ### <a name="variable-operators"></a>Opérateurs de variable
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$map   |Non|
-|$let   |Oui|
+|$map    |Non|
+|$let    |Oui|
 
 ### <a name="system-variables"></a>Variables système
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$$CURRENT| Oui|
-|$$DESCEND|     Oui|
-|$$KEEP     |Oui|
-|$$PRUNE    |   Oui|
-|$$REMOVE   |Oui|
-|$$ROOT     |Oui|
+|$$CURRENT|    Oui|
+|$$DESCEND|        Oui|
+|$$KEEP        |Oui|
+|$$PRUNE    |    Oui|
+|$$REMOVE    |Oui|
+|$$ROOT        |Oui|
 
 ### <a name="literal-operator"></a>Opérateur littéral
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$literal   |Oui|
+|$literal    |Oui|
 
 ### <a name="date-expressions"></a>Expressions de date
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$dayOfYear |Oui    |
-|$dayOfMonth|   Oui |
-|$dayOfWeek |Oui    |
-|$year  |Oui    |
-|$month |Oui|   
-|$week  |Oui    |
-|$hour  |Oui    |
-|$minute|   Oui|    
+|$dayOfYear    |Oui    |
+|$dayOfMonth|    Oui    |
+|$dayOfWeek    |Oui    |
+|$year    |Oui    |
+|$month    |Oui|    
+|$week    |Oui    |
+|$hour    |Oui    |
+|$minute|    Oui|    
 |$second    |Oui    |
-|$millisecond|  Oui|    
-|$dateToString  |Oui    |
-|$isoDayOfWeek  |Oui    |
-|$isoWeek   |Oui    |
-|$dateFromParts|    Non| 
-|$dateToParts   |Non |
-|$dateFromString|   Non|
-|$isoWeekYear   |Oui    |
+|$millisecond|    Oui|    
+|$dateToString    |Oui    |
+|$isoDayOfWeek    |Oui    |
+|$isoWeek    |Oui    |
+|$dateFromParts|    Non|    
+|$dateToParts    |Non    |
+|$dateFromString|    Non|
+|$isoWeekYear    |Oui    |
 
 ### <a name="conditional-expressions"></a>Expressions conditionnelles
 
@@ -309,16 +309,16 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$sum   |Oui    |
-|$avg   |Oui    |
+|$sum    |Oui    |
+|$avg    |Oui    |
 |$first|    Oui|
-|$last  |Oui    |
-|$max   |Oui    |
-|$min   |Oui    |
-|$push| Oui|
-|$addToSet| Oui|
-|$stdDevPop|    Non  |
-|$stdDevSamp|   Non|
+|$last    |Oui    |
+|$max    |Oui    |
+|$min    |Oui    |
+|$push|    Oui|
+|$addToSet|    Oui|
+|$stdDevPop|    Non    |
+|$stdDevSamp|    Non|
 
 ### <a name="merge-operator"></a>Opérateur Merge
 
@@ -330,25 +330,25 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 |Commande  |Prise en charge |
 |---------|---------|
-|Double |Oui    |
-|String |Oui    |
-|Object |Oui    |
-|Array  |Oui    |
-|Binary Data    |Oui|   
-|ObjectId   |Oui    |
+|Double    |Oui    |
+|String    |Oui    |
+|Object    |Oui    |
+|Array    |Oui    |
+|Binary Data    |Oui|    
+|ObjectId    |Oui    |
 |Boolean    |Oui    |
-|Date   |Oui    |
-|Null   |Oui    |
-|Entier de 32 bits (int)   |Oui    |
-|Timestamp  |Oui    |
-|Entier de 64 bits (long)  |Oui    |
-|MinKey |Oui    |
-|MaxKey |Oui    |
-|Decimal128 |Oui|   
-|Expression régulière |Oui|
-|JavaScript |Oui|
-|JavaScript (avec étendue)|   Oui |
-|Indéfini  |Oui    |
+|Date    |Oui    |
+|Null    |Oui    |
+|Entier de 32 bits (int)    |Oui    |
+|Timestamp    |Oui    |
+|Entier de 64 bits (long)    |Oui    |
+|MinKey    |Oui    |
+|MaxKey    |Oui    |
+|Decimal128    |Oui|    
+|Expression régulière    |Oui|
+|JavaScript    |Oui|
+|JavaScript (avec étendue)|    Oui    |
+|Indéfini    |Oui    |
 
 ## <a name="indexes-and-index-properties"></a>Index et propriétés d’index
 
@@ -356,23 +356,23 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 |Commande  |Prise en charge |
 |---------|---------|
-|Index à champ unique |Oui    |
-|Index composé |Oui    |
-|Index à plusieurs clés |Oui    |
-|Index de texte |Non|
-|2dsphere   |Oui    |
-|Index 2D   |Non |
-|Index de hachage   | Oui|
+|Index à champ unique    |Oui    |
+|Index composé    |Oui    |
+|Index à plusieurs clés    |Oui    |
+|Index de texte    |Non|
+|2dsphere    |Oui    |
+|Index 2D    |Non    |
+|Index de hachage    | Oui|
 
 ### <a name="index-properties"></a>Propriétés d’index
 
 |Commande  |Prise en charge |
 |---------|---------|
-|TTL|   Oui |
-|Unique |Oui|
-|Partiel|   Non|
-|Insensible à la casse   |Non|
-|Partiellement alloué |Non |
+|TTL|    Oui    |
+|Unique    |Oui|
+|Partiel|    Non|
+|Insensible à la casse    |Non|
+|Partiellement alloué    |Non |
 |Arrière-plan|    Oui |
 
 ## <a name="operators"></a>Opérateurs
@@ -381,28 +381,28 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$or    |   Oui|
-|$and   |   Oui|
-|$not   |   Oui|
-|$nor   |   Oui| 
+|$or    |    Oui|
+|$and    |    Oui|
+|$not    |    Oui|
+|$nor    |    Oui| 
 
 ### <a name="element-operators"></a>Opérateurs d’élément
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$exists|   Oui|
-|$type  |   Oui|
+|$exists|    Oui|
+|$type    |    Oui|
 
 ### <a name="evaluation-query-operators"></a>Opérateurs de requête d’évaluation
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$expr  |   Non|
-|$jsonSchema    |   Non|
-|$mod   |   Oui|
-|$regex |   Oui|
-|$text  | Non (Non pris en charge. Utilisez plutôt $regex.)| 
-|$where |Non| 
+|$expr    |    Non|
+|$jsonSchema    |    Non|
+|$mod    |    Oui|
+|$regex |    Oui|
+|$text    | Non (Non pris en charge. Utilisez plutôt $regex.)| 
+|$where    |Non| 
 
 Dans les requêtes $regex, les expressions ancrées à gauche autorisent la recherche d’index. Toutefois, l’utilisation des modificateurs « i » (non sensible à la casse) et « m » (multiligne), provoquent l’analyse de la collection pour toutes les expressions.
 
@@ -430,9 +430,9 @@ $comment |Oui|
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$elemMatch |Oui|
-|$meta| Non|
-|$slice | Oui|
+|$elemMatch    |Oui|
+|$meta|    Non|
+|$slice    | Oui|
 
 ### <a name="update-operators"></a>Opérateurs de mise à jour
 
@@ -440,28 +440,28 @@ $comment |Oui|
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$inc   |   Oui|
-|$mul   |   Oui|
-|$rename    |   Oui|
-|$setOnInsert|  Oui|
-|$set   |Oui|
+|$inc    |    Oui|
+|$mul    |    Oui|
+|$rename    |    Oui|
+|$setOnInsert|    Oui|
+|$set    |Oui|
 |$unset| Oui|
-|$min   |Oui|
-|$max   |Oui|
-|$currentDate   | Oui|
+|$min    |Oui|
+|$max    |Oui|
+|$currentDate    | Oui|
 
 #### <a name="array-update-operators"></a>Opérateurs de mise à jour de tableau
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$  |Oui|
-|$[]|   Oui|
-|$[<identifier>]|   Oui|
-|$addToSet  |Oui|
-|$pop   |Oui|
-|$pullAll|  Oui|
-|$pull  |Oui|
-|$push  |Oui|
+|$    |Oui|
+|$[]|    Oui|
+|$[<identifier>]|    Oui|
+|$addToSet    |Oui|
+|$pop    |Oui|
+|$pullAll|    Oui|
+|$pull    |Oui|
+|$push    |Oui|
 |$pushAll| Oui|
 
 
@@ -469,20 +469,20 @@ $comment |Oui|
 
 |Commande  |Prise en charge |
 |---------|---------|
-|$each  |   Oui|
-|$slice |Oui|
-|$sort  |Oui|
-|$position  |Oui|
+|$each    |    Oui|
+|$slice    |Oui|
+|$sort    |Oui|
+|$position    |Oui|
 
 #### <a name="bitwise-update-operator"></a>Opérateur de mise à jour au niveau du bit
 
 |Commande  |Prise en charge |
 |---------|---------|
-| $bit  |   Oui|    
-|$bitsAllSet    |   Non|
-|$bitsAnySet    |   Non|
-|$bitsAllClear  |Non|
-|$bitsAnyClear  |Non|
+| $bit    |    Oui|    
+|$bitsAllSet    |    Non|
+|$bitsAnySet    |    Non|
+|$bitsAllClear    |Non|
+|$bitsAnyClear    |Non|
 
 ### <a name="geospatial-operators"></a>Opérateurs géospatiaux
 
@@ -504,37 +504,37 @@ $polygon |  Oui |
 
 |Commande  |Prise en charge |
 |---------|---------|
-|cursor.batchSize() |   Oui|
-|cursor.close() |Oui|
-|cursor.isClosed()|     Oui|
+|cursor.batchSize()    |    Oui|
+|cursor.close()    |Oui|
+|cursor.isClosed()|        Oui|
 |cursor.collation()|    Non|
-|cursor.comment()   |Oui|
-|cursor.count() |Oui|
-|cursor.explain()|  Non|
-|cursor.forEach()   |Oui|
-|cursor.hasNext()   |Oui|
-|cursor.hint()  |Oui|
-|cursor.isExhausted()|  Oui|
-|cursor.itcount()   |Oui|
-|cursor.limit() |Oui|
-|cursor.map()   |Oui|
-|cursor.maxScan()   |Oui|
+|cursor.comment()    |Oui|
+|cursor.count()    |Oui|
+|cursor.explain()|    Non|
+|cursor.forEach()    |Oui|
+|cursor.hasNext()    |Oui|
+|cursor.hint()    |Oui|
+|cursor.isExhausted()|    Oui|
+|cursor.itcount()    |Oui|
+|cursor.limit()    |Oui|
+|cursor.map()    |Oui|
+|cursor.maxScan()    |Oui|
 |cursor.maxTimeMS()|    Oui|
-|cursor.max()   |Oui|
-|cursor.min()   |Oui|
-|cursor.next()| Oui|
-|cursor.noCursorTimeout()   |Non|
-|cursor.objsLeftInBatch()   |Oui|
-|cursor.pretty()|   Oui|
-|cursor.readConcern()|  Oui|
-|cursor.readPref()      |Oui|
-|cursor.returnKey() |Non|
-|cursor.showRecordId()| Non|
-|cursor.size()  |Nes|
-|cursor.skip()  |Oui|
-|Cursor.Sort()  |   Oui|
-|cursor.tailable()| Non|
-|cursor.toArray()   |Oui|
+|cursor.max()    |Oui|
+|cursor.min()    |Oui|
+|cursor.next()|    Oui|
+|cursor.noCursorTimeout()    |Non|
+|cursor.objsLeftInBatch()    |Oui|
+|cursor.pretty()|    Oui|
+|cursor.readConcern()|    Oui|
+|cursor.readPref()        |Oui|
+|cursor.returnKey()    |Non|
+|cursor.showRecordId()|    Non|
+|cursor.size()    |Oui|
+|cursor.skip()    |Oui|
+|Cursor.Sort()    |    Oui|
+|cursor.tailable()|    Non|
+|cursor.toArray()    |Oui|
 
 ## <a name="sort-operations"></a>Opérations de tri
 
@@ -542,7 +542,7 @@ Lorsque vous utilisez l’opération `findOneAndUpdate`, les opérations de tri 
 
 ## <a name="unique-indexes"></a>Index uniques
 
-Les index uniques garantissent qu’un champ spécifique ne présente pas de valeurs en double dans une collection de tous les documents. Cette approche est semblable à la façon dont l’unicité est conservée sur la clé « _id » par défaut. Vous pouvez créer des index personnalisés dans Cosmos DB à l’aide de la commande createIndex, y compris la contrainte « unique ».
+Les index uniques garantissent qu’un champ spécifique ne présente aucune valeur en double dans l’ensemble des documents d’une collection. Cette approche est semblable à la façon dont l’unicité est conservée dans la clé « _id » par défaut. Vous pouvez créer des index personnalisés dans Cosmos DB à l’aide de la commande createIndex, y compris la contrainte « unique ».
 
 ## <a name="time-to-live-ttl"></a>Durée de vie (TTL)
 

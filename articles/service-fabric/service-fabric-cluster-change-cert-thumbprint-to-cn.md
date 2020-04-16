@@ -3,12 +3,12 @@ title: Mettre à jour un cluster pour utiliser le nom commun du certificat
 description: Découvrez comment basculer un cluster Service Fabric de l’utilisation d’empreintes de certificat à l’utilisation du nom commun du certificat.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 66c49ccb7b7633d0eff392b676bb381118eb64a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610197"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272625"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun
 Deux certificats ne peuvent pas avoir la même empreinte, ce qui complique la gestion ou le renouvellement des certificats de cluster. Toutefois, plusieurs certificats peuvent avoir le même nom commun ou objet.  Basculer un cluster déployé de l’utilisation des empreintes de certificat à l’utilisation des noms communs de certificat simplifie considérablement la gestion des certificats. Cet article décrit la mise à jour d’un cluster Service Fabric en cours d’exécution pour utiliser le nom commun d’un certificat à la place de son empreinte.
@@ -20,12 +20,12 @@ Deux certificats ne peuvent pas avoir la même empreinte, ce qui complique la ge
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obtenir un certificat
-Commencez par obtenir un certificat auprès d’une [autorité de certification (AC)](https://wikipedia.org/wiki/Certificate_authority).  Le nom commun du certificat doit être le nom d’hôte du cluster.  Exemple : « myclustername.southcentralus.cloudapp.azure.com ».  
+Commencez par obtenir un certificat auprès d’une [autorité de certification (AC)](https://wikipedia.org/wiki/Certificate_authority).  Le nom commun du certificat doit être pour votre domaine personnalisé et doit être acheté auprès d’un bureau d’enregistrement de domaine. Par exemple, « azureservicefabricbestpractices.com ». Les personnes qui ne sont pas employées par Microsoft ne peuvent pas approvisionner les certificats pour les domaines Microsoft et vous ne pouvez donc pas utiliser les noms DNS de votre équilibreur de charge ou de Traffic Manager comme noms communs pour votre certificat. Vous devez approvisionner une [zone Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) si votre domaine personnalisé doit être résolu dans Azure. Vous devez également déclarer le domaine personnalisé que vous possédez comme « managementEndpoint » de votre cluster si vous souhaitez que le portail affiche l’alias de domaine personnalisé pour votre cluster.
 
 À des fins de test, vous pouvez obtenir un certificat signé par une autorité de certification auprès d’une autorité de certification ouverte ou gratuite.
 
 > [!NOTE]
-> Les certificats auto-signés, notamment ceux qui sont générés lors du déploiement d’un cluster Service Fabric dans le portail Azure, ne sont pas pris en charge.
+> Les certificats auto-signés, notamment ceux qui sont générés lors du déploiement d’un cluster Service Fabric dans le portail Azure, ne sont pas pris en charge. 
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Charger le certificat et l’installer dans le groupe identique
 Dans Azure, un cluster Service Fabric est déployé sur un groupe de machines virtuelles identiques.  Chargez le certificat dans un coffre de clés, puis installez-le sur le groupe de machines virtuelles identiques sur lequel le cluster s’exécute.

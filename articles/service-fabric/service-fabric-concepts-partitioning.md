@@ -3,12 +3,12 @@ title: Partitionnement des services Service Fabric
 description: Explique comment partitionner les services Service Fabric avec état. Les partitions permettent le stockage des données sur les ordinateurs locaux pour que les données et le calcul puissent être mis à l’échelle ensemble.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229357"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115160"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
 Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -348,9 +348,6 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
     ![Capture d’écran du navigateur](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 Le code source complet de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
-
-## <a name="reliable-services-and-actor-forking-subprocesses"></a>Sous-processus de duplication Reliable Services et Actor
-Service Fabric ne prend pas en charge les sous-processus de duplication de Reliable Services et Reliable Actors. À titre d'exemple sur la raison de cette absence de prise en charge, [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) ne peut pas être utilisé pour inscrire un sous-processus non pris en charge et les jetons d’annulation sont uniquement envoyés à des processus enregistrés, ce qui engendre toutes sortes de problèmes, telles que les échecs de mise à niveau, lorsque les sous-processus ne ferment pas une fois le jeton d’annulation reçu par le processus parent. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur les concepts propres à Service Fabric, consultez les articles suivants :

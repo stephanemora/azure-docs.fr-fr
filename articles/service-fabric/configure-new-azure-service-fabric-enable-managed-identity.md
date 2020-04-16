@@ -4,14 +4,14 @@ description: Voici comment activer la prise en charge des identités managées d
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0e35d2192fdcdb294b349105f3f0158564cec86b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76930458"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415668"
 ---
-# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster-preview"></a>Configurer la prise en charge des identités managées pour un nouveau cluster Service Fabric (préversion)
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Configurer la prise en charge des identités managées pour un nouveau cluster Service Fabric
 
 Pour utiliser des [identités managées pour des ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) dans vos applications Service Fabric, commencez par activer le *service de jeton d’identité managée* sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService** à côté d’autre services système.
 

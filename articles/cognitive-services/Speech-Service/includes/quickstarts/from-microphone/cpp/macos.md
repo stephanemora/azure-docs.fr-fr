@@ -1,42 +1,36 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix venant d’un microphone, C++ (macOS) – Service Speech'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: wolfma61
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: wolfma
-ms.openlocfilehash: 96836c494cdf8f3df1621ee0e2eea6c6f64a039c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/03/2020
+ms.author: trbye
+ms.openlocfilehash: c35f30e1f403baf5fa01d450f77b77120a5b28cf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924763"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400640"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 
 > [!div class="checklist"]
-> * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=macos)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Créer une ressource Azure Speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=macos&pivots=programming-language-cpp)
 > * Veiller à avoir accès à un microphone pour la capture audio
 
-## <a name="add-sample-code"></a>Ajouter un exemple de code
+## <a name="source-code"></a>Code source
 
-1. Créez un fichier source C++ nommé `helloworld.cpp`, et collez le code suivant dedans.
+Créez un fichier source C++ appelé *helloworld.cpp* et collez-y le code suivant.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/macos/from-microphone/helloworld.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/macos/from-microphone/helloworld.cpp#code)]
 
-1. Dans ce nouveau fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. Remplacez la chaîne `YourServiceRegion` par l’**identificateur Région** de la [région](https://aka.ms/speech/sdkregion) qui est associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
+## <a name="code-explanation"></a>Explication du code
 
-> [!NOTE]
-> Le SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
+[!INCLUDE [code explanation](../code-explanation.md)]
 
 ## <a name="build-the-app"></a>Générer l’application
 
@@ -72,4 +66,4 @@ Avant de commencer :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

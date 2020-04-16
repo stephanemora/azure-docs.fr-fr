@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: e51937dfe2afa0e92ce98b4c305555b53896e5f1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5e0073bd14744338ff28c9c45193f126a1bba717
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78401752"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403031"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Visage pour .NET
 
@@ -39,12 +39,9 @@ Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les op�
 
 ### <a name="create-a-face-azure-resource"></a>Créer une ressource Visage Azure
 
-Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Visage en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Vous pouvez également :
+Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Visage en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Vous pouvez aussi obtenir une [clé pour un essai gratuit](https://azure.microsoft.com/try/cognitive-services/#decision) valide pendant sept jours. Une fois l’inscription terminée, elle est disponible sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 
-* Obtenir une [clé](https://azure.microsoft.com/try/cognitive-services/#decision) pour un essai gratuit valide pendant 7 jours. Une fois l’inscription terminée, elle est disponible sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Afficher cette ressource sur le [portail Azure](https://portal.azure.com/).
-
-Après avoir obtenu une clé à partir de votre abonnement ou votre ressource d’essai, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et l’URL de point de terminaison, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
+Une fois que vous avez obtenu une clé à partir de votre abonnement ou ressource d’essai, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé et l’URL de point de terminaison, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
 
 ### <a name="create-a-new-c-application"></a>Créer une application C#
 

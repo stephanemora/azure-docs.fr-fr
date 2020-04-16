@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c4e95164badaf0b255f5ee76d0fec7686c2abf8b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 4/2/2020
+ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382866"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263469"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Créer des utilisateurs dans un serveur Azure Database pour MySQL
 
@@ -22,6 +22,9 @@ Quand vous avez créé votre serveur Azure Database pour MySQL, vous avez fourni
 L’utilisateur administrateur de serveur possède les privilèges suivants pour votre serveur : SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 Une fois créé le serveur Azure Database pour MySQL, vous pouvez utiliser le premier compte utilisateur administrateur du serveur pour créer des utilisateurs supplémentaires et leur accorder un accès administrateur. Le compte administrateur du serveur peut être utilisé pour créer des utilisateurs possédant moins de privilèges et ayant accès à des schémas de base de données individuels.
+
+> [!NOTE]
+> Le privilège SUPER et le rôle DBA ne sont pas pris en charge. Pour comprendre ce qui n’est pas pris en charge dans le service, consultez les [privilèges](concepts-limits.md#privilege-support) dans l’article sur les limitations.
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Créer des utilisateurs administrateurs supplémentaires dans Azure Database pour MySQL
 
@@ -89,4 +92,4 @@ Une fois créé le serveur Azure Database pour MySQL, vous pouvez utiliser le pr
 
 Ouvrez le pare-feu pour les adresses IP des machines des nouveaux utilisateurs afin de leur permettre de se connecter : [Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure](howto-manage-firewall-using-portal.md) ou [Azure CLI](howto-manage-firewall-using-cli.md).
 
-Pour plus d’informations sur la gestion des comptes d’utilisateurs, consultez la documentation du produit MySQL relative à la [gestion des comptes d’utilisateurs](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), à la [ syntaxe GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) et aux [privilèges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+Pour plus d’informations sur la gestion des comptes d’utilisateurs, consultez la documentation du produit MySQL relative à la [gestion des comptes d’utilisateurs](https://dev.mysql.com/doc/refman/5.7/en/access-control.html), à la [ syntaxe GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) et aux [privilèges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

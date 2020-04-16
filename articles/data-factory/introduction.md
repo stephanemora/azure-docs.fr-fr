@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73672701"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410940"
 ---
 # <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Dans le monde des Big Data, les données brutes et désorganisées sont souvent enregistrées dans des systèmes de stockage relationnels, non-relationnels et autres systèmes. Toutefois, lorsqu’elles sont isolées, les données brutes n’ont pas le contexte ou la signification appropriés pour fournir des informations significatives aux analystes, aux scientifiques des données ou aux décideurs en entreprise. 
 
@@ -56,7 +58,7 @@ Si vous préférez programmer des transformations manuellement, Azure Data Facto
 ### <a name="cicd-and-publish"></a>CI/CD et publication
 Data Factory offre une prise en charge complète de l’intégration continue/livraison continue (CI/CD) de vos pipelines de données avec Azure DevOps et GitHub. Ceci vous permet de développer et de distribuer de façon incrémentielle vos processus ETL avant de publier le produit fini. Une fois que les données brutes ont été affinées sous une forme utilisable par l’entreprise, chargez-les dans Azure Data Warehouse, Azure SQL Database, Azure CosmosDB ou n’importe quel moteur d’analyse auquel vos utilisateurs peuvent accéder à partir de leurs outils d’analyse décisionnelle.
 
-### <a name="monitor"></a>Moniteur
+### <a name="monitor"></a>Superviser
 Une fois que vous avez créé et déployé votre pipeline d’intégration de données afin de bénéficier de la valeur commerciale fournie par les données affinées, surveillez les activités planifiées et les pipelines pour connaître les taux de réussite et d’échec. Azure Data Factory intègre une prise en charge de la supervision des pipelines par le biais d’Azure Monitor, une API, PowerShell, des journaux Azure Monitor et les panneaux de contrôle d’intégrité du portail Azure.
 
 ## <a name="top-level-concepts"></a>Concepts de niveau supérieur

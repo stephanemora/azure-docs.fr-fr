@@ -1,53 +1,49 @@
 ---
-author: erhopf
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
-ms.openlocfilehash: 95e8a30eaa59762ad7cf5b388326c9d3c9723d8e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/02/2020
+ms.author: trbye
+ms.openlocfilehash: c2b844b3b1aa7a848e2668b3dca5a1cac5b5baaf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925323"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400726"
 ---
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 
 > [!div class="checklist"]
-> * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Créer une ressource Azure Speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 > * Veiller à avoir accès à un microphone pour la capture audio
 
-## <a name="add-sample-code"></a>Ajouter un exemple de code
+## <a name="source-code"></a>Code source
 
-1. Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)**  > **New (Nouvelle)**  > **Classe (Classe)** .
+Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)**  > **New (Nouvelle)**  > **Classe (Classe)** . Dans la fenêtre **New Java Class** (Nouvelle classe Java), entrez **speechsdk.quickstart** dans le champ **Package**, et **Main** dans le champ **Name** (Nom).
 
-1. Dans la fenêtre **New Java Class** (Nouvelle classe Java), entrez **speechsdk.quickstart** dans le champ **Package**, et **Main** dans le champ **Name** (Nom).
+![Capture d’écran de la fenêtre de nouvelle classe Java](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-06-create-main-java.png)
 
-   ![Capture d’écran de la fenêtre de nouvelle classe Java](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-06-create-main-java.png)
+Remplacez le contenu du fichier *Main.java* par l’extrait de code suivant :
 
-1. Remplacez tout le code `Main.java` par l’extrait de code suivant :
+[!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/src/speechsdk/quickstart/Main.java#code)]
 
-   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/src/speechsdk/quickstart/Main.java#code)]
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. Remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
+## <a name="code-explanation"></a>Explication du code
 
-1. Remplacez la chaîne `YourServiceRegion` par l’**identificateur Région** de la [région](https://aka.ms/speech/sdkregion) qui est associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
+[!INCLUDE [code explanation](../code-explanation.md)]
 
-1. Enregistrez les modifications apportées au projet.
+## <a name="build-and-run-app"></a>Générer et exécuter l’application
 
-> [!NOTE]
-> Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
-
-## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
-
-Appuyez sur F11 ou sélectionnez **Run (Exécuter)**  > **Debug (Déboguer)** .
+Appuyez sur <kbd>F11</kbd> ou sélectionnez **Run** (Exécuter) > **Debug** (Déboguer).
 Les 15 secondes suivantes de saisie vocale provenant de votre microphone seront reconnues et enregistrées dans la fenêtre console.
 
 ![Capture d’écran de la sortie de la console après une reconnaissance réussie](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-07-console-output.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

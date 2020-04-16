@@ -3,7 +3,7 @@ title: Qu’est-ce qu’un réseau de distribution de contenu (CDN) ? - Azure | 
 description: Découvrez le réseau de distribution de contenu (CDN) Azure et comment l'utiliser pour diffuser du contenu haut débit.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4158df06b4eea175a4225e478325f8f151795850
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 262e5b7bbcbf6c463ef97d5acc72248d37195124
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75660628"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260436"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Qu’est-ce qu’un réseau de distribution de contenu sur Azure ?
 Un réseau de diffusion de contenu (CDN) est un réseau distribué de serveurs capables de fournir efficacement du contenu web aux utilisateurs. Il stocke le contenu en cache sur des serveurs Edge dans un point de présente (POP) proches des utilisateurs finaux afin de réduire la latence. 
@@ -40,7 +40,7 @@ Pour obtenir la liste actuelle des emplacements de nœuds CDN, consultez la page
 
 1. Un utilisateur (Alice) demande un fichier (également appelé ressource) à l’aide d’une URL avec un nom de domaine spécial, par exemple _&lt;nom de point de terminaison&gt;_ .azureedge.net. Il peut s’agir d’un nom d’hôte de point de terminaison ou de domaine personnalisé. Le DNS achemine la requête vers l’emplacement du meilleur point de présence (POP), généralement le POP géographiquement le plus proche de l’utilisateur.
     
-2. Si les serveurs Edge du point de présence disposent du fichier dans leur cache, le POP demande le fichier au serveur d’origine. Le serveur d’origine peut être une application web Azure, un service cloud Azure, un compte de stockage Azure ou n'importe quel serveur web accessible publiquement.
+2. Si aucun serveur Edge du point de présence ne dispose du fichier dans son cache, le POP demande le fichier au serveur d’origine. Le serveur d’origine peut être une application web Azure, un service cloud Azure, un compte de stockage Azure ou n'importe quel serveur web accessible publiquement.
    
 3. Le serveur d’origine renvoie le fichier à un serveur Edge du point de présence.
     

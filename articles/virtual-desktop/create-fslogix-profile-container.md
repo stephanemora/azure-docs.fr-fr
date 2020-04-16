@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535729"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270891"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d'Azure NetApp Files
 
@@ -117,9 +117,6 @@ Vous devez ensuite joindre une connexion Active Directory.
     - Dans le champ **Préfixe de serveur SMB (compte d'ordinateur)** , entrez la chaîne que vous souhaitez ajouter au nom du compte d'ordinateur.
     - Dans le champ **Nom d'utilisateur**, entrez le nom du compte disposant des autorisations nécessaires pour effectuer la jonction de domaine.
     - Dans le champ **Mot de passe**, entrez le mot de passe du compte.
-
-  >[!NOTE]
-  >Il est préférable de vérifier que le compte d'ordinateur que vous avez créé dans [Joindre une connexion Active Directory](create-fslogix-profile-container.md#join-an-active-directory-connection) apparaît bien dans votre contrôleur de domaine sous **Ordinateurs** ou sous l'**UO pertinente de votre entreprise**.
 
 ## <a name="create-a-new-volume"></a>Créer un volume
 

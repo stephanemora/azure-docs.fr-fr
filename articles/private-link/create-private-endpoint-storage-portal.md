@@ -7,20 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252530"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115111"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer une machine virtuelle sur un réseau virtuel Azure, un compte de stockage avec Private Endpoint à l’aide du portail Azure. Ensuite, vous pouvez accéder en toute sécurité au compte de stockage à partir de la machine virtuelle.
-
-> [!NOTE]
-> Les points de terminaison privés ne peuvent pas être utilisés conjointement à des points de terminaison de service au sein d’un même sous-réseau.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

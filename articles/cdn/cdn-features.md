@@ -3,7 +3,7 @@ title: Comparer les caractéristiques du produit de réseau de distribution de c
 description: Apprenez-en davantage sur les fonctionnalités prises en charge par chaque produit de réseau de distribution de contenu Azure (Content Delivery Network, CDN).
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: mdgattuso
 ms.assetid: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0e57ae691bf4b07b8161bc343929510d6be041a8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74278089"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260511"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparer les caractéristiques du produit CDN Azure
 
-Azure Content Delivery Network (CDN) englobe quatre produits : **CDN Azure Standard fourni par Microsoft**, **CDN Azure Standard fourni par Akamai**, **CDN Azure Standard fourni par Verizon** et **CDN Azure Premium fourni par Verizon**. Pour plus d’informations sur la migration d’un profil **Azure CDN Standard fourni par Verizon** vers **Azure CDN Premium fourni par Verizon**, consultez [Migrer un profil Azure CDN Verizon Standard vers Verizon Premium](cdn-migrate.md). Notez que s’il existe bel et bien un chemin de mise à niveau de Verizon Standard vers Verizon Premium, il n’existe actuellement aucun mécanisme de conversion entre les autres produits.
+Azure Content Delivery Network (CDN) comprend quatre produits : **Azure CDN Standard fourni par Microsoft**, **Azure CDN Standard fourni par Akamai**, **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**. Pour plus d’informations sur la migration d’un profil **Azure CDN Standard fourni par Verizon** vers **Azure CDN Premium fourni par Verizon**, consultez [Migrer un profil Azure CDN Verizon Standard vers Verizon Premium](cdn-migrate.md). Notez que s’il existe bel et bien un chemin de mise à niveau de Verizon Standard vers Verizon Premium, il n’existe actuellement aucun mécanisme de conversion entre les autres produits.
 
 Le tableau suivant répertorie les fonctionnalités disponibles avec chaque produit.
 
@@ -57,7 +57,8 @@ Le tableau suivant répertorie les fonctionnalités disponibles avec chaque prod
 | [Filtrage géographique](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Jeton d’authentification](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [Protection DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Apportez votre propre certificat](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
+| [Apportez votre propre certificat](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
+| Versions prises en charge de TLS | TLS 1.2, TLS 1.0/1.1 - [Configurable](https://docs.microsoft.com/rest/api/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||
 | **Analytique et création de rapports** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Journaux de diagnostic Azure](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |

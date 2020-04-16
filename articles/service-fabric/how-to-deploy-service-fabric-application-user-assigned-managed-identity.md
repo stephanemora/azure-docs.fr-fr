@@ -3,14 +3,14 @@ title: Déployer une application avec une identité managée affectée par l’u
 description: Cet article explique comment déployer une application Service Fabric avec une identité managée attribuée par l’utilisateur
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610333"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415642"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Déployer une application Service Fabric avec une identité managée affectée par l’utilisateur (préversion)
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Déployer une application Service Fabric avec une identité managée attribuée par l’utilisateur
 
 Pour déployer une application Service Fabric avec une identité managée, l’application doit être déployée via Azure Resource Manager, généralement avec un modèle Azure Resource Manager. Pour plus d’informations sur le déploiement d’une application Service Fabric via Azure Resource Manager, consultez [Gérer des applications et services en tant que ressources Azure Resource Manager](service-fabric-application-arm-resource.md).
 

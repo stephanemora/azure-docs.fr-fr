@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f83cee2fb1435252f34d1a64f531b5befef66ffb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289924"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261158"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL Single Server
 
@@ -112,7 +112,7 @@ Comment configurer Advanced Threat Protection pour Azure Database pour PostgreSQ
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
-**Aide** : Pour les ressources qui doivent accéder à vos instances Azure Database pour PostgreSQL, utilisez des étiquettes de service de réseau virtuel afin de définir des contrôles d’accès réseau sur des groupes de sécurité réseau ou le pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple SQL.WestUs) dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
+**Aide** : Pour les ressources qui doivent accéder à vos instances Azure Database pour PostgreSQL, utilisez des étiquettes de service de réseau virtuel afin de définir des contrôles d’accès réseau sur des groupes de sécurité réseau ou le pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple SQL.WestUs) dans le champ de source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
 Remarque : Azure Database pour PostgreSQL utilise l’étiquette de service « Microsoft.Sql ».
 
@@ -134,7 +134,7 @@ Comprendre l’utilisation des étiquettes de service pour Azure Database pour P
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Exemples Azure Policy pour la mise en réseau : https://docs.microsoft.com/azure/governance/policy/samples/#network
+Exemples Azure Policy pour le réseau : https://docs.microsoft.com/azure/governance/policy/samples/
 
 Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -353,7 +353,7 @@ Comprendre l’authentification unique avec Azure AD : https://docs.microsoft.c
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**Aide** : Activer l’authentification multifacteur (MFA) Azure Active Directory et suivre les recommandations liées à la gestion des identités et des accès dans Azure Security Center. L’utilisation de jetons Azure AD pour la connexion à votre base de données vous permet d’exiger l’authentification multifacteur pour les connexions à la base de données.
+**Aide** : Activez l’authentification multifacteur (MFA) Azure Active Directory et suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center. L’utilisation de jetons Azure AD pour la connexion à votre base de données vous permet d’exiger l’authentification multifacteur pour les connexions à la base de données.
 
 Comment activer l’authentification multifacteur dans Azure : https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -389,7 +389,7 @@ Comment configurer Advanced Threat Protection pour Azure Database pour PostgreSQ
 
 Comment déployer Privileged Identity Management (PIM) : https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Comprendre les détections des risques Azure AD : https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Comprendre les détections de risques Azure AD : https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -451,7 +451,7 @@ Comment intégrer les journaux d’activité Azure dans Azure Monitor : https:/
 
 **Aide** : Activer Advanced Threat Protection pour Azure Database pour PostgreSQL de façon à générer des alertes en cas d’activité suspecte.
 
-Utilisez les fonctionnalités de protection des identités et de détection des risques d’Azure Active Directory (AAD) pour configurer des réponses automatisées aux actions suspectes détectées. Vous pouvez activer des réponses automatisées via Azure Sentinel pour implémenter les réponses de sécurité de votre organisation.
+Utilisez les fonctionnalités de protection des identités et de détection des risques d’Azure Active Directory (AAD) pour configurer des réponses automatisées aux actions suspectes détectées. Vous pouvez activer des réponses automatisées par le biais d’Azure Sentinel pour implémenter les réponses de sécurité de votre organisation.
 
 Vous pouvez aussi ingérer des journaux dans Azure Sentinel pour approfondir votre examen.
 
@@ -688,7 +688,7 @@ Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/a
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4 : Tenir un inventaire des ressources Azure approuvées et titres des logiciels
 
-**Aide** : Non applicable. Cette recommandation est destinée aux ressources de calcul et à Azure dans son ensemble.
+**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -722,7 +722,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
-**Aide** : Non applicable. Cette recommandation est destinée aux ressources de calcul et à Azure dans son ensemble.
+**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul et Azure dans son ensemble.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -997,7 +997,7 @@ Comment sauvegarder des clés Key Vault : https://docs.microsoft.com/powershell
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : valider toutes les sauvegardes, y compris les clés gérées par le client
 
-**Aide** : Dans Azure Database pour PostgreSQL, l’exécution d’une restauration crée un serveur à partir de sauvegardes de serveur d’origine. Deux types de restauration sont disponibles : Restauration à un point dans le temps et géorestauration. La restauration à un point dans le temps est disponible avec l’option de redondance de la sauvegarde et elle crée un serveur dans la même région que votre serveur d’origine. La géorestauration est disponible seulement si vous avez configuré votre serveur pour le stockage géoredondant ; elle vous permet de restaurer votre serveur dans une autre région.
+**Aide** : Dans Azure Database pour PostgreSQL, l’exécution d’une restauration crée un serveur à partir de sauvegardes de serveur d’origine. Deux types de restauration sont disponibles : Restauration à un point dans le temps et géorestauration. La restauration à un point dans le temps est disponible avec l’option de redondance de la sauvegarde et elle crée un serveur dans la même région que votre serveur d’origine. La géorestauration est disponible seulement si vous avez configuré votre serveur pour le stockage géoredondant. Elle vous permet de restaurer votre serveur dans une autre région.
 
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
