@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: functions
 author: ggailey777
 manager: cfowler
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 38c739ecdbfd54627d4fc45f807705e32dc94f30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 879b971511238ab02a43896edaed074b8b0b447d
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086199"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "81007872"
 ---
 |Langage                                 |1.x         |2.x| 3.x |
 |-----------------------------------------|------------|---| --- |
@@ -23,7 +23,7 @@ ms.locfileid: "79086199"
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|Disponibilité générale (.NET Framework 4.7)|Disponibilité générale (.NET Core 2.2)| Disponibilité générale (.NET Core 3.1) |
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/A|Disponibilité générale (Java 8)| Disponibilité générale (Java 8)|
 |[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/A|GA (PowerShell Core 6)| GA (PowerShell Core 6)|
-|[Python](../articles/azure-functions/functions-reference-python.md)|N/A|Disponibilité générale (Python 3.6 et 3.7)| Disponibilité générale (Python 3.6, 3.7 et 3.8)|
+|[Python](../articles/azure-functions/functions-reference-python.md#python-version)|N/A|Disponibilité générale (Python 3.6 et 3.7)| Disponibilité générale (Python 3.6, 3.7 et 3.8)|
 |[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript) |N/A|Disponibilité générale<sup>1</sup>| Disponibilité générale<sup>1</sup> |
 
 

@@ -12,12 +12,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5c8bd5accefceee042601c3cf7d71f5e9131e04e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b899e1d651f41c9c1e1e54af1b5ec19162dfc28d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880820"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380055"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Tutoriel : Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application Android 
 
@@ -91,7 +91,7 @@ Si vous n’avez pas encore d’application Android, effectuez les étapes suiva
 
 1. Dans le volet de projet d’Android Studio, accédez à **app\src\main\res**.
 2. Cliquez avec le bouton droit sur **res**, puis choisissez **Nouveau** > **Répertoire**. Entrez `raw` en tant que nouveau nom de répertoire, puis cliquez sur **OK**.
-3. Dans **app** > **src** > **main** > **res** > **raw**, créez un fichier JSON appelé `auth_configbn_single_account.json`, puis collez la configuration MSAL que vous avez enregistrée. 
+3. Dans **app** > **src** > **main** > **res** > **raw**, créez un fichier JSON appelé `auth_config_single_account.json`, puis collez la configuration MSAL que vous avez enregistrée. 
 
     Sous l’URI de redirection, collez : 
     ```json
@@ -190,7 +190,7 @@ import com.microsoft.identity.client.exception.*;
 ## <a name="instantiate-publicclientapplication"></a>Instancier PublicClientApplication
 #### <a name="initialize-variables"></a>Initialiser les variables 
 ```java
-private final static String[] SCOPES = {"File.Read"};
+private final static String[] SCOPES = {"Files.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -583,8 +583,3 @@ Quand vous n’en avez plus besoin, supprimez l’objet d’application que vous
 ## <a name="get-help"></a>Obtenir de l’aide
 
 Si vous rencontrez des problèmes avec ce tutoriel ou avec la plateforme d’identités Microsoft, consultez le [Centre d’aide et de support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
-
-Aidez-nous à améliorer la plateforme des identités Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
-
-> [!div class="nextstepaction"]
-> [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
