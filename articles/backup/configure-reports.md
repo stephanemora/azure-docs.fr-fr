@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurer et afficher les rapports de la Sauvegarde Azure à l’aide de Log Analytics et dAzure Workbooks
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497d70c1bcc577faa467720b959eb828e785a26a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78161199"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672662"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -21,7 +21,7 @@ De nos jours, la Sauvegarde Azure fournit une solution de création de rapports 
 * Les rapports de sauvegarde sont pris en charge pour les machines virtuelles Azure, SQL dans les machines virtuelles Azure, SAP HANA/ASE dans les machines virtuelles Azure, l’agent Sauvegarde Azure (MARS), le serveur de sauvegarde Azure (MABS) et System Center DPM.
 * Concernant les charges de travail DPM, les rapports de sauvegarde sont pris en charge pour DPM versions 5.1.363.0 et ultérieures ainsi que pour l’agent versions 2.0.9127.0 et ultérieures.
 * Concernant les charges de travail MABS, les rapports de sauvegarde sont pris en charge pour MABS versions 13.0.415.0 et ultérieures ainsi que pour l’agent versions 2.0.9170.0 et ultérieures.
-* Les rapports de sauvegarde peuvent être affichés dans l’ensemble des éléments de sauvegarde, des coffres, des abonnements et des régions, à condition que leurs données soient envoyées à un espace de travail Log Analytics (LA) auquel l’utilisateur a accès. 
+* Les rapports de sauvegarde peuvent être affichés dans l’ensemble des éléments de sauvegarde, des coffres, des abonnements et des régions, à condition que leurs données soient envoyées à un espace de travail Log Analytics (LA) auquel l’utilisateur a accès. Notez que, pour afficher les rapports d’un ensemble de coffres, vous n’avez besoin que d’un **accès lecteur à l’espace de travail LA** auquel les coffres envoient leurs données. Vous **n’avez pas** besoin d’avoir accès aux coffres individuels.
 * Si vous êtes utilisateur [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) avec un accès délégué aux abonnements, vous pouvez utiliser ces rapports avec Azure Lighthouse afin de les consulter sur tous vos locataires.
 * Les données des travaux de sauvegarde de fichier journal ne sont pas affichées dans les rapports.
 

@@ -4,19 +4,19 @@ description: Procédure d’activation de la réinitialisation de mot de passe e
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77370073"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743345"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procédure : Activer la réinitialisation de mot de passe à partir de l’écran de connexion Windows
 
@@ -43,7 +43,7 @@ Pour les machines exécutant Windows 7, 8, 8.1 et 10, vous pouvez autoriser les
 - La combinaison des trois paramètres spécifiques suivants peut empêcher le fonctionnement de cette fonctionnalité.
     - Ouverture de session interactive : N’exige pas la combinaison de touches CTRL + ALT + SUPPR = Désactivé
     - DisableLockScreenAppNotifications = 1 ou Activé
-    - IsContentDeliveryPolicyEnforced = 1 ou True
+    - La référence SKU Windows ne correspond pas à l’édition Famille ou Professionnel
 
 ## <a name="windows-10-password-reset"></a>Réinitialisation de mot de passe de Windows 10
 
@@ -97,7 +97,7 @@ Le journal d’audit Azure AD inclut des informations sur l’adresse IP et le C
 
 ![Exemple de réinitialisation de mot de passe sur Windows 7 dans le journal d’audit Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Quand des utilisateurs réinitialisent leur mot de passe à partir de l’écran de connexion d’un appareil Windows 10, un compte temporaire à faibles privilèges appelé `defaultuser1` est créé. Ce compte sert à sécuriser le processus de réinitialisation du mot de passe. Le compte lui-même a un mot de passe généré de manière aléatoire, ne s’affiche pas pour la connexion à l’appareil, et est supprimé automatiquement une fois que l’utilisateur a réinitialisé son mot de passe. Il peut exister plusieurs profils `defaultuser`, mais vous pouvez les ignorer sans risque.
+Quand des utilisateurs réinitialisent leur mot de passe à partir de l’écran de connexion d’un appareil Windows 10, un compte temporaire à faibles privilèges appelé `defaultuser1` est créé. Ce compte sert à sécuriser le processus de réinitialisation du mot de passe. Le compte lui-même comporte un mot de passe généré de manière aléatoire, ne s’affiche pas pour la connexion à l’appareil et est supprimé automatiquement une fois que l’utilisateur a réinitialisé son mot de passe. Il peut exister plusieurs profils `defaultuser`, mais vous pouvez les ignorer sans risque.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Réinitialisation de mot de passe de Windows 7, 8 et 8.1
 
@@ -128,8 +128,8 @@ Quand des utilisateurs réinitialisent leur mot de passe à partir de l’écran
 
 #### <a name="silent-installation"></a>Installation sans assistance
 
-- Pour une installation sans assistance, utilisez la commande « msiexec /i SsprWindowsLogon.PROD.msi /qn »
-- Pour une désinstallation sans assistance, utilisez la commande « msiexec /x SsprWindowsLogon.PROD.msi /qn »
+- Pour une installation sans assistance, utilisez la commande « msiexec /i SsprWindowsLogon.PROD.msi /qn ».
+- Pour une désinstallation sans assistance, utilisez la commande « msiexec /x SsprWindowsLogon.PROD.msi /qn ».
 
 #### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Résolution des problèmes de réinitialisation de mot de passe de Windows 7, 8 et 8.1
 
@@ -141,8 +141,8 @@ Si une journalisation supplémentaire est requise, vous pouvez modifier une clé
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Pour activer la journalisation détaillée, créez un `REG_DWORD: “EnableLogging”`, et affectez-lui la valeur 1.
-- Pour désactiver la journalisation détaillée, faites basculer la valeur de `REG_DWORD: “EnableLogging”` à 0.
+- Pour activer la journalisation détaillée, créez un `REG_DWORD: "EnableLogging"`, et affectez-lui la valeur 1.
+- Pour désactiver la journalisation détaillée, faites basculer la valeur de `REG_DWORD: "EnableLogging"` à 0.
 
 ## <a name="what-do-users-see"></a>Ce que voient les utilisateurs
 

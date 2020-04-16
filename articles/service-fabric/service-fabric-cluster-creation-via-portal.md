@@ -3,12 +3,12 @@ title: Créer un cluster Service Fabric dans le portail Azure
 description: Apprenez à configurer un cluster Service Fabric sécurisé dans Azure à l’aide du portail Azure et d’Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2de920ce9517e156934a636559a6fd6f5a71eb5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229413"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754106"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
@@ -36,13 +36,13 @@ Si c’est la première fois que vous créez un cluster Service Fabric ou que vo
 Ce certificat est nécessaire pour sécuriser un cluster et empêcher un accès non autorisé à ce dernier. Il assure la sécurité du cluster de différentes manières :
 
 * **Authentification du cluster :** authentifie la communication nœud à nœud pour la fédération du cluster. Seuls les nœuds qui peuvent prouver leur identité avec ce certificat peuvent être ajoutés au cluster.
-* **Authentification du serveur :** authentifie les points de terminaison de gestion du cluster sur un client de gestion, afin que le client de gestion sache qu'il communique avec le véritable cluster. Ce certificat fournit également SSL pour l’API de gestion HTTPS et Service Fabric Explorer par le biais de HTTPS.
+* **Authentification du serveur :** authentifie les points de terminaison de gestion du cluster sur un client de gestion, afin que le client de gestion sache qu'il communique avec le véritable cluster. Ce certificat fournit également un protocole TLS pour l’API de gestion HTTPS et pour Service Fabric Explorer via HTTPS.
 
 Pour cela, le certificat doit répondre aux exigences suivantes :
 
 * Le certificat doit contenir une clé privée.
 * Le certificat doit être créé pour l'échange de clés et pouvoir faire l'objet d'un export au format Personal Information Exchange (.pfx).
-* Le **nom d'objet du certificat doit correspondre au domaine** servant à accéder au cluster Service Fabric. Cela est nécessaire pour la fourniture de SSL pour les points de terminaison de gestion HTTPS du cluster et Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat SSL auprès d'une autorité de certification pour le domaine `.cloudapp.azure.com` . Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d'une autorité de certification, le nom d'objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour votre cluster.
+* Le **nom d'objet du certificat doit correspondre au domaine** servant à accéder au cluster Service Fabric. Cela est nécessaire pour fournir un protocole TLS pour les points de terminaison de gestion HTTPS du cluster et Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat TLS/SSL auprès d’une autorité de certification pour le domaine `.cloudapp.azure.com`. Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d'une autorité de certification, le nom d'objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour votre cluster.
 
 #### <a name="client-authentication-certificates"></a>Authentification de certificat client
 Les certificats client supplémentaires authentifient les administrateurs pour les tâches de gestion de cluster. Service Fabric dispose de deux niveaux d’accès : **admin** et **read-only user**. Au minimum, un seul certificat pour un accès administrateur doit être utilisé. Pour un accès de niveau utilisateur supplémentaire, un certificat distinct doit être fourni. Pour en savoir plus sur les rôles d’accès, consultez la page [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric][service-fabric-cluster-security-roles].

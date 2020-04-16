@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 04/08/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 289c00e28fd82b78b321732628ff85d22c64cabf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cef4f83881aed67c46477110de530bbf191ee39f
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062300"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984741"
 ---
 # <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Ajouter des comptes Microsoft personnels à l’application Microsoft Authenticator
 
-Ajoutez vos comptes Microsoft personnels, par exemple vos comptes Outlook.com et Xbox LIVE, à l’application Microsoft Authenticator pour le processus de vérification en deux étapes standard et la méthode de connexion par téléphone sans mot de passe.
+Ajoutez vos comptes Microsoft personnels, par exemple vos comptes Outlook.com et Xbox LIVE, à l’application Microsoft Authenticator pour le processus de vérification en deux étapes standard et la connexion par téléphone sans mot de passe.
 
 - **Méthode de vérification en deux étapes standard.** Entrez votre nom d’utilisateur et votre mot de passe sur l’appareil sur lequel vous vous connectez, puis indiquez si l’application Microsoft Authenticator envoie une notification ou si vous préférez copier le code de vérification associé à partir de l’écran **Comptes** de l’application Microsoft Authenticator.
 
@@ -29,14 +29,9 @@ Ajoutez vos comptes Microsoft personnels, par exemple vos comptes Outlook.com et
 >[!Important]
 >Avant de pouvoir ajouter votre compte, vous devez télécharger et installer l’application Microsoft Authenticator. Si ce n’est pas déjà fait, suivez la procédure décrite dans l’article [Télécharger et installer l’application](user-help-auth-app-download-install.md).
 
-## <a name="add-your-personal-microsoft-account"></a>Ajout de votre compte Microsoft personnel
+Vous pouvez ajouter votre compte Microsoft personnel en activant d’abord la vérification en deux étapes, puis en ajoutant le compte à l’application. Vous n’avez pas besoin d’activer la vérification en deux étapes pour utiliser uniquement la connexion par téléphone sans mot de passe pour votre compte, mais nous vous recommandons vivement d’activer la vérification en deux étapes pour renforcer la sécurité du compte.
 
-Vous pouvez ajouter votre compte Microsoft personnel en activant d’abord la vérification en deux étapes, puis en ajoutant le compte à l’application.
-
->[!Note]
->Si vous envisagez d’utiliser uniquement la connexion par téléphone sans mot de passe pour votre compte Microsoft personnel, vous n’avez pas à activer la vérification en deux étapes. Toutefois, pour assurer la sécurité de tout compte supplémentaire, nous vous recommandons de l’activer.
-
-### <a name="turn-on-two-factor-verification"></a>Activation de la vérification en deux étapes
+## <a name="turn-on-two-factor-verification"></a>Activation de la vérification en deux étapes
 
 1. Sur votre ordinateur, accédez à la page [Security basics](https://account.microsoft.com/security) (Fonctions de base de la sécurité), puis connectez-vous à l'aide de votre compte Microsoft personnel. Par exemple : alain@outlook.com.
 
@@ -46,24 +41,30 @@ Vous pouvez ajouter votre compte Microsoft personnel en activant d’abord la v�
 
 3. Accédez à la section **Vérification en deux étapes**, puis **activez** la fonctionnalité. Vous pouvez également la désactiver ici si vous ne souhaitez plus l’utiliser avec votre compte personnel.
 
-### <a name="add-your-microsoft-account-to-the-app"></a>Ajout de votre compte Microsoft à l’application
+## <a name="add-your-microsoft-account-to-the-app"></a>Ajout de votre compte Microsoft à l’application
 
 1. Ouvrez l’application Microsoft Authenticator sur votre appareil mobile.
 
-2. Sélectionnez l’option **Ajouter un compte** à partir de l’icône **Customize and control** (Personnaliser et contrôler) située dans le coin supérieur droit.
+1. Sur Android, sélectionnez **Ajouter un compte** à partir de l’icône **Customize and control** (Personnaliser et contrôler) située dans le coin supérieur droit.
 
-    ![Page de comptes dont l’icône Customize and control (Personnaliser et contrôler) est mise en surbrillance](./media/user-help-auth-app-add-personal-ms-account/customize-and-control-icon.png)
+    ![Pages de sélection de compte Android](media/user-help-auth-app-add-personal-ms-account/customize-and-control-icon.png)
 
-3. Dans la page **Ajouter un compte**, sélectionnez **Compte personnel**.
+    Sur iOS, sélectionnez l’icône plus dans le coin supérieur droit.
 
-4. Connectez-vous à votre compte personnel à l’aide de l’adresse e-mail appropriée (par exemple alain@outlook.com), puis sélectionnez **Suivant**.
+    ![Version iOS de l’expérience de sélection de compte](media/user-help-auth-app-add-personal-ms-account/customize-and-control-icon-ios.png)
+
+1. Dans la page **Ajouter un compte**, sélectionnez **Compte personnel**.
+
+1. Sélectionnez **Se connecter avec Microsoft** pour ajouter votre compte. Un code QR peut être utilisé lorsqu’il est disponible, mais vous pouvez toujours ajouter votre compte en vous connectant avec votre nom d’utilisateur et votre mot de passe.
+
+    ![Sélectionner un compte Microsoft ou scanner un code QR quand il est disponible](media/user-help-auth-app-add-personal-ms-account/add-account-android.png)
+
+1. Connectez-vous à votre compte personnel à l’aide de l’adresse e-mail appropriée (par exemple alain@outlook.com), puis sélectionnez **Suivant**.
 
     >[!Note]
-    >Si vous ne disposez pas d’un compte Microsoft personnel, vous pouvez en créer un ici.
+    >Si vous ne disposez pas d’un compte Microsoft personnel, [vous pouvez en créer un](https://account.microsoft.com/account/Account?refd=www.bing.com&ru=https%3A%2F%2Faccount.microsoft.com%2F%3Frefd%3Dwww.bing.com&destrt=home-index).
 
-5. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
-
-    Votre compte personnel est ajouté à l’application Microsoft Authenticator.
+1. Entrez votre mot de passe, puis sélectionnez **Se connecter**. Votre compte personnel est ajouté à l’application Microsoft Authenticator.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

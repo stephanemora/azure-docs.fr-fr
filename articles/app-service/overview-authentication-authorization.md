@@ -1,22 +1,27 @@
 ---
 title: Authentification et autorisation
-description: Renseignez-vous sur la prise en charge de l’authentification et de l’autorisation intégrées dans Azure App Service et découvrez en quoi elle peut vous aider à protéger votre application contre tout accès non autorisé.
+description: Renseignez-vous sur la prise en charge de l’authentification et de l’autorisation intégrées dans Azure App Service et Azure Functions, et découvrez en quoi elle peut vous aider à protéger votre application contre tout accès non autorisé.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: seodec18
-ms.openlocfilehash: efef578f5c62bef4ae33b98b568fd6d5c1389c4a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715108"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520691"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
+# <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentification et autorisation dans Azure App Service et Azure Functions
 
 > [!NOTE]
-> À l’heure actuelle, AAD V2 (notamment MSAL) n’est pas pris en charge pour Azure App Services et Azure Functions. Revenez plus tard pour suivre l’évolution de la situation.
+> À l’heure actuelle, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) ([MSAL](../active-directory/develop/msal-overview.md) inclus) n’est pas pris en charge pour Azure App Service et Azure Functions. Revenez plus tard pour suivre l’évolution de la situation.
+>
+> [!NOTE]
+> À l’heure actuelle, ASP.NET Core ne prend pas en charge le remplissage de l’utilisateur actuel à l’aide de la fonctionnalité d’authentification/autorisation.
 >
 
 Azure App Service offre une prise en charge intégrée de l’authentification et de l’autorisation, qui vous permet de connecter les utilisateurs et d’accéder aux données sans avoir à écrire beaucoup de code dans votre application web, votre API RESTful et votre back end mobile, ainsi que dans [Azure Functions](../azure-functions/functions-overview.md). Cet article explique comment App Service contribue à simplifier l’authentification et l’autorisation de votre application.
@@ -24,7 +29,7 @@ Azure App Service offre une prise en charge intégrée de l’authentification e
 Pour mettre en place un système sécurisé d’authentification et d’autorisation, il faut avoir une connaissance approfondie de la sécurité, notamment de la fédération, du chiffrement, de la gestion des [jetons web JSON (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), des [types d’autorisation](https://oauth.net/2/grant-types/), etc. App Service propose ces utilitaires pour vous permettre de consacrer davantage de temps et d’énergie à offrir de la valeur ajoutée à votre client.
 
 > [!IMPORTANT]
-> Vous n’êtes pas obligé d’utiliser App Service pour l’authentification et l’autorisation. Vous pouvez utiliser les fonctionnalités de sécurité groupées dans l’infrastructure web de votre choix, ou vous pouvez écrire vos propres utilitaires. Cependant, gardez à l’esprit que [Chrome 80 apporte des changements cassants à son implémentation de SameSite pour les cookies](https://www.chromestatus.com/feature/5088147346030592) (date de publication aux alentours de mars 2020) et que l’authentification à distance personnalisée ou d’autres scénarios qui reposent sur l'envoi de cookies intersites peuvent être interrompus lorsque les navigateurs Chrome des clients sont mis à jour. La solution de contournement est complexe, car elle doit prendre en charge différents comportements SameSite pour différents navigateurs. 
+> Il n’est pas obligatoire d’utiliser cette fonctionnalité pour l’authentification et l’autorisation. Vous pouvez utiliser les fonctionnalités de sécurité groupées dans l’infrastructure web de votre choix, ou vous pouvez écrire vos propres utilitaires. Cependant, gardez à l’esprit que [Chrome 80 apporte des changements cassants à son implémentation de SameSite pour les cookies](https://www.chromestatus.com/feature/5088147346030592) (date de publication aux alentours de mars 2020) et que l’authentification à distance personnalisée ou d’autres scénarios qui reposent sur l'envoi de cookies intersites peuvent être interrompus lorsque les navigateurs Chrome des clients sont mis à jour. La solution de contournement est complexe, car elle doit prendre en charge différents comportements SameSite pour différents navigateurs. 
 >
 > Les versions 2.1 (ou ultérieures) d’ASP.NET Core hébergées par App Service sont déjà corrigés pour cette modification avec rupture et gèrent correctement Chrome 80 et les navigateurs plus anciens. En outre, le même correctif pour ASP.NET Framework 4.7.2 est déployé sur les instances d’App Service tout au long du mois de janvier 2020. Pour en savoir plus, et découvrir notamment si votre application a reçu le correctif, consultez [Mise à jour de cookies SameSite Azure App Service](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
@@ -46,11 +51,11 @@ Ce module gère plusieurs choses pour votre application :
 
 Le module, configuré à l’aide des paramètres de l’application, s’exécute de façon distincte du code de l’application. Aucun Kit de développement logiciel (SDK), aucun langage spécifique ni aucune modification du code de l’application ne sont nécessaires. 
 
-### <a name="user-claims"></a>Revendications d’utilisateur
+### <a name="userapplication-claims"></a>Revendications de l’utilisateur/application
 
-Pour toutes les infrastructures de langage, App Service rend les revendications de l’utilisateur accessibles à votre code en les insérant dans les en-têtes de demande. Dans le cas des applications ASP.NET 4.6, App Service remplit [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) avec les revendications de l’utilisateur authentifié, ce qui vous permet de suivre le modèle de code .NET standard, attribut `[Authorize]` compris. De même, pour les applications PHP, App Service remplit la variable `_SERVER['REMOTE_USER']`. Pour les applications Java, les revendications sont [accessibles depuis le servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+Pour toutes les infrastructures de langage, App Service met les revendications du jeton entrant (qu’elles proviennent d’un utilisateur final authentifié ou d’une application cliente) à la disposition de votre code en les injectant dans les en-têtes de requête. Dans le cas des applications ASP.NET 4.6, App Service remplit [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) avec les revendications de l’utilisateur authentifié, ce qui vous permet de suivre le modèle de code .NET standard, attribut `[Authorize]` compris. De même, pour les applications PHP, App Service remplit la variable `_SERVER['REMOTE_USER']`. Pour les applications Java, les revendications sont [accessibles depuis le servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
-Avec [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` n’est pas alimenté pour le code .NET, mais les revendications d’utilisateur se trouvent toujours dans les en-têtes de demande.
+Pour [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` n’est pas rempli pour le code .NET, mais vous pouvez toujours trouver les revendications de l’utilisateur dans les en-têtes de requête ou obtenir l’objet `ClaimsPrincipal` à partir du contexte de la requête, ou même via un paramètre de liaison. Pour plus d’informations, consultez [Utilisation d’identités de clients](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities).
 
 Pour plus d’informations, consultez la section [Revendications d’utilisateurs d’accès](app-service-authentication-how-to.md#access-user-claims).
 
@@ -59,17 +64,17 @@ Pour plus d’informations, consultez la section [Revendications d’utilisateur
 App Service fournit un magasin de jetons intégré : il s’agit d’un référentiel de jetons associés aux utilisateurs de vos applications web, API ou applications mobiles natives. Dès que l’authentification est activée avec un fournisseur, l’application a immédiatement accès à ce magasin de jetons. Si le code de votre application doit accéder à des données de ces fournisseurs au nom de l’utilisateur, notamment : 
 
 - publier sur le fil d’actualité Facebook de l’utilisateur authentifié ;
-- lire les données d’entreprise de l’utilisateur à partir de l’API Graph Azure Active Directory ou même de Microsoft Graph.
+- lire les données d’entreprise de l’utilisateur à l’aide de l’API Microsoft Graph
 
 Il est en général nécessaire d’écrire du code pour recueillir, stocker et actualiser ces jetons dans votre application. Avec le magasin de jetons, il suffit de [récupérer les jetons](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) en temps utile et de [demander à App Service de les actualiser](app-service-authentication-how-to.md#refresh-identity-provider-tokens) lorsqu’ils ne sont plus valides. 
 
-Les jetons d’ID, jetons d’accès et jetons d’actualisation mis en cache pour la session authentifiée ne sont accessibles qu’à l’utilisateur associé.  
+Les jetons d’ID, jetons d’accès et jetons d’actualisation sont mis en cache pour la session authentifiée et ne sont accessibles que par l’utilisateur associé.  
 
 Si vous n’avez pas besoin de travailler avec des jetons dans votre application, vous pouvez désactiver le magasin de jetons.
 
 ### <a name="logging-and-tracing"></a>Journalisation et suivi
 
-Si vous [activez la journalisation des applications](troubleshoot-diagnostic-logs.md), les traces de l’authentification et de l’autorisation apparaîtront directement dans les fichiers journaux. Si une erreur d’authentification inattendue se produit, vous trouverez facilement tous les détails dans les journaux d’activité existants. Si vous activez le [suivi des échecs des demandes](troubleshoot-diagnostic-logs.md), vous saurez exactement quel rôle le module d’authentification et d’autorisation a pu jouer dans l’échec d’une demande. Dans les journaux d’activité de suivi, recherchez les références à un module nommé `EasyAuthModule_32/64`. 
+Si vous [activez la journalisation des applications](troubleshoot-diagnostic-logs.md), les traces de l’authentification et de l’autorisation apparaîtront directement dans les fichiers journaux. Si une erreur d’authentification inattendue se produit, vous trouverez facilement tous les détails dans les journaux des applications existants. Si vous activez le [suivi des échecs des demandes](troubleshoot-diagnostic-logs.md), vous saurez exactement quel rôle le module d’authentification et d’autorisation a pu jouer dans l’échec d’une demande. Dans les journaux d’activité de suivi, recherchez les références à un module nommé `EasyAuthModule_32/64`. 
 
 ## <a name="identity-providers"></a>Fournisseurs d’identité
 
@@ -93,7 +98,7 @@ Le flux d’authentification est identique pour tous les fournisseurs, mais il d
 - Avec le Kit SDK du fournisseur : l’application connecte manuellement les utilisateurs au fournisseur et soumet ensuite le jeton d’authentification à App Service pour validation. C’est généralement le cas avec les applications sans navigateur, qui ne peuvent pas présenter la page de connexion du fournisseur à l’utilisateur. C’est le code de l’application qui gère le processus de connexion, c’est pourquoi il est également appelé _flux dirigé vers le client_ ou _flux client_. Ce cas s’applique aux API REST, à [Azure Functions](../azure-functions/functions-overview.md) et aux clients de navigateur JavaScript, ainsi qu’aux applications de navigateur nécessitant plus de souplesse dans le processus de connexion. Il concerne également les applications mobiles natives qui connectent les utilisateurs à l’aide du Kit SDK du fournisseur.
 
 > [!NOTE]
-> Les appels provenant d’une application de navigateur approuvée dans App Service appellent une autre API REST dans App Service ou [Azure Functions](../azure-functions/functions-overview.md) ; l’authentification est possible suivant le flux dirigé vers le serveur. Pour plus d’informations, consultez [Personnaliser les paramètres d’authentification et d’autorisation dans Azure App Service](app-service-authentication-how-to.md).
+> Les appels entre une application de navigateur approuvée dans App Service et une autre API REST dans App Service ou [Azure Functions](../azure-functions/functions-overview.md) peuvent être authentifiés à l’aide du flux dirigé vers le serveur. Pour plus d’informations, consultez [Personnaliser les paramètres d’authentification et d’autorisation dans Azure App Service](app-service-authentication-how-to.md).
 >
 
 Le tableau ci-dessous montre les étapes du flux d’authentification.
@@ -132,11 +137,17 @@ Cette option évite d’avoir à écrire du code d’authentification dans l’a
 > [!CAUTION]
 > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique.
 
+> [!NOTE]
+> L’authentification/autorisation était auparavant appelée Authentification simple.
+>
+
 ## <a name="more-resources"></a>Plus de ressources
 
 [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)  
 [Personnaliser l’authentification et l’autorisation dans App Service](app-service-authentication-how-to.md)
+[Intégration .NET Core d’Azure AppService EasyAuth (tiers)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+[Faire fonctionner l’authentification Azure App Service avec .NET Core (tiers)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Guides pratiques propres à chaque fournisseur :
 

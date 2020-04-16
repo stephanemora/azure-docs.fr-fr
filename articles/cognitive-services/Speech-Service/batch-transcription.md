@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: ee7fbddade055c11f5870aa5a588a2fd02f10a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131603"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892459"
 ---
 # <a name="what-is-batch-transcription"></a>Qu’est-ce que la transcription par lots ?
 
@@ -129,7 +129,7 @@ Utilisez les propriétés facultatives suivantes pour configurer la transcriptio
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Spécifie si l’analyse des sentiments doit être appliquée à l’énoncé. Les valeurs acceptées sont `true` pour l’activer et `false` (valeur par défaut) pour la désactiver.
+      Spécifie si l’analyse des sentiments doit être appliquée à l’énoncé. Les valeurs acceptées sont `true` pour l’activer et `false` (valeur par défaut) pour la désactiver. Pour plus d’informations, consultez [Analyse des sentiments](#sentiment-analysis).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -218,12 +218,41 @@ Pour les fichiers audio d’entrée mono, un fichier de résultat de transcripti
 
 Le résultat contient les formes suivantes :
 
-| Formulaire        | Contenu                                                                                                                                                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Lexical`   | Les mots réels sont reconnus.                                                                                                                             |
-| `ITN`       | Forme « normalisation du texte inversée » du texte reconnu. Abréviations (« Docteur Smith » en « Dr Smith »), numéros de téléphone, et d’autres transformations sont appliquées. |
-| `MaskedITN` | Forme « normalisation du texte inversée » avec masquage des termes vulgaires appliqué.                                                                                                             |
-| `Display`   | Forme d’affichage du texte reconnu. Des signes de ponctuation et des majuscules ajoutés sont inclus.                                                             |
+:::row:::
+   :::column span="1":::
+      **Forme**
+   :::column-end:::
+   :::column span="2":::
+      **Contenu**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Lexical`
+   :::column-end:::
+   :::column span="2":::
+      Les mots réels sont reconnus.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ITN`
+   :::column-end:::
+   :::column span="2":::
+      Forme « normalisation du texte inversée » du texte reconnu. Abréviations (« Docteur Smith » en « Dr Smith »), numéros de téléphone, et d’autres transformations sont appliquées.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `MaskedITN`
+   :::column-end:::
+   :::column span="2":::
+      Forme « normalisation du texte inversée » avec masquage des termes vulgaires appliqué.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Display`
+   :::column-end:::
+   :::column span="2":::
+      Forme d’affichage du texte reconnu. Des signes de ponctuation et des majuscules ajoutés sont inclus.
+:::row-end:::
 
 ## <a name="speaker-separation-diarization"></a>Séparation des orateurs (diarisation)
 
@@ -260,6 +289,10 @@ La fonctionnalité de sentiment évalue le sentiment exprimé dans l’audio. Le
 - Identifier ce que les clients aiment et ce qu’ils n’aiment pas dans un produit ou service
 
 Le sentiment est évalué par segment audio en fonction de la forme lexicale. L’intégralité du texte au sein du segment audio est utilisée pour calculer les sentiments. Aucun sentiment d’agrégat n’est calculé pour l’intégralité de la transcription. Actuellement, l’analyse des sentiments est disponible uniquement pour la langue anglaise.
+
+> [!NOTE]
+> Nous vous recommandons d’utiliser à la place l’API Analyse de texte Microsoft. Elle offre des fonctionnalités plus avancées qui vont au-delà de l’analyse des sentiments, comme l’extraction d’expressions clés, la détection automatique de la langue et bien plus encore. Vous trouverez des informations et des exemples dans la [documentation Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
+>
 
 Un exemple de sortie JSON se présente comme suit :
 
@@ -299,14 +332,11 @@ Un exemple de sortie JSON se présente comme suit :
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
-Le service de transcription peut traiter un grand nombre de transcriptions envoyées. Vous pouvez interroger l’état de vos transcriptions par une opération `GET` sur la [méthode de transcription](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Conservez les informations renvoyées dans une taille raisonnable en spécifiant le paramètre `take` (quelques centaines). [Supprimez régulièrement des transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) du service une fois que vous avez récupéré les résultats. Cela garantit des réponses rapides des appels de gestion des transcriptions.
+Le service de transcription peut traiter un grand nombre de transcriptions envoyées. Vous pouvez interroger l’état de vos transcriptions par une opération `GET` sur la [méthode de transcription](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Conservez les informations renvoyées dans une taille raisonnable en spécifiant le paramètre `take` (quelques centaines). [Supprimez régulièrement des transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) du service une fois que vous avez récupéré les résultats Cela garantit des réponses rapides des appels de gestion des transcriptions.
 
 ## <a name="sample-code"></a>Exemple de code
 
 Des exemples complets sont disponibles dans le [dépôt d’exemples GitHub](https://aka.ms/csspeech/samples) à l’intérieur du sous-répertoire `samples/batch`.
-
-> [!NOTE]
-> La fonctionnalité de transcription par lots est exposée via l’API REST décrite ci-dessus. La transcription par lots peut donc être utilisée dans pratiquement n’importe quel langage ou environnement de programmation prenant en charge REST. Les exemples ci-dessous et les exemples dans GitHub sont parfaitement représentatifs et **ne suggèrent pas** de limites quant à l’emplacement où l’API peut être utilisée.
 
 Vous devez personnaliser l’exemple de code avec vos informations d’abonnement, la région du service, le pointage SAS URI vers le fichier audio à transcrire et les ID du modèle si vous souhaitez utiliser un modèle acoustique ou de langage personnalisé.
 

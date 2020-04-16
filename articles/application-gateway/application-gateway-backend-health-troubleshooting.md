@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72001669"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983838"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 ==================================================
@@ -170,7 +170,7 @@ Vérifiez également qu’aucun NSG, UDR ou pare-feu ne bloque l’accès à l�
 
 **Message :** Le code d\'état de la réponse HTTP du back-end ne correspond pas au paramètre de la sonde. Attendu :{HTTPStatusCode0} Reçu :{HTTPStatusCode1}.
 
-**Cause :** Une fois que la connexion TCP a été établie et que la négociation SSL est terminée (si SSL est activé), Application Gateway envoie la sonde sous forme de requête HTTP GET au serveur back-end. Comme décrit plus haut, la sonde par défaut est envoyée au format \<protocole\>://127.0.0.1:\<port\>/ et considère comme sains les codes d’état de réponse compris entre 200 et 399. Si le serveur retourne un autre code d’état, il est marqué comme Non sain, avec ce message.
+**Cause :** Une fois que la connexion TCP a été établie et que la négociation TLS est terminée (si TLS est activé), Application Gateway envoie la sonde sous forme de requête HTTP GET au serveur back-end. Comme décrit plus haut, la sonde par défaut est envoyée au format \<protocole\>://127.0.0.1:\<port\>/ et considère comme sains les codes d’état de réponse compris entre 200 et 399. Si le serveur retourne un autre code d’état, il est marqué comme Non sain, avec ce message.
 
 **Solution :** Selon le code de réponse du serveur back-end, effectuez les étapes appropriées parmi les suivantes. Quelques codes d’état courants sont décrits ici :
 
@@ -208,7 +208,7 @@ Pour en savoir plus sur la correspondance des sondes d’Application Gateway, [c
 **Message :** Le certificat de serveur utilisé par le serveur back-end n’est pas signé par une autorité de certification reconnue. Ajoutez le serveur back-end à la liste approuvée d’Application Gateway en chargeant le certificat racine du certificat de serveur qui est utilisé par le serveur back-end.
 
 **Cause :** Le chiffrement SSL de bout en bout avec Application Gateway v2 implique la vérification du certificat du serveur back-end pour garantir que le serveur est sain.
-Pour qu’un certificat SSL soit approuvé, ce certificat utilisé par le serveur back-end doit être émis par l’une des autorités de certification figurant dans le magasin de certificats approuvés d’Application Gateway. Si le certificat n’a pas été émis par une autorité de certification approuvée (ce qui est le cas des certificats auto-signés, par exemple), les utilisateurs doivent charger le certificat de l’émetteur dans Application Gateway.
+Pour qu’un certificat TLS/SSL soit approuvé, ce certificat utilisé par le serveur back-end doit être émis par l’une des autorités de certification figurant dans le magasin de certificats approuvés d’Application Gateway. Si le certificat n’a pas été émis par une autorité de certification approuvée (ce qui est le cas des certificats auto-signés, par exemple), les utilisateurs doivent charger le certificat de l’émetteur dans Application Gateway.
 
 **Solution :** Effectuez les étapes suivantes pour exporter et charger le certificat racine approuvé dans Application Gateway. (Ces étapes sont destinées aux clients Windows.)
 
@@ -241,7 +241,7 @@ Pour plus d’informations sur l’extraction et le chargement de certificats ra
 **Message :** Le certificat racine du certificat de serveur utilisé par le serveur back-end ne correspond pas au certificat racine approuvé qui a été ajouté dans Application Gateway. Assurez-vous d’ajouter le certificat racine approprié pour faire figurer le serveur back-end dans la liste approuvée
 
 **Cause :** Le chiffrement SSL de bout en bout avec Application Gateway v2 implique la vérification du certificat du serveur back-end pour garantir que le serveur est sain.
-Pour qu’un certificat SSL soit approuvé, le certificat du serveur back-end doit être émis par l’une des autorités de certification figurant dans le magasin de certificats approuvés d’Application Gateway. Si le certificat n’a pas été émis par une autorité de certification approuvée (ce qui est le cas des certificats auto-signés, par exemple), les utilisateurs doivent charger le certificat de l’émetteur dans Application Gateway.
+Pour qu’un certificat TLS/SSL soit approuvé, le certificat du serveur back-end doit être émis par l’une des autorités de certification figurant dans le magasin de certificats approuvés d’Application Gateway. Si le certificat n’a pas été émis par une autorité de certification approuvée (ce qui est le cas des certificats auto-signés, par exemple), les utilisateurs doivent charger le certificat de l’émetteur dans Application Gateway.
 
 Le certificat qui a été chargé dans les paramètres HTTP d’Application Gateway doit correspondre au certificat racine du certificat du serveur back-end.
 
@@ -280,7 +280,7 @@ Si la sortie n’affiche pas la chaîne complète du certificat retourné, réex
 
 **Message :** Le nom commun (CN) du certificat du back-end ne correspond pas à l’en-tête d’hôte de la sonde.
 
-**Cause :** Application Gateway vérifie si le nom d’hôte spécifié dans les paramètres HTTP du back-end correspond au nom commun (CN) présenté par le certificat SSL du serveur back-end. Ce comportement s’applique aux références SKU Standard_v2 et WAF_v2. L’indication du nom du serveur (SNI, Server Name Indication) des références SKU Standard et WAF est définie comme nom de domaine complet dans l’adresse du pool de back-ends.
+**Cause :** Application Gateway vérifie si le nom d’hôte spécifié dans les paramètres HTTP du back-end correspond au nom commun (CN) présenté par le certificat TLS/SSL du serveur back-end. Ce comportement s’applique aux références SKU Standard_v2 et WAF_v2. L’indication du nom du serveur (SNI, Server Name Indication) des références SKU Standard et WAF est définie comme nom de domaine complet dans l’adresse du pool de back-ends.
 
 Dans la référence SKU v2, en présence d’une sonde par défaut (aucune sonde personnalisée n’a été configurée et associée), le SNI est défini à partir du nom d’hôte mentionné dans les paramètres HTTP. Si l’option « Choisir un nom d’hôte à partir d’une adresse back-end » est activée dans les paramètres HTTP et que le pool d’adresses back-end contient un nom de domaine complet valide, ce paramètre est appliqué.
 
@@ -321,9 +321,9 @@ Pour Linux avec OpenSSL :
 
 **Message :** Le certificat du back-end n’est pas valide. La date actuelle ne s’inscrit pas dans la plage de dates définie par les options \"Valide à partir du\" et \"Valide jusqu’au\" pour le certificat.
 
-**Cause :** Chaque certificat a une période de validité, et la connexion HTTPS est sécurisée uniquement si le certificat SSL du serveur est valide. La date actuelle doit être comprise dans la plage de dates délimitée par **Valide à partir du** et **Valide jusqu’au**. Si ce n’est pas le cas, le certificat est considéré comme non valide, ce qui entraîne un problème de sécurité. Application Gateway marque alors le serveur back-end comme Non sain.
+**Cause :** Chaque certificat a une période de validité, et la connexion HTTPS est sécurisée uniquement si le certificat TLS/SSL du serveur est valide. La date actuelle doit être comprise dans la plage de dates délimitée par **Valide à partir du** et **Valide jusqu’au**. Si ce n’est pas le cas, le certificat est considéré comme non valide, ce qui entraîne un problème de sécurité. Application Gateway marque alors le serveur back-end comme Non sain.
 
-**Solution :** Si votre certificat SSL est arrivé à expiration, renouvelez le certificat auprès de votre fournisseur et mettez à jour les paramètres du serveur avec le nouveau certificat. S’il s’agit d’un certificat auto-signé, vous devez générer un certificat valide et charger le certificat racine dans les paramètres HTTP d’Application Gateway. Pour ce faire, procédez comme suit :
+**Solution :** Si votre certificat TLS/SSL est arrivé à expiration, renouvelez le certificat auprès de votre fournisseur et mettez à jour les paramètres du serveur avec le nouveau certificat. S’il s’agit d’un certificat auto-signé, vous devez générer un certificat valide et charger le certificat racine dans les paramètres HTTP d’Application Gateway. Pour ce faire, procédez comme suit :
 
 1.  Ouvrez les paramètres HTTP d’Application Gateway dans le portail.
 
@@ -333,7 +333,7 @@ Pour Linux avec OpenSSL :
 
 #### <a name="certificate-verification-failed"></a>Échec de la vérification du certificat
 
-**Message :** La validité du certificat du back-end n’a pas pu être vérifiée. Pour en déterminer la raison, examinez le message associé au code d’erreur {errorCode} dans les diagnostics Open SSL
+**Message :** La validité du certificat du back-end n’a pas pu être vérifiée. Pour en déterminer la raison, examinez le message associé au code d’erreur {errorCode} dans les diagnostics OpenSSL
 
 **Cause :** Cette erreur se produit quand Application Gateway n’est pas en mesure de vérifier la validité du certificat.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8118ecde698b54213547e717d25613c0c3e0d3fd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906782"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631558"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
-Avant de charger une machine virtuelle Windows locale sur Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend en charge les machines virtuelles des générations 1 et 2 qui sont au format de fichier VHD et ont un disque de taille fixe. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go. 
+Avant de charger une machine virtuelle Windows locale sur Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend en charge les machines virtuelles des générations 1 et 2 qui sont au format de fichier VHD et ont un disque de taille fixe. La taille maximale autorisée pour le disque dur virtuel s’élève à 2 To.
 
 Sur une machine virtuelle de génération 1, vous pouvez convertir un système de fichiers VHDX en disque dur virtuel. Vous pouvez également convertir un disque de taille dynamique en disque de taille fixe. En revanche, vous ne pouvez pas modifier la génération d’une machine virtuelle. Pour plus d’informations, consultez la page [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) et [Support Azure pour machines virtuelles de génération 2 (aperçu)](generation-2.md).
 
@@ -267,7 +267,13 @@ Assurez-vous que les paramètres suivants sont configurés correctement pour un 
    ```PowerShell
    Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
-5. Si la machine virtuelle doit faire partie d’un domaine, vérifiez les stratégies Azure AD suivantes pour vous assurer que les anciens paramètres ne sont pas rétablis. 
+5. Créez une règle pour le réseau de la plateforme Azure :
+
+   ```PowerShell
+    New-NetFirewallRule -DisplayName "AzurePlatform" -Direction Inbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow -EdgeTraversalPolicy Allow
+    New-NetFirewallRule -DisplayName "AzurePlatform" -Direction Outbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow
+   ``` 
+6. Si la machine virtuelle doit faire partie d’un domaine, vérifiez les stratégies Azure AD suivantes pour vous assurer que les anciens paramètres ne sont pas rétablis. 
 
     | Objectif                                 | Stratégie                                                                                                                                                  | Valeur                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -418,13 +424,13 @@ Dans l’idéal, vous devez conserver l’ordinateur à jour au *niveau du corre
 > [!NOTE]
 > Pour éviter un redémarrage accidentel durant le provisionnement d’une machine virtuelle, nous vous recommandons de vous assurer que toutes les installations de Windows Update sont terminées et qu’aucune mise à jour n’est en attente. Pour ce faire, vous pouvez, par exemple, installer toutes les mises à jour Windows disponibles et effectuer un redémarrage avant d’exécuter la commande Sysprep.
 
-### Déterminer quand utiliser Sysprep <a id="step23"></a>    
+### <a name="determine-when-to-use-sysprep"></a>Déterminer quand utiliser Sysprep <a id="step23"></a>    
 
 L’outil de préparation système (Sysprep) est un processus que vous pouvez exécuter pour réinitialiser une installation Windows. Sysprep fournit une expérience « prête à l’emploi » en supprimant toutes les données personnelles et en réinitialisant plusieurs composants. 
 
 En général, vous exécutez Sysprep pour créer un modèle à partir duquel déployer plusieurs autres machines virtuelles ayant une configuration spécifique. Le modèle est appelé *image généralisée*.
 
-Si vous souhaitez créer uniquement une machine virtuelle à partir d’un disque, il est inutile d’utiliser Sysprep. Au lieu de cela, vous pouvez créer la machine virtuelle à partir d’une *image spécialisée*. Pour obtenir des informations sur la création d’une machine virtuelle à partir d’un disque spécialisé, consultez les pages :
+Si vous souhaitez créer une seule machine virtuelle à partir d’un disque, il est inutile d’utiliser Sysprep. Au lieu de cela, vous pouvez créer la machine virtuelle à partir d’une *image spécialisée*. Pour obtenir des informations sur la création d’une machine virtuelle à partir d’un disque spécialisé, consultez les pages :
 
 - [Créer une machine virtuelle à partir d’un disque spécialisé](create-vm-specialized.md)
 - [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)

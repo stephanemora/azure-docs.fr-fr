@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7eb1670ee911895bdba23921845b8795f4998af
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421555"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811302"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 
@@ -62,7 +62,7 @@ L'outil de fractionnement et de fusion fonctionne comme un service web Azure. Gr
 
 - **Services hébergés par le client**
 
-  Le service de fractionnement/fusion est fourni comme un service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Pour plus d'informations, consultez le [didacticiel du service de fractionnement et de fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer SSL, l’authentification client basée sur certificat, le chiffrement des informations d’identification stockées, la protection contre le déni de service et les restrictions d’adresse IP. Vous trouverez plus d’informations sur la sécurité dans le document suivant [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
+  Le service de fractionnement/fusion est fourni comme un service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Pour plus d'informations, consultez le [didacticiel du service de fractionnement et de fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer TLS, l’authentification client basée sur certificat, le chiffrement des informations d’identification stockées, la protection contre les attaques DoS et les restrictions d’adresse IP. Vous trouverez plus d’informations sur la sécurité dans le document suivant [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
 
   Le service déployé par défaut s'exécute avec un rôle de travail et un rôle web. Chacun utilise la taille de machine virtuelle A1 dans Azure Cloud Services. Même si vous ne pouvez pas modifier ces paramètres lors du déploiement du package, vous pouvez les modifier après un déploiement dans le service cloud en cours d'exécution (via le portail Azure). Notez que le rôle de travail ne doit pas être configuré pour plus d'une instance unique pour des raisons techniques.
 

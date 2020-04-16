@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 46c2bad6aa4e5c2e72a7e46ed944e2ca8d25bddc
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050351"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437523"
 ---
 # <a name="references"></a>References
 
@@ -31,7 +31,7 @@ Les API Azure FarmBeats offrent aux entreprises agricoles une interface RESTful 
 
 Les API FarmBeats incluent une documentation technique Swagger. Pour plus d’informations sur toutes les API et leurs demandes ou réponses correspondantes, consultez [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
-Le tableau suivant récapitule tous les objets et toutes les ressources dans FarmBeats Datahub.
+Le tableau suivant récapitule tous les objets et toutes les ressources dans FarmBeats Datahub :
 
 | Objets et ressources | Description
 --- | ---|
@@ -145,7 +145,7 @@ Dans cet exemple, lorsqu’une exploitation agricole a été créée, le champ o
 
 ## <a name="add-users-or-app-registrations-to-azure-active-directory"></a>Ajouter des utilisateurs ou des inscriptions d’applications à Azure Active Directory
 
-Les API Azure FarmBeats sont accessibles à un utilisateur ou à une inscription d’application dans Azure Active Directory. Pour créer une inscription d’application dans Azure Active Directory, procédez comme suit.
+Les API Azure FarmBeats sont accessibles à un utilisateur ou à une inscription d’application dans Azure Active Directory. Pour créer une inscription d’application dans Azure Active Directory, procédez comme suit :
 
 1. Accédez au [Portail Azure](https://portal.azure.com) et sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**. Vous pouvez également utiliser un compte existant.
 2. Pour un nouveau compte, procédez comme suit :
@@ -162,7 +162,7 @@ Les API Azure FarmBeats sont accessibles à un utilisateur ou à une inscription
     - Revenez à **Vue d’ensemble**, puis cliquez sur le lien à côté de **Gérer l’application dans le répertoire local**.
     - Accédez à **Propriétés** pour capturer l’**ID d’objet**.
 
-4. Accédez à votre [Datahub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) et procédez comme suit :
+4. Accédez à votre Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) et procédez comme suit :
     - Accédez à l’**API RoleAssignment**.
     - Effectuez un appel POST afin de créer un objet **RoleAssignment** pour l’**ID d’objet** que vous venez de créer.
 

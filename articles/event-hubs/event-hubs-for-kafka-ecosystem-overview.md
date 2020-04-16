@@ -10,15 +10,17 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: fc81226e754178ad0edfff96a494dd7522662261
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 91e2d70bab8c1be4b3e5b400ce21122eccb1e9eb
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368508"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811382"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Utiliser Azure Event Hubs à partir d’applications Apache Kafka
 Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos applications Kafka pour éviter d’exécuter votre propre cluster Kafka. Event Hubs prend en charge [Apache Kafka protocole 1.0 et ultérieurs](https://kafka.apache.org/documentation/), et fonctionne avec vos applications Kafka, notamment MirrorMaker.  
+
+> [!VIDEO https://www.youtube.com/embed/UE1WgB96_fc]
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Qu’apporte Event Hubs à Kafka ?
 
@@ -72,7 +74,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ```
 
 #### <a name="samples"></a>Exemples 
-Pour consulter un **tutoriel** avec instructions pas à pas afin de créer un Event Hub Kafka et y accéder à l’aide d’une signature d’accès partagé ou OAuth, consultez [Démarrage rapide : Streaming de données avec Event Hubs en utilisant le protocole Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
+Pour consulter un **tutoriel** avec des instructions pas à pas afin de créer un Event Hub et y accéder à l’aide d’une signature d’accès partagé ou OAuth, consultez [Démarrage rapide : Streaming de données avec Event Hubs en utilisant le protocole Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
 Pour plus d'**exemples** montrant comment utiliser OAuth avec Event Hubs pour Kafka, consultez les [exemples sur GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 
@@ -94,16 +96,6 @@ Voici la liste des fonctionnalités de Kafka qui ne sont pas prises en charge :
 *   Kafka Streams
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Cet article a présenté une introduction à Event Hubs pour Kafka. Pour en savoir plus, consultez les liens suivants :
-
-- [Créer un espace de noms Event Hubs prenant en charge Kafka](event-hubs-create-kafka-enabled.md)
-- [Diffuser dans Event Hubs à partir de vos applications Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Mettre en miroir un répartiteur Kafka dans un Event Hub prenant en charge Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connecter Apache Spark à un Event Hub prenant en charge Kafka](event-hubs-kafka-spark-tutorial.md)
-- [Connecter Apache Flink à un Event Hub prenant en charge Kafka](event-hubs-kafka-flink-tutorial.md)
-- [Intégrer Kafka Connect à un Event Hub prenant en charge Kafka](event-hubs-kafka-connect-tutorial.md)
-- [Connecter Akka Streams à un Event Hub prenant en charge Kafka](event-hubs-kafka-akka-streams-tutorial.md)
-- [Explorer des exemples sur GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+Cet article a présenté une introduction à Event Hubs pour Kafka. Pour en savoir plus, consultez [Guide du développeur Apache Kafka pour Azure Event Hubs](apache-kafka-developer-guide.md).
 
 

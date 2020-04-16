@@ -6,23 +6,28 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225745"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478851"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque d’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
+
+> [!NOTE]
+> La bibliothèque d’exécuteur en bloc décrite dans cet article est conservée pour les applications qui utilisent le Kit de développement logiciel (SDK) .NET version 2.x. Pour les nouvelles applications, vous pouvez utiliser la **prise en charge de l’exécution en bloc** qui est directement disponible avec le [Kit de développement logiciel (SDK) .NET version 3.x](tutorial-sql-api-dotnet-bulk-import.md) et ne nécessite aucune bibliothèque externe. 
+
+> Si vous utilisez actuellement la bibliothèque d’exécuteur en bloc et envisagez une migration vers la prise en charge de l’exécution en bloc sur le nouveau SDK, suivez les étapes décrites dans le [Guide de migration](how-to-migrate-from-bulk-executor-library.md) pour migrer votre application.
 
 Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de l’exécuteur en bloc .NET pour importer et mettre à jour des documents vers un conteneur Azure Cosmos. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque de l’exécuteur en bloc](bulk-executor-overview.md). Dans ce tutoriel, vous voyez un exemple d’application .NET qui importe en bloc des documents, générés de manière aléatoire, dans un conteneur Azure Cosmos. Après l’importation, il illustre comment mettre à jour en bloc les données importées en spécifiant des correctifs comme opérations à effectuer sur des champs de documents spécifiques.
 
 Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque .NET de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec les comptes d’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas encore installé Visual Studio 2019, vous pouvez télécharger et utiliser [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer le « développement Azure » lors de l’installation de Visual Studio.
 

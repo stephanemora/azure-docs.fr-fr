@@ -4,12 +4,12 @@ description: Découvrez des scénarios de sécurité relatifs aux clusters Azure
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229377"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80753801"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 
@@ -74,7 +74,7 @@ Pour les clusters exécutés dans Azure, vous pouvez également sécuriser l’a
 Pour les clusters Service Fabric déployés dans un réseau public hébergé dans Azure, les recommandations concernant l’authentification mutuelle client à nœud sont les suivantes :
 
 * Utiliser Azure Active Directory pour l’identité client
-* Utiliser un certificat pour l’identité du serveur et le chiffrement SSL de la communication HTTP
+* Certificat pour l’identité du serveur et le chiffrement TLS de la communication HTTP
 
 Pour les clusters Service Fabric déployés dans un réseau public hébergé dans Azure, les recommandations concernant la sécurité de nœud à nœud incitent à utiliser un certificat de cluster pour authentifier les nœuds.
 
@@ -82,7 +82,7 @@ Pour les clusters Windows Server autonomes, nous vous recommandons d’utiliser 
 
 ## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
 
-Vous pouvez utiliser le contrôle d’accès pour limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Ainsi, vous rendez le cluster plus sécurisé. Deux types de contrôle d’accès sont pris en charge pour les clients qui se connectent à un cluster : le rôle Administrateur et le rôle Utilisateur.
+Vous pouvez utiliser le contrôle d’accès pour limiter l’accès à certaines opérations de cluster pour différents groupes d’utilisateurs. Ainsi, vous rendez le cluster plus sécurisé. Deux types de contrôle d’accès sont pris en charge pour les clients qui se connectent à un cluster : le rôle Administrateur et le rôle Utilisateur.
 
 Les utilisateurs qui reçoivent le rôle Administrateur ont un accès complet aux fonctionnalités de gestion (y compris les fonctionnalités de lecture/écriture). Les utilisateurs qui reçoivent le rôle Utilisateur ne disposent, par défaut, que d’un accès en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête). Ils peuvent également résoudre des applications et des services.
 
@@ -103,13 +103,13 @@ Quelques éléments importants à prendre en compte :
 
 Ces certificats (un principal et éventuellement un secondaire) sont requis pour sécuriser un cluster et empêcher l’accès non autorisé à celui-ci. Ces certificats fournissent l’authentification du cluster et du serveur.
 
-L’authentification du cluster authentifie la communication nœud à nœud pour la fédération du cluster. Seuls les nœuds qui peuvent prouver leur identité avec ce certificat peuvent être ajoutés au cluster. L’authentification du serveur authentifie les points de terminaison de gestion du cluster sur un client de gestion, afin que le client de gestion sache qu’il communique avec le véritable cluster et pas avec un « intercepteur ». Ce certificat fournit également un certificat SSL pour l’API de gestion HTTPS et Service Fabric Explorer par le biais de HTTPS. Lorsqu’un nœud ou un client authentifie un nœud, l’une des premières choses à faire est de vérifier la valeur du nom commun du champ **Objet**. Ce nom commun ou l’un des autres noms d’objet (SAN) du certificat doit figurer dans la liste des noms communs autorisés.
+L’authentification du cluster authentifie la communication nœud à nœud pour la fédération du cluster. Seuls les nœuds qui peuvent prouver leur identité avec ce certificat peuvent être ajoutés au cluster. L’authentification du serveur authentifie les points de terminaison de gestion du cluster sur un client de gestion, afin que le client de gestion sache qu’il communique avec le véritable cluster et pas avec un « intercepteur ». Ce certificat fournit également un protocole TLS pour l’API de gestion HTTPS et Service Fabric Explorer par le biais de HTTPS. Lorsqu’un nœud ou un client authentifie un nœud, l’une des premières choses à faire est de vérifier la valeur du nom commun du champ **Objet**. Ce nom commun ou l’un des autres noms d’objet (SAN) du certificat doit figurer dans la liste des noms communs autorisés.
 
 Le certificat doit répondre aux exigences suivantes :
 
 * Le certificat doit contenir une clé privée. Ces certificats ont généralement les extensions .pfx ou .pem  
 * Le certificat doit être créé pour l’échange de clés, qui peut faire l’objet d’un export vers un fichier .pfx (Personal Information Exchange).
-* Le **nom d’objet du certificat doit correspondre au domaine utilisé pour accéder au cluster Service Fabric**. Cela est nécessaire pour la fourniture d’un certificat SSL pour le point de terminaison de gestion HTTPS du cluster et pour Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat SSL auprès d’une autorité de certification pour le domaine *.cloudapp.azure.com. Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom de sujet du certificat doit correspondre au nom de domaine personnalisé utilisé pour votre cluster.
+* Le **nom d’objet du certificat doit correspondre au domaine utilisé pour accéder au cluster Service Fabric**. Cela est nécessaire pour la fourniture d’un protocole TLS pour le point de terminaison de gestion HTTPS du cluster et pour Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat TLS/SSL auprès d’une autorité de certification (AC) pour le domaine *.cloudapp.azure.com. Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom de sujet du certificat doit correspondre au nom de domaine personnalisé utilisé pour votre cluster.
 
 Voici quelques autres points importants à prendre en compte :
 

@@ -4,19 +4,19 @@ description: Activer la connexion par clé de sécurité sans mot de passe à Az
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e088d239a91edeff34ecd1a7dc5be7a9f8628da3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129160"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653939"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Activer la connexion par clé de sécurité sans mot de passe (préversion)
 
@@ -65,7 +65,7 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 1. Connectez-vous si ce n’est pas déjà fait.
 1. Cliquez **Informations de sécurité**.
    1. Si l’utilisateur possède dispose déjà d’au moins une méthode d’authentification multifacteur Azure inscrite, il peut inscrire immédiatement une clé de sécurité FIDO2.
-   1. Sinon, il doit d’abord ajouter une méthode d'authentification multifacteur.
+   1. Sinon, il doit d’abord ajouter une méthode Azure MFA.
 1. Ajoutez une clé de sécurité de FIDO2 en cliquant sur **Ajouter méthode** et en choisissant **Clé de sécurité**.
 1. Choisissez **Périphérique USB** ou **Appareil NFC**.
 1. Préparez votre clé et choisissez **Suivant**.
@@ -97,7 +97,7 @@ L’approvisionnement et le retrait de clés de sécurité par l’administrateu
 
 ### <a name="upn-changes"></a>Modifications de l’UPN
 
-Nous travaillons sur la prise en charge d’une fonctionnalité qui permet la modification de l’UPN sur les appareils joints à Azure AD et à Azure AD Hybride. Si l’UPN de l’utilisateur change, vous ne pouvez plus modifier les clés de sécurité FIDO2 pour en prendre en compte. La solution consiste à réinitialiser l’appareil, et l’utilisateur doit s’inscrire de nouveau.
+Nous travaillons sur la prise en charge d’une fonctionnalité qui permet la modification de l’UPN sur les appareils joints à Azure AD et à Azure AD Hybride. Si l’UPN de l’utilisateur change, vous ne pouvez plus modifier les clés de sécurité FIDO2 pour en tenir compte. La solution consiste à réinitialiser l’appareil, et l’utilisateur doit s’inscrire de nouveau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

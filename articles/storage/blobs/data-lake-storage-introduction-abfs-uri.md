@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 04df30c2a97e865d23999df26768b38cb38be607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68855558"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437126"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utiliser l’URI Azure Data Lake Storage Gen2
 
@@ -27,23 +27,23 @@ Si le compte Data Lake Storage Gen2 que vous ciblez **n’est pas** défini comm
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Identificateur de schéma** : Le protocole `abfs` est utilisé comme identificateur de schéma. Vous pouvez vous connecter avec ou sans connexion SSL. Utilisez `abfss` pour vous connecter avec une connexion SSL.
+1. **Identificateur de schéma** : le protocole `abfs` est utilisé comme identificateur de schéma. Vous avez la possibilité de vous connecter avec ou sans une connexion TLS (Transport Layer Security), précédemment connue sous le nom de connexion SSL (Secure Sockets Layer). Utilisez `abfss` pour vous connecter avec une connexion TLS.
 
-2. **Système de fichiers** : Emplacement parent qui contient les fichiers et dossiers. C’est l’équivalent des conteneurs du service Stockage Blob Azure.
+2. **Système de fichiers** : emplacement parent qui contient les fichiers et dossiers. C’est l’équivalent des conteneurs du service Stockage Blob Azure.
 
-3. **Nom de compte** : Nom donné à votre compte de stockage à sa création.
+3. **Nom du compte** : nom donné à votre compte de stockage à sa création.
 
-4. **Chemins** : Représentation délimitée par des barres obliques (`/`) de la structure de répertoires.
+4. **Chemins** : représentation délimitée par des barres obliques (`/`) de la structure de répertoires.
 
-5. **Nom de fichier** : Nom du fichier individuel. Ce paramètre est facultatif si vous utilisez un répertoire.
+5. **Nom de fichier** : nom du fichier en question. Ce paramètre est facultatif si vous utilisez un répertoire.
 
 Toutefois, si le compte que vous ciblez est défini comme système de fichiers par défaut à la création du compte, la syntaxe d’URI raccourcie est la suivante :
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **Chemin** : Représentation délimitée par des barres obliques (`/`) de la structure de répertoires.
+1. **Chemin d’accès** : représentation délimitée par des barres obliques (`/`) de la structure de répertoires.
 
-2. **Nom de fichier** : Nom du fichier individuel.
+2. **Nom de fichier** : nom du fichier en question.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

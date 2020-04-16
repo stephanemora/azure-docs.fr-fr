@@ -3,12 +3,12 @@ title: Diagnostiquer des défaillances et exceptions avec Azure Application Insi
 description: Capturez des exceptions à partir d’applications ASP.NET, ainsi que des données de télémétrie des demandes.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294689"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892340"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
 Les exceptions dans votre application web dynamique sont signalées par [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.
@@ -19,7 +19,7 @@ Les exceptions dans votre application web dynamique sont signalées par [Applica
   * Applications hébergées par IIS sur une machine virtuelle Azure et un groupe de machines virtuelles identiques Azure : Ajoutez l’[extension Application Monitoring](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Installez le [SDK Application Insights](../../azure-monitor/app/asp-net.md) dans votre code d’application, ou
   * Serveurs web IIS : Exécutez l’[agent Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md) ou
-  * Applications web Java : Installez [l’agent Java](../../azure-monitor/app/java-agent.md)
+  * Applications web Java : Activer [l’agent Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * Installez l’[extrait de code JavaScript](../../azure-monitor/app/javascript.md) dans vos pages web pour intercepter les exceptions du navigateur.
 * Dans certains frameworks d’application ou avec certains paramètres, vous devez prendre des mesures supplémentaires pour intercepter davantage d’exceptions :
   * [Web forms](#web-forms)

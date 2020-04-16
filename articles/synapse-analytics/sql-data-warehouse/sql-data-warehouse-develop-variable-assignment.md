@@ -1,6 +1,6 @@
 ---
 title: Affecter des variables
-description: Conseils relatifs à l’affectation de variables T-SQL dans Azure SQL Data Warehouse, dans le cadre du développement de solutions.
+description: Dans cet article, vous trouverez des conseils essentiels pour l’attribution de variables T-SQL dans un pool SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0adcd9bdf92b7ec649b7d91ca0e655fc006b3549
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351666"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633406"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Affectation de variables dans Azure SQL Data Warehouse
+# <a name="assign-variables-in-synapse-sql-pool"></a>Attribuer des variables dans le pool SQL Synapse
 
-Conseils relatifs à l’affectation de variables T-SQL dans Azure SQL Data Warehouse, dans le cadre du développement de solutions.
+Dans cet article, vous trouverez des conseils essentiels pour l’attribution de variables T-SQL dans un pool SQL.
 
-## <a name="setting-variables-with-declare"></a>Définition de variables via l’instruction DECLARE
+## <a name="set-variables-with-declare"></a>Définir des variables via l’instruction DECLARE
 
-Dans SQL Data Warehouse, les variables sont définies au moyen de l’instruction `DECLARE` ou `SET`. Dans SQL Data Warehouse, l’initialisation de variables avec l’instruction DECLARE constitue l’une des méthodes les plus flexibles pour définir une valeur de variable.
+Dans le pool SQL, les variables sont définies au moyen de l’instruction `DECLARE` ou `SET`. L’initialisation de variables avec l’instruction DECLARE constitue l’une des méthodes les plus flexibles pour définir une valeur de variable dans un pool SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Il n’est pas possible d’initialiser et d’utiliser une variable au sein de la même instruction DECLARE. Illustrons notre propos : la commande de l’exemple suivant n’est **pas** autorisée, car l’élément @p1 est initialisé, mais également utilisé dans la même instruction DECLARE. L’exemple suivant génère une erreur.
+Il n’est pas possible d’initialiser et d’utiliser une variable au sein de la même instruction DECLARE. Illustrons notre propos : la commande de l’exemple suivant n’est **pas** autorisée, car l’élément @p1 est initialisé, mais également utilisé dans la même instruction DECLARE. Ainsi, l’exemple suivant génère une erreur :
 
 ```sql
 DECLARE @p1 int = 0
@@ -47,7 +47,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Définition de valeurs avec l’instruction SET
+## <a name="set-values-with-set"></a>Définir des valeurs avec l’instruction SET
 
 L’instruction SET est couramment utilisée pour définir une variable unique.
 

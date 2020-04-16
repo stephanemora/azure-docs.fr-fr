@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 67cafbb7934381cd4c2936d6e6dfe7fb19d70735
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/06/2020
+ms.openlocfilehash: fe2cb04f36026740dc54f4668d3c3188592bd8ae
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314689"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754228"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Apache Hadoop sur HDInsight
 
@@ -21,9 +21,9 @@ Ce document fournit la liste des ports utilisés par les services Apache Hadoop 
 
 ## <a name="public-ports-vs-non-public-ports"></a>Ports publics et ports non publics
 
-Les clusters HDInsight sous Linux exposent uniquement trois ports publiquement sur Internet, à savoir les ports 22, 23 et 443. Ces ports sont utilisés pour accéder en toute sécurité au cluster à l’aide de SSH et des services exposés sur le protocole HTTPS sécurisé.
+Les clusters HDInsight sous Linux exposent uniquement trois ports publiquement sur Internet : 22, 23 et 443. Ces ports sécurisent l’accès au cluster à l’aide de SSH et les services exposés sur le protocole HTTPS sécurisé.
 
-En interne, HDInsight est implémenté par plusieurs machines virtuelles Azure (les nœuds dans le cluster) exécutées sur un réseau virtuel Azure. Depuis le réseau virtuel, vous pouvez accéder aux ports non exposés sur Internet. Par exemple, si vous vous connectez à l’un des nœuds principaux à l’aide de SSH, à partir du nœud principal, vous pouvez ensuite accéder directement aux services s’exécutant sur les nœuds du cluster.
+HDInsight est implémenté par plusieurs Machines virtuelles Microsoft Azure (nœuds de cluster) exécutées sur Réseau virtuel Microsoft Azure. Depuis le réseau virtuel, vous pouvez accéder aux ports non exposés sur Internet. Si vous vous connectez via SSH au nœud principal, vous pouvez accéder directement aux services qui s’exécutent sur les nœuds de cluster.
 
 > [!IMPORTANT]  
 > Si vous ne spécifiez pas de réseau virtuel Azure comme une option de configuration pour HDInsight, un réseau virtuel Azure sera créé automatiquement. Toutefois, vous ne pouvez pas associer d’autres ordinateurs (comme les autres machines virtuelles Azure ou votre ordinateur de développement client) à ce réseau virtuel.
@@ -32,7 +32,7 @@ Pour joindre des ordinateurs supplémentaires au réseau virtuel, vous devez d�
 
 ## <a name="public-ports"></a>Ports publics
 
-Tous les nœuds d’un cluster HDInsight se trouvent dans un réseau virtuel Azure et ne sont pas directement accessibles à partir d’Internet. Une passerelle publique fournit l’accès à Internet pour les ports suivants, qui sont communs à tous les types de cluster HDInsight.
+Tous les nœuds d’un cluster HDInsight se trouvent dans une instance Réseau virtuel Microsoft Azure. Ils ne sont pas directement accessibles à partir d’Internet. Une passerelle publique fournit l’accès à Internet pour les ports suivants, qui sont communs à tous les types de cluster HDInsight.
 
 | Service | Port | Protocol | Description |
 | --- | --- | --- | --- |
@@ -49,13 +49,13 @@ Les éléments suivants sont disponibles pour les types de clusters spécifiques
 
 | Service | Port | Protocol | Type de cluster | Description |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |hbase |API REST HBase. Voir [Bien démarrer avec Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| `Stargate` |443 |HTTPS |hbase |API REST HBase. Voir [Bien démarrer avec Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |API REST Spark. Voir [Envoi de tâches Apache Spark à distance avec Apache Livy](spark/apache-spark-livy-rest-interface.md) |
 | Serveur Spark Thrift |443 |HTTPS |Spark |Le serveur Spark Thrift utilisé pour envoyer des requêtes Hive. Voir [Utiliser Beeline avec Apache Hive sur HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Interface utilisateur web de Storm. Voir [Déploiement et gestion des topologies Apache Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 | Proxy Rest Kafka |443 |HTTPS |Kafka |API REST Kafka. Voir [Interagir avec des clusters Apache Kafka dans Azure HDInsight à l’aide d’un proxy REST](kafka/rest-proxy.md). |
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 Tous les services exposés publiquement sur Internet doivent être authentifiés :
 
@@ -89,7 +89,7 @@ Exemples :
 | --- | --- | --- | --- | --- |
 | Interface utilisateur web de NameNode |Nœuds principaux |30070 |HTTPS |Interface utilisateur web pour afficher l’état |
 | Service de métadonnées NameNode |Nœuds principaux |8020 |IPC |Métadonnées du système de fichiers |
-| DataNode |Tous les nœuds de travail |30075 |HTTPS |Interface utilisateur web pour afficher l’état, les journaux d’activité, etc. |
+| DataNode |Tous les nœuds de travail |30075 |HTTPS |Interface utilisateur web pour afficher l’état, les journaux, etc. |
 | DataNode |Tous les nœuds de travail |30010 |&nbsp; |Transfert de données |
 | DataNode |Tous les nœuds de travail |30020 |IPC |Opérations sur les métadonnées |
 | NameNode secondaire |Nœuds principaux |50090 |HTTP |Point de contrôle pour les métadonnées NameNode |

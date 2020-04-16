@@ -3,12 +3,12 @@ title: Activer la sauvegarde quand vous créez une machine virtuelle Azure
 description: Explique comment activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226045"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672824"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Activer la sauvegarde quand vous créez une machine virtuelle Azure
 
@@ -61,9 +61,11 @@ Points à noter :
     1. Le nom d’un groupe de ressources accepte uniquement des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il ne peut pas se terminer par un point.
     2. Les noms de groupes de ressources peuvent contenir jusqu’à 74 caractères, y compris le nom du groupe de routage et le suffixe.
 4. La première `<alpha-numeric-string>` est obligatoire, tandis que la deuxième après « n » est facultative. Cela s’applique uniquement si vous donnez un nom personnalisé. Si vous n’entrez rien dans les deux zones de texte, le nom par défaut est utilisé.
-5. Vous pouvez modifier le nom du groupe de ressources en modifiant la stratégie si nécessaire. Si le modèle de nom est modifié, les nouveaux RP seront créés dans le nouveau RG. Toutefois, les anciens RP résideront toujours dans l’ancien RG et ne seront pas déplacés, car la collection RP ne prend pas en charge le déplacement des ressources. Les RP finissent par récupérer le garbage collector à l’expiration des points.
+5. Vous pouvez modifier le nom du groupe de ressources en modifiant la stratégie si nécessaire. Si le modèle de nom est modifié, les nouveaux RP seront créés dans le nouveau RG. Toutefois, les anciens RP résideront toujours dans l’ancien RG et ne seront pas déplacés, car la collection RP ne prend pas en charge le déplacement des ressources. Les RP finissent par récupérer le garbage collector à l’expiration des points.
 ![Changer le nom lors de la modification de la stratégie](./media/backup-during-vm-creation/modify-policy.png)
 6. Il est conseillé de ne pas verrouiller le groupe de ressources créé pour une utilisation par le service Sauvegarde Microsoft Azure.
+
+Afin de configurer le groupe de ressources Sauvegarde Azure pour Machines Virtuelles à l’aide de PowerShell, reportez-vous à [Créer un groupe de ressources Sauvegarde Azure lors de la conservation des instantanés](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Démarrer une sauvegarde après la création de la machine virtuelle
 

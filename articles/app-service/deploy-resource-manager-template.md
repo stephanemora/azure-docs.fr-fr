@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77211698"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637925"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Aide au déploiement d’applications web avec des modèles Azure Resource Manager
 
@@ -109,7 +109,7 @@ Le nom de votre application web doit être globalement unique. Vous pouvez utili
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Si votre modèle inclut une ressource [Microsoft.Web/Certificates](/azure/templates/microsoft.web/certificates) pour la liaison SSL et que le certificat est stocké dans une instance Key Vault, vous devez vous assurer que l’identité App Service peut accéder au certificat.
+Si votre modèle inclut une ressource [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) pour la liaison TLS/SSL et que le certificat est stocké dans une instance Key Vault, vous devez vous assurer que l’identité App Service peut accéder au certificat.
 
 Dans Azure, le principal du service App Service est doté de l’ID **abfa0a7c-a6b6-4736-8310-5855508787cd**. Pour accorder l’accès à Key Vault au principal du service App Service, utilisez :
 

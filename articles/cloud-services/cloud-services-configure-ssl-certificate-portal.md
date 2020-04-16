@@ -1,6 +1,6 @@
 ---
-title: Configuration de SSL pour un service cloud | Microsoft Docs
-description: Découvrez comment spécifier un point de terminaison HTTPS pour un rôle web et télécharger un certificat SSL pour sécuriser votre application. Ces exemples utilisent le portail Azure.
+title: Configurer TLS pour un service cloud | Microsoft Docs
+description: Découvrez comment spécifier un point de terminaison HTTPS pour un rôle Web et télécharger un certificat TLS/SSL pour sécuriser votre application. Ces exemples utilisent le portail Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -8,16 +8,16 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
-ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d397279ac7e5949398d695db615d9a003ab7acd
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233825"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811684"
 ---
-# <a name="configuring-ssl-for-an-application-in-azure"></a>Configuration de SSL pour une application dans Azure
+# <a name="configuring-tls-for-an-application-in-azure"></a>Configuration de TLS pour une application dans Azure
 
-Le chiffrement SSL (Secure Socket Layer) est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d'un point de terminaison HTTPS pour un rôle Web et le téléchargement d'un certificat SSL pour sécuriser votre application.
+Le chiffrement Transport Layer Security (TLS), précédemment connu sous le nom Secure Socket Layer (SSL), est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d’un point de terminaison HTTPS pour un rôle Web et le téléchargement d’un certificat TLS/SSL pour sécuriser votre application.
 
 > [!NOTE]
 > Les procédures décrites dans cette tâche s’appliquent à Azure Cloud Services ; pour App Services, consultez [cette page](../app-service/configure-ssl-bindings.md).
@@ -27,14 +27,14 @@ Cette tâche utilise un déploiement de production. Vous trouverez des informati
 
 Lisez tout d’abord [ceci](cloud-services-how-to-create-deploy-portal.md) si vous n’avez pas encore créé de service cloud.
 
-## <a name="step-1-get-an-ssl-certificate"></a>Étape 1 : obtention d’un certificat SSL
-Pour configurer le chiffrement SSL pour une application, vous devez d’abord obtenir un certificat SSL signé par une autorité de certification, un tiers approuvé qui émet des certificats à cet effet. Si vous n’en possédez pas, vous devez en obtenir un auprès de la société qui vend des certificats SSL.
+## <a name="step-1-get-a-tlsssl-certificate"></a>Étape 1 : Obtenir un certificat TLS/SSL
+Pour configurer le chiffrement TLS pour une application, vous devez d’abord obtenir un certificat TLS/SSL signé par une autorité de certification, un tiers approuvé qui émet des certificats à cet effet. Si vous n’en possédez pas, vous devez en obtenir un auprès de la société qui vend des certificats TLS/SSL.
 
-Le certificat SSL doit répondre aux prérequis suivants dans Azure :
+Le certificat TLS/SSL doit répondre aux prérequis suivants dans Azure :
 
 * Le certificat doit contenir une clé privée.
 * Le certificat doit être créé pour l'échange de clés et pouvoir faire l'objet d'un export au format Personal Information Exchange (.pfx).
-* Le nom d'objet du certificat doit correspondre au domaine servant à accéder au service cloud. Vous ne pouvez pas obtenir de certificat SSL d'une autorité de certification pour le domaine cloudapp.net. Vous devez acquérir un nom de domaine personnalisé à utiliser pour accéder à votre service. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom d’objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour accéder à votre application. Par exemple, si votre nom de domaine personnalisé est **contoso.com**, vous demandez un certificat auprès de votre autorité de certification pour * **.contoso.com** ou **www\.contoso.com**.
+* Le nom d'objet du certificat doit correspondre au domaine servant à accéder au service cloud. Vous ne pouvez pas obtenir de certificat TLS/SSL d’une autorité de certification pour le domaine cloudapp.net. Vous devez acquérir un nom de domaine personnalisé à utiliser pour accéder à votre service. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom d’objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour accéder à votre application. Par exemple, si votre nom de domaine personnalisé est **contoso.com**, vous demandez un certificat auprès de votre autorité de certification pour * **.contoso.com** ou **www\.contoso.com**.
 * Le certificat doit utiliser au minimum un chiffrement à 2048 bits.
 
 Dans le cadre d’un test, vous pouvez [créer](cloud-services-certs-create.md) et utiliser un certificat auto-signé. Un certificat auto-signé n'est pas authentifié par une autorité de certification et peut utiliser le domaine cloudapp.net comme URL de site Web. Par exemple, la tâche ci-dessous utilise un certificat auto-signé dans lequel le nom commun utilisé dans le certificat est **sslexample.cloudapp.net**.
@@ -43,7 +43,7 @@ Ensuite, vous devez ajouter des informations sur le certificat dans votre défin
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Étape 2 : modification des fichiers de définition de service et de configuration
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Étape 2 : modification des fichiers de définition de service et de configuration
 Votre application doit être configurée pour utiliser le certificat, et un point de terminaison HTTPS doit être ajouté. Suite à cette opération, les fichiers de définition de service et de configuration de service doivent être mis à jour.
 
 1. Dans votre environnement de développement, ouvrez le fichier de définition du service (CSDEF), ajoutez une section **Certificates** dans la section **WebRole**, puis ajoutez les informations qui suivent sur le certificat (et les certificats intermédiaires) :
@@ -132,7 +132,7 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
 
 Maintenant que les fichiers de définition du service et de configuration de service ont été mis à jour, créez un package pour votre déploiement afin de le télécharger dans Azure. Si vous utilisez **cspack**, n’utilisez pas l’indicateur **/generateConfigurationFile**, car les informations de certificat que vous venez juste d’entrer seraient écrasées.
 
-## <a name="step-3-upload-a-certificate"></a>Étape 3 : chargement d’un certificat
+## <a name="step-3-upload-a-certificate"></a>Étape 3 : Téléchargement d'un certificat
 Connectez-vous au portail Azure et...
 
 1. Dans la section **Toutes les ressources** du portail, sélectionnez votre service cloud.
@@ -149,7 +149,7 @@ Connectez-vous au portail Azure et...
 
 4. Fournissez le **fichier**, entrez le **mot de passe**, puis cliquez sur **Charger** en bas de la zone de saisie de données.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Étape 4 : connexion à l’instance de rôle à l’aide de HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Étape 4 : connexion à l’instance de rôle à l’aide de HTTPS
 Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous y connecter via HTTPS.
 
 1. Cliquez sur **l’URL du site** pour ouvrir le navigateur web.
@@ -166,7 +166,7 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
    ![Aperçu du site](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un déploiement de production, vous devez d'abord déterminer l'URL utilisée pour le déploiement intermédiaire. Une fois le service cloud déployé, l’URL de l’environnement intermédiaire est déterminée par le GUID **ID de déploiement** au format suivant : `https://deployment-id.cloudapp.net/`  
+   > Si vous voulez utiliser TLS pour un déploiement intermédiaire au lieu d’un déploiement de production, vous devez d’abord déterminer l’URL utilisée pour le déploiement intermédiaire. Une fois le service cloud déployé, l’URL de l’environnement intermédiaire est déterminée par le GUID **ID de déploiement** au format suivant : `https://deployment-id.cloudapp.net/`  
    >
    > Créez un certificat avec le nom commun (CN) similaire à l’URL basée sur GUID (par exemple, **328187776e774ceda8fc57609d404462.cloudapp.net**). Utilisez le portail pour ajouter le certificat à votre service cloud intermédiaire. Ensuite, ajoutez les informations du certificat à vos fichiers CSDEF et CSCFG, recréez le package de votre application et mettez à jour votre déploiement intermédiaire pour utiliser le nouveau package.
    >

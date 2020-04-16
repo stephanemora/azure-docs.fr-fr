@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes de connectivité
-description: Résolution des problèmes de connectivité dans SQL Analytics.
+description: Résolution des problèmes de connectivité dans le pool SQL Synapse.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,81 +11,73 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 689a2e549c2627c607b6549f164e55a73318f63e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350041"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408213"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Résolution des problèmes de connectivité
 
 Cet article liste les techniques de résolution des problèmes courantes relatives à la connexion à votre base de données SQL Analytics.
-- [Vérifier la disponibilité du service](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Vérifier les opérations de mise à l’échelle ou interrompues](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Vérifier les paramètres de pare-feu](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Vérifiez les paramètres de point de terminaison de service/du réseau virtuel](sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Vérifier les derniers pilotes](sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Vérifier la chaîne de connexion](sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Problèmes de connexion intermittente](sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
-- [Messages d’erreur courants](sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
 ## <a name="check-service-availability"></a>Vérifier la disponibilité du service
 
-Vérifiez si le service est disponible. Dans le portail Azure, accédez à la base de données SQL Analytics à laquelle vous essayez de vous connecter. Dans le panneau Table des matières à gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
+Vérifiez si le service est disponible. Dans le Portail Azure, accédez au pool SQL Synapse auquel vous souhaitez vous connecter. Dans le panneau Table des matières à gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
 
 ![Sélectionner l’intégrité des ressources](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-L’état de votre instance SQL Analytics s’affiche ici. Si le service ne s’affiche pas comme étant **disponible**, vérifiez d’autres étapes.
+L’état de votre pool SQL Synapse s’affiche ici. Si le service ne s’affiche pas comme étant **disponible**, vérifiez d’autres étapes.
 
 ![Service disponible](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Si l’intégrité de vos ressources indique que votre instance SQL Analytics est interrompue ou mise à l’échelle, suivez les instructions permettant de reprendre l’exécution de votre instance.
+Si l’intégrité de vos ressources indique que votre instance de pool SQL Synapse est interrompue ou mise à l’échelle, suivez les instructions permettant de reprendre l’exécution de votre instance.
 
 ![Service suspendu](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Des informations supplémentaires relatives à l’intégrité des ressources sont disponibles ici.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Vérifier les opérations de mise à l’échelle ou interrompues
 
-Dans le portail, vérifiez si votre instance SQL Analytics est interrompue ou mise à l’échelle.
+Dans le portail, vérifiez si votre instance de pool SQL Synapse est interrompue ou mise à l’échelle.
 
 ![Service suspendu](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Dans le portail, pour la *Vue d’ensemble* de votre instance SQL Analytics, vous voyez la planification de maintenance sélectionnée.
+Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Dans le portail, pour la *Vue d’ensemble* de votre pool SQL Synapse, vous voyez la planification de maintenance sélectionnée.
 
 ![Vue d’ensemble du programme de maintenance](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Sinon, contactez votre administrateur informatique pour vérifier que cette opération de maintenance n’est pas un événement planifié. Pour reprendre l’exécution de l’instance SQL Analytics, suivez les étapes décrites [ici](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Sinon, contactez votre administrateur informatique pour vérifier que cette opération de maintenance n’est pas un événement planifié. Pour reprendre l’exécution de l’instance SQL Analytics, suivez [ces étapes](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Vérifier les paramètres de pare-feu
 
-La base de données SQL Analytics communique par le biais du port 1433.   Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433. Vous trouverez plus d’informations sur les configurations de pare-feu [ici](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
+La base de données SQL Analytics communique par le biais du port 1433.   Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433. Vous trouverez plus d’informations sur les configurations de pare-feu [ici](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Vérifiez les paramètres de point de terminaison de service/du réseau virtuel
 
-Si vous recevez des erreurs 40914 et 40615, consultez la documentation [Résolution et description de l’erreur ici](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Si vous recevez des erreurs 40914 et 40615, consultez la documentation [Résolution et description de l’erreur ici](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## <a name="check-for-the-latest-drivers"></a>Vérifier les derniers pilotes
 
 ### <a name="software"></a>Logiciel
 
-Vérifiez que vous utilisez bien les outils les plus récents pour vous connecter à votre base de données SQL Analytics :
+Vérifiez que vous utilisez bien les outils les plus récents pour vous connecter à votre pool SQL Synapse :
 
-* SSMS
-* Azure Data Studio
-* SQL Server Data Tools (Visual Studio)
+- SSMS
+- Azure Data Studio
+- SQL Server Data Tools (Visual Studio)
 
 ### <a name="drivers"></a>Pilotes
 
 Vérifiez que vous disposez des dernières versions des pilotes.  L’utilisation d’une version antérieure des pilotes peut entraîner des comportements inattendus car les anciens pilotes peuvent ne pas en charge les nouvelles fonctionnalités.
 
-* [ODBC](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
-* [JDBC](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
-* [OLE DB](https://docs.microsoft.com/sql/connect/oledb/download-oledb-driver-for-sql-server)
-* [PHP](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server)
+- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="check-your-connection-string"></a>Vérifier la chaîne de connexion
 
-Vérifiez que vos chaînes de connexion sont correctement définies.  Vous trouverez quelques exemples ci-dessous.  Vous trouverez des informations supplémentaires concernant les [chaînes de connexion ici](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
+Vérifiez que vos chaînes de connexion sont correctement définies.  Vous trouverez quelques exemples ci-dessous.  Vous trouverez des informations supplémentaires concernant les [chaînes de connexion ici](sql-data-warehouse-connection-strings.md).
 
 Chaîne de connexion ADO.NET
 
@@ -113,11 +105,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problèmes de connexion intermittente
 
-Vérifiez si vous constatez une charge importante sur le serveur avec un grand nombre de requêtes en file d’attente. Vous devrez peut-être mettre à l’échelle votre instance SQL Analytics pour obtenir des ressources supplémentaires.
+Vérifiez si vous constatez une charge importante sur le serveur avec un grand nombre de requêtes en file d’attente. Vous devrez peut-être effectuer un scale-up de votre pool SQL Synapse pour obtenir des ressources supplémentaires.
 
 ## <a name="common-error-messages"></a>Messages d’erreur courants
 
-Erreurs 40914 et 40615, consultez la documentation [Résolution et description de l’erreur ici](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Erreurs 40914 et 40615, consultez la documentation [Résolution et description de l’erreur ici](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## <a name="still-having-connectivity-issues"></a>Vous rencontrez toujours des problèmes de connectivité ?
-Créez un [ticket de support](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) afin d’être assisté par l’équipe d’ingénierie.
+
+Créez un [ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) afin d’être assisté par l’équipe d’ingénierie.

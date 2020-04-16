@@ -1,6 +1,6 @@
 ---
 title: Optimisation de transactions
-description: Découvrez comment optimiser les performances de votre code transactionnel dans SQL Analytics tout en minimisant les risques de restaurations de longue durée.
+description: Découvrez comment optimiser les performances de votre code transactionnel dans Synapse SQL tout en minimisant les risques de restaurations de longue durée.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,36 +11,38 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 700f4717db652d678255aaa9fce6ff8b8ff3b52f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350586"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633565"
 ---
-# <a name="optimizing-transactions-in-sql-analytics"></a>Optimisation des transactions dans SQL Analytics
-Découvrez comment optimiser les performances de votre code transactionnel dans SQL Analytics tout en minimisant les risques de restaurations de longue durée.
+# <a name="optimizing-transactions-in-synapse-sql"></a>Optimisation des transactions dans Synapse SQL
+
+Découvrez comment optimiser les performances de votre code transactionnel dans Synapse SQL tout en minimisant les risques de restaurations de longue durée.
 
 ## <a name="transactions-and-logging"></a>Transactions et journalisation
-Les transactions sont une composante importante d’un moteur de base de données relationnelle. SQL Analytics utilise les transactions durant la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques INSERT, UPDATE et DELETE sont toutes des exemples de transactions implicites. Les transactions explicites utilisent BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une seule unité atomique. 
 
-SQL Analytics valide les modifications apportées à la base de données à l’aide de journaux des transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge dans le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
+Les transactions sont une composante importante d’un moteur de base de données relationnelle. Les transactions sont utilisées lors de la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques INSERT, UPDATE et DELETE sont toutes des exemples de transactions implicites. Les transactions explicites utilisent BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une seule unité atomique.
+
+Les modifications apportées à la base de données sont suivies à l’aide de journaux des transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge dans le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
 
 * Utilisez autant que possible des constructions de journalisation minimale.
 * Traitez les données en les regroupant par lots définis, afin d’éviter les transactions isolées de longue durée.
 * Adoptez un modèle de basculement de partitions en cas de modifications importantes apportées à une partition donnée.
 
 ## <a name="minimal-vs-full-logging"></a>Journalisation minimale et journalisation complète
+
 Contrairement aux opérations entièrement journalisées, qui utilisent le fichier journal de transactions pour effectuer le suivi de chaque modification de ligne, les journalisations minimales assurent le suivi des allocations d’étendue et des modifications de métadonnées uniquement. Par conséquent, la journalisation minimale implique la consignation exclusive des informations nécessaires à la restauration de la transaction en cas de défaillance ou pour une requête explicite (ROLLBACK TRAN). Dans la mesure où la journalisation minimale implique le suivi d’un volume de données moins important, cette opération est plus performante qu’une journalisation complète de taille similaire. En outre, un volume moins important d’écritures étant transmis vers le fichier journal de transactions, la quantité de données de journal générées est elle aussi réduite, et les performances E/S s’en trouvent accrues.
 
 Les limites de sécurité des transactions s’appliquent uniquement aux opérations faisant l’objet d’une journalisation complète.
 
 > [!NOTE]
-> Les opérations faisant l’objet d’une journalisation minimale peuvent prendre part à des transactions explicites. Comme toutes les modifications des structures d’allocations font l’objet d’un suivi, il est possible de restaurer les journalisations minimales. 
-> 
-> 
+> Les opérations faisant l’objet d’une journalisation minimale peuvent prendre part à des transactions explicites. Comme toutes les modifications des structures d’allocations font l’objet d’un suivi, il est possible de restaurer les journalisations minimales.
 
 ## <a name="minimally-logged-operations"></a>Journalisations minimales
+
 Les opérations suivantes peuvent faire l’objet d’une journalisation minimale :
 
 * CREATE TABLE AS SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
@@ -60,10 +62,9 @@ Les opérations suivantes peuvent faire l’objet d’une journalisation minimal
 
 > [!NOTE]
 > Les opérations de déplacement de données internes (telles que BROADCAST et SHUFFLE) ne sont pas affectées par la limite de sécurité des transactions.
-> 
-> 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Journalisation minimale avec chargement en bloc
+
 CTAS et INSERT...SELECT sont des opérations de chargement en bloc. Toutefois, ces deux éléments sont affectés par la définition de table cible et dépendent du scénario de chargement. Le tableau suivant décrit les situations de journalisations minimales ou complètes des opérations en bloc :  
 
 | Index primaire | Scénario de chargement | Mode de journalisation |
@@ -78,14 +79,13 @@ CTAS et INSERT...SELECT sont des opérations de chargement en bloc. Toutefois, c
 Il est important de noter que toute opération d’écriture effectuée dans le cadre d’une mise à jour d’index secondaires ou non cluster correspond à une journalisation complète.
 
 > [!IMPORTANT]
-> Une base de données SQL Analytics contient 60 distributions. Par conséquent, en partant du principe que l’ensemble des lignes sont distribuées équitablement et placées dans une partition unique, votre lot devra comporter 6 144 000 lots ou plus pour faire l’objet d’une journalisation minimale lors d’une écriture vers un index columstore en cluster. Si la table est partitionnée et que les lignes insérées dépassent les limites de la partition, il vous faudra 6 144 000 lignes par limite de partition, pour une distribution uniforme des données. Dans chaque distribution, l’ensemble des partitions doivent isolément dépasser le seuil de 102 400 lignes pour que l’insertion fasse l’objet d’une journalisation minimale dans la distribution.
-> 
-> 
+> Une base de données de pool SQL Synapse contient 60 distributions. Par conséquent, en partant du principe que l’ensemble des lignes sont distribuées équitablement et placées dans une partition unique, votre lot devra comporter 6 144 000 lots ou plus pour faire l’objet d’une journalisation minimale lors d’une écriture vers un index columstore en cluster. Si la table est partitionnée et que les lignes insérées dépassent les limites de la partition, il vous faudra 6 144 000 lignes par limite de partition, pour une distribution uniforme des données. Dans chaque distribution, l’ensemble des partitions doivent isolément dépasser le seuil de 102 400 lignes pour que l’insertion fasse l’objet d’une journalisation minimale dans la distribution.
 
 Le chargement de données dans une table non vide avec un index cluster comporte bien souvent une combinaison de lignes ayant fait l’objet d’une journalisation minimale et complète. Un index cluster est un arbre équilibré (arbre b) de pages. Si la page cible de l’écriture comporte déjà des lignes d’une autre transaction, ces opérations d’écriture feront l’objet d’une journalisation complète. Toutefois, si la page est vide, l’opération d’écriture fera l’objet d’une journalisation minimale.
 
 ## <a name="optimizing-deletes"></a>Optimisation des suppressions
-DELETE est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md).  Une fois la table créée, utilisez [RENAME](/sql/t-sql/statements/rename-transact-sql) pour permuter l’ancienne table et la table nouvellement créée.
+
+DELETE est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md).  Une fois la table créée, utilisez [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour permuter l’ancienne table et la table nouvellement créée.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -95,7 +95,7 @@ CREATE TABLE [dbo].[FactInternetSales_d]
 WITH
 (    CLUSTERED COLUMNSTORE INDEX
 ,    DISTRIBUTION = HASH([ProductKey])
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
                                                 ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
                                                 ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
@@ -110,25 +110,26 @@ WHERE    [PromotionKey] = 2
 OPTION (LABEL = 'CTAS : Delete')
 ;
 
---Step 02. Rename the Tables to replace the 
+--Step 02. Rename the Tables to replace the
 RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Optimisation des mises à jour
-UPDATE est une opération entièrement journalisée.  Si vous devez mettre à jour un nombre important de lignes d’une table ou d’une partition, il peut souvent s’avérer plus efficace de recourir à une opération avec une journalisation minimale, comme [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+
+UPDATE est une opération entièrement journalisée.  Si vous devez mettre à jour un nombre important de lignes d’une table ou d’une partition, il peut souvent s’avérer plus efficace de recourir à une opération avec une journalisation minimale, comme [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Dans l’exemple suivant, une mise à jour complète de table a été convertie en CTAS, ce qui rend possible la mise en place d’une journalisation minimale.
 
 Dans ce cas, nous ajoutons a posteriori une valeur de remise aux ventes dans la table :
 
 ```sql
---Step 01. Create a new table containing the "Update". 
+--Step 01. Create a new table containing the "Update".
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
 (    CLUSTERED INDEX
 ,    DISTRIBUTION = HASH([ProductKey])
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
                                                 ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
                                                 ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
@@ -137,15 +138,15 @@ WITH
                                                 )
                 )
 )
-AS 
+AS
 SELECT
     [ProductKey]  
-,    [OrderDateKey] 
+,    [OrderDateKey]
 ,    [DueDateKey]  
-,    [ShipDateKey] 
-,    [CustomerKey] 
-,    [PromotionKey] 
-,    [CurrencyKey] 
+,    [ShipDateKey]
+,    [CustomerKey]
+,    [PromotionKey]
+,    [CurrencyKey]
 ,    [SalesTerritoryKey]
 ,    [SalesOrderNumber]
 ,    [SalesOrderLineNumber]
@@ -162,7 +163,7 @@ SELECT
          END AS MONEY),0) AS [SalesAmount]
 ,    [TaxAmt]
 ,    [Freight]
-,    [CarrierTrackingNumber] 
+,    [CarrierTrackingNumber]
 ,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 OPTION (LABEL = 'CTAS : Update')
@@ -177,11 +178,10 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Les fonctionnalités de gestion de la charge de travail SQL Analytics peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).
-> 
-> 
+> Les fonctionnalités de gestion de la charge de travail d’un pool SQL Synapse peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).
 
 ## <a name="optimizing-with-partition-switching"></a>Optimisation avec basculement de partitions
+
 Si vous devez procéder à des modifications à grande échelle au sein d’une [partition de table](sql-data-warehouse-tables-partition.md), il est plus judicieux d’adopter un modèle de basculement de partitions. Si la modification de données est considérable et relative à plusieurs partitions, vous obtiendrez un résultat identique en effectuant une itération sur les partitions.
 
 Les étapes constitutives d’un basculement de partitions sont les suivantes :
@@ -220,11 +220,11 @@ SELECT     s.name                            AS [schema_name]
 FROM        sys.schemas                    AS s
 JOIN        sys.tables                    AS t    ON  s.[schema_id]        = t.[schema_id]
 JOIN        sys.indexes                    AS i    ON     t.[object_id]        = i.[object_id]
-JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id] 
-                                                AND i.[index_id]        = p.[index_id] 
+JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id]
+                                                AND i.[index_id]        = p.[index_id]
 JOIN        sys.partition_schemes        AS h    ON     i.[data_space_id]    = h.[data_space_id]
 JOIN        sys.partition_functions        AS f    ON     h.[function_id]        = f.[function_id]
-LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id] 
+LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id]
                                                 AND r.[boundary_id]        = p.[partition_number]
 WHERE i.[index_id] <= 1
 )
@@ -243,7 +243,7 @@ Cette procédure optimise la réutilisation du code et permet de conserver un ex
 Le code ci-dessous illustre les étapes mentionnées précédemment pour l’exécution d’une opération de basculement complet de partitions.
 
 ```sql
---Create a partitioned aligned empty table to switch out the data 
+--Create a partitioned aligned empty table to switch out the data
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
     DROP TABLE [dbo].[FactInternetSales_out]
@@ -253,7 +253,7 @@ CREATE TABLE [dbo].[FactInternetSales_out]
 WITH
 (    DISTRIBUTION = HASH([ProductKey])
 ,    CLUSTERED COLUMNSTORE INDEX
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20020101, 20030101
                                                 )
                 )
@@ -275,20 +275,20 @@ CREATE TABLE [dbo].[FactInternetSales_in]
 WITH
 (    DISTRIBUTION = HASH([ProductKey])
 ,    CLUSTERED COLUMNSTORE INDEX
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20020101, 20030101
                                                 )
                 )
 )
-AS 
+AS
 SELECT
     [ProductKey]  
-,    [OrderDateKey] 
+,    [OrderDateKey]
 ,    [DueDateKey]  
-,    [ShipDateKey] 
-,    [CustomerKey] 
-,    [PromotionKey] 
-,    [CurrencyKey] 
+,    [ShipDateKey]
+,    [CustomerKey]
+,    [PromotionKey]
+,    [CurrencyKey]
 ,    [SalesTerritoryKey]
 ,    [SalesOrderNumber]
 ,    [SalesOrderLineNumber]
@@ -305,7 +305,7 @@ SELECT
          END AS MONEY),0) AS [SalesAmount]
 ,    [TaxAmt]
 ,    [Freight]
-,    [CarrierTrackingNumber] 
+,    [CarrierTrackingNumber]
 ,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 WHERE    OrderDateKey BETWEEN 20020101 AND 20021231
@@ -344,9 +344,10 @@ DROP TABLE #ptn_data
 ```
 
 ## <a name="minimize-logging-with-small-batches"></a>Minimiser la journalisation avec des lots de petite taille
+
 Pour les opérations de grande envergure de modifications de données, il peut s’avérer judicieux de diviser l’activité en segments ou lots afin de répartir la charge de travail.
 
-Le code ci-dessous est un exemple d’utilisation. La taille du lot a été définie sur un nombre insignifiant, ceci pour mettre en évidence la technique. Dans la réalité, la taille du lot serait bien plus importante. 
+Le code ci-dessous est un exemple d’utilisation. La taille du lot a été définie sur un nombre insignifiant, ceci pour mettre en évidence la technique. Dans la réalité, la taille du lot serait bien plus importante.
 
 ```sql
 SET NO_COUNT ON;
@@ -405,18 +406,17 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Conseils sur la suspension et la mise à l’échelle
-SQL Analytics vous permet de [suspendre, reprendre et mettre à l’échelle](sql-data-warehouse-manage-compute-overview.md) votre pool SQL à la demande. Quand vous suspendez ou mettez à l’échelle votre pool SQL, il est important de comprendre que l’ensemble des transactions en cours sont immédiatement arrêtées, ce qui entraîne la restauration de toute transaction ouverte. Si votre charge de travail a émis une modification de données incomplète et de longue durée avant l’opération de suspension ou de mise à l’échelle, cette tâche devra être annulée. Cette annulation peut avoir une incidence sur le temps nécessaire à la suspension ou à la mise à l’échelle de votre pool SQL. 
+
+Synapse SQL vous permet de [suspendre, reprendre et mettre à l’échelle](sql-data-warehouse-manage-compute-overview.md) votre pool SQL à la demande. Quand vous suspendez ou mettez à l’échelle votre pool SQL, il est important de comprendre que l’ensemble des transactions en cours sont immédiatement arrêtées, ce qui entraîne la restauration de toute transaction ouverte. Si votre charge de travail a émis une modification de données incomplète et de longue durée avant l’opération de suspension ou de mise à l’échelle, cette tâche devra être annulée. Cette annulation peut avoir une incidence sur le temps nécessaire à la suspension ou à la mise à l’échelle de votre pool SQL.
 
 > [!IMPORTANT]
-> `UPDATE` et `DELETE` correspondant toutes deux à des journalisations complètes, ces opérations d’annulation et de rétablissement peuvent nécessiter un délai considérablement plus important que des journalisations minimales de taille équivalente. 
-> 
-> 
+> `UPDATE` et `DELETE` correspondant toutes deux à des journalisations complètes, ces opérations d’annulation et de rétablissement peuvent nécessiter un délai considérablement plus important que des journalisations minimales de taille équivalente.
 
 La configuration idéale consiste à laisser les transactions de modification de données en cours se terminer avant la suspension ou la mise à l’échelle du pool SQL. Toutefois, ce scénario n’est pas toujours pratique. Pour pallier le risque d’une longue restauration, envisagez l’une des options suivantes :
 
-* Réécrire les opérations de longue durée à l’aide de [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+* Réécrire les opérations de longue durée à l’aide de [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * Décomposer l’opération en segments, en traitant un sous-ensemble des lignes
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur les niveaux d’isolement et les limites transactionnelles, voir [Transactions dans SQL Analytics](sql-data-warehouse-develop-transactions.md).  Pour une vue d’ensemble des autres bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 
+Pour en savoir plus sur les niveaux d’isolement et les limites transactionnelles, consultez [Transactions dans Synapse SQL](sql-data-warehouse-develop-transactions.md).  Pour une vue d’ensemble des autres bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).

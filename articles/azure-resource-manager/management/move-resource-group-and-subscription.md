@@ -3,12 +3,12 @@ title: Déplacer des ressources vers un nouvel abonnement ou un nouveau groupe d
 description: Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226353"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631503"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -107,7 +107,7 @@ Pour illustrer cela, nous avons une seule ressource dépendante.
 
 * Étape 1 : Si les ressources dépendantes sont réparties entre différents groupes de ressources, commencez par les déplacer vers un même groupe de ressources.
 * Étape 2 : Déplacez la ressource et les ressources dépendantes ensemble de l’abonnement source vers l’abonnement cible.
-* Étape 3 : Si vous le souhaitez, redistribuez les ressources dépendantes dans différents groupes de ressources dans l’abonnement cible. 
+* Étape 3 : Si vous le souhaitez, redistribuez les ressources dépendantes dans différents groupes de ressources dans l’abonnement cible.
 
 ## <a name="validate-move"></a>Valider le déplacement
 
@@ -260,8 +260,9 @@ Lors du déplacement d’une ressource, ses ressources dépendantes doivent exis
 Par exemple, le déplacement d’une machine virtuelle peut nécessiter le déplacement de sept types de ressources avec trois fournisseurs de ressources différents. Ces types et fournisseurs de ressources sont les suivants :
 
 * Microsoft.Compute
-   * virtualMachines
-   * disks
+
+  * virtualMachines
+  * disks
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses

@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/08/2019
-ms.openlocfilehash: 0018ae55ab74e691577a34a397c15355587e0fac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 5aa025fb366634e796abfb2eb9c0035d9b87dc3c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663250"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437044"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -20,7 +20,7 @@ ms.locfileid: "77663250"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Mise à jour de la solution
-> Cette solution a été remplacée par la solution [Office 365](../../sentinel/connect-office-365.md) en disponibilité générale dans [Azure Sentinel](../../sentinel/overview.md) et par la [solution de supervision et de création de rapports Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Combinées, ces deux solutions fournissent une version mise à jour de la solution Azure Monitor Office 365 précédente qui offre une expérience de configuration optimisée. Vous pouvez continuer à utiliser la solution existante jusqu’au 30 avril 2020.
+> Cette solution a été remplacée par la solution [Office 365](../../sentinel/connect-office-365.md) en disponibilité générale dans [Azure Sentinel](../../sentinel/overview.md) et par la [solution de supervision et de création de rapports Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Combinées, ces deux solutions fournissent une version mise à jour de la solution Azure Monitor Office 365 précédente qui offre une expérience de configuration optimisée. Vous pouvez continuer à utiliser la solution existante jusqu’au 30 juillet 2020.
 > 
 > Azure Sentinel est une solution de gestion des informations et des événements de sécurité (SIEM) native dans le cloud qui ingère les journaux et offre des fonctionnalités SIEM supplémentaires, comme les détections, les investigations, la chasse et les insights basés sur le machine learning. Azure Sentinel permet maintenant l’ingestion des journaux d’activité Office 365 SharePoint et de gestion Exchange.
 > 
@@ -53,7 +53,7 @@ ms.locfileid: "77663250"
 > | where TimeGenerated >= ago(1d) 
 > | where OfficeWorkload == "AzureActiveDirectory"                      
 > | where Operation == 'UserLoginFailed'
-> | summarize count() by UserId 
+> | summarize count() by UserId    
 > ```
 > 
 > ```Kusto
@@ -82,10 +82,10 @@ ms.locfileid: "77663250"
 > ### <a name="q-do-i-need-azure-sentinel-to-connect-the-azure-ad-logs"></a>Q : Ai-je besoin de connecter Azure Sentinel et les journaux Azure AD ?
 > Vous pouvez configurer l’[intégration des journaux Azure AD avec Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) indépendamment de la solution Azure Sentinel. Azure Sentinel fournit un connecteur natif et du contenu prêt à l’emploi pour les journaux Azure AD. Pour plus d’informations, reportez-vous à la question posée plus bas sur le contenu de sécurité prêt à l’emploi.
 >
-> ###   <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-azure-sentinel-and-azure-monitor"></a>Q : Quelles sont les différences entre la connexion des journaux Azure AD à partir d’Azure Sentinel et à partir d’Azure Monitor ?
+> ###    <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-azure-sentinel-and-azure-monitor"></a>Q : Quelles sont les différences entre la connexion des journaux Azure AD à partir d’Azure Sentinel et à partir d’Azure Monitor ?
 > Azure Sentinel et Azure Monitor se connectent à des journaux Azure AD basés sur la même [solution de supervision et de création de rapports Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Azure Sentinel fournit un connecteur natif qui connecte en un clic les mêmes données et fournit des informations de supervision.
 >
-> ###   <a name="q-what-do-i-need-to-change-when-moving-to-the-new-azure-ad-reporting-and-monitoring-tables"></a>Q : Que dois-je modifier pour passer aux nouvelles tables de supervision et de création de rapports Azure AD ?
+> ###    <a name="q-what-do-i-need-to-change-when-moving-to-the-new-azure-ad-reporting-and-monitoring-tables"></a>Q : Que dois-je modifier pour passer aux nouvelles tables de supervision et de création de rapports Azure AD ?
 > Vous devez recréer toutes les requêtes qui utilisent des données Azure AD, y compris les requêtes dans les alertes, les tableaux de bord et tout contenu existant avec des données Office 365 Azure AD, dans les nouvelles tables.
 >
 > Azure Sentinel et Azure AD fournissent du contenu prédéfini que vous pouvez utiliser quand vous passez à la solution de supervision et de création de rapports Azure AD. Pour plus d’informations, consultez la question suivante sur le contenu de sécurité prêt à l’emploi et l’article [Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
@@ -103,11 +103,11 @@ ms.locfileid: "77663250"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>Q : Azure Sentinel inclut-il des connecteurs supplémentaires avec la solution ?
 > Oui. Consultez les [sources de données connectables à Azure Sentinel](../../sentinel/connect-data-sources.md).
 > 
-> ###   <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>Q : Que va-t-il se passer le 30 avril ? Dois-je faire l’intégration avant cette date ?
+> ###    <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>Q : Que va-t-il se passer le 30 avril ? Dois-je faire l’intégration avant cette date ?
 > 
 > - Vous ne pourrez plus recevoir de données de la solution **Office 365**. La solution ne sera plus disponible sur la Place de marché.
 > - Pour les clients d’Azure Sentinel, la **solution Office 365** de l’espace de travail Log Analytics sera incluse dans la solution Azure Sentinel **SecurityInsights**.
-> - Si vous n’intégrez pas votre solution manuellement, vos données seront déconnectées automatiquement le 30 avril.
+> - Si vous ne retirez pas votre solution manuellement, vos données seront déconnectées automatiquement le 30 avril.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>Q : Mes données seront-elles transférées vers la nouvelle solution ?
 > Oui. Quand vous supprimerez la solution **Office 365** de votre espace de travail, les données associées seront temporairement indisponibles en raison de la suppression du schéma. Lorsque vous activerez le nouveau connecteur **Office 365** dans Sentinel, le schéma sera restauré dans l’espace de travail et toutes les données déjà collectées seront disponibles. 
@@ -248,7 +248,7 @@ Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaqu
 |:--|:--|
 | Opérations | Fournit des informations sur les utilisateurs actifs depuis vos abonnements entièrement surveillés Office 365. Vous serez également en mesure de voir le nombre d’activités qui se produisent au fil du temps.
 | Exchange | Affiche la répartition des activités d’Exchange Server telles que l’autorisation ajouter une boîte aux lettres ou Définir une boîte aux lettres. |
-| SharePoint | Affiche les activités supérieures que les utilisateurs exécutent sur les documents SharePoint. Quand vous explorez depuis cette vignette, la page de recherche affiche les détails de ces activités, tels que le document cible et l’emplacement de cette activité. Par exemple, pour un événement Fichier ouvert, vous pouvez afficher le document ouvert, son nom de compte associé et son adresse IP. |
+| SharePoint | Affiche les activités supérieures que les utilisateurs exécutent sur les documents SharePoint. Quand vous explorez depuis cette vignette, la page de recherche affiche les détails de ces activités, tels que le document cible et l’emplacement de cette activité. Par exemple, pour un événement Fichier ouvert, vous pouvez afficher le document ouvert, le nom de compte qui lui est associé et son adresse IP. |
 | Azure Active Directory | Inclut les activités utilisateur supérieures, telles que la réinitialisation du mot de passe utilisateur et les tentatives de connexion. Quand vous explorez, vous pouvez afficher les détails de ces activités, telles que l’état du résultat. Ceci est particulièrement utile si vous souhaitez surveiller les activités suspectes sur votre Azure Active Directory. |
 
 
@@ -315,7 +315,7 @@ Ces enregistrements sont créés lors de la modification ou des ajouts apportés
 | ActorContextId | Le GUID de l’organisation à laquelle appartient l’acteur. |
 | ActorIpAddress | L’adresse IP de l’acteur au format d’adresse IPV4 ou IPV6. |
 | InterSystemsId | Le GUID qui effectuent le suivi des actions sur des composants au sein du service Office 365. |
-| IntraSystemId |   Le GUID généré par Azure Active Directory pour effectuer le suivi de l’action. |
+| IntraSystemId |     Le GUID généré par Azure Active Directory pour effectuer le suivi de l’action. |
 | SupportTicketId | L’ID du-ticket de support client pour l’action dans les situations de « agir-au-nom-de ». |
 | TargetContextId | Le GUID de l’organisation à laquelle appartient l’utilisateur cible. |
 
@@ -330,7 +330,7 @@ Ces enregistrements sont créés à partir des données d’audit de sécurité 
 | ElevationApprovedTime | L’horodatage de l’approbation de l’élévation. |
 | ElevationApprover | Le nom d’un gestionnaire Microsoft. |
 | ElevationDuration | La durée pendant laquelle l’élévation est active. |
-| ElevationRequestId |  Un identifiant unique pour la requête d’élévation. |
+| ElevationRequestId |     Un identifiant unique pour la requête d’élévation. |
 | ElevationRole | Le rôle pour lequel l’élévation a été demandé. |
 | ElevationTime | L’heure de début de l’élévation. |
 | start_time | L’heure de début de l’exécution de l’applet de commande. |
@@ -344,8 +344,8 @@ Ces enregistrements sont créés lorsque des modifications sont apportées à la
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
-| ExternalAccess |  Spécifie si l’applet de commande a été exécutée par un utilisateur dans votre organisation, par le personnel du centre de données Microsoft ou un compte de service du centre de données ou par un administrateur délégué. La valeur False indique que l’applet de commande a été exécuté par une personne dans votre organisation. La valeur True indique que l’applet de commande a été exécutée par le personnel du centre de données, un compte de service du centre de données ou un administrateur délégué. |
-| ModifiedObjectResolvedName |  Il s’agit du nom convivial de l’objet qui a été modifié par l’applet de commande. Cette opération est enregistrée uniquement si l’applet de commande modifie l’objet. |
+| ExternalAccess |     Spécifie si l’applet de commande a été exécutée par un utilisateur dans votre organisation, par le personnel du centre de données Microsoft ou un compte de service du centre de données ou par un administrateur délégué. La valeur False indique que l’applet de commande a été exécuté par une personne dans votre organisation. La valeur True indique que l’applet de commande a été exécutée par le personnel du centre de données, un compte de service du centre de données ou un administrateur délégué. |
+| ModifiedObjectResolvedName |     Il s’agit du nom convivial de l’objet qui a été modifié par l’applet de commande. Cette opération est enregistrée uniquement si l’applet de commande modifie l’objet. |
 | OrganizationName | Le nom du client. |
 | OriginatingServer | Le nom du serveur à partir duquel l’applet de commande a été exécutée. |
 | Paramètres | Le nom et la valeur de tous les paramètres utilisés avec l’applet de commande qui est identifiée dans la propriété Operations. |
@@ -366,7 +366,7 @@ Ces enregistrements sont créés lorsque des modifications ou ajouts sont apport
 | ClientVersion | La version du client de messagerie. |
 | InternalLogonType | Réservé à un usage interne. |
 | Logon_Type | Indique le type d’utilisateur qui a accédé à la boîte aux lettres et effectué l’opération qui a été enregistrée. |
-| LogonUserDisplayName |    Le nom convivial de l’utilisateur qui a effectué l’opération. |
+| LogonUserDisplayName |     Le nom convivial de l’utilisateur qui a effectué l’opération. |
 | LogonUserSid | Le SID de l’utilisateur qui a effectué l’opération. |
 | MailboxGuid | Le GUID Exchange de la boîte aux lettres ouverte. |
 | MailboxOwnerMasterAccountSid | SID de compte principal du compte du propriétaire de boîte aux lettres. |
@@ -419,7 +419,7 @@ Ces propriétés sont communes à tous les enregistrements SharePoint.
 | EventSource | Identifie qu’un événement s’est produit dans SharePoint. Les valeurs possibles sont ObjectModel ou SharePoint. |
 | itemType | Le type d’objet qui a été ouvert ou modifié. Consultez la table ItemType pour plus d’informations sur les types d’objets. |
 | MachineDomainInfo | Informations sur les opérations de synchronisation de terminal. Ces informations sont enregistrées uniquement si elles sont présente dans la requête. |
-| MachineId |   Informations sur les opérations de synchronisation de terminal. Ces informations sont enregistrées uniquement si elles sont présente dans la requête. |
+| MachineId |     Informations sur les opérations de synchronisation de terminal. Ces informations sont enregistrées uniquement si elles sont présente dans la requête. |
 | Site_ | Le GUID du site où se trouve le fichier ou le dossier ouvert par l’utilisateur. |
 | Source_Name | L’entité qui a déclenché l’opération d’audit. Les valeurs possibles sont ObjectModel ou SharePoint. |
 | UserAgent | Informations sur le client ou le navigateur de l’utilisateur. Ces informations sont fournies par le client ou le navigateur. |
@@ -434,7 +434,7 @@ Ces enregistrements sont créés lorsque des modifications de configuration sont
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
 | CustomEvent | Chaîne facultative pour les événements personnalisés. |
-| Event_Data |  Charge facultative pour les événements personnalisés. |
+| Event_Data |     Charge facultative pour les événements personnalisés. |
 | ModifiedProperties | La propriété est incluse pour les événements d’administrateur, tels que l’ajout d’un utilisateur en tant que membre d’un site ou un groupe administrateur de collection de sites. La propriété inclut le nom de la propriété modifiée (par exemple, le groupe d’administrateurs de site), la nouvelle valeur de la propriété modifiée (l’utilisateur ajouté en tant qu’un administrateur de site) et la valeur précédente de l’objet modifié. |
 
 
@@ -452,9 +452,9 @@ Ces enregistrements sont créés en réponse aux opérations de fichiers dans Sh
 | SharingType | Le type d’autorisations de partage attribuées à l’utilisateur avec lequel la ressource a été partagée. Cet utilisateur est identifié par le paramètre UserSharedWith. |
 | Site_Url | L’URL du site où se trouve le fichier ou le dossier ouvert par l’utilisateur. |
 | SourceFileExtension | L’extension de fichier du fichier qui est ouvert par l’utilisateur. Cette propriété est vide si l’objet a été ouvert est un dossier. |
-| SourceFileName |  Le nom du fichier ou du dossier ouvert par l’utilisateur. |
+| SourceFileName |     Le nom du fichier ou du dossier ouvert par l’utilisateur. |
 | SourceRelativeUrl | L’URL du dossier qui contient le fichier ouvert par l’utilisateur. La combinaison des valeurs pour les paramètres SiteURL, DestinationRelativeURL et DestinationFileName est identique à la valeur de la propriété ObjectID, qui est le nom de chemin d’accès complet du fichier ouvert par l’utilisateur. |
-| UserSharedWith |  L’utilisateur avec lequel une ressource a été partagée. |
+| UserSharedWith |     L’utilisateur avec lequel une ressource a été partagée. |
 
 
 

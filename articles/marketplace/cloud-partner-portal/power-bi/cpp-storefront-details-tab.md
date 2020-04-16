@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b69ef8aa57393c5be8d23aaf4af1821697295235
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4fb5fba78cdea7996d006d34b2f07f3ac5e58fa
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281678"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981288"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Onglet Détails de la vitrine des applications Power BI
+
+>[!Important]
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres d’applications Power BI vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création d’applications Power BI](https://aka.ms/AzureCreatePBIServiceApp) pour gérer vos offres migrées.
 
 Sur la page **Nouvelle offre**, utilisez l’onglet **Détails de la vitrine** pour fournir des informations légales, commerciales et marketing à vos clients potentiels. Dans cet onglet, vous pouvez également configurer la gestion des prospects générés par la Place de marché Azure. Ce formulaire long est divisé en six sections : **Détails de l’offre**, **Détails de l’annonce**, **Artefacts marketing**, **Informations légales**, **Service clientèle** et **Gestion des prospects**.  Un astérisque (*) à la fin d’une étiquette de champ signifie que le champ est obligatoire.
 

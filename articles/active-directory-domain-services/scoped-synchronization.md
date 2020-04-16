@@ -8,15 +8,15 @@ ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
-ms.date: 11/26/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ef7e14cc2a290cc5583e3e599e278f98882152c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613049"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654739"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurer une synchronisation délimitée entre Azure AD et Azure Active Directory Domain Services
 
@@ -47,13 +47,15 @@ Vous utilisez le portail Azure ou PowerShell pour configurer les paramètres de 
 | Désactiver la synchronisation délimitée | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> La modification de l’étendue de la synchronisation conduit le domaine managé Azure AD DS à resynchroniser toutes les données.
+> La modification de l’étendue de la synchronisation conduit le domaine managé Azure AD DS à resynchroniser toutes les données. Les considérations suivantes s'appliquent :
 > 
 >  * Quand vous modifiez l’étendue de synchronisation d’un domaine managé Azure AD DS, une resynchronisation complète se produit.
 >  * Les objets qui ne sont plus nécessaires dans le domaine managé Azure AD DS sont supprimés. De nouveaux objets sont créés dans le domaine managé.
 >  * La resynchronisation peut prendre un certain temps. La durée de cette opération varie en fonction du nombre d’objets (utilisateurs, groupes et appartenances aux groupes) présents dans le domaine managé Azure AD DS et l’annuaire Azure AD. Pour les annuaires volumineux avec plusieurs centaines de milliers d’objets, la resynchronisation peut prendre quelques jours.
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Activer la synchronisation délimitée à partir du portail Azure
+
+Pour activer la synchronisation délimitée dans le portail Azure, procédez comme suit :
 
 1. Suivez le [tutoriel pour créer et configurer une instance Azure AD DS](tutorial-create-instance-advanced.md). Respectez tous les prérequis et effectuez toutes les étapes de déploiement en dehors de celles prévues pour l’étendue de la synchronisation.
 1. Choisissez **Inclus dans l’étendue** à l’étape de synchronisation, puis sélectionnez les groupes Azure AD à synchroniser avec l’instance Azure AD DS.
@@ -173,7 +175,7 @@ Write-Output "******************************************************************
 
 ## <a name="enable-scoped-synchronization-using-powershell"></a>Activer la synchronisation délimitée à partir de PowerShell
 
-Utilisez PowerShell pour cette procédure. Consultez les instructions pour [activer Azure Active Directory Domain Services à l’aide de PowerShell](powershell-create-instance.md). Certaines étapes de cet article sont légèrement modifiées pour configurer la synchronisation étendue.
+Utilisez PowerShell pour effectuer la procédure suivante. Consultez les instructions pour [activer Azure Active Directory Domain Services à l’aide de PowerShell](powershell-create-instance.md). Certaines étapes de cet article sont légèrement modifiées pour configurer la synchronisation étendue.
 
 1. Effectuez les tâches de l’article ci-dessous pour activer Azure AD DS à l’aide de PowerShell. Arrêtez-vous à l’étape où le domaine managé est réellement créé. Vous devez configurer la synchronisation délimitée après avoir créé le domaine managé AD DS.
 

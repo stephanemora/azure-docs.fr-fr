@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0569907537f91f7e84b8156dffa0f313461f6e1
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162529"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677022"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
 
@@ -167,7 +167,7 @@ Un canal fournit un point de terminaison d’entrée (URL de réception) que vou
 
 Vous pouvez obtenir les URL de réception dès que vous avez créé un canal. Pour les obtenir, il n’est pas nécessaire que le canal soit à l’état **En cours d’exécution** . Lorsque vous êtes prêt à commencer l’envoi de données dans le canal, ce dernier doit être à l’état **En cours d’exécution** . Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux via l’URL d’aperçu.
 
-Vous avez la possibilité de recevoir un flux dynamique au format MP4 fragmenté (Smooth Streaming) via une connexion SSL. Pour assurer la réception via SSL, veillez à mettre à jour l’URL de réception pour HTTPS. Actuellement, AMS ne prend pas en charge SSL avec les domaines personnalisés.  
+Vous avez la possibilité d’ingérer un flux dynamique au format MP4 fragmenté (Smooth Streaming) via une connexion TLS. Pour assurer l’ingestion via TLS, veillez à mettre à jour l’URL d’ingestion pour HTTPS. Actuellement, AMS ne prend pas en charge le protocole TLS avec les domaines personnalisés.  
 
 ### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
 Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).

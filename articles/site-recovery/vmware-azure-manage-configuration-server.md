@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228945"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672730"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d'urgence d’un serveur physique ou d’une machine virtuelle VMware
 
@@ -33,7 +33,7 @@ Vous pouvez accéder au serveur de configuration comme suit :
 
 ## <a name="modify-vmware-server-settings"></a>Modifier les paramètres du serveur VMware
 
-1. Pour associer un autre serveur VMware au serveur de configuration, sélectionnez [Ajouter un serveur vCenter Server/vSphere ESXi](#access-configuration-server) après la **connexion**.
+1. Pour associer un autre serveur VMware au serveur de configuration, sélectionnez **Ajouter un serveur vCenter Server/vSphere ESXi** après la [connexion](#access-configuration-server).
 2. Entrez les détails et sélectionnez **OK**.
 
 ## <a name="modify-credentials-for-automatic-discovery"></a>Modifier les informations d’identification pour la découverte automatique
@@ -93,6 +93,32 @@ Le modèle OVF (Open Virtualization Format) déploie la machine virtuelle du ser
 - Vous pouvez [ajouter une autre carte réseau à la machine virtuelle](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mais vous devez le faire avant d’inscrire le serveur de configuration dans le coffre.
 - Pour ajouter une carte après avoir inscrit le serveur de configuration dans le coffre, ajoutez la carte dans les propriétés de la machine virtuelle. Ensuite, vous devez [réinscrire](#reregister-a-configuration-server-in-the-same-vault) le serveur dans le coffre.
 
+## <a name="how-to-renew-ssl-certificates"></a>Procédure de renouvellement des certificats SSL
+
+Le serveur de configuration comprend un serveur web intégré, qui orchestre les activités des agents Mobilité sur tous les ordinateurs protégés, des serveurs de traitement intégrés/scale-out et des serveurs cibles maîtres qui y sont connectés. Le serveur web utilise un certificat SSL pour authentifier les clients. Le certificat expire au bout de trois ans et peut être renouvelé à tout moment.
+
+### <a name="check-expiry"></a>Vérifier la date d’expiration
+
+La date d’expiration est indiquée sous **Intégrité de Configuration Server**. Pour les déploiements de serveurs de configuration effectués avant mai 2016, le certificat expire au bout d’un an. Si votre certificat est sur le point d’expirer, voici ce qui se produit :
+
+- Deux mois (ou moins) avant la date d’expiration, le service commence à envoyer des notifications via le portail et par e-mail (si vous avez souscrit aux notifications Site Recovery).
+- Une bannière de notification s’affiche sur la page de ressources du coffre. Pour plus d’informations, sélectionnez la bannière.
+- Si le bouton **Mettre à niveau maintenant** s’affiche, cela indique que certains composants de votre environnement n’ont pas été mis à niveau vers 9.4.xxxx.x ou une version supérieure. Mettez à niveau les composants avant de renouveler le certificat. Vous ne pouvez pas renouveler de versions antérieures.
+
+### <a name="if-certificates-are-yet-to-expire"></a>Si les certificats n’ont pas encore expiré
+
+1. Pour effectuer le renouvellement, ouvrez **Infrastructure Site Recovery** > **Serveur de configuration** dans le coffre. Sélectionnez le serveur de configuration dont vous avez besoin.
+2. Vérifiez que tous les composants (serveurs de traitement scale-out, serveurs cibles maîtres et agents Mobilité) sur tous les ordinateurs protégés sont à jour et connectés.
+3. Maintenant, sélectionnez **Renouveler les certificats**.
+4. Suivez attentivement les instructions de cette page et cliquez sur OK pour renouveler les certificats sur le serveur de configuration sélectionné et les composants associés.
+
+### <a name="if-certificates-have-already-expired"></a>Si les certificats ont déjà expiré
+
+1. Après expiration, **il n’est pas possible de renouveler les certificats sur le Portail Azure**. Avant toute chose, vérifiez que tous les composants (serveurs de traitement scale-out, serveurs cibles maîtres et agents Mobilité) sur tous les ordinateurs protégés sont à jour et connectés.
+2. **Ne suivez cette procédure que si les certificats ont déjà expiré.** Connectez-vous au serveur de configuration, accédez au lecteur C > Program Data > Site Recovery > home > svsystems > bin et exécutez l’outil exécuteur « RenewCerts » en tant qu’administrateur.
+3. Une fenêtre d’exécution PowerShell s’ouvre et déclenche le renouvellement des certificats. Cette opération peut durer jusqu’à 15 minutes. Ne fermez pas la fenêtre avant la fin du renouvellement.
+
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Réinscrire un serveur de configuration dans le même coffre
 
@@ -112,7 +138,7 @@ Vous pouvez réinscrire le serveur de configuration dans le même coffre, si né
    ```
 
     >[!NOTE]
-    >Afin d’**extraire les certificats les plus récents** du serveur de configuration au serveur de traitement avec scale-out, exécutez la commande *« \<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe> »--registermt*
+    >Afin **d’extraire les derniers certificats** du serveur de configuration au serveur de traitement scale-out, exécutez la commande *"\<Lecteur d’installation\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*.
 
 8. Enfin, redémarrez la machine en exécutant la commande suivante.
    ```
@@ -269,24 +295,6 @@ Vous pouvez également supprimer le serveur de configuration à l’aide de Powe
 2. Pour accéder au dossier bin, exécutez la commande **cd %ProgramData%\ASR\home\svsystems\bin**.
 3. Pour générer le fichier de phrase secrète, exécutez la commande **genpassphrase.exe -v > MobSvc.passphrase**.
 4. Votre phrase secrète est stockée dans le fichier situé à l’emplacement **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
-
-## <a name="renew-ssl-certificates"></a>Renouveler les certificats SSL
-
-Le serveur de configuration comprend un serveur web intégré, qui orchestre les activités du service Mobilité, des serveurs de processus et des serveurs cibles maîtres connectés à celui-ci. Le serveur web utilise un certificat SSL pour authentifier les clients. Le certificat expire au bout de trois ans et peut être renouvelé à tout moment.
-
-### <a name="check-expiry"></a>Vérifier la date d’expiration
-
-Pour les déploiements de serveurs de configuration effectués avant mai 2016, le certificat expire au bout d’un an. Si votre certificat est sur le point d’expirer, voici ce qui se produit :
-
-- Deux mois (ou moins) avant la date d’expiration, le service commence à envoyer des notifications via le portail et par e-mail (si vous avez souscrit aux notifications Site Recovery).
-- Une bannière de notification s’affiche sur la page de ressources du coffre. Pour plus d’informations, sélectionnez la bannière.
-- Si le bouton **Mettre à niveau maintenant** s’affiche, cela indique que certains composants de votre environnement n’ont pas été mis à niveau vers 9.4.xxxx.x ou une version supérieure. Mettez à niveau les composants avant de renouveler le certificat. Vous ne pouvez pas renouveler de versions antérieures.
-
-### <a name="renew-the-certificate"></a>Renouveler le certificat
-
-1. Dans le coffre, ouvrez **Infrastructure Site Recovery** > **Serveur de configuration**. Sélectionnez le serveur de configuration dont vous avez besoin.
-2. La date d’expiration est indiquée sous **Intégrité de Configuration Server**.
-3. Sélectionnez **Renouveler les certificats**.
 
 ## <a name="refresh-configuration-server"></a>Actualiser le serveur de configuration
 

@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525819"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631363"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Référence : Ubuntu (Linux) Data Science Virtual Machine
 
@@ -239,9 +239,9 @@ Vous pouvez accéder au [portail Azure](https://portal.azure.com) à partir du n
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning est un service cloud entièrement géré permettant de créer, déployer et partager facilement des solutions d’analyse prédictive. Vous pouvez créer vos expériences et modèles à partir d’Azure Machine Learning Studio (classique). Vous pouvez y accéder à partir d’un navigateur web sur la machine virtuelle DSVM en vous rendant sur [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning est un service cloud entièrement géré permettant de créer, déployer et partager facilement des solutions d’analyse prédictive. Vous pouvez créer vos expériences et modèles dans Azure Machine Learning Studio (préversion). Vous pouvez y accéder à partir d’un navigateur web sur la machine virtuelle DSVM en vous rendant sur [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-Une fois connecté à Azure Machine Learning Studio (classique), vous pouvez utiliser un canevas d’expérimentation permettant de générer un flux logique pour les algorithmes d’apprentissage automatique. Vous avez également accès à un notebook Jupyter hébergé dans Azure Machine Learning, et vous pouvez utiliser les expérimentations très facilement dans Azure Machine Learning Studio. 
+Une fois connecté à Azure Machine Learning Studio, vous pouvez utiliser un canevas d’expérimentation permettant de générer un flux logique pour les algorithmes de Machine Learning. Vous avez également accès à un notebook Jupyter hébergé sur Azure Machine Learning, et vous pouvez utiliser les expériences très facilement dans Azure Machine Learning Studio. 
 
 Exploitez les modèles de Machine Learning que vous avez générés en les encapsulant dans une interface de service web. La mise en place des modèles Machine Learning permet aux clients écrits dans n’importe quel langage d’appeler des prévisions à partir de ces modèles. Pour plus d’informations, voir la [documentation Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 

@@ -7,14 +7,14 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973133"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757232"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Prépayer les abonnements logiciels Azure
 
@@ -38,6 +38,7 @@ Les coûts initiaux de la réservation sont facturés sur le mode de paiement de
 4. Sélectionnez une étendue. L’étendue peut couvrir un ou plusieurs abonnements (étendue partagée).
     - Abonnement unique : la remise sur l’abonnement est appliquée à l’utilisation correspondante de cet abonnement.
     - Partagé : la remise sur l’abonnement est appliquée aux instances correspondantes de tout abonnement compris dans votre contexte de facturation. Pour les clients Entreprise, le contexte de facturation correspond à l’inscription et comprend tous les abonnements compris dans l’inscription. Pour le forfait individuel avec des clients ayant choisi le paiement à l’utilisation, le contexte de facturation est tous les forfaits individuels avec abonnement à paiement à l’utilisation créés par l’administrateur de compte.
+    - Groupe de ressources unique : applique la remise sur réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
 5. Sélectionnez un produit pour choisir la taille de machine virtuelle et le type d’image. La remise s’applique à la taille de machine virtuelle sélectionnée uniquement.
 6. Sélectionnez une durée de 1 ou 3 ans.
 7. Choisissez une quantité, c’est-à-dire le nombre d’instances de machine virtuelle prépayées pouvant bénéficier de la remise de facturation.

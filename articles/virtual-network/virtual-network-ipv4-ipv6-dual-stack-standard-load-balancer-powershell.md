@@ -11,44 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: 96ede56e7b21d2447d238306e00f2c4fbca56f04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6b61e27324220fc78ace3e964aed98f9ba114d3
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122234"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420930"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Déployer une application double pile IPv6 dans Azure - PowerShell (préversion)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Déployer une application double pile IPv6 dans Azure – PowerShell
 
 Cet article montre comment utiliser Standard Load Balancer pour déployer dans Azure une application double pile (IPv4 + IPv6) incluant un sous-réseau et un réseau virtuel double pile, un équilibreur de charge Standard Load Balancer avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau présentent une configuration double IP, des groupes de sécurité réseau et des adresses IP publiques.
-
-> [!Important]
-> La prise en charge du protocole IPv6 par le réseau virtuel Azure est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 6.9.0 ou ultérieure pour les besoins de cet article. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
-
-## <a name="prerequisites"></a>Prérequis
-Avant de déployer une application double pile dans Azure, vous devez configurer votre abonnement pour cette fonctionnalité d’évaluation à l’aide de la commande Azure PowerShell suivante :
-
-Effectuez l’inscription comme suit :
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Il faut compter 30 minutes pour l’inscription de la fonctionnalité. Vous pouvez vérifier le statut de l’inscription en exécutant la commande Azure PowerShell suivante : Vérifiez l’inscription en procédant comme suit :
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-À l’issue de l’installation, exécutez la commande suivante :
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -273,7 +251,7 @@ Créez des cartes réseau virtuelles avec [New-AzNetworkInterface](/powershell/m
     -PrivateIpAddressVersion IPv4 `
     -LoadBalancerBackendAddressPool $backendPoolv4 `
     -PublicIpAddress  $RdpPublicIP_1
-    
+      
   $Ip6Config=New-AzNetworkInterfaceIpConfig `
     -Name dsIp6Config `
     -Subnet $vnet.subnets[0] `
@@ -374,8 +352,6 @@ Vous pouvez afficher le réseau virtuel double pile IPv6 dans le Portail Microso
 
   ![Réseau virtuel double pile IPv6 dans Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> L’adresse IPv6 du réseau virtuel Azure est disponible dans le Portail Microsoft Azure en lecture seule pour cette préversion.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -1,6 +1,6 @@
 ---
 title: Désactiver le pare-feu du système d’exploitation invité dans une machine virtuelle Azure | Microsoft Docs
-description: ''
+description: Découvrez une méthode de contournement pour résoudre les situations dans lesquelles un pare-feu sur le système d’exploitation invité filtre le trafic partiel ou complet vers une machine virtuelle.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718869"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422359"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Désactiver le pare-feu du système d’exploitation invité dans une machine virtuelle Azure
 

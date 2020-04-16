@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771391"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475427"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
 
@@ -58,7 +58,7 @@ Le chemin des données de sortie dans l’objet blob respecte cette syntaxe :
 >[!NOTE]
 > Dans les versions du SDK Azure Machine Learning pour Python qui sont antérieures à la version 0.1.0a16, l’argument `designation` se nomme `identifier`. Si votre code a été développé avec une version antérieure, vous devrez le mettre à jour.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
 
@@ -129,11 +129,7 @@ Si vous avez déjà installé un service et ses dépendances dans votre fichier 
 
    ![Modifier le service](././media/how-to-enable-data-collection/EditService.PNG)
 
-1. Dans **Paramètres avancés**, sélectionnez **Activer la collecte des données de modèle**.
-
-    [![Sélection de Collecte de données](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
-
-   Vous pouvez également sélectionner **Activer les diagnostics Appinsights** pour effectuer le suivi de l’intégrité de votre service.
+1. Dans **Paramètres avancés**, sélectionnez **Activer les diagnostics et la collecte de données Application Insights**.
 
 1. Sélectionnez **Mettre à jour** pour appliquer les modifications.
 
@@ -151,9 +147,7 @@ Vous pouvez arrêter la collecte de données à tout moment. Utilisez le code Py
 
    [![Sélection de l’option Éditer](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-1. Dans **Paramètres avancés**, décochez l’option **Activer la collecte des données de modèle**.
-
-    [![Désactivation de l’option de collecte des données](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+1. Dans **Paramètres avancés**, désélectionnez **Activer les diagnostics et la collecte de données Application Insights**.
 
 1. Sélectionnez **Mettre à jour** pour appliquer la modification.
 

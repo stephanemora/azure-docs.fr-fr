@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386797"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811649"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs peuvent accéder à votre application par le biais d’une URL telle que `http://contoso.cloudapp.net`. Azure attribue également une adresse IP virtuelle.
@@ -30,7 +30,7 @@ Vous avez compris ce que sont les enregistrements CNAME et A ? [Passez l’expl
 <p/>
 
 > [!TIP]
-> Soyez opérationnel plus rapidement. Utilisez la nouvelle [procédure pas à pas d’Azure](https://support.microsoft.com/kb/2990804).  Grâce à elle, l'association d'un nom de domaine personnalisé ET la sécurisation de la communication (SSL) avec les services cloud Azure ou les sites Web Azure deviennent un jeu d'enfants.
+> Soyez opérationnel plus rapidement. Utilisez la nouvelle [procédure pas à pas d’Azure](https://support.microsoft.com/kb/2990804).  Grâce à elle, l’association d’un nom de domaine personnalisé ET la sécurisation de la communication (TLS) à l’aide d’Azure Cloud Services ou Azure Websites deviennent un jeu d’enfants.
 > 
 > 
 
@@ -128,7 +128,7 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 * [Mappage du contenu CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
-* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Configuration de [certificats TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname

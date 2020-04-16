@@ -2,20 +2,22 @@
 title: Collecter et analyser les journaux de ressources
 description: Découvrez comment envoyer des journaux de ressources et des données d’événement à partir de groupes de conteneurs dans Azure Container Instances vers les journaux d'activité Azure Monitor
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 04/07/2020
 ms.author: danlep
-ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75770541"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892391"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
 Les espaces de travail Log Analytics fournissent un emplacement centralisé pour le stockage et l’interrogation des données de journaux, non seulement à partir de ressources Azure, mais également à partir de ressources locales et d’autres clouds. Azure Container Instances inclut une prise en charge intégrée de l’envoi des journaux et des données d’événements aux journaux Azure Monitor.
 
-Pour envoyer des données de journal et des données d’événements d’un groupe de conteneurs aux journaux Azure Monitor, indiquez une clé et un ID d’espace de travail Log Analytics lors de la création du groupe de conteneurs. Les sections suivantes décrivent comment créer un groupe de conteneurs dans lequel la journalisation est activée et comment interroger des journaux.
+Pour envoyer des données de journal et des données d’événements d’un groupe de conteneurs aux journaux Azure Monitor, indiquez une clé et un ID d’espace de travail Log Analytics lors de la configuration du groupe de conteneurs. 
+
+Les sections suivantes décrivent comment créer un groupe de conteneurs dans lequel la journalisation est activée et comment interroger des journaux. Vous pouvez également [mettre à jour un groupe de conteneurs](container-instances-update.md) avec un ID d’espace de travail et une clé d’espace de travail pour activer la journalisation.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

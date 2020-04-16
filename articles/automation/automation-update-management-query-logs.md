@@ -3,14 +3,14 @@ title: Effectuer des recherches dans les journaux Azure Update Management
 description: Cet article explique comment interroger les journaux pour Update Management dans votre espace de travail Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 01/10/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5a1979b0e714f35694999c04e1f890b710d54ac9
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867065"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743873"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Interroger des enregistrements de mises à jour pour Update Management dans les journaux d’activité Azure Monitor
 
@@ -112,7 +112,7 @@ Un enregistrement du type `UpdateRunProgress` est créé, qui fournit l’état 
 | CorrelationId | Identificateur unique de la tâche runbook à exécuter pour la mise à jour. |
 | EndTime | Heure de fin du processus de synchronisation. | 
 | ErrorResult | Code d’erreur Windows Update généré en cas d’échec de l’installation d’une mise à jour. | 
-| InstallationStatus | Les états d’installation possibles d’une mise à jour sur l’ordinateur client sont *In progress* (En cours), *Succeeded* (Réussie) et *Partially failed* (Échec partiel). |
+| InstallationStatus | Les états d’installation possibles d’une mise à jour sur l’ordinateur client sont :<br> *NotStarted* : la tâche n’a pas encore été déclenchée.<br> *FailedToStart* : impossible de démarrer la tâche sur l’ordinateur.<br> *Failed* : la tâche a démarré, mais a échoué avec une exception.<br> *InProgress* : la tâche est en cours.<br> *MaintenanceWindowExceeded* : si l’exécution était encore en cours, mais que l’intervalle de la fenêtre de maintenance a été atteint.<br> *Succeeded* : la tâche a réussi.<br> *InstallFailed* : échec de l’installation de la mise à jour.<br> *NotIncluded*<br> *Excluded* |
 | KBID | ID d’article de la base de connaissances pour la mise à jour Windows. | 
 | ManagementGroupName | Nom du groupe d’administration Operations Manager ou de l’espace de travail Log Analytics. |
 | Système d’exploitation | Spécifie le type de système d’exploitation, *Windows* ou *Linux*. | 
@@ -144,8 +144,8 @@ Un enregistrement du type `UpdateSummary` est créé, qui fournit un résumé de
 | CriticalUpdatesMissing | Nombre de mises à jour critiques manquantes qui sont applicables. | 
 | ManagementGroupName | Nom du groupe d’administration Operations Manager ou de l’espace de travail Log Analytics. |
 | NETRuntimeVersion | Version de .NET Framework installée sur l’ordinateur Windows. |
-| OldestMissingSecurityUpdateBucket | | 
-| OldestMissingSecurityUpdateInDays | |
+| OldestMissingSecurityUpdateBucket | Les valeurs sont les suivantes :<br> *Récent* si la valeur est inférieure à 30 jours<br> *Il y a 30 jours*<br> *Il y a 60 jours*<br> *Il y a 90 jours*<br> *Il y a 120 jours*<br> *Il y a 150 jours*<br> *Il y a 180 jours*<br> *Plus ancien* lorsque la valeur est supérieure à 180 jours | 
+| OldestMissingSecurityUpdateInDays | Nombre total de jours pour la mise à jour la plus ancienne ayant été détectée comme applicable mais n’ayant pas été installée. |
 | OsVersion | Version du système d’exploitation. |
 | OtherUpdatesMissing | Nombre de mises à jour détectées manquantes. |
 | Ressource |  Nom de la ressource. | 

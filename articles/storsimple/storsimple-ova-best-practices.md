@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a8aed646f03b777722518152354cfe80cea043a0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002804"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544338"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -64,7 +64,7 @@ En fonction des facteurs précédents, les exigences de dimensionnement peuvent 
 
 Les exemples suivants illustrent la façon de dimensionner une baie virtuelle selon vos besoins.
 
-#### <a name="example-1"></a>Exemple 1 :
+#### <a name="example-1"></a>Exemple 1 :
 Sur votre baie virtuelle, vous souhaitez être en mesure de
 
 * configurer un partage ou un volume hiérarchisé de 2 To ;
@@ -92,7 +92,7 @@ En tenant compte de la croissance inattendue et de nouvelles restaurations, vous
 > Nous vous recommandons également de configurer dynamiquement le disque local. Cette recommandation est due au fait que l’espace de restauration est nécessaire uniquement lorsque vous souhaitez restaurer des données datant de plus de cinq jours. La récupération au niveau de l’élément vous permet de restaurer les données des cinq derniers jours sans nécessiter d’espace supplémentaire pour la restauration.
 
 
-#### <a name="example-2"></a>Exemple 2 :
+#### <a name="example-2"></a>Exemple 2 :
 Sur votre baie virtuelle, vous souhaitez être en mesure de
 
 * configurer un volume hiérarchisé de 2 To ;
@@ -161,8 +161,8 @@ Gardez à l’esprit les bonnes pratiques suivantes lors de l’approvisionnemen
 
 * La taille des fichiers par rapport à la taille configurée d’un partage hiérarchisé peut affecter les performances de hiérarchisation. L'utilisation de fichiers volumineux peut entraîner une montée en charge lente. Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage.
 * Au plus, 16 volumes/partages peuvent être créés sur la baie virtuelle. Pour les limites de taille des volumes/partages attachés localement et à plusieurs niveaux, reportez-vous toujours aux [limites de StorSimple Virtual Array](storsimple-ova-limits.md).
-* Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Il ne sera pas possible de développer le volume par la suite.
-* Une fois que le volume a été créé, vous ne pouvez pas réduire la taille du volume sur StorSimple.
+* Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Il ne sera pas possible d’augmenter la taille du volume ou du partage de fichiers par la suite.
+* Une fois que le volume/partage a été créé, vous ne pouvez pas réduire la taille du volume/partage sur StorSimple.
 * Lors de l’écriture sur un volume hiérarchisé sur StorSimple, lorsque les données du volume atteignent un certain seuil (par rapport à l’espace local réservé pour le volume), les E/S sont limitées. Continuer à écrire sur ce volume ralentit considérablement les E/S. Bien que vous puissiez écrire sur un volume hiérarchisé au-delà de sa capacité déployée (nous n’empêchons pas activement l’utilisateur d’écrire au-delà de la capacité déployée), une notification d’alerte apparaît lorsque vous effectuez une demande trop importante. Quand cette alerte apparaît, il est impératif de prendre des mesures correctives, en supprimant par exemple les données du volume (l’expansion des volumes n’est pas prise en charge actuellement).
 * Pour les cas d’utilisation liés à la récupération d’urgence, comme le nombre de partages/volumes autorisés est de 16 et que le nombre maximal de partages/volumes pouvant être traités en parallèle est également de 16, le nombre de partages/volumes n’a pas d’incidence sur vos RPO et RTO.
 
@@ -200,7 +200,7 @@ Utilisez les bonnes pratiques suivantes lors de la configuration d’ACR pour le
 Votre baie virtuelle StorSimple Virtual Array a des fonctionnalités de chiffrement et de sécurité des données qui garantissent la confidentialité et l’intégrité de vos données. Lorsque vous utilisez ces fonctionnalités, nous vous recommandons de suivre ces bonnes pratiques : 
 
 * Définissez une clé de chiffrement de stockage cloud pour générer un chiffrement AES-256 avant l’envoi des données de votre baie virtuelle vers le cloud. Cette clé n’est pas requise si vos données sont chiffrées dès le départ. La clé peut être générée et protégée à l’aide d’un système de gestion de clés tel qu’ [Azure Key Vault](../key-vault/key-vault-overview.md).
-* Lorsque vous configurez le compte de stockage via le service StorSimple Manager, veillez à activer le mode SSL pour créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud.
+* Lorsque vous configurez le compte de stockage via le service StorSimple Manager, veillez à activer le mode TLS afin de créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud.
 * Régénérez les clés de vos comptes de stockage (en accédant au service Stockage Azure) régulièrement pour prendre en compte toutes les modifications de l’accès en fonction de la liste modifiée des administrateurs.
 * Les données figurant sur votre baie virtuelle sont compressées et dédupliquées avant leur envoi vers Azure. Nous ne recommandons pas l’utilisation du service de rôle Déduplication des données sur votre hôte Windows Server.
 
@@ -215,7 +215,7 @@ Il est impossible de modifier la fréquence et la rétention associées aux sauv
 * Planifiez vos sauvegardes pendant les heures creuses. L’heure de début de la sauvegarde ne doit pas coïncider avec un grand nombre d’E/S d’hôte.
 * Lancez une sauvegarde manuelle à la demande lorsque vous envisagez d’effectuer un basculement de l’appareil ou avant la fenêtre de maintenance, pour protéger les données figurant sur votre baie virtuelle.
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Restaurer
 Vous pouvez restaurer à partir d’un jeu de sauvegarde de deux manières : restaurez vers un autre volume ou partage, ou effectuez une récupération au niveau de l’élément (disponible uniquement sur une baie virtuelle configurée en tant que serveur de fichiers). La récupération au niveau de l’élément vous permet d'effectuer une récupération granulaire de fichiers et de dossiers à partir d'une sauvegarde cloud contenant tous les partages sur l'appareil StorSimple. Pour plus d’informations, consultez la page [Restaurer à partir d’une sauvegarde](storsimple-virtual-array-clone.md).
 
 Lorsque vous effectuez une restauration, gardez à l’esprit les instructions suivantes :

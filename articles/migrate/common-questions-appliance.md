@@ -3,12 +3,12 @@ title: Questions fréquentes (FAQ) sur l’appliance Azure Migrate
 description: Retrouvez les réponses aux questions courantes sur l’appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 3d0844b980ac418c5c334c2535c40dc5f3caeb16
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939291"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437614"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -55,8 +55,8 @@ Pour plus d’informations sur la connectivité réseau requise pour l’applian
 
 Pour plus d’informations sur les données recueillies par l’appliance Azure Migrate sur les machines virtuelles, consultez les articles suivants :
 
-- **Données de la machine virtuelle VMware** : [données de performances](migrate-appliance.md#collected-performance-data-vmware) et [métadonnées](migrate-appliance.md#collected-metadata-vmware).
-- **Données de la machine virtuelle Hyper-V** : [données de performances](migrate-appliance.md#collected-performance-data-hyper-v) et [métadonnées](migrate-appliance.md#collected-metadata-hyper-v).
+- **Machine virtuelle VMware** : [Examinez](migrate-appliance.md#collected-data---vmware) les données collectées. [
+- **Machine virtuelle Hyper-V** : [Examinez](migrate-appliance.md#collected-data---hyper-v) les données collectées.
 
 ## <a name="how-is-data-stored"></a>Comment les données sont stockées ?
 
@@ -83,7 +83,7 @@ Oui, elles le sont dans les deux cas :
 
 Ces étapes décrivent comment l’appliance se connecte au serveur VMware vCenter :
 
-1. L’appliance se connecte à vCenter Server (port 443) en utilisant les informations d’identification fournies lors de sa configuration.
+1. L’appliance se connecte vCenter Server (port 443) en utilisant les informations d’identification fournies lors de sa configuration.
 2. L’appliance utilise VMware PowerCLI pour interroger vCenter Server afin de recueillir des métadonnées sur les machines virtuelles managées par vCenter Server.
 3. L’appliance collecte des données de configuration sur les machines virtuelles (cœurs, mémoire, disques, cartes réseau) ainsi que l’historique des performances de chaque machine virtuelle pour le mois dernier.
 4. Les métadonnées recueillies sont envoyées à l’outil Azure Migrate: Server Assessment (sur Internet par le biais du protocole HTTPS) pour l’évaluation.
@@ -94,6 +94,9 @@ Non. Il existe un mappage un-à-un entre une [appliance Azure Migrate](migrate-a
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Un projet Azure Migrate peut-il avoir plusieurs appliances ?
 Plusieurs appliances peuvent être attachées à un même projet. Toutefois, une appliance ne peut être associée qu’à un seul projet. 
+
+## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>L’appliance Azure Migrate/de réplication peut-elle se connecter au même vCenter ?
+Oui. Vous pouvez ajouter à la fois l’appliance Azure Migrate (utilisée pour l’évaluation et la migration VMware sans agent) et l’appliance de réplication (utilisée pour la migration basée sur agent des machines virtuelles VMware) vers le même serveur vCenter.
 
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Combien de machines virtuelles ou de serveurs puis-je découvrir avec une appliance ?
@@ -128,7 +131,7 @@ Seuls l’appliance et les agents de l’appliance sont mis à jour par ces mise
 
 ## <a name="can-i-check-agent-health"></a>Puis-je vérifier l’intégrité de l’agent ?
 
-Oui. Dans le portail, accédez à la page **Intégrité de l’agent** pour l’outil Azure Migrate: Server Assessment ou Azure Migrate: Server Migration. Vous pouvez y vérifier l’état de la connexion entre Azure et les agents de détection et d’évaluation sur l’appliance.
+Oui. Dans le portail, accédez à la page **Intégrité de l’agent** pour l’outil Azure Migrate: Server Assessment ou Azure Migrate : d’Azure Migrate. Vous pouvez y vérifier l’état de la connexion entre Azure et les agents de détection et d’évaluation sur l’appliance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

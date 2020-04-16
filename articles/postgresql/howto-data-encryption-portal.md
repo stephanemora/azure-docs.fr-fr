@@ -1,17 +1,17 @@
 ---
-title: Chiffrement des données pour le serveur unique Azure Database pour PostgreSQL avec le portail Azure
+title: Chiffrement – Portail Azure – pour Azure Database pour PostgreSQL – Single server
 description: Découvrez comment configurer et gérer le chiffrement des données pour votre serveur unique Azure Database pour PostgreSQL à l’aide du portail Azure.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 6028f5e618b4b480a2259241fc2380f0200cebc6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 847e3c612a200743fa08cf939c9995ebb6f3dbfc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898362"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520330"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Chiffrement des données pour le serveur unique Azure Database pour PostgreSQL avec le portail Azure
 
@@ -65,9 +65,9 @@ Découvrez comment utiliser le portail Azure pour configurer et gérer le chiffr
 
 4. Pour que tous les fichiers (y compris les fichiers temporaires) soient entièrement chiffrés, redémarrez le serveur.
 
-## <a name="restore-or-create-a-replica-of-the-server"></a>Restaurer ou créer un réplica du serveur
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Utilisation du chiffrement des données pour les serveurs de restauration ou réplicas
 
-Une fois le serveur unique Azure Database pour PostgreSQL chiffré avec une clé gérée par le client stockée dans Key Vault, toute copie du serveur récemment créée est également chiffrée. Vous pouvez effectuer cette nouvelle copie par l’intermédiaire d’une opération locale ou de restauration géographique, ou par le biais d’une opération de réplica (locale ou inter-région). Ainsi, pour un serveur PostgreSQL chiffré, vous pouvez utiliser les étapes suivantes afin de créer un serveur restauré chiffré.
+Une fois Azure Database pour PostgreSQL Serveur unique chiffré à l'aide d'une clé gérée par le client stockée dans Key Vault, toute copie nouvellement créée du serveur est également chiffrée. Vous pouvez effectuer cette nouvelle copie par l’intermédiaire d’une opération locale ou de restauration géographique, ou par le biais d’une opération de réplica (locale ou inter-région). Ainsi, pour un serveur PostgreSQL chiffré, vous pouvez utiliser les étapes suivantes afin de créer un serveur restauré chiffré.
 
 1. Sur votre serveur, sélectionnez **Vue d’ensemble** > **Restaurer**.
 
@@ -93,130 +93,6 @@ Une fois le serveur unique Azure Database pour PostgreSQL chiffré avec une clé
 4. Après avoir inscrit le principal de service, revalidez la clé pour que le serveur reprenne ses fonctionnalités normales.
 
    ![Capture d’écran d’Azure Database pour PostgreSQL, montrant les fonctionnalités restaurées](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
-
-## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Utilisation d’un modèle Azure Resource Manager pour activer le chiffrement des données
-
-Outre le portail Azure, vous pouvez également activer le chiffrement des données sur votre serveur unique Azure Database pour PostgreSQL à l’aide de modèles Azure Resource Manager pour les serveurs nouveaux et existants.
-
-### <a name="for-a-new-server"></a>Pour un nouveau serveur
-
-Utilisez l’un des modèles Azure Resource Manager précréés pour provisionner le serveur avec le chiffrement des données activé : [Exemple avec chiffrement des données](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
-
-Ce modèle Azure Resource Manager crée un serveur Azure Database pour PostgreSQL et utilise les valeurs **KeyVault** et **Key** transmises comme paramètres pour activer le chiffrement des données sur le serveur.
-
-### <a name="for-an-existing-server"></a>Pour un serveur existant
-Vous pouvez également utiliser des modèles Azure Resource Manager pour activer le chiffrement des données sur vos serveurs uniques Azure Database pour PostgreSQL existants.
-
-* Transmettez l’URI de la clé Azure Key Vault que vous avez copiées sous la propriété `keyVaultKeyUri` dans l’objet properties.
-
-* Utilisez *2020-01-01-preview* comme version de l’API.
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string"
-    },
-    "serverName": {
-      "type": "string"
-    },
-    "keyVaultName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key vault name where the key to use is stored"
-      }
-    },
-    "keyVaultResourceGroupName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key vault resource group name where it is stored"
-      }
-    },
-    "keyName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key name in the key vault to use as encryption protector"
-      }
-    },
-    "keyVersion": {
-      "type": "string",
-      "metadata": {
-        "description": "Version of the key in the key vault to use as encryption protector"
-      }
-    }
-  },
-  "variables": {
-    "serverKeyName": "[concat(parameters('keyVaultName'), '_', parameters('keyName'), '_', parameters('keyVersion'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.DBforPostgreSQL/servers",
-      "apiVersion": "2017-12-01",
-      "kind": "",
-      "location": "[parameters('location')]",
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "name": "[parameters('serverName')]",
-      "properties": {
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-05-01",
-      "name": "addAccessPolicy",
-      "resourceGroup": "[parameters('keyVaultResourceGroupName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.DBforPostgreSQL/servers', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.KeyVault/vaults/accessPolicies",
-              "name": "[concat(parameters('keyVaultName'), '/add')]",
-              "apiVersion": "2018-02-14-preview",
-              "properties": {
-                "accessPolicies": [
-                  {
-                    "tenantId": "[subscription().tenantId]",
-                    "objectId": "[reference(resourceId('Microsoft.DBforPostgreSQL/servers/', parameters('serverName')), '2017-12-01', 'Full').identity.principalId]",
-                    "permissions": {
-                      "keys": [
-                        "get",
-                        "wrapKey",
-                        "unwrapKey"
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "[concat(parameters('serverName'), '/', variables('serverKeyName'))]",
-      "type": "Microsoft.DBforPostgreSQL/servers/keys",
-      "apiVersion": "2020-01-01-preview",
-      "dependsOn": [
-        "addAccessPolicy",
-        "[resourceId('Microsoft.DBforPostgreSQL/servers', parameters('serverName'))]"
-      ],
-      "properties": {
-        "serverKeyType": "AzureKeyVault",
-        "uri": "[concat(reference(resourceId(parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults/', parameters('keyVaultName')), '2018-02-14-preview', 'Full').properties.vaultUri, 'keys/', parameters('keyName'), '/', parameters('keyVersion'))]"
-      }
-    }
-  ]
-}
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,21 +1,21 @@
 ---
 title: Utiliser PowerShell pour configurer des clés gérées par le client
 titleSuffix: Azure Storage
-description: Découvrez comment utiliser PowerShell afin de configurer des clés gérées par le client pour le chiffrement du stockage Azure. Les clés gérées par le client vous permettent de créer, faire pivoter, désactiver et révoquer des contrôles d’accès.
+description: Découvrez comment utiliser PowerShell afin de configurer des clés gérées par le client pour le chiffrement du stockage Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2019
+ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 77324dff7e3f34574f36aa3bb775aed6a945a3bd
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: f24c89a53af5e618d64b78d6001040190c1f339c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665277"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618344"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurer des clés gérées par le client avec Azure Key Vault à l’aide de PowerShell
 
@@ -63,7 +63,7 @@ Pour définir la stratégie d’accès du coffre de clés, appelez la commande [
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
     -ObjectId $storageAccount.Identity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get,recover
+    -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
 ## <a name="create-a-new-key"></a>Créer une clé
@@ -73,6 +73,8 @@ Créez ensuite une clé dans le coffre de clés. Pour créer une clé, appelez l
 ```powershell
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
 ```
+
+Seules les clés RSA et RSA-HSM 2048 bits sont prises en charge avec le chiffrement Stockage Azure. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurer le chiffrement avec les clés gérées par le client
 
@@ -97,9 +99,18 @@ Lors de la création d’une nouvelle version d’une clé, vous devez mettre à
 
 Pour modifier la clé utilisée pour le chiffrement de Stockage Azure, appelez la cmdlet [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) comme indiqué dans [Configurer des clés de chiffrement gérées par le client](#configure-encryption-with-customer-managed-keys) et indiquez le nom et la version de la nouvelle clé. Si la nouvelle clé se trouve dans un coffre de clés différent, mettez également à jour l’URI du coffre de clés.
 
+## <a name="revoke-customer-managed-keys"></a>Révoquer des clés gérées par le client
+
+Si vous pensez qu’une clé a peut-être été compromise, vous pouvez révoquer les clés gérées par le client en supprimant la stratégie d’accès au coffre de clés. Pour révoquer une clé gérée par le client, appelez la commande [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy), comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
+
+```powershell
+Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+```
+
 ## <a name="disable-customer-managed-keys"></a>Désactiver les clés gérées par le client
 
-Lorsque vous désactivez les clés gérées par le client, votre compte de stockage est chiffré avec des clés gérées par Microsoft. Pour désactiver les clés gérées par le client, appelez la cmdlet [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) avec l’option `-StorageEncryption`, comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
+Quand vous désactivez les clés gérées par le client, votre compte de stockage est de nouveau chiffré avec des clés gérées par Microsoft. Pour désactiver les clés gérées par le client, appelez la cmdlet [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) avec l’option `-StorageEncryption`, comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `

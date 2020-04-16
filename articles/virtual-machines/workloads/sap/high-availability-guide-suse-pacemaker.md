@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2020
+ms.date: 04/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3d0ddbd1282827f17cd82228fcf0f3fba3a60f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471980"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811579"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -365,6 +365,9 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    </code></pre>
 
 1. **[A]**  Configurer cloud-netconfig-azure pour un cluster haute disponibilité
+
+   >[!NOTE]
+   > Vérifiez la version installée du package **cloud-netconfig-azure** en exécutant **zypper info cloud-netconfig-azure**. Si la version dans votre environnement est 1.3 ou une version ultérieure, il n’est plus nécessaire de bloquer la gestion des interfaces réseau par le plug-in réseau cloud. Si la version est inférieure à 1.3, nous vous suggérons de mettre à jour le package **cloud-netconfig-azure** avec la dernière version disponible.  
 
    Modifiez le fichier de configuration de l’interface réseau comme illustré ci-dessous pour empêcher le plug-in du réseau cloud de supprimer l'adresse IP virtuelle (Pacemaker doit contrôler l’attribution des adresses IP virtuelles). Pour plus d’informations, consultez [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 

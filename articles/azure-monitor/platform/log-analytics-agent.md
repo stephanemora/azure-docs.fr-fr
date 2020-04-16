@@ -1,21 +1,20 @@
 ---
 title: Présentation de l’agent Log Analytics
 description: Cette rubrique aide à comprendre comment collecter des données et effectuer le monitoring d’ordinateurs hébergés dans un environnement Azure, local ou tout autre environnement cloud avec Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: bf2939c28afb682d4053a27920b9cf57795d2e86
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467230"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520720"
 ---
 # <a name="log-analytics-agent-overview"></a>Présentation de l’agent Log Analytics
-L’agent Azure Log Analytics a été développé pour une gestion complète des machines virtuelles dans tous les clouds, des machines locales et de celles surveillées par [Operations Manager](https://docs.microsoft.com/system-center/scom/). Les agents Windows et Linux envoient des données collectées à partir de différentes sources à votre espace de travail Log Analytics dans Azure Monitor, ainsi que des journaux d’activité ou mesures uniques tels que définis dans une solution de supervision. L’agent Log Analytics prend également en charge des analyses et d’autres services dans Azure Monitor comme [Azure Monitor pour machines virtuelles](), [Azure Security Center]() et [Azure Automation]().
+L’agent Azure Log Analytics a été développé pour une gestion complète des machines virtuelles dans tous les clouds, des machines locales et de celles surveillées par [Operations Manager](https://docs.microsoft.com/system-center/scom/). Les agents Windows et Linux envoient des données collectées à partir de différentes sources à votre espace de travail Log Analytics dans Azure Monitor, ainsi que des journaux d’activité ou mesures uniques tels que définis dans une solution de supervision. L’agent Log Analytics prend également en charge des analyses et d’autres services dans Azure Monitor comme [Azure Monitor pour machines virtuelles](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/) et [Azure Automation](../../automation/automation-intro.md).
 
 Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
 
@@ -102,7 +101,7 @@ Cette section fournit des détails sur les distributions Linux prises en charge.
 À partir des versions publiées après août 2018, nous apportons les changements suivants à notre modèle de prise en charge :  
 
 * Seules les versions serveur sont prises en charge, pas les versions client.  
-* Les nouvelles versions des [distributions approuvées de Linux Azure](../../virtual-machines/linux/endorsed-distros.md) sont toujours prises en charge.  
+* Nous concentrons la prise en charge sur les [distributions approuvées Azure Linux](../../virtual-machines/linux/endorsed-distros.md). Notez qu’il peut y avoir un certain délai entre la sortie d’une nouvelle distribution ou version approuvée par Azure Linux, et sa prise en charge pour l’agent Log Analytics Linux.
 * Toutes les versions mineures de chaque version majeure listée sont prises en charge.
 * Les versions qui ont dépassé la date de fin de support de leur fabricant ne sont pas prises en charge.  
 * Les nouvelles versions d’AMI ne sont pas prises en charge.  
@@ -143,24 +142,41 @@ Le tableau suivant répertorie les packages requis pour les distributions Linux 
 Pour garantir la sécurité des données en transit vers les journaux d’activité Azure Monitor, nous vous encourageons vivement à configurer l’agent de façon à utiliser au moins le protocole TLS (Transport Layer Security) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.  Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
 
 
+## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Conditions de prise en charge de la signature de code SHA-2 pour Windows
+À compter du 18 mai 2020, l’agent Windows utilisera exclusivement la signature SHA-2. Ce changement aura un impact sur les clients qui utilisent l’agent Log Analytics sur un système d’exploitation hérité dans le cadre d’un service Azure (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). Le client n’aura rien à faire à moins que l’agent s’exécute sur une version héritée du système d’exploitation (Windows 7, Windows Server 2008 R2 et Windows Server 2008). Les clients utilisant une version héritée du système d’exploitation sont tenus d’effectuer les actions suivantes sur leurs ordinateurs avant le 18 mai 2020. À défaut, leurs agents cesseront d’envoyer les données à leurs espaces de travail Log Analytics :
+
+1. Installer le dernier Service Pack du système d’exploitation. Les versions de Service Pack nécessaires sont les suivantes :
+    - Windows 7 SP1
+    - Windows Server 2008 SP2
+    - Windows Server 2008 R2 SP1
+
+2. Installer les mises à jour Windows de signature SHA-2 pour le système d’exploitation en question, comme décrit dans [Obligation de prise en charge de la signature du code SHA-2 2019 pour Windows et WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
+3. Effectuer une mise à jour vers la dernière version de l’agent Windows (version 10.20.18029).
+4. Configurer l’agent de sorte qu’il [utilise TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12) (recommandé). 
+
+
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 L’agent pour Linux et Windows communique en sortie avec le service Azure Monitor via le port TCP 443. Si la machine se connecte via un pare-feu ou un serveur proxy pour communiquer sur Internet, consultez les exigences ci-dessous pour connaître la configuration réseau nécessaire. Si vos stratégies de sécurité informatique n’autorisent pas les ordinateurs du réseau à se connecter à Internet, vous pouvez configurer une [passerelle Log Analytics](gateway.md), puis configurer l’agent pour qu’il se connecte aux journaux Azure Monitor via la passerelle. L’agent peut ensuite recevoir des informations de configuration et envoyer les données collectées en fonction des règles de collecte de données et des solutions de surveillance que vous avez activées dans votre espace de travail.
 
 ![Schéma de communication de l’agent Log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
 
+Le tableau suivant répertorie les informations de configuration du proxy et du pare-feu requises pour permettre aux agents Linux et Windows de communiquer avec les journaux d’activité Azure Monitor.
 
-## <a name="network-firewall-requirements"></a>Configuration requise du pare-feu réseau
-Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Linux et Windows de communiquer avec les journaux Azure Monitor.  
+### <a name="firewall-requirements"></a>Configuration requise du pare-feu
 
 |Ressource de l'agent|Ports |Sens |Ignorer l’inspection HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Règle de trafic sortant|Oui |  
-|*.oms.opinsights.azure.com |Port 443 |Règle de trafic sortant|Oui |  
-|*.blob.core.windows.net |Port 443 |Règle de trafic sortant|Oui |  
+|*.ods.opinsights.azure.com |Port 443 |Communications entrantes et sortantes|Oui |  
+|*.oms.opinsights.azure.com |Port 443 |Communications entrantes et sortantes|Oui |  
+|*.blob.core.windows.net |Port 443 |Communications entrantes et sortantes|Oui |
+|\* .azure-automation.net |Port 443 |Communications entrantes et sortantes|Oui |
+|*.azure.com |Port 443|Communications entrantes et sortantes|Oui |
 
 Pour obtenir les informations relatives au pare-feu nécessaires pour Azure Government, consultez [Azure Government Monitoring + Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser des runbooks et des solutions de gestion dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+### <a name="proxy-configuration"></a>Configuration du proxy
 
 L’agent Windows et Linux prend en charge la communication par l’intermédiaire d’un serveur proxy ou de la passerelle Log Analytics vers Azure Monitor, au moyen du protocole HTTPS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  Pour l’agent Windows connecté directement au service, la configuration du proxy est indiquée pendant l’installation ou [après le déploiement](agent-manage.md#update-proxy-settings), dans le panneau de configuration ou avec PowerShell.  
 
@@ -175,14 +191,14 @@ Pour l’agent Linux, le serveur proxy est indiqué pendant ou [après l’insta
 |--------|-------------|
 |Protocol | https |
 |utilisateur | Nom d’utilisateur facultatif pour l’authentification du proxy |
-|password | Mot de passe facultatif pour l’authentification du proxy |
+|mot de passe | Mot de passe facultatif pour l’authentification du proxy |
 |proxyhost | Adresse ou nom de domaine complet du serveur proxy/de la passerelle Log Analytics |
 |port | Numéro de port facultatif pour le serveur proxy/la passerelle Log Analytics |
 
 Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Si des caractères spéciaux, par exemple « \@ », sont utilisés dans le mot de passe, il se produit une erreur de connexion au proxy, car la valeur est mal analysée.  Pour contourner ce problème, encodez le mot de passe dans l’URL à l’aide d’un outil comme [URLDecode](https://www.urldecoder.org/).  
+> Si vous utilisez des caractères spéciaux comme « \@ » dans votre mot de passe, vous obtenez une erreur de connexion au proxy, car la valeur est mal analysée.  Pour contourner ce problème, encodez le mot de passe dans l’URL à l’aide d’un outil comme [URLDecode](https://www.urldecoder.org/).  
 
 
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aec1b7f7bf60be34d21d52ca652a776cf3275fe8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722405"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811773"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -131,7 +131,7 @@ Si vous définissez `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, le c
 > [!WARNING]
 > Ne créez pas plusieurs attachements en même temps dans le même cluster AKS depuis votre espace de travail. Par exemple, l’attachement d’un cluster AKS à un espace de travail en utilisant deux noms différents. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 >
-> Si vous voulez réattacher un cluster AKS, par exemple pour changer le paramètre de configuration SSL ou un autre paramètre de configuration de cluster, vous devez d’abord supprimer l’attachement existant en utilisant [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
+> Si vous voulez réattacher un cluster AKS, par exemple pour changer le protocole TLS ou un autre paramètre de configuration du cluster, vous devez d’abord supprimer l’attachement existant en utilisant [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 Pour plus d’informations sur la création d’un cluster AKS à l’aide de l’interface de ligne de commande Azure ou du portail, consultez les articles suivants :
 
@@ -233,10 +233,28 @@ Pour plus d’informations sur l’utilisation de VS Code, consultez [déployer 
 > Le déploiement via VS Code nécessite que le cluster AKS soit créé ou attaché à votre espace de travail à l’avance.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Déployer des modèles sur AKS à l’aide d’un déploiement contrôlé (préversion)
-Analyser et promouvoir des versions de modèle de manière contrôlée à l’aide de points de terminaison. Déployez jusqu’à 6 versions derrière un point de terminaison unique et configurez le pourcentage du trafic de notation sur chaque version déployée. Vous pouvez activer App Insights pour afficher les métriques opérationnelles des points de terminaison et des versions déployées.
+
+Analyser et promouvoir des versions de modèle de manière contrôlée à l’aide de points de terminaison. Vous pouvez déployer jusqu’à six versions derrière un seul point de terminaison. Les points de terminaison offrent les capacités suivantes :
+
+* Configurez le __pourcentage du trafic de scoring envoyé à chaque point de terminaison__. Par exemple, acheminez 20 % du trafic vers le point de terminaison « test » et 80 % vers « production ».
+
+    > [!NOTE]
+    > Si 100 % du trafic n’est pas utilisé, tout pourcentage restant est acheminé vers la version __par défaut__ du point de terminaison. Par exemple, si vous configurez que 10 % du trafic ira à la version du point de terminaison « test » et 30 % à « prod », les 60 % restants sont envoyés à la version par défaut du point de terminaison.
+    >
+    > La première version créée du point de terminaison est automatiquement configurée comme version par défaut. Vous pouvez modifier cela en définissant `is_default=True` lors de la création ou de la mise à jour d’une version de point de terminaison.
+     
+* Marquez une version de point de terminaison comme __contrôle__ ou __traitement__. Par exemple, la version actuelle du point de terminaison de production peut être le contrôle, tandis que les éventuels nouveaux modèles sont déployés en tant que versions de traitement. Après évaluation des performances des versions de traitement, si l’une d’elles obtient de meilleures performances que le contrôle actuel, elle peut être promue comme nouvelle version de production/contrôle.
+
+    > [!NOTE]
+    > Vous ne pouvez avoir qu’__un seul__ contrôle. Vous pouvez avoir plusieurs traitements.
+
+Vous pouvez activer App Insights pour afficher les métriques opérationnelles des points de terminaison et des versions déployées.
 
 ### <a name="create-an-endpoint"></a>Créer un point de terminaison
-Une fois que vous êtes prêt à déployer vos modèles, créez un point de terminaison de notation et déployez votre première version. L’étape ci-dessous montre comment déployer et créer le point de terminaison à l’aide du kit de développement logiciel (SDK). Le premier déploiement sera défini comme la version par défaut, ce qui signifie qu’un centile de trafic non spécifié dans toutes les versions passera à la version par défaut.  
+Une fois que vous êtes prêt à déployer vos modèles, créez un point de terminaison de notation et déployez votre première version. L’exemple suivant montre comment déployer et créer le point de terminaison à l’aide du Kit de développement logiciel (SDK). Le premier déploiement sera défini comme la version par défaut, ce qui signifie que tout percentile de trafic non spécifié dans l’ensemble des versions ira à la version par défaut.  
+
+> [!TIP]
+> Dans l’exemple suivant, la configuration définit que la version initiale du point de terminaison traite 20 % du trafic. Étant donné qu’il s’agit du premier point de terminaison, il s’agit également de la version par défaut. Et puisque nous n’avons pas d’autres versions pour recevoir les 80 % restants du trafic, ce trafic sera également acheminé vers la version par défaut. Tant que d’autres versions recevant un pourcentage du trafic n’ont pas été déployées, celle-ci reçoit de fait 100 % du trafic.
 
 ```python
 import azureml.core,
@@ -247,8 +265,8 @@ from azureml.core.compute import ComputeTarget
 compute = ComputeTarget(ws, 'myaks')
 namespace_name= endpointnamespace
 # define the endpoint and version name
-endpoint_name = "mynewendpoint",
-version_name= "versiona",
+endpoint_name = "mynewendpoint"
+version_name= "versiona"
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
                                                               enable_app_insights = True,
@@ -258,11 +276,16 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
                                                               traffic_percentile = 20)
  # deploy the model and endpoint
  endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ # Wait for he process to complete
+ endpoint.wait_for_deployment(True)
  ```
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>Mettre à jour un point de terminaison et y ajouter des versions
 
 Ajoutez une autre version à votre point de terminaison et configurez le centile de trafic de notation passant à la version. Il existe deux types de versions : version de contrôle et version de traitement. Il peut y avoir plusieurs versions de traitement pour faciliter la comparaison avec une version de contrôle unique.
+
+> [!TIP]
+> La deuxième version, créée par l’extrait de code suivant, accepte 10 % du trafic. La première version est configurée pour 20 %, donc seulement 30 % du trafic est configuré pour des versions spécifiques. Les 70 % restants sont envoyés à la première version du point de terminaison, car il s’agit également de la version par défaut.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -275,9 +298,13 @@ endpoint.create_version(version_name = version_name_add,
                         tags = {'modelVersion':'b'},
                         description = "my second version",
                         traffic_percentile = 10)
+endpoint.wait_for_deployment(True)
 ```
 
-Mettez à jour les versions existantes ou supprimez-les dans un point de terminaison. Vous pouvez modifier le type par défaut, le type de contrôle et le centile de trafic de la version.
+Mettez à jour les versions existantes ou supprimez-les dans un point de terminaison. Vous pouvez modifier le type par défaut, le type de contrôle et le centile de trafic de la version. Dans l’exemple suivant, la deuxième version augmente son part de trafic à 40 % et est désormais la valeur par défaut.
+
+> [!TIP]
+> Après l’extrait de code suivant, la deuxième version est désormais la version par défaut. Elle est maintenant configurée pour 40 %, tandis que la version d’origine est toujours configurée pour 20 %. Cela signifie que 40 % du trafic n’est pas utilisé pour les configurations de version. Le trafic restant est acheminé vers la deuxième version, car il s’agit désormais de la version par défaut. Elle reçoit de fait 80 % du trafic.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -288,7 +315,8 @@ endpoint.update_version(version_name=endpoint.versions["versionb"].name,
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
-
+# Wait for the process to complete before deleting
+endpoint.wait_for_deployment(true)
 # delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 
@@ -348,7 +376,7 @@ print(token)
 * [Sécuriser l’expérimentation et l’inférence avec un réseau virtuel Microsoft Azure](how-to-enable-virtual-network.md)
 * [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
-* [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)
+* [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)

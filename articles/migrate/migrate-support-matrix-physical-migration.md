@@ -2,13 +2,14 @@
 title: Prise en charge pour la migration de serveurs physiques dans Azure Migrate
 description: Découvrez la prise en charge pour la migration de serveurs physiques dans Azure Migrate.
 ms.topic: conceptual
+ms.custom: fasttrack-edit
 ms.date: 01/07/2020
-ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232721"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520281"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Tableau de prise en charge pour la migration de serveurs physiques
 
@@ -43,7 +44,7 @@ Le tableau résume la prise en charge de serveurs physiques que vous souhaitez m
 **Réseau/Stockage** | Pour obtenir les informations les plus récentes, consultez les prérequis en matière de [réseau](../site-recovery/vmware-physical-azure-support-matrix.md#network) et de [stockage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) pour Site Recovery. Azure Migrate fournit des exigences identiques pour le réseau/stockage.
 **Conditions requises pour Azure** | Pour obtenir les informations les plus récentes, consultez les exigences d’Azure en matière de [réseau](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), de [stockage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage) et de [calcul](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) pour Site Recovery. Azure Migrate a des exigences identiques pour la migration de serveurs physiques.
 **Service de mobilité** | L’agent du service Mobilité doit être installé sur chaque machine que vous souhaitez migrer.
-**Démarrage UEFI** | La machine migrée dans Azure est automatiquement convertie en machine virtuelle Azure de démarrage du BIOS.<br/><br/> Le disque du système d’exploitation doit avoir jusqu’à quatre partitions et les volumes doivent être formatés avec NTFS.
+**Démarrage UEFI** | La machine migrée dans Azure est automatiquement convertie en machine virtuelle Azure de démarrage du BIOS. Seul un serveur exécutant Windows Server 2012 ou version ultérieure est pris en charge.<br/><br/> Le disque du système d’exploitation doit avoir jusqu’à quatre partitions et les volumes doivent être formatés avec NTFS.
 **Disque cible** | Les machines peuvent être migrées seulement vers des disques managés (disques HDD standard, disques SSD Premium) dans Azure.
 **Taille du disque** | Disque de système d’exploitation de 2 To ; 8 To pour des disques de données.
 **Limites du disque** |  Jusqu’à 63 disques par machine.

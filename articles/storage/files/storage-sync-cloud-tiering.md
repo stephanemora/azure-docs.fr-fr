@@ -4,15 +4,15 @@ description: Apprenez-en davantage sur la hiérarchisation cloud d’Azure File 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768207"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549172"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « offline » (hors connexion), et son attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS est défini dans le système de fichiers NTFS de façon à ce que des applications tierces puissent identifier sûrement des fichiers hiérarchisés.
@@ -20,10 +20,8 @@ La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Syn
 Lorsqu'un utilisateur ouvre un fichier hiérarchisé, Azure File Sync rappelle les données du fichier à partir d’Azure Files avec fluidité, sans que l’utilisateur ait besoin de savoir que le fichier est stocké dans Azure. 
  
  > [!Important]  
- > La hiérarchisation cloud n’est pas prise en charge pour les points de terminaison de serveur sur les volumes système Windows, et seuls des fichiers d’une taille supérieure à 64 Kio peuvent être hiérarchisés sur Azure Files.
+ > La hiérarchisation cloud n’est pas prise en charge sur le volume système Windows.
     
-Azure File Sync ne prend pas en charge la hiérarchisation de fichiers d’une taille inférieure à 64 Kio, car la surcharge de performances qu’entraîneraient la hiérarchisation et le rappel de tels petits fichiers l’emporterait sur les économies d’espace.
-
  > [!Important]  
  > Pour rappeler les fichiers qui ont été hiérarchisés, la bande passante réseau doit être d'au moins 1 Mbps. Si la bande passante du réseau est inférieure à 1 Mbps, les fichiers peuvent ne pas se rappeler avec une erreur de délai d'attente.
 
@@ -34,6 +32,10 @@ Azure File Sync ne prend pas en charge la hiérarchisation de fichiers d’une t
 Le filtre du système Azure File Sync génère une « carte thermique » de votre espace de noms sur chaque point de terminaison de serveur. Il surveille les accès (opérations de lecture et d’écriture) au fil du temps, puis, selon la fréquence et la nouveauté des accès, attribue un score de chaleur à chaque fichier. Un fichier faisant l’objet d’accès fréquents qui a été récemment ouvert est considéré comme chaud, tandis qu’un fichier à peine touché et qui n’a plus été utilisé depuis un certain temps est considéré comme froid. Quand le volume de fichiers sur un serveur dépasse le seuil d’espace libre du volume que vous définissez, il hiérarchise les fichiers les plus froids sur Azure Files jusqu’à ce que votre pourcentage d’espace libre soit atteint.
 
 Les versions 4.0 et ultérieures de l’agent Azure File Sync, permettent de spécifier une stratégie de date sur chaque point de terminaison de serveur. Elle hiérarchise tous les fichiers non ouverts ou modifiés au sein d’un nombre de jours spécifié.
+
+<a id="tiering-minimum-file-size"></a>
+### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Quelle est la taille minimale d’un fichier à hiérarchiser ?
+Pour les agents de version 9.x et ultérieures, la taille minimale d’un fichier à hiérarchiser est le double de la taille de cluster du système de fichiers. Par exemple, si la taille de cluster du système de fichiers NTFS est de 4 Ko, la taille de fichier minimale pour un fichier à hiérarchiser est de 8 Ko. Pour les agents de version 8.x et antérieures, la taille minimale d’un fichier à hiérarchiser est de 64 Ko.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Comment fonctionne la stratégie de hiérarchisation de l’espace libre du volume ?
@@ -49,7 +51,22 @@ Quand il y a plusieurs point de terminaison de serveur sur un volume, le seuil d
 
 <a id="date-tiering-policy"></a>
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Comment la stratégie de hiérarchisation de dates fonctionne-t-elle conjointement à la stratégie de hiérarchisation d’espace disponible sur le volume ? 
-Lorsque vous activez la hiérarchisation cloud sur un point de terminaison de serveur, vous définissez une stratégie d’espace disponible sur le volume. Elle est toujours prioritaire sur toutes les autres stratégies, y compris la stratégie de date. Si vous le souhaitez, vous pouvez activer une stratégie de date pour chaque point de terminaison du serveur sur ce volume, ce qui signifie que seuls les fichiers ouverts (c'est-à-dire lus ou écrits) dans la plage de jours définie dans cette stratégie seront conservés en local, avec tous les fichiers hiérarchisés. N’oubliez pas que la stratégie d’espace disponible sur le volume est toujours prioritaire, et lorsqu’il n’y a pas suffisamment d’espace disponible sur le volume pour conserver les fichiers autant de jours que défini par la stratégie de date, Azure File Sync poursuivra la hiérarchisation les fichiers les plus anciens jusqu'à ce que le pourcentage d’espace disponible sur le volume requis soit atteint.
+Lorsque vous activez la hiérarchisation cloud sur un point de terminaison de serveur, vous définissez une stratégie d’espace disponible sur le volume. Elle est toujours prioritaire sur toutes les autres stratégies, y compris la stratégie de date. Si vous le souhaitez, vous pouvez activer une stratégie de date pour chaque point de terminaison de serveur sur ce volume. Cette stratégie prévoit que seuls les fichiers consultés (c’est-à-dire les lectures ou les écritures) dans la plage de jours que cette stratégie décrit sont conservés en local. Les fichiers qui ne sont pas consultés pendant le nombre de jours spécifié sont hiérarchisés. 
+
+La hiérarchisation cloud utilise l’heure du dernier accès pour déterminer les fichiers à hiérarchiser. Le pilote de filtre de la hiérarchisation cloud (storagesync.sys) effectue le suivi de l’heure du dernier accès et enregistre les informations dans le magasin chaud de la hiérarchisation cloud. Vous pouvez voir le magasin chaud à l’aide d’une cmdlet PowerShell locale.
+
+```powershell
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
+Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+```
+
+> [!IMPORTANT]
+> La propriété last-accessed-timestamp n’est pas une propriété suivie par NTFS et, par conséquent, n’est pas visible par défaut dans l’Explorateur de fichiers. N’utilisez pas la propriété last-accessed-timestamp sur un fichier pour vérifier si la stratégie de date fonctionne comme prévu. Ce timestamp suit uniquement les écritures, pas les lectures. Utilisez la cmdlet indiquée pour obtenir la propriété last-accessed-timestamp pour cette évaluation.
+
+> [!WARNING]
+> N’activez pas la fonctionnalité NTFS de suivi de la propriété last-accessed-timestamp pour les fichiers et les dossiers. Cette fonctionnalité est désactivée par défaut, car elle a un impact important sur les performances. Azure File Sync suit les heures du dernier accès automatiquement et très efficacement et n’utilise pas cette fonctionnalité NTFS.
+
+N’oubliez pas que la stratégie d’espace disponible sur le volume est toujours prioritaire, et, lorsqu’il n’y a pas suffisamment d’espace libre sur le volume pour conserver les fichiers autant de jours que défini par la stratégie de date, Azure File Sync poursuivra la hiérarchisation des fichiers les plus froids jusqu’à ce que le pourcentage d’espace libre sur le volume requis soit atteint.
 
 Par exemple, si vous avez une stratégie de hiérarchisation par date de 60 jours et une stratégie d’espace disponible sur le volume de 20 % : après avoir appliqué la stratégie de date, il reste moins de 20 % d’espace disponible sur le volume. La stratégie d’espace disponible sur le volume s’active et remplace la stratégie de date. Cela augmentera la hiérarchisation des fichiers, de telle sorte que la durée de conservation des données sur le serveur peut passer de 60 à 45 jours. Inversement, cette stratégie force la hiérarchisation des fichiers qui se situent en dehors de l’intervalle de temps, même si vous n’avez pas atteint votre seuil d’espace libre : un fichier est hiérarchisé au bout de 61 jours, même si votre volume est vide.
 
@@ -57,7 +74,7 @@ Par exemple, si vous avez une stratégie de hiérarchisation par date de 60 jou
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Comment faire pour déterminer la quantité d’espace libre du volume appropriée ?
 La quantité de données à conserver localement est déterminée par la bande passante, le modèle d’accès au jeu de données et le budget. Si vous avez une connexion à bande passante étroite, vous pouvez conserver davantage de vos données localement afin de minimiser la latence pour vos utilisateurs. Autrement, vous pouvez baser la quantité d’espace libre du volume sur le taux de variation sur une période donnée. Par exemple, si vous savez qu’environ 10 % de votre jeu de données de 1 To changent ou sont activement utilisés chaque mois, vous pouvez conserver 100 Go localement de façon à ne pas rappeler fréquemment des fichiers. Si votre volume est de 2 To, vous pouvez conserver 5 % (soit 100 Go) localement, de sorte que les 95 % restants constituent votre pourcentage d’espace libre du volume. Toutefois, nous vous recommandons d’ajouter une mémoire tampon pour prendre en compte des périodes de variations plus importantes, c’est-à-dire en commençant par un pourcentage d’espace libre du volume inférieur, puis en l’ajustant si nécessaire par la suite. 
 
-La conservation de davantage de données localement implique une baisse des coûts de sortie car moins de fichiers sont rappelés à partir d’Azure, mais requiert que vous conserviez davantage de stockage local, ce qui a un coût. Une fois qu’une instance d’Azure File Sync est déployée, vous pouvez examiner la sortie de votre compte de stockage pour évaluer sommairement si vos paramètres d’espace libre du volume sont appropriés pour votre utilisation. En supposant que le compte de stockage ne contient que votre point de terminaison cloud Azure File Sync (c’est-à-dire votre partage de synchronisation), une sortie élevée signifie que de nombreux fichiers sont rappelés à partir du cloud et que vous devez envisager d’augmenter votre cache local.
+La conservation de davantage de données localement implique une baisse des coûts de sortie car moins de fichiers sont rappelés à partir d’Azure, mais requiert que vous conserviez davantage de stockage local, ce qui a un coût. Une fois qu’une instance d’Azure File Sync est déployée, vous pouvez examiner la sortie de votre compte de stockage pour évaluer sommairement si vos paramètres d’espace libre sur le volume sont appropriés pour votre utilisation. En supposant que le compte de stockage ne contient que votre point de terminaison cloud Azure File Sync (c’est-à-dire votre partage de synchronisation), une sortie élevée signifie que de nombreux fichiers sont rappelés à partir du cloud et que vous devez envisager d’augmenter votre cache local.
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>J’ai ajouté un nouveau point de terminaison de serveur. Au bout de combien de temps surviendra la hiérarchisation sur ce serveur ?
@@ -131,7 +148,7 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Pourquoi mes fichiers hiérarchisés n’affichent-ils pas de miniatures ou d'aperçus dans l’Explorateur Windows ?
 Pour les fichiers hiérarchisés, les miniatures et aperçus ne sont pas visibles au niveau de votre point de terminaison de serveur. Ce comportement est normal puisque la fonctionnalité de cache des miniatures dans Windows ignore intentionnellement la lecture des fichiers avec l’attribut hors connexion. En cas d'activation de la hiérarchisation cloud, la lecture des fichiers hiérarchisés entraînerait leur téléchargement (rappel).
 
-Ce comportement n’est pas spécifique à Azure File Sync. L’Explorateur Windows affiche une « X grise » pour tous les fichiers avec l’attribut hors connexion. L’icône X s’affiche lors de l’accès aux fichiers sur SMB. Pour obtenir une explication détaillée de ce comportement, consultez [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
+Ce comportement n’est pas spécifique à Azure File Sync. L’Explorateur Windows affiche une « croix grise » pour tous les fichiers dont l’attribut est hors connexion. L’icône X s’affiche lors de l’accès aux fichiers sur SMB. Pour obtenir une explication détaillée de ce comportement, consultez [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

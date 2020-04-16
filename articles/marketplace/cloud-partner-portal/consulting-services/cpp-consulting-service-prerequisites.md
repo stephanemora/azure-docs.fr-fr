@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b7a3374e8b1bb5c7624f41c994f7f9a6135506c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 35ef732111ff0b75bba7397f7cc22b3ff08c00d5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278516"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985097"
 ---
 # <a name="consulting-service-prerequisites"></a>Conditions préalables à la publication d’un service de conseil
+
+>[!Important]
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de services de conseil vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création de services de conseil](https://aka.ms/AzureCreateConsultingService) pour gérer vos offres migrées.
 
 Passez en revue la description et les exigences de ce type d’offre dans [Services de conseil pour la Place de marché Azure et AppSource](../../consulting-services.md).  Les types de services de conseil précis suivants ont des exigences supplémentaires :
 

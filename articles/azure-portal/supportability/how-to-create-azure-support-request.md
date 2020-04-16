@@ -7,20 +7,20 @@ manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 6218a1089352ce9ee3e2d1d10f3282e64eae8c51
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547657"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478991"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Création d’une demande de support Azure
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Les clients Azure peuvent créer et gérer des demandes de support dans le [portail Azure](https://portal.azure.com).
+Azure vous permet de créer et gérer les demandes de support, également appelées tickets de support. Vous pouvez créer et gérer des demandes dans le [portail Azure](https://portal.azure.com), comme décrit dans cet article. Vous pouvez également créer et gérer des demandes par programme, à l’aide de l’[API REST de ticket de support Azure](/rest/api/support).
 
 > [!NOTE]
 > L’URL du portail Azure est spécifique au cloud Azure sur lequel votre organisation est déployée.
@@ -43,7 +43,7 @@ Vous pouvez accéder à **Aide + support** dans le portail Azure. Cette fonction
 
 ### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Pour créer une demande de support, vous devez être administrateur ou être affecté au rôle [Contributeur de demande de support](../../role-based-access-control/built-in-roles.md#support-request-contributor).
+Pour créer une demande de support, vous devez être [propriétaire](../../role-based-access-control/built-in-roles.md#owner) ou [contributeur](../../role-based-access-control/built-in-roles.md#contributor) ou le rôle [Contributeur de demande de support](../../role-based-access-control/built-in-roles.md#support-request-contributor) doit vous avoir été attribuer au niveau de l’abonnement. Pour créer une demande de support sans abonnement, par exemple dans un scénario Azure Active Directory (AAD), vous devez être un [administrateur](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Accédez à Aide + support dans l’en-tête global
 

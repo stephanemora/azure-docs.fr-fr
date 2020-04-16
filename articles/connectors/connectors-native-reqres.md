@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297291"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656298"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
@@ -25,7 +25,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur
 > [!NOTE]
 > Le déclencheur de demande prend en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2 pour les appels entrants. Les appels sortants continuent à prendre en charge les protocoles TLS 1.0, 1.1 et 1.2. Pour plus d'informations, consultez [Résolution du problème lié au protocole TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Si vous constatez des erreurs de liaison SSL, assurez-vous d’utiliser le protocole TLS 1.2. Pour les appels entrants, voici les suites de chiffrement prises en charge :
+> Si vous constatez des erreurs de liaison TLS, assurez-vous d’utiliser le protocole TLS 1.2. Pour les appels entrants, voici les suites de chiffrement prises en charge :
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8d68d2e83bba055e92b99ee9294daf6f2395d8dc
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b8073240bdda38757a5e4feee66c9f54746966c4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206296"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632046"
 ---
 ### <a name="portal"></a>Portail
 
@@ -21,7 +21,7 @@ La configuration des clés gérées par le client pour vos disques vous oblige �
 
 #### <a name="setting-up-your-azure-key-vault"></a>Configurer votre Azure Key Vault
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/) et recherchez Key Vault
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Recherchez et sélectionnez **Coffre de clés**.
 
     [ ![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
@@ -30,7 +30,7 @@ La configuration des clés gérées par le client pour vos disques vous oblige �
     > Pour que le déploiement aboutisse, votre coffre de clés Azure, le jeu de chiffrement de disque, les machines virtuelles, les disques et les captures instantanées doivent tous se trouver dans la même région et le même abonnement.
 
 1. Sélectionnez **+Ajouter** pour créer un coffre de clés Key Vault.
-1. Création d’un groupe de ressources
+1. Créez un groupe de ressources.
 1. Entrez un nom de coffre de clés, sélectionnez une région, puis sélectionnez un niveau tarifaire.
 1. Sélectionnez **Vérifier + créer**, vérifiez vos choix, puis sélectionnez **Créer**.
 
@@ -42,17 +42,15 @@ La configuration des clés gérées par le client pour vos disques vous oblige �
 
     ![Capture d’écran du volet Paramètres des ressources Key Vault. Affiche le bouton Générer/importer dans les paramètres.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Laissez **Type de clé** défini sur **RSA** et **Taille de clé RSA** défini sur **2080**.
+1. Laissez **Type de clé** défini sur **RSA** et **Taille de clé RSA** défini sur **2048**.
 1. Renseignez les autres sélections comme vous le souhaitez, puis sélectionnez **Créer**.
 
     ![Capture d’écran du panneau Créer une clé qui apparaît une fois que le bouton Générer/importer est sélectionné](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Configuration de votre jeu de chiffrement de disque
 
-Pour créer et configurer des jeux de chiffrement de disque, vous devez utiliser le lien suivant : https://aka.ms/diskencryptionsets. La création du jeu de chiffrement de disque n’est pas encore disponible dans le Portail Azure international.
-
-1. Ouvrez le [lien des jeux de chiffrement de disque](https://aka.ms/diskencryptionsets).
-1. Sélectionnez **+Ajouter**.
+1. Recherchez **Ensembles de chiffrement de disque** et sélectionnez-le.
+1. Ouvrez le panneau **Ensembles de chiffrement de disque** et sélectionnez **+ Ajouter**.
 
     ![Capture d’écran de l’écran principal du portail de chiffrement de disque. Mise en surbrillance du bouton Ajouter](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
@@ -77,7 +75,6 @@ Deux notifications doivent s’afficher et s’effectuer correctement. Cela vous
 Maintenant que vous avez créé et configuré votre coffre de clés et le jeu de chiffrement de disque, vous pouvez déployer une machine virtuelle à l’aide du chiffrement.
 Le processus de déploiement de la machine virtuelle est similaire au processus de déploiement standard, les seules différences sont que vous devez déployer la machine virtuelle dans la même région que vos autres ressources et que vous choisissez d’utiliser une clé gérée par le client.
 
-1. Ouvrez le [lien des jeux de chiffrement de disque](https://aka.ms/diskencryptionsets).
 1. Recherchez **Machines virtuelles** et sélectionnez **+ Ajouter** pour créer une machine virtuelle.
 1. Sous l’onglet **De base**, sélectionnez la même région que votre jeu de chiffrement de disque et qu’Azure Key Vault.
 1. Renseignez les autres valeurs de l’onglet **De base** comme vous le souhaitez.
@@ -92,12 +89,9 @@ Le processus de déploiement de la machine virtuelle est similaire au processus 
 
 #### <a name="enable-on-an-existing-disk"></a>Activer sur un disque existant
 
-Pour gérer et configurer le chiffrement de disque sur vos disques existants, vous devez utiliser le lien suivant : https://aka.ms/diskencryptionsets. L’activation de clés gérées par le client sur des disques existants n’est pas encore disponible dans le Portail Azure international.
-
 > [!CAUTION]
 > L’activation du chiffrement de disque sur les disques attachés à une machine virtuelle nécessite l’arrêt de celle-ci.
-
-1. Ouvrez le [lien des jeux de chiffrement de disque](https://aka.ms/diskencryptionsets).
+    
 1. Accédez à une machine virtuelle qui se trouve dans la même région que l’un de vos jeux de chiffrement de disque.
 1. Ouvrez la machine virtuelle et sélectionnez **Arrêter**.
 

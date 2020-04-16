@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 25be48e9caed446be3a86a11143ce3040808065a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294307"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478967"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -20,7 +20,7 @@ Vous configurez un serveur de configuration local quand vous utilisez le service
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le tableau répertorie les prérequis du déploiement d'une machine de serveur de configuration locale.
 
@@ -71,7 +71,7 @@ La dernière version du fichier d’installation du serveur configuration est di
      ![Pare-feu](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. Dans **Vérification de la configuration requise**, le programme d’installation procède à une vérification afin de garantir le bon déroulement de l’installation. Si un avertissement s’affiche à propos de la **vérification de la synchronisation globale**, vérifiez que l’heure de l’horloge système (paramètres **Date et heure**) est identique à celle du fuseau horaire.
 
-    ![Conditions préalables requises](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Prérequis](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Dans **Configuration MySQL**, créez des informations d’identification pour vous connecter à l’instance de serveur MySQL installée.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -290,8 +290,8 @@ Mettez à niveau le serveur comme suit :
 > [!NOTE]
 > L’option **-Force** dans Remove-AzSiteRecoveryFabric peut être utilisée pour forcer la suppression du serveur de configuration.
 
-## <a name="renew-ssl-certificates"></a>Renouveler les certificats SSL
-Le serveur de configuration possède un serveur web intégré, qui orchestre les activités du service Mobilité, des serveurs de processus et des serveurs maîtres cibles connectés à celui-ci. Le serveur web utilise un certificat SSL pour authentifier les clients. Le certificat expire au bout de trois ans et peut être renouvelé à tout moment.
+## <a name="renew-tlsssl-certificates"></a>Renouveler les certificats TLS/SSL
+Le serveur de configuration possède un serveur web intégré, qui orchestre les activités du service Mobilité, des serveurs de processus et des serveurs maîtres cibles connectés à celui-ci. Le serveur web utilise un certificat TLS/SSL pour authentifier les clients. Le certificat expire au bout de trois ans et peut être renouvelé à tout moment.
 
 ### <a name="check-expiry"></a>Vérifier la date d’expiration
 

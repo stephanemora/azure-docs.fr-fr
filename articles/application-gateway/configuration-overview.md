@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485078"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632191"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -20,7 +20,7 @@ Azure Application Gateway comprend plusieurs composants que vous pouvez configur
 
 ![Organigramme des composants d’Application Gateway](./media/configuration-overview/configuration-overview1.png)
 
-Cette image illustre une application dotée de trois écouteurs. Les deux premiers écouteurs sont multisites pour `http://acme.com/*` et `http://fabrikam.com/*`, respectivement. Ils écoutent tous les deux le port 80. Le troisième est un écouteur de base doté d’un arrêt SSL (Secure Sockets Layer) de bout en bout.
+Cette image illustre une application dotée de trois écouteurs. Les deux premiers écouteurs sont multisites pour `http://acme.com/*` et `http://fabrikam.com/*`, respectivement. Ils écoutent tous les deux le port 80. Le troisième est un écouteur de base qui dispose d’une terminaison de sécurité TLS (Transport Layer Security) de bout en bout, précédemment connue sous le nom de terminaison de protocole SSL.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -38,9 +38,9 @@ Une passerelle d’application est un déploiement dédié dans votre réseau vi
 
 Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une adresse IP front-end privée est configurée.
 
-Azure réserve également 5 adresses IP dans chaque sous-réseau pour un usage interne : les 4 premières et la dernière. Prenons l’exemple de 15 instances de passerelle d’application sans aucune adresse IP front-end privée. Vous avez besoin d’au moins 20 adresses IP pour ce sous-réseau : 5 pour un usage interne et 15 pour les instances de passerelle d’application. Donc, vous avez besoin d’une taille de sous-réseau /27 ou plus.
+Azure réserve également cinq adresses IP dans chaque sous-réseau pour un usage interne : les quatre premières et la dernière. Prenons l’exemple de 15 instances de passerelle d’application sans aucune adresse IP front-end privée. Vous avez besoin d’au moins 20 adresses IP pour ce sous-réseau : cinq pour une utilisation interne et 15 pour les instances de passerelle d’application. Donc, vous avez besoin d’une taille de sous-réseau /27 ou plus.
 
-Prenons l’exemple d’un sous-réseau disposant de 27 instances de passerelle d’application et d’une adresse front-end IP privée. Dans ce cas, vous avez besoin de 33 adresses IP : 27 pour les instances de passerelle d’application, 1 pour l’adresse front-end privée et 5 pour un usage interne. Donc, vous avez besoin d’une taille de sous-réseau /26 ou plus.
+Prenons l’exemple d’un sous-réseau disposant de 27 instances de passerelle d’application et d’une adresse front-end IP privée. Dans ce cas, vous avez besoin de 33 adresses IP : 27 pour les instances de passerelle d’application, une pour l’adresse front-end privée et cinq pour un usage interne. Donc, vous avez besoin d’une taille de sous-réseau /26 ou plus.
 
 Nous vous recommandons d’utiliser une taille de sous-réseau d’au moins /28. Cette taille vous donne 11 adresses IP utilisables. Si la charge de votre application nécessite plus de 10 instances d’Application Gateway, envisagez une taille de sous-réseau de /27 ou /26.
 
@@ -69,21 +69,62 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Routes définies par l’utilisateur prises en charge sur le sous-réseau Application Gateway
 
-Pour la référence SKU v1, les routes définies par l’utilisateur sont prises en charge sur le sous-réseau Application Gateway, tant qu’elles n’altèrent pas la communication de demande/réponse de bout en bout. Par exemple, vous pouvez configurer une route définie par l’utilisateur dans le sous-réseau Application Gateway pour pointer vers une appliance de pare-feu afin d’inspecter un paquet. Mais vous devez vérifier que le paquet peut atteindre sa destination prévue après l’inspection. S’il n’y parvient pas, cela peut entraîner un comportement incorrect de la sonde d’intégrité ou du routage du trafic. Sont incluses les routes apprises ou 0.0.0.0/0 par défaut propagées par Azure ExpressRoute ou des passerelles VPN dans le réseau virtuel.
+> [!IMPORTANT]
+> L’utilisation de routes définies par l’utilisateur sur le sous-réseau Application Gateway est susceptible d’entraîner l’indication de l’état d’intégrité **Inconnu** dans l’[affichage de l’intégrité du back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health). Elle peut également entraîner l’échec de la génération des journaux et métriques Application Gateway. Nous vous recommandons de ne pas utiliser de routes définies par l’utilisateur sur le sous-réseau Application Gateway afin de pouvoir voir l’état d’intégrité, les journaux et les métriques du back-end.
 
-Pour la référence SKU v2, les routages définis par l’utilisateur (UDR) ne sont pas pris en charge sur le sous-réseau Application Gateway. Pour plus d’informations, consultez [Référence SKU v2 d’Azure Application Gateway](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+- **v1**
 
-> [!NOTE]
-> Les routages définis par l’utilisateur (UDR) ne sont pas pris en charge pour la référence SKU v2 à l’heure actuelle.
+   Pour la référence SKU v1, les routes définies par l’utilisateur sont prises en charge sur le sous-réseau Application Gateway, tant qu’elles n’altèrent pas la communication de demande/réponse de bout en bout. Par exemple, vous pouvez configurer une route définie par l’utilisateur dans le sous-réseau Application Gateway pour pointer vers une appliance de pare-feu afin d’inspecter un paquet. Mais vous devez vérifier que le paquet peut atteindre sa destination prévue après l’inspection. S’il n’y parvient pas, cela peut entraîner un comportement incorrect de la sonde d’intégrité ou du routage du trafic. Sont incluses les routes apprises ou 0.0.0.0/0 par défaut propagées par Azure ExpressRoute ou des passerelles VPN dans le réseau virtuel.
 
-> [!NOTE]
-> L’utilisation de routes définies par l’utilisateur sur le sous-réseau Application Gateway est susceptible d’entraîner l’indication de l’état d’intégrité « Inconnu » dans l’[affichage de l’intégrité du back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health). Elle peut également entraîner l’échec de la génération des journaux et métriques Application Gateway. Nous vous recommandons de ne pas utiliser de routes définies par l’utilisateur sur le sous-réseau Application Gateway afin de pouvoir voir l’état d’intégrité, les journaux et les métriques du back-end.
+- **v2**
+
+   Pour la référence SKU v2, il existe des scénarios pris en charge et non pris en charge :
+
+   **Scénarios pris en charge par la v2**
+   > [!WARNING]
+   > Une configuration incorrecte de la table de routage peut entraîner un routage asymétrique dans Application Gateway v2. Assurez-vous que tout le trafic de gestion/plan de contrôle est envoyé directement à Internet et non par le biais d’une appliance virtuelle. La journalisation et les métriques peuvent également être affectées.
+
+
+  **Scenario 1** : UDR pour désactiver la propagation d’itinéraires du protocole de passerelle frontière (BGP) vers le sous-réseau d’Application Gateway
+
+   Parfois, l’itinéraire de la passerelle par défaut (0.0.0.0/0) est publié via les passerelles VPN ou ExpressRoute associées au réseau virtuel Application Gateway. Cela interrompt le trafic du plan de gestion, qui nécessite un chemin d’accès direct à Internet. Dans de tels scénarios, un itinéraire défini par l’utilisateur (UDR) peut être utilisé pour désactiver la propagation d’itinéraires BGP. 
+
+   Pour désactiver la propagation d’itinéraires BGP, procédez comme suit :
+
+   1. Créez une ressource de table de routage dans Azure.
+   2. Désactivez le paramètre **Propagation de la route de la passerelle de réseau virtuel**. 
+   3. Associez la table de routage au sous-réseau approprié. 
+
+   L’activation de l’UDR pour ce scénario ne doit pas perturber les configurations existantes.
+
+  **Scénario 2** : UDR pour diriger 0.0.0.0/0 vers Internet
+
+   Vous pouvez créer un UDR pour envoyer le trafic de 0.0.0.0/0 directement vers Internet. 
+
+  **Scénario 3** : UDR pour Azure Kubernetes Service et kubenet
+
+  Si vous utilisez kubenet avec Azure Kubernetes Service (AKS) et Application Gateway Ingress Controller (AGIC), vous devez configurer une table de routage pour permettre au trafic envoyé aux pods d’être acheminé vers le bon nœud. Cela n’est pas nécessaire si vous utilisez Azure CNI. 
+
+   Pour configurer la table de routage pour permettre à kubenet de fonctionner, procédez comme suit :
+
+  1. Créez une ressource de table de routage dans Azure. 
+  2. Une fois que vous l’avez créée, accédez à la page **Itinéraires**. 
+  3. Ajoutez un nouvel itinéraire :
+     - Le préfixe d’adresse doit être la plage d’adresses IP des pods que vous souhaitez atteindre dans AKS. 
+     - Le type de tronçon suivant doit être **Appliance virtuelle**. 
+     - L’adresse du tronçon suivant doit être l’adresse IP du nœud qui héberge les pods dans la plage d’adresses IP définie dans le champ de préfixe d’adresse. 
+    
+  **Scénarios non pris en charge par la v2**
+
+  **Scenario 1** : UDR pour les appliances virtuelles
+
+  Aucun scénario dans lequel 0.0.0.0/0 doit être redirigé via une appliance virtuelle, un réseau virtuel hub/spoke ou localement (tunneling forcé) n’est pas pris en charge pour V2.
 
 ## <a name="front-end-ip"></a>Adresse IP front-end
 
 Vous pouvez configurer la passerelle d’application pour qu’elle ait une adresse IP publique, une adresse IP privée ou les deux. Une adresse IP publique est nécessaire quand vous hébergez un back-end auquel les clients doivent accéder par Internet par le biais d’une adresse IP virtuelle Internet. 
 
-Une adresse IP publique n’est pas nécessaire pour un point de terminaison interne non exposé à Internet. Ce dernier est appelé point de terminaison d’*équilibreur de charge interne* ou adresse IP front-end privée. L’équilibreur de charge interne de la passerelle d’application s’avère utile pour les applications métier internes non exposées à Internet. Il s’avère également utile pour les services et niveaux inclus dans une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui a besoin d’une distribution de charge par tourniquet, de l’adhérence de session ou de la terminaison SSL.
+Une adresse IP publique n’est pas nécessaire pour un point de terminaison interne non exposé à Internet. Ce dernier est appelé point de terminaison d’*équilibreur de charge interne* ou adresse IP front-end privée. L’équilibreur de charge interne de la passerelle d’application s’avère utile pour les applications métier internes non exposées à Internet. Il s’avère également utile pour les services et niveaux inclus dans une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui a besoin d’une distribution de charge par tourniquet, de l’adhérence de session ou de la terminaison TLS.
 
 Une seule adresse IP publique ou une seule adresse IP privée est prise en charge. Vous choisissez l’adresse IP front-end quand vous créez la passerelle d’application.
 
@@ -127,13 +168,14 @@ Choisissez HTTP ou HTTPS :
 
 - Si vous choisissez HTTP, le trafic entre le client et la passerelle d’application est non chiffré.
 
-- Sélectionnez HTTPS si vous voulez [un arrêt SSL](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) ou un [chiffrement SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Le trafic entre le client et la passerelle d’application est chiffré. Et la connexion SSL s’arrête à la passerelle d’application. Si vous voulez un chiffrement SSL de bout en bout, vous devez choisir le protocole HTTPS et configurer le paramètre **HTTP du back-end**. Ce dernier permet de veiller à ce que le trafic soit rechiffré quand il passe de la passerelle d’application au back-end.
+- Sélectionnez HTTPS si vous voulez [un arrêt TLS](features.md#secure-sockets-layer-ssltls-termination) ou un [chiffrement TLS de bout en bout](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Le trafic entre le client et la passerelle d’application est chiffré. Et la connexion TLS s’arrête à la passerelle d’application. Si vous voulez un chiffrement TLS de bout en bout, vous devez choisir le protocole HTTPS et configurer le paramètre **HTTP du back-end**. Ce dernier permet de veiller à ce que le trafic soit rechiffré quand il passe de la passerelle d’application au back-end.
 
-Pour configurer l’arrêt SSL et le chiffrement SSL de bout en bout, vous devez ajouter un certificat à l’écouteur pour permettre à la passerelle d’application de dériver une clé symétrique. Il s’agit d’une exigence de la spécification du protocole SSL. La clé symétrique sert à chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat de passerelle doit être au format Personal Information Exchange (PFX). Ce format vous permet d’exporter la clé privée que la passerelle utilise pour chiffrer et déchiffrer le trafic.
+
+Pour configurer l’arrêt TLS et le chiffrement TLS de bout en bout, vous devez ajouter un certificat à l’écouteur pour permettre à la passerelle d’application de dériver une clé symétrique. Il s’agit d’une exigence de la spécification du protocole TLS. La clé symétrique sert à chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat de passerelle doit être au format Personal Information Exchange (PFX). Ce format vous permet d’exporter la clé privée que la passerelle utilise pour chiffrer et déchiffrer le trafic.
 
 #### <a name="supported-certificates"></a>Certificats pris en charge
 
-Consultez [Certificats pris en charge pour un arrêt SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
+Consultez [Certificats pris en charge pour un arrêt TLS](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Prise en charge d’autres protocoles
 
@@ -161,11 +203,11 @@ Vous pouvez définir une erreur personnalisée au niveau global ou au niveau de 
 
 Pour configurer une page d’erreur personnalisée globale, consultez [Configuration Azure PowerShell](https://docs.microsoft.com/azure/application-gateway/custom-error#azure-powershell-configuration).
 
-### <a name="ssl-policy"></a>Stratégie SSL
+### <a name="tls-policy"></a>Stratégie de protocole TLS
 
-Vous pouvez centraliser la gestion des certificats SSL et réduire la surcharge de chiffrement-déchiffrement d’une batterie de serveurs back-end. Cette gestion SSL centralisée permet également de spécifier une stratégie SSL centrale adaptée à vos besoins de sécurité. Vous pouvez choisir une stratégie SSL *par défaut*, *prédéfinie* ou *personnalisée*.
+Vous pouvez centraliser la gestion des certificats TLS/SSL et réduire la surcharge de chiffrement-déchiffrement d’une batterie de serveurs back-end. Cette gestion TLS centralisée permet également de spécifier une stratégie TLS centrale adaptée à vos besoins de sécurité. Vous pouvez choisir une stratégie TLS *par défaut*, *prédéfinie* ou *personnalisée*.
 
-Vous configurez la stratégie SSL pour contrôler les versions du protocole SSL. Vous pouvez configurer une passerelle d’application afin qu’elle utilise une version de protocole minimale pour les négociations TLS à partir de TLS 1.0, TLS 1.1 et TLS 1.2. Par défaut, SSL 2.0 et 3.0 sont désactivés et ne sont pas configurables. Pour plus d’informations, consultez [Vue d’ensemble de la stratégie SSL Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Vous configurez la stratégie TLS pour contrôler les versions du protocole TLS. Vous pouvez configurer une passerelle d’application afin qu’elle utilise une version de protocole minimale pour les négociations TLS à partir de TLS 1.0, TLS 1.1 et TLS 1.2. Par défaut, SSL 2.0 et 3.0 sont désactivés et ne sont pas configurables. Pour plus d’informations, consultez [Vue d’ensemble de la stratégie TLS Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 Après avoir créé un écouteur, vous l’associez à une règle de routage des demandes. Cette règle détermine la manière dont les demandes reçues sur l’écouteur sont routées vers le back-end.
 
@@ -256,14 +298,14 @@ Azure Application Gateway utilise des cookies gérés par passerelle pour gérer
 
 Cette fonctionnalité est pratique quand vous voulez conserver une session utilisateur sur le même serveur et quand l’état de session est enregistré localement sur le serveur pour une session utilisateur. Si l’application ne peut pas gérer l’affinité basée sur les cookies, vous ne pouvez pas utiliser cette fonctionnalité. Pour l’utiliser, assurez-vous que les clients prennent en charge les cookies.
 
-À compter du **17 février 2020**, la[mise à jour v80](https://chromiumdash.appspot.com/schedule) de [Chromium](https://www.chromium.org/Home) spécifie que les cookies HTTP sans attribut SameSite doivent être traités comme SameSite=Lax. Dans le cas de requêtes CORS (Cross-Origin Resource Sharing), si le cookie doit être envoyé dans un contexte tiers, il doit utiliser les attributs «SameSite=None; Secure » et il doit être envoyé seulement via HTTPS. Dans le cas contraire, dans un scénario HTTP uniquement, le navigateur n’envoie pas les cookies dans le contexte tiers. L’objectif de cette mise à jour à partir de Chrome est d’améliorer la sécurité et d’éviter les attaques par falsification de requête intersites (CSRF). 
+La [mise à jour v80](https://chromiumdash.appspot.com/schedule) du [navigateur Chromium](https://www.chromium.org/Home) a permis que les cookies HTTP sans attribut [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) soient traités comme SameSite=Lax. Dans le cas de requêtes CORS (Cross-Origin Resource Sharing), si le cookie doit être envoyé dans un contexte tiers, il doit utiliser les attributs *SameSite=None; Secure* et être envoyé seulement via HTTPS. Dans le cas contraire, dans un scénario HTTP uniquement, le navigateur n’envoie pas les cookies dans le contexte tiers. L’objectif de cette mise à jour à partir de Chrome est d’améliorer la sécurité et d’éviter les attaques par falsification de requête intersites (CSRF). 
 
-Pour prendre en charge cette modification, Application Gateway (tous les types de références SKU) injecte un autre cookie identique appelé **ApplicationGatewayAffinityCORS** en plus du cookie **ApplicationGatewayAffinity** existant, qui est similaire, mais ce cookie aura désormais deux attributs de plus **"SameSite=None; Secure"** , de sorte que la session rémanente puisse être conservée même pour les demandes intersites.
+Pour prendre en charge ce changement, à partir du 17 février 2020, Application Gateway (tous les types de références SKU) injecte un autre cookie appelé *ApplicationGatewayAffinityCORS* en plus du cookie *ApplicationGatewayAffinity* existant. Le cookie *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés ( *« SameSite=None; Secure »* ), afin que les sessions persistantes soient conservées même pour les requêtes cross-origin.
 
-Notez que le nom du cookie d’affinité par défaut est **ApplicationGatewayAffinity** et que ce nom peut être modifié par les utilisateurs. Si vous utilisez un nom de cookie d’affinité personnalisé, un cookie supplémentaire est ajouté avec le suffixe CORS, par exemple **CustomCookieNameCORS**.
+Notez que le nom du cookie d’affinité par défaut est *ApplicationGatewayAffinity* et que vous pouvez changer ce nom. Si vous utilisez un nom de cookie d’affinité personnalisé, un cookie supplémentaire est ajouté avec le suffixe CORS. Par exemple, *CustomCookieNameCORS*.
 
 > [!NOTE]
-> Si l’attribut **SameSite=None** est défini, le cookie doit également contenir l’indicateur **Secure** et doit être envoyé via **HTTPS**. Par conséquent, si l’affinité de session est obligatoire sur CORS, vous devez migrer votre charge de travail vers HTTPS. Reportez-vous à la documentation sur le déchargement SSL et sur SSL de bout en bout pour Application Gateway ici : [Vue d’ensemble](ssl-overview.md), [Guide pratique pour configurer le déchargement SSL](create-ssl-portal.md) et [Guide pratique pour configurer SSL de bout en bout](end-to-end-ssl-portal.md).
+> Si l’attribut *SameSite=None* est défini, le cookie doit obligatoirement contenir aussi l’indicateur *Secure* et être envoyé via HTTPS.  Si l’affinité de session est exigée sur CORS, vous devez migrer votre charge de travail vers HTTPS. Reportez-vous à la documentation sur le déchargement TLS et le protocole TLS de bout en bout pour Application Gateway ici : [Vue d’ensemble](ssl-overview.md), [Configurer une passerelle Application Gateway avec terminaison TLS à l’aide du portail Azure](create-ssl-portal.md), [Configurer le protocole TLS de bout en bout à l’aide d’Application Gateway avec le portail](end-to-end-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Vidage des connexions
 
@@ -273,7 +315,7 @@ Le vidage des connexions vous permet de supprimer élégamment des membres du po
 
 Application Gateway prend en charge les protocoles HTTP et HTTPS pour router les demandes vers les serveurs back-end. Si vous choisissez HTTP, le trafic vers les serveurs back-end est non chiffré. Si des communications non chiffrées ne sont pas acceptables, sélectionnez HTTPS.
 
-Ce paramètre combiné avec HTTPS dans l’écouteur prend en charge le chiffrement [SSL de bout en bout](ssl-overview.md). Celui-ci vous permet de transmettre en toute sécurité des données sensibles chiffrées au serveur back-end. Chaque serveur back-end du pool de back-ends pour lequel un chiffrement SSL de bout en bout est activé doit être configuré avec un certificat pour permettre une communication sécurisée.
+Ce paramètre combiné avec HTTPS dans l’écouteur prend en charge le chiffrement [TLS de bout en bout](ssl-overview.md). Celui-ci vous permet de transmettre en toute sécurité des données sensibles chiffrées au serveur back-end. Chaque serveur back-end du pool de back-ends pour lequel un chiffrement TLS de bout en bout est activé doit être configuré avec un certificat pour permettre une communication sécurisée.
 
 ### <a name="port"></a>Port
 
@@ -317,7 +359,7 @@ Ce paramètre associe une [sonde personnalisée](application-gateway-probe-overv
 > [!NOTE]
 > La sonde personnalisée ne supervise pas l’intégrité du pool de back-ends, sauf si le paramètre HTTP correspondant est explicitement associé à un écouteur.
 
-### <a id="pick"/></a>Choisir un nom d’hôte à partir d’une adresse back-end
+### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Choisir un nom d’hôte à partir d’une adresse back-end
 
 Cette fonctionnalité définit dynamiquement l’en-tête de l’*hôte* dans la demande sur le nom d’hôte du pool de back-ends. Elle utilise une adresse IP ou un nom de domaine complet.
 
@@ -336,11 +378,11 @@ Pour un domaine personnalisé dont le nom DNS personnalisé existant est mappé 
 
 Cette fonctionnalité remplace l’en-tête de l’*hôte* dans la demande entrante sur la passerelle d’application par le nom d’hôte que vous spécifiez.
 
-Par exemple, si *www.contoso.com* est spécifié dans le paramètre **Nom d’hôte**, la demande d’origine * https://appgw.eastus.cloudapp.azure.com/path1 est remplacée par * https://www.contoso.com/path1 quand la demande est transférée au back-end.
+Par exemple, si *www.contoso.com* est spécifié dans le paramètre **Nom d’hôte**, la demande d’origine *`https://appgw.eastus.cloudapp.azure.com/path1` est remplacée par *`https://www.contoso.com/path1` quand la demande est transférée au back-end.
 
 ## <a name="back-end-pool"></a>Pool de back-ends
 
-Vous pouvez pointer un pool de back-ends vers quatre types de membres de back-end : une machine virtuelle spécifique, un groupe de machines virtuelles identiques, une adresse IP/un nom de domaine complet ou un service d’application. Chaque pool de back-ends peut pointer vers plusieurs membres du même type. Pointer vers des membres de types différents dans le même pool de back-ends n’est pas pris en charge.
+Vous pouvez pointer un pool de back-ends vers quatre types de membres de back-end : une machine virtuelle spécifique, un groupe de machines virtuelles identiques, une adresse IP/un nom de domaine complet ou un service d’application. 
 
 Après avoir créé un pool de back-ends, vous devez l’associer à une ou plusieurs règles de routage des demandes. Vous devez également configurer des sondes d’intégrité pour chaque pool de back-ends sur votre passerelle d’application. Quand une condition de règle de routage des demandes est remplie, la passerelle d’application transfère le trafic aux serveurs sains (comme déterminé par les sondes d’intégrité) dans le pool de back-ends correspondant.
 

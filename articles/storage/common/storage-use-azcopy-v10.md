@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 90adb3b973b6952d10ef89e4b40d0fc68489e224
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061105"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756031"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -21,7 +21,7 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 > [!NOTE]
 > La version actuellement prise en charge d’AzCopy est la **version 10**.
 >
-> Si vous avez besoin d’utiliser AzCopy **v8.1**, consultez la section [Utiliser la version précédente d’AzCopy](#previous-version) de cet article.
+> Si vous avez besoin d’utiliser une version antérieure d’AzCopy, consultez la section [Utiliser la version précédente d’AzCopy](#previous-version) de cet article.
 
 <a id="download-and-install-azcopy" />
 
@@ -74,7 +74,7 @@ Utilisez ce tableau pour vous guider :
 En utilisant Azure Active Directory, vous pouvez fournir des informations d’identification en une seule fois au lieu d’ajouter un jeton SAS à chaque commande.  
 
 > [!NOTE]
-> Dans la version actuelle, si vous envisagez de copier des objets blob entre des comptes de stockage, vous devez ajouter un jeton SAS à chaque URL source. Vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination. Pour des exemples, consultez [Copier des objets blob entre des comptes de stockage](storage-use-azcopy-blobs.md).
+> Dans la version actuelle, si vous envisagez de copier des blobs entre des comptes de stockage, vous devez ajouter un jeton SAS à chaque URL source. Vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination. Pour des exemples, consultez [Copier des objets blob entre des comptes de stockage](storage-use-azcopy-blobs.md).
 
 Le niveau d’autorisation dont vous avez besoin repose sur votre volonté de planifier le chargement des fichiers, ou juste leur téléchargement.
 
@@ -308,11 +308,11 @@ L’Explorateur Stockage utilise votre clé de compte pour effectuer des opérat
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Utiliser la version précédentes d’AzCopy
 
-Si vous devez utiliser la version précédente d’AzCopy (AzCopy v8.1), consultez l’un des liens suivants :
+Si vous devez utiliser la version précédente d’AzCopy, consultez l’un des liens suivants :
 
 - [AzCopy sur Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy sur Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy sur Linux (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 

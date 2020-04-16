@@ -1,6 +1,6 @@
 ---
-title: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure | Microsoft Docs
-description: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure.
+title: Résoudre les problèmes liés à Azure RBAC
+description: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,43 +11,72 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980986"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548283"
 ---
-# <a name="troubleshoot-rbac-for-azure-resources"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure
+# <a name="troubleshoot-azure-rbac"></a>Résoudre les problèmes liés à Azure RBAC
 
-Cet article répond aux questions fréquentes sur le contrôle d’accès en fonction du rôle pour les ressources Azure, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès.
+Cet article répond à certaines questions fréquentes sur le contrôle d’accès en fonction du rôle Azure (Azure RBAC), afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles et que vous puissiez résoudre les problèmes d’accès.
 
-## <a name="problems-with-rbac-role-assignments"></a>Problèmes liés aux attributions de rôle RBAC
+## <a name="azure-role-assignments-limit"></a>Limite des attributions de rôle Azure
+
+Azure prend en charge jusqu’à **2 000** attributions de rôle par abonnement. Si vous obtenez le message d’erreur « Plus aucune attribution de rôle ne peut être créée (code : RoleAssignmentLimitExceeded) » lorsque vous tentez d’attribuer un rôle, essayez de réduire le nombre d’attributions de rôle dans l’abonnement.
+
+> [!NOTE]
+> Cette limite d’attribution de rôle de **2 000** par abonnement est fixe et ne peut pas être augmentée.
+
+Si vous vous approchez de cette limite, voici quelques façons de réduire le nombre d’attributions de rôle :
+
+- Ajoutez des utilisateurs aux groupes et attribuez des rôles aux groupes à la place. 
+- Combinez plusieurs rôles intégrés avec un rôle personnalisé. 
+- Associez les attributions de rôle communes à une étendue plus élevée, comme l’abonnement ou le groupe d’administration.
+- Si vous avez Azure AD Premium P2, rendez les attributions de rôle éligibles dans [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) au lieu d’être attribuées de manière permanente. 
+- Ajoutez un abonnement supplémentaire. 
+
+Pour obtenir le nombre d’attributions de rôle, vous pouvez afficher le [graphique sur la page contrôle d’accès (IAM)](role-assignments-list-portal.md#list-number-of-role-assignments) dans le Portail Azure. Vous pouvez également utiliser les commandes Azure PowerShell suivantes :
+
+```azurepowershell
+$scope = "/subscriptions/<subscriptionId>"
+$ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
+$ras.Count
+```
+
+## <a name="problems-with-azure-role-assignments"></a>Problèmes liés aux attributions de rôle Azure
 
 - Si vous ne pouvez pas ajouter d’attribution de rôle dans le portail Azure sur **Contrôle d’accès (IAM)** car l’option **Ajouter** > **Ajouter une attribution de rôle** est désactivée, ou parce que vous obtenez l’erreur d’autorisations « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action », vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation `Microsoft.Authorization/roleAssignments/write`, comme [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) dans l’étendue sur laquelle vous essayez d’attribuer le rôle.
-- Si vous obtenez le message d’erreur « Plus aucune attribution de rôle ne peut être créée (code : RoleAssignmentLimitExceeded) » lorsque vous tentez d’attribuer un rôle, essayez de réduire le nombre d’attributions de rôles en attribuant plutôt des rôles à des groupes. Azure prend en charge jusqu’à **2 000** attributions de rôle par abonnement. Cette limite d’attribution de rôle est fixe et ne peut pas être augmentée.
 
 ## <a name="problems-with-custom-roles"></a>Problèmes liés aux rôles personnalisés
 
-- Si vous avez besoin de connaître les étapes permettant de créer un rôle personnalisé, consultez les tutoriels de rôle personnalisé en utilisant [Azure PowerShell](tutorial-custom-role-powershell.md) ou [Azure CLI](tutorial-custom-role-cli.md).
+- Si vous avez besoin de connaître les étapes permettant de créer un rôle personnalisé, consultez les tutoriels de rôle personnalisé en utilisant le [Portail Azure](custom-roles-portal.md) (actuellement en préversion), [Azure PowerShell](tutorial-custom-role-powershell.md) ou [Azure CLI](tutorial-custom-role-cli.md).
 - Si vous ne parvenez pas à mettre à jour un rôle personnalisé existant, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation `Microsoft.Authorization/roleDefinition/write`, comme [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
 - Si vous ne pouvez pas supprimer un rôle personnalisé et que vous obtenez le message d’erreur « Certaines attributions de rôle existantes font référence au rôle (code : RoleDefinitionHasAssignments) », cela signifie que des attributions de rôle utilisent toujours le rôle personnalisé. Supprimez ces attributions de rôle et réessayez de supprimer ce rôle.
-- Si vous obtenez le message d’erreur « La limite de définition de rôle a été dépassée. Plus aucune définition de rôle ne peut être créée (code : RoleDefinitionLimitExceeded) » quand vous essayez de créer un rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisés. Azure prend en charge jusqu’à **5 000** rôles personnalisés dans un locataire. (Pour les clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, la limite s’élève à 2 000 rôles personnalisés.)
-- Si vous obtenez une erreur similaire à « Le client a l’autorisation d’effectuer l’action 'Microsoft.Authorization/roleDefinitions/write' sur l’étendue '/subscriptions/{subscriptionid}'. Cependant, l’abonnement lié est introuvable » quand vous essayez de mettre à jour un rôle personnalisé, vérifiez si une ou plusieurs [étendues attribuables](role-definitions.md#assignablescopes) ont été supprimées dans le locataire. Si l’étendue a été supprimée, créez un ticket de support, car il n’existe aucune solution en libre-service disponible pour l’instant.
+- Si vous obtenez le message d’erreur « La limite de définition de rôle a été dépassée. Plus aucune définition de rôle ne peut être créée (code : RoleDefinitionLimitExceeded) » quand vous essayez de créer un rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisés. Azure prend en charge jusqu’à **5 000** rôles personnalisés dans un répertoire. (Pour Azure Allemagne et Azure Chine 21Vianet, la limite est de 2 000 rôles personnalisés.)
+- Si vous obtenez une erreur similaire au message « Le client a l’autorisation d’effectuer l’action "Microsoft.Authorization/roleDefinitions/write" sur l’étendue "/subscriptions/{subscriptionid}". Cependant, l’abonnement lié est introuvable » quand vous essayez de mettre à jour un rôle personnalisé, vérifiez si une ou plusieurs [étendues attribuables](role-definitions.md#assignablescopes) ont été supprimées du répertoire. Si l’étendue a été supprimée, créez un ticket de support, car il n’existe aucune solution en libre-service disponible pour l’instant.
 
-## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Récupérer le contrôle d’accès en fonction du rôle (RBAC) lorsque les abonnements sont déplacés entre les locataires
+## <a name="custom-roles-and-management-groups"></a>Rôles personnalisés et groupes d’administration
 
-- Si vous avez besoin de connaître les étapes permettant de transférer un abonnement à un locataire Azure AD différent, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md).
-- Si vous transférez un abonnement vers un autre locataire Azure AD, toutes les attributions de rôle définies sont définitivement supprimées du locataire Azure AD source et ne sont pas migrées sur le locataire Azure AD cible. Vous devez recréer vos attributions de rôle dans le locataire cible. Vous devez également recréer manuellement les identités managées pour les ressources Azure. Pour plus d’informations, consultez [Questions fréquentes et problèmes connus en lien avec les identités managées](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Si vous êtes administrateur général Azure AD et que vous n’avez pas accès à un abonnement après son déplacement entre des locataires, utilisez l’option **Gestion de l’accès pour les ressources Azure** afin d’[élever votre accès](elevate-access-global-admin.md) temporairement et ainsi accéder à l’abonnement.
+- Vous ne pouvez définir qu’un seul groupe d’administration dans `AssignableScopes` d’un rôle personnalisé. L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion.
+- Les rôles personnalisés avec `DataActions` ne peuvent pas être attribués dans l’étendue du groupe d’administration.
+- Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle.
+- Pour plus d’informations sur les rôles personnalisés et les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
+
+## <a name="transferring-a-subscription-to-a-different-directory"></a>Transfert d’un abonnement vers un autre répertoire
+
+- Si vous avez besoin de connaître les étapes permettant de transférer un abonnement à un répertoire Azure AD différent, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Si vous transférez un abonnement vers un autre répertoire Azure AD, toutes les attributions de rôle définies sont **définitivement** supprimées du répertoire Azure AD source et ne sont pas migrées sur le répertoire Azure AD cible. Vous devez recréer vos attributions de rôle dans le répertoire cible. Vous devez également recréer manuellement les identités managées pour les ressources Azure. Pour plus d’informations, consultez [Questions fréquentes et problèmes connus en lien avec les identités managées](../active-directory/managed-identities-azure-resources/known-issues.md).
+- Si vous êtes administrateur général Azure AD et que vous n’avez pas accès à un abonnement après son transfert entre des répertoires, utilisez l’option **Gestion de l’accès pour les ressources Azure** afin d’[élever votre accès](elevate-access-global-admin.md) temporairement et ainsi accéder à l’abonnement.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problèmes liés aux coadministrateurs ou administrateurs de service
 
-- Si vous rencontrez des problèmes avec l’administrateur ou les coadministrateurs du service, consultez [Ajouter ou modifier les administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) et [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](rbac-and-directory-admin-roles.md).
+- Si vous rencontrez des problèmes avec l’Administrateur de service ou les coadministrateurs, consultez [Ajouter ou modifier les administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) et [Rôles Administrateur d’abonnement classique, rôles Azure et rôles Administrateur Azure AD](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Accès refusé ou erreurs d’autorisations
 
@@ -62,7 +91,7 @@ Si vous attribuez un rôle à un principal de sécurité (utilisateur, groupe, p
 
 Si vous répertoriez cette attribution de rôle à l’aide d’Azure PowerShell, `DisplayName` est vide à l’écran et `ObjectType` est défini sur Inconnu. Par exemple, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retourne une attribution de rôle similaire à ce qui suit :
 
-```azurepowershell
+```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
 Scope              : /subscriptions/11111111-1111-1111-1111-111111111111
 DisplayName        :
@@ -76,7 +105,7 @@ CanDelegate        : False
 
 De même, si vous répertoriez cette attribution de rôle à l’aide d’Azure CLI, `principalName` est vide à l’écran. Par exemple, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) retourne une attribution de rôle similaire à ce qui suit :
 
-```azurecli
+```
 {
     "canDelegate": null,
     "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",
@@ -94,7 +123,7 @@ Il n’est pas gênant de conserver ces attributions de rôle, mais vous pouvez 
 
 Dans PowerShell, si vous essayez de supprimer les attributions de rôles à l’aide de l’ID d’objet et du nom de définition de rôle alors que plusieurs attributions de rôle correspondent à vos paramètres, le message d’erreur suivant s’affiche : « Les informations fournies ne correspondent pas à une attribution de rôle ». Voici un exemple du message d’erreur :
 
-```Example
+```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
 
 Remove-AzRoleAssignment : The provided information does not map to a role assignment.
@@ -107,13 +136,15 @@ At line:1 char:1
 
 Si ce message d’erreur s’affiche, prenez soin de spécifier également les paramètres `-Scope` ou `-ResourceGroupName`.
 
-```Example
+```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="rbac-changes-are-not-being-detected"></a>Les changements de contrôle d’accès en fonction du rôle ne sont pas détectés
+## <a name="role-assignment-changes-are-not-being-detected"></a>Les changements d’attribution de rôle ne sont pas détectés
 
-Azure Resource Manager met parfois en cache des données et des configurations pour améliorer les performances. Lors de la création ou de la suppression d’attributions de rôles, un délai de 30 minutes maximum peut être nécessaire avant que les modifications soient prises en compte. Si vous utilisez le portail Azure, Azure PowerShell ou Azure CLI, vous pouvez forcer une actualisation de vos modifications d’attribution de rôle en vous déconnectant et en vous reconnectant. Si vous apportez des modifications d’attribution de rôle à l’aide d’appels d’API REST, vous pouvez forcer une actualisation en actualisant votre jeton d’accès.
+Azure Resource Manager met parfois en cache des données et des configurations pour améliorer les performances. Lorsque vous ajoutez ou supprimez des attributions de rôle, un délai de 30 minutes maximum peut être nécessaire avant que les modifications soient prises en compte. Si vous utilisez le portail Azure, Azure PowerShell ou Azure CLI, vous pouvez forcer une actualisation de vos modifications d’attribution de rôle en vous déconnectant et en vous reconnectant. Si vous apportez des modifications d’attribution de rôle à l’aide d’appels d’API REST, vous pouvez forcer une actualisation en actualisant votre jeton d’accès.
+
+Si vous ajoutez ou supprimez une attribution de rôle au niveau de l’étendue du groupe d’administration et que le rôle est doté de `DataActions`, l’accès au plan de données peut ne pas être mis à jour pendant plusieurs heures. Cela s’applique uniquement à l’étendue du groupe d’administration et au plan de données.
 
 ## <a name="web-app-features-that-require-write-access"></a>Fonctionnalités d’application web qui nécessitent un accès en écriture
 
@@ -148,7 +179,7 @@ Les éléments suivants requièrent l’accès **en écriture** au **plan App Se
 
 Les éléments suivants requièrent l’accès **en écriture** à l’ensemble du **Groupe de ressources** qui contient le site web :  
 
-* Certificats et liaisons SSL (les certificats SSL peuvent être partagés entre différents sites dans le même groupe de ressources et emplacement)  
+* Certificats et liaisons TLS/SSL (les certificats TLS/SSL peuvent être partagés entre différents sites dans le même groupe de ressources et emplacement)  
 * Règles d'alerte  
 * Paramètres de mise à l'échelle automatique  
 * Composants Application Insights  
@@ -188,4 +219,3 @@ Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis 
 - [Résolution des problèmes pour les utilisateurs invités](role-assignments-external-users.md#troubleshoot)
 - [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)
 - [Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle pour les ressources Azure](change-history-report.md)
-

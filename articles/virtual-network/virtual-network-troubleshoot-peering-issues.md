@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73796236"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521881"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Résoudre les problèmes d’appairage de réseaux virtuels
 
@@ -234,6 +234,15 @@ Pour résoudre ce problème, supprimez le peering des deux réseaux virtuels, pu
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Échec de l’appairage d’un réseau virtuel Databricks
 
 Pour résoudre ce problème, configurez le peering de réseaux virtuels sous **Azure Databricks**, puis spécifiez le réseau virtuel cible à l’aide de l’**ID de la ressource**. Pour plus d’informations, voir [Appairer un réseau virtuel Databricks à un réseau virtuel distant](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+
+### <a name="the-remote-virtual-network-lacks-a-gateway"></a>Le réseau virtuel distant n’a pas de passerelle
+
+Ce problème se produit lorsque vous appairez des réseaux virtuels de différents locataires et que vous souhaitez ensuite configurer `Use Remote Gateways`. Une des limites du Portail Azure est qu’il ne peut pas valider la présence d’une passerelle de réseau virtuel dans le réseau virtuel d’un autre locataire.
+
+Il existe deux façons de résoudre le problème :
+
+ * Supprimez les Peerings et activez l’option `Use Remote Gateways` lorsque vous créez un nouveau Peering.
+ * Utilisez PowerShell ou l’interface CLI au lieu du Portail Azure pour activer `Use Remote Gateways`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

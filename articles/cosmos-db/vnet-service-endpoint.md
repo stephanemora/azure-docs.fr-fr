@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1c5bdd1d210a1933699cad52dbf123b50048e01
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444622"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421329"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
@@ -50,7 +50,7 @@ L’autorisation valide le privilège pour l’action de ressource de réseau vi
 Seuls le réseau virtuel et ses sous-réseaux ajoutés au compte Azure Cosmos y ont accès. Leurs réseaux virtuels homologués ne peuvent pas accéder au compte tant que les sous-réseaux des réseaux virtuels homologués ne sont pas ajoutés au compte.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Quel est le nombre maximal de sous-réseaux autorisés à accéder à un seul compte Cosmos ? 
-Actuellement, vous pouvez avoir au maximum 64 sous-réseaux autorisés pour un compte Azure Cosmos.
+Actuellement, vous pouvez avoir au maximum 256 sous-réseaux autorisés pour un compte Azure Cosmos.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Puis-je activer l’accès à partir d’un VPN et d’Express Route ? 
 Pour accéder localement au compte Azure Cosmos via ExpressRoute, vous devez activer le Peering Microsoft. Lorsque vous activez un pare-feu IP ou définissez des règles d’accès à un réseau virtuel, vous pouvez ajouter les adresses IP publiques utilisées pour le peering Microsoft au pare-feu IP de votre compte Azure Cosmos afin d’autoriser l’accès des services locaux au compte Azure Cosmos. 

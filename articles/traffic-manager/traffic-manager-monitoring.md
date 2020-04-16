@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
-ms.openlocfilehash: fcc9c5333b37c041342c2d20a53cf5d3908d1a26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938553"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757259"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -25,7 +25,7 @@ Azure Traffic Manager inclut la surveillance intégrée des points de terminaiso
 
 Pour configurer la surveillance des points de terminaison, vous devez spécifier les paramètres suivants sur votre profil Traffic Manager :
 
-* **Protocole**. Sélectionnez HTTP, HTTPS ou TCP comme protocole utilisé par Traffic Manager lors de la détection du point de terminaison pour contrôler son intégrité. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement s’il est présent.
+* **Protocole**. Sélectionnez HTTP, HTTPS ou TCP comme protocole utilisé par Traffic Manager lors de la détection du point de terminaison pour contrôler son intégrité. Notez que la surveillance HTTPS ne vérifie pas si votre certificat TLS/SSL est valide, mais uniquement s’il est présent.
 * **Port**. Choisissez le port utilisé pour la requête.
 * **Path**. Ce paramètre de configuration est valide uniquement pour les protocoles HTTP et HTTPS pour lesquels la configuration du chemin est obligatoire. La configuration de ce paramètre pour le protocole de surveillance TCP provoque une erreur. Pour le protocole HTTP et HTTPS, indiquez le chemin relatif et le nom du fichier ou de la page web auxquels la surveillance accède. Une barre oblique (/) est une entrée valide pour le chemin d’accès relatif. Cette valeur indique que le fichier est dans le répertoire racine (par défaut).
 * **Paramètres d’en-tête personnalisé**. Ce paramètre de configuration vous permet d’ajouter des en-têtes HTTP spécifiques aux vérifications d’intégrité que Traffic Manager envoie aux points de terminaison par le biais d’un profil. Les en-têtes personnalisés peuvent être spécifiés au niveau du profil (pour s’appliquer à tous les points de terminaison de ce profil) et/ou au niveau du point de terminaison (applicable uniquement à ce point de terminaison). Vous pouvez utiliser des en-têtes personnalisés pour que les vérifications d’intégrité effectuées sur des points de terminaison d’un environnement multilocataire soient correctement acheminées vers leur destination en spécifiant un en-tête d’hôte. Vous pouvez également utiliser ce paramètre en ajoutant des en-têtes uniques qui peuvent servir à identifier les requêtes HTTP(S) provenant de Traffic Manager et les traiter différemment. Vous pouvez spécifier jusqu’à huit paires header:value séparées par une virgule. Par exemple, « header1:value1,header2:value2 ». 

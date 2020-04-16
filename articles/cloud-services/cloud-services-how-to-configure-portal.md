@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75361005"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811401"
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuration des services cloud
 
@@ -103,7 +103,7 @@ Vous devrez peut-être reconfigurer votre service cloud via le fichier [configur
 * Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
-* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Configurez des [certificats TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

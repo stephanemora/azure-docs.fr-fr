@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 10/04/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9944308d00c9cfecbd38a6443efb49913148806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 139a2cafe137d000b991cbad8b8567e005ffc728
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535916"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668672"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Créer et approvisionner un appareil IoT Edge à l’aide de l’attestation de clé symétrique
 
@@ -28,7 +28,7 @@ Cet article vous montre comment créer une inscription individuelle au service D
 
 L’attestation de clé symétrique est une approche simple pour authentifier un appareil avec une instance du service Device Provisioning. Cette méthode d’attestation représente une expérience « Hello world » pour les développeurs qui découvrent le provisionnement d’appareils ou n’ont pas d’exigences de sécurité strictes. L’attestation d’appareil avec un [Module de plateforme sécurisée (TPM)](../iot-dps/concepts-tpm-attestation.md) ou un [certificat X.509](../iot-dps/concepts-security.md#x509-certificates) est plus sécurisée, et doit être utilisée lorsque les exigences de sécurité sont plus strictes.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un IoT Hub actif
 * Un appareil physique ou virtuel
@@ -71,6 +71,9 @@ Lorsque vous créez une inscription auprès du service Device Provisioning, vous
    1. Fournissez un **ID d’appareil loT Hub** pour votre appareil si vous le souhaitez. Vous pouvez utiliser l’ID d’appareil pour cibler un appareil individuel lors du déploiement de module. Si vous ne fournissez pas un ID d’appareil, l’ID d’inscription est utilisé.
 
    1. Sélectionnez **Vrai** pour déclarer que cette inscription est un appareil IoT Edge. Pour une inscription de groupe, tous les appareils doivent être de IoT Edge, ou aucun d’entre eux ne peut l’être.
+
+   > [!TIP]
+   > Dans l'interface de ligne de commande Azure, vous pouvez créer une [inscription](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) ou un [groupe d'inscriptions](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) et utiliser l'indicateur **compatible avec Edge** pour spécifier qu'un appareil, ou un groupe d'appareils, est un appareil IoT Edge.
 
    1. Acceptez la valeur par défaut de la stratégie d’allocation du service Device Provisioning pour déterminer la façon dont **vous souhaitez affecter des appareils aux hubs** ou choisissez une autre valeur spécifique à cette inscription.
 
@@ -182,7 +185,7 @@ provisioning:
       symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Remplacez les valeurs d’espace réservé pour `<SCOPE_ID>`, `<REGISTRATION_ID>` et `<SYMMETRIC_KEY>` par les données que vous avez collectées précédemment. Assurez-vous que la ligne **approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
+Remplacez les valeurs d’espace réservé pour `<SCOPE_ID>`, `<REGISTRATION_ID>` et `<SYMMETRIC_KEY>` par les données que vous avez collectées précédemment. Assurez-vous que la ligne **d’approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
 
 ### <a name="windows-device"></a>Appareil Windows
 

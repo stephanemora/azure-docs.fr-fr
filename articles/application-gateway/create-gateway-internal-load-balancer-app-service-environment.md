@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71121950"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668572"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Un certificat du serveur principal ne figure pas dans la liste verte pour une passerelle d’application qui utilise un équilibreur de charge interne avec un environnement App Service
 
-Cet article permet de résoudre le problème suivant : un certificat ne figure pas dans la liste verte lorsque vous créez une passerelle d’application à l’aide d’un équilibreur de charge interne (ILB) avec un environnement App Service (ASE) sur le serveur principal lors de l’utilisation du protocole SSL de bout en bout dans Azure.
+Cet article permet de résoudre le problème suivant : un certificat ne figure pas dans la liste verte lorsque vous créez une passerelle d’application à l’aide d’un Load Balancer interne (ILB) avec un App Service Environment (ASE) sur le back end lors de l’utilisation du protocole TLS de bout en bout dans Azure.
 
 ## <a name="symptoms"></a>Symptômes
 
@@ -68,7 +68,7 @@ Lorsque vous utilisez un nom de domaine complet (FQDN) pour accéder à l’équ
 
 - Effacez l’option **Utilisation pour App service** pour la passerelle d’application si vous utilisez l’adresse IP de l’ILB.
 
-Pour réduire la surcharge, vous pouvez charger le certificat de l’équilibreur de charge interne dans les paramètres HTTP pour que le chemin d’accès de la sonde fonctionne. (Cette étape sert uniquement à la mise en liste verte. Elle ne sera pas utilisée pour la communication SSL.) Vous pouvez récupérer le certificat ILB en accédant à l’ILB via son adresse IP depuis votre navigateur sur le protocole HTTPS, en exportant le certificat SSL au format CER encodé en base 64, puis en le chargeant dans les paramètres HTTP respectifs.
+Pour réduire la surcharge, vous pouvez charger le certificat de l’équilibreur de charge interne dans les paramètres HTTP pour que le chemin d’accès de la sonde fonctionne. (Cette étape sert uniquement à la mise en liste verte. Elle ne sera pas utilisée pour la communication TLS.) Vous pouvez récupérer le certificat ILB en accédant à l’ILB via son adresse IP depuis votre navigateur sur le protocole HTTPS, en exportant le certificat TLS/SSL au format CER encodé en base 64, puis en le chargeant dans les paramètres HTTP respectifs.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 

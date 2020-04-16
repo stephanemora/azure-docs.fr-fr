@@ -3,12 +3,12 @@ title: Utilisation des paramètres de diagnostic pour les coffres Recovery Servi
 description: Article décrivant comment utiliser les anciens et nouveaux événements de diagnostic pour Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d10bedf3818559971eff12624152d0e797f6c3cc
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583943"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672777"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Utilisation des paramètres de diagnostic pour les coffres Recovery Services
 
@@ -39,26 +39,60 @@ En s’alignant sur la feuille de route Azure Log Analytics, Sauvegarde Azure vo
 
 Pour envoyer les données de diagnostic du coffre à LA :
 
-1.  Accédez à votre coffre, puis cliquez sur **Paramètres de diagnostic**. Cliquez sur **+ Ajouter le paramètre de diagnostic**.
-2.  Donnez un nom au paramètre de diagnostic.
-3.  Cochez la case **Envoyer à Log Analytics** et sélectionnez un espace de travail Log Analytics.
-4.  Sélectionnez **Spécifique de la ressource** dans le bouton bascule et cochez les six événements suivants : **CoreAzureBackup**, **AddonAzureBackupAlerts**, **AddonAzureBackupProtectedInstance**, **AddonAzureBackupJobs**, **AddonAzureBackupPolicy** et **AddonAzureBackupStorage**.
-5.  Cliquez sur **Save**(Enregistrer).
+1.    Accédez à votre coffre, puis cliquez sur **Paramètres de diagnostic**. Cliquez sur **+ Ajouter le paramètre de diagnostic**.
+2.    Donnez un nom au paramètre de diagnostic.
+3.    Cochez la case **Envoyer à Log Analytics** et sélectionnez un espace de travail Log Analytics.
+4.    Sélectionnez **Spécifique de la ressource** dans le bouton bascule et cochez les six événements suivants : **CoreAzureBackup**, **AddonAzureBackupAlerts**, **AddonAzureBackupProtectedInstance**, **AddonAzureBackupJobs**, **AddonAzureBackupPolicy** et **AddonAzureBackupStorage**.
+5.    Cliquez sur **Save**(Enregistrer).
 
 ![Mode Spécifique de la ressource](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
 
 Une fois que les données circulent dans l’espace de travail, les tables dédiées pour chacun de ces événements sont créées dans votre espace de travail. Vous pouvez interroger directement ces tables et également effectuer des jointures ou des unions entre ces tables si nécessaire.
 
 > [!IMPORTANT]
-> Les six événements ci-dessus, à savoir CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy et AddonAzureBackupStorage, sont pris en charge **uniquement** dans le mode Spécifique de la ressource. **Notez que si vous essayez d’envoyer des données pour ces six événements en mode Microsoft Azure Diagnostics, aucune donnée n’est dirigée vers l’espace de travail.**
+> Les six événements ci-dessus, à savoir CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy et AddonAzureBackupStorage, sont pris en charge **uniquement** dans le mode Spécifique de la ressource dans [Rapports de sauvegarde](https://docs.microsoft.com/azure/backup/configure-reports). **Notez que si vous essayez d’envoyer des données pour ces six événements en mode Diagnostics Azure, aucune donnée n’est visible dans Rapports de sauvegarde.**
 
 ## <a name="legacy-event"></a>Événement hérité
 
 Traditionnellement, toutes les données de diagnostics relatives à la sauvegarde d’un coffre sont contenues dans un seul événement appelé « AzureBackupReport ». Les six événements décrits ci-dessus sont, par essence, une décomposition de toutes les données contenues dans AzureBackupReport. 
 
-Actuellement, nous continuons à prendre en charge l’événement AzureBackupReport pour la compatibilité descendante, dans les cas où les utilisateurs ont des requêtes personnalisées existantes sur cet événement, par exemple, des alertes de journal personnalisées, des visualisations personnalisées, etc. Cependant, nous vous conseillons de choisir les nouveaux événements pour tous les nouveaux paramètres de diagnostics sur le coffre car cette méthode facilite considérablement l’utilisation des requêtes de journal, offre une meilleure détectabilité des schémas et de leur structure, améliore les performances en termes de latence d’ingestion et de temps de requête. La prise en charge de l’utilisation du mode Diagnostics Microsoft Azure finira par être abandonnée, et le choix des nouveaux événements peut vous éviter des migrations complexes ultérieurement.
+Actuellement, nous continuons à prendre en charge l’événement AzureBackupReport pour la compatibilité descendante, dans les cas où les utilisateurs ont des requêtes personnalisées existantes sur cet événement, par exemple, des alertes de journal personnalisées, des visualisations personnalisées, etc. Cependant, **nous vous suggérons de passer aux [nouveaux événements](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) le plus tôt possible**, car l’utilisation des données dans les requêtes de journal s’en trouve grandement facilitée, cela améliore la découverte des schémas et de leur structure, et les performances pour la latence d’ingestion et le temps de requête sont supérieures. 
 
-Vous pouvez choisir de créer des paramètres de diagnostic distincts pour AzureBackupReport et les six nouveaux événements, jusqu’à ce que vous ayez migré toutes vos requêtes personnalisées pour utiliser les données des nouvelles tables. L’image ci-dessous montre un exemple de coffre avec deux paramètres de diagnostic. Le premier paramètre, nommé **Setting1** envoie des données d’événement AzureBackupReport à un espace de travail dans le mode Diagnostics Azure. Le deuxième paramètre, nommé **Setting2** envoie les données des six nouveaux événements Sauvegarde Azure à un espace de travail LA dans le mode Spécifique de la ressource.
+**L’événement hérité dans le mode Diagnostics Azure sera finalement déconseillé, et le choix des nouveaux événements peut vous éviter des migrations complexes par la suite**. Notre [solution de création de rapports](https://docs.microsoft.com/azure/backup/configure-reports) qui tire parti de Log Analytics cessera également de prendre en charge les données de l’événement hérité.
+
+### <a name="steps-to-move-to-new-diagnostics-settings-to-log-analytics-workspace"></a>Étapes à suivre pour passer aux nouveaux paramètres de diagnostic (pour l’espace de travail Log Analytics)
+
+1. Identifiez les coffres qui envoient des données aux espaces de travail Log Analytics à l’aide de l’événement hérité et les abonnements auxquels ils appartiennent. Exécutez les espaces de travail ci-dessous pour identifier ces coffres et abonnements :
+
+    ````Kusto
+    let RangeStart = startofday(ago(3d));
+    let VaultUnderAzureDiagnostics = (){
+        AzureDiagnostics
+        | where TimeGenerated >= RangeStart | where Category == "AzureBackupReport" and OperationName == "Vault" and SchemaVersion_s == "V2"
+        | summarize arg_max(TimeGenerated, *) by ResourceId    
+        | project ResourceId, Category};
+    let VaultUnderResourceSpecific = (){
+        CoreAzureBackup
+        | where TimeGenerated >= RangeStart | where OperationName == "Vault" 
+        | summarize arg_max(TimeGenerated, *) by ResourceId
+        | project ResourceId, Category};
+        // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
+    let CombinedVaultTable = (){
+        CombinedTable | union isfuzzy = true 
+        (VaultUnderAzureDiagnostics() ),
+        (VaultUnderResourceSpecific() )
+        | distinct ResourceId, Category};
+    CombinedVaultTable | where Category == "AzureBackupReport"
+    | join kind = leftanti ( 
+    CombinedVaultTable | where Category == "CoreAzureBackup"
+    ) on ResourceId
+    | parse ResourceId with * "SUBSCRIPTIONS/" SubscriptionId:string "/RESOURCEGROUPS" * "MICROSOFT.RECOVERYSERVICES/VAULTS/" VaultName:string
+    | project ResourceId, SubscriptionId, VaultName
+    ````
+
+2. Utilisez le [service Azure Policy intégré](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) de Sauvegarde Azure pour ajouter un nouveau paramètre de diagnostic pour tous les coffres au sein d’une étendue spécifiée. Cette stratégie ajoute un paramètre de diagnostic aux coffres qui n’ont pas de paramètre de diagnostic (ou) qui ne disposent que d’un paramètre de diagnostic hérité. Cette stratégie peut être attribuée à un abonnement ou groupe de ressources entier à la fois. Notez que vous aurez besoin d’un accès « Propriétaire » à chaque abonnement pour lequel la stratégie est attribuée.
+
+Vous pouvez choisir d’avoir des paramètres de diagnostic distincts pour AzureBackupReport et les six nouveaux événements jusqu’à ce que vous ayez migré toutes vos requêtes personnalisées pour utiliser les données des nouvelles tables. L’image ci-dessous montre un exemple de coffre avec deux paramètres de diagnostic. Le premier paramètre, nommé **Setting1** envoie des données d’événement AzureBackupReport à un espace de travail dans le mode Diagnostics Azure. Le deuxième paramètre, nommé **Setting2** envoie les données des six nouveaux événements Sauvegarde Azure à un espace de travail LA dans le mode Spécifique de la ressource.
 
 ![Deux paramètres](./media/backup-azure-diagnostics-events/two-settings-example.png)
 

@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c261a010a1e8f4d1be9b3883510eb38c37a15ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296879"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985913"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ Cet article montre des exemples des tâches suivantes :
 * Création d’exécutions enfants.
 * Identification et recherche d’exécutions.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer des éléments suivants :
 
@@ -264,16 +264,41 @@ Pour créer efficacement de nombreuses exécutions enfants, utilisez la méthode
 
 ### <a name="submit-child-runs"></a>Envoyer des exécutions enfants
 
-Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Ainsi, vous pouvez créer des hiérarchies d’exécutions parentes et enfants, chacune s’exécutant sur différentes cibles de calcul, connectées par un ID d’exécution parente commun.
+Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Cela vous permet de créer des hiérarchies d’exécutions parentes et enfants. 
 
-Utilisez la méthode [« submit_child() »](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) pour envoyer une exécution enfant à partir d’une exécution parente. Pour ce faire, dans le script d’exécution parent, récupérez le contexte d’exécution et envoyez l’exécution enfant à l’aide de la méthode ``submit_child`` de l’instance de contexte.
+Vous pouvez souhaiter que vos exécutions enfants utilisent une configuration d’exécution différente de celle de l’exécution parente. Par exemple, vous pouvez utiliser une configuration basée sur l’UC et moins puissante pour le parent, tout en utilisant des configurations basées sur le GPU pour les enfants. Une autre volonté courante consiste à passer à chaque enfant des données et des arguments différents. Pour personnaliser une exécution enfant, passez un objet `RunConfiguration` au constructeur `ScriptRunConfig` de l’enfant. Exemple de code, qui ferait partie du script de l’objet `ScriptRunConfig` du parent :
+
+- Crée un `RunConfiguration` récupérant une ressource de calcul nommée `"gpu-compute"`
+- Itère sur différentes valeurs d’argument à passer aux objets `ScriptRunConfig` des enfants
+- Crée et envoie une nouvelle exécution enfant à l’aide de la ressource de calcul personnalisée et de l’argument
+- Bloque jusqu’à ce que toutes les exécutions enfants soient terminées
 
 ```python
-## In parent run script
-parent_run = Run.get_context()
-child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
-parent_run.submit_child(child_run_config)
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig, RunConfiguration
+
+run_config_for_aml_compute = RunConfiguration()
+run_config_for_aml_compute.target = "gpu-compute"
+run_config_for_aml_compute.environment.docker.enabled = True 
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
 ```
+
+Pour créer efficacement de nombreuses exécutions enfants avec des configurations, des arguments et des entrées identiques, utilisez la méthode [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-). Chaque création se traduisant par un appel réseau, la création d’un lot d’exécutions est plus efficace que la création d’exécutions une à une.
 
 Dans une exécution enfant, vous pouvez afficher l’ID d’exécution parente :
 

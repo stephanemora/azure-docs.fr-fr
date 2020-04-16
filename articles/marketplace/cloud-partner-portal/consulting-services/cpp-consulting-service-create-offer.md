@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c2700339a7ac8342da0250227cff898c20e60118
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed744cfbb49393980c2622b00233fca373b32019
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278550"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985131"
 ---
 # <a name="create-a-consulting-offer"></a>Créer une offre de conseil
+
+>[!Important]
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de services de conseil vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création de services de conseil](https://aka.ms/AzureCreateConsultingService) pour gérer vos offres migrées.
 
 Cet article explique comment créer et publier une offre de service de conseil.
 
@@ -34,5 +37,5 @@ Pour créer une offre, procédez comme suit.
 
 La page **Nouvelle offre** correspondant aux offres de type service de conseil comporte un ensemble d’onglets et de champs de formulaire permettant de créer une offre. Les articles suivants expliquent comment utiliser l’onglet correspondant pour définir les paramètres de l’offre et les détails de la vitrine de votre nouvelle offre :
 
--   [Définir les paramètres de l’offre](./cpp-consulting-service-define-offer-settings.md)
--   [Entrez les détails de la vitrine et indiquez si vous souhaitez effectuer la publication sur la Place de marché Microsoft Azure ou dans AppSource](./cpp-consulting-service-storefront-details.md)
+-    [Définir les paramètres de l’offre](./cpp-consulting-service-define-offer-settings.md)
+-    [Entrez les détails de la vitrine et indiquez si vous souhaitez effectuer la publication sur la Place de marché Microsoft Azure ou dans AppSource](./cpp-consulting-service-storefront-details.md)

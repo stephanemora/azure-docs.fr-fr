@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
+ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73643793"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981305"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -119,7 +119,7 @@ Une passerelle des services Bureau à distance désigne un service de proxy RDP 
 En règle générale, la sécurisation des stations de travail d’administration pour le cloud s’apparente aux pratiques utilisées pour les stations de travail locales, comme la minimisation de la build et les autorisations restrictives. Certains aspects uniques de la gestion du cloud relèvent plutôt de la gestion d’entreprise à distance ou hors bande. Ces derniers incluent l’utilisation et l’audit des informations d’identification, de l’accès à distance sécurisé, ainsi que de la détection des menaces et des interventions associées.
 
 ### <a name="authentication"></a>Authentification
-Vous pouvez vous servir des restrictions d’ouverture de session Azure dans l’optique de limiter les adresses IP sources pouvant accéder aux outils d’administration et aux demandes d’accès à l’audit. Pour permettre à Azure d’identifier les clients de gestion (stations de travail et/ou applications), vous pouvez configurer SMAPI (avec des outils clients tels que les applets de commande Windows PowerShell) et le portail Azure en vue d’exiger l’installation de certificats de gestion côté client en plus des certificats SSL. Il est vivement recommandé d’exiger l’application de l’authentification multifacteur pour tous les accès administrateur.
+Vous pouvez vous servir des restrictions d’ouverture de session Azure dans l’optique de limiter les adresses IP sources pouvant accéder aux outils d’administration et aux demandes d’accès à l’audit. Pour permettre à Azure d’identifier les clients de gestion (stations de travail et/ou applications), vous pouvez configurer SMAPI (avec des outils clients tels que les applets de commande Windows PowerShell) et le portail Azure en vue d’exiger l’installation de certificats de gestion côté client en plus des certificats TLS/SSL. Il est vivement recommandé d’exiger l’application de l’authentification multifacteur pour tous les accès administrateur.
 
 Certaines applications ou certains services déployés dans Azure peuvent avoir leurs propres mécanismes d’authentification pour l’accès utilisateur ou administrateur, tandis que d’autres tirent pleinement avantage d’Azure AD. Selon que vous fédérez des informations d’identification par le biais des services de fédération Active Directory (AD FS), que vous utilisiez la synchronisation de répertoires ou que vous conserviez uniquement les comptes d’utilisateur dans le cloud, [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (qui fait partie d’Azure AD Premium) vous aide à gérer les cycles de vie d’identité entre les ressources.
 
@@ -145,9 +145,6 @@ Nous recommandons trois configurations principales pour une station de travail r
 | - | Séparation nette des responsabilités | - |
 | PC d’entreprise servant de machine virtuelle |Réduction des coûts matériels | - |
 | - | Séparation des rôles et des applications | - |
-| Windows To Go avec chiffrement de lecteur BitLocker |Compatibilité avec la plupart des ordinateurs |Suivi des ressources |
-| - | Rentabilité et portabilité | - |
-| - | Environnement de gestion isolé |- |
 
 La station de travail renforcée doit être l’hôte et non l’invité, et rien ne doit se trouver entre le système d’exploitation de l’hôte et le matériel. Le « principe de source propre » (ou « origine sécurisée ») signifie que l’ordinateur hôte doit être renforcé de manière optimale. Autrement, la station de travail renforcée (invité) est vulnérable aux attaques portant sur le système d’hébergement.
 
@@ -171,15 +168,6 @@ Dans l’optique de contourner plusieurs risques de sécurité liés à l’util
 
 La machine virtuelle du PC d’entreprise s’exécute dans un espace protégé et fournit des applications utilisateur. L’hôte reste une « source propre » et applique des stratégies de réseau strictes dans le système d’exploitation racine (par exemple, blocage de l’accès RDP à partir de la machine virtuelle).
 
-### <a name="windows-to-go"></a>Windows To Go
-Une autre solution consiste à utiliser un lecteur [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx) : cette fonctionnalité prend effectivement en charge le démarrage USB côté client. Grâce à Windows To Go, les utilisateurs peuvent démarrer un ordinateur compatible avec une image système isolée qui s’exécute à partir d’un lecteur flash USB chiffré. Cette solution offre des contrôles supplémentaires pour les points de terminaison d’administration à distance, car l’image peut être entièrement gérée par un groupe informatique d’entreprise, avec des stratégies de sécurité strictes, une build du système d’exploitation minimale et la prise en charge du Module de plateforme sécurisée.
-
-Dans la figure ci-dessous, l’image portable est un système joint au domaine, qui est préconfiguré pour se connecter uniquement à Azure, nécessite une authentification multifacteur et bloque tout le trafic ne concernant pas la gestion. Si un utilisateur démarre le même ordinateur avec l’image d’entreprise standard et tente d’accéder à la passerelle des services Bureau à distance correspondant aux outils de gestion Azure, la session est bloquée. Windows To Go devient le système d’exploitation racine. Aucune couche supplémentaire, plus vulnérable aux attaques extérieures, n’est requise (système d’exploitation hôte, hyperviseur, machine virtuelle).
-
-![](./media/management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png)
-
-Il est plus facile de perdre un lecteur flash USB qu’un ordinateur de bureau classique. L’utilisation de BitLocker pour chiffrer la totalité du volume ainsi que la création d’un mot de passe fort empêchent toute action malveillante. De plus, en cas de perte de la clé USB, la révocation et [l’émission d’un nouveau certificat de gestion](https://technet.microsoft.com/library/hh831574.aspx) avec réinitialisation rapide du mot de passe peut limiter l’exposition. Les journaux d’audit d’administration résident dans Azure, et non sur le client, ce qui minimise encore davantage les risques de perte des données.
-
 ## <a name="best-practices"></a>Meilleures pratiques
 Tenez compte des recommandations suivantes pour la gestion des applications et des données dans Azure.
 
@@ -188,7 +176,7 @@ Même si une station de travail est verrouillée, les autres exigences de sécur
 
 | À ne pas faire | À faire |
 | --- | --- |
-| N’envoyez pas d’informations d’identification administrateur ou d’autres informations sensibles (par exemple, certificats SSL ou certificats de gestion) par courrier électronique. |Préservez la confidentialité des données en fournissant oralement les noms et les mots de passe de compte (sans les stocker dans la messagerie vocale), installez les certificats client/serveur à distance (par le biais d’une session chiffrée), effectuez des téléchargements à partir d’un partage réseau protégé ou procédez à une distribution manuelle au moyen de supports amovibles. |
+| N’envoyez pas d’informations d’identification administrateur ou d’autres informations sensibles (par exemple, certificats TLS/SSL ou certificats de gestion) par courrier électronique. |Préservez la confidentialité des données en fournissant oralement les noms et les mots de passe de compte (sans les stocker dans la messagerie vocale), installez les certificats client/serveur à distance (par le biais d’une session chiffrée), effectuez des téléchargements à partir d’un partage réseau protégé ou procédez à une distribution manuelle au moyen de supports amovibles. |
 | - | Gérez de manière proactive les cycles de vie de votre certificat de gestion. |
 | Ne stockez pas de mots de passe non chiffrés ou non hachés dans le système de stockage de l’application (feuilles de calcul, sites SharePoint, partages de fichiers, etc.). |Établissez des principes de gestion de sécurité et des stratégies de renforcement de système, et appliquez-les à votre environnement de développement. |
 | - | Utilisez les règles d’épinglage de certificat [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) pour garantir un accès approprié aux sites Azure SSL/TLS. |
@@ -215,7 +203,7 @@ La limitation du nombre de tâches réalisables par les administrateurs sur une 
 * Stratégie de groupe. Créez une stratégie d’administration globale qui s’applique à toute station de travail de domaine utilisée pour la gestion (et bloquez l’accès de toutes les autres), ainsi qu’aux comptes d’utilisateur authentifiés sur ces stations de travail.
 * Approvisionnement plus sécurisé. Protégez l’image de votre poste de travail renforcé de référence afin de vous protéger contre la falsification. Utilisez différentes mesures de sécurité, comme le chiffrement et l’isolement, pour stocker des images, des machines virtuelles et des scripts, et pour restreindre l’accès (en vous servant par exemple d’un processus d’archivage/extraction vérifiable).
 * Mise à jour corrective. Conservez une build cohérente (ou disposez d’images distinctes pour le développement, les opérations et les autres tâches d’administration), analysez les modifications et les logiciels malveillants régulièrement, mettez la build à jour et activez uniquement les ordinateurs lorsque nécessaire.
-* Chiffrement. Assurez-vous que les stations de travail de gestion disposent d’un Module de plateforme sécurisée pour sécuriser le [système de fichiers EFS](https://technet.microsoft.com/library/cc700811.aspx) (Encrypting File System) et BitLocker. Si vous vous servez de Windows To Go, utilisez uniquement des clés USB chiffrées avec BitLocker.
+* Chiffrement. Assurez-vous que les stations de travail de gestion disposent d’un Module de plateforme sécurisée pour sécuriser le [système de fichiers EFS](https://technet.microsoft.com/library/cc700811.aspx) (Encrypting File System) et BitLocker.
 * Gouvernance. Utilisez les objets de stratégie de groupe AD DS pour contrôler toutes les interfaces Windows de l’administrateur, comme le partage de fichiers. Incluez les stations de travail de gestion dans l’audit, la surveillance et la journalisation. Effectuez le suivi des accès et de l’utilisation au niveau administrateur et développeur.
 
 ## <a name="summary"></a>Résumé

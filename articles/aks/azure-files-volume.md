@@ -1,15 +1,16 @@
 ---
-title: Créer un volume statique pour plusieurs pods dans Azure Kubernetes Service (AKS)
+title: Créer manuellement un partage Azure Files
+titleSuffix: Azure Kubernetes Service
 description: Découvrir comment créer manuellement un volume avec Azure Files pour une utilisation simultanée avec plusieurs pods dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 084ab5cd6736c9148bcab1faf048d3d9081855d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 412b7158ea366eefb1c3e9c1d2586d54c316aa6c
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596400"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803447"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Créer manuellement et utiliser un volume avec un partage Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -132,7 +133,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Options de montage
 
-La valeur par défaut de *fileMode* et *dirMode* est *0755* pour Kubernetes 1.9.1 et versions ultérieures. Si vous utilisez un cluster avec Kuberetes 1.8.5 ou version ultérieure et que vous créez l’objet de volume persistant de manière statique, les options de montage doivent être spécifiées sur l’objet *PersistentVolume*. L’exemple suivant définit *0777* :
+La valeur par défaut de *fileMode* et *dirMode* est *0755* pour Kubernetes 1.9.1 et versions ultérieures. Si vous utilisez un cluster avec Kubernetes 1.8.5 ou version ultérieure et que vous créez l’objet de volume persistant de manière statique, les options de montage doivent être spécifiées sur l’objet *PersistentVolume*. L’exemple suivant définit *0777* :
 
 ```yaml
 apiVersion: v1

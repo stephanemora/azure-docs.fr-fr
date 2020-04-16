@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d937852ace8d9bf39495f1fdd92e6edfc4452a0a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943583"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755031"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migration de StorSimple 8100 et 8600 vers Azure File Sync
 
@@ -137,12 +137,21 @@ Les spécifications que vous décidez doivent englober chaque partage/chemin d�
 La taille globale des données est moins un goulot d’étranglement que le nombre d’éléments dont vous avez besoin pour adapter les spécifications de la machine.
 
 * [Découvrez comment dimensionner un serveur Windows Server en fonction du nombre d’éléments (fichiers et dossiers) que vous devez synchroniser.](storage-sync-files-planning.md#recommended-system-resources)
+
+    **Remarque :** L’article du lien précédent présente un tableau avec une plage pour la mémoire du serveur (RAM). Penchez vers le chiffre le plus grand pour la machine virtuelle Azure. Vous pouvez pencher vers le chiffre le plus petit pour votre machine locale.
+
 * [Découvrez comment déployer une machine virtuelle Windows Server.](../../virtual-machines/windows/quick-create-portal.md)
 
 > [!IMPORTANT]
 > Assurez-vous que la machine virtuelle est déployée dans la même région Azure que l’appliance virtuelle StorSimple 8020. Si, dans le cadre de cette migration, vous devez également modifier la région dans laquelle vos données cloud sont stockées aujourd’hui, vous pouvez effectuer cette opération ultérieurement, lorsque vous approvisionnez des partages de fichiers Azure.
 
-### <a name="expose-the-storsimple-8020-volumes-to-the-vm"></a>Exposer des volumes StorSimple 8020 à la machine virtuelle
+> [!IMPORTANT]
+> Souvent, une instance Windows Server locale est utilisée pour faire face à votre appareil StorSimple local. Dans ce type de configuration, il est possible d’activer la fonctionnalité « [Déduplication des données](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable) » sur cette instance Windows Server. **Si vous avez utilisé la déduplication des données avec vos données StorSimple, veillez également à activer la déduplication des données sur cette machine virtuelle Azure.** Ne confondez pas cette déduplication au niveau des fichiers avec la déduplication au niveau des blocs intégrée à StorSimple, pour laquelle aucune action n’est nécessaire.
+
+> [!IMPORTANT]
+> Pour optimiser les performances, déployez un **disque de système d’exploitation rapide** pour votre machine virtuelle cloud. Vous stockerez la base de données de synchronisation sur le disque du système d’exploitation pour tous vos volumes de données. Veillez également à créer un **grand disque de système d’exploitation**. En fonction du nombre d’éléments (fichiers et dossiers) sur vos volumes StorSimple, le disque du système d’exploitation peut nécessiter **plusieurs centaines de Gio** d’espace pour prendre en charge la base de données de synchronisation.
+
+### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>Exposer des volumes StorSimple 8020 à la machine virtuelle Azure
 
 Au cours de cette phase, vous connectez un ou plusieurs volumes StorSimple de l’appliance virtuelle 8020 par iSCSI à la machine virtuelle Windows Server que vous avez approvisionnée.
 
@@ -339,7 +348,7 @@ Nous pouvons amener le cache de Windows Server à l’état de l’appliance et 
 Commande RoboCopy :
 
 ```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Arrière-plan :
@@ -366,6 +375,14 @@ Arrière-plan :
    :::column-end:::
    :::column span="1":::
       Génère les sorties dans la fenêtre de la console. Utilisé conjointement avec la sortie dans un fichier journal.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Exécute RoboCopy dans le même mode qu’une application de sauvegarde. Permet à RoboCopy de déplacer des fichiers pour lesquels l’utilisateur actuel n’a pas d’autorisations.
    :::column-end:::
 :::row-end:::
 :::row:::

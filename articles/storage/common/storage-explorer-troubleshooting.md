@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561678"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437120"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -76,7 +76,7 @@ Il existe plusieurs rôles RBAC intégrés qui peuvent fournir les autorisations
 Les erreurs de certificat se produisent généralement dans l’une des situations suivantes :
 
 - L’application est connectée via un _proxy transparent_, ce qui signifie qu’un serveur (par exemple, le serveur de votre société) intercepte le trafic HTTPS, le déchiffre, puis le chiffre à l’aide d’un certificat auto-signé.
-- Vous exécutez une application qui injecte un certificat SSL auto-signé dans les messages HTTPS que vous recevez. Les antivirus et les logiciels d’inspection du trafic réseau sont des exemples de ce type d’application.
+- Vous exécutez une application qui injecte un certificat TLS/SSL auto-signé dans les messages HTTPS que vous recevez. Les antivirus et les logiciels d’inspection du trafic réseau sont des exemples de ce type d’application.
 
 Quand l’Explorateur Stockage voit un certificat auto-signé ou non approuvé, il ne sait plus si le message HTTPS reçu a été modifié. Si vous avez une copie du certificat auto-signé, vous pouvez donner instruction à l’Explorateur Stockage de lui faire confiance en effectuant les étapes suivantes :
 

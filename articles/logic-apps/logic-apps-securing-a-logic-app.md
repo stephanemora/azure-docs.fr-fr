@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: cc349e5851627ee830196982509f91a83198dfe0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349592"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657176"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -27,7 +27,7 @@ Pour contrôler l’accès et protéger les données dans Azure Logic Apps, vous
 
 ## <a name="access-to-request-based-triggers"></a>Accès aux déclencheurs basés sur des requêtes
 
-Si votre application logique utilise un déclencheur basé sur une requête, qui reçoit des requêtes ou appels entrants, comme le déclencheur [Requête](../connectors/connectors-native-reqres.md) ou [Webhook](../connectors/connectors-native-webhook.md), vous pouvez restreindre l’accès de sorte que seuls les clients autorisés puissent démarrer votre application logique. Toutes les requêtes reçues par une application logique sont chiffrées et sécurisées avec le protocole SSL (Secure Sockets Layer).
+Si votre application logique utilise un déclencheur basé sur une requête, qui reçoit des requêtes ou appels entrants, comme le déclencheur [Requête](../connectors/connectors-native-reqres.md) ou [Webhook](../connectors/connectors-native-webhook.md), vous pouvez restreindre l’accès de sorte que seuls les clients autorisés puissent démarrer votre application logique. Toutes les requêtes reçues par une application logique sont chiffrées et sécurisées à l’aide du protocole Transport Layer Security (TLS), précédemment connu sous le nom Secure Sockets Layer (SSL).
 
 Voici quelques méthodes qui peuvent vous aider à sécuriser l’accès à ce type de déclencheur :
 
@@ -655,7 +655,7 @@ Si l’option [Certificat client](../active-directory/authentication/active-dire
 
 | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Valeur | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentification** | `type` | Oui | **Certificat client** <br>or <br>`ClientCertificate` | Type d’authentification à utiliser pour les certificats clients SSL (Secure Sockets Layer). Alors que les certificats auto-signés sont pris en charge, des certificats auto-signés pour SSL ne sont pas pris en charge. |
+| **Authentification** | `type` | Oui | **Certificat client** <br>or <br>`ClientCertificate` | Type d’authentification à utiliser pour les certificats clients TLS/SSL. Bien que les certificats autosignés sont pris en charge, les certificats autosignés pour TLS/SSL ne sont pas pris en charge. |
 | **Pfx** | `pfx` | Oui | <*encoded-pfx-file-content*> | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) <p><p>Pour convertir le fichier PFX au format encodé en base64, vous pouvez utiliser PowerShell en procédant comme suit : <p>1. Enregistrez le contenu du certificat dans une variable : <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convertissez le contenu du certificat à l’aide de la fonction `ToBase64String()` et enregistrez ce contenu dans un fichier texte : <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Mot de passe** | `password`| Non | <*password-for-pfx-file*> | Mot de passe pour accéder au fichier PFX |
 |||||
@@ -684,7 +684,7 @@ Pour plus d’informations sur la sécurisation des services à l’aide de l’
 * [Améliorer la sécurité des services back-end à l’aide de l’authentification par certificat client dans Gestion des API Azure](../api-management/api-management-howto-mutual-certificates.md)
 * [Améliorer la sécurité de votre service RESTful à l’aide de certificats clients](../active-directory-b2c/secure-rest-api.md)
 * [Informations d’identification de certificat pour l’authentification d’application](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
+* [Utiliser un certificat TLS/SSL dans votre code dans Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 

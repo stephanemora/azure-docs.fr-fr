@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76515001"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521187"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide de configuration d’un modèle d’ordinateur Windows dans Azure Lab Services
 
@@ -234,3 +234,6 @@ Installez d’autres applications couramment utilisées pour l’enseignement vi
 ## <a name="conclusion"></a>Conclusion
 
 Cet article vous a montré quelques étapes facultatives pour préparer votre modèle de machine virtuelle Windows pour des cours efficaces.  Les étapes incluent l’installation de OneDrive et d’Office 365, ainsi que l’installation des mises à jour pour Windows et les applications Microsoft Store.  Nous avons également expliqué comment paramétrer une heure de mise à jour qui convient le mieux pour votre classe.  
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour plus d’informations sur la gestion des coûts, consultez l’article sur la façon de contrôler le comportement d’arrêt de Windows : [Guide de contrôle du comportement d’arrêt de Windows](how-to-windows-shutdown.md)

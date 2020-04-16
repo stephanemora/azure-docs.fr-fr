@@ -4,15 +4,15 @@ description: Découvrez les fonctionnalités réseau d’Azure App Service ainsi
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 79f85261115dbddcb0b04cd2863a90912de2ab87
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649224"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474909"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -41,9 +41,8 @@ Pour tout cas d’usage, il peut y avoir plusieurs façons de résoudre le probl
 | Prendre en charge les besoins SSL en fonction des adresses IP pour votre application | adresse attribuée par l’application |
 | Adresse entrante dédiée, non partagée pour votre application | adresse attribuée par l’application |
 | Restreindre l’accès à votre application à partir d’un ensemble d’adresses bien définies | Restrictions d’accès |
-| Exposer mon application sur des adresses IP privées dans mon réseau virtuel | ASE ILB </br> Application Gateway avec des points de terminaison de service |
-| Restreindre l’accès à mon application à partir des ressources dans un réseau virtuel | Points de terminaison de service </br> ASE ILB |
-| Exposer mon application sur une adresse IP privée dans mon réseau virtuel | ASE ILB </br> adresse IP privée en entrée sur Application Gateway avec des points de terminaison de service |
+| Restreindre l’accès à mon application à partir des ressources dans un réseau virtuel | Points de terminaison de service </br> ASE ILB </br> Point de terminaison privé (préversion) |
+| Exposer mon application sur une adresse IP privée dans mon réseau virtuel | ASE ILB </br> adresse IP privée en entrée sur Application Gateway avec des points de terminaison de service </br> Point de terminaison de service (préversion) |
 | Protéger mon application avec un pare-feu d’applications web | Application Gateway + ASE ILB </br> Application Gateway avec des points de terminaison de service </br> Azure Front Door avec des restrictions d’accès |
 | Équilibrer la charge du trafic vers mes applications dans différentes régions | Azure Front Door avec des restrictions d’accès | 
 | Équilibrer la charge du trafic dans la même région | [Application Gateway avec des points de terminaison de service][appgwserviceendpoints] | 
@@ -63,7 +62,7 @@ Les cas d’usage en sortie suivants suggèrent comment utiliser les fonctionnal
 
 ### <a name="default-networking-behavior"></a>Comportement de mise en réseau par défaut
 
-Les unités d’échelle Azure App Service prennent en charge de nombreux clients dans chaque déploiement. Les plans de référence SKU Gratuit et Partagé hébergent des charges de travail clientes sur les rôles de travail multilocataires. Les plans De base, et supérieurs, hébergent les charges de travail clientes dédiées à un seul plan App Service. Si vous aviez un plan App Service Standard, toutes les applications dans ce plan sont exécutées sur le même rôle de travail. Si vous effectuez un scale out du rôle de travail, toutes les applications dans ce plan App Service seront répliquées sur un nouveau rôle de travail pour chaque instance dans votre plan App Service. Les rôles de travail qui sont utilisés pour Premiumv2 sont différents des rôles de travail utilisés pour les autres plans. Chaque déploiement App Service a une adresse IP qui est utilisée pour tout le trafic entrant vers les applications dans ce déploiement App Service. Toutefois, il existe entre 4 et 11 adresses qui sont utilisées pour effectuer des appels sortants. Ces adresses sont partagées par toutes les applications dans ce déploiement App Service. Les adresses sortantes diffèrent en fonction des divers types de rôles de travail. Cela signifie que les adresses utilisées par les plans App Service Gratuit, Partagé, De base, Standard et Premium sont différentes de celles utilisées pour les appels sortants des plans App Service Premiumv2. Si vous observez les propriétés de votre application, vous pouvez voir les adresses entrantes et sortantes qui sont utilisées par votre application. Si vous avez besoin de verrouiller une dépendance avec une liste de contrôle d’accès d’adresses IP, utilisez possibleOutboundAddresses. 
+Les unités d’échelle Azure App Service prennent en charge de nombreux clients dans chaque déploiement. Les plans de référence SKU Gratuit et Partagé hébergent des charges de travail clientes sur les rôles de travail multilocataires. Les plans De base, et supérieurs, hébergent les charges de travail clientes dédiées à un seul plan App Service. Si vous aviez un plan App Service Standard, toutes les applications dans ce plan sont exécutées sur le même rôle de travail. Si vous effectuez un scale-out du rôle de travail, toutes les applications dans ce plan App Service seront répliquées sur un nouveau rôle de travail pour chaque instance dans votre plan App Service. Les rôles de travail qui sont utilisés pour Premiumv2 sont différents des rôles de travail utilisés pour les autres plans. Chaque déploiement App Service a une adresse IP qui est utilisée pour tout le trafic entrant vers les applications dans ce déploiement App Service. Toutefois, il existe entre 4 et 11 adresses qui sont utilisées pour effectuer des appels sortants. Ces adresses sont partagées par toutes les applications dans ce déploiement App Service. Les adresses sortantes diffèrent en fonction des divers types de rôles de travail. Cela signifie que les adresses utilisées par les plans App Service Gratuit, Partagé, De base, Standard et Premium sont différentes de celles utilisées pour les appels sortants des plans App Service Premiumv2. Si vous observez les propriétés de votre application, vous pouvez voir les adresses entrantes et sortantes qui sont utilisées par votre application. Si vous avez besoin de verrouiller une dépendance avec une liste de contrôle d’accès d’adresses IP, utilisez possibleOutboundAddresses. 
 
 ![Propriétés de l’application](media/networking-features/app-properties.png)
 
@@ -82,7 +81,7 @@ Lorsque vous utilisez une adresse attribuée par l’application, votre trafic t
 * Prendre en charge les besoins SSL en fonction des adresses IP pour votre application
 * Définir une adresse dédiée pour votre application qui n’est pas partagée avec un autre élément
 
-Vous pouvez apprendre à définir une adresse sur votre application en suivant le tutoriel sur [la configuration SSL basée sur des adresses IP][appassignedaddress]. 
+Vous pouvez apprendre à définir une adresse sur votre application en suivant le tutoriel [Ajouter un certificat TLS/SSL dans Azure App Service][appassignedaddress]. 
 
 ### <a name="access-restrictions"></a>Restrictions d’accès 
 
@@ -111,6 +110,11 @@ La fonctionnalité Points de terminaison de service vous permet de verrouiller l
 ![points de terminaison de service avec application gateway](media/networking-features/service-endpoints-appgw.png)
 
 Vous trouverez plus d’informations sur la configuration des points de terminaison de service avec votre application dans le didacticiel sur la [configuration de la fonctionnalité Restrictions d’accès de point de terminaison de service][serviceendpoints]
+
+### <a name="private-endpoint-preview"></a>Point de terminaison privé (préversion)
+
+Private Endpoint est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à votre application web Azure Private Link. Private Endpoint utilise une adresse IP privée de votre réseau virtuel, plaçant de fait l’application web dans votre réseau virtuel. Cette fonctionnalité s’applique uniquement aux flux **entrants** dans votre application web.
+[Utilisation de points de terminaison privés pour une application web Azure (préversion)][privateendpoints]
  
 ### <a name="hybrid-connections"></a>les connexions hybrides
 
@@ -227,3 +231,4 @@ Vous pouvez avoir plusieurs applications frontend qui utilisent la même applica
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
 [appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

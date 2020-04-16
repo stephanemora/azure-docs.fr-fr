@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd1c381ecd2b7dba4c77a025cb0332ace4147bf
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561284"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673662"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Déployer OpenShift Container Platform 3.11 dans Azure
 
@@ -303,7 +303,7 @@ Les paramètres peuvent différer selon les versions. Vérifiez quels sont les p
 | `masterClusterType` | Indiquez si le cluster utilise des nœuds principaux privés ou publics. Si vous choisissez les nœuds privés, les nœuds principaux ne sont pas exposés sur Internet au travers d’une adresse IP publique. Au lieu de cela, une adresse IP privée, spécifiée dans `masterPrivateClusterIp`, est utilisée | public <br> private | public |
 | `masterPrivateClusterIp` | Si des nœuds principaux privés sont sélectionnés, une adresse IP privée doit être spécifiée pour l’équilibreur de charge interne dans le cas des nœuds principaux. L’adresse IP statique doit se trouver dans le bloc CIDR pour le sous-réseau principal et ne doit pas être déjà utilisée. Si des nœuds principaux publics sont sélectionnés, cette valeur ne sera pas utilisée mais elle doit toujours être spécifiée |  | 10.1.0.200 |
 | `routerClusterType` | Indiquez si le cluster utilise des nœuds secondaires privés ou publics. Si vous choisissez des nœuds privés, les nœuds secondaires ne sont pas exposés sur Internet au travers d’une adresse IP publique. Au lieu de cela, une adresse IP privée, spécifiée dans `routerPrivateClusterIp`, est utilisée | public <br> private | public |
-| `routerPrivateClusterIp` | Si des nœuds secondaires privés sont sélectionnés, une adresse IP privée doit être spécifiée pour l’équilibreur de charge interne dans le cas des nœuds secondaires. L’adresse IP statique doit se trouver dans le bloc CIDR pour le sous-réseau principal et ne doit pas être déjà utilisée. Si des nœuds secondaires publics sont sélectionnés, cette valeur ne sera pas utilisée mais elle doit toujours être spécifiée |  | 10.2.0.200 |
+| `routerPrivateClusterIp` | Si des nœuds secondaires privés sont sélectionnés, une adresse IP privée doit être spécifiée pour l’équilibreur de charge interne dans le cas des nœuds secondaires. L’adresse IP statique doit se trouver dans le bloc CIDR pour le sous-réseau secondaire et ne doit pas être déjà utilisée. Si des nœuds secondaires publics sont sélectionnés, cette valeur ne sera pas utilisée mais elle doit toujours être spécifiée |  | 10.2.0.200 |
 | `routingCertType` | Utilisez un certificat personnalisé pour le domaine de routage ou le certificat autosigné par défaut : suivez les instructions dans la section **Certificats personnalisés** | selfsigned <br> custom | selfsigned |
 | `masterCertType` | Utilisez un certificat personnalisé pour le domaine principal ou le certificat autosigné par défaut : suivez les instructions dans la section **Certificats personnalisés** | selfsigned <br> custom | selfsigned |
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: afb30a17d7a1450f169402c18f41ce249415e89d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587241"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804824"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de ressources SQL Database et gouvernance des ressources
 
@@ -78,6 +78,24 @@ En cas d’utilisation élevée de workers ou de sessions, voici certaines des o
 
 - Augmenter le niveau de service ou la taille de calcul du pool élastique ou de la base de données. Consultez [Mise à l’échelle des ressources d’une base de données unique](sql-database-single-database-scale.md) et [Mise à l'échelle des ressources d’un pool élastique](sql-database-elastic-pool-scale.md).
 - Optimiser les requêtes afin de réduire l’utilisation des ressources de chaque requête si la cause de l’utilisation du travail accrue est un problème de contention des ressources de calcul. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Réduction du paramètre [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (degré maximal de parallélisme).
+- Optimisation de la charge de travail des requêtes afin de réduire le nombre d’occurrences et la durée du blocage des requêtes.
+
+### <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Consommation de ressources par les charges de travail utilisateur et les processus internes
+
+La consommation d’UC et de mémoire par les charges de travail utilisateur dans chaque base de données est signalée dans les vues [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) et [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current) des colonnes `avg_cpu_percent` et `avg_memory_usage_percent`. Pour les pools élastiques, la consommation de ressources au niveau du pool est signalée dans la vue [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database). La consommation de processeur de la charge de travail utilisateur est également signalée via la métrique Azure Monitor `cpu_percent`, pour les [bases de données uniques](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) et les [pools élastiques](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) au niveau du pool.
+
+Azure SQL Database nécessite des ressources de calcul pour mettre en œuvre des fonctionnalités de service essentielles telles que la haute disponibilité et la récupération d’urgence, la sauvegarde et la restauration de base de données, la surveillance, le magasin de requêtes, le réglage automatique, etc. Le système met de côté une certaine partie des ressources globales pour ces processus internes à l’aide de mécanismes de [gouvernance des ressources](#resource-governance), et les autres ressources restent donc disponibles pour les charges de travail utilisateur. Parfois, lorsque des processus internes n’utilisent pas les ressources de calcul, le système les met à disposition des charges de travail utilisateur.
+
+La consommation totale d’UC et de mémoire par les charges de travail utilisateur et les processus internes sur l’instance SQL Server hébergeant une base de données unique ou un pool élastique est signalée dans les vues [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) et [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current) des colonnes `avg_instance_cpu_percent` et `avg_instance_memory_percent`. Ces données sont également signalées via les métriques Azure Monitor `sqlserver_process_core_percent` et `sqlserver_process_memory_percent`, pour les [bases de données uniques](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) et les [pools élastiques](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) au niveau du pool.
+
+Une répartition plus détaillée de la consommation récente des ressources par les charges de travail utilisateur et les processus internes est indiquée dans les vues [sys.dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) et [sys.dm_resource_governor_workload_groups_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database). Pour plus d’informations sur les pools de ressources et les groupes de charges de travail référencés dans ces vues, consultez [Gouvernance des ressources](#resource-governance). Ces vues signalent l’utilisation des ressources par les charges de travail utilisateur et par des processus internes spécifiques dans les pools de ressources et les groupes de charges de travail associés.
+
+Dans le contexte de la surveillance et du dépannage des performances, il est important de prendre en compte la **consommation d’UC de l’utilisateur** (`avg_cpu_percent`, `cpu_percent`) et la **consommation de processeur totale** par les charges de travail des utilisateurs et les processus internes (`avg_instance_cpu_percent`, `sqlserver_process_core_percent`).
+
+**La consommation d’UC de l’utilisateur** est calculée sous la forme d’un pourcentage des limites de charge de travail utilisateur dans chaque objectif de service. Une **utilisation de processeur de l’utilisateur** à 100 % indique que la charge de travail de l’utilisateur a atteint la limite de l’objectif de service. Toutefois, lorsque la **consommation d’UC totale** atteint la plage de 70-100 %, il est possible de voir le débit de charge de travail de l’utilisateur s’aplanir et la latence des requêtes augmenter, même si la **consommation d’UC de l’utilisateur** signalée reste inférieure à 100 %. La probabilité que cela se produise est supérieure lors de l’utilisation de plus petits objectifs de service avec une allocation modérée des ressources de calcul, mais avec des charges de travail utilisateur relativement intenses, par exemple dans des [pools élastiques denses](sql-database-elastic-pool-resource-management.md). Cela peut également se produire avec des objectifs de service inférieurs, lorsque des processus internes requièrent temporairement des ressources supplémentaires, par exemple lors de la création d’un réplica de base de données.
+
+Lorsque la **consommation d’UC totale** est élevée, les options d’atténuation sont les mêmes que celles indiquées précédemment, et incluent l’augmentation de l’objectif de service et/ou l’optimisation de la charge de travail utilisateur.
 
 ## <a name="resource-governance"></a>Gouvernance des ressources
 
@@ -116,7 +134,7 @@ Lorsque des enregistrements de journaux sont générés, chaque opération est �
 
 Les taux de génération de journaux réels imposés lors de l’exécution peuvent également être influencés par des mécanismes de commentaires, ce qui réduit temporairement les taux de journalisation disponibles afin de permettre au système de se stabiliser. La gestion de l’espace des fichiers journaux, l’absence d’exécution en cas de saturation de l’espace de journalisation disponible et les mécanismes de réplication des groupes de disponibilité peuvent réduire temporairement les limites totales du système.
 
-La mise en forme du trafic de l’administrateur des taux de journalisation est présentée par le biais des types d’attente suivants (exposés dans le DMV [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)) :
+La mise en forme du trafic de l’administrateur des taux de journalisation est présentée par le biais des types d’attente suivants (exposés dans les vues [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) et [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)) :
 
 | Type d’attente | Notes |
 | :--- | :--- |
@@ -125,10 +143,11 @@ La mise en forme du trafic de l’administrateur des taux de journalisation est 
 | INSTANCE_LOG_RATE_GOVERNOR | Limitation appliquée aux niveaux d’instances |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Contrôle des commentaires, réplication physique des groupes de disponibilité dans la section Critique pour l’entreprise/Premium ne suivant pas |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Contrôle des commentaires, limitation de taux pour éviter une condition de saturation de l’espace de journalisation |
+| HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Contrôle des commentaires relatifs à la géoréplication, limitation du taux de journalisation pour éviter une latence élevée des données et une indisponibilité des zones géographiques secondaires|
 |||
 
 Lorsque vous rencontrez une limite de taux de journalisation qui entrave l’évolutivité du système, envisagez les options suivantes :
-- Montez en puissance vers un niveau de service supérieur afin d’obtenir le taux de journalisation maximal, qui est de 96 Mo/s. 
+- Montez en puissance vers un niveau de service supérieur afin d’obtenir le taux de journalisation maximal de 96 Mo/s, ou basculez vers un autre niveau de service. Le niveau de service [Hyperscale](sql-database-service-tier-hyperscale.md) fournit un taux de journalisation de 100 Mo/s, quel que soit le niveau de service choisi.
 - Si les données en cours de chargement sont temporaires, telles que des données de processus de site dans un processus ETL, vous pouvez les charger dans la base de données tempdb (qui présente une journalisation minime). 
 - Pour les scénarios d’analyse, chargez les données dans une table columnstore en cluster couverte. Cela réduit le taux de journalisation requis en raison de la compression. Cette technique augmente l’utilisation de l’UC et s’applique uniquement aux jeux de données qui bénéficient d’index columnstore en cluster. 
 

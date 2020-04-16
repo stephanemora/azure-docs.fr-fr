@@ -12,19 +12,21 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927532"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416375"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activité Delete dans Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 L’activité Delete dans Azure Data Factory vous permet de supprimer des fichiers ou dossiers de magasins de stockage au niveau local ou dans le cloud. Utilisez cette activité pour nettoyer ou archiver les fichiers qui ne sont plus nécessaires.
 
 > [!WARNING]
-> Les fichiers ou dossiers supprimés ne peuvent pas être restaurés. Soyez donc prudent quand vous supprimez des fichiers ou dossiers à l’aide de l’activité Delete.
+> Les fichiers ou dossiers supprimés ne peuvent pas être restaurés (sauf si la suppression réversible est activée pour le stockage). Soyez donc prudent quand vous supprimez des fichiers ou dossiers à l’aide de l’activité Delete.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

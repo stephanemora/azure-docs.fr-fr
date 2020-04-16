@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 3f15033095b02dd35c2d8d7bda60ca184df64c9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6009a655adcc26ebef31588eff2332a05f3a001
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475017"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804722"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -837,7 +837,7 @@ Une expression `zoom`, qui est définie sous la forme `['zoom']`, est utilisée 
 
 **Exemple**
 
-Par défaut, les rayons des points de données restitués dans la couche de carte thermique ont un rayon de pixels fixe pour tous les niveaux de zoom. Alors que la carte fait l’objet d’un zoom, les données sont agrégées, et la couche de carte thermique change d’aspect. Une expression `zoom` peut être utilisée pour mettre à l’échelle le rayon de chaque niveau de zoom de sorte que chaque point de données couvre la même zone physique de la carte. Elle fait paraître la couche de carte thermique plus statique et plus cohérente. Chaque niveau de zoom de la carte a deux fois plus de pixels verticalement et horizontalement que le niveau de zoom précédent. La mise à l’échelle du rayon, de sorte qu’il soit multiplié par deux avec chaque niveau de zoom, crée une carte thermique qui paraît cohérente à tous les niveaux de zoom. Cette opération est possible en utilisant l’expression `zoom` avec une expression `base 2 exponential interpolation`, comme indiqué ci-dessous. 
+Par défaut, les rayons des points de données restitués dans la couche de carte thermique ont un rayon de pixels fixe pour tous les niveaux de zoom. Alors que la carte fait l’objet d’un zoom, les données sont agrégées, et la couche de carte thermique change d’aspect. Une expression `zoom` peut être utilisée pour mettre à l’échelle le rayon de chaque niveau de zoom de sorte que chaque point de données couvre la même zone physique de la carte. Elle fait paraître la couche de carte thermique plus statique et plus cohérente. Chaque niveau de zoom de la carte a deux fois plus de pixels verticalement et horizontalement que le niveau de zoom précédent. La mise à l’échelle du rayon, de sorte qu’il soit multiplié par deux avec chaque niveau de zoom, crée une carte thermique qui paraît cohérente à tous les niveaux de zoom. Vous pouvez le faire en utilisant l’expression `zoom` avec une expression `base 2 exponential interpolation`, avec le rayon de pixels défini pour le niveau de zoom minimal et un rayon mis à l’échelle pour le niveau de zoom maximal calculé en tant que `2 * Math.pow(2, minZoom - maxZoom)`, comme indiqué ci-dessous.
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -849,8 +849,8 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         //For zoom level 1 set the radius to 2 pixels.
         10, 2,
 
-        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 10,000 pixels.
-        19, 10000
+        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
+        19, 2 * Math.pow(2, 19 - 1)
     ]
 };
 ```

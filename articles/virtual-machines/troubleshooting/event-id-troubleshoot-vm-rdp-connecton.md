@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes de connexion RDP des machines virtuelles Azure par ID d’événement | Microsoft Docs
-description: ''
+description: Utilisez les ID d’événement pour résoudre les différents problèmes qui empêchent une connexion par protocole RDP (Remote Desktop Protocol) à une machine virtuelle Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154206"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437061"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Résoudre les problèmes de connexion RDP des machines virtuelles Azure par ID d’événement 
 
@@ -54,38 +54,38 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nom du journal :**      System <br />
+**Nom du journal :**      Système <br />
 **Source :**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Date :**          *heure* <br />
+**Date :**          *heure* <br />
 **ID d’événement :**      1058 <br />
-**Catégorie de tâche :** Aucun <br />
+**Catégorie de tâche :** None <br />
 **Niveau :**         Error <br />
 **Mots clés :**      Classique <br />
 **Utilisateur :**          N/A <br />
-**Ordinateur :**      *ordinateur* <br />
-**Description :** le serveur hôte de session Bureau à distance n’a pas pu remplacer le certificat auto-signé ayant expiré et qui était utilisé pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Access is denied (L’accès est refusé).
+**Ordinateur :**      *ordinateur* <br />
+**Description :** Le serveur hôte de session Bureau à distance n’a pas pu remplacer le certificat autosigné ayant expiré et qui était utilisé pour l’authentification du serveur hôte de session Bureau à distance sur les connexions TLS. Le code d’état approprié est Access is denied (L’accès est refusé).
 
-**Nom du journal :**      System <br />
+**Nom du journal :**      Système <br />
 **Source :**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Date :**          *heure* <br />
+**Date :**          *heure* <br />
 **ID d’événement :**      1058 <br />
-**Catégorie de tâche :** Aucun <br />
+**Catégorie de tâche :** None <br />
 **Niveau :**         Error <br />
 **Mots clés :**      Classique <br />
 **Utilisateur :**          N/A <br />
-**Ordinateur :**      *ordinateur* <br />
-**Description :** le serveur hôte de session Bureau à distance n’a pas pu créer un certificat auto-signé à utiliser pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Object already exists (L’objet existe déjà).
+**Ordinateur :**      *ordinateur* <br />
+**Description :** Le serveur hôte de session Bureau à distance n’a pas pu créer un certificat autosigné à utiliser pour l’authentification du serveur hôte de session Bureau à distance sur les connexions TLS. Le code d’état approprié est « Object already exists » (L’objet existe déjà).
 
-**Nom du journal :**      System <br />
+**Nom du journal :**      Système <br />
 **Source :**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Date :**          *heure* <br />
+**Date :**          *heure* <br />
 **ID d’événement :**      1057 <br />
-**Catégorie de tâche :** Aucun <br />
+**Catégorie de tâche :** None <br />
 **Niveau :**         Error <br />
 **Mots clés :**      Classique <br />
 **Utilisateur :**          N/A <br />
-**Ordinateur :**      *ordinateur* <br />
-**Description :** le serveur hôte de session Bureau à distance n’a pas pu créer un certificat auto-signé à utiliser pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Keyset does not exist (Le jeu de clés n’existe pas).
+**Ordinateur :**      *ordinateur* <br />
+**Description :** Le serveur hôte de session Bureau à distance n’a pas pu créer un certificat autosigné à utiliser pour l’authentification du serveur hôte de session Bureau à distance sur les connexions TLS. Le code d’état approprié est Keyset does not exist (Le jeu de clés n’existe pas).
 
 Vous pouvez également vérifier les événements d’erreur SCHANNEL 36872 et 36870 en exécutant les commandes suivantes :
 
@@ -94,26 +94,26 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nom du journal :**      System <br />
+**Nom du journal :**      Système <br />
 **Source :**        Schannel <br />
 **Date :**          — <br />
 **ID d’événement :**      36870 <br />
-**Catégorie de tâche :** Aucun <br />
+**Catégorie de tâche :** None <br />
 **Niveau :**         Error <br />
 **Mots clés :**       <br />
 **Utilisateur :**          SYSTEM <br />
-**Ordinateur :**      *ordinateur* <br />
-**Description :** une erreur irrécupérable s’est produite lors de la tentative d’accès à la clé privée des informations d’identification du serveur SSL. Le code d’erreur retourné par le module de chiffrement est 0x8009030D.  <br />
+**Ordinateur :**      *ordinateur* <br />
+**Description :** Une erreur irrécupérable s’est produite lors de la tentative d’accès à la clé privée des informations d’identification du serveur TLS. Le code d’erreur retourné par le module de chiffrement est 0x8009030D.  <br />
 L’état d’erreur interne est 10001.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 Ce problème se produit parce que les clés de chiffrement RSA locales dans le dossier MachineKeys sur la machine virtuelle ne sont pas accessibles. Ce problème peut se produire pour l’une des raisons suivantes :
 
 1. Configuration des autorisations incorrecte sur le dossier Machinekeys ou les fichiers RSA.
 
 2. Clé RSA endommagée ou manquante.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour résoudre ce problème, vous devez configurer les autorisations appropriées sur le certificat RDP en appliquant la procédure suivante.
 
@@ -186,9 +186,9 @@ Si vous ne pouvez pas renouveler le certificat, suivez ces étapes pour essayer 
 
 Réessayez d’accéder à la machine virtuelle en utilisant le protocole RDP.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Mettre à jour le certificat SSL
+#### <a name="update-tlsssl-certificate"></a>Mettre à jour le certificat TLS/SSL
 
-Si vous configurez la machine virtuelle pour utiliser un certificat SSL, exécutez la commande suivante pour obtenir l’empreinte. Vérifiez ensuite si elle est identique à l’empreinte du certificat :
+Si vous configurez la machine virtuelle pour qu’elle utilise un certificat TLS/SSL, exécutez la commande suivante pour obtenir l’empreinte. Vérifiez ensuite si elle est identique à l’empreinte du certificat :
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
@@ -206,7 +206,7 @@ Vous pouvez également essayer de supprimer la clé, de sorte que le protocole R
 reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
 ```
 
-## <a name="scenario-2"></a>Scénario 2
+## <a name="scenario-2"></a>Scénario 2
 
 ### <a name="event-log"></a>Journal des événements
 
@@ -216,22 +216,22 @@ Dans une instance CMD, exécutez les commandes suivantes pour vérifier si l’�
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nom du journal :**      System <br />
+**Nom du journal :**      Système <br />
 **Source :**        Schannel <br />
 **Date :**          — <br />
 **ID d’événement :**      36871 <br />
-**Catégorie de tâche :** Aucun <br />
+**Catégorie de tâche :** None <br />
 **Niveau :**         Error <br />
 **Mots clés :**       <br />
 **Utilisateur :**          SYSTEM <br />
-**Ordinateur :**      *ordinateur* <br />
+**Ordinateur :**      *ordinateur* <br />
 **Description :** une erreur irrécupérable s’est produite lors de la création des informations d’identification du serveur TLS. L’état d’erreur interne est 10013.
  
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème est dû aux stratégies de sécurité. Lorsque des versions antérieures de TLS (par exemple, 1.0) sont désactivées, l’accès RDP échoue.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Le protocole RDP utilise TLS 1.0 en tant que protocole par défaut. Toutefois, le protocole peut être modifié et le protocole TLS 1.1 utilisé (nouvelle norme).
 
@@ -248,13 +248,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 
 **Nom du journal :**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
 **Source :**        Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Date :**          *heure* <br />
+**Date :**          *heure* <br />
 **ID d’événement :**      2056 <br />
 **Catégorie de tâche :** (109) <br />
 **Niveau :**         Error <br />
 **Mots clés :**       <br />
 **Utilisateur :**          SERVICE RÉSEAU <br />
-**Ordinateur :**      *computer fqdn* <br />
+**Ordinateur :**      *nom de domaine complet de l’ordinateur* <br />
 **Description :** la description de l’ID d’événement 2056 provenant de la source Microsoft-Windows-TerminalServices-SessionBroker est introuvable. Le composant qui déclenche cet événement n’est pas installé sur votre ordinateur local, ou l’installation est endommagée. Vous pouvez installer ou réparer le composant sur l’ordinateur local. <br />
 Si l’événement provient d’un autre ordinateur, les informations d’affichage ont dû être enregistrées avec l’événement. <br />
 Les informations suivantes ont été incluses avec l’événement : <br />
@@ -264,13 +264,13 @@ L’ouverture de session sur la base de données a échoué.
 
 **Nom du journal :**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
 **Source :**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Date :**          *heure* <br />
+**Date :**          *heure* <br />
 **ID d’événement :**      1296 <br />
 **Catégorie de tâche :** (104) <br />
 **Niveau :**         Error <br />
 **Mots clés :**       <br />
 **Utilisateur :**          SERVICE RÉSEAU <br />
-**Ordinateur :**      *computer fqdn* <br />
+**Ordinateur :**      *nom de domaine complet de l’ordinateur* <br />
 **Description :** la description de l’ID d’événement 1296 provenant de la source Microsoft-Windows-TerminalServices-SessionBroker-Client est introuvable. Le composant qui déclenche cet événement n’est pas installé sur votre ordinateur local, ou l’installation est endommagée. Vous pouvez installer ou réparer le composant sur l’ordinateur local.
 Si l’événement provient d’un autre ordinateur, les informations d’affichage ont dû être enregistrées avec l’événement.
 Les informations suivantes ont été incluses avec l’événement :  <br />
@@ -278,13 +278,13 @@ Les informations suivantes ont été incluses avec l’événement :  <br />
 *text* <br />
 Le service Broker pour les connexions Bureau à distance n’est pas prêt pour la communication RPC.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème se produit parce que le nom d’hôte du serveur Broker pour les connexions Bureau à distance a été modifié et que cette modification n’est pas prise en charge. 
 
 Le nom d’hôte comporte des entrées et des dépendances vis-à-vis de la base de données interne Windows, requise par la batterie de services Bureau à distance pour pouvoir fonctionner. La modification du nom d’hôte une fois la batterie créée provoque de nombreuses erreurs et peut entraîner l’interruption de fonctionnement du serveur Broker.
 
-### <a name="resolution"></a>Résolution : 
+### <a name="resolution"></a>Résolution 
 
 Pour résoudre ce problème, le rôle de service Broker pour les connexions Bureau à distance et la base de données interne Windows doivent être réinstallés.
 

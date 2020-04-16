@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73748554"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478308"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
 
@@ -42,7 +42,7 @@ La machine source s’inscrit auprès du serveur de configuration lorsque vous i
     3. Vérifiez que les dossiers répertoriés dans [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) (Dossiers de Site Recovery exclus des programmes antivirus) sont exclus du logiciel antivirus.
     4. Une fois les problèmes de réseau résolus, recommencez l’inscription en suivant les instructions de la section [Inscrire la machine source auprès du serveur de configuration](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Si la chaîne **post request: (7) - Couldn't connect to server** est introuvable, dans le même fichier journal, recherchez la chaîne **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. Cette erreur peut se produire si le certificat du serveur de configuration a expiré ou si la machine source ne prend en charge TLS 1.0 ou des protocoles SSL ultérieurs. Elle peut également se produire si un pare-feu bloque les communications SSL entre la machine source et le serveur de configuration. Si la chaîne est trouvée : 
+6. Si la chaîne **post request: (7) - Couldn't connect to server** est introuvable, dans le même fichier journal, recherchez la chaîne **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. Cette erreur peut se produire si le certificat du serveur de configuration a expiré ou si la machine source ne prend pas en charge TLS 1.0 ou des protocoles ultérieurs. Elle peut également se produire si un pare-feu bloque les communications TLS entre la machine source et le serveur de configuration. Si la chaîne est trouvée : 
     1. Pour résoudre le problème, connectez-vous à l’adresse IP du serveur de configuration via un navigateur web sur la machine source. Utilisez l’URI https :\/\/<adresse IP du serveur configuration\>: 443/. Assurez-vous que la machine source peut atteindre le serveur de configuration via le port 443.
     2. Vérifier si des règles de pare-feu sur la machine source doivent être ajoutées ou supprimées pour que celle-ci puisse communiquer avec le serveur de configuration. Compte tenu de la diversité des logiciels de pare-feu susceptibles d’être utilisés, nous ne pouvons pas répertorier toutes les configurations de pare-feu requises. Collaborez avec vos administrateurs réseau pour débloquer d’éventuels problèmes de connexion.
     3. Vérifiez que les dossiers répertoriés dans [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) (Dossiers de Site Recovery exclus des programmes antivirus) sont exclus du logiciel antivirus.  

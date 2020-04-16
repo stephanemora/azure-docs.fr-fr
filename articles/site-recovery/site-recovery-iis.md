@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954663"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478286"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
 
 Les logiciels d’application sont le moteur de la productivité dans une organisation. Des applications web diverses peuvent répondre aux différents besoins d’une organisation. Certaines applications, telles que les applications utilisées pour le traitement des paies, les applications financières et les sites Web destinés aux clients, peuvent être essentielles à une entreprise. Afin d’éviter une perte de productivité, il est fondamental pour l’entreprise que ces applications soient opérationnelles en permanence. Plus important encore, le maintien de la disponibilité de ces applications peut contribuer à préserver de toute nuisance l’image ou la marque de l’entreprise.
 
-Les applications web critiques sont généralement configurées comme des applications multiniveaux : le web, la base de données et l’application se situent à différents niveaux. Outre leur répartition sur différents niveaux, ces applications peuvent également utiliser plusieurs serveurs de chaque niveau pour équilibrer la charge du trafic. Par ailleurs, les mappages entre les différents niveaux et le serveur web peuvent s’appuyer sur des adresses IP statiques. Lors du basculement, certains de ces mappages doivent être mis à jour, en particulier si plusieurs sites web sont configurés sur le serveur web. Dans le cas d’applications web utilisant SSL, vous devez mettre à jour les liaisons de certificat.
+Les applications web critiques sont généralement configurées comme des applications multiniveaux : le web, la base de données et l’application se situent à différents niveaux. Outre leur répartition sur différents niveaux, ces applications peuvent également utiliser plusieurs serveurs de chaque niveau pour équilibrer la charge du trafic. Par ailleurs, les mappages entre les différents niveaux et le serveur web peuvent s’appuyer sur des adresses IP statiques. Lors du basculement, certains de ces mappages doivent être mis à jour, en particulier si plusieurs sites web sont configurés sur le serveur web. Dans le cas d’applications web utilisant TLS, vous devez mettre à jour les liaisons de certificat.
 
 Les méthodes de récupération traditionnelles qui ne reposent pas sur la réplication impliquent la sauvegarde de divers fichiers de configuration, paramètres du Registre, liaisons, composants personnalisés (COM ou .NET), contenus et certificats. Un ensemble d’étapes manuelles permet de récupérer ces fichiers. Les méthodes de récupération traditionnelles avec sauvegarde et récupération manuelle des fichiers sont fastidieuses, sujettes à erreur et non scalables. Par exemple, vous pouvez facilement oublier de sauvegarder des certificats. Après le basculement, vous n’avez plus d’autre choix que celui d’acheter de nouveaux certificats pour le serveur.
 
@@ -118,22 +118,22 @@ Chaque site comporte des informations de liaison. Ces informations de liaison in
 >
 > Si vous définissez la liaison de site sur **Toutes non attribuées**, vous n’avez pas besoin de mettre à jour cette liaison suite au basculement. De même, si l’adresse IP associée à un site n’est pas modifiée après le basculement, vous n’avez pas besoin de mettre à jour la liaison de site. (La rétention de l’adresse IP dépend de l’architecture réseau et des sous-réseaux affectés aux sites principaux et de restauration. Leur mise à jour peut s’avérer impossible pour votre organisation.)
 
-![Capture d’écran qui illustre la définition de la liaison SSL](./media/site-recovery-iis/sslbinding.png)
+![Capture d’écran qui illustre le paramétrage de la liaison TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
 Si vous avez associé l’adresse IP à un site, mettez à jour toutes les liaisons de site avec la nouvelle adresse IP. Pour modifier les liaisons de site, ajoutez un [script de mise à jour de la couche Web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) après le groupe 3, dans le plan de récupération.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Mettre à jour l’adresse IP de l’équilibreur de charge
 Si vous avez une machine virtuelle ARR, ajoutez un [script de basculement ARR IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) après le groupe 4 pour mettre à jour l’adresse IP.
 
-#### <a name="ssl-certificate-binding-for-an-https-connection"></a>Liaison de certificat SSL d’une connexion HTTPS
-Le cas échéant, un site web peut posséder un certificat SSL associé qui garantit une communication sécurisée entre le serveur web et le navigateur de l’utilisateur. Si le site web dispose d’une connexion HTTPS et d’une liaison de site HTTPS associée à l’adresse IP du serveur IIS avec une liaison de certificat SSL, vous devez ajouter une nouvelle liaison de site pour le certificat avec l’adresse IP de la machine virtuelle IIS après le basculement.
+#### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Liaison de certificat TLS/SSL d’une connexion HTTPS
+Le cas échéant, un site web peut posséder un certificat TLS/SSL associé qui garantit une communication sécurisée entre le serveur web et le navigateur de l’utilisateur. Si le site web dispose d’une connexion HTTPS et d’une liaison de site HTTPS associée à l’adresse IP du serveur IIS avec une liaison de certificat TLS/SSL, vous devez ajouter une nouvelle liaison de site pour le certificat avec l’adresse IP de la machine virtuelle IIS après le basculement.
 
-Le certificat SSL peut être émis en incluant ces composants :
+Le certificat TLS/SSL peut être émis en incluant ces composants :
 
 * Le nom de domaine complet du site web
 * Le nom du serveur
 * Un certificat générique pour le nom de domaine  
-* Une adresse IP Si le certificat SSL est émis par rapport à l’adresse IP du serveur IIS, un autre certificat SSL doit être émis par rapport à l’adresse IP du serveur IIS sur le site Azure. Vous devez créer une liaison SSL supplémentaire pour ce certificat. Nous vous recommandons par conséquent de ne pas utiliser de certificat SSL émis par rapport à l’adresse IP. Cette option est moins couramment utilisée et sera bientôt dépréciée conformément aux nouvelles modifications du CA/Browser Forum.
+* Une adresse IP Si le certificat TLS/SSL est émis en incluant l’adresse IP du serveur IIS, un autre certificat TLS/SSL doit être émis en incluant l’adresse IP du serveur IIS sur le site Azure. Vous devez créer une liaison TLS supplémentaire pour ce certificat. Nous vous recommandons par conséquent de ne pas utiliser de certificat TLS/SSL émis en incluant l’adresse IP. Cette option est moins couramment utilisée et sera bientôt dépréciée conformément aux nouvelles modifications du CA/Browser Forum.
 
 #### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>Mettre à jour la dépendance entre la couche Web et la couche Application
 Si une dépendance propre à une application est basée sur l’adresse IP des machines virtuelles, vous devez mettre à jour cette dépendance après le basculement.

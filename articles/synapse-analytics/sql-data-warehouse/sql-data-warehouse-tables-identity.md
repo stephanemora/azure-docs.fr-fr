@@ -1,6 +1,6 @@
 ---
 title: Utiliser IDENTITY pour créer des clés de substitution
-description: Recommandations et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables SQL Analytics.
+description: Recommandations et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables du pool SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab8f4a64f7273f0fa15c20f324e132003d5afe32
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351307"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742636"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Utiliser IDENTITY pour créer des clés de substitution dans SQL Analytics
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utiliser IDENTITY pour créer des clés de substitution dans le pool SQL Synapse
 
-Recommandations et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables SQL Analytics.
+Recommandations et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables du pool SQL Synapse.
 
 ## <a name="what-is-a-surrogate-key"></a>Qu’est-ce qu’une clé de substitution ?
 
-Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles SQL Analytics. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.  
+Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles d’entrepôt de données. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Création d’une table avec une colonne IDENTITY
 
-La propriété IDENTITY est conçue pour effectuer un scale-out sur toutes les distributions de la base de données SQL Analytics sans perturber les performances de chargement. Par conséquent, l’implémentation d’IDENTITY est adaptée pour atteindre ces objectifs.
+La propriété IDENTITY est conçue pour effectuer un scale-out sur toutes les distributions du pool SQL Synapse sans perturber les performances de chargement. Par conséquent, l’implémentation d’IDENTITY est adaptée pour atteindre ces objectifs.
 
 Vous pouvez définir une table ayant la propriété IDENTITY lorsque vous créez la table à l’aide d’une syntaxe similaire à l’instruction suivante :
 
@@ -50,7 +50,7 @@ Le reste de cette section met en évidence les nuances de l’implémentation po
 
 ### <a name="allocation-of-values"></a>Allocation de valeurs
 
-La propriété IDENTITY ne garantit pas l’ordre dans lequel les valeurs de substitution sont alloués, ce qui reflète le comportement de SQL Server et d’Azure SQL Database. Toutefois, dans SQL Analytics, l’absence de garantie est plus marquée.
+La propriété IDENTITY ne garantit pas l’ordre dans lequel les valeurs de substitution sont alloués, ce qui reflète le comportement de SQL Server et d’Azure SQL Database. Toutefois, dans le pool SQL Synapse, l’absence de garantie est plus marquée.
 
 L’exemple suivant en est une illustration :
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) suit le même comportement SQL Server que celui do
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Insérer explicitement des valeurs dans une colonne IDENTITY
 
-SQL Analytics prend en charge la syntaxe `SET IDENTITY_INSERT <your table> ON|OFF`. Vous pouvez utiliser cette syntaxe pour insérer explicitement des valeurs dans la colonne IDENTITY.
+Le pool SQL Synapse prend en charge la syntaxe `SET IDENTITY_INSERT <your table> ON|OFF`. Vous pouvez utiliser cette syntaxe pour insérer explicitement des valeurs dans la colonne IDENTITY.
 
 Nombreux sont les modélisateurs de données à aimer utiliser des valeurs négatives prédéfinies pour certaines lignes dans leurs dimensions. Un exemple est la ligne -1 ou « membre inconnu ».
 
@@ -161,11 +161,11 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Il n’est pas possible d’utiliser `CREATE TABLE AS SELECT` actuellement lors du chargement des données dans une table comportant une colonne IDENTITY.
 >
 
-Pour plus d’informations sur le chargement de données, consultez [Conception de processus ELT pour SQL Analytics](design-elt-data-loading.md) et [Meilleures pratiques de chargement](guidance-for-loading-data.md).
+Pour plus d’informations sur le chargement de données, consultez [Conception du processus ELT pour le pool SQL Synapse](design-elt-data-loading.md) et [Meilleures pratiques de chargement](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Vues système
 
-Vous pouvez utiliser la vue de catalogue [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) pour identifier une colonne qui comporte la propriété IDENTITY.
+Vous pouvez utiliser la vue de catalogue [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour identifier une colonne qui comporte la propriété IDENTITY.
 
 Pour vous aider à mieux comprendre la structure de la base de données, cet exemple montre comment intégrer sys.identity_column à d’autres vues du catalogue système :
 
@@ -195,14 +195,14 @@ La propriété IDENTITY ne peut pas être utilisée :
 - Lorsque la colonne est également la clé de distribution
 - Lorsque la table est une table externe
 
-Les fonctions associées suivantes ne sont pas prises en charge dans SQL Analytics :
+Les fonctions associées suivantes ne sont pas prises en charge dans le pool SQL Synapse :
 
-- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
-- [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)
-- [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql)
-- [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql)
-- [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql)
-- [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql)
+- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="common-tasks"></a>Tâches courantes
 
@@ -241,6 +241,6 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble des tables](/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)
-- [CREATE TABLE (Transact-SQL) IDENTITY (Propriété)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
-- [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)
+- [Vue d’ensemble des tables](sql-data-warehouse-tables-overview.md)
+- [CREATE TABLE (Transact-SQL) IDENTITY (Propriété)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

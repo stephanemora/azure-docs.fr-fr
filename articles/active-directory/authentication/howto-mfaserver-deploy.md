@@ -4,19 +4,19 @@ description: Prise en main pas à pas du serveur Azure Multi-Factor Authentica
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53428039055005693f30f63a709105b77fe65f8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c32867313a0adf1967cb55cb78c42cc1b4e5758
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230921"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653123"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -27,7 +27,7 @@ ms.locfileid: "79230921"
 Cette page vous indique comment installer le serveur et le configurer avec votre Active Directory local. Si le serveur MFA est déjà installé et que vous souhaitez effectuer une mise à niveau, voir [Mise à niveau vers le serveur Azure Multi-Factor Authentication le plus récent](howto-mfaserver-deploy-upgrade.md). Pour plus d’informations sur l’installation du service web, voir [Déploiement du service web de l’application mobile pour le serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
 
 > [!IMPORTANT]
-> À compter du 1{1}er{2} juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1{1}er{2} juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
 
 ## <a name="plan-your-deployment"></a>Planifier votre déploiement
 
@@ -161,7 +161,7 @@ Maintenant que le serveur est installé, vous pouvez ajouter des utilisateurs. V
 
 ## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Comment le serveur Azure Multi-Factor Authentication gère les données utilisateur
 
-Lorsque vous utilisez le serveur Multi-Factor Authentication (MFA) sur site, les données utilisateur sont stockées sur les serveurs locaux. Aucune donnée utilisateur persistante n'est stockée dans le cloud. Lorsque l'utilisateur effectue une vérification en deux étapes, le serveur MFA envoie des données au service cloud Azure MFA pour effectuer la vérification. Lorsque ces demandes d’authentification sont envoyées au service cloud, les champs suivants sont envoyés dans la demande et les journaux d’activité afin qu’ils soient disponibles dans les rapports d’utilisation/d’authentification du client. Certains champs étant facultatifs, ils peuvent être activés ou désactivés sur le serveur Multi-Factor Authentication. La communication du serveur MFA au service cloud MFA utilise SSL/TLS sur le port 443 sortant. Ces champs sont les suivants :
+Lorsque vous utilisez le serveur Multi-Factor Authentication (MFA) localement, les données utilisateur sont stockées sur les serveurs locaux. Aucune donnée utilisateur persistante n'est stockée dans le cloud. Lorsque l'utilisateur effectue une vérification en deux étapes, le serveur MFA envoie des données au service cloud Azure MFA pour effectuer la vérification. Lorsque ces demandes d’authentification sont envoyées au service cloud, les champs suivants sont envoyés dans la demande et les journaux d’activité afin qu’ils soient disponibles dans les rapports d’utilisation/d’authentification du client. Certains champs étant facultatifs, ils peuvent être activés ou désactivés sur le serveur Multi-Factor Authentication. La communication du serveur MFA au service cloud MFA utilise SSL/TLS sur le port 443 sortant. Ces champs sont les suivants :
 
 * ID unique : nom d'utilisateur ou ID du serveur MFA interne
 * Prénom et nom (facultatif)

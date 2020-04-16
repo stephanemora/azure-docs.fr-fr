@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2f6e9cd4e7a035e6555b2241613cb9c46c3be550
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664834"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677009"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 
@@ -563,7 +563,7 @@ az group deployment create \
 
 ## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Modèle d’alerte de métrique de seuil statique qui supervise plusieurs critères
 
-Les alertes de métrique plus récentes prennent en charge la génération d’alertes sur des métriques multidimensionnelles, ainsi que la prise en charge de plusieurs critères. Vous pouvez utiliser le modèle suivant pour créer une règle d’alerte de métrique plus avancée sur les métriques dimensionnelles et spécifier plusieurs critères.
+Les alertes de métrique plus récentes prennent en charge la génération d’alertes sur des métriques multidimensionnelles, ainsi que la définition de plusieurs critères (jusqu’à cinq critères par règle d’alerte). Vous pouvez utiliser le modèle suivant pour créer une règle d’alerte de métrique plus avancée sur les métriques dimensionnelles et spécifier plusieurs critères.
 
 Notez les contraintes suivantes liées à l’utilisation de dimensions dans une règle d’alerte qui contient plusieurs critères :
 - Vous ne pouvez sélectionner qu’une seule valeur par dimension au sein de chaque critère.
@@ -1518,6 +1518,10 @@ Cette section décrit les modèles Azure Resource Manager pour trois scénarios 
 - Supervision de toutes les machines virtuelles (dans une région Azure) dans un ou plusieurs groupes de ressources.
 - Supervision de toutes les machines virtuelles (dans une région Azure) dans un abonnement.
 - Supervision d’une liste de machines virtuelles (dans une région Azure) dans un abonnement.
+
+> [!NOTE]
+>
+> Dans une règle d’alerte métrique qui surveille plusieurs ressources, une seule condition est autorisée.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerte de seuil statique sur toutes les machines virtuelles dans un ou plusieurs groupes de ressources
 

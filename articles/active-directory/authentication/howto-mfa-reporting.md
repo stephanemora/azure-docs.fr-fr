@@ -4,25 +4,25 @@ description: Cette section décrit comment utiliser la fonctionnalité de rappor
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425289"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653618"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapports dans Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être utilisés par vous et votre organisation, et qui sont accessibles via le portail Azure. Le tableau ci-après répertorie les rapports disponibles :
 
-| Rapport | Location | Description |
+| Rapport | Emplacement | Description |
 |:--- |:--- |:--- |
 | Historique de l'utilisateur bloqué | Azure AD > Sécurité > MFA > Bloquer/débloquer des utilisateurs | Affiche l’historique des demandes de blocage et de déblocage d’utilisateurs. |
 | Alertes relatives à l’utilisation et aux fraudes | Azure AD > Connexions | Fournit des informations sur l’utilisation globale, un récapitulatif par utilisateur, des informations détaillées sur les utilisateurs, ainsi que l’historique des alertes de fraude émises au cours de la plage de dates spécifiée. |
@@ -126,13 +126,13 @@ Les rapports d’activité de connexion pour l’authentification multifacteur v
 
 Tout d’abord, assurez-vous d’avoir le [module MSOnline V1 PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installé.
 
-Identifiez les utilisateurs qui se sont inscrits auprès de MFA à l’aide du code PowerShell qui suit.
+Identifiez les utilisateurs qui se sont inscrits auprès de MFA à l’aide du code PowerShell qui suit. Cet ensemble de commandes exclut les utilisateurs désactivés, car ces comptes ne peuvent pas s’authentifier auprès d’Azure AD.
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods -ne $null -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
 
-Identifiez les utilisateurs qui ne se sont pas inscrits auprès de MFA à l’aide du code PowerShell qui suit.
+Identifiez les utilisateurs qui ne se sont pas inscrits auprès de MFA à l’aide du code PowerShell qui suit. Cet ensemble de commandes exclut les utilisateurs désactivés, car ces comptes ne peuvent pas s’authentifier auprès d’Azure AD.
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods.Count -eq 0 -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
 
 Identifiez les méthodes de sortie et les utilisateurs inscrits. 
 

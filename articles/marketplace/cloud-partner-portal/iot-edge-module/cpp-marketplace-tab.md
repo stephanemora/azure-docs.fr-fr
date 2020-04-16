@@ -5,18 +5,21 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 3ff65a637c1d3722e773ab27f051b3b5bc109a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df51a408cc47908a240ceb66bf510fe3df3ce87f
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281729"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983396"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Onglet Place de marché d’un module IoT Edge
 
-L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce long formulaire est divisé en quatre sections : **Vue d’ensemble**, **Artefacts marketing**, **Gestion des prospects** et **Informations légales**.
+>[!Important]
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de module IoT Edge vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Créer une offre de module Azure IoT Edge](https://aka.ms/AzureCreateIoT) pour gérer vos offres migrées.
+
+L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce formulaire long est divisé en quatre sections : **Overview** (Vue d’ensemble), **Marketing Artifacts** (Artefacts marketing), **Lead Management** (Gestion des prospects) et **Legal** (Informations juridiques).
 
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -32,7 +35,7 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs 
 | **Titre\***                 | Titre de l’offre. Il est affiché de façon visible dans la Place de marché.  Longueur maximale de 50 caractères. <!--ADD PICTURE IN ACTION-->|
 | **Résumé\***               | Court résumé de l’offre. Longueur maximale de 100 caractères. <!--ADD PICTURE IN ACTION-->|
 | **Long Summary (Résumé long)\***          | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ **Résumé**).  Longueur maximale de 256 caractères. <!--ADD PICTURE IN ACTION-->|
-| **Description\***           | Description de l’offre.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple.<br/> Un paragraphe *Conditions matérielles minimales requises* doit être inclus dans la partie inférieure. Par exemple : <br/> <p><u>Conditions matérielles minimales requises :</u> système d’exploitation Linux x64 ry arm32, 1 Go de RAM, 500 Mo de stockage</p>
+| **Description\***           | Description de l’offre.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple.<br/> Un paragraphe *Conditions matérielles minimales requises* doit être inclus dans la partie inférieure. Par exemple : <br/> <p><u>Conditions matérielles minimales requises :</u> Système d’exploitation Linux x64 ry arm32, 1 Go de RAM, 500 Mo de stockage</p>
 | **Marketing Identifier\*** (Identificateur marketing)  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple : <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **ID d’abonnement pour préversion** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
 | **Liens utiles**          | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Un maximum de 10 est autorisé. Veillez à ajouter au moins un lien vers votre documentation et un lien vers les appareils IoT Edge compatibles du [catalogue d’appareils Azure IoT](https://catalog.azureiotsolutions.com/). |
@@ -75,7 +78,7 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs 
 
 ## <a name="marketing-artifacts"></a>Artefacts marketing
 
-Cette section contient les sous-sections suivantes : **Logos**, **Captures d’écran** et **Vidéos**. 
+Cette section comporte les sous-sections suivantes : **Logos**, **Capture d’écran** et **Vidéos**. 
 
 >[!Note]
 >Les logos sont les seuls artefacts marketing obligatoires ; néanmoins, nous vous recommandons d’ajouter les autres artefacts pour mieux attirer les clients.

@@ -10,17 +10,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b1ec4ee3d7a51c2a21a5bbd8888ea4662cf78bf5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304155"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582197"
 ---
-# <a name="manage-assets"></a>Gérer les actifs multimédias
+# <a name="manage-assets"></a>Gérer les ressources
 
 Dans Azure Media Services, un [actif multimédia](https://docs.microsoft.com/rest/api/media/assets) est l’endroit où vous 
 
@@ -54,7 +54,13 @@ Une fois les fichiers numériques chargés dans le stockage et associés à un �
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
-2. Obtenez une URL SAS avec des autorisations de lecture-écriture qui sera utilisée pour charger des fichiers numériques dans le conteneur d’actifs multimédias. Vous pouvez utiliser l’API Media Services pour [lister les URL de conteneurs d’actifs multimédias](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+2. Obtenez une URL SAS avec des autorisations de lecture-écriture qui sera utilisée pour charger des fichiers numériques dans le conteneur d’actifs multimédias.
+
+    Vous pouvez utiliser l’API Media Services pour [lister les URL de conteneurs d’actifs multimédias](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+
+    **AssetContainerSas. listContainerSas** utilise un paramètre [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) pour lequel vous définissez `expiryTime`. L’heure doit être définie sur < 24 heures.
+
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) retourne plusieurs URL SAS, car il existe deux clés de compte de stockage pour chaque compte de stockage. Les deux clés d’un compte de stockage permettent d’effectuer un basculement et une rotation transparente des clés. La première URL SAS représente la première clé du compte de stockage, et la deuxième URL SAS représente la deuxième clé.
 3. Utilisez les SDK ou les API Stockage Azure (par exemple l’[API REST de stockage](../../storage/common/storage-rest-api-auth.md) ou le [SDK .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour charger des fichiers dans le conteneur d’actifs multimédias.
 4. Utilisez des API Media Services v3 pour créer une transformation et un travail afin de traiter votre actif multimédia « d’entrée ». Pour plus d’informations, consultez [Transformations et travaux](transform-concept.md).
 5. Diffusez en continu le contenu à partir de l’actif multimédia de « sortie ».

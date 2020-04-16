@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772002"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548300"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Meilleures pratiques Azure pour la sécurité réseau
 Cet article présente l’ensemble des meilleures pratiques Azure pour améliorer votre sécurité réseau. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
@@ -49,13 +49,13 @@ Les réseaux virtuels Azure sont similaires aux réseaux LAN de votre réseau lo
 
 Meilleures pratiques pour segmenter logiquement les sous-réseaux :
 
-**Bonne pratique** : N’attribuez pas de règle d’autorisation avec de larges plages (autorisez, par exemple, de 0.0.0.0 à 255.255.255.255).  
+**Bonne pratique** : N’attribuez pas de règle d’autorisation avec de larges plages (autorisez, par exemple, de 0.0.0.0 à 255.255.255.255).  
 **Détail** : Assurez-vous que les procédures de résolution des problèmes découragent ou interdisent la configuration de ces types de règles. Ces règles d’autorisation induisent un sentiment de sécurité erroné : elles sont fréquemment trouvées et exploitées par les équipes rouges.
 
 **Bonne pratique** : Segmentez l’espace d’adressage plus volumineux en sous-réseaux.   
 **Détail** : Pour créer vos sous-réseaux, utilisez les principes de création de sous-réseau reposant sur [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-**Bonne pratique** : Créez des contrôles d’accès réseau entre les sous-réseaux. Le routage entre les sous-réseaux se produit automatiquement. Il est donc inutile de configurer manuellement des tables de routage. Par défaut, il n’y a aucun contrôle d’accès réseau entre les sous-réseaux que vous créez sur un réseau virtuel Azure.   
+**Bonne pratique** : Créez des contrôles d’accès réseau entre les sous-réseaux. Le routage entre les sous-réseaux se fait automatiquement. Il est donc inutile de configurer manuellement des tables de routage. Par défaut, il n’y a aucun contrôle d’accès réseau entre les sous-réseaux que vous créez sur un réseau virtuel Azure.   
 **Détail** : Utilisez un [groupe de sécurité réseau](/azure/virtual-network/virtual-networks-nsg) pour vous protéger contre le trafic non sollicité dans les sous-réseaux Azure. Un groupe de sécurité réseau est un simple appareil d’inspection des paquets, avec état, qui applique la méthode basée sur les 5 tuples (adresse IP source, port source, adresse IP de destination, port de destination et protocole de couche 4) pour créer des règles visant à autoriser ou refuser le trafic réseau. Vous pouvez autoriser ou refuser le trafic vers et depuis une ou plusieurs adresses IP, ou entre des sous-réseaux entiers, dans les deux directions.
 
 Lorsque vous utilisez des groupes de sécurité réseau pour le contrôle d’accès réseau entre les sous-réseaux, vous pouvez placer des ressources appartenant au même rôle ou à la même zone de sécurité dans leurs propres sous-réseaux.
@@ -67,7 +67,7 @@ Lorsque vous utilisez des groupes de sécurité réseau pour le contrôle d’ac
 **Détail** : Définissez un groupe de sécurité d’application pour les listes d’adresses IP que vous pensez être susceptibles d’être modifiées à l’avenir, ou d’être utilisées sur plusieurs groupes de sécurité réseau. N’oubliez pas de nommer les groupes de sécurité d’application de façon explicite, pour que d’autres puissent comprendre leur contenu et leur finalité.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Adoptez une approche Confiance Zéro
-Les réseaux basés sur le périmètre fonctionnent sur l’hypothèse que tous les systèmes au sein d’un réseau peuvent être approuvés. Toutefois, les employés d’aujourd’hui accèdent aux ressources de leur entreprise en tous lieux, sur un grand nombre d’appareils et d’applications, ce qui rend les contrôles de sécurité de périmètre non pertinents. Les stratégies de contrôle d’accès, qui se concentrent uniquement sur qui peut accéder à une ressource, ne sont pas suffisantes. Afin de maîtriser l’équilibre entre sécurité et productivité, les administrateurs de sécurité doivent également tenir compte des *moyens* d’accès à une ressource.
+Les réseaux basés sur le périmètre fonctionnent sur l’hypothèse que tous les systèmes au sein d’un réseau peuvent être approuvés. Toutefois, les employés d’aujourd’hui accèdent aux ressources de leur entreprise depuis n’importe où, sur un grand nombre d’appareils et d’applications, ce qui rend les contrôles de sécurité du périmètre non pertinents. Les stratégies de contrôle d’accès, qui se concentrent uniquement sur qui peut accéder à une ressource, ne sont pas suffisantes. Afin de maîtriser l’équilibre entre sécurité et productivité, les administrateurs de sécurité doivent également tenir compte des *moyens* d’accès à une ressource.
 
 Les réseaux doivent se développer à partir des défenses traditionnelles, car ils peuvent être vulnérables aux violations : un attaquant peut compromettre un point de terminaison unique au sein de la limite de confiance, puis rapidement déployer une brèche dans tout le réseau. Les réseaux de [Confiance Zéro](https://www.microsoft.com/security/blog/2018/06/14/building-zero-trust-networks-with-microsoft-365/) éliminent le concept d’approbation fondé sur l’emplacement réseau au sein d’un périmètre. À la place, les architectures de Confiance Zéro utilisent les revendications de confiance des appareils et des utilisateurs pour réguler l’accès aux ressources et aux données de l’organisation. Pour de nouvelles initiatives, adoptez les approches de Confiance Zéro qui valident l’approbation au moment de l’accès.
 
@@ -82,7 +82,7 @@ Les meilleures pratiques sont :
 **Bonne pratique** : Accordez des autorisations temporaires pour effectuer des tâches privilégiées. De cette façon, les utilisateurs malveillants ou non autorisés ne peuvent pas accéder aux ressources une fois que les autorisations ont expiré. L’accès est accordé uniquement au moment où les utilisateurs en ont besoin.  
 **Détail** : Utilisez l’accès juste-à-temps dans Azure AD Privileged Identity Management ou dans une solution tierce pour accorder des autorisations en vue d’effectuer des tâches privilégiées.
 
-La Confiance Zéro constitue la toute dernière évolution en matière de sécurité réseau. L’état des cyberattaques amène les organisations à adopter la mentalité « assume breach » (violation de la sécurité présumée), mais cette démarche ne doit pas être limitative. Les réseaux de Confiance Zéro protègent les ressources et les données d’entreprise tout en garantissant aux organisations la possibilité de créer un espace de travail moderne, à l’aide de technologies qui donnent les moyens aux employés d’être productifs, à tout moment et en tous lieux, de quelque manière que ce soit.
+La Confiance Zéro constitue la toute dernière évolution en matière de sécurité réseau. L’état des cyberattaques amène les organisations à adopter la mentalité « Assume Breach » (envisager les violations), mais cette démarche ne doit pas être limitative. Les réseaux de Confiance Zéro protègent les ressources et les données d’entreprise tout en garantissant aux organisations la possibilité de créer un espace de travail moderne, à l’aide de technologies qui donnent les moyens aux employés d’être productifs, à tout moment et en tous lieux, de quelque manière que ce soit.
 
 ## <a name="control-routing-behavior"></a>Contrôle du comportement de routage
 Lorsque vous placez une machine virtuelle sur un réseau virtuel Azure, celle-ci peut se connecter à n’importe quelle autre machine virtuelle du même réseau virtuel, même si les autres machines virtuelles se trouvent sur des sous-réseaux différents. Ce type de communication est rendu possible par une collection d’itinéraires système qui sont activés par défaut. Grâce à ces itinéraires par défaut, les machines virtuelles placées sur le même réseau virtuel peuvent initier des connexions les unes avec les autres, ainsi qu’avec Internet (pour les communications sortantes vers Internet uniquement).
@@ -111,7 +111,7 @@ Les appliances de sécurité réseau Azure peuvent offrir des niveaux de sécuri
 * Antivirus
 * Protection contre les botnets
 
-Pour trouver les appliances de sécurité de réseau virtuel Azure disponibles, accédez à la [Place de marché Microsoft Azure](https://azure.microsoft.com/marketplace/) et recherchez les termes « sécurité » et « sécurité réseau ».
+Pour trouver les appliances de sécurité de réseau virtuel Azure disponibles, accédez à la [Place de marché Azure](https://azure.microsoft.com/marketplace/), puis recherchez les termes « sécurité » et « sécurité réseau ».
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Déploiement des réseaux de périmètre pour les zones de sécurité
 Un [réseau de périmètre](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (également appelé zone DMZ) est un segment de réseau logique ou physique qui fournit une couche de sécurité supplémentaire entre vos ressources et Internet. Les périphériques de contrôle d’accès réseau spécialisés situés à la périphérie d’un réseau de périmètre autorisent uniquement le trafic souhaité entrant dans votre réseau virtuel.
@@ -122,20 +122,20 @@ Même s’il s’agit là de la conception de base d’un réseau de périmètre
 
 En prenant appui sur le concept de Confiance Zéro évoqué précédemment, nous vous recommandons de prévoir l’utilisation d’un réseau de périmètre pour tous les déploiements haute sécurité, afin d’améliorer le niveau de la sécurité réseau et le contrôle d’accès de vos ressources Azure. Vous pouvez utiliser Azure ou une solution tierce pour fournir une couche supplémentaire de sécurité entre vos ressources et internet :
 
-- Contrôles natifs Azure. Le [Pare-feu Azure](/azure/firewall/overview) et le [Pare-feu d’applications web dans Application Gateway](/azure/application-gateway/overview#web-application-firewall) offrent une sécurité de base moyennant un pare-feu entièrement avec état en tant que service, la haute disponibilité intégrée, l’extensibilité du cloud sans restriction, le filtrage du nom de domaine complet, la prise en charge d’ensembles de règles principales OWASP ainsi qu’une installation et une configuration simples.
+- Contrôles natifs Azure. Le [Pare-feu Azure](/azure/firewall/overview) et le [Pare-feu d’applications web dans Application Gateway](../../application-gateway/features.md#web-application-firewall) offrent une sécurité de base moyennant un pare-feu entièrement avec état en tant que service, la haute disponibilité intégrée, l’extensibilité du cloud sans restriction, le filtrage du nom de domaine complet, la prise en charge d’ensembles de règles principales OWASP ainsi qu’une installation et une configuration simples.
 - Offres de tiers. Recherchez sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/) le pare-feu de nouvelle génération (NGFW) et d’autres offres de tiers qui fournissent des outils de sécurité courants et des niveaux de sécurité réseau grandement améliorés. La configuration peut être plus complexe, mais une offre de tiers peut vous permettre d’utiliser les fonctionnalités et les ensembles de compétences existants.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Évitez toute exposition à Internet grâce à des liaisons réseau étendu dédiées
-De nombreuses organisations ont opté pour l’informatique hybride. Avec un environnement informatique hybride, certaines ressources informatiques de l’entreprise se trouvent sur Azure, et d’autres restent en local. Dans de nombreux cas, certains composants d’un service sont exécutés dans Azure, tandis que d’autres le sont localement.
+De nombreuses organisations ont opté pour l’informatique hybride. Avec un environnement informatique hybride, certaines des ressources informatiques de l’entreprise se trouvent sur Azure, et d’autres restent en local. Dans de nombreux cas, certains composants d’un service sont exécutés dans Azure, tandis que d’autres le sont localement.
 
 Un scénario hybride propose généralement un certain type de connectivité entre locaux. La connectivité entre locaux permet à l’entreprise de relier ses réseaux locaux aux réseaux virtuels Azure. Deux solutions de connectivité entre locaux sont disponibles :
 
-* [VPN de site à site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Il s’agit d’une technologie établie, fiable et approuvée, mais la connexion s’effectue via Internet. La bande passante est limitée à un maximum d’environ 1,25 Gbits/s. Le VPN de site à site est une option souhaitable dans certains scénarios.
-* **Azure ExpressRoute**. Nous vous recommandons d’utiliser [ExpressRoute](../../expressroute/expressroute-introduction.md) pour la connectivité entre locaux. ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud Microsoft, comme Azure, Office 365 et Dynamics 365. ExpressRoute représente une liaison réseau étendu dédiée entre le site local et un fournisseur d’hébergement Microsoft Exchange. Comme il s’agit d’une connexion de télécommunications, vos données ne transitent pas par Internet et elles ne sont donc pas exposées aux risques potentiels inhérents aux communications Internet.
+* [VPN de site à site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Il s’agit d’une technologie établie, fiable et approuvée, mais la connexion s’effectue par Internet. La bande passante est limitée à un maximum d’environ 1,25 Gbits/s. Le VPN de site à site est une option souhaitable dans certains scénarios.
+* **Azure ExpressRoute**. Nous vous recommandons d’utiliser [ExpressRoute](../../expressroute/expressroute-introduction.md) pour la connectivité entre locaux. ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud Microsoft, comme Azure, Office 365 et Dynamics 365. ExpressRoute représente une liaison réseau étendu dédiée entre le site local et un fournisseur d’hébergement Microsoft Exchange. Comme il s’agit d’une connexion de télécommunications, vos données ne transitent pas par Internet. Elles ne sont donc pas exposées aux risques potentiels inhérents aux communications Internet.
 
 L’emplacement de votre connexion ExpressRoute peut avoir une incidence sur la capacité du pare-feu, l’extensibilité, la fiabilité ainsi que sur la visibilité du trafic réseau. Vous devez déterminer l’emplacement où mettre fin à ExpressRoute dans les réseaux (locaux) existants. Vous pouvez :
 
-- Mettez fin à l’extérieur du pare-feu (le paradigme du réseau de périmètre) si vous avez besoin d’une visibilité sur le trafic, si vous devez poursuivre une pratique existante d’isolation des centres de données, ou si vous placez uniquement des ressources extranet sur Azure.
+- Mettre fin à l’extérieur du pare-feu (le paradigme du réseau de périmètre) si vous avez besoin d’une visibilité sur le trafic, si vous devez poursuivre une pratique existante d’isolation des centres de données ou si vous placez uniquement des ressources extranet sur Azure.
 - Mettez fin à l’intérieur du pare-feu (le paradigme de l’extension réseau). Il s’agit de la suggestion par défaut. Dans tous les autres cas, nous vous conseillons de traiter Azure comme un nième centre de données.
 
 ## <a name="optimize-uptime-and-performance"></a>Optimisation de la durée active et des performances
@@ -153,12 +153,12 @@ Nous vous recommandons de tirer parti aussi souvent que possible de l’équilib
 - Accepte uniquement une connexion sécurisée. La communication non chiffrée vers le serveur n’est donc pas une option acceptable.
 - Exige le routage ou l’équilibrage de charge sur différents serveurs principaux des multiples requêtes HTTP sur une même connexion TCP de longue durée.
 
-**Option d’équilibrage de charge** : Utilisez [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), un équilibreur de charge de trafic web HTTP. Application Gateway prend en charge le chiffrement SSL de bout en bout et la [terminaison SSL](/azure/application-gateway/application-gateway-introduction) au niveau de la passerelle. Les serveurs web peuvent ensuite être libérés du traitement du chiffrement et du déchiffrement, et du trafic du contenu non chiffré vers les serveurs principaux.
+**Option d’équilibrage de charge** : Utilisez [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), un équilibreur de charge de trafic web HTTP. Application Gateway prend en charge le chiffrement TLS de bout en bout et la [terminaison TLS](/azure/application-gateway/application-gateway-introduction) au niveau de la passerelle. Les serveurs web peuvent ensuite être libérés du traitement du chiffrement et du déchiffrement, et du trafic du contenu non chiffré vers les serveurs principaux.
 
 **Scénario** : Vous devez équilibrer la charge des connexions entrantes en provenance d’Internet entre vos serveurs situés au sein d’un réseau virtuel Azure. Ce sont les scénarios que vous rencontrez lorsque vous :
 
 - Disposez d’applications sans état qui acceptent les demandes entrantes provenant d’Internet.
-- N’exigez pas de sessions permanentes ni de déchargement SSL. Ces sessions correspondent à une méthode utilisée avec l’équilibrage de charge des applications pour obtenir l’affinité de serveur.
+- N’exigez pas de sessions permanentes ni de déchargement TLS. Ces sessions correspondent à une méthode utilisée avec l’équilibrage de charge des applications pour obtenir l’affinité de serveur.
 
 **Option d’équilibrage de charge** : Utilisez le portail Azure pour [créer un équilibreur de charge externe](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
 
@@ -192,7 +192,7 @@ Le VPN point à site est plus sécurisé qu’une connexion RDP ou SSH directe, 
 **Scénario** : Pour proposer une fonctionnalité similaire à la connexion VPN de site à site, utilisez une liaison réseau étendu dédiée.   
 **Option** : Utilisez [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Ce service fournit des fonctionnalités similaires au VPN de site à site. Les principales différences entre ces deux architectures sont les suivantes :
 
-- La liaison WAN dédiée ne traverse pas Internet.
+- La liaison réseau étendu (WAN) dédiée ne transite pas par Internet.
 - Les liaisons WAN dédiées sont généralement plus stables et plus performantes.
 
 ## <a name="secure-your-critical-azure-service-resources-to-only-your-virtual-networks"></a>Sécurisation de vos ressources critiques du service Azure pour vos réseaux virtuels uniquement

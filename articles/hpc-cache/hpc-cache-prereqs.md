@@ -4,14 +4,14 @@ description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233429"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655662"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -111,9 +111,9 @@ Pour plus d’informations, consultez [Résoudre les problèmes de configuration
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
-  Assurez-vous que tous les ports renvoyés par la requête ``rpcinfo`` permettent un trafic illimité à partir du sous-réseau d’Azure HPC Cache.
+  Vérifiez que tous les ports retournés par la requête ``rpcinfo`` autorisent sans restrictions le trafic provenant du sous-réseau d’Azure HPC Cache.
 
-  * En plus des ports renvoyés par la commande `rpcinfo`, assurez-vous que ces ports couramment utilisés autorisent le trafic entrant et sortant :
+  * Si vous ne pouvez pas utiliser la commande `rpcinfo`, assurez-vous que ces ports couramment utilisés autorisent le trafic entrant et sortant :
 
     | Protocol | Port  | Service  |
     |----------|-------|----------|
@@ -122,6 +122,8 @@ Pour plus d’informations, consultez [Résoudre les problèmes de configuration
     | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | mountd   |
     | TCP/UDP  | 4047  | status   |
+
+    Certains systèmes utilisent des numéros de port différents pour ces services : consultez la documentation de votre système de stockage pour vous en assurer.
 
   * Vérifiez les paramètres du pare-feu pour vous assurer qu’ils autorisent le trafic sur tous ces ports requis. Veillez à vérifier les pare-feux utilisés dans Azure ainsi que ceux de votre centre de données.
 
@@ -132,7 +134,7 @@ Pour plus d’informations, consultez [Résoudre les problèmes de configuration
 
   Pour en savoir plus sur l'accès aux listes de répertoires, consultez l'[article sur le dépannage de la cible de stockage NFS](troubleshoot-nas.md#enable-export-listing).
 
-* **Accès racine :** Le cache se connecte au système principal en tant qu’identifiant utilisateur 0. Vérifiez ces paramètres sur votre système de stockage :
+* **Accès racine** (lecture/écriture) : Le cache se connecte au système principal en tant qu’identifiant utilisateur 0. Vérifiez ces paramètres sur votre système de stockage :
   
   * Activez `no_root_squash`. Cette option permet de s’assurer que l’utilisateur racine distant peut accéder aux fichiers appartenant à la racine.
 

@@ -4,19 +4,19 @@ description: Découvrez comment surveiller la protection par mot de passe Azure�
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d67d867249286ad1591b441bbe5ea2637971e104
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671655"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652610"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Surveiller les environnements de protection par mot de passe Azure AD locaux et en consulter les journaux d’activité
 
@@ -94,7 +94,7 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-L’étendue du rapport de la cmdlet peut être influencée à l’aide d’un des paramètres –Forest, -Domain ou –DomainController. Ne pas spécifier un paramètre équivaut à –Forest.
+L’étendue du rapport de la cmdlet peut être influencée à l’aide d’un des paramètres -Forest, -Domain ou -DomainController. Ne pas spécifier un paramètre équivaut à –Forest.
 
 L’applet de commande `Get-AzureADPasswordProtectionSummaryReport` demande le journal des événements d’administration de l’agent DC, puis compte le nombre total d’événements dans chaque catégorie de résultats affichés. Le tableau suivant indique à quel ID d’événement correspond chaque résultat :
 
@@ -265,7 +265,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 Les différentes propriétés sont mises à jour par chaque service de l’agent DC environ toutes les heures. Les données sont toujours soumises à la latence de la réplication Active Directory.
 
-La portée de la requête de la cmdlet peut être influencée à l’aide des paramètres –Forest ou –Domain.
+L’étendue de la requête de la cmdlet peut être influencée à l’aide des paramètres -Forest ou -Domain.
 
 Si la valeur HeartbeatUTC est périmée, cela peut indiquer que l’agent DC de la protection par mot de passe Azure AD sur ce contrôleur de domaine n’est pas actuellement exécuté ou qu’il a été désinstallé, ou encore que la machine a été rétrogradée et n’a plus le rôle de contrôleur de domaine.
 
@@ -357,7 +357,7 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 Les différentes propriétés sont mises à jour par chaque service Proxy environ toutes les heures. Les données sont toujours soumises à la latence de la réplication Active Directory.
 
-La portée de la requête de la cmdlet peut être influencée à l’aide des paramètres –Forest ou –Domain.
+L’étendue de la requête de la cmdlet peut être influencée à l’aide des paramètres -Forest ou -Domain.
 
 Si la valeur HeartbeatUTC est périmée, cela peut indiquer que le service Proxy de la protection par mot de passe Azure AD sur cette machine n’est pas actuellement exécuté ou qu’il a été désinstallé.
 

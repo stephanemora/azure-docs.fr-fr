@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9c1cff53d5d0f0385d3d61938c7fb6309efb7b1
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224609"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985386"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -178,9 +178,9 @@ Pour inscrire directement votre machine virtuelle SQL Server en mode complet (et
 
 Les instances de SQL Server 2008 et 2008 R2 installées sur Windows Server 2008 (_non R2_) peuvent être inscrites auprès du fournisseur de ressources de machines virtuelles SQL en [mode sans agent](#management-modes). Cette option garantit la conformité et permet de surveiller la machine virtuelle SQL Server dans le portail Azure avec des fonctionnalités limitées.
 
-Spécifiez `AHUB`, `PAYG` ou `DR` pour **sqlLicenseType** et `SQL2008-WS2008` ou `SQL2008R2-WS2008`pour **sqlImageOffer**. 
+Spécifiez `AHUB`, `PAYG` ou `DR` pour **sqlLicenseType** et `SQL2008-WS2008` ou `SQL2008R2-WS2008` pour **sqlImageOffer**. 
 
-Pour inscrire votre instance SQL Server 2008 ou 2008 R2 sur une instance Windows Server 2008, utilisez l’extrait de code PowerShell ou Azure CLI suivant : 
+Pour inscrire votre SQL Server 2008 ou 2008 R2 sur une instance Windows Server 2008, utilisez l’extrait de code PowerShell ou Azure CLI suivant : 
 
 
 # <a name="az-cli"></a>[AZ CLI](#tab/bash)
@@ -190,7 +190,7 @@ Inscrire votre machine virtuelle SQL Server 2008 en mode sans agent avec l'inte
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008-WS2008
  ```
  
  
@@ -199,7 +199,7 @@ Inscrire votre machine virtuelle SQL Server 2008 R2 en mode sans agent avec l'
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008
  ```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce51c6415389ee52cf0371dfbddb98cb48747b05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e06fcdbac097e85c039e34274c61cb51ee06bcd6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430462"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478328"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Créer un ASE à l’aide d’un modèle Azure Resource Manager
 
@@ -36,9 +36,9 @@ Pour automatiser la création de votre environnement ASE :
 
 1. Créez l’environnement ASE à partir d’un modèle. Si vous créez un ASE externe, vous avez terminé après cette étape. Si vous créez un ASE ILB, il reste quelques étapes à accomplir.
 
-2. Une fois votre ASE ILB créé, un certificat SSL correspondant à votre domaine ASE ILB est chargé.
+2. Une fois votre ASE ILB créé, un certificat TLS/SSL correspondant à votre domaine ASE ILB est chargé.
 
-3. Le certificat SSL chargé est affecté à l’environnement ASE ILB en tant que certificat SSL « par défaut ».  Ce certificat est utilisé pour le trafic SSL vers les applications de l’ASE ILB quand celles-ci utilisent le domaine racine commun assigné à l’ASE (par exemple, https://someapp.mycustomrootdomain.com).
+3. Le certificat TLS/SSL chargé est explicitement attribué à l’ASE ILB en tant que certificat TLS/SSL « par défaut ».  Ce certificat est utilisé pour le trafic TLS/SSL vers les applications de l’ASE ILB quand celles-ci utilisent le domaine racine commun assigné à l’ASE (par exemple, `https://someapp.mycustomrootdomain.com`).
 
 
 ## <a name="create-the-ase"></a>Créer l’ASE
@@ -61,17 +61,17 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 La création de l’ASE prend environ une heure. Ensuite, l’ASE apparaît sur le portail dans la liste des ASE pour l’abonnement qui a déclenché le déploiement.
 
-## <a name="upload-and-configure-the-default-ssl-certificate"></a>Charger et configurer le certificat SSL « par défaut »
-Un certificat SSL doit être associé à l’ASE en tant que certificat SSL « par défaut » utilisé pour établir les connexions SSL aux applications. Si le suffixe DNS par défaut de l’ASE est *internal-contoso.com*, une connexion à https://some-random-app.internal-contoso.com nécessite un certificat SSL valide pour * *.internal-contoso.com*. 
+## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>Charger et configurer le certificat TLS/SSL « par défaut »
+Un certificat TLS/SSL doit être associé à l’ASE en tant que certificat TLS/SSL « par défaut » utilisé pour établir les connexions TLS aux applications. Si le suffixe DNS par défaut de l’ASE est *internal-contoso.com*, une connexion à `https://some-random-app.internal-contoso.com` nécessite un certificat TLS/SSL valide pour * *.internal-contoso.com*. 
 
-Pour disposer d’un certificat SSL valide, vous pouvez recourir à des autorités de certification internes, acheter un certificat à un émetteur externe, ou utiliser un certificat auto-signé. Quelle que soit la source du certificat SSL, les attributs de certificat suivants doivent être configurés correctement :
+Vous pouvez vous procurer un certificat TLS/SSL valide auprès d’autorités de certification internes, en achetant un certificat à un émetteur externe ou en utilisant un certificat autosigné. Quelle que soit la source du certificat TLS/SSL, les attributs de certificat suivants doivent être configurés correctement :
 
 * **Objet** : cet attribut doit être défini sur * *.votre-domaine-racine-ici.com*.
-* **Autre nom de l'objet** : cet attribut doit inclure à la fois * *.votre-domaine-racine-ici.com* et * *.scm.votre-domaine-racine-ici.com*. Les connexions SSL au site SCM/Kudu associé à chaque application utilisent une adresse sous la forme *nom-de-votre-application.scm.votre-domaine-racine-ici.com*.
+* **Autre nom de l'objet** : cet attribut doit inclure à la fois * *.votre-domaine-racine-ici.com* et * *.scm.votre-domaine-racine-ici.com*. Les connexions TLS au site GCL/Kudu associé à chaque application utilisent une adresse au format *nom-de-votre-application.scm.votre-domaine-racine-ici.com*.
 
-Une fois le certificat SSL valide obtenu, deux étapes préparatoires supplémentaires sont nécessaires. Convertissez/enregistrez le certificat SSL en tant que fichier de format .pfx. N’oubliez pas que le fichier .pfx doit inclure tous les certificats racines et intermédiaires. Sécurisez-le avec un mot de passe.
+Une fois le certificat TLS/SSL valide à disposition, deux étapes préparatoires supplémentaires sont nécessaires. Convertissez/enregistrez le certificat TLS/SSL en tant que fichier .pfx. N’oubliez pas que le fichier .pfx doit inclure tous les certificats racines et intermédiaires. Sécurisez-le avec un mot de passe.
 
-Le fichier .pfx doit être converti en une chaîne au format base64, car le certificat SSL est chargé à l’aide d’un modèle Azure Resource Manager. Étant donné que les modèles Resource Manager sont des fichiers texte, le fichier .pfx doit être converti en chaîne base64. Ainsi, il peut être inclus en tant que paramètre du modèle.
+Le fichier .pfx doit être converti en chaîne base64, car le certificat TLS/SSL est chargé à l’aide d’un modèle Resource Manager. Étant donné que les modèles Resource Manager sont des fichiers texte, le fichier .pfx doit être converti en chaîne base64. Ainsi, il peut être inclus en tant que paramètre du modèle.
 
 Utilisez l’extrait de code PowerShell ci-dessous pour effectuer les opérations suivantes :
 
@@ -96,16 +96,16 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-Une fois le certificat SSL généré et converti en chaîne codée en base64, utilisez l’exemple de modèle Azure Resource Manager [Configurer le certificat SSL par défaut][quickstartconfiguressl] disponible sur GitHub. 
+Une fois le certificat TLS/SSL généré et converti en chaîne codée en base64, utilisez l’exemple de modèle Resource Manager [Configurer le certificat SSL par défaut][quickstartconfiguressl] disponible sur GitHub. 
 
 Les paramètres figurant dans le fichier *azuredeploy.parameters.json* sont répertoriés ci-dessous :
 
 * *appServiceEnvironmentName* : nom de l'ILB ASE configuré.
-* *existingAseLocation* : chaîne de texte contenant la région Azure où l'ILB ASE a été déployé.  Par exemple :  « USA Centre Sud ».
+* *existingAseLocation* : chaîne de texte contenant la région Azure où l'ILB ASE a été déployé.  Par exemple : « USA Centre Sud ».
 * *pfxBlobString* : représentation sous forme de chaîne codée en Base64 du fichier .pfx. Utilisez l’extrait de code présenté précédemment, et copiez la chaîne contenue dans « exportedcert.pfx.b64 ». Collez celle-ci en tant que valeur de l’attribut *pfxBlobString*.
 * *mot de passe* : mot de passe utilisé pour sécuriser le fichier .pfx.
 * *certificateThumbprint* : empreinte numérique du certificat. Si vous récupérez cette valeur à partir de Powershell (par exemple, *$certificate.Thumbprint* dans l’extrait de code précédent), vous pouvez utiliser la valeur telle quelle. Si vous copiez la valeur à partir de la boîte de dialogue du certificat Windows, n’oubliez pas de retirer les espaces superflus. La valeur *certificateThumbprint* doit se présenter sous la forme suivante : AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *certificateName* : identificateur de chaîne convivial de votre choix permettant d'identifier le certificat. Ce nom fait partie de l’identificateur Resource Manager unique pour l’entité *Microsoft.Web/certificates* qui représente le certificat SSL. Le nom *doit* se terminer par le suffixe suivant : \_nomdevotreASE_ÉquilibrageChareInterneASE. Le portail Azure utilise ce suffixe en tant qu’indicateur signalant que le certificat est utilisé pour sécuriser ASE avec ILB.
+* *certificateName* : identificateur de chaîne convivial de votre choix permettant d'identifier le certificat. Ce nom fait partie de l’identificateur Resource Manager unique pour l’entité *Microsoft.Web/certificates* qui représente le certificat TLS/SSL. Le nom *doit* se terminer par le suffixe suivant : \_nomdevotreASE_ÉquilibrageChareInterneASE. Le portail Azure utilise ce suffixe en tant qu’indicateur signalant que le certificat est utilisé pour sécuriser ASE avec ILB.
 
 Un exemple abrégé du fichier *azuredeploy.parameters.json* est présenté ici :
 
@@ -136,7 +136,7 @@ Un exemple abrégé du fichier *azuredeploy.parameters.json* est présenté ici�
 }
 ```
 
-Une fois le fichier *azuredeploy.parameters.json* complété, configurez le certificat SSL par défaut l’aide de l’extrait de code PowerShell. Modifiez les chemins d’accès aux fichiers pour qu’ils correspondent aux emplacements où se trouvent les fichiers du modèle Azure Resource Manager sur votre ordinateur. Songez à indiquer vos propres valeurs pour les noms de déploiement Resource Manager et de groupe de ressources :
+Une fois le fichier *azuredeploy.parameters.json* rempli, configurez le certificat TLS/SSL par défaut à l’aide de l’extrait de code PowerShell. Modifiez les chemins d’accès aux fichiers pour qu’ils correspondent aux emplacements où se trouvent les fichiers du modèle Azure Resource Manager sur votre ordinateur. Songez à indiquer vos propres valeurs pour les noms de déploiement Resource Manager et de groupe de ressources :
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -147,14 +147,14 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 L’application de la modification prend environ 40 minutes par serveur frontal ASE. Par exemple, pour un ASE dimensionné par défaut utilisant deux serveurs frontaux, l’application du modèle prend environ une heure et vingt minutes. Lorsque le modèle est en cours d’exécution, l’ASE ne peut pas mettre à l’échelle.  
 
-Une fois l’exécution du modèle terminé, les applications sur l’ILB ASE est accessible via le protocole HTTPS. Les connexions sont sécurisées à l’aide du certificat SSL par défaut. Le certificat SSL par défaut est utilisé lorsque des applications sur l’ASE ILB sont adressée à l’aide d’une combinaison de leur nom et du nom d’hôte par défaut. Par exemple, https://mycustomapp.internal-contoso.com utilise le certificat SSL par défaut pour * *.internal-contoso.com*.
+Une fois l’exécution du modèle terminé, les applications sur l’ILB ASE est accessible via le protocole HTTPS. Les connexions sont sécurisées à l’aide du certificat TLS/SSL par défaut. Le certificat TLS/SSL par défaut est utilisé lorsque des applications sur l’ASE ILB sont adressée à l’aide d’une combinaison de leur nom et du nom d’hôte par défaut. Par exemple, `https://mycustomapp.internal-contoso.com` utilise le certificat TLS/SSL par défaut pour * *.internal-contoso.com*.
 
-Cependant, comme pour les applications qui s’exécutent sur le service mutualisé public, les développeurs peuvent configurer des noms d’hôtes personnalisés pour des applications individuelles. Ils peuvent également configurer des liaisons de certificat SNI SSL uniques pour différentes applications.
+Cependant, comme pour les applications qui s’exécutent sur le service mutualisé public, les développeurs peuvent configurer des noms d’hôtes personnalisés pour des applications individuelles. Ils peuvent également configurer des liaisons de certificat TLS/SSL SNI uniques pour des applications individuelles.
 
 ## <a name="app-service-environment-v1"></a>Environnement App Service v1 ##
 App Service Environment est disponible en deux versions : ASEv1 et ASEv2. Les informations précédentes sont basées sur ASEv2. Cette section montre les différences entre ASEv1 et ASEv2.
 
-Dans ASEv1, vous gérez toutes les ressources manuellement. Celles-ci incluent les frontends, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir augmenter la taille des instances de votre plan App Service, vous devez commencer par augmenter la taille des instances du pool de workers dans lequel vous voulez héberger le plan.
+Dans ASEv1, vous gérez toutes les ressources manuellement. Celles-ci incluent les frontends, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir effectuer un scale-out de votre plan App Service, vous devez commencer par effectuer un scale-out du pool de workers dans lequel vous voulez héberger le plan.
 
 Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les serveurs frontaux ou les workers qui n’hébergent pas de charge de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro].
 

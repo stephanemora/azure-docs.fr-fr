@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76899848"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547010"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Choisir un niveau tarifaire pour Recherche cognitive Azure
 
@@ -41,7 +41,9 @@ Les niveaux se différencient par :
 
 Le niveau que vous sélectionnez détermine le taux facturable. La capture d’écran suivante du portail Azure indique les niveaux disponibles, après la déduction indiquée sur le portail et dans la [page de tarification](https://azure.microsoft.com/pricing/details/search/). Les niveaux les plus courants sont **Gratuit**, **De base** et **Standard**.
 
-Le niveau **Gratuit** crée un service de recherche limité sur un cluster, partagé avec d’autres abonnés. Vous pouvez accomplir de petits projets, dont des démarrages rapides et des didacticiels, mais vous ne pouvez pas mettre à l’échelle le service ou exécuter des charges de travail conséquentes. Les niveau **De base** et **Standard** sont les niveaux facturables les plus utilisés, **Standard** étant le niveau par défaut.
+Le niveau **Gratuit** crée un service de recherche limité pour les projets plus petits, notamment les guides de démarrage rapides et les tutoriels. En interne, les réplicas et les partitions sont partagées entre plusieurs abonnés. Vous ne pouvez pas mettre à l’échelle un service gratuit ni exécuter des charges de travail importantes.
+
+Les niveau **De base** et **Standard** sont les niveaux facturables les plus utilisés, **Standard** étant le niveau par défaut. Grâce à des ressources dédiées sous votre contrôle, vous pouvez déployer des projets plus volumineux, optimiser les performances et définir la capacité.
 
 ![Niveaux tarifaires de Recherche cognitive Azure](media/search-sku-tier/tiers.png "Niveaux tarifaires de Recherche cognitive Azure")
 
@@ -55,10 +57,10 @@ Des informations complémentaires sur les différents niveaux sont disponibles s
 
 Une solution reposant sur Recherche cognitive Azure peut occasionner des coûts de l’une des manières suivantes :
 
-+ Coût de base du service avec une configuration minimale (créer un service)
++ Coût fixe du service proprement dit, exécuté 24 h sur 24 et 7 j sur 7avec une configuration minimale (une partition et un réplica)
 + Coût incrémentiel lors de la montée en puissance (ajout de réplicas ou de partitions)
 + Frais de bande passante (transfert de données sortant) 
-+ Recherche cognitive (attacher Cognitive Services pour l’enrichissement de l’intelligence artificielle, Stockage Azure pour la base de connaissances)
++ Recherche cognitive (ajout de Cognitive Services pour l’enrichissement par IA ou utilisation de Stockage Azure pour la base de connaissances)
 
 ### <a name="service-costs"></a>Coûts de service
 
@@ -106,13 +108,13 @@ La plupart des clients mettent seulement une partie de la capacité totale en li
 
 Les suggestions suivantes peuvent vous aider à maintenir les coûts au minimum :
 
-- Créez toutes les ressources dans la même région ou dans le moins de régions possible afin de réduire ou d’éliminer les coûts liés à la bande passante.
++ Créez toutes les ressources dans la même région ou dans le moins de régions possible afin de réduire ou d’éliminer les coûts liés à la bande passante.
 
-- Regroupez tous les services dans un seul groupe de ressources, tel que Recherche cognitive Azure, Cognitive Services et tout autre service Azure utilisé dans votre solution. Dans le portail Azure, recherchez le groupe de ressources et utilisez les commandes **Cost Management** pour obtenir des informations sur les dépenses réelles et prévues.
++ Regroupez tous les services dans un seul groupe de ressources, tel que Recherche cognitive Azure, Cognitive Services et tout autre service Azure utilisé dans votre solution. Dans le portail Azure, recherchez le groupe de ressources et utilisez les commandes **Cost Management** pour obtenir des informations sur les dépenses réelles et prévues.
 
-- Envisagez d’utiliser Application web Azure pour votre application frontale afin que les demandes et réponses restent dans les limites du centre de données.
++ Envisagez d’utiliser Application web Azure pour votre application frontale afin que les demandes et réponses restent dans les limites du centre de données.
 
-- Montez en puissance pour les opérations gourmandes en ressources, telles que l’indexation, puis réajustez à la baisse les charges de travail de requête régulières. Commencez avec la configuration minimale pour Recherche cognitive Azure (une unité de stockage composée d’une partition et un réplica), puis surveillez l’activité de l’utilisateur pour identifier des modèles d’utilisation qui indiqueraient un besoin de capacité supplémentaires. Si un modèle est prévisible, vous pouvez peut-être synchroniser l’échelle avec l’activité (vous devez écrire du code pour automatiser ce comportement).
++ Montez en puissance pour les opérations gourmandes en ressources, telles que l’indexation, puis réajustez à la baisse les charges de travail de requête régulières. Commencez avec la configuration minimale pour Recherche cognitive Azure (une unité de stockage composée d’une partition et un réplica), puis surveillez l’activité de l’utilisateur pour identifier des modèles d’utilisation qui indiqueraient un besoin de capacité supplémentaires. Si un modèle est prévisible, vous pouvez peut-être synchroniser l’échelle avec l’activité (vous devez écrire du code pour automatiser ce comportement).
 
 Consultez également la page [Facturation et gestion des coûts](https://docs.microsoft.com/azure/billing/billing-getting-started) pour en savoir plus sur les outils et fonctionnalités intégrés liés aux dépenses.
 
@@ -130,7 +132,6 @@ Dans Recherche cognitive Azure, la capacité est structurée sous forme de *rép
 
 > [!NOTE]
 > Tous les niveaux Standard et À stockage optimisé prennent en charge des [combinaisons flexibles de réplicas et de partitions](search-capacity-planning.md#chart) afin que vous puissiez [optimiser votre système sur le plan du stockage ou de la vitesse](search-performance-optimization.md) en changeant l’équilibrage. Le niveau De base offre jusqu’à trois réplicas pour la haute disponibilité, mais ne comporte qu’une seule partition. Les niveaux Gratuit ne fournissent pas de ressources dédiées : les ressources de calcul sont partagées par plusieurs abonnés.
-
 
 ### <a name="evaluating-capacity"></a>Évaluation de la capacité
 
@@ -152,7 +153,7 @@ Une méthode possible pour l’estimation de la capacité consiste à commencer 
 
 + [Créez un service gratuit](search-create-service-portal.md).
 + Préparez un petit jeu de données représentatif.
-+ [Générez un index initial sur le portail](search-create-index-portal.md) et notez sa taille. Les fonctionnalités et attributs ont une incidence sur le stockage. Par exemple, l’ajout de suggesteurs (saisie semi-automatique) augmente les besoins en stockage. À l’aide du même jeu de données, vous pouvez tenter de créer plusieurs versions d’un index, avec des attributs différents sur chaque champ, pour voir comment les besoins de stockage varient. Pour plus d’informations, voir [« Implications au niveau du stockage » dans Créer un index de base](search-what-is-an-index.md#index-size).
++ [Générez un index initial sur le portail](search-create-index-portal.md) et notez sa taille. Les fonctionnalités et attributs ont une incidence sur le stockage. Par exemple, l’ajout de suggesteurs (requêtes en cours de frappe) augmente les besoins en stockage. À l’aide du même jeu de données, vous pouvez tenter de créer plusieurs versions d’un index, avec des attributs différents sur chaque champ, pour voir comment les besoins de stockage varient. Pour plus d’informations, voir [« Implications au niveau du stockage » dans Créer un index de base](search-what-is-an-index.md#index-size).
 
 Si vous disposez d’une estimation approximative, vous pouvez doubler cette quantité pour budgéter deux index (développement et production), puis choisir votre niveau en conséquence.
 

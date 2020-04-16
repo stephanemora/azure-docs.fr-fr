@@ -1,25 +1,18 @@
 ---
-title: Utiliser un modèle pour déployer des machines virtuelles Azure Spot (préversion)
+title: Utiliser un modèle pour déployer des machines virtuelles Azure Spot
 description: Découvrez comment utiliser un modèle pour déployer des machines virtuelles Spot afin de réduire les coûts.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 0e635fe7ce9b442a9cc8f0fdf614feef5a3a756a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1352761e308aa2e26864654dae65c290df47102b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79082793"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548252"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Déployer des machines virtuelles Spot à l’aide d’un modèle Resource Manager
 
@@ -29,11 +22,6 @@ Les tarifs des machines virtuelles Spot sont variables, en fonction de la régio
 
 Vous avez la possibilité de définir un prix maximal que vous êtes prêt à payer, par heure, pour la machine virtuelle. Le prix maximal d’une machine virtuelle Spot peut être défini en dollars américains (USD), en utilisant jusqu’à 5 décimales. Par exemple, la valeur `0.98765` correspond à un prix maximal de 0,98765 $ USD par heure. Si vous définissez `-1` comme prix maximal, la machine virtuelle n’est pas supprimée en fonction du prix. Le prix de la machine virtuelle sera le prix actuel de Spot ou le prix d’une machine virtuelle standard, la valeur la plus faible étant retenue, à condition que la capacité et le quota soient disponibles. Pour plus d’informations sur la définition du prix maximal, consultez [Machines virtuelles Spot - Tarifs](spot-vms.md#pricing).
 
-> [!IMPORTANT]
-> Les instances Spot sont actuellement en préversion publique.
-> Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="use-a-template"></a>Utiliser un modèle
 

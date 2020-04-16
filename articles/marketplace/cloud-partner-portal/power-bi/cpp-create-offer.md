@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ee3501e7feec77c842f3784f6c2820af05637e6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286385"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984842"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Créer une offre d'application Power BI
+
+>[!Important]
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres d’applications Power BI vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création d’applications Power BI](https://aka.ms/AzureCreatePBIServiceApp) pour gérer vos offres migrées.
 
 Cet article répertorie les étapes à suivre pour créer une offre d'application Power BI destinée à [AppSource](https://appsource.microsoft.com). Toutes les offres apparaissent en tant qu'entités distinctes dans AppSource. Lorsque vous créez une offre sur le [Portail Cloud Partner](https://cloudpartner.azure.com/), vous devez lui attribuer quatre groupes de ressources.
 

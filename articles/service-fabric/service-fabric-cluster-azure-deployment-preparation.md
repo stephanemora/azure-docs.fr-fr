@@ -3,12 +3,12 @@ title: Planifier un déploiement de cluster Azure Service Fabric
 description: Découvrez-en plus sur la planification et la préparation d'un déploiement de cluster de production Service Fabric sur Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78193474"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422281"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planifier et préparer un déploiement de cluster
 
@@ -86,6 +86,16 @@ Les disques de système d’exploitation éphémères ne sont pas spécifiques d
             }
         }
     ```
+
+> [!NOTE]
+> Les applications d’utilisateurs ne doivent pas avoir de dépendance/fichier/artefact sur le disque du système d’exploitation, car le disque du système d’exploitation serait perdu en cas de mise à niveau du système d’exploitation.
+> Par conséquent, il n’est pas recommandé d’utiliser [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) avec des disques éphémères.
+>
+
+> [!NOTE]
+> Les VMSS non éphémères existants ne peuvent pas être mis à niveau sur place pour utiliser des disques éphémères.
+> Pour effectuer une migration, les utilisateurs devront [ajouter](./virtual-machine-scale-set-scale-node-type-scale-out.md) un nouveau nodeType avec des disques éphémères, déplacer les charges de travail vers le nouveau nodeType, puis [supprimer](./service-fabric-how-to-remove-node-type.md) le nodeType existant.
+>
 
 Pour plus d’informations et d’autres options de configuration, voir [Disques de système d’exploitation éphémères pour machines virtuelles Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
 

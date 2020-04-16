@@ -3,12 +3,12 @@ title: Analyser les performances d’Azure App Service | Microsoft Docs
 description: Analyse des performances des applications pour les services d’application Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 03d332af182f8f40ede634fbd563f7b064751f32
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655792"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437187"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -28,7 +28,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
     * Cette approche est beaucoup plus personnalisable, mais elle nécessite d’[ajouter une dépendance sur les packages NuGet du SDK Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Cette méthode implique également de gérer vous-même l’installation des mises à jour vers la dernière version des packages.
 
-    * Utilisez cette méthode si vous devez effectuer des appels d’API personnalisés pour suivre les événements/dépendances qui ne sont pas capturés par défaut avec la supervision basée sur un agent. Pour en savoir plus, consultez l’[article sur l’API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics).
+    * Utilisez cette méthode si vous devez effectuer des appels d’API personnalisés pour suivre les événements/dépendances qui ne sont pas capturés par défaut avec la supervision basée sur un agent. Pour en savoir plus, consultez l’[article sur l’API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics). Il s’agit également de la seule option prise en charge pour les charges de travail Linux.
 
 > [!NOTE]
 > Si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un Kit de développement logiciel (SDK), sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -394,6 +394,10 @@ Si vous utilisez APPINSIGHTS_JAVASCRIPT_ENABLED = true là où du contenu est en
 Cela est dû au fait que le paramètre d’application APPINSIGHTS_JAVASCRIPT_ENABLED est défini sur true alors qu’il y a du contenu encodé en même temps. Ce scénario n’est pas pris en charge actuellement. La solution de contournement consiste à supprimer APPINSIGHTS_JAVASCRIPT_ENABLED de vos paramètres d’application. Malheureusement, cela signifie que si l’instrumentation JavaScript côté client/navigateur est toujours requise, des références manuelles au SDK sont nécessaires pour vos pages web. Suivez les [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) pour activer l’instrumentation manuelle avec le SDK JavaScript.
 
 Pour avoir les toutes dernières informations sur l’extension/agent Application Insights, consultez les [notes de publication](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+
+### <a name="php-and-wordpress-are-not-supported"></a>PHP et WordPress ne sont pas pris en charge
+
+Les sites PHP et WordPress ne sont pas pris en charge. Il n’existe actuellement aucun SDK/agent officiellement pris en charge pour la supervision côté serveur de ces charges de travail. Toutefois, il est possible d’opérer manuellement des transactions côté client sur un site PHP ou WordPress en ajoutant le JavaScript côté client à vos pages web à l’aide du [SDK JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exécuter le profileur sur une application dynamique](../app/profiler.md).

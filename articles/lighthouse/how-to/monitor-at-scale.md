@@ -3,12 +3,12 @@ title: Superviser les ressources déléguées à grande échelle
 description: Découvrez comment utiliser efficacement les journaux Azure Monitor de manière scalable sur les locataires de clients que vous gérez.
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 217df3c55ab54b6569bae8cacb338764ecb7125d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77122653"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985199"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
@@ -28,7 +28,7 @@ Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Az
 
 Une fois que vous avez créé vos espaces de travail Log Analytics, vous pouvez déployer [Azure Policy](../../governance/policy/index.yml) sur les hiérarchies de vos clients afin que les données de diagnostic soient envoyées à l’espace de travail approprié dans chaque locataire. Les stratégies exactes que vous déployez peuvent varier en fonction des types de ressource à superviser.
 
-Pour en savoir plus sur la création de stratégies, consultez [Tutoriel : Créer et gérer des stratégies pour assurer la conformité](../../governance/policy/tutorials/create-and-manage.md). Cet [outil communautaire](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/azure-diagnostics-policy-generator) fournit un script qui vous aide à créer des stratégies permettant de superviser les types de ressource spécifiques de votre choix.
+Pour en savoir plus sur la création de stratégies, consultez [Tutoriel : Créer et gérer des stratégies pour assurer la conformité](../../governance/policy/tutorials/create-and-manage.md). Cet [outil communautaire](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) fournit un script qui vous aide à créer des stratégies permettant de superviser les types de ressource spécifiques de votre choix.
 
 Une fois que vous avez déterminé les stratégies à déployer, vous pouvez [les déployer sur vos abonnements délégués à grande échelle](policy-at-scale.md).
 

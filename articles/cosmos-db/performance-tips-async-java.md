@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 89df941eb6ebaad6e078c278f1ed883db5528c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152553"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549183"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Conseils sur les performances pour Azure Cosmos DB et Java Async
 
@@ -230,9 +230,9 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     * - nofile 100000
     ```
 
-* **Utiliser l’implémentation SSL native pour netty**
+* **Utiliser l’implémentation TLS/SSL native pour netty**
 
-    Netty peut utiliser OpenSSL directement pour la pile d’implémentation de SSL de façon à obtenir de meilleures performances. En l’absence de cette configuration, netty reviendra à l’implémentation de SSL par défaut de Java.
+    Netty peut utiliser OpenSSL directement pour la pile d’implémentation de TLS de façon à obtenir de meilleures performances. En l’absence de cette configuration, netty reviendra à l’implémentation de TLS par défaut de Java.
 
     sur Ubuntu :
     ```bash

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158127"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985488"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Créer et gérer plusieurs tableaux de bord
 
-Lorsque vous accédez à votre application pour la première fois, la page **Tableau de bord** se charge. Dans une application, un **générateur** définit le tableau de bord par défaut de tous les utilisateurs. Vous pouvez le remplacer par un tableau de bord personnalisé. Vous pouvez disposer de plusieurs tableaux de bord, qui affichent différentes informations, et basculer de l’un à l’autre. 
+Lorsque vous accédez à votre application pour la première fois, la page **Tableau de bord** se charge. Dans une application, un **générateur** définit le tableau de bord par défaut de tous les utilisateurs. Vous pouvez également créer votre propre tableau de bord d’application personnalisé. Vous pouvez disposer de plusieurs tableaux de bord, qui affichent différentes informations, et basculer de l’un à l’autre.
 
 Si vous êtes **administrateur** de l’application, vous pouvez également créer jusqu’à dix tableaux de bord de niveau application à partager avec d’autres utilisateurs de l’application. Seuls les **administrateurs** ont la possibilité de créer, de modifier et de supprimer des tableaux de bord de niveau application. 
 

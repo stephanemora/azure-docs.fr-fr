@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2bfdf1046c67ed1651f792191923bf4c533d0299
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77205683"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80522730"
 ---
 Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
@@ -54,10 +54,6 @@ Non.
 **Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques managés ?**
 
 La fonctionnalité Disques managés élimine les restrictions associées aux comptes de stockage. Toutefois, la limite maximale est de 50 000 disques managés par région et par type de disque pour un abonnement.
-
-**Puis-je prendre une capture instantanée incrémentielle d’un disque géré ?**
-
-Non. La fonctionnalité actuelle de capture instantanée crée une copie complète d’un disque géré.
 
 **Les machines virtuelles d’un groupe à haute disponibilité peuvent-elles consister en une combinaison de disques managés et non managés ?**
 
@@ -148,17 +144,18 @@ Les disques SSD Premium, SSD Standard et HDD Standard prennent en charge les cap
 **Qu’est-ce que des réservations de disque Azure ?**
 La réservation de disque est la possibilité d’acheter à l’avance un an de stockage sur disque, ce qui réduit le coût total pour vous. Pour plus d’informations sur les réservations de disque Azure, consultez notre article sur le sujet : [Comprendre comment la remise de réservation est appliquée à Azure Data Box Disk](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Quelles sont les options offertes par la réservation de disque Azure ?** La réservation de disque Azure offre la possibilité d’acheter des SSD Premium dans les références SKU spécifiées de P30 (1 Tio) à P80 (32 Tio) pour une période d’un an. Il n’existe aucune limitation sur la quantité minimale de disques nécessaires pour acheter une réservation de disque. En outre, vous pouvez choisir de payer avec un paiement initial unique ou par mensualités. Aucun coût transactionnel supplémentaire n’est appliqué pour les disques managés SSD Premium. 
+**Quelles sont les options offertes par la réservation de disque Azure ?**     
+La réservation de disque Azure offre la possibilité d’acheter des SSD Premium dans les références SKU spécifiées de P30 (1 Tio) à P80 (32 Tio) pour une période d’un an. Il n’existe aucune limitation sur la quantité minimale de disques nécessaires pour acheter une réservation de disque. En outre, vous pouvez choisir de payer avec un paiement initial unique ou par mensualités. Aucun coût transactionnel supplémentaire n’est appliqué pour les disques managés SSD Premium.    
 
 Les réservations sont effectuées sous forme de disques, et non de capacité. En d’autres termes, lorsque vous réservez un disque P80 (32 Tio), vous recevez un seul disque P80 ; vous ne pouvez pas ensuite diviser cette réservation spécifique en deux disques P70 plus petits (16 Tio). Vous pouvez, bien sûr, réserver autant de disques que vous le souhaitez, y compris deux disques P70 (16 Tio) distincts.
 
-**Comment la réservation de disque Azure est-elle appliquée ?**  
-La réservation de disque suit un modèle similaire aux instances de machines virtuelles réservées. La différence réside dans le fait qu’une réservation de disque ne peut pas être appliquée à différentes références SKU, contrairement aux instances de machines virtuelles. Pour plus d’informations sur les instances de machine virtuelle, consultez [Économiser grâce aux instances de machines virtuelles Azure réservées](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md).    
+**Comment la réservation de disque Azure est-elle appliquée ?**     
+La réservation de disque suit un modèle similaire aux instances de machines virtuelles réservées. La différence réside dans le fait qu’une réservation de disque ne peut pas être appliquée à différentes références SKU, contrairement aux instances de machines virtuelles. Pour plus d’informations sur les instances de machine virtuelle, consultez [Économiser grâce aux instances de machines virtuelles Azure réservées](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md).     
 
 **Puis-je utiliser mon stockage de données acheté par le biais de la réservation de disques Azure dans plusieurs régions ?**     
-La réservation de disque Azure est achetée pour une région et une référence SKU spécifiques (par exemple, P30 dans USA Est 2) et ne peut donc pas être utilisée en dehors de ces limites. Vous pouvez toujours acheter une réservation de disque Azure supplémentaire pour vos besoins de stockage sur disque dans d’autres régions ou références SKU. 
+La réservation de disque Azure est achetée pour une région et une référence SKU spécifiques (par exemple, P30 dans USA Est 2) et ne peut donc pas être utilisée en dehors de ces limites. Vous pouvez toujours acheter une réservation de disque Azure supplémentaire pour vos besoins de stockage sur disque dans d’autres régions ou références SKU.    
 
-**Que se passe-t-il lorsque ma réservation de disques Azure expire ?**    
+**Que se passe-t-il lorsque ma réservation de disques Azure expire ?**     
 Vous recevez une notification par e-mail 30 jours avant l’expiration, puis à nouveau au moment de l’expiration. Une fois la réservation expirée, les disques déployés continuent à fonctionner et sont facturés en fonction au [tarif de paiement à l'utilisation](https://azure.microsoft.com/pricing/details/managed-disks/) le plus récent.
 
 ### <a name="azure-shared-disks"></a>Disques partagés Azure
@@ -412,11 +409,11 @@ Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azu
 
 **Quelles régions prennent en charge la fonctionnalité de rafale pour la taille de disque SSD Premium applicable ?**
 
-La fonctionnalité de rafale est actuellement prise en charge dans la région Azure USA Centre-Ouest.
+La capacité de rafale est actuellement prise en charge dans toutes les régions du cloud public Azure, avec une prise en charge des clouds souverains très prochainement. 
 
 **Dans quelles régions les tailles de disque géré 4/8/16 Gio (P1/P2/P3, E1/E2/E3) sont-elles prises en charge ?**
 
-Ces nouvelles tailles de disque sont actuellement prises en charge dans la région Azure USA Centre-Ouest.
+Ces nouvelles tailles de disque sont actuellement prises en charge dans toutes les régions du cloud public Azure, avec une prise en charge des clouds souverains très prochainement. 
 
 **Les tailles de disque P1/P2/P3 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
 
@@ -447,7 +444,7 @@ Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour
 |Azure PowerShell | Numéro de version 4.1.0 : Version de juin 2017 ou ultérieure|
 |Azure CLI v1     | Numéro de version 0.10.13 : Version de mai 2017 ou ultérieure|
 |Azure CLI v2     | Numéro de version 2.0.12 : Version de juillet 2017 ou ultérieure|
-|AzCopy           | Numéro de version 6.1.0 : Version de juin 2017 ou ultérieure|
+|AzCopy              | Numéro de version 6.1.0 : Version de juin 2017 ou ultérieure|
 
 **Les tailles de disque P4 et P6 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
 
@@ -483,7 +480,7 @@ Les disques 8 Tio, 16 Tio et 32 Tio sont prises en charge dans toutes les régio
 
 **Prenez-vous en charge l’activation de la mise en cache de l’hôte sur toutes les tailles de disque ?**
 
-Nous prenons en charge la mise en cache d’hôte en lecture seule et en lecture/écriture sur les tailles de disque inférieures à 4 Tio. Pour les tailles de disque supérieures à 4 Tio, nous ne prenons en charge que la mise en cache définie sur None (Aucun). Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
+Nous prenons en charge la mise en cache d’hôte en lecture seule et en lecture/écriture sur les tailles de disque inférieures à 4 Tio. Pour les tailles de disque supérieures à 4 Tio, nous prenons en charge uniquement la mise en cache définie sur None (Aucun). Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 

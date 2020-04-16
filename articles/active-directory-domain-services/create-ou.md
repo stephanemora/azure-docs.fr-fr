@@ -8,27 +8,30 @@ ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 10/31/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61f951c0dd6561fc8d5a5de6b80e3759fd42eb78
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614064"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655561"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Créer une unité d’organisation (UO) sur un domaine dans un domaine managé Azure AD Domain Services
 
 Les unités d’organisation (UO) dans Active Directory Domain Services (AD DS) vous permettent de regrouper logiquement des objets tels que des comptes d’utilisateur, des comptes de service ou des comptes d’ordinateur. Vous pouvez ensuite affecter des administrateurs à des unités d’organisation spécifiques et appliquer une stratégie de groupe, donc des paramètres de configuration ciblés.
 
-Les domaines managés Azure AD DS incluent deux unités d’organisation intégrées : *ordinateurs AADDC* et *utilisateurs AADDC*. L’unité d’organisation *Ordinateurs AADDC* contient des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine managé. L’unité d’organisation *Utilisateurs AADDC* comprend les utilisateurs et les groupes qui y sont synchronisés du locataire Azure AD. Lors de la création et de l’exécution des charges de travail utilisant Azure AD DS, vous devrez peut-être créer des comptes de service pour que les applications s’authentifient elles-mêmes. Pour organiser ces comptes de service, vous créez souvent une unité d’organisation personnalisée dans le domaine managé Azure AD DS, puis des comptes de service au sein de cette unité d’organisation.
+Les domaines managés Azure AD DS incluent les deux UO intégrées suivantes :
+
+* *Ordinateurs AADDC* : contient des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine managé.
+* *Utilisateurs AADDC* : comprend les utilisateurs et les groupes qui y sont synchronisés à partir du locataire Azure AD.
+
+Lors de la création et de l’exécution des charges de travail utilisant Azure AD DS, vous devrez peut-être créer des comptes de service pour que les applications s’authentifient elles-mêmes. Pour organiser ces comptes de service, vous créez souvent une unité d’organisation personnalisée dans le domaine managé Azure AD DS, puis des comptes de service au sein de cette unité d’organisation.
 
 Dans un environnement hybride, les unités d’organisation créées dans un environnement AD DS local ne sont pas synchronisées avec Azure AD DS. Les domaines managés Azure AD DS utilisent une structure d’unité d’organisation plate. Tous les comptes d’utilisateurs et les groupes sont stockés dans le conteneur *Utilisateurs AADDC*, en dépit de la synchronisation effectuée à partir de forêts ou de domaines locaux différents, même si vous y avez configuré une structure d’unités d’organisation hiérarchique.
 
 Cet article vous explique comment créer une unité d’organisation dans votre domaine managé Azure AD DS.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -68,25 +71,25 @@ Pour créer une unité d’organisation personnalisée, vous utilisez les outils
 1. Pour créer et gérer des unités d’organisation, sélectionnez **Centre d’administration Active Directory** dans la liste des outils d’administration.
 1. Dans le volet gauche, choisissez votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*. Une liste des unités d’organisation et des ressources s’affiche :
 
-    ![Sélectionnez votre domaine managé Azure AD DS dans le Centre d’administration Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
+    ![Sélectionnez votre domaine managé Azure AD DS dans le Centre d’administration Active Directory](./media/create-ou/create-ou-adac-overview.png)
 
 1. Le volet **Tâches** s’affiche sur le côté droit du Centre d’administration Active Directory. Sous le domaine, par exemple *aaddscontoso.com*, sélectionnez **Nouveau > Unité d’organisation**.
 
-    ![Sélectionnez l’option qui vous permettra de créer une nouvelle unité d’organisation dans le Centre d'administration Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
+    ![Sélectionnez l’option qui vous permettra de créer une nouvelle unité d’organisation dans le Centre d'administration Active Directory](./media/create-ou/create-ou-adac-new-ou.png)
 
 1. Dans la boîte de dialogue **Créer une unité d’organisation**, indiquez un **Nom** pour la nouvelle unité d’organisation, par exemple *MyCustomOu*. Fournissez une brève description de l’unité d’organisation, telle qu’*unité d’organisation personnalisée pour les comptes de service*. Si vous le souhaitez, vous pouvez également renseigner le champ **Managée par** de l’unité d’organisation. Sélectionnez **OK**pour créer l’unité d’organisation personnalisée.
 
-    ![Créez une unité d’organisation personnalisée à partir du Centre d’administration Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
+    ![Créez une unité d’organisation personnalisée à partir du Centre d’administration Active Directory](./media/create-ou/create-ou-dialog.png)
 
 1. De retour dans le Centre d’administration Active Directory, l’unité d’organisation personnalisée est désormais listée et peut être utilisée :
 
-    ![Unité d’organisation personnalisée disponible dans le Centre d’administration Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
+    ![Unité d’organisation personnalisée disponible dans le Centre d’administration Active Directory](./media/create-ou/create-ou-done.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation des outils d’administration ou la création et l’utilisation de comptes de service, consultez les articles suivants :
 
-* [Centre d’administration Active Directory : Prise en main](https://technet.microsoft.com/library/dd560651.aspx)
+* [Centre d'administration Active Directory : Prise en main](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guide pas à pas des comptes de service (éventuellement en anglais)](https://technet.microsoft.com/library/dd548356.aspx)
 
 <!-- INTERNAL LINKS -->

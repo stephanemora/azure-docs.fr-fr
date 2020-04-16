@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 04/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5911f7235f1469fed460f173b808fbfdf9c853e8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 221ed3169fff78a2721e91023036593570fbd723
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183871"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637793"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -125,7 +125,7 @@ L’élément **SingleSignOn** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Étendue | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé. Par exemple, dans le cas d’une session d’authentification unique, aucune session n’est conservée pour l’utilisateur et celui-ci est toujours invité à sélectionner un fournisseur d’identité. La valeur `TrustFramework` indique que le comportement est appliqué pour toutes les stratégies dans l’infrastructure de confiance. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
+| Étendue | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé et que l’utilisateur est toujours invité à sélectionner un fournisseur d’identité.  La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
 | KeepAliveInDays | Oui | Contrôle la durée pendant laquelle l’utilisateur reste connecté. Affecter la valeur 0 désactive la fonctionnalité KMSI. Pour plus d’informations, consultez [Maintenir la connexion](custom-policy-keep-me-signed-in.md). |
 |EnforceIdTokenHintOnLogout| Non|  Force la transmission d’un jeton d’ID émis précédemment au point de terminaison de déconnexion en tant qu’indicateur de la session authentifiée active de l’utilisateur final avec le client. Valeurs possibles : `false` (par défaut) ou `true`. Pour plus d’informations, consultez [Connexion web avec OpenID Connect](openid-connect.md).  |
 
@@ -190,7 +190,7 @@ L’élément **Protocol** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OpenIdConnect` ou `SAML2`. La valeur `OpenIdConnect` représente la norme de protocole OpenID Connect 1.0 conformément à la spécification OpenID Foundation. `SAML2` représente la norme de protocole SAML 2.0 conformément à la spécification OASIS. N’utilisez pas de jeton SAML en production. |
+| Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OpenIdConnect` ou `SAML2`. La valeur `OpenIdConnect` représente la norme de protocole OpenID Connect 1.0 conformément à la spécification OpenID Foundation. `SAML2` représente la norme de protocole SAML 2.0 conformément à la spécification OASIS. |
 
 ## <a name="outputclaims"></a>OutputClaims
 

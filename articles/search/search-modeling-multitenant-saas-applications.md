@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113275"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549025"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure
 Une application mutualisée est une application qui fournit les mêmes services et fonctionnalités à plusieurs clients qui ne peuvent pas voir ni partager les données d’un autre client. Ce document aborde les stratégies d’isolation de client pour les applications mutualisées conçues avec Recherche cognitive Azure.
@@ -51,7 +51,7 @@ Dans le niveau tarifaire S3 de Recherche cognitive Azure, il existe une option p
 
 S3 HD permet de réunir les nombreux index de petite taille sous la gestion d’un seul service de recherche en troquant la possibilité d’effectuer un scale-out des index à l’aide de partitions contre la possibilité d’héberger plus d’index dans un seul service.
 
-Concrètement, un service S3 peut avoir entre 1 et 200 index qui, ensemble, peuvent héberger jusqu’à 1,4 milliard de documents. À l’inverse, un niveau S3 HD ne permettrait aux index individuels que d’atteindre 1 million de documents, mais il peut gérer jusqu’à 1 000 index par partition (jusqu’à 3 000 par service), soit au total 200 millions de documents par partition (jusqu’à 600 millions par service).
+Un service S3 est conçu pour héberger un nombre fixe d’index (200 maximum) et permet à chaque index d’évoluer horizontalement au fur et à mesure que de nouvelles partitions sont ajoutées au service. L’ajout de partitions à des services S3 HD augmente le nombre maximal d’index que le service peut héberger. La taille maximale idéale pour un index S3 HD est d’environ 50 à 80 Go, bien qu’il n’y ait pas de limite de taille matérielle sur chaque index imposé par le système.
 
 ## <a name="considerations-for-multitenant-applications"></a>Considérations relatives aux applications mutualisées
 Les applications mutualisées doivent distribuer efficacement les ressources entre les clients tout en conservant un certain niveau de confidentialité entre les différents clients. Il existe quelques considérations à prendre en compte lors de la conception de l’architecture pour ce type d’application :

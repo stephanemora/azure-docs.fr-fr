@@ -1,26 +1,28 @@
 ---
 title: Configurer l’authentification Google
-description: Découvrez comment configurer l’authentification Google pour en faire un fournisseur d’identité pour votre application App Service.
+description: Découvrez comment configurer l’authentification Google pour en faire un fournisseur d’identité pour votre application App Service ou Azure Functions.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 09/02/2019
-ms.custom: seodec18
-ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670825"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519940"
 ---
-# <a name="configure-your-app-service-app-to-use-google-login"></a>Configurer votre application App Service pour utiliser une connexion Google
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Google
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Cette rubrique montre comment configurer Azure App Service pour utiliser Google comme fournisseur d’authentification.
+Cette rubrique montre comment configurer Azure App Service ou Azure Functions pour utiliser Google comme fournisseur d’authentification.
 
 Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d'un compte Google avec une adresse électronique vérifiée. Pour créer un compte Google, accédez à [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-## <a name="register"></a>Inscription de votre application avec Google
+## <a name="register-your-application-with-google"></a><a name="register"> </a>Inscrire votre application auprès de Google
 
 1. Pour créer un ID client et un secret client, suivez les instructions Google de la page [Google Sign-In for server-side apps](https://developers.google.com/identity/sign-in/web/server-side-flow) (Connexion Google pour les applications côté serveur). Il n’est pas nécessaire d’apporter des modifications au code. Utilisez simplement les informations suivantes :
     - Pour **Origines JavaScript autorisées**, utilisez `https://<app-name>.azurewebsites.net` avec le nom de votre application dans *\<app-name>* .
@@ -30,9 +32,9 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
     > [!IMPORTANT]
     > Le secret d’application est une information d’identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
-## <a name="secrets"></a>Ajout des informations Google à votre application
+## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Ajouter des informations Google à votre application
 
-1. Dans le [portail Azure], accédez à votre application App Service.
+1. Dans le [Azure portal], accédez à votre application App Service.
 1. Sélectionnez **Paramètres** > **Authentification/Autorisation**, puis vérifiez que **l’authentification App Service** est activée, sur **On**.
 1. Sélectionnez **Google**, puis collez les valeurs d’ID d’application et de secret d’application que vous avez obtenues précédemment. Activez toutes les étendues nécessaires à votre application.
 1. Sélectionnez **OK**.
@@ -48,7 +50,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
 Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votre application.
 
-## <a name="related-content"> </a>Étapes suivantes
+## <a name="next-steps"></a><a name="related-content"> </a>Étapes suivantes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
@@ -63,5 +65,5 @@ Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votr
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 

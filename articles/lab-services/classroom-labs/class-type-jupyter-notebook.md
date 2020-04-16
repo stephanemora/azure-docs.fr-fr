@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 222f5647248d27c3bdfabd0feaeb66dd9f543652
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444109"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257723"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurer un laboratoire pour enseigner la science des données avec Python et Jupyter Notebooks
 
@@ -34,10 +34,10 @@ Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. 
 
 | Paramètres du compte lab | Instructions |
 | ------------------- | ------------ |
-| Image de la Place de marché | Activez l’image [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) à utiliser au sein de votre compte lab. |
+| Image de la Place de marché | Activez l’image [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) à utiliser au sein de votre compte labo. |
 
 >[!TIP]
->Cet article se concentre sur la configuration d’une machine modèle qui utilise le système d’exploitation Windows Server.  Il est également possible de configurer une classe de science des données avec Python et Jupyter Notebooks à l’aide des images [Data Science Virtual Machine pour Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) ou [Data Science Virtual Machine pour Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) à partir de la Place de marché Azure.
+>Cet article se concentre sur la configuration d’une machine modèle qui utilise le système d’exploitation Windows Server.  Il est également possible de configurer une classe de science des données avec Python et Jupyter Notebooks à l’aide des images [Data Science Virtual Machine pour Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) à partir de la Place de marché Azure.
 
 ### <a name="lab-settings"></a>Paramètres du labo
 
@@ -50,7 +50,7 @@ Utilisez les paramètres du tableau ci-dessous lors de la configuration d’un l
 
 ## <a name="template-machine"></a>Machine modèle
 
-L’image [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) fournit les outils et infrastructures de Deep Learning nécessaires pour ce type de cours.  L’image comprend Jupyter Notebooks et Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) est une application web qui permet aux scientifiques des données de prendre des données brutes, d’exécuter des calculs et de voir les résultats dans le même environnement.  Pour notre machine modèle, l’application web s’exécutera localement.  [Visual Studio Code](https://code.visualstudio.com/) est un IDE qui offre une expérience interactive riche lors de l’écriture et du test d’un notebook.  Pour plus d’informations, consultez [Utilisation de Jupyter Notebooks dans Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
+L’image [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) fournit les outils et infrastructures de Deep Learning nécessaires pour ce type de cours.  L’image comprend Jupyter Notebooks et Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) est une application web qui permet aux scientifiques des données de prendre des données brutes, d’exécuter des calculs et de voir les résultats dans le même environnement.  Pour notre machine modèle, l’application web s’exécutera localement.  [Visual Studio Code](https://code.visualstudio.com/) est un IDE qui offre une expérience interactive riche lors de l’écriture et du test d’un notebook.  Pour plus d’informations, consultez [Utilisation de Jupyter Notebooks dans Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
 La tâche restante pour configurer la classe consiste à fournir des notebooks locaux.  Pour obtenir des instructions sur l’utilisation des exemples Azure Machine Learning, consultez [Comment configurer un environnement avec Jupyter Notebooks](../../machine-learning/how-to-configure-environment.md#jupyter).  Vous pouvez également fournir vos propres notebooks sur la machine modèle.  Les notebooks seront copiés sur tous les ordinateurs des étudiants lors de la publication du modèle.
 

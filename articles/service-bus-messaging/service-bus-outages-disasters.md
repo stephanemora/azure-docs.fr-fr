@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 2a7f5d5eacb2d03e64ae95d34e1cf0bd37bbc7f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229553"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984944"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
 
@@ -33,7 +33,7 @@ Service Bus Premium prend en charge la géo-reprise d’activité après sinistr
 
 ### <a name="availability-zones"></a>Zones de disponibilité
 
-La référence SKU de Service Bus Premium prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), en fournissant des emplacements isolés des pannes au sein d’une même région Azure.
+La référence SKU de Service Bus Premium prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), en fournissant des emplacements isolés des pannes au sein d’une même région Azure. Service Bus gère trois copies de la banque de messagerie (1 copie principale et 2 secondaires). Service Bus synchronise les opérations relatives aux données et à la gestion sur les trois copies. Si la copie principale échoue, l’une des copies secondaires devient la copie principale, sans temps d’arrêt ressenti. Si les applications constatent des déconnexions temporaires de Service Bus, la logique de nouvelle tentative dans le SDK se reconnectera automatiquement à Service Bus. 
 
 > [!NOTE]
 > Dans Azure Service Bus Premium, la prise en charge des zones de disponibilité est fournie uniquement pour les [régions Azure](../availability-zones/az-overview.md#services-support-by-region) qui comprennent déjà des zones de disponibilité.
@@ -72,8 +72,8 @@ En général, la réplication passive est moins onéreuse que la réplication ac
 
 Lorsque vous utilisez la réplication passive, les messages peuvent être perdus ou reçus deux fois, dans les scénarios suivants :
 
-* **Retard ou perte de message**: supposons que l'expéditeur a envoyé avec succès un message m1 à la file d'attente principale, et qu'ensuite la file d'attente devient indisponible avant que le destinataire ne reçoive m1. L'expéditeur envoie un message ultérieur m2 à la file d'attente secondaire. Si la file d'attente principale est temporairement indisponible, le destinataire reçoit m1 lorsque la file d'attente est à nouveau disponible. En cas de sinistre, le destinataire peut ne jamais recevoir m1.
-* **Réception de doublons**: supposons que l'expéditeur envoie un message m à la file d'attente principale. Service Bus traite m avec succès mais ne parvient pas à envoyer une réponse. Après expiration de l'opération d'envoi, l'expéditeur envoie une copie identique de m à la file d'attente secondaire. Si le destinataire peut recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire reçoit les deux copies de m approximativement au même moment. Si le destinataire ne peut pas recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire ne reçoit initialement que la deuxième copie de m, mais reçoit ensuite une deuxième copie de m lorsque la file d'attente principale devient disponible.
+* **Retard ou perte de message** : Supposons que l’expéditeur a envoyé avec succès un message m1 à la file d’attente principale, et qu’ensuite la file d'attente devient indisponible avant que le destinataire ne reçoive m1. L'expéditeur envoie un message ultérieur m2 à la file d'attente secondaire. Si la file d'attente principale est temporairement indisponible, le destinataire reçoit m1 lorsque la file d'attente est à nouveau disponible. En cas de sinistre, le destinataire peut ne jamais recevoir m1.
+* **Réception de doublons** : Supposons que l'expéditeur envoie un message m à la file d'attente principale. Service Bus traite m avec succès mais ne parvient pas à envoyer une réponse. Après expiration de l'opération d'envoi, l'expéditeur envoie une copie identique de m à la file d'attente secondaire. Si le destinataire peut recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire reçoit les deux copies de m approximativement au même moment. Si le destinataire ne peut pas recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire ne reçoit initialement que la deuxième copie de m, mais reçoit ensuite une deuxième copie de m lorsque la file d'attente principale devient disponible.
 
 L’exemple de [géo-réplication avec le niveau Standard de Service Bus][Geo-replication with Service Bus Standard Tier] illustre la réplication passive des entités de messagerie.
 
