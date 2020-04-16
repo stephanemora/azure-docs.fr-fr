@@ -1,30 +1,25 @@
 ---
-title: Créer un groupe identique qui utilise des machines virtuelles Azure Spot (préversion)
+title: Créer un groupe identique qui utilise des machines virtuelles Azure Spot
 description: Découvrez comment créer des groupes identiques de machines virtuelles Azure qui utilisent des machines virtuelles Spot pour réaliser des économies sur les coûts.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: conceptual
-ms.date: 02/11/2020
+ms.topic: article
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162682"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545935"
 ---
-# <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Aperçu : Machines virtuelles Azure Spot pour les groupes identiques de machines virtuelles 
+# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot pour les groupes identiques de machines virtuelles 
 
 L’utilisation d’Azure Spot sur des groupes identiques vous permet de tirer parti de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les instances Spot. Les instances Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 
 La capacité disponible dépend de divers facteurs, tels que la taille, la région, l’heure, etc. Lors du déploiement d’instances Spot sur des groupes identiques, Azure alloue l’instance uniquement si la capacité est disponible, mais qu’il n’existe aucun contrat SLA pour ces instances. Un groupe identique Spot est déployé dans un domaine d’erreur unique. Il n’offre aucune garantie de haute disponibilité.
 
-> [!IMPORTANT]
-> Les instances Spot sont actuellement en préversion publique.
-> Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="pricing"></a>Tarifs
 
@@ -172,6 +167,5 @@ Pour supprimer l’instance après son exclusion, remplacez le paramètre `evict
 **R :** Vous pouvez poster et étiqueter vos questions avec `azure-spot` sur [Questions et réponses](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous avez créé un groupe identique avec des machines virtuelles Spot. Essayez maintenant de déployer notre [modèle de mise à l’échelle automatique des machines virtuelles Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Consultez la page [Tarification des groupes identiques de machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) pour connaître les tarifs appliqués.

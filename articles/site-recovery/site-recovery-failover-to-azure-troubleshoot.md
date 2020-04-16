@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229089"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478953"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle VMware ou d'une machine physique vers Azure
 
@@ -24,7 +24,7 @@ Vous pouvez recevoir les erreurs suivantes lorsque vous procédez au basculement
 
 Site Recovery n’a pas pu créer de machine virtuelle basculée dans Azure. L’une des raisons suivantes peut en être la cause :
 
-* Le quota disponible n’est pas suffisant pour créer la machine virtuelle : vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](https://aka.ms/getazuresupport) pour augmenter le quota.
+* Le quota est suffisant pour créer la machine virtuelle : Vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](https://aka.ms/getazuresupport) pour augmenter le quota.
 
 * Vous tentez de basculer des machines virtuelles de familles de taille différentes dans le même groupe à haute disponibilité. Veillez à choisir le même ordre de grandeur de taille pour toutes les machines virtuelles d’un même groupe à haute disponibilité. Changez la taille en accédant aux paramètres Calcul et réseau de la machine virtuelle, puis réessayez le basculement.
 
@@ -138,7 +138,7 @@ Créez manuellement la cible maître dans le vCenter qui gère votre machine sou
 > 
 > Les opérations de structure fabric de découverte et d’actualisation peuvent prendre jusqu’à 30 minutes. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>L’inscription de la cible maître Linux auprès de CS échoue avec une erreur SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>L’inscription du serveur cible maître Linux auprès de CS échoue avec une erreur TLS 35 
 
 L’inscription de la cible maître Azure Site Recovery auprès du serveur de configuration échoue en raison de l’activation du proxy authentifié sur la cible maître. 
  

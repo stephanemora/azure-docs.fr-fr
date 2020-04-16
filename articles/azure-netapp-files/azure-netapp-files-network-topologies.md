@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73242484"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667878"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Consignes pour planifier un réseau Azure NetApp Files
 
@@ -39,10 +39,11 @@ Les fonctionnalités ci-dessous ne sont actuellement pas prises en charge pour A
 * Routes définies par l’utilisateur avec un préfixe d’adresse comme sous-réseau Azure NetApp Files
 * Stratégies Azure (par exemple, des stratégies d’affectation de noms personnalisés) sur l’interface Azure NetApp Files
 * Équilibreurs de charge pour le trafic d’Azure NetApp Files
+* Azure NetApp Files n’est pas pris en charge avec Azure Virtual WAN
 
 Les restrictions suivantes s’appliquent à Azure NetApp Files :
 
-* Le nombre d’adresses IP en cours d’utilisation dans un réseau virtuel avec Azure NetApp Files (y compris les réseaux virtuels homologués) ne peut pas dépasser 1 000. Nous travaillons à l’augmentation de cette limite pour répondre aux demandes de mise à l’échelle du client. Dans l’intervalle, si vous avez besoin d’un plus grand nombre d’adresses IP, contactez notre équipe de support technique avec votre cas d’utilisation et la limite requise.
+* Le nombre d’adresses IP en cours d’utilisation dans un réseau virtuel avec Azure NetApp Files (y compris les réseaux virtuels homologués) ne peut pas dépasser 1 000. Nous travaillons à l’augmentation de cette limite pour répondre aux demandes de mise à l’échelle du client. 
 * Dans chaque réseau virtuel Azure, un seul sous-réseau peut être délégué à Azure NetApp Files.
 
 
@@ -123,8 +124,8 @@ Dans la topologie illustrée ci-dessus, le réseau local est connecté à un hub
 * Les ressources locales des machines virtuelles 1 et 2 peuvent se connecter au volume 2 ou 3 via une passerelle VPN site à site et un peering du réseau virtuel régional.
 * La machine virtuelle 3 dans le réseau virtuel du hub peut se connecter au volume 2 dans le réseau virtuel 1 du spoke et au volume 3 dans le réseau virtuel 2 du spoke.
 * La machine virtuelle 4 dans le réseau virtuel 1 du spoke et la machine virtuelle 5 dans le réseau virtuel 2 du spoke peuvent se connecter au volume 1 dans le réseau virtuel du hub.
-
-La machine virtuelle 4 dans le réseau virtuel 1 du spoke ne peut pas se connecter au volume 3 du réseau virtuel 2 du spoke. Aussi, la machine virtuelle 5 dans le réseau virtuel 2 du spoke ne peut pas se connecter au volume 2 du réseau virtuel 1 du spoke. Il en est ainsi car les réseaux virtuels spoke ne sont pas appairés, et _le routage de transit n’est pas pris en charge via le peering de réseau virtuel_.
+* La machine virtuelle 4 dans le réseau virtuel 1 du spoke ne peut pas se connecter au volume 3 du réseau virtuel 2 du spoke. Aussi, la machine virtuelle 5 dans le réseau virtuel 2 du spoke ne peut pas se connecter au volume 2 du réseau virtuel 1 du spoke. Il en est ainsi car les réseaux virtuels spoke ne sont pas appairés, et _le routage de transit n’est pas pris en charge via le peering de réseau virtuel_.
+* Dans l’architecture ci-dessus, s’il existe également une passerelle dans le réseau virtuel spoke, la connectivité au volume ANF à partir d’un réseau local se connectant via la passerelle dans le hub sera perdue. Par défaut, la préférence est donnée à la passerelle dans le réseau virtuel spoke et, ainsi, seules les machines qui se connectent via cette passerelle peuvent se connecter au volume ANF.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

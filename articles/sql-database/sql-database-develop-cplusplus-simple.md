@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: fb6094ec418d2b212759bddd2c4d49c7e6193849
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed8e5eaa0ff9b58f80473b052aacfb9f01d45055
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73690705"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529218"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Se connecter à SQL Database à l’aide de C et C++
 
@@ -28,7 +28,7 @@ Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit des services Azure](https://azure.microsoft.com/pricing/free-trial/)dès aujourd’hui.
 * [Visual Studio](https://www.visualstudio.com/downloads/). Vous devez installer les composants du langage C++ pour générer et exécuter cet exemple.
-* [Développement Visual Studio Linux](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). Si vous développez sur Linux, vous devez également installer l’extension Visual Studio Linux.
+* [Développement Visual Studio Linux](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Si vous développez sur Linux, vous devez également installer l’extension Visual Studio Linux.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Azure SQL Database et SQL Server sur les machines virtuelles
 Reposant sur Microsoft SQL Server, SQL Azure est conçu pour fournir un service à haute disponibilité, performant et évolutif. L’utilisation de SQL Azure en lieu et place de votre base de données propriétaire s’exécutant en local présente de nombreux avantages. Avec SQL Azure, vous ne devez pas installer, configurer, mettre à jour ou gérer votre base de données, mais uniquement son contenu et sa structure. Les capacités de base de données importantes, telles que la tolérance de panne et la redondance, sont intégrées.

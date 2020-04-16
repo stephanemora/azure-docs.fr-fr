@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a27487fa69888b02883c3d9a2151887f41afc45
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189376"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803158"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Activer la fonctionnalité « Maintenir la connexion » dans Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Vous ne devez pas activer cette option sur les ordinateurs publics.
 
 Pour activer la fonctionnalité « Maintenir la connexion », définissez l’élément `DataUri` de définition de contenu sur l’[identificateur de page](contentdefinitions.md#datauri) `unifiedssp` et la [version de page](page-layout.md) *1.1.0* ou ultérieure.
 
-1. Ouvrez le fichier d’extension de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>. Ce fichier d’extension est un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir en suivant la rubrique prérequise [Bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md).
+1. Ouvrez le fichier d’extension de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. Ce fichier d’extension est un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir en suivant la rubrique prérequise [Bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md).
 1. Recherchez l’élément **BuildingBlocks**. Si l’élément n’existe pas, ajoutez-le.
 1. Ajoutez l’élément **ContentDefinitions** à l’élément **BuildingBlocks** de la stratégie.
 
@@ -52,9 +52,27 @@ Pour activer la fonctionnalité « Maintenir la connexion », définissez l’
     </BuildingBlocks>
     ```
 
+## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Ajouter les métadonnées au profil technique autodéclaré
+
+Pour ajouter la case à cocher Maintenir la connexion dans les pages d’inscription et de connexion, définissez les métadonnées `setting.enableRememberMe` sur true. Remplacez les profils techniques SelfAsserted-LocalAccountSignin-Email dans le fichier d’extension.
+
+1. Recherchez l’élément ClaimsProviders. Si l’élément n’existe pas, ajoutez-le.
+1. Ajoutez le fournisseur de revendications suivant à l’élément ClaimsProviders :
+
+```XML
+<ClaimsProvider>
+  <DisplayName>Local Account</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+      <Metadata>
+        <Item Key="setting.enableRememberMe">True</Item>
+      </Metadata>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
 1. Enregistrez le fichier d’extensions.
-
-
 
 ## <a name="configure-a-relying-party-file"></a>Configurer un fichier de partie de confiance
 
@@ -107,7 +125,15 @@ Nous vous recommandons de définir la valeur de SessionExpiryInSeconds sur une c
 </RelyingParty>
 ```
 
-4. Enregistrez vos modifications, puis chargez le fichier.
-5. Pour tester la stratégie personnalisée que vous avez chargée, dans le portail Azure, accédez à la page Stratégie, puis sélectionnez **Exécuter maintenant**.
+## <a name="test-your-policy"></a>Tester votre stratégie
 
-Vous pouvez trouver l’exemple de stratégie [ici](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
+1. Enregistrez vos modifications, puis chargez le fichier.
+1. Pour tester la stratégie personnalisée que vous avez chargée, dans le Portail Azure, accédez à la page Stratégie, puis sélectionnez **Exécuter maintenant**.
+1. Saisissez votre **nom d’utilisateur** et votre **mot de passe**, sélectionnez **Maintenir la connexion**, puis cliquez sur **Connexion**.
+1. Revenez au portail Azure. Accédez à la page Stratégie, puis sélectionnez **Copier** pour copier l’URL de connexion.
+1. Dans la barre d’adresse du navigateur, supprimez le paramètre de chaîne de requête `&prompt=login`, qui oblige l’utilisateur à entrer ses informations d’identification sur cette requête.
+1. Dans le navigateur, cliquez sur **Accéder**. À présent, Azure AD B2C émet un jeton d’accès sans vous inviter à vous connecter à nouveau. 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Trouvez l’exemple de stratégie [ici](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).

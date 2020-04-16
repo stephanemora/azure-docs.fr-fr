@@ -8,23 +8,31 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 967fd1fa182b7c8e581fd74cc287c5a6ba0e4038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127831"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422410"
 ---
 # <a name="linux-support"></a>Prise en charge Linux
 
-Vous pouvez utiliser le Kit de développement logiciel (SDK) Linux pour Windows Virtual Desktop pour créer un client Windows Virtual Desktop autonome. Vous pouvez également l’utiliser pour activer la prise en charge de Windows Virtual Desktop sur votre application cliente. Ce guide rapide explique ce qu’est le Kit de développement logiciel (SDK) Linux et comment commencer à l’utiliser.
+Les partenaires peuvent utiliser le SDK Linux pour Windows Virtual Desktop pour créer un client Windows Virtual Desktop autonome. Vous pouvez également l’utiliser pour activer la prise en charge de Windows Virtual Desktop sur votre application cliente. Ce guide rapide explique ce qu’est le Kit de développement logiciel (SDK) Linux et comment commencer à l’utiliser.
+
+## <a name="connect-with-your-linux-device"></a>Se connecter avec votre appareil Linux
+
+Les partenaires suivants ont approuvé les clients Windows Virtual Desktop pour les appareils Linux.
+
+|Partenaire|Documentation du partenaire|Support technique du partenaire|
+|:------|:--------------------|:--------------|
+|![Logo IGEL](./media/partners/igel.png)|[Documentation du client IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Support technique IGEL](https://www.igel.com/support/)|
 
 ## <a name="what-is-the-linux-sdk"></a>Qu’est-ce que le Kit de développement logiciel (SDK) Linux ?
 
 Vous pouvez utiliser les API du Kit de développement logiciel (SDK) pour récupérer des flux de ressources, vous connecter à des sessions d’applications à distance ou de Bureau et utiliser une grande partie des redirections prises en charge par nos clients principaux.
 
 > [!NOTE]
-> Le SDK est en cours de développement. Nous mettrons à jour ce document avec des instructions permettant d’accéder au SDK quand il sera disponible.
+> Le SDK est en cours de développement. Nous mettrons à jour ce document avec des instructions permettant d’accéder au SDK quand il sera en disponibilité générale.
 
 ### <a name="supported-linux-distributions"></a>Distributions de Linux prises en charge
 

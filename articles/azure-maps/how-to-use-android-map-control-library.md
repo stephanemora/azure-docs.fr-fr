@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55bfb5030d0a168e7556240212fcd5f3be30a289
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335362"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548534"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Bien démarrer avec Android SDK Azure Maps
 
 Android SDK Azure Maps est une bibliothèque de cartes de vecteur pour Android. Cet article vous guide tout au long des processus d’installation d’Android SDK Azure Maps et de chargement d’une carte.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps
 
 Pour accomplir les procédures de cet article, vous devez d’abord [créer un compte Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps) de niveau tarifaire S1 et [obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) de votre compte.
 
-Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
+Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 ### <a name="download-android-studio"></a>Télécharger Android Studio
 
@@ -267,6 +267,29 @@ Voici un exemple Azure Maps dans lequel la langue est définie sur « fr-FR »
 </center>
 
 La liste complète des langues et des affichages régionaux pris en charge est disponible [ici](supported-languages.md).
+
+## <a name="navigating-the-map"></a>Navigation dans la carte
+
+Il existe plusieurs façons d’effectuer des zooms, des panoramiques, des rotations et des tangages de la carte. Les informations suivantes détaillent les différentes façons de naviguer dans la carte.
+
+**Faire un zoom sur la carte**
+
+- Touchez la carte avec deux doigts et rapprochez-les pour faire un zoom arrière ou écartez-les pour faire un zoom avant.
+- Appuyez deux fois sur la carte pour faire un zoom avant d’un niveau.
+- Appuyez deux fois avec deux doigts pour faire un zoom arrière d’un niveau de la carte.
+- Appuyez deux fois ; sur le second appui, maintenez votre doigt sur la carte et faites glisser vers le haut pour effectuer un zoom avant, ou vers le bas pour effectuer un zoom arrière.
+
+**Effectuer un panoramique sur la carte**
+
+- Touchez la carte et faites-la glisser dans n’importe quelle direction.
+
+**Faire pivoter la carte**
+
+- Touchez la carte avec deux doigts et effectuez une rotation.
+
+**Incliner la carte**
+
+- Touchez la carte avec deux doigts et faites-les glisser ensemble vers le haut ou vers le bas.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

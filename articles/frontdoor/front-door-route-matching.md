@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471589"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878593"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Comment une porte d’entrée fait correspondre les demandes à une règle de routage
 
-Après avoir établi une connexion et effectué une négociation SSL, l’une des premières choses que fait une porte d’entrée quand une demande lui parvient, c’est de déterminer parmi toutes les configurations à quelle règle de routage faire correspondre la demande, puis d’effectuer l’action définie. Le document suivant explique comment une porte d’entrée détermine la configuration d’itinéraire à utiliser pendant le traitement d’une requête HTTP.
+Après avoir établi une connexion et effectué une négociation TLS, l’une des premières choses que fait un environnement Front Door quand une requête lui parvient est de déterminer, parmi toutes les configurations, à quelle règle de routage faire correspondre la requête, puis d’effectuer l’action définie. Le document suivant explique comment une porte d’entrée détermine la configuration d’itinéraire à utiliser pendant le traitement d’une requête HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Structure d’une configuration d’itinéraire de porte d’entrée
 La configuration d’une règle de routage de porte d’entrée est constituée de deux parties principales : le « côté gauche » et le « côté droit ». Nous faisons correspondre la demande entrante au côté gauche de l’itinéraire, tandis que le côté droit définit le mode de traitement de la demande.

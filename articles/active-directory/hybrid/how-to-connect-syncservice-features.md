@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300534"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983073"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 
@@ -57,12 +57,12 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 
 | DirSyncFeature | Commentaire |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect : Activation de l’écriture différée des appareils](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Azure AD Connect Sync : extensions d’annuaire](how-to-connect-sync-feature-directory-extensions.md) |
+| DeviceWriteback |[Azure AD Connect : Activation de la réécriture d’appareil](how-to-connect-device-writeback.md) |
+| DirectoryExtensions |[Synchronisation Azure AD Connect : Extensions d’annuaire](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permet à un attribut d’être mis en quarantaine lorsqu’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
 | Synchronisation de hachage de mot de passe |[Implémenter la synchronisation du hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md) |
 |Authentification directe|[Connexion de l’utilisateur avec l’authentification directe Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Version préliminaire : Écriture différée de groupe](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |[Préversion : Réécriture de groupe](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Non pris en charge actuellement. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Résilience d’attribut en double
@@ -89,12 +89,14 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## <a name="synchronize-userprincipalname-updates"></a>Synchroniser les mises à jour userPrincipalName
 
-Historiquement, les mises à jour de l’attribut UserPrincipalName à l’aide du service de synchronisation du site ont été bloquées, sauf si les deux conditions suivantes sont remplies :
+Historiquement, les mises à jour de l’attribut UserPrincipalName à l’aide du service de synchronisation du site ont été bloquées, sauf si les deux conditions suivantes étaient remplies :
 
 * L’utilisateur est géré (non fédéré).
 * Aucune licence n’a été attribuée à l’utilisateur.
 
-Pour plus d’informations, voir [Les noms d’utilisateur dans Office 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire](https://support.microsoft.com/kb/2523192).
+> [!NOTE]
+> À compter de mars 2019, la synchronisation des modifications d’UPN pour les comptes d’utilisateur fédérés est autorisée.
+> 
 
 L’activation de cette fonctionnalité permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName quand il est modifié en local et que vous utilisez la synchronisation de hachage de mot de passe pu l’authentification directe.
 

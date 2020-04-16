@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b81a3921ec11d589dadbdebd698ab9ad67d7649c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70137341"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982903"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ ms.locfileid: "70137341"
 * Documentation mise à jour pour référencer Azure Cosmos DB au lieu d’Azure DocumentDB.
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Cette version du kit de développement logiciel (SDK) nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator.
+* Cette version du SDK nécessite la dernière version de l’[émulateur Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="221"></a><a name="2.2.1"/>2.2.1
 * Résolution de bogue pour le dictionnaire d’agrégation.
@@ -84,7 +84,7 @@ ms.locfileid: "70137341"
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG).
-* Ajout d’une option permettant de désactiver la vérification SSL pendant son exécution sur l’émulateur Cosmos DB.
+* Ajout d’une option permettant de désactiver la vérification TLS en cas d’exécution sur l’émulateur Cosmos DB.
 * Suppression de la restriction du module de demandes dépendantes qui devait correspondre exactement à la version 2.10.0.
 * Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 * Ajout de la prise en charge de l’activation de la journalisation de script pendant l’exécution de la procédure stockée.

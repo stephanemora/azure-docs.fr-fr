@@ -3,29 +3,29 @@ title: Réaction aux événements Stockage Blob Azure (préversion) | Microsoft 
 description: Utilisez Azure Event Grid pour vous abonner à des événements de stockage Blob.
 author: normesta
 ms.author: normesta
-ms.date: 01/30/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 78ec5b6d330f03d78dcb4e798b23d588fd93398e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76835961"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811546"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
-Les événements de stockage Azure permettent aux applications de réagir à des événements, tels que la création et la suppression d’objets. et sans qu’il soit nécessaire de faire appel à du code complexe ou à des services d’interrogation coûteux et inefficaces.
+Les événements de stockage Azure permettent aux applications de réagir à des événements, tels que la création et la suppression d’objets. et sans qu’il soit nécessaire de faire appel à du code complexe ou à des services d’interrogation coûteux et inefficaces. L’avantage est que vous paierez uniquement pour ce que vous utiliserez.
 
-Les événements sont envoyés via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) aux abonnés, come Azure Functions, Azure Logic Apps, ou même à votre propre écouteur http personnalisé. L’avantage est que vous paierez uniquement pour ce que vous utiliserez.
+Les événements Stockage Blob sont envoyés (push) avec [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) aux abonnés comme Azure Functions, Azure Logic Apps, ou même à votre propre écouteur http personnalisé. Event Grid fournit des services de livraison d’événements fiables à vos applications par le biais de stratégies enrichies de nouvelle tentative et de livraison de lettres mortes.
 
-Le stockage d’objets BLOB envoie des événements à Event Grid qui fournit des services de livraison d’événements fiables à vos applications via des stratégies enrichies de nouvelle tentative et de livraison de lettres mortes.
+Pour voir la liste complète des événements pris en charge par Stockage Blob, consultez l’article [Schéma des événements Stockage Blob](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Les scénarios d’événements de stockage d’objets Blob courants incluent le traitement d’images ou de vidéos, l’indexation pour la recherche ou n’importe quel flux de travail orienté fichier. Les téléchargements de fichier asynchrones sont parfaitement adaptés aux événements. Lorsque les modifications sont peu fréquentes, mais que votre scénario requiert une réactivité immédiate, une architecture basée sur des événements peut être particulièrement efficace.
 
-Si vous souhaitez faire un essai maintenant, consultez l’un des articles de démarrage rapide suivants :
+Si vous souhaitez essayer les événements Stockage Blob, consultez l’un des articles de démarrage rapide suivants :
 
 |Si vous souhaitez utiliser cet outil :    |Lisez l’article : |
 |--|-|
@@ -33,10 +33,13 @@ Si vous souhaitez faire un essai maintenant, consultez l’un des articles de d�
 |PowerShell    |[Démarrage rapide : Acheminer des événements de stockage vers un point de terminaison web avec PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure CLI    |[Démarrage rapide : Acheminer des événements de stockage vers un point de terminaison web avec Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
-Si votre compte dispose d’un espace de noms hiérarchique, ce tutoriel vous montre comment associer un abonnement Event Grid, une fonction Azure et un [travail](https://docs.azuredatabricks.net/user-guide/jobs.html) dans Azure Databricks : [Tutoriel : Utiliser des événements Azure Data Lake Storage Gen2 pour mettre à jour une table Databricks Delta](data-lake-storage-events.md).
+Pour consulter des exemples détaillés de réaction aux événements de stockage Blob à l’aide de fonctions Azure, consultez les articles suivants :
+
+- [Tutoriel : Utiliser des événements Azure Data Lake Storage Gen2 pour mettre à jour une table Databricks Delta](data-lake-storage-events.md).
+- [Tutoriel : Automatiser le redimensionnement des images chargées à l’aide d’Event Grid](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Seuls les comptes de stockage de type **StorageV2 (usage général v2)** et **BlobStorage** prennent en charge l’intégration d’événements. **Le stockage (usage général v1)** ne prend *pas* en charge l’intégration à Event Grid.
+> Seuls les comptes de stockage de type **StorageV2 (v2 universel)** , **BlockBlobStorage** et **BlobStorage** prennent en charge l’intégration d’événements. Le type **Stockage (v1 universel)** ne prend *pas* en charge l’intégration à Event Grid.
 
 ## <a name="the-event-model"></a>Le modèle d’événement
 
@@ -93,7 +96,9 @@ Les applications qui gèrent des événements de stockage d’objets Blob doiven
 > [!div class="checklist"]
 > * Comme plusieurs abonnements peuvent être configurés pour acheminer les événements vers le même gestionnaire d’événements, il est important de ne pas considérer que les événements proviennent d’une source particulière, mais de vérifier le sujet du message pour vous assurer qu’il provient d’un compte de stockage que vous attendez.
 > * De même, vérifiez que vous êtes prêt à traiter son eventType, et ne supposez pas que tous les événements reçus seront aux types que vous attendez.
-> * Les messages pouvant arriver en désordre et après un certain temps, utilisez les champs etag pour comprendre si vos informations sur les objets sont toujours à jour.  En outre, utilisez les champs de séquence pour comprendre l’ordre des événements sur un objet particulier.
+> * Les messages pouvant arriver après un certain temps, utilisez les champs etag pour comprendre si vos informations sur les objets sont toujours à jour. Pour savoir comment utiliser le champ etag, consultez [Gestion de l’accès concurrentiel dans le Stockage Blob](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Les messages pouvant arriver dans le désordre, utilisez les champs de séquence pour comprendre l’ordre des événements sur un objet particulier. Le champ de séquence est une valeur de chaîne qui représente l’ordre logique des événements pour n’importe quel nom d’objet blob. Vous pouvez utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet blob.
+> * Les événements de stockage garantissent au moins une livraison aux abonnés, assurant ainsi la sortie de tous les messages. Toutefois, en raison de nouvelles tentatives ou de la disponibilité des abonnements, des messages dupliqués peuvent parfois se produire. Pour en savoir plus sur la livraison de messages et les nouvelles tentatives, consultez [Livraison et nouvelle tentative de livraison de messages avec Event Grid](../../event-grid/delivery-and-retry.md).
 > * Utilisez le champ blobType pour comprendre le type d’opération autorisé sur l’objet Blob, et les types de bibliothèque client que vous devez utiliser pour accéder à l’objet Blob. Les valeurs valides sont `BlockBlob` ou `PageBlob`. 
 > * Utilisez le champ URL avec les constructeurs `CloudBlockBlob` et `CloudAppendBlob` pour accéder à l’objet Blob.
 > * Ignorez les champs que vous ne comprenez pas. Cette pratique vous aidera à prendre en charge les nouvelles fonctionnalités qui peuvent être ajoutées à l’avenir.
@@ -105,4 +110,5 @@ Les applications qui gèrent des événements de stockage d’objets Blob doiven
 En savoir plus sur Event Grid et essayer les événements de stockage d’objets Blob :
 
 - [À propos d’Event Grid](../../event-grid/overview.md)
+- [Schéma des événements Stockage Blob](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Acheminer des événements de stockage Blob Azure vers un point de terminaison Web personnalisé ](storage-blob-event-quickstart.md)

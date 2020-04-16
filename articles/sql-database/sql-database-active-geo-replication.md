@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 02/17/2020
-ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: cc9d129894cefaf2fab853d2099d754d68238e5f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77426271"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887348"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de la géoréplication active
 
@@ -101,7 +101,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Basculement et restauration automatique contrôlés par l’utilisateur**
 
-  Une base de données secondaire peut être basculée explicitement à tout moment vers le rôle primaire par l’application ou l’utilisateur. Pendant une panne réelle, l’option « non planifiée » doit être utilisée, qui promeut immédiatement une base de données secondaire en base de données primaire. Lorsque la base de données primaire en échec récupère et redevient disponible, le système marque automatiquement la base de données primaire récupérée comme base de données secondaire, et la met à jour par rapport à la nouvelle base de données primaire. En raison de la nature asynchrone de la réplication, une petite quantité de données peut être perdue lors de basculements non planifiés si une base de données primaire échoue avant la réplication des modifications les plus récentes sur la base de données secondaire. Quand une base de données primaire avec plusieurs bases de données secondaires bascule, le système reconfigure automatiquement les relations de réplication et lie les bases de données secondaires restantes à la base de données nouvellement promue comme primaire sans aucune intervention de l’utilisateur. Une fois la panne à l’origine du basculement résolue, il peut être judicieux de rétablir l’application dans la région primaire. Pour ce faire, la commande de basculement doit être appelée avec l’option « planifiée ».
+  Une base de données secondaire peut être basculée explicitement à tout moment vers le rôle primaire par l’application ou l’utilisateur. Pendant une panne réelle, l’option « non planifiée » doit être utilisée pour promouvoir immédiatement une base de données secondaire en base de données primaire. Lorsque la base de données primaire en échec récupère et redevient disponible, le système marque automatiquement la base de données primaire récupérée comme base de données secondaire, et la met à jour par rapport à la nouvelle base de données primaire. En raison de la nature asynchrone de la réplication, une petite quantité de données peut être perdue lors de basculements non planifiés si une base de données primaire échoue avant la réplication des modifications les plus récentes sur la base de données secondaire. Quand une base de données primaire avec plusieurs bases de données secondaires bascule, le système reconfigure automatiquement les relations de réplication et lie les bases de données secondaires restantes à la base de données nouvellement promue comme primaire sans aucune intervention de l’utilisateur. Une fois la panne à l’origine du basculement résolue, il peut être judicieux de rétablir l’application dans la région primaire. Pour ce faire, la commande de basculement doit être appelée avec l’option « planifiée ».
 
 ## <a name="preparing-secondary-database-for-failover"></a>Préparation de la base de données secondaire pour le basculement
 
@@ -113,14 +113,16 @@ Pour vous assurer que votre application peut accéder immédiatement au nouveau 
 
 ## <a name="configuring-secondary-database"></a>Configuration d'une base de données secondaire
 
-Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCore) que la base de données primaire. En cas de charge de travail d'écriture importante de la base de données primaire, une base de données secondaire dotée d'une taille de calcul inférieure peut ne pas suivre. Cela entraînera le décalage de la phase de restauration par progression sur le réplica secondaire et l’indisponibilité potentielle. Une base de données secondaire en retard par rapport à la base de données primaire risque également d’occasionner une perte de données importante si un basculement forcé est requis. Pour atténuer ces risques, la géoréplication active limite le taux de journalisation de la base de données principale pour permettre à ses secondaires de rattraper le retard. Après un basculement, une configuration de base de données secondaire déséquilibrée peut aussi altérer le niveau de performance de l'application en raison de la capacité de calcul insuffisante de la nouvelle base de données primaire. Elle devra être mise à niveau vers une taille de calcul supérieure, ce qui ne sera possible qu'une fois la panne résolue. 
+Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCore) que la base de données primaire. En cas de charge de travail d’écriture importante de la base de données primaire, une base de données secondaire dotée d’une taille de calcul inférieure peut ne pas suivre. Cela entraîne le décalage de la phase de restauration par progression sur la base de données secondaire et l’indisponibilité potentielle de la base de données secondaire. Pour atténuer ces risques, la géoréplication active limite si nécessaire le taux de journalisation des transactions de la base de données primaire pour permettre à ses bases de données secondaires de rattraper le retard. 
 
+Après un basculement, une configuration de base de données secondaire déséquilibrée peut aussi altérer le niveau de performance de l’application en raison de la capacité de calcul insuffisante de la nouvelle base de données primaire. Dans ce cas, il est nécessaire d’effectuer un scale-up de l’objectif du service de base de données au niveau nécessaire, ce qui peut nécessiter beaucoup de temps et de ressources de calcul. Un basculement à [haute disponibilité](sql-database-high-availability.md) est également nécessaire à la fin du processus de scale-up.
 
-> [!IMPORTANT]
-> Par conséquent, un RPO publié de 5 s ne peut pas être garanti, sauf si la base de données secondaire est configurée avec la même taille de calcul que la base de données primaire. 
+Si vous décidez de créer une base de données secondaire avec une taille de calcul inférieure, vous pouvez utiliser le graphique de pourcentage d’E/S du journal dans le portail Azure pour estimer la taille de calcul minimale de la base de données secondaire qui est nécessaire pour supporter la charge de réplication. Par exemple, si votre base de données primaire est P6 (1000 DTU) et que son pourcentage d’écriture dans le journal est de 50 %, la base de données secondaire doit être au moins P4 (500 DTU). Pour récupérer les données d’E/S historiques du journal, utilisez la vue [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database). Pour récupérer les données d’écriture récentes dans le journal avec une granularité plus élevée qui reflète mieux les pics à court terme du taux de journalisation, utilisez la vue [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
+La limitation du taux de journalisation des transactions sur la base de données primaire en raison d’une réduction de la taille de calcul sur une base de données secondaire est signalée à l’aide du type d’attente HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visible dans les vues de base de données [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) et [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql). 
 
-Si vous décidez de créer une base de données secondaire avec une taille de calcul inférieure, vous pouvez utiliser le graphique de pourcentage d’E/S du journal sur le portail Azure pour estimer la taille de calcul minimale de la base de données secondaire qui est nécessaire pour supporter la charge de réplication. Par exemple, si votre base de données primaire est P6 (1 000 DTU) et si son pourcentage d’E/S du journal est de 50 %, la base de données secondaire doit être au moins P4 (500 DTU). Vous pouvez également récupérer les données d’E/S du journal à l’aide des vues de base de données [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  L’étranglement est signalé comme un état d’attente HADR_THROTTLE_LOG_LOG_RATE_MISMATCHED_SLO dans les vues [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) et [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) des bases de données. 
+> [!NOTE]
+> Le taux de journalisation des transactions sur la base de données primaire peut être limité pour des raisons non liées à une taille de calcul inférieure sur une base de données secondaire. Ce genre de limitation peut se produire même si la base de données secondaire a une taille de calcul identique ou supérieure à celle de la base de données primaire. Pour plus d’informations, notamment sur les types d’attente pour les différents genres de limitation du taux de journalisation, consultez [Gouvernance relative au taux de journalisation des transactions](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).
 
 Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](sql-database-purchase-models.md).
 
@@ -146,7 +148,7 @@ Le client qui procède aux modifications doit disposer d'un accès réseau au se
 
    ```sql
    create user geodrsetup for login geodrsetup
-   alter role geodrsetup dbmanager add member geodrsetup
+   alter role dbmanager add member geodrsetup
    ```
 
 1. Prenez note du SID associé au nouvel ID de connexion en utilisant la requête suivante : 

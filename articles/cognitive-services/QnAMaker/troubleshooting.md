@@ -2,14 +2,14 @@
 title: Résolution des problèmes - QnA Maker
 description: La liste organisée des questions fréquentes concernant le service QnA Maker vous aidera à adopter le service plus rapidement et avec de meilleurs résultats.
 ms.topic: troubleshooting
-ms.date: 02/21/2020
+ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: 4596c16a5d7c9053bf0e27af476c66fe8fa9ed35
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78296097"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804348"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
@@ -17,10 +17,20 @@ La liste organisée des questions fréquentes concernant le service QnA Maker vo
 
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
+## <a name="manage-predictions"></a>Gérer les prédictions
+
+<details>
+<summary><b>Comment améliorer les performances de débit pour les prédictions de requête ?</b></summary>
+
+**Réponse** : Les problèmes de performances de débit indiquent que vous devez monter en puissance pour votre service d’application et votre recherche cognitive. Envisagez d’ajouter un réplica à votre recherche cognitive pour améliorer les performances.
+
+Apprenez-en davantage sur les [niveaux tarifaires](Concepts/azure-resources.md).
+</details>
+
 <details>
 <summary><b>Comment obtenir le point de terminaison du service QnAMaker ?</b></summary>
 
-**Réponse** : Le point de terminaison du service QnAMaker est utile pour le débogage quand vous contactez le support technique de QnAMaker ou UserVoice. Le point de terminaison est une URL qui se présente sous la forme suivante : https://your-resource-name.azurewebsites.net.
+**Réponse** : Le point de terminaison du service QnAMaker est utile pour le débogage quand vous contactez le support technique de QnAMaker ou UserVoice. Le point de terminaison est une URL qui se présente sous la forme suivante : `https://your-resource-name.azurewebsites.net`.
 
 1. Accédez à votre service QnAMaker (groupe de ressources) dans le [portail Azure](https://portal.azure.com).
 
@@ -132,7 +142,7 @@ Toutes les suppressions sont définitives et s’appliquent notamment aux paires
 * Fichiers - Non pris en charge
 
 #### <a name="answer-text-in-markdown"></a>Texte de réponse dans Markdown
-Une fois les ensembles de questions-réponses dans la base de connaissances, vous pouvez modifier le texte Markdown d’une réponse de manière à inclure des liens vers les médias disponibles à partir d’URL publiques.
+Une fois que les paires de Q/R sont dans la base de connaissances, vous pouvez modifier le texte Markdown d’une réponse de manière à inclure des liens vers des médias disponibles depuis des URL publiques.
 
 
 </details>

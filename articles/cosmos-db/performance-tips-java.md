@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 3b7d221c2afc952f40da035c6e2c282b3b932aa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a20b7d91a927d48a14812110ca714491cd726071
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69616758"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548776"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Conseils sur les performances pour Azure Cosmos DB et Java
 
@@ -29,7 +29,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 ## <a name="networking"></a>Mise en réseau
 <a id="direct-connection"></a>
 
-1. **Mode de connexion : utiliser DirectHttps**
+1. **Mode de connexion : Utiliser DirectHttps**
 
     La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en termes de latence côté client. Il existe un paramètre de configuration clé disponible pour configurer la stratégie de connexion ([ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy)) du client : le mode de connexion [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  Les deux modes de connexion disponibles sont les suivants :
 
@@ -38,7 +38,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
       Le mode passerelle est pris en charge sur toutes les plateformes de SDK et est l’option configurée par défaut.  Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, la passerelle est la meilleure option, car elle utilise le port HTTPS standard et un seul point de terminaison. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Étant donné que le mode DirectHttps implique moins de tronçons réseaux, les performances sont meilleures. 
 
-      Le SDK Java utilise HTTPS comme protocole de transport. HTTPS utilise SSL pour l’authentification initiale et le chiffrement du trafic. Quand vous utilisez le SDK Java, seul le port HTTPS 443 doit être ouvert. 
+      Le SDK Java utilise HTTPS comme protocole de transport. HTTPS utilise TLS pour l’authentification initiale et le chiffrement du trafic. Quand vous utilisez le SDK Java, seul le port HTTPS 443 doit être ouvert. 
 
       Le mode de connexion est configuré pendant la construction de l’instance DocumentClient avec le paramètre ConnectionPolicy. 
 

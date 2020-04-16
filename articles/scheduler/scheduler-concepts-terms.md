@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898575"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878389"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepts, terminologie et entités d’Azure Scheduler
 
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 Azure Scheduler prend en charge plusieurs types de travaux : 
 
-* Travaux HTTP, notamment les travaux HTTPS qui prennent en charge SSL, quand vous avez un point de terminaison pour un service existant ou une charge de travail existante
+* Travaux HTTP, notamment les travaux HTTPS qui prennent en charge TLS, quand vous avez le point de terminaison pour un service existant ou une charge de travail existante
 * Travaux de file d’attente de stockage pour les charges de travail qui utilisent des files d’attente de stockage, comme l’envoi de messages à des files d’attente de stockage
 * Travaux de file d’attente Service Bus pour les charges de travail qui utilisent des files d’attente Service Bus
 * Travaux de rubrique Service Bus pour les charges de travail qui utilisent des rubriques Service Bus

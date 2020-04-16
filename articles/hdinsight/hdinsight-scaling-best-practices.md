@@ -6,21 +6,21 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 96a72541255ad0059abe5ad280f1728518dbf68c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 0fc067f0be4ac5d2b8fa7db9ad7999efe06625a0
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234730"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804501"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
-HDInsight fournit l’élasticité en vous offrant la possibilité de monter ou de descendre en puissance le nombre de nœuds de travail dans vos clusters. Cette élasticité vous permet de réduire un cluster après certaines heures ou les week-ends, et de le développer pendant les pics d’activité.
+HDInsight fournit une élasticité avec des options de scale-up ou scale-down du nombre de nœuds Worker dans vos clusters. Cette élasticité vous permet de réduire un cluster après certaines heures ou les week-ends, et de le développer pendant les pics d’activité.
 
-Si vous disposez d’un traitement par lots périodique, le cluster HDInsight peut faire l’objet d’un scale up quelques minutes avant cette opération afin d’avoir suffisamment de mémoire et de puissance de processeur.  Plus tard, une fois que le traitement a été effectué et que l’utilisation baisse à nouveau, vous pouvez descendre en puissance le cluster HDInsight afin de réduire le nombre de nœuds de travail.
+Effectuez un scale-up de votre cluster avant le traitement périodique par lots afin que le cluster dispose des ressources appropriées.  Une fois que le traitement est terminé et que l’utilisation est redescendue, effectuez un scale-down du cluster HDInsight de façon à utiliser moins de nœuds Worker.
 
-Vous pouvez mettre à l’échelle un cluster manuellement à l’aide de l’une des méthodes décrites ci-dessous ou utiliser les options de [mise à l’échelle automatique](hdinsight-autoscale-clusters.md) pour que le système fasse automatiquement l’objet d’un scale up ou d’un scale down en réponse aux mesures de processeur, de mémoire et autre.
+Vous pouvez mettre à l’échelle un cluster manuellement en appliquant l’une des méthodes décrites ci-dessous. Vous pouvez également utiliser des options de [mise à l’échelle automatique](hdinsight-autoscale-clusters.md) pour effectuer un scale-up ou un scale-down automatiquement en fonction de certaines métriques.
 
 > [!NOTE]  
 > Seuls les clusters ayant la version 3.1.3 de HDInsight ou une version ultérieure sont pris en charge. Si vous n’êtes pas sûr de la version de votre cluster, vous pouvez consulter la page Propriétés.
@@ -31,10 +31,10 @@ Microsoft fournit les utilitaires suivants pour la mise à l’échelle des clus
 
 |Utilitaire | Description|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<nom_cluster> -TargetInstanceCount \<NewSize>|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<nom_cluster> -TargetInstanceCount \<NewSize>|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<groupe_ressources> --name \<nom_cluster> --workernode-count \<nouvelle_taille>|
-|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<nombre_instances_cibles> |
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Ouvrez le volet de votre cluster HDInsight, sélectionnez **Taille de cluster** dans le menu de gauche, puis, dans le volet Taille de cluster, entrez le nombre de nœuds Worker, puis sélectionnez Enregistrer.|  
 
 ![Portail Azure - Option de mise à l’échelle de cluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
@@ -42,26 +42,26 @@ Microsoft fournit les utilitaires suivants pour la mise à l’échelle des clus
 Grâce à ces méthodes, vous pouvez monter ou descendre en puissance votre cluster HDInsight en quelques minutes.
 
 > [!IMPORTANT]  
-> * L’interface de ligne de commande Azure Classic est dépréciée et doit uniquement être utilisée avec le modèle de déploiement classique. Pour tous les autres déploiements, utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * L’interface de ligne de commande Azure Classic est dépréciée et doit uniquement être utilisée avec le modèle de déploiement classique. Pour tous les autres déploiements, utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 > * Le module PowerShell AzureRM est déconseillé.  Utilisez le [module Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) autant que possible.
 
 ## <a name="impact-of-scaling-operations"></a>Impact des opérations de mise à l’échelle
 
-Lorsque vous **ajoutez** des nœuds à votre cluster HDInsight en cours d’exécution (scale up), tous les travaux en attente ou en cours d’exécution ne sont pas affectés. De nouveaux travaux peuvent être soumis en toute sécurité pendant que le processus de mise à l’échelle est en cours d’exécution. Si l’opération de mise à l’échelle échoue pour une raison quelconque, l’échec est géré pour laisser le cluster dans un état fonctionnel.
+Quand vous **ajoutez** des nœuds à votre cluster HDInsight en cours d’exécution (scale-up), les travaux ne sont pas affectés. De nouveaux travaux peuvent être soumis en toute sécurité pendant que le processus de mise à l’échelle est en cours d’exécution. En cas d’échec de l’opération de mise à l’échelle, l’échec laisse votre cluster dans un état fonctionnel.
 
-Si vous **supprimez** des nœuds (scale down), tous les travaux en attente ou en cours d’exécution échouent à la fin de l’opération de mise à l’échelle. Cet échec est dû au redémarrage des services au cours du processus de mise à l’échelle. Il existe également un risque que votre cluster soit bloqué en mode sans échec pendant une opération de mise à l’échelle manuelle.
+Si vous **supprimez** des nœuds (scale-down), tous les travaux en attente ou en cours d’exécution échouent à la fin de l’opération de mise à l’échelle. Cet échec est dû au redémarrage de certains des services pendant le processus de mise à l’échelle. Votre cluster risque d’être bloqué en mode sans échec lors d’une opération de mise à l’échelle manuelle.
 
 L’impact de la modification du nombre de nœuds de données varie en fonction de chaque type de cluster pris en charge par HDInsight :
 
 * Apache Hadoop
 
-    Vous pouvez augmenter de façon continue le nombre de nœuds de travail dans un cluster Hadoop exécuté sans affecter aucune tâche en attente ou en cours. De nouvelles tâches peuvent également être soumises lorsque l'opération est en cours. Les défaillances dans l'opération de mise à l'échelle sont correctement gérées de sorte que le cluster reste toujours fonctionnel.
+    Vous pouvez augmenter en toute transparence le nombre de nœuds Worker dans un cluster Hadoop en cours d’exécution sans affecter les travaux. De nouveaux travaux peuvent également être soumis lorsque l'opération est en cours. Les échecs lors d’une opération de mise à l’échelle sont gérés de manière appropriée. Le cluster est toujours laissé dans un état fonctionnel.
 
-    Lorsqu’un cluster Hadoop est diminué par la réduction du nombre de nœuds de données, certains services du cluster sont redémarrés. Ce comportement entraîne l’échec de toutes les tâches en cours d’exécution ou en attente lors de la réalisation de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l'opération terminée.
+    Quand un cluster Hadoop est mis à l’échelle avec moins de nœuds de données, certains services sont redémarrés. Ce comportement entraîne l’échec de tous les travaux en cours d’exécution ou en attente lors de la réalisation de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les travaux une fois l'opération terminée.
 
 * Apache HBase
 
-    Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster et en exécutant les commandes suivantes à partir d’une fenêtre d’invite de commandes :
+    Vous pouvez ajouter ou supprimer des nœuds en continu à votre cluster HBase pendant son exécution. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Toutefois, vous pouvez équilibrer manuellement les serveurs régionaux. Connectez-vous au nœud principal du cluster et exécutez les commandes suivantes :
 
     ```bash
     pushd %HBASE_HOME%\bin
@@ -73,14 +73,14 @@ L’impact de la modification du nombre de nœuds de données varie en fonction 
 
 * Apache Storm
 
-    Vous pouvez ajouter ou supprimer des nœuds de données en continu dans votre cluster Storm lorsque celui-ci s'exécute. Néanmoins, une fois l’opération de mise à l’échelle terminée, vous devrez rééquilibrer la topologie.
+    Vous pouvez ajouter ou supprimer des nœuds de données en continu pendant que Storm s’exécute. Néanmoins, une fois l’opération de mise à l’échelle terminée, vous devrez rééquilibrer la topologie.
 
     Cela peut se faire de deux façons à l’aide de :
 
   * l'interface utilisateur Web de Storm
   * l’outil d’interface de ligne de commande (CLI)
 
-    Pour plus d’informations, consultez la documentation [Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Pour plus d’informations, consultez la [documentation d’Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
 
@@ -110,15 +110,15 @@ Pour afficher la liste des travaux en attente ou en cours d’exécution, vous p
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](./hdinsight-administer-use-portal-linux.md#showClusters). Le cluster est ouvert dans une nouvelle page du portail.
 2. À partir de la vue principale, accédez à **Tableaux de bord du cluster** > **Accueil Ambari**. Entrez les informations d’identification du cluster.
 3. Dans l’interface utilisateur d’Ambari, sélectionnez **YARN** dans la liste des services du menu de gauche.  
-4. Dans la page YARN, sélectionnez **Quick Links** (Liens rapides), placez le curseur sur le nœud principal actif, puis sélectionnez **ResourceManager UI** (Interface utilisateur ResourceManager).
+4. Dans la page YARN, sélectionnez **Quick Links** (Liens rapides), placez le curseur sur le nœud principal actif, puis sélectionnez **Resource Manager UI** (Interface utilisateur Resource Manager).
 
-    ![Apache Ambari - Liens rapides, interface utilisateur ResourceManager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    ![Apache Ambari - Liens rapides, interface utilisateur Resource Manager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-Vous pouvez accéder directement à l’interface utilisateur ResourceManager avec `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
+Vous pouvez accéder directement à l’interface utilisateur Resource Manager avec `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
 Une liste de travaux avec leur état actuel apparaît. La capture d’écran indique un travail en cours d’exécution :
 
-![Applications de l’interface utilisateur ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+![Applications de l’interface utilisateur Resource Manager](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
 Pour arrêter manuellement cette application en cours d’exécution, exécutez la commande suivante à partir de l’interpréteur de commandes SSH :
 
@@ -134,11 +134,11 @@ yarn application -kill "application_1499348398273_0003"
 
 ### <a name="getting-stuck-in-safe-mode"></a>Blocage en mode sans échec
 
-Lorsque vous procédez au scale down d’un cluster, HDInsight utilise les interfaces de gestion d’Apache Ambari pour commencer par désactiver les nœuds Worker supplémentaires, qui répliquent leurs blocs HDFS vers d’autres nœuds Worker en ligne. Après cela, HDInsight met à l’échelle le cluster en toute sécurité. HDFS bascule en mode sans échec lors d’opération de mise à l’échelle, et il est censé en sortir une fois la mise à l’échelle terminée. Dans certains cas, toutefois, HDFS se bloque en mode sans échec pendant une opération de mise à l’échelle en raison de la réplication incomplète du bloc de fichiers.
+Quand vous effectuez le scale-down d’un cluster, HDInsight utilise les interfaces de gestion d’Apache Ambari pour désactiver tout d’abord les nœuds Worker supplémentaires. Les nœuds répliquent leurs blocs HDFS vers d’autres nœuds Worker en ligne. Après cela, HDInsight met à l’échelle le cluster en toute sécurité. HDFS bascule en mode sans échec pendant l’opération de mise à l’échelle. HDFS est censée sortir du mode sans échec une fois la mise à l’échelle terminée. Dans certains cas, toutefois, HDFS se bloque en mode sans échec pendant une opération de mise à l’échelle en raison de la réplication incomplète du bloc de fichiers.
 
 Par défaut, HDFS est configuré avec un paramètre `dfs.replication` de valeur 1, qui contrôle le nombre de copies disponibles de chaque bloc de fichiers. Chaque copie d’un bloc de fichiers est stockée sur un nœud différent du cluster.
 
-Quand HDFS détecte que le nombre attendu de copies de bloc ne sont pas disponibles, HDFS bascule en mode sans échec, et Ambari génère des alertes. Si HDFS bascule en mode sans échec pendant une opération de mise à l’échelle sans pouvoir quitter ce mode ensuite, car le nombre de nœuds requis n’est pas détecté pour la réplication, le cluster peut se retrouver bloqué en mode sans échec.
+Quand le nombre attendu de copies de bloc n’est pas disponible, HDFS bascule en mode sans échec et Ambari génère des alertes. HDFS peut basculer en mode sans échec pour une opération de mise à l’échelle. Le cluster risque d’être bloqué en mode sans échec si le nombre requis de nœuds n’est pas détecté pour la réplication.
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Exemples d’erreurs lorsque le mode sécurisé est activé
 
@@ -152,7 +152,7 @@ org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.s
 
 Vous pouvez examiner les journaux d’activité du nœud de nom dans le dossier `/var/log/hadoop/hdfs/`, aux alentours du moment où le cluster a été mis à l’échelle, pour voir quand il est entré en mode sans échec. Les fichiers journaux sont nommés `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
 
-La cause principale des erreurs précédentes vient du fait que Hive dépend de fichiers temporaires dans HDFS lors de l’exécution des requêtes. Quand HDFS bascule en mode sans échec, Hive ne peut pas exécuter de requêtes car il ne peut pas écrire dans HDFS. Les fichiers temporaires dans HDFS sont situés dans le lecteur local monté sur les machines virtuelles de nœud de travail individuelles, et répliqué entre les autres nœuds de travail en au moins trois réplicas.
+La cause principale vient du fait que Hive dépend de fichiers temporaires dans HDFS lors de l’exécution des requêtes. Quand HDFS bascule en mode sans échec, Hive ne peut pas exécuter de requêtes car il ne peut pas écrire dans HDFS. Les fichiers temporaires dans HDFS se trouvent sur le lecteur local monté sur les différentes machines virtuelles du nœud Worker. Les fichiers sont répliqués parmi les autres nœuds Worker à trois réplicas, au minimum.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode"></a>Guide pratique pour empêcher le blocage de HDInsight en mode sans échec
 
@@ -185,7 +185,8 @@ Si Hive a laissé des fichiers temporaires, vous pouvez nettoyer manuellement ce
     ```
 
 1. Arrêtez les services Hive et vérifiez que toutes les requêtes et tous les travaux sont terminés.
-2. Dressez la liste du contenu du répertoire de travail `hdfs://mycluster/tmp/hive/` trouvé ci-dessus pour voir s’il contient des fichiers :
+
+1. Dressez la liste du contenu du répertoire de travail `hdfs://mycluster/tmp/hive/` trouvé ci-dessus pour voir s’il contient des fichiers :
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
@@ -203,7 +204,7 @@ Si Hive a laissé des fichiers temporaires, vous pouvez nettoyer manuellement ce
     -rw-r--r--   3 hive hdfs         26 2017-07-06 20:30 hdfs://mycluster/tmp/hive/hive/c108f1c2-453e-400f-ac3e-e3a9b0d22699/inuse.info
     ```
 
-3. Si vous savez que Hive a fini d’utiliser ces fichiers, vous pouvez les supprimer. Assurez-vous que Hive ne contient aucune requête en cours d’exécution en consultant la page de l’interface utilisateur Yarn ResourceManager.
+1. Si vous savez que Hive a fini d’utiliser ces fichiers, vous pouvez les supprimer. Vérifiez que Hive ne contient aucune requête en cours d’exécution en consultant la page de l’interface utilisateur Yarn Resource Manager.
 
     Exemple de ligne de commande pour supprimer des fichiers de HDFS :
 
@@ -213,9 +214,9 @@ Si Hive a laissé des fichiers temporaires, vous pouvez nettoyer manuellement ce
 
 #### <a name="scale-hdinsight-to-three-or-more-worker-nodes"></a>Mettre à l’échelle HDInsight vers trois nœuds Worker ou plus
 
-Si les clusters sont bloqués fréquemment en mode sans échec lors du scale down vers moins de trois nœuds Worker et que les étapes précédentes ne fonctionnent pas, vous pouvez éviter qu’ils ne basculent en mode sans échec en conservant au moins trois nœuds Worker.
+Si vos clusters sont fréquemment bloqués en mode sans échec lors d’un scale-down à moins de trois nœuds Worker, conservez au moins trois nœuds Worker.
 
-Conserver trois nœuds Worker est plus coûteux que de procéder au scale down vers un seul nœud Worker, mais cela empêche le cluster de se bloquer en mode sans échec.
+Avoir trois nœuds Worker est plus coûteux qu’effectuer un scale-down à un seul nœud Worker. Toutefois, cette action empêchera votre cluster de rester bloqué en mode sans échec.
 
 ### <a name="scale-hdinsight-down-to-one-worker-node"></a>Mettre à l’échelle HDInsight à un seul nœud Worker
 
@@ -223,7 +224,7 @@ Même quand le cluster est mis à l’échelle à un seul nœud, le nœud Worker
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Exécuter la commande pour quitter le mode sans échec
 
-La dernière option consiste à exécuter la commande pour quitter le mode sans échec. Si vous savez que HDFS passe en mode sans échec en raison de la réplication incomplète des fichiers Hive, vous pouvez exécuter la commande suivante pour quitter le mode sans échec :
+La dernière option consiste à exécuter la commande pour quitter le mode sans échec. Si HDFS a basculé en mode sans échec en raison de la réplication incomplète des fichiers Hive, exécutez la commande suivante pour quitter le mode sans échec :
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave

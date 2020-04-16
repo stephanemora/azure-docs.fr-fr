@@ -8,15 +8,15 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386168"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811340"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Création et déploiement d’un service cloud
-Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
+Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
 
 Cet article explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de Création personnalisée.
 
@@ -42,7 +42,7 @@ Avant de déployer un service cloud, vous devez créer le package de service clo
 
 Trois fonctions du service cloud nécessitent une configuration spécifique avant d'exporter le package de service :
 
-* Si vous souhaitez déployer un service cloud qui utilise le chiffrement de données SSL (Secure Sockets Layer), [configurez votre application](cloud-services-configure-ssl-certificate-portal.md#modify) pour SSL.
+* Si vous souhaitez déployer un service cloud qui utilise le protocole TLS (Transport Layer Security), anciennement SSL (Secure Sockets Layer), pour le chiffrement des données, [configurez votre application](cloud-services-configure-ssl-certificate-portal.md#modify) pour TLS.
 * Si vous voulez configurer les connexions Bureau à distance aux instances de rôle, [configurez les rôles](cloud-services-role-enable-remote-desktop-new-portal.md) pour le Bureau à distance.
 * Si vous voulez configurer la surveillance détaillée pour votre service cloud, activez Diagnostics Azure pour le service cloud. *Surveillance minimale* (niveau de surveillance par défaut) utilise des compteurs de performances récupérés sur le système d'exploitation hôte des instances de rôle (machine virtuelle). *surveillance détaillée* recueille des mesures supplémentaires sur les données de performances dans les instances de rôle, afin de permettre une analyse plus fine des problèmes qui surviennent au cours du traitement de l'application. Pour savoir comment activer Diagnostics Azure, consultez la page [Activation des diagnostics dans Azure](cloud-services-dotnet-diagnostics.md).
 
@@ -70,7 +70,7 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 ## <a name="upload-a-certificate"></a>Téléchargement d'un certificat
 Si votre package de déploiement a été [configuré pour utiliser des certificats](cloud-services-configure-ssl-certificate-portal.md#modify), vous pouvez charger le certificat maintenant.
 
-1. Sélectionnez **Certificats** et, dans le volet **Ajouter des certificats**, sélectionnez le fichier .pfx du certificat SSL et indiquez le **mot de passe** pour le certificat.
+1. Sélectionnez **Certificats** et, dans le volet **Ajouter des certificats**, sélectionnez le fichier .pfx du certificat TLS/SSL et indiquez le **mot de passe** pour le certificat.
 2. Cliquez sur **Joindre un certificat**, puis sur **OK** dans le volet **Ajouter des certificats**.
 3. Cliquez sur **Créer** dans le volet **Service cloud**. Lorsque le déploiement atteint l'état **Ready** , vous pouvez passer aux étapes suivantes.
 
@@ -90,7 +90,7 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
-* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Configurez des [certificats TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

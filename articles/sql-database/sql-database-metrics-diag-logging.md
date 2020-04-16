@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.date: 04/06/2020
+ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387901"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756413"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configurer l’exportation en continu de la télémétrie de diagnostic d’Azure SQL Database
 
@@ -454,9 +454,15 @@ Consultez le tableau suivant pour obtenir des détails sur les métriques avanc�
 
 |**Mesure**|**Nom d’affichage de la métrique**|**Description**|
 |---|---|---|
-|tempdb_data_size| Taille du fichier de données tempdb en kilo-octets |Taille du fichier de données tempdb en kilo-octets. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat basés sur DTU. Actuellement, cette métrique n’est pas disponible pour les bases de données Hyperscale.|
-|tempdb_log_size| Taille du fichier journal de tempdb en kilo-octets |Taille du fichier journal de tempdb en kilo-octets. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat basés sur DTU. Actuellement, cette métrique n’est pas disponible pour les bases de données Hyperscale.|
-|tempdb_log_used_percent| Pourcentage d’utilisation du journal tempdb |Pourcentage d’utilisation du journal tempdb. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat basés sur DTU. Actuellement, cette métrique n’est pas disponible pour les bases de données Hyperscale.|
+|sqlserver_process_core_percent<sup>1</sup>|Pourcentage de cœurs de processus SQL Server|Pourcentage d’utilisation de l’UC pour le processus SQL Server, tel qu’il est mesuré par le système d’exploitation.|
+|sqlserver_process_memory_percent<sup>1</sup> |Pourcentage de mémoire de processus SQL Server|Pourcentage d’utilisation de la mémoire pour le processus SQL Server, tel qu’il est mesuré par le système d’exploitation.|
+|tempdb_data_size<sup>2</sup>| Taille du fichier de données tempdb en kilo-octets |Taille du fichier de données tempdb en kilo-octets.|
+|tempdb_log_size<sup>2</sup>| Taille du fichier journal de tempdb en kilo-octets |Taille du fichier journal de tempdb en kilo-octets.|
+|tempdb_log_used_percent<sup>2</sup>| Pourcentage d’utilisation du journal tempdb |Pourcentage d’utilisation du journal tempdb.|
+
+<sup>1</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU. 
+
+<sup>2</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU. Actuellement, cette métrique n’est pas disponible pour les entrepôts de données ou bases de données Hyperscale.
 
 ### <a name="basic-logs"></a>Journaux de base
 

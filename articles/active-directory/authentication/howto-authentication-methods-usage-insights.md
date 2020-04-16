@@ -4,19 +4,19 @@ description: Création de rapports sur la réinitialisation du mot de passe en l
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848508"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654143"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Utilisation de méthodes d’authentification et informations (préversion)
 
@@ -90,7 +90,7 @@ En utilisant les contrôles en haut de la liste, vous pouvez rechercher un utili
 
 ## <a name="limitations"></a>Limites
 
-Les données présentées dans ces rapports seront différées jusqu’à 60 minutes. Le Portail Microsoft Azure contient un champ « Dernière actualisation ». Il permet d’identifier à quel point vos données sont récentes.
+Les données présentées dans ces rapports seront différées jusqu’à 60 minutes. Le portail Azure contient un champ « Dernière actualisation » qui permet d’identifier à quel point vos données sont récentes.
 
 Les données d’utilisation et les informations ne remplacent pas les rapports d’activité Azure Multi-Factor Authentication ni les informations contenues dans le rapport d’ouverture de session d’Azure AD.
 

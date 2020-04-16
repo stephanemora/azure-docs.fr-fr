@@ -5,25 +5,27 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 065bbc62d65d7e91728b10cd9f95b2e73ea03abc
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77605611"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878729"
 ---
-# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Déplacer des ressources d’application logique vers d’autres abonnements Azure, des groupes de ressources ou des régions
+# <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Déplacer des ressources d’application logique vers d’autres abonnements, régions ou groupes de ressources Azure
 
-Pour migrer votre application logique ou les ressources associées vers un autre abonnement, groupe de ressources ou région Azure, vous disposez de différentes méthodes pour effectuer ces tâches, telles que le Portail Azure, Azure PowerShell, Azure CLI et l’API REST. Avant de déplacer des ressources, passez en revue les considérations suivantes : 
+Pour migrer votre application logique ou les ressources associées vers un autre abonnement, région ou groupe de ressources Azure, vous disposez de différentes méthodes pour effectuer ces tâches, telles que le portail Azure, Azure PowerShell, Azure CLI et l’API REST. Avant de déplacer des ressources, passez en revue les considérations suivantes : 
 
 * Vous pouvez déplacer uniquement des [types de ressources d’application logique spécifiques](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) entre des groupes de ressources Azure ou des abonnements.
 
 * Vérifiez les [limites](../logic-apps/logic-apps-limits-and-config.md) du nombre de ressources d’application logique que vous pouvez avoir dans votre abonnement Azure et dans chaque région Azure. Ces limites déterminent si vous pouvez déplacer des types de ressources spécifiques lorsque la région reste la même sur plusieurs abonnements ou groupes de ressources. Par exemple, vous ne pouvez avoir qu’un seul compte d’intégration de niveau gratuit pour chaque région Azure dans chaque abonnement Azure.
 
+* Lorsque vous déplacez des ressources, Azure crée de nouveaux ID de ressource. Par conséquent, assurez-vous d’utiliser les nouveaux ID et de mettre à jour tous les scripts ou outils associés aux ressources déplacées.
+
 * Après avoir migré des applications logiques entre les abonnements, les groupes de ressources ou les régions, vous devez recréer ou autoriser à nouveau toutes les connexions qui nécessitent l’authentification ouverte (OAuth).
 
-* Chaque fois que vous déplacez des ressources, Azure crée de nouveaux ID de ressource. Par conséquent, assurez-vous d’utiliser les nouveaux ID et de mettre à jour tous les scripts ou outils associés aux ressources déplacées.
+* Vous pouvez déplacer un [environnement de service d’intégration (ISE, Integration Service Environment)](connect-virtual-network-vnet-isolated-environment-overview.md) uniquement vers un autre groupe de ressources qui se trouve dans la même région Azure ou dans le même abonnement Azure. Vous ne pouvez pas déplacer un environnement ISE vers un groupe de ressources situé dans une autre région Azure ou dans un autre abonnement Azure. De plus, après ce déplacement, vous devez mettre à jour toutes les références à l’environnement ISE dans vos workflows d’application logique, comptes d’intégration, connexions, etc.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,7 +55,7 @@ Pour déplacer une ressource, telle qu’une application logique ou un compte d�
 
 ## <a name="move-resources-between-resource-groups"></a>Déplacer des ressources entre des groupes de ressources
 
-Pour déplacer une ressource, telle qu’une application logique ou un compte d’intégration, vers un autre groupe de ressources Azure, vous pouvez utiliser l’API Portail Azure, Azure PowerShell, Azure CLI ou REST. Ces étapes couvrent les Portail Azure, que vous pouvez utiliser lorsque la région de la ressource reste la même. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Pour déplacer une ressource, telle qu’une application logique, un compte d’intégration ou un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), vers un autre groupe de ressources Azure, vous pouvez utiliser le portail Azure, Azure PowerShell, Azure CLI ou l’API REST. Ces étapes couvrent les Portail Azure, que vous pouvez utiliser lorsque la région de la ressource reste la même. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Avant de déplacer réellement des ressources entre des groupes, vous pouvez tester si vous pouvez déplacer votre ressource vers un autre groupe. Pour plus d’informations, voir [Valider votre opération de déplacement](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 

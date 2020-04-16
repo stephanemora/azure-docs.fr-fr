@@ -15,18 +15,18 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 892cdeea20780c90ce325e8be9b7b91fee0d9fad
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522524"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884883"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
 Le provisionnement automatique correspond à la création d’identités utilisateur et de rôles dans les applications cloud auxquelles les utilisateurs ont besoin d’accéder. En plus de créer des identités utilisateur, l’approvisionnement automatique comprend la maintenance et la suppression d’identités utilisateur en cas de modification de l’état ou des rôles. Avant de commencer un déploiement, vous pouvez consulter cet article pour savoir comment fonctionne le provisionnement Azure AD et pour obtenir des recommandations concernant la configuration. 
 
-Le **service de provisionnement Azure AD** attribue des utilisateurs aux applications SaaS et aux autres systèmes en se connectant au point de terminaison d’API de gestion des utilisateurs SCIM 2.0 qui est fourni par chaque fournisseur d’application. Le point de terminaison SCIM permet à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs programmatiquement. Pour les applications sélectionnées, le service d’approvisionnement peut également créer, mettre à jour et supprimer d’autres objets liés à l’identité, tels que les groupes et les rôles. Le canal utilisé pour le provisionnement entre Azure AD et l’application est chiffré à l’aide du chiffrement HTTPS SSL.
+Le **service de provisionnement Azure AD** attribue des utilisateurs aux applications SaaS et aux autres systèmes en se connectant au point de terminaison d’API de gestion des utilisateurs SCIM 2.0 qui est fourni par chaque fournisseur d’application. Le point de terminaison SCIM permet à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs programmatiquement. Pour les applications sélectionnées, le service d’approvisionnement peut également créer, mettre à jour et supprimer d’autres objets liés à l’identité, tels que les groupes et les rôles. Le canal utilisé pour le provisionnement entre Azure AD et l’application est chiffré à l’aide du chiffrement HTTPS TLS.
 
 
 ![Service de provisionnement Azure AD](./media/how-provisioning-works/provisioning0.PNG)
@@ -67,7 +67,7 @@ Quand vous configurez l’approvisionnement pour une application SaaS, l’un de
 
 Pour le provisionnement sortant entre Azure AD et une application SaaS, les [attributions d’utilisateurs ou de groupes](../manage-apps/assign-user-or-group-access-portal.md) constituent la méthode la plus courante pour déterminer les utilisateurs qui sont compris dans l’étendue du provisionnement. Étant donné que les attributions d’utilisateurs sont également utilisées pour l’authentification unique, cette même méthode peut être utilisée pour gérer l’accès et le provisionnement. L’étendue basée sur les attributions ne s’applique pas aux scénarios de provisionnement entrant tels que Workday et Successfactors.
 
-* **Groupes.** Avec un plan de licence Azure AD Premium, vous pouvez utiliser des groupes pour autoriser l’accès à une application SaaS intégrée. Ensuite, lorsque l’étendue de provisionnement est définie sur **Synchroniser uniquement les utilisateurs et groupes assignés**, le service de provisionnement Azure AD provisionne ou déprovisionne des utilisateurs selon qu’ils sont membres d’un groupe affecté à l’application. L’objet de groupe n’est pas provisionné, sauf si l’application prend en charge les objets de groupe.
+* **Groupes.** Avec un plan de licence Azure AD Premium, vous pouvez utiliser des groupes pour autoriser l’accès à une application SaaS intégrée. Ensuite, lorsque l’étendue de provisionnement est définie sur **Synchroniser uniquement les utilisateurs et groupes assignés**, le service de provisionnement Azure AD provisionne ou déprovisionne des utilisateurs selon qu’ils sont membres d’un groupe affecté à l’application. L’objet de groupe n’est pas provisionné, sauf si l’application prend en charge les objets de groupe. Assurez-vous que les groupes affectés à votre application ont la propriété « SecurityEnabled » définie sur « False ».
 
 * **Groupes dynamiques.** Le service d’attribution d’utilisateurs Azure AD peut lire et attribuer des utilisateurs dans des [groupes dynamiques](../users-groups-roles/groups-create-rule.md). Gardez à l’esprit les mises en garde et suggestions suivantes :
 

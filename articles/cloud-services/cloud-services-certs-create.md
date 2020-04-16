@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226133"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811457"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Vue d’ensemble des certificats pour Azure Cloud Services
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les déployer dans Azure.
@@ -55,10 +55,10 @@ Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil 
 * Créé pour l’échange de clés (fichier .pfx).
 * Le nom du sujet doit correspondre au domaine servant à accéder au service cloud.
 
-    > Vous ne pouvez pas acquérir un certificat SSL pour le domaine cloudapp.net (ou pour tout domaine lié à Azure). Le nom d'objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour accéder à votre application. Par exemple, **contoso.net**, mais pas **contoso.cloudapp.net**.
+    > Vous ne pouvez pas acquérir un certificat SSL/TLS pour le domaine cloudapp.net (ou pour tout domaine lié à Azure). Le nom d’objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour accéder à votre application. Par exemple, **contoso.net**, mais pas **contoso.cloudapp.net**.
 
 * Chiffrement à 2 048 bits au minimum.
-* **Certificat de service uniquement**: le certificat côté client doit résider dans le magasin de certificats *personnel* .
+* **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel* .
 
 Vous disposez de deux méthodes simples pour créer un certificat sur Windows : avec l’utilitaire `makecert.exe` ou avec IIS.
 

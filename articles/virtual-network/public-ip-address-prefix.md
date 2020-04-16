@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/08/2020
 ms.author: anavin
-ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9604d5567e74ef470c3e798b6a3df9e48d6fde5d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640718"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985301"
 ---
 # <a name="public-ip-address-prefix"></a>Préfixe d’adresse IP publique
 
@@ -56,7 +56,7 @@ Vous pouvez associer les ressources suivantes à une adresse IP publique statiq
 ## <a name="constraints"></a>Contraintes
 
 - Vous ne pouvez pas spécifier les adresses IP pour le préfixe. Azure alloue les adresses IP pour le préfixe, en fonction de la taille que vous spécifiez.
-- Vous pouvez créer un préfixe pouvant inclure jusqu’à 16 adresses IP ou un /28. Pour plus d'informations, consultez [Limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Vous pouvez créer un préfixe pouvant inclure jusqu’à 16 adresses IP ou un /28 par défaut. Pour plus d’informations, consultez [Demandes d’augmentation de limites réseau](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) et [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Vous ne pouvez pas changer la plage une fois que vous avez créé le préfixe.
 - Seules les adresses IP publiques créées avec la référence (SKU) standard peuvent être attribuées à partir de la plage du préfixe. Pour en savoir plus sur les références (SKU) d’adresses IP publiques, consultez [Adresse IP publique](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Les adresses de la plage ne peuvent être attribuées qu’à des ressources Azure Resource Manager. Il n’est pas possible d’attribuer des adresses aux ressources du modèle de déploiement classique.

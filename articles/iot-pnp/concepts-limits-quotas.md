@@ -3,16 +3,16 @@ title: Limites et quotas de la préversion d’IoT Plug-and-Play | Microsoft Doc
 description: Comprenez les limites, les quotas et les limitations qui s’appliquent lorsque vous utilisez la préversion d’IoT Plug-and-Play.
 author: miagdp
 ms.author: miag
-ms.date: 12/26/2019
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531375"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518167"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites, quotas et limitations de la préversion d’IoT Plug-and-Play
 
@@ -27,7 +27,7 @@ Pour la préversion publique, les limites et quotas suivants s’appliquent à u
 | Nombre de modèles de capacité de l’appareil ou d’interfaces pouvant être inscrits par hub | 1500 ||
 | Nombre maximal d’interfaces pouvant être inscrites par appareil | 40 ||
 | Nombre maximal de modèles de capacité de l’appareil pouvant être inscrits par appareil | 1 ||
-| Taille maximale du fichier interface/modèle de capacité de l’appareil | 512 caractères ||
+| Taille maximale du fichier interface/modèle de capacité de l’appareil | 512 Ko ||
 | Taille maximale du nom d’une interface | 256 caractères ||
 | Taille maximale du nom d’une propriété  | 64 octets, 7 niveaux en profondeur (le premier niveau étant réservé pour `$iotin`) | Caractères autorisés : a-z, A-Z, 0-9 (pas comme premier caractère) et trait de soulignement. |
 | Taille maximale d’une valeur de propriété | 512 octets ||
@@ -39,7 +39,7 @@ Pour la préversion publique, les limites et quotas suivants s’appliquent à u
 
 Pour la préversion publique, les limites et quotas suivants s’appliquent à un référentiel de modèles :
 
-| Limites, restrictions et limitations| Valeur |
+| Limites, restrictions et limitations | Valeur |
 |-----|-----|
 | Nombre de référentiels de modèles d’entreprise par locataire Azure Active Directory | 1 |
 | Nombre de clés d’autorisation par référentiel de modèle | 10  |

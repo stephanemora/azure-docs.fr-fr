@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3182daa4ebf3becc824b600d1e487e12b875b275
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823994"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529655"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -128,7 +128,7 @@ L’application Wingtip utilise  [*Azure Traffic Manager*](../traffic-manager/t
 
     | Partie de l’URL        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* ( *-sa*), ou les *bases de données multi-locataires* ( *- mt*). |
+    | events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* ( *-sa*), ou les *bases de données multi-locataires* ( *- mt*). |
     | . *&lt;user&gt;* | *af1* dans l’exemple. |
     | .trafficmanager.net/ | Traffic Manager, URL de base. |
     | fabrikamjazzclub | Identifie le locataire nommé Fabrikam Jazz Club. |

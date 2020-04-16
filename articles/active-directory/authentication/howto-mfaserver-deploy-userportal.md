@@ -4,19 +4,19 @@ description: Prise en main du serveur Azure Multi-Factor Authentication et du 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 886e6a33428d672a40eae821e035d0b5b7f25578
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1869fac973cd4cd68e1e91be89c25fdf1427f6a5
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848168"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653209"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -43,11 +43,11 @@ Quel que soit le scénario, si le Kit de développement logiciel (SDK) Azure Mul
 1. Ouvrez la console du serveur Azure Multi-Factor Authentication.
 2. Accédez au **Kit de développement logiciel (SDK) du service Web**, puis cliquez sur **Installer le kit de développement logiciel du service Web**.
 3. À moins que vous n’ayez besoin de les modifier, terminez l’installation à l’aide des paramètres par défaut.
-4. Lier un certificat SSL personnalisé à un site avec IIS.
+4. Liez un certificat TLS/SSL personnalisé au site dans IIS.
 
-Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si vous avez des questions à propos de la configuration du certificat TLS/SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-Le Kit de développement logiciel (SDK) Web Service doit être sécurisé avec un certificat SSL. Un certificat auto-signé peut être ajouté à cet effet. Importez le certificat dans le magasin « Racine des autorités de certification approuvée » du compte Ordinateur local sur le serveur Web du portail de l’utilisateur afin qu’il approuve ce certificat lors de l’initialisation de la connexion SSL.
+Le Kit de développement logiciel (SDK) Web Service doit être sécurisé avec un certificat TLS/SSL. Un certificat auto-signé peut être ajouté à cet effet. Importez le certificat dans le magasin « Autorités de certification racines de confiance » du compte Ordinateur local sur le serveur web du portail de l’utilisateur, afin qu’il approuve ce certificat lors de l’initialisation de la connexion TLS.
 
 ![Kit de développement logiciel (SDK) du Service Web d’installation du serveur MFA](./media/howto-mfaserver-deploy-userportal/sdk.png)
 
@@ -57,23 +57,23 @@ La configuration suivante est requise pour installer le portail de l’utilisate
 
 * IIS, avec ASP.net et IIS 6 avec compatibilité de la métabase (pour IIS 7 ou version ultérieure)
 * Un compte avec des droits d’administrateur sur l’ordinateur et le domaine le cas échéant. Le compte doit être autorisé à créer des groupes de sécurité Active Directory.
-* Sécurisez le portail de l’utilisateur avec un certificat SSL.
-* Sécurisez le Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication avec un certificat SSL.
+* Sécurisez le portail de l’utilisateur avec un certificat TLS/SSL.
+* Sécurisez le Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication avec un certificat TLS/SSL.
 
 Pour déployer le portail de l’utilisateur, procédez comme suit :
 
 1. Ouvrez le serveur Azure Multi-Factor Authentication, cliquez sur l’icône **Portail de l’utilisateur** dans le menu de gauche, puis cliquez sur **Installer le portail de l’utilisateur**.
 2. À moins que vous n’ayez besoin de les modifier, terminez l’installation à l’aide des paramètres par défaut.
-3. Lier un certificat SSL personnalisé à un site avec IIS
+3. Lier un certificat TLS/SSL personnalisé au site dans IIS
 
    > [!NOTE]
-   > Le certificat SSL est généralement un certificat SSL signé publiquement.
+   > Le certificat TLS/SSL est généralement un certificat TLS/SSL signé publiquement.
 
-4. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth) ). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
+4. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, `https://mfa.contoso.com/MultiFactorAuth`). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
 ![Installation du portail de l’utilisateur du serveur MFA](./media/howto-mfaserver-deploy-userportal/install.png)
 
-Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si vous avez des questions à propos de la configuration du certificat TLS/SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Déploiement du portail de l’utilisateur sur un serveur distinct
 
@@ -85,19 +85,19 @@ Si votre organisation utilise l’application Microsoft Authenticator comme mét
 * Installez le portail de l’utilisateur sur un serveur web orienté Internet exécutant Microsoft Internet Information Services (IIS) 6.x ou une version ultérieure.
 * Lorsque vous utilisez IIS 6.x, vérifiez qu’ASP.NET v2.0.50727 est installé, inscrit et **autorisé**.
 * Lorsque vous utilisez IIS 7.x ou une version ultérieure, IIS, y compris l’authentification de base, ASP.NET et IIS 6 avec compatibilité de la métabase.
-* Sécurisez le portail de l’utilisateur avec un certificat SSL.
-* Sécurisez le Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication avec un certificat SSL.
-* Vérifiez que le portail de l’utilisateur peut se connecter au Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication via SSL.
+* Sécurisez le portail de l’utilisateur avec un certificat TLS/SSL.
+* Sécurisez le Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication avec un certificat TLS/SSL.
+* Vérifiez que le portail de l’utilisateur peut se connecter au Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication via TLS/SSL.
 * Vérifiez que le portail de l’utilisateur peut s’authentifier auprès du Kit de développement logiciel (SDK) du service web Azure Multi-Factor Authentication à l’aide des informations d’identification d’un compte de service membre du groupe de sécurité « PhoneFactor Admins ». Ce compte et ce groupe de service devraient exister dans Active Directory si le serveur Azure Multi-Factor Authentication s’exécute sur un serveur appartenant à un domaine. Ce compte et ce groupe de service existent localement sur le serveur Azure Multi-Factor Authentication s'il n'est pas joint à un domaine.
 
 Une installation du portail de l'utilisateur sur un serveur autre que le serveur Azure Multi-Factor Authentication nécessite les étapes suivantes :
 
 1. **Sur le serveur MFA**, parcourez le chemin d’installation (par exemple : C:\Program Files\Multi-Factor Authentication Server) et copiez le fichier **MultiFactorAuthenticationUserPortalSetup64** dans un emplacement accessible au serveur qui est accessible sur Internet et sur lequel vous l’installerez.
 2. **Sur le serveur web accessible sur Internet**, exécutez le fichier d’installation MultiFactorAuthenticationUserPortalSetup64 en tant qu’administrateur, modifiez le site ou modifiez le répertoire virtuel pour un nom court si vous le souhaitez.
-3. Lier un certificat SSL personnalisé à un site avec IIS.
+3. Liez un certificat TLS/SSL personnalisé au site dans IIS.
 
    > [!NOTE]
-   > Le certificat SSL est généralement un certificat SSL signé publiquement.
+   > Le certificat TLS/SSL est généralement un certificat TLS/SSL signé publiquement.
 
 4. Accédez à **C:\inetpub\wwwroot\MultiFactorAuth**
 5. Modifiez le fichier config Web dans le Bloc-notes
@@ -108,9 +108,9 @@ Une installation du portail de l'utilisateur sur un serveur autre que le serveur
     * Recherchez la valeur **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** et modifiez cette URL d’espace réservé par l’URL du Kit de développement logiciel (SDK) de service web que nous avons installé à l’étape 2.
     * Enregistrez le fichier config Web et fermez le Bloc-notes.
 
-6. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth) ). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
+6. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, `https://mfa.contoso.com/MultiFactorAuth`). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
-Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si vous avez des questions à propos de la configuration du certificat TLS/SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Configuration les paramètres du portail de l’utilisateur dans le serveur Azure Multi-Factor Authentication
 

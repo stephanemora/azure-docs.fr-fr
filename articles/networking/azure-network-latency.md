@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/10/2020
 ms.author: kumud
-ms.openlocfilehash: 3469daa8b81b20d5d0052a23ce3236fc4fde75de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9cae04499f046749e504bcab89b893fcc31a81c
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79082934"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886945"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Statistiques de latence aller-retour réseau Azure
 
@@ -22,9 +22,9 @@ Azure surveille en permanence la latence (vitesse) des principaux domaines de so
 
 Les mesures de latence sont collectées à partir des agents ThousandEyes hébergés dans les régions du monde entier du cloud Azure, qui envoient continuellement des probes réseau entre elles, par intervalles de 1 minute. Les statistiques de latence mensuelles sont dérivées de la moyenne des échantillons collectés pour le mois.
 
-## <a name="february-2020-round-trip-latency-figures"></a>Chiffres de la latence aller-retour pour février 2020
+## <a name="march-2020-round-trip-latency-figures"></a>Chiffres de la latence aller-retour pour mars 2020
 
-Les durées de latence aller-retour moyennes et mensuelles entre les régions Azure pour les 29 derniers jours (qui se terminent le 29 février 2020) sont indiquées ci-dessous. Les mesures suivantes sont optimisées par [ThousandEyes](https://thousandeyes.com).
+Les durées de latence aller-retour moyennes et mensuelles entre les régions Azure pour les 31 derniers jours (qui se terminent le 31 mars 2020) sont indiquées ci-dessous. Les mesures suivantes sont optimisées par [ThousandEyes](https://thousandeyes.com).
 
 [![Statistiques de latence interrégionales Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

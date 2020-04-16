@@ -7,23 +7,23 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 08/16/2018
-ms.openlocfilehash: fb9f9cfdba07ebe0bc5800def6d93950869e9727
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456646"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879171"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
 
-Vous pouvez effectuer des transformations JSON de base dans vos applications logiques par le biais d’actions d’opérations de données natives telles que **Compose** ou **Parse JSON**. Pour effectuer des transformations JSON avancées, vous pouvez créer des modèles ou des mappages avec [Liquid](https://shopify.github.io/liquid/), qui est un langage de modèle open source destiné aux applications web flexibles. Un modèle Liquid définit comment transformer une sortie JSON et prend en charge des transformations JSON plus complexes (itérations, flux de contrôle, variables, etc.). 
+Vous pouvez effectuer des transformations JSON de base dans vos applications logiques par le biais d’actions d’opérations de données natives telles que **Compose** ou **Parse JSON**. Pour effectuer des transformations JSON avancées, vous pouvez créer des modèles ou des mappages avec [Liquid](https://shopify.github.io/liquid/), qui est un langage de modèle open source destiné aux applications web flexibles. Un modèle Liquid définit comment transformer une sortie JSON et prend en charge des transformations JSON plus complexes (itérations, flux de contrôle, variables, etc.).
 
-Avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un modèle Liquid et le stocker dans votre compte d’intégration. Cet article vous montre comment créer et utiliser ce modèle ou ce mappage Liquid. 
+Avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un modèle Liquid et le stocker dans votre compte d’intégration. Cet article vous montre comment créer et utiliser ce modèle ou ce mappage Liquid.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Vous pouvez aussi [souscrire un abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
+* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -33,7 +33,7 @@ Avant de pouvoir effectuer une transformation Liquid dans votre application logi
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Créer un mappage ou un modèle Liquid pour votre compte d’intégration
 
-1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape. Dans votre modèle Liquid, vous pouvez définir des [filtres Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent les conventions de nommage de [DotLiquid](https://dotliquidmarkup.org/) et C#. 
+1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape. Dans votre modèle Liquid, vous pouvez définir des [filtres Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent les conventions de nommage de [DotLiquid](https://github.com/dotliquid/dotliquid) et C#.
 
    > [!NOTE]
    > Assurez-vous que les noms de filtre utilisent la *mise en majuscules des phrases* dans votre modèle. Sinon, les filtres ne fonctionneront pas. En outre, des [limites de taille de fichier](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) s'appliquent aux mappages.
@@ -57,21 +57,25 @@ Avant de pouvoir effectuer une transformation Liquid dans votre application logi
    }
    ```
 
-2. Connectez-vous au [portail Azure](https://portal.azure.com). Dans le menu principal Azure, sélectionnez **Toutes les ressources**. Dans la zone de recherche, recherchez et sélectionnez votre compte d’intégration.
+1. Dans le [portail Azure](https://portal.azure.com), dans la zone de recherche Azure, entrez `integration accounts`, puis sélectionnez **Comptes d’intégration**.
+
+   ![Rechercher « Comptes d’intégration »](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
+
+1. Recherchez et sélectionnez votre compte d’intégration.
 
    ![Sélectionner le compte d’intégration](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-3.  Sous **Composants**, sélectionnez **Mappages**.
+1. Dans le volet **Vue d’ensemble**, sous **Composants**, sélectionnez **Mappages**.
 
-    ![Sélectionner Mappages](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
+    ![Sélectionner la vignette « Mappages »](./media/logic-apps-enterprise-integration-liquid-transform/select-maps-tile.png)
 
-4. Choisissez **Ajouter** et indiquez les informations suivantes pour votre mappage :
+1. Dans le volet **Mappages**, sélectionnez **Ajouter** et fournissez les informations suivantes pour votre mappage :
 
    | Propriété | Valeur | Description | 
    |----------|-------|-------------|
-   | **Nom** | JsonToJsonTemplate | Nom de votre mappage (« JsontoJsonTemplate » dans cet exemple) | 
+   | **Nom** | `JsonToJsonTemplate` | Nom de votre mappage (« JsontoJsonTemplate » dans cet exemple) | 
    | **Type de mappage** | **liquid** | Type de votre mappage. Pour une transformation JSON à JSON, vous devez sélectionner **liquid**. | 
-   | **Map** | « SimpleJsonToJsonTemplate.liquid » | Fichier de modèle ou de mappage Liquid existant à utiliser pour la transformation (« SimpleJsonToJsonTemplate.liquid » dans cet exemple). Pour trouver ce fichier, vous pouvez utiliser le sélecteur de fichiers. Pour connaître les limites de taille qui s'appliquent aux mappages, consultez [Limites et configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
+   | **Map** | `SimpleJsonToJsonTemplate.liquid` | Fichier de modèle ou de mappage Liquid existant à utiliser pour la transformation (« SimpleJsonToJsonTemplate.liquid » dans cet exemple). Pour trouver ce fichier, vous pouvez utiliser le sélecteur de fichiers. Pour connaître les limites de taille qui s'appliquent aux mappages, consultez [Limites et configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    ||| 
 
    ![Ajouter un modèle Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
@@ -80,18 +84,13 @@ Avant de pouvoir effectuer une transformation Liquid dans votre application logi
 
 1. Dans le portail Azure, procédez comme suit pour [créer une application logique vierge](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Dans le Concepteur d’application logique, ajoutez le [déclencheur Requête](../connectors/connectors-native-reqres.md#add-request) à votre application logique.
+1. Dans le Concepteur d’application logique, ajoutez le [déclencheur Requête](../connectors/connectors-native-reqres.md#add-request) à votre application logique.
 
-3. Sous le déclencheur, choisissez **Nouvelle étape**. 
-   Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez l’action suivante : **Transformer de JSON en JSON - Liquid**
+1. Sous le déclencheur, choisissez **Nouvelle étape**. Dans la zone de recherche, entrez `liquid` comme filtre, puis sélectionnez cette action : **Transformer de JSON en JSON - Liquid**
 
    ![Rechercher et sélectionner l’action Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. Cliquez dans la zone **Contenu** pour afficher la liste du contenu dynamique, puis sélectionnez le jeton **Corps**.
-  
-   ![Sélectionner le corps](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
- 
-5. Dans la liste **Mappage**, sélectionnez votre modèle Liquid (« JsonToJsonTemplate » dans cet exemple).
+1. Ouvrez la liste **Mappage**, puis sélectionnez votre modèle Liquid (« JsonToJsonTemplate » dans cet exemple).
 
    ![Sélectionner le mappage](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
@@ -100,9 +99,21 @@ Avant de pouvoir effectuer une transformation Liquid dans votre application logi
 
    1. Dans le menu de votre application logique, sélectionnez **Paramètres de flux de travail**.
 
-   2. Dans la liste **Sélectionner un compte d’intégration**, sélectionnez votre compte d’intégration et choisissez **Enregistrer**.
+   1. Dans la liste **Sélectionner un compte d’intégration**, sélectionnez votre compte d’intégration et sélectionnez **Enregistrer**.
 
       ![Lier une application logique à un compte d’intégration](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+
+1. Ajoutez maintenant la propriété **Contenu** à cette action. Ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez la propriété **Contenu**.
+
+   ![Ajouter la propriété « Contenu » à l’action](./media/logic-apps-enterprise-integration-liquid-transform/add-content-property-to-action.png)
+
+1. Pour définir la valeur de la propriété **Contenu**, cliquez à l’intérieur de la zone **Contenu** afin que la liste de contenu dynamique s’affiche. Sélectionnez le jeton **Corps**, qui représente la sortie du contenu du corps à partir du déclencheur.
+
+   ![Sélectionner le jeton « Corps » pour la valeur de propriété « Contenu »](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
+
+   Une fois que vous avez terminé, l’action ressemble à cet exemple :
+
+   ![Action « Transformer de JSON en JSON » terminée](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action.png)
 
 ## <a name="test-your-logic-app"></a>Tester votre application logique
 

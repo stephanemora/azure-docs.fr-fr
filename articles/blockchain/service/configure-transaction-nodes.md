@@ -4,12 +4,12 @@ description: Configuration des nœuds de transaction Azure Blockchain Service
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
-ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227401"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876927"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurer les nœuds de transaction Azure Blockchain Service
 
@@ -54,7 +54,7 @@ Pour afficher les détails du point de terminaison d’un nœud de transaction :
 
     ![Points de terminaison](./media/configure-transaction-nodes/endpoints.png)
 
-Les points de terminaison de nœud de transaction sont sécurisés et nécessitent une authentification. Vous pouvez vous connecter à un point de terminaison de transaction à l’aide de l’authentification Azure AD, de l’authentification de base HTTPS et d’une clé d’accès sur HTTPS ou Websocket par le biais du protocole SSL.
+Les points de terminaison de nœud de transaction sont sécurisés et nécessitent une authentification. Vous pouvez vous connecter à un point de terminaison de transaction à l’aide de l’authentification Azure AD, de l’authentification de base HTTPS et d’une clé d’accès sur HTTPS ou Websocket par le biais du protocole TLS.
 
 ### <a name="azure-active-directory-access-control"></a>Contrôle d’accès Azure Active Directory
 

@@ -2,17 +2,17 @@
 title: Activer et utiliser les journaux de diagnostic Azure Bastion
 description: Dans cet article, découvrez comment activer et utiliser les journaux de diagnostic Azure Bastion.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
-ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 97f0cdb1e93ef2ad06d2daa04b2f4893fd5dfac2
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989448"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619280"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Activer et utiliser les journaux de diagnostic Bastion
 
@@ -43,7 +43,7 @@ Pour accéder à vos journaux de diagnostic, vous pouvez utiliser directement le
 2. Lorsque vous parcourez le conteneur, vous voyez différents dossiers. Ces dossiers indiquent la hiérarchie des ressources pour votre ressource Azure Bastion.
 
    ![ajouter le paramètre de diagnostic](./media/diagnostic-logs/2-resource-h.png)
-3. Accédez à la hiérarchie complète de la ressource Azure Bastion pour laquelle souhaitez récupérer/afficher les journaux de diagnostic. « y= », « m= », « d= », « h= » et « m= » indiquent respectivement l’année, le mois, le jour, l’heure et la minute des journaux de diagnostic.
+3. Accédez à la hiérarchie complète de la ressource Azure Bastion pour laquelle souhaitez récupérer/afficher les journaux de diagnostic. 'y=', 'm=', 'd=', 'h=' et 'm=' indiquent respectivement l’année, le mois, le jour, l’heure et la minute des journaux de diagnostic.
 
    ![sélectionner l’emplacement de stockage](./media/diagnostic-logs/3-resource-location.png)
 4. Localisez le fichier JSON créé par Azure Bastion contenant les données du journal de diagnostic pour la période à laquelle vous avez accédé.

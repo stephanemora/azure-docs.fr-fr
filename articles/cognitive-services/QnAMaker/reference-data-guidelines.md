@@ -1,14 +1,14 @@
 ---
 title: Informations de référence sur l’importation et l’exportation des données - QnA Maker
-description: Comprenez comment les types d’URL sont utilisés pour importer et créer des séries de questions-réponses.
+description: Découvrez comment les types d’URL sont utilisés pour importer et créer des paires de Q/R.
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: 6560a43a6fbcf9fbd2ce021d782f00f916442bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4a423ef9478cd39181c6440801f9fe954dc896c
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651799"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804241"
 ---
 # <a name="import-and-export-data-reference"></a>Informations de référence sur l’importation et l’exportation des données
 

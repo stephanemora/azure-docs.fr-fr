@@ -1,17 +1,17 @@
 ---
-title: Utilisation de modèles Azure Resource Manager pour créer et configurer un espace de travail Log Analytics | Microsoft Docs
+title: Modèle Azure Resource Manager pour espace de travail Log Analytics
 description: Vous pouvez utiliser des modèles Azure Resource Manager pour créer et configurer des espaces de travail Log Analytics.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 1b084b8cbf87817a4ff12fdb56f44b740a6d6a12
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658895"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477987"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gérer un espace de travail Log Analytics à l’aide de modèles Azure Resource Manager
 
@@ -48,6 +48,9 @@ La table suivante répertorie la version d’API pour les ressources utilisées 
 
 L’exemple suivant crée un espace de travail avec un modèle à partir de votre ordinateur local. Le modèle JSON est configuré pour exiger uniquement le nom et la localisation du nouvel espace de travail. Il utilise les valeurs spécifiées pour les autres paramètres d’espace de travail, tels que le [mode de contrôle d’accès](design-logs-deployment.md#access-control-mode), le niveau tarifaire, la conservation et le niveau de réservation de capacité.
 
+> [!WARNING]
+> Le modèle suivant crée un espace de travail Log Analytics et configure la collecte des données. Cela peut modifier vos paramètres de facturation. Passez en revue [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](manage-cost-storage.md) pour comprendre la facturation des données collectées dans un espace de travail Log Analytics avant de l’appliquer dans votre environnement Azure.
+
 Pour définir la réservation de capacité, destinée à l’ingestion de données, vous spécifiez la référence SKU `CapacityReservation` et une valeur en Go pour la propriété `capacityReservationLevel`. La liste suivante détaille les valeurs prises en charge et le comportement lors de sa configuration.
 
 - Une fois que vous avez défini la limite de réservation, vous ne pouvez pas passer à une autre référence SKU dans les 31 jours.
@@ -75,7 +78,7 @@ Pour définir la réservation de capacité, destinée à l’ingestion de donné
               "description": "Specifies the name of the workspace."
             }
         },
-      "pricingTier": {
+      "sku": {
         "type": "string",
         "allowedValues": [
           "pergb2018",
@@ -131,7 +134,7 @@ Pour définir la réservation de capacité, destinée à l’ingestion de donné
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-          "name": "[parameters('pricingTier')]"
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -145,15 +148,15 @@ Pour définir la réservation de capacité, destinée à l’ingestion de donné
     }
     ```
 
-> [Informations] pour les paramètres de réservation de capacité, utilisez ces propriétés sous « sku » :
+   >[!NOTE]
+   >Pour les paramètres de réservation de capacité, utilisez ces propriétés sous « sku » :
+   >* « name » : « CapacityReservation » :
+   >* « capacityReservationLevel » : 100
 
->   « name » : « CapacityReservation » :
+2. Modifiez le modèle en fonction de vos besoins. Envisagez de créer un [fichier de paramètres Resource Manager](../../azure-resource-manager/templates/parameter-files.md) au lieu de passer des paramètres en tant que valeurs inline. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
 
->   « capacityReservationLevel » : 100
-
-
-2. Modifiez le modèle en fonction de vos besoins. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
 3. Enregistrez ce fichier au format **deploylaworkspacetemplate.json** dans un dossier local.
+
 4. Vous êtes prêt à déployer ce modèle. Vous utilisez PowerShell ou la ligne de commande pour créer l’espace de travail, en spécifiant le nom et l’emplacement de l’espace de travail au sein de la commande. Le nom de l’espace de travail doit être globalement unique dans tous les abonnements Azure.
 
    * Pour PowerShell, utilisez les commandes suivantes à partir du dossier qui contient le modèle :
@@ -176,7 +179,7 @@ Le déploiement peut prendre plusieurs minutes. Lorsqu’il est terminé, vous v
 L’exemple de modèle suivant illustre comment :
 
 1. Ajouter des solutions à l’espace de travail
-2. Créer des recherches enregistrées
+2. Créez des recherches enregistrées. Pour vous assurer que les déploiements ne remplacent pas accidentellement les recherches enregistrées, une propriété eTag doit être ajoutée à la ressource « savedSearches » pour remplacer et gérer l’idempotence des recherches enregistrées.
 3. Créer un groupe d’ordinateurs
 4. Activer la collecte de journaux d’activité IIS à partir d’ordinateurs sur lesquels l’agent Windows est installé
 5. Collecter les compteurs de performances de disque logique d’ordinateurs Linux (% d’Inodes utilisés, Mo libres, % d’espace utilisé, Transferts disque/s, Lectures disque/s, Écritures disque/s)
@@ -197,7 +200,7 @@ L’exemple de modèle suivant illustre comment :
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -306,7 +309,7 @@ L’exemple de modèle suivant illustre comment :
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -318,11 +321,11 @@ L’exemple de modèle suivant illustre comment :
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "Category": "VMSS",
-            "ETag": "*",
-            "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
-            "Version": 1
+            "category": "VMSS",
+            "eTag": "*",
+            "displayName": "VMSS Instance Count",
+            "query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
+            "version": 1
           }
         },
         {
@@ -605,7 +608,7 @@ L’exemple de modèle suivant illustre comment :
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },

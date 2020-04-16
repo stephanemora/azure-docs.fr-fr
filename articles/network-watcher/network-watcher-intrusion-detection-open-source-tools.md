@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845021"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474929"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source
 
@@ -38,7 +38,7 @@ Les deux outils open source peuvent être configurés sur une machine virtuelle 
 
 ### <a name="install-suricata"></a>Installer Suricata
 
-Pour toutes les autres méthodes d’installation, consultez https://suricata.readthedocs.io/en/latest/install.html
+Pour toutes les autres méthodes d’installation, consultez https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
 
 1. Dans le terminal de ligne de commande de votre machine virtuelle, exécutez les commandes suivantes :
 
@@ -76,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>Configurer la Suite Elastic
 
-Même si les journaux d’activité créés par Suricata contiennent des informations importantes sur l’activité de notre réseau, ceux-ci ne sont pas les plus faciles à lire et à comprendre. En connectant Suricata à la pile élastique, nous pouvons générer un tableau de bord Kibana qui nous permet de rechercher, de créer des graphiques, d’analyser et d’obtenir des informations à partir de nos journaux d’activité.
+Même si les journaux créés par Suricata contiennent des informations importantes sur l’activité de notre réseau, ceux-ci ne sont pas les plus faciles à lire et à comprendre. En connectant Suricata à la pile élastique, nous pouvons générer un tableau de bord Kibana qui nous permet de rechercher, de créer des graphiques, d’analyser et d’obtenir des informations à partir de nos journaux d’activité.
 
 #### <a name="install-elasticsearch"></a>Installer Elasticsearch
 

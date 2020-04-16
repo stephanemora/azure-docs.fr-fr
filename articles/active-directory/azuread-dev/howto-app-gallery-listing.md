@@ -4,7 +4,6 @@ description: Apprendre à lister une application qui prend en charge l’authent
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: conceptual
@@ -12,13 +11,14 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 99c7d7fccf674fe8cda9d1f64cdf303f1e7764fd
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.custom: aaddev
+ROBOTS: NOINDEX
+ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163610"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666942"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -35,7 +35,7 @@ Cet article montre comment lister une application dans la galerie d’applicatio
 - Les clients mutuels obtiennent un tutoriel de configuration pas à pas.
 - Les clients qui utilisent [SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010) (System for Cross-domain Identity Management) peuvent utiliser le provisionnement pour la même application.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Pour des applications fédérées (Open ID et SAML/WS-Fed), l’application doit prendre en charge le modèle SaaS (Software as a Service, logiciel en tant que service) pour être répertoriée dans la galerie d’applications Azure AD. Les applications de galerie d’entreprise doivent prendre en charge plusieurs configurations client et non pas un client spécifique.
 - Pour Open ID Connect, l’application doit être mutualisée et l’[infrastructure de consentement Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) doit être correctement implémentée pour l’application. L’utilisateur peut envoyer la demande de connexion à un point de terminaison commun de façon à ce que tout client puisse donner son consentement à l’application. Vous pouvez contrôler l’accès utilisateur en fonction de l’ID de locataire et de l’UPN de l’utilisateur, reçus dans le jeton.
@@ -49,9 +49,9 @@ Vous pouvez obtenir un compte de test gratuit avec toutes les fonctionnalités A
 
 ## <a name="submit-the-request-in-the-portal"></a>Envoyer la demande dans le portail
 
-Une fois que vous avez testé le bon fonctionnement de l’intégration de votre application dans Azure AD, envoyez votre demande d’accès au [portail Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si vous avez un compte Office 365, utilisez-le pour vous connecter à ce portail. Dans le cas contraire, utilisez votre compte Microsoft, tel qu’Outlook ou Hotmail, pour vous connecter.
+Après avoir testé le bon fonctionnement de l’intégration de votre application avec Azure AD, soumettez votre demande d’application dans le [portail Application Network Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Si la page suivante s’affiche une fois que vous êtes connecté, contactez l’[équipe d’intégration Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Indiquez le compte de messagerie que vous souhaitez utiliser pour envoyer la demande. L’équipe Azure AD ajoutera le compte dans le portail Application Network Microsoft.
+Si la page suivante s’affiche une fois que vous êtes connecté, contactez l’[équipe d’intégration Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Indiquez le compte de messagerie que vous souhaitez utiliser pour envoyer la demande. Une adresse de messagerie professionnelle telle que [name@yourbusiness.com](mailto:name@yourbusiness.com) est préférable. L’équipe Azure AD ajoutera le compte dans le portail Application Network Microsoft.
 
 ![Message de demande d’accès sur le portail SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 
@@ -83,7 +83,7 @@ L’utilisateur invité est fédéré en locataire de base qui est également un
 
 * Le risque lié aux utilisateurs invités peut être résolu par leurs administrateurs. Dans ce cas, l’administrateur effectue une réinitialisation du mot de passe (génération d’un mot de passe temporaire). Cette opération ne nécessite pas Identity Protection. L’administrateur de l’utilisateur invité peut accéder à https://aka.ms/RiskyUsers et cliquer sur « Réinitialiser le mot de passe ».
 
-* Le risque lié aux utilisateurs invités peut être fermé/ignoré par leurs administrateurs. Une fois encore, cette opération ne nécessite pas Identity Protection. L’administrateur peut accéder à https://aka.ms/RiskyUsers et cliquer sur « Ignorer le risque lié à l'utilisateur ». Toutefois, l’administrateur doit faire preuve de diligence pour garantir qu’il s’agissait d’un faux positif d’évaluation des risques avant de fermer le risque utilisateur. Sinon, ils font courir un risque à leurs ressources et à celles de Microsoft en supprimant une évaluation des risques sans investigation.
+* Le risque lié aux utilisateurs invités peut être fermé/ignoré par leurs administrateurs. Une fois encore, cette opération ne nécessite pas Identity Protection. L’administrateur peut accéder à https://aka.ms/RiskyUsers et cliquer sur « Ignorer le risque lié à l’utilisateur ». Toutefois, l’administrateur doit faire preuve de diligence pour garantir qu’il s’agissait d’un faux positif d’évaluation des risques avant de fermer le risque utilisateur. Sinon, il fait courir un risque à ses ressources et à celles de Microsoft en supprimant une évaluation des risques sans investigation.
 
 > [!NOTE]
 > En cas de problème d’accès, contactez l’[équipe d’intégration Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).

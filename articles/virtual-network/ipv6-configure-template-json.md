@@ -1,5 +1,5 @@
 ---
-title: Déployer une application double pile IPv6 avec Basic Load Balancer dans un réseau virtuel Azure - modèle Resource Manager (préversion)
+title: Déployer une application double pile IPv6 avec un équilibreur de charge de base dans un réseau virtuel Azure - Modèle Resource Manager
 titlesuffix: Azure Virtual Network
 description: Cet article montre comment déployer une application double pile IPv6 dans un réseau virtuel Azure à l’aide de modèles de machine virtuelle d’Azure Resource Manager.
 services: virtual-network
@@ -10,16 +10,16 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/26/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b397c874045a89f5992aeadacfbbd4434a486977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c2f66d92597801aa7c6b0b32f86f594d3effb05
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70012834"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420600"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Déployer une application double pile IPv6 avec Basic Load Balancer dans Azure - Modèle (préversion)
+# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>Déployer une application double pile IPv6 avec un équilibreur de charge de base dans Azure - Modèle
 
 Cet article fournit une liste de tâches de configuration IPv6 avec la partie du modèle de machine virtuelle Azure Resource Manager correspondante. Utilisez le modèle décrit dans cet article pour déployer une application double pile (IPv4 + IPv6) avec Basic Load Balancer incluant un réseau virtuel double pile avec des sous-réseaux IPv4 et IPv6, un Basic Load Balancer avec des configurations front-end doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau ont une configuration double IP, un groupe de sécurité réseau et des adresses IP publiques.
 

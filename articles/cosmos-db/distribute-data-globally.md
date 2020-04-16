@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 84cd201cd758293082a61a87528332c7d8c58811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef511c203caa11aad4dea1047c982158810c4038
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264303"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982121"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Distribution de données mondiale avec Azure Cosmos DB - Vue d’ensemble
 
@@ -41,7 +41,7 @@ Grâce aux API multihébergement d’Azure Cosmos DB, votre application identifi
 
 **Maintenez la continuité des activités pendant les pannes régionales.** Azure Cosmos DB prend en charge le [basculement automatique](how-to-manage-database-account.md#automatic-failover) en cas de panne régionale. Durant les pannes, Azure Cosmos DB continue à assurer ses SLA en matière de débit, de disponibilité, de cohérence et de latence. Pour vous aider à garantir la haute disponibilité de votre application dans son ensemble, Cosmos DB propose des API de basculement manuel permettant de simuler une panne régionale. Cette API vous permet de tester régulièrement la continuité des activités.
 
-**Étendez le débit des lectures et des écritures dans le monde entier.** Vous pouvez permettre à chaque région d’être inscriptible et d’effectuer des mises à l’échelle élastique en lecture et écriture dans le monde entier. Le débit que votre application configure sur une base de données ou un conteneur Azure Cosmos est garanti dans toutes les régions associées à votre compte Azure Cosmos. Le débit provisionné est garanti par des [Contrats de niveau de service soutenus financièrement](https://aka.ms/acdbsla).
+**Étendez le débit des lectures et des écritures dans le monde entier.** Vous pouvez permettre à chaque région d’être inscriptible et d’effectuer des mises à l’échelle élastique en lecture et écriture dans le monde entier. Le débit que votre application configure sur une base de données ou un conteneur Azure Cosmos est garanti dans toutes les régions associées à votre compte Azure Cosmos. Le débit provisionné est garanti par des [Contrats de niveau de service soutenus financièrement](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
 **Faites votre choix entre plusieurs modèles de cohérence bien définis.** Le protocole de réplication d’Azure Cosmos DB offre cinq modèles de cohérence bien définis, pratiques et intuitifs. Chaque modèle offre un équilibre pertinent entre cohérence et performances. Utilisez ces modèles de cohérence pour créer très simplement des applications mondialement distribuées.
 

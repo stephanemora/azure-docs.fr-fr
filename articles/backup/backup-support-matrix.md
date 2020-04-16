@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233865"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878950"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -84,7 +84,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines Linux :
 
 ## <a name="daylight-saving-time-support"></a>Prise en charge de l’heure d’été
 
-Le service Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Il ne déplace pas l’heure de la sauvegarde vers l’avant ou vers l’arrière. Pour vous assurer que la sauvegarde s’exécute à l’heure souhaitée, modifiez les stratégies de sauvegarde manuellement en fonction des besoins.
+Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge lors du passage à l’heure d’été pour les sauvegardes de machines virtuelles Azure. Il ne déplace pas l’heure de la sauvegarde vers l’avant ou vers l’arrière. Pour vous assurer que la sauvegarde s’exécute à l’heure souhaitée, modifiez les stratégies de sauvegarde manuellement en fonction des besoins.
 
 ## <a name="disk-deduplication-support"></a>Prise en charge de la déduplication de disque
 
@@ -151,7 +151,7 @@ La sauvegarde Azure a ajouté la fonctionnalité de restauration inter-régions 
 
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Oui. Préversion publique limitée avec prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Centre-USA Ouest   |
+| Azure VM               | Oui.   Prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Toutes les régions publiques Azure.  |
 | Agent MARS/En local | Non                                                           | N/A               |
 | SQL /SAP HANA          | Non                                                           | N/A               |
 | AFS                    | Non                                                           | N/A               |

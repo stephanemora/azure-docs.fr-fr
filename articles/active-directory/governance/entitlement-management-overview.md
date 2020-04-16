@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3deb87fec8241ad6126314f3f6ce5fb9600ad1fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65100e8584eba5c31edc2f9fd8c57ad8bd14c0d1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128564"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582540"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -43,7 +43,7 @@ Ces problèmes sont compliqués pour les utilisateurs qui ont besoin d’un acc�
 - Aucune personne ne peut connaître tous les utilisateurs spécifiques des autres annuaires d’organisation en mesure de l’inviter
 - Et même si elle était capable d’inviter ces utilisateurs, aucune personne dans cette organisation ne peut se souvenir de la façon dont gérer tous les accès utilisateur de manière cohérente
 
-La gestion des droits d'utilisation Azure AD permet de relever ces défis.  Pour en savoir plus sur l’utilisation de la gestion des droits d’utilisation Azure AD par les clients, vous pouvez lire [l’étude de cas Avanade](https://aka.ms/AvanadeELMCase) et [l’étude de cas Centrica](https://aka.ms/CentricaELMCase).  Cette vidéo fournit une vue d’ensemble de la gestion des droits d’utilisation et de son intérêt :
+La gestion des droits d'utilisation Azure AD permet de relever ces défis.  Pour en savoir plus sur l’utilisation de la gestion des droits d’utilisation Azure AD par les clients, vous pouvez lire [l’étude de cas Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) et [l’étude de cas Centrica](https://customers.microsoft.com/story/757467-centrica-energy-azure).  Cette vidéo fournit une vue d’ensemble de la gestion des droits d’utilisation et de son intérêt :
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -132,17 +132,18 @@ Pour mieux comprendre la gestion des droits d’utilisation et sa documentation,
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Les clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, ne sont pas disponibles actuellement pour cette utilisation.
+Les clouds spécialisés, tels qu’Azure Allemagne et Azure Chine - 21Vianet, ne sont pas prêts à être utilisés actuellement.
 
 ### <a name="how-many-licenses-must-you-have"></a>De combien de licences avez-vous besoin ?
 
-Assurez-vous que votre répertoire comporte au moins autant de licences Azure AD Premium P2 que d’employés effectuant les tâches suivantes :
+Vérifiez que votre annuaire comporte au moins autant de licences Azure AD Premium P2 que vous avez de :
 
 - Utilisateurs membres qui **peuvent** demander un package d’accès.
 - Utilisateurs membres et invités qui demandent un package d’accès.
 - Utilisateurs membres et invités qui approuvent les demandes de package d’accès.
+- Utilisateurs membres et invités qui ont une affectation directe à un package d’accès.
 
-Les licences Azure AD Premium P2 ne sont **pas** requises pour les tâches suivantes :
+Les licences Azure AD Premium P2 ne sont **pas** nécessaires pour les tâches suivantes :
 
 - Aucune licence n’est requise pour les utilisateurs ayant le rôle d’administrateur général qui configurent les catalogues initiaux, les packages d’accès et les stratégies et délèguent des tâches d’administration à d’autres utilisateurs.
 - Aucune licence n’est requise pour les utilisateurs auxquels ont été délégués des tâches administratives, telles que le créateur du catalogue, le propriétaire du catalogue et le gestionnaire de package d’accès.

@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: labrenne
-ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f27d913cd288c186bae1a6375212b072f50bb4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022934"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422434"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Utiliser Shared Image Gallery pour créer un pool personnalisé
 
@@ -37,7 +37,10 @@ Le recours à une image partagée pour votre scénario peut offrir plusieurs ava
 * **Performances supérieures à celles de l'image personnalisée.** À l’aide d’images partagées, le pool atteint jusqu’à 25 % plus rapidement l’état stable et la latence d’inactivité de la machine virtuelle est inférieure à 30 %.
 * **Gestion des versions et regroupement d’images pour une gestion simplifiée.** La définition du regroupement d’images contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et l’utilisation de l’image. Le regroupement d’images simplifie la gestion des images. Pour plus d’informations, consultez les [Définitions d’images](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
+
+> [!NOTE]
+> Vous devez vous authentifier à l’aide d’Azure AD. Si vous utilisez shared-key-auth, une erreur d’authentification se produit.  
 
 * **Un compte Azure Batch.** Pour créer un compte Batch, consultez les démarrages rapides Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md).
 
@@ -86,6 +89,9 @@ Après avoir créé votre image managée, vous devez créer une galerie Shared I
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Créer un pool à partir d’une image partagée à l’aide de l’interface de ligne de commande Azure
 
 Pour créer un pool à partir de votre image partagée à l’aide de l’interface de ligne de commande Azure, utilisez la commande `az batch pool create`. Spécifiez l’ID de l’image partagée dans le champ `--image`. Vérifiez que le type de système d’exploitation et la référence SKU correspondent aux versions spécifiées par `--node-agent-sku-id`
+
+> [!NOTE]
+> Vous devez vous authentifier à l’aide d’Azure AD. Si vous utilisez shared-key-auth, une erreur d’authentification se produit.  
 
 ```azurecli
 az batch pool create \

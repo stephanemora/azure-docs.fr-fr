@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9ed11cd00909a104b5ea54463f8a98020837e10
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235957"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477882"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -122,7 +122,7 @@ Une passerelle de réseau local peut échanger les itinéraires avec une passere
 
 Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, un itinéraire distinct est ajouté à la table de routage de tous les sous-réseaux d’un réseau virtuel pour chaque préfixe publié. L’itinéraire est ajouté avec *Passerelle de réseau virtuel* comme source et type de tronçon suivant. 
 
-Vous pouvez désactiver la propagation des itinéraires de passerelle ER et VPN sur un sous-réseau à l’aide d’une propriété sur une table de routage. Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, les itinéraires ne sont pas ajoutés à la table de routage de tous les sous-réseaux pour lesquels la propagation de la route de la passerelle réseau virtuel est désactivée. La connectivité avec les connexions VPN est obtenue à l’aide [d’itinéraires personnalisés](#custom-routes) avec un tronçon suivant de type *Passerelle de réseau virtuel*. Pour plus d’informations, consultez [Guide pratique pour désactiver la propagation de la route de la passerelle réseau virtuel](manage-route-table.md#create-a-route-table).
+Vous pouvez désactiver la propagation des itinéraires de passerelle ER et VPN sur un sous-réseau à l’aide d’une propriété sur une table de routage. Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, les itinéraires ne sont pas ajoutés à la table de routage de tous les sous-réseaux pour lesquels la propagation de la route de la passerelle réseau virtuel est désactivée. La connectivité avec les connexions VPN est obtenue à l’aide [d’itinéraires personnalisés](#custom-routes) avec un tronçon suivant de type *Passerelle de réseau virtuel*. **La propagation des routes ne doit pas être désactivée sur le sous-réseau de passerelle. La passerelle ne fonctionne pas si ce paramètre est désactivé.** Pour plus d’informations, consultez [Guide pratique pour désactiver la propagation de la route de la passerelle réseau virtuel](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Comment Azure choisit un itinéraire
 

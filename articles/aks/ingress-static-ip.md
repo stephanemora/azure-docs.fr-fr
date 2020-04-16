@@ -1,15 +1,16 @@
 ---
-title: Créer un contrôleur d’entrée HTTP avec une adresse IP statique dans Azure Kubernetes Service (AKS)
+title: Utiliser le contrôleur d’entrée avec une adresse IP statique
+titleSuffix: Azure Kubernetes Service
 description: Découvrez comment installer et configurer un contrôleur d’entrée NGINX avec une adresse IP statique dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 10422595b85c71020225df694778e6b8ae7e0185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe7f1070ce233c204d9658d4a75c5e1c7a189f12
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191348"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668518"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS)
 
@@ -48,7 +49,12 @@ Ensuite, créez une adresse IP publique avec la méthode d’allocation *statiqu
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
-À présent, déployez le graphique *nginx-ingress* avec Helm. Ajoutez le paramètre `--set controller.service.loadBalancerIP` et spécifiez votre propre adresse IP publique créée à l’étape précédente. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
+À présent, déployez le graphique *nginx-ingress* avec Helm. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
+
+Vous devez transmettre deux paramètres supplémentaires à la version Helm pour que le contrôleur d’entrée prenne connaissance de l’adresse IP statique de l’équilibreur de charge à allouer au service de contrôleur d’entrée, et de l’étiquette du nom DNS appliquée à la ressource d’adresse IP publique. Pour que les certificats HTTPS fonctionnent correctement, une étiquette de nom DNS est utilisée pour configurer un nom de domaine complet pour l’adresse IP du contrôleur d’entrée.
+
+1. Ajoutez le paramètre `--set controller.service.loadBalancerIP`. Spécifiez votre propre adresse IP publique, créée à l’étape précédente.
+1. Ajoutez le paramètre `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"`. Spécifiez une étiquette de nom DNS à appliquer à l’adresse IP publique créée à l’étape précédente.
 
 Le contrôleur d’entrée doit également être planifié sur un nœud Linux. Les nœuds Windows Server (actuellement en préversion dans AKS) ne doivent pas exécuter le contrôleur d’entrée. Un sélecteur de nœud est spécifié en utilisant le paramètre `--set nodeSelector` pour que le planificateur Kubernetes exécute le contrôleur d’entrée NGINX sur un nœud Linux.
 
@@ -57,6 +63,8 @@ Le contrôleur d’entrée doit également être planifié sur un nœud Linux. L
 
 > [!TIP]
 > Si vous souhaitez activer la [préservation de l’adresse IP source du client][client-source-ip] pour les requêtes aux conteneurs de votre cluster, ajoutez `--set controller.service.externalTrafficPolicy=Local` à la commande d’installation Helm. L’IP source du client est stockée dans l’en-tête de la requête sous *X-Forwarded-For*. Lors de l’utilisation d’un contrôleur d’entrée pour lequel la conservation de l’adresse IP source du client est activée, le protocole SSL direct ne fonctionnera pas.
+
+Mettez à jour le script suivant avec l’**adresse IP** de votre contrôleur d’entrée et un **nom unique** que vous souhaiteriez utiliser comme préfixe du nom de domaine complet :
 
 ```console
 # Create a namespace for your ingress resources
@@ -69,6 +77,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="40.121.63.72"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
 ```
 
 Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP statique est affectée, comme indiqué dans l’exemple de sortie suivant :
@@ -83,27 +92,14 @@ nginx-ingress-default-backend               ClusterIP      10.0.95.248   <none> 
 
 Aucune règle d’entrée n’a encore été créée. Par conséquent, la page 404 par défaut du contrôleur d’entrée NGINX s’affiche si vous accédez à l’adresse IP publique. Les étapes suivantes permettent de configurer les règles d’entrée.
 
-## <a name="configure-a-dns-name"></a>Configurer un nom DNS
-
-Pour que les certificats HTTPS fonctionnent correctement, configurez un nom de domaine complet pour l’adresse IP du contrôleur d’entrée. Mettez à jour le script suivant avec l’adresse IP du contrôleur d’entrée et le nom unique à utiliser dans le nom de domaine complet :
+Vous pouvez vérifier que l’étiquette du nom DNS a été appliquée en interrogeant le nom de domaine complet sur l’adresse IP publique, comme suit :
 
 ```azurecli-interactive
 #!/bin/bash
-
-# Public IP address of your ingress controller
-IP="40.121.63.72"
-
-# Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
-
-# Get the resource-id of the public ip
-PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-
-# Update public ip address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query $("[?name=='myAKSPublicIP'].[dnsSettings.fqdn]") -o tsv
 ```
 
-Le contrôleur d’entrée est désormais accessible par le biais du nom de domaine complet.
+Le contrôleur d’entrée est désormais accessible via l’adresse IP ou le nom de domaine complet.
 
 ## <a name="install-cert-manager"></a>Installer cert-manager
 

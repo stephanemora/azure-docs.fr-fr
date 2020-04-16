@@ -3,12 +3,12 @@ title: FAQ Azure Resource Health
 description: Vue d’ensemble d’Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75912780"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985029"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ Azure Resource Health
 Découvrez les réponses aux questions courantes sur Azure Resource Health.
@@ -37,7 +37,7 @@ L’état d’intégrité est défini sur Inconnu lorsque Resource Health ne re�
 ## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>Comment puis-je obtenir de l’aide pour une ressource qui n’est pas disponible ?
 Vous pouvez envoyer une demande de support à partir du panneau Resource Health. Vous n’avez pas besoin d’un contrat de support Microsoft pour ouvrir une demande lorsque la ressource n’est pas disponible suite à des événements de plateforme.
 
-## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>Resource Health fait-il la différence entre une indisponibilité causée par des problèmes de plateforme et une mauvaise manipulation de l’utilisateur ?
+## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>Resource Health fait-il la différence entre une indisponibilité causée par des problèmes de plateforme et une mauvaise manipulation de l’utilisateur ?
 Oui, lorsqu’une ressource n’est pas disponible, Resource Health identifie l’origine du problème selon les catégories suivantes : 
 -   Action initiée par l’utilisateur
 -   Événement planifié 

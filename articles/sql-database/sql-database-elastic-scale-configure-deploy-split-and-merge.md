@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421033"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810207"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Déployer un service de fractionnement et de fusion pour déplacer des données entre bases de données partitionnées
 
@@ -150,7 +150,7 @@ Veuillez noter que pour les déploiements de production, des certificats distinc
 
 ## <a name="troubleshoot-the-deployment"></a>Résoudre les problèmes de déploiement
 
-Si votre rôle web ne parvient pas à être en ligne, il s’agit probablement d’un problème avec la configuration de sécurité. Vérifiez que le protocole SSL est configuré comme décrit ci-dessus.
+Si votre rôle web ne parvient pas à être en ligne, il s’agit probablement d’un problème avec la configuration de sécurité. Vérifiez que le protocole TLS/SSL est configuré comme décrit ci-dessus.
 
 Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôle web réussit, il s’agit probablement d’un problème de connexion à la base de données d’états que vous avez créée précédemment.
 
@@ -254,7 +254,7 @@ Les fichiers de script inclus sont les suivants :
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Exécutez le script *ExecuteSampleSplitMerge.ps1* pour exécuter une opération de fractionnement (la moitié des données sont déplacées de la première partition vers la deuxième), puis une opération de fusion (les données sont redéplacées vers la première partition). Si vous avez configuré SSL et laissé le point de terminaison http désactivé, assurez-vous d’utiliser le point de terminaison https:// à la place.
+5. Exécutez le script *ExecuteSampleSplitMerge.ps1* pour exécuter une opération de fractionnement (la moitié des données sont déplacées de la première partition vers la deuxième), puis une opération de fusion (les données sont redéplacées vers la première partition). Si vous avez configuré TLS et laissé le point de terminaison http désactivé, veillez à utiliser le point de terminaison https:// à la place.
 
    Exemple de ligne de commande :
 
@@ -333,7 +333,7 @@ Le message ci-dessous peut apparaître lors de l’exécution des exemples de sc
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Cette erreur signifie que votre certificat SSL n’est pas correctement configuré. Suivez les instructions de la section « Connexion avec un navigateur web ».
+Cette erreur signifie que votre certificat TLS/SSL n’est pas correctement configuré. Suivez les instructions de la section « Connexion avec un navigateur web ».
 
 Si vous ne pouvez pas soumettre les demandes, vous pouvez voir ceci :
 

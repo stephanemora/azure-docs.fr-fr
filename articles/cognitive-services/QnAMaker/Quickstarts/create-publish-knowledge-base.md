@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer, entraîner et publier une base de connaissa
 description: Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. Cet article inclut un exemple de création d’une base de connaissances QnA Maker à partir d’une simple page web de questions fréquentes (FAQ), pour répondre à des questions sur QnA Maker.
 ms.topic: conceptual
 ms.date: 02/08/2020
-ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219015"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756830"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -135,7 +135,7 @@ Quand vous apportez des modifications à la base de connaissances et que vous re
 
 ## <a name="what-did-you-accomplish"></a>Qu’avez-vous fait ?
 
-Vous avez créé une base de connaissances, ajouté une URL publique à la base de connaissances, ajouté votre propre série de questions/réponses, formé, testé puis publié la base de connaissances.
+Vous avez créé une base de connaissances, ajouté une URL publique à la base de connaissances, ajouté votre propre paire de Q/R, entraîné, testé puis publié la base de connaissances.
 
 Après avoir publié la base de connaissances, vous avez créé un bot et testé celui-ci.
 

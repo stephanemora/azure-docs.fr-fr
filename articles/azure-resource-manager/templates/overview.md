@@ -2,23 +2,23 @@
 title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager pour le déploiement de ressources.
 ms.topic: conceptual
-ms.date: 01/02/2020
-ms.openlocfilehash: a4b0dff4b351098095de0b98ede21d9af8a7eef9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 04/06/2020
+ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689697"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885733"
 ---
-# <a name="azure-resource-manager-templates-overview"></a>Vue d’ensemble des modèles Azure Resource Manager
+# <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
 Avec la migration vers le cloud, de nombreuses équipes ont adopté des méthodes de développement agile. Ces équipes effectuent des itérations rapides. Elles doivent déployer à plusieurs reprises leurs solutions dans le cloud et savoir que leur infrastructure est dans un état fiable. Comme l’infrastructure fait partie intégrante du processus itératif, la séparation entre les opérations et le développement a disparu. Les équipes doivent gérer le code d’infrastructure et le code d’application à l’aide d’un processus unifié.
 
 Pour relever ces défis, vous pouvez automatiser les déploiements et utiliser la pratique de l’infrastructure en tant que code. Dans le code, vous définissez l’infrastructure qui doit être déployée. Le code d’infrastructure devient partie intégrante de votre projet. Tout comme le code d’application, vous stockez le code d’infrastructure dans un dépôt source et vous gérez ses versions. Toute personne de votre équipe peut exécuter le code et déployer des environnements similaires.
 
-Pour implémenter une infrastructure en tant que code pour vos solutions Azure, utilisez des modèles Azure Resource Manager. Le modèle est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative, qui vous permet d’indiquer ce que vous envisagez de déployer sans avoir à écrire la séquence de commandes de programmation pour le créer. Dans le modèle, vous spécifiez les ressources à déployer et les propriétés de ces ressources.
+Pour implémenter une infrastructure en tant que code pour vos solutions Azure, utilisez des modèles Azure Resource Manager (ARM). Le modèle est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative, qui vous permet d’indiquer ce que vous envisagez de déployer sans avoir à écrire la séquence de commandes de programmation pour le créer. Dans le modèle, vous spécifiez les ressources à déployer et les propriétés de ces ressources.
 
-## <a name="why-choose-resource-manager-templates"></a>Pourquoi choisir des modèles Resource Manager ?
+## <a name="why-choose-arm-templates"></a>Pourquoi choisir les modèles ARM ?
 
 Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’un des autres services d’infrastructure en tant que code, tenez compte des avantages suivants de l’utilisation de modèles :
 
@@ -30,11 +30,17 @@ Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’u
 
    ![Comparaison de déploiements de modèles](./media/overview/template-processing.png)
 
-* **Validation intégrée** : Votre modèle est déployé uniquement après avoir réussi la validation. Resource Manager vérifie le modèle avant de commencer le déploiement pour être sûr que celui-ci va réussir. Votre déploiement est moins susceptible de s’arrêter dans un état à moitié terminé.
-
 * **Fichiers modulaires** : Vous pouvez diviser vos modèles en composants plus petits et réutilisables et les lier au moment du déploiement. Vous pouvez également imbriquer un modèle dans d’autres modèles.
 
 * **Créez une ressource Azure** : Vous pouvez utiliser immédiatement les nouveaux services et fonctionnalités Azure dans les modèles. Dès qu’un fournisseur de ressources introduit de nouvelles ressources, vous pouvez les déployer par le biais de modèles. Vous n’avez pas besoin d’attendre la mise à jour des outils ou des modules avant d’utiliser les nouveaux services.
+
+* **Extensibilité** : Avec les [scripts de déploiement](deployment-script-template.md), vous pouvez ajouter des scripts PowerShell ou Bash à vos modèles. Les scripts de déploiement étendent votre capacité à configurer des ressources pendant le déploiement. Un script peut être inclus dans le modèle, ou stocké dans une source externe et référencé dans le modèle. Les scripts de déploiement vous permettent d’effectuer la configuration de votre environnement de bout en bout dans un modèle ARM unique.
+
+* **Test** : Vous pouvez vérifier que votre modèle suit les recommandations en le testant avec le kit d’outils de modèle ARM (arm-ttk). Ce kit de test est un script PowerShell que vous pouvez télécharger à partir de [GitHub](https://github.com/Azure/arm-ttk). Le kit d’outils vous permet de développer plus facilement une expertise à l’aide de la langue du modèle.
+
+* **Aperçu des modifications** : Vous pouvez utiliser l’[opération de simulation](template-deploy-what-if.md) pour obtenir un aperçu des modifications avant de déployer le modèle. Avec la simulation, vous pouvez voir quelles ressources seront créées, mises à jour ou supprimées ainsi que les propriétés de ressource qui seront modifiées. L’opération de simulation vérifie l’état actuel de votre environnement et élimine la nécessité de gérer l’état.
+
+* **Validation intégrée** : Votre modèle est déployé uniquement après avoir réussi la validation. Resource Manager vérifie le modèle avant de commencer le déploiement pour être sûr que celui-ci va réussir. Votre déploiement est moins susceptible de s’arrêter dans un état à moitié terminé.
 
 * **Déploiements suivis** : Dans le portail Azure, vous pouvez consulter l’historique des déploiements et obtenir des informations sur le déploiement des modèles. Vous pouvez voir le modèle qui a été déployé, les valeurs de paramètre passées et toutes les valeurs de sortie. Les autres services d’infrastructure en tant que code ne font pas l’objet d’un suivi par le biais du portail.
 
@@ -120,6 +126,6 @@ Pour plus d’informations sur les modèles imbriqués, consultez [Utilisation d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez [Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md).
+* Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle ARM](template-tutorial-create-first-template.md).
 * Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
-* Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](quickstart-create-templates-use-the-portal.md).
+* Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Resource Manager à l’aide du portail Azure](quickstart-create-templates-use-the-portal.md).

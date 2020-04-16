@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219115"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744153"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -35,18 +35,25 @@ LUIS comprend les énoncés dans les langues suivantes :
 | Anglais (États-Unis) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabe (préversion ; arabe standard moderne) |`ar-AR`|-|-|-|-|
 | *[Chinois](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Néerlandais |`nl-NL` |✔|  -   |-|✔|
+| Néerlandais |`nl-NL` |✔|-|-|✔|
 | Français (France) |`fr-FR` |✔| ✔ |✔ |✔|
-| Français (Canada) |`fr-CA` |-|   -   |-|✔|
+| Français (Canada) |`fr-CA` |-|-|-|✔|
 | Allemand |`de-DE` |✔| ✔ |✔ |✔|
-| Hindi | `hi-IN`|-|-|-|-|
+| Goudjrati | `gu-IN`|-|-|-|-|
+| Hindi | `hi-IN`|-|✔|-|-|
 | Italien |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonais](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Expression clé uniquement|
-| Coréen |`ko-KR` |✔|   -   |-|Expression clé uniquement|
+| Coréen |`ko-KR` |✔|-|-|Expression clé uniquement|
+| Marathi | `mr-IN`|-|-|-|-|
 | Portugais (Brésil) |`pt-BR` |✔| ✔ |✔ |pas toutes les sous-cultures|
 | Espagnol (Espagne) |`es-ES` |✔| ✔ |✔|✔|
-| Espagnol (Mexique)|`es-MX` |-|  -   |✔|✔|
-| Turc | `tr-TR` |✔|-|-|Sentiment uniquement|
+| Espagnol (Mexique)|`es-MX` |-|-|✔|✔|
+| Tamoul | `ta-IN`|-|-|-|-|
+| Télougou | `te-IN`|-|-|-|-|
+| Turc | `tr-TR` |✔|✔|-|Sentiment uniquement|
+
+
+
 
 La prise en charge linguistique varie pour les [entités prédéfinies](luis-reference-prebuilt-entities.md) et les [domaines prédéfinis](luis-reference-prebuilt-domains.md).
 
@@ -77,22 +84,28 @@ Les langues hybrides combinent des mots de deux cultures, comme l’anglais et l
 ## <a name="tokenization"></a>Segmentation du texte en unités lexicales
 Pour effectuer l’apprentissage machine, LUIS décompose l’énoncé en [jetons](luis-glossary.md#token) selon la culture.
 
-|Langage|  chaque espace ou caractère spécial | niveau caractère|mots composés|[entité renvoyée sous forme de jeton](luis-concept-data-extraction.md#tokenized-entity-returned)
-|--|:--:|:--:|:--:|:--:|
-|Arabe|||||
-|Chinois||✔||✔|
-|Néerlandais|||✔|✔|
-|Anglais (en-us)|✔ ||||
-|Français (fr-FR)|✔||||
-|Français (fr-CA)|✔||||
-|Allemand|||✔|✔|
-| Hindi |✔|-|-|-|-|
-|Italien|✔||||
-|Japonais||||✔|
-|Coréen||✔||✔|
-|Portugais (Brésil)|✔||||
-|Espagnol (es-ES)|✔||||
-|Espagnol (es-MX)|✔||||
+|Langage|  chaque espace ou caractère spécial | niveau caractère|mots composés
+|--|:--:|:--:|:--:|
+|Arabe|✔|||
+|Chinois||✔||
+|Néerlandais|✔||✔|
+|Anglais (en-us)|✔ |||
+|Français (fr-FR)|✔|||
+|Français (fr-CA)|✔|||
+|Allemand|✔||✔|
+|Goudjrati|✔|||
+|Hindi|✔|||
+|Italien|✔|||
+|Japonais|||✔
+|Coréen||✔||
+|Marathi|✔|||
+|Portugais (Brésil)|✔|||
+|Espagnol (es-ES)|✔|||
+|Espagnol (es-MX)|✔|||
+|Tamoul|✔|||
+|Télougou|✔|||
+|Turc|✔|||
+
 
 ### <a name="custom-tokenizer-versions"></a>Versions personnalisées du générateur de jetons
 
@@ -101,7 +114,10 @@ Les cultures suivantes ont des versions personnalisées du générateur de jeton
 |Culture|Version|Objectif|
 |--|--|--|
 |Allemand<br>`de-de`|1.0.0|Segmente les mots composés en composants simples à l’aide d’un générateur de jetons de type Machine Learning.<br>L’énoncé `Ich fahre einen krankenwagen` est transformé en `Ich fahre einen kranken wagen`. Permet de marquer indépendamment `kranken` et `wagen` comme des entités différentes.|
-|Allemand<br>`de-de`|1.0.2|Segmente les mots en les fractionnant sur les espaces.<br> L’énoncé `Ich fahre einen krankenwagen` reste un jeton unique. `krankenwagen` est donc marqué comme une seule entité. |
+|Allemand<br>`de-de`|1.0.2|Segmente les mots en les fractionnant sur les espaces.<br> Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, il reste un jeton unique. `krankenwagen` est donc marqué comme une seule entité. |
+|Néerlandais<br>`de-de`|1.0.0|Segmente les mots composés en composants simples à l’aide d’un générateur de jetons de type Machine Learning.<br>L’énoncé `Ik ga naar de kleuterschool` est transformé en `Ik ga naar de kleuter school`. Permet de marquer indépendamment `kleuter` et `school` comme des entités différentes.|
+|Néerlandais<br>`de-de`|1.0.1|Segmente les mots en les fractionnant sur les espaces.<br> Si un utilisateur entre `Ik ga naar de kleuterschool` comme énoncé, il reste un jeton unique. `kleuterschool` est donc marqué comme une seule entité. |
+
 
 ### <a name="migrating-between-tokenizer-versions"></a>Changer de version du générateur de jetons
 <!--

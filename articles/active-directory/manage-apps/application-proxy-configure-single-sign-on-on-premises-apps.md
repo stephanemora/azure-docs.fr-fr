@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1046c11e064e69ed0ddb18c77bf5935ba60fb5aa
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461281"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803295"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Authentification unique SAML pour les applications locales avec le proxy d’application
 
@@ -58,7 +58,7 @@ Les diagrammes de protocole ci-dessous décrivent la séquence de l’authentifi
 
 Pour fournir l’authentification unique aux applications locales, vous devez activer le proxy d’application et installer un connecteur. Consultez le tutoriel [Ajouter une application locale pour l’accès à distance via le proxy d’application dans Azure AD](application-proxy-add-on-premises-application.md) pour découvrir comment préparer votre environnement local, installer et inscrire un connecteur, et tester le connecteur. Suivez ensuite ces étapes pour publier votre nouvelle application avec le proxy d’application. Pour les autres paramètres non mentionnés ci-dessous, reportez-vous à la section [Ajouter une application locale à Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) du tutoriel.
 
-1. Avec l’application encore ouverte dans le portail Azure, sélectionnez **Proxy d’application**. Spécifiez l’**URL interne** pour l’application. Si vous utilisez un domaine personnalisé, vous devez également charger le certificat SSL pour votre application. 
+1. Avec l’application encore ouverte dans le portail Azure, sélectionnez **Proxy d’application**. Spécifiez l’**URL interne** pour l’application. Si vous utilisez un domaine personnalisé, vous devez également charger le certificat TLS/SSL pour votre application. 
    > [!NOTE]
    > Une bonne pratique consiste à utiliser des domaines personnalisés chaque fois que cela est possible, afin d’optimiser l’expérience utilisateur. Pour plus d’informations, consultez [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](application-proxy-configure-custom-domain.md).
 
@@ -74,14 +74,14 @@ Pour fournir l’authentification unique aux applications locales, vous devez ac
 
 2. Dans la page **Configurer l’authentification unique avec SAML**, accédez au titre **Configuration SAML de base** et sélectionnez l’icône **Modifier** (un crayon). Vérifiez que l’**URL externe** que vous avez configurée dans le proxy d’application est renseignée dans les champs **Identificateur**, **URL de réponse** et **URL de déconnexion**. Ces URL sont nécessaires au bon fonctionnement du proxy d’application. 
 
-3. Modifiez l’**URL de réponse** configurée précédemment afin que son domaine soit accessible par le proxy d’application. Par exemple, si votre **URL externe** est `https://contosotravel-f128.msappproxy.net` et que l’**URL de réponse** d’origine était `https://contosotravel.com/acs`, vous devez mettre à jour l’**URL de réponse** en `https://contosotravel-f128.msappproxy.net/acs`. 
+3. Modifiez l’**URL de réponse** configurée précédemment, afin que son domaine soit accessible sur Internet via le proxy d’application. Par exemple, si votre **URL externe** est `https://contosotravel-f128.msappproxy.net` et que l’**URL de réponse** d’origine était `https://contosotravel.com/acs`, vous devez mettre à jour l’**URL de réponse** en `https://contosotravel-f128.msappproxy.net/acs`.
 
     ![Entrer les données de la configuration SAML de base](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
 
 4. Cochez la case en regard de l’**URL de réponse** mise à jour pour la marquer comme valeur par défaut.
 
-   * Si l’**URL de réponse** nécessaire est déjà indiquée, marquez cette **URL de réponse** comme valeur par défaut et supprimez l’**URL de réponse** précédemment configurée.
+   * Après avoir marqué l’**URL de réponse** requise comme l’URL de réponse par défaut, vous pouvez également supprimer l’**URL de réponse** précédemment configurée qui utilisait l’URL interne.
 
    * Pour un flux initié par le fournisseur de services, vérifiez que l’application back-end spécifie l’**URL de réponse** ou l’URL du service consommateur d’assertion correcte pour recevoir le jeton d’authentification.
 

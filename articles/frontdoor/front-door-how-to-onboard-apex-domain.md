@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: bb1042e15d4366923174996388eeb2fb99aef429
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74184610"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878882"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Intégrer un domaine racine ou apex à votre Front Door
 Azure Front Door utilise des enregistrements CNAME pour valider la propriété du domaine en vue de l’intégration de domaines personnalisés. En outre, Front Door n’expose pas l’adresse IP de serveur frontal associée à votre profil Front Door. Vous ne pouvez donc pas mapper votre domaine apex à une adresse IP si l’objectif est de l’intégrer à Azure Front Door.
@@ -26,7 +26,7 @@ Le mappage de votre domaine racine ou apex à votre profil Front Door nécessite
 > [!NOTE]
 > D’autres fournisseurs de DNS prennent également en charge la mise à plat de CNAME ou la recherche de DNS. Azure Front Door recommande toutefois d’utiliser Azure DNS pour ses clients en vue de l’hébergement de leurs domaines.
 
-Vous pouvez utiliser le portail Azure pour intégrer un domaine apex à votre Front Door et activer le protocole HTTPS sur celui-ci en l’associant à un certificat pour point de terminaison SSL. Les domaines apex sont également appelés des domaines racine ou nus.
+Vous pouvez utiliser le portail Azure pour intégrer un domaine apex à votre Front Door et activer le protocole HTTPS sur celui-ci en l’associant à un certificat pour point de terminaison TLS. Les domaines apex sont également appelés des domaines racine ou nus.
 
 Dans cet article, vous apprendrez comment :
 
@@ -65,7 +65,7 @@ Dans cet article, vous apprendrez comment :
 2. Sélectionnez le **type de gestion des certificats** _« Utiliser mon propre certificat »_ .
 
 > [!WARNING]
-> Le type de gestion des certificats managés par Front Door n’est actuellement pas pris en charge pour les domaines apex ou racine. La seule option d’activation HTTPS sur un domaine apex ou racine disponible pour Front Door consiste à utiliser votre propre certificat SSL personnalisé hébergé sur Azure Key Vault.
+> Le type de gestion des certificats managés par Front Door n’est actuellement pas pris en charge pour les domaines apex ou racine. La seule option d’activation HTTPS sur un domaine apex ou racine disponible pour Front Door consiste à utiliser votre propre certificat TLS/SSL personnalisé hébergé sur Azure Key Vault.
 
 3. Vérifiez que vous avez configuré les autorisations Front Door appropriées pour accéder à votre coffre de clés, comme indiqué dans l’interface utilisateur, avant de passer à l’étape suivante.
 4. Choisissez un **compte Key Vault** dans votre abonnement actuel, puis sélectionnez le **Secret** et la **Version du secret** appropriés à mapper au bon certificat.

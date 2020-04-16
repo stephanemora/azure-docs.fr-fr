@@ -1,17 +1,18 @@
 ---
-title: Meilleures pratiques du développeur - Sécurité des pods dans Azure Kubernetes Service (AKS)
+title: Bonnes pratiques relatives à la sécurité des pods
+titleSuffix: Azure Kubernetes Service
 description: Découvrez les meilleures pratiques du développeur pour apprendre à sécuriser des pods dans Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 2ee41770f9993da381215f03ebf67aea3cc7dd9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475576"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804382"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la sécurité des pods dans Azure Kubernetes Service (AKS)
 

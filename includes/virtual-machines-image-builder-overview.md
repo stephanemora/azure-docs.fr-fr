@@ -5,12 +5,12 @@ ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: ec1b77118f94501363d950d72a65a67ece79ff77
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748985"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80419165"
 ---
 Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La mise en place de votre propre pipeline d’acquisition d’image nécessite du temps, une infrastructure et une configuration. En revanche, le Générateur d’images de machine virtuelle Azure génère une simple configuration décrivant votre image et l’envoie au service qui la produit et la distribue.
  
@@ -26,10 +26,10 @@ La préversion prend en charge les fonctionnalités suivantes :
 
 - Création d’images de base finales, qui incluent vos configurations minimales de sécurité et d’entreprise, et permettent aux services de les personnaliser en fonction de leurs besoins.
 - En corrigeant des images existantes, le Générateur d’images vous permet de corriger en permanence des images personnalisées.
+- Connectez Image Builder à vos réseaux virtuels existants, afin de pouvoir vous connecter à des serveurs de configuration existants (DSC, Chef, Puppet, etc.), à des partages de fichiers ou à tout autre serveur/service routable.
 - L’intégration avec la Galerie d’images partagées Azure vous permet de distribuer, de contrôler les versions, et de mettre à l’échelle des images globalement, et offre un système de gestion des images.
 - L’intégration avec des pipelines de génération d’images existants vous permet d’appeler simplement le Générateur d’images à partir de votre pipeline ou d’utiliser la simple tâche Azure DevOps de prévisualisation du Générateur d’images.
 - Migrez un pipeline de personnalisation d’image existant vers Azure. Utilisez vos scripts, commandes et processus existants pour personnaliser des images.
-- Utilisez le support Bring Your Own Subscription de Red Hat. Créez des images Red Hat Enterprise à utiliser avec vos abonnements Red Hat éligibles inutilisés.
 - Création d’images au format VHD.
  
 
@@ -40,6 +40,8 @@ Le service Générateur d’images Azure sera disponible en préversion dans les
 - Centre-USA Ouest
 - USA Ouest
 - USA Ouest 2
+- Europe Nord
+- Europe Ouest
 
 ## <a name="os-support"></a>Prise en charge du système d’exploitation
 Le Générateur d’images Azure prendra en charge les images de système d’exploitation de base de la Place de marché Azure :
@@ -49,16 +51,11 @@ Le Générateur d’images Azure prendra en charge les images de système d’ex
 - CentOS 7.6, 7.7
 - SLES 12 SP4
 - SLES 15, SLES 15 SP1
-- Windows 10 RS5 Entreprise/Professionnel/Entreprise pour le bureau virtuel (EVD) 
+- Windows 10 RS5 Enterprise/Enterprise multisession/Professional
 - Windows 2016
 - Windows 2019
 
-Le Générateur d’images Azure prendra en charge les images ISO Red Hat Enterprise Linux (RHEL) en tant que sources pour :
-- RHEL 7.3
-- RHEL 7.4
-- RHEL 7.5
-
-Les fichiers ISO RHEL 7.6 ne sont pas pris en charge, mais sont en cours de test.
+La prise en charge des images ISO RHEL est dépréciée. Pour plus d’informations, consultez la documentation du modèle.
 
 ## <a name="how-it-works"></a>Fonctionnement
 

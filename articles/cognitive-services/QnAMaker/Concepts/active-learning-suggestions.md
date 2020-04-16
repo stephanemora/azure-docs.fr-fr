@@ -3,12 +3,12 @@ title: Suggestions d’apprentissage actif – QnA Maker
 description: Les suggestions d’apprentissage actif vous permettent d’améliorer la qualité de votre base de connaissances en suggérant d’autres questions à vos paires de question-réponse en fonction des soumissions d’utilisateurs.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: af4f6b399bfd537b38ea741d03e59371ee81e588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edbe06b12fbb97473b28ccca968fd3e7d8366152
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053154"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804211"
 ---
 # <a name="active-learning-suggestions"></a>Suggestions d’apprentissage actif
 
@@ -27,7 +27,7 @@ Les deux méthodes fournissent à l’outil de classement des requêtes similair
 
 ## <a name="how-active-learning-works"></a>Fonctionnement de l’apprentissage actif
 
-L’apprentissage actif est déclenché en fonction des scores des principales réponses renvoyées par QnA Maker. Si les différences de scores entre les ensemble de questions-réponses qui correspondent à la requête s’inscrivent dans une petite plage, la requête est considérée comme une suggestion possible (en tant que question alternative) pour chacune des paires de questions-réponses possibles. Une fois que vous acceptez la question suggérée pour une paire de question-réponse spécifique, elle est rejetée pour les autres paires. Vous devez penser à enregistrer et effectuer l’apprentissage, après avoir accepté les suggestions.
+L’apprentissage actif est déclenché en fonction des scores des principales réponses renvoyées par QnA Maker. Si les différences de scores entre les paires de Q/R qui correspondent à la requête s’inscrivent dans une petite plage, la requête est considérée comme suggestion possible (en tant que question alternative) pour chacune des paires de Q/R possibles. Une fois que vous acceptez la question suggérée pour une paire de question-réponse spécifique, elle est rejetée pour les autres paires. Vous devez penser à enregistrer et effectuer l’apprentissage, après avoir accepté les suggestions.
 
 L’apprentissage actif offre les meilleures suggestions possible dans les cas où les points de terminaison reçoivent une quantité raisonnable de différentes requêtes d’utilisation. Lorsque 5 requêtes similaires ou plus sont ordonnées en cluster, toutes les 30 minutes, QnA Maker suggère les questions de l’utilisateur au concepteur de la base de connaissances pour qu’il les accepte ou les rejette. Toutes les suggestions sont regroupées par similarité, et les principales suggestions pour les questions alternatives sont affichées en fonction de la fréquence des requêtes particulières des utilisateurs finals.
 

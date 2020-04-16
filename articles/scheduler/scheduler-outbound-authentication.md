@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898509"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878967"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Authentification sortante pour Azure Scheluler
 
@@ -47,8 +47,8 @@ Lorsque vous ajoutez l'authentification à l'aide du modèle `ClientCertificate`
 
 | Élément | Obligatoire | Description |
 |---------|----------|-------------|
-| **authentication** (élément parent) | Objet d'authentification pour l'utilisation d'un certificat client SSL |
-| **type** | Oui | Type d’authentification. Pour les certificats client SSL, la valeur est `ClientCertificate`. |
+| **authentication** (élément parent) | Objet d’authentification pour l’utilisation d’un certificat client SSL/TLS |
+| **type** | Oui | Type d’authentification. Pour les certificats clients SSL/TLS, la valeur est `ClientCertificate`. |
 | **pfx** | Oui | Contenu codé en base64 du fichier PFX |
 | **mot de passe** | Oui | Mot de passe pour accéder au fichier PFX |
 ||| 
@@ -59,8 +59,8 @@ Lorsqu'une demande est envoyée avec des informations d'authentification, la ré
 
 | Élément | Description | 
 |---------|-------------| 
-| **authentication** (élément parent) | Objet d'authentification pour l'utilisation d'un certificat client SSL |
-| **type** | Type d’authentification. Pour les certificats client SSL, la valeur est `ClientCertificate`. |
+| **authentication** (élément parent) | Objet d’authentification pour l’utilisation d’un certificat client SSL/TLS |
+| **type** | Type d’authentification. Pour les certificats clients SSL/TLS, la valeur est `ClientCertificate`. |
 | **certificateThumbprint** |Empreinte numérique du certificat |
 | **certificateSubjectName** |Nom unique du sujet du certificat |
 | **certificateExpiration** | Date d'expiration du certificat |

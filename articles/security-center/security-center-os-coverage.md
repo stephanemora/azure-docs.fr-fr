@@ -11,20 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2019
+ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c8bf69b745f5dba8c08556908df4d4ae5b5769f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78208814"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521914"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
-## <a name="virtual-machines--servers"></a>Machines virtuelles / serveurs <a name="vm-server"></a>
+Cette page affiche les plateformes et les environnements pris en charge par Azure Security Center.
 
-Security Center prend en charge des machines virtuelles/serveurs sur différents types d’environnements hybrides :
+## <a name="combinations-of-environments"></a>Combinaisons d’environnements <a name="vm-server"></a>
+
+Azure Security Center prend en charge des machines virtuelles et des serveurs sur différents types d’environnements hybrides :
 
 * Azure uniquement
 * Azure et en local
@@ -33,55 +35,23 @@ Security Center prend en charge des machines virtuelles/serveurs sur différents
 
 Dans le cas d’un environnement Azure activé sur un abonnement Azure, Azure Security Center détecte automatiquement les ressources IaaS déployées dans l’abonnement.
 
-> [!NOTE]
-> Pour bénéficier de l’ensemble complet des fonctionnalités de sécurité, vous devez disposer du [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), qu’Azure Security Center utilise, installé et [correctement configuré pour envoyer des données à Azure Security Center](security-center-enable-data-collection.md#manual-agent).
+## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Les sections suivantes répertorient les systèmes d’exploitation serveur pris en charge sur lesquels peut s’exécuter le [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent) qu’Azure Security Center utilise.
+Security Center dépend de l’[agent Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Vérifiez que vos machines exécutent l’un des systèmes d’exploitation pris en charge pour cet agent, comme décrit dans les pages suivantes :
 
-### <a name="windows-server-operating-systems"></a>Systèmes d’exploitation de serveur Windows <a name="os-windows"></a>
+* [Agent Log Analytics pour les systèmes d’exploitation pris en charge par Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+* [Agent Log Analytics pour les systèmes d’exploitation pris en charge par Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
 
-|Système d''exploitation|Pris en charge par Azure Security Center|Prise en charge de l’intégration avec Microsoft Defender ATP|
-|:---|:-:|:-:|
-|Windows Server 2019|✔|X|
-|Windows Server 2016|✔|✔|
-|Windows Server 2012 R2|✔|✔|
-|Windows Server 2008 R2|✔|✔|
+Vérifiez également que votre agent Log Analytics est [correctement configuré pour envoyer des données à Security Center](security-center-enable-data-collection.md#manual-agent).
 
-Pour en savoir plus sur les fonctionnalités prises en charge pour les systèmes d’exploitation Windows, voir les [fonctionnalités de machine virtuelle/serveur prises en charge](security-center-services.md#vm-server-features).
+> [!TIP]
+> Pour en savoir plus sur des fonctionnalités Security Center spécifiques disponibles sur Windows et Linux, consultez [Couverture des fonctionnalités pour les machines](security-center-services.md).
 
-### <a name="windows-operating-systems"></a>Systèmes d’exploitation Windows <a name="os-windows (non-server)"></a>
+## <a name="managed-virtual-machine-services"></a>Services de machine virtuelle managés <a name="virtual-machine"></a>
 
-Azure Security Center s’intègre aux services Azure pour superviser et protéger vos machines virtuelles Windows.
+Des machines virtuelles sont également créées dans un abonnement client dans le cadre de certains services gérés par Azure, comme Azure Kubernetes (AKS) et Azure Databricks, entre autres. Security Center détecte également ces machines virtuelles, et l’agent Log Analytics peut être installé et configuré si un système d’exploitation pris en charge est disponible.
 
-### <a name="linux-operating-systems"></a>Systèmes d’exploitation Linux <a name="os-linux"></a>
-
-64 bits
-
-* CentOS 6 et 7
-* Amazon Linux 2017.09
-* Oracle Linux 6 et Oracle Linux 7
-* Red Hat Enterprise Linux Server 6 et 7
-* Debian GNU/Linux 8 et 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS et 18.04 LTS
-* SUSE Linux Enterprise Server 12
-
-32 bits
-* CentOS 6
-* Oracle Linux 6
-* Red Hat Enterprise Linux Server 6
-* Debian GNU/Linux 8 et 9
-* Ubuntu Linux 14.04 LTS et 16.04 LTS
-
-> [!NOTE]
-> Étant donné que la liste des systèmes d’exploitation Linux pris en charge change constamment, si vous préférez, cliquez [ici](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) pour voir la liste actualisée des versions prises en charge, au cas où des modifications aient été apportées depuis la dernière publication de cette rubrique.
-
-Pour en savoir plus sur les fonctionnalités prises en charge pour les systèmes d’exploitation Linux, voir les [fonctionnalités de machine virtuelle/serveur prises en charge](security-center-services.md#vm-server-features).
-
-### <a name="managed-virtual-machine-services"></a>Services de machine virtuelle managés <a name="virtual-machine"></a>
-
-Des machines virtuelles sont également créées dans un abonnement client dans le cadre de certains services managés Azure, tels qu’Azure Kubernetes (AKS), Azure Databricks et bien plus encore. Ces machines virtuelles sont également découvertes par Azure Security Center, et le Log Analytics Agent peut être installé et configuré en fonction des [systèmes d’exploitation Windows/Linux](#os-windows) pris en charge répertoriés ci-dessus.
-
-### <a name="cloud-services"></a>Services cloud <a name="cloud-services"></a>
+## <a name="cloud-services"></a>Services cloud <a name="cloud-services"></a>
 
 Les machines virtuelles s’exécutant dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur les services cloud, consultez [Vue d’ensemble d’Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
@@ -89,8 +59,6 @@ La protection des machines virtuelles résidant dans Azure Stack est également 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [Security Center collecte les données et l'agent Log Analytics Agent](security-center-enable-data-collection.md).
+- Découvrez comment [Security Center collecte des données avec l’agent Log Analytics](security-center-enable-data-collection.md).
 - Découvrez comment [Security Center gère et protège les données](security-center-data-security.md).
 - [Découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception](security-center-planning-and-operations-guide.md).
-- Découvrez les [fonctionnalités disponibles pour les différents environnements cloud](security-center-services.md).
-- Découvrez la [protection contre les menaces pour les ordinateurs Windows et Linux dans Azure Security Center](threat-protection.md#windows-machines).

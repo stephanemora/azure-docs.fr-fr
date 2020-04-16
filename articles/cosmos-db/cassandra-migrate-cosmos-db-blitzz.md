@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 746232a85e326f08d44cf2dbe0a4ae718c7cc312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2e7f371e587c1c7f0debfa018ea8f25a30718a8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69983346"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548089"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrer des données de Cassandra vers un compte API Cassandra Azure Cosmos DB à l'aide de Blitzz
 
@@ -36,13 +36,13 @@ La solution de migration de Blitzz suit une approche étape par étape pour migr
 
 * Il tolère les pannes et garantit une livraison des données en une seule fois, même en cas de défaillance matérielle ou logicielle du système.
 
-* Il sécurise les données pendant le transit grâce à différentes méthodologies de sécurité, telles que SSL et le chiffrement.
+* Il sécurise les données pendant le transit grâce à différentes méthodologies de sécurité, telles que TLS et le chiffrement.
 
 ## <a name="steps-to-migrate-data"></a>Étapes de migration des données
 
 Cette section décrit les étapes à suivre pour configurer Blitzz et migrer les données d'une base de données Apache Cassandra vers Azure Cosmos DB.
 
-1. À partir de l’ordinateur sur lequel vous envisagez d’installer le replicant Blitzz, ajoutez un certificat de sécurité. Ce certificat est requis par l'outil de réplication Blitzz pour établir une connexion SSL avec le compte Azure Cosmos DB spécifié. Pour ajouter le certificat, procédez comme suit :
+1. À partir de l’ordinateur sur lequel vous envisagez d’installer le replicant Blitzz, ajoutez un certificat de sécurité. Ce certificat est requis par l’outil de réplication Blitzz pour établir une connexion TLS avec le compte Azure Cosmos DB spécifié. Pour ajouter le certificat, procédez comme suit :
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt

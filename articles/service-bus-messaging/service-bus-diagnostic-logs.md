@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760996"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618728"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Activer les journaux de diagnostics pour Service Bus
 
@@ -76,10 +76,10 @@ Les opérations de gestion suivantes sont capturées dans les journaux des opér
 
 | Étendue | Opération|
 |-------| -------- |
-| Espace de noms | <ul> <li> Créer l'espace de noms</li> <li> Mettre à jour un espace de noms </li> <li> Supprimer un espace de noms </li>  </ul> | 
-| File d'attente | <ul> <li> Créer une file d’attente</li> <li> Mettre à jour une file d’attente</li> <li> Supprimer une file d’attente </li> </ul> | 
-| Rubrique | <ul> <li> Créer une rubrique </li> <li> Mettre à jour une rubrique </li> <li> Supprimer une rubrique </li> </ul> |
-| Abonnement | <ul> <li> Créer un abonnement </li> <li> Mettre à jour un abonnement </li> <li> Supprimer un abonnement </li> </ul> |
+| Espace de noms | <ul> <li> Créer l'espace de noms</li> <li> Mettre à jour un espace de noms </li> <li> Supprimer un espace de noms </li> <li> Mettre à jour la stratégie SharedAccess d’espace de noms </li> </ul> | 
+| File d'attente | <ul> <li> Créer une file d’attente</li> <li> Mettre à jour une file d’attente</li> <li> Supprimer une file d’attente </li> <li> Supprimer automatiquement une file d’attente </li> </ul> | 
+| Rubrique | <ul> <li> Créer une rubrique </li> <li> Mettre à jour une rubrique </li> <li> Supprimer une rubrique </li> <li> Supprimer automatiquement une rubrique </li> </ul> |
+| Abonnement | <ul> <li> Créer un abonnement </li> <li> Mettre à jour un abonnement </li> <li> Supprimer un abonnement </li> <li> Supprimer automatiquement un abonnement </li> </ul> |
 
 > [!NOTE]
 > Actuellement, les opérations de *lecture* ne font pas l’objet d’un suivi dans les journaux des opérations.

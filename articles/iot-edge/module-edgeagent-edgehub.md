@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237425"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546190"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriétés des jumeaux de module de l’agent IoT Edge et du hub IoT Edge
 
@@ -55,6 +55,7 @@ Le jumeau de module de l’agent IoT Edge est appelé `$edgeAgent` et coordonne 
 | modules.{moduleId}.status | {"running" \| "stopped"} | Oui |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Oui |
 | modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | Non |
+| modules.{moduleId}.env | Liste de variables d’environnement à passer au module. Prend le format `"<name>": {"value": "<value>"}` | Non |
 | modules.{moduleId}.settings.image | URI de l’image du module. | Oui |
 | modules.{moduleId}.settings.createOptions | Champ de chaîne JSON contenant les options de création du conteneur de module. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non |
 | modules.{moduleId}.configuration.id | ID du déploiement ayant déployé ce module. | IoT Hub définit cette propriété quand le manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
@@ -77,7 +78,7 @@ Le tableau suivant n’inclut pas les informations copiées à partir des propri
 | Propriété | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Cet entier référence la dernière version des propriétés souhaitées traitées par l’agent IoT Edge. |
-| lastDesiredStatus.code | Ce code d’état fait référence aux dernières propriétés souhaitées observées par l’agent IoT Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `412` Version de schéma non valide, `417` les propriétés souhaitées sont vides, `500` Échec |
+| lastDesiredStatus.code | Ce code d’état fait référence aux dernières propriétés souhaitées observées par l’agent IoT Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `412` Version de schéma non valide, `417` les propriétés souhaitées sont vides, `500` Échec |
 | lastDesiredStatus.description | Texte de description de l’état |
 | deviceHealth | `healthy` si l’état du runtime de tous les modules est `running` ou `stopped`, sinon, `unhealthy` |
 | configurationHealth.{deploymentId}.health | `healthy` si l’état du runtime de tous les modules définis par le déploiement {deploymentId} est `running` ou `stopped`, sinon, `unhealthy` |
@@ -115,7 +116,7 @@ Le jumeau de module du hub IoT Edge est appelé `$edgeHub` et coordonne les comm
 | Propriété | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Cet entier référence la dernière version des propriétés souhaitées traitées par le hub IoT Edge. |
-| lastDesiredStatus.code | Ce code d’état fait référence aux dernières propriétés souhaitées observées par le hub IoT Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `500` Échec |
+| lastDesiredStatus.code | Ce code d’état fait référence aux dernières propriétés souhaitées observées par le hub IoT Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `500` Échec |
 | lastDesiredStatus.description | Texte de description de l’état. |
 | clients.{device or moduleId}.status | État de connectivité de cet appareil ou module. Valeurs possibles {"connected" \| "disconnected"}. Seules les identités de module peuvent être à l’état déconnecté. Les appareils en aval se connectant au hub IoT Edge ne s’affichent que lorsqu’ils sont connectés. |
 | clients.{device or moduleId}.lastConnectTime | Dernière connexion de l’appareil ou du module. |

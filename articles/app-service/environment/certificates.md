@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688644"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477504"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificats et l’environnement App Service 
 
@@ -22,12 +22,12 @@ L’environnement ASE est un système monolocataire. De ce fait, il y a des fonc
 
 ## <a name="ilb-ase-certificates"></a>Certificats ASE ILB 
 
-Si vous utilisez un environnement ASE externe, vous pouvez accéder à vos applications sur [nomapp].[nomase].p.azurewebsites.net. Par défaut, tous les environnements ASE, même les environnements ASE ILB, sont créés avec des certificats qui suivent ce format. Si vous avez un environnement ASE ILB, vous pouvez accéder aux applications en fonction du nom de domaine que vous spécifiez quand vous créez l’environnement ASE ILB. Pour que les applications prennent en charge SSL, vous devez charger des certificats. Pour disposer d’un certificat SSL valide, vous pouvez recourir à des autorités de certification internes, acheter un certificat à un émetteur externe, ou utiliser un certificat auto-signé. 
+Si vous utilisez un environnement ASE externe, vous pouvez accéder à vos applications sur [nomapp].[nomase].p.azurewebsites.net. Par défaut, tous les environnements ASE, même les environnements ASE ILB, sont créés avec des certificats qui suivent ce format. Si vous avez un environnement ASE ILB, vous pouvez accéder aux applications en fonction du nom de domaine que vous spécifiez quand vous créez l’environnement ASE ILB. Pour permettre aux applications de prendre en charge TLS, vous devez charger des certificats. Vous pouvez vous procurer un certificat TLS/SSL valide auprès d’autorités de certification internes, en achetant un certificat à un émetteur externe ou en utilisant un certificat auto-signé. 
 
 Deux options vous permettent de configurer des certificats avec votre environnement ASE ILB.  Vous pouvez définir un certificat par défaut avec caractères génériques pour l’environnement ASE ILB ou définir des certificats sur chaque application web de l’environnement ASE.  Quel que soit votre choix, les attributs de certificat suivants doivent être configurés correctement :
 
-- **Objet** : Cet attribut doit être défini avec *.[votre-domaine-racine-ici] pour un certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici]
-- **Autre nom de l’objet :** Cet attribut doit inclure à la fois *.[votre-domaine-racine-ici] et *.scm.[votre-domaine-racine-ici] pour le certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici] et [nomapp].scm.[votre-domaine-racine-ici].
+- **Objet :** cet attribut doit être défini avec *.[votre-domaine-racine-ici] pour un certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici]
+- **Autre nom de l’objet :** cet attribut doit inclure à la fois *.[votre-domaine-racine-ici] et *.scm.[votre-domaine-racine-ici] pour le certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici] et [nomapp].scm.[votre-domaine-racine-ici].
 
 Troisième variante, vous pouvez créer un certificat ASE ILB qui inclut les noms de toutes vos applications dans l’autre nom de l’objet du certificat au lieu d’utiliser une référence avec caractères génériques. Le problème avec cette méthode est que vous devez connaître à l’avance les noms des applications que vous placez dans l’environnement ASE ou que vous devez mettre à jour le certificat ASE ILB au fur et à mesure.
 
@@ -58,7 +58,7 @@ Les applications qui sont hébergées dans un environnement ASE peuvent utiliser
 - SSL basé sur IP, uniquement pris en charge avec un environnement ASE externe.  Un environnement ASE ILB ne prend pas en charge SSL basé sur IP.
 - Certificats hébergés KeyVault 
 
-Les instructions pour charger et gérer ces certificats sont disponibles dans [Ajouter un certificat SSL dans Azure App Service](../configure-ssl-certificate.md).  Si vous vous contentez de configurer des certificats pour faire correspondre un nom de domaine personnalisé que vous avez affecté à votre application web, ces instructions suffisent. Si vous chargez le certificat pour une application web ASE ILB avec le nom de domaine par défaut, spécifiez le site scm dans l’autre nom de l’objet du certificat, comme indiqué plus haut. 
+Les instructions pour charger et gérer ces certificats sont disponibles dans [Ajouter un certificat TLS/SSL dans Azure App Service](../configure-ssl-certificate.md).  Si vous vous contentez de configurer des certificats pour faire correspondre un nom de domaine personnalisé que vous avez affecté à votre application web, ces instructions suffisent. Si vous chargez le certificat pour une application web ASE ILB avec le nom de domaine par défaut, spécifiez le site scm dans l’autre nom de l’objet du certificat, comme indiqué plus haut. 
 
 ## <a name="tls-settings"></a>Paramètres TLS 
 

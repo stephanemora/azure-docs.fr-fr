@@ -3,14 +3,14 @@ title: Forum aux questions
 description: Réponses aux questions fréquemment posées sur le service Azure Container Registry
 author: sajayantony
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: c0d51c9c31e4e6859eaedce371efeafaa5fd4f46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78403211"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618793"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -105,6 +105,7 @@ La propagation des modifications apportées aux règles de pare-feu prend un cer
 - [Azure Container Registry prend-il en charge l’approbation de contenu ?](#does-azure-container-registry-support-content-trust)
 - [Comment octroyer l’accès au tirage (pull) ou à l’envoi (push) d’images sans autorisation de gérer la ressource du registre ?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Comment activer le contrôle automatique des images pour un registre ?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Comment activer l’accès par tirage (pull) anonyme ?](#how-do-i-enable-anonymous-pull-access)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Comment accéder à Docker Registry HTTP API V2 ?
 
@@ -251,13 +252,18 @@ Le destinataire est alors en mesure de s’authentifier et d’accéder aux imag
 
 Le contrôle des images est une fonctionnalité d’évaluation d’ACR. Vous pouvez activer le mode de contrôle d’un registre afin que seules les images qui ont franchi avec succès la phase d’analyse de sécurité soient visibles par les utilisateurs normaux. Pour plus d’informations, consultez le [dépôt GitHub ACR](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
+### <a name="how-do-i-enable-anonymous-pull-access"></a>Comment activer l’accès par tirage (pull) anonyme ?
+
+La configuration d’un registre de conteneurs Azure pour l’accès par tirage (pull) anonyme (public) est actuellement une fonctionnalité en préversion. Pour activer l’accès public, veuillez ouvrir un ticket de support à https://aka.ms/acr/support/create-ticket. Pour plus d’informations, consultez le [Forum de commentaires Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 ## <a name="diagnostics-and-health-checks"></a>Diagnostics et contrôles d’intégrité
 
 - [Contrôler l’intégrité avec `az acr check-health`](#check-health-with-az-acr-check-health)
 - [La commande docker pull échoue avec l’erreur : net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [La commande docker push réussit, mais la commande docker pull échoue avec l’erreur : unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [`az acr login` est réussie, mais les commandes docker ont échoué avec l’erreur : non autorisé : authentification requise](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
-- [Activer et obtenir les journaux de débogage du démon docker](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
+- [Activer et obtenir les journaux de débogage du démon docker](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [Les nouvelles autorisations utilisateur peuvent ne pas entrer en vigueur dès la mise à jour](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Les informations d’authentification ne sont pas fournies dans le format correct sur les appels directs de l’API REST](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Pourquoi le portail Azure ne liste-t-il pas tous mes dépôts ou étiquettes ?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
@@ -323,13 +329,13 @@ Pour obtenir des informations détaillées sur `--signature-verification`, vous 
 
 Assurez-vous d’utiliser une URL de serveur tout en minuscules, par exemple, `docker push myregistry.azurecr.io/myimage:latest`, même si le nom de la ressource du registre est en majuscules ou à casse mixte, comme `myRegistry`.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Activer et obtenir les journaux de débogage du démon docker  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Activer et obtenir les journaux de débogage du démon docker    
 
 Démarrez `dockerd` avec l’option `debug`. Tout d’abord, créez le fichier de configuration du démon Docker (`/etc/docker/daemon.json`) s’il n’existe pas et ajoutez l’option `debug` :
 
 ```json
-{   
-    "debug": true   
+{    
+    "debug": true    
 }
 ```
 
@@ -339,12 +345,12 @@ Ensuite, redémarrez le démon. Par exemple, avec Ubuntu 14.04 :
 sudo service docker restart
 ```
 
-Des informations détaillées sont disponibles dans la [documentation Docker](https://docs.docker.com/engine/admin/#enable-debugging). 
+Des informations détaillées sont disponibles dans la [documentation Docker](https://docs.docker.com/engine/admin/#enable-debugging).    
 
- * Vous pouvez générer les journaux à différents emplacements, selon votre système. Par exemple, pour Ubuntu 14.04, il s’agit de `/var/log/upstart/docker.log`.   
+ * Vous pouvez générer les journaux à différents emplacements, selon votre système. Par exemple, pour Ubuntu 14.04, il s’agit de `/var/log/upstart/docker.log`.    
 Consultez la [documentation Docker](https://docs.docker.com/engine/admin/#read-the-logs) pour plus d’informations.    
 
- * Concernant Docker pour Windows, les journaux sont générés sous %LOCALAPPDATA%/docker/. Il se peut toutefois qu’ils ne contiennent pas encore toutes les informations de débogage.   
+ * Concernant Docker pour Windows, les journaux sont générés sous %LOCALAPPDATA%/docker/. Il se peut toutefois qu’ils ne contiennent pas encore toutes les informations de débogage.    
 
    Pour accéder au journal complet du démon, vous devrez peut-être suivre quelques étapes supplémentaires :
 

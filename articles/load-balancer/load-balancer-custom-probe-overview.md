@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 46d566dc7527097d36b72886ada1f8c94f727535
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198749"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477008"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -39,7 +39,10 @@ Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibi
 >[!IMPORTANT]
 >Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations.
 
-## <a name="probes"></a>Configuration de sonde
+>[!IMPORTANT]
+>Quel que soit le seuil du délai d'expiration configuré, les sondes d’intégrité de l’équilibreur de charge HTTP(S) analysent automatiquement une instance si le serveur retourne un code d’état qui n’est pas HTTP 200 OK ou si la connexion est interrompue par une réinitialisation TCP.
+
+## <a name="probe-configuration"></a><a name="probes"></a>Configuration de sonde
 
 La configuration de la sonde d’intégrité se compose des éléments suivants :
 
@@ -57,14 +60,14 @@ La configuration de la sonde d’intégrité se compose des éléments suivants�
 Le nombre de réponses de sondes s’applique à la fois :
 
 - Au nombre de sondes ayant réussi et qui permettent à une instance d’être étiquetée comme étant opérationnelle, et
-- Au nombre de sondes ayant échoué et qui permettent à une instance d’être étiquetée comme étant hors service.
+- le nombre de sondes ayant expiré et qui font qu’une instance est étiquetée comme étant hors service.
 
 Les valeurs de délai d’expiration et d’intervalle spécifiées déterminent si une instance sera marquée comme étant opérationnelle ou hors service.  La durée de l’intervalle multipliée par le nombre de réponses de sondes détermine la durée pendant laquelle les réponses de sondes doivent être détectées.  Et le service réagira une fois les sondes requises obtenues.
 
-Nous pouvons illustrer le comportement plus en détail avec un exemple. Si vous avez défini le nombre de réponses de sondes sur deux et un intervalle de cinq secondes, cela signifie que deux échecs de sondes doivent être observés dans un intervalle de 10 secondes.  Étant donné que l’heure à laquelle une sonde est envoyée n’est pas synchronisée quand votre application peut changer d’état, nous pouvons limiter le temps de détection à deux scénarios :
+Nous pouvons illustrer le comportement plus en détail avec un exemple. Si vous avez défini le nombre de réponses de sondes sur 2 et un intervalle de 5 secondes, cela signifie que 2 expirations de sondes doivent être observées dans un intervalle de 10 secondes.  Étant donné que l’heure à laquelle une sonde est envoyée n’est pas synchronisée quand votre application peut changer d’état, nous pouvons limiter le temps de détection à deux scénarios :
 
-1. Si votre application commence à produire une réponse de sonde défaillante juste avant l’arrivée de la première sonde, la détection de ces événements prend 10 secondes (deux intervalles de cinq secondes) plus la durée entre le moment où l’application commence à signaler un échec et le moment où la première sonde arrive.  Vous pouvez supposer que cette détection prend un peu plus de 10 secondes.
-2. Si votre application commence à produire une réponse de sonde défaillante juste après l’arrivée de la première sonde, la détection de ces événements ne commencera pas avant l’arrivée (et l’échec) de la sonde suivante plus 10 secondes supplémentaires (deux intervalles de cinq secondes.  Vous pouvez supposer que cette détection prend un peu moins de 15 secondes.
+1. Si votre application commence à produire une réponse de sonde expirée juste avant l’arrivée de la première sonde, la détection de ces événements prend 10 secondes (2 intervalles de 5 secondes), plus la durée entre le moment où l’application commence à signaler une expiration et le moment où la première sonde arrive.  Vous pouvez supposer que cette détection prend un peu plus de 10 secondes.
+2. Si votre application commence à renvoyer une réponse de sonde expirée juste après l’arrivée de la première sonde, la détection de ces événements ne commencera pas avant l’arrivée (et l’expiration) de la sonde suivante plus 10 secondes supplémentaires (2 intervalles de 5 secondes).  Vous pouvez supposer que cette détection prend un peu moins de 15 secondes.
 
 Pour cet exemple, une fois la détection effectuée, la plateforme prendra alors un peu de temps pour réagir à ce changement.  Cela signifie qu’en fonction des facteurs suivants : 
 
@@ -72,9 +75,12 @@ Pour cet exemple, une fois la détection effectuée, la plateforme prendra alors
 2. Le moment où ce changement a été détecté et a répondu aux critères requis (nombre de sondes envoyées à l’intervalle spécifié)
 3. Le moment où la détection a été communiquée sur la plateforme 
 
-vous pouvez supposer que la réaction à une sonde défaillante prendra entre un minimum d’un peu plus de 10 secondes et un maximum d’un peu plus de 15 secondes pour réagir à un changement du signal de l’application.  Cet exemple est fourni afin d’illustrer ce qui se produit, mais il n’est pas possible de prévoir une durée exacte au-delà des valeurs approximatives illustrées ci-dessus.
- 
-## <a name="types"></a>Types de sonde
+vous pouvez supposer que la réaction à une sonde d’expiration prendra entre un minimum d’un peu plus de 10 secondes et un maximum d’un peu plus de 15 secondes pour réagir à un changement de signal de l’application.  Cet exemple est fourni afin d’illustrer ce qui se produit, mais il n’est pas possible de prévoir une durée exacte au-delà des valeurs approximatives illustrées ci-dessus.
+
+>[!NOTE]
+>La sonde d’intégrité sondera toutes les instances en cours d’exécution dans le pool de back-ends. Si une instance est arrêtée, elle ne sera pas sondée tant qu’elle n’aura pas été redémarrée.
+
+## <a name="probe-types"></a><a name="types"></a>Types de sonde
 
 Le protocole utilisé par la sonde d’intégrité peut être configuré sur l’un des éléments suivants :
 
@@ -89,14 +95,14 @@ Les protocoles disponibles dépendent de la référence SKU Load Balancer utilis
 | Référence SKU standard |    &#9989; |   &#9989; |   &#9989; |
 | Référence SKU De base |   &#9989; |   &#9989; | &#10060; |
 
-### <a name="tcpprobe"></a> Sonde TCP
+### <a name="tcp-probe"></a><a name="tcpprobe"></a> Sonde TCP
 
 Les sondes TCP établissent une connexion en effectuant une connexion TCP ouverte en trois temps au port défini.  Les sondes TCP mettent fin à une connexion avec une négociation TCP de fermeture dans quatre directions.
 
 L’intervalle minimal de sonde est de 5 secondes et le nombre minimal de réponses défaillantes est de 2.  La durée totale de tous les intervalles ne peut pas dépasser 120 secondes.
 
 Une sonde TCP échoue quand :
-* L’écouteur TCP sur l’instance ne répond pas durant toute la durée de l’opération.  Une sonde est marquée hors service en fonction du nombre de demandes ayant échoué, et qui ont été configurées pour rester sans réponse avant que la sonde ne soit marquée hors service.
+* L’écouteur TCP sur l’instance ne répond pas durant toute la durée de l’opération.  La sonde est marquée comme hors service en fonction du nombre de demandes ayant expiré et qui ont été configurées pour rester sans réponse avant que la sonde ne soit marquée hors service.
 * La sonde reçoit une réinitialisation TCP depuis l’instance.
 
 L’exemple suivant montre comment exprimer ce type de configuration de sonde dans un modèle Resource Manager :
@@ -112,7 +118,7 @@ L’exemple suivant montre comment exprimer ce type de configuration de sonde da
       },
 ```
 
-### <a name="httpprobe"></a> <a name="httpsprobe"></a> Sonde HTTP/HTTPS
+### <a name="http--https-probe"></a><a name="httpprobe"></a> <a name="httpsprobe"></a> Sonde HTTP/HTTPS
 
 >[!NOTE]
 >La sonde HTTPS est disponible uniquement pour [Standard Load Balancer](load-balancer-standard-overview.md).
@@ -157,7 +163,7 @@ L’exemple suivant montre comment exprimer ce type de configuration de sonde da
       },
 ```
 
-### <a name="guestagent"></a>Sonde d’agent invité (Classique uniquement)
+### <a name="guest-agent-probe-classic-only"></a><a name="guestagent"></a>Sonde d’agent invité (Classique uniquement)
 
 Les rôles de service cloud (rôles de travail et rôles Web) utilisent par défaut un agent invité pour la surveillance par sonde.  Une sonde d’agent invité est une configuration de dernier recours.  Utilisez toujours une sonde d’intégrité explicitement avec une sonde TCP ou HTTP. Une sonde d’agent invité n’est pas aussi efficace que les sondes définies explicitement pour la plupart des scénarios d’application.
 
@@ -172,7 +178,7 @@ Si l’agent invité répond avec un HTTP 200, l’équilibreur de charge renvoi
 Quand vous utilisez un rôle web, le code du site web s’exécute généralement dans w3wp.exe, qui n’est pas surveillé par l’agent de structure Azure ou l’agent invité. Les échecs dans w3wp.exe (par exemple, les réponses HTTP 500) ne sont pas signalés à l’agent invité. Par conséquent, l’équilibreur de charge n’accepte qu’une instance hors rotation.
 
 <a name="health"></a>
-## <a name="probehealth"></a>Comportement de sonde opérationnelle
+## <a name="probe-up-behavior"></a><a name="probehealth"></a>Comportement de sonde opérationnelle
 
 Les sondes d’intégrité TCP, HTTP et HTTPS sont considérées comme saines et annotent le point de terminaison back-end comme sain dans les cas suivants :
 
@@ -184,7 +190,7 @@ Tout point de terminaison back-end qui a atteint un état sain est éligible pou
 > [!NOTE]
 > Si la sonde d’intégrité fluctue, l’équilibreur de charge attend plus longtemps avant de replacer le point de terminaison back-end dans un état sain. Ce délai d’attente supplémentaire protège l’utilisateur et l’infrastructure. Il s’agit d’une stratégie intentionnelle.
 
-## <a name="probedown"></a>Comportement en cas de panne de sonde
+## <a name="probe-down-behavior"></a><a name="probedown"></a>Comportement en cas de panne de sonde
 
 ### <a name="tcp-connections"></a>Connexions TCP
 
@@ -205,7 +211,7 @@ UDP est sans connexion et il n’existe aucun état de flux suivi pour UDP. En c
 Si l’ensemble des sondes de l’ensemble des instances d’un pool principal échouent, les flux UDP existants prennent fin pour les équilibreurs de charge de base et standard.
 
 <a name="source"></a>
-## <a name="probesource"></a>Adresse IP source de sonde
+## <a name="probe-source-ip-address"></a><a name="probesource"></a>Adresse IP source de sonde
 
 Load Balancer utilise un service de détection distribué pour son modèle de contrôle d’intégrité interne. Le service de sondage se trouve sur chaque hôte où il y a des machines virtuelles, et il peut être programmé pour générer des sondes d’intégrité à la demande en fonction de la configuration du client. Le trafic de la sonde d’intégrité se fait directement entre le service de sondage qui génère la sonde d’intégrité et la machine virtuelle du client. Toutes les sondes d’intégrité de l’équilibreur de charge ont pour source l’adresse IP 168.63.129.16.  Vous pouvez utiliser l’espace d’adressage IP à l’intérieur d’un réseau virtuel qui n’est pas un espace RFC1918.  L’utilisation d’une adresse IP réservée au niveau mondial et détenue par Microsoft réduit le risque d’un conflit d’adresse IP avec l’espace d’adressage IP que vous utilisez au sein du réseau virtuel.  Cette adresse IP est la même dans toutes les régions et ne change pas : elle ne constitue pas un risque de sécurité, car seul le composant de la plateforme Azure interne peut émettre un paquet depuis cette adresse IP. 
 
@@ -217,7 +223,7 @@ En plus des sondes d’intégrité Load Balancer, les [opérations suivantes uti
 - Permet la communication avec le serveur virtuel DNS pour fournir la résolution de nom filtré aux clients qui ne définissent pas de serveurs DNS personnalisés.  Ce filtrage permet de s’assurer que les clients peuvent uniquement résoudre les noms d’hôte de leur déploiement.
 - Permet à la machine virtuelle d’obtenir une adresse IP dynamique auprès du service DHCP dans Azure.
 
-## <a name="design"></a> Guide de conception
+## <a name="design-guidance"></a><a name="design"></a> Guide de conception
 
 Les sondes d’intégrité sont utilisées pour améliorer la résilience de votre service et pour lui permettre d’être mis à l’échelle. Une configuration incorrecte ou un mauvais modèle de conception peut avoir un impact sur la disponibilité et la scalabilité de votre service. Passez en revue la totalité de ce document et considérez l’impact sur votre scénario quand la réponse de cette sonde est négative ou positive, et comment elle impacte la disponibilité du scénario de votre application.
 

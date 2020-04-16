@@ -1,24 +1,24 @@
 ---
-title: Options de performance – Hyperscale (Citus) – Azure Database pour PostgreSQL
+title: Options de configuration – Hyperscale (Citus) – Azure Database pour PostgreSQL
 description: Options pour un groupe de serveurs Hyperscale (Citus), notamment le nœud de calcul, le stockage et les régions.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 2/18/2020
-ms.openlocfilehash: 1c9b4b1099bda69764aa7a1a5a984a6316e1047d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/6/2020
+ms.openlocfilehash: a2c376ec2bd1f03b626c11b0d6a6c3850c9ef8c4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462409"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804586"
 ---
-# <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Azure Database pour PostgreSQL - Options de performance d’Hyperscale (Citus)
+# <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database pour PostgreSQL - Options de configuration d’Hyperscale (Citus)
 
 ## <a name="compute-and-storage"></a>Calcul et stockage
  
-Vous pouvez sélectionner les paramètres de calcul et de stockage indépendamment pour les nœuds Worker et le nœud coordinateur dans un groupe de serveurs Hyperscale (Citus).  Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. La taille de stockage pour l’approvisionnement fait référence à la capacité disponible pour les nœuds coordinateur et Worker dans votre groupe de serveurs Hyperscale (Citus). Le stockage inclut les fichiers de base de données, les fichiers temporaires, les journaux d’activité de transaction et les journaux d’activité du serveur PostgreSQL. La quantité totale de stockage que vous approvisionnez définit également la capacité d’E/S disponible sur chaque nœud Worker et coordinateur.
+Vous pouvez sélectionner les paramètres de calcul et de stockage indépendamment pour les nœuds Worker et le nœud coordinateur dans un groupe de serveurs Hyperscale (Citus).  Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. La taille de stockage pour l’approvisionnement fait référence à la capacité disponible pour les nœuds coordinateur et Worker dans votre groupe de serveurs Hyperscale (Citus). Le stockage inclut les fichiers de base de données, les fichiers temporaires, les journaux d’activité de transaction et les journaux d’activité du serveur PostgreSQL.
  
 |                       | Nœud Worker           | Nœud coordinateur      |
 |-----------------------|-----------------------|-----------------------|
@@ -28,11 +28,52 @@ Vous pouvez sélectionner les paramètres de calcul et de stockage indépendamme
 | Type de stockage          | Usage général (SSD) | Usage général (SSD) |
 | E/S par seconde                  | Jusqu’à 3 IOPS/Gio      | Jusqu’à 3 IOPS/Gio      |
 
+La quantité totale de mémoire RAM dans un seul nœud Hyperscale (Citus) est basée sur le nombre de vCores sélectionné.
+
+| vCores | Un nœud Worker, Gio de RAM | Nœud coordinateur, Gio de RAM |
+|--------|--------------------------|---------------------------|
+| 4      | 32                       | 16                        |
+| 8      | 64                       | 32                        |
+| 16     | 128                      | 64                        |
+| 32     | 256                      | 128                       |
+| 64     | 432                      | 256                       |
+
+La quantité totale de stockage que vous approvisionnez définit également la capacité d’E/S disponible sur chaque nœud Worker et coordinateur.
+
+| Taille de stockage, Tio | Nombre maximal d’E/S par seconde |
+|-------------------|--------------|
+| 0.5               | 1 536        |
+| 1                 | 3 072        |
+| 2                 | 6 148        |
+
+Pour l’ensemble du cluster Hyperscale (Citus), les IOPS agrégées présentent les valeurs suivantes :
+
+| Nœuds de travail | 0,5 Tio, IOPS totales | 1 Tio, IOPS totales | 2 Tio, IOPS totales |
+|--------------|---------------------|-------------------|-------------------|
+| 2            | 3 072               | 6 144             | 12 296            |
+| 3            | 4 608               | 9 216             | 18 444            |
+| 4            | 6 144               | 12 288            | 24 592            |
+| 5            | 7 680               | 15 360            | 30 740            |
+| 6            | 9 216               | 18 432            | 36 888            |
+| 7            | 10 752              | 21 504            | 43 036            |
+| 8            | 12 288              | 24 576            | 49 184            |
+| 9            | 13 824              | 27 648            | 55 332            |
+| 10           | 15 360              | 30 720            | 61 480            |
+| 11           | 16 896              | 33 792            | 67 628            |
+| 12           | 18 432              | 36 864            | 73 776            |
+| 13           | 19 968              | 39 936            | 79 924            |
+| 14           | 21 504              | 43 008            | 86 072            |
+| 15           | 23,040              | 46 080            | 92 220            |
+| 16           | 24 576              | 49 152            | 98 368            |
+| 17           | 26 112              | 52 224            | 104 516           |
+| 18           | 27 648              | 55 296            | 110 664           |
+| 19           | 29 184              | 58 368            | 116 812           |
+| 20           | 30 720              | 61 440            | 122 960           |
 
 ## <a name="regions"></a>Régions
 Les groupes de serveurs Hyperscale (Citus) sont disponibles dans les régions Azure suivantes :
 
-* Amérique :
+* États-Unis:
     * Centre du Canada
     * USA Centre
     * USA Est

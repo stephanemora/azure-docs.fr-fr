@@ -3,18 +3,18 @@ title: Questions fréquentes (FAQ) sur les conteneurs Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Obtenez des réponses aux questions fréquemment posées.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: dapine
-ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73961892"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876504"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs Azure Cognitive Services
 
@@ -120,7 +120,7 @@ Explorez les étiquettes suivantes pour trouver des questions et des réponses c
  
 **Q : Quelle est la garantie actuelle en matière de prise en charge des conteneurs ?**
 
-**R :** Les préversions ne bénéficient d’aucune garantie. La garantie standard de Microsoft pour les logiciels d’entreprise s’appliquera une fois les conteneurs mis à la disposition générale, ce qui fera l’objet d’une annonce officielle.
+**R :** Les préversions ne bénéficient d’aucune garantie. La garantie standard de Microsoft pour les logiciels d’entreprise s’appliquera une fois les conteneurs formellement annoncés comme étant en disponibilité générale.
  
 **Q : Qu’advient-il des conteneurs Cognitive Services quand la connectivité Internet est perdue ?**
 

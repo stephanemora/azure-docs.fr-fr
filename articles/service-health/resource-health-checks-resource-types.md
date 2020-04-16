@@ -3,12 +3,12 @@ title: Types de ressource pris en charge par Azure Resource Health | Microsoft D
 description: Types de ressource pris en charge par Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f5d1c720d3cbafafc81276a968abf2003bbd46ce
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303951"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478905"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -41,17 +41,22 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Vérifications exécutées|
 |---|
-|<ul><li>Le serveur hôte est-il en cours d’exécution ?</li><li>Le démarrage du système d’exploitation hôte est-il terminé ?</li><li>Le conteneur de machine virtuelle est-il configuré et sous tension ?</li><li>Existe-t-il une connectivité réseau entre l’hôte et le compte de stockage ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li></ul>|
+|<ul><li>Le serveur hôte est-il en cours d’exécution ?</li><li>Le démarrage du système d’exploitation hôte est-il terminé ?</li><li>Le conteneur de machine virtuelle est-il configuré et sous tension ?</li><li>Existe-t-il une connectivité réseau entre l’hôte et le compte de stockage ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li><li>Le matériel hôte est-il détérioré, avec la prévision d’une panne imminente ?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Vérifications exécutées|
 |---|
 |<ul><li>Le compte peut-il être joint à partir du centre de données ?</li><li>Le fournisseur de ressources Cognitive Services est-il disponible ?</li><li>Cognitive Service est-il disponible dans la région appropriée ?</li><li>Les opérations de lecture peuvent-elles être effectuées sur le compte de stockage contenant les métadonnées des ressources ?</li><li>Le quota d’appels à l’API a-t-il été atteint ?</li><li>La limite de lecture d’appels à l’API a-t-elle été atteinte ?</li></ul>|
 
+## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
+|Vérifications exécutées|
+|---|
+|<ul><li>L’hôte est-il opérationnel ?</li><li>Le matériel hôte est-il détérioré ?</li><li>L’hôte est-il désalloué ?</li><li>Le matériel hôte a-t-il été réparé par service sur un autre matériel ?</li></ul>|
+
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Vérifications exécutées|
 |---|
-|<ul><li>Est-ce que le serveur d’hébergement de cette machine virtuelle est en cours d’exécution ?</li><li>Le démarrage du système d’exploitation hôte est-il terminé ?</li><li>Le conteneur de machine virtuelle est-il configuré et sous tension ?</li><li>Existe-t-il une connectivité réseau entre l’hôte et le compte de stockage ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li></ul>|
+|<ul><li>Est-ce que le serveur d’hébergement de cette machine virtuelle est en cours d’exécution ?</li><li>Le démarrage du système d’exploitation hôte est-il terminé ?</li><li>Le conteneur de machine virtuelle est-il configuré et sous tension ?</li><li>Existe-t-il une connectivité réseau entre l’hôte et le compte de stockage ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li><li>Le matériel hôte est-il détérioré, avec la prévision d’une panne imminente ?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Vérifications exécutées|
@@ -188,6 +193,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Les clients rencontrent-ils des erreurs Service Bus générées par les utilisateurs ?</li><li>Les utilisateurs rencontrent-ils une augmentation des erreurs transitoires dues à une mise à niveau de l’espace de nommage Service Bus ?</li></ul>|
+
+## <a name="microsoftservicefabricclusters"></a>Microsoft.ServiceFabric/clusters
+|Vérifications exécutées|
+|---|
+|<ul><li>Le cluster Service Fabric est-il opérationnel ?</li><li>Le cluster Service Fabric peut-il être géré via Azure Resource Manager ?</li></ul>|
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.SQL/managedInstances/databases
 |Vérifications exécutées|

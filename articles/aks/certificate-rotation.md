@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3c22f63b7085c7ab8d6b54e383528568dc9c12e7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917031"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549070"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Effectuer une rotation des certificats dans Azure Kubernetes Service (AKS)
 
@@ -32,12 +32,12 @@ AKS génère et utilise les certificats, autorités de certification et comptes 
 * Chaque kubelet crée également une demande de signature de certificat (CSR), qui est signée par l’autorité de certification de cluster, pour la communication du kubelet vers le serveur d’API.
 * Le magasin de valeurs de clés etcd dispose d’un certificat signé par l’autorité de certification de cluster, pour la communication émanant de etcd à destination du serveur d’API.
 * Le magasin de valeurs de clé etcd crée une autorité de certification qui signe les certificats pour authentifier et autoriser la réplication des données entre les réplicas etcd du cluster AKS.
-* L’agrégation d’API utilise l’autorité de certification de cluster pour émettre des certificats destinés à la communication avec d’autres API, telles que Open Service Broker pour Azure. L’agrégation d’API peut également disposer de sa propre autorité de certification pour émettre ces certificats, mais elle utilise actuellement l’autorité de certification de cluster.
+* L’agrégation d’API utilise l’autorité de certification de cluster pour émettre des certificats destinés à la communication avec d’autres API. L’agrégation d’API peut également disposer de sa propre autorité de certification pour émettre ces certificats, mais elle utilise actuellement l’autorité de certification de cluster.
 * Chaque nœud utilise un jeton de compte de service (SA), qui est signé par l’autorité de certification de cluster.
 * Le client `kubectl` dispose d’un certificat pour communiquer avec le cluster AKS.
 
 > [!NOTE]
-> Les clusters AKS créés avant le mois de mars 2019 possèdent des certificats qui expirent au bout de deux ans. Tout cluster créé après mars 2019 ou tout cluster dont la rotation des certificats a été effectuée dispose de certificats qui expirent au bout de 30 ans. Pour vérifier à quel moment votre cluster a été créé, utilisez `kubectl get nodes` pour afficher l’*âge* de vos pools de nœuds.
+> Les clusters AKS créés avant le mois de mars 2019 possèdent des certificats qui expirent au bout de deux ans. Tout cluster créé après mars 2019, et tout cluster dont la rotation des certificats a été effectuée, dispose de certificats d’autorité de certification de cluster qui expirent au bout de 30 ans. Tous les autres certificats expirent au bout de deux ans. Pour vérifier à quel moment votre cluster a été créé, utilisez `kubectl get nodes` pour afficher l’*âge* de vos pools de nœuds.
 > 
 > En outre, vous pouvez vérifier la date d’expiration du certificat de votre cluster. Par exemple, la commande suivante affiche les détails du certificat pour le cluster *myAKSCluster*.
 > ```console
@@ -52,13 +52,13 @@ AKS génère et utilise les certificats, autorités de certification et comptes 
 
 Utilisez [az aks get-credentials][az-aks-get-credentials] pour vous connecter à votre cluster AKS. Cette commande télécharge et configure également le certificat client `kubectl` sur votre machine locale.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 Utilisez `az aks rotate-certs` pour procéder à la rotation de tous les certificats, autorités de certification et comptes de services de votre cluster.
 
-```console
+```azurecli
 az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
@@ -74,7 +74,7 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 
 Mettez à jour le certificat utilisé par `kubectl` en exécutant `az aks get-credentials`.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 

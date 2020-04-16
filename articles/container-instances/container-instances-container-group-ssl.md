@@ -1,26 +1,26 @@
 ---
-title: Activer SSL avec un conteneur side-car
+title: Activer TLS avec un conteneur side-car
 description: Créer un point de terminaison SSL ou TLS pour un groupe de conteneurs exécuté sur Azure Container Instances en exécutant Nginx dans un conteneur side-car
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 43b39c7c13d6d5e52aae2ce1706e4880ab27d225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294943"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984604"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Activer un point de terminaison SSL dans un conteneur side-car
+# <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Activer un point de terminaison TLS dans un conteneur side-car
 
-Cet article montre comment créer un [groupe de conteneurs](container-instances-container-groups.md) avec un conteneur d’application et un conteneur side-car exécutant un fournisseur SSL. En configurant un groupe de conteneurs avec un point de terminaison SSL distinct, vous activez les connexions SSL pour votre application sans modifier votre code d’application.
+Cet article montre comment créer un [groupe de conteneurs](container-instances-container-groups.md) avec un conteneur d’application et un conteneur side-car exécutant un fournisseur SSL/TLS. En configurant un groupe de conteneurs avec un point de terminaison TLS distinct, vous activez les connexions TLS pour votre application sans modifier votre code d’application.
 
 Vous configurez un exemple de groupe de conteneurs composé de deux conteneurs :
 * Un conteneur d’applications qui exécute une application web simple à l’aide de l’image [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) Microsoft publique. 
-* Un conteneur side-car exécutant l’image [Nginx](https://hub.docker.com/_/nginx) publique, configuré pour utiliser SSL. 
+* Un conteneur side-car exécutant l’image [Nginx](https://hub.docker.com/_/nginx) publique, configuré pour utiliser TLS. 
 
 Dans cet exemple, le groupe de conteneurs expose uniquement le port 443 pour Nginx avec son adresse IP publique. Nginx achemine les requêtes HTTPS vers l’application web, qui écoute en interne sur le port 80. Vous pouvez adapter l’exemple pour les applications de conteneur qui écoutent sur les autres ports. 
 
-Reportez-vous à la section [Étapes suivantes](#next-steps) pour découvrir d'autres approches d'activation du protocole SSL dans un groupe de conteneurs.
+Consultez la section [Étapes suivantes](#next-steps) pour découvrir d’autres approches d’activation du protocole TLS dans un groupe de conteneurs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -28,9 +28,9 @@ Pour suivre cet article, vous pouvez utiliser Azure Cloud Shell ou une installat
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
-Pour configurer Nginx en tant que fournisseur SSL, vous avez besoin d’un certificat SSL. Cet article explique comment créer et configurer un certificat SSL auto-signé. Pour les scénarios de production, vous devez obtenir un certificat délivré par une autorité de certification.
+Pour configurer Nginx en tant que fournisseur TLS, vous avez besoin d’un certificat TLS/SSL. Cet article explique comment créer et configurer un certificat TLS/SSL auto-signé. Pour les scénarios de production, vous devez obtenir un certificat délivré par une autorité de certification.
 
-Pour créer un certificat SSL auto-signé, utilisez l’outil [OpenSSL](https://www.openssl.org/) disponible dans Azure Cloud Shell et de nombreuses distributions Linux, ou utilisez un outil client comparables de votre système d’exploitation.
+Pour créer un certificat TLS/SSL auto-signé, utilisez l’outil [OpenSSL](https://www.openssl.org/) disponible dans Azure Cloud Shell et de nombreuses distributions Linux, ou utilisez un outil client comparables de votre système d’exploitation.
 
 Commencez par créer une demande de certificat (fichier .csr) dans un répertoire de travail local :
 
@@ -48,11 +48,11 @@ openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 
 Vous devriez maintenant voir trois fichiers dans le répertoire : la demande de certificat (`ssl.csr`), la clé privée (`ssl.key`) et le certificat auto-signé (`ssl.crt`). Vous utilisez `ssl.key` et `ssl.crt` dans les étapes ultérieures.
 
-## <a name="configure-nginx-to-use-ssl"></a>Configurer Nginx pour utiliser SSL
+## <a name="configure-nginx-to-use-tls"></a>Configurer Nginx pour utiliser TLS
 
 ### <a name="create-nginx-configuration-file"></a>Créer un fichier de configuration Nginx
 
-Dans cette section, vous créez un fichier de configuration afin que Nginx utilise SSL. Commencez par copier le texte suivant dans un nouveau fichier nommé `nginx.conf`. Dans Azure Cloud Shell, vous pouvez utiliser Visual Studio Code pour créer le fichier dans votre répertoire de travail :
+Dans cette section, vous allez créer un fichier de configuration afin que Nginx utilise TLS. Commencez par copier le texte suivant dans un nouveau fichier nommé `nginx.conf`. Dans Azure Cloud Shell, vous pouvez utiliser Visual Studio Code pour créer le fichier dans votre répertoire de travail :
 
 ```console
 code nginx.conf
@@ -93,7 +93,7 @@ http {
         ssl_ciphers                ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-RC4-SHA:AES128:AES256:RC4-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK;
         ssl_prefer_server_ciphers  on;
 
-        # Optimize SSL by caching session parameters for 10 minutes. This cuts down on the number of expensive SSL handshakes.
+        # Optimize TLS/SSL by caching session parameters for 10 minutes. This cuts down on the number of expensive TLS/SSL handshakes.
         # The handshake is the most CPU-intensive operation, and by default it is re-negotiated on every new/parallel connection.
         # By enabling a cache (of type "shared between all Nginx workers"), we tell the client to re-use the already negotiated state.
         # Further optimization can be achieved by raising keepalive_timeout, but that shouldn't be done unless you serve primarily HTTPS.
@@ -124,7 +124,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Encoder les secrets et le fichier de configuration au format Base64
 
-Encodez le fichier de configuration Nginx, le certificat SSL et la clé SSL au format Base64. Dans la section suivante, vous entrez le contenu encodé dans un fichier YAML qui permet de déployer le groupe de conteneurs.
+Encodez le fichier de configuration Nginx, le certificat TLS/SSL et la clé TLS au format Base64. Dans la section suivante, vous entrez le contenu encodé dans un fichier YAML qui permet de déployer le groupe de conteneurs.
 
 ```console
 cat nginx.conf | base64 > base64-nginx.conf
@@ -221,7 +221,7 @@ Name          ResourceGroup    Status    Image                                  
 app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="verify-ssl-connection"></a>Vérifier la connexion SSL
+## <a name="verify-tls-connection"></a>Vérifier la connexion TLS
 
 Utilisez votre navigateur pour accéder à l’adresse IP publique du groupe de conteneurs. L’adresse IP indiquée dans cet exemple étant `52.157.22.76`, l’URL est **https://52.157.22.76** . Vous devez utiliser HTTPS pour voir l’application en cours d’exécution, en raison de la configuration du serveur Nginx. Les tentatives de connexion via HTTP échouent.
 
@@ -234,11 +234,11 @@ Utilisez votre navigateur pour accéder à l’adresse IP publique du groupe de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a montré comment configurer un conteneur Nginx pour activer les connexions SSL à une application web exécutée dans le groupe de conteneurs. Vous pouvez adapter cet exemple pour les applications qui écoutent sur les ports autres que le port 80. Vous pouvez également mettre à jour le fichier de configuration Nginx pour rediriger automatiquement les connexions au serveur sur le port 80 (HTTP) afin d’utiliser le protocole HTTPS.
+Cet article vous a montré comment configurer un conteneur Nginx pour activer les connexions TLS à une application web exécutée dans le groupe de conteneurs. Vous pouvez adapter cet exemple pour les applications qui écoutent sur les ports autres que le port 80. Vous pouvez également mettre à jour le fichier de configuration Nginx pour rediriger automatiquement les connexions au serveur sur le port 80 (HTTP) afin d’utiliser le protocole HTTPS.
 
-Bien que cet article utilise Nginx pour le conteneur side-car, vous pouvez utiliser un autre fournisseur SSL comme [Caddy](https://caddyserver.com/).
+Bien que cet article utilise Nginx pour le conteneur side-car, vous pouvez utiliser un autre fournisseur TLS comme [Caddy](https://caddyserver.com/).
 
-Si vous déployez votre groupe de conteneurs dans un [réseau virtuel Azure](container-instances-vnet.md), vous pouvez envisager d'autres options afin d'activer un point de terminaison SSL pour une instance de conteneur principal, notamment :
+Si vous déployez votre groupe de conteneurs sur un [réseau virtuel Azure](container-instances-vnet.md), vous pouvez envisager d’autres options afin d’activer un point de terminaison TLS pour une instance de conteneur back-end, notamment :
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Gestion des API Azure](../api-management/api-management-key-concepts.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 786b21e7571ed173d2da90f587a5b76d8c92a13d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95a70a1d0c4367adb1dd276bff1b1eb20caafc59
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235853"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473384"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
@@ -202,7 +202,7 @@ Les journaux de flux comportent les champs suivants :
 - Type de protocole 
 - Action effectuée pendant la prévention
 
-
+L’analyse des attaques ne fonctionnera que si la protection DDoS standard est activée sur le réseau virtuel de l’adresse IP publique. 
 
 ## <a name="validate-ddos-detection"></a>Valider la détection d’une attaque DDoS
 

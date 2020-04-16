@@ -1,6 +1,6 @@
 ---
 title: Limites de capacité - Azure Synapse Analytics (anciennement SQL DW)
-description: Valeurs maximales autorisées pour les différents composants de SQL Analytics dans Azure Synapse.
+description: Valeurs maximales autorisées pour les différents composants d’un pool SQL Synapse dans Azure Synapse.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a0343dd55149fa3c2c17af1f246595a56e4c6ec2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350077"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414000"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacité Azure Synapse Analytics (anciennement SQL DW)
 
@@ -42,7 +42,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure Synapse.
 | Table de charge de travail |Taille maximale |Taille illimitée pour les tables columnstore. <br>60 To pour les tables rowstore, compressés sur disque. |
 | Table de charge de travail |Tables par base de données | 100 000 |
 | Table de charge de travail |Colonnes par table |1 024 colonnes |
-| Table de charge de travail |Octets par colonne |Dépend de la colonne [type de données](sql-data-warehouse-tables-data-types.md). Pour les types de données caractères, la limite maximale peut stocker jusqu’à 2 Go de données en dehors de la page (dépassement de ligne).  La limite des caractères non unicode tels que char ou varchar est de 8 000 par page de données contre 4 000 pour les caractères unicode tels que nchar ou nvarchar.  Utilisez les tailles de stockage des pages de données pour améliorer les performances. |
+| Table de charge de travail |Octets par colonne |Dépend de la colonne [type de données](sql-data-warehouse-tables-data-types.md). La limite est de 8 000 pour les types de données Char, de 4 000 pour nvarchar ou 2 Go pour les types de données MAX. |
 | Table de charge de travail |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, le stockage de dépassement de ligne est pris en charge, permettant d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez [Données de dépassement de ligne de plus de 8 Ko](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Table de charge de travail |Partitions par table |15,000<br/><br/>Pour des performances élevées, nous vous recommandons de réduire au minimum le nombre de partitions nécessaires tout en prenant quand même en charge les besoins de votre entreprise. À mesure que le nombre de partitions augmente, la charge pour les opérations Langage de définition de données (DDL) et Langage de manipulation de données (DML) augmente et ralentit les performances. |
 | Table de charge de travail |Caractères par valeur limite de partition. |4000 |

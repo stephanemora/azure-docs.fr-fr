@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a048ddefbcd76193436da13cd3ba68b8b6ffb0a
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75691015"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607590"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
 
@@ -95,7 +95,7 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication. 
 - Un partage de compte de stockage Azure pour le répertoire de travail utilisé par la réplication. 
 - Le port 445 (TCP sortant) doit être ouvert dans les règles de sécurité du sous-réseau de l’instance managée pour accéder au partage de fichiers Azure. 
-- Le port 1433 (TCP sortant) doit être ouvert si les serveurs de publication/distribution se trouvent sur une instance managée et que l’Abonné est local.
+- Le port 1433 (TCP sortant) doit être ouvert si les serveurs de publication/distribution se trouvent sur une instance managée et que l’abonné ne s’y trouve pas. Il vous faudra peut-être aussi modifier la règle de sécurité de trafic sortant du groupe de sécurité réseau de l’instance managée pour `allow_linkedserver_outbound` pour l’**Étiquette Service de destination** du port 1433 (en remplaçant `virtualnetwork` par `internet`). 
 - Tous les types de participants à la réplication (serveur de publication, serveur de distribution, abonné d’extraction et abonné de type push) peuvent être placés sur des instances gérées, mais le serveur de publication et le serveur de distribution doivent être tous deux dans le cloud ou locaux.
 - Si l’éditeur, le distributeur et/ou l’abonné existent dans différents réseaux virtuels, le peering VPN doit être établi entre chaque entité, de telle sorte qu’il existe un peering VPN entre l’éditeur et le distributeur et/ou entre le distributeur et l’abonné. 
 

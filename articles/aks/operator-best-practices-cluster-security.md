@@ -1,15 +1,16 @@
 ---
-title: Meilleures pratiques de l’opérateur - Sécurité du cluster dans Azure Kubernetes Service (AKS)
+title: Bonnes pratiques relatives à la sécurité du cluster
+titleSuffix: Azure Kubernetes Service
 description: Découvrir les meilleures pratiques de l’opérateur relatives à la gestion des mises à jour et de la sécurité du cluster dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: f02f6588946e2b63a1a092aba15603d1685e8207
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d4e8577116ba1d78aaa881887f64e71c04af4f2
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594802"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668328"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service (AKS)
 

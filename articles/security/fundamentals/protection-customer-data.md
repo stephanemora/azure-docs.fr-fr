@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726676"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811429"
 ---
 # <a name="azure-customer-data-protection"></a>Protection des données client Azure   
 L’accès aux données clientes par le personnel des opérations et du support Microsoft est refusé par défaut. Lorsque l’accès aux données clientes est accordé, l’approbation de la direction est obligatoire, puis l’accès est géré et journalisé avec soin. Les conditions de contrôle d’accès sont établies par la stratégie de sécurité Azure suivante :
@@ -45,7 +45,7 @@ Azure fournit aux clients une sécurité renforcée des données, à la fois par
 - Le client et le cloud.
 - En interne entre les centres de données et les systèmes Azure.
 
-**Chiffrement** : le chiffrement des données en stockage et en transit peut être déployé par les clients comme bonne pratique pour garantir la confidentialité et l'intégrité des données. Il est très facile pour les clients de configurer leurs services cloud Azure de sorte à utiliser SSL pour protéger les communications à partir d’Internet et même entre leurs machines virtuelles Azure hébergées.
+**Chiffrement** : le chiffrement des données en stockage et en transit peut être déployé par les clients comme bonne pratique pour garantir la confidentialité et l'intégrité des données. Il est très facile pour les clients de configurer leurs services cloud Azure de façon à utiliser TLS pour protéger les communications à partir d’Internet et même entre leurs machines virtuelles hébergées dans Azure.
 
 **Redondance des données** : Microsoft contribue à assurer la protection des données en cas de cyberattaque ou de dommages physiques sur un centre de données. Les clients peuvent choisir :
 

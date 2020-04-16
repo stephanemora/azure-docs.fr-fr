@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: d4304abf0ca089fbbea86f12cd03dea836db612e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368358"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521305"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autoriser l’accès à Azure Event Hubs
 Chaque fois que vous publiez ou utilisez des événements/données à partir d'un hub d'événements, votre client tente d'accéder aux ressources Event Hubs. Chaque demande adressée à une ressource sécurisée doit être autorisée afin que le service puisse vérifier que le client dispose des autorisations requises pour publier/utiliser les données. 
@@ -27,7 +27,7 @@ Pour autoriser l'accès aux ressources sécurisées, Azure Event Hubs propose le
 > Cet article s’applique à la fois aux scénarios Event Hubs et [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-L'intégration Azure Active Directory (Azure AD) pour les ressources Event Hubs fournit un contrôle d'accès en fonction du rôle (RBAC) pour un contrôle affiné de l'accès d'un client aux ressources. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Le principal de sécurité est authentifié par Azure AD pour retourner un jeton OAuth 2.0. Le jeton peut être utilisé pour autoriser une demande d'accès à une ressource Event Hubs.
+L’intégration Azure Active Directory (Azure AD) pour les ressources Event Hubs fournit un contrôle d’accès en fonction du rôle (RBAC) pour un contrôle affiné de l’accès d’un client aux ressources. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Le principal de sécurité est authentifié par Azure AD pour retourner un jeton OAuth 2.0. Le jeton peut être utilisé pour autoriser une demande d'accès à une ressource Event Hubs.
 
 Pour plus d’informations sur l’authentification avec Azure AD, consultez les articles suivants :
 
@@ -39,7 +39,7 @@ Les signatures d'accès partagé (SAP) des ressources Event Hubs fournissent un 
 
 Le fait d'autoriser des utilisateurs ou des applications à l'aide d'un jeton OAuth 2.0 renvoyé par Azure AD confère une sécurité et une facilité d'utilisation supérieures à ce qu'offrent les signatures d'accès partagé. Avec Azure AD, il n'est pas nécessaire de stocker les jetons d'accès avec votre code et de risquer d'éventuelles failles de sécurité. Vous pouvez continuer à utiliser des signatures d'accès partagé pour accorder un accès affiné aux ressources Event Hubs. Mais sachez qu'Azure AD offre des fonctionnalités similaires qui ne nécessitent aucune gestion des jetons SAS ni aucune révocation des signatures d'accès partagé compromises. 
 
-Par défaut, toutes les ressources Event Hubs sont sécurisées, et le propriétaire du compte est le seul à y avoir accès. Cela dit, vous pouvez utiliser n'importe laquelle des stratégies d'autorisation décrites ci-dessus pour permettre aux clients d'accéder aux ressources Event Hubs. Seules les ressources Event Hubs créées avec le modèle de déploiement Azure Resource Manager prennent en charge l'autorisation Azure AD. Chaque fois que possible, Microsoft recommande d'utiliser Azure AD pour un maximum de sécurité et de facilité d'utilisation.
+Par défaut, toutes les ressources Event Hubs sont sécurisées, et le propriétaire du compte est le seul à y avoir accès. Cela dit, vous pouvez utiliser n'importe laquelle des stratégies d'autorisation décrites ci-dessus pour permettre aux clients d'accéder aux ressources Event Hubs. Chaque fois que possible, Microsoft recommande d'utiliser Azure AD pour un maximum de sécurité et de facilité d'utilisation.
 
 Pour plus d'informations sur l'autorisation à l'aide de SAS, consultez [Autoriser l'accès aux ressources Event Hubs à l'aide de signatures d'accès partagé](authorize-access-shared-access-signature.md).
 

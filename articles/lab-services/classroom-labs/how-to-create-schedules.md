@@ -1,6 +1,6 @@
 ---
-title: Créer une planification pour laboratoire de classe dans Azure Lab Services | Microsoft Docs
-description: Découvrez comment créer des planifications pour laboratoires de classe dans Azure Lab Services de sorte que les machines virtuelles utilisées dans les laboratoires démarrent et s’arrêtent à une heure précise.
+title: Créer une planification pour des labos de classe dans Azure Lab Services | Microsoft Docs
+description: Découvrez comment créer des planifications pour des labos de classe dans Azure Lab Services de sorte que les machines virtuelles utilisées dans les labos démarrent et s’arrêtent à une heure précise.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,21 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72330543"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667765"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Créer et gérer des planifications pour laboratoires de classe dans Azure Lab Services 
-Les planifications vous permettent de configurer un laboratoire de classe de sorte que les machines virtuelles utilisées dans le laboratoire démarrent et s’arrêtent automatiquement à une heure précise. Vous pouvez définir une planification ponctuelle ou périodique. Les procédures suivantes décrivent comment créer et gérer des planifications pour un laboratoire de classe : 
+# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Créer et gérer des planifications pour des labos de classe dans Azure Lab Services 
+Les planifications vous permettent de configurer un labo de classe de sorte que les machines virtuelles utilisées dans le labo démarrent et s’arrêtent automatiquement à une heure précise. Vous pouvez définir une planification ponctuelle ou périodique. Les procédures suivantes décrivent comment créer et gérer des planifications pour un labo de classe : 
 
 > [!IMPORTANT]
 > Le temps d’exécution planifié des machines virtuelles ne compte pas dans le [quota alloué à un utilisateur](how-to-configure-student-usage.md#set-quotas-for-users). Le quota s’applique au temps pendant lequel un étudiant utilise les machines virtuelles en dehors des heures planifiées. 
 
-## <a name="set-a-schedule-for-the-lab"></a>Définir un calendrier pour le laboratoire
+## <a name="set-a-schedule-for-the-lab"></a>Définir un calendrier pour le labo
 Créez un événement planifié pour le labo de sorte que les machines virtuelles du labo démarrent ou s’arrêtent automatiquement à des moments précis. Le quota utilisateur que vous avez spécifié précédemment est le temps supplémentaire attribué à chaque utilisateur en dehors de ces heures planifiées. 
+
+> [!NOTE]
+> Avant de commencer, voici comment les planifications affectent les machines virtuelles de labo : 
+>- Le modèle de machine virtuelle n’est pas inclus dans les planifications. 
+>- Seules les machines virtuelles affectées sont démarrées. Cela signifie que si une machine n’est pas demandée par un utilisateur final (étudiant), elle ne démarrera pas aux heures planifiées. 
+>- Toutes les machines virtuelles (qu’elles soient demandées par un utilisateur ou non) sont arrêtées en fonction de la planification du labo. 
 
 1. Basculez vers la page **Planifications**, puis, dans la barre d’outils, sélectionnez **Ajouter un événement planifié**. 
 

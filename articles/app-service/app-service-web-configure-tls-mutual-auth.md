@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300999"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811734"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurer l’authentification mutuelle TLS pour Azure App Service
 
@@ -24,7 +24,7 @@ Vous pouvez restreindre l’accès à votre application Azure App Service en act
 
 ## <a name="enable-client-certificates"></a>Activer les certificats clients
 
-Pour configurer votre application afin qu’elle impose des certificats clients, vous devez affecter la valeur `clientCertEnabled` au paramètre `true`. Pour définir ce paramètre, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com).
+Pour configurer votre application afin qu’elle impose des certificats clients, vous devez affecter la valeur `true` au paramètre `clientCertEnabled`. Pour définir ce paramètre, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
@@ -41,7 +41,7 @@ Pour ce faire, sélectionnez **Configuration** > **Paramètres généraux** et d
 
 ## <a name="access-client-certificate"></a>Accéder au certificat client
 
-Dans App Service, l’arrêt de la requête SSL se produit sur l’équilibreur de charge front-end. Durant le transfert de la requête vers votre code d’application comportant l’[activation des certificats clients](#enable-client-certificates), App Service injecte un en-tête de requête `X-ARR-ClientCert` avec le certificat client. App Service ne fait rien d’autre avec ce certificat client que de le transférer à votre application. Votre code d’application est responsable de la validation du certificat client.
+Dans App Service, l’arrêt TLS de la requête se produit sur l’équilibreur de charge front-end. Durant le transfert de la requête vers votre code d’application comportant l’[activation des certificats clients](#enable-client-certificates), App Service injecte un en-tête de requête `X-ARR-ClientCert` avec le certificat client. App Service ne fait rien d’autre avec ce certificat client que de le transférer à votre application. Votre code d’application est responsable de la validation du certificat client.
 
 Pour ASP.NET, le certificat client est disponible via la propriété **HttpRequest.ClientCertificate**.
 

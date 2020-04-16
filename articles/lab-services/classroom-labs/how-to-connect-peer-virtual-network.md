@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e013011f81542aa279ba9276a6a1aac01eb9e41
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 224526efc2152e0b788c5cbc7f3bd60bb3363c1a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443184"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545705"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connecter un réseau lab avec un réseau virtuel pair dans Azure Lab Services 
 Cet article fournit des informations concernant le Peering de votre réseau lab avec un autre réseau. 
@@ -33,8 +33,13 @@ Il vous faudra peut-être connecter votre réseau lab avec un réseau virtuel pa
 
 Certains des réseaux locaux sont connectés au réseau virtuel Azure via [ExpressRoute](../../expressroute/expressroute-introduction.md) ou via la [Passerelle de réseau virtuel](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Ces services doivent être configurés en dehors de Azure Lab Services. Pour en savoir plus sur la connexion d’un réseau local à Azure à l’aide d’ExpressRoute, consultez [Vue d’ensemble d’ExpressRoute](../../expressroute/expressroute-introduction.md). Pour la connectivité locale à l’aide d’une passerelle de réseau virtuel, la passerelle, le réseau virtuel spécifié et le compte lab doivent tous être situés dans la même région.
 
+> [!NOTE]
+> Lors de la création d’un réseau virtuel Azure qui sera jumelé avec un compte de laboratoire, il est important de comprendre comment la région du réseau virtuel affecte l’emplacement où les laboratoires sont créés.  Pour plus d’informations, reportez-vous à la section du Guide de l’administrateur relative aux [régions et emplacements](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations).
+
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Effectuer la configuration au moment de la création du compte lab
 Lors de la création du nouveau compte lab, vous pouvez choisir un réseau virtuel existant qui s’affiche dans la liste déroulante **Appairer un réseau virtuel** dans l’onglet **Avancé**. Le réseau virtuel sélectionné est connecté aux labs créés sous le compte lab. Toutes les machines virtuelles des labs qui sont créées après la création de cette modification auront accès aux ressources sur le réseau virtuel pair. 
+
+Il est également possible de spécifier une **plage d’adresses** de machines virtuelles pour les labs. Si la plage d’adresses est spécifiée, toutes les machines virtuelles des labs sous le compte lab seront créées dans cette plage d’adresses. La plage d’adresses doit être en notation CIDR (par exemple 10.20.0.0/20) et ne doit pas chevaucher les plages d’adresses existantes. Quand vous spécifiez une plage d’adresses, il est important de réfléchir au nombre de machines virtuelles qui seront créées dans les labs et de spécifier une plage d’adresses suffisante. Pour une plage donnée, le nombre de labs qu’elle peut prendre en charge sera affiché.
 
 ![Sélectionner le réseau virtuel à appairer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
@@ -58,6 +63,6 @@ Voir les articles suivants :
 
 - [Autoriser le créateur du lab à choisir l’emplacement du lab](allow-lab-creator-pick-lab-location.md)
 - [Attacher une galerie d’images partagées à un lab](how-to-attach-detach-shared-image-gallery.md)
-- [Ajouter un utilisateur comme propriétaire de lab](how-to-add-user-lab-owner.md)
-- [Afficher les paramètres de pare-feu pour un lab](how-to-configure-firewall-settings.md)
+- [Ajouter un utilisateur comme propriétaire de labo](how-to-add-user-lab-owner.md)
+- [Afficher les paramètres de pare-feu pour un labo](how-to-configure-firewall-settings.md)
 - [Configurer les autres paramètres d’un lab](how-to-configure-lab-accounts.md)

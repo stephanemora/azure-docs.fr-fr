@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/14/2020
+ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456573"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657129"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -59,6 +59,9 @@ Azure Logic Apps prend en charge les opérations de lecture et d’écriture par
 * L’installation de votre passerelle n’est pas déjà enregistrée et revendiquée par une autre ressource de passerelle Azure.
 
   Quand vous créez une ressource de passerelle dans le portail Azure, vous sélectionnez une installation de passerelle, qui établit un lien vers votre ressource de passerelle et uniquement vers cette ressource de passerelle. Dans Azure Logic Apps, les déclencheurs et les actions locaux utilisent ensuite la ressource de passerelle pour se connecter aux sources de données locales. Dans ces déclencheurs et actions, vous sélectionnez votre abonnement Azure et la ressource de passerelle associée que vous souhaitez utiliser. Chaque ressource de passerelle est liée à une seule installation de passerelle, elle-même liée à un seul compte Azure.
+
+  > [!NOTE]
+  > Seul l’administrateur de la passerelle peut créer la ressource de passerelle dans le portail Azure. Les principaux de service ne sont pas pris en charge. 
 
 <a name="create-gateway-resource"></a>
 

@@ -7,22 +7,22 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246855"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877998"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une porte d’entrée avec redirection de HTTP vers HTTPS à l’aide du portail Microsoft Azure
 
-Vous pouvez utiliser le portail Microsoft Azure pour créer une [porte d’entrée](front-door-overview.md) avec un certificat pour la terminaison SSL. Une règle d’acheminement est utilisée pour rediriger le trafic HTTP vers HTTPS.
+Vous pouvez utiliser le portail Azure pour créer une [porte d’entrée](front-door-overview.md) avec un certificat pour la terminaison TLS. Une règle d’acheminement est utilisée pour rediriger le trafic HTTP vers HTTPS.
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer une porte d’entrée avec une ressource d’application web existante
-> * Ajouter un domaine personnalisé à l’aide d’un certificat SSL 
+> * Ajouter un domaine personnalisé à l’aide d’un certificat TLS/SSL 
 > * Configurer la redirection HTTPS sur le domaine personnalisé
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -87,7 +87,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 ### <a name="enable-https-on-your-custom-domain"></a>Activer HTTPS sur votre domaine personnalisé
 
 1. Cliquez sur le domaine personnalisé qui a été ajouté puis, sous la section **HTTPS sur un domaine personnalisé**, modifiez l’état sur **Activé**.
-2. Vous pouvez laisser le **type de gestion de certificats** défini sur _Porte d’entrée managée_ pour le certificat gratuit conservé, géré et avec rotation automatique par la porte d’entrée. Vous pouvez également choisir d’utiliser votre propre certificat SSL personnalisé stocké avec Azure Key Vault. Ce didacticiel part du principe que le certificat géré de porte d’entrée est utilisé.
+2. Vous pouvez laisser le **type de gestion de certificats** défini sur _Porte d’entrée managée_ pour le certificat gratuit conservé, géré et avec rotation automatique par la porte d’entrée. Vous pouvez également choisir d’utiliser votre propre certificat TLS/SSL personnalisé stocké avec Azure Key Vault. Ce didacticiel part du principe que le certificat géré de porte d’entrée est utilisé.
 ![Activation de HTTPS pour un domaine personnalisé](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
 3. Cliquez sur **Mettre à jour** pour enregistrer la sélection, puis cliquez sur **Enregistrer**.

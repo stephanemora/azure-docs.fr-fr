@@ -1,26 +1,26 @@
 ---
-title: Utiliser GitHub Actions avec une synchronisation Azure App Configuration
-description: Utilisez GitHub Actions pour déclencher une mise à jour de votre instance App Configuration lorsque des actions définies sont effectuées sur un dépôt GitHub
+title: Synchroniser votre dépôt GitHub avec App Configuration
+description: Utilisez GitHub Actions pour mettre automatiquement à jour votre instance App Configuration quand vous mettez à jour votre dépôt GitHub.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9d60f1885a85fd7d45090f1cb4905a3d95d9d1d6
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523711"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585482"
 ---
-# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Synchroniser votre instance App Configuration à l’aide de GitHub Actions
-Azure App Configuration utilise GitHub Actions pour déclencher les mises à jour vers une instance App Configuration en fonction des actions effectuées dans un dépôt GitHub. Les workflows GitHub déclenchent des mises à jour de configuration, ce qui permet d’intégrer ces mises à jour au workflow qui est utilisé pour mettre à jour le code de l’application.
+# <a name="sync-your-github-repository-to-app-configuration"></a>Synchroniser votre dépôt GitHub avec App Configuration
 
-Un [workflow](https://help.github.com/articles/about-github-actions#workflow) GitHub Actions définit un processus automatisé dans un dépôt GitHub. Ce processus indique à GitHub comment générer et déployer votre projet GitHub. Azure App configuration fournit l’action de *synchronisation Azure App Configuration* pour activer les mises à jour d’une instance App Configuration lorsque des modifications sont apportées au dépôt source. 
+Les équipes qui souhaitent continuer à utiliser leurs pratiques de contrôle de code source peuvent utiliser GitHub Actions pour synchroniser automatiquement leur référentiel GitHub avec leur magasin App Configuration. Cela vous permet d’apporter des modifications à vos fichiers config comme vous le feriez normalement, tout en obtenant des avantages App Configuration comme : <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•   Configuration centralisée en dehors de votre code <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•   Mise à jour de la configuration sans redéploiement de l’intégralité de votre application <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•   Intégration à des services comme Azure App Service et Azure Functions 
 
-Votre workflow est défini par un fichier YAML (.yml) situé dans le chemin `/.github/workflows/` de votre dépôt. Cette définition contient les étapes et les paramètres du workflow.
-
-Des événements GitHub, tels qu’un push dans un dépôt, peuvent déclencher un flux de travail d’action GitHub.  L’action *Azure App Configuration Sync* vous permet de déclencher la mise à jour d’une instance App Configuration quand une action GitHub spécifiée se produit. Vous pouvez déclencher des mises à jour de configuration lorsque vous envoyez (push), révisez ou branchez des fichiers de configuration d’application, comme vous le feriez avec du code d’application.
+Un [workflow](https://help.github.com/articles/about-github-actions#workflow) GitHub Actions définit un processus automatisé dans un dépôt GitHub. L’action *Synchronisation Azure App Configuration* déclenche les mises à jour d’une instance App Configuration lorsque des modifications sont apportées au référentiel source. Elle utilise un fichier YAML (.yml) trouvé sous le chemin `/.github/workflows/` de votre référentiel pour définir les étapes et les paramètres. Vous pouvez déclencher des mises à jour de configuration lorsque vous envoyez (push), révisez ou branchez des fichiers de configuration d’application, comme vous le feriez avec du code d’application.
 
 La [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) GitHub fournit une vue détaillée des flux de travail et actions GitHub. 
 

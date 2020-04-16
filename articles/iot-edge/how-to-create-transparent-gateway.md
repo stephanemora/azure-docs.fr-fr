@@ -4,16 +4,16 @@ description: Utiliser un appareil Azure IoT Edge en tant que passerelle transpar
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/30/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6069e0782f69d0dfb73d9be2998cbb11d59d7d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b3aeff595671c5f924d01599b572b6b938ef09d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529167"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666662"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -42,11 +42,11 @@ Vous pouvez créer n’importe quelle infrastructure de certificat permettant l�
 >[!NOTE]
 >Le terme « autorité de certification racine » utilisé dans cet article désigne le certificat public de l’autorité la plus haute dans la hiérarchie de certificats PKI, et pas obligatoirement le certificat racine d’une autorité de certification syndiquée. La plupart du temps, il s’agit en fait d’un certificat public d’une autorité de certification intermédiaire.
 
-La passerelle présente son certificat d’autorité de certification d’appareil IoT Edge à l’appareil en aval au lancement de la connexion. L’appareil en aval vérifie que le certificat d’autorité de certification d’appareil IoT Edge est signé par le certificat d’autorité de certification racine. Ce processus permet à l’appareil en aval de garantir que la passerelle provient d’une source approuvée.
+Le démon de sécurité IoT Edge utilise le certificat d’autorité de certification de l’appareil IoT Edge pour signer un certificat d’autorité de certification de charge de travail, qui à son tour signe un certificat de serveur pour le hub IoT Edge. La passerelle présente son certificat de serveur à l’appareil en aval lors de l’établissement de la connexion. L’appareil en aval vérifie que le certificat de serveur fait partie d’une chaîne de certificats qui remonte jusqu’au certificat d’autorité de certification racine. Ce processus permet à l’appareil en aval de garantir que la passerelle provient d’une source approuvée. Pour plus d’informations, consultez [Comprendre comment Azure IoT Edge utilise les certificats](iot-edge-certs.md).
 
 Les étapes suivantes vous guident tout au long du processus de création des certificats et de leur installation aux bons emplacements sur la passerelle. Vous pouvez utiliser n’importe quel ordinateur pour générer les certificats, puis les copier sur votre appareil IoT Edge.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Un appareil Azure IoT Edge, configuré avec des [certificats de production](how-to-manage-device-certificates.md).
 
@@ -115,7 +115,7 @@ Pour plus d’informations sur le routage des messages, consultez [Déployer des
 
 Depuis la [version v1.0.4](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) du runtime IoT Edge, l’appareil de passerelle et les appareils en aval qui y sont connectés peuvent être configurés pour permettre les opérations hors connexion étendues.
 
-Avec cette fonctionnalité, les modules locaux et les appareils en aval peuvent se réauthentifier auprès de l’appareil IoT Edge et communiquer entre eux à l’aide de messages et de méthodes, même lorsqu’ils sont déconnectés du hub IoT. Pour plus d’informations, consultez [Introduction aux fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge](offline-capabilities.md).
+Avec cette fonctionnalité, les modules locaux et les appareils en aval peuvent se réauthentifier auprès de l’appareil IoT Edge en cas de besoin, et communiquer entre eux à l’aide de messages et de méthodes même quand ils sont déconnectés du hub IoT. Pour plus d’informations, consultez [Introduction aux fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge](offline-capabilities.md).
 
 Pour activer les fonctionnalités hors connexion étendues, établissez une relation parent-enfant entre un appareil de passerelle IoT Edge et les appareils en aval qui y seront connectés. Ces étapes sont expliquées plus en détail dans [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).
 

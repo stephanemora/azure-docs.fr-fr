@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298051"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811178"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway
 
@@ -35,7 +35,7 @@ Combiner la gestion des API configurée dans un réseau virtuel interne avec le 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -61,13 +61,13 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Qu’est-ce qui est nécessaire pour créer une intégration entre le service Gestion des API et Application Gateway ?
 
-* **Pool de serveurs principaux :** adresse IP virtuelle interne du service Gestion des API.
-* **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont appliqués à tous les serveurs du pool.
-* **Port frontal :** port public ouvert sur la passerelle Application Gateway. Le trafic l’atteignant est redirigé vers l’un des serveurs principaux.
-* **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-* **Règle :** la règle relie un écouteur à un pool de serveurs principaux.
+* **Pool de serveurs back-end :** Adresse IP virtuelle interne du service Gestion des API.
+* **Paramètres de pool de serveurs back-end :** Chaque pool dispose de paramètres tels que le port, le protocole et l’affinité en fonction des cookies. Ces paramètres sont appliqués à tous les serveurs du pool.
+* **Port front-end :** Il s’agit du port public ouvert sur la passerelle d’application. Le trafic l’atteignant est redirigé vers l’un des serveurs principaux.
+* **Écouteur :** L’écouteur dispose d’un port front-end, d’un protocole (HTTP ou HTTPS ; valeurs sensibles à la casse) et du nom du certificat TLS/SSL (en cas de configuration du déchargement TLS).
+* **Règle :** La règle relie un écouteur à un pool de serveurs principaux.
 * **Sonde d’intégrité personnalisée :** Application Gateway, par défaut, utilise des sondes basées sur des adresses IP pour déterminer les serveurs actifs dans le BackendAddressPool. Le service Gestion des API répond uniquement aux requêtes avec l’en-tête d’hôte est correct. C’est pourquoi les sondes par défaut échouent. Une sonde d’intégrité personnalisée doit être définie pour aider Application Gateway à déterminer que le service est actif et qu’il doit transférer les demandes.
-* **Certificats de domaine personnalisés :** pour accéder au service Gestion des API à partir d’Internet, vous devez créer un mappage CNAME de son nom d’hôte au nom DNS frontal d’Application Gateway. Cela garantit que l’en-tête de nom d’hôte et le certificat envoyé à Application Gateway qui est transféré au service Gestion des API peuvent être reconnus comme valides par l’APIM. Dans cet exemple, nous allons utiliser deux certificats : pour le serveur backend et pour le portail des développeurs.  
+* **Certificat de domaine personnalisé :** Pour accéder au service Gestion des API à partir d’Internet, vous devez créer un mappage CNAME de son nom d’hôte au nom DNS frontal d’Application Gateway. Cela garantit que l’en-tête de nom d’hôte et le certificat envoyé à Application Gateway qui est transféré au service Gestion des API peuvent être reconnus comme valides par l’APIM. Dans cet exemple, nous allons utiliser deux certificats : pour le serveur backend et pour le portail des développeurs.  
 
 ## <a name="steps-required-for-integrating-api-management-and-application-gateway"></a><a name="overview-steps"> </a> Étapes requises pour l’intégration du service Gestion des API et d’Application Gateway
 
@@ -271,7 +271,7 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 
 ### <a name="step-5"></a>Étape 5
 
-Créez les écouteurs HTTP pour la passerelle Application Gateway. Affectez-leur la configuration IP frontale, le port et les certificats SSL.
+Créez les écouteurs HTTP pour la passerelle Application Gateway. Affectez-leur la configuration IP front-end, le port et les certificats TLS/SSL.
 
 ```powershell
 $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
@@ -280,7 +280,7 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Étape 6
 
-Créez des sondes personnalisées pour le point de terminaison de domaine de proxy `ContosoApi` du service Gestion des API. Le chemin d’accès `/status-0123456789abcdef` est un point de terminaison d’intégrité par défaut hébergé sur tous les services de gestion des API. Définissez `api.contoso.net` comme nom d’hôte de sonde personnalisée pour la protéger à l’aide du certificat SSL.
+Créez des sondes personnalisées pour le point de terminaison de domaine de proxy `ContosoApi` du service Gestion des API. Le chemin d’accès `/status-0123456789abcdef` est un point de terminaison d’intégrité par défaut hébergé sur tous les services de gestion des API. Définissez `api.contoso.net` comme nom d’hôte de sonde personnalisée pour la sécuriser à l’aide du certificat TLS/SSL.
 
 > [!NOTE]
 > Le nom d’hôte `contosoapi.azure-api.net` est le nom d’hôte du proxy par défaut configuré lorsqu’un service nommé `contosoapi` est créé dans la version publique d’Azure.
@@ -293,7 +293,7 @@ $apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -
 
 ### <a name="step-7"></a>Étape 7
 
-Chargez le certificat à utiliser sur les ressources du pool principal pour lequel le chiffrement SSL est activé. Il s’agit du certificat que vous avez fourni à l’étape 4 ci-dessus.
+Chargez le certificat à utiliser sur les ressources du pool de back-ends pour lequel TLS est activé. Il s’agit du certificat que vous avez fourni à l’étape 4 ci-dessus.
 
 ```powershell
 $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath

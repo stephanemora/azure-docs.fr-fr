@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227009"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985930"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -33,7 +33,7 @@ Cette rubrique décrit les scénarios courants pour distribuer votre contenu [en
 
 ## <a name="overview"></a>Vue d’ensemble
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Pour commencer à utiliser Azure Media Services, vous devez disposer des éléments suivants :
 
@@ -169,7 +169,7 @@ Cette section présente des informations sur la disponibilité des fonctionnalit
 
 #### <a name="availability"></a>Disponibilité
 
-Pour déterminer si Media Services est disponible dans un centre de données, accédez à https://azure.microsoft.com/status/ et faites défiler jusqu’à la table intitulée MEDIA.
+Utilisez la page [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) pour déterminer si Media Services est disponible dans un centre de donnés spécifique.
 
 ### <a name="streaming-endpoints"></a>Points de terminaison de streaming 
 
@@ -177,7 +177,7 @@ En fonction de leurs besoins, les clients Media Services peuvent choisir un poin
 
 #### <a name="availability"></a>Disponibilité
 
-|Name|Statut|Centres de données
+|Nom|Statut|Centres de données
 |---|---|---|
 |standard|GA|Tous|
 |Premium|GA|Tous|
@@ -243,7 +243,7 @@ Disponible dans tous les centres de données.
 
 ### <a name="reserved-unit-ru-type"></a>Type d’unité réservée
 
-Un compte Media Services est associé à un type d’unité réservée qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivants : S1, S2 ou S3.
+Un compte Media Services est associé à un type d’unité réservée qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : S1, S2 ou S3.
 
 Pour plus d’informations, consultez la section sur la [mise à l’échelle](#scaling).
 

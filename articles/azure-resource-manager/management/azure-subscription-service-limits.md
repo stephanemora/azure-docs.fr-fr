@@ -2,13 +2,13 @@
 title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
-ms.date: 02/24/2020
-ms.openlocfilehash: f7fefecddaf50feda247dd711505aef1b4f206f0
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 04/03/2020
+ms.openlocfilehash: 4200784e3018ec80d9fbbbc0d3680b6b0e6d2cb3
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254334"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656205"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -18,7 +18,14 @@ Pour en savoir plus sur la tarification Azure, consultez [Tarification Azure](ht
 
 ## <a name="managing-limits"></a>Gestion des limites
 
-Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut, [ouvrez une demande de service clientèle en ligne gratuitement](../templates/error-resource-quota.md). Les limites ne peuvent pas être supérieures à la valeur Limite maximale indiquée dans les tableaux suivants. Si aucune colonne de limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables.
+> [!NOTE]
+> Certains services ont des limites ajustables.
+>
+> Lorsqu’un service n’a pas de limites ajustables, les tables suivantes utilisent l’en-tête **Limite**. Dans de tels cas, la valeur par défaut et les limites maximales sont les mêmes.
+>
+> Lorsque la limite peut être ajustée, les tables incluent des en-têtes **Limite par défaut** et **Limite maximale**. La limite peut être augmentée au-dessus de la limite par défaut, mais pas au-delà de la limite maximale.
+>
+> Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut, [ouvrez une demande de service clientèle en ligne gratuitement](../templates/error-resource-quota.md).
 
 Les [abonnements d’essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p) ne permettent pas de bénéficier d’augmentations de la limite ou du quota. Si vous disposez d’un [abonnement d’essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p), vous pouvez le mettre à niveau vers un abonnement avec [paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/). Pour en savoir plus, consultez [Mettre à niveau votre abonnement d'essai gratuit Azure vers un abonnement avec paiement à l’utilisation](../../billing/billing-upgrade-azure-subscription.md) et [FAQ sur l’abonnement d’essai gratuit](https://azure.microsoft.com/free/free-account-faq).
 
@@ -33,6 +40,12 @@ Par conséquent, déterminez les quotas de groupes de ressources Azure pour votr
 Pour connaître les restrictions relatives aux noms de ressources, voir [Règles de nommage et restrictions pour les ressources Azure](resource-name-rules.md).
 
 Pour plus d’informations sur l’API Resource Manager et les limites d’écriture, voir [Limitation des requêtes de Resource Manager](request-limits-and-throttling.md).
+
+### <a name="management-group-limits"></a>Limites de groupe d'administration
+
+Les limites suivantes s’appliquent aux [groupes d’administration](../../governance/management-groups/overview.md).
+
+[!INCLUDE [management-group-limits](../../../includes/management-group-limits.md)]
 
 ### <a name="subscription-limits"></a>Limites d’abonnement
 
@@ -231,7 +244,11 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 
 ## <a name="media-services-limits"></a>Limites de Media Services
 
-[!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
+[!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
+
+### <a name="media-services-v2-legacy"></a>Media Services v2 (hérité)
+
+Pour connaître les limites spécifiques à Media Services v2 (hérité), consultez [Media Services v2 (hérité)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
 
 ## <a name="mobile-services-limits"></a>Limites Mobile Services
 
@@ -308,7 +325,7 @@ Pour connaître les limites SQL Database, consultez [Limites de ressources SQL D
 
 ## <a name="sql-data-warehouse-limits"></a>Limites SQL Data Warehouse
 
-Pour connaître les limites SQL Data Warehouse, consultez [Limites des ressources SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+Pour connaître les limites SQL Data Warehouse, consultez [Limites des ressources SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Limites de stockage
 

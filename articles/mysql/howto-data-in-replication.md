@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: eaebcf50084223e1c1f4df30294bece96cffda6d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774294"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474045"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Comment configurer Azure Database pour MySQL pour la réplication de données entrantes MySQL
 
-Dans cet article, vous allez apprendre à configurer la réplication des données entrantes dans le service Azure Database pour MySQL en configurant les serveurs réplica et maître. La réplication des données entrantes permet de synchroniser les données provenant d’un serveur MySQL maître qui s’exécute en local, dans des machines virtuelles ou des services de base de données hébergés par d’autres fournisseurs cloud dans un réplica au sein du service Azure Database pour MySQL. 
+Cet article décrit comment configurer la Réplication des données entrantes dans Azure Database pour MySQL en configurant les serveurs maître et réplica. Cet article suppose que vous avez déjà utilisé des serveurs et des bases de données MySQL.
 
-Cet article suppose que vous ayez déjà utilisé les serveurs et base de données MySQL.
+Pour créer un réplica dans le service Azure Database pour MySQL, la Réplication des données entrantes synchronise les données provenant d’un serveur MySQL maître qui s’exécute en local, dans des machines virtuelles ou dans des services de base de données cloud.
+
+Passez en revue les [limitations et conditions requises](concepts-data-in-replication.md#limitations-and-considerations) de la Réplication des données entrantes avant de suivre les étapes décrites dans cet article.
 
 ## <a name="create-a-mysql-server-to-be-used-as-replica"></a>Créer un serveur MySQL à utiliser en tant que réplica
 
@@ -33,10 +35,21 @@ Cet article suppose que vous ayez déjà utilisé les serveurs et base de donné
 
    Les comptes d’utilisateur ne sont pas répliqués à partir du serveur maître vers le serveur réplica. Si vous prévoyez de fournir aux utilisateurs un accès au serveur réplica, vous devez créer manuellement tous les comptes et privilèges correspondants sur ce nouveau serveur Azure Database pour MySQL.
 
-## <a name="configure-the-master-server"></a>Configurer le serveur maître
-Les étapes suivantes servent à préparer et à configurer le serveur MySQL hébergé localement, dans une machine virtuelle ou par un service de base de données hébergé par d’autres fournisseurs de cloud pour la réplication de données entrantes. Ce serveur est le « maître » dans la réplication de données entrantes. 
+3. Ajoutez l’adresse IP du serveur maître aux règles de pare-feu du réplica. 
 
-1. Activer la journalisation binaire
+   Mettez à jour les règles de pare-feu à l’aide du [portail Azure](howto-manage-firewall-using-portal.md) ou d’[Azure CLI](howto-manage-firewall-using-cli.md).
+
+## <a name="configure-the-master-server"></a>Configurer le serveur maître
+Les étapes suivantes servent à préparer et à configurer le serveur MySQL hébergé localement, dans une machine virtuelle ou par un service de base de données hébergé par d’autres fournisseurs de cloud pour la réplication de données entrantes. Ce serveur est le « maître » dans la réplication de données entrantes.
+
+
+1. Avant de continuer, vérifiez la [configuration requise pour le serveur maître](concepts-data-in-replication.md#requirements). 
+
+   Par exemple, assurez-vous que le serveur maître autorise le trafic entrant et sortant sur le port 3306 et que le serveur maître dispose d’une **IP publique**, que le DNS est accessible publiquement ou possède un nom de domaine complet (FQDN). 
+   
+   Testez la connectivité au serveur maître en tentant de vous connecter à partir d’un outil tel que la ligne de commande MySQL hébergée sur un autre ordinateur ou à partir d’[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) accessible sur le portail Azure.
+
+2. Activer la journalisation binaire
 
    Vérifiez si la journalisation binaire a été activée sur le serveur maître en exécutant la commande suivante : 
 
@@ -44,11 +57,11 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Si la variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) est renvoyée avec la valeur « ON », la journalisation binaire est activée sur votre serveur. 
+   Si la variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) est renvoyée avec la valeur « ON », la journalisation binaire est activée sur votre serveur. 
 
-   Si `log_bin` est renvoyé avec la valeur « OFF », activez la journalisation binaire en modifiant votre fichier my.cnf ainsi que `log_bin=ON` et redémarrez le serveur pour que la modification prenne effet.
+   Si `log_bin` est renvoyé avec la valeur « OFF », activez la journalisation binaire en modifiant votre fichier my.cnf ainsi que `log_bin=ON` et redémarrez le serveur pour que la modification prenne effet.
 
-2. Paramètres du serveur maître
+3. Paramètres du serveur maître
 
    La réplication des données entrantes requiert que le paramètre `lower_case_table_names` soit cohérent entre les serveurs maître et réplica. Par défaut, ce paramètre est 1 dans Azure Database pour MySQL. 
 
@@ -56,9 +69,9 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Créer un nouveau rôle de réplication et définir une autorisation
+4. Créer un nouveau rôle de réplication et définir une autorisation
 
-   Créez un compte d’utilisateur sur le serveur maître configuré avec des privilèges de réplication. Cela est possible via des commandes SQL ou un outil tel que MySQL Workbench. Si vous prévoyez une réplication avec SSL, cela doit être spécifié lors de la création de l’utilisateur. Pour comprendre comment [ajouter des comptes d’utilisateur](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) sur votre serveur maître, reportez-vous à la documentation MySQL. 
+   Créez un compte d’utilisateur sur le serveur maître configuré avec des privilèges de réplication. Cela est possible via des commandes SQL ou un outil tel que MySQL Workbench. Si vous prévoyez une réplication avec SSL, cela doit être spécifié lors de la création de l’utilisateur. Pour comprendre comment [ajouter des comptes d’utilisateur](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) sur votre serveur maître, reportez-vous à la documentation MySQL. 
 
    Dans les commandes ci-dessous, le nouveau rôle de réplication créé peut accéder au serveur maître à partir de n’importe quelle machine, et pas seulement de celle qui héberge le serveur maître. Cela s’effectue en spécifiant « syncuser@’%’ » dans la commande de création d’un utilisateur. Consultez la documentation MySQL pour en savoir plus sur la [définition des noms de compte](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
@@ -97,7 +110,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    ![Subordonné de réplication](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Définir le serveur maître en mode en lecture seule
+5. Définir le serveur maître en mode en lecture seule
 
    Avant de commencer à vider la base de données, le serveur doit être placé en mode lecture seule. En mode lecture seule, le serveur maître ne peut traiter aucune transaction d’écriture. Évaluer l’impact sur votre entreprise et planifiez la fenêtre de lecture seule lors d’une période creuse, si nécessaire.
 
@@ -106,7 +119,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    SET GLOBAL read_only = ON;
    ```
 
-5. Obtenir le nom du fichier du journal binaire et le décalage
+6. Obtenir le nom du fichier du journal binaire et le décalage
 
    Exécutez la commande [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) afin de déterminer le nom de fichier du journal binaire actuel et le décalage.
     
@@ -167,18 +180,18 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
    ```sql
    SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+   PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
    -----END CERTIFICATE-----'
    ```
 
-   La réplication avec SSL est définie entre un serveur maître hébergé dans le domaine « companya.com », et un serveur réplica hébergé dans Azure Database pour MySQL. Cette procédure stockée est exécutée sur le réplica. 
+   La réplication avec SSL est définie entre un serveur maître hébergé dans le domaine « companya.com » et un serveur réplica hébergé dans Azure Database pour MySQL. Cette procédure stockée est exécutée sur le réplica. 
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *Réplication sans SSL*
 
-   La réplication sans SSL est définie entre un serveur maître hébergé dans le domaine « companya.com », et un serveur réplica hébergé dans Azure Database pour MySQL. Cette procédure stockée est exécutée sur le réplica.
+   La réplication sans SSL est définie entre un serveur maître hébergé dans le domaine « companya.com » et un serveur réplica hébergé dans Azure Database pour MySQL. Cette procédure stockée est exécutée sur le réplica.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
@@ -200,7 +213,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    show slave status;
    ```
 
-   Si l’état de `Slave_IO_Running` et `Slave_SQL_Running` est « yes » et la valeur de `Seconds_Behind_Master` est « 0 », cela signifie que la réplication fonctionne correctement. `Seconds_Behind_Master` indique que le retard du réplica. Si la valeur est différente de « 0 », cela signifie que le réplica traite les mises à jour. 
+   Si l’état de `Slave_IO_Running` et `Slave_SQL_Running` est « yes » et que la valeur de `Seconds_Behind_Master` est « 0 », cela signifie que la réplication fonctionne correctement. `Seconds_Behind_Master` indique que le retard du réplica. Si la valeur est différente de « 0 », cela signifie que le réplica traite les mises à jour. 
 
 ## <a name="other-stored-procedures"></a>Autres procédures stockées
 

@@ -4,18 +4,18 @@ description: Découvrez comment sauvegarder un serveur Exchange dans une sauveg
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: b9c8cfb32adce39dab47159c7d644b92e0ced46e
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397953"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421347"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans Azure avec le serveur de sauvegarde Azure
 
 Cet article explique comment configurer un serveur de sauvegarde Azure pour sauvegarder un serveur Microsoft Exchange dans une sauvegarde Microsoft Azure.  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, assurez-vous que le serveur de sauvegarde Azure est [installé et prêt](backup-azure-microsoft-azure-backup.md).
 
@@ -101,7 +101,7 @@ Pour les points de récupération en ligne, il existe cinq types de récupérati
 * **Récupérer vers une autre base de données sur un serveur Exchange :** les données seront récupérées dans une autre base de données sur un autre serveur Exchange.
 * **Récupérer dans une base de données de récupération :** les données seront récupérées dans une base de données de récupération Exchange (RDB).
 * **Copier dans un dossier réseau :** les données seront récupérées dans un dossier réseau.
-* **Copier sur bande :** si une bibliothèque de bandes ou un lecteur de bandes autonome sont attachés et configurés sur le serveur de sauvegarde Azure, le point de récupération est copié sur une bande disponible.
+* **Copier sur bande :** si une bibliothèque de bandes ou un lecteur de bandes autonome est connecté et configuré sur MABS, le point de récupération est copié sur une bande disponible.
 
     ![Choisir la réplication en ligne](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

@@ -5,12 +5,12 @@ author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236629"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617110"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Se connecter à un service sécurisé avec le proxy inverse
 
@@ -77,7 +77,7 @@ Attribuez à **ApplicationCertificateValidationPolicy** la valeur **None** dans 
 
    Pour spécifier la liste des empreintes de l’émetteur et des noms communs de service, ajoutez une section [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) sous **fabricSettings**, comme ci-dessous. Il est possible d’ajouter plusieurs paires nom commun du certificat/empreinte d’émetteur au tableau **parameters**. 
 
-   Si le proxy inverse du point de terminaison se connecte pour présenter un certificat dont le nom commun et l’empreinte de l’émetteur correspondent à l’une des valeurs spécifiées ici, un canal SSL est établi. 
+   Si le proxy inverse du point de terminaison se connecte pour présenter un certificat dont le nom commun et l’empreinte de l’émetteur correspondent à l’une des valeurs spécifiées ici, un canal TLS est établi.
    Si aucune des valeurs ne correspond aux détails du certificat, le proxy inverse fait échouer la demande du client avec un code d’état 502 (passerelle incorrecte). La ligne d’état HTTP contient également l’expression « Certificat SSL non valide ». 
 
    ```json
@@ -143,7 +143,7 @@ Attribuez à **ApplicationCertificateValidationPolicy** la valeur **None** dans 
    }
    ```
 
-   Si l’empreinte du certificat de serveur est répertoriée dans cette entrée de configuration, le proxy inverse fait réussir la connexion SSL. Dans le cas contraire, il met fin à la connexion et fait échouer la demande du client avec un code 502 (passerelle incorrecte). La ligne d’état HTTP contient également l’expression « Certificat SSL non valide ».
+   Si l’empreinte du certificat de serveur est listée dans cette entrée de configuration, le proxy inverse fait réussir la connexion TLS. Dans le cas contraire, il met fin à la connexion et fait échouer la demande du client avec un code 502 (passerelle incorrecte). La ligne d’état HTTP contient également l’expression « Certificat SSL non valide ».
 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Logique de sélection du point de terminaison quand les services exposent des points de terminaison sécurisés et non sécurisés
 Service Fabric prend en charge la configuration de plusieurs points de terminaison pour un service. Pour plus d’informations, voir [Spécifier des ressources dans un manifeste de service](service-fabric-service-manifest-resources.md).
@@ -173,12 +173,12 @@ Le proxy inverse sélectionne un des points de terminaison pour transférer la d
 > En mode **SecureOnlyMode**, si le client a spécifié un **ListenerName** correspondant à un point de terminaison HTTP (non sécurisé), le proxy inverse fait échouer la requête avec un code d’état HTTP 404 (introuvable).
 
 ## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Configuration de l’authentification de certificat client par le biais du proxy inverse
-L’arrêt SSL se produit au niveau du proxy inverse et toutes les données de certificat client sont perdues. Pour que les services effectuent l’authentification par certificat client, définissez le paramètre **ForwardClientCertificate** de la section [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+L’arrêt TLSL se produit au niveau du proxy inverse et toutes les données de certificat client sont perdues. Pour que les services effectuent l’authentification par certificat client, définissez le paramètre **ForwardClientCertificate** de la section [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
-1. Quand **ForwardClientCertificate** est défini sur **false**, le proxy inverse ne demande pas le certificat client pendant l’établissement d’une liaison SSL avec le client.
+1. Quand **ForwardClientCertificate** est défini sur **false**, le proxy inverse ne demande pas le certificat client pendant sa négociation TLS avec le client.
 Il s'agit du comportement par défaut.
 
-2. Quand **ForwardClientCertificate** est défini sur **true**, le proxy inverse demande le certificat client pendant l’établissement d’une liaison SSL avec le client.
+2. Quand **ForwardClientCertificate** est défini sur **true**, le proxy inverse demande le certificat du client pendant sa négociation TLS avec le client.
 Ensuite, il envoie les données du certificat client dans un en-tête HTTP personnalisé nommé **X-Client-Certificate**. La valeur d’en-tête est la chaîne de format PEM encodée en base 64 du certificat du client. Le service peut faire réussir ou échouer la demande avec le code d’état approprié après avoir inspecté les données du certificat.
 Si le client ne présente pas un certificat, le proxy inverse transfère un en-tête vide et laisse le service gérer le cas.
 
