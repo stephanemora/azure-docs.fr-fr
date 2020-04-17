@@ -16,7 +16,7 @@
 - name: Concepts
   expanded: true
   items:
-    - name: Meilleures pratiques
+    - name: Bonnes pratiques
       items:
         - name: Vue d’ensemble
           href: secure-dev-overview.md
@@ -41,6 +41,8 @@
           href: security-code-analysis-faq.md
         - name: Configuration YAML
           href: yaml-configuration.md
+        - name: Mises en production et feuille de route
+          href: security-code-analysis-releases.md
     - name: Outil Microsoft de modélisation des menaces
       displayName: stride
       href: threat-modeling-tool.md

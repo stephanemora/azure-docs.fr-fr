@@ -252,7 +252,7 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Mises à niveau automatiques des systèmes d’exploitation
           href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Réparations automatiques des instances (préversion)
+        - name: Réparations automatiques des instances
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protection des instances
           href: virtual-machine-scale-sets-instance-protection.md
