@@ -39,6 +39,8 @@
       href: analysis-services-connect.md
     - name: Haute disponibilité
       href: analysis-services-bcdr.md
+    - name: Opérations de longue durée
+      href: analysis-services-long-operations.md
     - name: Sources de données prises en charge
       href: analysis-services-datasource.md
 - name: Procédures

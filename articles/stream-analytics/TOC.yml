@@ -199,6 +199,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Visual Studio Code
       items:
+        - name: Compléter du code avec IntelliSense
+          href: vs-code-intellisense.md
         - name: Tester localement avec des exemples de données
           href: visual-studio-code-local-run.md
         - name: Tester localement avec des données actives

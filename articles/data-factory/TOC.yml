@@ -581,6 +581,8 @@
       items:
         - name: "Exécuter des packages\_SSIS dans Azure à partir de SSDT"
           href: how-to-invoke-ssis-package-ssdt.md
+        - name: Exécuter des packages SSIS avec l’agent Azure SQL Managed Instance
+          href: how-to-invoke-ssis-package-managed-instance-agent.md
         - name: Exécuter des packages SSIS avec dtexec compatible Azure
           href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
         - name: Exécuter des packages SSIS avec l’activité Exécuter le Package SSIS

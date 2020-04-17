@@ -1,5 +1,7 @@
 - name: Plans de coupe
   href: cut-planes.md
+- name: Déboguer le rendu
+  href: debug-rendering.md
 - name: Remplacement d’état hiérarchique
   href: override-hierarchical-state.md
 - name: Reprojection en phase tardive
