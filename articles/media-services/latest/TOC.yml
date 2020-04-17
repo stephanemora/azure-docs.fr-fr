@@ -98,6 +98,7 @@
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Encodeurs live locaux testés
+          displayName: recommended
           href: recommended-on-premises-live-encoders.md
         - name: Décalage et conversion du direct en VOD
           displayName: 'archive, dvr'
