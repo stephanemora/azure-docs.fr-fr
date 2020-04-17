@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint Charge de travail ASE/SQL IS
 description: Vue d’ensemble et architecture de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 834096ec529673bae1728877310ba7153ae94cb3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381745"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460577"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 
@@ -32,7 +32,7 @@ Cet environnement se compose de plusieurs services Azure utilisés pour fournir 
 - [Stratégies Azure](../../../policy/overview.md) pour verrouiller les services pouvant être déployés dans l’environnement et interdire la création d’une ressource d’adresse IP publique
 - Un réseau virtuel contenant un seul sous-réseau et appairé à un environnement de [services partagés](../iso27001-shared/index.md) préexistant avec forçage du trafic à travers le pare-feu des [services partagés](../iso27001-shared/index.md) Le réseau virtuel héberge les ressources suivantes :
   - Un [environnement Azure App Service Environment](../../../../app-service/environment/intro.md) utilisable pour héberger une ou plusieurs applications web, API web ou fonctions
-  - Une instance [Azure Key Vault](../../../../key-vault/key-vault-overview.md) qui utilise un point de terminaison de service de réseau virtuel pour stocker les secrets utilisés par les applications qui s’exécutent dans l’environnement de la charge de travail
+  - Une instance [Azure Key Vault](../../../../key-vault/general/overview.md) qui utilise un point de terminaison de service de réseau virtuel pour stocker les secrets utilisés par les applications qui s’exécutent dans l’environnement de la charge de travail
   - Une instance de serveur [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md) qui utilise un point de terminaison de service de réseau virtuel pour héberger les bases de données utilisées pour les applications dans l’environnement de la charge de travail
 
 ## <a name="next-steps"></a>Étapes suivantes

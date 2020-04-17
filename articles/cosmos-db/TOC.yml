@@ -759,14 +759,6 @@
           items:
             - name: 1 - Interroger les données
               href: tutorial-query-graph.md
-        - name: Informations de référence
-          items:
-            - name: En-têtes de réponse
-              href: gremlin-headers.md
-            - name: limites
-              href: gremlin-limits.md
-            - name: Compatibilité
-              href: gremlin-compatibility.md
         - name: Guides pratiques
           items:
             - name: Modélisation des données de graphe
@@ -794,6 +786,14 @@
               href: powershell-samples-gremlin.md
             - name: Gérer à l’aide d’Azure CLI
               href: cli-samples-gremlin.md
+        - name: Informations de référence
+          items:
+            - name: En-têtes de réponse
+              href: gremlin-headers.md
+            - name: limites
+              href: gremlin-limits.md
+            - name: Compatibilité
+              href: gremlin-compatibility.md
     - name: API de table
       items:
         - name: Vue d’ensemble
