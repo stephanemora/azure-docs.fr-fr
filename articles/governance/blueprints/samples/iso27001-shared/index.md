@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint Services partagés ISO 2700
 description: Vue d’ensemble et architecture de l’exemple de blueprint Services partagés ISO 27001. Cet exemple de blueprint aide les clients à évaluer des contrôles ISO 27001 spécifiques.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381570"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458452"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 
@@ -34,7 +34,7 @@ Cet environnement se compose de plusieurs services Azure utilisés pour fournir 
   - Un serveur de rebond ou hôte bastion utilisé à des fins de gestion, uniquement accessible par le biais d’un [pare-feu Azure](../../../../firewall/overview.md) déployé dans le sous-réseau de la pile d’entrée
   - Deux machines virtuelles exécutant AADS (Active Directory Domain Services) et DNS uniquement accessibles par Jumpbox, pouvant être configurées uniquement pour répliquer AD sur un VPN ou une connexion [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (non déployée par le blueprint)
   - Utilisation d’[Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) et d’une protection DDoS standard
-- Une instance [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
+- Une instance [Azure Key Vault](../../../../key-vault/general/overview.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
 
 Tous ces éléments se conforment aux pratiques éprouvées publiés dans [Centre des architectures Azure - Architectures de référence](/azure/architecture/reference-architectures/).
 

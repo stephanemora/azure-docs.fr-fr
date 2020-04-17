@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint de base du framework d’ado
 description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud pour Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1f14b4d4811b9bdcb64f3860b2cf25b82825d5c4
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383574"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458469"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -22,7 +22,7 @@ L’exemple de blueprint de base du framework d’adoption du cloud déploie dan
 
 Cette implémentation intègre plusieurs services Azure utilisés pour fournir une base sécurisée, entièrement supervisée et prête pour les entreprises. Cet environnement comporte les éléments suivants :
 
-- Une instance [Azure Key Vault](../../../../key-vault/key-vault-overview.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
+- Une instance [Azure Key Vault](../../../../key-vault/general/overview.md) utilisée pour héberger les secrets utilisés pour les machines virtuelles déployées dans l’environnement des services partagés
 - [Log Analytics](../../../../azure-monitor/overview.md) est déployé pour s’assurer que l’ensemble des actions et services journalisent dans un emplacement central dès l’instant où vous démarrez votre déploiement sécurisé dans [Comptes de stockage](../../../../storage/common/storage-introduction.md) pour la journalisation des diagnostics.
 - [Azure Security Center](../../../../security-center/security-center-intro.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
 - Le blueprint définit et déploie également des [Stratégies Azure](../../../policy/overview.md) pour effectuer les opérations suivantes : 
