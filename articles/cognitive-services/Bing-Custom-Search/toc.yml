@@ -108,7 +108,7 @@
       href: 'https://aka.ms/bingcustomsearchtryit'
     - name: Point de terminaison Recherche personnalisée Bing
       href: endpoint-custom.md
-    - name: Prise en charge de la région et de la langue
+    - name: Support multilingue
       href: language-support.md
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -48,7 +48,7 @@
   items:
     - name: Types d’entités nommées
       href: named-entity-types.md
-    - name: Prise en charge de la région et de la langue
+    - name: Support multilingue
       href: language-support.md
     - name: Décalages de texte
       href: concepts/text-offsets.md

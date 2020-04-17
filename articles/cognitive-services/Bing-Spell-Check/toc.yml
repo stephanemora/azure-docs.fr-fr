@@ -72,7 +72,7 @@
     - name: Analytique pour l’API Vérification orthographique Bing
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-    - name: Prise en charge de la région et de la langue
+    - name: Support multilingue
       href: language-support.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'

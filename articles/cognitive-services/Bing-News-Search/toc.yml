@@ -97,7 +97,7 @@
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
     - name: Points de terminaison Recherche d’actualités Bing
       href: endpoint-news.md
-    - name: Prise en charge de la région et de la langue
+    - name: Support multilingue
       href: language-support.md
     - name: Analytique pour l’API Recherche d’actualités Bing
       href: bing-news-stats.md
