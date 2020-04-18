@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 4b9b447ce06e0316cf229fc9a064bfded7411abf
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: 3535f1cb5f8901c0da629e7d2ef4f2a045d714f2
+  ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81401377"
+  ms.lasthandoff: 04/17/2020
+  ms.locfileid: "81604915"
 highlightedContent:
   items:
   - title: Qu’est-ce que le service de reconnaissance vocale ?
@@ -37,43 +37,43 @@ conceptualContent:
   items:
   - title: Reconnaissance vocale
     links:
-    - itemType: how-to-guide
-      text: Bases de la reconnaissance vocale
-      url: speech-to-text-basics.md
     - itemType: quickstart
       text: Reconnaître la voix provenant d’un micro
       url: quickstarts/speech-to-text-from-microphone.md
     - itemType: quickstart
       text: Reconnaître la voix à partir d’un fichier audio
       url: quickstarts/speech-to-text-from-file.md
+    - itemType: how-to-guide
+      text: Bases de la reconnaissance vocale
+      url: speech-to-text-basics.md
     footerLink:
       text: En savoir plus
       url: index-speech-to-text.yml
   - title: Synthèse vocale
     links:
-    - itemType: how-to-guide
-      text: Bases de la synthèse vocale
-      url: text-to-speech-basics.md
     - itemType: quickstart
       text: Synthétiser la voix vers un haut-parleur
       url: quickstarts/text-to-speech.md
     - itemType: quickstart
       text: Synthétiser la voix vers un fichier audio
       url: quickstarts/text-to-speech-audio-file.md
+    - itemType: how-to-guide
+      text: Bases de la synthèse vocale
+      url: text-to-speech-basics.md
     footerLink:
       text: En savoir plus
       url: index-text-to-speech.yml
   - title: Traduction vocale
     links:
-    - itemType: how-to-guide
-      text: Bases de la traduction vocale
-      url: speech-translation-basics.md
     - itemType: quickstart
       text: Traduire la voix en texte
       url: quickstarts/translate-speech-to-text.md
     - itemType: quickstart
       text: Traduire la parole en plusieurs langues cibles
       url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - itemType: how-to-guide
+      text: Bases de la traduction vocale
+      url: speech-translation-basics.md
     footerLink:
       text: En savoir plus
       url: index-speech-translation.yml
