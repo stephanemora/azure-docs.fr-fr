@@ -257,8 +257,6 @@
           items:
             - name: "Encodeur Haivision\_KB"
               href: media-services-configure-kb-live-encoder.md
-            - name: Encodeur NewTek TriCaster
-              href: media-services-configure-tricaster-live-encoder.md
             - name: Encodeur Wirecast
               href: media-services-configure-wirecast-live-encoder.md
         - name: Traiter des opérations de longue durée
@@ -416,7 +414,7 @@
           href: media-services-dotnet-how-to-use-azure-functions.md
         - name: Azure Functions avec des exemples Media Services
           href: 'https://github.com/Azure-Samples/media-services-dotnet-functions-integration'
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Vérifier la progression des travaux
           items:
