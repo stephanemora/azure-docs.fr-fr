@@ -9,41 +9,33 @@
       href: whats-new.md
 - name: Démarrages rapides
   items:
-    - name: Utilisation du portail web
+    - name: Créer un classifieur
       items:
-        - name: Créer un classifieur
+        - name: Utilisation du portail web
           href: getting-started-build-a-classifier.md
-        - name: Créer un détecteur d’objet
-          href: get-started-build-detector.md
-    - name: Utilisation du kit de développement logiciel (SDK) .NET
-      items:
-        - name: Classification d’image
+        - name: Utilisation du kit de développement logiciel (SDK) .NET
           href: csharp-tutorial.md
-        - name: Détection d’objets
-          href: csharp-tutorial-od.md
-    - name: Utilisation du Kit de développement logiciel (SDK) Python
-      items:
-        - name: Classification d’image
+        - name: Utilisation du Kit de développement logiciel (SDK) Python
           href: python-tutorial.md
-        - name: Détection d’objets
-          href: python-tutorial-od.md
-    - name: Utilisation du Kit de développement logiciel (SDK) Java
-      items:
-        - name: Classification d’image
+        - name: Utilisation du Kit de développement logiciel (SDK) Java
           href: java-tutorial.md
-        - name: Détection d’objets
-          href: java-tutorial-od.md
-    - name: Utilisation du kit SDK Node.js
-      items:
-        - name: Classification d’image
+        - name: Utilisation du kit SDK Node.js
           href: node-tutorial.md
-        - name: Détection d’objets
-          href: node-tutorial-object-detection.md
-    - name: Utilisation du kit SDK Go
-      items:
-        - name: Classification d’image
+        - name: Utilisation du kit SDK Go
           href: go-tutorial.md
-        - name: Détection d’objets
+    - name: Créer un détecteur d’objet
+      items:
+        - name: Utilisation du portail web
+          href: get-started-build-detector.md
+        - name: Utilisation du kit de développement logiciel (SDK) .NET
+          href: csharp-tutorial-od.md
+        - name: Utilisation du Kit de développement logiciel (SDK) Python
+          href: python-tutorial-od.md
+        - name: Utilisation du Kit de développement logiciel (SDK) Java
+          href: java-tutorial-od.md
+        - name: Utilisation du kit SDK Node.js
+          href: node-tutorial-object-detection.md
+        - name: Utilisation du kit SDK Go
           href: go-tutorial-object-detection.md
 - name: Tutoriels
   items:
