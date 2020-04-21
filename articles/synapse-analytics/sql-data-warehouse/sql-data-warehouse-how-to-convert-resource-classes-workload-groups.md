@@ -7,22 +7,27 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 04/14/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d20a811270b89772ab75bc298544a549caa01041
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350444"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383625"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Convertir les classes de ressources en groupes de charge de travail
+
 Les groupes de charges de travail fournissent un mécanisme permettant d’isoler et de contenir des ressources système.  En outre, les groupes de charges de travail vous permettent de définir des règles d’exécution pour les requêtes qui s’y exécutent.  Une règle d’exécution du délai d’expiration de la requête permet d’annuler les pertes de contrôle de requête sans intervention de l’utilisateur.  Cet article explique comment prendre une classe de ressource existante et créer un groupe de charge de travail avec une configuration similaire.  En outre, une règle facultative de délai d’attente de requête est ajoutée.
 
+> [!NOTE]
+> Pour obtenir des conseils sur l’utilisation simultanée de groupes de charge de travail et de classes de ressources, consultez la section [Mélange d’affectations de classe de ressources et des classifieurs](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) du document sur le concept de [Classification de charge de travail](sql-data-warehouse-workload-classification.md).
+
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Comprendre la configuration de la classe de ressources existante
-Les groupes de charge de travail requièrent un paramètre appelé `REQUEST_MIN_RESOURCE_GRANT_PERCENT` qui spécifie le pourcentage de ressources système globales allouées par requête.  L’allocation des ressources est effectuée pour les [classes de ressources](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#what-are-resource-classes) en allouant des emplacements de concurrence.  Pour déterminer la valeur à spécifier pour `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, utilisez la vue de gestion dynamique sys.dm_workload_management_workload_groups_stats <link tbd>.  Par exemple, la requête ci-dessous retourne une valeur qui peut être utilisée pour le paramètre `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pour créer un groupe de charge de travail similaire à staticrc40.   
+
+Les groupes de charge de travail requièrent un paramètre appelé `REQUEST_MIN_RESOURCE_GRANT_PERCENT` qui spécifie le pourcentage de ressources système globales allouées par requête.  L’allocation des ressources est effectuée pour les [classes de ressources](resource-classes-for-workload-management.md#what-are-resource-classes) en allouant des emplacements de concurrence.  Pour déterminer la valeur à spécifier pour `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, utilisez la vue de gestion dynamique sys.dm_workload_management_workload_groups_stats <link tbd>.  Par exemple, la requête ci-dessous retourne une valeur qui peut être utilisée pour le paramètre `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pour créer un groupe de charge de travail similaire à staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -33,9 +38,10 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Les groupes de charges de travail fonctionnent selon le pourcentage de ressources système globales.  
 
-Étant donné que les groupes de charges de travail fonctionnent selon le pourcentage de ressources système globales, à mesure que vous montez ou descendez en puissance, le pourcentage de ressources allouées aux classes de ressources statiques par rapport aux modifications globales des ressources système est modifié.  Par exemple, staticrc40 avec Dw1000c alloue 9,6 % des ressources système globales.  19,2 % sont alloués avec DW2000c.  Ce modèle est similaire que vous souhaitiez mettre à l’échelle à des fins concurrentielles ou allouer plus de ressources par requête.   
+Étant donné que les groupes de charges de travail fonctionnent selon le pourcentage de ressources système globales, à mesure que vous montez ou descendez en puissance, le pourcentage de ressources allouées aux classes de ressources statiques par rapport aux modifications globales des ressources système est modifié.  Par exemple, staticrc40 avec Dw1000c alloue 9,6 % des ressources système globales.  19,2 % sont alloués avec DW2000c.  Ce modèle est similaire que vous souhaitiez mettre à l’échelle à des fins concurrentielles ou allouer plus de ressources par requête.
 
 ## <a name="create-workload-group"></a>Créer le groupe de charge de travail
+
 Avec le `REQUEST_MIN_RESOURCE_GRANT_PERCENT` connu, vous pouvez utiliser la syntaxe <link> CREATE WORKLOAD GROUP pour créer le groupe de charge de travail.  Vous pouvez éventuellement spécifier un `MIN_PERCENTAGE_RESOURCE` supérieur à zéro pour isoler les ressources pour le groupe de charge de travail.  En outre, vous pouvez éventuellement spécifier `CAP_PERCENTAGE_RESOURCE` inférieur à 100 pour limiter la quantité de ressources que le groupe de charge de travail peut consommer.  
 
 L’exemple ci-dessous définit la `MIN_PERCENTAGE_RESOURCE` pour dédier 9,6 % des ressources système à `wgDataLoads` et garantit qu’une requête pourra être exécutée à chaque fois.  En outre, `CAP_PERCENTAGE_RESOURCE` a la valeur 38,4 % et limite ce groupe de charge de travail à quatre requêtes simultanées.  En définissant le paramètre `QUERY_EXECUTION_TIMEOUT_SEC` sur 3 600, toute requête qui s’exécute pendant plus d’une heure est automatiquement annulée.
@@ -49,10 +55,11 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 ```
 
 ## <a name="create-the-classifier"></a>Créer le classifieur
-Précédemment, le mappage des requêtes aux classes de ressources a été effectué avec [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  Pour obtenir les mêmes fonctionnalités et mapper les demandes aux groupes de charge de travail, utilisez la syntaxe [CREATE WORKLOAD CLASSIFIER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql) (CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL).  L’utilisation de sp_addrolemember vous permettait uniquement de mapper des ressources à une requête basée sur une connexion.  Un classifieur fournit des options supplémentaires en plus de la connexion, telles que :
+
+Précédemment, le mappage des requêtes aux classes de ressources a été effectué avec [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Pour obtenir les mêmes fonctionnalités et mapper les demandes aux groupes de charge de travail, utilisez la syntaxe [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL).  L’utilisation de sp_addrolemember vous permettait uniquement de mapper des ressources à une requête basée sur une connexion.  Un classifieur fournit des options supplémentaires en plus de la connexion, telles que :
     - label
     - session
-    - temps L’exemple ci-dessous affecte des requêtes à partir de la connexion `AdfLogin` qui dispose également de l’[ÉTIQUETTE OPTION](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-label) définie sur `factloads` sur le groupe de charge de travail `wgDataLoads` créé ci-dessus.
+    - temps L’exemple ci-dessous affecte des requêtes à partir de la connexion `AdfLogin` qui dispose également de l’[ÉTIQUETTE OPTION](sql-data-warehouse-develop-label.md) définie sur `factloads` sur le groupe de charge de travail `wgDataLoads` créé ci-dessus.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER wcDataLoads WITH  
@@ -60,23 +67,28 @@ CREATE WORKLOAD CLASSIFIER wcDataLoads WITH
  ,MEMBERNAME = 'AdfLogin'
  ,WLM_LABEL = 'factloads')
 ```
+
 ## <a name="test-with-a-sample-query"></a>Tester avec un exemple de requête
+
 Voici un exemple de requête et une requête DMV pour vérifier que le groupe de charge de travail et le classifieur sont configurés correctement.
 
 ```sql
 SELECT SUSER_SNAME() --should be 'AdfLogin'
 
 --change to a valid table AdfLogin has access to
-SELECT TOP 10 * 
-  FROM nation 
+SELECT TOP 10 *
+  FROM nation
   OPTION (label='factloads')
 
-SELECT request_id, [label], classifier_name, group_name, command 
-  FROM sys.dm_pdw_exec_requests 
+SELECT request_id, [label], classifier_name, group_name, command
+  FROM sys.dm_pdw_exec_requests
   WHERE [label] = 'factloads'
   ORDER BY submit_time DESC
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Isolation de la charge de travail : lien à déterminer Comment créer un groupe de charge de travail : lien à déterminer
+- [Isolation des charges de travail](sql-data-warehouse-workload-isolation.md)
+- [Guide pratique pour la création d’un groupe de charge de travail](quickstart-configure-workload-isolation-tsql.md)
+- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

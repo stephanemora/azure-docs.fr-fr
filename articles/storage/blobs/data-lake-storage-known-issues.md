@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4f8fae6580272ed53b8d440ba3e74c6a1ed1e61a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061506"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115326"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Les comptes ayant un espace de noms hiérarchique prennent en charge un nombre c
 
 ## <a name="supported-azure-service-integrations"></a>Intégrations de service Azure prises en charge
 
-Data Lake Storage Gen2 prend en charge plusieurs services Azure permettant d’ingérer des données, d’obtenir des données d’analytique et de créer des représentations visuelles. Pour obtenir la liste des services Azure pris en charge, consultez [Services Azure prenant en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+Azure Data Lake Storage Gen2 prend en charge plusieurs services Azure permettant d’ingérer des données, d’obtenir des données d’analytique et de créer des représentations visuelles. Pour obtenir la liste des services Azure pris en charge, consultez [Services Azure prenant en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 Consultez [Services Azure prenant en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
@@ -92,7 +92,7 @@ Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.
 
 <a id="storage-explorer" />
 
-## <a name="azure-storage-explorer"></a>Explorateur Stockage Azure
+## <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 
 Utilisez uniquement les versions `1.6.0` ou ultérieures.
 
@@ -112,11 +112,8 @@ Les applications tierces qui utilisent les API REST continueront à fonctionner 
 
 Si l’[accès en lecture anonyme](storage-manage-access-to-resources.md) a été accordé à un conteneur, les listes de contrôle d’accès n’ont aucun effet sur ce conteneur ou les fichiers de ce conteneur.
 
-## <a name="windows-azure-storage-blob-wasb-driver"></a>Pilote Windows Azure Storage Blob (WASB)
+## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Pilote Windows Azure Storage Blob (WASB) (non pris en charge avec Data Lake Storage Gen2)
 
-À l’heure actuelle, il existe plusieurs problèmes associés à l’utilisation du pilote WASB avec des comptes dotés d’un espace de noms hiérarchique. Nous vous recommandons d’utiliser le pilote [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) dans vos charges de travail. 
+Actuellement, le pilote WASB, qui a été conçu pour fonctionner avec l’API Blob uniquement, rencontre des problèmes dans quelques scénarios courants. C’est le cas en particulier quand il s’agit d’un client pour un compte de stockage prenant en charge un espace de noms hiérarchique. L’accès multiprotocole sur Data Lake Storage n’atténue pas ces problèmes. 
 
-
-
-
-
+Pour le moment (et probablement pour très longtemps), nous ne prenons pas en charge les utilisateurs qui utilisent le pilote WASB en tant que client pour un compte de stockage prenant en charge un espace de noms hiérarchique. Nous vous recommandons plutôt d’utiliser le pilote [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) dans votre environnement Hadoop. Si vous tentez d’effectuer une migration à partir d’un environnement Hadoop local avec une version antérieure à Hadoop Branch-3, ouvrez un ticket de support Azure pour que nous puissions vous contacter et vous indiquer la bonne direction pour vous et votre organisation.

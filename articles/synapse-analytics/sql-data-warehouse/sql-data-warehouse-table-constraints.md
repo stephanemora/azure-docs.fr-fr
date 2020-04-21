@@ -1,6 +1,6 @@
 ---
 title: Clés primaires, étrangères et uniques
-description: Prise en charge des contraintes de table SQL Analytics dans Azure Synapse Analytics
+description: Prise en charge des contraintes de table du pool SQL Synapse dans Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,33 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b9336a5e230e90e1abd7f2d40d431b988385c009
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f97163d02836442430037e18439bcf0724046332
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350031"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990767"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Clé primaire, clé étrangère et clé unique dans SQL Analytics
+# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Clé primaire, clé étrangère et clé unique dans le pool SQL Synapse
 
-Découvrez les contraintes de table SQL Analytics, notamment la clé primaire, la clé étrangère et la clé unique.
+Découvrez les contraintes de table dans le pool SQL Synapse, notamment la clé primaire, la clé étrangère et la clé unique.
 
-## <a name="table-constraints"></a>Contraintes de table 
-SQL Analytics prend en charge les contraintes de table suivantes : 
+## <a name="table-constraints"></a>Contraintes de table
+
+Le pool SQL Synapse prend en charge les contraintes de table suivantes : 
 - La contrainte PRIMARY KEY est prise en charge seulement si NONCLUSTERED et NOT ENFORCED sont tous les deux utilisés.    
-- La contrainte UNIQUE est prise en charge seulement si NOT ENFORCED est utilisé.   
+- La contrainte UNIQUE est prise en charge seulement si NOT ENFORCED est utilisé.
 
-La contrainte FOREIGN KEY n'est pas prise en charge dans SQL Analytics.  
+Pour la syntaxe, cochez [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) et [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+
+La contrainte FOREIGN KEY n’est pas prise en charge dans le pool SQL Synapse.  
+
 
 ## <a name="remarks"></a>Notes
-La présence d'une clé primaire et/ou d'une clé unique permet au moteur de SQL Analytics de générer un plan d'exécution optimal pour une requête.  Toutes les valeurs d’une colonne de clé primaire ou d’une colonne de contrainte unique doivent être uniques. 
 
-Après avoir créé une table avec contrainte de clé primaire ou unique dans SQL Analytics, les utilisateurs doivent s'assurer que toutes les valeurs de ces colonnes sont uniques.  Si cette condition n’est pas respectée, la requête risque de retourner un résultat inexact.  Cet exemple illustre le fait qu’une requête peut retourner un résultat inexact si la colonne de contrainte de clé primaire ou unique contient des valeurs en double.  
+La présence d’une clé primaire et/ou d’une clé unique permet au moteur du pool SQL Synapse de générer un plan d’exécution optimal pour une requête.  Toutes les valeurs d’une colonne de clé primaire ou d’une colonne de contrainte unique doivent être uniques.
+
+Après avoir créé une table avec une contrainte de clé primaire ou unique dans le pool SQL Synapse, les utilisateurs doivent vérifier que toutes les valeurs de ces colonnes sont uniques.  Si cette condition n’est pas respectée, la requête risque de retourner un résultat inexact.  Cet exemple illustre le fait qu’une requête peut retourner un résultat inexact si la colonne de contrainte de clé primaire ou unique contient des valeurs en double.  
 
 ```sql
  -- Create table t1
@@ -158,12 +163,13 @@ a1          total
 ```
 
 ## <a name="examples"></a>Exemples
-Création d'une table SQL Analytics avec clé primaire : 
+
+Création d’une table de pool SQL Synapse avec une clé primaire : 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Création d'une table SQL Analytics avec contrainte unique :
+Création d’une table de pool SQL Synapse avec une contrainte unique :
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +177,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé les tables dans votre base de données SQL Analytics, l'étape suivante consiste à charger des données dans ces tables. Pour suivre un tutoriel consacré au chargement, consultez [Chargement de données dans des bases de données SQL Analytics](load-data-wideworldimportersdw.md).
+Après avoir créé les tables de votre pool SQL Synapse, vous devez charger des données dans ces tables. Pour suivre un tutoriel sur le chargement, consultez [Chargement de données dans le pool SQL Synapse](load-data-wideworldimportersdw.md).

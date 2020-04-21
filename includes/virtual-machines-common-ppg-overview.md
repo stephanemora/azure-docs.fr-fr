@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: 3215f5952daef053c94432bc8fdef15e1775047a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73171103"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422189"
 ---
 Le fait de placer les machines virtuelles dans une seule région réduit la distance physique entre les instances. Le fait de les placer dans une zone de disponibilité unique les rapproche également physiquement. Cependant, à mesure que l’empreinte Azure augmente, une seule zone de disponibilité peut s’étendre sur plusieurs centres de données physiques, ce qui peut entraîner une latence réseau qui peut affecter votre application. 
 
@@ -39,6 +39,13 @@ Vous pouvez également déplacer une ressource existante dans un groupe de place
 Dans le cas des groupes à haute disponibilité et de groupes de machines virtuelles identiques, vous devez définir le groupe de placement de proximité au niveau de la ressource plutôt que sur les machines virtuelles individuelles. 
 
 Un groupe de placement de proximité est une contrainte de colocalisation plutôt qu’un mécanisme d’épinglage. Il est épinglé à un centre de données spécifique avec le déploiement de la première ressource à l’utiliser. Une fois que toutes les ressources utilisant le groupe de placement de proximité ont été arrêtées (désallouées) ou supprimées, elles ne sont plus épinglées. Par conséquent, lors de l’utilisation d’un groupe de placement de proximité avec plusieurs séries de machines virtuelles, il est important de spécifier tous les types requis au préalable dans un modèle quand c’est possible, ou de suivre une séquence de déploiement qui améliore vos chances de réussir le déploiement. Si votre déploiement échoue, redémarrez-le déploiement avec la taille de machine virtuelle qui a échoué en tant que première taille à déployer.
+
+## <a name="what-to-expect-when-using-proximity-placement-groups"></a>Ce qui se passe quand vous utilisez des groupes de placement de proximité 
+Les groupes de placement de proximité offrent une colocalisation dans le même centre de données. Toutefois, du fait que les groupes de placement de proximité constituent une contrainte de déploiement supplémentaire, des échecs d’allocation peuvent se produire. Dans certains cas d’utilisation, des échecs d’allocation se produisent lors de l’utilisation de groupes de placement de proximité :
+
+- Lorsque vous demandez la première machine virtuelle dans le groupe de placement de proximité, le centre de données est automatiquement sélectionné. Dans certains cas, une deuxième demande de référence (SKU) de machine virtuelle différente peut échouer si celle-ci n’existe pas dans ce centre de données. Dans ce cas, une erreur **OverconstrainedAllocationRequest** est retournée. Pour éviter cela, essayez de modifier l’ordre dans lequel vous déployez vos références (SKU) ou faites en sorte que les deux ressources soient déployées à l’aide d’un seul modèle ARM.
+-   Dans le cas de charges de travail élastiques où vous ajoutez et supprimez des instances de machine virtuelle, l’existence d’une contrainte de groupe de placement de proximité sur votre déploiement peut entraîner un échec de satisfaction de la demande générant l’erreur **AllocationFailure**. 
+- L’arrêt (désallocation) et le démarrage de vos machines virtuelles en fonction des besoins sont une autre façon d’obtenir l’élasticité. Étant donné que la capacité n’est pas conservée une fois que vous arrêtez (désallouez) une machine virtuelle, le redémarrage de celle-ci peut générer une erreur **AllocationFailure**.
 
 
 ## <a name="best-practices"></a>Meilleures pratiques 

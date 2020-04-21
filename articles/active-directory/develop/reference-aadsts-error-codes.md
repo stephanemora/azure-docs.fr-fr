@@ -2,26 +2,22 @@
 title: Codes d’erreur d’authentification et d’autorisation Azure AD
 description: En savoir plus sur les codes d’erreur AADSTS retournés par le service d’émission de jeton de sécurité de Azure AD (STS).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 87a962709638391887eaa275f059bf4ceae9218b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483922"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406968"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -32,10 +28,53 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 >
 > Cette documentation fournit des conseils aux développeurs et aux administrateurs ; elle ne doit jamais être utilisée par le client lui-même. Les codes d’erreur sont susceptibles d’être modifié à tout moment afin de fournir des messages d’erreur plus granulaires destinés à aider les développeurs lors de la création de leur application. Les applications qui dépendent des numéros de code d’erreur ou de texte seront endommagées au fil du temps.
 
-## <a name="lookup-current-error-code-information"></a>Rechercher les informations actuelles sur les codes d’erreur
-Les codes d’erreur et les messages sont susceptibles d’être modifiés.  Pour obtenir les informations les plus récentes, consultez la page [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) pour trouver les descriptions des erreurs AADSTS, des correctifs et des solutions suggérées.  
+## <a name="handling-error-codes-in-your-application"></a>Gestion des codes d’erreur dans votre application
 
-Effectuez une recherche sur la partie numérique du code d’erreur retourné.  Par exemple, si vous avez reçu le code d’erreur « AADSTS16000 », effectuez une recherche dans [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) sur « 16000 ».  Vous pouvez également établir un lien direct à une erreur spécifique en ajoutant le numéro de code d’erreur à l’URL : [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
+La [spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-5.2) fournit des conseils sur la façon de gérer les erreurs d’authentification en utilisant la portion `error` de la réponse d’erreur. 
+
+Voici un exemple de réponse d’erreur :
+
+```json
+{
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://example.contoso.com/activity.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7", 
+  "error_uri":"https://login.microsoftonline.com/error?code=70011"
+}
+```
+
+| Paramètre         | Description    |
+|-------------------|----------------|
+| `error`       | Chaîne de code d’erreur utilisable pour classer les types d’erreurs se produisant, et à utiliser pour traiter les erreurs. |
+| `error_description` | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. N’utilisez jamais ce champ pour traiter une erreur dans votre code. |
+| `error_codes` | Liste des codes d’erreur STS spécifiques pouvant être utiles dans les tests de diagnostic.  |
+| `timestamp`   | Heure à laquelle l’erreur s’est produite. |
+| `trace_id`    | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
+| `correlation_id` | Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
+| `error_uri` |  Lien vers la page de recherche d’erreur avec des informations supplémentaires sur l’erreur.  Il est réservé à l’usage des développeurs. Ne l’affichez pas pour les utilisateurs.  Présent uniquement lorsque le système de recherche d’erreur contient des informations supplémentaires sur l’erreur. Des informations supplémentaires ne sont pas disponibles pour toutes les erreurs.|
+
+Le champ `error` a plusieurs valeurs possibles : consultez les liens de documentation sur le protocole et les spécifications OAuth 2.0 pour en savoir plus sur certaines erreurs spécifiques (par exemple, `authorization_pending` dans le [flux de code de l’appareil](v2-oauth2-device-code.md)) et savoir comment les traiter.  Certaines erreurs courantes sont répertoriées ici :
+
+| Code d'erreur         | Description        | Action du client    |
+|--------------------|--------------------|------------------|
+| `invalid_request`  | Erreur de protocole, tel qu’un paramètre obligatoire manquant. | Corrigez l’erreur, puis envoyez à nouveau la demande.|
+| `invalid_grant`    | Le matériel d’authentification (code d’authentification, jeton d’actualisation, jeton d’accès, PKCE (Proof Key for Code Exchange, clé de preuve pour l’échange de code)) était en partie non valide, non analysable, manquant ou inutilisable. | Essayez d’envoyer une nouvelle requête au point de terminaison `/authorize` pour obtenir un nouveau code d’autorisation.  Songez à examiner et valider l’utilisation des protocoles par cette application. |
+| `unauthorized_client` | Le client authentifié n’est pas autorisé à utiliser ce type d’octroi d’autorisation. | Cela se produit généralement lorsque l’application cliente n’est pas inscrite dans Azure AD ou n’est pas ajoutée au client Azure AD de l’utilisateur. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
+| `invalid_client` | Échec d’authentification du client.  | Les informations d’identification du client ne sont pas valides. Pour résoudre le problème, l’administrateur de l’application met à jour les informations d’identification.   |
+| `unsupported_grant_type` | Le serveur d’autorisation ne prend pas en charge le type d’octroi d’autorisation. | Modifiez le type d’octroi dans la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
+| `invalid_resource` | La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. | Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD.  Dans le cadre du développement, cela indique généralement qu’un locataire de test est mal configuré ou que le nom de l’étendue demandée contient une faute de frappe. |
+| `interaction_required` | La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la demande avec la même ressource, mais de manière interactive, afin que l’utilisateur puisse effectuer les vérifications requises.  |
+| `temporarily_unavailable` | Le serveur est temporairement trop occupé pour traiter la demande. | Relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
+
+## <a name="lookup-current-error-code-information"></a>Rechercher les informations actuelles sur les codes d’erreur
+Les codes d’erreur et les messages sont susceptibles d’être modifiés.  Pour obtenir les informations les plus récentes, consultez la page `https://login.microsoftonline.com/error` pour trouver les descriptions des erreurs AADSTS, des correctifs et des solutions suggérées.  
+
+Effectuez une recherche sur la partie numérique du code d’erreur retourné.  Par exemple, si vous avez reçu le code d’erreur « AADSTS16000 », effectuez une recherche dans `https://login.microsoftonline.com/error` sur « 16000 ».  Vous pouvez également établir un lien direct à une erreur spécifique en ajoutant le numéro de code d’erreur à l’URL : `https://login.microsoftonline.com/error?code=16000`.
 
 ## <a name="aadsts-error-codes"></a>Codes d’erreur AADSTS
 
@@ -133,6 +172,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS50180 | WindowsIntegratedAuthMissing : l’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente. |
 | AADSTS50187 | DeviceInformationNotProvided : le service n’a pas réussi à authentifier l’appareil. |
 | AADSTS50196 | LoopDetected : une boucle client a été détectée. Vérifiez la logique de l’application pour vous assurer que la mise en cache des jetons est implémentée et que les conditions d’erreur sont gérées correctement.  L’application a effectué un trop grand nombre de requêtes sur une période trop brève, indiquant qu’elle est dans un état défectueux ou qu’elle demande trop de jetons. |
+| AADSTS50197 | ConflictingIdentities : impossible de trouver l’utilisateur. Réessayez de vous connecter. |
 | AADSTS50199 | CmsiInterrupt : pour des raisons de sécurité, une confirmation de l’utilisateur est requise pour cette demande.  Étant donné qu’il s’agit d’une erreur « interaction_required », le client doit effectuer une authentification interactive.  Cela est dû au fait qu’un affichage web système a été utilisé pour demander un jeton pour une application native : l’utilisateur doit être invité à préciser s’il s’agissait effectivement de l’application à laquelle il voulait se connecter.|
 | AADSTS51000 | RequiredFeatureNotEnabled : la fonctionnalité est désactivée. |
 | AADSTS51001 | DomainHintMustbePresent : l’indicateur de domaine doit être présent avec l’identificateur de sécurité local ou l’UPN local. |
@@ -271,9 +311,12 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS700020 | InteractionRequired : l’octroi d’accès nécessite une interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope : la valeur fournie pour l’étendue du paramètre d’entrée n’est pas valide car elle contient plusieurs ressources. |
 | AADSTS700023 | InvalidResourcelessScope : la valeur fournie pour l’étendue du paramètre d’entrée n’est pas valide pour demander un jeton d’accès. |
+| AADSTS7000222| InvalidClientSecretExpiredKeysProvided : les clés secrètes client fournies ont expiré. Visitez le portail Azure pour créer des clés pour votre application ou envisagez d’utiliser des informations d’identification de certificat pour renforcer la sécurité : https://aka.ms/certCreds |
+| AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant : le code d’autorisation fourni est destiné à être utilisé auprès d’un autre locataire et a donc été rejeté. Le code d’autorisation OAuth2 doit être échangé auprès du même locataire pour lequel il a été acquis (/common ou /{tenant-ID}, le cas échéant) |
 | AADSTS1000000 | UserNotBoundError : l’API Bind nécessite que l’utilisateur Azure AD s’authentifie également auprès d’un fournisseur d’identité externe, ce qui n’a pas encore été effectué. |
 | AADSTS1000002 | BindCompleteInterruptError : la liaison s’est terminée correctement, mais l’utilisateur doit être informé. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled : l’application est désactivée. |
+| AADSTS7500529 | La valeur « SAMLId-GUID » n’est pas un ID SAML valide - Azure AD utilise cet attribut pour remplir l’attribut InResponseTo de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, id6c1c178c166d486687be4aaf5e482730 est un ID valide. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

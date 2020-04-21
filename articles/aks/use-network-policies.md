@@ -1,15 +1,16 @@
 ---
-title: Sécuriser les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
+title: Sécuriser le trafic de pods avec une stratégie réseau
+titleSuffix: Azure Kubernetes Service
 description: Découvrez comment sécuriser le trafic qui transite par des pods à l’aide de stratégies réseau Kubernetes dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 92e726529f2c81b169dc5ad485148ad8118bbc81
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592864"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392609"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
@@ -42,7 +43,7 @@ Ces règles de stratégie réseau sont définies sous la forme de manifestes YAM
 
 Azure vous permet d’implémenter une stratégie réseau de deux manières. Vous choisissez une option de stratégie réseau lorsque vous créez un cluster AKS. Une fois le cluster créé, l’option de stratégie n’est plus modifiable :
 
-* implémentation propre à Azure, appelée *stratégies réseau Azure* ;
+* implémentation propre à Azure, appelée *stratégies réseau Azure*
 * *stratégies réseau Calico*, une solution de réseau et de sécurité réseau open source conçue par [Tigera][tigera].
 
 Ces deux implémentations appliquent les stratégies spécifiées à l’aide du logiciel Linux *IPTables*. Les stratégies sont converties en ensembles de paires d’adresses IP autorisées et interdites. Ces paires sont ensuite programmées sous la forme de règles de filtre IPTable.
@@ -81,6 +82,8 @@ L’exemple de script suivant :
 * Assigne des autorisations *Contributeur* pour le principal du service du cluster AKS sur le réseau virtuel.
 * Crée un cluster AKS dans le réseau virtuel défini et active la stratégie réseau.
     * L’option de stratégie réseau *azure* est utilisée. Pour utiliser Calico en tant qu’option de stratégie réseau à la place, utilisez le paramètre `--network-policy calico`. Remarque : Calico peut être utilisé avec `--network-plugin azure` ou `--network-plugin kubenet`.
+
+Notez qu’au lieu d’utiliser un principal de service, vous pouvez utiliser une identité managée pour les autorisations. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
 
 Fournissez votre propre *SP_PASSWORD* sécurisé. Vous pouvez remplacer les variables *RESOURCE_GROUP_NAME* et *CLUSTER_NAME* :
 
@@ -172,7 +175,7 @@ wget -qO- http://backend
 
 L’exemple de sortie ci-après affiche la page web NGINX par défaut renvoyée :
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -204,14 +207,15 @@ spec:
   ingress: []
 ```
 
+Accédez à [https://shell.azure.com](https://shell.azure.com) pour ouvrir Azure Cloud Shell dans votre navigateur.
+
 Appliquez la stratégie réseau à l’aide de la commande [kubectl apply][kubectl-apply] et précisez le nom de votre manifeste YAML :
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
 ### <a name="test-the-network-policy"></a>Tester la stratégie réseau
-
 
 Voyons si vous pouvez réutiliser la page web NGINX sur le pod principal. Créez un autre pod de test et attachez une session de terminal :
 
@@ -222,8 +226,10 @@ kubectl run --rm -it --image=alpine network-policy --namespace development --gen
 À l’invite de l’interpréteur de commandes, utilisez `wget` pour voir si vous pouvez accéder à la page web NGINX par défaut. Cette fois, définissez une valeur de délai d’attente sur *2* secondes. La stratégie réseau bloque à présent tout le trafic entrant, de sorte que la page ne peut pas être chargée, comme illustré dans l’exemple suivant :
 
 ```console
-$ wget -qO- --timeout=2 http://backend
+wget -qO- --timeout=2 http://backend
+```
 
+```output
 wget: download timed out
 ```
 
@@ -264,7 +270,7 @@ spec:
 
 Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
@@ -282,7 +288,7 @@ wget -qO- http://backend
 
 Étant donné que la règle d’entrée autorise le trafic avec les pods étiquetés *app: webapp,role: frontend*, le trafic provenant du pod frontal est autorisé. L’exemple de sortie ci-après affiche la page web NGINX par défaut renvoyée :
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -307,8 +313,10 @@ kubectl run --rm -it --image=alpine network-policy --namespace development --gen
 À l’invite de l’interpréteur de commandes, utilisez `wget` pour voir si vous pouvez accéder à la page web NGINX par défaut. La stratégie réseau bloque le trafic entrant, de sorte que la page ne peut pas être chargée, comme indiqué dans l’exemple suivant :
 
 ```console
-$ wget -qO- --timeout=2 http://backend
+wget -qO- --timeout=2 http://backend
+```
 
+```output
 wget: download timed out
 ```
 
@@ -343,7 +351,7 @@ wget -qO- http://backend.development
 
 Dans la mesure où l’étiquette du pod correspond à ce qui est actuellement accordé dans la stratégie réseau, le trafic est autorisé. La stratégie réseau n’examine pas les espaces de noms, elle ne tient compte que des étiquettes de pod. L’exemple de sortie ci-après affiche la page web NGINX par défaut renvoyée :
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -387,7 +395,7 @@ Dans des exemples plus complexes, vous pourriez définir plusieurs règles d’e
 
 Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
@@ -402,8 +410,10 @@ kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend -
 À l’invite de l’interpréteur de commandes, utilisez `wget` pour vérifier que la stratégie réseau refuse désormais le trafic :
 
 ```console
-$ wget -qO- --timeout=2 http://backend.development
+wget -qO- --timeout=2 http://backend.development
+```
 
+```output
 wget: download timed out
 ```
 
@@ -427,7 +437,7 @@ wget -qO- http://backend
 
 Le trafic est autorisé, car le pod est planifié dans l’espace de noms qui correspond à ce qui est autorisé dans la stratégie réseau. L’exemple de sortie ci-après affiche la page web NGINX par défaut renvoyée :
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
