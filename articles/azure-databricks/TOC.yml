@@ -1293,6 +1293,9 @@
               maintainContext: true
         - name: Sources de données
           items:
+            - name: Le client ABFS se bloque si l’ID client ou le chemin utilisé est incorrect
+              href: /azure/databricks/kb/data-sources/abfs-client-hang
+              maintainContext: true
             - name: Erreur de lecture des données d’ADLS Gen1 avec Sparklyr
               href: /azure/databricks/kb/data-sources/access-adls1-from-sparklyr
               maintainContext: true
@@ -1509,6 +1512,9 @@
             - name: Échec de la commande avec AttributeError
               href: /azure/databricks/kb/python/python-exec-display-cancelled
               maintainContext: true
+            - name: Échec du démarrage de Python REPL dans Docker
+              href: /azure/databricks/kb/python/python-repl-fails-dcs
+              maintainContext: true
             - name: Exécuter du code C++
               href: /azure/databricks/kb/python/running-c-plus-plus-code
               maintainContext: true
@@ -1562,6 +1568,12 @@
               maintainContext: true
         - name: Diffusion en continu
           items:
+            - name: Fichiers de point de contrôle non supprimés quand display() est utilisé
+              href: /azure/databricks/kb/streaming/checkpoint-no-cleanup-display
+              maintainContext: true
+            - name: Fichiers de point de contrôle non supprimés quand foreachBatch() est utilisé
+              href: /azure/databricks/kb/streaming/checkpoint-no-cleanup-foreachbatch
+              maintainContext: true
             - name: Récupération après changement du répertoire de point de contrôle ou de sortie
               href: /azure/databricks/kb/streaming/file-sink-streaming
               maintainContext: true
@@ -1578,9 +1590,14 @@
         - name: Databricks Connect
           href: /azure/databricks/dev-tools/databricks-connect
           maintainContext: true
-        - name: CI/CD avec Jenkins
-          href: /azure/databricks/dev-tools/ci-cd
-          maintainContext: true
+        - name: Intégration/déploiement continues
+          items:
+            - name: CI/CD avec Azure DevOps
+              href: /azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops
+              maintainContext: true
+            - name: CI/CD avec Jenkins
+              href: /azure/databricks/dev-tools/ci-cd/ci-cd-jenkins
+              maintainContext: true
         - name: Gérer les dépendances dans les pipelines de données
           href: /azure/databricks/dev-tools/data-pipelines
           maintainContext: true
@@ -1618,7 +1635,15 @@
               href: /azure/databricks/dev-tools/api/latest/mlflow
               maintainContext: true
             - name: SCIM
-              href: /azure/databricks/dev-tools/api/latest/scim
+              items:
+                - name: Vue d’ensemble de l’API SCIM
+                  href: /azure/databricks/dev-tools/api/latest/scim/index
+                - name: API SCIM (Me)
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-me
+                - name: API SCIM (Users)
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-users
+                - name: API SCIM (Groups)
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-group
               maintainContext: true
             - name: Secrets
               href: /azure/databricks/dev-tools/api/latest/secrets
@@ -1803,16 +1828,19 @@
                 - name: Versions du runtime
                   href: /azure/databricks/release-notes/runtime/releases
                   maintainContext: true
+                - name: "Databricks Runtime\_7.0 ML (bêta)"
+                  href: /azure/databricks/release-notes/runtime/7.0ml
+                  maintainContext: true
                 - name: "Databricks Runtime\_7.0 (bêta)"
                   href: /azure/databricks/release-notes/runtime/7.0
                   maintainContext: true
-                - name: "Databricks Runtime\_6.5 (bêta)"
+                - name: "Databricks Runtime\_6.5"
                   href: /azure/databricks/release-notes/runtime/6.5
                   maintainContext: true
-                - name: "Databricks Runtime\_6.5 ML (bêta)"
+                - name: "Databricks Runtime\_6.5 ML"
                   href: /azure/databricks/release-notes/runtime/6.5ml
                   maintainContext: true
-                - name: "Databricks Runtime\_6.5 Genomics (bêta)"
+                - name: "Databricks Runtime\_6.5 Genomics"
                   href: /azure/databricks/release-notes/runtime/6.5genomics
                   maintainContext: true
                 - name: "Databricks Runtime\_6.4"

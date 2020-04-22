@@ -85,8 +85,6 @@
           href: batch-aad-auth-management.md
         - name: Accéder de façon sécurisée à Key Vault avec Batch
           href: credential-access-key-vault.md
-    - name: Utilisation de packages d’application
-      href: batch-application-packages.md
     - name: Copier des fichiers et des applications dans les nœuds d’un pool
       items:
         - name: Copie d’applications et de données dans des nœuds de pool

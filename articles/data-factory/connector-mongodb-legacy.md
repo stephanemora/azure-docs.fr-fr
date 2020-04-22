@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 0bdd8d454b979250b57cf657d347309b99a86ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 803e34a93e8019cfc2577bfaab3ba13c409c6b01
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892570"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418165"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Version actuelle](connector-mongodb.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MongoDB. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
@@ -39,7 +40,7 @@ Plus précisément, ce connecteur MongoDB prend en charge :
 - MongoDB **versions 2.4, 2.6, 3.0, 3.2, 3.4 et 3.6**.
 - Copie de données en utilisant une authentification **De base** ou **Anonyme**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -57,15 +58,15 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type |La propriété type doit être définie sur **MongoDb** |Oui |
+| type |La propriété type doit être définie sur : **MongoDb** |Oui |
 | server |Nom d’hôte ou adresse IP du serveur MongoDB. |Oui |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Non (valeur par défaut est 27017) |
 | databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |Oui |
-| authenticationType | Type d'authentification utilisé pour se connecter à la base de données MongoDB.<br/>Valeurs autorisées : **De base** et **Anonyme**. |Oui |
+| authenticationType | Type d'authentification utilisé pour se connecter à la base de données MongoDB.<br/>Les valeurs autorisées sont les suivantes : **De base**, et **Anonyme**. |Oui |
 | username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
-| password |Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui (si l’authentification de base est utilisée). |
+| mot de passe |Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui (si l’authentification de base est utilisée). |
 | authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Non. Par défaut, l’authentification de base utilise le compte d’administrateur et la base de données spécifiés à l’aide de la propriété databaseName. |
-| enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non |
+| enableSsl | Indique si les connexions au serveur sont chiffrées à l'aide du protocole TLS. La valeur par défaut est false.  | Non |
 | allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est false.  | Non |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
@@ -100,7 +101,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **MongoDbCollection** | Oui |
+| type | La propriété type du jeu de données doit être définie sur : **MongoDbCollection** | Oui |
 | collectionName |Nom de la collection dans la base de données MongoDB. |Oui |
 
 **Exemple :**
@@ -131,7 +132,7 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **MongoDbSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MongoDbSource** | Oui |
 | query |Utiliser la requête SQL-92 personnalisée pour lire les données. Par exemple : select * from MyTable. |Non (si « collectionName » est spécifié dans le jeu de données) |
 
 **Exemple :**
@@ -193,7 +194,7 @@ Lors de la copie de données de MongoDB, les mappages suivants sont utilisés en
 > [!NOTE]
 > Pour en savoir plus sur la prise en charge des tableaux à l’aide de tables virtuelles, reportez-vous à la section [Prise en charge des types complexes à l’aide de tables virtuelles](#support-for-complex-types-using-virtual-tables).
 >
-> Actuellement, les types de données MongoDB suivants ne sont pas pris en charge : DBPointer, JavaScript, clé max./min., expression régulière, symbole, horodatage, non définie.
+> Les types de données MongoDB suivants ne sont pas pris en charge pour le moment : DBPointer, JavaScript, clé max./min., expression régulière, symbole, horodatage, non définie.
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>Prise en charge des types complexes à l’aide de tables virtuelles
 
@@ -210,8 +211,8 @@ Par exemple, « ExampleTable » est ici une table MongoDB qui dispose d’une co
 
 | _id | Nom du client | Factures | Niveau de service | Évaluations |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Argent |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Or |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"grille-pain", price:"456", discount:"0.2"}, {invoice_id:"124", item:"four", price: "1235", discount: "0.2"}] |Argent |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"réfrigirateur", price: "12543", discount: "0.0"}] |Or |[1,2] |
 
 Le pilote génère plusieurs tables virtuelles pour représenter cette table. La première table virtuelle est la table de base nommée « ExampleTable » présentée dans l’exemple. La table de base contient toutes les données de la table d’origine, mais les données dans les tableaux ont été omises et sont développées dans les tables virtuelles.
 

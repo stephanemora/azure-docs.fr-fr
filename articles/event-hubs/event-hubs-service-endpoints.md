@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 6de51c23bd6358a6f54fe3baf9e9b256047d4ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064891"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390282"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Event Hubs
 
@@ -26,8 +26,25 @@ Une fois configuré pour être lié à au moins un point de terminaison de servi
 
 Il en résulte une relation privée et isolée entre les charges de travail liées au sous-réseau et l’espace de noms Event Hubs respectif, et ce malgré le fait que l’adresse réseau observable du point de terminaison du service de messagerie figure dans une plage d’adresses IP publique. Toutefois, il existe une exception à ce comportement. Par défaut, l’activation d’un point de terminaison de service active à la règle `denyall` dans le [pare-feu IP](event-hubs-ip-filtering.md) associé au réseau virtuel. Vous pouvez ajouter des adresses IP spécifiques dans le pare-feu IP pour permettre l’accès au point de terminaison public Event Hub. 
 
+>[!WARNING]
+> L’implémentation de l’intégration de réseaux virtuels peut empêcher d’autres services Azure d’interagir avec Event Hubs.
+>
+> Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés.
+>
+> Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
+> - Azure Monitor (paramètre de diagnostic)
+> - Azure Stream Analytics
+> - Intégration à Azure Event Grid
+> - Routes Azure IoT Hub
+> - Azure IoT Device Explorer
+>
+> Les services Microsoft suivants doivent se trouver sur un réseau virtuel
+> - Azure Web Apps
+> - Azure Functions
+
+
 > [!IMPORTANT]
-> Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau **de base**.
+> Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau **De base**.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scénarios de sécurité avancés pris en charge par l’intégration à VNet 
 
@@ -37,7 +54,7 @@ Toute route IP immédiate entre les compartiments, notamment celles acheminant l
  
 Vos solutions cloud sensibles en matière de sécurité accèdent donc aux fonctionnalités de messagerie asynchrones de pointe d’Azure qui allient fiabilité et scalabilité. Vos solutions peuvent désormais utiliser la messagerie pour créer des chemins de communication entre des compartiments de solution sécurisés, ce qui offre intrinsèquement une meilleure sécurité que n’importe quel mode de communication pair à pair (notamment HTTPS et d’autres protocoles de sockets sécurisés par TLS).
 
-## <a name="bind-event-hubs-to-virtual-networks"></a>Lier Event Hubs à des réseaux virtuels
+## <a name="bind-event-hubs-to-virtual-networks"></a>Lier des Event Hubs à des réseaux virtuels
 
 Les **règles de réseau virtuel** sont une fonctionnalité de sécurité de pare-feu. Elles permettent de contrôler si votre espace de noms Azure Event Hubs doit accepter ou non les connexions d’un sous-réseau de réseau virtuel particulier.
 
@@ -62,7 +79,7 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 
 4. Une fois le point de terminaison de service pour le sous-réseau activé pour **Microsoft.EventHub**, le message suivant doit s’afficher. Sélectionnez **Ajouter** au bas de la page pour ajouter le réseau. 
 
-    ![sélectionner un sous-réseau et activer le point de terminaison](./media/event-hubs-tutorial-vnet-and-firewalls/subnet-service-endpoint-enabled.png)
+    ![sélectionner le sous-réseau et activer le point de terminaison](./media/event-hubs-tutorial-vnet-and-firewalls/subnet-service-endpoint-enabled.png)
 
     > [!NOTE]
     > Si vous ne pouvez pas activer le point de terminaison de service, vous pouvez ignorer le point de terminaison de service de réseau virtuel manquant en utilisant le modèle Resource Manager. Cette fonctionnalité n’est pas disponible dans le portail.

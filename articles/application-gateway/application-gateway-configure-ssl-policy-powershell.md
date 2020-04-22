@@ -1,27 +1,27 @@
 ---
-title: Configurer une stratégie SSL à l’aide de PowerShell
+title: Configurer une stratégie TLS à l'aide de PowerShell
 titleSuffix: Azure Application Gateway
-description: Cet article fournit des instructions pour configurer la stratégie SSL sur Azure Application Gateway
+description: Cet article contient des instructions pour configurer une stratégie TLS sur Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3804059fdd818f10663d14bde72da2c6773fa53f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075228"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312672"
 ---
-# <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway
+# <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions des stratégies TLS et les suites de chiffrement sur Application Gateway
 
-Découvrez comment configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway. Vous pouvez effectuer votre choix dans une liste de stratégies prédéfinies qui contient différentes configurations de versions de stratégie SSL et suites de chiffrement activées. Vous avez également la possibilité de définir une [stratégie SSL personnalisée](#configure-a-custom-ssl-policy) en fonction de vos besoins.
+Apprenez à configurer les versions des stratégies TLS/SSL et les suites de chiffrement sur Application Gateway. Vous pouvez effectuer votre choix dans une liste de stratégies prédéfinies contenant différentes configurations de versions de stratégies TLS et suites de chiffrement activées. Vous avez également la possibilité de définir une [stratégie TLS personnalisée](#configure-a-custom-tls-policy) en fonction de vos besoins.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-available-ssl-options"></a>Obtenir les options SSL disponibles
+## <a name="get-available-tls-options"></a>Accéder aux options TLS disponibles
 
 L’applet de commande `Get-AzApplicationGatewayAvailableSslOptions` fournit une liste des stratégies prédéfinies et des suites de chiffrement disponibles ainsi que des versions de protocole qui peuvent être configurées. L’exemple suivant montre un exemple de sortie de l’exécution de l’applet de commande.
 
@@ -71,9 +71,9 @@ AvailableProtocols:
     TLSv1_2
 ```
 
-## <a name="list-pre-defined-ssl-policies"></a>Répertorier les stratégies SSL prédéfinies
+## <a name="list-pre-defined-tls-policies"></a>Répertorier les stratégies TLS prédéfinies
 
-Application Gateway intègre 3 stratégies prédéfinies. L’applet de commande `Get-AzApplicationGatewaySslPredefinedPolicy` extrait ces stratégies. Chaque stratégie offre différentes versions de protocole SSL et suites de chiffrement activées. Ces stratégies prédéfinies peuvent être utilisées pour configurer rapidement une stratégie SSL sur votre passerelle d’application. Par défaut, **AppGwSslPolicy20150501** est sélectionnée si aucune stratégie SSL spécifique n’est définie.
+Application Gateway intègre 3 stratégies prédéfinies. L’applet de commande `Get-AzApplicationGatewaySslPredefinedPolicy` extrait ces stratégies. Chaque stratégie offre différentes versions de protocole SSL et suites de chiffrement activées. Ces stratégies prédéfinies peuvent être utilisées pour configurer rapidement une stratégie TLS sur votre passerelle d'application. Par défaut, **AppGwSslPolicy20150501** est sélectionnée si aucune stratégie TLS spécifique n'est définie.
 
 La sortie suivante illustre le résultat de l’exécution de `Get-AzApplicationGatewaySslPredefinedPolicy`.
 
@@ -106,37 +106,37 @@ CipherSuites:
 ...
 ```
 
-## <a name="configure-a-custom-ssl-policy"></a>Configurer une stratégie SSL personnalisée
+## <a name="configure-a-custom-tls-policy"></a>Configurer une stratégie TLS personnalisée
 
-Lorsque vous configurez une stratégie SSL personnalisée, vous transmettez les paramètres suivants : PolicyType, MinProtocolVersion, CipherSuite et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway. 
+Lorsque vous configurez une stratégie TLS personnalisée, vous transmettez les paramètres suivants : PolicyType, MinProtocolVersion, CipherSuite et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway. 
 
-L’exemple suivant définit une stratégie SSL personnalisée sur une passerelle d’application. Il définit la version de protocole minimale sur `TLSv1_1` et active les suites de chiffrement suivantes :
+L'exemple suivant définit une stratégie TLS personnalisée sur une passerelle d'application. Il définit la version de protocole minimale sur `TLSv1_1` et active les suites de chiffrement suivantes :
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> TLS_RSA_WITH_AES_256_CBC_SHA256 doit être sélectionné lors de la configuration d’une stratégie SSL personnalisée. La passerelle d’application utilise cette suite de chiffrement pour la gestion des serveurs back-end. Vous pouvez l’utiliser en combinaison avec d’autres suites, mais celle-ci doit également être sélectionnée. 
+> TLS_RSA_WITH_AES_256_CBC_SHA256 doit être sélectionné lors de la configuration d'une stratégie TLS personnalisée. La passerelle d’application utilise cette suite de chiffrement pour la gestion des serveurs back-end. Vous pouvez l’utiliser en combinaison avec d’autres suites, mais celle-ci doit également être sélectionnée. 
 
 ```powershell
 # get an application gateway resource
 $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroup AdatumAppGatewayRG
 
-# set the SSL policy on the application gateway
+# set the TLS policy on the application gateway
 Set-AzApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custom -MinProtocolVersion TLSv1_1 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 
-# validate the SSL policy locally
+# validate the TLS policy locally
 Get-AzApplicationGatewaySslPolicy -ApplicationGateway $gw
 
-# update the gateway with validated SSL policy
+# update the gateway with validated TLS policy
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Créer une passerelle d’application avec une stratégie SSL prédéfinie
+## <a name="create-an-application-gateway-with-a-pre-defined-tls-policy"></a>Créer une passerelle d'application avec une stratégie TLS prédéfinie
 
-Lorsque vous configurez une stratégie SSL prédéfinie, vous transmettez les paramètres suivants : PolicyType, PolicyName et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
+Lorsque vous configurez une stratégie TLS prédéfinie, vous transmettez les paramètres suivants : PolicyType, PolicyName et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
 
-L’exemple suivant crée une nouvelle passerelle d’application avec une stratégie SSL prédéfinie.
+L'exemple suivant crée une nouvelle passerelle d'application avec une stratégie TLS prédéfinie.
 
 ```powershell
 # Create a resource group
@@ -163,10 +163,10 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddres
 # Define the backend http settings to be used.
 $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-# Create a new port for SSL
+# Create a new port for TLS
 $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-# Upload an existing pfx certificate for SSL offload
+# Upload an existing pfx certificate for TLS offload
 $password = ConvertTo-SecureString -String "P@ssw0rd" -AsPlainText -Force
 $cert = New-AzApplicationGatewaySslCertificate -Name cert01 -CertificateFile C:\folder\contoso.pfx -Password $password
 
@@ -182,16 +182,16 @@ $rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic 
 # Define the size of the application gateway
 $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-# Configure the SSL policy to use a different pre-defined policy
+# Configure the TLS policy to use a different pre-defined policy
 $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
 
 # Create the application gateway.
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Mettre à jour une passerelle d’application existante avec une stratégie SSL prédéfinie
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Mettre à jour une passerelle d'application existante avec une stratégie TLS prédéfinie
 
-Pour définir une stratégie SSL personnalisée, transmettez les paramètres suivants : **PolicyType**, **MinProtocolVersion**, **CipherSuite** et **ApplicationGateway**. Pour définir une stratégie SSL prédéfinie, transmettez les paramètres suivants : **PolicyType**, **PolicyName** et **ApplicationGateway**. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
+Pour définir une stratégie TLS personnalisée, transmettez les paramètres suivants : **PolicyType**, **MinProtocolVersion**, **CipherSuite** et **ApplicationGateway**. Pour définir une stratégie TLS prédéfinie, transmettez les paramètres suivants : **PolicyType**, **PolicyName** et **ApplicationGateway**. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
 
 L’exemple suivant comporte des exemples de code pour les stratégies personnalisées et prédéfinies. Supprimer les marques de commentaire sur la stratégie que vous souhaitez utiliser.
 
@@ -204,14 +204,14 @@ $AppGw = get-Azapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
 # Choose either custom policy or predefined policy and uncomment the one you want to use.
 
-# SSL Custom Policy
+# TLS Custom Policy
 # Set-AzApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
 
-# SSL Predefined Policy
+# TLS Predefined Policy
 # Set-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
 
 # Update AppGW
-# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+# The TLS policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
 $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 ```
 

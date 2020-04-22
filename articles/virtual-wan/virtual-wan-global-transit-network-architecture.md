@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064969"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113179"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
@@ -47,7 +47,7 @@ Dans l’architecture Azure Virtual WAN, les hubs WAN virtuels sont provisionné
 
 Vous pouvez établir un WAN virtuel en créant un seul hub WAN virtuel dans la région qui possède le plus grand nombre de rayons (branches, réseaux virtuels, utilisateurs), puis en connectant à ce hub les rayons qui se trouvent dans d’autres régions. Cette approche est conseillée quand l’empreinte informatique de l’entreprise se limite principalement à une région avec quelques rayons à distance.  
   
-## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Connectivité de hub à hub
+## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Connectivité de hub à hub (préversion)
 
 L’empreinte cloud d’une entreprise peut s’étendre sur plusieurs régions du cloud et, dans ce cas, il est primordial (du point de vue de la latence) d’accéder au cloud à partir d’une région la plus proche possible de son site physique et de ses utilisateurs. Un des principes clés de l’architecture du réseau de transit global consiste à permettre une connectivité inter-régions entre tous les points de terminaison des réseaux cloud et locaux. Cela signifie que le trafic à partir d’une branche connectée au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une région différente grâce à la connectivité de hub à hub fournie par [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 

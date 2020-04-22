@@ -2,13 +2,13 @@
 title: Instructions pour les collections fiables
 description: Instructions et recommandations relatives à l’utilisation de collections fiables Service Fabric dans une application Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 12/10/2017
-ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645478"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398541"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.
@@ -20,7 +20,7 @@ Les directives sont organisées comme de simples recommandations avec les termes
 * N’utilisez pas `TimeSpan.MaxValue` pour les délais d’attente. Les délais d’expiration doivent être utilisés pour détecter des blocages.
 * N’utilisez pas une transaction une fois qu’elle a été validée, abandonnée ou supprimée.
 * N’utilisez pas une énumération en dehors de l’étendue de transaction dans laquelle elle a été créée.
-* Ne créez pas une transaction au sein de l’instruction `using` d’une autre transaction, car cela peut provoquer des blocages.
+* Ne créez pas de transaction au sein de l'instruction `using` d'une autre transaction car cela peut provoquer des blocages.
 * Ne créez pas d’état fiable avec `IReliableStateManager.GetOrAddAsync` et utilisez l’état fiable dans la même transaction. Une exception InvalidOperationException en résulte.
 * Assurez-vous que votre implémentation de `IComparable<TKey>` est correcte. Le système dépend de `IComparable<TKey>` pour la fusion des points de contrôle et des lignes.
 * N’utilisez pas un verrou de mise à jour lors de la lecture d’un élément avec l’intention de le mettre à jour pour empêcher une certaine classe de blocages.
@@ -41,7 +41,19 @@ Voici quelques points à retenir :
   Les lectures à partir du principal sont toujours stables : la progression n’est jamais erronée.
 * La sécurité et la confidentialité des données rendues persistantes par votre application dans une collection fiable dépendent de vous et font l’objet des protections fournies par votre gestion du stockage : par exemple, vous pouvez utiliser le chiffrement de disque de système d’exploitation pour protéger vos données au repos.  
 
-### <a name="next-steps"></a>Étapes suivantes
+## <a name="volatile-reliable-collections"></a>Collections fiables volatiles
+Lorsque vous décidez d'utiliser des collections fiables volatiles, tenez compte des éléments suivants :
+
+* ```ReliableDictionary``` dispose d'une prise en charge volatile
+* ```ReliableQueue``` dispose d'une prise en charge volatile
+* ```ReliableConcurrentQueue``` NE dispose PAS d'une prise en charge volatile
+* Les services persistants NE PEUVENT PAS devenir volatils. Pour remplacer l'indicateur ```HasPersistedState``` par ```false```, le service doit être entièrement recréé.
+* Les services volatils NE PEUVENT PAS devenir persistants. Pour remplacer l'indicateur ```HasPersistedState``` par ```true```, le service doit être entièrement recréé.
+* ```HasPersistedState``` est une configuration de niveau de service. Autrement dit, **TOUTES** les collections seront soit persistantes soit volatiles. Vous ne pouvez pas mélanger des collections volatiles et persistantes
+* La perte de quorum d'une partition volatile entraîne une perte totale des données
+* Les opérations de sauvegarde et de restauration ne sont PAS disponibles pour les services volatils
+
+## <a name="next-steps"></a>Étapes suivantes
 * [Utilisation des collections fiables](service-fabric-work-with-reliable-collections.md)
 * [Transactions et verrous](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestion des données

@@ -1,27 +1,38 @@
 ---
 title: Fonctions définies par l’utilisateur dans Azure Cosmos DB
 description: Découvrez les fonctions définies par l’utilisateur dans Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.author: tisande
+ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69614334"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011121"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Fonctions définies par l’utilisateur dans Azure Cosmos DB
 
 L’API SQL prend en charge les fonctions définies par l’utilisateur. Les fonctions scalaires définies par l’utilisateur vous permettent de passer zéro ou plusieurs arguments et de retourner un résultat contenant un seul argument. L’API vérifie que chaque argument est une valeur JSON légale.  
 
-L’API étend la syntaxe SQL pour prendre en charge la logique d’application personnalisée à l’aide de fonctions définies par l’utilisateur. Vous pouvez inscrire les fonctions définies par l’utilisateur auprès de l’API SQL et les référencer dans les requêtes SQL. En fait, les fonctions définies par l’utilisateur sont conçues avec soin pour être appelées à partir de requêtes. En conséquence, les fonctions définies par l’utilisateur ne peuvent pas accéder à l’objet de contexte comme d’autres types JavaScript, tels que les procédures stockées et les déclencheurs. Les requêtes sont en lecture seule et peuvent s’exécuter sur des réplicas principaux ou secondaires. Les fonctions définies par l’utilisateur, contrairement à d’autres types JavaScript, sont conçues pour être exécutées sur des réplicas secondaires.
+## <a name="udf-use-cases"></a>Fonctions définies par l'utilisateur - Cas d'usage
 
-L’exemple suivant inscrit une fonction définie par l’utilisateur sous un conteneur d’éléments dans la base de données Cosmos. L’exemple crée une fonction définie par l’utilisateur dont le nom est `REGEX_MATCH`. Elle accepte les deux valeurs de chaîne JSON `input` et `pattern`, et vérifie si la première correspond au modèle spécifié dans la seconde à l’aide de la fonction `string.match()` de JavaScript.
+L’API étend la syntaxe SQL pour prendre en charge la logique d’application personnalisée à l’aide de fonctions définies par l’utilisateur. Vous pouvez inscrire les fonctions définies par l’utilisateur auprès de l’API SQL et les référencer dans les requêtes SQL. Contrairement aux procédures stockées et aux déclencheurs, les fonctions définies par l'utilisateur sont en lecture seule.
+
+Les fonctions définies par l'utilisateur vous permettent d'étendre le langage de requête d'Azure Cosmos DB. Les fonctions définies par l'utilisateur sont un excellent moyen d'exprimer une logique métier complexe dans la projection d'une requête.
+
+Nous vous recommandons toutefois d'éviter les fonctions définies par l'utilisateur dans les cas suivants :
+
+- Une [fonction système](sql-query-system-functions.md) équivalente existe déjà dans Azure Cosmos DB. Les fonctions système utilisent toujours moins d'unités de requête que la fonction définie par l'utilisateur équivalente.
+- La fonction définie par l'utilisateur est le seul filtre de la clause `WHERE` de votre requête. Les fonctions définies par l'utilisateur n'utilisent pas l'index. Par conséquent, leur évaluation nécessitera le chargement de documents. La combinaison de prédicats de filtre supplémentaires qui utilisent l'index, en association avec une fonction définie par l'utilisateur, dans la clause `WHERE` réduit le nombre de documents traités par la fonction définie par l'utilisateur.
+
+Si vous devez utiliser plusieurs fois la même fonction définie par l'utilisateur dans une requête, vous devez la référencer dans une [sous-requête](sql-query-subquery.md#evaluate-once-and-reference-many-times), ce qui vous permet d'utiliser une expression JOIN pour évaluer une fois la fonction définie par l'utilisateur tout en la référençant plusieurs fois.
 
 ## <a name="examples"></a>Exemples
+
+L’exemple suivant inscrit une fonction définie par l’utilisateur sous un conteneur d’éléments dans la base de données Cosmos. L’exemple crée une fonction définie par l’utilisateur dont le nom est `REGEX_MATCH`. Elle accepte les deux valeurs de chaîne JSON `input` et `pattern`, et vérifie si la première correspond au modèle spécifié dans la seconde à l’aide de la fonction `string.match()` de JavaScript.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction

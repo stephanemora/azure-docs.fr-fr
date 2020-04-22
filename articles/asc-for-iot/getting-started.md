@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec Azure Security Center pour IoT | Microsoft Docs
+title: Options de déploiement
 description: Découvrez le flux de travail de base des fonctionnalités et du service Azure Security Center pour l’IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,32 +15,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 86c6c0bac5caae0873d0067c6abcb5a8ac864c88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 452372f187e97a95b9eee88936b15a0409dd4fe0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68596422"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311385"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>Bien démarrer avec Azure Security Center pour l’IoT
 
-Cet article vous fournit des explications sur les différents blocs de construction du service Azure Security Center pour IoT et vous indique les deux options de déploiement possibles qui vous permettront d’utiliser ce service.  
+Cet article fournit des explications sur les différents composants du service Azure Security Center pour IoT et vous présente les deux options de déploiement disponibles pour utiliser ce service.
 
 ## <a name="deployment-options"></a>Options de déploiement
 
-Choisissez le scénario de service qui répond le mieux aux besoins de votre environnement et de vos appareils IoT. 
+Choisissez le scénario de service qui répond le mieux aux besoins de votre environnement et de vos appareils IoT.
 
 ### <a name="built-in-deployment"></a>Déploiement intégré
+
 Grâce à l’option de déploiement intégrée transparente, Azure Security Center pour IoT peut être rapidement intégré à votre IoT Hub et fournir une analyse de sécurité sur la configuration IoT Hub, l’identité et la gestion de appareil et les modèles de communication de l’appareil Hub.
 
-Démarrez un [déploiement intégré](iot-hub-integration.md) comprenant la surveillance et les suggestions IoT Hub. 
+Démarrez un [déploiement intégré](iot-hub-integration.md) comprenant la surveillance et les suggestions IoT Hub.
     <br>
 
 ### <a name="enhanced-deployment"></a>Déploiement amélioré
+
 Pour les fonctionnalités de sécurité améliorées, le déploiement d’agents Azure Security Center pour IoT en plus de l’activation de la sécurité IoT Hub permet la collecte, l’analyse et la détection des menaces des données de sécurité clés des événements basés sur agents pour vos appareils IoT, ainsi que des fonctionnalités de gestion complètes pour la posture de la sécurité.
 
 Démarrez un [déploiement amélioré](security-agents.md) comprenant une solution complète de gestion de la sécurité et de la protection des menaces basée sur agents.
-   
 
 ## <a name="next-steps"></a>Étapes suivantes
 

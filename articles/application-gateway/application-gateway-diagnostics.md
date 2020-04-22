@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: b458537c7cf8a254cd188c565ab1925afa202369
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411056"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312648"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -172,7 +172,7 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
 |receivedBytes     | Taille du paquet reçu, en octets.        |
 |sentBytes| Taille du paquet envoyé, en octets.|
 |timeTaken| Durée (en millisecondes) nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que le champ Time-Taken inclut généralement l’heure à laquelle la requête et les paquets de réponse circulent sur le réseau. |
-|sslEnabled| Détermine si la communication avec les pools principaux utilisait SSL. Les valeurs valides sont On (Activé) et Off (Désactivé).|
+|sslEnabled| Détermine si la communication avec les pools principaux a utilisé TLS/SSL. Les valeurs valides sont On (Activé) et Off (Désactivé).|
 |host| Nom d’hôte avec lequel la requête a été envoyée au serveur back-end. Si le nom d’hôte du serveur principal est remplacé, ce nom le reflète.|
 |originalHost| Nom d’hôte avec lequel la requête a été reçue par Application Gateway à partir du client.|
 ```json
@@ -215,9 +215,9 @@ Pour Application Gateway et WAF v2, les journaux contiennent un peu plus d’inf
 |receivedBytes     | Taille du paquet reçu, en octets.        |
 |sentBytes| Taille du paquet envoyé, en octets.|
 |timeTaken| Durée (en **secondes**) nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que le champ Time-Taken inclut généralement l’heure à laquelle la requête et les paquets de réponse circulent sur le réseau. |
-|sslEnabled| Détermine si la communication avec les pools principaux utilisait SSL. Les valeurs valides sont On (Activé) et Off (Désactivé).|
-|sslCipher| Suite de chiffrement utilisée pour la communication SSL (si SSL est activé).|
-|sslProtocol| Protocole SSL/TLS utilisé (si SSL est activé).|
+|sslEnabled| Détermine si la communication avec les pools principaux a utilisé TLS. Les valeurs valides sont On (Activé) et Off (Désactivé).|
+|sslCipher| Suite de chiffrement utilisée pour la communication TLS (si TLS est activé).|
+|sslProtocol| Protocole SSL/TLS utilisé (si TLS est activé).|
 |serverRouted| Serveur back-end vers lequel la passerelle d’application route les demandes.|
 |serverStatus| Code d’état HTTP du serveur back-end.|
 |serverResponseLatency| Latence de la réponse du serveur back-end.|

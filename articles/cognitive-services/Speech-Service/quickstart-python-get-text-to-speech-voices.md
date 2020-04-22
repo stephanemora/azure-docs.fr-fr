@@ -3,19 +3,19 @@ title: Lister les voix de la synthèse vocale, Python – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Cet article explique comment obtenir la liste complète des voix standard et neuronales pour une région/un point de terminaison avec Python. La liste est retournée au format JSON, et la disponibilité des voix varie selon la région.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/10/2020
-ms.author: dapine
-ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.author: trbye
+ms.openlocfilehash: b388c8d8b61e2fc638ae2bce5bc6d9eeb25ee0d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77119794"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401017"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obtenir la liste des voix de synthèse vocale à l’aide de Python
 
@@ -23,10 +23,10 @@ Cet article explique comment obtenir la liste complète des voix standard et neu
 
 Pour suivre cet article, vous devez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource de service Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Python 2.7.x ou 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio<span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code<span class="docon docon-navigate-external x-hidden-focus"></span></a> ou l'éditeur de texte de votre choix
 * Une clé d’abonnement Azure pour le service Speech
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis

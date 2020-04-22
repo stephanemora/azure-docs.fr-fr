@@ -1,6 +1,6 @@
 ---
-title: Comprendre les coûts d’Azure Security Center pour IoT | Microsoft Docs
-description: En savoir plus sur les coûts associés à Azure Security Center pour IoT et la manière dont vous pouvez les contrôler.
+title: Tarifs et coûts associés
+description: Découvrez les coûts associés à Azure Security Center pour IoT et la manière dont vous pouvez les contrôler.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71348510"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311561"
 ---
 # <a name="pricing-and-associated-costs"></a>Tarifs et coûts associés
 
@@ -34,13 +34,11 @@ Le modèle de tarification Azure Security Center pour IoT se compose de deux par
 
 - Coût par message : fonctionnalités de sécurité améliorées basées sur les messages de sécurité à partir d’appareils IoT Edge ou leaf.
 
-
 Pour plus d’informations, consultez la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Coûts associés
 
 Certains coûts, qui ne font pas partie du tarif direct, sont associés à Azure Security Center pour IoT :
-
 
 - Coûts de stockage Log Analytics
 
@@ -50,9 +48,9 @@ Pour changer vos paramètres :
 
 1. Ouvrez IoT Hub.
 
-2. Sous **Sécurité**, cliquez sur **Vue d’ensemble**.
+1. Sous **Sécurité**, cliquez sur **Vue d’ensemble**.
 
-3. Cliquez sur **Settings**.
+1. Cliquez sur **Settings**.
 
 Le tableau suivant fournit un récapitulatif des coûts associés et des implications de chaque option.
 
@@ -64,8 +62,8 @@ Le tableau suivant fournit un récapitulatif des coûts associés et des implica
 |
 
 >[!Important]
-> La désactivation a des implications graves pour la disponibilité des fonctionnalités de sécurité Azure Security Center pour IoT. 
-  
+> La désactivation a des implications graves pour la disponibilité des fonctionnalités de sécurité Azure Security Center pour IoT.
+
 | Désactiver | Implications |
 | --- | --- |
 | _Collection de métadonnées de représentations_ | Désactiver les [alertes personnalisées](quickstart-create-custom-alerts.md) |
@@ -74,7 +72,6 @@ Le tableau suivant fournit un récapitulatif des coûts associés et des implica
 | _Stocker les événements bruts de sécurité d’appareil_ | Les détails des recommandations de base du système d’exploitation d’appareil ne sont pas disponibles |
 | | Les détails sur les enquêtes relatives à [l’alerte](concept-security-alerts.md) et à la [recommandation](concept-recommendations.md) ne sont pas disponibles |
 |
-
 
 ## <a name="see-also"></a>Voir aussi
 

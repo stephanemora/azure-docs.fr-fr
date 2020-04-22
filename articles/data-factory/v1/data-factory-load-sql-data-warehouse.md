@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130888"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419304"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Charger 1 To dans Azure SQL Data Warehouse en moins de 15 minutes avec Azure Data Factory
 > [!NOTE]
@@ -116,7 +116,7 @@ Cet article fournit des instructions détaillées pour déplacer les données da
 3. Dans le volet **Nouvelle fabrique de données** :
 
    1. Entrez **LoadIntoSQLDWDataFactory** pour le **nom**.
-       Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez le message d’erreur : **Data factory name “LoadIntoSQLDWDataFactory” is not available**, changez le nom de la fabrique de données (par exemple, votrenomCustomActivityFactory), puis tentez de la recréer. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.  
+       Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez le message d’erreur : **Data factory name "LoadIntoSQLDWDataFactory" is not available** (Le nom de la fabrique de données "LoadIntoSQLDWDataFactory" n'est pas disponible), changez le nom de la fabrique de données (par exemple, votrenomLoadIntoSQLDWDataFactory), puis tentez de la recréer. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.  
    2. Sélectionnez votre **abonnement**Azure.
    3. Pour Groupe de ressources, effectuez l’une des opérations suivantes :
       1. Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
@@ -160,7 +160,7 @@ Cette section décrit les étapes pour configurer la source : Azure Blob conten
 
     ![Assistant Copie - Sélectionner le dossier d’entrée](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Lorsque vous cliquez sur **Suivant**, les paramètres de format de fichier sont détectés automatiquement.  Vérifiez que le délimiteur de colonne est « | » au lieu de la virgule par défaut « , ».  Cliquez sur **Suivant** une fois que vous avez affiché un aperçu des données.
+4. Lorsque vous cliquez sur **Suivant**, les paramètres de format de fichier sont détectés automatiquement.  Vérifiez que le délimiteur de colonne est défini sur « | » et non sur la virgule « , » par défaut.  Cliquez sur **Suivant** une fois que vous avez affiché un aperçu des données.
 
     ![Assistant Copie - Paramètres de format de fichier](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 

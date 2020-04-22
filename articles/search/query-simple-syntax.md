@@ -7,49 +7,69 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/12/2020
+ms.openlocfilehash: 066190ff6b735d30db351ff90c0b6e5173b7f583
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152667"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258862"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête simple dans la recherche cognitive Azure
 
-La recherche cognitive Azure implémente deux langages de requête basés sur Lucene : L’[analyseur de requêtes simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) et l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Dans la recherche cognitive Azure, la syntaxe des requêtes simples exclut les options fuzzy/slop.  
+La recherche cognitive Azure implémente deux langages de requête basés sur Lucene : L’[analyseur de requêtes simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) et l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). 
+
+Dans Recherche cognitive Azure, la syntaxe des requêtes simples exclut les opérations de recherche approximative. Pour la [recherche approximative](search-query-fuzzy.md), utilisez plutôt la syntaxe Lucene complète.
 
 > [!NOTE]
 > La syntaxe de requête simple est utilisée pour les expressions de requête passées dans le paramètre **search** de l’API [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre [$Filter](search-filters.md) de cette API. Ces différentes syntaxes ont leurs propres règles pour la construction de requêtes, l’échappement de chaînes, etc.
 >
 > Recherche cognitive Azure fournit une autre [syntaxe des requêtes Lucene](query-lucene-syntax.md) pour les requêtes plus complexes dans le paramètre **search**. Pour plus d’informations sur l’architecture de l’analyse des requêtes et les avantages de chacune des syntaxes, consultez [Fonctionnement de la recherche en texte intégral dans la recherche cognitive Azure](search-lucene-query-architecture.md).
 
-## <a name="how-to-invoke-simple-parsing"></a>Comment appeler l’analyse simple
+## <a name="invoke-simple-parsing"></a>Appeler une analyse simple
 
-La syntaxe simple est la syntaxe par défaut. Appeler celle-ci est nécessaire seulement si vous repassez de la syntaxe complète à la syntaxe simple. Pour définir explicitement la syntaxe, utilisez le paramètre de recherche `queryType`. Les valeurs valides sont `simple|full`, `simple` étant la valeur par défaut et `full` la valeur pour Lucene. 
+La syntaxe simple est la syntaxe par défaut. Appeler celle-ci est nécessaire seulement si vous repassez de la syntaxe complète à la syntaxe simple. Pour définir explicitement la syntaxe, utilisez le paramètre de recherche `queryType`. Les valeurs valides sont `queryType=simple` ou `queryType=full`, `simple` correspondant à la valeur par défaut, et `full` appelle l'[analyseur de requêtes Lucene complètes](query-lucene-syntax.md) pour les requêtes plus avancées. 
 
-## <a name="query-behavior-anomalies"></a>Anomalies de comportement des requêtes
+## <a name="syntax-fundamentals"></a>Bases de la syntaxe
 
-Tout texte avec un ou plusieurs termes est considéré comme un point de départ valide pour l’exécution des requêtes. La recherche cognitive Azure établit une correspondance avec les documents contenant tout ou partie des conditions, y compris d’éventuelles variations détectées lors de l’analyse du texte. 
+Tout texte avec un ou plusieurs termes est considéré comme un point de départ valide pour l’exécution des requêtes. La recherche cognitive Azure établit une correspondance avec les documents contenant tout ou partie des conditions, y compris d’éventuelles variations détectées lors de l’analyse du texte.
 
-Aussi simple que cela puisse paraître, un aspect de l’exécution des requêtes dans la recherche cognitive Azure est qu’elles *peuvent* produire des résultats inattendus, en augmentant le nombre des résultats de la recherche au lieu de les diminuer quand vous ajoutez plus de conditions et d’opérateurs à la chaîne d’entrée. Le fait que cette expansion se produit ou non dépend de l’inclusion d’un opérateur NOT, combiné avec une valeur pour le paramètre `searchMode` qui détermine comment NOT est interprété en termes de comportements de AND et de OR. Étant donnée la valeur par défaut, `searchMode=Any`, et un opérateur NOT, l’opération est considérée comme une action OR : ainsi, `"New York" NOT Seattle` retourne toutes les villes qui ne sont pas Seattle.  
+Aussi simple que cela puisse paraître, un aspect de l’exécution des requêtes dans la recherche cognitive Azure est qu’elles *peuvent* produire des résultats inattendus, en augmentant le nombre des résultats de la recherche au lieu de les diminuer quand vous ajoutez plus de conditions et d’opérateurs à la chaîne d’entrée. Cette expansion dépend de l'inclusion de l'opérateur NOT, combiné à une valeur de paramètre **searchMode** qui détermine comment NOT est interprété en termes de comportements AND ou OR. Pour plus d’informations, consultez [Opérateur NOT](#not-operator).
 
-En règle générale, vous voyez plus probablement ces comportements dans les modèles d’interaction utilisateur pour les applications qui recherchent de contenu, où les utilisateurs sont plus susceptibles d’inclure un opérateur dans une requête, contrairement aux sites de e-commerce qui ont des structures de navigation plus intégrées. Pour plus d’informations, consultez [Opérateur NOT](#not-operator). 
+### <a name="precedence-operators-grouping"></a>Opérateurs de priorité (regroupement)
 
-## <a name="boolean-operators-and-or-not"></a>Opérateurs logiques (AND, OR, NOT) 
+Vous pouvez utiliser des parenthèses pour créer des sous-requêtes, en incluant des opérateurs au sein de l’instruction entre parenthèses. Par exemple, `motel+(wifi||luxury)` recherche les documents contenant le terme « motel », et « wifi » ou « luxury » (ou les deux).
 
-Vous pouvez incorporer des opérateurs dans une chaîne de requête pour créer un ensemble substantiel de critères pour lesquels des documents correspondants sont trouvés. 
+Le regroupement de champs est similaire, mais il délimite le regroupement à un seul champ. Par exemple, `hotelAmenities:(gym+(wifi||pool))` recherche « gym » et « wifi », ou « gym » et « pool », dans le champ « hotelAmenities ».  
+
+### <a name="escaping-search-operators"></a>Échappement des opérateurs de recherche  
+
+Pour utiliser un opérateur de recherche dans le texte de recherche, placez le caractère dans une séquence d'échappement en le faisant précéder d'une barre oblique inverse (`\`). Par exemple, pour une recherche avec caractères génériques sur `https://`, sachant que `://` fait partie de la chaîne de requête, vous devez spécifier `search=https\:\/\/*`. De même, un modèle de numéro de téléphone placé dans une séquence d'échappement peut se présenter comme suit : `\+1 \(800\) 642\-7676`.
+
+Les caractères spéciaux qui doivent être placés dans une séquence d'échappement sont les suivants : `- * ? \ /`  
+
+Afin de simplifier les choses pour les cas les plus classiques, il existe deux exceptions à cette règle où l’échappement n’est pas nécessaire :  
+
++ L’opérateur NOT `-` doit être placé en échappement seulement s’il est le premier caractère après un espace, et donc pas s’il est au milieu d’un terme. Par exemple, le GUID suivant est valide sans le caractère d'échappement : `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`.
+
++ L’opérateur de suffixe `*` doit être placé en échappement seulement s’il est le dernier caractère avant un espace, et donc pas s’il est au milieu d’un terme. Par exemple, `4*4=16` ne nécessite pas de barre oblique inverse.
+
+> [!NOTE]  
+> Bien que l'échappement maintienne les jetons ensemble, l'[analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) pendant l'indexation peut les supprimer. Par exemple, l'analyseur Lucene standard supprime et coupe les mots sur les traits d'union, les espaces et autres caractères. Si vous avez besoin de caractères spéciaux dans la chaîne de requête, vous aurez peut-être également besoin d'un analyseur qui les conserve dans l'index. Parmi les choix possibles figurent les [analyseurs de langage](index-add-language-analyzers.md) naturel de Microsoft, qui conservent les mots avec trait d'union, ou un analyseur personnalisé pour les modèles plus complexes. Pour plus d'informations, consultez [Termes partiels, modèles et caractères spéciaux](search-query-partial-matching.md).
+
+### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Encodage de caractères dangereux et réservés dans les URL
+
+Vérifiez que tous les caractères dangereux et réservés dans une URL sont encodés. Par exemple, « # » est un caractère non sécurisé, car il s'agit d'un identificateur de fragment/d'ancrage au sein d'une URL. Le caractère doit être encodé en `%23` s’il est utilisé dans une URL. « & » et « = » sont des exemples de caractères réservés, car ils délimitent les paramètres et spécifient des valeurs dans la Recherche cognitive Azure. Pour plus d’informations, consultez [RFC1738 : Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt).
+
+Les caractères dangereux sont ``" ` < > # % { } | \ ^ ~ [ ]``. Les caractères réservés sont `; / ? : @ = + &`.
+
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Limites de taille des requêtes
+
+ Il existe une limite à la taille des requêtes que vous pouvez envoyer à la Recherche cognitive Azure. Plus précisément, vous pouvez avoir au maximum 1 024 clauses (des expressions séparées par AND, OR, etc.). Il existe également une limite d’environ 32 Ko pour la taille d’un terme individuel dans une requête. Si votre application génère des requêtes de recherche par programmation, nous vous recommandons de la concevoir de façon à ce qu’elle ne génère pas des requêtes d’une taille illimitée.  
+
+## <a name="boolean-search"></a>Recherche booléenne
+
+Vous pouvez incorporer des opérateurs booléens (AND, OR, NOT) dans une chaîne de requête pour créer un ensemble substantiel de critères en fonction desquels les documents correspondants sont trouvés. 
 
 ### <a name="and-operator-"></a>Opérateur AND `+`
 
@@ -63,35 +83,34 @@ L’opérateur OR est une barre verticale. Par exemple, `wifi | luxury` recherch
 
 ### <a name="not-operator--"></a>Opérateur NOT `-`
 
-L’opérateur NOT est un signe moins. Par exemple, `wifi –luxury` recherche les documents qui ont le terme `wifi` et/ou qui n’ont pas `luxury` (et/ou est contrôlé par `searchMode`).
+L’opérateur NOT est un signe moins. Par exemple, `wifi –luxury` recherche les documents qui contiennent le terme `wifi` et/ou pas le terme `luxury`.
 
-> [!NOTE]  
->  L’option `searchMode` contrôle si un terme avec l’opérateur NOT est soumis à l’opération logique AND ou OR avec les autres termes de la requête en l’absence d’un opérateur `+` ou `|`. Rappelez-vous que `searchMode` peut être défini sur `any` (la valeur par défaut) ou sur `all`. Si vous utilisez `any`, cela augmente le rappel des requêtes en incluant plus de résultats, et par défaut, `-` est interprété comme « OR NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` ou avec ceux qui ne contiennent pas le terme `luxury`. Si vous utilisez `all`, cela augmente la précision des requêtes en incluant moins de résultats, et par défaut, « - » est interprété comme « AND NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` et ne contiennent pas le terme « luxury ». Il s’agit sans doute d’un comportement plus intuitif pour l’opérateur `-`. Ainsi, vous pouvez préférer `searchMode=all` à `searchMode=any` si vous voulez optimiser les recherches pour la précision au lieu du rappel *et* si vos utilisateurs utilisent fréquemment l’opérateur `-` dans les recherches.
+Dans une requête, le paramètre **searchMode** détermine si un terme accompagné de l'opérateur NOT est associé à d'autres termes de la requête par les opérateurs AND ou OR (en supposant qu'il n'y ait pas d'opérateur `+` ou `|` sur les autres termes). Les valeurs valides sont `any` ou `all`.
 
-## <a name="suffix-operator"></a>Opérateur de suffixe
+`searchMode=any` augmente le rappel des requêtes en incluant plus de résultats, et par défaut `-` est interprété comme « OR NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` ou avec ceux qui ne contiennent pas le terme `luxury`.
 
-L’opérateur de suffixe est un astérisque `*`. Par exemple, `lux*` recherche les documents contenant un terme qui commence par `lux`, indépendamment de la casse.  
+`searchMode=all` augmente la précision des requêtes en incluant moins de résultats et, par défaut, « - » est interprété comme « AND NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` et ne contiennent pas le terme « luxury ». Il s’agit sans doute d’un comportement plus intuitif pour l’opérateur `-`. Ainsi, préférez `searchMode=all` à `searchMode=any` si vous souhaitez optimiser la précision des recherches plutôt que le rappel, *et* si vos utilisateurs utilisent fréquemment l'opérateur `-` dans les recherches.
 
-## <a name="phrase-search-operator"></a>Opérateur de recherche d’expression
+Lorsque vous choisissez un paramètre **searchMode**, tenez compte des modèles d'interaction utilisateur pour les requêtes liées à différentes applications. Les utilisateurs qui recherchent des informations sont plus enclins à inclure un opérateur dans une requête, contrairement aux sites de commerce électronique qui disposent de structures de navigation intégrées.
 
-L’opérateur d’expression place une expression entre guillemets `" "`. Par exemple, si `Roach Motel` (sans guillemets) recherche les documents contenant `Roach` et/ou `Motel` n’importe où dans n’importe quel ordre, `"Roach Motel"` (avec des guillemets) établit une correspondance seulement avec les documents qui contiennent cette expression entière, avec les mots dans cet ordre (l’analyse de texte s’applique néanmoins toujours).
+<a name="prefix-search"></a>
 
-## <a name="precedence-operator"></a>Opérateur de priorité
+## <a name="prefix-search"></a>Recherche par préfixe
 
-L’opérateur de priorité place la chaîne entre parenthèses `( )`. Par exemple, `motel+(wifi | luxury)` recherche les documents contenant le terme « motel », et `wifi` ou `luxury` (ou les deux).  
+L’opérateur de suffixe est un astérisque `*`. Par exemple, `lingui*` trouve « linguistique » ou « linguini », en ignorant la casse. 
 
-## <a name="escaping-search-operators"></a>Échappement des opérateurs de recherche  
+Comme pour les filtres, une requête de préfixe recherche une correspondance exacte. Par conséquent, il n’existe aucun scoring de pertinence (tous les résultats reçoivent un score de recherche de 1.0). Les requêtes de préfixe peuvent être lentes, en particulier si l’index est volumineux et le préfixe constitué d’un petit nombre de caractères. 
 
- Pour pouvoir utiliser les symboles ci-dessus comme faisant partie du texte recherché, ils doivent être placés en échappement en les faisant précéder d’une barre oblique inverse. Par exemple, `luxury\+hotel` produit le terme `luxury+hotel`. Afin de simplifier les choses pour les cas les plus classiques, il existe deux exceptions à cette règle où l’échappement n’est pas nécessaire :  
+Si vous souhaitez exécuter une requête de suffixe portant sur la dernière partie de la chaîne, utilisez une [recherche par caractères génériques](query-lucene-syntax.md#bkmk_wildcard) et la syntaxe Lucene complète.
 
-- L’opérateur NOT `-` doit être placé en échappement seulement s’il est le premier caractère après un espace, et donc pas s’il est au milieu d’un terme. Par exemple, `wi-fi` est un seul terme, alors que les GUID (comme `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`) sont traités comme un seul jeton.
-- L’opérateur de suffixe `*` doit être placé en échappement seulement s’il est le dernier caractère avant un espace, et donc pas s’il est au milieu d’un terme. Par exemple, `wi*fi` est traité comme un seul jeton.
+## <a name="phrase-search-"></a>Recherche d'expressions `"`
 
-> [!NOTE]  
->  Bien que le placement en échappement conserve les jetons ensemble, l’analyse de texte peut les fractionner, selon le mode d’analyse. Pour plus d’informations, consultez [Support linguistique &#40;API REST de la recherche cognitive Azure&#41;](index-add-language-analyzers.md).  
+Une recherche de termes est une requête portant sur un ou plusieurs termes et dans laquelle un des termes est considéré comme une correspondance. Une recherche d'expression est une expression exacte placée entre guillemets `" "`. Par exemple, si `Roach Motel` (sans guillemets) recherche les documents contenant `Roach` et/ou `Motel` n’importe où dans n’importe quel ordre, `"Roach Motel"` (avec des guillemets) établit une correspondance seulement avec les documents qui contiennent cette expression entière, avec les mots dans cet ordre (l’analyse de texte s’applique néanmoins toujours).
 
 ## <a name="see-also"></a>Voir aussi  
 
-+ [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
++ [Exemples de requêtes pour une recherche simple](search-query-simple-examples.md)
++ [Exemples de requêtes pour une recherche Lucene complète](search-query-lucene-examples.md)
++ [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Syntaxe de requête Lucene](query-lucene-syntax.md)
 + [Syntaxe d’expression OData](query-odata-filter-orderby-syntax.md) 

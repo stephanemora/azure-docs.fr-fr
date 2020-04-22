@@ -9,15 +9,15 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897724"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271690"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problèmes courants avec la vérification en deux étapes et votre compte professionnel ou scolaire
 
@@ -65,6 +65,7 @@ Vérifier que votre appareil capte un signal et dispose d’une connexion Intern
 Désactiver la fonctionnalité Ne pas déranger | Vérifiez que vous n’avez pas activé la fonctionnalité **Ne pas déranger** sur votre appareil mobile. Quand elle est activée, les notifications ne sont pas autorisées à vous alerter sur votre appareil mobile. Pour obtenir des instructions sur la façon de désactiver cette fonctionnalité, consultez le manuel de votre appareil mobile.
 Débloquer les numéros de téléphone | Aux États-Unis, les appels vocaux de Microsoft proviennent des numéros suivants : +1 (866) 539 4191, +1 (855) 330 8653 et +1 (877) 668 6536.
 Vérifier les paramètres liés à la batterie | Cela peut sembler étrange de prime abord, mais si vous avez configuré l’optimisation de la batterie de façon à empêcher les applications les moins utilisées de rester actives en arrière-plan, cela aura probablement affecté votre système de notification. Pour essayer de résoudre ce problème, désactivez l’optimisation de la batterie pour votre application d’authentification et votre application de messagerie, puis réessayez de vous connecter à votre compte.
+Désactiver les applications de sécurité tierces | Si vous disposez d'une application qui protège les SMS ou les appels téléphoniques afin de réduire au minimum le nombre d'appelants inconnus, elle peut empêcher la réception du code de vérification. Essayez de désactiver les applications de sécurité tierces sur votre téléphone, puis demandez l'envoi d'un autre code de vérification.
 
 ## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>Je ne suis pas invité à entrer ma deuxième information de vérification
 
@@ -99,6 +100,8 @@ Les mots de passe d’application viennent remplacer les mots de passe standard 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Je ne peux pas désactiver la vérification en deux étapes
 
 Si vous utilisez la vérification à deux facteurs avec votre compte professionnel ou scolaire (par exemple, alain@contoso.com), cela signifie très probablement que votre organisation a décidé de vous contraindre à utiliser cette fonctionnalité de sécurité supplémentaire. Comme votre organisation a décidé que cette fonctionnalité était obligatoire, vous n’avez aucun moyen de la désactiver individuellement. En revanche, si vous utilisez la vérification à deux facteurs avec un compte personnel, comme alain@outlook.com, vous avez la possibilité d’activer et de désactiver la fonctionnalité. Pour obtenir des instructions sur la façon de contrôler la vérification en deux étapes pour vos comptes personnels, consultez [Activation ou désactivation de la vérification en deux étapes de votre compte Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+Si vous ne parvenez pas désactiver la vérification à deux facteurs, cela peut également être dû aux paramètres de sécurité par défaut qui ont été appliqués au niveau de l'organisation. Pour plus d'informations sur les paramètres de sécurité par défaut, consultez [Présentation des paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Je n’ai pas trouvé de réponse à mon problème
 

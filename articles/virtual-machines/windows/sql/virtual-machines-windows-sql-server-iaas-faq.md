@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226625"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270823"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -53,9 +53,17 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Oui, en utilisant PowerShell. Pour plus d’informations sur le déploiement de machines virtuelles SQL Server à l’aide de PowerShell, consultez [Guide pratique pour provisionner des machines virtuelles SQL Server à l’aide d’Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
-1. **Puis-je créer une image de Place de marché Azure SQL Server généralisée de ma machine virtuelle SQL Server et l’utiliser pour déployer des machines virtuelles ?**
+1. **Comment généraliser SQL Server sur une machine virtuelle Azure et l'utiliser pour déployer de nouvelles machines virtuelles ?**
 
-   Oui, mais vous devez ensuite [inscrire chaque machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md) pour gérer votre machine virtuelle SQL Server dans le portail, et utiliser des fonctionnalités telles que la mise à jour corrective automatisée et les sauvegardes automatiques. Lorsque vous vous inscrivez auprès du fournisseur de ressources, vous devez également spécifier le type de licence pour chaque machine virtuelle SQL Server. 
+   Vous pouvez déployer une machine virtuelle Windows Server (sur laquelle aucune instance de SQL Server n'est installée) et utiliser le processus [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) pour généraliser SQL Server sur des machines virtuelles Azure (Windows) grâce au support d'installation SQL Server. Les clients disposant de la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) peuvent obtenir leur support d’installation à partir du [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Les clients qui ne disposent pas de la Software Assurance peuvent utiliser le support d'installation à partir d'une image de machine virtuelle SQL Server de la Place de marché correspondant à l'édition souhaitée.
+
+   Vous pouvez également utiliser une des images SQL Server de la Place de marché Azure pour généraliser SQL Server sur des machines virtuelles Azure. Notez que vous devez supprimer la clé de Registre suivante dans l'image source avant de créer votre propre image. Si vous ne la supprimez pas, un ballonnement du dossier de démarrage de l'installation SQL Server et/ou de l'extension SQL IaaS peut survenir en état d'échec.
+
+   Chemin de la clé de Registre :  
+   `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
+
+   > [!NOTE]
+   > Nous recommandons que toutes les machines virtuelles SQL Server Azure, y compris celles déployées à partir d'images généralisées personnalisées, soient [inscrites auprès d'un fournisseur de machines virtuelles SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) afin de respecter les exigences de conformité et d'utiliser des fonctionnalités facultatives telles que les mises à jour correctives automatisées et les sauvegardes automatiques. Cela vous permettra également de [spécifier le type de licence](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) de chaque machine virtuelle SQL Server.
 
 1. **Puis-je utiliser mon propre disque dur virtuel pour déployer une machine virtuelle SQL Server ?**
 
@@ -117,13 +125,13 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
    L’instance SQL Server passive ne fournit pas de données SQL Server aux clients ni n’exécute de charges de travail SQL Server actives. Elle est utilisée uniquement pour la synchronisation avec le serveur principal et maintient la base de données passive dans un état de secours semi-automatique. Si elle fournit des données, comme des rapports, à des clients exécutant des charges de travail SQL Server actives, ou si elle effectue tout travail autre que ceux qui sont spécifiés dans les termes du contrat, il doit s’agir d’une instance SQL Server sous licence payante. Les activités suivantes sont autorisées sur l’instance secondaire : vérifications de cohérence de la base de données ou CheckDB, sauvegardes complètes, sauvegardes du journal des transactions et supervision des données d’utilisation des ressources. Vous pouvez également exécuter simultanément l’instance principale et l’instance de reprise d’activité correspondante pendant de courtes périodes de test de reprise d’activité tous les 90 jours.
    
 
-1. **Quels scénarios peuvent tirer parti de l’avantage Reprise d’activité après sinistre ?**
+1. **Quels scénarios peuvent tirer parti de l'avantage Récupération d'urgence ?**
 
    Le [Guide de gestion des licences](https://aka.ms/sql2019licenseguide) fournit des scénarios dans lesquels l’avantage Reprise d’activité après sinistre peut être utilisé. Pour plus d’informations, reportez-vous aux Termes du contrat de licence du produit et contactez les agents chargés de la gestion des licences ou votre responsable de compte.
 
 1. **Quels sont les abonnements qui prennent en charge l’avantage Reprise d’activité après sinistre ?**
 
-   Les programmes complets qui offrent des droits d’abonnement équivalents à la Software Assurance en tant qu’avantage fixe prennent en charge l’avantage Reprise d’activité après sinistre. Cela comprend, mais pas exclusivement, Open Value (OV), Open Value Subscription (OVS), Contrat Entreprise (EA), Contrat Souscription Entreprise (EAS) et Server and Cloud Enrollment (SCE). Pour plus d’informations, reportez-vous aux [Termes du contrat de licence du produit](https://www.microsoft.com/licensing/product-licensing/products) et contactez les agents chargés de la gestion des licences ou votre responsable de compte. 
+   Les programmes complets qui offrent des droits d’abonnement équivalents à la Software Assurance en tant qu’avantage fixe prennent en charge l’avantage Reprise d’activité après sinistre. Cela comprend, mais pas exclusivement, Open Value (OV), Open Value Subscription (OVS), Contrat Entreprise (EA), Contrat Souscription Entreprise (EAS) et Server and Cloud Enrollment (SCE). Pour plus d'informations, reportez-vous aux [Termes du contrat de licence du produit](https://www.microsoft.com/licensing/product-licensing/products) et contactez les agents chargés de la gestion des licences ou votre responsable de compte. 
 
    
  ## <a name="resource-provider"></a>Fournisseur de ressources

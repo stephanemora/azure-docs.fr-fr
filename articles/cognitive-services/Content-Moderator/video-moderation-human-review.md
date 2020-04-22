@@ -1,25 +1,25 @@
 ---
 title: Modération de vidéo avec révision manuelle - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Utilisation de la modération des vidéos assistée par ordinateur et des outils de révision manuelle afin de modérer le contenu inapproprié.
+description: Utilisez la modération de vidéo assistée par ordinateur et l'outil de révision pour modérer les contenus inappropriés
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72754172"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404253"
 ---
 # <a name="video-moderation-with-human-review"></a>Modération de vidéo avec révision manuelle
 
-Utilisez la [modération des vidéos](video-moderation-api.md) assistée par ordinateur et les [outils de révision manuelle](Review-Tool-User-Guide/human-in-the-loop.md) Content Moderator afin de modérer les vidéos et les transcriptions explicites (contenu destiné aux adultes) ou provocantes (contenu suggestif) et améliorer ainsi les performances pour votre entreprise.
+Utilisez la [modération de vidéo](video-moderation-api.md) assistée par ordinateur et l'[outil de révision](Review-Tool-User-Guide/human-in-the-loop.md) de Content Moderator pour modérer les vidéos et les transcriptions explicites (contenu destiné aux adultes) ou provocantes (contenu suggestif), et permettre à votre entreprise de bénéficier des meilleurs résultats.
 
 ## <a name="video-trained-classifier-preview"></a>Classifieur entraîné à l’aide de vidéos (préversion)
 

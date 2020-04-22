@@ -1,25 +1,25 @@
 ---
 title: Modération d’image - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Utilisez la modération de l'image assistée par ordinateur de Content Moderator ainsi que l'outil de révision pour une intervention humaine afin de modérer les images incluant du contenu pour adultes et osé.
+description: Utilisez la modération d'image assistée par ordinateur et l'outil de révision à intervention humaine de Content Moderator pour modérer les images incluant du contenu pour adultes et osé.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73044098"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404260"
 ---
 # <a name="learn-image-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération d'image
 
-Utilisez la modération de l’image assistée par ordinateur de Content Moderator et l’[outil de révision pour une intervention humaine](Review-Tool-User-Guide/human-in-the-loop.md) pour modérer les images incluant du contenu pour adultes et osé. Recherchez du contenu textuel dans les images, extrayez le texte et détectez les visages. Vous pouvez comparer des images à des listes personnalisées et prendre des mesures complémentaires.
+Utilisez la modération d'image assistée par ordinateur et l'[outil de révision à intervention humaine](Review-Tool-User-Guide/human-in-the-loop.md) de Content Moderator pour modérer les images incluant du contenu pour adultes et osé. Recherchez du contenu textuel dans les images, extrayez le texte et détectez les visages. Vous pouvez comparer des images à des listes personnalisées et prendre des mesures complémentaires.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Évaluer du contenu pour adultes et osé
 
@@ -139,9 +139,9 @@ Exemple d’extrait :
     ....
     }
 
-## <a name="human-review-tool"></a>Outil de révision par un opérateur humain
+## <a name="review-tool"></a>Outil de révision
 
-Pour des cas plus subtils, utilisez l’[outil de révision](Review-Tool-User-Guide/human-in-the-loop.md) Content Moderator et ses API pour exposer les résultats de la modération et le contenu dans la révision pour vos opérateurs humains. Ils passent en revue les balises affectées par l’ordinateur et donnent leur décision finale.
+Pour des cas plus subtils, utilisez l'[outil de révision](Review-Tool-User-Guide/human-in-the-loop.md) Content Moderator et son API pour faire apparaître les résultats de la modération et le contenu dans la révision à l'intention de vos opérateurs humains. Ils passent en revue les balises affectées par l’ordinateur et donnent leur décision finale.
 
 ![Révision d’images pour les modérateurs humains](images/moderation-reviews-quickstart-dotnet.PNG)
 

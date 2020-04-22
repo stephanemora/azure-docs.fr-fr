@@ -6,26 +6,28 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 602be49ef0c60274f1cd016c4f8e870cf033ec7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e556e21238db5de7dddce13ea912dae30723fe8c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75866891"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383674"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utiliser le Portail Microsoft Azure pour accéder aux données d’objet blob et de file d’attente
 
 Lorsque vous accéder aux données d’objet blob et de file d’attente à l’aide du [Portail Microsoft Azure](https://portal.azure.com), le portail fait des requêtes à Azure Storage en arrière-plan. Une requête au stockage Azure peut être autorisée à l’aide de votre compte Azure AD ou de la clé d’accès au compte de stockage. Le portail indique quelle méthode vous utilisez et vous permet de basculer entre les deux si vous disposez des autorisations appropriées.  
 
+Vous pouvez également préciser de quelle manière une opération individuelle de chargement d'objets blob doit être autorisée sur le portail Azure. Par défaut, le portail applique la méthode que vous utilisez déjà pour autoriser une opération de chargement d'objets blob, mais vous pouvez modifier ce paramètre au moment du chargement d'un objet blob.
+
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Autorisations nécessaires pour accéder aux données d’objet blob et de file d’attente
 
 Selon la façon dont vous souhaitez autoriser l’accès aux données blob ou aux données de la file d’attente dans le portail Azure, vous devrez disposer d’autorisations particulières. Dans la plupart des cas, ces autorisations sont fournies via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md)
 
-### <a name="account-access-key"></a>Clé d’accès au compte
+### <a name="use-the-account-access-key"></a>Utiliser la clé d'accès au compte
 
 Pour accéder aux données d’objet blob et de file d’attente avec la clé d’accès au compte, vous devez disposer d’un rôle RBAC qui vous est attribué et qui inclut l’action RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Ce rôle RBAC peut être intégré ou il peut s’agit d’un rôle personnalisé. Les rôles intégrés qui prennent en charge **Microsoft.Storage/storageAccounts/listkeys/action** incluent :
 
@@ -36,9 +38,9 @@ Pour accéder aux données d’objet blob et de file d’attente avec la clé d�
 Lorsque vous tentez d’accéder aux données d’objet blob et de file d’attente dans le Portail Microsoft Azure, le portail commence par vérifier si un rôle RBAC vous a été attribué avec **Microsoft.Storage/storageAccounts/listkeys/action**. Si un rôle avec cette action vous a été attribué, le portail utilise la clé de compte pour l’accès aux données d’objet blob et de file d’attente. Si un rôle avec cette action ne vous a pas été attribué, le portail tente d’accéder aux données à l’aide de votre compte Azure AD.
 
 > [!NOTE]
-> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** inclut toutes les actions, y compris **Microsoft.Storage/storageAccounts/listkeys/action**, pour qu’un utilisateur avec l’un de ces rôles d’administration puisse accéder également aux données d’objet blob et de file d’attente avec la clé de compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnements classiques](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** inclut toutes les actions, y compris **Microsoft.Storage/storageAccounts/listkeys/action**, pour qu’un utilisateur avec l’un de ces rôles d’administration puisse accéder également aux données d’objet blob et de file d’attente avec la clé de compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
-### <a name="azure-ad-account"></a>Compte Azure AD
+### <a name="use-your-azure-ad-account"></a>Utiliser votre compte Azure AD
 
 Pour accéder aux données d’objet blob ou de file d’attente à partir du Portail Microsoft Azure à l’aide de votre compte Azure AD, vous devez remplir ces deux conditions :
 
@@ -54,7 +56,7 @@ Les rôles intégrés qui prennent en charge les accès à vos données d’obje
 - [Lecteur des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) : Autorisations en lecture seule pour les objets blob.
 - [Contributeur aux données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) : Autorisations en lecture/écriture/suppression pour les file d’attente.
 - [Lecteur des données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader) : Autorisations en lecture seule pour les files d’attente.
-    
+
 Les rôles personnalisés peuvent prendre en charge différentes combinaisons des mêmes autorisations fournies par les rôles intégrés. Pour plus d’informations sur la création des rôles RBAC personnalisés, consultez [Rôles personnalisés pour les ressources Azure](../../role-based-access-control/custom-roles.md) et [Comprendre les définitions de rôles pour les ressources Azure](../../role-based-access-control/role-definitions.md).
 
 Le référencement des files d’attente avec un rôle d’administrateur d’abonnement classique n’est pas pris en charge. Pour répertorier les files d’attente, un utilisateur doit leur avoir attribué le rôle **Lecteur** Azure Resource Manager, le rôle **Lecteur de données de file d’attente de stockage** ou le rôle **Contributeur aux données en file d’attente de stockage**.
@@ -74,7 +76,7 @@ Lorsque vous accédez à un conteneur ou à une file d’attente, le portail Azu
 
 Les exemples de cette section montrent l’accès à un conteneur et ses objets blob, mais le portail affiche le même message lorsque vous accédez à une file d’attente et à ses messages, ou lorsque vous répertoriez des files d’attente.
 
-### <a name="account-access-key"></a>Clé d’accès au compte
+### <a name="authenticate-with-the-account-access-key"></a>S'authentifier à l'aide de la clé d'accès au compte
 
 Si vous vous authentifiez à l’aide de la clé d’accès au compte, vous verrez la méthode **Clé d’accès** spécifiée comme méthode d’authentification dans le portail :
 
@@ -86,7 +88,7 @@ Pour passer à l’utilisation du compte Azure AD, cliquez sur le lien mis en su
 
 Notez qu’aucun objet blob n’apparaît dans la liste si votre compte Azure AD ne dispose pas des autorisations pour les afficher. Cliquez sur le lien **Basculer sur clé d’accès** pour utiliser à nouveau la clé d’accès pour l’authentification.
 
-### <a name="azure-ad-account"></a>Compte Azure AD
+### <a name="authenticate-with-your-azure-ad-account"></a>S'authentifier à l'aide du compte Azure AD
 
 Si vous vous authentifiez à l’aide de votre compte Azure AD, vous verrez la méthode **Clé d’accès** spécifiée comme méthode d’authentification dans le portail :
 
@@ -97,6 +99,19 @@ Pour passer à l’utilisation d’une clé d’accès au compte, cliquez sur le
 ![Erreur affichée si vous n’avez pas accès à la clé de compte](media/storage-access-blobs-queues-portal/auth-error-access-key.png)
 
 Notez qu’aucun objet blob n’apparaît dans la liste si vous n’avez pas accès aux clés de compte. Cliquez sur le lien **Basculer sur Compte d’utilisateur Azure AD** pour vous authentifier à nouveau.
+
+## <a name="specify-how-to-authorize-a-blob-upload-operation"></a>Spécifier comment autoriser une opération de chargement d'objets blob
+
+Lorsque vous chargez un objet blob à partir du portail Azure, vous pouvez spécifier si cette opération doit être authentifiée et autorisée à l'aide de la clé d'accès au compte ou de vos informations d'identification Azure AD. Par défaut, le portail utilise la méthode d'authentification actuelle, comme indiqué dans [Déterminer la méthode d'authentification actuelle](#determine-the-current-authentication-method).
+
+Pour spécifier comment autoriser une opération de chargement d'objets blob, procédez comme suit :
+
+1. Sur le portail Azure, accédez au conteneur dans lequel vous souhaitez charger un objet blob.
+1. Cliquez sur le bouton **Charger**.
+1. Développez la section **Avancé** pour afficher les propriétés avancées de l'objet blob.
+1. Dans le champ **Type d'authentification**, indiquez si vous souhaitez autoriser l'opération de chargement à l'aide de votre compte Azure AD ou de la clé d'accès au compte, comme illustré ci-dessous :
+
+    :::image type="content" source="media/storage-access-blobs-queues-portal/auth-blob-upload.png" alt-text="Capture d'écran montrant comment modifier la méthode d'autorisation au moment du chargement d'un objet blob":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73612796"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113369"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -90,38 +90,19 @@ Sélectionnez un élément dans la vue sous forme de liste pour obtenir des info
 
 ## <a name="filter-provisioning-activities"></a>Filtrer les activités d’approvisionnement
 
-Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données d’approvisionnement à l’aide des champs par défaut suivants. Notez que les valeurs des filtres sont renseignées dynamiquement en fonction de votre locataire. Si, par exemple, vous n’avez pas d’événements de création dans votre locataire, il n’y aura pas d’option de filtre à créer.
+Vous pouvez filtrer vos données d'approvisionnement. Certaines valeurs de filtre sont renseignées dynamiquement en fonction de votre locataire. Si, par exemple, vous n’avez pas d’événements de création dans votre locataire, il n’y aura pas d’option de filtre à créer.
+Dans l'affichage par défaut, vous pouvez sélectionner les filtres suivants :
 
 - Identité
-- Action
-- Système source
-- Système cible
-- Statut
 - Date
+- Statut
+- Action
 
 
-![Filter](./media/concept-provisioning-logs/filter.png "Filtrer")
+![Filter](./media/concept-provisioning-logs/default-filter.png "Filtrer")
 
 Le filtre **Identité** vous permet de spécifier le nom ou l’identité qui vous intéresse. Cette identité peut être un utilisateur, un groupe, un rôle ou un autre objet. Vous pouvez effectuer une recherche par nom ou ID de l’objet. L’ID varie selon le scénario. Par exemple, lors de l’approvisionnement d’un objet d’Azure AD vers SalesForce, l’ID source est l’ID d’objet de l’utilisateur dans Azure AD, tandis qu’IDCible est l’ID de l’utilisateur dans Salesforce. Lors de l’approvisionnement de Workday vers Active Directory, l’ID source est l’ID employé du travailleur Workday. Notez qu’il se peut que le nom de l’utilisateur ne soit pas toujours présent dans la colonne d’identité. Il y aura toujours un ID. 
 
-Le filtre **Système source** vous permet de spécifier l’emplacement à partir duquel l’identité est approvisionnée. Par exemple, lors de l’approvisionnement d’un objet d’Azure AD vers ServiceNow, le système source est Azure AD. 
-
-Le filtre **Système cible** vous permet de spécifier l’emplacement où l’identité est approvisionnée. Par exemple, lors de l’approvisionnement d’un objet d’Azure AD vers ServiceNow, le système cible est ServiceNow. 
-
-Le filtre **État** vous permet de sélectionner les états suivants :
-
-- Tous
-- Succès
-- Échec
-- Ignoré
-
-Le filtre **Action** vous permet de filtrer les éléments suivants :
-
-- Créer 
-- Update
-- DELETE
-- Disable
-- Autres
 
 Le filtre **Date** vous permet de définir un intervalle de temps pour les données renvoyées.  
 Les valeurs possibles sont les suivantes :
@@ -135,7 +116,35 @@ Les valeurs possibles sont les suivantes :
 Lorsque vous sélectionnez un délai d’exécution personnalisé, vous pouvez configurer une date de début et une date de fin.
 
 
-En plus des champs par défaut, lorsque vous sélectionnez cette option, vous pouvez également inclure les champs suivants dans votre filtre :
+Le filtre **État** vous permet de sélectionner les états suivants :
+
+- Tous
+- Succès
+- Échec
+- Ignoré
+
+
+
+Le filtre **Action** vous permet de filtrer les éléments suivants :
+
+- Créer 
+- Update
+- DELETE
+- Disable
+- Autres
+
+En plus des filtres de l'affichage par défaut, vous pouvez également définir les filtres suivants :
+
+- ID de travail
+- ID du cycle
+- ID de la modification
+- ID de la source
+- ID de la cible
+- Application
+
+
+![Choisir un champ](./media/concept-provisioning-logs/add-filter.png "Choisir un champ")
+
 
 - **ID de tâche** : un ID de tâche unique est associé à chaque application pour laquelle vous avez activé l’approvisionnement.   
 
@@ -144,8 +153,13 @@ En plus des champs par défaut, lorsque vous sélectionnez cette option, vous po
 - **Changer l’ID :** identificateur unique de l’événement d’approvisionnement. Vous pouvez partager cet ID avec le support pour rechercher l’événement d’approvisionnement.   
 
 
+- **Système source** : vous permet de spécifier l'emplacement à partir duquel l'identité est approvisionnée. Par exemple, lors de l’approvisionnement d’un objet d’Azure AD vers ServiceNow, le système source est Azure AD. 
 
-  
+- **Système cible** : vous permet de spécifier l'emplacement où l'identité est approvisionnée. Par exemple, lors de l’approvisionnement d’un objet d’Azure AD vers ServiceNow, le système cible est ServiceNow. 
+
+- **Application** : vous permet d'afficher uniquement les enregistrements des applications dont le nom d'affichage contient une chaîne spécifique.
+
+ 
 
 ## <a name="provisioning-details"></a>Détails de l’approvisionnement 
 

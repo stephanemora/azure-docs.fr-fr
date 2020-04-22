@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945394"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414414"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Data Warehouse
 
@@ -29,7 +29,7 @@ ms.locfileid: "78945394"
 
 Lorsque vous créez un serveur SQL Server Azure à partir du [portail Azure](sql-database-single-database-get-started.md), le résultat est un point de terminaison public au format *votrenomdeserveur.basededonnées.windows.net*.
 
-Vous pouvez utiliser les contrôles d’accès réseau suivants pour autoriser de manière sélective l’accès à SQL Database via le point de terminaison public :
+Vous pouvez utiliser les contrôles d'accès réseau suivants pour autoriser de manière sélective l'accès à SQL Database via le point de terminaison public :
 - Autoriser les services Azure : Si défini sur ACTIVÉ, d’autres ressources dans la limite Azure, par exemple une machine virtuelle Azure, peuvent accéder à SQL Database
 
 - Règles de pare-feu IP : Utilisez cette fonctionnalité pour autoriser explicitement les connexions à partir d’une adresse IP spécifique, par exemple à partir d’ordinateurs locaux
@@ -56,13 +56,13 @@ Vous pouvez aussi changer ce paramètre via le volet du pare-feu une fois le ser
 
 Quand la valeur est définie sur **ACTIVÉ**, Azure SQL Server autorise les communications à partir de toutes les ressources situées dans la limite Azure, qu’elles fassent partie de votre abonnement ou non.
 
-Dans de nombreux cas, le paramètre **ACTIVÉ** est plus permissif que ce que souhaite la plupart des clients, donc ceux-ci voudront peut-être définir ce paramètre sur **DÉSACTIVÉ** et le remplacer par des règles de pare-feu IP ou des règles de pare-feu de réseau virtuel plus restrictives. Ce choix affecte les fonctionnalités suivantes qui s’exécutent sur des machines virtuelles dans Azure qui ne font pas partie de votre réseau virtuel et qui, par conséquent, se connectent à la base de données SQL par le biais d’une adresse IP Azure.
+Le paramètre **ACTIVÉ** est souvent plus permissif que ce que souhaitent la plupart des clients. Par conséquent, ceux-ci préféreront peut-être définir ce paramètre sur **DÉSACTIVÉ** et le remplacer par des règles de pare-feu IP ou des règles de pare-feu de réseau virtuel plus restrictives. Ce choix affecte les fonctionnalités suivantes qui s’exécutent sur des machines virtuelles dans Azure qui ne font pas partie de votre réseau virtuel et qui, par conséquent, se connectent à la base de données SQL par le biais d’une adresse IP Azure.
 
 ### <a name="import-export-service"></a>Service d’importation/exportation
-Le service d’importation/exportation ne fonctionne pas. L’option **Autoriser les services Azure à accéder au serveur** est désactivée. Toutefois, vous pouvez contourner le problème [en exécutant manuellement sqlpackage.exe à partir d’une machine virtuelle Azure ou en effectuant l’exportation](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directement dans votre code à l’aide de l’API DACFx.
+Le service d'importation/exportation ne fonctionne pas lorsque **Autoriser l'accès aux services Azure** est défini sur **DÉSACTIVÉ**. Toutefois, vous pouvez contourner le problème [en exécutant manuellement sqlpackage.exe à partir d’une machine virtuelle Azure ou en effectuant l’exportation](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directement dans votre code à l’aide de l’API DACFx.
 
 ### <a name="data-sync"></a>Synchronisation des données
-Pour utiliser la fonctionnalité de synchronisation des données avec l’option **Autoriser les services Azure à accéder au serveur** désactivée, vous devez créer des entrées de règle de pare-feu individuelles pour [ajouter des adresses IP](sql-database-server-level-firewall-rule.md) à partir de la **balise du service SQL** pour la région hébergeant la base de données **Hub**.
+Pour utiliser la fonctionnalité de synchronisation des données avec l'option **Autoriser l'accès aux services Azure** définie sur **DÉSACTIVÉ**, vous devez créer des entrées de règle de pare-feu individuelles afin d'[ajouter des adresses IP](sql-database-server-level-firewall-rule.md) à partir de la **balise du service SQL** pour la région qui héberge la base de données **Hub**.
 Ajoutez ces règles de pare-feu au niveau du serveur aux serveurs logiques hébergeant à la fois des bases de données **Hub** et **Member** (qui peuvent être dans des régions différentes).
 
 Utilisez le script PowerShell suivant pour générer les adresses IP correspondant à la balise du service SQL pour la région USA Ouest.

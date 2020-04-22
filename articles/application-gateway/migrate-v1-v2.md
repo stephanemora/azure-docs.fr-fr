@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77046195"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312045"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
 
@@ -36,10 +36,11 @@ Un script Azure PowerShell est disponible qui effectue les opérations suivantes
 
 * La nouvelle passerelle v2 a de nouvelles adresses IP publiques et privées. Il n’est pas possible de déplacer de façon transparente les adresses IP associées à la passerelle v1 existante vers la version 2. Toutefois, vous pouvez allouer une adresse IP publique ou privée existante (non allouée) à la nouvelle passerelle v2.
 * Vous devez fournir un espace d’adressage IP pour un autre sous-réseau au sein de votre réseau virtuel où se trouve votre passerelle v1. Le script ne peut pas créer la passerelle v2 dans les sous-réseaux existants qui ont déjà une passerelle v1. Toutefois, si le sous-réseau existant a déjà une passerelle v2, celle-ci peut encore fonctionner sous réserve d’un espace d’adressage IP suffisant.
-* Pour migrer une configuration SSL, vous devez spécifier tous les certificats SSL utilisés dans votre passerelle v1.
+* Pour migrer une configuration TLS/SSL, vous devez spécifier tous les certificats TLS/SSL utilisés sur votre passerelle v1.
 * Si le mode FIPS est activé pour votre passerelle V1, il ne sera pas migré vers votre nouvelle passerelle v2. Le mode FIPS n’est pas pris en charge dans v2.
 * La version 2 ne prend pas en charge IPv6, si bien que les passerelles v1 compatibles IPv6 ne sont pas migrées. Si vous exécutez le script, il peut ne pas se terminer.
 * Si la passerelle v1 a uniquement une adresse IP privée, le script crée une adresse IP publique et une adresse IP privée pour la nouvelle passerelle v2. Les passerelles v2 ne prennent actuellement pas en charge uniquement les adresses IP privées.
+* Les en-têtes dont les noms contiennent autre chose que des lettres, des chiffres, des traits d’union et des traits de soulignement ne sont pas transmis à votre application. Cela s’applique uniquement aux noms des en-têtes, et non aux valeurs des en-têtes. Il s’agit d’un changement cassant par rapport à v1.
 
 ## <a name="download-the-script"></a>Télécharger le script
 
@@ -100,9 +101,9 @@ Pour exécuter le script :
 
    * **subnetAddressRange : [chaîne] :  Requis** - Il s’agit de l’espace d’adressage IP que vous avez alloué (ou que vous souhaitez allouer) pour un nouveau sous-réseau qui contient votre nouvelle passerelle v2. Il doit être spécifié dans la notation CIDR. Par exemple : 10.0.0.0/24. Vous n’avez pas besoin de créer ce sous-réseau à l’avance. Le script le crée pour vous s’il n’existe pas.
    * **appgwName : [chaîne] : Facultatif**. Il s’agit d’une chaîne que vous spécifiez comme nom de la nouvelle passerelle Standard_v2 ou WAF_v2. Si ce paramètre n’est pas fourni, le nom de votre passerelle v1 existante est utilisé avec le suffixe *_v2* ajouté.
-   * **sslCertificates : [PSApplicationGatewaySslCertificate] : Facultatif**.  Une liste séparée par des virgules d’objets PSApplicationGatewaySslCertificate que vous créez pour représenter les certificats SSL à partir de votre passerelle v1 doit être chargée sur la nouvelle passerelle v2. Pour chacun de vos certificats SSL configurés pour votre passerelle Standard v1 ou WAF v1, vous pouvez créer un nouvel objet PSApplicationGatewaySslCertificate via la commande `New-AzApplicationGatewaySslCertificate` illustrée ici. Vous avez besoin du mot de passe et du chemin d’accès à votre fichier de certificat SSL.
+   * **sslCertificates : [PSApplicationGatewaySslCertificate] : Facultatif**.  Une liste séparée par des virgules des objets PSApplicationGatewaySslCertificate que vous créez pour représenter les certificats TLS/SSL à partir de votre passerelle v1 doit être chargée sur la nouvelle passerelle v2. Pour chacun des certificats TLS/SSL configurés pour votre passerelle Standard v1 ou WAF v1, vous pouvez créer un nouvel objet PSApplicationGatewaySslCertificate via la commande `New-AzApplicationGatewaySslCertificate` illustrée ici. Vous avez besoin du mot de passe et du chemin d'accès à votre fichier de certificat TLS/SSL.
 
-     Ce paramètre n’est facultatif que si vous n’avez pas d’écouteurs HTTPS configurés pour votre passerelle v1 ni votre pare-feu d’applications web. Si vous avez au moins une configuration d’écouteur HTTPS, vous devez spécifier ce paramètre.
+     Ce paramètre n’est facultatif que si vous n’avez pas d’écouteurs HTTPS configurés pour votre passerelle v1 ou pare-feu d’applications web. Si vous avez au moins une configuration d’écouteur HTTPS, vous devez spécifier ce paramètre.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force

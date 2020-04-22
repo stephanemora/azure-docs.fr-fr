@@ -2,13 +2,13 @@
 title: Présentation de Reliable Collections
 description: Les services avec état de Service Fabric fournissent des collections fiables qui vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence.
 ms.topic: conceptual
-ms.date: 1/3/2019
-ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/10/2020
+ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75609721"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398432"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric
 
@@ -24,10 +24,9 @@ La principale différence entre les Collections fiables et d'autres technologies
 Les Collections fiables peuvent être considérées comme l’évolution naturelle des classes **System.Collections** : un nouveau jeu de collections qui sont conçues pour les applications cloud et les applications pour plusieurs ordinateurs sans accroître la complexité pour les développeurs. En tant que telles, les Collections fiables sont :
 
 * Répliquées : les modifications d’état sont répliquées pour une haute disponibilité.
-* Persistantes : les données sont conservées sur le disque pour une meilleure durabilité par rapport aux pannes à grande échelle (par exemple, une panne de courant dans un centre de données).
-* Étant donné que les écritures sont rendues persistantes et sont répliquées, vous ne pouvez pas créer un ReliableDictionary ou un ReliableQueue volatile, ou autre type de collection fiable qui conserve uniquement les données en mémoire.
 * Asynchrones : les API sont asynchrones afin que les threads ne soient pas bloqués en cas d’entrées/sorties.
 * Transactionnelles : les API utilisent l’abstraction de transactions pour faciliter la gestion de plusieurs Collections fiables au sein d’un service.
+* Persistantes ou volatiles : les données peuvent être conservées sur le disque afin de les protéger des pannes à grande échelle (par exemple, une panne de courant dans un centre de données). Certaines collections fiables prennent également en charge un mode volatile (avec [mises en garde](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)) où toutes les données sont conservées en mémoire, à la manière d'un cache en mémoire répliqué.
 
 Les Collections fiables fournissent des garanties de forte cohérence instantanée afin de faciliter le raisonnement sur l'état de l'application.
 La forte cohérence est obtenue en s’assurant que la transaction n’est validée comme terminée que lorsque l’intégralité de la transaction a été enregistrée dans un quorum majoritaire de réplicas, y compris le réplica principal.

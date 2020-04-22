@@ -595,6 +595,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Activer l’authentification Azure AD pour le runtime d’intégration (IR) Azure-SSIS
           href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Se connecter aux données avec l’authentification Windows
+          href: ssis-azure-connect-with-windows-auth.md
+        - name: Enregistrer les fichiers et se connecter aux partages de fichiers
+          href: ssis-azure-files-file-shares.md
         - name: Configurer Enterprise Edition pour le runtime d’intégration (IR) Azure-SSIS
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Personnalisation des configurations du runtime d’intégration (IR) Azure-SSIS

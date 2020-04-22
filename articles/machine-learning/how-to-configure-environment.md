@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5f46f5af723e1245afbc6bca90d25ae9036d646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472424"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399008"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -288,7 +288,7 @@ Utilisez les paramètres suivants :
 | Paramètre |S’applique à| Valeur |
 |----|---|---|
 | Nom du cluster |toujours| Nom de votre cluster |
-| Runtime Databricks |toujours|Runtime non-ML 6.0 (Scala 2.11, Spark 2.4.3) |
+| Runtime Databricks |toujours|Runtime non-ML 6.5 (Scala 2.11, Spark 2.4.3) |
 | Version Python |toujours| 3 |
 | Workers |toujours| 2 ou plus |
 | Types de machines virtuelles pour les nœuds worker <br>(détermine le nombre maximal d’itérations concurrentes) |ML automatisé<br>uniquement| Machine virtuelle à mémoire optimisé, de préférence |

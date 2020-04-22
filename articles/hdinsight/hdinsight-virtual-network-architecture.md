@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233521"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390219"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architecture de réseau virtuel Azure HDInsight
 
@@ -30,11 +30,11 @@ Les clusters Azure HDInsight présentent différents types de machines virtuelle
 | Nœud de périphérie R Server | Le nœud de périphérie R Server représente le nœud sur lequel vous pouvez établir une connexion SSH et exécuter des applications ensuite coordonnées pour s’exécuter sur les ressources de cluster. Un nœud de périphérie ne participe pas activement à l’analyse de données au sein du cluster. Ce nœud héberge également R Studio Server, ce qui vous permet d’exécuter l’application R à l’aide d’un navigateur. |
 | Nœud de région | Pour le type de cluster HBase, le nœud de région (également appelé nœud de données) s’exécute le serveur de région. Les serveurs de région gèrent une partie des données gérées par HBase. Les nœuds région peuvent être ajoutés ou supprimés du cluster pour mettre à l'échelle les capacités de calcul et gérer les coûts.|
 | Nœud Nimbus | Pour le type de cluster Storm, le nœud Nimbus offre des fonctionnalités similaires à celles du nœud principal. Le nœud Nimbus attribue des tâches aux autres nœuds d'un cluster via Zookeeper, qui coordonne l’exécution des topologies Storm. |
-| Nœud superviseur | Pour le type de cluster Storm, le nœud superviseur exécute les instructions fournies par le nœud Nimbus pour effectuer le traitement souhaité. |
+| Nœud superviseur | Pour le type de cluster Storm, le nœud superviseur exécute les instructions fournies par le nœud Nimbus afin de procéder au traitement. |
 
 ## <a name="resource-naming-conventions"></a>Conventions de nommage des ressources
 
-Utilisez des noms de domaine complets (FQDN) lors de l’adressage des nœuds de votre cluster. Vous pouvez obtenir les noms de domaine complets de différents types de nœuds dans votre cluster à l’aide de l’[API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). 
+Utilisez des noms de domaine complets (FQDN) lors de l'adressage des nœuds de votre cluster. Vous pouvez obtenir les noms de domaine complets de différents types de nœuds dans votre cluster à l’aide de l’[API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Ces noms de domaine complets sont au format suivant : `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
 
@@ -48,7 +48,7 @@ Le diagramme suivant illustre le placement des nœuds HDInsight et des ressource
 
 ![Diagramme des entités HDInsight créées dans un réseau virtuel Azure personnalisé](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
-Les ressources présentes par défaut lors du déploiement de HDInsight dans un réseau virtuel Azure incluent les types de nœuds de cluster mentionnés dans le tableau précédent, ainsi que les périphériques réseau qui prennent en charge la communication entre le réseau virtuel et les réseaux extérieurs.
+Les ressources par défaut d'un réseau virtuel Azure incluent les types de nœuds de cluster mentionnés dans le tableau précédent. Et les périphériques réseau qui prennent en charge la communication entre le réseau virtuel et les réseaux extérieurs.
 
 Le tableau suivant récapitule les neufs nœuds de cluster créés lors du déploiement de HDInsight dans un réseau virtuel Azure personnalisé.
 
@@ -73,7 +73,7 @@ Vous pouvez accéder à votre cluster HDInsight de trois façons :
 
 - Point de terminaison HTTPS à l'extérieur du réseau virtuel au niveau de `CLUSTERNAME.azurehdinsight.net`.
 - Point de terminaison SSH pour se connecter directement au nœud principal à `CLUSTERNAME-ssh.azurehdinsight.net`.
-- Point de terminaison HTTPS au sein du réseau virtuel `CLUSTERNAME-int.azurehdinsight.net`. Notez le « -int » dans cette URL. Ce point de terminaison est résolu en adresse IP privée dans ce réseau virtuel et n'est pas accessible à partir du réseau Internet public.
+- Point de terminaison HTTPS au sein du réseau virtuel `CLUSTERNAME-int.azurehdinsight.net`. Notez la présence de le « `-int` » dans cette URL. Ce point de terminaison est résolu en adresse IP privée dans ce réseau virtuel et n'est pas accessible à partir du réseau Internet public.
 
 Ces trois points de terminaison se voient attribuer chacun un équilibreur de charge.
 

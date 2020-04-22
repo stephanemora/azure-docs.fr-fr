@@ -11,23 +11,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225537"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418352"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
+
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Version actuelle](concepts-pipeline-execution-triggers.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Une _exécution du pipeline_ dans Azure Data Factory définit une instance d’une exécution du pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions du pipeline différentes. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique.
+Une _exécution du pipeline_ dans Azure Data Factory définit une instance d’une exécution du pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions distinctes du pipeline. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique.
 
 Les exécutions de pipeline sont généralement instanciées en transmettant des arguments aux paramètres que vous définissez dans les pipelines. Vous pouvez exécuter un pipeline manuellement ou via un _déclencheur_. Cet article décrit de manière détaillée ces deux méthodes d’exécution d’un pipeline.
 
 ## <a name="manual-execution-on-demand"></a>Exécution manuelle (à la demande)
+
 L’exécution manuelle d’un pipeline est également appelée exécution _à la demande_.
 
 Par exemple, vous souhaitez exécuter le pipeline de base **copyPipeline**. Ce pipeline possède une seule activité qui copie à partir d’un dossier source situé dans le Stockage Blob Azure vers un dossier de destination situé au même endroit. La définition JSON suivante illustre cet exemple de pipeline :
@@ -83,7 +86,8 @@ Vous pouvez exécuter manuellement votre pipeline à l’aide d’une des métho
 - Kit de développement logiciel (SDK) Python
 
 ### <a name="rest-api"></a>API REST
-L’exemple de commande suivant vous montre comment exécuter manuellement votre pipeline à l’aide de l’API REST :
+
+L'exemple de commande suivant vous montre comment exécuter votre pipeline en utilisant l'API REST manuellement :
 
 ```
 POST
@@ -122,7 +126,8 @@ La charge utile de réponse est un identificateur unique de l’exécution du pi
 Pour obtenir un exemple complet, consultez [Démarrage rapide : Créer une fabrique de données à l’aide d’Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>Kit de développement logiciel (SDK) .NET
-L’exemple d’appel suivant vous montre comment exécuter manuellement votre pipeline à l’aide du kit de développement logiciel (SDK) .NET :
+
+L'exemple d'appel suivant vous montre comment exécuter votre pipeline en utilisant le kit de développement logiciel (SDK) .NET manuellement :
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -131,9 +136,10 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 Pour obtenir un exemple complet, consultez [Démarrage rapide : Créer une fabrique de données à l’aide du SDK .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
-> Vous pouvez utiliser le SDK .NET pour appeler des pipelines Data Factory à partir d’Azure Functions, de vos services web, etc.
+> Vous pouvez utiliser le SDK .NET pour appeler des pipelines Data Factory à partir d'Azure Functions, de vos services web, etc.
 
-<h2 id="triggers">Exécution de déclencheur</h2>
+## <a name="trigger-execution"></a>Exécution de déclencheur
+
 Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline. Ils correspondent à une unité de traitement qui détermine le moment où une exécution de pipeline doit être lancée. Actuellement, Data Factory prend en charge trois types de déclencheurs :
 
 - Déclencheur de planification : déclencheur qui appelle un pipeline selon un planning horaire.
@@ -143,7 +149,6 @@ Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline
 - Déclencheur basé sur des événements : déclencheur qui répond à un événement.
 
 Les pipelines et les déclencheurs ont une relation plusieurs à plusieurs (à l’exception du déclencheur de fenêtre bascule). Plusieurs déclencheurs peuvent lancer un même pipeline, ou un déclencheur peut lancer plusieurs pipelines. Dans la définition de déclencheur suivante, la propriété **pipelines** fait référence à la liste des pipelines qui sont déclenchés par un déclencheur particulier. La définition de propriété inclut des valeurs pour les paramètres de pipeline.
-
 ### <a name="basic-trigger-definition"></a>Définition du déclencheur de base
 
 ```json
@@ -174,7 +179,7 @@ Les pipelines et les déclencheurs ont une relation plusieurs à plusieurs (à l
 ## <a name="schedule-trigger"></a>Déclencheur de planification
 Un déclencheur de planification exécute les pipelines selon un planning horaire. Ce déclencheur prend en charge les options de calendrier périodiques et avancées. Par exemple, le déclencheur prend en charge les intervalles comme « toutes les semaines » ou « lundi à 17h00 et jeudi à 21h00.» Le déclencheur de planification est flexible, car le modèle de jeu de données n’est pas spécifié et le déclencheur ne distingue pas les données de série chronologique des données de série non chronologique.
 
-Pour obtenir plus d’informations sur les déclencheurs de planification ainsi que des exemples, consultez [Créer un déclencheur de planification](how-to-create-schedule-trigger.md).
+Pour plus d'informations sur les déclencheurs de planification et pour obtenir des exemples, consultez [Créer un déclencheur de planification](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Définition du déclencheur de planification
 Quand vous créez un déclencheur de planification, vous spécifiez la planification et la périodicité à l’aide d’une définition JSON.
@@ -244,33 +249,33 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ```json
 {
-    "properties": {
-        "name": "MyTrigger",
-        "type": "ScheduleTrigger",
-        "typeProperties": {
-            "recurrence": {
-                "frequency": "Hour",
-                "interval": 1,
-                "startTime": "2017-11-01T09:00:00-08:00",
-                "endTime": "2017-11-02T22:00:00-08:00"
-            }
+  "properties": {
+    "name": "MyTrigger",
+    "type": "ScheduleTrigger",
+    "typeProperties": {
+      "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+        "startTime": "2017-11-01T09:00:00-08:00",
+        "endTime": "2017-11-02T22:00:00-08:00"
+      }
+    },
+    "pipelines": [{
+        "pipelineReference": {
+          "type": "PipelineReference",
+          "referenceName": "SQLServerToBlobPipeline"
         },
-        "pipelines": [{
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "SQLServerToBlobPipeline"
-                },
-                "parameters": {}
-            },
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "SQLServerToAzureSQLPipeline"
-                },
-                "parameters": {}
-            }
-        ]
-    }
+        "parameters": {}
+      },
+      {
+        "pipelineReference": {
+          "type": "PipelineReference",
+          "referenceName": "SQLServerToAzureSQLPipeline"
+        },
+        "parameters": {}
+      }
+    ]
+  }
 }
 ```
 
@@ -298,14 +303,14 @@ Dans ces conditions, la première exécution a lieu le 09/04/2017 à 14:00. Le m
 
 La première heure d’exécution est la même que l’**heure de début** soit 2017-04-05 14:00 ou 2017-04-01 14:00. Après la première exécution, les exécutions suivantes sont calculées à l’aide de la planification. Par conséquent, les exécutions suivantes sont le 2017-04-11 à 14:00, puis le 2017-04-13 à 14:00, puis le 2017-04-15 à 14:00 et ainsi de suite.
 
-Enfin, lorsque les heures ou les minutes ne sont pas définies dans la planification d’un déclencheur, les heures ou minutes de la première exécution sont utilisées par défaut.
+Enfin, lorsque les heures ou les minutes ne sont pas définies dans la planification d'un déclencheur, les heures ou minutes de la première exécution sont utilisées par défaut.
 
 ### <a name="schedule-property"></a>propriété de planification
 Vous pouvez utiliser **schedule** pour *limiter* le nombre d’exécutions de déclencheurs. Par exemple, si un déclencheur avec une fréquence mensuelle est planifié pour s’exécuter uniquement le 31, le déclencheur ne s’exécute que durant les mois qui comptent un 31e jour.
 
 Vous pouvez également utiliser **schedule** pour *étendre* le nombre d’exécutions du déclencheur. Par exemple, un déclencheur avec une fréquence mensuelle planifiée pour s’exécuter le 1 et le 2 de chaque mois, s’exécute le premier et le second jour de chaque mois, plutôt qu’une fois par mois.
 
-Si plusieurs éléments **schedule** sont spécifiés, l’ordre d’évaluation va du plus grand au plus petit paramètre de planification : numéro de semaine, jour du mois, jour de la semaine, heure et minute.
+Si plusieurs éléments **schedule** sont spécifiés, l'ordre d'évaluation va du plus grand au plus petit paramètre de planification : numéro de semaine, jour du mois, jour de la semaine, heure et minute.
 
 Le tableau suivant décrit les éléments **schedule** en détail :
 
@@ -320,7 +325,7 @@ Le tableau suivant décrit les éléments **schedule** en détail :
 ## <a name="tumbling-window-trigger"></a>Déclencheur de fenêtre bascule
 Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’active à un intervalle de temps périodique à partir d’une heure de début spécifiée, tout en conservant son état. Les fenêtres bascule sont une série d’intervalles de temps contigus fixes, qui ne se chevauchent pas.
 
-Pour obtenir plus d’informations sur les déclencheurs de fenêtre bascule ainsi que des exemples, consultez [Créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
+Pour plus d'informations sur les déclencheurs de fenêtre bascule et pour obtenir des exemples, consultez [Créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="event-based-trigger"></a>Déclencheur basé sur des événements
 
@@ -371,7 +376,7 @@ Le tableau suivant présente une comparaison du déclencheur de fenêtre bascule
 |:--- |:--- |:--- |
 | **Scénarios de renvoi** | Pris en charge. Les exécutions de pipeline peuvent être planifiées pour des fenêtres dans le passé. | Non pris en charge. Les exécutions de pipeline peuvent être exécutées uniquement sur des périodes de temps à partir de l’heure actuelle et dans le futur. |
 | **Fiabilité** | Fiabilité de 100 %. Les exécutions de pipeline peuvent être planifiées pour toutes les fenêtres à partir d’une date de début spécifiée sans espaces. | Moins fiable. |
-| **Fonctionnalité de nouvelle tentative** | Pris en charge. Les exécutions de pipeline ayant échoué ont une stratégie de nouvelle tentative par défaut d’une valeur de 0, ou une stratégie spécifiée par l’utilisateur dans le cadre de la définition du déclencheur. Effectue automatiquement une nouvelle tentative quand les exécutions du pipeline échouent en raison de limites de concurrence/de serveur/de limitation (autrement dit, en cas de codes d’état 400 : Erreur de l’utilisateur, 429 : Trop de demandes et 500 : Erreur interne du serveur). | Non pris en charge. |
+| **Fonctionnalité de nouvelle tentative** | Pris en charge. Les exécutions de pipeline ayant échoué ont une stratégie de nouvelle tentative par défaut d’une valeur de 0, ou une stratégie spécifiée par l’utilisateur dans le cadre de la définition du déclencheur. Effectue automatiquement une nouvelle tentative lorsque les exécutions du pipeline échouent en raison de limites de simultanéité, de serveur ou autres (autrement dit, en cas de codes d'état 400 : Erreur de l’utilisateur, 429 : Trop de demandes et 500 : Erreur interne du serveur). | Non pris en charge. |
 | **Concurrency** | Pris en charge. Les utilisateurs peuvent définir explicitement les limites de concurrence pour le déclencheur. Permet entre 1 et 50 exécutions du pipeline déclenchées en simultané. | Non pris en charge. |
 | **Variables système** | Prend en charge l’utilisation des variables système **WindowStart** et **WindowEnd**. Les utilisateurs peuvent accéder à `triggerOutputs().windowStartTime` et `triggerOutputs().windowEndTime` comme variables système de déclencheur dans la définition du déclencheur. Les valeurs sont utilisées en tant qu’heure de début de fenêtre et heure de fin de fenêtre, respectivement. Par exemple, pour un déclencheur de fenêtre bascule qui s’exécute toutes les heures, pour la fenêtre de 1h00 à 2h00, la définition est `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` et `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Non pris en charge. |
 | **Relation du pipeline et du déclencheur** | Prend en charge une relation un à un. Un seul pipeline peut être déclenché. | Prend en charge les relations plusieurs à plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines. |

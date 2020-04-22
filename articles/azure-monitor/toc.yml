@@ -226,8 +226,6 @@
               href: app/remove-application-insights.md
         - name: Supervision sans code
           items:
-            - name: Tout environnement Java (préversion)
-              href: app/java-in-process-agent.md
             - name: Machine virtuelle Azure et groupe identique
               href: app/azure-vm-vmss-apps.md
             - name: Azure App Service
@@ -242,36 +240,34 @@
             - name: Applications Kubernetes
               displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
               href: app/kubernetes.md
-            - name: Status Monitor (existant)
-              displayname: 'IIS monitoring, on premises monitoring, on prem,'
-              href: app/monitor-performance-live-website-now.md
+            - name: Autonome - tous les environnements
+              items:
+                - name: Java (préversion)
+                  href: app/java-in-process-agent.md
+                - name: Configuration des machine virtuelles Java
+                  href: app/java-standalone-arguments.md
+                - name: Options de configuration Java
+                  href: app/java-standalone-config.md
             - name: Serveurs locaux
               items:
-                - name: Vue d’ensemble
-                  displayname: 'IIS monitoring, on premises monitoring, on prem,'
-                  href: app/status-monitor-v2-overview.md
-                - name: Prise en main
-                  href: app/status-monitor-v2-get-started.md
-                - name: Instructions détaillées
-                  href: app/status-monitor-v2-detailed-instructions.md
-                - name: Problèmes connus et dépannage
-                  href: app/status-monitor-v2-troubleshoot.md
-                - name: API Disable-InstrumentationEngine
-                  href: app/status-monitor-v2-api-disable-instrumentation-engine.md
-                - name: API Disable-ApplicationInsightsMonitoring
-                  href: app/status-monitor-v2-api-disable-monitoring.md
-                - name: API Enable-InstrumentationEngine
-                  href: app/status-monitor-v2-api-enable-instrumentation-engine.md
-                - name: API Enable-ApplicationInsightsMonitoring
-                  href: app/status-monitor-v2-api-enable-monitoring.md
-                - name: API Get-ApplicationInsightsMonitoringConfig
-                  href: app/status-monitor-v2-api-get-config.md
-                - name: API Get-ApplicationInsightsMonitoringStatus
-                  href: app/status-monitor-v2-api-get-status.md
-                - name: API Set-ApplicationInsightsMonitoringConfig
-                  href: app/status-monitor-v2-api-set-config.md
-                - name: API Start-ApplicationInsightsMonitoringTrace
-                  href: app/status-monitor-v2-api-start-trace.md
+                - name: ASP.NET
+                  items:
+                    - name: Vue d’ensemble
+                      displayname: 'IIS monitoring, on premises monitoring, on prem'
+                      href: app/status-monitor-v2-overview.md
+                    - name: Prise en main
+                      href: app/status-monitor-v2-get-started.md
+                    - name: Instructions détaillées
+                      href: app/status-monitor-v2-detailed-instructions.md
+                    - name: Dépannage
+                      href: app/status-monitor-v2-troubleshoot.md
+                    - name: Informations de référence sur l'API
+                      href: app/status-monitor-v2-api-reference.md
+                    - name: Status Monitor (existant)
+                      displayname: 'IIS monitoring, on premises monitoring, on prem'
+                      href: app/monitor-performance-live-website-now.md
+                - name: Java
+                  href: app/java-on-premises.md
         - name: Créer une ressource
           href: app/create-new-resource.md
         - name: Tableau de bord de l’application

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75563375"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414529"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
-Cet article analyse les différences et les ressemblances entre les deux types de file d’attente proposés aujourd’hui par Microsoft Azure : les files d’attente Azure et les files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
+Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
 
 ## <a name="introduction"></a>Introduction
-Azure prend en charge deux types de mécanismes de file d’attente : les **files d’attente de stockage** et les **files d’attente Service Bus**.
+Azure prend en charge deux types de mécanismes de file d’attente : **Files d'attente de stockage** et **files d'attente Service Bus**.
 
 Les **files d’attente de stockage**, qui font partie de l’infrastructure de [stockage Azure](https://azure.microsoft.com/services/storage/), incluent une simple interface GET/PUT/PEEK basée sur REST, qui fournit une messagerie fiable et persistante au sein des services et entre ces derniers.
 
@@ -73,7 +73,7 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 | Garantie de livraison |**Au moins une fois** |**Au moins une fois** (avec le mode de réception par défaut, PeekLock) <br/><br/>**Une fois au maximum** (avec le mode de réception ReceiveAndDelete) <br/> <br/> En savoir plus sur les différents [modes de réception](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Prise en charge des opérations atomiques |**Non** |**Oui**<br/><br/> |
 | Comportement de réception |**Non bloquant**<br/><br/>(se termine immédiatement si aucun nouveau message n’est trouvé) |**Blocage avec ou sans délai d’expiration**<br/><br/>(offre une interrogation longue, dite [« technique Comet »](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non bloquant**<br/><br/>(via l’utilisation d’une API gérée sur .NET uniquement) |
-| API style Push |**Non** |**Oui**<br/><br/>API .NET [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) et sessions **OnMessage**. |
+| API style Push |**Non** |**Oui**<br/><br/>API .NET de sessions [QueueClient.OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) et [MessageSessionHandler.OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__). |
 | Mode de réception |**Aperçu et attribution** |**Aperçu et verrouillage**<br/><br/>**Réception et suppression** |
 | Mode d'accès exclusif |**Basé sur attribution** |**Basé sur verrouillage** |
 | Durée attribution/verrouillage |**30 secondes (par défaut)**<br/><br/>**7 jours (maximum)** (Vous pouvez renouveler ou libérer l’attribution d’un message à l’aide de l’API [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage).) |**60 secondes (par défaut)**<br/><br/>Vous pouvez renouveler le verrouillage d’un message à l’aide de l’API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
@@ -175,7 +175,7 @@ Cette section décrit les fonctionnalités d’authentification et d’autorisat
 
 | Critères de comparaison | Files d’attente de stockage | Files d’attente Service Bus |
 | --- | --- | --- |
-| Authentication |**Clé symétrique** |**Clé symétrique** |
+| Authentification |**Clé symétrique** |**Clé symétrique** |
 | Modèle de sécurité |Accès délégué via des jetons SAS. |SAS |
 | Fédération de fournisseur d’identité |**Non** |**Oui** |
 

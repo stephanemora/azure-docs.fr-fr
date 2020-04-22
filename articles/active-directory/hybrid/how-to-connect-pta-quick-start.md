@@ -1,5 +1,5 @@
 ---
-title: 'Authentification directe Azure AD : Démarrage rapide | Microsoft Docs'
+title: Authentification directe Azure AD - Démarrage rapide | Microsoft Docs
 description: Cet article explique comment commencer à utiliser l’authentification directe d’Azure Active Directory (Azure AD).
 services: active-directory
 keywords: Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc45033cdf1bdaa6d4ecd6ab58cc7f90ff9c1ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331410"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312857"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
+# <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Déployer l’authentification directe Azure AD
 
@@ -66,9 +66,14 @@ Vérifiez que les prérequis suivants sont remplis.
      | **8080** (facultatif) | Les agents d’authentification signalent leur état toutes les dix minutes sur le port 8080 (si le port 443 n’est pas disponible). Cet état est affiché sur le portail Azure AD. Le port 8080 _n’est pas utilisé_ pour les connexions utilisateur. |
      
      Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
-   - Si votre pare-feu ou votre proxy autorise la mise en liste verte de DNS, vous pouvez y placer les connexions vers **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
+   - Si votre pare-feu ou votre proxy autorise la mise en liste verte de DNS, ajoutez des connexions vers **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
    - Vos agents d’authentification doivent accéder à **login.windows.net** et à **login.microsoftonline.net** pour l’inscription initiale. Par conséquent, ouvrez également votre pare-feu pour ces URL.
    - Pour valider le certificat, débloquez les URL suivantes : **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** et **www\.microsoft.com:80**. Ces URL étant utilisées pour la validation de certificat avec d’autres produits Microsoft, elles sont peut-être déjà débloquées.
+
+### <a name="azure-government-cloud-prerequisite"></a>Cloud Azure Government - Prérequis
+Avant d'activer l'authentification directe via Azure AD Connect à l'étape 2, téléchargez la dernière version de l'agent PTA à partir du portail Azure.  Vous devez vous assurer que vous disposez de la version **x.x.xxx.x** (ou ultérieure) de l'agent.  Pour vérifier votre agent, consultez [Mettre à niveau les agents d'authentification](how-to-connect-pta-upgrade-preview-authentication-agents.md).
+
+Après avoir téléchargé la dernière version de l'agent, suivez les instructions ci-dessous pour configurer l'authentification directe via Azure AD Connect.
 
 ## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 
@@ -114,8 +119,8 @@ Si vous envisagez de déployer l’authentification directe dans un environnemen
 L’installation de plusieurs agents d’authentification directe assure une haute disponibilité, mais pas d’équilibrage de charge entre les agents d’authentification. Pour savoir combien d’agents d’authentification sont nécessaires pour votre client, tenez compte des pics et de la charge moyenne des demandes de connexion que vous attendez sur votre client. À titre de référence, un seul agent d’authentification peut gérer entre 300 et 400 authentifications par seconde sur un serveur doté d’un CPU à 4 cœurs et de 16 Go de RAM.
 
 Pour estimer le trafic réseau, suivez les instructions de dimensionnement suivantes :
-- Chaque requête a une taille de charge utile de (0,5 K + 1 K * num_of_agents) octets. Ceci concerne les données d’Azure AD vers l’agent d’authentification. Ici, « num_of_agents » indique le nombre d’agents d’authentification inscrit sur votre abonné.
-- Chaque réponse a une taille de charge utile de 1 kilooctet. Ceci concerne les données de l’agent d’authentification vers Azure AD.
+- La taille de la charge utile de chaque requête est de (0,5 K + 1 K x num_of_agents) octets. Cela correspond aux données envoyées entre Azure AD et l'agent d'authentification. Ici, « num_of_agents » indique le nombre d’agents d’authentification inscrit sur votre abonné.
+- La taille de la charge utile de chaque réponse est de 1 kilooctet. Cela correspond aux données envoyées entre l'agent d'authentification et Azure AD.
 
 Pour la plupart des clients, trois agents d’authentification au total suffisent à offrir la haute disponibilité et suffisamment de capacité. Vous devriez installer des agents d’authentification près de vos contrôleurs de domaine pour améliorer la latence de connexion.
 

@@ -10,18 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ef4b569fd8413d2825374c963fb272dd450cf0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c456e486217886510a1fd2ef1aeabae47d35b53c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533136"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417207"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-functions-variables.md)
 > * [Version actuelle](control-flow-expression-language-functions.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article fournit des détails sur les expressions et fonctions prises en charge par Azure Data Factory. 
 
@@ -493,7 +494,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à ajouter |
-| <*timeUnit*> | Oui | String | Unité de temps à utiliser avec le paramètre *interval* : « Second », « Minute », « Hour », « Day », « Week », « Month », « Year » |
+| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -556,8 +557,8 @@ and(false, false)
 Et retournent les résultats suivants :
 
 * Premier exemple : comme les deux expressions sont vraies, la valeur `true` est retournée.
-* Deuxième exemple : comme une expression est fausse, la valeur `false` est retournée.
-* Troisième exemple : comme les deux expressions sont fausses, la valeur `false` est retournée.
+* Deuxième exemple : comme une des expressions est fausse, la valeur `false` est retournée.
+* Troisième exemple : comme les deux expressions sont fausses, la valeur `false` est retournée.
 
 *Exemple 2*
 
@@ -572,8 +573,8 @@ and(equals(1, 2), equals(1, 3))
 Et retournent les résultats suivants :
 
 * Premier exemple : comme les deux expressions sont vraies, la valeur `true` est retournée.
-* Deuxième exemple : comme une expression est fausse, la valeur `false` est retournée.
-* Troisième exemple : comme les deux expressions sont fausses, la valeur `false` est retournée.
+* Deuxième exemple : comme une des expressions est fausse, la valeur `false` est retournée.
+* Troisième exemple : comme les deux expressions sont fausses, la valeur `false` est retournée.
 
 <a name="array"></a>
 
@@ -1421,8 +1422,8 @@ empty('abc')
 
 Et retournent les résultats suivants :
 
-* Premier exemple : comme une chaîne vide est transmise, la fonction retourne `true`.
-* Second exemple : comme la chaîne « abc » est transmise, la fonction retourne `false`.
+* Premier exemple : comme une chaîne vide est passée, la fonction retourne `true`.
+* Deuxième exemple : comme la chaîne « abc » est passée, la fonction retourne `false`.
 
 <a name="endswith"></a>
 
@@ -1500,7 +1501,7 @@ equals('abc', 'abcd')
 Et retournent les résultats suivants :
 
 * Premier exemple : comme les deux valeurs sont équivalentes, la fonction retourne `true`.
-* Second exemple : comme les deux valeurs ne sont pas équivalentes, la fonction retourne `false`.
+* Deuxième exemple : comme les deux valeurs ne sont pas équivalentes, la fonction retourne `false`.
 
 <a name="first"></a>
 
@@ -1611,7 +1612,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à ajouter |
-| <*timeUnit*> | Oui | String | Unité de temps à utiliser avec le paramètre *interval* : « Second », « Minute », « Hour », « Day », « Week », « Month », « Year » |
+| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -1655,7 +1656,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à soustraire |
-| <*timeUnit*> | Oui | String | Unité de temps à utiliser avec le paramètre *interval* : « Second », « Minute », « Hour », « Day », « Week », « Month », « Year » |
+| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -2362,7 +2363,7 @@ not(true)
 Et retournent les résultats suivants :
 
 * Premier exemple : comme l’expression est fausse, la fonction retourne `true`.
-* Second exemple : comme l’expression est vraie, la fonction retourne `false`.
+* Deuxième exemple : comme l’expression est vraie, la fonction retourne `false`.
 
 *Exemple 2*
 
@@ -2376,7 +2377,7 @@ not(equals(1, 1))
 Et retournent les résultats suivants :
 
 * Premier exemple : comme l’expression est fausse, la fonction retourne `true`.
-* Second exemple : comme l’expression est vraie, la fonction retourne `false`.
+* Deuxième exemple : comme l’expression est vraie, la fonction retourne `false`.
 
 <a name="or"></a>
 
@@ -2411,7 +2412,7 @@ or(false, false)
 Et retournent les résultats suivants :
 
 * Premier exemple : comme au moins une expression est vraie, la fonction retourne `true`.
-* Second exemple : comme les deux expressions sont fausses, la fonction retourne `false`.
+* Deuxième exemple : comme les deux expressions sont fausses, la fonction retourne `false`.
 
 *Exemple 2*
 
@@ -2425,7 +2426,7 @@ or(equals(1, 2), equals(1, 3))
 Et retournent les résultats suivants :
 
 * Premier exemple : comme au moins une expression est vraie, la fonction retourne `true`.
-* Second exemple : comme les deux expressions sont fausses, la fonction retourne `false`.
+* Deuxième exemple : comme les deux expressions sont fausses, la fonction retourne `false`.
 
 <a name="rand"></a>
 
@@ -2838,7 +2839,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à soustraire |
-| <*timeUnit*> | Oui | String | Unité de temps à utiliser avec le paramètre *interval* : « Second », « Minute », « Hour », « Day », « Week », « Month », « Year » |
+| <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 

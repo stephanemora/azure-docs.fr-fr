@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74287029"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417655"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Fonctions de transformation dans le flux de données de wrangling
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Le flux de données de wrangling dans Azure Data Factory vous permet d’effectuer un rassemblement de données brutes à l’analyse et une préparation agile de données sans code à l’échelle du cloud. Le flux de données de wrangling s’intègre à [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) et rend les fonctions Power Query M disponibles pour le rassemblement de données brutes à l’analyse via l’exécution Spark. 
 
@@ -86,7 +88,7 @@ Conserver et supprimer les premiers éléments, Conserver la plage (fonctions M 
 | Fonction | Statut |
 | -- | -- |
 | Table.PromoteHeaders | Non pris en charge. Le même résultat peut être obtenu en définissant « Première ligne comme en-tête » dans le jeu de données. |
-| Table.CombineColumns | Il s’agit d’un scénario courant qui n’est pas directement pris en charge mais qui peut être obtenu en ajoutant une nouvelle colonne qui concatène deux colonnes données.  Par exemple, Table.AddColumn(RemoveEmailColumn, “Name”, each [FirstName] & ” ” & [LastName]) |
+| Table.CombineColumns | Il s’agit d’un scénario courant qui n’est pas directement pris en charge mais qui peut être obtenu en ajoutant une nouvelle colonne qui concatène deux colonnes données.  Par exemple, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
 | Table.TransformColumnTypes | Ce scénario est généralement pris en charge. Les scénarios suivants ne sont pas pris en charge : transformation de chaîne en type Devise, transformation de chaîne en type Heure, transformation de chaîne en type Pourcentage. |
 | Table.NestedJoin | Effectuer une simple jointure entraînera une erreur de validation. Les colonnes doivent être développées pour que l’opération fonctionne. |
 | Table.Distinct | La suppression des lignes en double n’est pas prise en charge. |
