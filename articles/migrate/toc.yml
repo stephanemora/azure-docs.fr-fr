@@ -96,14 +96,16 @@
       href: how-to-assess.md
     - name: Déployer une appliance Azure Migrate
       items:
-        - name: Déployer une appliance pour VMware (OVA)
+        - name: Déployer une appliance avec un modèle (VMware)
           href: how-to-set-up-appliance-vmware.md
-        - name: Déployer une appliance pour Hyper-V (VHD)
+        - name: Déployer une appliance avec un modèle (Hyper-V)
           href: how-to-set-up-appliance-hyper-v.md
-        - name: Déployer une appliance pour VMware/Hyper-V (script)
+        - name: Déployer une appliance avec un modèle (VMware/Hyper-V)
           href: deploy-appliance-script.md
         - name: Déployer une appliance pour les serveurs physiques
           href: how-to-set-up-appliance-physical.md
+        - name: Déployer une appliance dans Azure Government
+          href: deploy-appliance-script-government.md
     - name: Limiter l’étendue de découverte des machines virtuelles VMware
       href: set-discovery-scope.md
     - name: Découvrir des applications/rôles/fonctionnalités

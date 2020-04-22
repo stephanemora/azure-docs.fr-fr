@@ -2,8 +2,10 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: "Qu'est-ce qu'Azure Key Vault\_?"
+    - name: À propos d’Azure Key Vault
       href: overview.md
+    - name: 'À propos des clés, des secrets et des certificats'
+      href: about-keys-secrets-certificates.md
 - name: Tutoriels
   items:
     - name: Machine virtuelle Azure
@@ -68,6 +70,8 @@
           href: vs-key-vault-add-connected-service.md
     - name: Superviser et gouverner
       items:
+        - name: Configurer la supervision et les alertes pour Azure Key Vault
+          href: alert.md
         - name: Intégrer Azure Key Vault à Azure Policy
           href: azure-policy.md
         - name: Journalisation d’Azure Key Vault

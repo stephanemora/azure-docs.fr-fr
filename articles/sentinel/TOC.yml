@@ -87,7 +87,7 @@
             - name: Solutions basées sur CEF
               href: connect-common-event-format.md
               items:
-                - name: "ÉTAPE\_1 Déployer l’agent"
+                - name: ÉTAPE 1 Déployer le redirecteur de journal
                   href: connect-cef-agent.md
                 - name: "ÉTAPE\_2 Configurer votre solution de sécurité"
                   href: connect-cef-solution-config.md
