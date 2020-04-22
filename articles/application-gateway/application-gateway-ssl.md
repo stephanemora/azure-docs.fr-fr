@@ -1,20 +1,20 @@
 ---
-title: Déchargement SSL avec PowerShell – Azure Application Gateway
-description: Cet article fournit des instructions pour créer une passerelle d’application avec le déchargement SSL en utilisant le modèle de déploiement classique Azure
+title: Déchargement TLS avec PowerShell – Azure Application Gateway
+description: Cet article fournit des instructions pour créer une passerelle d’application avec le déchargement TLS en utilisant le modèle de déploiement classique Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ead16b61784b8073d50b7e0e6079805a1e48e9b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047916"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312336"
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant le modèle de déploiement classique
+# <a name="configure-an-application-gateway-for-tls-offload-by-using-the-classic-deployment-model"></a>Configurer une passerelle d’application pour le déchargement TLS en utilisant le modèle de déploiement classique
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-ssl-portal.md)
@@ -22,7 +22,7 @@ ms.locfileid: "74047916"
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
 > * [Azure CLI](application-gateway-ssl-cli.md)
 
-Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
+Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session TLS (Transport Layer Security), anciennement SSL (Secure Sockets Layer), sur la passerelle pour éviter les tâches de déchiffrement TLS coûteuses au niveau de la batterie de serveurs web. Le déchargement TLS simplifie aussi la configuration de serveur principal et la gestion de l’application web.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -30,10 +30,10 @@ Il est possible de configurer Azure Application Gateway de façon à mettre fin 
 2. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
 3. Les serveurs que vous configurez pour utiliser la passerelle d’application doivent exister ou vous devez disposer de leurs points de terminaison créés sur le réseau virtuel ou avec une adresse IP publique ou une adresse IP virtuelle (VIP).
 
-Pour configurer le déchargement SSL sur une passerelle d’application, exécutez les étapes suivantes dans l’ordre indiqué :
+Pour configurer le déchargement TLS sur une passerelle d’application, exécutez les étapes suivantes dans l’ordre indiqué :
 
 1. [Créer une passerelle Application Gateway](#create-an-application-gateway)
-2. [Télécharger des certificats SSL](#upload-ssl-certificates)
+2. [Charger les certificats TLS/SSL](#upload-tlsssl-certificates)
 3. [Configurer la passerelle](#configure-the-gateway)
 4. [Définir la configuration de la passerelle](#set-the-gateway-configuration)
 5. [Démarrer la passerelle](#start-the-gateway)
@@ -55,7 +55,7 @@ Dans l’exemple, **Description**, **InstanceCount** et **GatewaySize** sont des
 Get-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="upload-ssl-certificates"></a>Télécharger des certificats SSL
+## <a name="upload-tlsssl-certificates"></a>Charger les certificats TLS/SSL
 
 Entrez `Add-AzureApplicationGatewaySslCertificate` pour charger le certificat de serveur au format PFX dans la passerelle d’application. Le nom du certificat est choisi par l'utilisateur et doit être unique au sein de la passerelle Application Gateway. Ce certificat est identifié par ce nom dans toutes les opérations de gestion de certificat sur la passerelle Application Gateway.
 
@@ -92,17 +92,17 @@ La configuration d'une passerelle Application Gateway se compose de plusieurs va
 
 Les valeurs sont :
 
-* **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau du réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
-* **Paramètres du pool de serveurs principaux** : chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-* **Port frontal** : il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-* **Écouteur** : l’écouteur a un port frontal, un protocole (Http ou Https ; avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-* **Règle** : la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
+* **Pool de serveurs principaux** : Liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau du réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
+* **Paramètres du pool de serveurs principaux** : Chaque pool dispose de paramètres tels que le port, le protocole et l’affinité en fonction des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+* **Port frontal** : Il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+* **Écouteur** : L’écouteur dispose d’un port front-end, d’un protocole (HTTP ou HTTPS ; valeurs sensibles à la casse) et du nom du certificat TLS/SSL (en cas de configuration d'un déchargement TLS).
+* **Règle** : La règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
 
 **Notes de configuration supplémentaires :**
 
-Pour configurer des certificats SSL, le protocole dans **HttpListener** doit passer à **Https** (sensible à la casse). Ajoutez l’élément **SslCert** à **HttpListener** avec la valeur définie sur le même nom que celui utilisé dans la section [Charger des certificats SSL](#upload-ssl-certificates). Le port du serveur frontal doit être mis à jour sur **443**.
+Pour configurer des certificats TLS/SSL, le protocole dans **HttpListener** doit passer à **Https** (sensible à la casse). Ajoutez l’élément **SslCert** à **HttpListener** avec la valeur définie sur le même nom que celui utilisé dans la section [Charger des certificats TLS/SSL](#upload-tlsssl-certificates). Le port du serveur frontal doit être mis à jour sur **443**.
 
-**Pour activer l’affinité basée sur les cookies** : vous pouvez configurer une passerelle Application Gateway pour garantir qu’une requête d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs web. Pour ce faire, insérez un cookie de session permettant à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur **Activé** dans l’élément **BackendHttpSettings**.
+**Pour activer l’affinité en fonction des cookies** : Vous pouvez configurer une passerelle d’application pour garantir qu’une requête issue d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs Web. Pour ce faire, insérez un cookie de session permettant à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur **Activé** dans l’élément **BackendHttpSettings**.
 
 Vous pouvez construire votre configuration en créant un objet de configuration ou en utilisant un fichier XML de configuration.
 Pour construire votre configuration à l’aide d’un fichier XML de configuration, entrez l’exemple suivant :

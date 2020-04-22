@@ -4,14 +4,14 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d0dcdf89962c93348b3cf9c1f96221ae8940717d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3802afaa05faea0f16a374f39fe459b4d7b6a1d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444183"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81384945"
 ---
-| Category              | Banque de données                                                   | [Activité de copie](../articles/data-factory/copy-activity-overview.md) (source/récepteur) | [Mappage de flux de données](../articles/data-factory/concepts-data-flow-overview.md) (source/récepteur) | [Activité de recherche](../articles/data-factory/control-flow-lookup-activity.md) | [Activité d’obtention des métadonnées](../articles/data-factory/control-flow-get-metadata-activity.md) | [Supprimer l’activité](../articles/data-factory/delete-activity.md) |
+| Category              | Banque de données                                                   | [Activité de copie](../articles/data-factory/copy-activity-overview.md) (source/récepteur) | [Mappage de flux de données](../articles/data-factory/concepts-data-flow-overview.md) (source/récepteur) | [Activité de recherche](../articles/data-factory/control-flow-lookup-activity.md) | [Activité d'obtention des métadonnées](../articles/data-factory/control-flow-get-metadata-activity.md)/[Activité de validation](../articles/data-factory/control-flow-validation-activity.md) | [Supprimer l’activité](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
 | **Microsoft Azure**             | [Stockage Blob Azure](../articles/data-factory/connector-azure-blob-storage.md) | ✓/✓                                                          | ✓/✓ <br> <small>Formats pris en charge : Texte délimité, Parquet, JSON, Avro</small>               | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Index Recherche cognitive Azure](../articles/data-factory/connector-azure-search.md) | −/✓                                                          |                                                              |                                                              |                                                              |                                                              |

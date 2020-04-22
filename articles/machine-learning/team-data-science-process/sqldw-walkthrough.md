@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128385"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418539"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processus TDSP (Team Data Science Process) en action : utilisation d'Azure Synapse Analytics
 Dans ce tutoriel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant Azure Synapse Analytics pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire créé consiste à prédire si un trajet va faire l’objet d’un pourboire.  Les modèles incluent une classification multiclasse (qu'il y ait pourboire ou non) et une régression (distribution des montants des pourboires versés).
@@ -84,7 +84,7 @@ Pour approvisionner une instance Azure Synapse Analytics, suivez la documentatio
 
 **Installez Visual Studio et SQL Server Data Tools.** Pour obtenir des instructions, consultez [Bien démarrer avec Visual Studio 2019 pour SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connectez-vous à Azure Synapse Analytics avec Visual Studio.** Pour obtenir des instructions, consultez les étapes 1 et 2 de [Se connecter à SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Connectez-vous à Azure Synapse Analytics avec Visual Studio.** Pour obtenir des instructions, consultez les étapes 1 et 2 décrites dans [Se connecter à SQL Analytics dans Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
 > [!NOTE]
 > Exécutez la requête SQL suivante sur la base de données que vous avez créée dans Azure Synapse Analytics (au lieu de la requête fournie à l’étape 3 de la rubrique connexion) pour **créer une clé principale**.

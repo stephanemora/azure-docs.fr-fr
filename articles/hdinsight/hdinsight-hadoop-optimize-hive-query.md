@@ -5,29 +5,29 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 4955df718dcc8f169232052979ccf4a636c3be80
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233577"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390298"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimiser les requêtes Apache Hive dans Azure HDInsight
 
-Dans Azure HDInsight, il existe plusieurs types de cluster et technologie qui peuvent exécuter des requêtes Apache Hive. Lorsque vous créez votre cluster HDInsight, choisissez le type de cluster approprié pour optimiser les performances en fonction de vos besoins de charge de travail.
+Dans Azure HDInsight, il existe plusieurs types de cluster et technologie qui peuvent exécuter des requêtes Apache Hive. Choisissez le type de cluster approprié pour optimiser les performances en fonction de vos besoins de charge de travail.
 
-Par exemple, choisissez le type de cluster **Requête interactive** pour optimiser les requêtes interactives ad hoc. Choisissez le type de cluster Apache **Hadoop** pour optimiser les requêtes du répertoire de stockage utilisées comme un processus par lots. Les types de cluster **Spark** et **HBase** peuvent également exécuter des requêtes Hive. Pour plus d’informations sur l’exécution de requêtes Hive sur les différents types de cluster HDInsight, consultez la rubrique [Présentation d’Apache Hive et HiveQL sur Azure HDInsight](hadoop/hdinsight-use-hive.md).
+Par exemple, choisissez le type de cluster **Requête interactive** pour optimiser pour `ad hoc` les requêtes interactives. Choisissez le type de cluster Apache **Hadoop** pour optimiser les requêtes du répertoire de stockage utilisées comme un processus par lots. Les types de cluster **Spark** et **HBase** peuvent également exécuter des requêtes Hive. Pour plus d’informations sur l’exécution de requêtes Hive sur les différents types de cluster HDInsight, consultez la rubrique [Présentation d’Apache Hive et HiveQL sur Azure HDInsight](hadoop/hdinsight-use-hive.md).
 
 Par défaut, les clusters HDInsight de type Hadoop ne sont pas optimisés au niveau des performances. Cet article décrit en détail quelques-unes des méthodes d’optimisation des performances Hive courantes que vous pouvez appliquer à nos requêtes.
 
 ## <a name="scale-out-worker-nodes"></a>Effectuer un scale-out des nœuds de travail
 
-L’augmentation du nombre de nœuds de travail d’un cluster HDInsight permet d’exploiter l’exécution de mappeurs et de raccords de réduction en parallèle. Il existe deux manières d’accroître le scale-out dans HDInsight :
+L’augmentation du nombre de nœuds Worker d’un cluster HDInsight permet d'exécuter plusieurs mappeurs et raccords de réduction en parallèle. Il existe deux manières d’accroître le scale-out dans HDInsight :
 
-* Au moment de la création d’un cluster, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande.  Pour plus d’informations, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
+* Lors de la création d’un cluster, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande.  Pour plus d’informations, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
   
     ![Portail Azure - Taille de cluster, nœuds](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 
@@ -45,10 +45,10 @@ Pour plus d’informations sur la mise à l’échelle de HDInsight, consultez l
 
 Tez est plus rapide pour les raisons suivantes :
 
-* **Il exécute un graphe orienté acyclique (DAG) en tant que tâche unique dans le moteur MapReduce**. Le DAG requiert que chaque ensemble de mappeurs soit suivi par un ensemble de raccords de réduction. Cela provoque la préparation de plusieurs tâches MapReduce pour chaque requête Hive. Tez n’a pas de telles contraintes et peut traiter un graphique orienté acyclique comme une tâche unique, ce qui réduit la surcharge de démarrage de tâche.
+* **Il exécute un graphe orienté acyclique (DAG) en tant que tâche unique dans le moteur MapReduce**. Le DAG requiert que chaque ensemble de mappeurs soit suivi par un ensemble de raccords de réduction. Cette exigence entraîne la préparation de plusieurs tâches MapReduce pour chaque requête Hive. Tez n’a pas de telles contraintes et peut traiter un graphique orienté acyclique en tant que tâche unique, ce qui réduit la surcharge de démarrage de tâche.
 * **Il évite les écritures inutiles**. Plusieurs travaux sont utilisés pour traiter la même requête Hive dans le moteur MapReduce. La sortie de chaque travail MapReduce est écrite vers HDFS pour les données intermédiaires. Comme Tez réduit le nombre de tâches de chaque requête Hive, il est possible d’éviter de telles écritures inutiles.
 * **Il réduit les délais de démarrage**. Tez peut réduire davantage le délai de démarrage en réduisant le nombre de mappeurs nécessaires au démarrage tout en améliorant l’optimisation tout au long du processus.
-* **Il réutilise les conteneurs**. Dès que possible, Tez peut réutiliser les conteneurs pour réduire la latence provoquée par le nombre de conteneurs au démarrage.
+* **Il réutilise les conteneurs**. Dès que possible, Tez réutilise les conteneurs pour réduire la latence provoquée par le nombre de conteneurs au démarrage.
 * **Il utilise des techniques d’optimisation continue**. Généralement, l’optimisation est effectuée lors de la compilation. Cependant, des informations supplémentaires sur les entrées sont disponibles pour améliorer l’optimisation durant le démarrage. Tez utilise des techniques d’optimisation continue qui permettent d’améliorer le plan lors de la phase de runtime.
 
 Pour plus d’informations sur ces concepts, consultez [Apache TEZ](https://tez.apache.org/).
@@ -198,5 +198,5 @@ Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple 
 Dans cet article, vous avez appris plusieurs méthodes d’optimisation courantes des requêtes. Pour en savoir plus, consultez les articles suivants :
 
 * [Utilisation d’Apache Hive dans HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyser des données sur les retards des vols avec Interactive Query dans HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analyser des données sur les retards des vols avec Interactive Query dans HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analyser des données Twitter avec Apache Hive dans HDInsight](hdinsight-analyze-twitter-data-linux.md)

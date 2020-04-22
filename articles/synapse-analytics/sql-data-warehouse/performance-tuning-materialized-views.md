@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6e942130d9acf803665e52498ef6a4976cc9ade7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743179"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417024"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
 Les vues matérialisées du pool Synapse SQL fournissent une méthode à faible maintenance pour les requêtes analytiques complexes en vue d'obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.
 
-Les vues matérialisées dans Azure SQL Data Warehouse fournissent une méthode de maintenance modérée pour les requêtes analytiques complexes en vue d’obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.
+Les vues matérialisées du pool SQL fournissent une méthode à faible maintenance pour les requêtes analytiques complexes en vue d'obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.
 
 ## <a name="materialized-views-vs-standard-views"></a>Vues matérialisées et vues standard
 
@@ -34,7 +33,7 @@ Une vue matérialisée précalcule, stocke et conserve ses données dans le pool
 
 La plupart des exigences relatives à une vue standard s’appliquent aussi à une vue matérialisée. Pour plus d'informations sur la syntaxe d'une vue matérialisée et autres exigences, consultez [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-| Comparaison                     | Vue standard                                         | Vue matérialisée
+| Comparaison                     | Affichage                                         | Vue matérialisée
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
 |Afficher la définition                 | Stockée dans le pool SQL.              | Stockée dans le pool SQL.
 |Contenu de la vue                    | Générée chaque fois que la vue est utilisée.   | Prétraitée et stockée dans le pool SQL pendant sa création. Mise à jour à mesure que des données sont ajoutées aux tables sous-jacentes.
@@ -45,7 +44,7 @@ La plupart des exigences relatives à une vue standard s’appliquent aussi à u
 
 ## <a name="benefits-of-using-materialized-views"></a>Avantages de l’utilisation des vues matérialisées
 
-Une vue matérialisée correctement conçue peut offrir les avantages suivants :
+Une vue matérialisée correctement conçue offre les avantages suivants :
 
 - Réduit le temps d’exécution des requêtes complexes avec des jointures et des fonctions d’agrégation. Plus la requête est complexe, plus le potentiel d’enregistrement au moment de l’exécution est élevé. Le plus grand bénéfice est obtenu quand le coût de calcul d’une requête est élevé et que le jeu de données résultant est petit.  
 - L'optimiseur inclus dans le pool SQL peut automatiquement utiliser les vues matérialisées déployées pour améliorer les plans d'exécution des requêtes.  Ce processus est transparent pour les utilisateurs, offrant des performances plus rapides aux requêtes. De plus, il ne nécessite pas que les requêtes fassent référence directement aux vues matérialisées.

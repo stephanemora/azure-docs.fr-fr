@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f9e31b8f0fce1af8408b80afb1049dae8c8ecf1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73673706"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414426"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Cet article décrit les étapes permettant de créer, de démarrer et d’effectuer le monitoring d’un déclencheur de fenêtre bascule. Pour obtenir des informations générales sur les déclencheurs et les types pris en charge, consultez [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md).
 
 Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’active à un intervalle de temps périodique à partir d’une heure de début spécifiée, tout en conservant son état. Les fenêtres bascule sont une série d’intervalles de temps contigus fixes, qui ne se chevauchent pas. Un déclencheur de fenêtre bascule a une relation un à un avec un pipeline et ne peut référencer qu’un seul pipeline.
@@ -97,7 +99,7 @@ Le tableau suivant présente les principaux éléments JSON liés à la périodi
 | **type** | Type du déclencheur. Le type correspond à la valeur fixe « TumblingWindowTrigger ». | String | « TumblingWindowTrigger » | Oui |
 | **runtimeState** | État actuel du runtime du déclencheur.<br/>**Remarque** : Cet élément est \<readOnly>. | String | « Started », « Stopped », « Disabled » | Oui |
 | **frequency** | Chaîne qui représente l’unité de fréquence (minutes ou heures) à laquelle le déclencheur doit être répété. Si les valeurs de date **startTime** sont plus précises que la valeur **frequency**, les dates **startTime** sont prises en compte quand les limites de la fenêtre sont calculées. Par exemple, si la valeur de **frequency** est horaire et que la valeur de **startTime** est 2017-09-01T10:10:10Z, la première fenêtre est (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | « minute », « hour »  | Oui |
-| **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**, qui détermine la fréquence d’exécution du déclencheur. Par exemple, si **interval** a la valeur 3 et que **frequency** est « hour », le déclencheur se répète toutes les trois heures. <br/>**Remarque** : L’intervalle d’affichage minimal est de 15 minutes. | Integer | Entier positif. | Oui |
+| **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**, qui détermine la fréquence d’exécution du déclencheur. Par exemple, si **interval** a la valeur 3 et que **frequency** est « hour », le déclencheur se répète toutes les trois heures. <br/>**Remarque** : L’intervalle d’affichage minimal est de 5 minutes. | Integer | Entier positif. | Oui |
 | **startTime**| Première occurrence, qui peut être dans le passé. Le premier intervalle de déclencheur est (**startTime**, **startTime** + **interval**). | DateTime | Valeur DateTime. | Oui |
 | **endTime**| Dernière occurrence, qui peut être dans le passé. | DateTime | Valeur DateTime. | Oui |
 | **delay** | Délai duquel différer le démarrage du traitement des données pour la fenêtre. L’exécution du pipeline est démarrée après l’heure d’exécution prévue + **delay**. **delay** définit la durée d’attente du déclencheur après l’heure d’échéance avant de déclencher une nouvelle exécution. **delay** ne modifie pas la valeur **startTime** de la fenêtre. Par exemple, une valeur **delay** de 00:10:00 indique un délai de 10 minutes. | Timespan<br/>(hh:mm:ss)  | Valeur d’intervalle de temps où la valeur par défaut est 00:00:00. | Non |
@@ -229,5 +231,5 @@ Pour effectuer la surveillance des exécutions du déclencheur et du pipeline da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).
+* Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#trigger-execution).
 * [Créer une dépendance de déclencheur de fenêtre bascule](tumbling-window-trigger-dependency.md)

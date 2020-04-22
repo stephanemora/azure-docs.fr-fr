@@ -3,19 +3,19 @@ title: Convertir du texte par synthèse vocale, Python – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Cet article explique comment convertir du texte par synthèse vocale avec Python et l’API REST Synthèse vocale. L’exemple de texte inclus dans ce guide est structuré en tant que langage de balisage de synthèse vocale (SSML). Cela vous permet de choisir la voix et la langue de la réponse de la reconnaissance vocale.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/10/2020
-ms.author: dapine
-ms.openlocfilehash: 79562049f48ba90a4f9a123919185521a82d7be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.author: trbye
+ms.openlocfilehash: 171fdb033cba422d8ba580da3ab54db88ca20872
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365802"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400836"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Convertir du texte par synthèse vocale à l’aide de Python
 
@@ -23,10 +23,10 @@ Cet article explique comment convertir du texte par synthèse vocale avec Python
 
 Pour suivre cet article, vous devez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource de service Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Python 2.7.x ou 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio<span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code<span class="docon docon-navigate-external x-hidden-focus"></span></a> ou l’éditeur de texte de votre choix
 * Une clé d’abonnement Azure pour le service Speech
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis

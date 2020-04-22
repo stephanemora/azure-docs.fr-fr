@@ -1,17 +1,17 @@
 ---
-title: Préparer la migration des alertes classiques Azure Monitor en mettant à jour les applications logiques et les runbooks
+title: Mettre à jour les applications logiques et les runbooks à des fins de migration des alertes
 description: Découvrez comment modifier les webhooks, les applications logiques et les runbooks pour préparer la migration volontaire.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665590"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114405"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Préparer les applications logiques et les runbooks pour la migration des règles d’alerte classiques
 

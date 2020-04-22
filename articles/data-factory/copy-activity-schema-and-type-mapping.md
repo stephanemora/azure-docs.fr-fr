@@ -9,16 +9,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f04955fb910a6159dc09ac40a87a398e67d59d6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230033"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414128"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit la manière dont l’activité de copie d’Azure Data Factory effectue un mappage de schéma et de type de données, des données sources au données du récepteur lors de la copie.
 
@@ -278,11 +279,7 @@ L’activité de copie effectue un mappage des types de la source aux types du r
 1. Conversion des types de données natifs de la source en types de données intermédiaires d’Azure Data Factory
 2. Conversion des types de données intermédiaires d’Azure Data Factory en types de données natifs du récepteur
 
-Vous pouvez trouver le mappage du type natif au type intermédiaire dans la section « Mappage de type de données » de chaque rubrique du connecteur.
-
-### <a name="supported-data-types"></a>Types de données pris en charge
-
-Data Factory prend en charge les types de données intermédiaires suivants : Vous pouvez spécifier les valeurs ci-dessous lors de la configuration des informations de type dans la configuration de [structure du jeu de données](concepts-datasets-linked-services.md#dataset-structure-or-schema) :
+L'activité de copie prend en charge les types de données intermédiaires suivants : 
 
 * Byte[]
 * Boolean

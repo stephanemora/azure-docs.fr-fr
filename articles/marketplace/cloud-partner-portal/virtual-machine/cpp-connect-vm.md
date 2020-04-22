@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 2b7eb6d321a64835254b684c8faeedc53645dffe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f2652a98aa081b62ba80951212ef3a3de513593
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278056"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272659"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Se connecter à la machine virtuelle Azure
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machine virtuelle Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données fournies dans [Créer vos ressources techniques de machine virtuelle Azure](https://aka.ms/AzureVMTechAsset) pour gérer vos offres migrées.
 
 Cet article explique comment se connecter aux machines virtuelles que vous avez créées sur Azure.  Une fois connecté, vous pouvez utiliser la machine virtuelle comme si vous étiez connecté localement à son serveur hôte. 
 
@@ -22,7 +25,7 @@ Cet article explique comment se connecter aux machines virtuelles que vous avez 
 
 Vous allez utiliser le client Bureau à distance pour vous connecter à la machine virtuelle Windows hébergée sur Azure.  La plupart des versions de Windows incluent en mode natif la prise en charge du protocole RDP (Remote Desktop Protocol).  Pour les autres machines, vous trouverez plus d’informations sur les clients dans l’article [Clients Bureau à distance](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-Pour plus d’informations sur l’utilisation de la prise en charge intégrée de Windows RDP pour vous connecter à votre machine virtuelle, consultez l’article [Connexion à une machine virtuelle Azure exécutant Windows](../../../virtual-machines/windows/connect-logon.md).  
+Pour plus d’informations sur l’utilisation de la prise en charge intégrée de Windows RDP pour vous connecter à votre machine virtuelle, consultez [Connexion à une machine virtuelle Azure exécutant Windows](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
 > Au cours du processus, vous pouvez obtenir certains avertissements de sécurité, vous signalant par exemple que le fichier .rdp provient d’un éditeur inconnu ou que vos informations d’identification d’utilisateur ne sont pas vérifiables.  Vous pouvez ignorer ces avertissements.
@@ -48,7 +51,7 @@ Pour vous connecter à la machine virtuelle Linux, vous devez disposer d’un cl
 8. Cliquez sur **Ouvrir** pour ouvrir un terminal PuTTY.  
 9. Lorsque vous y êtes invité, entrez le nom de compte et le mot de passe de votre compte de machine virtuelle Linux. 
 
-Si vous rencontrez des problèmes de connexion, consultez la documentation de votre client SSH, par exemple [Chapter 10: Common error messages](https://www.ssh.com/ssh/putty/putty-manuals) (Chapitre 10 : messages d’erreur courants).
+Si vous rencontrez des problèmes de connexion, consultez la documentation de votre client SSH, par exemple [Chapitre 10 : Messages d'erreur courants](https://www.ssh.com/ssh/putty/putty-manuals).
 
 Pour plus d’informations, notamment concernant l’ajout d’un Bureau à une machine virtuelle Linux approvisionnée, consultez l’article [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

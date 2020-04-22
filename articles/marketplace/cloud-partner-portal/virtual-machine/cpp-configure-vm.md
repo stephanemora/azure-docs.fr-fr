@@ -7,17 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: b0ed430098203c5c1a0d00eb7bf17da1be0000cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f20beced7d977668d12c06375ceb8a2554c6d335
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278090"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273424"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurer la machine virtuelle hébergée sur Azure
 
-Cet article explique comment dimensionner, mettre à jour et généraliser une machine virtuelle hébergée sur Azure.  Cette procédure est requise pour préparer le déploiement de votre machine virtuelle à partir de la plateforme Place de marché Microsoft Azure.
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machine virtuelle Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données fournies dans [Créer vos ressources techniques de machine virtuelle Azure](https://aka.ms/AzureVMTechAsset) pour gérer vos offres migrées.
 
+Cet article explique comment dimensionner, mettre à jour et généraliser une machine virtuelle hébergée sur Azure.  Cette procédure est requise pour préparer le déploiement de votre machine virtuelle à partir de la plateforme Place de marché Microsoft Azure.
 
 ## <a name="sizing-the-vhds"></a>Dimensionnement des disques durs virtuels (VHD)
 

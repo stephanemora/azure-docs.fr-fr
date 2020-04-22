@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257884"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414190"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Fonctionnalités d’optimisation des performances de l’activité de copie
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit les fonctionnalités d’optimisation des performances de l’activité de copie dont vous pouvez tirer parti dans Azure Data Factory.
 

@@ -6,15 +6,17 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 92421125ecb5f4336922c6e6b4508fcdaf92be6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: e0042960c25d58b72bc0ab884de5a2db62e566d9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246396"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413441"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Le script de flux de données (DFS) est constitué des métadonnées sous-jacentes, similaires à un langage de codage, qui sont utilisées pour exécuter les transformations incluses dans un flux de données de mappage. Chaque transformation est représentée par une série de propriétés qui fournissent les informations nécessaires à l’exécution correcte du travail. Le script est visible et modifiable à partir de ADF en cliquant sur le bouton « script » sur le ruban supérieur de l’interface utilisateur du navigateur.
 
@@ -139,6 +141,11 @@ derive1 sink(allowSchemaDrift: true,
 ```
 
 ## <a name="script-snippets"></a>Extraits de script
+
+Les extraits de script correspondent à du code partageable de script de flux de données que vous pouvez utiliser à des fins de partage entre les flux de données. La vidéo ci-dessous explique comment utiliser les extraits de script et le script de flux de données pour copier et coller des parties du script derrière vos graphes de flux données :
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+
 
 ### <a name="aggregated-summary-stats"></a>Résumé agrégé des statistiques
 Ajoutez une transformation d’agrégation à votre flux de données nommé « SummaryStats », puis collez le code ci-dessous pour la fonction d’agrégation dans votre script, en remplaçant le SummaryStats existant. Cela permet de fournir un modèle générique pour le résumé des statistiques du profil de données.

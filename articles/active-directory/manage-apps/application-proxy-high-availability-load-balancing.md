@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 992075378737552e890bd2d6fed3c519e6c62aa7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481311"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312946"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Haute disponibilité et équilibrage de charge de vos applications et connecteurs de proxy d’application
 
@@ -40,16 +40,12 @@ Les connecteurs établissent leurs connexions en fonction des principes de haute
 1. Un utilisateur sur un appareil client tente d’accéder à une application locale publiée par le biais du proxy d’application.
 2. La requête passe par un Azure Load Balancer pour déterminer quelle instance de service de proxy d’application doit la prendre en charge. Par région, des dizaines d’instances sont disponibles pour accepter la requête. Cette méthode permet de répartir uniformément le trafic entre les instances de service.
 3. La requête est envoyée à [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
-4. Service Bus vérifie si la connexion utilisait précédemment un connecteur existant dans le groupe de connecteurs. Si c’est le cas, il réutilise la connexion. Si aucun connecteur n’est associé à la connexion, il choisit un connecteur disponible de façon aléatoire pour envoyer ses signaux. Le connecteur récupère ensuite la requête à partir de Service Bus.
-
+4. Service Bus signale à un connecteur disponible. Le connecteur récupère ensuite la requête à partir de Service Bus.
    - À l’étape 2, les requêtes sont dirigées vers différentes instances du service de proxy d’application, de sorte que les connexions sont plus susceptibles d’être effectuées avec différents connecteurs. Par conséquent, les connecteurs sont presque uniformément utilisés au sein du groupe.
-
-   - Une connexion est rétablie uniquement si la connexion est interrompue ou si une période d’inactivité de 10 minutes se produit. Par exemple, la connexion peut être interrompue lorsqu’un service d’ordinateur ou de connecteur redémarre ou qu’il y a une interruption réseau.
-
 5. Le connecteur transmet la requête au serveur principal de l’application. L’application renvoie ensuite la réponse au connecteur.
 6. Le connecteur termine la réponse en ouvrant une connexion sortante vers l’instance de service à partir de laquelle la requête a été effectuée. Cette connexion est alors immédiatement fermée. Par défaut, chaque connecteur est limité à 200 connexions sortantes simultanées.
 7. La réponse est ensuite retransmise au client à partir de l’instance de service.
-8. Les requêtes suivantes de la même connexion répètent les étapes ci-dessus jusqu’à ce que cette connexion soit interrompue ou inactive pendant 10 minutes.
+8. Les requêtes suivantes émanant de la même connexion répètent les étapes ci-dessus.
 
 Une application a souvent de nombreuses ressources et ouvre plusieurs connexions lorsqu’elle est chargée. Chaque connexion passe par les étapes ci-dessus pour être allouée à une instance de service. Sélectionnez un nouveau connecteur disponible si la connexion n’a pas encore été associée à un connecteur.
 

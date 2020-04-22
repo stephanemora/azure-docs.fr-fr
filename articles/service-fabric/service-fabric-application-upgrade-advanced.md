@@ -2,13 +2,13 @@
 title: Rubriques avancées sur la mise à niveau d’application
 description: Cet article traite de sujets avancés se rapportant à la mise à niveau d’une application Service Fabric.
 ms.topic: conceptual
-ms.date: 1/28/2020
-ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 03/11/2020
+ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422806"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414499"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau des applications Service Fabric : Rubriques avancées
 
@@ -18,7 +18,7 @@ Si un type de service est ajouté à une application publiée dans le cadre d’
 
 De même, des types de services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances de service du type de service à supprimer doivent être supprimées avant de procéder à la mise à niveau (voir [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Éviter les abandons de connexion pendant les temps d’arrêt planifiés de service sans état (préversion)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Éviter les abandons de connexion pendant les temps d’arrêt planifiés de service sans état
 
 Pour des temps d’arrêt planifiés d’instance sans état, tels que pour la mise à niveau d’application/de cluster ou la désactivation de nœud, des connexions peuvent être abandonnées en raison de la suppression du point de terminaison une fois l'instance arrêtée, ce qui se traduit par des fermetures de connexion forcées.
 

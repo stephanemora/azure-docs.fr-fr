@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 51c191a7815bb64243e2324e150c00c2dcb7ec4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705324"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312098"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide du portail Azure
 
-Vous pouvez utiliser le portail Azure pour créer une [passerelle d’application](overview.md) avec un certificat pour la terminaison SSL. Une règle de routage est utilisée pour rediriger le trafic HTTP vers le port HTTPS dans votre passerelle d’application. Dans cet exemple, vous créez également un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour le pool backend de la passerelle d’application qui contient deux instances de machine virtuelle.
+Vous pouvez utiliser le portail Azure pour créer une [passerelle d’application](overview.md) avec un certificat pour la terminaison TLS. Une règle de routage est utilisée pour rediriger le trafic HTTP vers le port HTTPS dans votre passerelle d’application. Dans cet exemple, vous créez également un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour le pool backend de la passerelle d’application qui contient deux instances de machine virtuelle.
 
 Dans cet article, vous apprendrez comment :
 

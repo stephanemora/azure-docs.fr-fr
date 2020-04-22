@@ -1,5 +1,5 @@
 ---
-title: Aide-mémoire de l’algorithme Machine Learning
+title: Aide-mémoire de l’algorithme Machine Learning - concepteur
 titleSuffix: Azure Machine Learning
 description: Un aide-mémoire imprimable de l'algorithme Machine Learning vous permet de choisir l'algorithme adapté à votre modèle prédictif dans le concepteur Azure Machine Learning.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328611"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399081"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Aide-mémoire de l’algorithme Machine Learning pour le concepteur Azure Machine Learning
 
-**L’Aide-mémoire d’algorithme Azure Machine Learning Studio** vous permet de choisir l’algorithme adapté à un modèle d’analyse prédictif.
+L'**Aide-mémoire d’algorithme Azure Machine Learning Studio** vous permet de choisir l’algorithme de concepteur adapté à un modèle d’analyse prédictif.
 
 Azure Machine Learning a une grande bibliothèque d’algorithmes à partir des familles ***classification***, ***systèmes de recommandation***, ***clustering***, ***détection des anomalies***, ***régression*** et ***analyse de texte***. Chacun est conçu pour traiter un type de problème de Machine Learning différent.
 
@@ -38,7 +38,7 @@ Les suggestions proposées dans cet aide-mémoire d'algorithme sont des règles 
 
 Chaque algorithme Machine Learning a son propre style ou biais inductif. Plusieurs algorithmes peuvent être appropriés pour un problème spécifique et un algorithme peut être un meilleur choix que d’autres. Mais il n’est pas toujours possible de savoir au préalable lequel convient le mieux. Dans ce cas, plusieurs algorithmes sont affichés dans l’aide-mémoire. Une stratégie appropriée consiste à essayer un algorithme et, si les résultats ne sont pas satisfaisants, à essayer les autres. 
 
-Pour en savoir plus sur les algorithmes dans Azure Machine Learning, accédez à la [référence des algorithmes et des modules](algorithm-module-reference/module-reference.md).
+Pour en savoir plus sur les algorithmes dans le concepteur Azure Machine Learning, accédez aux [Informations de référence sur les algorithmes et les modules](algorithm-module-reference/module-reference.md).
 
 ## <a name="kinds-of-machine-learning"></a>Types de Machine Learning
 

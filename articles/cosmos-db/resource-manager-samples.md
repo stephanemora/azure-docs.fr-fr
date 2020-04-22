@@ -1,17 +1,17 @@
 ---
 title: Modèles Azure Resource Manager pour Azure Cosmos DB
 description: Utilisez des modèles Azure Resource Manager pour créer et configurer Azure Cosmos DB.
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.author: thvankra
-ms.openlocfilehash: 7b08ca98f25b079d831033b9393effd4ee4b65e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.author: mjbrown
+ms.openlocfilehash: 1c4f1a1920d98052231eaa3a7d5c0454441c88ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961857"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390873"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modèles Azure Resource Manager pour Azure Cosmos DB
 
@@ -23,6 +23,7 @@ Les tableaux suivants incluent des liens vers des modèles Azure Resource Manage
 |---|---|
 |[Créer un compte, une base de données et un conteneur Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Ce modèle crée un compte d’API SQL (Core) dans deux régions avec deux conteneurs avec un débit de base de données partagé et un conteneur avec un débit dédié. Le débit peut être mis à jour en renvoyant le modèle avec une valeur de propriété de débit mise à jour. |
 |[Créer un compte Azure Cosmos, une base de données et un conteneur avec une procédure stockée, un déclencheur et une fonction définie par l’utilisateur](manage-sql-with-resource-manager.md#create-sproc) | Ce modèle crée un compte d’API SQL (Core) dans deux régions avec une procédure stockée, un déclencheur et une fonction définie par l’utilisateur (UDF) pour un conteneur. |
+|[Créer un point de terminaison privé pour un compte Azure Cosmos](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Ce modèle crée un point de terminaison privé pour un compte d’API SQL Azure Cosmos existant dans un réseau virtuel existant. |
 
 ## <a name="mongodb-api"></a>API MongoDB
 

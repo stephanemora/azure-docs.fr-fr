@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4742f48ee9ad0db60e21dd53c5c0f447c1ded67
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348919"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414273"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Démarrage rapide : Fivetran avec entrepôt de données 
 
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide décrit comment configurer un nouvel utilisateur F
 
 1. Recherchez le nom complet du serveur et le nom de la base de données utilisés pour vous connecter à votre entrepôt de données.
     
-    Si vous avez besoin d’aide pour trouver ces informations, consultez [Vous connecter à votre entrepôt de données](sql-data-warehouse-connect-overview.md).
+    Si vous avez besoin d’aide pour trouver ces informations, consultez [Vous connecter à votre entrepôt de données](../sql/connect-overview.md).
 
 2. Dans l’Assistant Installation, indiquez si vous souhaitez vous connecter directement à votre base de données ou en utilisant un tunnel SSH.
 
@@ -75,9 +75,9 @@ Ce guide de démarrage rapide décrit comment configurer un nouvel utilisateur F
     Pour plus d’informations, consultez les documents relatifs aux [limites de mémoire et de concurrence](memory-concurrency-limits.md) et aux [classes de ressources](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
-## <a name="sign-in-to-fivetran"></a>Se connecter à Fivetran
+## <a name="connect-from-fivetran"></a>Se connecter à partir de Fivetran
 
-Pour vous connecter à Fivetran, entrez les informations d’identification que vous utilisez pour accéder à votre entrepôt de données : 
+Pour vous connecter à votre entrepôt de données à partir de votre compte Fivetran, entrez les informations d’identification que vous utilisez pour accéder à votre entrepôt de données : 
 
 * Hôte (nom de votre serveur).
 * Port.

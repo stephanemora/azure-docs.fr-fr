@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228681"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419261"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 > [!NOTE]
@@ -45,7 +45,7 @@ Les étapes suivantes expliquent comment une connexion est établie avec une bas
 Azure SQL Database prend en charge les trois options suivantes pour la configuration de la stratégie de connexion d’un serveur SQL Database :
 
 - **Redirection (recommandée) :** Les clients établissent des connexions directement au nœud qui héberge la base de données, ce qui permet de réduire la latence et d’améliorer le débit. Pour que les connexions utilisent ce mode, les clients doivent :
-   - Autoriser les communications sortantes à partir du client vers toutes les adresses IP Azure de la région sur les ports de la plage comprise entre 11000 et 11999. Utilisez les balises de service pour SQL afin de faciliter la gestion.  
+   - Autoriser les communications sortantes à partir du client vers toutes les adresses IP Azure SQL de la région sur les ports de la plage comprise entre 11000 et 11999. Utilisez les balises de service pour SQL afin de faciliter la gestion.  
    - Autoriser les communications sortantes à partir du client vers les adresses IP de la passerelle Azure SQL Database sur le port 1433.
 
 - **Proxy :** Dans ce mode, toutes les connexions sont traitées par proxy via les passerelles Azure SQL Database, ce qui permet d’augmenter la latence et de réduire le débit. Pour que les connexions utilisent ce mode, les clients doivent autoriser les communications sortantes à partir du client vers les adresses IP de la passerelle Azure SQL Database sur le port 1433.

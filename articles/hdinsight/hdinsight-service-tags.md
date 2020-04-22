@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/10/2020
-ms.openlocfilehash: 34ec05a8362f5947cb61924b19c6b1a52e5d91a4
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437669"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410855"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service Azure HDInsight des groupes de sécurité réseau
 
-Les étiquettes de service Azure HDInsight des groupes de sécurité réseau sont des groupes d'adresses IP destinées aux services de contrôle d'intégrité et de gestion. Ces groupes permettent de réduire la complexité de la création de règles de sécurité. Les [étiquettes de service](../virtual-network/security-overview.md#service-tags) constituent une méthode alternative pour autoriser le trafic entrant à partir d'adresses IP spécifiques sans avoir à entrer chacune des [adresses IP de gestion](hdinsight-management-ip-addresses.md) dans vos groupes de sécurité réseau.
+Les étiquettes de service Azure HDInsight des groupes de sécurité réseau sont des groupes d'adresses IP destinées aux services de contrôle d'intégrité et de gestion. Ces groupes permettent de réduire la complexité de la création de règles de sécurité. Les [étiquettes de service](../virtual-network/security-overview.md#service-tags) autorisent le trafic entrant à partir d'adresses IP spécifiques, sans avoir à entrer chacune des [adresses IP de gestion](hdinsight-management-ip-addresses.md) dans vos groupes de sécurité réseau.
 
 Le service HDInsight gère ces étiquettes de service. Vous ne pouvez pas créer votre propre étiquette de service ou modifier une étiquette existante. Microsoft gère les préfixes d'adresse correspondant à l'étiquette de service, et met automatiquement à jour l'étiquette de service lorsque les adresses changent.
 
@@ -46,13 +46,13 @@ Cette étiquette contient les adresses IP des services de contrôle d'intégrit
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Utiliser les balises de service régional HDInsight
 
-Si l'option d'étiquette globale ne fonctionne pas parce que vous avez besoin d'autorisations plus restrictives, vous pouvez autoriser uniquement les étiquettes de service applicables à votre région. Il peut y avoir une, deux ou trois étiquettes de service applicables, selon la région dans laquelle votre cluster est créé.
+Si l'option d'étiquette globale ne fonctionne pas parce que vous avez besoin d'autorisations plus restrictives, vous pouvez autoriser uniquement les étiquettes de service applicables à votre région. Il peut y avoir plusieurs étiquettes de service selon la région dans laquelle votre cluster est créé.
 
 Pour savoir quelles étiquettes de service ajouter à votre région, consultez les sections suivantes de l'article.
 
 ### <a name="use-a-single-regional-service-tag"></a>Utiliser une seule balise de service régional
 
-Si vous préférez utiliser des étiquettes de service régionales et que votre cluster se trouve dans l'une des régions répertoriées dans ce tableau, il vous suffit d'ajouter une étiquette de service régionale à votre groupe de sécurité réseau.
+Si votre cluster se trouve dans une région répertoriée dans ce tableau, il vous suffit d’ajouter une balise de service régional à votre groupe de sécurité réseau.
 
 | Country | Région | Balise du service |
 | ---- | ---- | ---- |
@@ -80,13 +80,13 @@ Si vous préférez utiliser des étiquettes de service régionales et que votre 
 
 ### <a name="use-multiple-regional-service-tags"></a>Utiliser plusieurs balises de service régional
 
-Si vous préférez utiliser des étiquettes de service régionales mais que la région dans laquelle votre cluster est créé n'est pas répertoriée dans le tableau précédent, vous devez autoriser plusieurs étiquettes de service régionales. La nécessité d’en utiliser plusieurs est due à des différences de disposition des fournisseurs de ressources pour les différentes régions.
+Si la région dans laquelle votre cluster a été créé ne figure pas dans le tableau précédent, vous devez autoriser plusieurs étiquettes de service régionales. La nécessité d’en utiliser plusieurs repose sur les différences de disposition des fournisseurs de ressources pour les différentes régions.
 
 Les régions restantes sont divisées en groupes en fonction des balises de service régional qu’elles utilisent.
 
 #### <a name="group-1"></a>Groupe 1
 
-Si votre cluster est créé dans une des régions du tableau suivant, autorisez les étiquettes de service `HDInsight.WestUS` et `HDInsight.EastUS` en plus de l'étiquette de service régionale indiquée. Les régions de cette section nécessitent trois balises de service.
+Si votre cluster est créé dans une des régions du tableau suivant, autorisez les étiquettes de service `HDInsight.WestUS` et `HDInsight.EastUS`. En outre, la balise de service régionale est répertoriée. Les régions de cette section nécessitent trois balises de service.
 
 Par exemple, si votre cluster est créé dans la région `East US 2`, vous devez ajouter les étiquettes de service suivantes à votre groupe de sécurité réseau :
 

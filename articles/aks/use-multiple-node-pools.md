@@ -3,17 +3,17 @@ title: Utiliser plusieurs pools de nœuds dans Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: 3e0890a0e8600526da2047cabc0b50af8177ea37
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.date: 04/08/2020
+ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615692"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259083"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
-Dans Azure Kubernetes Service (AKS), les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Ces pools de nœuds contiennent les machines virtuelles sous-jacentes qui exécutent vos applications. Le nombre initial de nœuds et leur taille (référence SKU) sont définis quand vous créez un cluster AKS, opération qui crée un *pool de nœuds par défaut*. Pour prendre en charge les applications qui ont des exigences de calcul ou de stockage différentes, vous pouvez créer des pools de nœuds supplémentaires. Par exemple, utilisez ces pools de nœuds supplémentaires pour fournir des GPU pour les applications nécessitant beaucoup de ressources système ou pour accéder à un stockage SSD hautes performances.
+Dans Azure Kubernetes Service (AKS), les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Ces pools de nœuds contiennent les machines virtuelles sous-jacentes qui exécutent vos applications. Le nombre initial de nœuds et leur taille (référence SKU) sont définis lorsque vous créez un cluster AKS, opération qui crée un [pool de nœuds système][use-system-pool]. Pour prendre en charge les applications qui ont des exigences de calcul ou de stockage différentes, vous pouvez créer des *pools de nœuds utilisateur* supplémentaires. Les pools de nœuds système sont principalement utilisés pour héberger des pods système critiques, tels que CoreDNS et tunnelfront. Les pools de nœuds utilisateur sont principalement utilisés pour héberger vos pods d'application. Cela étant, les pods d’application peuvent être planifiés sur des pools de nœuds système si vous souhaitez n'avoir qu’un pool dans votre cluster AKS. Les pools de nœuds utilisateur sont l’endroit où vous placez les pods propres à votre application. Par exemple, utilisez ces pools de nœuds utilisateur supplémentaires pour fournir des GPU pour les applications nécessitant beaucoup de ressources système ou pour accéder à un stockage SSD hautes performances.
 
 > [!NOTE]
 > Cette fonctionnalité permet de mieux contrôler la création et la gestion de pools de nœuds multiples. Par conséquent, des commandes distinctes sont requises pour créer/mettre à jour/supprimer. Auparavant, les opérations de cluster via `az aks create` ou `az aks update` utilisaient l’API managedCluster et étaient la seule option pour modifier votre plan de contrôle et un pool de nœuds unique. Cette fonctionnalité expose une opération distincte définie pour les pools d’agents via l’API agentPool et requiert l’utilisation du jeu de commandes `az aks nodepool` pour exécuter des opérations sur un pool de nœuds individuel.
@@ -22,26 +22,30 @@ Cet article vous montre comment créer et gérer plusieurs pools de nœuds dans 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
+La version 2.2.0 (ou ultérieure) d’Azure CLI doit être installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="limitations"></a>Limites
 
 Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS prenant en charge plusieurs pools de nœuds :
 
 * Voir [Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* Vous ne pouvez pas supprimer le pool de nœuds système, par défaut le premier pool de nœuds.
+* Vous pouvez supprimer un pool de nœuds système à condition de disposer d’un autre pool de nœuds système pour prendre sa place dans le cluster AKS.
+* Les pools de nœuds système doivent contenir au moins un nœud, et les pools de nœuds utilisateur peuvent contenir zéro, un ou plusieurs nœuds.
 * Le cluster AKS doit utiliser l’équilibreur de charge de la référence SKU Standard pour utiliser plusieurs pools de nœuds, la fonctionnalité n’est pas prise en charge avec les équilibreurs de charge de la référence SKU De base.
 * Le cluster AKS doit utiliser des groupes de machines virtuelles identiques pour les nœuds.
 * Le nom d’un pool de nœuds ne peut contenir que des caractères alphanumériques minuscules et doit commencer par une lettre minuscule. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
-* Tous les pools de nœuds doivent résider dans le même réseau virtuel et sous-réseau.
+* Tous les pools de nœuds doivent résider dans le même réseau virtuel.
 * Lors de la création de plusieurs pools de nœuds au moment de la création du cluster, toutes les versions de Kubernetes utilisées par les pools de nœuds doivent correspondre à la version définie pour le plan de contrôle. Cela peut être mis à jour une fois que le cluster a été provisionné, en utilisant des opérations par pool de nœuds.
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
+> [!Important]
+> Si vous exécutez un pool de nœuds système unique pour votre cluster AKS dans un environnement de production, nous vous recommandons d’utiliser au moins trois nœuds pour le pool de nœuds.
+
 Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.15.7* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
 
 > [!NOTE]
-> La référence SKU d’équilibreur de charge *De base***n’est pas prise en charge** en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d’équilibreur de charge *Standard* dans Azure CLI et le portail Azure.
+> La référence SKU d’équilibreur de charge *De base***n’est pas prise en charge** en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d'équilibreur de charge *Standard* à partir d'Azure CLI et du portail Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -93,9 +97,7 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 
 L’exemple de sortie suivant montre que *mynodepool* a été créé avec trois nœuds dans le pool de nœuds. Lorsque le cluster AKS a été créé à l'étape précédente, un pool *nodepool1* par défaut a été généré avec *2* nœuds.
 
-```console
-$ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
-
+```output
 [
   {
     ...
@@ -123,6 +125,29 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!TIP]
 > Si aucune taille *VmSize* n’est spécifiée lorsque vous ajoutez un pool de nœuds, la taille par défaut est *Standard_DS2_v3* pour les pools de nœuds Windows et *Standard_DS2_v2* pour les pools de nœuds Linux. Si aucune version *OrchestratorVersion* n’est spécifiée, la version par défaut est identique à celle du plan de contrôle.
 
+### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Ajouter un pool de nœuds avec un sous-réseau unique (préversion)
+
+Une charge de travail peut nécessiter le fractionnement des nœuds d'un cluster en pools distincts à des fins d'isolation logique. Cette isolation peut être prise en charge par des sous-réseaux distincts dédiés à chaque pool de nœuds du cluster. Cela peut répondre à des exigences telles que l'utilisation d'un espace d'adressage de réseau virtuel non contigu à fractionner entre les pools de nœuds.
+
+#### <a name="limitations"></a>Limites
+
+* Tous les sous-réseaux attribués aux pools de nœuds doivent appartenir au même réseau virtuel.
+* Les pods système doivent avoir accès à tous les nœuds du cluster pour fournir les fonctionnalités critiques telles que la résolution DNS via coreDNS.
+* Dans le cadre de la préversion, l'attribution d'un sous-réseau unique par pool de nœuds est limitée à Azure CNI.
+* L'utilisation de stratégies réseau avec un sous-réseau unique par pool de nœuds n'est pas prise en charge dans le cadre de la préversion.
+
+Pour créer un pool de nœuds avec un sous-réseau dédié, transmettez l'ID de ressource du sous-réseau en tant que paramètre supplémentaire lors de la création du pool de nœuds.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
+
 ## <a name="upgrade-a-node-pool"></a>Mettre à niveau un pool de nœuds
 
 > [!NOTE]
@@ -148,9 +173,11 @@ az aks nodepool upgrade \
 
 Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Mise à niveau* vers *1.15.7* :
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -195,11 +222,11 @@ Un cluster AKS possède deux objets de ressource de cluster avec des versions Ku
 
 Un plan de contrôle est mappé à un ou plusieurs pools de nœuds. Le comportement d’une opération de mise à niveau dépend de la commande Azure CLI utilisée.
 
-La mise à niveau d’un plan de contrôle AKS requiert l'utilisation de `az aks upgrade`. Cela met à niveau la version du plan de contrôle et tous les pools de nœuds dans le cluster. 
+La mise à niveau d’un plan de contrôle AKS requiert l'utilisation de `az aks upgrade`. Cette commande met à niveau la version du plan de contrôle et tous les pools de nœuds du cluster.
 
 L’émission de la commande `az aks upgrade` avec l’indicateur `--control-plane-only` ne met à niveau que le plan de contrôle du cluster. Aucun des pools de nœuds associés dans le cluster n’est modifié.
 
-La mise à niveau de pools de nœuds individuels requiert l’utilisation de `az aks nodepool upgrade`. Cette commande met uniquement à niveau le pool de nœuds cible avec la version de Kubernetes spécifiée
+La mise à niveau de pools de nœuds individuels requiert l’utilisation de `az aks nodepool upgrade`. Cette commande met uniquement à niveau le pool de nœuds cible avec la version de Kubernetes spécifiée.
 
 ### <a name="validation-rules-for-upgrades"></a>Règles de validation pour les mises à niveau
 
@@ -212,7 +239,7 @@ Les mises à niveau valides de Kubernetes du plan de contrôle ou des pools de n
 
 * Règles pour l’envoi d’une opération de mise à niveau :
    * Vous ne pouvez pas passer à une version de Kubernetes antérieure pour le plan de contrôle ou le pool de nœuds.
-   * Si une version de Kubernetes de pool de nœuds n’est pas spécifiée, le comportement dépend du client utilisé. Dans les modèles Resource Manager, la déclaration revient à la version existante définie pour le pool de nœuds si elle est utilisée ; si aucune valeur n’est définie, la version du plan de contrôle est utilisée dans le cadre du rétablissement de la version antérieure.
+   * Si une version de Kubernetes de pool de nœuds n’est pas spécifiée, le comportement dépend du client utilisé. Dans les modèles Resource Manager, la déclaration revient à la version existante définie pour le pool de nœuds si elle est utilisée. Si aucune valeur n’est définie, la version du plan de contrôle est utilisée dans le cadre du rétablissement de la version antérieure.
    * Vous pouvez procéder à la mise à niveau ou à la mise à l'échelle d'un plan de contrôle ou d'un pool de nœuds à un moment donné, mais vous ne pouvez pas soumettre plusieurs opérations sur un plan de contrôle ou une ressource de pools simultanément.
 
 ## <a name="scale-a-node-pool-manually"></a>Mettre manuellement à l'échelle un pool de nœuds
@@ -234,9 +261,11 @@ az aks nodepool scale \
 
 Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Upgrading (Mise à niveau)* avec une nouvelle valeur de *5* nœuds :
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -284,9 +313,11 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name myn
 
 L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *mynodepool* est dans l’état *Deleting (Suppression)*  :
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -337,9 +368,11 @@ az aks nodepool add \
 
 L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *gpunodepool* crée (*Creating*) des nœuds avec la taille *VmSize* spécifiée :
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -375,8 +408,10 @@ Il faut quelques minutes pour que *gpunodepool* soit créé avec succès.
 Vous avez maintenant deux pools de nœuds dans votre cluster, le pool de nœuds par défaut initialement créé et le pool de nœuds basé sur GPU. Utilisez la commande [kubectl get nodes][kubectl-get] pour voir les nœuds figurant dans votre cluster. L'exemple de sortie suivant montre les nœuds :
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
+```
 
+```output
 NAME                                 STATUS   ROLES   AGE     VERSION
 aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
 aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
@@ -389,7 +424,7 @@ Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour re
 
 Pour plus d’informations sur la façon d’utiliser les fonctionnalités de Kubernetes planifiées avancées, consultez [Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans AKS][taints-tolerations].
 
-Dans cet exemple, appliquez une teinte à votre nœud basé sur GPU à l’aide de la commande --node-taints. Spécifiez le nom de votre nœud basé sur GPU à partir de la sortie de la commande `kubectl get nodes` précédente. La teinte est appliquée en tant que *clé:valeur*, puis comme option de planification. L’exemple suivant utilise la paire *sku=gpu* et définit des pods qui ont la capacité *NoSchedule* :
+Dans cet exemple, appliquez une teinte à votre nœud basé sur GPU à l’aide de la commande --node-taints. Spécifiez le nom de votre nœud basé sur GPU à partir de la sortie de la commande `kubectl get nodes` précédente. La teinte est appliquée en tant que paire *key=value*, puis comme option de planification. L’exemple suivant utilise la paire *sku=gpu* et définit des pods qui ont la capacité *NoSchedule* :
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -431,8 +466,10 @@ kubectl apply -f gpu-toleration.yaml
 Il faut quelques secondes pour planifier le pod et extraire l’image NGINX. Utilisez la commande [kubectl describe pod][kubectl-describe] pour voir l’état du pod. L’exemple de sortie condensée suivant montre que la tolérance *sku=gpu:NoSchedule* est appliquée. Dans la section des événements, le planificateur a affecté le pod au nœud basé sur GPU *aks-gpunodepool-28993262-vmss000000* :
 
 ```console
-$ kubectl describe pod mypod
+kubectl describe pod mypod
+```
 
+```output
 [...]
 Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
                  node.kubernetes.io/unreachable:NoExecute for 300s
@@ -447,24 +484,95 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Seuls les pods qui ont cette teinte appliquée peuvent être planifiés sur les nœuds dans *gpunodepool*. N’importe quel autre pod sera planifié dans le pool de nœuds *nodepool1*. Si vous créez des pools de nœuds supplémentaires, vous pouvez utiliser des teintes et des tolérances supplémentaires pour limiter les pods qui peuvent être planifiés sur ces ressources de nœud.
+Seuls les pods auxquels cette tolérance est appliquée peuvent être planifiés sur les nœuds du pool *gpunodepool*. N’importe quel autre pod sera planifié dans le pool de nœuds *nodepool1*. Si vous créez des pools de nœuds supplémentaires, vous pouvez utiliser des teintes et des tolérances supplémentaires pour limiter les pods qui peuvent être planifiés sur ces ressources de nœud.
 
-## <a name="specify-a-tag-for-a-node-pool"></a>Spécifier une balise pour un pool de nœuds
+## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Spécifier une teinte, un intitulé ou une étiquette pour un pool de nœuds
 
-Vous pouvez appliquer une balise Azure à des pools de nœuds de votre cluster AKS. Les balises appliquées à un pool de nœuds sont appliquées à chaque nœud du pool et sont conservées lors des mises à niveau. Les balises sont également appliquées aux nouveaux nœuds ajoutés à un pool lors des opérations de montée en charge. L'ajout d'une balise peut être utile pour les tâches telles que le suivi des stratégies ou l'estimation des coûts.
+Lorsque vous créez un pool de nœuds, vous pouvez lui ajouter des teintes, des intitulés ou des étiquettes. Lorsque vous ajoutez une teinte, un intitulé ou une étiquette, tous les nœuds du pool reçoivent cette teinte, cet intitulé ou cette étiquette.
 
-> [!IMPORTANT]
-> Pour appliquer des balises aux pools de nœuds, vous devez disposer de l'extension CLI *aks-preview* version 0.4.29 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
-> 
-> ```azurecli-interactive
-> # Install the aks-preview extension
-> az extension add --name aks-preview
-> 
-> # Update the extension to make sure you have the latest version installed
-> az extension update --name aks-preview
-> ```
+Pour créer un pool de nœuds à l’aide d’une teinte, utilisez la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *taintnp* et utilisez le paramètre `--node-taints` afin de spécifier *sku=gpu:NoSchedule* pour la teinte.
 
-Créez un pool de nœuds à l'aide de la commande [az aks node pool add][az-aks-nodepool-add]. Spécifiez le nom *tagnodepool*, et utilisez le paramètre `--tag` afin de spécifier *dept = IT* et *costcenter = 9999* pour les balises.
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name taintnp \
+    --node-count 1 \
+    --node-taints sku=gpu:NoSchedule \
+    --no-wait
+```
+
+L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *taintnp* crée (*Creating*) des nœuds avec les teintes (*nodeTaints*) spécifiées :
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "taintnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeTaints":  [
+      "sku=gpu:NoSchedule"
+    ],
+    ...
+  },
+ ...
+]
+```
+
+Les informations concernant la teinte sont visibles dans Kubernetes pour la gestion des règles de planification des nœuds.
+
+Vous pouvez également ajouter des intitulés à un pool de nœuds pendant la création de celui-ci. Les intitulés définis au niveau du pool de nœuds sont ajoutés à chaque nœud du pool. Ces [intitulés sont visibles dans Kubernetes][kubernetes-labels] pour la gestion des règles de planification des nœuds.
+
+Pour créer un pool de nœuds à l’aide d’un intitulé, utilisez la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *labelnp* et utilisez le paramètre `--labels` afin de spécifier *dept=IT* et *costcenter=9999* comme intitulés.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name labelnp \
+    --node-count 1 \
+    --labels dept=IT costcenter=9999 \
+    --no-wait
+```
+
+> [!NOTE]
+> L’intitulé d’un pool de nœuds ne peut être défini que pendant la création de celui-ci. Les intitulés doivent également constituer une paire clé/valeur et avoir une [syntaxe valide][kubernetes-label-syntax].
+
+L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *labelnp* crée (*Creating*) des nœuds avec les intitulés (*nodeLabels*) spécifiés :
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "labelnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeLabels":  {
+      "dept": "IT",
+      "costcenter": "9999"
+    },
+    ...
+  },
+ ...
+]
+```
+
+Vous pouvez appliquer une balise Azure à des pools de nœuds de votre cluster AKS. Les balises appliquées à un pool de nœuds sont appliquées à chaque nœud du pool et sont conservées lors des mises à niveau. Des étiquettes sont également appliquées aux nouveaux nœuds qui sont ajoutés à un pool lors des opérations de scale-out. L'ajout d'une balise peut être utile pour les tâches telles que le suivi des stratégies ou l'estimation des coûts.
+
+Créez un pool de nœuds à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *tagnodepool*, et utilisez le paramètre `--tag` afin de spécifier *dept = IT* et *costcenter = 9999* pour les balises.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -481,9 +589,11 @@ az aks nodepool add \
 
 L'exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *tagnodepool* crée (*Creating*) des nœuds avec la balise (*tag*) spécifiée :
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -612,18 +722,22 @@ az group deployment create \
 
 La mise à jour de votre cluster AKS peut prendre quelques minutes selon les paramètres de pool de nœuds et les opérations que vous définissez dans votre modèle Resource Manager.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds
+## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds (préversion)
 
 > [!WARNING]
 > Pendant la préversion de l’affectation d’une adresse IP publique par nœud, elle ne peut pas être utilisée avec la *référence SKU Standard Load Balancer dans AKS* en raison des éventuelles règles d’équilibreur de charge en conflit avec le provisionnement de machine virtuelle. En raison de cette limitation, les pools d’agents Windows ne sont pas pris en charge avec cette fonctionnalité en préversion. Pendant la période de préversion, vous devez utiliser la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
 
-Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, dans certains cas, les nœuds d’un pool de nœuds doivent avoir leurs propres adresses IP publiques. C’est par exemple le cas du gaming, où une console doit être directement connectée à une machine virtuelle dans le cloud pour réduire les tronçons. Pour ce faire, vous devez vous inscrire pour une fonctionnalité d’évaluation distincte, à savoir Node Public IP (préversion).
+Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, certains scénarios peuvent exiger que les nœuds d'un pool de nœuds reçoivent leurs propres adresses IP publiques dédiées. C'est par exemple le cas pour les charges de travail de gaming, où une console doit être directement connectée à une machine virtuelle du cloud pour réduire les tronçons. Vous devez alors vous inscrire sur AKS pour accéder à la fonctionnalité d'évaluation « Node Public IP » (disponible en préversion).
+
+Pour vous inscrire à la fonctionnalité « Node Public IP », utilisez la commande Azure CLI suivante.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Après l’inscription, déployez un modèle Azure Resource Manager selon les mêmes instructions décrites [ci-dessus](#manage-node-pools-using-a-resource-manager-template) et ajoutez la propriété de valeur booléenne `enableNodePublicIP` à agentPoolProfiles. Définissez la valeur sur `true` car, par défaut, elle est définie sur `false`. Il s’agit d’une propriété de création uniquement qui requiert une version d’API minimale de 2019-06-01. Ceci peut être appliqué aux pools de nœuds Linux et Windows.
+Une fois inscrit, déployez un modèle Azure Resource Manager en suivant les instructions décrites [ci-dessus](#manage-node-pools-using-a-resource-manager-template) et ajoutez la propriété booléenne `enableNodePublicIP` à agentPoolProfiles. Définissez la valeur sur `true` car, par défaut, elle est définie sur `false`. 
+
+Cette propriété est une propriété qui est uniquement utilisée lors de la création et qui nécessite une version d’API minimale de 2019-06-01. Ceci peut être appliqué aux pools de nœuds Linux et Windows.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -643,6 +757,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+Apprenez-en davantage sur les [pools de nœuds système][use-system-pool].
+
 Dans cet article, vous avez appris comment créer et gérer plusieurs pools de nœuds dans un cluster AKS. Pour plus d’informations sur la façon de contrôler les pods entre les pools de nœuds, consultez [Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans AKS][operator-best-practices-advanced-scheduler].
 
 Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consultez [Créer un conteneur Windows Server dans AKS][aks-windows].
@@ -652,6 +768,8 @@ Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consult
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+[kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
@@ -676,3 +794,4 @@ Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consult
 [tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[use-system-pool]: use-system-pools.md

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228841"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409770"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurer la récupération d’urgence à grande échelle de machines virtuelles VMware et de serveurs physiques
 
@@ -210,7 +210,7 @@ Vous pouvez vous préparer au basculement comme suit :
 Pour exécuter un basculement à grande échelle, nous recommandons de procéder comme suit :
 
 1. Créez des plans de récupération pour le basculement de charge de travail.
-    - Chaque plan de récupération peut déclencher le basculement de jusqu’à 50 machines.
+    - Chaque plan de récupération peut déclencher le basculement de jusqu’à 100 machines.
     - [Découvrez d’autres informations](recovery-plan-overview.md) sur les plans de récupération.
 2. Ajoutez des scripts de runbook Azure Automation aux plans de récupération pour automatiser toutes les tâches manuelles sur Azure. Les tâches typiques incluent la configuration d’équilibreurs de charge, la mise à jour de DNS, etc. [En savoir plus](site-recovery-runbook-automation.md)
 2. Avant le basculement, préparez les machines Windows afin qu’elles soient conformes à l’environnement Azure. Les [limites de nombre de basculements](#plan-azure-subscriptions-and-quotas) sont plus élevées pour les machines conformes. [Apprenez-en davantage](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sur les runbooks.
