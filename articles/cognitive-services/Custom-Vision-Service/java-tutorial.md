@@ -1,5 +1,5 @@
 ---
-title: 'Guide de démarrage rapide : créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Vision personnalisée pour Java'
+title: 'Démarrage rapide : Créer un projet de classification d’images à l’aide du kit SDK Custom Vision pour Java'
 titleSuffix: Azure Cognitive Services
 description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage de votre projet ainsi qu’une prédiction avec le kit de développement logiciel (SDK) Java.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 04/14/2020
 ms.author: areddish
-ms.openlocfilehash: a0cfa49dfe247a71e5c2d546e2bb7e9d9b2efc18
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 271f80785d9db84b9184f9f3c6ede2725d4607dc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77616343"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403697"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Guide de démarrage rapide : créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Vision personnalisée pour Java
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Démarrage rapide : Créer un projet de classification d’images à l’aide du kit SDK Custom Vision pour Java
 
 Cet article vous montre comment bien démarrer avec le SDK Java de Vision par ordinateur pour générer un modèle de classification d’images. Après la création du projet, vous pouvez ajouter des mots clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple comme modèle pour générer votre propre application Java. Si vous voulez générer et utiliser un modèle de classification _sans_ code, consultez le [guide basé sur navigateur](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un IDE Java de votre choix
 - [JDK 7 ou 8](https://aka.ms/azure-jdks) est installé.
@@ -137,7 +137,7 @@ Vous pouvez alors vérifier que la prédiction d’image test (les dernières li
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous savez maintenant comment effectuer la classification d’images dans le code. Cet exemple exécute une itération d’entraînement unique, mais vous aurez souvent besoin d’entraîner et de tester votre modèle à plusieurs reprises pour plus de précision.
+Vous savez maintenant comment effectuer la détection d’objet dans le code. Cet exemple exécute une seule itération d’entraînement, mais vous aurez souvent besoin d’entraîner et de tester votre modèle à plusieurs reprises pour le rendre plus précis.
 
 > [!div class="nextstepaction"]
 > [Tester et réentraîner un modèle](test-your-model.md)

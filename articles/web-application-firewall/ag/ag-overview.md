@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74384108"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314356"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -28,9 +28,9 @@ Toutes les fonctionnalités WAF répertoriées ci-dessous existent dans une stra
 
 ![Diagramme du pare-feu d’applications web d’Application Gateway](../media/ag-overview/waf1.png)
 
-Application Gateway fournit de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC). Elle offre une terminaison SSL, une affinité de session basée sur les cookies, une distribution de charge par tourniquet (round robin), un routage basé sur le contenu, la possibilité d’héberger plusieurs sites web et des améliorations de sécurité.
+Application Gateway fournit de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC). Ce service offre une terminaison TLS (Transport Layer Security), anciennement SSL (Secure Sockets Layer), une affinité de session basée sur les cookies, une distribution de charge par tourniquet (round robin), un routage basé sur le contenu, la possibilité d’héberger plusieurs sites web et des améliorations de sécurité.
 
-Les améliorations de sécurité de la passerelle d’application sont la gestion des stratégies SSL ainsi que la prise en charge du chiffrement SSL de bout en bout. La sécurité des applications est renforcée par l’intégration du pare-feu d’applications web dans Application Gateway. Cette combinaison protège vos applications web contre les vulnérabilités courantes. Elle fournit un emplacement central facile à configurer pour la gestion.
+Parmi les améliorations de sécurité apportées par Application Gateway, citons la gestion des stratégies TLS et la prise en charge du chiffrement TLS de bout en bout. La sécurité des applications est renforcée par l’intégration du pare-feu d’applications web dans Application Gateway. Cette combinaison protège vos applications web contre les vulnérabilités courantes. Elle fournit un emplacement central facile à configurer pour la gestion.
 
 ## <a name="benefits"></a>Avantages
 
@@ -40,7 +40,7 @@ Cette section décrit les principaux avantages qu’offre WAF sur App Gateway.
 
 * Protection de vos applications web contre les vulnérabilités et les attaques web sans modification du code principal.
 
-* Protection simultanée de plusieurs applications web. Une instance d’Application Gateway peut héberger jusqu’à 40 sites web protégés par un pare-feu d’application web.
+* Protection simultanée de plusieurs applications web. Une instance d’Application Gateway peut héberger jusqu’à 40 sites web protégés par un pare-feu d’applications web.
 
 * Créer des stratégies WAF personnalisées pour différents sites derrière le même pare-feu d’applications web 
 

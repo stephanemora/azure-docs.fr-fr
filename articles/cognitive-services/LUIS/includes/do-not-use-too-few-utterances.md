@@ -1,20 +1,20 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.date: 02/14/2020
+ms.date: 04/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 3bcb3f7bc7a5f149902577384f4d30b12073ca6b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8660fd110b853b33a7dcd510b40d3298895a7dd0
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77279559"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81384941"
 ---
-Ces quelques énoncés sont fournis à titre d’exemple uniquement. Une application réelle doit disposer d’au moins 15 énoncés avec des caractéristiques différentes (longueur, ordre des mots, conjugaison, exactitude grammaticale, ponctuation et nombre de mots).
+Ces quelques énoncés sont fournis à titre d’exemple uniquement. Une application réelle doit disposer d’au moins 15 énoncés avec des caractéristiques différentes (longueur, ordre des mots, conjugaison, exactitude grammaticale, [ponctuation](../luis-reference-application-settings.md#punctuation-normalization) et nombre de mots).

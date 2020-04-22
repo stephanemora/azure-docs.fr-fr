@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 9a1a0b37b0fae52677ad989d85e947e0148ac0a5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8734f748da07b36497ce143646e614ef82056d37
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80153214"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254595"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
@@ -198,9 +198,10 @@ Ensuite, l’exemple crée un pool de nœuds de traitement dans le compte Batch
 
 Le nombre de nœuds et la taille de machine virtuelle sont définis à l’aide de constantes définies. Azure Batch prend en charge les nœuds dédiés et les [nœuds de faible priorité](batch-low-pri-vms.md) que vous pouvez utiliser dans vos pools. Les nœuds dédiés sont réservés à votre pool. Les nœuds de faible priorité sont proposés à prix réduit à partir de la capacité de machine virtuelle excédentaire dans Azure. Les nœuds de faible priorité deviennent indisponibles si la capacité d’Azure est insuffisante. L’exemple par défaut crée un pool contenant seulement 5 nœuds de faible priorité taille *Standard_A1_v2*.
 
->[Remarque] Veillez à vérifier les quotas de nœud. Consultez [Quotas et limites du service Batch](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0) pour obtenir des instructions sur la création d’une demande de quota.
+>[!Note]
+>Veillez à vérifier vos quotas de nœud. Consultez [Quotas et limites du service Batch](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0) pour obtenir des instructions sur la création d’une demande de quota.
 
-L’application ffmpeg est déployée sur les nœuds de calcul en ajoutant un [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) à la configuration du pool. Pour garantir l’[activation de l’application](https://docs.microsoft.com/cli/azure/batch/application/package?view=azure-cli-latest#az-batch-application-package-activate).
+L’application ffmpeg est déployée sur les nœuds de calcul en ajoutant un [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) à la configuration du pool.
 
 La méthode [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) soumet le pool au service Batch.
 

@@ -5,14 +5,14 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 04/14/2020
 ms.author: banders
-ms.openlocfilehash: 10275bac8cd9363939f9b6f298c49d7ef08ab7bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202911"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383162"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Vue d’ensemble des API de création de rapports pour les clients Enterprise
 Les API de création de rapports permettent aux clients Azure Enterprise d’extraire leurs données de consommation et de facturation par programme pour les transférer vers les outils d’analyse de données de leur choix. Les clients Entreprise ont signé un [contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) avec Azure pour fixer des prix négociés et bénéficier de tarifs personnalisés pour les ressources Azure.
@@ -51,7 +51,9 @@ Les Etags s’afficheront dans la réponse de toutes les API ci-dessus. Une modi
 |Code du statut de réponse|Message|Description|
 |-|-|-|
 |200| OK|Aucune erreur|
+|400| Demande incorrecte| Paramètres non valides : plages de dates, nombres de Contrats Entreprise (EA), etc.|
 |401| Non autorisé| Clé API introuvable, non valide, expirée, etc.|
 |404| Non disponible| Point de terminaison de rapport introuvable|
-|400| Demande incorrecte| Paramètres non valides : plages de dates, nombres de Contrats Entreprise (EA), etc.|
+|429 | TooManyRequests | La demande a été limitée. Réessayez après avoir attendu le temps spécifié dans l’en-tête <code>x-ms-ratelimit-microsoft.consumption-retry-after</code>.|
 |500| Erreur de serveur| Erreur inattendue lors du traitement de la requête|
+| 503 | ServiceUnavailable | Le service est temporairement indisponible. Réessayez après avoir attendu le temps spécifié dans l’en-tête <code>Retry-After</code>.|

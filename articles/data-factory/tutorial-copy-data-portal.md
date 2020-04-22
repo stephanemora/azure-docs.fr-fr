@@ -1,6 +1,6 @@
 ---
 title: Utiliser le portail Azure pour créer un pipeline de fabrique de données
-description: Ce didacticiel fournit des instructions détaillées sur l’utilisation d’un portail Azure pour créer une fabrique de données avec un pipeline. Le pipeline utilise l’activité de copie pour copier des données d’un stockage Blob Azure vers une base de données SQL.
+description: Ce didacticiel fournit des instructions détaillées sur l’utilisation d’un portail Azure pour créer une fabrique de données avec un pipeline. Le pipeline utilise l’activité de copie pour copier des données du Stockage Blob Azure vers une base de données Azure SQL.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,17 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/21/2018
+ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 135a18f275137e72b5ff4d79f6a32bd39bd9c00c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 655a98ef1b6b8b2d4086b472ee7ce4d67346e5ca
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977402"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418709"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copier des données à partir d’un stockage Blob Azure vers une base de données SQL en utilisant Azure Data Factory
-Dans ce didacticiel, vous créez une fabrique de données à l’aide de l’interface utilisateur (IU) d’Azure Data Factory. Le pipeline de cette fabrique de données copie les données d’un stockage Blob Azure vers une base de données SQL. Le modèle de configuration de ce didacticiel s’applique à la copie depuis un magasin de données de fichiers vers un magasin de données relationnelles. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+Dans ce didacticiel, vous créez une fabrique de données à l’aide de l’interface utilisateur (IU) d’Azure Data Factory. Le pipeline de cette fabrique de données copie les données du Stockage Blob Azure vers Azure SQL Database. Le modèle de configuration de ce didacticiel s’applique à la copie depuis un magasin de données de fichiers vers un magasin de données relationnelles. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
@@ -38,7 +41,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 ## <a name="prerequisites"></a>Prérequis
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Azure Storage**. Vous utilisez le stockage Blob comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage Azure](../storage/common/storage-account-create.md) pour découvrir comment en créer un.
-* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données *récepteur*. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données SQL](../sql-database/sql-database-get-started-portal.md) pour découvrir comment en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données *récepteur*. Si vous ne disposez pas d’une base de données Azure SQL, consultez [Créer une base de données SQL](../sql-database/sql-database-get-started-portal.md) pour découvrir comment en créer une.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Créer un objet blob et une table SQL
 
@@ -49,6 +52,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 1. Lancez le Bloc-notes. Copiez le texte suivant et enregistrez-le comme fichier **emp.txt** sur votre disque :
 
     ```
+    FirstName,LastName
     John,Doe
     Jane,Doe
     ```
@@ -77,10 +81,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 À cette étape, vous allez créer une fabrique de données et démarrer l’interface utilisateur de Data Factory afin de créer un pipeline dans la fabrique de données.
 
 1. Ouvrez **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
-2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory** :
-
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
-
+2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory**.
 3. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**.
 
    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. (par exemple, yournameADFTutorialDataFactory). Consultez l’article [Azure Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les règles Data Factory.
@@ -121,33 +122,38 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
 
 ### <a name="configure-source"></a>Configurer la source
 
+>[!TIP]
+>Dans ce tutoriel, vous utilisez une *clé de compte* comme type d’authentification pour votre magasin de données source, mais vous pouvez choisir d’autres méthodes d’authentification prises en charge : un *URI SAS*, un *principal de service* et une *identité managée*, si nécessaire. Pour plus d’informations, reportez-vous aux sections correspondantes de [cet article](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties).
+>Pour stocker de manière sécurisée des secrets de magasins de données, il est également recommandé d’utiliser un coffre de clés Azure. Pour obtenir des illustrations détaillées, reportez-vous à [cet article](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+
 1. Accédez à l’onglet **Source**. Sélectionnez **+ Nouveau** pour créer un jeu de données source.
 
 1. Dans la boîte de dialogue **Nouveau jeu de données**, sélectionnez **Stockage Blob Azure**, puis **Continuer**. Sachant que les données sources se trouvent dans un stockage Blob, vous devez sélectionner le **Stockage Blob Azure** pour le jeu de données source.
 
 1. Dans la boîte de dialogue **Sélectionner le format**, choisissez le type de format de vos données, puis sélectionnez **Continuer**.
 
-    ![Type de format de données](./media/doc-common-process/select-data-format.png)
+1. Dans la boîte de dialogue **Définir les propriétés**, entrez **SourceBlobDataset** comme nom. Cochez la case **Première ligne comme en-tête**. Sous la zone de texte **Service lié**, sélectionnez **+ Nouveau**.
 
-1. Dans la boîte de dialogue **Définir les propriétés**, entrez **SourceBlobDataset** comme nom. En regard de la zone de texte **Service lié**, sélectionnez **+ Nouveau**.
-
-1. Dans la boîte de dialogue **Nouveau service lié (Stockage Blob Azure)** , entrez **AzureStorageLinkedService** pour le nom, puis sélectionnez votre compte de stockage dans la liste **Nom du compte de stockage**. Testez la connexion, puis sélectionnez **Terminer** pour déployer le service lié.
+1. Dans la boîte de dialogue **Nouveau service lié (Stockage Blob Azure)** , entrez **AzureStorageLinkedService** pour le nom, puis sélectionnez votre compte de stockage dans la liste **Nom du compte de stockage**. Testez la connexion, puis sélectionnez **Créer** pour déployer le service lié.
 
 1. Après la création du service lié, la page **Définir les propriétés** s’affiche de nouveau. En regard de **Chemin d’accès du fichier**, sélectionnez **Parcourir**.
 
-1. Accédez au dossier **adftutorial/input**, sélectionnez le fichier **emp.txt**, puis sélectionnez **Terminer**.
+1. Accédez au dossier **adftutorial/input**, sélectionnez le fichier **emp.txt**, puis sélectionnez **OK**.
 
-1. La page du pipeline s’affiche automatiquement. Sous l’onglet **Source**, vérifiez que **SourceBlobDataset** est sélectionné. Pour afficher un aperçu des données dans cette page, sélectionnez **Aperçu des données**.
+1. Sélectionnez **OK**. La page du pipeline s’affiche automatiquement. Sous l’onglet **Source**, vérifiez que **SourceBlobDataset** est sélectionné. Pour afficher un aperçu des données dans cette page, sélectionnez **Aperçu des données**.
 
     ![Jeu de données source](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
 ### <a name="configure-sink"></a>Configurer le récepteur
+>[!TIP]
+>Dans ce tutoriel, vous utilisez l’*authentification SQL* comme type d’authentification pour votre magasin de données récepteur, mais vous pouvez choisir d’autres méthodes d’authentification prises en charge : un *principal de service* et une *identité managée*, si nécessaire. Pour plus d’informations, reportez-vous aux sections correspondantes de [cet article](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties).
+>Pour stocker de manière sécurisée des secrets de magasins de données, il est également recommandé d’utiliser un coffre de clés Azure. Pour obtenir des illustrations détaillées, reportez-vous à [cet article](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
 
 1. Accédez à l’onglet **Récepteur**, puis sélectionnez **+ Nouveau** pour créer un jeu de données récepteur.
 
 1. Dans la boîte de dialogue **Nouveau jeu de données**, entrez « SQL » dans la zone de recherche pour filtrer les connecteurs, sélectionnez **Azure SQL Database**, puis **Continuer**. Dans ce didacticiel, vous copiez des données vers une base de données SQL.
 
-1. Dans la boîte de dialogue **Définir les propriétés**, entrez **OutputSqlDataset** comme nom. En regard de la zone de texte **Service lié**, sélectionnez **+ Nouveau**. Un jeu de données doit être associé à un service lié. Le service lié comporte la chaîne de connexion utilisée par Data Factory pour établir la connexion à la base de données SQL lors de l’exécution. Le jeu de données spécifie le conteneur, le dossier et le fichier (facultatif) dans lequel les données sont copiées.
+1. Dans la boîte de dialogue **Définir les propriétés**, entrez **OutputSqlDataset** comme nom. Dans la liste déroulante **Service lié**, sélectionnez **+ Nouveau**. Un jeu de données doit être associé à un service lié. Le service lié comporte la chaîne de connexion utilisée par Data Factory pour établir la connexion à la base de données SQL lors de l’exécution. Le jeu de données spécifie le conteneur, le dossier et le fichier (facultatif) dans lequel les données sont copiées.
 
 1. Dans la boîte de dialogue **Nouveau service lié (Azure SQL Database)** , effectuez les étapes suivantes :
 
@@ -163,17 +169,17 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
 
     f. Sélectionnez **Tester la connexion** pour tester la connexion.
 
-    g. Sélectionnez **Terminer** pour déployer le service lié.
+    g. Sélectionnez **Créer** pour déployer le service lié.
 
     ![Enregistrer le nouveau service lié](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. La boîte de dialogue **Définir les propriétés** s’affiche automatiquement. Sélectionnez **[dbo].[emp]** dans le champ **Table**. Sélectionnez **Terminer**.
+1. La boîte de dialogue **Définir les propriétés** s’affiche automatiquement. Sélectionnez **[dbo].[emp]** dans le champ **Table**. Sélectionnez ensuite **OK**.
 
 1. Accédez à l’onglet avec le pipeline, puis dans **Jeu de données récepteur**, vérifiez que l’option **OutputSqlDataset** est sélectionnée.
 
     ![Onglet Pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
 
-Vous pouvez éventuellement mapper le schéma de la source au schéma correspondant de la destination en vous reportant à [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
+Si vous le souhaitez, vous pouvez mapper le schéma de la source au schéma correspondant de la destination en suivant les instructions mentionnées dans [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="validate-the-pipeline"></a>Valider le pipeline
 Sélectionnez **Valider** dans la barre d’outils pour valider les paramètres du pipeline.
@@ -185,22 +191,22 @@ Vous pouvez déboguer un pipeline avant de publier des artefacts (services liés
 
 1. Pour déboguer le pipeline, sélectionnez **Déboguer** dans la barre d’outils. L’état d’exécution du pipeline apparaît dans l’onglet **Sortie** au bas de la fenêtre.
 
-1. Une fois que le pipeline peut s’exécuter correctement, sélectionnez **Publier tout** dans la barre d’outils supérieure. Cette action publie les entités (jeux de données et pipelines) que vous avez créées dans Data Factory.
+1. Une fois que le pipeline peut s’exécuter correctement, sélectionnez **Publier tout** dans la barre d’outils supérieure. Cette action publie les entités (jeux de données et pipelines) que vous avez créées dans Data Factory.
 
 1. Patientez jusqu’à voir le message **Publication réussie**. Pour afficher les messages de notification, cliquez sur **Afficher les notifications** en haut à droite (bouton en forme de cloche).
 
 ## <a name="trigger-the-pipeline-manually"></a>Déclencher le pipeline manuellement
 Dans cette étape, vous déclenchez manuellement le pipeline que vous avez publié dans l’étape précédente.
 
-1. Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclencher maintenant**. Dans la page **Exécution du pipeline**, sélectionnez **Terminer**.  
+1. Sélectionnez **Déclencher** dans la barre d’outils, puis **Déclencher maintenant**. Dans la page **Exécution du pipeline**, sélectionnez **OK**.  
 
-1. Accédez à l’onglet **Surveiller** sur la gauche. Vous voyez un pipeline qui est déclenché par un déclencheur manuel. Vous pouvez utiliser les liens dans la colonne **Actions** pour afficher les détails de l’activité et réexécuter le pipeline.
+1. Accédez à l’onglet **Surveiller** sur la gauche. Vous voyez un pipeline qui est déclenché par un déclencheur manuel. Vous pouvez utiliser les liens sous la colonne **NOM DU PIPELINE** pour voir les détails de l’activité et réexécuter le pipeline.
 
-    ![Surveiller des exécutions de pipelines](./media/tutorial-copy-data-portal/monitor-pipeline.png)
+    [![Superviser les exécutions de pipelines](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
-1. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Dans cet exemple, il n’y a qu’une seule activité, vous ne voyez donc qu’une seule entrée dans la liste. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Sélectionnez **Exécutions de pipeline** au sommet de la page pour revenir à la vue des exécutions du pipeline. Sélectionnez **Actualiser** pour actualiser l’affichage.
+1. Pour voir les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **CopyPipeline** sous la colonne **NOM DU PIPELINE**. Dans cet exemple, il n’y a qu’une seule activité, vous ne voyez donc qu’une seule entrée dans la liste. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **NOM DE L’ACTIVITÉ**. Sélectionnez **Toutes les exécutions de pipelines** en haut pour revenir à la vue Exécutions de pipelines. Sélectionnez **Actualiser** pour actualiser l’affichage.
 
-    ![Surveiller des exécutions d’activités](./media/tutorial-copy-data-portal/view-activity-runs.png)
+    [![Superviser des exécutions d’activités](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
 1. Vérifiez que deux lignes supplémentaires sont ajoutées à la table **emp** dans la base de données SQL.
 
@@ -209,9 +215,9 @@ Dans cette planification, vous créez un déclencheur de planificateur pour le p
 
 1. Accédez à l’onglet **Auteur** sur la gauche au-dessus de l’onglet Surveiller.
 
-1. Accédez à votre pipeline, cliquez sur **Ajouter un déclencheur** dans la barre d’outils, puis sélectionnez **Nouveau/Modifier**.
+1. Accédez à votre pipeline, cliquez sur **Déclencheur** dans la barre d’outils, puis sélectionnez **Nouveau/Modifier**.
 
-1. Dans la boîte de dialogue **Ajouter des déclencheurs**, sélectionnez **+ Nouveau** dans la zone **Choisir un déclencheur**.
+1. Dans la boîte de dialogue **Ajouter des déclencheurs**, sélectionnez **+ Nouveau** dans la zone **Choisir un déclencheur**.
 
 1. Dans la fenêtre **Nouveau déclencheur**, procédez comme suit :
 
@@ -225,25 +231,24 @@ Dans cette planification, vous créez un déclencheur de planificateur pour le p
 
     e. Mettez à jour la partie **Heure de fin** en choisissant quelques minutes après la date/heure actuelle. Le déclencheur n’est activé qu’après avoir publié les modifications. Si vous le définissez à quelques minutes d’intervalle mais ne publiez pas, vous ne voyez pas d’exécution du déclencheur.
 
-    f. Sélectionnez **Appliquer**.
+    f. Sélectionnez **OK**.
 
     g. Pour l’option **Activé**, sélectionnez **Oui**.
 
-    h. Sélectionnez **Suivant**.
-
-    ![Bouton Activé](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
+    h. Sélectionnez **OK**.
 
     > [!IMPORTANT]
     > Chaque exécution de pipeline coûte de l’argent. Il est donc important de définir correctement la date de fin.
-1. Dans la page **Paramètres d’exécution du déclencheur**, lisez l’avertissement, puis sélectionnez **Terminer**. Le pipeline de cet exemple n’accepte pas de paramètres.
 
-1. Cliquez sur **Publier tout** pour publier la modification.
+1. Dans la page **Modifier le déclencheur**, lisez l’avertissement, puis sélectionnez **Enregistrer**. Le pipeline de cet exemple n’accepte pas de paramètres.
+
+1. Cliquez sur **Publier tout** pour publier le changement.
 
 1. Accédez à l’onglet **Surveiller** sur la gauche pour voir les exécutions du pipeline déclenchées.
 
-    ![Exécutions du pipeline déclenchées](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
+    [![Exécutions du pipeline déclenchées](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
 
-1. Pour basculer de la vue des **exécutions du pipeline** vers la vue des **exécutions du déclencheur**, sélectionnez **Exécutions de déclencheur** en haut de la fenêtre.
+1. Pour passer de la vue **Exécutions de pipeline** à la vue **Exécutions de déclencheur**, sélectionnez **Exécutions de déclencheur** sur le côté gauche de la fenêtre.
 
 1. Vous voyez les exécutions du déclencheur dans une liste.
 

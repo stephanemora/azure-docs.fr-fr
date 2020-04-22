@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978030"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403720"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutoriel : Utiliser Custom Vision avec un appareil IoT pour signaler des états visuels
 
-Cet exemple d’application montre comment utiliser Custom Vision pour effectuer l’apprentissage d’un appareil avec une caméra pour détecter les états visuels. Vous pouvez exécuter ce scénario de détection sur un appareil IoT à l’aide d’un modèle ONNX exporté à partir du service Custom Vision.
+Cet exemple d’application montre comment utiliser Custom Vision pour effectuer l’apprentissage d’un appareil avec une caméra pour détecter les états visuels. Vous pouvez exécuter ce scénario de détection sur un appareil IoT à l’aide d’un modèle ONNX exporté.
 
-Un état visuel décrit le contenu d’une image : une salle vide ou une salle où des personnes sont présentes, une allée vide ou une allée avec camion, et ainsi de suite. Dans l’image ci-dessous, vous pouvez voir que l’application détecte quand une banane ou une pomme est placée devant la caméra.
+Un état visuel décrit le contenu d’une image : une salle vide ou une salle où des personnes sont présentes, une allée vide avec un camion, et ainsi de suite. Dans l’image ci-dessous, vous pouvez voir que l’application détecte quand une banane ou une pomme est placée devant la caméra.
 
 ![Animation d’une IU reconnaissant un fruit devant la caméra](./media/iot-visual-alerts-tutorial/scoring.gif)
 
@@ -92,7 +92,7 @@ Pour configurer un modèle, vous devez placer l’application dans l’état **C
 * Si vous exécutez l’application sur un PC, utilisez le bouton situé dans l’angle supérieur droit de l’interface utilisateur.
 * Si vous exécutez l’application sur un appareil IoT, appelez la méthode `EnterLearningMode` sur l’appareil via IoT Hub. Vous pouvez l’appeler par le biais de l’entrée de l’appareil dans le menu IoT Hub du portail Azure ou à l’aide d’un outil comme [Explorateur d'appareils IoT Hub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
  
-Lorsque l’application entre dans l’état **Capture des images d’apprentissage**, elle capture environ deux images par seconde jusqu’à ce qu’elle ait atteint le nombre cible d’images. Par défaut, le nombre cible est de 30 images, mais vous pouvez définir ce paramètre en passant le nombre souhaité en tant qu’argument à la méthode `EnterLearningMode` IoT Hub. 
+Lorsque l’application entre dans l’état **Capture des images d’apprentissage**, elle capture environ deux images par seconde jusqu’à ce qu’elle ait atteint le nombre cible d’images. Par défaut, le nombre cible est de 30 images, mais vous pouvez définir ce paramètre en passant le nombre souhaité en tant qu’argument à la méthode `EnterLearningMode` IoT Hub. 
 
 Pendant que l’application capture des images, vous devez exposer la caméra aux types d’états visuels que vous souhaitez détecter (par exemple, une salle vide, une salle où des personnes sont présentes, un bureau vide, un bureau avec un camion jouet, etc.).
 

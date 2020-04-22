@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/08/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70c86c82cb28bf767da50cca20f7c1d052d4bf01
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 83afff3aa15caa1743f66eea9eaee541492b8d1c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982534"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260834"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM
 
@@ -124,7 +124,8 @@ Pour répertorier tous les trois comptes de stockage, omettez le paramètre --na
 echo "Enter a project name that is used to generate resource group name:" &&
 read projectName &&
 resourceGroupName="${projectName}rg" &&
-az storage account list --resource-group $resourceGroupName
+az storage account list --resource-group $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -133,6 +134,7 @@ az storage account list --resource-group $resourceGroupName
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
 $resourceGroupName = "${projectName}rg"
 Get-AzStorageAccount -ResourceGroupName $resourceGroupName
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ---
@@ -145,7 +147,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 1. Dans le portail Azure, sélectionnez **Groupe de ressources** dans le menu de gauche.
 2. Entrez le nom du groupe de ressources dans le champ **Filtrer par nom**.
-3. Sélectionnez le nom du groupe de ressources.  Vous devriez voir six ressources au total dans le groupe de ressources.
+3. Sélectionnez le nom du groupe de ressources.  Vous devez voir au total trois ressources dans le groupe de ressources.
 4. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
 
 ## <a name="next-steps"></a>Étapes suivantes

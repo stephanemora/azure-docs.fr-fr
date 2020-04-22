@@ -1,14 +1,14 @@
 ---
 title: 'Modèle : Opérateurs logiques d’une définition de stratégie'
 description: Ce modèle Azure Policy fournit des exemples d’utilisation des opérateurs logiques dans une définition de stratégie.
-ms.date: 01/31/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 8e57efaea81848c6b2d0188dbf3f91e06ed74c67
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 691383b1f8ae34bbd51ce7f4f9310980e3c66537
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170237"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272506"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Modèle Azure Policy : opérateurs logiques
 
@@ -38,6 +38,18 @@ Cette définition de stratégie évalue les ressources à la recherche d’un mo
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
 
 Ce bloc **policyRule.if** comprend également un **allOf**, mais chacune des conditions est wrappée avec l’opérateur logique **not**. L’opérateur conditionnel à l’intérieur de l’opérateur logique **not** est évalué en premier, puis **not** est évalué afin de déterminer si la clause entière est true ou false. Si les deux opérateurs logiques **not** ont la valeur true, l’effet de stratégie est déclenché.
+
+## <a name="sample-3-combining-logical-operators"></a>Exemple 3 : Combinaison d’opérateurs logiques
+
+Cette définition de stratégie évalue les comptes Java Spring pour déterminer si la trace n’est pas activée ou si elle n’est pas dans un état de réussite.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
+
+### <a name="sample-3-explanation"></a>Exemple 3 : Explication
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json" range="6-28" highlight="3,8":::
+
+Ce bloc **policyRule.if** inclut les deux opérateurs logiques **allOf** et **anyOf**. L’opérateur logique **anyOf** prend la valeur true tant qu’une condition incluse a la valeur true. Étant donné que le _type_ se trouve au cœur de l’opérateur **allOf**, il doit toujours prendre la valeur true. Si le _type_ et l’une des conditions de l’opérateur **anyOf** a la valeur true, l’effet de stratégie est déclenché.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

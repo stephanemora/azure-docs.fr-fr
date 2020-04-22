@@ -4,16 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: 256510f855256e648ae9203f46eb9f66c9ffaed6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d8665b4cec3357baee5d6c1b77b5719645575419
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77029163"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112875"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publication du projet sur Azure
 
 Dans cette section, vous créez une application de fonction et les ressources associées dans votre abonnement Azure, puis vous déployez votre code. 
+
+> [!IMPORTANT]
+> La publication sur une application de fonction existante remplace le contenu de cette application dans Azure. 
+
 
 1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions**, choisissez le bouton **Déployer sur une application de fonction**.
 
@@ -23,11 +27,8 @@ Dans cette section, vous créez une application de fonction et les ressources as
 
     + **Sélectionnez l’abonnement** : choisissez l’abonnement à utiliser. Vous ne verrez pas ceci si vous n’avez qu’un seul abonnement.
 
-    + **Sélectionnez une application de fonction dans Azure** : Choisissez `+ Create new Function App` (et non pas `Advanced`). Cet article ne prend pas en charge le [flux de publication avancé](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
-    
-    >[!IMPORTANT]
-    > La publication sur une application de fonction existante remplace le contenu de cette application dans Azure. 
-    
+    + **Sélectionnez une application de fonction dans Azure** : Choisissez `+ Create new Function App`. (Ne choisissez pas l’option `Advanced`, qui n’est pas abordée dans cet article.)
+      
     + **Entrer un nom global unique pour l’application de fonction** : Tapez un nom valide dans un chemin d’URL. Le système vérifie que le nom que vous tapez est unique dans Azure Functions. 
     
     ::: zone pivot="programming-language-python"
@@ -40,13 +41,13 @@ Dans cette section, vous créez une application de fonction et les ressources as
 
     + **Sélectionnez un emplacement pour les nouvelles ressources** :  Pour de meilleures performances, choisissez une [région](https://azure.microsoft.com/regions/) proche de vous. 
     
-1.  Quand vous avez terminé, les ressources Azure suivantes sont créées dans votre abonnement :
-
-    + **[Groupe de ressources](../articles/azure-resource-manager/management/overview.md)**  : contient toutes les ressources Azure créées. Le nom est basé sur le nom de votre application de fonction.
-    + **[Compte de stockage](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)**  : un compte de stockage standard est créé avec un nom unique, basé sur le nom de votre application de fonction.
-    + **[Plan d'hébergement](../articles/azure-functions/functions-scale.md)**  : un plan de consommation est créé dans la région USA Ouest pour héberger votre application de fonction serverless.
-    + **Application de fonction** : votre projet est déployé dans cette nouvelle application de fonction avant d'y être exécuté.
-    + **Application Insights** : Une instance, connectée à votre application de fonction, est créée en fonction du nom de votre fonction.
+1.  Quand vous avez terminé, les ressources Azure suivantes sont créées dans votre abonnement et leurs noms reposent sur le nom de votre application de fonction :
+    
+    + Un groupe de ressources, qui est un conteneur logique pour les ressources associées.
+    + Un compte de stockage Azure standard, qui conserve l’état et d’autres informations spécifiques à vos projets.
+    + Un plan de consommation, qui définit l’hôte sous-jacent pour votre application de fonction serverless. 
+    + Une application de fonction, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction vous permet de regrouper des fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources au sein du même plan d’hébergement.
+    + Une instance Application Insights connectée à l’application de fonction, qui effectue le suivi de l’utilisation de votre fonction serverless.
 
     Une notification s’affiche après que votre application de fonction a été créée et que le package de déploiement a été appliqué. 
     

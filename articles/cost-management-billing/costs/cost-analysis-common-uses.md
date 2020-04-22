@@ -3,16 +3,16 @@ title: Usages courants de l’analyse des coûts dans Azure Cost Management
 description: Cet article explique comment obtenir des résultats des tâches courantes d’analyse des coûts dans Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520875"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261490"
 ---
 # <a name="common-cost-analysis-uses"></a>Usages courants de l’analyse des coûts
 
@@ -27,6 +27,17 @@ La visualisation des coûts par service Azure peut vous aider à mieux comprendr
 1. Choisissez la vue **Tableau**.
 
 [![Décomposition des coûts par service Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
+
+## <a name="review-invoiced-charges-in-cost-analysis"></a>Passer en revue les frais facturés dans l’analyse des coûts
+
+Pour voir les détails de votre facture dans le portail Azure, accédez à l’analyse des coûts de l’étendue associée à la facture que vous analysez. Sélectionnez la vue **Détails de la facture**. Les détails de la facture vous indiquent les frais tels qu’ils apparaissent sur la facture.
+
+[![Exemple montrant les détails de la facture](./media/cost-analysis-common-uses/invoice-details.png)](./media/cost-analysis-common-uses/invoice-details.png#lightbox)
+
+En examinant les détails de la facture, vous pouvez identifier le service qui a généré des coûts inattendus et déterminer les ressources qui sont directement associées à la ressource dans l’analyse des coûts. Par exemple, si vous souhaitez analyser les frais liés au service Machines virtuelles, accédez à la vue **Coût cumulé**. Ensuite, choisissez **Quotidienne** comme fréquence, définissez le filtre **Nom du service : Machines virtuelles** et regroupez les frais par **Ressource**.
+
+[![Exemple montrant les coûts cumulés pour les machines virtuelles](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
+
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Voir la décomposition des coûts par ressource Azure
 

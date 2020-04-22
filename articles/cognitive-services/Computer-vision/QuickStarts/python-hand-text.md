@@ -8,26 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fafc5234da3e6dfecdae2c8b2e2ba80cbed20b5c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 29944311c2215ebcc46ff3752004092bdeb9a9c8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244799"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404392"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-python"></a>Démarrage rapide : Extraire du texte imprimé et manuscrit à l’aide de l’API REST Vision par ordinateur 2.0 ou 2.1 et de Python
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Démarrage rapide : Extraire du texte imprimé et manuscrit à l’aide de l’API REST Vision par ordinateur et de Python
 
 Dans ce guide de démarrage rapide, vous allez extraire le texte imprimé et/ou manuscrit d’une image en utilisant l’API REST de Vision par ordinateur. Avec les méthodes [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) et [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d), vous pouvez détecter le texte dans une image et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement. L’API détermine le modèle de reconnaissance à utiliser pour chaque ligne de texte. Elle prend donc en charge les images contenant à la fois du texte imprimé et manuscrit.
 
-Par rapport à Vision par ordinateur 2.0 et 2.1, la préversion publique Vision par ordinateur 3.0 offre :
+Cette fonctionnalité est disponible dans une API v2.1 et une API en préversion publique v3.0. Par rapport à l’API v2.1, l’API 3.0 présente les caractéristiques suivantes :
 
-* Une justesse encore supérieure
-* Un nouveau format de sortie
-* Un score de confiance pour les mots
-* La prise en charge de l’espagnol et de l’anglais avec le paramètre de langue supplémentaire
+* Précision accrue
+* Des scores de confiance pour les mots
+* La prise en charge de l’espagnol et de l’anglais avec le paramètre `language` supplémentaire
+* Un format de sortie différent
+
+Sélectionnez ci-dessous l’onglet correspondant à la version que vous utilisez.
 
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
@@ -833,7 +835,9 @@ Une réponse correcte est retournée au format JSON. La page Web d’exemple ana
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+À présent, explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, étiqueter et décrire des caractéristiques visuelles dans les images.
 
 > [!div class="nextstepaction"]
 > [Tutoriel sur l’API Vision par ordinateur Python](../Tutorials/PythonTutorial.md)
+
+* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

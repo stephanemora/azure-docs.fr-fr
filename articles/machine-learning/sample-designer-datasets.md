@@ -1,7 +1,7 @@
 ---
-title: Utilisation des exemples de jeux de données dans le concepteur Azure Machine Learning
+title: Exemples de données pour le concepteur
 titleSuffix: Azure Machine Learning
-description: Découvrez-en plus sur les exemples de jeux de données dans le concepteur Azure Machine Learning.
+description: Découvrez les exemples de jeux de données disponibles avec le concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.date: 03/03/2020
-ms.openlocfilehash: 943e23aa9d83df33bbe636ce7aee62e6e5a2950e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b19c1ed5aa556a2cfb633ac6fbc0cf9f95d0337f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037307"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256975"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-designer-preview"></a>Utilisation des exemples de jeux de données dans le concepteur Azure Machine Learning (préversion)
+# <a name="sample-datasets-in-azure-machine-learning-designer-preview"></a>Exemples de jeux de données dans le concepteur Azure Machine Learning (préversion)
 
 Quand vous créez un pipeline dans le concepteur Azure Machine Learning (préversion), vous disposez par défaut d’un certain nombre d’exemples de jeux de données. Ces exemples de jeux de données sont utilisés par les exemples de pipelines dans la page d’accueil du concepteur. 
 

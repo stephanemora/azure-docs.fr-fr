@@ -1,22 +1,22 @@
 ---
-title: 'Tutoriel : Configurer la terminaison SSL dans le portail – Azure Application Gateway'
-description: Dans ce tutoriel, vous allez découvrir comment configurer une passerelle d’application et ajouter un certificat pour un arrêt SSL à partir du portail Azure.
+title: 'Tutoriel : Configurer la terminaison TLS dans le portail - Azure Application Gateway'
+description: Dans ce tutoriel, vous allez découvrir comment configurer une passerelle d’application et ajouter un certificat pour un arrêt TLS à partir du portail Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74012309"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312391"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
+# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle d’application avec un arrêt TLS à l’aide du portail Azure
 
-Vous pouvez utiliser le portail Azure afin de configurer une [passerelle d’application](overview.md) avec un certificat pour un arrêt SSL qui utilise des machines virtuelles avec des serveurs backend.
+Vous pouvez utiliser le portail Azure pour configurer une [passerelle d’application](overview.md) avec un certificat pour un arrêt TLS qui utilise des machines virtuelles avec des serveurs back-end.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -265,4 +265,4 @@ Dans cet exemple, vous allez installer IIS sur les machines virtuelles uniquemen
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrir plus d’informations sur la prise en charge de SSL par Application Gateway](ssl-overview.md)
+> [En savoir plus sur la prise en charge de TLS Application Gateway](ssl-overview.md)

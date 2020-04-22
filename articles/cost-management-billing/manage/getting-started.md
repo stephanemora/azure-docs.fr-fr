@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/30/2020
+ms.date: 04/10/2020
 ms.author: banders
-ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475262"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262085"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -193,6 +193,17 @@ Votre facture Azure agrège les frais mensuels par _compteur_. Les compteurs son
 Filtrez le fichier CSV d’utilisation selon le nom du compteur (_MeterName_) qui figure sur la facture que vous souhaitez analyser. Vous pouvez ainsi voir tous les éléments de ligne qui s’appliquent au compteur. L’_InstanceID_ pour l’élément de ligne correspond à la ressource Azure ayant généré les frais.
 
 Après avoir identifié la ressource en question, vous pouvez utiliser l’analyse des coûts dans Azure Cost Management pour analyser plus en détail les coûts liés à la ressource. Pour en savoir plus sur l’utilisation de l’analyse des coûts, consultez [Démarrer l’analyse des coûts](../costs/quick-acm-cost-analysis.md).
+
+### <a name="review-invoiced-charges-in-cost-analysis"></a>Passer en revue les frais facturés dans l’analyse des coûts
+
+Pour voir les détails de votre facture dans le portail Azure, accédez à l’analyse des coûts de l’étendue associée à la facture que vous analysez. Sélectionnez la vue **Détails de la facture**. Les détails de la facture vous indiquent les frais tels qu’ils apparaissent sur la facture.
+
+[![Exemple montrant les détails de la facture](./media/getting-started/invoice-details.png)](./media/getting-started/invoice-details.png#lightbox)
+
+En examinant les détails de la facture, vous pouvez identifier le service qui a généré des coûts inattendus et déterminer les ressources qui sont directement associées à la ressource dans l’analyse des coûts. Par exemple, si vous souhaitez analyser les frais liés au service Machines virtuelles, accédez à la vue **Coût cumulé**. Ensuite, choisissez **Quotidienne** comme fréquence, définissez le filtre **Nom du service : Machines virtuelles** et regroupez les frais par **Ressource**.
+
+[![Exemple montrant les coûts cumulés pour les machines virtuelles](./media/getting-started/virtual-machines.png)](./media/getting-started/virtual-machines.png#lightbox)
+
 
 ### <a name="identify-spikes-in-cost-over-time"></a>Identifier les pics de coût dans le temps
 

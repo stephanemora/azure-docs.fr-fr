@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : détecter des visages dans une image à l’aide de l’API REST et Ruby'
+title: 'Démarrage rapide : Détecter des visages sur une image avec l’API REST et Ruby'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de l’API REST Visage avec Ruby.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 892e7e0fe362e25cf1ca69146bd27a77baf41f24
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3ec6eb60a7325eb87ca637541c5f4222eab98053
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169437"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403171"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Démarrage rapide : détecter des visages dans une image à l’aide de l’API REST et Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Ruby
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec Ruby pour détecter des visages humains dans une image.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Clé d’abonnement au service Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions fournies dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Visage et obtenir votre clé.
 - Un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/download).

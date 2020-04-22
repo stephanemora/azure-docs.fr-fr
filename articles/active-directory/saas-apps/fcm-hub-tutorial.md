@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee1ea7d2623d6315007257218ddfc4e6ce445e65
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5abc1e093dc7d4e8da823227dc3e3caa556e37e4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80669025"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406846"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fcm-hub"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à FCM HUB
 
@@ -92,9 +92,18 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez le responsable de compte qui vous est affecté ou contactez l’équipe de support technique de [FCM HUB](mailto:fcmssoadmin@us.fcm.travel) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Gérer la revendication**, dans la section **Attributs et revendications utilisateur**, ajoutez ces attributs personnalisés :
+   - **Nom** : PortalID
+   - **Source** : Attribut
+   - **Attribut source** : PortalID, valeur fournie par FCM
+
+1. Dans la section **Certificat de signature SAML**, utilisez l’option Modifier pour sélectionner ou entrer les paramètres suivants, puis sélectionnez **Enregistrer** :
+   - **Option de signature** : Signer la réponse SAML
+   - **Algorithme de signature** : SHA-256
+
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 

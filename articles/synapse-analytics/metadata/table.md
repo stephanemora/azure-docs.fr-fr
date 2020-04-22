@@ -1,0 +1,223 @@
+---
+title: Tables de métadonnées partagées Azure Synapse Analytics
+description: Azure Synapse Analytics fournit un modèle de métadonnées partagées, où le fait de créer une table dans Apache Spark la rend accessible à partir de ses moteurs de pools SQL et SQL à la demande (préversion) sans duplication des données.
+services: sql-data-warehouse
+author: MikeRys
+ms.service: synapse-analytics
+ms.topic: overview
+ms.subservice: ''
+ms.date: 04/15/2020
+ms.author: mrys
+ms.reviewer: jrasnick
+ms.openlocfilehash: 7c1951c772dcd2f49f4f7c09021f69193af0a87e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81420833"
+---
+# <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tables de métadonnées partagées Azure Synapse Analytics
+
+[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
+
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables Parquet entre leurs pools Apache Spark (préversion), le moteur SQL à la demande (préversion) et les pools SQL.
+
+Une fois qu’une base de données a été créée par un travail Spark, vous pouvez y créer des tables avec Spark qui utilisent Parquet comme format de stockage. Ces tables sont immédiatement disponibles pour l’interrogation par n’importe lequel des pools Spark de l’espace de travail Azure Synapse. Elles peuvent également être utilisées à partir de n’importe quel travail Spark, soumis à certaines autorisations.
+
+Les tables Spark externes, créées et gérées sont également rendues disponibles en tant que tables externes portant le même nom dans la base de données synchronisée correspondante dans SQL à la demande et dans les schémas au préfixe `$` correspondants dans les pools SQL dont la synchronisation des métadonnées est activée. [Exposition d’une table Spark dans SQL](#exposing-a-spark-table-in-sql) fournit plus de détails sur la synchronisation des tables.
+
+Étant donné que les tables sont synchronisées avec SQL à la demande et les pools SQL de manière asynchrone, il y aura un délai avant leur apparition.
+
+Mappage de tables à des tables externes, des sources de données et des formats de fichiers.
+
+## <a name="manage-a-spark-created-table"></a>Gérer une table créée avec Spark
+
+Utilisez Spark pour gérer les bases de données créées avec Spark. Par exemple, supprimez-les par le biais d’un travail de pool Spark et créez-y des tables à partir de Spark.
+
+Si vous créez des objets dans une base de données de ce type à partir de SQL à la demande ou que vous essayez de supprimer la base de données, l’opération réussira, mais la base de données Spark d’origine ne sera pas modifiée.
+
+Si vous tentez de supprimer le schéma synchronisé dans un pool SQL, ou tentez d’y créer une table, Azure retourne une erreur.
+
+## <a name="exposing-a-spark-table-in-sql"></a>Exposition d’une table Spark dans SQL
+
+### <a name="which-spark-tables-are-shared"></a>Quelles sont les tables Spark partagées ?
+
+Spark fournit deux types de tables qu’Azure Synapse expose automatiquement dans SQL :
+
+- Tables gérées
+
+  Spark offre de nombreuses options pour le stockage des données dans des tables gérées, telles que TEXT, CSV, JSON, JDBC, PARQUET, ORC, HIVE, DELTA et LIBSVM. Ces fichiers sont normalement stockés dans le répertoire `warehouse` dans lequel sont stockées les données des tables gérées.
+
+- Tables externes
+
+  Spark fournit également des moyens de créer des tables externes sur des données existantes, soit en spécifiant l’option `LOCATION`, soit en utilisant le format Hive. Ces tables externes peuvent être de divers formats de données, notamment Parquet.
+
+Azure Synapse partage actuellement uniquement les tables Spark gérées et externes qui stockent leurs données au format Parquet avec les moteurs SQL. Les tables d’autres formats ne sont pas automatiquement synchronisées. Vous pourrez peut-être synchroniser ces tables de manière explicite en tant que table externe dans votre propre base de données SQL si le moteur SQL prend en charge le format sous-jacent de la table.
+
+### <a name="how-are-spark-tables-shared"></a>Comment les tables Spark sont-elles partagées ?
+
+Les tables Spark gérées et externes partageables sont exposées dans les moteurs SQL en tant que tables externes, avec les propriétés suivantes :
+
+- La source de données de la table externe SQL est la source de données représentant le dossier d’emplacement de la table Spark.
+- Le format de fichier de la table externe SQL est Parquet.
+- Les informations d’identification d’accès de la table externe SQL sont directes.
+
+Étant donné que tous les noms de tables Spark sont des noms de tables SQL valides et que tous les noms de colonnes Spark sont des noms de colonnes SQL valides, les noms de tables et de colonnes Spark sont utilisés pour la table externe SQL.
+
+Les tables Spark fournissent des types de données différents de ceux des moteurs SQL Synapse. Le tableau suivant mappe les types de données de table Spark aux types SQL :
+
+| Type de données Spark | Type de données SQL | Commentaires |
+|---|---|---|
+| `byte`      | `smallint`       ||
+| `short`     | `smallint`       ||
+| `integer`   |    `int`            ||
+| `long`      |    `bigint`         ||
+| `float`     | `real`           |<!-- need precision and scale-->|
+| `double`    | `float`          |<!-- need precision and scale-->|
+| `decimal`      | `decimal`        |<!-- need precision and scale-->|
+| `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
+| `date`      | `date`           ||
+| `string`    |    `varchar(max)`   | Avec classement `Latin1_General_CP1_CI_AS_UTF8` |
+| `binary`    |    `varbinary(max)` ||
+| `boolean`   |    `bit`            ||
+| `array`     |    `varchar(max)`   | Sérialise en JSON avec classement `Latin1_General_CP1_CI_AS_UTF8` |
+| `map`       |    `varchar(max)`   | Sérialise en JSON avec classement `Latin1_General_CP1_CI_AS_UTF8` |
+| `struct`    |    `varchar(max)`   | Sérialise en JSON avec classement `Latin1_General_CP1_CI_AS_UTF8` |
+
+<!-- TODO: Add precision and scale to the types mentioned above -->
+
+## <a name="security-model"></a>Modèle de sécurité
+
+Les bases de données et les tables Spark, ainsi que leurs représentations synchronisées dans les moteurs SQL, sont sécurisées au niveau du stockage sous-jacent. Puisqu’elles n’ont actuellement pas d’autorisations sur les objets eux-mêmes, les objets sont visibles dans l’Explorateur d’objets.
+
+Le principal de sécurité qui crée une table gérée est considéré comme le propriétaire de cette table et dispose de tous les droits sur la table ainsi que sur les dossiers et fichiers sous-jacents. En outre, le propriétaire de la base de données devient automatiquement copropriétaire de la table.
+
+Si vous créez une table externe SQL ou Spark avec authentification directe, les données sont sécurisées uniquement au niveau des dossiers et des fichiers. Si quelqu’un interroge ce type de table externe, l’identité de sécurité de l’expéditeur de la requête est transmise au système de fichiers, qui vérifiera les droits d’accès.
+
+Pour plus d’informations sur la façon de définir des autorisations sur les dossiers et les fichiers, consultez [Base de données partagée Azure Synapse Analytics](database.md).
+
+## <a name="examples"></a>Exemples
+
+### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Créer une table gérée au format Parquet dans Spark et interroger à partir de SQL à la demande
+
+Dans ce scénario, vous disposez d’une base de données Spark nommée `mytestdb`. Consultez [Créer une base de données Spark et s’y connecter - SQL à la demande](database.md#create--connect-to-spark-database---sql-on-demand).
+
+Créez une table Spark gérée avec SparkSQL en exécutant la commande suivante :
+
+```sql
+    CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
+```
+
+Cela crée la table `myParquetTable` dans la base de données `mytestdb`. Après un bref délai, la table est visible dans SQL à la demande. Par exemple, exécutez l’instruction suivante à partir de SQL à la demande.
+
+```sql
+    USE mytestdb;
+    SELECT * FROM sys.tables;
+```
+
+Vérifiez que `myParquetTable` est inclus dans les résultats.
+
+>[!NOTE]
+>Une table qui n’utilise pas Parquet comme format de stockage n’est pas synchronisée.
+
+Ensuite, insérez des valeurs dans la table à partir de Spark, par exemple avec les instructions Spark C# suivantes dans un notebook C# :
+
+```csharp
+using Microsoft.Spark.Sql.Types;
+
+var data = new List<GenericRow>();
+
+data.Add(new GenericRow(new object[] { 1, "Alice", new Date(2010, 1, 1)}));
+data.Add(new GenericRow(new object[] { 2, "Bob", new Date(1990, 1, 1)}));
+
+var schema = new StructType
+    (new List<StructField>()
+        {
+            new StructField("id", new IntegerType()),
+            new StructField("name", new StringType()),
+            new StructField("birthdate", new DateType())
+        }
+    );
+
+var df = spark.CreateDataFrame(data, schema);
+df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
+```
+
+Vous pouvez maintenant lire les données à partir de SQL à la demande, de la manière suivante :
+
+```sql
+SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
+```
+
+Vous devez obtenir la ligne suivante comme résultat :
+
+```
+id | name | birthdate
+---+-------+-----------
+1 | Alice | 2010-01-01
+```
+
+### <a name="creating-an-external-table-backed-by-parquet-in-spark-and-querying-it-from-sql-on-demand"></a>Création d’une table externe au format Parquet dans Spark et interrogation de celle-ci à partir de SQL à la demande
+
+Dans cet exemple, vous allez créer une table Spark externe sur les fichiers de données Parquet qui ont été créés dans l’exemple précédent pour la table gérée.
+
+Par exemple, avec SparkSQL, exécutez :
+
+```sql
+CREATE TABLE mytestdb.myExternalParquetTable
+    USING Parquet
+    LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
+```
+
+Remplacez l’espace réservé `<fs>` par le nom du système de fichiers qui est le système de fichiers par défaut de l’espace de travail, et l’espace réservé `<synapse_ws>` par le nom de l’espace de travail Synapse que vous utilisez pour exécuter cet exemple.
+
+L’exemple précédent crée la table `myExtneralParquetTable` dans la base de données `mytestdb`. Après un bref délai, la table est visible dans SQL à la demande. Par exemple, exécutez l’instruction suivante à partir de SQL à la demande.
+
+```sql
+USE mytestdb;
+SELECT * FROM sys.tables;
+```
+
+Vérifiez que `myExternalParquetTable` est inclus dans les résultats.
+
+Vous pouvez maintenant lire les données à partir de SQL à la demande, de la manière suivante :
+
+```sql
+SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';
+```
+
+Vous devez obtenir la ligne suivante comme résultat :
+
+```
+id | name | birthdate
+---+-------+-----------
+1 | Alice | 2010-01-01
+```
+
+### <a name="querying-spark-tables-in-a-sql-pool"></a>Interrogation de tables Spark dans un pool SQL
+
+Les tables ayant été créées dans les exemples précédents, vous allez maintenant créer dans votre espace de travail un pool SQL nommé `mysqlpool` qui active la synchronisation des métadonnées (ou utilisez le pool déjà créé dans [Exposition d’une base de données Spark dans un pool SQL](database.md#exposing-a-spark-database-in-a-sql-pool)).
+
+Exécutez l’instruction suivante sur le pool SQL `mysqlpool` :
+
+```sql
+SELECT * FROM sys.tables;
+```
+
+Vérifiez que les tables `myParquetTable` et `myExternalParquetTable` sont visibles dans le schéma `$mytestdb`.
+
+Vous pouvez maintenant lire les données à partir de SQL à la demande, de la manière suivante :
+
+```sql
+SELECT * FROM [$mytestdb].myParquetTable WHERE name = 'Alice';
+SELECT * FROM [$mytestdb].myExternalParquetTable WHERE name = 'Alice';
+```
+
+Vous devez obtenir les mêmes résultats que ci-dessus avec SQL à la demande.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Apprenez-en davantage sur les métadonnées partagées Azure Synapse Analytics](overview.md)
+- [Apprenez-en davantage sur les tables de métadonnées partagées Azure Synapse Analytics](table.md)
+
+

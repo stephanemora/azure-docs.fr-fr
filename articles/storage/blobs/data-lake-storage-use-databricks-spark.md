@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: be5a2f76a99149fde378d29f2ef7748ebe60b038
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5889afa033b30606f8981ddb826aa192f24efa10
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303237"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312912"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutoriel : Azure Data Lake Storage Gen2, Azure Databricks et Spark
 
@@ -47,7 +47,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
   > [!IMPORTANT]
   > Veillez à attribuer le rôle dans l’étendue du compte de stockage Data Lake Storage Gen2. Vous pouvez attribuer un rôle à l’abonnement ou au groupe de ressources parent, mais des erreurs d’autorisation sont générées tant que ces attributions de rôles ne sont pas propagées au compte de stockage.
 
-  :heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et du mot de passe dans un fichier texte. Vous en aurez besoin bientôt.
+  :heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs pour la connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et du secret client dans un fichier texte. Vous en aurez besoin bientôt.
 
 ### <a name="download-the-flight-data"></a>Téléchargement des données de vol
 
@@ -151,7 +151,7 @@ Dans cette section, vous allez créer un conteneur et un dossier dans votre comp
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
            "fs.azure.account.oauth2.client.id": "<appId>",
-           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.secret": "<clientSecret>",
            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
@@ -161,7 +161,7 @@ Dans cette section, vous allez créer un conteneur et un dossier dans votre comp
     extra_configs = configs)
     ```
 
-18. Dans ce bloc de code, remplacez les valeurs d’espace réservé `appId`, `password`, `tenant` et `storage-account-name` par celles que vous avez collectées au moment de la finalisation des prérequis de ce tutoriel. Remplacez la valeur d’espace réservé `container-name` par le nom du conteneur.
+18. Dans ce bloc de code, remplacez les valeurs d’espace réservé `appId`, `clientSecret`, `tenant` et `storage-account-name` par celles que vous avez collectées au moment de la finalisation des prérequis de ce tutoriel. Remplacez la valeur d’espace réservé `container-name` par le nom du conteneur.
 
 19. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 

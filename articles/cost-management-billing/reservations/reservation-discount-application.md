@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: fb6e7e3fe3b7b45b503dca66dc5b039a9eceb689
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5781ade7b2f3cfc7514208861de025cc84944fcd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135485"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380631"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Comment une remise sur réservation est-elle appliquée ?
 
@@ -39,7 +39,7 @@ Quand vous achetez une réservation, la remise peut être appliquée à d’autr
 Plans de service :
 
 - Instances de machines virtuelles réservées : Lorsque vous achetez la réservation et sélectionnez **Optimisé pour flexibilité de la taille d’instance**, la couverture de remise dépend de la taille de machine virtuelle que vous sélectionnez. La réservation peut s’appliquer aux tailles des machines virtuelles dans le même groupe de gammes de tailles. Pour plus d’informations, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Capacité réservée de stockage Azure : Vous pouvez acheter une capacité réservée pour les comptes de stockage Azure standard, en unités de 100 Tio ou 1 PiB par mois. La capacité réservée de stockage Azure est disponible dans toutes les régions pour n’importe quel niveau d’accès (chaud, froid ou archive) et pour toute option de réplication (LRS, GRS ou ZRS).
+- Capacité réservée de stockage Azure : Vous pouvez acheter une capacité réservée pour les comptes de stockage Azure standard, en unités de 100 Tio ou 1 PiB par mois. Pour plus d’informations sur les régions qui prennent en charge la capacité de réserve de Stockage Azure, consultez [Tarification des objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/). La capacité de réserve de Stockage Azure est disponible pour tous les niveaux d’accès (chaud, froid ou archive) et pour toute configuration de réplication (LRS, GRS ou ZRS).
 - Capacité réservée SQL Database : la couverture de remise dépend du niveau de performance que vous choisissez. Pour plus d’informations, consultez [Comprendre comment une remise de réservation Azure est appliquée aux bases de données SQL](understand-reservation-charges.md).
 - Capacité réservée Azure Cosmos DB : la couverture de remise dépend du débit provisionné. Pour plus d’informations, consultez [Comprendre comment une remise de réservation Azure Cosmos DB est appliquée](understand-cosmosdb-reservation-charges.md).
 

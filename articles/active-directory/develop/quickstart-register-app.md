@@ -12,14 +12,14 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 1625b48d86eebaf5d8fcd4c100d89b83716ba459
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79983678d13b810a521a00ba2c1978de92a5029f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79408366"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309502"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application auprès de la plateforme des identités Microsoft
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
 Dans ce guide de démarrage rapide, vous allez inscrire une application à l’aide de l’expérience **Inscriptions d’applications** dans le portail Azure. 
 
@@ -27,8 +27,8 @@ Vous pouvez intégrer votre application à la plateforme des identités Microsof
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* Un [locataire Azure AD](quickstart-create-new-tenant.md)
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Un [locataire Azure AD](quickstart-create-new-tenant.md).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Inscrire une nouvelle application à l’aide du Portail Azure
 
@@ -41,7 +41,7 @@ Vous pouvez intégrer votre application à la plateforme des identités Microsof
 
     | Types de comptes pris en charge | Description |
     |-------------------------|-------------|
-    | **Comptes dans cet annuaire organisationnel uniquement** | Sélectionnez cette option si vous générez une application métier. Cette option n’est pas disponible si vous n’inscrivez pas l’application dans un annuaire.<br><br>Cette option ne mappe qu’à un compte Azure AD à locataire unique.<br><br>Il s’agit de l’option par défaut, sauf si vous inscrivez l’application hors annuaire. Dans les cas où l’application est inscrite hors annuaire, l’option par défaut est multi-locataire et comptes Microsoft personnels. |
+    | **Comptes dans cet annuaire organisationnel uniquement** | Sélectionnez cette option si vous générez une application métier. Cette option n’est pas disponible si vous n’inscrivez pas l’application dans un annuaire.<br><br>Cette option ne mappe qu’à un compte Azure AD à locataire unique.<br><br>Il s’agit de l’option par défaut, sauf si vous inscrivez l’application hors annuaire. Dans les cas où l’application est inscrite hors d’un répertoire, l’option par défaut est multi-locataire et comptes Microsoft personnels. |
     | **Comptes dans un annuaire organisationnel** | Sélectionnez cette option si vous voulez cibler tous les clients professionnels ou du domaine éducatif.<br><br>Cette option ne mappe qu’à un compte Azure AD multi-locataire.<br><br>Si vous avez inscrit l’application comme compte Azure AD monolocataire seulement, vous pouvez le mettre à jour avec un compte Azure AD multilocataire et inversement par le biais de la page **Authentification**. |
     | **Comptes dans un annuaire organisationnel et comptes personnels Microsoft** | Sélectionnez cette option pour cibler l’ensemble le plus large de clients.<br><br>Cette option mappe à des comptes Microsoft personnels et Azure AD multi-locataires.<br><br>Si vous avez inscrit l’application comme comptes Microsoft personnels et Azure AD multilocataires, vous ne pouvez pas modifier ce paramètre dans l’interface utilisateur. Vous devez utiliser l’éditeur de manifeste de l’application pour modifier les types de compte pris en charge. |
 
@@ -62,13 +62,13 @@ Azure AD affecte à votre application un ID d’application, ou client, unique. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour accéder aux API web, consultez [Démarrage rapide : Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md).
+* Pour accéder aux API web, consultez [Démarrage rapide : configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md).
 
 * Pour plus d’informations sur les autorisations, consultez [Autorisations et consentement dans le point de terminaison de la plateforme des identités Microsoft](v2-permissions-and-consent.md).
 
 * Pour exposer des API web, consultez [Démarrage rapide : Configurer une application pour exposer des API web](quickstart-configure-app-expose-web-apis.md).
 
-* Pour gérer les comptes pris en charge, consultez [Démarrage rapide : Modifier les comptes pris en charge par une application](quickstart-modify-supported-accounts.md).
+* Pour gérer les comptes pris en charge, consultez [Démarrage rapide : Modifiez les comptes pris en charge par une application](quickstart-modify-supported-accounts.md).
 
 * Pour générer une application et ajouter des fonctionnalités, consultez les guides de démarrage rapide dans [Plateforme des identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop).
 

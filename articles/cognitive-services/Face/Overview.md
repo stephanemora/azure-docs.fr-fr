@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053595"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403471"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Le service Visage d’Azure Cognitive Services fournit des algorithmes qui sont utilisés pour détecter, reconnaître et analyser les visages humains dans des images. La capacité à traiter les informations relatives aux visages humains concerne de nombreux scénarios logiciels. La reconnaissance faciale est notamment utilisée dans la sécurité, l’interface utilisateur naturelle, l’analyse et la gestion du contenu de l’image, les applications mobiles et la robotique.
+Le service Visage d’Azure Cognitive Services fournit des algorithmes qui détectent, reconnaissent et analysent les visages humains dans des images. La capacité à traiter les informations relatives aux visages humains concerne de nombreux scénarios logiciels. La reconnaissance faciale est notamment utilisée dans la sécurité, l’interface utilisateur naturelle, l’analyse et la gestion du contenu de l’image, les applications mobiles et la robotique.
 
-Le service Visage offre plusieurs fonctions différentes. Chacune d’elles est présentée dans les sections suivantes. Lisez la suite pour en savoir plus sur ces fonctions.
+Le service Visage fournit plusieurs fonctions différentes, chacune décrite dans les sections suivantes.
 
 ## <a name="face-detection"></a>Détection des visages
 
@@ -69,7 +69,7 @@ Après avoir créé et entraîné une base de données, vous pouvez effectuer l�
 
 Pour plus d’informations sur l’identification de personnes, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API d’identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="use-containers"></a>Utiliser des conteneurs
+## <a name="containers"></a>Containers
 
 [Utilisez le conteneur Visage](face-how-to-install-containers.md) pour détecter, reconnaître et identifier des visages, en installant un conteneur Docker normalisé plus près de vos données.
 

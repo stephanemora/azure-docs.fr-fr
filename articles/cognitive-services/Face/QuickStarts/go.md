@@ -1,5 +1,5 @@
 ---
-title: 'Guide de démarrage rapide : Détecter des visages dans image à l’aide de l’API REST et Go'
+title: 'Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide du service Visage avec Go.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 246b9c81e3cb726236143b9749486ba362128756
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b3e6f5746df6197938d3a91de5ff11b1a311d762
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165836"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402948"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Guide de démarrage rapide : Détecter des visages dans image à l’aide de l’API REST et Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec Go pour détecter des visages humains dans une image.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Clé d’abonnement au service Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions fournies dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Visage et obtenir votre clé.
 - Un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/download).

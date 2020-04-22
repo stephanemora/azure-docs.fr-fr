@@ -1,26 +1,18 @@
 ---
 title: 'Tutoriel : Modèles - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Utilisez des modèles pour accroître la prédiction d’intentions et d’entités tout en fournissant moins d’exemples d’énoncés dans ce tutoriel. Le modèle est fourni sous forme d’exemple d’énoncé de modèle, qui comprend la syntaxe pour identifier les entités et le texte pouvant être ignoré.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 69894dfc6bcbe9eb56451524c78e82da2745aa52
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979762"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380766"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutoriel : Ajouter des formats d’énoncé de modèle courants pour améliorer les prédictions
 
-Dans ce tutoriel, vous allez utiliser des modèles pour accroître la prédiction d’intentions et d’entités, ce qui vous permet de fournir moins d’exemples d’énoncés. Le modèle est un énoncé de modèle affecté à une intention, contenant la syntaxe pour identifier les entités et le texte pouvant être ignoré.
+Dans ce tutoriel, vous allez utiliser des modèles pour accroître la prédiction d’intentions et d’entités, ce qui vous permet de fournir moins d’exemples d’énoncés. Le modèle est un énoncé de modèle affecté à une intention, qui contient la syntaxe pour identifier les entités et le texte pouvant être ignoré.
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -41,7 +33,7 @@ Les énoncés stockés dans l’application LUIS peuvent être de deux types :
 
 Le fait d’ajouter des énoncés de modèle en tant que modèle vous permet globalement de fournir moins d’exemples d’énoncés à une intention.
 
-Un modèle appliqué est une correspondance d’expression combinée au machine learning.  L’énoncé de modèle, conjugué aux exemples d’énoncés, permet à LUIS de mieux identifier les énoncés qui correspondent à l’intention.
+Un modèle appliqué est une correspondance de texte couplée au machine learning.  L’énoncé de modèle contenu dans le modèle, conjugué aux exemples d’énoncés de l’intention, permet à LUIS de mieux identifier les énoncés qui correspondent à l’intention.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importer un exemple d’application et un clone dans une nouvelle version
 
@@ -49,11 +41,13 @@ Utiliser les étapes suivantes :
 
 1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Importez le fichier JSON dans une nouvelle application sur la [préversion du portail LUIS](https://preview.luis.ai).
+1. Importez le fichier JSON dans une nouvelle application sur la [préversion du portail LUIS](https://preview.luis.ai). Dans la page **Mes applications**, sélectionnez **+ Nouvelle application de conversation**, puis choisissez **Importer en tant que JSON**. Sélectionnez le fichier que vous avez téléchargé à l’étape précédente.
 
-1. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `patterns`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+1. Dans la section **Gérer**, sous l’onglet **Versions**, sélectionnez la version active, puis **Cloner**. Nommez la version clonée `patterns`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Créer de nouvelles intentions et leurs énoncés
+
+Les deux intentions localisent les subordonnés directs du ou des managers, en fonction du texte de l’énoncé. La difficulté est que les deux intentions _signifient_ des choses différentes, mais la plupart des mots sont identiques. Seul l’ordre des mots est différent. Pour une bonne prédiction de l’intention, il faudrait un grand nombre d’exemples.
 
 1. Dans la barre de navigation, sélectionnez **Build** (Générer).
 
@@ -105,7 +99,7 @@ Utiliser les étapes suivantes :
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Who is the boss of Jill Jones?`. Le dernier paramètre de chaîne de requête est l’énoncé `query`.
+1. Allez à la fin de l’URL dans la barre d’adresses, puis remplacez _YOUR_QUERY_HERE_ par : `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -195,16 +189,16 @@ Utiliser les étapes suivantes :
     }
     ```
 
-Cette requête n’a réussi ? Pour ce cycle de formation, elle a réussi. Le score des deux premières intentions sont proches, mais l’intention la plus haute n’est pas très élevée (plus de 60 %) et est trop proche du score de l’intention suivante.
+Le score des deux premières intentions sont proches, mais l’intention la plus haute n’est pas très élevée (plus de 60 %) et est trop proche du score de l’intention suivante.
 
-Étant donné que la formation de LUIS n’est pas exactement la même chaque fois, il y a une petite variation. Ces deux scores pourraient s’inverser lors du prochain cycle de formation. Il en résulte que l’intention erronée pourrait être retournée.
+L’entraînement LUIS n’étant pas chaque fois exactement le même (légère variation), ces deux meilleurs scores pourraient s’inverser au prochain cycle d’entraînement. Il en résulte que l’intention erronée pourrait être retournée.
 
 Utiliser des modèles pour augmenter significativement le score de l’intention en pourcentage et l’éloigner du score le plus élevé suivant.
 
 Laissez cette deuxième fenêtre de navigation s’ouvrir. Vous utiliserez cette valeur plus loin dans le didacticiel.
 
 ## <a name="template-utterances"></a>Modèles d’énoncés
-En raison de la nature du domaine des ressources humaines, il existe plusieurs moyens courants de poser des questions sur les relations des employés dans les organisations. Par exemple :
+Du fait de la nature du domaine des ressources humaines, il existe plusieurs façons courantes de poser des questions sur les relations des employés dans les organisations. Par exemple :
 
 |Énoncés|
 |--|
@@ -220,11 +214,11 @@ Quelques exemples de modèles d’énoncés pour cette intention :
 |`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignorer `[?]`|
 |`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignorer `[?]`|
 
-La syntaxe `{Employee}` marque le type et l’emplacement de l’entité dans l’énoncé de modèle. La syntaxe facultative, `[?]`, marque les mots ou la ponctuation facultative. LUIS établit une correspondance avec l’énoncé et ignore le texte facultatif à l’intérieur des crochets.
+La syntaxe `{Employee}` marque le type et l’emplacement de l’entité dans l’énoncé de modèle. La syntaxe facultative, `[?]`, marque les mots ou la [ponctuation](luis-reference-application-settings.md#punctuation-normalization) facultative. LUIS établit une correspondance avec l’énoncé et ignore le texte facultatif à l’intérieur des crochets.
 
 Bien que la syntaxe ressemble à une expression régulière, ce n’en est pas une. Seule la syntaxe d’accolade, `{}`, et de crochet, `[]`, est prise en charge. Ils peuvent être imbriqués jusqu’à deux niveaux.
 
-Pour qu’un modèle corresponde à un énoncé, les entités au sein de l’énoncé doivent d’abord correspondre aux entités du modèle d’énoncé. Cela signifie que les entités doivent avoir suffisamment d’exemples dans les exemples d’énoncés avec un fort degré de prédiction avant que les modèles avec entités réussissent. Cependant, le modèle contribue uniquement à la prédicition d’intentions, mais pas d’entités.
+Pour qu’un modèle corresponde à un énoncé, les entités au sein de l’énoncé doivent _d’abord_ correspondre aux entités du modèle d’énoncé. Cela signifie que les entités doivent avoir suffisamment d’exemples dans les exemples d’énoncés avec un fort degré de prédiction avant que les modèles avec entités réussissent. Cependant, le modèle contribue uniquement à la prédicition d’intentions, mais pas d’entités.
 
 **Même si les modèles vous permettent de fournir moins d’exemples d’énoncés, si les entités ne sont pas détectées, le modèle ne correspond pas.**
 
@@ -245,6 +239,8 @@ Pour qu’un modèle corresponde à un énoncé, les entités au sein de l’én
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
+    Ces énoncés de modèle comprennent l’entité **Employee** entre accolades.
+
 1. Toujours sur la page Modèles, sélectionnez l’intention **OrgChart-Reports**, puis entrez les modèles d’énoncés suivants :
 
     |Modèles d’énoncés|
@@ -264,7 +260,7 @@ Maintenant que les modèles sont ajoutés à l’application, formez, publiez et
 
 1. Après avoir effectué la publication, rebasculez vers l’onglet du navigateur où figure l’URL du point de terminaison.
 
-1. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Who is the boss of Jill Jones?` en tant qu’énoncé. Le dernier paramètre de chaîne de requête est `query`.
+1. Allez à la fin de l’URL dans la barre d’adresses, puis remplacez _YOUR_QUERY_HERE_ par : `Who is the boss of Jill Jones?`
 
     ```json
     {
@@ -375,7 +371,7 @@ Exemples d’énoncés de modèle pour ces informations facultatives :
 
 |Intentionnel|Exemples d’énoncés avec un texte facultatif et des entités prédéfinies|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
 
 
@@ -389,14 +385,6 @@ L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout
 **Question : Qu’en est-il des énoncés incompréhensibles comme `Who will {Employee}['s] manager be on March 3?`.** Les conjugaisons grammaticalement différentes, comme dans le cas où le `will` et le `be` sont séparés, doivent constituer un nouvel énoncé de modèle. L’énoncé de modèle existant ne correspond pas. Bien que l’intention de l’énoncé n’ait pas changé, le placement du mot dans l’énoncé a changé. Cette modification affecte la prédiction dans LUIS. Vous pouvez [regrouper et/ou](#use-the-or-operator-and-groups) les temps des verbes pour combiner ces énoncés.
 
 **N’oubliez pas : les entités sont les premières trouvées, le modèle étant ensuite mis en correspondance.**
-
-### <a name="edit-the-existing-pattern-template-utterance"></a>Modifier l’énoncé de modèle existant
-
-1. Sur la préversion du portail LUIS, sélectionnez **Build** (Générer) dans le menu supérieur, puis **Patterns** (Modèles) dans le menu de gauche.
-
-1. Recherchez l’énoncé de modèle existant, `Who is {Employee}['s] manager[?]`, puis sélectionnez les points de suspension (***...***) à droite, puis sélectionnez **Modifier** dans le menu contextuel.
-
-1. Modifiez l’énoncé de modèle en : `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ### <a name="add-new-pattern-template-utterances"></a>Ajouter de nouveaux énoncés de modèle
 
@@ -428,9 +416,9 @@ L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout
 Tous ces énoncés ont trouvé les entités à l’intérieur, par conséquent, ils correspondent au même modèle et ont un score de prédiction élevé. Vous avez ajouté plusieurs modèles qui correspondront à de nombreuses variantes d’énoncés. Vous n’avez pas eu besoin d’ajouter des exemples d’énoncés dans l’intention pour faire fonctionner l’énoncé de modèle dans le modèle.
 
 Cette utilisation de modèles a fourni :
-* des scores de prédiction plus élevés
-* avec les mêmes exemples d’énoncés dans l’intention
-* avec seulement quelques énoncés de modèle bien construits dans le modèle
+* Des scores de prédiction plus élevés
+* Avec les mêmes exemples d’énoncés dans l’intention
+* Avec seulement quelques énoncés de modèle bien construits dans le modèle
 
 ### <a name="use-the-or-operator-and-groups"></a>Utiliser l’opérateur OR et les groupes
 
@@ -472,7 +460,7 @@ Cet exemple utilise un **groupe** autour de la conjugaison du verbe requis `in` 
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-En utilisant une syntaxe de modèle plus riche, vous pourriez réduire le nombre d’énoncés de modèle à maintenir dans votre application, tout en ayant toujours un score de prédiction élevé.
+En utilisant une syntaxe de modèle plus riche, vous réduisez le nombre d’énoncés de modèle à maintenir dans votre application, tout en ayant toujours un score de prédiction élevé.
 
 ### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Utilisez les ancres de début et de fin de l’énoncé
 
@@ -514,7 +502,7 @@ Certains mots peuvent être source de confusion pour LUIS, qui ne sait pas où s
 
 1. Sélectionnez **FindForm** dans la liste des intentions.
 
-1. Ajoutez quelques exemples d’énoncés :
+1. Ajoutez quelques exemples d’énoncés. Le texte qui doit être prédit en tant que Pattern.any apparaît **en gras**. Il est difficile de déterminer le nom du formulaire à partir des autres mots situés autour de l’énoncé. À cet effet, Pattern.any aide en marquant les limites de l’entité.
 
     |Exemple d’énoncé|Nom du formulaire|
     |--|--|

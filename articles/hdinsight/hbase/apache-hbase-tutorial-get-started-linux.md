@@ -1,20 +1,19 @@
 ---
 title: Didacticiel - Utiliser Apache HBase dans HDInsight Azure
 description: Suivez ce didacticiel Apache HBase pour commencer à utiliser Hadoop sur HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive.
-keywords: commande hbase, exemple hbase
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
-ms.date: 06/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 04/14/2020
+ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71077154"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390258"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutoriel : Utiliser Apache HBase dans Azure HDInsight
 
@@ -33,17 +32,17 @@ Dans ce tutoriel, vous allez apprendre à :
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. Les exemples de cet article utilisent l’interpréteur de commandes Bash sur Windows 10 pour les commandes curl. Pour connaître les étapes d’installation, consultez [Guide d’installation de sous-systèmes Windows pour Linux sur Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Il est également possible d’utiliser d’autres [interpréteurs de commandes Unix](https://www.gnu.org/software/bash/).  Les exemples avec curl, avec de légères modifications, peuvent fonctionner sur une invite de commandes Windows.  Vous pouvez également utiliser l’applet de commande Windows PowerShell [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+* Bash. Les exemples de cet article utilisent l’interpréteur de commandes Bash sur Windows 10 pour les commandes curl. Pour connaître les étapes d’installation, consultez [Guide d’installation de sous-systèmes Windows pour Linux sur Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Il est également possible d’utiliser d’autres [interpréteurs de commandes Unix](https://www.gnu.org/software/bash/).  Les exemples avec curl, avec de légères modifications, peuvent fonctionner sur une invite de commandes Windows.  Vous pouvez utiliser l’applet de commande Windows PowerShell [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## <a name="create-apache-hbase-cluster"></a>Créer un cluster Apache HBase
 
-La procédure suivante utilise un modèle Azure Resource Manager pour créer un cluster HBase et le compte Stockage Azure dépendant par défaut. Pour comprendre les paramètres utilisés dans la procédure et d’autres méthodes de création de cluster, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+La procédure suivante utilise un modèle Azure Resource Manager pour créer un cluster HBase. Le modèle crée également le compte de Stockage Azure par défaut dépendant. Pour comprendre les paramètres utilisés dans la procédure et d’autres méthodes de création de cluster, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Sélectionnez l’image suivante pour ouvrir le modèle dans le portail Azure. Ce modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Dans le panneau **Déploiement personnalisé**, entrez les valeurs suivantes :
+2. Dans la boîte de dialogue **Déploiement personnalisé**, entrez les valeurs suivantes :
 
     |Propriété |Description |
     |---|---|
@@ -56,7 +55,7 @@ La procédure suivante utilise un modèle Azure Resource Manager pour créer un 
 
     Tous les autres paramètres sont facultatifs.  
 
-    Chaque cluster possède une dépendance de compte Stockage Azure. Après avoir supprimé un cluster, les données sont conservées dans le compte de stockage. Le nom du compte de stockage par défaut du cluster est le nom du cluster suivi du suffixe « store ». Il est codé en dur dans la section des variables du modèle.
+    Chaque cluster possède une dépendance de compte Stockage Azure. Après avoir supprimé un cluster, les données restent dans le compte de stockage. Le nom du compte de stockage par défaut du cluster est le nom du cluster suivi du suffixe « store ». Il est codé en dur dans la section des variables du modèle.
 
 3. Sélectionnez **J’accepte les conditions générales mentionnées ci-dessus**, puis sélectionnez **Acheter**. La création d’un cluster prend environ 20 minutes.
 
@@ -123,7 +122,7 @@ Dans HBase (une implémentation de [Cloud BigTable](https://cloud.google.com/big
     get 'Contacts', '1000'
     ```
 
-    Comme il n'y a qu'une seule ligne, vous obtenez des résultats semblables à ceux obtenus avec la commande `scan`.
+    Comme il n’y a qu’une seule ligne, vous obtenez des résultats semblables à ceux obtenus avec la commande `scan`.
 
     Pour plus d'informations sur le schéma de la table HBase, consultez [Introduction à la conception de schémas Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Pour plus de commandes HBase, consultez le [Guide de référence Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
@@ -180,7 +179,7 @@ Vous pouvez interroger les données des tables HBase à l’aide d’[Apache Hiv
 
     Pour plus d’informations sur Beeline, consultez [Utilisation de Hive avec Hadoop dans HDInsight via Beeline](../hadoop/apache-hadoop-use-hive-beeline.md).
 
-1. Exécutez le script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) suivant pour créer une table Hive correspondant à la table HBase. Avant d'exécuter cette instruction, vous devez avoir créé l'exemple de table référencé dans cet article en utilisant l’interpréteur de commandes HBase.
+1. Exécutez le script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) suivant pour créer une table Hive correspondant à la table HBase. Avant d’exécuter cette instruction, vérifiez que vous avez créé l’exemple de table référencé précédemment dans cet article en utilisant l’interpréteur de commandes HBase.
 
     ```hiveql
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -203,7 +202,7 @@ Vous pouvez interroger les données des tables HBase à l’aide d’[Apache Hiv
 
 L’API REST est sécurisée à l’aide de l’ [authentification de base](https://en.wikipedia.org/wiki/Basic_access_authentication). Vous devrez toujours effectuer les demandes à l’aide du protocole Secure HTTP (HTTPS) pour vous assurer que vos informations d’identification sont envoyées en toute sécurité au serveur.
 
-1. Initiez la variable d’environnement pour plus de simplicité d’utilisation. Modifiez les commandes ci-dessous en remplaçant `MYPASSWORD` par le mot de passe de connexion au cluster. Remplacez `MYCLUSTERNAME` par le nom de votre cluster HBase. Entrez ensuite les commandes.
+1. Pour faciliter l’utilisation, définissez la variable d’environnement. Modifiez les commandes ci-dessous en remplaçant `MYPASSWORD` par le mot de passe de connexion au cluster. Remplacez `MYCLUSTERNAME` par le nom de votre cluster HBase. Entrez ensuite les commandes.
 
     ```bash
     export password='MYPASSWORD'
@@ -240,10 +239,10 @@ L’API REST est sécurisée à l’aide de l’ [authentification de base](http
     -v
     ```
 
-    Vous devez coder en base64 les valeurs spécifiées dans le commutateur -d. Dans l’exemple :
+    Encodez en Base64 les valeurs spécifiées dans le commutateur -d. Dans l’exemple :
 
    * MTAwMA==: 1 000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * UGVyc29uYWw6TmFtZQ==: Personnel : Nom
    * Sm9obiBEb2xl: John Dole
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) vous permet d’insérer plusieurs valeurs (par lot).
@@ -306,7 +305,7 @@ Pour éviter toute incohérence, nous vous recommandons de désactiver les table
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à créer un cluster Apache HBase, à créer des tables et à afficher les données de ces tables à partir de l’interpréteur de commandes HBase. Vous avez également appris à utiliser une requête Hive pour interroger les données des tables HBase et à utiliser les API REST C# HBase pour créer une table HBase et en extraire les données. Pour plus d'informations, consultez les rubriques suivantes :
+Dans ce tutoriel, vous avez appris à créer un cluster Apache HBase. Vous avez aussi découvert comment créer des tables et à afficher les données contenues dans ces tables à partir de l’interpréteur de commandes HBase. Vous avez également vu comment utiliser une requête Hive pour interroger les données des tables HBase, et comment utiliser les API REST C# HBase pour créer une table HBase et en extraire les données. Pour plus d'informations, consultez les rubriques suivantes :
 
 > [!div class="nextstepaction"]
 > [Vue d’ensemble de HDInsight HBase](./apache-hbase-overview.md)

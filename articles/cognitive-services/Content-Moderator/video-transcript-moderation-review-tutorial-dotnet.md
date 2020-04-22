@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2171bbaea065ce1ab3a8d90f32e6ea6dc1f1e821
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74976976"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404224"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutoriel : Modération de vidéos et de transcriptions
 
@@ -82,7 +82,7 @@ La classe `Program` de `Program.cs` est le point d’entrée principal de l’ap
 Si aucun argument de ligne de commande n’est présent, `Main()` appelle `GetUserInputs()`. Cette méthode invite l’utilisateur à entrer le chemin d’un seul fichier vidéo et à spécifier si une transcription de texte doit être générée.
 
 > [!NOTE]
-> L’application console utilise l’[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) pour générer des transcriptions à partir de la piste audio de la vidéo chargée. Les résultats sont fournis au format WebVTT. Pour plus d’informations sur ce format, consultez la rubrique relative au [format WebVTT (Web Video Text Tracks)](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> L’application console utilise l’[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) pour générer des transcriptions à partir de la piste audio de la vidéo chargée. Les résultats sont fournis au format WebVTT. Pour plus d’informations sur ce format, consultez la rubrique relative au [format WebVTT (Web Video Text Tracks)](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Méthodes Initialize et ProcessVideo
 
@@ -223,7 +223,7 @@ Le résultat de la tâche de modération des vidéos (consultez le guide de [dé
 Une transcription des données audio de la vidéo est également générée quand l’indicateur `GenerateVTT` est défini.
 
 > [!NOTE]
-> L’application console utilise l’[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) pour générer des transcriptions à partir de la piste audio de la vidéo chargée. Les résultats sont fournis au format WebVTT. Pour plus d’informations sur ce format, consultez la rubrique relative au [format WebVTT (Web Video Text Tracks)](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> L’application console utilise l’[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) pour générer des transcriptions à partir de la piste audio de la vidéo chargée. Les résultats sont fournis au format WebVTT. Pour plus d’informations sur ce format, consultez la rubrique relative au [format WebVTT (Web Video Text Tracks)](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ## <a name="create-a-human-review"></a>Créer une révision humaine
 

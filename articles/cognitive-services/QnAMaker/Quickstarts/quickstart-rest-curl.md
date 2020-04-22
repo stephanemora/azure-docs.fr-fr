@@ -1,16 +1,16 @@
 ---
 title: 'Démarrage rapide : Utiliser cURL et REST pour gérer la base de connaissances - QnA Maker'
 description: Ce guide de démarrage rapide vous montre comment créer, publier et interroger votre base de connaissances à l’aide des API REST.
-ms.date: 02/27/2020
+ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 00ec52fe20fb0e6a976f3e7142386e835713c98c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78851210"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261701"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Démarrage rapide : Utiliser cURL et REST pour gérer la base de connaissances
 
@@ -21,9 +21,9 @@ Ce guide de démarrage rapide vous guide tout au long de la création, la public
 ## <a name="prerequisites"></a>Prérequis
 
 * Version actuelle de [cURL](https://curl.haxx.se/). Plusieurs commutateurs de ligne de commande sont utilisés dans les guides de démarrage rapide, qui sont indiqués dans la [documentation cURL](https://curl.haxx.se/docs/manpage.html).
-* Vous devez disposer d’une [ressource QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Pour récupérer votre clé et le nom de votre ressource, sélectionnez **Démarrage rapide** pour votre ressource dans le portail Azure. Le nom de la ressource constitue la première partie de l’URL du point de terminaison :
+* Pour utiliser la clé et le nom de la ressource, vous devez disposer d’une [ressource QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Vous avez entré le **Nom** de la ressource lors de la création de la ressource, puis la clé a été créée pour vous. Le nom de la ressource est utilisé en tant que sous-domaine pour votre point de terminaison. Pour récupérer votre clé et le nom de votre ressource, sélectionnez **Démarrage rapide** pour votre ressource dans le portail Azure. Le nom de la ressource constitue le premier sous-domaine de l’URL du point de terminaison :
 
-    `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
 > Les exemples BASH suivants utilisent le caractère de continuation de ligne `\`. Si votre console ou terminal utilise un caractère de continuation de ligne différent, utilisez ce caractère.

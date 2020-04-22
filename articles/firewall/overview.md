@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/17/2020
+ms.date: 04/08/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ed27097d29f3a10e708044ad7e2e30736e2c60e6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bb4b654bd0b3591ebaa1bd217020095319a4938c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471844"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381911"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -53,7 +53,7 @@ Le service Pare-feu Azure peut évoluer en fonction de vos besoins pour prendre 
 
 ## <a name="application-fqdn-filtering-rules"></a>Règles de filtrage des noms de domaine complets de l’application
 
-Vous pouvez limiter le trafic HTTP/S sortant ou le trafic SQL Azure (préversion) vers une liste spécifiée de noms de domaine complets (FQDN), y compris des caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt SSL.
+Vous pouvez limiter le trafic HTTP/S sortant ou le trafic SQL Azure (préversion) vers une liste spécifiée de noms de domaine complets (FQDN), y compris des caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Règles de filtrage du trafic réseau
 
@@ -61,7 +61,7 @@ Vous pouvez créer de façon centralisée des règles de filtrage réseau *autor
 
 ## <a name="fqdn-tags"></a>Balises FQDN
 
-Les balises FQDN vous aident à autoriser le trafic réseau du service Azure via votre pare-feu. Par exemple, supposons que vous souhaitez autoriser le trafic réseau Windows Update via votre pare-feu. Vous créez une règle d’application et incluez la balise Windows Update. Le trafic réseau provenant de Windows Update peut désormais passer par votre pare-feu.
+Les balises FQDN vous aident à autoriser le trafic réseau du service Azure connu via votre pare-feu. Par exemple, supposons que vous souhaitez autoriser le trafic réseau Windows Update via votre pare-feu. Vous créez une règle d’application et incluez la balise Windows Update. Le trafic réseau provenant de Windows Update peut désormais passer par votre pare-feu.
 
 ## <a name="service-tags"></a>Balises de service
 
@@ -115,10 +115,14 @@ Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exem
 |Impossible de supprimer la première configuration IP publique|Chaque adresse IP publique du Pare-feu Azure est affectée à une *configuration IP*.  La première configuration IP est affectée pendant le déploiement du pare-feu. En général, elle contient une référence au sous-réseau du pare-feu (sauf si elle est configurée autrement de manière explicite via un déploiement de modèle). Vous ne pouvez pas supprimer cette configuration IP, car cela aurait pour effet de désallouer le pare-feu. Vous pouvez toujours changer ou supprimer l’adresse IP publique qui est associée à cette configuration IP si le pare-feu comprend au moins une autre adresse IP publique disponible.|C'est la procédure normale.|
 |Les zones de disponibilité ne peuvent être configurées que pendant le déploiement.|Les zones de disponibilité ne peuvent être configurées que pendant le déploiement. Vous ne pouvez pas configurer les Zones de disponibilité après le déploiement d’un pare-feu.|C'est la procédure normale.|
 |SNAT sur les connexions entrantes|En plus de DNAT, les connexions via l’adresse IP publique du pare-feu (entrante) sont traduites vers l’une des adresses IP privées du pare-feu. Cette exigence actuelle (également pour les appliances virtuelles réseau Active/Active) permet d’assurer la symétrie du routage.|Pour préserver la source originale pour HTTP/S, pensez à utiliser les en-têtes [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Par exemple, utilisez un service tel que [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) ou [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) devant le pare-feu. Vous pouvez également ajouter le pare-feu d’applications web en tant qu’Azure Front Door et l’associer au pare-feu.
-|Prise en charge du filtrage FQDN SQL uniquement en mode proxy (port 1433)|Pour Azure SQL Database,Azure SQL Data Warehouse et Azure SQL Managed Instance :<br><br>Dans la préversion, le filtrage FQDN SQL est pris en charge uniquement en mode proxy (port 1433).<br><br>Pour Azure SQL IaaS :<br><br>Si vous utilisez des ports non standard, vous pouvez spécifier ces ports dans les règles de l’application.|Pour SQL en mode de redirection (qui est l’option par défaut si vous vous connectez à partir d’Azure), vous pouvez filtrer l’accès à l’aide de l’étiquette du service SQL, dans le cadre des règles de réseau du Pare-feu Azure.
-|Le trafic sortant sur le port TCP 25 n’est pas autorisé| Les connexions SMTP sortantes qui utilisent le port TCP 25 sont bloquées. Le port 25 sert essentiellement à la remise d’e-mails non authentifiés. Il s’agit du comportement par défaut de la plateforme pour les machines virtuelles. Pour plus d’informations consultez [Résoudre les problèmes de connectivité SMTP sortante dans Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Toutefois, contrairement aux machines virtuelles, il n’est actuellement pas possible d’activer cette fonctionnalité sur le Pare-feu Azure.|Suivez la méthode d’envoi d’e-mails recommandée dans l’article traitant de la résolution des problèmes liés à SMTP. Vous pouvez aussi exclure la machine virtuelle qui a besoin d’un accès SMTP sortant entre votre route par défaut et le pare-feu pour configurer à la place un accès sortant directement vers Internet.
+|Prise en charge du filtrage FQDN SQL uniquement en mode proxy (port 1433)|Pour Azure SQL Database,Azure SQL Data Warehouse et Azure SQL Managed Instance :<br><br>Dans la préversion, le filtrage FQDN SQL est pris en charge uniquement en mode proxy (port 1433).<br><br>Pour Azure SQL IaaS :<br><br>Si vous utilisez des ports non standard, vous pouvez spécifier ces ports dans les règles de l’application.|Pour SQL en mode de redirection (l’option par défaut si vous vous connectez à partir d’Azure), vous pouvez à la place filtrer l’accès par le biais de l’étiquette du service SQL, dans le cadre des règles de réseau du Pare-feu Azure.
+|Le trafic sortant sur le port TCP 25 n’est pas autorisé| Les connexions SMTP sortantes qui utilisent le port TCP 25 sont bloquées. Le port 25 sert essentiellement à la remise d’e-mails non authentifiés. Il s’agit du comportement par défaut de la plateforme pour les machines virtuelles. Pour plus d’informations consultez [Résoudre les problèmes de connectivité SMTP sortante dans Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Toutefois, contrairement aux machines virtuelles, il n’est actuellement pas possible d’activer cette fonctionnalité sur le Pare-feu Azure. Remarque : Pour autoriser un serveur SMTP authentifié (port 587) ou SMTP sur un port autre que 25, veillez à configurer une règle de réseau et non une règle d’application, car l’inspection SMTP n’est pas prise en charge pour l’instant.|Suivez la méthode d’envoi d’e-mails recommandée dans l’article traitant de la résolution des problèmes liés à SMTP. Vous pouvez aussi exclure la machine virtuelle qui a besoin d’un accès SMTP sortant entre votre route par défaut et le pare-feu. Configurez plutôt un accès sortant, directement vers Internet.
 |Le mode FTP actif n’est pas pris en charge|Le mode FTP actif est désactivé sur le pare-feu Azure à des fins de protection contre les attaques par rebond FTP qui utilisent la commande FTP PORT.|Vous pouvez utiliser le mode FTP passif à la place. Vous devez quand même ouvrir explicitement les ports TCP 20 et 21 sur le pare-feu.
-|La métrique d’utilisation des ports SNAT affiche 0 %|La métrique d’utilisation des ports SNAT du Pare-feu Azure peut afficher une utilisation de 0 % même quand les ports SNAT sont utilisés. Dans ce cas, l’utilisation de la métrique dans le cadre de la métrique d’intégrité du pare-feu fournit un résultat incorrect.|Ce problème a été résolu. Le lancement en production est prévu pour mai 2020. Dans certains cas, le redéploiement du pare-feu résout le problème, mais pas toujours. En guise de solution de contournement intermédiaire, utilisez uniquement l’état d’intégrité du pare-feu pour rechercher *état=détérioré*, et non *état=défectueux*. L’insuffisance des ports est indiquée par l’état *détérioré*. *Défectueux* est réservé pour le moment. Il sera utilisé quand il existera davantage de métriques impactant l’intégrité du pare-feu. 
+|La métrique d’utilisation des ports SNAT affiche 0 %|La métrique d’utilisation des ports SNAT du Pare-feu Azure peut afficher une utilisation de 0 % même quand les ports SNAT sont utilisés. Dans ce cas, l’utilisation de la métrique dans le cadre de la métrique d’intégrité du pare-feu fournit un résultat incorrect.|Ce problème a été résolu. Le lancement en production est prévu pour mai 2020. Dans certains cas, le redéploiement du pare-feu résout le problème, mais pas toujours. En guise de solution de contournement intermédiaire, utilisez uniquement l’état d’intégrité du pare-feu pour rechercher *état=détérioré*, et non *état=défectueux*. L’insuffisance des ports est indiquée par l’état *détérioré*. *Défectueux* est réservé pour le moment. Il sera utilisé quand il existera davantage de métriques impactant l’intégrité du pare-feu.
+|DNAT n’est pas pris en charge avec l’option Tunneling forcé activée|Les pare-feu déployés, dont l’option Tunneling forcé est activée, ne peuvent pas prendre en charge l’accès entrant depuis Internet compte tenu du routage asymétrique.|Ils ont ce comportement par défaut en raison du routage asymétrique. Le chemin de retour des connexions entrantes passe par le pare-feu local, qui n’a pas vu la connexion établie.
+|Le mode FTP passif sortant ne fonctionne pas pour les pare-feu dotés de plusieurs adresses IP publiques.|Le mode FTP passif établit des connexions différentes pour les canaux de contrôle et ceux de données. Lorsqu’un pare-feu disposant de plusieurs adresses IP publiques envoie des données sortantes, il sélectionne de manière aléatoire une de ses adresses IP publiques comme adresse IP source. La connexion FTP échoue lorsque les canaux de données et ceux de contrôle utilisent des adresses IP source différentes.|Une configuration SNAT explicite est prévue. En attendant, utilisez une seule adresse IP dans ce cas de figure.|
+|Il manque une dimension de protocole à la métrique NetworkRuleHit|La métrique ApplicationRuleHit autorise le protocole basé sur le filtrage, mais cette fonctionnalité est absente de la métrique NetworkRuleHit correspondante.|Un correctif est en cours d’étude.|
+|Les mises à jour de configuration peuvent prendre cinq minutes en moyenne.|Une mise à jour de configuration du Pare-feu Azure peut prendre trois à cinq minutes en moyenne ; les mises à jour parallèles ne sont pas prises en charge.|Un correctif est en cours d’étude.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

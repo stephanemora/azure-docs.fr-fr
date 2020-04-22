@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21d8659e13506777f6045272f68c69dd63f09cf5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 68a6504668b9f180a421fe20c2c89d73b87bcc35
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244679"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404343"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST Vision par ordinateur et de Python
 
@@ -93,7 +93,9 @@ Vous pouvez exécuter ce guide de démarrage rapide étape par étape à l’aid
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Obtenez des informations plus détaillées sur la fonctionnalité de génération de miniatures.
+À présent, explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, étiqueter et décrire des caractéristiques visuelles dans les images.
 
 > [!div class="nextstepaction"]
-> [Génération de miniatures](../concept-generating-thumbnails.md)
+> [Tutoriel sur l’API Vision par ordinateur Python](../Tutorials/PythonTutorial.md)
+
+* Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

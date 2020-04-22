@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Détecter et encadrer des visages sur une image à l’aide d’Android SDK'
+title: 'Tutoriel : Détecter et encadrer des visages sur une image à l’aide du kit Android SDK'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application Android simple qui utilise le service Visage pour détecter et encadrer des visages dans une image.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd986a7557f468b939aefe1da825c9834618047f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165966"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402919"
 ---
-# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Didacticiel : créer une application Android pour détecter et encadrer des visages humains dans une image
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutoriel : Créer une application Android pour détecter et encadrer des visages dans une image
 
 Dans ce tutoriel, vous allez créer une application Android qui utilise le service Visage Azure via le SDK Java pour détecter des visages humains dans une image. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
 
@@ -35,11 +35,11 @@ L’exemple de code complet est disponible dans le dépôt [Cognitive Services F
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Clé d’abonnement au service Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions fournies dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Visage et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
 - N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
-- [Android Studio](https://developer.android.com/studio/) avec l’API niveau 22 ou ultérieur (conformément aux exigences de la bibliothèque de client Visage).
+- [Android Studio](https://developer.android.com/studio/) avec le niveau d’API 22 ou version ultérieure.
 
 ## <a name="create-the-android-studio-project"></a>Créer le projet Android Studio
 
@@ -123,7 +123,7 @@ Exécutez l’application et recherchez une image contenant un visage. Patientez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez vu l’utilisation de base du SDK Java Visage, et vous avez créé une application pour détecter et encadrer des visages dans une image. Explorez à présent les détails de la détection des visages.
+Dans ce tutoriel, vous avez appris à utiliser le SDK Java Visage et à créer une application pour détecter et encadrer des visages dans une image. Explorez à présent les détails de la détection des visages.
 
 > [!div class="nextstepaction"]
 > [Comment détecter des visages dans une image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

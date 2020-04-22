@@ -1,5 +1,5 @@
 ---
-title: Ressources de mise à l’échelle automatique Azure basées sur les données de performances ou une planification
+title: Effectuer une mise à l’échelle automatique de ressources Azure en fonction de données ou d’une planification
 description: Créer un paramètre de mise à l’échelle automatique pour un plan App Service à l’aide de données de mesure et d’une planification
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a4502a9ec7866d9b1ecb0f2aa2257e759fd417c8
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661650"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114692"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
 

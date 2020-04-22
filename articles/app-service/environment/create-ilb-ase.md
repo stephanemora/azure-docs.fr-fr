@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98345e8585a3f6653659e0d41eb5c3308a0a6634
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b7fa447e8564fcbf77702f1d3d474cceb48705c5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057411"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114636"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
 
@@ -60,6 +60,9 @@ Pour créer un ILB ASE :
 
     ![Création d’un environnement App Service](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
+> [!NOTE]
+> Le nom de l’environnement App Service Environment ne doit pas dépasser 37 caractères.
+
 6. Sélectionner Mise en réseau
 
 7. Sélectionnez ou créez un réseau virtuel. Si vous créez un nouveau réseau virtuel ici, il sera défini avec une plage d’adresses de 192.168.250.0/23. Pour créer un réseau virtuel avec une autre plage d’adresses ou dans un autre groupe de ressources que l’ASE, utilisez le portail de création du réseau virtuel Azure. 
@@ -69,6 +72,7 @@ Pour créer un ILB ASE :
     ![Mise en réseau de l’ASE][1]
 
 7. Sélectionnez **Vérifier et créer** puis sélectionnez **Créer**.
+
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Créer une application dans un ASE ILB ##
 

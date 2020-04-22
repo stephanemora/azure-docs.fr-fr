@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 397eb6fbfea88b0eab0648275fc59764505f7d42
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633103"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416024"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Qu’est-ce qu’Azure Synapse Analytics (anciennement SQL DW) ?
 
-Azure Synapse est un service d’analytique illimité qui regroupe l’entreposage des données d’entreprise et l’analytique de Big Data. Il vous donne la possibilité d’interroger les données avec votre propre vocabulaire, en utilisant des ressources serverless à la demande ou des ressources provisionnées, le tout à grande échelle. Azure Synapse rassemble ces deux mondes avec une expérience unifiée pour la réception, la préparation, la gestion et la remise de données pour les besoins immédiats d’apprentissage automatique et décisionnels
+Azure Synapse est un service d’analytique qui regroupe l’entreposage des données d’entreprise et l’analytique de Big Data. Il vous donne la possibilité d’interroger les données avec votre propre vocabulaire, en utilisant des ressources serverless à la demande ou des ressources provisionnées, le tout à grande échelle. Azure Synapse rassemble ces deux mondes avec une expérience unifiée pour la réception, la préparation, la gestion et la remise de données pour les besoins immédiats d’apprentissage automatique et décisionnels.
 
 Azure Synapse comporte quatre composants :
 
@@ -27,11 +27,13 @@ Azure Synapse comporte quatre composants :
   - Pool SQL (paiement par DWU configuré)
   - SQL à la demande (paiement par To traité) – (Préversion)
 - Spark : Apache Spark profondément intégré (préversion)
-- Intégration des données : Intégration des données hybrides (préversion)
+- Pipelines Azure Synapse : Intégration des données hybrides (préversion)
 - Studio : Expérience d'utilisateur final unifiée.  (Préversion)
 
 > [!NOTE]
 > Pour accéder aux fonctionnalités en préversion d’Azure Synapse, demandez l’accès [ici](https://aka.ms/synapsepreview). Microsoft triera toutes les demandes et y répondra dès que possible.
+>
+> Consultez la [documentation d’Azure Synapse (préversion)](../overview-what-is.md).
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Pool Synapse SQL dans Azure Synapse
 

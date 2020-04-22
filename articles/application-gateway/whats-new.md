@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 1cfa2ab1d8bf096b1821f7473d9808801b47c547
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70014b5ab37a07e01eaa2db3d729b7d8af520842
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371180"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311779"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Nouveautés d’Azure Application Gateway
 
@@ -33,7 +33,7 @@ Azure Application Gateway est mis à jour en continu. Pour vous informer des dé
 |Métriques supplémentaires |Nous avons ajouté les nouvelles métriques suivantes pour vous aider à superviser votre référence SKU Application Gateway v2 : [Métriques liées au minutage](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), État de la réponse du back-end, Octets reçus, Octets envoyés, Protocole TLS du client et Unités de calcul actuelles. Consultez [Métriques prises en charge par le SKU Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Août 2019 |
 |Règles personnalisées WAF |Application Gateway WAF_v2 prend désormais en charge la création de règles personnalisées. Consultez [Règles personnalisées Application Gateway](custom-waf-rules-overview.md). |Juin 2019 |
 |Mise à disposition générale des fonctions de mise à l’échelle automatique, de redondance de zone et de prise en charge des adresses IP virtuelles statiques |Mise à disposition générale de la référence SKU version 2, qui améliore les performances et prend en charge la mise à l’échelle automatique, la redondance de zone et la prise en charge des adresses IP virtuelles statiques, ainsi que Key Vault et la réécriture des en-têtes. Consultez la [documentation relative à la mise à l’échelle automatique de Application Gateway](application-gateway-autoscaling-zone-redundant.md). |Avril 2019 |
-|Intégration dans Key Vault |Application Gateway prend désormais en charge l’intégration dans Key Vault (dans la préversion publique) des certificats de serveur associés à des écouteurs activés via HTTPS. Consultez la section relative à [l’arrêt de SSL avec des certificats Key Vault](key-vault-certs.md). |Avril 2019 |
+|Intégration dans Key Vault |Application Gateway prend désormais en charge l’intégration dans Key Vault (dans la préversion publique) des certificats de serveur associés à des écouteurs activés via HTTPS. Consultez [Arrêt SSL avec certificats Key Vault](key-vault-certs.md). |Avril 2019 |
 |Opérations de réécriture et CRUD sur les en-têtes     |Vous pouvez désormais réécrire les en-têtes HTTP. Voir le [tutoriel : Créer une passerelle d’application et réécrire des en-têtes HTTP](tutorial-http-header-rewrite-powershell.md) pour plus d’informations.|Décembre 2018|
 |Configuration de WAF et liste d’exclusions     |Nous avons ajouté des options pour vous aider à configurer votre WAF et à réduire les faux positifs. Pour plus d’informations, consultez [Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions](application-gateway-waf-configuration.md).|Décembre 2018|
 |Mise à l’échelle automatique, redondance de zone et prise en charge des adresses IP virtuelles statiques      |La référence SKU v2 apporte de nombreuses améliorations, dont la mise à l’échelle automatique et l’accroissement des performances. Consultez [Nouveautés d’Azure Application Gateway](overview.md) pour plus d’informations.|Septembre 2018|

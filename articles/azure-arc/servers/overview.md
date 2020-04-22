@@ -7,14 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5fa39028f1041a063bab295adabf8145a8b46ae4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290127"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81308786"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Présentation d’Azure Arc pour serveurs (préversion)
 
@@ -43,7 +43,7 @@ Avec Azure Arc pour serveurs (préversion), seules certaines régions sont prise
 
 Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de créer le script d’installation doit être la région Azure géographiquement la plus proche de l’emplacement de votre ordinateur. Les données au repos sont stockées dans la zone géographique Azure englobant la région que vous spécifiez, ce qui peut aussi affecter votre choix de région si vous avez des contraintes en matière de résidence des données. Si la région Azure à laquelle votre ordinateur est connecté subit une panne, l’ordinateur connecté n’est pas affecté, mais les opérations de gestion effectuées avec Azure risquent de ne pas aboutir. Pour bénéficier d’une résilience en cas de panne régionale, si vous avez plusieurs emplacements qui assurent un service géographiquement redondant, il est préférable de connecter les ordinateurs de chaque emplacement à une autre région Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -54,7 +54,7 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 - CentOS Linux 7
 - SLES (SUSE Linux Enterprise Server) 15
 - Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 7
+- Amazon Linux 2
 
 >[!NOTE]
 >Cette préversion de l’agent Connected Machine pour Windows ne prend en charge que Windows Server configuré pour utiliser la langue anglaise.
@@ -143,11 +143,11 @@ Vous pouvez télécharger le package de l’agent Azure Connected Machine pour W
 >[!NOTE]
 >Pendant cette préversion, un seul package a été publié, qui convient pour Ubuntu 16.04 ou 18.04.
 
-L’agent Azure Connected Machine pour Windows et Linux peut être mis à niveau vers la dernière version de façon manuelle ou automatique selon vos besoins. Pour Windows, la mise à jour de l’agent peut être effectuée automatiquement à l’aide de Windows Update. Pour Ubuntu, elle peut être effectuée à l’aide de l’outil en ligne de commande [apt](https://help.ubuntu.com/lts/serverguide/apt.html).
+L’agent Azure Connected Machine pour Windows et Linux peut être mis à niveau vers la dernière version de façon manuelle ou automatique selon vos besoins. Vous pourrez trouver plus d’informations [ici](manage-agent.md).
 
 ### <a name="agent-status"></a>État de l’agent
 
-L’agent Connected Machine envoie des messages de pulsation au service de façon régulière (toutes les 5 minutes). Sans réception d’un message de pulsation pendant 15 minutes, la machine est considérée comme étant hors connexion et son état devient automatiquement **Déconnecté** dans le portail. À la prochaine réception d’un message de pulsation de l’agent Connected Machine, son état devient automatiquement **Connecté**.
+L’agent Connected Machine envoie des messages de pulsation au service de façon régulière (toutes les 5 minutes). Si le service cesse de recevoir ces messages de pulsation d’une machine, cette machine est considérée comme étant hors connexion, et l’état dans le portail est automatiquement remplacé par **Déconnectée** au bout de 15 à 30 minutes. À la prochaine réception d’un message de pulsation de l’agent Connected Machine, son état devient automatiquement **Connecté**.
 
 ## <a name="install-and-configure-agent"></a>Installer et configurer l’agent
 
@@ -157,6 +157,7 @@ Selon vos besoins, plusieurs méthodes vous permettent de connecter des machines
 |--------|-------------|
 | de manière interactive, | Installer manuellement l’agent sur une seule machine ou un petit nombre de machines en suivant les étapes décrites dans [Connecter des machines à partir du portail Azure](onboard-portal.md).<br> À partir du portail Azure, vous pouvez générer un script et l’exécuter sur la machine pour automatiser les étapes d’installation et de configuration de l’agent.|
 | À grande échelle | Installer et configurer l’agent pour plusieurs machines en suivant les instructions indiquées dans [Connecter des machines à l’aide d’un principal de service](onboard-service-principal.md).<br> Cette méthode crée un principal de service pour connecter des machines de manière non interactive.|
+| À grande échelle | Installer et configurer l’agent pour plusieurs machines en suivant les instructions de la méthode [Utilisation de Windows PowerShell DSC](onboard-dsc.md).<br> Cette méthode utilise un principal de service pour connecter des machines de manière non interactive à PowerShell DSC. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

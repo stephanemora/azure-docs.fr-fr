@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 72d7d3b8a4dc2831f397326d54560358c19b9b92
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 609ac66ca27d5cad7dd2fb295c3a2a721a1cda16
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616808"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392690"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutoriel : Déployer un cluster Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Ce didacticiel nécessite l’exécution de l’interface de ligne de commande A
 
 Les clusters AKS peuvent utiliser les contrôles d’accès en fonction des rôles Kubernetes (RBAC). Ces contrôles vous permettent de définir l’accès aux ressources en fonction des rôles attribués aux utilisateurs. Des autorisations sont combinées si plusieurs rôles sont attribués à un utilisateur, et les autorisations peuvent être limitées à un seul espace de noms ou accordées à l’ensemble du cluster. Par défaut, l’interface de ligne de commande Azure active automatiquement RBAC lorsque vous créez un cluster AKS.
 
-Créez un cluster AKS à l’aide de [az aks create][]. L’exemple suivant crée un cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Vous avez créé ce groupe de ressources dans le [tutoriel précédent][aks-tutorial-prepare-acr]. Pour permettre à un cluster AKS d’interagir avec d’autres ressources Azure, un principal de service Azure Active Directory est automatiquement créé, dans la mesure où vous n’en avez pas spécifié. Ici, ce principal de service [se voit accorder le droit d’extraire des images][container-registry-integration] à partir de l’instance Azure Container Registry (ACR) que vous avez créée dans le tutoriel précédent.
+Créez un cluster AKS à l’aide de [az aks create][]. L’exemple suivant crée un cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Vous avez créé ce groupe de ressources dans le [tutoriel précédent][aks-tutorial-prepare-acr]. Pour permettre à un cluster AKS d’interagir avec d’autres ressources Azure, un principal de service Azure Active Directory est automatiquement créé, dans la mesure où vous n’en avez pas spécifié. Ici, ce principal de service [se voit accorder le droit d’extraire des images][container-registry-integration] à partir de l’instance Azure Container Registry (ACR) que vous avez créée dans le tutoriel précédent. Notez que vous pouvez utiliser une [identité managée](use-managed-identity.md) au lieu d’un principal de service pour une gestion simplifiée.
 
 ```azurecli
 az aks create \

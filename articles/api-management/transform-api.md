@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70067470"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258743"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformer et protéger votre API
 
@@ -112,7 +112,7 @@ Pour consulter la réponse d’origine :
 2.  Sélectionnez **Toutes les opérations**.
 3.  Sélectionnez l’onglet **Conception** en haut de l’écran.
 4.  Dans le **Traitement sortant**, cliquez sur l’icône **</>** .
-5.  Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;** .
+5.  Placez le curseur à l’intérieur de l’élément **&lt;outbound&gt;** , puis cliquez sur le bouton **Insérer une stratégie** en haut à droite.
 6.  Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez sur **+ Find and replace string in body**.
 7.  Modifiez votre code **find-and-replace** (dans l’élément **\<outbound\>** ) afin de remplacer l’URL par une instance correspondant à celle de la passerelle APIM. Par exemple :
 

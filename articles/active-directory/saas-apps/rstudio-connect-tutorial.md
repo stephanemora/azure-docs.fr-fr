@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092574"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutoriel : Intégration d’Azure Active Directory à RStudio Connect
 
@@ -158,9 +158,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Stockez l’**adresse du serveur** dans la valeur `Server.Address`, et l’**URL des métadonnées de fédération d'application** dans la valeur `SAML.IdPMetaData`.
+Stockez l’**adresse du serveur** dans la valeur `Server.Address`, et l’**URL des métadonnées de fédération d'application** dans la valeur `SAML.IdPMetaData`. Notez que cet exemple de configuration utilise une connexion HTTP non chiffrée, alors qu’Azure AD exige l’utilisation d’une connexion HTTPS chiffrée. Vous pouvez soit utiliser un [proxy inverse ](https://docs.rstudio.com/connect/admin/proxy/) devant RStudio Connect, soit configurer RStudio Connect pour une [utilisation directe de HTTPS](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-Si vous rencontrez des problèmes de configuration, vous pouvez lire le [Guide de l’administrateur RStudio Connect](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) ou envoyer un e-mail à l’[équipe du support technique de RStudio](mailto:support@rstudio.com) pour obtenir de l’aide.
+Si vous rencontrez des problèmes de configuration, vous pouvez lire le [Guide de l’administrateur RStudio Connect](https://docs.rstudio.com/connect/admin/authentication/saml/) ou envoyer un e-mail à l’[équipe du support technique de RStudio](mailto:support@rstudio.com) pour obtenir de l’aide.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 

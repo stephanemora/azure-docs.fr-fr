@@ -3,18 +3,18 @@ title: 'Démarrage rapide : Déploiement automatique d’une machine virtuelle 
 description: Ce guide de démarrage rapide vous montre comment utiliser le module Azure PowerShell et les modèles Azure Resource Manager pour déployer un magasin Azure App Configuration. Il vous montre ensuite comment déployer une machine virtuelle en utilisant les valeurs stockées dans le magasin.
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 03/05/2020
+ms.date: 04/14/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126387"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309110"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Démarrage rapide : Déploiement automatique d’une machine virtuelle avec un modèle Resource Manager et App Configuration
 
@@ -152,6 +152,9 @@ Vous pouvez créer un magasin App Configuration à partir d’un modèle Azure R
 ## <a name="deploy-vm-using-stored-key-values"></a>Déployer une machine virtuelle en utilisant les paires clé-valeur
 
 Maintenant que vous avez ajouté les paires clé-valeur au magasin, vous êtes prêt à déployer une machine virtuelle à l’aide d’un modèle Azure Resource Manager. Le modèle référence les clés **windowsOsVersion** et **diskSizeGB** que vous avez créées.
+
+> [!WARNING]
+> Les modèles ARM ne peuvent pas faire référence à des clés dans un magasin App Configuration pour lequel Private Link est activé.
 
 1. Copiez et collez le code JSON suivant dans un nouveau fichier nommé *azuredeploy.json*, ou téléchargez le fichier à partir des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
@@ -423,13 +426,13 @@ Maintenant que vous avez ajouté les paires clé-valeur au magasin, vous êtes p
    |storageAccountName|Nom unique d’un compte de stockage associé à la machine virtuelle.|
    |domainNameLabel|Nom de domaine unique.|
 
-1. Dans la fenêtre PowerShell, exécutez la commande suivante pour déployer le magasin Azure App Configuration. N’oubliez pas de remplacer les variables (pour le nom du groupe de ressources, le chemin du fichier de modèle et le chemin du fichier de paramètres du modèle) par vos propres valeurs.
+1. Dans la fenêtre PowerShell, exécutez la commande suivante pour déployer la machine virtuelle. N’oubliez pas de remplacer les variables (pour le nom du groupe de ressources, le chemin du fichier de modèle et le chemin du fichier de paramètres du modèle) par vos propres valeurs.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
+       -ResourceGroupName "<your resource group>"
+       -TemplateFile "<path to azuredeploy.json>" `
+       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
 Félicitations ! Vous avez déployé une machine virtuelle avec les configurations stockées dans Azure App Configuration.

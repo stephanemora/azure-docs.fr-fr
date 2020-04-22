@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 72488ba339399c526e882ffd11c41410a0b011ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80159082"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256482"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Tutoriel : Utiliser R pour créer un modèle Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -98,7 +98,24 @@ La configuration de votre travail de développement dans ce tutoriel inclut les 
 * Créer une cible de calcul distante à utiliser pour l’apprentissage
 
 ### <a name="install-required-packages"></a>Installer les packages nécessaires
-Ce tutoriel part du principe que vous avez déjà installé le SDK Azure ML. Poursuivez et importez le package **azuremlsdk**.
+
+ * Installez la dernière version à partir de CRAN.
+
+    ```R
+    # install the latest version from CRAN
+    install.packages("azuremlsdk")
+    azuremlsdk::install_azureml(envname = 'r-reticulate')
+    ```
+    
+* Ou installez la version de développement à partir de GitHub.
+
+    ```R
+    # or install the development version from GitHub
+    remotes::install_github('https://github.com/Azure/azureml-sdk-for-r')
+    azuremlsdk::install_azureml(envname = 'r-reticulate')
+    ```
+
+À présent, importez le package **azuremlsdk**.
 
 ```R
 library(azuremlsdk)

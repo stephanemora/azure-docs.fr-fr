@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1e4f72300752c93659db4edd4610464dbebf2503
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77014417"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271061"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Qu’est-ce qu’Azure Time Series Insights (préversion) ?
 
@@ -55,8 +55,8 @@ Grâce à la combinaison d’une plateforme d’analytique opérationnelle enric
 
 * Une solution de stockage multicouche avec prise en charge de l’analytique à chaud et à froid, offrant aux clients la possibilité d’acheminer des données entre chaud et froid pour l’analytique interactive sur des données à chaud ainsi que l’intelligence opérationnelle sur l’équivalent de plusieurs décennies de données d’historique. 
 
-    *   Une solution d’analytique à chaud hautement interactive pour exécuter des requêtes fréquentes et en grand nombre sur des données couvrant une période plus courte 
-    *   Un lac de données de série chronologique évolutif, optimisé en termes de performances et de coûts basé sur Stockage Azure, permettant aux clients d’afficher les tendances de données de série chronologique sur plusieurs années en quelques secondes. 
+    *    Une solution d’analytique à chaud hautement interactive pour exécuter des requêtes fréquentes et en grand nombre sur des données couvrant une période plus courte 
+    *    Un lac de données de série chronologique scalable, performant et optimisé en termes de coûts basé sur Stockage Azure qui permet aux clients de voir les tendances de données de série chronologique sur plusieurs années en quelques secondes. 
 
 * Un modèle sémantique permettant de décrire le domaine et les métadonnées associés aux signaux dérivés et bruts de ressources et d’appareils.
 
@@ -64,7 +64,7 @@ Grâce à la combinaison d’une plateforme d’analytique opérationnelle enric
 
 * Une analytique enrichie avec des API de requête améliorées et une expérience utilisateur qui combine les insights de données basés sur des ressources et l’analytique de données ad hoc complète prenant en charge l’interpolation, les fonctions scalaire et d’agrégation, les variables catégoriques, les nuages de points et les signaux de série chronologique avec décalage temporel pour une analyse approfondie.
 
-*   Une plateforme de qualité professionnelle pour prendre en charge les besoins en matière d’évolutivité, de performance, de sécurité et de fiabilité de nos clients IoT d’entreprise.
+*    Une plateforme de qualité professionnelle pour prendre en charge les besoins en matière d’évolutivité, de performance, de sécurité et de fiabilité de nos clients IoT d’entreprise.
 
 * La prise en charge de l’extensibilité et de l’intégration pour l’analytique de bout en bout. Time Series Insights offre une plateforme d’analytique extensible pour un large éventail de scénarios de données. Le connecteur Power BI Time Series Insights permet aux clients de traiter les requêtes qu’ils effectuent dans Time Series Insights directement dans Power BI afin d’obtenir une vue unifiée de leurs analyses de décisionnel et chronologiques dans un seul et même volet.
 
