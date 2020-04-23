@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77160446"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536061"
 ---
-# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web node.js
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web Node.js
 
 Dans ce guide de démarrage rapide, vous allez apprendre à configurer l'authentification OpenID Connect dans une application web créée à l'aide de Node.js avec Express. L'exemple est conçu pour fonctionner sur n'importe quelle plateforme.
 
@@ -30,7 +30,7 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 
 * Un [compte Microsoft](https://www.outlook.com) ou [Programme pour développeurs Office 365](/office/developer-program/office-365-developer-program)
 
-## <a name="register-your-application"></a>Inscrivez votre application 
+## <a name="register-your-application"></a>Inscrivez votre application
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Si votre compte est présent dans plusieurs locataires Azure AD :
     - Sélectionnez votre profil dans le menu en haut à droite de la page, puis **changez de répertoire**.
@@ -78,7 +78,7 @@ or
 
 À partir du répertoire racine du projet, exécutez la commande suivante :
 
-`$ npm install`  
+`$ npm install`
 
 ## <a name="configure-the-application"></a>Configuration de l'application
 

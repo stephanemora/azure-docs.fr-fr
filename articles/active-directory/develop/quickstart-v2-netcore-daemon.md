@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 4332755c1ee47cd648f048768307846f02503e20
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0a41165a77ff5f98a6a0bb408da62cb6c4cb35f8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407056"
+ms.locfileid: "81536078"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Démarrage rapide : Acquérir un jeton et appeler l'API Microsoft Graph en utilisant l'identité de l'application console
 
@@ -50,7 +50,7 @@ Ce guide de démarrage rapide nécessite [.NET Core 2.2](https://www.microsoft.
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
 > 1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
 > 1. Sélectionnez **Nouvelle inscription**.
-> 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application. 
+> 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application.
 > 1. Dans la section **Nom**, entrez un nom d’application pertinent qui sera visible par les utilisateurs de l’application, par exemple `Daemon-console`, puis sélectionnez **Inscrire** pour créer l’application.
 > 1. Après l’inscription, sélectionnez le menu **Certificats et secrets**.
 > 1. Sous **Secrets client** , sélectionnez **+ Nouveau secret client**. Donnez-lui un nom et sélectionnez **Ajouter**. Copiez le secret dans un emplacement sûr. Vous en aurez besoin plus tard dans votre code.
@@ -60,7 +60,7 @@ Ce guide de démarrage rapide nécessite [.NET Core 2.2](https://www.microsoft.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Télécharger et configurer votre application de démarrage rapide
-> 
+>
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
 > Pour que l’exemple de code fonctionne dans ce guide de démarrage rapide, vous devez créer un secret client et ajouter l’autorisation d’application **User.Read.All** de l’API Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -82,14 +82,14 @@ Ce guide de démarrage rapide nécessite [.NET Core 2.2](https://www.microsoft.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-    
+
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
-> 
+>
 > 1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple, **C:\Azure-Samples**.
 > 1. Ouvrez la solution dans Visual Studio - **1-Call-MSGraph\daemon-console.sln** (facultatif).
 > 1. Modifiez **appsettings.json** et remplacez les valeurs des champs `ClientId`, `Tenant` et `ClientSecret` par :
-> 
+>
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
 >    "ClientId": "Enter_the_Application_Id_Here",
@@ -217,7 +217,7 @@ result = await app.AcquireTokenForClient(scopes)
 
 > |Où :| |
 > |---------|---------|
-> | `scopes` | Contient les étendues demandées. Pour les clients confidentiels, utilisez un format similaire à `{Application ID URI}/.default`. Ce format indique que les étendues demandées sont celles qui sont définies de manière statique dans l’objet application défini dans le portail Azure (pour Microsoft Graph, `{Application ID URI}` pointe vers `https://graph.microsoft.com`). Pour les API web personnalisées, `{Application ID URI}` est défini sous la section **Exposer une API** dans Inscriptions d’applications (préversion) sur le portail Azure. |
+> | `scopes` | Contient les étendues demandées. Pour les clients confidentiels, utilisez un format similaire à `{Application ID URI}/.default`. Ce format indique que les étendues demandées sont celles qui sont définies de manière statique dans l’objet application défini dans le portail Azure (pour Microsoft Graph, `{Application ID URI}` pointe vers `https://graph.microsoft.com`). Pour les API web personnalisées, `{Application ID URI}` est défini sous la section **Exposer une API** dans Inscription de l’application (préversion) sur le portail Azure. |
 
 Pour plus d’informations, consultez la [documentation de référence sur `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 

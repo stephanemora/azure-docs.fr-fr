@@ -4,14 +4,14 @@ description: Cet article décrit Azure HPC Cache, un accélérateur d’accès a
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216387"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536639"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Qu’est-ce qu’Azure HPC Cache ?
 
@@ -49,22 +49,20 @@ Un déploiement Azure HPC Cache permet d’accélérer les calculs d’analyse q
 
 Azure HPC Cache est disponible dans les régions Azure suivantes :
 
+| Amérique du Nord      | Europe         | Asia            | Australie      |
+|--------------------|----------------|-----------------|----------------|
+| USA Est            | Europe Nord   | Centre de la Corée   | Australie Est |
+| USA Est 2          | Europe Ouest    | Asie Sud-Est  |               |
+| États-Unis - partie centrale méridionale | | | |
+| USA Ouest 2        | | | |
+
+La [fonctionnalité de clés gérées par le client](customer-keys.md) est prise en charge uniquement dans les régions suivantes :
+
 * USA Est
-* USA Est 2
-* Europe Nord
-* Europe Ouest
-* Asie Sud-Est
-* Sydney
+* États-Unis - partie centrale méridionale
 * USA Ouest 2
-* Centre de la Corée
 
 Consultez la [page produit Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) pour obtenir les informations de disponibilité les plus récentes.
-
-## <a name="service-availability"></a>Disponibilité du service
-
-Vous devez demander un accès pour chaque abonnement utilisé avec Azure HPC cache. Cette restriction contribue à garantir la qualité du service au cours des premiers mois de la disponibilité générale.
-
-Demandez l’accès en remplissant [ce formulaire](https://aka.ms/onboard-hpc-cache). Une fois votre abonnement ajouté à la liste d’accès, vous pouvez créer des caches.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

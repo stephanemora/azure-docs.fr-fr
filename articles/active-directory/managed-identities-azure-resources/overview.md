@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/25/2020
+ms.date: 04/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282118"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682589"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Que sont les identités managées pour les ressources Azure ?
 
@@ -51,8 +51,12 @@ Il existe deux types d’identités administrées :
 - Une **identité managée attribuée par l’utilisateur** est créée en tant que ressource Azure autonome. Via un processus de création, Azure crée une identité dans le locataire Azure AD approuvé par l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être affectée à une ou plusieurs instances de service Azure. Le cycle de vie d’une identité attribuée par l’utilisateur est géré séparément du cycle de vie des instances de service Azure auxquelles elle est affectée.
 
 En interne, des identités managées sont des principaux de service d’un type spécial, qui sont verrouillés pour être utilisés uniquement avec les ressources Azure. Lorsqu’une identité managée est supprimée, le principal de service correspondant est automatiquement supprimé.
+Par ailleurs, quand une identité affectée par l’utilisateur ou par le système est créée, le fournisseur de ressources d’identités managées émet un certificat en interne pour cette identité. 
 
-Votre code peut utiliser une identité managée pour faire une demande de jetons d’accès pour les services qui prennent en charge l’authentification Azure AD. Azure prend en charge la restauration des informations d’identification utilisées par l’instance de service.
+Votre code peut utiliser une identité managée pour faire une demande de jetons d’accès pour les services qui prennent en charge l’authentification Azure AD. Azure prend en charge la restauration des informations d’identification utilisées par l’instance de service. 
+
+## <a name="credential-rotation"></a>Rotation des informations d’identification
+La rotation des informations d’identification est contrôlée par le fournisseur de ressources qui héberge la ressource Azure. La rotation par défaut des informations d’identification se produit tous les 46 jours. Il revient au fournisseur de ressources de demander de nouvelles informations d’identification afin qu’il puisse attendre plus de 46 jours.
 
 Le diagramme suivant illustre le fonctionnement des identités de service administré avec les machines virtuelles (VM) Azure :
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 582afef8929da2ba75aab70c1ed0fa9e57fd3f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76703471"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536146"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Démarrage rapide : Appeler une API web ASP.NET protégée par la plateforme d’identités Microsoft
 
-Dans démarrage rapide, vous exposez une API web et la protégez afin que seuls un utilisateur authentifié puisse y accéder. Cet exemple montre comment exposer une API web ASP.NET pour qu’elle accepte des jetons émis par des comptes personnels (y compris outlook.com, live.com, etc.) et des comptes professionnels ou scolaires de toute société ou organisation intégrée à la plateforme d’identités Microsoft.
+Dans ce guide de démarrage rapide, vous exposez une API web et la protégez afin que seul un utilisateur authentifié puisse y accéder. Cet exemple montre comment exposer une API web ASP.NET pour qu’elle accepte des jetons émis par des comptes personnels (dont outlook.com, live.com, etc.) ainsi que des comptes professionnels ou scolaires de toute société ou organisation intégrée à la plateforme d’identités Microsoft.
 
 L’exemple inclut également un client d’application de bureau Windows (WPF) qui montre comment demander un jeton d’accès pour accéder à une API web.
 
@@ -69,13 +69,13 @@ Si vous souhaitez inscrire vos applications manuellement, commencez par effectue
      - Pour **Nom de l’étendue**, utilisez `access_as_user`.
      - Vérifiez que l’option **Administrateurs et utilisateurs** est sélectionnée pour **Qui peut donner son consentement**.
      - Dans **Nom d’affichage du consentement de l’administrateur**, tapez `Access TodoListService as a user`.
-     - Dans **Description du consentement de l’administrateur**, tapez `Accesses the TodoListService Web API as a user`.
+     - Dans **Description du consentement de l’administrateur**, tapez `Accesses the TodoListService web API as a user`.
      - Dans **Nom d’affichage du consentement de l’utilisateur**, tapez `Access TodoListService as a user`.
-     - Dans **Description du consentement de l’utilisateur**, tapez `Accesses the TodoListService Web API as a user`.
+     - Dans **Description du consentement de l’utilisateur**, tapez `Accesses the TodoListService web API as a user`.
      - Conservez l’**État** **activée**.
      - Sélectionnez **Ajouter une étendue**
 
-### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configurer le projet de service en fonction de l’API web inscrite 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configurer le projet de service en fonction de l’API web inscrite
 
 1. Ouvrez la solution dans Visual Studio, puis ouvrez le fichier **Web. config** sous la racine du projet **TodoListService**.
 1. Remplacez la valeur du paramètre `ida:ClientId` par l’**ID client (ID d’application)** de l’application que vous venez d’inscrire dans le portail d’inscription d’application.
@@ -86,7 +86,7 @@ Si vous souhaitez inscrire vos applications manuellement, commencez par effectue
 
    > Remarque : Assurez-vous que le format utilisé est le suivant :
    >
-   > `api://{TodoListService-Application-ID}/access_as_user` 
+   > `api://{TodoListService-Application-ID}/access_as_user`
    >
    >(où {TodoListService-application-ID} est le GUID représentant l’ID d’application de votre TodoListService).
 
@@ -141,7 +141,7 @@ L’une des façons d’autoriser des utilisateurs d’autres annuaires à accé
 
 ## <a name="optional-restrict-sign-in-access-to-your-application"></a>Facultatif : Restreindre les utilisateurs qui peuvent se connecter à votre application
 
-Par défaut, lorsque vous téléchargez cet exemple de code et configurez l’application pour utiliser le point de terminaison Azure Active Directory v2 en suivant les étapes précédentes, tant les comptes personnels (outlook.com, live.com, etc.) que les comptes professionnels ou scolaires de toutes les organisations intégrés avec Azure AD peuvent demander des jetons et accéder à votre API web. 
+Par défaut, quand vous téléchargez cet exemple de code et configurez l’application pour utiliser le point de terminaison Azure Active Directory v2 en suivant les étapes précédentes, tant les comptes personnels (outlook.com, live.com, etc.) que les comptes professionnels ou scolaires de toutes les organisations intégrées à Azure AD peuvent demander des jetons et accéder à votre API web.
 
 Pour limiter les utilisateurs autorisés à se connecter à votre application, utilisez l’une des options suivantes :
 

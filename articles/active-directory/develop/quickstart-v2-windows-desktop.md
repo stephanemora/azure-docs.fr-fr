@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1c66779dc726c3c6366bc03282d5d3c2bdc8134a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a464bb8a942c449e0b17751fbea7a810711cb48d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991039"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535993"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -62,7 +62,7 @@ Dans ce démarrage rapide, vous allez apprendre comment concevoir une applicatio
 #### <a name="step-2-download-your-visual-studio-project"></a>Étape 2 : Télécharger votre projet Visual Studio
 
 > [!div renderon="docs"]
-> [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  
+> [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Exécutez le projet à l’aide de Visual Studio 2019.
@@ -71,7 +71,7 @@ Dans ce démarrage rapide, vous allez apprendre comment concevoir une applicatio
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée
-> Nous avons configuré votre projet avec les valeurs des propriétés de votre application et il est prêt à être exécuté. 
+> Nous avons configuré votre projet avec les valeurs des propriétés de votre application et il est prêt à être exécuté.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -87,7 +87,7 @@ Dans ce démarrage rapide, vous allez apprendre comment concevoir une applicatio
 >    private static string ClientId = "Enter_the_Application_Id_here";
 >    private static string Tenant = "Enter_the_Tenant_Info_Here";
 >    ```
-> 
+>
 > Où :
 > - `Enter_the_Application_Id_here` : est l’**ID d’application (client)** pour l’application que vous avez inscrite.
 > - `Enter_the_Tenant_Info_Here` : est défini sur l’une des options suivantes :
@@ -152,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 > |Où :||
 > |---------|---------|
-> | `_scopes` | Contient les étendues demandées, telles que `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
+> | `_scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
 
@@ -167,7 +167,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > |Où : ||
 > |---------|---------|
-> | `scopes` | Contient les étendues demandées, telles que `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
+> | `scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
 > | `firstAccount` | Spécifie le premier utilisateur dans le cache (MSAL prend en charge plusieurs utilisateurs dans une seule application). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

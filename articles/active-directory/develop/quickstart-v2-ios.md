@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 6a127510b454244b32ad481cdb32c5d2e8faf9a0
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 47485d8d9007a6cf6432b7bf401c7c1c34a9863a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991175"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536129"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -30,7 +30,7 @@ Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certai
 > [!NOTE]
 > **Composants requis**
 > * XCode 10+
-> * iOS 10+ 
+> * iOS 10+
 > * macOS 10.12+
 
 > [!div renderon="docs"]
@@ -83,7 +83,7 @@ Dans une fenêtre de terminal, accédez au dossier à l’aide de l’exemple de
 #### <a name="step-4-configure-your-project"></a>Étape 4 : Configurer votre projet
 
 > [!div renderon="docs"]
-> Si vous avez sélectionné l’option 1 ci-dessus, vous pouvez ignorer ces étapes. 
+> Si vous avez sélectionné l’option 1 ci-dessus, vous pouvez ignorer ces étapes.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extrayez le fichier zip et ouvrez le projet dans XCode.
@@ -149,9 +149,9 @@ Dans une fenêtre de terminal, accédez au dossier à l’aide de l’exemple de
 >          </array>
 >       </dict>
 >    </array>
-> 
+>
 >    ```
-> 1. Générez et exécutez l'application ! 
+> 1. Générez et exécutez l'application !
 
 ## <a name="more-information"></a>Informations complémentaires
 
@@ -192,7 +192,7 @@ Ensuite, initialisez MSAL à l’aide du code suivant :
 
 ```swift
 let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
-            
+
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
@@ -209,7 +209,7 @@ Votre application doit également comporter ce qui suit dans la propriété `App
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+
         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
     }
 
@@ -221,21 +221,21 @@ Votre application doit également comporter ce qui suit dans la propriété `App
 
  ```swift
  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
+
         guard let urlContext = URLContexts.first else {
             return
         }
-        
+
         let url = urlContext.url
         let sourceApp = urlContext.options.sourceApplication
-        
+
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
  ```
 
-Enfin, votre application doit comporter une entrée `LSApplicationQueriesSchemes` dans la liste ***Info.plist*** en plus des `CFBundleURLTypes`. Ceci est inclus dans l'exemple fourni. 
+Enfin, votre application doit comporter une entrée `LSApplicationQueriesSchemes` dans la liste ***Info.plist*** en plus des `CFBundleURLTypes`. Ceci est inclus dans l'exemple fourni.
 
-   ```xml 
+   ```xml
    <key>LSApplicationQueriesSchemes</key>
    <array>
       <string>msauthv2</string>
@@ -249,10 +249,10 @@ MSAL utilise deux méthodes pour acquérir des jetons : `acquireToken` et `acqui
 
 #### <a name="acquiretoken-get-a-token-interactively"></a>acquireToken : Obtenir un jeton de manière interactive
 
-Certaines situations nécessitent l'interaction des utilisateurs avec la Plateforme d'identités Microsoft. Dans ce cas, l'utilisateur final peut être amené à sélectionner son compte, à saisir ses informations d'identification ou à accepter les autorisations relatives à votre application. Par exemple, 
+Certaines situations nécessitent l'interaction des utilisateurs avec la Plateforme d'identités Microsoft. Dans ce cas, l'utilisateur final peut être amené à sélectionner son compte, à saisir ses informations d'identification ou à accepter les autorisations relatives à votre application. Par exemple,
 
 * La première connexion des utilisateurs à l’application
-* Si un utilisateur réinitialise son mot de passe, il doit entrer ses informations d’identification 
+* Si un utilisateur réinitialise son mot de passe, il doit entrer ses informations d’identification
 * Lorsque votre application demande l'accès à une ressource pour la première fois
 * Lorsque l'authentification multifacteur ou d'autres stratégies d'accès conditionnel sont requises
 
@@ -263,19 +263,19 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 
 > |Où :||
 > |---------|---------|
-> | `scopes` | Contient les étendues demandées (c'est-à-dire `[ "user.read" ]` pour Microsoft Graph ou `[ "<Application ID URL>/scope" ]` pour les API web personnalisées (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Contient les étendues demandées (c’est-à-dire `[ "user.read" ]` pour Microsoft Graph ou `[ "<Application ID URL>/scope" ]` pour les API web personnalisées (`api://<Application ID>/access_as_user`) |
 
 #### <a name="acquiretokensilent-get-an-access-token-silently"></a>acquireTokenSilent : Obtenir un jeton d’accès en mode silencieux
 
-Les applications ne doivent pas demander aux utilisateurs de se connecter chaque fois qu'elles ont besoin d'un jeton. Si l'utilisateur est déjà connecté, cette méthode permet aux applications demander des jetons en mode silencieux. 
+Les applications ne doivent pas demander aux utilisateurs de se connecter chaque fois qu'elles ont besoin d'un jeton. Si l'utilisateur est déjà connecté, cette méthode permet aux applications demander des jetons en mode silencieux.
 
 ```swift
 self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previousAccount, error) in
-            
+
    guard let account = currentAccount else {
       return
    }
-            
+
    let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
    self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
 }
@@ -283,7 +283,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 
 > |Où : ||
 > |---------|---------|
-> | `scopes` | Contient les étendues demandées (c'est-à-dire `[ "user.read" ]` pour Microsoft Graph ou `[ "<Application ID URL>/scope" ]` pour les API web personnalisées (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Contient les étendues demandées (c’est-à-dire `[ "user.read" ]` pour Microsoft Graph ou `[ "<Application ID URL>/scope" ]` pour les API web personnalisées (`api://<Application ID>/access_as_user`) |
 > | `account` | Compte pour lequel un jeton est demandé. Ce guide de démarrage rapide concerne une application monocompte. Si vous souhaitez créer une application multicompte, vous devez définir une logique permettant d’identifier le compte à utiliser pour les demandes de jetons à l’aide de `accountsFromDeviceForParameters:completionBlock:` et de transmettre le `accountIdentifier` correct. |
 
 ## <a name="next-steps"></a>Étapes suivantes

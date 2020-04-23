@@ -5,18 +5,18 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b385136183fba5d1e64db3763453d2f4b23d4d96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045169"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535636"
 ---
 # <a name="app-service-overview"></a>Vue d'ensemble d'App Service
 
 *Azure App Service* est un service HTTP pour l’hébergement d’applications web, d’API REST et de backends mobiles. Vous pouvez développer dans votre langage préféré, par exemple .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Les applications s’exécutent et sont mises à l’échelle facilement dans les environnements Windows et Linux. Pour les environnements Linux, consultez [Présentation d’Azure App Service sur Linux](containers/app-service-linux-intro.md). 
 
-App Service ajoute la puissance de Microsoft Azure à votre application, notamment la sécurité, l’équilibrage de charge, la mise à l’échelle automatique et la gestion automatisée. Vous pouvez également bénéficier de ses fonctionnalités DevOps, notamment le déploiement continu à partir de Azure DevOps, GitHub, Docker Hub et d’autres sources, la gestion des packages, les environnements intermédiaires et les certificats SSL. 
+App Service ajoute la puissance de Microsoft Azure à votre application, notamment la sécurité, l’équilibrage de charge, la mise à l’échelle automatique et la gestion automatisée. Vous pouvez également bénéficier de ses fonctionnalités DevOps, notamment le déploiement continu depuis Azure DevOps, GitHub, Docker Hub et d’autres sources, la gestion des packages, les environnements intermédiaires, le domaine personnalisé et les certificats TLS/SSL. 
 
 Avec App Service, vous payez pour les ressources de calcul Azure que vous utilisez. Les ressources de calcul que vous utilisez sont déterminées par le _plan App Service_ sur lequel vous exécutez vos applications. Pour plus d’informations, consultez [Vue d’ensemble des plans Azure App Service](overview-hosting-plans.md).
 

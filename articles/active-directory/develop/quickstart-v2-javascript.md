@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: ac134dce5ad739d1d81ef0c62a6bfb04468cafff
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991107"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536095"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
@@ -39,7 +39,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
 > 1. Si votre compte vous donne accès à plusieurs locataires, sélectionnez le compte en haut à droite, puis définissez votre session de portail sur le locataire Azure Active Directory (Azure AD) que vous voulez utiliser.
 > 1. Accédez au nouveau volet [Portail Azure - Inscriptions des applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
-> 1. Entrez un nom pour votre application. 
+> 1. Entrez un nom pour votre application.
 > 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 > 1. Sélectionnez **Inscription**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application.
@@ -99,7 +99,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 >      cacheLocation: "sessionStorage", // This configures where your cache will be stored
 >      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
 >    }
->  };  
+>  };
 >
 >```
 
@@ -122,10 +122,10 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée
-> Nous avons configuré votre projet avec les valeurs des propriétés de votre application. 
+> Nous avons configuré votre projet avec les valeurs des propriétés de votre application.
 
 > [!div renderon="docs"]
-> 
+>
 > Ensuite, dans le même dossier, modifiez le fichier *graphConfig.js* pour définir `graphMeEndpoint` et `graphMeEndpoint` pour l’objet `apiConfig`.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -199,7 +199,7 @@ Le code du guide de démarrage rapide montre également comment initialiser la b
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
-  };  
+  };
 
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```

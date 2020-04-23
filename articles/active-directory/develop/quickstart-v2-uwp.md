@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: feb1fa82653a0db7b3041a4f745d0563c220bd31
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 362f6d1f4e50e1cc78c8897499b9f6593096162b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991090"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536010"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
@@ -72,7 +72,7 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée
-> Nous avons configuré votre projet avec les valeurs des propriétés de votre application et il est prêt à être exécuté. 
+> Nous avons configuré votre projet avec les valeurs des propriétés de votre application et il est prêt à être exécuté.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -80,7 +80,7 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
-> 
+>
 > 1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple, **C:\Azure-Samples**.
 > 1. Ouvrez le projet dans Visual Studio. Vous pouvez être invité à installer un SDK UWP. Si c’est le cas, acceptez.
 > 1. Modifiez **MainPage.Xaml.cs** en remplaçant les valeurs du champ `ClientId` :
@@ -157,7 +157,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 > |Où :||
 > |---------|---------|
-> | `scopes` | Contient les étendues demandées, telles que `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
+> | `scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
 
@@ -172,7 +172,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > |Où : ||
 > |---------|---------|
-> | `scopes` | Contient les étendues demandées, telles que `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées |
+> | `scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées |
 > | `firstAccount` | Spécifie le compte du premier utilisateur dans le cache (MSAL prend en charge plusieurs utilisateurs dans une même application) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

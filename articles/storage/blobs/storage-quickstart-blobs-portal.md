@@ -7,20 +7,20 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: 3ceeb878121782ea3664e1ed62d5d632b606f08e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535165"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure
+# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Démarrage rapide : Charger, télécharger et lister les objets blob avec le portail Azure
 
 Dans ce démarrage rapide, vous apprenez à utiliser le [portail Azure](https://portal.azure.com/) pour créer un conteneur dans le stockage Azure, ainsi que pour charger et télécharger des objets blob de blocs dans ce conteneur.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -39,27 +39,25 @@ Pour créer un conteneur dans le portail Azure, procédez comme suit :
 
 ## <a name="upload-a-block-blob"></a>Charger un objet blob de blocs
 
-Les objets blob de blocs sont constitués de blocs de données assemblés pour former un objet blob. La plupart des scénarios utilisant le stockage Blob se servent d’objets blob de blocs. Les objets blob de blocs sont idéaux pour le stockage des données texte et binaires dans le cloud, telles que des fichiers, des images et des vidéos. Ce démarrage rapide montre comment utiliser des objets blob de blocs. 
+Les objets blob de blocs sont constitués de blocs de données assemblés pour former un objet blob. La plupart des scénarios utilisant le stockage Blob se servent d’objets blob de blocs. Les objets blob de blocs sont idéaux pour le stockage des données texte et binaires dans le cloud, telles que des fichiers, des images et des vidéos. Ce démarrage rapide montre comment utiliser des objets blob de blocs.
 
 Pour charger un objet blob de blocs dans votre nouveau conteneur dans le portail Azure, procédez comme suit :
 
 1. Dans le portail Azure, accédez au conteneur que vous avez créé dans la section précédente.
-2. Sélectionnez le conteneur pour afficher une liste des objets blob qu’il contient. Dans la mesure où ce conteneur est nouveau, il ne contient pas encore d’objets blob.
-3. Sélectionnez le bouton **Charger** pour ouvrir le panneau Charger
-4. Naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs
-     
+1. Sélectionnez le conteneur pour afficher une liste des objets blob qu’il contient. Comme ce conteneur est nouveau, il ne contient pas encore d’objets blob.
+1. Sélectionnez le bouton **Charger** pour ouvrir le panneau Charger et naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs. Vous pouvez éventuellement développer la section Avancé pour configurer d’autres paramètres pour l’opération de chargement.
+
     ![Capture d’écran montrant comment charger un objet blob à partir de votre disque local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Si vous le souhaitez, développez la section Avancé pour définir d’autres paramètres, comme le type d’authentification, le niveau d’accès ou le chemin du dossier virtuel.
-6. Sélectionnez le bouton **Charger** pour valider le chargement
-7. Chargez autant d’objets blob que vous le souhaitez en suivant cette méthode. Vous verrez que les nouveaux objets blob sont maintenant répertoriés dans le conteneur.
+1. Sélectionnez le bouton **Charger** pour charger l’objet blob.
+1. Chargez autant d’objets blob que vous le souhaitez en suivant cette méthode. Vous verrez que les nouveaux objets blob sont maintenant répertoriés dans le conteneur.
 
 ## <a name="download-a-block-blob"></a>Télécharger un objet blob de blocs
 
 Vous pouvez télécharger un objet blob de blocs à afficher dans le navigateur ou à enregistrer dans votre système de fichiers local. Pour télécharger un objet blob de blocs, procédez comme suit :
 
-1. Accédez à la liste d’objets blob que vous avez chargée dans la section précédente. 
-2. Cliquez avec le bouton droit sur l’objet blob que vous souhaitez télécharger, puis sélectionnez **Télécharger**. 
+1. Accédez à la liste d’objets blob que vous avez chargée dans la section précédente.
+1. Cliquez avec le bouton droit sur l’objet blob que vous souhaitez télécharger, puis sélectionnez **Télécharger**.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -68,9 +66,9 @@ Pour supprimer les ressources que vous avez créées dans ce démarrage rapide, 
 Pour supprimer le conteneur :
 
 1. Dans le portail Azure, accédez à la liste des conteneurs dans votre compte de stockage.
-2. Sélectionnez le conteneur à supprimer.
-3. Sélectionnez le bouton **Plus** ( **...** ), puis sélectionnez **Supprimer**.
-4. Confirmez que vous souhaitez supprimer le conteneur.
+1. Sélectionnez le conteneur à supprimer.
+1. Sélectionnez le bouton **Plus** ( **...** ), puis sélectionnez **Supprimer**.
+1. Confirmez que vous souhaitez supprimer le conteneur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -78,4 +76,3 @@ Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers
 
 > [!div class="nextstepaction"]
 > [Guide pratique des opérations Stockage Blob](storage-dotnet-how-to-use-blobs.md)
-

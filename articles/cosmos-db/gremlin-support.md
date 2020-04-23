@@ -7,15 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 59c45497ea6d9fcb216c83060a858ee6c96f1151
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75499999"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449967"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
-Azure Cosmos DB prend en charge le langage de traversées de graphes [Apache Tinkerpop](https://tinkerpop.apache.org), connu sous le nom de [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
+Azure Cosmos DB prend en charge le langage de traversées de graphes [Apache Tinkerpop](https://tinkerpop.apache.org), connu sous le nom de [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (sommets et arêtes), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
 
 Dans cet article, nous fournissons une procédure pas à pas pour Gremlin, et nous énumérons les fonctionnalités Gremlin qui sont prises en charge par l’API Gremlin.
 
@@ -41,16 +41,14 @@ Le tableau suivant répertorie les fonctionnalités TinkerPop implémentées par
 | --- | --- | --- |
 | Fonctionnalités de graphe | Fournit la persistance et ConcurrentAccess. Conçu pour prendre en charge les transactions | Les méthodes de l’ordinateur peuvent être implémentées via le connecteur Spark. |
 | Fonctionnalités variables | Prend en charge les valeurs booléennes, entières, byte, doubles, flottantes, longues et de chaîne | Prend en charge les types primitifs, et est compatible avec des types complexes via un modèle de données |
-| Fonctionnalités de vertex | Prend en charge RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Prend en charge la création, la modification et la suppression de vertex |
-| Fonctionnalités de propriétés de vertex | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Prend en charge la création, la modification et la suppression des propriétés vertex |
-| Fonctionnalités de bords | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Prend en charge la création, la modification et la suppression de bords |
-| Fonctionnalités de propriétés de bords | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Prend en charge la création, la modification et la suppression de bords |
+| Fonctionnalités de sommet | Prend en charge RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Prend en charge la création, la modification et la suppression de sommet |
+| Fonctionnalités de propriétés de sommet | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Prend en charge la création, la modification et la suppression des propriétés de sommet |
+| Fonctionnalités d’arête | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Prend en charge la création, la modification et la suppression d’arêtes |
+| Fonctionnalités de propriétés d’arête | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Prend en charge la création, la modification et la suppression d’arêtes |
 
-## <a name="gremlin-wire-format-graphson"></a>Format de câble Gremlin : GraphSON
+## <a name="gremlin-wire-format"></a>Format de communication Gremlin
 
-Azure Cosmos DB utilise le [format GraphSON](https://tinkerpop.apache.org/docs/current/reference/#graphson) lors du renvoi des résultats des opérations Gremlin. Azure Cosmos DB prend actuellement en charge la version « GraphSONv2 ». GraphSON est le format standard Gremlin pour représenter des vertex, des bords et des propriétés (propriétés à valeurs uniques et multiples) à l’aide de JSON.
-
-Par exemple, l’extrait de code suivant montre une représentation sous forme de GraphSON d’un sommet *retourné au client* dans Azure Cosmos DB. 
+Azure Cosmos DB utilise le format JSON quand les résultats des opérations Gremlin sont retournés. Azure Cosmos DB prend actuellement en charge le format JSON. Par exemple, l’extrait de code suivant montre une représentation JSON d’un sommet *retourné au client* à partir d’Azure Cosmos DB :
 
 ```json
   {
@@ -89,25 +87,25 @@ Par exemple, l’extrait de code suivant montre une représentation sous forme d
   }
 ```
 
-Les propriétés utilisées par GraphSON pour les vertex sont décrites ci-dessous :
+Les propriétés utilisées par le format JSON pour les sommets sont décrites ci-dessous :
 
 | Propriété | Description | 
 | --- | --- | --- |
-| `id` | ID du vertex. Doit être unique (en association avec la valeur de `_partition`, si applicable). Si aucune valeur n’est fournie, un GUID est fourni automatiquement. | 
-| `label` | Le label du vertex. Cette propriété est utilisée pour décrire le type d’entité. |
-| `type` | Utilisé pour distinguer les vertex des documents non graphes |
-| `properties` | Sac de propriétés définies par l’utilisateur associé au vertex. Chaque propriété peut avoir plusieurs valeurs. |
-| `_partition` | La clé de partition du vertex. Utilisée pour le [partitionnement de graphe](graph-partitioning.md). |
-| `outE` | Cette propriété contient une liste des bords externes d’un vertex. Permet de stocker les informations de contiguïté avec des vertex pour une exécution rapide des traversées. Les bords sont regroupés en fonction de leurs labels. |
+| `id` | ID du sommet. Doit être unique (en association avec la valeur de `_partition`, si applicable). Si aucune valeur n’est fournie, un GUID est fourni automatiquement. | 
+| `label` | Intitulé du sommet. Cette propriété est utilisée pour décrire le type d’entité. |
+| `type` | Utilisé pour distinguer les sommets des documents non-graphes |
+| `properties` | Sac de propriétés définies par l’utilisateur associé au sommet. Chaque propriété peut avoir plusieurs valeurs. |
+| `_partition` | Clé de partition du sommet. Utilisée pour le [partitionnement de graphe](graph-partitioning.md). |
+| `outE` | Cette propriété contient une liste des arêtes externes d’un sommet. Permet de stocker les informations de contiguïté avec des sommets pour une exécution rapide des traversées. Les arêtes sont regroupées en fonction de leurs intitulés. |
 
-Et le bord contient les informations suivantes pour faciliter la navigation vers d’autres parties du graphe.
+Et l’arête contient les informations suivantes pour faciliter la navigation vers d’autres parties du graphe.
 
 | Propriété | Description |
 | --- | --- |
-| `id` | L’ID du bord. Doit être unique (en association avec la valeur de `_partition`, si applicable). |
-| `label` | Le label du bord. Cette propriété est facultative, elle est utilisée pour décrire le type de relation. |
-| `inV` | Cette propriété contient la liste des vertex d’un bord. Permet de stocker les informations de contiguïté avec le bord pour une exécution rapide des traversées. Les vertex sont regroupés en fonction de leurs labels. |
-| `properties` | Sac de propriétés définies par l’utilisateur associé au bord. Chaque propriété peut avoir plusieurs valeurs. |
+| `id` | ID de l’arête. Doit être unique (en association avec la valeur de `_partition`, si applicable). |
+| `label` | Intitulé de l’arête. Cette propriété est facultative, elle est utilisée pour décrire le type de relation. |
+| `inV` | Cette propriété contient la liste des sommets d’une arête. Permet de stocker les informations de contiguïté avec l’arête pour une exécution rapide des traversées. Les sommets sont regroupés en fonction de leurs intitulés. |
+| `properties` | Sac de propriétés définies par l’utilisateur associé à l’arête. Chaque propriété peut avoir plusieurs valeurs. |
 
 Chaque propriété peut stocker plusieurs valeurs dans un tableau. 
 
@@ -120,8 +118,8 @@ Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure C
 
 | étape | Description | Documentation TinkerPop 3.2 |
 | --- | --- | --- |
-| `addE` | Ajoute un bord reliant deux vertex | [étape addE](https://tinkerpop.apache.org/docs/3.3.2/reference/#addedge-step) |
-| `addV` | Ajoute un vertex au graphe | [étape addV](https://tinkerpop.apache.org/docs/3.3.2/reference/#addvertex-step) |
+| `addE` | Ajoute une arête reliant deux sommets | [étape addE](https://tinkerpop.apache.org/docs/3.3.2/reference/#addedge-step) |
+| `addV` | Ajoute un sommet au graphe | [étape addV](https://tinkerpop.apache.org/docs/3.3.2/reference/#addvertex-step) |
 | `and` | Fait en sorte que toutes les traversées retournent une valeur | [étape and](https://tinkerpop.apache.org/docs/3.3.2/reference/#and-step) |
 | `as` | Un modulateur d’étape pour attribuer une variable à la sortie d’une étape | [étape as](https://tinkerpop.apache.org/docs/3.3.2/reference/#as-step) |
 | `by` | Un modulateur d’étape utilisé avec `group` et `order` | [étape by](https://tinkerpop.apache.org/docs/3.3.2/reference/#by-step) |
@@ -129,11 +127,11 @@ Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure C
 | `constant` | Renvoie une valeur constante. Utilisé avec `coalesce`| [étape constant](https://tinkerpop.apache.org/docs/3.3.2/reference/#constant-step) |
 | `count` | Renvoie le nombre de traversées | [étape count](https://tinkerpop.apache.org/docs/3.3.2/reference/#count-step) |
 | `dedup` | Renvoie les valeurs en supprimant les doublons | [étape dedup](https://tinkerpop.apache.org/docs/3.3.2/reference/#dedup-step) |
-| `drop` | Supprime les valeurs (vertex/bord) | [étape drop](https://tinkerpop.apache.org/docs/3.3.2/reference/#drop-step) |
+| `drop` | Supprime les valeurs (sommet/arête) | [étape drop](https://tinkerpop.apache.org/docs/3.3.2/reference/#drop-step) |
 | `executionProfile` | Crée une description de toutes les opérations générées par l’étape Gremlin exécutée | [Étape executionProfile](graph-execution-profile.md) |
 | `fold` | Agit comme une barrière qui calcule l’agrégation des résultats| [étape fold](https://tinkerpop.apache.org/docs/3.3.2/reference/#fold-step) |
 | `group` | Regroupe les valeurs basées sur les labels spécifiés| [étape group](https://tinkerpop.apache.org/docs/3.3.2/reference/#group-step) |
-| `has` | Permet de filtrer les propriétés, les vertex et les bords. Prend en charge `hasLabel`, `hasId`, `hasNot`, et les variantes `has`. | [étape has](https://tinkerpop.apache.org/docs/3.3.2/reference/#has-step) |
+| `has` | Permet de filtrer les propriétés, les sommets et les arêtes. Prend en charge `hasLabel`, `hasId`, `hasNot`, et les variantes `has`. | [étape has](https://tinkerpop.apache.org/docs/3.3.2/reference/#has-step) |
 | `inject` | Injecter des valeurs dans un flux de données| [étape inject](https://tinkerpop.apache.org/docs/3.3.2/reference/#inject-step) |
 | `is` | Permet d’exécuter un filtre à l’aide d’une expression booléenne | [étape is](https://tinkerpop.apache.org/docs/3.3.2/reference/#is-step) |
 | `limit` | Permet de limiter le nombre d’éléments dans la traversée| [étape limit](https://tinkerpop.apache.org/docs/3.3.2/reference/#limit-step) |
@@ -156,13 +154,13 @@ Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure C
 | `TextP.notStartingWith(string)` | Fonction de filtrage de chaîne. Cette fonction est utilisée comme prédicat de l'étape `has()` pour faire correspondre une propriété qui ne commence pas par une chaîne donnée | [Prédicats TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `TextP.notEndingWith(string)` | Fonction de filtrage de chaîne. Cette fonction est utilisée comme prédicat de l'étape `has()` pour faire correspondre une propriété qui ne finit pas par une chaîne donnée | [Prédicats TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `TextP.notContaining(string)` | Fonction de filtrage de chaîne. Cette fonction est utilisée comme prédicat de l'étape `has()` pour faire correspondre une propriété qui ne contient pas une chaîne donnée | [Prédicats TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `tree` | Chemins d’accès d’agrégation à partir d’un vertex dans une arborescence | [étape tree](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
+| `tree` | Chemins d’agrégation à partir d’un sommet dans une arborescence | [étape tree](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Dérouler un itérateur comme une étape| [étape unfold](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Fusionner les résultats à partir de plusieurs traversées| [étape union](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |
-| `V` | Inclut les étapes nécessaires pour les traversées entre les vertex et les bords `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` et `otherV` pour | [étapes vertex](https://tinkerpop.apache.org/docs/3.3.2/reference/#vertex-steps) |
+| `V` | Inclut les étapes nécessaires pour les traversées entre les sommets et les arêtes `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` et `otherV` pour | [étapes sommet](https://tinkerpop.apache.org/docs/3.3.2/reference/#vertex-steps) |
 | `where` | Permet de filtrer les résultats à partir de la traversée. Prend en charge les opérateurs `eq`, `neq`, `lt`, `lte`, `gt`, `gte` et `between`  | [étape where](https://tinkerpop.apache.org/docs/3.3.2/reference/#where-step) |
 
-Le moteur optimisé pour l’écriture fourni par Azure Cosmos DB prend en charge l’indexation automatique de toutes les propriétés au sein des vertex et des arêtes par défaut. Par conséquent, les requêtes avec des filtres, les requêtes de plage, le tri ou les agrégations sur toutes les propriétés sont traités à partir de l’index et exécutés efficacement. Pour plus d’informations sur la façon dont fonctionne l’indexation dans Azure Cosmos DB, consultez notre article sur [l’indexation indépendante du schéma](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+Le moteur optimisé pour l’écriture fourni par Azure Cosmos DB prend en charge l’indexation automatique de toutes les propriétés au sein des sommets et des arêtes par défaut. Par conséquent, les requêtes avec des filtres, les requêtes de plage, le tri ou les agrégations sur toutes les propriétés sont traités à partir de l’index et exécutés efficacement. Pour plus d’informations sur la façon dont fonctionne l’indexation dans Azure Cosmos DB, consultez notre article sur [l’indexation indépendante du schéma](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Commencez par créer une application de graphe [à l’aide de nos kits SDK](create-graph-dotnet.md) 

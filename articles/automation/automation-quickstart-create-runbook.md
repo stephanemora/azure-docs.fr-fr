@@ -6,12 +6,12 @@ ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5a6dbda59495fccb6b9d53440f408fd4750925b5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 250f51c9f028dd55d8327259e35b82b0c392c1f6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75421667"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536996"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Créer un runbook Azure Automation
 
@@ -21,27 +21,27 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Se connecter à Azure à https://portal.azure.com
+Connectez-vous à Azure sur https://portal.azure.com.
 
-## <a name="create-runbook"></a>Créer un runbook
+## <a name="create-the-runbook"></a>Créer le runbook
 
 Tout d’abord, créez un runbook. L’exemple de runbook créé dans ce démarrage rapide génère `Hello World` par défaut.
 
 1. Ouvrez votre compte Automation.
 
-1. Cliquez sur **Runbooks** sous **AUTOMATISATION DE PROCESSUS**. La liste des runbooks s’affiche.
+1. Cliquez sur **Runbooks** sous **Automatisation de processus**. La liste des runbooks s’affiche.
 
-1. Cliquez sur le bouton **Ajouter un Runbook** situé en haut de la liste.
+1. Cliquez sur **Créer un runbook** en haut de la liste.
 
-1. Saisissez « Hello World » comme **nom** de runbook, puis sélectionnez **PowerShell** comme **type de runbook**. Cliquez sur **Créer**.
+1. Entrez `Hello-World` comme nom du runbook dans le champ **Nom**, puis sélectionnez **PowerShell** pour le champ **Type de runbook**. 
 
    ![Saisir les informations relatives à votre runbook Automation dans la page](./media/automation-quickstart-create-runbook/automation-create-runbook-configure.png)
 
-1. Le runbook est créé et la page **Modifier le runbook PowerShell** s’ouvre.
+1. Cliquez sur **Créer**. Le runbook est créé et la page Modifier un runbook PowerShell s’ouvre.
 
     ![Créer le script PowerShell dans l’éditeur de runbook](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
-1. Saisissez ou bien copiez et collez le code suivant dans le volet d’édition. Il crée un paramètre d’entrée facultatif nommé « Nom » avec « World » comme valeur par défaut et il génère une chaîne qui utilise cette valeur d’entrée :
+1. Saisissez ou bien copiez et collez le code suivant dans le volet d’édition. Il crée un paramètre d’entrée facultatif nommé `Name` avec `World` comme valeur par défaut et il génère une chaîne qui utilise cette valeur d’entrée :
 
    ```powershell-interactive
    param
@@ -59,17 +59,17 @@ Tout d’abord, créez un runbook. L’exemple de runbook créé dans ce démarr
 
 ## <a name="test-the-runbook"></a>Tester le Runbook
 
-Une fois le runbook créé, vous testez le runbook pour vérifier qu’il fonctionne.
+Une fois le runbook créé, vous devez le tester pour vérifier qu’il fonctionne.
 
-1. Cliquez sur **Volet de test** pour ouvrir la page **Test**.
+1. Cliquez sur **Volet de test** pour ouvrir le volet de test.
 
 1. Saisissez une valeur comme **nom**, puis cliquez sur **Démarrer**. Le travail de test démarre et l’état du travail ainsi que la sortie s’affichent.
 
     ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-test-runbook.png)
 
-1. Fermez la page **Test** en cliquant sur le symbole **X** dans le coin supérieur droit. Sélectionnez **OK** dans le menu contextuel qui s’affiche.
+1. Fermez le volet de test en cliquant sur le symbole **X** dans le coin supérieur droit. Sélectionnez **OK** dans le menu contextuel qui s’affiche.
 
-1. Sur la page **Modifier un runbook PowerShell**, cliquez sur **Publier** pour publier le runbook en tant que version officielle du runbook au sein du compte.
+1. Dans la page Modifier un runbook PowerShell, cliquez sur **Publier** pour publier le runbook en tant que version officielle du runbook dans le compte.
 
    ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
@@ -77,7 +77,7 @@ Une fois le runbook créé, vous testez le runbook pour vérifier qu’il foncti
 
 Une fois le runbook publié, la page de vue d’ensemble apparaît.
 
-1. Dans la page de vue d’ensemble de runbook, cliquez sur **Démarrer** pour ouvrir la page de configuration **Démarrer le Runbook** pour ce runbook.
+1. Dans la page de vue d’ensemble du runbook, cliquez sur **Démarrer** pour ouvrir la page de configuration Démarrer le runbook pour ce runbook.
 
    ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png)
 
@@ -85,7 +85,7 @@ Une fois le runbook publié, la page de vue d’ensemble apparaît.
 
    ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
-1. Lorsque **l’état du travail** est **En cours d’exécution** ou **Terminé**, cliquez sur **Sortie** pour ouvrir le volet **Sortie** et afficher la sortie du runbook.
+1. Lorsque l’état du travail est `Running` ou `Completed`, cliquez sur **Sortie** pour ouvrir le volet Sortie et afficher la sortie du runbook.
 
    ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 

@@ -1,24 +1,24 @@
 ---
-title: Configurer vos informations de sécurité (préversion) à partir d’une invite de connexion - Azure AD
-description: Découvrez comment configurer les informations de sécurité (préversion) de votre compte professionnel ou scolaire à partir de la page de connexion de votre organisation.
+title: Configurer vos informations de sécurité à partir d’une invite de connexion - Azure AD
+description: Découvrez comment configurer les informations de sécurité de votre compte professionnel ou scolaire suite à une invite à partir de la page de connexion de votre organisation.
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063983"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454420"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurer vos informations de sécurité (préversion) à partir d’une invite de connexion
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configurer vos informations de sécurité à partir d’une invite de connexion
 
 Vous pouvez suivre ces étapes si vous êtes invité à définir des informations de sécurité immédiatement après vous être connecté à votre compte professionnel ou scolaire.
 
@@ -26,7 +26,7 @@ Cette invite apparaît uniquement si vous n’avez pas configuré les informatio
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-## <a name="security-verification-versus-password-reset-authentication"></a>Vérification de la sécurité ou authentification avec réinitialisation du mot de passe
+## <a name="security-verification-versus-password-reset-authentication"></a>Authentification avec vérification de la sécurité ou réinitialisation de mot de passe
 
 Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification de la sécurité à deux facteurs et la réinitialisation du mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
 
@@ -122,7 +122,7 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 Certaines applications, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes dans votre organisation, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
 
 >[!Note]
->Si vous ne voyez pas cette option dans l’Assistant, cela signifie que votre administrateur ne l’a pas configurée. Dans ce cas, si vous savez que vous devez utiliser des mots de passe d’application, vous pouvez procéder comme indiqué dans [Définir les mots de passe d’application à partir de la page Informations de sécurité (préversion)](security-info-app-passwords.md).
+>Si vous ne voyez pas cette option dans l’Assistant, cela signifie que votre administrateur ne l’a pas configurée. Dans ce cas, si vous savez que vous devez utiliser des mots de passe d’application, vous pouvez procéder comme indiqué dans [Définir les mots de passe d’application à partir de la page Informations de sécurité](security-info-app-passwords.md).
 
 Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit les points suivants :
 
