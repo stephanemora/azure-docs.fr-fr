@@ -2,23 +2,24 @@
 title: Scénarios Azure Disk Encryption sur les machines virtuelles Windows
 description: Cet article fournit des instructions sur l’activation de Microsoft Azure Disk Encryption pour les machines virtuelles Windows dans différents scénarios.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4795eeb24d1d0ac373a700a6b60b8facec0e37d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: deb2860c8d027a0a258c4a962fe33d6f516e10dc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064007"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085641"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Windows
 
-Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour assurer le chiffrement de volume des disques de système d’exploitation et de données des machines virtuelles Azure. Il s’intègre à Azure Key Vault pour vous aider à contrôler et à gérer les secrets et les clés de chiffrement de disque. Pour obtenir une vue d’ensemble du service, consultez [Azure Disk Encryption pour les machines virtuelles Windows](disk-encryption-overview.md).
+Le service Azure Disk Encryption pour machines virtuelles Windows utilise la fonctionnalité Bitlocker de Windows pour effectuer un chiffrement complet des disques de système d’exploitation et du disques de données. Il assure en outre le chiffrement du disque de ressources éphémères lorsque le paramètre VolumeType est défini sur Tous.
 
-Il existe de nombreux scénarios de chiffrement de disque, et les étapes peuvent varier en fonction du scénario. Les sections suivantes décrivent ces scénarios de façon plus détaillée pour les machines virtuelles Windows.
+Azure Disk Encryption est [intégré avec Azure Key Vault](disk-encryption-key-vault.md) pour faciliter le contrôle et la gestion des clés et des secrets de chiffrement des disques. Pour obtenir une vue d’ensemble du service, consultez [Azure Disk Encryption pour les machines virtuelles Windows](disk-encryption-overview.md).
 
 Vous pouvez appliquer le chiffrement de disque uniquement aux machines virtuelles dont [la taille et le système d’exploitation sont pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems). Vous devez également satisfaire les prérequis suivants :
 
@@ -39,9 +40,6 @@ Vous pouvez appliquer le chiffrement de disque uniquement aux machines virtuelle
 
 ## <a name="enable-encryption-on-an-existing-or-running-windows-vm"></a>Activer le chiffrement sur une machine virtuelle Windows existante ou en cours d’exécution
 Dans ce scénario, vous pouvez activer le chiffrement en utilisant le modèle Resource Manager, des applets de commande PowerShell ou des commandes CLI. Si vous avez besoin d’informations de schéma pour l’extension de machine virtuelle, consultez l’article [Azure Disk Encryption pour extension Windows](../extensions/azure-disk-enc-windows.md).
-
-## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a>Activer le chiffrement sur des machines virtuelles IaaS Windows existantes ou en cours d’exécution
-Vous pouvez activer le chiffrement avec un modèle, avec des cmdlets PowerShell ou avec des commandes CLI. Si vous avez besoin d’informations de schéma pour l’extension de machine virtuelle, consultez l’article [Azure Disk Encryption pour extension Windows](../extensions/azure-disk-enc-windows.md).
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Activer le chiffrement sur des machines virtuelles existantes ou en cours d’exécution avec Azure PowerShell 
 Utilisez la cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) pour activer le chiffrement sur une machine virtuelle IaaS en cours d’exécution dans Azure. 
@@ -250,6 +248,9 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Conteneurs Windows Server qui créent des volumes dynamiques pour chaque conteneur.
 - Disques de système d’exploitation éphémères.
 - Chiffrement de systèmes de fichiers partagés/distribués comme DFS, GFS, DRDB, etc.
+- Déplacement d’une machine virtuelle chiffrée vers un autre abonnement.
+- Machines virtuelles Gen2 (voir : [Prise en charge des machines virtuelles de génération 2 sur Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Machines virtuelles de la série Lsv2 (consultez : [Série Lsv2](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Étapes suivantes
 
