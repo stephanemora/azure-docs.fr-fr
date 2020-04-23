@@ -1,5 +1,5 @@
 ---
-title: Tableau de bord Évaluations et avis dans l’analytique de la place de marché commerciale dans l’Espace partenaires
+title: Tableau de bord Évaluations et avis dans l’analytique de la Place de marché commerciale dans l’Espace partenaires
 description: Découvrez comment accéder à une vue consolidée des commentaires des clients sur vos offres sur la Place de marché Azure et AppSource.
 author: dsindona
 ms.author: dsindona
@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2995cd2a97329aa8b7947145150c6a3501346fdb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275660"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262415"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord des évaluations et avis dans l’analytique de la place de marché commerciale
+# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord des évaluations et avis dans l’analytique de la Place de marché commerciale
 
 Cet article donne des informations sur le tableau de bord Évaluations et avis de l’Espace partenaires. Ce tableau de bord présente une vue consolidée des commentaires des clients sur les offres sur la Place de marché Azure et AppSource.
 
 Pour accéder au **tableau de bord Évaluations et avis** de l’Espace partenaires, ouvrez le tableau de bord **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** sous Place de marché commerciale.
 
 >[!NOTE]
-> Pour accéder aux définitions détaillées de la terminologie d’analytique, voir [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).
+> Pour accéder aux définitions détaillées de la terminologie d’analytique, consultez [Questions fréquentes et terminologie pour l’analytique de la Place de marché commerciale](./faq-terminology.md).
 
 ## <a name="ratings--reviews"></a>Évaluations et avis
 
@@ -57,10 +57,10 @@ Les avis sont affichés dans l’ordre chronologique de leur publication. Dans l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des rapports d’analytique disponibles sur la place de marché commerciale de l’Espace partenaires, voir [Analytique de la place de marché commerciale dans l’Espace partenaires](./analytics.md).
-- Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la place de marché pour vos offres, voir [Tableau de bord Résumé dans l’analytique de la place de marché commerciale](./summary-dashboard.md).
-- Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, voir [Tableau de bord des commandes dans l’analytique de la place de marché commerciale](./orders-dashboard.md).
-- Pour consulter les métriques d’utilisation et de facturation à l’usage des offres de machines virtuelles, voir [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
-- Pour des informations détaillées sur vos clients, y compris des tendances de croissance, voir [Tableau de bord client dans l’analytique de la place de marché commerciale](./customer-dashboard.md).
-- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./downloads-dashboard.md).
-- Pour obtenir des réponses aux questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, voir [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).
+- Pour obtenir une vue d’ensemble des rapports d’analytique disponibles sur la Place de marché commerciale de l’Espace partenaires, consultez [Analytique de la Place de marché commerciale dans l’Espace partenaires](./analytics.md).
+- Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
+- Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la Place de marché commerciale](./orders-dashboard.md).
+- Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
+- Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord client dans l’analytique de la Place de marché commerciale](./customer-dashboard.md).
+- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la Place de marché commerciale](./downloads-dashboard.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).

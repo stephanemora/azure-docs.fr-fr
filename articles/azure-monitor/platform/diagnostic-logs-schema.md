@@ -4,12 +4,12 @@ description: Découvrez les services pris en charge et le schéma d’événemen
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 352310a6e489a96c38e85b16e9504d8eb9be38b1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226341"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457244"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Services, schémas et catégories pris en charge pour les journaux de ressource Azure
 
@@ -22,24 +22,24 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 
 ## <a name="top-level-resource-logs-schema"></a>Schéma de niveau supérieur des journaux de ressource
 
-| Name | Obligatoire ou facultatif | Description |
+| Nom | Obligatoire ou facultatif | Description |
 |---|---|---|
 | time | Obligatoire | Horodatage (heure UTC) de l’événement. |
 | resourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |
 | tenantId | Obligatoire pour les journaux d’activité de l’abonné | ID d’abonné de l’abonné Active Directory auquel cet événement est lié. Cette propriété est utilisée uniquement pour les journaux d’activité de niveau abonné ; elle n’apparaît pas dans les journaux d’activité de niveau ressource. |
 | operationName | Obligatoire | Nom de l’opération représentée par cet événement. Si l’événement représente une opération RBAC, il s’agit du nom de l’opération RBAC (par ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Généralement modélisée sous la forme d’une opération du Gestionnaire de ressources, même s’il ne s’agit pas d’opérations réelles documentées du Gestionnaire des ressources (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facultatif | Version d’api associée à l’opération, si operationName a été effectuée à l’aide d’une API (par ex. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). S’il n’existe aucune API qui corresponde à cette opération, la version représente la version de cette opération si les propriétés associées à l’opération viennent à changer. |
-| catégorie | Obligatoire | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux d’activité sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. Les catégories de journaux classiques sont « Audit » « opérationnel » « Exécution » et « Demande ». |
+| catégorie | Obligatoire | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux d’activité sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. Ls catégories de journaux classiques sont « Audit », « Opérationnel », « Exécution » et « Demande ». |
 | resultType | Facultatif | État de l’événement. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active et Resolved. |
 | resultSignature | Facultatif | Sous-état de l’événement. Si cette opération correspond à un appel d’API REST, il s’agit du code d’état HTTP de l’appel REST correspondant. |
-| resultDescription | Facultatif | Description textuelle statique de cette opération, par ex. « Obtenir le fichier de stockage ». |
+| resultDescription | Facultatif | Description textuelle statique de cette opération, par ex. « Obtenir le fichier de stockage ». |
 | durationMS | Facultatif | Durée de l’opération en millisecondes. |
 | callerIpAddress | Facultatif | Adresse IP de l’appelant, si l’opération correspond à un appel d’API qui proviendrait d’une entité avec une adresse IP disponible publiquement. |
-| correlationId | Facultatif | GUID utilisé pour regrouper un ensemble d’événements associés. En règle générale, si deux événements ont le même operationName, mais deux états différents (par ex., « Started » et « Succeeded »), ils partagent le même ID de corrélation. Cela peut également représenter d’autres relations entre les événements. |
+| correlationId | Facultatif | GUID utilisé pour regrouper un ensemble d’événements associés. En règle générale, si deux événements ont le même operationName, mais deux états différents (par ex., « Démarré » et « Réussi »), ils partagent le même ID de corrélation. Cela peut également représenter d’autres relations entre les événements. |
 | identité | Facultatif | Objet blob JSON qui décrit l’identité de l’utilisateur ou d’une application qui a effectué l’opération. En général, cela inclut l’autorisation et les revendications/Jeton JWT issus d’active directory. |
 | Level | Facultatif | Niveau de gravité de l’événement. Doit être Information, Avertissement, Erreur, ou Critique. |
-| location | Facultatif | Région de la ressource générant l’événement, par ex. USA Est ou France Sud |
-| properties | Facultatif | Toutes les propriétés étendues associées à cette catégorie particulière d’événements spécifiques. Toutes les propriétés personnalisées/uniques doivent être placées à l’intérieur de cette « Partie B » du schéma. |
+| location | Facultatif | Région de la ressource générant l’événement, par ex. « USA Est » ou « France Sud » |
+| properties | Facultatif | Toutes les propriétés étendues associées à cette catégorie particulière d’événements spécifiques. Toutes les propriétés personnalisées/uniques doivent être placées à l’intérieur de cette « Partie B » du schéma. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>Schémas spécifiques du service pour les journaux de ressource
 Le schéma des journaux de diagnostic des ressources varie en fonction de la ressource et de la catégorie de journal d’activité. Cette liste répertorie tous les services qui mettent des journaux de ressource et des liens à disposition du service et un schéma spécifique de la catégorie lorsqu’il est disponible.
@@ -54,7 +54,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | Azure Batch |[Journalisation d’Azure Batch](../../batch/batch-diagnostics.md) |
 | Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database pour PostgreSQL | [Journaux d’Azure Database pour PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Explorateur de données Azure | [Journaux d’Azure Data Explorer](../../data-explorer/using-diagnostic-logs.md) |
+| Explorateur de données Azure | [Journaux d’Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Journalisation pour Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Journalisation pour Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Réseau de distribution de contenu | [Journaux Azure pour CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -66,7 +66,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | ExpressRoute | Schéma non disponible. |
 | Pare-feu Azure | Schéma non disponible. |
 | IoT Hub | [Opérations IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Journalisation d’Azure Key Vault](../../key-vault/key-vault-logging.md) |
+| Key Vault |[Journalisation d’Azure Key Vault](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Journalisation d’Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |

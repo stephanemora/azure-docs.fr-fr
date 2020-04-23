@@ -1,29 +1,27 @@
 ---
-title: Schéma Azure Event Grid pour IoT Hub | Microsoft Docs
+title: Azure IoT Hub en tant que source Event Grid
 description: Cet article fournit les propriétés et les schémas des événements IoT Hub. Il liste les types d’événements disponibles et les propriétés d’événement, et contient un exemple d’événement.
 services: iot-hub
 documentationcenter: ''
-author: kgremban
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/21/2020
-ms.author: kgremban
-ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513029"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393324"
 ---
-# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schéma des événements Azure Event Grid pour IoT Hub
-
+# <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub en tant que source Event Grid
 Cet article fournit les propriétés et les schémas des événements IoT Hub. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md). 
 
-Pour obtenir la liste des exemples de scripts et des didacticiels, consultez [Source d’événement IoT Hub](event-sources.md#iot-hub).
+## <a name="event-grid-event-schema"></a>Schéma d’événement Event Grid
 
-## <a name="available-event-types"></a>Types d’événement disponibles
+### <a name="available-event-types"></a>Types d’événement disponibles
 
 IoT Hub émet les types d’événements suivants :
 
@@ -37,7 +35,7 @@ IoT Hub émet les types d’événements suivants :
 
 Tous les événements d’appareil, à l’exception des événements de télémétrie, sont en disponibilité générale dans toutes les régions prises en charge par Event Grid. L’événement de télémétrie d’appareil est disponible en préversion publique dans toutes les régions à l’exception des suivantes : USA Est, USA Ouest, Europe Ouest, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome) et [Azure Allemagne](https://azure.microsoft.com/global-infrastructure/germany/).
 
-## <a name="example-event"></a>Exemple d’événement
+### <a name="example-event"></a>Exemple d’événement
 
 Les schémas pour les événements DeviceConnected et DeviceDisconnected ont la même structure. Cet exemple d’événement montre le schéma d’un événement déclenché quand un appareil est connecté à un hub IoT :
 
@@ -205,6 +203,13 @@ Pour les événements IoT Hub **DeviceCreated** et **DeviDeleted**, l’objet de
 | desired | object | Une partie des propriétés qui peuvent être écrites uniquement par le backend d’application et lues par l’appareil. | 
 | reported | object | Une partie des propriétés qui peuvent être écrites uniquement par l’appareil et lues par le backend d’application. |
 | lastUpdated | string | Horodatage ISO8601 de la dernière mise à jour de la propriété du jumeau d’appareil. | 
+
+## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
+|Intitulé  |Description  |
+|---------|---------|
+| [Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Une application logique envoie un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. |
+| [Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions](../iot-hub/iot-hub-event-grid.md) | Vue d’ensemble de l’intégration de hubs IoT à Event Grid. |
+| [Commander des événements d’état de la connexion et de la déconnexion d’appareils](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Montre comment commander des événements d’état de la connexion d’appareils. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

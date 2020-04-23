@@ -1,19 +1,18 @@
 ---
 title: Contrôle de sécurité Azure - Réponse aux incidents
-description: Réponse aux incidents du contrôle de sécurité
+description: Réponse aux incidents du contrôle de sécurité Azure
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/14/2020
 ms.author: mbaldwin
-ms.custom: security-recommendations
-ms.openlocfilehash: fb3560aa2d3fbf48ab63c4da4d3a8d69cb677209
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: security-benchmark
+ms.openlocfilehash: 993793d21e6253188dfc199d8701cbe117503517
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934415"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408435"
 ---
 # <a name="security-control-incident-response"></a>Contrôle de sécurité : Réponse aux incidents
 
@@ -25,23 +24,13 @@ Protégez les informations de l’organisation, ainsi que sa réputation, en dé
 |--|--|--|
 | 10.1 | 19.1, 19.2, 19.3 | Customer |
 
-Créez un guide de réponse aux incidents pour votre organisation. Assurez-vous qu’il existe des plans de réponse aux incidents écrits qui définissent tous les rôles du personnel, ainsi que les phases de gestion des incidents, depuis la détection jusqu’à la revue une fois l’incident terminé.
+Créez un guide de réponse aux incidents pour votre organisation. Assurez-vous qu’il existe des plans de réponse aux incidents écrits qui définissent tous les rôles du personnel, ainsi que les phases de gestion des incidents, depuis la détection jusqu’à la revue une fois l’incident terminé.  
 
-Comment configurer des automations de flux de travail dans Azure Security Center :
+- [Aide sur la création de votre propre processus de réponse aux incidents de sécurité](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+- [Anatomie d’un incident dans le centre de réponse aux incidents de sécurité Microsoft](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-Aide sur la création de votre propre processus de réponse aux incidents de sécurité :
-
-https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
-
-Anatomie d’un incident dans le centre de réponse aux incidents de sécurité Microsoft :
-
-https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
-
-Le client peut également tirer parti du guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de son propre plan de réponse aux incidents :
-
-https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+- [Tirer parti du guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de votre propre plan de réponse aux incidents](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 ## <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
@@ -49,9 +38,13 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 |--|--|--|
 | 10.2 | 19,8 | Customer |
 
-Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
+Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte. 
 
-En outre, marquez clairement les abonnements (par ex. production, non production) et créez un système d’attribution de noms pour identifier et classer les ressources Azure de façon claire.
+En outre, marquez clairement les abonnements (par ex. production, non-production) à l’aide d’étiquettes et créez un système de nommage pour identifier et classer clairement les ressources Azure, en particulier celles qui traitent des données sensibles.  Il vous incombe de hiérarchiser le traitement des alertes en fonction de la criticité des ressources et de l’environnement Azure où l’incident s’est produit.
+
+- [Alertes de sécurité dans le Centre de sécurité Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+
+- [Organisation des ressources Azure à l’aide de catégories](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 ## <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -59,11 +52,9 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 |--|--|--|
 | 10.3 | 19 | Customer |
 
-Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
+Effectuez des exercices pour tester les capacités de réponse aux incidents de vos systèmes à intervalles réguliers, afin de protéger vos ressources Azure. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
 
-Reportez-vous à la publication du NIST : Guide de test, de formation et programmes d’exercice pour les plans informatiques et les fonctionnalités :
-
-https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+- [Publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
 ## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -71,11 +62,9 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 |--|--|--|
 | 10,4 | 19.5 | Customer |
 
-Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+Microsoft utilisera les informations de contact pour le signalement d’incidents de sécurité pour vous contacter si le centre de réponse aux incidents de sécurité Microsoft (MSRC, Microsoft Security Response Center) découvre que vos données ont été consultées de manière illégale ou par un tiers non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
-Comment définir le contact de sécurité Azure Security Center :
-
-https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+- [Comment définir le contact de sécurité d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
 ## <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -83,15 +72,11 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 |--|--|--|
 | 10.5 | 19.6 | Customer |
 
-Exportez vos alertes et recommandations d’Azure Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Vous pouvez utiliser le connecteur de données Azure Security Center pour diffuser la sentinelle des alertes.
+Exportez vos alertes et recommandations Azure Security Center en utilisant la fonctionnalité d’exportation continue pour identifier les risques pesant sur les ressources Azure. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Vous pouvez utiliser le connecteur de données Azure Security Center pour diffuser en continu les alertes vers Azure Sentinel.
 
-Comment configurer l’exportation continue :
+- [Comment configurer l’exportation continue](https://docs.microsoft.com/azure/security-center/continuous-export)
 
-https://docs.microsoft.com/azure/security-center/continuous-export
-
-Comment diffuser des alertes dans Azure Sentinel :
-
-https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+- [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
 ## <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -99,12 +84,11 @@ https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 |--|--|--|
 | 10.6 | 19 | Customer |
 
-Utilisez la fonctionnalité d’automatisation de flux de travail dans Azure Security Center pour déclencher automatiquement des réponses via &quot;Logic Apps&quot; sur les alertes de sécurité et les recommandations.
+Utilisez la fonctionnalité d’automatisation de workflow d’Azure Security Center pour déclencher automatiquement des réponses via « Logic Apps » aux alertes et aux recommandations de sécurité afin de protéger vos ressources Azure.
 
-Comment configurer l’automatisation du flux de travail et Logic Apps :
+- [Comment configurer l’automatisation des workflows et Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Reportez-vous au contrôle de sécurité suivant : [Tests d’intrusion et exercices Red Team](security-control-penetration-tests-red-team-exercises.md)
+- Consultez le contrôle de sécurité suivant : [Tests d’intrusion et exercices Red Team](security-control-penetration-tests-red-team-exercises.md)

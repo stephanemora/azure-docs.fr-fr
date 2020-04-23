@@ -1,27 +1,27 @@
 ---
-title: Tableau de bord Client dans l’analytique de la place de marché commerciale dans l’Espace partenaires
-description: Découvrez comment accéder à des informations détaillées sur vos clients, notamment les tendances de croissance, avec le tableau de bord Client dans l’analytique de la place de marché commerciale.
+title: Tableau de bord Client dans l’analytique de la Place de marché commerciale dans l’Espace partenaires
+description: Découvrez comment accéder à des informations détaillées sur vos clients, notamment les tendances de croissance, avec le tableau de bord Client dans l’analytique de la Place de marché commerciale.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 7fe56a81bc82f9d49cf9f81b30986882b6d13cfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8379ed883311d219bb6eeb56bd4424dfb470bc9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286113"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251637"
 ---
-# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Client dans l’analytique de la place de marché commerciale
+# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Client dans l’analytique de la Place de marché commerciale
 
 Cet article donne des informations sur le **tableau de bord Client** de l’Espace partenaires. Ce tableau de bord présente des informations sur vos clients, notamment les tendances de croissance, dans un format graphique et téléchargeable.
 
 Pour accéder au **tableau de bord Client**, ouvrez le tableau de bord **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** sous Place de marché commerciale.
 
 >[!NOTE]
-> Pour accéder aux définitions détaillées de la terminologie d’analytique, voir [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).
+> Pour accéder aux définitions détaillées de la terminologie d’analytique, consultez [Questions fréquentes et terminologie pour l’analytique de la Place de marché commerciale](./faq-terminology.md).
 
 ## <a name="customer-dashboard"></a>Tableau de bord Client
 
@@ -69,7 +69,7 @@ Le graphique **Tendances clients** affiche le nombre total de clients, y compris
 
 ### <a name="customers-by-orders-and-usage"></a>Clients par commande et utilisation
 
-Le graphe **Clients par commande/utilisation** comporte trois onglets : « Commandes », « Utilisation normalisée » et « Utilisation brute ». Le graphe **Premier centile de clients** est affiché le long de l’axe X, en fonction du nombre de commandes. L’axe y affiche le nombre de commandes du client. L’axe Y secondaire (graphique linéaire) présente le pourcentage cumulé du nombre total de commandes. Vous pouvez afficher les détails en déplaçant le curseur sur les points le long du graphique en courbes.
+Le graphique **Clients par commande/utilisation** comporte trois onglets : « Commandes », « Utilisation normalisée » et « Utilisation brute ». Le graphe **Premier centile de clients** est affiché le long de l’axe X, en fonction du nombre de commandes. L’axe y affiche le nombre de commandes du client. L’axe Y secondaire (graphique linéaire) présente le pourcentage cumulé du nombre total de commandes. Vous pouvez afficher les détails en déplaçant le curseur sur les points le long du graphique en courbes.
 
 À titre d’exemple, consultez le graphe ci-dessous pour l’utilisation normalisée : Le trentième centile de clients représente 87 % de l’utilisation normalisée cumulée. Le trentième centile de clients ne correspond qu’à 1,57 millions heures d’utilisation.
 
@@ -101,17 +101,17 @@ Le tableau **Détails des clients** présente la liste numérotée des 1 000 me
 
 ### <a name="customer-page-filters"></a>Filtres de la page Client
 
-Les filtres de la **page Clients** s’appliquent au niveau de la page Clients. Vous pouvez sélectionner plusieurs filtres afin d’afficher le graphe pour les critères et les données souhaités dans la grille/l’exportation « Données de commandes détaillées ». Les filtres sont appliqués aux données extraites pour la plage de données sélectionnée dans l’angle supérieur droit de la page Commandes.
+Les filtres de la **page Clients** s’appliquent au niveau de la page Clients. Vous pouvez sélectionner plusieurs filtres afin d’afficher le graphique pour les critères et les données souhaités dans la grille/l’exportation « Données de commandes détaillées ». Les filtres sont appliqués aux données extraites pour la plage de données sélectionnée dans l’angle supérieur droit de la page Commandes.
 
 >[!NOTE]
 > Les définitions détaillées de chacun des champs de la grille Client, des filtres de page et de leurs sélections possibles se trouvent dans [Questions fréquentes et terminologie de l’analytique de la place de marché commerciale](./faq-terminology.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des rapports d’analytique disponibles sur la place de marché commerciale de l’Espace partenaires, voir [Analytique de la place de marché commerciale dans l’Espace partenaires](./analytics.md).
-- Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la place de marché pour vos offres, voir [Tableau de bord Résumé dans l’analytique de la place de marché commerciale](./summary-dashboard.md).
-- Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, voir [Tableau de bord des commandes dans l’analytique de la place de marché commerciale](./orders-dashboard.md).
-- Pour consulter les métriques d’utilisation et de facturation à l’usage des offres de machines virtuelles, voir [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
-- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./downloads-dashboard.md).
-- Pour une vue consolidée des commentaires des clients pour les offres sur la Place de marché Azure et AppSource, voir [Tableau de bord Évaluations et avis dans l’analytique de la place de marché commerciale](./ratings-reviews.md).
-- Pour obtenir des réponses aux questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, voir [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).
+- Pour obtenir une vue d’ensemble des rapports d’analytique disponibles sur la Place de marché commerciale de l’Espace partenaires, consultez [Analytique de la Place de marché commerciale dans l’Espace partenaires](./analytics.md).
+- Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
+- Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la Place de marché commerciale](./orders-dashboard.md).
+- Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
+- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la Place de marché commerciale](./downloads-dashboard.md).
+- Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Évaluations et avis dans l’analytique de la place de marché commerciale](./ratings-reviews.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).

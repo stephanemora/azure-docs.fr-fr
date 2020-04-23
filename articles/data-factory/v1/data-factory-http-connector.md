@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229913"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991567"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Déplacer des données à partir d’une source HTTP à l’aide d’Azure Data Factory
 
@@ -34,7 +34,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Scénarios et types d’authentification pris en charge
 
-Vous pouvez utiliser ce connecteur HTTP pour récupérer des données d’un *point de terminaison HTTP/S cloud et local* à l’aide des méthodes HTTP **GET** ou **POST**. Les types d’authentification suivants sont pris en charge : **Anonymous** (Anonyme), **Basic** (De base), **Digest**, **Windows** et **ClientCertificate** (Certificat client). Notez la différence entre ce connecteur et le [connecteur de table web](data-factory-web-table-connector.md). Le connecteur de table web extrait le contenu de tables d’une page web HTML.
+Vous pouvez utiliser ce connecteur HTTP pour récupérer des données d’un *point de terminaison HTTP/S cloud et local* à l’aide des méthodes HTTP **GET** ou **POST**. Les types d’authentification suivants sont pris en charge : **Anonyme**, **De base**, **Digest**, **Windows** et **ClientCertificate**. Notez la différence entre ce connecteur et le [connecteur de table web](data-factory-web-table-connector.md). Le connecteur de table web extrait le contenu de tables d’une page web HTML.
 
 Pour copier des données à partir d’un point de terminaison HTTP local, vous devez installer une passerelle de gestion des données dans l’environnement local/sur la machine virtuelle Azure. Pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle, consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -42,7 +42,7 @@ Pour copier des données à partir d’un point de terminaison HTTP local, vous 
 
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’une source HTTP à l’aide de différents outils ou API :
 
-- Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant Copier des données. Pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données, consultez [Tutoriel : Créer un pipeline à l’aide de l’Assistant Copier des données](data-factory-copy-data-wizard-tutorial.md).
+- Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant Copier des données. Pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données, consultez la page [Tutoriel : Créez un pipeline à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md).
 
 - Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, un **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [tutoriel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Pour accéder à des exemples JSON sur la copie de données d’une source HTTP vers le stockage Blob Azure, consultez [Exemples JSON](#json-examples).
 
@@ -55,7 +55,7 @@ Le tableau suivant décrit les éléments JSON qui sont propres au service lié 
 | type | La propriété **type** doit être définie sur **Http**. | Oui |
 | url | URL de base du serveur web. | Oui |
 | authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonyme**, **De base**, **Digest**, **Windows** et **ClientCertificate**. <br><br> Consultez les sections plus loin dans cet article pour accéder à d’autres propriétés et à des exemples JSON relatifs à ces types d’authentification. | Oui |
-| enableServerCertificateValidation | Spécifie si la validation du certificat SSL du serveur doit être activée si la source est un serveur web HTTPS. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur **false**. | Non<br /> (la valeur par défaut est **true**) |
+| enableServerCertificateValidation | Spécifie si la validation du certificat TLS/SSL du serveur doit être activée si la source est un serveur web HTTPS. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur **false**. | Non<br /> (la valeur par défaut est **true**) |
 | gatewayName | Nom de l’instance de passerelle de gestion des données à utiliser pour se connecter à une source HTTP locale. | Oui, dans le cas de copie de données à partir d’une source HTTP locale |
 | encryptedCredential | Informations d’identification chiffrées pour accéder au point de terminaison HTTP. La valeur est générée automatiquement quand vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue **ClickOnce**. | Non<br /> (s’applique uniquement pour la copie de données à partir d’un serveur HTTP local) |
 
@@ -68,7 +68,7 @@ Définissez la valeur **authenticationType** sur **De base**, **Digest** ou **Wi
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison HTTP. | Oui |
-| password | Mot de passe de l’utilisateur (**username**). | Oui |
+| mot de passe | Mot de passe de l’utilisateur (**username**). | Oui |
 
 **Exemple : Utilisation de l’authentification De base, Digest ou Windows**
 
@@ -97,7 +97,7 @@ Pour utiliser l’authentification de base, définissez **authenticationType** s
 | --- | --- | --- |
 | embeddedCertData | Contenu encodé en Base64 des données binaires du fichier PFX. | Spécifiez **embeddedCertData** ou **certThumbprint** |
 | certThumbprint | Empreinte du certificat qui a été installé dans le magasin de certificats de votre ordinateur de passerelle. S’applique uniquement pour la copie de données à partir d’une source HTTP locale. | Spécifiez **embeddedCertData** ou **certThumbprint** |
-| password | Mot de passe associé au certificat. | Non |
+| mot de passe | Mot de passe associé au certificat. | Non |
 
 Si vous utilisez **certThumbprint** pour l’authentification et que le certificat est installé dans le magasin personnel de l’ordinateur local, accordez des autorisations de lecture au service de passerelle :
 
@@ -222,7 +222,7 @@ Actuellement, quand la source de l’activité de copie est de type **HttpSource
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non<br />(la valeur par défaut est **00:01:40**) |
+| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non<br />(Valeur par défaut : **00:01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
 
@@ -232,7 +232,7 @@ Consultez [Formats de fichiers et de compression pris en charge dans Azure Data 
 
 Les exemples suivants présentent des exemples de définitions JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Les exemples montrent comment copier des données d’une source HTTP vers le stockage Blob Azure. Toutefois, les données peuvent être copiées *directement* d’une source quelconque vers l’un des récepteurs [pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie d’Azure Data Factory.
 
-**Exemple : Copier des données d’une source HTTP vers le stockage Blob Azure**
+**Exemple : Copier des données d’une source HTTP vers Stockage Blob Azure**
 
 La solution Data Factory pour cet exemple contient les entités Data Factory suivantes :
 
@@ -303,7 +303,7 @@ La définition de **external** : **true** informe le service Data Factory qu’
 
 ### <a name="azure-blob-output-dataset"></a>Jeu de données de sortie d’objet Blob Azure
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (**fréquence** : **heure**, **intervalle** : **1**).
+Les données sont écrites dans un nouvel objet blob toutes les heures (**fréquence** : **heure**, **intervalle** : **1**).
 
 ```json
 {

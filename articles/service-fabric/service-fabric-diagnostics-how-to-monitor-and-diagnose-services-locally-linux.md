@@ -3,12 +3,12 @@ title: Déboguer des applications Azure Service Fabric dans Linux
 description: Découvrez comment analyser et diagnostiquer vos services Service Fabric sur un ordinateur de développement Linux local.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75526292"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991328"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Superviser et diagnostiquer des services dans une configuration de développement d’ordinateur Linux local
 
@@ -59,7 +59,7 @@ Pour plus d'informations, consultez les [exemples de code de GitHub](https://git
 ## <a name="debugging-service-fabric-c-applications"></a>Débogage des applications C# Service Fabric
 
 
-Plusieurs infrastructures sont disponibles pour le suivi des applications CoreCLR sur Linux. Pour en savoir plus, consultez [GitHub : journalisation](http:/github.com/aspnet/logging).  EventSource étant familier pour les développeurs C#, cet article utilise EventSource pour le suivi dans des exemples de CoreCLR sur Linux.
+Plusieurs infrastructures sont disponibles pour le suivi des applications CoreCLR sur Linux. Pour plus d’informations, consultez [Extensions .NET pour la journalisation](https://github.com/dotnet/extensions/tree/master/src/Logging).  EventSource étant familier pour les développeurs C#, cet article utilise EventSource pour le suivi dans des exemples de CoreCLR sur Linux.
 
 La première étape consiste à inclure System.Diagnostics.Tracing afin que vous puissiez écrire vos journaux d’activité dans une mémoire, des flux de sortie ou des fichiers de console.  Pour la journalisation à l’aide d’EventSource, ajoutez le projet suivant à votre project.json :
 

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f7f319d2ebb4cd39933addf04f249df02d7819f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77618476"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314123"
 ---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Créez un coffre de clés à l’aide de la commande Azure CLI [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create), de la commande Azure PowerShell [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault), du [portail Azure](https://portal.azure.com) ou d’un [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 >[!WARNING]
-> Pour garantir que les secrets de chiffrement ne franchissent pas les limites régionales, Azure Disk Encryption exige que le coffre de clés se trouve dans la même région que les machines virtuelles. Créez et utilisez un coffre de clés situé dans la même région que les machines virtuelles à chiffrer. 
+> Votre coffre de clés et vos machines virtuelles doivent se trouver dans le même abonnement. De plus, pour garantir que les secrets de chiffrement ne franchissent pas les limites régionales, Azure Disk Encryption exige que le coffre de clés se trouve dans la même région que les machines virtuelles. Créez et utilisez un coffre de clés situé dans les mêmes abonnement et région que les machines virtuelles à chiffrer. 
 
 Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
 
@@ -89,7 +89,7 @@ Utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **Activer Key Vault pour le déploiement d’un modèle, si nécessaire :** autorise Resource Manager à récupérer des secrets dans le coffre.
+ - **Activer Key Vault pour le déploiement d’un modèle, si nécessaire :** autoriser Resource Manager à récupérer des secrets dans le coffre.
      ```azurecli-interactive  
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-template-deployment "true"
      ```

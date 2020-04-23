@@ -1,22 +1,14 @@
 ---
 title: Planifier votre application - LUIS
-titleSuffix: Azure Cognitive Services
 description: Structurez les entités et les intentions d’applications pertinentes, puis créez vos plans d’applications dans Language Understanding Intelligent Services (LUIS).
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.author: diberry
-ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74326776"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382304"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planifier votre schéma d’application LUIS avec le domaine de l’objet et l’extraction de données
 
@@ -44,7 +36,7 @@ Si vous n’avez pas besoin d’identifier l’intention globale de l’utilisat
 
 ## <a name="create-example-utterances-for-each-intent"></a>Créer des exemples d’énoncés pour chaque intention
 
-Pour commencer, évitez de créer un trop grand nombre d’énoncés pour chaque intention. Une fois que vous avez déterminé les intentions, créez 15 à 30 exemples d’énoncés par intention. Chaque énoncé doit être différent de ceux fournis précédemment. Une sélection adéquate dans les énoncés inclut le nombre total de mots, le choix des mots, le temps des verbes et la ponctuation.
+Pour commencer, évitez de créer un trop grand nombre d’énoncés pour chaque intention. Une fois que vous avez déterminé les intentions, créez 15 à 30 exemples d’énoncés par intention. Chaque énoncé doit être différent de ceux fournis précédemment. Une sélection adéquate dans les énoncés inclut le nombre total de mots, le choix des mots, le temps des verbes et la [ponctuation](luis-reference-application-settings.md#punctuation-normalization).
 
 Pour plus d’informations, consultez [Connaître les bons énoncés pour les applications LUIS](luis-concept-utterance.md).
 

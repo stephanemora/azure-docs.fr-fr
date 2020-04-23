@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236101"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382914"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Intégration d’Azure Active Directory pour Azure Red Hat OpenShift
 
@@ -25,13 +25,13 @@ Dans le [Portail Microsoft Azure](https://portal.azure.com), assurez-vous que vo
 
 ![Capture d’écran du portail avec le locataire en haut à droite](./media/howto-create-tenant/tenant-callout.png). Si le mauvais locataire est affiché, cliquez sur votre nom d’utilisateur en haut à droite, puis cliquez sur **Commuter répertoire**, et sélectionnez le bon locataire dans la liste **Tous les répertoires**.
 
-Créez un nouvel utilisateur administrateur mondial Azure Active Directory pour vous connecter à votre cluster Azure Red Hat OpenShift.
+Créez un « propriétaire » Azure Active Directory pour vous connecter à votre cluster Azure Red Hat OpenShift.
 
 1. Accédez au panneau [Utilisateurs-Tous les utilisateurs](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 2. Cliquez sur **+Nouvel utilisateur** pour ouvrir le volet **Utilisateur**.
 3. Entrez un **Nom** pour cet utilisateur.
 4. Créez un **nom d’utilisateur** basé sur le nom du locataire que vous avez créé, avec `.onmicrosoft.com` ajouté à la fin. Par exemple : `yourUserName@yourTenantName.onmicrosoft.com`. Notez ce nom d’utilisateur. Vous en aurez besoin pour vous connecter à votre cluster.
-5. Cliquez sur **Rôle d’annuaire** pour ouvrir le volet de rôle d’annuaire, et sélectionnez **Administrateur d’entreprise**, puis cliquez sur **Ok** en bas du volet.
+5. Cliquez sur **Rôle d’annuaire** pour ouvrir le volet de rôle d’annuaire, sélectionnez **Propriétaire**, puis cliquez sur **OK** en bas du volet.
 6. Dans le volet **Utilisateur**, cliquez sur **Afficher le mot de passe** et enregistrez le mot de passe temporaire. Après vous être connecté la première fois, vous serez invité à le réinitialiser.
 7. En bas du volet, cliquez sur **Créer**pour créer l’utilisateur.
 

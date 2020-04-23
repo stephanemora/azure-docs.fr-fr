@@ -4,18 +4,18 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 04/03/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c7a65df100cd58561ce12ac2ae01281eebd419a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 45a248300cd61a0e57b9f35c8905d7c335069a27
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656045"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991277"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -109,7 +109,7 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Logic Apps (dans les régions où il est disponible) :
 
 - [Azure portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Modèle Azure Resource Manager](/azure/app-service/overview-managed-identity)
+- [Modèle Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -270,6 +270,9 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Disponible][check] |
 | Azure Germany | `https://*.asazure.cloudapi.de` | ![Disponible][check] |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Disponible][check] |
+
+> [!Note]
+> Microsoft Power BI [prend aussi en charge les identités managées](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
 
 [check]: media/services-support-managed-identities/check.png "Disponible"

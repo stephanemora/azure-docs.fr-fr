@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,38 +9,38 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: f097479b67a7b48eca4a2710db3bd7eed6ddc982
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11469d992e0f5669cd3fc1e3864627dd0b8ae23d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77013783"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263339"
 ---
 La section suivante résume les limites de clé en disponibilité générale.
 
 ### <a name="sku-ingress-rates-and-capacities"></a>Capacités et débits d’entrée de la référence (SKU)
 
-Les vitesses et capacités d’entrée des références (SKU) S1 et S2 offrent une certaine souplesse lors de la configuration d’un nouvel environnement Azure Time Series Insights.
+Les vitesses et capacités d’entrée des références (SKU) S1 et S2 offrent une certaine souplesse lors de la configuration d’un nouvel environnement Azure Time Series Insights. La capacité de votre référence SKU indique le taux d’entrée quotidien en fonction du nombre d’événements ou d’octets stockés, selon le cas. Notez que les entrées sont mesurées *par minute* et que la **limitation** est appliquée à l’aide de l’algorithme du seau à jetons. L’entrée est mesurée en blocs de 1 Ko. Par exemple, un événement réel de 0,8 Ko représente un événement, tandis qu’un événement de 2,6 Ko est compté comme trois événements.
 
 | Capacité de la référence (SKU) S1 | Débit d’entrée | Capacité de stockage maximale
 | --- | --- | --- |
-| 1 | 1 Go (1 million d’événements) | 30 Go (30 millions d’événements) par mois |
-| 10 | 10 Go (10 millions d’événements) | 300 Go (300 millions d’événements) par mois |
+| 1 | 1 Go (1 millions d’événements) par jour | 30 Go (30 millions d’événements) par mois |
+| 10 | 10 Go (10 millions d’événements) par jour | 300 Go (300 millions d’événements) par mois |
 
 | Capacité de la référence (SKU) S2 | Débit d’entrée | Capacité de stockage maximale
 | --- | --- | --- |
-| 1 | 10 Go (10 millions d’événements) | 300 Go (300 millions d’événements) par mois |
-| 10 | 100 Go (100 millions d’événements) | 3 To (3 milliards d’événements) par mois |
+| 1 | 10 Go (10 millions d’événements) par jour | 300 Go (300 millions d’événements) par mois |
+| 10 | 100 Go (100 millions d’événements) par jour | 3 To (3 milliards d’événements) par mois |
 
 > [!NOTE]
 > Les capacités sont mises à l’échelle de façon linéaire. Par conséquent, une référence SKU S1 avec la capacité 2 prend en charge 2 Go (2 millions) d’événements par débit d’entrée par jour et 60 Go (60 millions d’événements) par mois.
 
 Les environnements de référence (SKU) S2 prennent en charge beaucoup plus d’événements par mois et ont une capacité d’entrée sensiblement supérieure.
 
-| SKU  | Nombre d’événements par mois  | Taille d’événement par mois  | Nombre d’événements par minute | Taille d’événement par minute  |
+| SKU  | Nombre d’événements par mois  | Nombre d’événements par minute | Taille d’événement par minute  |
 |---------|---------|---------|---------|---------|
-| S1     |   30 millions     |  30 Go     |  720    |  720 Ko   |
- |S2     |   300 millions    |   300 Go   | 7 200   | 7 200 Ko  |
+| S1     |   30 millions   |  720    |  720 Ko   |
+ |S2     |   300 millions   | 7 200   | 7 200 Ko  |
 
 ### <a name="property-limits"></a>Limites de propriétés
 

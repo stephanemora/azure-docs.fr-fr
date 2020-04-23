@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1735daf66483df496141a642ac6633973aa0abf0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228045"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407541"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Accorder l’accès aux données dans un environnement
 
@@ -28,7 +28,7 @@ Cet article décrit les deux types de stratégies d’accès d’Azure Time Seri
 ## <a name="sign-in-to-time-series-insights"></a>Se connecter à Time Series Insights
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Recherchez votre environnement Time Series Insights. Entrez `Time Series` dans la zone **Recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche.
+1. Recherchez votre environnement Time Series Insights. Entrez `Time Series` dans la zone **Recherche**. Sélectionnez **Environnements Time Series** dans les résultats de recherche.
 1. Sélectionnez votre environnement Time Series Insights dans la liste.
 
 ## <a name="grant-data-access"></a>Accorder l’accès aux données

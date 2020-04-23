@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 070b7c5e0fef7d50f84271190432a65d29699bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128619"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380192"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiver les journaux et créer des rapports sur la gestion des droits d’utilisation Azure AD dans Azure Monitor
 
@@ -49,6 +49,38 @@ L’archivage des journaux d’audit Azure AD vous demande d’avoir Azure Moni
 1. Sélectionnez **Utilisation et estimation des coûts**, puis cliquez sur **Conservation des données**. Réglez le curseur sur le nombre de jours où vous souhaitez conserver les données pour satisfaire à vos exigences d’audit.
 
     ![Volet Espaces de travail Log Analytics](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
+
+1. Plus tard, pour voir la plage de dates conservées dans votre espace de travail, vous pouvez utiliser le classeur *Plage de dates du journal archivé* :  
+    
+    1. Sélectionnez **Azure Active Directory**, puis cliquez sur **Classeurs**. 
+    
+    1. Développez la section **Résolution des problèmes d’Azure Active Directory**, puis cliquez sur **Plage de dates du journal archivé**. 
+
+
+## <a name="view-events-for-an-access-package"></a>Visualiser les événements pour un package d’accès  
+
+Pour voir les événements d’un package d’accès, vous devez avoir accès à l’espace de travail Azure Monitor sous-jacent (pour plus d’informations, consultez [Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions)) et dans un des rôles suivants : 
+
+- Administrateur général  
+- Administrateur de sécurité  
+- Lecteur de sécurité  
+- Lecteur de rapport  
+- Administrateur d’application  
+
+Utilisez la procédure suivante pour voir les événements : 
+
+1. Dans le portail Azure, sélectionnez **Azure Active Directory**, puis cliquez sur **Classeurs**. Si vous n’avez qu’un seul abonnement, passez à l’étape 3. 
+
+1. Si vous avez plusieurs abonnements, sélectionnez l’abonnement qui contient l’espace de travail.  
+
+1. Sélectionnez le classeur nommé *Activité du package d’accès*. 
+
+1. Dans ce classeur, sélectionnez une plage de temps (changez-la en **Tout** si vous n’êtes pas sûr), puis sélectionnez un ID de package d’accès dans la liste déroulante de tous les packages d’accès ayant eu de l’activité pendant cette période. Les événements liés au package d’accès qui se sont produits pendant l’intervalle de temps sélectionné s’affichent.  
+
+    ![Visualiser les événements du package d’accès](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
+
+    Chaque ligne comprend l’heure, l’ID de package d’accès, le nom de l’opération, l’ID d’objet, l’UPN et le nom d’affichage de l’utilisateur qui a démarré l’opération.  Des détails supplémentaires sont inclus dans le JSON.   
+
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Créer des requêtes Azure Monitor personnalisées à l’aide du portail Azure
 Vous pouvez créer vos propres requêtes sur les événements d’audit Azure AD, y compris les événements de gestion des droits d’utilisation.  
@@ -86,6 +118,7 @@ Vous pouvez accéder aux journaux via PowerShell après avoir configuré Azure 
 Assurez-vous que vous, l’utilisateur ou le principal de service, qui vous authentifierez auprès d’Azure AD, détenez le rôle Azure approprié dans l’espace de travail Log Analytics. Les options de rôle sont Lecteur Log Analytics et Contributeur Log Analytics. Si vous détenez déjà l’un de ces rôles, passez à la section [Récupérer l’ID Log Analytics avec un abonnement Azure](#retrieve-log-analytics-id-with-one-azure-subscription).
 
 Pour définir l’attribution de rôle et créer une requête, effectuez les étapes suivantes :
+
 1. Dans le portail Azure, recherchez l’[espace de travail Log Analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
 ).
 
@@ -128,7 +161,7 @@ $subs | ft
 Vous pouvez réauthentifier votre session PowerShell et l’associer à cet abonnement à l’aide d’une commande telle que `Connect-AzAccount –Subscription $subs[0].id`. Pour en savoir plus sur l’authentification sur Azure à partir de PowerShell, y compris de manière non interactive, consultez [Se connecter avec Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
-Si vous avez plusieurs espaces de travail Log Analytics dans cet abonnement, l’applet de commande [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) retourne la liste des espaces de travail. Vous pouvez alors trouver celui qui contient les journaux Azure AD. Le champ `CustomerId` retourné par cette applet de commande est identique à la valeur de « l’ID d’espace de travail » affichée dans le portail Azure, dans la vue d’ensemble de l’espace de travail Log Analytics.
+Si vous avez plusieurs espaces de travail Log Analytics dans cet abonnement, l’applet de commande [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) retourne la liste des espaces de travail. Vous pouvez alors trouver celui qui contient les journaux Azure AD. Le champ `CustomerId` retourné par cette applet de commande est identique à la valeur de l’« ID d’espace de travail » affichée dans le portail Azure, dans la vue d’ensemble de l’espace de travail Log Analytics.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -150,7 +183,7 @@ $aResponse.Results |ft
 Vous pouvez également récupérer des événements de gestion des droits d’utilisation à l’aide d’une requête telle que :
 
 ```azurepowershell
-$bQuery = = 'AuditLogs | where Category == "EntitlementManagement"'
+$bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
 ```

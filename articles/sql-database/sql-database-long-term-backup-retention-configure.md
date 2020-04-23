@@ -1,6 +1,6 @@
 ---
-title: Gérer la rétention des sauvegardes à long terme
-description: Découvrez comment stocker des sauvegardes automatisées dans le stockage SQL Azure, puis les restaurer
+title: 'Base de données unique : Gérer la rétention des sauvegardes à long terme'
+description: Découvrez comment stocker et restaurer des sauvegardes automatisées pour une base de données unique ou mise en pool Azure SQL Database dans un stockage Azure (jusqu’à 10 ans) à l’aide du portail Azure et de PowerShell
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 08/21/2019
-ms.openlocfilehash: a560f4f1399792a7b150b37c3c048ccc0079b98d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74420786"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380933"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la conservation à long terme des sauvegardes Azure SQL Database
 
@@ -186,7 +186,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> La suppression de sauvegardes de rétention à long terme n’est pas réversible. Pour supprimer une sauvegarde LTR une fois que le serveur a été supprimé, vous devez disposer de l’autorisation Étendue de l’abonnement. Vous pouvez configurer des notifications sur chaque suppression dans Azure Monitor en filtrant sur l’opération « Supprime une sauvegarde de rétention à long terme ». Le journal d’activité contient des informations sur la personne qui a effectué la requête et quand. Consultez [Créer des alertes de journal d’activité](../azure-monitor/platform/alerts-activity-log.md) pour obtenir des instructions détaillées.
+> La suppression de sauvegardes de rétention à long terme n’est pas réversible. Pour supprimer une sauvegarde LTR une fois que le serveur a été supprimé, vous devez disposer de l’autorisation Étendue de l’abonnement. Vous pouvez configurer des notifications sur chaque suppression dans Azure Monitor en filtrant sur l’opération « Supprime une sauvegarde de conservation à long terme ». Le journal d’activité contient des informations sur la personne qui a effectué la requête et quand. Consultez [Créer des alertes de journal d’activité](../azure-monitor/platform/alerts-activity-log.md) pour obtenir des instructions détaillées.
 
 ### <a name="restore-from-ltr-backups"></a>Restaurer à partir de sauvegardes de rétention à long terme
 

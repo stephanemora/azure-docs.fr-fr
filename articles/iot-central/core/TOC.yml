@@ -132,7 +132,7 @@
     - name: Modèles d’applications par secteur
       items:
         - name: Vente au détail
-          href: ../retail/overview-iot-central-retail-pnp.md
+          href: ../retail/overview-iot-central-retail.md
         - name: Énergie
           href: ../energy/overview-iot-central-energy.md
         - name: Gouvernement américain

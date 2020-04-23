@@ -1,26 +1,25 @@
 ---
-title: Schéma d’événements pour Azure App Configuration dans Azure Event Grid
-description: Décrit les propriétés fournies pour les événements Azure App Configuration avec Azure Event Grid.
+title: Azure App Configuration en tant que source Event Grid
+description: Cet article explique comment utiliser Azure App Configuration en tant que source d’événement Event Grid. Il fournit le schéma et des liens vers des articles de procédure et des tutoriels.
 services: event-grid
-author: jimmyca
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 05/30/2019
-ms.author: jimmyca
-ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: adb548ef8531698a2cb075fbc742bb20a02a434b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66735780"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393428"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Schéma des événements Azure Event Grid pour Azure App Configuration
+# <a name="azure-app-configuration-as-an-event-grid-source"></a>Azure App Configuration en tant que source Event Grid
+Cet article fournit les propriétés et le schéma des événements Azure App Configuration. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md). Cet article fournit également une liste de guides de démarrage rapide et de tutoriels permettant d’utiliser Azure App Configuration en tant que source d’événement.
 
-Cet article fournit les propriétés et le schéma des événements Azure App Configuration. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
+## <a name="event-grid-event-schema"></a>Schéma d’événement Event Grid
 
-Pour obtenir la liste des exemples de scripts et des tutoriels, consultez la section relative à la [source d’événements Azure App Configuration](event-sources.md#app-configuration).
-
-## <a name="available-event-types"></a>Types d’événement disponibles
+### <a name="available-event-types"></a>Types d’événement disponibles
 
 Azure App Configuration propose les types d’événements suivants :
 
@@ -29,7 +28,7 @@ Azure App Configuration propose les types d’événements suivants :
 | Microsoft.AppConfiguration.KeyValueModified | Émis lorsqu’une valeur de clé est créée ou remplacée. |
 | Microsoft.AppConfiguration.KeyValueDeleted | Émis lorsqu’une valeur de clé est supprimée. |
 
-## <a name="example-event"></a>Exemple d’événement
+### <a name="example-event"></a>Exemple d’événement
 
 L’exemple suivant montre le schéma d’un événement de valeur de clé modifié : 
 
@@ -69,7 +68,7 @@ Le schéma d’un événement de valeur de clé supprimé est similaire :
 }]
 ```
  
-## <a name="event-properties"></a>Propriétés d’événement
+### <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
 
@@ -91,7 +90,14 @@ L’objet de données comporte les propriétés suivantes :
 | key | string | La clé de la paire clé-valeur qui a été modifiée ou supprimée. |
 | label | string | Le cas échéant, l’étiquette de la paire clé-valeur qui a été modifiée ou supprimée. |
 | etag | string | Pour le paramètre `KeyValueModified`, l’etag de la nouvelle paire clé-valeur. Pour le paramètre `KeyValueDeleted`, l’etag de la paire clé-valeur qui a été supprimée. |
- 
+
+## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
+
+|Intitulé | Description |
+|---------|---------|
+| [Réagir aux événements Azure App Configuration à l’aide d’Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration d’Azure App Configuration avec Event Grid. |
+| [Démarrage rapide : Router des événements Azure App Configuration vers un point de terminaison web personnalisé avec Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Montre comment utiliser Azure CLI pour envoyer des événements Azure App Configuration à un webhook. |
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](overview.md).

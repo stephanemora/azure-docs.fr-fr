@@ -3,12 +3,12 @@ title: Sauvegarde des fichiers et des dossiers - Questions courantes
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233913"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254748"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
@@ -22,7 +22,7 @@ Vous pouvez [télécharger ici](https://aka.ms/azurebackup_agent) la dernière v
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Combien de temps les informations d’identification restent-elles valides ?
 
-Les informations d’identification du coffre expirent au bout de 48 heures. Si le fichier d’informations d’identification arrive à expiration, retéléchargez-le à partir du Portail Microsoft Azure.
+Les informations d’identification du coffre expirent au bout de 10 jours. Si le fichier d’informations d’identification arrive à expiration, retéléchargez-le à partir du Portail Microsoft Azure.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Sur quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?
 
@@ -57,6 +57,10 @@ Les données de sauvegarde sont envoyées au centre de données du coffre dans l
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>L’agent MARS prend-il en charge la déduplication de Windows Server 2012 ?
 
 Oui. Cet agent convertit les données dédupliquées en données normales lorsqu’il prépare l’opération de sauvegarde. Ensuite, il optimise les données pour la sauvegarde, les chiffre, puis les envoie au coffre.
+
+### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Ai-je besoin d’autorisations d’administrateur pour installer et configurer l’agent MARS ?
+
+Oui, l’installation de l’agent MARS et la configuration des sauvegardes à l’aide de la console MARS impliquent que l’utilisateur soit administrateur local sur le serveur protégé.
 
 ## <a name="manage-backups"></a>Gestion des sauvegardes
 
@@ -181,7 +185,6 @@ Si vous avez la même phrase secrète (que celle que vous avez fournie lors de l
 | --- | --- | --- |
 | Perdue |Disponible |Vous pouvez installer et inscrire l’agent MARS sur un autre ordinateur avec la même phrase secrète que celle que vous avez fournie lors de l’inscription de l’ordinateur d’origine. Choisissez **Option de récupération** > **Autre emplacement** pour effectuer la restauration. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Perdue |Perdue |Impossible de récupérer les données ou les données ne sont pas disponibles |
-
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Que se passe-t-il si j’annule un travail de restauration en cours ?
 

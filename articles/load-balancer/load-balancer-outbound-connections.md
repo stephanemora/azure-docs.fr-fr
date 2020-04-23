@@ -8,17 +8,17 @@ author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 411c06e19b932b441f27a3c7578d847c6dfc1f7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336986"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393102"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -168,7 +168,7 @@ Le tableau suivant présente les préaffectations de ports SNAT pour les différ
 | 801-1 000 | 32 |
 
 >[!NOTE]
-> Lorsque vous utilisez l’équilibreur de charge standard avec [plusieurs serveurs frontaux](load-balancer-multivip-overview.md), chaque adresse IP de serveur frontal multiplie le nombre de ports SNAT disponibles dans la table précédente. Par exemple, un pool backend de 50 machines virtuelles avec 2 règles d’équilibrage de charge, chacun avec une adresse IP frontend séparée, utilise 2048 ports SNAT (2 x 1024) par configuration IP. Affichez les détails pour [plusieurs serveurs frontaux](#multife).
+> Lorsque vous utilisez l’équilibreur de charge standard avec [plusieurs serveurs frontaux](load-balancer-multivip-overview.md), chaque adresse IP de serveur frontal multiplie le nombre de ports SNAT disponibles dans la table précédente. Par exemple, un pool de back-ends de 50 machines virtuelles avec deux règles d’équilibrage de charge, chacun avec une adresse IP front-end séparée, utilise 2048 ports SNAT (2 x 1024) par règle. Affichez les détails pour [plusieurs serveurs frontaux](#multife).
 
 Ne perdez pas de vue que le nombre de ports SNAT disponibles ne se traduit pas directement en nombre de flux. Un port de traduction d’adresses réseau sources peut être réutilisé pour plusieurs destinations uniques. Les ports ne sont consommés que si cela permet de rendre les flux uniques. Pour obtenir des conseils concernant la conception et l’atténuation, consultez la section qui explique [comment gérer cette ressource épuisable](#snatexhaust), ainsi que la section qui décrit la [traduction d’adresse de port](#pat).
 
@@ -193,11 +193,11 @@ Les allocations de ports SNAT sont spécifiques au protocole de transport IP (TC
 Cette section vise à pallier l’insuffisance de SNAT et d’autres problèmes pouvant se produire avec des connexions sortantes dans Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Gestion de l’insuffisance de ports (PAT) SNAT
-Les [ports éphémères](#preallocatedports) utilisés pour [PAT](#pat) sont une ressource épuisable, comme décrit dans [Machine virtuelle autonome sans adresse IP publique](#defaultsnat) et [Machine virtuelle à charge équilibrée sans adresse IP publique](#lb).
+Les [ports éphémères](#preallocatedports) utilisés pour [PAT](#pat) sont une ressource épuisable, comme décrit dans [Machine virtuelle autonome sans adresse IP publique](#defaultsnat) et [Machine virtuelle à charge équilibrée sans adresse IP publique](#lb). Vous pouvez surveiller l’utilisation des ports éphémères et les comparer à votre allocation actuelle pour déterminer le risque ou confirmer l’insuffisance de ports SNAT à l’aide de [ce guide](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation).
 
 Si vous savez que vous lancez de nombreuses connexions TCP ou UDP sortantes vers les mêmes adresse IP et port de destination et constatez que des connexions sortantes échouent, ou si l’équipe de support vous signale que les ports SNAT ([ports éphémères](#preallocatedports) préaffectés) utilisés par la [PAT](#pat) arrivent à épuisement, plusieurs options d’atténuation générales s’offrent à vous. Passez en revue ces options et choisissez l’option disponible la plus appropriée pour votre scénario. Plusieurs options peuvent être adaptées à votre scénario.
 
-Si vous avez des difficultés à comprendre le comportement des connexions sortantes, vous pouvez utiliser les statistiques de pile IP (netstat). Il peut aussi être utile d’observer les comportements de connexion à travers les captures de paquets. Vous pouvez effectuer ces captures de paquets dans le SE invité de votre instance, ou utiliser le [Network Watcher pour la capture des paquets](../network-watcher/network-watcher-packet-capture-manage-portal.md).
+Si vous avez des difficultés à comprendre le comportement des connexions sortantes, vous pouvez utiliser les statistiques de pile IP (netstat). Il peut aussi être utile d’observer les comportements de connexion à travers les captures de paquets. Vous pouvez effectuer ces captures de paquets dans le SE invité de votre instance, ou utiliser le [Network Watcher pour la capture des paquets](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modifier l’application pour réutiliser des connexions 
 Vous pouvez réduire la demande pour les ports éphémères utilisés pour la traduction d’adresses réseau sources en réutilisant des connexions dans votre application. Cette méthode s’applique tout particulièrement aux protocoles comme HTTP/1.1, où la réutilisation des connexions est la règle par défaut. D’autres protocoles qui utilisent HTTP comme transport (par exemple REST) peuvent aussi en bénéficier. 

@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 63f49946b14b003348758a5ae7ebadd7a4acf383
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d08caf5444216666e7296b830f0af6af606dd4f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277666"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273832"
 ---
 # <a name="key-vault-deployment-template"></a>Modèle de déploiement Key Vault
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Certification d’une image de machine virtuelle Azure](https://aks.ms/CertifyVMimage) pour gérer vos offres migrées.
 
 Le modèle Azure Resource Manager suivant permet de définir une nouvelle instance d’Azure Key Vault.  Il est utilisé dans l’article [Créer un certificat de coffre de clés](cpp-create-key-vault-cert.md). 
 

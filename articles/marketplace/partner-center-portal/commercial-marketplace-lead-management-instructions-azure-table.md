@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: f511a60b533d6d1e0b1ae8847d0ee0fb6be3500c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a36c411b9ababc42adb51d82a316df4252c01e24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288833"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251995"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configuration de la gestion des prospects à l’aide d’une table Azure
 
@@ -66,12 +66,12 @@ Utilisez cet exemple comme guide pour créer un simple flux qui envoie automatiq
 
    ![Mes flux **+ Planifié entièrement**](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.  Dans la fenêtre *Créer un flux planifié*, sélectionnez l’intervalle « 1 » et la fréquence « heure » sous *Répéter tou(te)s les*. Par ailleurs, attribuez un nom au flux si vous le souhaitez. Sélectionnez **Create** (Créer).
+5.    Dans la fenêtre *Créer un flux planifié*, sélectionnez l’intervalle « 1 » et la fréquence « heure » sous *Répéter tou(te)s les*. Par ailleurs, attribuez un nom au flux si vous le souhaitez. Sélectionnez **Create** (Créer).
 
-    >[!Note]
-    >Même si cet exemple utilise un intervalle d’une heure, vous pouvez sélectionner l’intervalle et la fréquence les plus adaptés à vos besoins professionnels.
+>[!Note]
+>Même si cet exemple utilise un intervalle d’une heure, vous pouvez sélectionner l’intervalle et la fréquence les plus adaptés à vos besoins professionnels.
 
-    ![Créez un flux planifié.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
+![Créez un flux planifié.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 6. Sélectionnez **+ Nouvelle étape**.
 7. Dans la fenêtre *Choisir une action*, recherchez « obtenir l’heure passée », puis sélectionnez **Obtenir l’heure passée** sous Actions.
@@ -92,23 +92,17 @@ Dans les étapes suivantes, vous allez vous connecter à votre table Azure et co
 
 9. Après l’étape Obtenir l’heure passée, sélectionnez **+ Nouvelle étape**, puis recherchez « Obtenir des entités » dans la fenêtre *Choisir une action*.
 10. Sous **Actions**, sélectionnez **Obtenir des entités (Stockage Table Azure)** .
-11. Dans la fenêtre **Stockage Table Azure**, fournissez les informations dans les champs suivants, puis sélectionnez **Créer** :
+11.    Dans la fenêtre **Stockage Table Azure**, fournissez les informations dans les champs suivants, puis sélectionnez **Créer** :
+* *Nom de la connexion* : donnez un nom significatif à la connexion que vous établissez entre ce flux et la table Azure.
+* *Nom du compte de stockage* : indiquez le nom du compte de stockage pour votre table Azure. Vous trouverez cette information sur la page **Clés d’accès** du compte de stockage.
+* *Clé de stockage partagée* : indiquez la valeur de clé de votre compte de stockage pour votre table Azure. Vous trouverez cette information sur la page **Clés d’accès** du compte de stockage.
+    ![Stockage Table Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png).
 
-    * *Nom de la connexion* : donnez un nom significatif à la connexion que vous établissez entre ce flux et la table Azure.
-    * *Nom du compte de stockage* : indiquez le nom du compte de stockage pour votre table Azure. Vous trouverez cette information sur la page **Clés d’accès** du compte de stockage.
-    * *Clé de stockage partagée* : indiquez la valeur de clé de votre compte de stockage pour votre table Azure. Vous trouverez cette information sur la page **Clés d’accès** du compte de stockage.
+La fenêtre *Obtenir des entités* s’affiche une fois que vous avez cliqué sur Créer. Sélectionnez **Afficher les options avancées** et complétez les champs suivants :
+* *Table* : sélectionnez le nom de votre Stockage Table Azure (à partir de l’étape 6 des instructions de configuration d’une table Azure). La capture d’écran suivante montre l’invite lorsque la table « marketplaceleads » est sélectionnée pour cet exemple.
+    ![Table Azure - Obtenir des entités](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png).
 
-        ![Stockage Table Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
-
-    La fenêtre *Obtenir des entités* s’affiche une fois que vous avez cliqué sur Créer. Sélectionnez **Afficher les options avancées** et complétez les champs suivants :
-
-       * *Table* : sélectionnez le nom de votre Stockage Table Azure (à partir de l’étape 6 des instructions de configuration d’une table Azure). La capture d’écran suivante montre l’invite lorsque la table « marketplaceleads » est sélectionnée pour cet exemple.
-
-            ![La Table Azure est complétée par des entités.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
-
-        * *Requête de filtre* : sélectionnez ce champ et collez cette fonction dans le champ `Timestamp gt datetime'@{body('Get_past_time')}'`.
-
-            ![La Table Azure est complétée par des entités - Requête de filtre.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+* *Requête de filtre* : sélectionnez ce champ et collez-y cette fonction : `Timestamp gt datetime'@{body('Get_past_time')}'` ![Table Azure - Obtenir des entités - Requête de filtre](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png).
 
 12. Maintenant que vous avez effectué la configuration de la connexion à la table Azure, sélectionnez **Nouvelle étape** pour ajouter une condition afin de rechercher de nouveaux prospects dans la table Azure. 
 
@@ -178,7 +172,10 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
 1. Accédez à la page **Configuration de l'offre** de votre offre.
 2. Sélectionnez **Connexion** dans la section Gestion des prospects.
 3. Dans la fenêtre contextuelle des détails de la connexion, sélectionnez **Table Azure** pour **Destination du prospect** et collez la chaîne de connexion à partir du compte de stockage Azure que vous avez créé précédemment dans le champ **Chaîne de connexion de compte de stockage**.
-4. Sélectionnez **Enregistrer**. 
+4. **E-mail du contact** : fournissez les e-mails des personnes de votre société qui doivent recevoir des notifications par e-mail lors de la réception d’un nouveau prospect. Vous pouvez fournir plusieurs e-mails en les séparant par un point-virgule.
+5. Sélectionnez **OK**.
+
+Pour vous assurer que vous vous êtes bien connecté à une destination de prospect, cliquez sur le bouton Valider. En cas de réussite, un prospect de test se trouve dans la destination du prospect.
 
 >[!Note]
 >Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.

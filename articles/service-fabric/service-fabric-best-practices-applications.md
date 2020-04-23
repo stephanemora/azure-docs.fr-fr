@@ -5,12 +5,12 @@ author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 876980bd6a59bace9ab4e490358964d19fa52c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56df6e28940eb15597a3d6bccca3f85e5f690f89
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586085"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991652"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Meilleures pratiques de conception d’application Azure Service Fabric
 
@@ -58,8 +58,8 @@ Réduire les coûts et améliorer la disponibilité :
 ## <a name="how-to-work-with-reliable-services"></a>Comment utiliser Reliable Services
 Service Fabric Reliable Services vous permet de créer facilement des services sans et avec état. Pour plus d’informations, consultez l’[introduction à Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
 - Utilisez toujours le [jeton d’annulation](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) de la méthode `RunAsync()` pour les services sans et avec état et de la méthode `ChangeRole()` pour les services avec état. Sans cela, Service Fabric ne sait pas si votre service peut être fermé. Le fait de ne pas utiliser le jeton d’annulation peut, par exemple, entraîner des temps de mise à niveau d’applications beaucoup plus longs.
--   Ouvrez et fermez les [écouteurs de communications](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) aux moments opportuns et utilisez les jetons d’annulation.
--   Ne combinez jamais du code synchrone et du code asynchrone. Par exemple, n’utilisez pas `.GetAwaiter().GetResult()` dans vos appels asynchrones. Utiliser async *à travers toute* la pile des appels.
+-    Ouvrez et fermez les [écouteurs de communications](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) aux moments opportuns et utilisez les jetons d’annulation.
+-    Ne combinez jamais du code synchrone et du code asynchrone. Par exemple, n’utilisez pas `.GetAwaiter().GetResult()` dans vos appels asynchrones. Utiliser async *à travers toute* la pile des appels.
 
 ## <a name="how-to-work-with-reliable-actors"></a>Comment utiliser Reliable Actors
 Service Fabric Reliable Actors vous permet de créer facilement des acteurs virtuels avec état. Pour plus d’informations, consultez l’[introduction à Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
@@ -77,7 +77,7 @@ Service Fabric Reliable Actors vous permet de créer facilement des acteurs virt
 Veillez à ajouter la [journalisation des applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) dans les appels de service. Cela vous aidera à diagnostiquer les scénarios dans lesquels les services s’appellent mutuellement. Par exemple, quand A appelle B appelle C appelle D, l’appel peut échouer n’importe où. Si vous n’avez pas suffisamment de journalisation, les échecs sont difficiles à diagnostiquer. Si la journalisation des services est trop importante en raison des volumes d’appel, veillez à enregistrer au minimum les erreurs et avertissements.
 
 ## <a name="iot-and-messaging-applications"></a>Applications IoT et de messagerie
-Quand vous lisez des messages à partir d’[Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) ou d’[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), utilisez [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor s’intègre à Service Fabric Reliable Services pour maintenir l’état de lecture des partitions de hub d’événements, et envoie (push) les nouveaux messages à vos services par le biais de la méthode `IEventProcessor::ProcessEventsAsync()`.
+Quand vous lisez des messages à partir d’[Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) ou d’[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), utilisez [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). ServiceFabricProcessor s’intègre à Service Fabric Reliable Services pour maintenir l’état de lecture des partitions de hub d’événements, et envoie (push) les nouveaux messages à vos services par le biais de la méthode `IEventProcessor::ProcessEventsAsync()`.
 
 
 ## <a name="design-guidance-on-azure"></a>Guide de conception sur Azure

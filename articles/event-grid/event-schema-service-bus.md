@@ -1,27 +1,26 @@
 ---
-title: Schéma d’événements Azure Event Grid pour Service Bus
+title: Azure Service Bus en tant que source Event Grid
 description: Décrit les propriétés qui sont fournies pour les événements Service Bus avec Azure Event Grid
 services: event-grid
 author: banisadr
-manager: darosa
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: babanisa
-ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561759"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393237"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Schéma des événements Azure Event Grid pour Service Bus
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus en tant que source Event Grid
 
 Cet article décrit les propriétés et le schéma des événements Service Bus. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
 
-Pour obtenir la liste des exemples de scripts et des tutoriels, consultez [Source d’événement Event Hubs](event-sources.md#service-bus).
+## <a name="event-grid-event-schema"></a>Schéma d’événement Event Grid
 
-## <a name="available-event-types"></a>Types d’événement disponibles
+### <a name="available-event-types"></a>Types d’événement disponibles
 
 Service Bus émet les types d’événements suivants :
 
@@ -30,7 +29,7 @@ Service Bus émet les types d’événements suivants :
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Événement levé lorsque des messages actifs sont présents dans une file d’attente ou un abonnement et qu’aucun récepteur n’est à l’écoute. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Événement levé lorsque des messages actifs sont présents dans une file d’attente de lettres mortes et qu’aucun récepteur n’est actif. |
 
-## <a name="example-event"></a>Exemple d’événement
+### <a name="example-event"></a>Exemple d’événement
 
 L’exemple suivant montre le schéma d’un événement avec des messages actifs sans récepteurs :
 
@@ -76,7 +75,7 @@ Le schéma pour un événement de file d’attente de lettres mortes est similai
 }]
 ```
 
-## <a name="event-properties"></a>Propriétés d’événement
+### <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
 
@@ -101,6 +100,12 @@ L’objet de données comporte les propriétés suivantes :
 | queueName | string | File d’attente contenant des messages actives en cas d’abonnement à une file d’attente. Valeur null si des rubriques / abonnements sont utilisés. |
 | topicName | string | Rubrique à laquelle appartient l’abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
 | subscriptionName | string | Abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
+|Intitulé  |Description  |
+|---------|---------|
+| [Tutoriel : Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
+| [Intégration d’Azure Service Bus à Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Vue d’ensemble de l’intégration de Service Bus à Event Grid. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,24 +3,25 @@ title: Identités managées
 description: Découvrez comment les identités managées fonctionnent dans Azure App Service et Azure Functions, comment configurer une identité managée et comment générer un jeton pour une ressource back-end.
 author: mattchenderson
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 6e3169f2bfcba0a02af1490f875cbab8a14d02f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 875d2bbebdfa95c6d180979399d876eb2afc01b4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235945"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392519"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
 > [!Important] 
 > Si vous migrez votre application entre différents abonnements/locataires, les identités managées pour App Service et Azure Functions présentent un comportement anormal. L’application devra obtenir une nouvelle identité, ce qui peut être effectué par la désactivation et la réactivation de la fonctionnalité. Consultez [Suppression d’une identité](#remove) ci-dessous. Les ressources en aval devront également disposer de stratégies d’accès mises à jour pour utiliser la nouvelle identité.
 
-Cette rubrique vous montre comment créer une identité managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité managée issue d’Azure Active Directory (AAD) permet à votre application d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans AAD, consultez [Identités gérées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Cette rubrique vous montre comment créer une identité managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité managée provenant d’Azure Active Directory (Azure AD) permet à votre application d’accéder facilement à d’autres ressources protégées par Azure AD, comme Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans Azure AD, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-Deux types d’identité peuvent être accordés à votre application : 
+Deux types d’identité peuvent être accordés à votre application :
+
 - Une **identité attribuée par le système** est liée à votre application et est supprimée si votre application est supprimée. Une application ne peut avoir qu’une seule identité attribuée par le système.
 - Une **identité attribuée par l’utilisateur** est une ressource Azure autonome qui peut être assignée à votre application. Une application peut avoir plusieurs identités attribuées par l’utilisateur.
 
@@ -57,6 +58,7 @@ Les étapes suivantes vous guident dans la création d’une application web à 
     ```azurecli-interactive
     az login
     ```
+
 2. Créez une application web avec CLI. Pour plus d’exemples d’utilisation de CLI avec App Service, consultez [Exemples CLI App Service](../app-service/samples-cli.md) :
 
     ```azurecli-interactive
@@ -84,10 +86,10 @@ Les étapes suivantes vous guident dans la création d’une application web à 
     ```azurepowershell-interactive
     # Create a resource group.
     New-AzResourceGroup -Name myResourceGroup -Location $location
-    
+
     # Create an App Service plan in Free tier.
     New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
-    
+
     # Create a web app.
     New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
@@ -103,18 +105,20 @@ Les étapes suivantes vous guident dans la création d’une application web à 
 Vous pouvez utiliser un modèle Azure Resource Manager pour automatiser le déploiement de vos ressources Azure. Pour en savoir plus sur le déploiement sur App Service et Functions, consultez [Automatiser le déploiement de ressources dans App Service](../app-service/deploy-complex-application-predictably.md) et [Automatiser le déploiement de ressources dans Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Vous pouvez créer n’importe quelle ressource de type `Microsoft.Web/sites` avec une identité en incluant la propriété suivante dans la définition de la ressource :
+
 ```json
 "identity": {
     "type": "SystemAssigned"
-}    
+}
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Une application peut avoir simultanément une identité attribuée par le système et une identité attribuée par l’utilisateur. Dans ce cas, la propriété `type` est `SystemAssigned,UserAssigned`
 
 L’ajout du type attribué par le système indique à Azure de créer et de manager l’identité de votre application.
 
 Par exemple, une application web peut se présenter comme suit :
+
 ```json
 {
     "apiVersion": "2016-08-01",
@@ -138,6 +142,7 @@ Par exemple, une application web peut se présenter comme suit :
 ```
 
 Quand le site est créé, il a les propriétés supplémentaires suivantes :
+
 ```json
 "identity": {
     "type": "SystemAssigned",
@@ -146,8 +151,7 @@ Quand le site est créé, il a les propriétés supplémentaires suivantes :
 }
 ```
 
-La propriété tenantId identifie le locataire AAD auquel appartient l’identité. La propriété principalId est un identificateur unique pour la nouvelle identité de l’application. Dans AAD, le principal de service porte le même nom que celui que vous avez donné à votre instance App Service ou Azure Functions.
-
+La propriété tenantId identifie le locataire Azure AD auquel appartient l’identité. La propriété principalId est un identificateur unique pour la nouvelle identité de l’application. Dans Azure AD, le principal de service a le même nom que celui que vous avez donné à votre instance App Service ou Azure Functions.
 
 ## <a name="add-a-user-assigned-identity"></a>Ajouter une identité attribuée par l’utilisateur
 
@@ -176,21 +180,23 @@ Tout d’abord, vous devrez créer une ressource d’identité attribuée par l�
 Vous pouvez utiliser un modèle Azure Resource Manager pour automatiser le déploiement de vos ressources Azure. Pour en savoir plus sur le déploiement sur App Service et Functions, consultez [Automatiser le déploiement de ressources dans App Service](../app-service/deploy-complex-application-predictably.md) et [Automatiser le déploiement de ressources dans Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Vous pouvez créer n’importe quelle ressource de type `Microsoft.Web/sites` avec une identité en incluant le bloc suivant dans la définition de la ressource, en remplaçant `<RESOURCEID>` par l’ID de ressource de l’identité requise :
+
 ```json
 "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
         "<RESOURCEID>": {}
     }
-}    
+}
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Une application peut avoir simultanément une identité attribuée par le système et une identité attribuée par l’utilisateur. Dans ce cas, la propriété `type` est `SystemAssigned,UserAssigned`
 
 L’ajout du type attribué par l’utilisateur indique à Azure d’utiliser l’identité affectée par l’utilisateur qui est spécifiée pour votre application.
 
 Par exemple, une application web peut se présenter comme suit :
+
 ```json
 {
     "apiVersion": "2016-08-01",
@@ -218,6 +224,7 @@ Par exemple, une application web peut se présenter comme suit :
 ```
 
 Quand le site est créé, il a les propriétés supplémentaires suivantes :
+
 ```json
 "identity": {
     "type": "UserAssigned",
@@ -230,12 +237,11 @@ Quand le site est créé, il a les propriétés supplémentaires suivantes :
 }
 ```
 
-principalId est un identificateur unique pour l’identité qui est utilisée pour l’administration d’AAD. clientId est un identificateur unique pour la nouvelle identité de l’application qui est utilisée pour spécifier l’identité à utiliser lors des appels de runtime.
-
+principalId est un identificateur unique pour l’identité qui est utilisée pour l’administration d’Azure AD. clientId est un identificateur unique pour la nouvelle identité de l’application qui est utilisée pour spécifier l’identité à utiliser lors des appels de runtime.
 
 ## <a name="obtain-tokens-for-azure-resources"></a>Obtenir des jetons pour les ressources Azure
 
-Une application peut utiliser son identité managée pour obtenir des jetons pour accéder à d’autres ressources protégées par AAD, telles qu’Azure Key Vault. Ces jetons représentent l’application qui accède à la ressource, pas un utilisateur spécifique de l’application. 
+Une application peut utiliser son identité managée pour obtenir des jetons afin d’accéder à d’autres ressources protégées par Azure AD, comme Azure Key Vault. Ces jetons représentent l’application qui accède à la ressource, pas un utilisateur spécifique de l’application. 
 
 Vous pouvez être amené à configurer la ressource cible pour autoriser l’accès à partir de votre application. Par exemple, si vous demandez un jeton pour accéder à Key Vault, vous devez vérifier que vous avez ajouté une stratégie d’accès qui inclut l’identité de votre application. Si tel n’est pas le cas, vos appels au coffre de clés sont rejetés, même s’ils incluent le jeton. Pour en savoir plus sur les ressources qui prennent en charge les jetons Azure Active Directory, consultez [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
@@ -248,56 +254,61 @@ Il existe un protocole REST simple pour obtenir un jeton dans App Service et Azu
 
 Une application avec une identité managée a deux variables d’environnement définies :
 
-- MSI_ENDPOINT - URL du service de jetons local.
-- MSI_SECRET - en-tête utilisé afin de limiter les attaques de falsification de requêtes côté serveur (SSRF). La plateforme effectue la rotation de la valeur.
+- IDENTITY_ENDPOINT - URL du service de jetons local.
+- IDENTITY_HEADER - en-tête utilisé afin de limiter les attaques par falsification de requête côté serveur (SSRF). La plateforme effectue la rotation de la valeur.
 
-**MSI_ENDPOINT** est une URL locale à partir de laquelle votre application peut demander des jetons. Pour obtenir un jeton pour une ressource, effectuez une requête HTTP GET à destination de ce point de terminaison, en indiquant notamment les paramètres suivants :
+**IDENTITY_ENDPOINT** est une URL locale à partir de laquelle votre application peut demander des jetons. Pour obtenir un jeton pour une ressource, effectuez une requête HTTP GET à destination de ce point de terminaison, en indiquant notamment les paramètres suivants :
 
-> |Nom du paramètre|Dans|Description|
-> |-----|-----|-----|
-> |resource|Requête|URI de ressource AAD de la ressource pour laquelle un jeton doit être obtenu. Il peut s’agir d’un des [services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou toute autre ressource URI.|
-> |api-version|Requête|Version de l’API de jeton à utiliser. « 2017-09-01 » est la seule version prise en charge.|
-> |secret|En-tête|Valeur de la variable d’environnement MSI_SECRET. Cet en-tête est utilisé afin de limiter les attaques de falsification de requêtes côté serveur (SSRF).|
-> |clientid|Requête|(Facultatif sauf en cas d’attribution par l’utilisateur) ID d’identité attribuée par l’utilisateur à utiliser. Si elle est omise, l’identité attribuée par le système est utilisée.|
+> | Nom du paramètre    | Dans     | Description                                                                                                                                                                                                                                                                                                                                |
+> |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | resource          | Requête  | URI de ressource Azure AD de la ressource pour laquelle un jeton doit être obtenu. Il peut s’agir d’un des [services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou toute autre ressource URI.    |
+> | api-version       | Requête  | Version de l’API de jeton à utiliser. Utilisez « 2019-08-01 » ou une version ultérieure.                                                                                                                                                                                                                                                                 |
+> | X-IDENTITY-HEADER | En-tête | Valeur de la variable d’environnement IDENTITY_HEADER. Cet en-tête est utilisé afin de limiter les attaques de falsification de requêtes côté serveur (SSRF).                                                                                                                                                                                                    |
+> | client_id         | Requête  | (Facultatif) ID de client de l’identité affectée par l’utilisateur qui doit être utilisée. Ne peut pas être utilisée sur une demande qui inclut `principal_id`, `mi_res_id` ou `object_id`. Si tous les paramètres d’ID (`client_id`, `principal_id`,`object_id` et `mi_res_id`) sont omis, l’identité affectée par le système est utilisée.                                             |
+> | principal_id      | Requête  | (Facultatif) ID de principal de service de l’identité affectée par l’utilisateur qui doit être utilisée. `object_id` est un alias qui peut être utilisé à la place. Ne peut pas être utilisé sur une demande qui inclut client_id, mi_res_id ou object_id. Si tous les paramètres d’ID (`client_id`, `principal_id`,`object_id` et `mi_res_id`) sont omis, l’identité affectée par le système est utilisée. |
+> | mi_res_id         | Requête  | (Facultatif) L’ID de ressource Azure de l’identité affectée par l’utilisateur qui doit être utilisée. Ne peut pas être utilisée sur une demande qui inclut `principal_id`, `client_id` ou `object_id`. Si tous les paramètres d’ID (`client_id`, `principal_id`,`object_id` et `mi_res_id`) sont omis, l’identité affectée par le système est utilisée.                                      |
 
 > [!IMPORTANT]
-> Si vous tentez d’obtenir des jetons pour des identités attribuées par l’utilisateur, vous devez inclure la propriété `clientid`. Sinon, le service de jetons essaie d’obtenir un jeton pour une identité attribuée par le système, laquelle peut exister ou non.
+> Si vous tentez d’obtenir des jetons pour des identités affectées par l’utilisateur, vous devez inclure une des propriétés facultatives. Sinon, le service de jetons essaie d’obtenir un jeton pour une identité attribuée par le système, laquelle peut exister ou non.
 
 Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivantes :
 
-> |Nom de la propriété|Description|
-> |-------------|----------|
-> |access_token|Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service web de destination.|
-> |expires_on|L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache.|
-> |resource|L’URI ID d’application du service web de destination.|
-> |token_type|Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
+> | Nom de la propriété | Description                                                                                                                                                                                                                                        |
+> |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | access_token  | Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service web de destination.                                                                                                                               |
+> | client_id     | ID client de l’identité qui a été utilisée.                                                                                                                                                                                                       |
+> | expires_on    | L’intervalle de temps lorsque le jeton d’accès expire. La date est exprimée en nombre de secondes à partir de « 1970-01-01T0:0:0Z UTC » (correspond à la revendication `exp` du jeton).                                                                                |
+> | not_before    | L’intervalle de temps pendant lequel le jeton d’accès prend effet, et peut être accepté. La date est exprimée en nombre de secondes à partir de « 1970-01-01T0:0:0Z UTC » (correspond à la revendication `nbf` du jeton).                                                      |
+> | resource      | La ressource pour laquelle le jeton d’accès a été demandé, correspondant au paramètre de chaîne de requête `resource` de la requête.                                                                                                                               |
+> | token_type    | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est FBearer. Pour plus d’informations sur les jetons du porteur, consultez [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
-Cette réponse est la même que la [réponse pour la demande de jeton d’accès de service à service AAD](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#get-a-token).
+Cette réponse est la même que la [réponse pour la demande de jeton d’accès de service à service d’Azure AD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE]
-> Les variables d’environnement sont configurées au premier démarrage du processus ; ainsi, après l’activation d’une identité managée pour votre application, vous devrez peut-être redémarrer votre application, ou redéployer son code avant que `MSI_ENDPOINT` et `MSI_SECRET` soient disponibles pour votre code.
+> Une version antérieure de ce protocole, avec la version de l’API « 2017-09-01 », utilisait l’en-tête `secret` au lieu de `X-IDENTITY-HEADER` et acceptait seulement la propriété `clientid` pour l’affectation par l’utilisateur. Elle retournait aussi `expires_on` à un format d’horodatage. MSI_ENDPOINT peut être utilisé comme alias pour IDENTITY_ENDPOINT et MSI_SECRET peut être utilisé comme alias pour IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Exemples de protocole REST
 
 Voici un exemple de demande :
 
-```
-GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
+```http
+GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
 Host: localhost:4141
-Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
+X-IDENTITY-HEADER: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
 
 Et voici un exemple de réponse :
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
     "access_token": "eyJ0eXAi…",
-    "expires_on": "09/14/2017 00:00:00 PM +00:00",
+    "expires_on": "1586984735",
     "resource": "https://vault.azure.net",
-    "token_type": "Bearer"
+    "token_type": "Bearer",
+    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
 }
 ```
 
@@ -313,8 +324,8 @@ private readonly HttpClient _client;
 // ...
 public async Task<HttpResponseMessage> GetToken(string resource)  {
     var request = new HttpRequestMessage(HttpMethod.Get, 
-        String.Format("{0}/?resource={1}&api-version=2017-09-01", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource));
-    request.Headers.Add("Secret", Environment.GetEnvironmentVariable("MSI_SECRET"));
+        String.Format("{0}/?resource={1}&api-version=2019-08-01", Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT"), resource));
+    request.Headers.Add("X-IDENTITY-HEADER", Environment.GetEnvironmentVariable("IDENTITY_HEADER"));
     return await _client.SendAsync(request);
 }
 ```
@@ -325,9 +336,9 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
-        uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=2017-09-01`,
+        uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,
         headers: {
-            'Secret': process.env["MSI_SECRET"]
+            'X-IDENTITY-HEADER': process.env["IDENTITY_HEADER"]
         }
     };
     rp(options)
@@ -341,12 +352,12 @@ const getToken = function(resource, cb) {
 import os
 import requests
 
-msi_endpoint = os.environ["MSI_ENDPOINT"]
-msi_secret = os.environ["MSI_SECRET"]
+identity_endpoint = os.environ["IDENTITY_ENDPOINT"]
+identity_header = os.environ["IDENTITY_HEADER"]
 
 def get_bearer_token(resource_uri):
-    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version=2017-09-01"
-    head_msi = {'Secret':msi_secret}
+    token_auth_uri = f"{identity_endpoint}?resource={resource_uri}&api-version=2019-08-01"
+    head_msi = {'X-IDENTITY-HEADER':identity_header}
 
     resp = requests.get(token_auth_uri, headers=head_msi)
     access_token = resp.json()['access_token']
@@ -358,8 +369,8 @@ def get_bearer_token(resource_uri):
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
-$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=2017-09-01"
-$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
+$tokenAuthURI = $env:IDENTITY_ENDPOINT + "?resource=$resourceURI&api-version=2019-08-01"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"X-IDENTITY-HEADER"="$env:IDENTITY_HEADER"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
 
@@ -423,7 +434,7 @@ Vous pouvez supprimer une identité attribuée par le système en désactivant l
 }
 ```
 
-Si vous supprimez une identité attribuée par le système de cette façon, vous la supprimez également d’AAD. Les identités attribuées par le système sont aussi automatiquement supprimées d’AAD lorsque la ressource d’application est supprimée.
+Si vous supprimez une identité affectée par le système de cette façon, vous la supprimez également d’Azure AD. Les identités affectées par le système sont aussi automatiquement supprimées d’Azure AD quand la ressource d’application est supprimée.
 
 > [!NOTE]
 > Vous pouvez également définir le paramètre d’application WEBSITE_DISABLE_MSI, qui désactive uniquement le service de jetons local. Toutefois, cela ne touche pas à l’identité, et les outils continueront d’afficher l’identité managée comme étant activée. Par conséquent, l’utilisation de ce paramètre n’est pas recommandée.

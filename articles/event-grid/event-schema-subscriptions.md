@@ -1,20 +1,20 @@
 ---
-title: Schéma d’événement d’abonnement Azure Event Grid
+title: Abonnement Azure en tant que source Event Grid
 description: Décrit les propriétés fournies pour les événements d’abonnement avec Azure Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/12/2019
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561674"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393225"
 ---
-# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schéma d’événement Azure Event Grid pour les abonnements
+# <a name="azure-subscription-as-an-event-grid-source"></a>Abonnement Azure en tant que source Event Grid
 
 Cet article fournit les propriétés et les schémas des événements d’abonnement Azure. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
 
@@ -28,9 +28,10 @@ Pour gérer les événements par programmation, vous pouvez les trier selon la v
 
 L’objet de l’événement est l’ID de la ressource cible de l’opération. Pour filtrer les événements pour une ressource, fournissez cet ID de ressource lors de la création de l’abonnement aux événements. Pour filtrer selon un type de ressource, utilisez une valeur au format suivant : `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-Pour obtenir la liste des exemples de scripts et des tutoriels, consultez [Source d’événement des abonnements Azure](event-sources.md#azure-subscriptions).
 
-## <a name="available-event-types"></a>Types d’événement disponibles
+## <a name="event-grid-event-schema"></a>Schéma d’événement Event Grid
+
+### <a name="available-event-types"></a>Types d’événement disponibles
 
 Les abonnements Azure émettent des événements de gestion à partir d’Azure Resource Manager, par exemple lors de la création d’une machine virtuelle ou de la suppression d’un compte de stockage.
 
@@ -46,7 +47,7 @@ Les abonnements Azure émettent des événements de gestion à partir d’Azure 
 | Microsoft.Resources.ResourceWriteFailure | Déclenché quand une opération de création ou de mise à jour échoue. |
 | Microsoft.Resources.ResourceWriteSuccess | Déclenché quand une opération de création ou de mise à jour réussit. |
 
-## <a name="example-event"></a>Exemple d’événement
+### <a name="example-event"></a>Exemple d’événement
 
 L’exemple suivant montre le schéma d’un événement **ResourceWriteSuccess**. Le même schéma est utilisé pour les événements **ResourceWriteFailure** et **ResourceWriteCancel** avec différentes valeurs pour `eventType`.
 
@@ -230,7 +231,7 @@ L’exemple suivant montre le schéma d’un événement **ResourceActionSuccess
 }]
 ```
 
-## <a name="event-properties"></a>Propriétés d’événement
+### <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
 
@@ -259,6 +260,14 @@ L’objet de données comporte les propriétés suivantes :
 | status | string | L’état de l’opération. |
 | subscriptionId | string | ID d’abonnement de la ressource. |
 | tenantId | string | ID de locataire de la ressource. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
+|Intitulé |Description  |
+|---------|---------|
+| [Tutoriel : Intégrer Azure Automation à Event Grid et Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Créez une machine virtuelle, qui envoie un événement. L’événement déclenche un runbook Automation qui balise la machine virtuelle et déclenche un message qui est envoyé à un canal Microsoft Teams. |
+| [Guide pratique pour s’abonner aux événements via le portail](subscribe-through-portal.md) | Utilisez le portail pour vous abonner aux événements d’un abonnement Azure. |
+| [Azure CLI : S’abonner aux événements d’un abonnement Azure](./scripts/event-grid-cli-azure-subscription.md) |Exemple de script qui crée un abonnement Event Grid à un abonnement Azure, et envoie les événements à un webhook. |
+| [PowerShell : S’abonner aux événements d’un abonnement Azure](./scripts/event-grid-powershell-azure-subscription.md)| Exemple de script qui crée un abonnement Event Grid à un abonnement Azure, et envoie les événements à un webhook. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

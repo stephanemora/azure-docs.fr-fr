@@ -4,19 +4,19 @@ description: Décrit comment utiliser l’API REST Azure Analysis Services pour 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273719"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406289"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 
-À l’aide de n’importe quel langage de programmation qui prend en charge les appels REST, vous pouvez effectuer des opérations d’actualisation des données asynchrones sur vos modèles tabulaires Azure Analysis Services. Cela inclut la synchronisation des réplicas en lecture seule pour la montée en puissance des requêtes. 
+En utilisant n’importe quel langage de programmation qui prend en charge les appels REST, vous pouvez effectuer des opérations d’actualisation des données asynchrones sur vos modèles tabulaires Azure Analysis Services. Cela inclut la synchronisation des réplicas en lecture seule pour la montée en puissance des requêtes. 
 
 Les opérations d’actualisation des données peuvent prendre un certain temps en fonction de plusieurs facteurs, notamment le volume de données, le niveau d’optimisation à l’aide de partitions, etc. Ces opérations sont généralement appelées avec des méthodes existantes, telles que [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (modèle d’objet tabulaire),les cmdlets [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (langage de script de modèle tabulaire). Toutefois, ces méthodes requièrent souvent des connexions HTTP non fiables à longue durée d’exécution.
 
@@ -208,8 +208,8 @@ Voici un exemple de code C# pour vous aider à démarrer, [RestApiSample sur Gi
 
 ### <a name="to-use-the-code-sample"></a>Pour utiliser l’exemple de code
 
-1.  Clonez ou téléchargez le référentiel. Ouvrez la solution RestApiSample.
-2.  Recherchez la ligne **client.BaseAddress = ...** et indiquez votre [URL de base](#base-url).
+1.    Clonez ou téléchargez le référentiel. Ouvrez la solution RestApiSample.
+2.    Recherchez la ligne **client.BaseAddress = ...** et indiquez votre [URL de base](#base-url).
 
 L’exemple de code utilise l’authentification d’un [principal de service](#service-principal).
 
@@ -217,9 +217,9 @@ L’exemple de code utilise l’authentification d’un [principal de service](#
 
 Consultez [Créer un principal du service – Portail Azure](../active-directory/develop/howto-create-service-principal-portal.md) et [Ajouter un principal du service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md) pour plus d’informations sur la configuration du principal du service et l’attribution des autorisations nécessaires dans Azure AS. Après cette procédure, suivez les étapes complémentaires suivantes :
 
-1.  Dans l’exemple de code, recherchez **string authority = …** , puis remplacez **common** par l’ID client de votre organisation.
-2.  Ajoutez ou enlevez des marques de commentaire pour que la classe ClientCredential soit utilisée pour instancier l’objet d’informations d’identification. Vérifiez que les valeurs \<ID de l’application> et \<clé de l’application> valeurs sont accessibles de manière sécurisée, ou utilisez l’authentification par certificat pour les principaux de service.
-3.  Exécutez l’exemple.
+1.    Dans l’exemple de code, recherchez **string authority = …** , puis remplacez **common** par l’ID de locataire de votre organisation.
+2.    Ajoutez ou enlevez des marques de commentaire pour que la classe ClientCredential soit utilisée pour instancier l’objet d’informations d’identification. Vérifiez que les valeurs \<ID de l’application> et \<clé de l’application> valeurs sont accessibles de manière sécurisée, ou utilisez l’authentification par certificat pour les principaux de service.
+3.    Exécutez l’exemple.
 
 
 ## <a name="see-also"></a>Voir aussi

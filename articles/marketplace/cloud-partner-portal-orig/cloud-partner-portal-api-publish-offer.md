@@ -5,23 +5,25 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4163bf5727c327d559b81db42f99684aa0cc8d5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 960d5facb53f20719045c5fdbe2179f549aca3f2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280522"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255938"
 ---
-<a name="publish-an-offer"></a>Publication d’une offre
-================
+# <a name="publish-an-offer"></a>Publication d’une offre
+
+> [!NOTE]
+> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les changements listés dans la [référence API du portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
 
 Démarre le processus de publication pour l’offre spécifiée. Cet appel est une opération de longue durée.
 
   `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/publish?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Paramètres URI
+## <a name="uri-parameters"></a>Paramètres URI
 --------------
 
 |  **Nom**      |    **Description**                               |  **Type de données** |
@@ -31,8 +33,7 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 |  api-version   | Version la plus récente de l’API                        |   Date         |
 |  |  |
 
-
-<a name="header"></a>En-tête
+## <a name="header"></a>En-tête
 ------
 
 |  **Nom**        |    **Valeur**          |
@@ -42,7 +43,7 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 |  |  |
 
 
-<a name="body-example"></a>Exemple de corps
+## <a name="body-example"></a>Exemple de corps
 ------------
 
 ### <a name="request"></a>Requête
@@ -66,14 +67,20 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 
 ### <a name="response"></a>response
 
-   `Operation-Location: /api/operations/contoso$56615b67-2185-49fe-80d2-c4ddf77bb2e8$2$preview?api-version=2017-10-31`
+#### <a name="migrated-offers"></a>Offres migrées
+
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### <a name="non-migrated-offers"></a>Offres non migrées
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 
 ### <a name="response-header"></a>En-tête de réponse
 
 |  **Nom**             |    **Valeur**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Operation-Location    | URL qui peut être interrogée pour déterminer l’état actuel de l’opération.    |
+| Emplacement    | Chemin relatif permettant de récupérer l’état de cette opération     |
 |  |  |
 
 

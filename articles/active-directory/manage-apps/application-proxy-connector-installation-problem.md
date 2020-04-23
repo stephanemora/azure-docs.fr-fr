@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466e1ce0efbdec3f5475634f3857d02554d93d98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d773e6302edf0b799e6dfccc702750a9cc74f60
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049133"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406697"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 
@@ -50,20 +50,69 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 3.  Ouvrez un navigateur (ou un nouvel onglet) et accédez à la page web suivante : `https://login.microsoftonline.com`. Ensuite, vérifiez que vous pouvez vous connecter à cette page.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Vérification de la prise en charge du certificat de confiance du proxy d’application par la machine et les composants principaux
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Vérifier la prise en charge du certificat de confiance du proxy d’application par la machine et les composants back-end
 
-**Objectif** : vérifier que l’ordinateur connecteur, le pare-feu et le proxy principal peuvent prendre en charge le certificat créé par le connecteur en vue d’une approbation ultérieure.
+**Objectif** : Vérifier que la machine connecteur, le pare-feu et le proxy back-end peuvent prendre en charge le certificat créé par le connecteur en vue d’une approbation ultérieure, et que le certificat est valide.
 
 >[!NOTE]
 >Le connecteur tente de créer un certificat SHA512 pris en charge par TLS1.2. Si l’ordinateur ou le pare-feu principal et le proxy ne prennent pas en charge TLS1.2, l’installation échoue.
 >
 >
 
-**Résolution du problème :**
+**Passez en revue les prérequis :**
 
 1.  Vérifiez que l’ordinateur prend en charge TLS1.2 (toutes les versions de Windows supérieures à 2012 R2 doivent prendre en charge TLS 1.2). Si votre ordinateur connecteur dispose de la version 2012 R2 ou d’une version antérieure, vérifiez que les bases de connaissances suivantes sont installées sur l’ordinateur : <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Contactez votre administrateur réseau et demandez-lui de vérifier que le proxy principal et le pare-feu ne bloquent par SHA512 pour le trafic sortant.
+
+**Pour vérifier le certificat client :**
+
+Vérifiez l’empreinte numérique du certificat client actuel. Le magasin de certificats se trouve dans %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<ConnectorTrustSettingsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CloudProxyTrust>
+    <Thumbprint>4905CC64B2D81BBED60962ECC5DCF63F643CCD55</Thumbprint>
+    <IsInUserStore>false</IsInUserStore>
+  </CloudProxyTrust>
+</ConnectorTrustSettingsFile>
+```
+
+Voici les valeurs possibles de **IsInUserStore** et leur signification :
+
+- **false** : le certificat client a été créé lors de l’installation ou de l’inscription lancée par la commande Register-AppProxyConnector. Il est stocké dans le conteneur personnel du magasin de certificats de la machine locale. 
+
+Suivez ces étapes pour vérifier le certificat :
+
+1. Exécuter **certlm.msc**
+2. Dans la console de gestion, développez le conteneur personnel, puis cliquez sur Certificats.
+3. Localiser le certificat émis par **connectorregistrationca.msappproxy.net**
+
+- **true** : le certificat renouvelé automatiquement est stocké dans le conteneur personnel du magasin de certificats de l’utilisateur du service réseau. 
+
+Suivez ces étapes pour vérifier le certificat :
+
+1. Télécharger [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Extrayez [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) du package et exécutez **psexec -i -u "nt authority\network service" cmd.exe** à partir d’une invite de commandes avec élévation de privilèges.
+3. Exécuter **certmgr.msc** dans l’invite de commandes nouvellement apparue
+2. Dans la console de gestion, développez le conteneur personnel, puis cliquez sur Certificats.
+3. Localiser le certificat émis par **connectorregistrationca.msappproxy.ne
+
+**Pour renouveler le certificat client :**
+
+Si un connecteur n’est pas connecté au service pendant plusieurs mois, ses certificats ont peut-être expiré. L’échec du renouvellement du certificat aboutit à un certificat expiré. Ceci provoque l’arrêt du fonctionnement du service du connecteur. L’événement 1000 est enregistré dans le journal d’administration du connecteur :
+
+« Échec de la réinscription du connecteur : Le certificat de confiance du connecteur a expiré. Exécutez l’applet de commande PowerShell Register-AppProxyConnector sur l’ordinateur où le connecteur est en cours d’exécution pour réinscrire votre connecteur. »
+
+Dans ce cas, désinstallez et réinstallez le connecteur pour déclencher l’inscription, ou exécutez les commandes PowerShell suivantes :
+
+```
+Import-module AppProxyPSModule
+Register-AppProxyConnector
+```
+
+Pour plus d’informations sur la commande Register-AppProxyConnector, consultez [Créer un script d’installation sans assistance pour le connecteur de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Vérification de l’utilisation d’une connexion administrateur pour l’installation du connecteur
 

@@ -1,24 +1,18 @@
 ---
 title: Créer une machine virtuelle Windows à partir d’un disque dur virtuel spécialisé dans le Portail Azure
 description: Créez une machine virtuelle Windows à partir d’un disque dur virtuel dans le portail Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 587acd37f465dda7e514b595f8451afe3d259dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d360ac5a57fe72b092a6694721905c066527bba3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74039147"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086451"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure
 

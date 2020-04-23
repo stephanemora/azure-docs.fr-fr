@@ -4,20 +4,23 @@ description: Cet article contient une collection d’exemples de commandes AzCop
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73685f124f93bb541f33b3b70727d90ce22b3cdd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933580"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263435"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transférer des données avec AzCopy et le stockage Blob
 
 AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des données vers, depuis ou entre des comptes de stockage. Cet article contient des exemples de commandes qui fonctionnent avec le stockage Blob.
+
+> [!TIP]
+> Dans les exemples de cet article, les arguments de chemin sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -31,9 +34,6 @@ Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour
 > Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Créez un conteneur.
-
-> [!TIP]
-> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
 Vous pouvez utiliser la commande [azcopy make](storage-ref-azcopy-make.md) pour créer un conteneur. Les exemples de cette section créent un conteneur nommé `mycontainer`.
 
@@ -57,10 +57,16 @@ Cette section contient les exemples suivants :
 > * Charger le contenu d’un annuaire 
 > * Charger des fichiers spécifiques
 
-Pour obtenir des informations de référence détaillées, consultez [azcopy copy](storage-ref-azcopy-copy.md).
-
 > [!TIP]
-> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
+> Vous pouvez ajuster votre opération de chargement à l’aide d’indicateurs facultatifs. Voici quelques exemples.
+>
+> |Scénario|Indicateur|
+> |---|---|
+> |Charger des fichiers sous forme d’objets blob d’ajout ou de pages|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Effectuer un chargement sur un niveau d’accès spécifique (tel que le niveau Archive)|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Décompresser automatiquement les fichiers|**--decompress**=\[gzip\|deflate\]|
+> 
+> Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
 
 ### <a name="upload-a-file"></a>Charger un fichier
 
@@ -71,10 +77,6 @@ Pour obtenir des informations de référence détaillées, consultez [azcopy cop
 | **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
 Vous pouvez également charger un fichier en plaçant un caractère générique (*) n’importe où dans le chemin ou le nom de fichier. Par exemple : `'C:\myDirectory\*.txt'` ou `C:\my*\*.txt`.
-
-> [!NOTE]
-> Par défaut, AzCopy charge les données sous forme d'objets blob de blocs. Pour charger des fichiers sous forme d'objets blob d'ajout ou de page, utilisez l'indicateur `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
-> Par défaut, AzCopy charge vos données de manière à ce qu'elles héritent du niveau d'accès compte. Pour charger des fichiers à un [niveau d'accès](../blobs/storage-blob-storage-tiers.md) spécifique, utilisez l'indicateur `--block-blob-tier=[Hot|Cool|Archive]`.
 
 ### <a name="upload-a-directory"></a>Charger un annuaire
 
@@ -152,13 +154,19 @@ Cette section contient les exemples suivants :
 > * Télécharger le contenu d’un annuaire
 > * Télécharger des fichiers spécifiques
 
+> [!TIP]
+> Vous pouvez ajuster votre opération de téléchargement à l’aide d’indicateurs facultatifs. Voici quelques exemples.
+>
+> |Scénario|Indicateur|
+> |---|---|
+> |Décompresser automatiquement les fichiers|**--decompress**=\[gzip\|deflate\]|
+> |Spécifier le niveau de détail des entrées de journal liées à la copie|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> |Spécifier s’il faut remplacer les fichiers et objets blob en conflit dans la destination, et comment le faire|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
+> 
+> Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > Si la valeur de propriété `Content-md5` d’un objet blob contient un code de hachage, AzCopy calcule un code de hachage MD5 pour les données téléchargées et vérifie que le code de hachage MD5 stocké dans la propriété `Content-md5` de l’objet blob correspond au code de hachage calculé. Si ces valeurs ne correspondent pas, le téléchargement échoue, sauf si vous remplacez ce comportement en ajoutant `--check-md5=NoCheck` ou `--check-md5=LogOnly` à la commande de copie.
-
-Pour obtenir des informations de référence détaillées, consultez [azcopy copy](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
 ### <a name="download-a-file"></a>Téléchargement d’un fichier
 
@@ -245,12 +253,18 @@ Cette section contient les exemples suivants :
 > * Copier un conteneur vers un autre compte de stockage
 > * Copier tous les conteneurs, répertoires et fichiers vers un autre compte de stockage
 
-Pour obtenir des informations de référence détaillées, consultez [azcopy copy](storage-ref-azcopy-copy.md).
+Ces exemples fonctionnent également avec les comptes qui ont un espace de noms hiérarchique. [L’accès multiprotocole sur Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) vous permet d’utiliser la même syntaxe d’URL (`blob.core.windows.net`) sur ces comptes.
 
 > [!TIP]
-> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
-
- Ces exemples fonctionnent également avec les comptes qui ont un espace de noms hiérarchique. [L’accès multiprotocole sur Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) vous permet d’utiliser la même syntaxe d’URL (`blob.core.windows.net`) sur ces comptes. 
+> Vous pouvez ajuster votre opération de copie à l’aide d’indicateurs facultatifs. Voici quelques exemples.
+>
+> |Scénario|Indicateur|
+> |---|---|
+> |Copier des fichiers sous forme d’objets blob d’ajout ou de pages|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Effectuer une copie vers un niveau d’accès spécifique (tel que le niveau Archive)|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Décompresser automatiquement les fichiers|**--decompress**=\[gzip\|deflate\]|
+> 
+> Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copier un objet blob vers un autre compte de stockage
 
@@ -306,10 +320,16 @@ Si vous définissez l’indicateur `--delete-destination` sur `true`, AzCopy sup
 > [!NOTE]
 > Pour empêcher les suppressions accidentelles, veillez à activer la fonctionnalité de [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) avant d’utiliser l’indicateur `--delete-destination=prompt|true`.
 
-Pour obtenir des informations de référence détaillées, consultez [azcopy sync](storage-ref-azcopy-sync.md).
-
 > [!TIP]
-> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
+> Vous pouvez ajuster votre opération de synchronisation à l’aide d’indicateurs facultatifs. Voici quelques exemples.
+>
+> |Scénario|Indicateur|
+> |---|---|
+> |Spécifier la manière dont les hachages MD5 doivent être validés lors du téléchargement|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Exclure des fichiers en fonction d’un modèle|**--exclude-path**|
+> |Spécifier le niveau de détail des entrées de journal liées à la synchronisation|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> 
+> Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-sync.md#options).
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Mettre à jour un conteneur avec les modifications apportées à un système de fichiers local
 

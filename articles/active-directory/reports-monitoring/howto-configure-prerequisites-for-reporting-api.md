@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399304"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991260"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prérequis pour accéder à l’API de création de rapports Azure Active Directory
 
@@ -33,9 +33,10 @@ L’API de création de rapports utilise [OAuth](https://docs.microsoft.com/azur
 Pour préparer votre accès à l’API de création de rapports, vous avez besoin d’effectuer ce qui suit :
 
 1. [Attribuer des rôles](#assign-roles)
-2. [Inscrire une application](#register-an-application)
-3. [Accorder des autorisations](#grant-permissions)
-4. [Rassembler les paramètres de configuration](#gather-configuration-settings)
+2. [Conditions de licence](#license-requirements)
+3. [Inscrire une application](#register-an-application)
+4. [Accorder des autorisations](#grant-permissions)
+5. [Rassembler les paramètres de configuration](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>Attribuer des rôles
 
@@ -46,6 +47,10 @@ Pour accéder aux données de rapports via l’API, vous devez avoir un des rôl
 - Security Administrator
 
 - Administrateur général
+
+## <a name="license-requirements"></a>Conditions de licence
+
+Pour accéder aux rapports de connexion d’un locataire, un locataire Azure AD doit avoir une licence Azure AD Premium associée. Une licence Azure AD Premium P1 (ou supérieure) est nécessaire pour accéder aux rapports de connexion pour tout client Azure AD. Sinon, si le type d’annuaire est Azure AD B2C, les rapports de connexion sont accessibles via l’API sans nécessiter de licence supplémentaire. 
 
 
 ## <a name="register-an-application"></a>Inscrire une application

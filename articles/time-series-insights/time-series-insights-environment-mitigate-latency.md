@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 245a0b18187ff1c1b226e94b03374f2c071e51c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314825"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263384"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Surveiller et réduire la limitation afin d'éviter la latence dans Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Vous êtes susceptible de rencontrer une latence et une limitation lorsque vous 
 - Ajoutez une source d’événement qui contient des données anciennes qui peuvent dépasser le taux d’entrée alloué (que Time Series Insights devra rattraper).
 - Ajoutez plusieurs sources d’événements dans un environnement, ce qui entraîne un pic d’activité dû aux événements supplémentaires (cela risque de dépasser la capacité de votre environnement).
 - Envoyez de grandes quantités d’événements historiques à une source d’événements, ce qui entraîne un décalage (que Time Series Insights devra rattraper).
-- Joignez des données de référence avec la télémétrie, ce qui entraîne une plus grande taille d’événement. En termes de limitation, un paquet de données entré avec une taille de paquet de 32 Ko est considéré comme 32 événements, faisant chacun 1 Ko. La taille maximale autorisée de l’événement est 32 Ko ; les paquets de données d’une taille supérieure à 32 Ko sont tronqués.
+- Joignez des données de référence avec la télémétrie, ce qui entraîne une plus grande taille d’événement. La taille maximale autorisée du paquet est 32 Ko ; les paquets de données d’une taille supérieure à 32 Ko sont tronqués.
 
 ## <a name="video"></a>Vidéo
 

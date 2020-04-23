@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: dsindona
-ms.openlocfilehash: 57f56a341cfc3db6a5f0664503809e6ab6cf3d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a62af1d8d751d36150c236280077cde8f6547385
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278022"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273968"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Créer des ressources techniques pour une offre de machine virtuelle
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données fournies dans [Créer vos ressources techniques de machine virtuelle Azure](https://aka.ms/AzureVMTechAsset) pour gérer vos offres migrées.
 
 Cette section vous accompagne dans la création et la configuration des ressources techniques d’une offre de machine virtuelle de la Place de marché Microsoft Azure.  Une machine virtuelle héberge deux composants : le disque dur virtuel de la solution et les éventuels disques de données associés.  
 
@@ -35,26 +38,26 @@ Vous devez configurer le système d’exploitation de la machine virtuelle, la t
 ## <a name="fundamental-technical-knowledge"></a>Connaissances techniques fondamentales
 
 Concevoir, créer et tester ces ressources demande du temps et des connaissances techniques sur la plateforme Azure et les technologies utilisées pour créer l’offre. En plus de votre domaine de solution, votre équipe d’ingénierie doit connaître les technologies Microsoft suivantes : 
--   Connaissances de base des [services Azure](https://azure.microsoft.com/services/) 
--   Comment [concevoir et créer des applications Azure](https://azure.microsoft.com/solutions/architecture/)
--   Expérience de travail avec les [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/), [Stockage Azure](https://azure.microsoft.com/services/?filter=storage) et [Mise en réseau Azure](https://azure.microsoft.com/services/?filter=networking)
--   Expérience de travail avec [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
--   Expérience de travail avec [JSON](https://www.json.org/)
+-    Connaissances de base des [services Azure](https://azure.microsoft.com/services/) 
+-    Comment [concevoir et créer des applications Azure](https://azure.microsoft.com/solutions/architecture/)
+-    Expérience de travail avec les [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/), [Stockage Azure](https://azure.microsoft.com/services/?filter=storage) et [Mise en réseau Azure](https://azure.microsoft.com/services/?filter=networking)
+-    Expérience de travail avec [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+-    Expérience de travail avec [JSON](https://www.json.org/)
 
 
 ## <a name="suggested-tools"></a>Outils suggérés 
 
 Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter la gestion des disques durs virtuels et des machines virtuelles :
--   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Azure CLI](https://docs.microsoft.com/cli/azure)
+-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-    [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 En outre, nous vous recommandons d’ajouter les outils suivants à votre environnement de développement : 
 
--   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Extension : [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+-    [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-    [Visual Studio Code](https://code.visualstudio.com/)
+    *    Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *    Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *    Extension : [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Nous vous suggérons également d’examiner les outils disponibles sur la page [Outils de développement Azure](https://azure.microsoft.com/tools/) et, si vous utilisez Visual Studio, sur [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

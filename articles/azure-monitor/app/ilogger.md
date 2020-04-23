@@ -4,12 +4,12 @@ description: Exemples d’utilisation du fournisseur Azure Application Insights 
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0f40c1c1a8ee7f20c769a62e9746da43face4cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33effe9cfec6d766d573617ff03b58564e5b34d1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276374"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313656"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider pour les journaux ILogger .NET Core
 
@@ -213,7 +213,7 @@ Vous pouvez toujours utiliser l’ancien fournisseur. (Il ne sera supprimé que 
 - Dans ASP.NET Core (2.0 et versions ultérieures), le moyen recommandé pour [activer les fournisseurs de journalisation](https://github.com/aspnet/Announcements/issues/255) est d’utiliser des méthodes d’extension sur ILoggingBuilder dans **Program.cs** lui-même.
 
 > [!Note]
-> Le nouveau fournisseur est disponible pour les applications ciblant NETSTANDARD2.0 ou une version ultérieure. Si votre application cible les anciennes versions de .NET Core, telles que .NET Core 1.1, ou si elle cible .NET Framework, continuez à utiliser l’ancien fournisseur.
+> Le nouveau fournisseur est disponible pour les applications ciblant NETSTANDARD2.0 ou une version ultérieure. À compter du [SDK Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.14.0, un nouveau fournisseur est également disponible pour les applications qui ciblent .NET Framework NET461 ou ultérieur. Si votre application cible des versions plus anciennes de .NET Core, comme .NET Core 1.1, ou si elle cible le .NET Framework dans une version antérieure à NET46, continuez à utiliser l’ancien fournisseur.
 
 ## <a name="console-application"></a>Application de console
 

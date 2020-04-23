@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 957bc187b0123338947f62333c913cf82a6c66a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79754b4ce7c3dfe2a5c549f4a39ef3160be423d8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277954"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273883"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Certification d’une image de machine virtuelle Azure](https://aks.ms/CertifyVMimage) pour gérer vos offres migrées.
 
 Cet article explique comment déployer une image de disque dur virtuel généralisée pour créer une nouvelle ressource de machine virtuelle Azure, en utilisant le modèle Azure Resource Manager fourni et un script Azure PowerShell.
 
@@ -31,7 +34,7 @@ Copiez le modèle Azure Resource Manager de [déploiement de disque dur virtuel]
 | userStorageAccountName     | Nom du compte de stockage                                                    |
 | sNameForPublicIP           | Nom DNS de l’adresse IP publique. Il doit être en minuscules                                  |
 | subscriptionId             | Identificateur de l’abonnement Azure                                                  |
-| Location                   | Sélectionnez un emplacement géographique Azure standard pour le groupe de ressources                       |
+| Emplacement                   | Sélectionnez un emplacement géographique Azure standard pour le groupe de ressources                       |
 | vmName                     | Nom de la machine virtuelle                                                    |
 | VaultName                  | Nom du Key Vault.                                                          |
 | vaultResourceGroup         | Groupe de ressources du Key Vault.

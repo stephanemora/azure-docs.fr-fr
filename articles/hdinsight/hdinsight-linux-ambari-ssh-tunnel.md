@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72991351"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314172"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Utiliser le tunneling SSH pour accéder à l’interface utilisateur web d’Apache Ambari, JobHistory, NameNode, Apache Oozie et d’autres interfaces utilisateur
 
-Les clusters HDInsight donnent accès à l’IU web d’Apache Ambari via Internet, mais certaines fonctionnalités nécessitent un tunnel SSH. Par exemple, l’IU web pour le service Apache Oozie n’est pas accessible via Internet sans tunnel SSH.
+Les clusters HDInsight donnent accès à l’interface utilisateur web d’Apache Ambari via Internet. Certaines fonctionnalités nécessitent un tunnel SSH. Par exemple, l’interface utilisateur web Apache Oozie n’est pas accessible via Internet sans tunnel SSH.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Raisons pour lesquelles utiliser un tunnel SSH
 
@@ -31,7 +31,7 @@ Les interfaces utilisateur web suivantes nécessitent un tunnel SSH :
 * Interface utilisateur Web Oozie
 * Interface HBase Master et interface de journaux d’activité
 
-Si vous utilisez des actions de script pour personnaliser votre cluster, tous les services ou utilitaires que vous installez et qui exposent un service web nécessitent un tunnel SSH. Par exemple, si vous installez Hue à l'aide d'une action de script, vous devez utiliser un tunnel SSH pour accéder à l'interface utilisateur Web Hue.
+Les services installés avec des actions de script qui exposent un service web nécessitent un tunnel SSH. Hue installé avec une action de script nécessite un tunnel SSH pour accéder à l’interface utilisateur web.
 
 > [!IMPORTANT]  
 > Si vous bénéficiez d’un accès direct à HDInsight via un réseau virtuel, il est inutile d’utiliser des tunnels SSH. Pour avoir un exemple d’accès direct à HDInsight via un réseau virtuel, consultez le document [Connecter HDInsight à votre réseau local](connect-on-premises-network.md).
@@ -40,7 +40,7 @@ Si vous utilisez des actions de script pour personnaliser votre cluster, tous le
 
 Le [tunneling Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) connecte un port de votre ordinateur local à un nœud principal sur HDInsight. Le trafic envoyé au port local est acheminé vers le nœud principal via une connexion SSH. La requête est résolue comme si elle avait été créée sur le nœud principal. La réponse est alors acheminée via le tunnel sur votre station de travail.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -64,14 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 Cette commande va permettre de créer une connexion qui achemine le trafic vers le port local 9876 du cluster via SSH. Les options sont :
 
-* **D 9876** : port local qui achemine le trafic via le tunnel.
-* **C** : compresse toutes les données car le trafic web est principalement du texte
-* **2** : force le SSH à essayer le protocole version 2 uniquement
-* **q** : mode silencieux
-* **T** : désactive l’allocation pseudo-tty, puisque vous transférez simplement un port.
-* **n** : empêche la lecture STDIN, puisque vous transférez simplement un port.
-* **N** : n’exécute pas une commande à distance, puisque vous transférez simplement un port.
-* **f** : s’exécute à l’arrière-plan
+    |Option |Description |
+    |---|---|
+    |D 9876|Port local qui route le trafic via le tunnel.|
+    |C|Compresser toutes les données car le trafic web est principalement du texte.|
+    |2|Forcer SSH à essayer le protocole version 2 uniquement.|
+    |q|Mode silencieux.|
+    |T|Désactiver l’allocation pseudo-tty, puisque vous transférez simplement un port.|
+    |n|Empêcher la lecture STDIN, puisque vous transférez simplement un port.|
+    |N|Ne pas exécuter de commande à distance, puisque vous transférez simplement un port.|
+    |f|Exécuter en arrière-plan.|
 
 Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinateur local est acheminé au nœud principal du cluster.
 

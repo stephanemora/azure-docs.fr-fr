@@ -5,17 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280471"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255870"
 ---
-<a name="retrieve-operations"></a>Récupérer des opérations
-===================
+# <a name="retrieve-operations"></a>Récupérer des opérations
+
+> [!NOTE]
+> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les changements listés dans la [référence API du portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
 
 Récupère toutes les opérations sur l’offre ou pour obtenir une opération particulière pour la valeur operationId spécifiée. Le client peut utiliser des paramètres de requête pour filtrer les opérations en cours d’exécution.
 
@@ -28,21 +30,18 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 ```
 
 
-<a name="uri-parameters"></a>Paramètres URI
---------------
+## <a name="uri-parameters"></a>Paramètres URI
 
 |  **Nom**          |      **Description**                                                                                           | **Type de données** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
 |  publisherId       |  Identificateur du serveur de publication, par exemple `Contoso`                                                                   |  String       |
 |  offerId           |  Identificateur de l’offre                                                                                              |  String       |
 |  operationId       |  GUID qui identifie de façon unique l’opération sur l’offre. La valeur operationId peut être récupérée à l’aide de cette API et elle est également retournée dans l’en-tête HTTP de la réponse pour toute opération de longue durée, comme celle de l’API de [publication de l’offre](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Paramètre de requête facultatif utilisé pour filtrer par état (par exemple `running`) sur la collection retournée par cette API.  |   String |
-|  api-version       | Dernière version de l’API                                                                                           |    Date      |
+|  api-version       | Dernière version de l’API |    Date      |
 |  |  |  |
 
+## <a name="header"></a>En-tête
 
-<a name="header"></a>En-tête
-------
 
 |  **Nom**          |  **Valeur**           |
 |  ---------------   | -------------------- |
@@ -51,8 +50,7 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 |  |  |
 
 
-<a name="body-example"></a>Exemple de corps
-------------
+## <a name="body-example"></a>Exemple de corps
 
 ### <a name="response"></a>response
 
@@ -167,25 +165,35 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
                     ],
                 "previewLinks": [],
                 "liveLinks": [],
-                "notificationEmails": "jondoe@contoso.com"
-            } 
+            }
         }
     ]
 ```
-
 
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 
 |  **Nom**                    |  **Description**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | GUID qui identifie de façon unique l’opération                                                       |
-|  submissionType              | Identifie le type d’opération signalé pour l’offre, par exemple `Publish/GGoLive`      |
+|  submissionType              | Identifie le type d’opération signalé pour l’offre, par exemple `Publish/GoLive`      |
 |  createdDateTime             | Date/heure UTC de création de l’opération                                                       |
 |  lastActionDateTime          | Date/heure UTC de la dernière mise à jour de l’opération                                       |
 |  status                      | État de l’opération, parmi `not started` \| `running` \| `failed` \| `completed`. Une seule opération à la fois peut avoir l’état `running`. |
 |  error                       | Message d’erreur pour l’échec des opérations                                                               |
 |  |  |
 
+### <a name="response-step-properties"></a>Propriétés de l’étape de réponse
+
+|  **Nom**                    |  **Description**                                                                                  |
+|  --------------------        |  ------------------------------------------------------------------------------------------------ |
+| estimatedTimeFrame | Durée estimée de cette opération |
+| id | Identificateur unique du processus de l’étape |
+| description | Description de l’étape |
+| stepName | Nom convivial de l’étape |
+| status | État de l’étape, `notStarted` \| `running` \| `failed` \| ou `completed` |
+| messages | Toute notification ou avertissement rencontré(e) lors de l’étape. Tableau de chaînes |
+| progressPercentage | Entier compris entre 0 et 100 indiquant la progression de l’étape |
+| | |
 
 ### <a name="response-status-codes"></a>Codes d’état de réponse
 

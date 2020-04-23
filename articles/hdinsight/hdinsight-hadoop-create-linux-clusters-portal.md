@@ -1,19 +1,19 @@
 ---
 title: Créer des clusters Apache Hadoop à l’aide d’un navigateur web, Azure HDInsight
-description: Découvrez comment créer des clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark sur Linux pour HDInsight à l’aide d’un navigateur web et du portail Azure.
+description: Découvrez comment créer des clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark sur HDInsight. Utilisez le navigateur web et le portail Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/19/2020
-ms.openlocfilehash: bcc71b7244ba3498b2fcde023d372e67f41d6117
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623263"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770891"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 
@@ -51,7 +51,7 @@ Sous l’onglet **De base**, fournissez les informations suivantes :
 |Resource group|Dans la liste déroulante, sélectionnez votre groupe de ressources existant ou **Créer**.|
 |Nom du cluster|Entrez un nom globalement unique.|
 |Région|Dans la liste déroulante, sélectionnez une région dans laquelle le cluster est créé.|
-|Type de cluster|Choisissez **Sélectionner un type de cluster** pour ouvrir une liste. Dans la liste, sélectionnez le type de cluster souhaité. Il existe différents types de clusters HDInsight, correspondant à la charge de travail ou à la technologie pour laquelle ils sont conçus. Il n’y a pas de méthode prise en charge pour créer un cluster combinant plusieurs types,|
+|Type de cluster|Cliquez sur **Sélectionner un type de cluster** pour ouvrir une liste. Dans la liste, sélectionnez le type de cluster souhaité. Il existe différents types de clusters HDInsight, correspondant à la charge de travail ou à la technologie pour laquelle ils sont conçus. Il n’y a pas de méthode prise en charge pour créer un cluster combinant plusieurs types,|
 |Version|Dans la liste déroulante, sélectionnez une **version**. Utilisez la version par défaut si vous ne savez pas laquelle choisir. Pour plus d’informations, consultez [Versions de clusters HDInsight](hdinsight-component-versioning.md).|
 |Nom d’utilisateur de connexion au cluster|Indiquez le nom d’utilisateur, la valeur par défaut est **Administrateur**.|
 |Mot de passe de connexion au cluster|Indiquez le mot de passe.|
@@ -94,7 +94,7 @@ Sous l’onglet **Sécurité et réseau**, indiquez les informations suivantes 
 |Propriété |Description |
 |---|---|
 |Package de sécurité d’entreprise|Facultatif : Cochez la case pour utiliser le **Pack Sécurité Entreprise**. Pour plus d’informations, consultez [Configurer un cluster HDInsight avec le Pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
-|TLS|Facultatif : Sélectionnez une version TLS dans la liste déroulante. Pour plus d’informations, consultez [TLS](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).|
+|TLS|Facultatif : Sélectionnez une version TLS dans la liste déroulante. Pour plus d’informations, consultez [TLS](./transport-layer-security.md).|
 |Réseau virtuel|Facultatif : Sélectionnez un réseau virtuel et un sous-réseau existants dans la liste déroulante. Pour plus d’informations, consultez [Planifier un déploiement de réseau virtuel pour des clusters Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). L’article indique la configuration spécifique requise pour le réseau virtuel.|
 |Paramètres de chiffrement de disque|Facultatif : Cochez la case pour utiliser le chiffrement. Pour plus d’informations, consultez [Chiffrement de disque avec clé gérée par le client](./disk-encryption.md).|
 |Proxy REST Kafka|Ce paramètre est disponible uniquement pour le type de cluster Kafka. Pour plus d’informations, consultez [Utilisation d’un proxy REST](./kafka/rest-proxy.md).|
@@ -158,25 +158,7 @@ Si vous rencontrez des problèmes lors de la création de clusters HDInsight, re
 
 Vous avez créé un cluster HDInsight. Apprenez maintenant à l’utiliser.
 
-### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
-
 * [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation de MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
-
-### <a name="apache-hbase-clusters"></a>Clusters Apache HBase
-
 * [Bien démarrer avec Apache HBase sur HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Développer des applications Java pour Apache HBase sur HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### <a name="apache-storm-clusters"></a>Clusters Apache Storm
-
 * [Développer des topologies Java pour Apache Storm sur HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Utiliser des composants Python dans Apache Storm sur HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Déploiement et analyse des topologies avec Apache Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
-
-### <a name="apache-spark-clusters"></a>Clusters Apache Spark
-
 * [Créer une application autonome à l’aide de Scala](spark/apache-spark-create-standalone-application.md)
-* [Exécuter des travaux à distance sur un cluster Apache Spark à l’aide d’Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark avec BI : Effectuer une analyse interactive des données à l’aide de Spark dans HDInsight avec les outils décisionnels](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](spark/apache-spark-machine-learning-mllib-ipython.md)

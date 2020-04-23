@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080306"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255615"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -72,7 +72,7 @@ L’augmentation du nombre de disques durs virtuels Azure sous un volume RAID a 
 Gardez également à l’esprit le débit d’E/S de machine virtuelle global lors du dimensionnement ou du choix d’une machine virtuelle. Le débit de stockage de machine virtuelle global est décrit dans l’article [Tailles de machine virtuelle à mémoire optimisée](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## <a name="linux-io-scheduler-mode"></a>Mode Planificateur d’E-S Linux
-Linux dispose de plusieurs modes de planification d’E-S. Les fournisseurs Linux et SAP recommandent couramment de remplacer le mode planificateur d’E/S **cfq** par **noop** (absence de plusieurs files d’attente) ou **none** (plusieurs files d’attente) pour les volumes de disque. Pour plus de détails à ce sujet, consultez la [Note SAP 1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux dispose de plusieurs modes de planification d’E-S. Les fournisseurs Linux et SAP recommandent couramment de remplacer le mode planificateur d’E/S **mq-deadline** ou **kyber** par **noop** (absence de plusieurs files d’attente) ou **none** (plusieurs files d’attente) pour les volumes de disque. Pour plus de détails à ce sujet, consultez la [Note SAP 1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Solutions avec Stockage Premium et Accélérateur d’écriture Azure pour les machines virtuelles Azure de la série M

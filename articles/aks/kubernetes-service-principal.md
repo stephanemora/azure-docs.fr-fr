@@ -3,17 +3,17 @@ title: Principaux de service pour Azure Kubernetes Services (AKS)
 description: Créer et gérer un principal de service Azure Active Directory pour un cluster dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 523f08ddbf22e175af5b0604b04d4a2460ffd634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229605"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392738"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
-Un cluster AKS nécessite un [principal de service Azure Active Directory (AD)][aad-service-principal] pour interagir avec des API Azure. Le principal de service est nécessaire pour la création et la gestion dynamiques d’autres ressources Azure, comme un équilibreur de charge ou un Registre de conteneurs Azure (ACR).
+Pour interagir avec des API Azure, un cluster AKS nécessite un [principal de service Azure Active Directory (AD)][aad-service-principal] ou une [identité managée](use-managed-identity.md). Un principal de service ou une identité managée est nécessaire pour la création et la gestion dynamiques d’autres ressources Azure, comme un équilibreur de charge ou un registre de conteneurs Azure (ACR).
 
 Cet article montre comment créer et utiliser un principal de service pour vos clusters AKS.
 

@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 11/26/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a7c4e05270ff242fa97b253b27a5de92895368a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587122"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461002"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -82,14 +82,14 @@ Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes 
 
 Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modes Fournisseur de ressources (préversion)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modes Fournisseur de ressources (préversion)
 
 Les modes Fournisseur de ressources suivants sont actuellement pris en charge pendant la préversion :
 
 - `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy).
 - `Microsoft.Kubernetes.Data` pour la gestion des clusters Kubernetes du moteur AKS auto-managés sur Azure.
   Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
-- `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+- `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Les modes Fournisseur de ressources prennent uniquement en charge les définitions de stratégie intégrées et ne prennent pas en charge les initiatives en préversion.
@@ -159,19 +159,19 @@ Cet exemple fait référence au paramètre **allowedLocations** autorisé qui a 
 
 ### <a name="strongtype"></a>strongType
 
-Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste à choix multiple des options dans le portail Azure. Les valeurs autorisées pour **strongType** incluent actuellement :
+Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste à choix multiple des options dans le portail Azure. **strongType** peut être un _type de ressource_ pris en charge ou une valeur autorisée. Pour déterminer si un _type de ressource_ est valide pour **strongType**, utilisez la commande [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+
+Certains _types de ressources_ non retournés par la commande **AzResourceProvider** sont pris en charge. Il s’agit des suivants :
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+Les valeurs non _type de ressource_  autorisées pour **strongType** sont les suivantes :
 
 - `location`
 - `resourceTypes`
 - `storageSkus`
 - `vmSKUs`
 - `existingResourceGroups`
-- `omsWorkspace`
-- `Microsoft.EventHub/Namespaces/EventHubs`
-- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
-- `Microsoft.EventHub/Namespaces/AuthorizationRules`
-- `Microsoft.RecoveryServices/vaults`
-- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## <a name="definition-location"></a>Emplacement de la définition
 
@@ -252,11 +252,13 @@ Une condition évalue si un **champ** ou un accesseur de **valeur** répond à c
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+Pour **less**, **lessOrEquals**, **greater** et **greaterOrEquals**, si le type de propriété ne correspond pas au type de condition, une erreur est générée. Les comparaisons de chaînes sont effectuées à l’aide de `InvariantCultureIgnoreCase`.
 
 Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur.
 Celle-ci ne doit pas en comporter plus d’un (`*`).
@@ -361,7 +363,7 @@ Cet exemple de règle de stratégie utilise **value** pour vérifier si le résu
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -578,25 +580,27 @@ Toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manag
 - resourceId()
 - variables()
 
-Les fonctions suivantes sont disponibles pour utilisation dans une règle de stratégie, mais diffèrent de l’utilisation dans un modèle Azure Resource Manager :
+> [!NOTE]
+> Ces fonctions sont toujours disponibles dans la partie `details.deployment.properties.template` du déploiement de modèle dans une définition de stratégie **deployIfNotExists**.
 
-- `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime** : [obligatoire] chaîne - chaîne au format date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
-  - **numberOfDaysToAdd** : [obligatoire] nombre entier - nombre de jours à ajouter
+La fonction suivante est utilisable dans une règle de stratégie, mais diffère de l’utilisation dans un modèle Azure Resource Manager :
+
 - `utcNow()` : contrairement à un modèle Resource Manager, cette fonction peut être utilisée en dehors de defaultValue.
   - Retourne une chaîne qui est définie sur la date et l’heure actuelles au format de date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
 
 Les fonctions suivantes sont disponibles uniquement dans les règles de stratégie :
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **dateTime** : [obligatoire] chaîne - chaîne au format date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
+  - **numberOfDaysToAdd** : [obligatoire] nombre entier - nombre de jours à ajouter
 - `field(fieldName)`
   - **fieldName** : [Obligatoire] chaîne - Nom du [champ](#fields) à récupérer
   - Retourne la valeur de ce champ à partir de la ressource en cours d’évaluation par la condition If
   - `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2019-09-01`). Il s’agit de la version d’API qui a été utilisée dans la requête PUT/PATCH pour les évaluations relatives à la création/mise à jour de ressources. La dernière version de l’API est toujours utilisée lors de l’évaluation de la conformité sur des ressources existantes.
+  - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2019-09-01`).
+    Il s’agit de la version d’API qui a été utilisée dans la requête PUT/PATCH pour les évaluations relatives à la création/mise à jour de ressources. La dernière version de l’API est toujours utilisée lors de l’évaluation de la conformité sur des ressources existantes.
   
-
-
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 
 Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGroup` pour obtenir la propriété **name**, combinée au tableau `concat` et à la fonction d’objet, pour créer une condition `like` selon laquelle le nom de ressource commence par le nom du groupe de ressources.
@@ -708,13 +712,14 @@ Cet exemple de règle vérifie toutes les correspondances de **ipRules\[\*\].val
 }
 ```
 
-
-
 Pour plus d’informations, consultez [l’évaluation de l’alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiatives
 
 Les initiatives vous permettent de regrouper en un seul élément plusieurs définitions de stratégies associées pour simplifier les affectations et la gestion. Par exemple, vous pouvez regrouper des définitions de stratégies de balisage associées en une même initiative. Au lieu d’attribuer chaque stratégie individuellement, vous appliquez l’initiative.
+
+> [!NOTE]
+> Une fois qu’une initiative est attribuée, il n’est plus possible de modifier les paramètres à son niveau. Pour cette raison, il est recommandé de définir une **defaultValue** lors de la définition du paramètre.
 
 L’exemple suivant montre comment créer une initiative pour gérer deux balises : `costCenter` et `productName`. Il utilise deux stratégies intégrées pour appliquer la valeur de balise par défaut.
 
@@ -729,13 +734,15 @@ L’exemple suivant montre comment créer une initiative pour gérer deux balise
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{

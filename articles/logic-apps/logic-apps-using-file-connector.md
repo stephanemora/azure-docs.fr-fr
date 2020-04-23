@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651404"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115068"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Se connecter aux systèmes de fichiers locaux avec Azure Logic Apps
 
@@ -69,7 +69,7 @@ Cet article vous explique comment vous connecter à un système de fichiers loca
    | -------- | -------- | ----- | ----------- |
    | **Nom de connexion** | Oui | <*connection-name*> | Le nom souhaité pour votre connexion |
    | **Dossier racine** | Oui | <*root-folder-name*> | Dossier racine de votre système de fichiers, par exemple, si vous avez installé votre passerelle de données locale, comme un dossier local sur l'ordinateur où la passerelle de données locale est installée, ou le dossier d'un partage réseau auquel l'ordinateur peut accéder. <p>Par exemple : `\\PublicShare\\DropboxFiles` <p>Le dossier racine est le dossier parent principal qui est utilisé pour les chemins relatifs de toutes les actions liées aux fichiers. |
-   | **Type d'authentification** | Non | <*auth-type*> | Type d’authentification utilisé par votre système de fichiers, par exemple, **Windows** |
+   | **Type d'authentification** | Non | <*auth-type*> | Type d’authentification utilisé par votre système de fichiers : **Windows** |
    | **Nom d’utilisateur** | Oui | <*domaine*>\\<*nom d’utilisateur*> | Nom d'utilisateur de l'ordinateur qui héberge votre système de fichiers |
    | **Mot de passe** | Oui | <*your-password*> | Mot de passe de l'ordinateur qui héberge votre système de fichiers |
    | **gateway** | Oui | <*installed-gateway-name*> | Le nom de la passerelle que vous avez installée précédemment |

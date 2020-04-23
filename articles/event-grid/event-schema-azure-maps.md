@@ -1,24 +1,26 @@
 ---
-title: Schéma des événements Azure Maps dans Azure Event Grid
+title: Azure Maps en tant que source Event Grid
 description: Décrit les propriétés et le schéma qui sont fournis pour les événements Azure Maps avec Azure Event Grid
 services: event-grid
-author: femila
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: femila
-ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77486357"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393416"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Schéma des événements Azure Event Grid pour Azure Maps
+# <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps en tant que source Event Grid
 
-Cet article fournit les propriétés et les schémas des événements Azure Maps. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema).
+Cet article fournit les propriétés et les schémas des événements Azure Maps. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema). Cet article fournit également une liste de guides de démarrage rapide et de tutoriels permettant d’utiliser Azure Maps en tant que source d’événement.
 
-## <a name="available-event-types"></a>Types d’événement disponibles
+## <a name="event-grid-event-schema"></a>Schéma d’événement Event Grid
+
+### <a name="available-event-types"></a>Types d’événement disponibles
 
 Un compte Azure Maps émet les types d'événements suivants :
 
@@ -28,7 +30,7 @@ Un compte Azure Maps émet les types d'événements suivants :
 | Microsoft.Maps.GeofenceExited | Déclenché lorsque les coordonnées reçues sont passées de l’intérieur d’une limite géographique donnée à l’extérieur de celle-ci. |
 | Microsoft.Maps.GeofenceResult | Déclenché chaque fois qu’une requête de geofencing renvoie un résultat, quel que soit l’état. |
 
-## <a name="event-examples"></a>Exemples d’événement
+### <a name="event-examples"></a>Exemples d’événement
 
 L’exemple suivant montre le schéma d’un événement **GeofenceEntered**
 
@@ -98,7 +100,7 @@ L’exemple suivant montre le schéma de **GeofenceResult**.
 }
 ```
 
-## <a name="event-properties"></a>Propriétés d’événement
+### <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
 
@@ -162,6 +164,12 @@ L’objet de données comporte les propriétés suivantes :
 | geometries | geometries[] |Répertorie les géométries de la limite qui contiennent la position des coordonnées ou chevauchent le searchBuffer autour de la position. |
 | invalidPeriodGeofenceGeometryId | string[]  | Répertorie l’ID de géométrie de la limite géographique dont la période n’est pas valide par rapport au délai d’attente utilisateur dans la requête. |
 | isEventPublished | boolean | Vrai si au moins un événement est publié à l’abonné de l’événement Azure Maps, faux si aucun événement n’est publié à l’abonné de l’événement Azure Maps |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
+|Intitulé  |Description  |
+|---------|---------|
+| [Réagir aux événements Azure Maps à l’aide d’Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration d’Azure Maps à Event Grid. |
+| [Tutoriel : Définir une limite géographique](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Ce tutoriel vous montre les étapes de base qui sont nécessaires à la configuration d’une limite géographique à l’aide d’Azure Maps. Vous utilisez Azure Event Grid pour diffuser en continu les résultats de la limite géographique et pour configurer une notification en fonction de ces résultats. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

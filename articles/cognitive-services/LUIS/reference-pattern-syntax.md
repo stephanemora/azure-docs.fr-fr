@@ -1,25 +1,19 @@
 ---
 title: Informations de référence sur la syntaxe du modèle - LUIS
-titleSuffix: Azure Cognitive Services
 description: Créez des entités pour extraire les données clés des énoncés de l'utilisateur dans les applications LUIS (Language Understanding). Les données extraites sont utilisées par l’application cliente.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218707"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382148"
 ---
 # <a name="pattern-syntax"></a>Syntaxe du modèle
 
-La syntaxe du modèle est un modèle d’énoncé. Le modèle doit contenir les mots et entités que vous souhaitez faire correspondre, ainsi que les mots et la ponctuation que vous souhaitez ignorer. Ce n’est **pas** une expression régulière.
+La syntaxe du modèle est un modèle d’énoncé. Le modèle doit contenir les mots et entités que vous souhaitez faire correspondre, ainsi que les mots et la [ponctuation](luis-reference-application-settings.md#punctuation-normalization) que vous souhaitez ignorer. Ce n’est **pas** une expression régulière.
 
 > [!CAUTION]
 > Les modèles incluent uniquement les parents d’entité issus de l’apprentissage automatique, pas les sous-composants.

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0d081a8cec088f4743bd0dc7d3cc37a9fade61d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117109"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008628"
 ---
 Les disques Ultra Azure permettent un stockage de disque à haut débit avec un nombre élevé d’IOPS et une faible latence homogène pour les machines virtuelles Azure IaaS. Cette nouvelle offre fournit des performances optimales aux mêmes niveaux de disponibilité que nos offres de disques existantes. Entre autres avantages, les disques Ultra permettent de changer dynamiquement les performances des disques SSD en fonction de vos charges de travail, sans avoir à redémarrer les machines virtuelles. Les disques Ultra sont adaptés aux charges de travail qui consomment beaucoup de données, par exemple SAP HANA, les bases de données de niveau supérieur et les charges de travail avec un grand nombre de transactions.
 
@@ -23,9 +23,11 @@ Les disques Ultra Azure permettent un stockage de disque à haut débit avec un 
 
 ## <a name="determine-vm-size-and-region-availability"></a>Déterminer la taille de la machine virtuelle et la disponibilité des régions
 
+### <a name="vms-using-availability-zones"></a>Machines virtuelles utilisant des zones de disponibilité
+
 Pour tirer parti des disques Ultra, vous devez déterminer la zone de disponibilité dans laquelle vous vous trouvez. Toutes les régions ne prennent pas en charge toutes les tailles de machine virtuelle avec des disques Ultra. Pour déterminer si votre région, votre zone et votre taille de machine virtuelle prend en charge les disques Ultra, exécutez l’une des commandes suivantes, assurez-vous d’abord de remplacer les valeurs **Région**, **vmSize**et **Abonnement** :
 
-Interface CLI :
+#### <a name="cli"></a>Interface de ligne de commande
 
 ```azurecli
 $subscription = "<yourSubID>"
@@ -37,7 +39,7 @@ $vmSize = "<yourVMSize>"
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
 
-PowerShell :
+#### <a name="powershell"></a>PowerShell
 
 ```powershell
 $region = "southeastasia"
@@ -57,6 +59,55 @@ Conservez la valeur **Zones**, qui représente votre zone de disponibilité. Vou
 > En l’absence de réponse de la commande, la taille de machine virtuelle sélectionnée n’est pas prise en charge avec les disques Ultra dans la région sélectionnée.
 
 Maintenant que vous savez quelle zone déployer, suivez les étapes de déploiement décrites dans cet article pour déployer une machine virtuelle avec un disque Ultra attaché ou attacher un disque Ultra à une machine virtuelle existante.
+
+### <a name="vms-with-no-redundancy-options"></a>Machines virtuelles sans options de redondance
+
+Les disques Ultra déployés dans la région USA Ouest doivent être déployés sans aucune option de redondance. Toutefois, cette région ne comprend pas nécessairement toutes les tailles de disque qui prennent en charge les disques Ultra. Pour déterminer celles qui, dans la région USA Ouest, prennent en charge les disques Ultra, vous pouvez utiliser l’un ou l’autre des extraits de code suivants. Veillez d’abord à remplacer les valeurs `vmSize` et `subscription` :
+
+```azurecli
+$subscription = "<yourSubID>"
+$region = "westus"
+# example value is Standard_E64s_v3
+$vmSize = "<yourVMSize>"
+
+az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
+```
+
+```azurepowershell
+$region = "westus"
+$vmSize = "Standard_E64s_v3"
+(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
+```
+
+La réponse se présente comme suit ; `UltraSSDAvailable   True` indique si la taille de machine virtuelle prend en charge les disques Ultra dans cette région.
+
+```
+Name                                         Value
+----                                         -----
+MaxResourceVolumeMB                          884736
+OSVhdSizeMB                                  1047552
+vCPUs                                        64
+HyperVGenerations                            V1,V2
+MemoryGB                                     432
+MaxDataDiskCount                             32
+LowPriorityCapable                           True
+PremiumIO                                    True
+VMDeploymentTypes                            IaaS
+vCPUsAvailable                               64
+ACUs                                         160
+vCPUsPerCore                                 2
+CombinedTempDiskAndCachedIOPS                128000
+CombinedTempDiskAndCachedReadBytesPerSecond  1073741824
+CombinedTempDiskAndCachedWriteBytesPerSecond 1073741824
+CachedDiskBytes                              1717986918400
+UncachedDiskIOPS                             80000
+UncachedDiskBytesPerSecond                   1258291200
+EphemeralOSDiskSupported                     True
+AcceleratedNetworkingEnabled                 True
+RdmaEnabled                                  False
+MaxNetworkInterfaces                         8
+UltraSSDAvailable                            True
+```
 
 ## <a name="deploy-an-ultra-disk-using-azure-resource-manager"></a>Déployer un disque Ultra à l’aide d’Azure Resource Manager
 
@@ -151,6 +202,18 @@ Remplacez ou définissez les variables **$vmname**, **$rgname**, **$diskname**, 
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
 ```
 
+### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>Activer la compatibilité des disques Ultra sur une machine virtuelle existante
+
+Si votre machine virtuelle répond aux exigences décrites dans [Étendue et limitations de la version en disponibilité générale](#ga-scope-and-limitations) et qu’elle se trouve dans la [zone appropriée pour votre compte](#determine-vm-size-and-region-availability), vous pouvez activer la compatibilité des disques Ultra sur votre machine virtuelle.
+
+Pour activer la compatibilité des disques Ultra, vous devez arrêter la machine virtuelle. Une fois la machine virtuelle arrêtée, vous pouvez activer la compatibilité, attacher un disque dur, puis redémarrer la machine virtuelle :
+
+```azurecli
+az vm deallocate -n $vmName -g $rgName
+az vm update -n $vmName -g $rgName --ultra-ssd-enabled true
+az vm start -n $vmName -g $rgName
+```
+
 ### <a name="create-an-ultra-disk-using-cli"></a>Créer un disque Ultra via l’interface CLI
 
 Maintenant que vous disposez d’une machine virtuelle capable d’attacher des disques Ultra, vous pouvez créer un disque Ultra et l’attacher à cette machine.
@@ -214,9 +277,22 @@ New-AzVm `
     -Name $vmName `
     -Location "eastus2" `
     -Image "Win2016Datacenter" `
-    -EnableUltraSSD `
+    -EnableUltraSSD $true `
     -size "Standard_D4s_v3" `
     -zone $zone
+```
+
+### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>Activer la compatibilité des disques Ultra sur une machine virtuelle existante
+
+Si votre machine virtuelle répond aux exigences décrites dans [Étendue et limitations de la version en disponibilité générale](#ga-scope-and-limitations) et qu’elle se trouve dans la [zone appropriée pour votre compte](#determine-vm-size-and-region-availability), vous pouvez activer la compatibilité des disques Ultra sur votre machine virtuelle.
+
+Pour activer la compatibilité des disques Ultra, vous devez arrêter la machine virtuelle. Une fois la machine virtuelle arrêtée, vous pouvez activer la compatibilité, attacher un disque dur, puis redémarrer la machine virtuelle :
+
+```azurepowershell
+#stop the VM
+$vm1 = Get-AzureRMVM -name $vmName -ResourceGroupName $rgName
+Update-AzureRmVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled 1
+#start the VM
 ```
 
 ### <a name="create-an-ultra-disk-using-powershell"></a>Créer un disque Ultra à l’aide de PowerShell
@@ -265,7 +341,3 @@ Les disques Ultra présentent une capacité unique, qui vous permet d’ajuster 
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Si vous souhaitez essayer ce nouveau type de disque, [demandez l’accès via cette enquête](https://aka.ms/UltraDiskSignup).

@@ -1,16 +1,16 @@
 ---
 title: Utiliser une identité gérée avec une application
-description: Comment utiliser des identités managées dans du code d’application Azure Service Fabric pour accéder aux services Azure. Cette fonctionnalité est en version préliminaire publique.
+description: Comment utiliser des identités managées dans du code d’application Azure Service Fabric pour accéder aux services Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610316"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461563"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Tirer parti de l’identité managée d’une application Service Fabric pour accéder aux services Azure (préversion)
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Tirer parti de l’identité managée d’une application Service Fabric pour accéder aux services Azure
 
 Les applications Service Fabric peuvent tirer parti des identités managées pour accéder à d’autres ressources Azure qui prennent en charge l’authentification basée sur Azure Active Directory. Une application peut obtenir un [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) représentant son identité, qui peut être affectée par le système ou affectée par l’utilisateur, et l’utiliser en tant que jeton de « porteur » pour s’authentifier auprès d'un autre service (également appelé [serveur de ressources protégé](../active-directory/develop/developer-glossary.md#resource-server)). Le jeton représente l’identité assignée à l’application Service Fabric et sera uniquement délivré aux ressources Azure (y compris les applications DF) qui partagent cette identité. Reportez-vous à la [documentation de présentation des identités managées](../active-directory/managed-identities-azure-resources/overview.md) pour obtenir une description détaillée des identités managées, ainsi que la distinction entre les identités affectées par le système et celles affectées par l’utilisateur. Nous allons faire référence à une application avec identité managée Service Fabric comme [application cliente](../active-directory/develop/developer-glossary.md#client-application) dans cet article.
 
@@ -24,39 +24,37 @@ Les applications Service Fabric peuvent tirer parti des identités managées pou
 Dans les clusters activés pour l’identité managée, le runtime Service Fabric expose un point de terminaison localhost que les applications peuvent utiliser pour obtenir des jetons d’accès. Le point de terminaison est disponible sur chaque nœud du cluster et est accessible à toutes les entités sur ce nœud. Les appelants autorisés peuvent obtenir des jetons d’accès en appelant ce point de terminaison et en présentant un code d’authentification. Le code est généré par le runtime Service Fabric pour chaque activation de package de code de service distincte, et est lié à la durée de vie du processus hébergeant ce package de code de service.
 
 Plus précisément, l’environnement d’un service Service Fabric avec identité managée est amorcé avec les variables suivantes :
-- « MSI_ENDPOINT » : le point de terminaison localhost, complet avec le chemin d’accès, la version de l’API et les paramètres correspondant à l’identité managée de ce service
-- « MSI_SECRET » : code d’authentification, qui est une chaîne opaque et représente de façon unique le service sur le nœud actuel
-
-> [!NOTE]
-> Les noms « MSI_ENDPOINT » et « MSI_SECRET » font référence à la désignation précédente des identités managées (« Managed Service Identity ») et qui est maintenant déconseillé. Les noms sont également cohérents avec les noms de variables d’environnement équivalents utilisés par d’autres services Azure qui prennent en charge les identités managées.
+- IDENTITY_ENDPOINT : point de terminaison localhost correspondant à l’identité managée du service
+- IDENTITY_HEADER : code d’authentification unique représentant le service sur le nœud actuel
+- IDENTITY_SERVER_THUMBPRINT : empreinte du serveur d’identités managées Service Fabric
 
 > [!IMPORTANT]
-> Le code d’application doit considérer la valeur de la variable d’environnement « MSI_SECRET » comme des données sensibles. Il ne doit pas être consigné ou diffusé. Le code d’authentification n’a pas de valeur en dehors du nœud local, ou une fois que le processus qui héberge le service s’est arrêté, mais il représente l’identité du service Service Fabric et doit donc être traité avec les mêmes précautions que le jeton d’accès lui-même.
+> Le code d’application doit considérer la valeur de la variable d’environnement « IDENTITY_HEADER » comme des données sensibles. Il ne doit pas être consigné ou diffusé. Le code d’authentification n’a pas de valeur en dehors du nœud local, ou une fois que le processus qui héberge le service s’est arrêté, mais il représente l’identité du service Service Fabric et doit donc être traité avec les mêmes précautions que le jeton d’accès lui-même.
 
 Pour obtenir un jeton, le client doit :
-- former un URI en concaténant le point de terminaison de l’identité managée (valeur MSI_ENDPOINT) avec la version de l’API et la ressource (audience) requise pour le jeton ;
-- créer une requête HTTP GET pour l’URI spécifié ;
-- ajouter le code d’authentification (valeur MSI_SECRET) en tant qu’en-tête à la demande ;
+- former un URI en concaténant le point de terminaison de l’identité managée (valeur IDENTITY_ENDPOINT) avec la version de l’API et la ressource (audience) requise pour le jeton
+- créer une requête HTTP(S) GET pour l’URI spécifié
+- ajouter la logique de validation de certificat de serveur appropriée
+- ajouter le code d’authentification (valeur IDENTITY_HEADER) en tant qu’en-tête à la demande
 - soumettre la demande.
 
 Une réponse correcte contient une charge utile JSON représentant le jeton d’accès obtenu, ainsi que des métadonnées qui le décrivent. Une réponse qui a échoué inclut également une explication de l’échec. Pour plus d’informations sur la gestion des erreurs, voir ci-dessous.
 
 Les jetons d’accès sont mis en cache par Service Fabric à différents niveaux (nœud, cluster, service de fournisseur de ressources). Par conséquent, une réponse réussie n’implique pas nécessairement que le jeton a été émis directement en réponse à la demande de l’application utilisateur. Les jetons seront mis en cache pendant une durée inférieure à leur durée de vie. Une application est donc garantie de recevoir un jeton valide. Il est recommandé que le code de l’application mette en cache les jetons d’accès qu’il obtient ; la clé de mise en cache doit inclure (une dérivation de) l’audience. 
 
-
 Exemple de demande :
 ```http
-GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
+GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
 où :
 
 | Élément | Description |
 | ------- | ----------- |
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
-| `http://localhost:2377/metadata/identity/oauth2/token` | Le point de terminaison de l’identité managée pour les applications Service Fabric, fourni via la variable d’environnement MSI_ENDPOINT. |
+| `https://localhost:2377/metadata/identity/oauth2/token` | Le point de terminaison de l’identité managée pour les applications Service Fabric, fourni via la variable d’environnement IDENTITY_ENDPOINT. |
 | `api-version` | Un paramètre de chaîne de requête, spécifiant la version de l’API du service de jeton d’identité managée ; actuellement, la seule valeur acceptée est `2019-07-01-preview`, et peut faire l’objet de modifications. |
-| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il s’agit de la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Key Vault, dont l’URI ID d’application correspond à \//keyvault.azure.com/. |
-| `Secret` | Un champ d’en-tête de demande HTTP, requis par le service de jeton d’identité managée Service Fabric pour que les services Service Fabric authentifient l’appelant. Cette valeur est fournie par le runtime SF via la variable d’environnement MSI_SECRET. |
+| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il s’agit de la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Key Vault, dont l’URI ID d’application correspond à https:\//vault.azure.net/. |
+| `Secret` | Un champ d’en-tête de demande HTTP, requis par le service de jeton d’identité managée Service Fabric pour que les services Service Fabric authentifient l’appelant. Cette valeur est fournie par le runtime SF via la variable d’environnement IDENTITY_HEADER. |
 
 
 Exemple de réponse :
@@ -67,7 +65,7 @@ Content-Type: application/json
     "token_type":  "Bearer",
     "access_token":  "eyJ0eXAiO...",
     "expires_on":  1565244611,
-    "resource":  "https://keyvault.azure.com/"
+    "resource":  "https://vault.azure.net/"
 }
 ```
 où :
@@ -124,20 +122,33 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
         /// <returns>Access token</returns>
         public static async Task<string> AcquireAccessTokenAsync()
         {
-            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
-            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("MSI_SECRET");
+            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT");
+            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("IDENTITY_HEADER");
+            var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
+            // Latest api version, 2019-07-01-preview is still supported.
+            var managedIdentityApiVersion = Environment.GetEnvironmentVariable("IDENTITY_API_VERSION");
             var managedIdentityAuthenticationHeader = "secret";
-            var managedIdentityApiVersion = "2019-07-01-preview";
             var resource = "https://management.azure.com/";
 
             var requestUri = $"{managedIdentityEndpoint}?api-version={managedIdentityApiVersion}&resource={HttpUtility.UrlEncode(resource)}";
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
+            
+            var handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, certChain, policyErrors) =>
+            {
+                // Do any additional validation here
+                if (policyErrors == SslPolicyErrors.None)
+                {
+                    return true;
+                }
+                return 0 == string.Compare(cert.GetCertHashString(), managedIdentityServerThumbprint, StringComparison.OrdinalIgnoreCase);
+            };
 
             try
             {
-                var response = await new HttpClient().SendAsync(requestMessage)
+                var response = await new HttpClient(handler).SendAsync(requestMessage)
                     .ConfigureAwait(false);
 
                 response.EnsureSuccessStatusCode();

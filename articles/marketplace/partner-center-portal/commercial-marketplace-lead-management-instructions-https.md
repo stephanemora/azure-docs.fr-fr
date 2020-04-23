@@ -5,20 +5,23 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a0131cf94759fc529a52ea33d5392a60c5ef30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33359883df86091120295b93618a13476e428d2f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281593"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262611"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuration de la gestion des prospects à l’aide d’un point de terminaison HTTPS
 
-Si votre système de gestion de la relation client (CRM) n’est pas explicitement pris en charge dans l’Espace partenaires pour recevoir des prospects de la Place de marché Azure et d’AppSource, vous pouvez utiliser un point de terminaison HTTPS dans Microsoft Flow pour gérer ces prospects. Avec un point de terminaison HTTPS, ces prospects peuvent être envoyés sous forme de notification par e-mail ou être écrits dans un système de gestion de la relation client (CRM) pris en charge par Microsoft Flow. Les instructions de cet article vous guideront tout au long du processus de création d’un nouveau flux avec Microsoft Flow, ce qui générera l’URL HTTP POST que vous allez entrer dans le portail de publication, dans le champ Gestion des prospects > **URL du point de terminaison HTTPS**. En outre, vous trouverez des instructions sur la façon dont vous pouvez tester votre flux avec un outil appelé [Postman](https://www.getpostman.com/downloads/) qui se trouve en ligne.
+>[!Note]
+>Le connecteur Power Automate utilisé dans ces instructions nécessite un abonnement payant à Power Automate. Veuillez en tenir compte avant de suivre les instructions de ce document.
 
-## <a name="create-a-flow-using-microsoft-flow"></a>Création d’un flux à l’aide de Microsoft Flow
+Si votre système de Gestion des relations avec la clientèle (CRM) n’est pas explicitement pris en charge dans l’Espace partenaires pour recevoir des prospects de la Place de marché Azure et d’AppSource, vous pouvez utiliser un point de terminaison HTTPS dans Power Automate pour gérer ces prospects. Avec un point de terminaison HTTPS, ces prospects peuvent être envoyés sous forme de notification par e-mail ou être écrits dans un système de Gestion des relations avec la clientèle (CRM) pris en charge par Power Automate. Les instructions de cet article vous guideront tout au long du processus de création d’un nouveau flux avec Power Automate, ce qui générera l’URL HTTP POST que vous entrerez dans le portail de publication, dans le champ Gestion des prospects > **URL du point de terminaison HTTPS**. En outre, vous trouverez des instructions sur la façon dont vous pouvez tester votre flux avec un outil appelé [Postman](https://www.getpostman.com/downloads/) qui se trouve en ligne.
+
+## <a name="create-a-flow-using-power-automate"></a>Créer un flux à l’aide de Power Automate
 
 1. Ouvrez la page web [Flow](https://flow.microsoft.com/). Sélectionnez **Se connecter** ou, si vous n’avez pas encore de compte, **S’inscrire gratuitement** pour créer un compte Flow gratuit.
 
@@ -168,7 +171,7 @@ Vous pouvez vérifier que tout fonctionne comme prévu en utilisant les étapes 
 
    ![Tester mon flux](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
 
-4. Collez l’URL HTTP POST du flux que vous avez créé dans Microsoft Flow, là où il est mentionné *Entrer l’URL de la demande*.
+4. Collez l’URL HTTP POST du flux que vous avez créé dans Power Automate, là où il est mentionné *Entrer l’URL de la demande*.
 
    ![Coller l’URL HTTP POST](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
@@ -202,7 +205,10 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
 1. Accédez à la page **Configuration de l'offre** de votre offre.
 2. Sélectionnez **Connexion** dans la section Gestion des prospects.
 3. Dans la fenêtre contextuelle des détails de la connexion, sélectionnez **Point de terminaison HTTPS** pour **Destination du prospect** et collez l’URL HTTP POST dans le flux que vous avez créé en suivant les étapes précédentes dans le champ **URL du point de terminaison HTTPS**.
-4. Sélectionnez **Enregistrer**. 
+4. **E-mail du contact** : fournissez les e-mails des personnes de votre société qui doivent recevoir des notifications par e-mail lors de la réception d’un nouveau prospect. Vous pouvez spécifier plusieurs e-mails en les séparant par un point-virgule.
+5. Sélectionnez **OK**.
+
+Pour être sûr que vous êtes bien connecté à une destination de prospect, cliquez sur le bouton Valider. En cas de réussite, un prospect de test se trouve dans la destination du prospect.
 
 >[!Note] 
 >Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.
@@ -213,5 +219,5 @@ Quand des prospects sont générés, Microsoft les envoie au service Flow, qui l
 
 ![Informations de connexion](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Informations de connexion](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
+![Informations de connexion](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

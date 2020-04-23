@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 7d5269cf8865faeb65356bc8fd3eea087cb7653c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e39f1c70cd94c14b12e54817941ea9106aacfdd
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277971"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273866"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Déployer une machine virtuelle de la Place de marché Azure
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Certification d’une image de machine virtuelle Azure](https://aks.ms/CertifyVMimage) pour gérer vos offres migrées.
 
 Cet article explique comment déployer une machine virtuelle préconfigurée à partir d’une Place de marché Azure, en utilisant le script Azure PowerShell fourni.  Ce script expose également les points de terminaison WinRM HTTP et HTTPS sur la machine virtuelle.  Le script requiert que vous ayez déjà un certificat téléchargé dans Azure Key Vault, comme décrit dans [Créer des certificats pour Azure Key Vault](./cpp-create-key-vault-cert.md). 
 
@@ -26,16 +29,16 @@ Le modèle de déploiement de machine virtuelle Azure (démarrage rapide) est di
 
 |  **Paramètre**        |   **Description**                                 |
 |  -------------        |   ---------------                                 |
-| newStorageAccountName | Nom du compte de stockage                       |
+| newStorageAccountName    | Nom du compte de stockage                       |
 | dnsNameForPublicIP    | Nom DNS de l’adresse IP publique. Il doit être en minuscules.    |
-| adminUsername         | Nom d’utilisateur de l’administrateur                          |
-| adminPassword         | Mot de passe de l’administrateur                          |
+| adminUsername            | Nom d’utilisateur de l’administrateur                          |
+| adminPassword            | Mot de passe de l’administrateur                          |
 | imagePublisher        | Éditeur de l’image                                   |
 | imageOffer            | Offre de l’image                                       |
-| imageSku              | Référence d’image                                         |
+| imageSku                | Référence d’image                                         |
 | vmSize                | Taille de la machine virtuelle                                    |
 | vmName                | Nom de la machine virtuelle                                    |
-| VaultName             | Nom du Key Vault.                             |
+| VaultName                | Nom du Key Vault.                             |
 | vaultResourceGroup    | Groupe de ressources du Key Vault.                   |
 | certificateUrl        | URL du certificat, notamment la version dans Key Vault, par exemple : `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |

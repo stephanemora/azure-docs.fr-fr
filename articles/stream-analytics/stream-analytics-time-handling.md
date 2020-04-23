@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55537fb923b26de4e02be35fdb817dee147584d7
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75354645"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115125"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Comprendre la gestion du temps dans Azure Stream Analytics
 
@@ -96,7 +96,7 @@ Vous avez peut-être observé un autre concept appelé plage d’arrivée préco
 
 Comme Azure Stream Analytics apporte la garantie de toujours de générer des résultats complets, vous pouvez spécifier uniquement l’**heure de début du travail** comme première heure de sortie du travail, et non l’heure d’entrée. L’heure de début du travail est nécessaire pour permettre le traitement de la plage entière, et pas seulement à partir du milieu de celle-ci.
 
-Stream Analytics dérive alors de l’heure de début de la spécification de la requête. Cependant, sachant que le répartiteur d’événements d’entrée est indexé uniquement par heure d’arrivée, le système doit traduire l’heure de l’événement de début en heure d’arrivée. Le système peut commencer à traiter les événements à partir de cet instant dans le répartiteur d’événements d’entrée. Avec la limite de la plage d’arrivée précoce, la traduction est simple. Il s’agit de l’heure de l’événement de début moins les 5 minutes de la plage d’arrivée précoce. Ce calcul signifie aussi que le système supprime tous les événements dont l’heure présente plus de 5 minutes que l’heure d’arrivée.
+Stream Analytics dérive alors de l’heure de début de la spécification de la requête. Cependant, sachant que le répartiteur d’événements d’entrée est indexé uniquement par heure d’arrivée, le système doit traduire l’heure de l’événement de début en heure d’arrivée. Le système peut commencer à traiter les événements à partir de cet instant dans le répartiteur d’événements d’entrée. Avec la limite de la plage d’arrivée précoce, la traduction est simple. Il s’agit de l’heure de l’événement de début moins les 5 minutes de la plage d’arrivée précoce. Ce calcul signifie aussi que le système supprime tous les événements dont l’heure a 5 minutes d’avance sur l’heure d’arrivée.
 
 Ce concept vise à garantir la répétabilité du traitement, d’où que vous commenciez à effectuer la sortie. Sans un tel mécanisme, il ne serait pas possible de garantir la répétabilité, contrairement à ce que prétendent bien d’autres systèmes de streaming.
 

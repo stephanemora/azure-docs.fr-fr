@@ -7,16 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 8124828c565f344387ae946a1fa6e61a84675b81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58845401fc14950b9c446d1481b8ac6f8ecc5523
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279961"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269922"
 ---
 # <a name="container-support-tab"></a>Onglet Prise en charge du conteneur
 
-Dans l’onglet **Support** de la page **Nouvelle offre**, indiquez les ressources de support utilisateur et technique associées à votre offre.  Les zones d’entrée suivantes figurent sur le formulaire de support : **Engineering Contact** (Contact ingénierie), **Service clientèle** et **Support Urls** (URL de support). Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
+> [!IMPORTANT]
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneurs Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Créer une offre de conteneur Azure](https://aka.ms/CreateContainerOffer) pour gérer vos offres migrées.
+
+Dans l’onglet **Support** de la page **Nouvelle offre**, indiquez les ressources de support utilisateur et technique associées à votre offre.  Les domaines d’entrée suivants sont fournis sur le formulaire de support : **Contact ingénierie**, **Service clientèle** et **URL du support**. Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 
 
 ## <a name="support-form-fields"></a>Champs du formulaire de support

@@ -1,20 +1,20 @@
 ---
-title: Guide de publication de la Place de marché Azure et AppSource
-description: Vue d’ensemble de la Place de marché Azure et de Microsoft AppSource pour les éditeurs d’applications et de services.
+title: Guide de publication sur la place de marché commerciale
+description: Vue d’ensemble de la place de marché commerciale pour les éditeurs d’applications et de services.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: 368cb4fdce23e695c074b4893dcdc314c974dd54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288391"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261990"
 ---
-# <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guide de publication de la Place de marché Azure et AppSource
+# <a name="commercial-marketplace-publishing-guide"></a>Guide de publication sur la place de marché commerciale
 
 Le guide de publication de la Place de marché a été conçu pour aider les nouveaux éditeurs et ceux qui le sont déjà à utiliser les vitrines de la [Place de marché Azure](https://azuremarketplace.microsoft.com) et [Microsoft AppSource](https://appsource.microsoft.com) afin de développer leur partenariat commercial avec Microsoft en proposant des applications et des services.
 
@@ -62,7 +62,7 @@ Les nouvelles annonces sur la Place de marché peuvent offrir aux partenaires un
 
 *   Co-vente : commencez ou accélérez votre migration commerciale avec Microsoft sur la Place de marché. Accédez aux programmes et au support pour dynamiser la vente en commun avec les équipes de Microsoft.
 
-Dès que vous aurez [soumis votre solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication.  Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Dès que vous aurez [soumis votre solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication.  Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
 Apprenez-en plus sur les [avantages de la place de marché commerciale](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 

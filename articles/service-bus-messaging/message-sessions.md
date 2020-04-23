@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 4df6396d156c3fe1b75e3cac3d3f4aad7f23553a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77660663"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314056"
 ---
 # <a name="message-sessions"></a>Sessions de message
 Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles premier entré, premier sorti (FIFO) et requête-réponse. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
@@ -78,7 +78,7 @@ Les API de gestion de l’état de session, [SetState](/dotnet/api/microsoft.ser
 
 L’état de session persiste tant qu’il n’est pas effacé (retour de la valeur **Null**), même si tous les messages dans une session donnée sont consommés.
 
-Toutes les sessions existantes dans une file d’attente ou un abonnement peuvent être énumérées à l’aide de la méthode **SessionBrowser** de l’API Java et au moyen de [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) sur [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) et [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) dans le client .NET.
+Toutes les sessions existantes dans une file d’attente ou un abonnement peuvent être énumérées à l’aide de la méthode **SessionBrowser** de l’API Java et au moyen de [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) sur [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) et [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) dans le client .NET Framework.
 
 L’état de session stocké dans une file d’attente ou dans un abonnement est pris en compte dans le quota de stockage de cette entité. Lorsque l’application a terminé avec une session, il est donc recommandé de faire en sorte que l’application supprime l’état de session conservé afin d’éviter un coût de gestion externe.
 

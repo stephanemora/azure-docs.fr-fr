@@ -1,26 +1,26 @@
 ---
-title: Schéma d’événement Machine Learning d’Azure Event Grid
+title: Azure Machine Learning en tant que source Event Grid
 description: Décrit les propriétés qui sont fournies pour les événements Espace de travail Machine Learning avec Azure Event Grid
 services: event-grid
-author: jenns
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/18/2019
-ms.author: jenns
-ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79202142"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393272"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Schéma des événements Azure Event Grid pour Azure Machine Learning
+# <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning en tant que source Event Grid
 
 Cet article décrit les propriétés et le schéma des événements de l’espace de travail Machine Learning. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
 
-Pour obtenir la liste des exemples de scripts et des didacticiels, consultez [Source d’événement AzureML](event-sources.md#azure-machine-learning).
+## <a name="event-grid-event-schema"></a>Schéma d’événement Event Grid
 
-## <a name="available-event-types"></a>Types d’événement disponibles
+### <a name="available-event-types"></a>Types d’événement disponibles
 
 Azure Machine Learning émet les types d’événements suivants :
 
@@ -32,7 +32,7 @@ Azure Machine Learning émet les types d’événements suivants :
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Déclenché lorsqu’un superviseur de dérive de données détecte une dérive. |
 | Microsoft.MachineLearningServices.RunStatusChanged | Déclenché quand un état d’exécution passe à « failed ». |
 
-## <a name="the-contents-of-an-event-response"></a>Le contenu d’une réponse à un événement
+### <a name="the-contents-of-an-event-response"></a>Le contenu d’une réponse à un événement
 
 Quand un événement est déclenché, le service Event Grid envoie les données relatives à cet événement au point de terminaison d’abonnement.
 
@@ -186,10 +186,7 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
 }]
 ```
 
-
-
-
-## <a name="event-properties"></a>Propriétés d’événement
+### <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
 
@@ -260,6 +257,11 @@ L’objet de données comporte les propriétés suivantes pour chaque type d’�
 | RunTags | object | Balises de l’exécution terminée. |
 | RunProperties | object | Propriétés de l’exécution terminée. |
 | RunStatus | string | État de l’exécution. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
+| Intitulé | Description |
+| ----- | ----- |
+| [Consommer des événements Azure Machine Learning](../machine-learning/concept-event-grid-integration.md) | Vue d’ensemble de l’intégration d’Azure Machine Learning avec Event Grid. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,21 +13,20 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 8f3497f113981ae563023750ad8979c88c640f5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80123330"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269871"
 ---
 # <a name="network-security-groups"></a>Groupes de sécurité réseau
 <a name="network-security-groups"></a>
 
-Vous pouvez filtrer le trafic réseau depuis et vers les ressources Azure dans un réseau virtuel Azure avec un groupe de sécurité réseau. Un groupe de sécurité réseau contient des règles de sécurité qui autorisent ou refusent le trafic réseau entrant ou sortant en direction/à partir des différents types de ressources Azure. Pour en savoir plus sur les ressources Azure pouvant être déployées dans un réseau virtuel et auxquelles des groupes de sécurité réseau peuvent être associées, consultez [Intégration d’un réseau virtuel pour les services Azure](virtual-network-for-azure-services.md). Pour chaque règle, vous pouvez spécifier la source et la destination, le port et le protocole.
+Vous pouvez utiliser un groupe de sécurité réseau Azure pour filtrer le trafic réseau à destination et en provenance des ressources Azure dans un réseau virtuel Azure. Un groupe de sécurité réseau contient des [règles de sécurité](#security-rules) qui autorisent ou rejettent le trafic réseau entrant et sortant vers différents types de ressources Azure. Pour chaque règle, vous pouvez spécifier la source et la destination, le port et le protocole.
+Cet article décrit les propriétés d’une règle de groupe de sécurité réseau, les [règles de sécurité par défaut](#default-security-rules) appliquées et les propriétés de règle que vous pouvez modifier pour créer une [règle de sécurité augmentée](#augmented-security-rules).
 
-Cet article explique les concepts de groupe de sécurité réseau, pour vous aider à les utiliser efficacement. Si vous n’avez jamais créé un groupe de sécurité réseau, vous pouvez suivre un [didacticiel](tutorial-filter-network-traffic.md) rapide pour vous entraîner. Si vous êtes familier avec les groupes de sécurité réseau et que vous devez en gérer un, consultez [Gérer un groupe de sécurité réseau](manage-network-security-group.md). Si vous rencontrez des problèmes de communication et que vous avez besoin résoudre les problèmes de groupes de sécurité réseau, consultez [Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle](diagnose-network-traffic-filter-problem.md). Vous pouvez activer les [journaux de flux de groupe de sécurité réseau](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour analyser le trafic réseau vers et à partir des ressources auxquelles un groupe de sécurité réseau est associé.
-
-## <a name="security-rules"></a>Règles de sécurité
+## <a name="security-rules"></a><a name="security-rules"></a> Règles de sécurité
 
 Un groupe de sécurité réseau contient le nombre des règles souhaité (ou aucune), dans les [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) de l’abonnement Azure. Chaque règle spécifie les propriétés suivantes :
 
@@ -46,7 +45,7 @@ Les connexions existantes ne peuvent pas être interrompues quand vous supprimez
 
 Le nombre de règles de sécurité que vous pouvez créer dans un groupe de sécurité réseau est limité. Pour plus d’informations, consultez [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-### <a name="default-security-rules"></a>Règles de sécurité par défaut
+### <a name="default-security-rules"></a><a name="default-security-rules"></a> Règles de sécurité par défaut
 
 Azure crée les règles par défaut suivantes dans chaque groupe de sécurité réseau que vous créez :
 
@@ -94,7 +93,7 @@ Dans les colonnes **Source** et **Destination**, *VirtualNetwork*, *AzureLoadBal
  
 Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les remplacer par des règles de priorité plus élevée.
 
-### <a name="augmented-security-rules"></a>Règles de sécurité augmentée
+### <a name="augmented-security-rules"></a><a name="augmented-security-rules"></a> Règles de sécurité augmentée
 
 Les règles de sécurité augmentée simplifient la définition de la sécurité pour les réseaux virtuels, ce qui vous permet de définir des stratégies de sécurité réseau plus vastes et plus complexes, avec moins de règles. Vous pouvez combiner plusieurs ports ainsi que des adresses ou plages d’adresses IP explicites dans une seule règle de sécurité facilement compréhensible. Utiliser des règles de sécurité augmentée dans les champs de la source, de la destination et du port d’une règle. Pour simplifier la maintenance de votre définition de règle de sécurité, combinez des règles de sécurité augmentée avec des [balises de service](service-tags-overview.md) ou des [groupes de sécurité d’application](#application-security-groups). Le nombre d’adresses, les plages et les ports que vous pouvez spécifier dans une règle sont limités. Pour plus d’informations, consultez [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -170,4 +169,8 @@ Vous pouvez facilement afficher des règles d’agrégation appliquées à une i
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [créer des groupes de sécurité réseau](tutorial-filter-network-traffic.md).
+* Pour en savoir plus sur les ressources Azure pouvant être déployées dans un réseau virtuel et auxquelles des groupes de sécurité réseau peuvent être associées, consultez [Intégration d’un réseau virtuel pour les services Azure](virtual-network-for-azure-services.md).
+* Si vous n’avez jamais créé un groupe de sécurité réseau, vous pouvez suivre un [didacticiel](tutorial-filter-network-traffic.md) rapide pour vous entraîner. 
+* Si vous êtes familier avec les groupes de sécurité réseau et que vous devez en gérer un, consultez [Gérer un groupe de sécurité réseau](manage-network-security-group.md). 
+* Si vous rencontrez des problèmes de communication et que vous avez besoin résoudre les problèmes de groupes de sécurité réseau, consultez [Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle](diagnose-network-traffic-filter-problem.md). 
+* Découvrez comment activer les [journaux de flux de groupe de sécurité réseau](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour analyser le trafic réseau vers et à partir des ressources auxquelles un groupe de sécurité réseau est associé.

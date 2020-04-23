@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: dd73f42aaa0d0bd1884892143d96446935a401a5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: d10b6c52310da3d799a7fe78c83284960318f82e
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048437"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115243"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -24,7 +24,7 @@ Azure Private Endpoint est une interface réseau qui vous permet de vous connect
 
 |Propriété  |Description |
 |---------|---------|
-|Name    |    Nom unique dans le groupe de ressources.      |
+|Nom    |    Nom unique dans le groupe de ressources.      |
 |Subnet    |  Le sous-réseau pour déployer et allouer des adresses IP privées à partir d’un réseau virtuel. Pour connaître la configuration requise pour le sous-réseau, consultez la section Limitations de cet article.         |
 |Ressource Private Link    |   Ressource Private Link à connecter avec l’ID de ressource ou l’alias dans la liste des types disponibles. Un identificateur réseau unique sera généré pour tout le trafic envoyé à cette ressource.       |
 |Sous-ressource cible   |      Sous-ressource à connecter. Chaque type de ressource Private Link a différentes options à sélectionner en fonction de vos préférences.    |
@@ -54,7 +54,7 @@ Une ressource Private Link est la cible de destination d’une instance Private 
 |---------|---------|---------|
 |**Service Private Link** (votre propre service)   |  Microsoft.Network/privateLinkServices       | empty |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
+|**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
 |**Stockage Azure**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> File d'attente (queue, queue_secondary)<BR> Fichier (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Système de fichiers Data Lake Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|
@@ -62,6 +62,19 @@ Une ressource Private Link est la cible de destination d’une instance Private 
 |**Azure Database pour MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | coffre |
+|**Azure Kubernetes Service – API Kubernetes** | Microsoft.ContainerService/managedClusters | managedCluster |
+|**Azure Search** | Microsoft.Search/searchService| searchService|  
+|**Azure Container Registry** | Microsoft.ContainerRegistry/registries  | Registre |
+|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores   | configurationStore |
+|**Azure Backup** | Microsoft.RecoveryServices/vaults   | coffre |
+|**Azure Event Hub** | Microsoft.EventHub/namespaces    | espace de noms |
+|**Azure Service Bus** | Microsoft.ServiceBus/namespaces | espace de noms |
+|**Azure Relay** | Microsoft.Relay/namespaces | espace de noms |
+|**Azure Event Grid** | Microsoft.EventGrid/topics  | topic |
+|**Azure Event Grid** | Microsoft.EventGrid/domains | domaine |
+|**Azure WebApps** | Microsoft.Web/sites    | site |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces  | espace de travail |
+  
  
 ## <a name="network-security-of-private-endpoints"></a>Sécurité réseau de Private Endpoint 
 Lorsque vous utilisez Private Endpoint pour les services Azure, le trafic est sécurisé vers une ressource Private Link spécifique. La plateforme effectue un contrôle d’accès pour valider les connexions réseau qui atteignent uniquement la ressource Private Link spécifiée. Pour accéder à des ressources supplémentaires au sein du même service Azure, des instances Private Endpoint supplémentaires sont requises. 
@@ -100,11 +113,12 @@ Vous pouvez utiliser les options suivantes pour configurer vos paramètres DNS p
 > [!IMPORTANT]
 > Il n’est pas recommandé de remplacer une zone utilisée activement pour résoudre des points de terminaison publics. Les connexions aux ressources ne peuvent pas être résolues correctement sans transfert DNS vers le DNS public. Pour éviter les problèmes, créez un autre nom de domaine ou suivez le nom suggéré pour chaque service ci-dessous. 
  
-Pour les services Azure, utilisez les noms de zone recommandés comme indiqué dans le tableau suivant :
+Pour les services Azure, utilisez les noms de zone comme indiqué dans le tableau suivant :
 
 |Type de ressource Private Link   |Sous-ressource  |Nom de la zone  |
 |---------|---------|---------|
-|SQL DB/DW (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
+|SQL DB (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
+|Azure Synapse Analytics (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        | privatelink.database.windows.net |
 |Compte de stockage (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)        |    privatelink.blob.core.windows.net      |
 |Compte de stockage (Microsoft.Storage/storageAccounts)    |    Table (table, table_secondary)      |   privatelink.table.core.windows.net       |
 |Compte de stockage (Microsoft.Storage/storageAccounts)    |    File d'attente (queue, queue_secondary)     |   privatelink.queue.core.windows.net       |
@@ -120,6 +134,18 @@ Pour les services Azure, utilisez les noms de zone recommandés comme indiqué d
 |Azure Database pour MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Azure Database pour MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
 |Azure Key Vault (Microsoft.KeyVault/vaults)|coffre|privatelink.vaultcore.azure.net|
+|Azure Kubernetes Service – API Kubernetes (Microsoft.ContainerService/managedClusters) | managedCluster | {guid}.privatelink.<region>.azmk8s.io|
+|Recherche Azure (Microsoft.Search/searchServices)|searchService|privatelink.search.windows.net|   
+|Azure Container Registry (Microsoft.ContainerRegistry/registries) | Registre | privatelink.azurecr.io |
+|Azure App Configuration (Microsoft.Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|
+|Sauvegarde Azure (Microsoft.RecoveryServices/vaults)| coffre |privatelink.{region}.backup.windowsazure.com|
+|Azure Event Hub (Microsoft.EventHub/namespaces)| espace de noms |privatelink.servicebus.windows.net|
+|Azure Service Bus (Microsoft.ServiceBus/namespaces) | espace de noms |privatelink.servicebus.windows.net|
+|Azure Relay (Microsoft.Relay/namespaces) | espace de noms |privatelink.servicebus.windows.net|
+|Azure Event Grid (Microsoft.EventGrid/topics)   | topic | topic.{region}.privatelink.eventgrid.azure.net|
+|Azure Event Grid (Microsoft.EventGrid/domains) | domaine | domain.{region}.privatelink.eventgrid.azure.net |
+|Azure WebApps (Microsoft.Web/sites)    | site | privatelink.azurewebsites.net |
+|Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)   | espace de travail | privatelink.api.azureml.ms |
  
 Azure créera un enregistrement DNS de nom canonique (CNAME) sur le DNS public pour rediriger la résolution vers les noms de domaine suggérés. Vous serez en mesure de remplacer la résolution par l’adresse IP privée de vos instances Private Endpoint. 
  

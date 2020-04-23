@@ -72,7 +72,7 @@
               href: automation-update-azure-modules.md
         - name: Gérer les planifications
           href: shared-resources/schedules.md
-        - name: Gérer les variables
+        - name: gérer les variables ;
           href: shared-resources/variables.md
         - name: Gérer les packages Python 2
           href: python-packages.md
@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: Gestion de la configuration
       items:
-        - name: Gérer State Configuration (DSC)
+        - name: Configuration d’état (DSC)
           items:
             - name: Vue d’ensemble
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: Résoudre les problèmes liés à DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Gérer Change Tracking et Inventory
+        - name: Suivi des modifications et inventaire
           items:
             - name: Vue d’ensemble
               href: change-tracking.md

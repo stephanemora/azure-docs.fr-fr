@@ -1,19 +1,18 @@
 ---
-title: Déterminer votre option de publication dans Microsoft AppSource et sur la Place de marché Azure
+title: Déterminer votre option de publication dans les vitrines de la place de marché commerciale de Microsoft
 description: Cet article décrit les critères d’éligibilité et les exigences de publication pour les partenaires tentant de comprendre comment publier des applications dans Microsoft AppSource et sur la Place de marché Azure.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 4c41fcbb8766feb68db7d60d591e914a6ba0aea2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e91ca0334276dbe9118eb0e40d042f598e8b3c0f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349542"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415740"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 
@@ -21,32 +20,47 @@ L’option de publication que vous choisissez pour votre offre est directement l
 
 Pour configurer votre offre, vous devez comprendre les concepts clés du marché suivants : les options de publication, la configuration et les types d’offre, ainsi que les appels à l’action qui définissent comment et où votre offre est présentée dans les vitrines de la place de marché.
 
-![Vitrines et options de publication de la place de marché Microsoft](./media/marketplace-publishers-guide/storefronts_options_table.png)
-
 Cet article portera sur les éléments suivants :
 
 - Détermination de la vitrine appropriée pour votre solution
 - Options de publication et appels à l’action disponibles dans chaque vitrine
 - Types d’offre disponibles pour chaque option de publication
 
-## <a name="selecting-a-storefront-publishing-option-and-offer-type-for-your-solution"></a>Sélection d’une vitrine, d’une option de publication et d’un type d’offre pour votre solution
+## <a name="commercial-marketplace-publishing-options"></a>Options de publication sur la place de marché commerciale
 
-Avant de sélectionner une option de publication, il est important de comprendre les conditions d’éligibilité des vitrines pour les solutions, les applications et les services de la place de marché :
+Le tableau suivant présente les options de publication disponibles pour les types d’offres dans Microsoft AppSource et dans la Place de marché Azure.
+
+|   | **Liste (contact)**  | **Liste (essai)**  | **Gratuit** | **BYOL** | **Transaction**|
+| :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
+| **Machine virtuelle** |  |  |  | Place de marché Azure |  Place de marché Azure |
+| **Applications Azure (multimachines virtuelles)** |  |  | Place de marché Azure | Place de marché Azure | Place de marché Azure  |
+| **Image conteneur** |  |  | Place de marché Azure | Place de marché Azure |   |
+| **Module IoT Edge** |  |  | Place de marché Azure | Place de marché Azure |   |
+| **Services managés** |  |  |  | Place de marché Azure |   |
+| **Services de conseil** | Les deux vitrines |  |  |  |   |
+| **Application SaaS** | Les deux vitrines | Les deux vitrines | Les deux vitrines |  | Les deux vitrines* |
+| **Application Microsoft 365** | AppSource | AppSource |  |  | AppSource**  |
+| **Complément Dynamics 365** |  AppSource | AppSource |  |  |   |
+| **PowerApps** | AppSource |AppSource  |  |  |   |
+
+&#42; Actuellement, les offres de transaction d’applications SaaS dans Microsoft AppSource incluent uniquement les cartes de crédit.
+
+&#42;&#42; Les offres Microsoft 365 peuvent être installées gratuitement et monétisées via l’offre SaaS en tant que service de licence. Pour plus d’informations, consultez [Monétiser votre complément Office 365 par le biais de la place de marché commerciale de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+
+## <a name="selecting-a-storefront"></a>Sélection d’une vitrine
+
+Avant de sélectionner une option de publication, il est important de comprendre les conditions d’éligibilité des vitrines pour les solutions, les applications et les services de la place de marché commerciale. Chaque vitrine répond à des exigences propres aux clients et cible des publics spécifiques. Le type de votre offre, les fonctionnalités de transaction et la catégorie ou le secteur déterminent où publier votre offre.
 
 Les applications **Microsoft AppSource** sont des solutions métier qui peuvent être créées sur Azure ou créées pour : Dynamics 365, Office 365, Power BI ou Power Apps. Les services de conseil AppSource sont des offres de services professionnels qui aident les clients à commencer à utiliser Dynamics 365 et Power BI ou à les utiliser plus.
 
 Les applications de la **Place de marché Azure** sont des solutions techniques de type « module » créées sur ou pour Azure. Elles sont destinées à un public d’informaticiens généralistes ou spécialisés (développeurs). Les services de conseil de la Place de marché Azure sont des offres de services professionnels qui aident les clients à commencer à utiliser Azure ou à l’utiliser plus.
 
-## <a name="understand-storefront-selection"></a>Comprendre la sélection de la vitrine
-
-Chaque vitrine répond aux exigences de clients uniques. La vitrine dans laquelle votre offre sera publiée sera déterminée par type d’offre, offre des fonctionnalités Transact et une catégorie et/ou sélection de secteur pour cibler un public spécifique. 
-
 >[!Note]
->« Listes croisées » (pour applications SaaS uniquement) : lorsqu’une offre basée sur un listing ou un essai répond à la fois aux critères d’un public d’utilisateurs professionnels et d’un public technique, l’offre est publiée dans les deux vitrines. Découvrez plus en détail les options de publication ci-dessous.
+>Listes croisées (pour applications SaaS uniquement) : quand une offre basée sur une liste ou un essai répond aux critères d’un public d’utilisateurs professionnels aussi bien que d’un public technique, elle est publiée dans les deux vitrines. Découvrez plus en détail les options de publication ci-dessous.
 
 ## <a name="choose-a-publishing-option"></a>Choisir une option de publication
 
-Les options de publication disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).  Notez les appels à l’action qui correspondent à l’option de publication :
+Les options de publication disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Notez les appels à l’action qui correspondent à l’option de publication :
 
 | **Option de publication**    | **Description**  |
 | :------------------- | :-------------------|
@@ -55,8 +69,8 @@ Les options de publication disponibles offrent un engagement client différenci�
 | **BYOL** | Utilisez la place de marché pour améliorer la détectabilité et automatiser l’approvisionnement de votre solution, ainsi que pour effectuer la transaction financière séparément. Les types d’offres BYOL sont idéaux pour les migrations site vers cloud. L’appel à l’action est **Obtenir maintenant**.
 | **Transaction** | Les offres Transact sont vendues via la place de marché. Microsoft est responsable de la facturation et des regroupements. L’appel à l’action est **Obtenir maintenant**.|
 
->[!Note]
->Quand vous utilisez l’option de publication Transaction, il est important de bien comprendre les prix, la tarification, la facturation et le paiement avant de sélectionner un type d’offre et de créer votre offre. Lisez l’[article sur les considérations d’ordre commercial et de facturation de la Place de marché pour en savoir plus](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+> [!Note]
+> Quand vous utilisez l’option de publication Transaction, il est important de bien comprendre les prix, la tarification, la facturation et le paiement avant de sélectionner un type d’offre et de créer votre offre. Pour plus d’informations, consultez l’article [Fonctionnalités de transaction de la place de marché commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 214b2868f9733dfc6790c492543fb86a832f18b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: b04ff409c95980a1569a2709a475dd8ec74d59b3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065508"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415480"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -23,9 +23,12 @@ ms.locfileid: "80065508"
 > * [Version 1](v1/data-factory-azure-blob-connector.md)
 > * [Version actuelle](connector-azure-blob-storage.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers un stockage Azure Blob, et utiliser Data Flow pour transformer les données dans un stockage Azure Blob. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+>[!TIP]
+>Pour plus d’informations sur le scénario de migration de lac de données ou d’entrepôt de données, consultez [Migration des données dans Azure à partir d’un lac de données ou d’un entrepôt de données avec Azure Data Factory](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -136,11 +139,6 @@ Une signature d'accès partagé fournit un accès délégué aux ressources de v
 > [!NOTE]
 >- Azure Data Factory prend désormais en charge les **signatures d’accès partagé de service** et les **signatures d’accès partagé de compte**. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md).
 >- Dans une configuration ultérieure de jeu de données, le chemin du dossier est le chemin absolu commençant au niveau conteneur. Vous devez en configurer un qui soit aligné avec le chemin dans votre URI SAS.
-
-> [!TIP]
-> Pour générer une signature d’accès partagé de service pour votre compte de stockage, vous pouvez exécuter les commandes PowerShell suivantes. Remplacez les espaces réservés et octroyez l’autorisation nécessaire.
-> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Pour l’authentification par signature d’accès partagé, les propriétés suivantes sont prises en charge :
 
@@ -515,7 +513,7 @@ Exemples de caractères génériques :
 
 * ```/data/sales/**/*.csv``` Obtient tous les fichiers CSV se trouvant sous /data/sales
 * ```/data/sales/20??/**/``` Obtient tous les fichiers datés du 20ème siècle
-* ```/data/sales/*/*/*.csv``` Obtient les fichiers CSV à deux niveaux sous/data/sales
+* ```/data/sales/*/*/*.csv``` Obtient les fichiers CSV à deux niveaux sous /data/sales
 * ```/data/sales/2004/*/12/[XY]1?.csv``` Obtient tous les fichiers CSV datés de décembre 2004, commençant par X ou Y et ayant comme préfixe un nombre à deux chiffres
 
 **Chemin racine de la partition :** Si vous avez partitionné des dossiers dans votre source de fichiers avec un format ```key=value``` (par exemple, année = 2019), vous pouvez attribuer le niveau supérieur de cette arborescence de dossiers de partitions à un nom de colonne dans votre flux de données.
@@ -567,7 +565,7 @@ Dans la transformation du récepteur, vous pouvez écrire dans un conteneur ou u
    * **Par défaut** : Autorisez Spark à nommer les fichiers en fonction des valeurs par défaut de la partition.
    * **Modèle** : Entrez un modèle qui énumère vos fichiers de sortie par partition. Par exemple, **loans[n].csv** crée loans1.csv, loans2.csv, etc.
    * **Par partition** : Entrez un nom de fichier pour chaque partition.
-   * **Comme les données de la colonne** : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination. Si vous avez un chemin d’accès de dossier dans votre jeu de données, il sera remplacé.
+   * **Comme les données de la colonne** : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination. Si vous avez un chemin de dossier dans votre jeu de données, il sera remplacé.
    * **Sortie d’un seul fichier** : Combinez les fichiers de sortie partitionnés en un seul fichier nommé. Le chemin est relatif au dossier du jeu de données. Sachez que cette opération de fusion peut échouer en fonction de la taille du nœud. Cette option n’est pas recommandée pour des jeux de données volumineux.
 
 **Tout mettre entre guillemets :** Détermine si toutes les valeurs doivent être placées entre guillemets

@@ -5,24 +5,25 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280505"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255910"
 ---
-<a name="retrieve-offer-status"></a>Récupérer l’état de l’offre 
-=====================
+# <a name="retrieve-offer-status"></a>Récupérer l’état de l’offre
+
+> [!NOTE]
+> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront à fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les changements listés dans la [référence API du portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
 
 Récupère l’état actuel de l’offre.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Paramètres URI
---------------
+## <a name="uri-parameters"></a>Paramètres URI
 
 |  **Nom**       |   **Description**                            |  **Type de données** |
 |  -------------  |  ------------------------------------------  |  ------------  |
@@ -32,18 +33,17 @@ Récupère l’état actuel de l’offre.
 |  |  |
 
 
-<a name="header"></a>En-tête
-------
+## <a name="header"></a>En-tête
 
-|  Name           |  Valeur               |
+
+|  Nom           |  Valeur               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Autorisation  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
+## <a name="body-example"></a>Exemple de corps
 
-<a name="body-example"></a>Exemple de corps
-------------
 
 ### <a name="response"></a>response
 
@@ -115,8 +115,7 @@ Récupère l’état actuel de l’offre.
       ],
       "previewLinks": [],
       liveLinks": [],
-      "notificationEmails": "jdoe@contoso.com"
-  } 
+  }
 ```
 
 
@@ -136,9 +135,8 @@ Récupère l’état actuel de l’offre.
 |  processPercentage    | Pourcentage d’achèvement de l’étape                                                              |
 |  previewLinks         | *Actuellement non implémenté*                                                                    |
 |  liveLinks            | *Actuellement non implémenté*                                                                    |
-|  notificationEmails   | Liste d’adresses e-mail séparées par des virgules, pour informer de la progression de l’opération        |
+|  notificationEmails   | Déprécié pour les offres migrées vers l’Espace partenaires. Les e-mails de notification pour les offres migrées sont envoyés à l’adresse e-mail spécifiée sous Coordonnées du vendeur dans les paramètres du compte.<br><br>Pour les offres non migrées, liste d’adresses e-mail séparées par des virgules devant être informées de la progression de l’opération        |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Codes d’état de réponse
 
@@ -148,7 +146,6 @@ Récupère l’état actuel de l’offre.
 |  400     | `Bad/Malformed request` : le corps de la réponse d’erreur peut contenir plus d’informations.                 |
 |  404     | `Not found` : l’entité spécifiée n’existe pas.                                                |
 |  |  |
-
 
 ### <a name="offer-status"></a>État de l’offre
 
@@ -162,7 +159,6 @@ Récupère l’état actuel de l’offre.
 |  Opération annulée                    | La soumission de l’offre a été annulée.                           |
 |  Échec                      | La soumission de l’offre a échoué.                                 |
 |  |  |
-
 
 ### <a name="step-status"></a>État de l’étape
 

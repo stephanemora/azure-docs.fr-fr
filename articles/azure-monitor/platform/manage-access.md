@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 1e559309b8e8d9768ca2f79dabfb01ec6086a961
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/10/2019
+ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348720"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255241"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -273,7 +273,7 @@ Pour créer un rôle ayant accès uniquement à la table _SecurityBaseline_, cr�
 
  Les journaux personnalisés sont créés à partir de sources de données telles que des journaux personnalisés et l’API Collecteur de données HTTP. Le moyen le plus simple d’identifier le type de journal consiste à vérifier les tables listées sous [Journaux personnalisés dans le schéma de journal](../log-query/get-started-portal.md#understand-the-schema).
 
- Vous ne pouvez actuellement pas accorder l’accès à des journaux personnalisés spécifiques, mais uniquement à la totalité de ceux-ci. Pour créer un rôle ayant accès à tous les journaux personnalisés, créez un rôle personnalisé à l’aide des actions suivantes :
+ Vous ne pouvez pas accorder l’accès à des journaux personnalisés individuels, mais vous pouvez accorder l’accès à tous les journaux personnalisés. Pour créer un rôle ayant accès à tous les journaux personnalisés, créez un rôle personnalisé à l’aide des actions suivantes :
 
 ```
 "Actions":  [
@@ -282,6 +282,9 @@ Pour créer un rôle ayant accès uniquement à la table _SecurityBaseline_, cr�
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+Une autre approche pour gérer l’accès aux journaux personnalisés consiste à les affecter à une ressource Azure et à gérer l’accès via le paradigme de contexte de ressource. Pour utiliser cette méthode, vous devez inclure l’ID de ressource en le spécifiant dans l’en-tête [x-ms-AzureResourceId](data-collector-api.md#request-headers) quand des données sont ingérées dans Log Analytics via l’[API du collecteur de données HTTP](data-collector-api.md). L’ID de ressource doit être valide et des règles d’accès doivent lui être appliquées. Une fois les journaux ingérés, ils sont accessibles pour ceux qui disposent d’un accès en lecture sur la ressource, comme expliqué ici.
+
+Parfois, les journaux personnalisés proviennent de sources qui ne sont pas directement associées à une ressource spécifique. Dans ce cas, créez un groupe de ressources seulement pour gérer l’accès à ces journaux. Le groupe de ressources n’entraîne aucun coût, mais vous donne un ID de ressource valide pour contrôler l’accès aux journaux personnalisés. Par exemple, si un pare-feu spécifique envoie des journaux personnalisés, créez un groupe de ressources appelé « MyFireWallLogs » et vérifiez que les demandes de l’API contiennent l’ID de ressource « MyFireWallLogs ». Les enregistrements du journal du pare-feu sont alors accessibles seulement par les utilisateurs qui ont accès à MyFireWallLogs ou par ceux qui disposent d’un accès complet à l’espace de travail.          
 
 ### <a name="considerations"></a>Considérations
 

@@ -3,12 +3,12 @@ title: Mise à l’échelle d’un type de nœud Azure Service Fabric
 description: Découvrez comment mettre à l’échelle un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 33d535cb093eeb95e0ce95bdd5722bfd21150a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464227"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998942"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Monter en puissance un type de nœud principal de cluster Service Fabric
 Cet article explique comment monter en puissance un type de nœud principal de cluster Service Fabric en augmentant les ressources de machine virtuelle. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée. Une fois que vous avez créé un cluster Service Fabric, vous pouvez mettre à l’échelle le type de nœud d’un cluster verticalement (changement des ressources des nœuds) ou mettre à niveau le système d’exploitation des machines virtuelles du type de nœud.  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
@@ -34,7 +34,7 @@ Voici la procédure pour mettre à jour la taille et le système d’exploitatio
     Pour trouver le nouveau groupe identique dans le modèle, recherchez la ressource « Microsoft.Compute/virtualMachineScaleSets » nommée par le paramètre *vmNodeType2Name*.  Le nouveau groupe identique est ajouté au type de nœud principal à l’aide des propriétés->virtualMachineProfile->extensionProfile->extensions->propriétés->paramètres->paramètre nodeTypeRef.
 4. Vérifiez l’intégrité du cluster et de l’ensemble des nœuds.
 5. Désactivez les nœuds dans l’ancien groupe identique du type de nœud principal avec l’intention de les supprimer. Vous pouvez les désactiver tous en même temps, auquel cas les opérations sont mises en file d’attente. Attendez que tous les nœuds soient désactivés, ce qui peut prendre un certain temps.  Au fur et à mesure que les anciens nœuds du type de nœud sont désactivés, les services système et les nœuds initiaux (seed) migrent vers les machines virtuelles du nouveau groupe identique du type de nœud principal.
-6. Supprimez l’ancien groupe identique du type de nœud principal.
+6. Supprimez l’ancien groupe identique du type de nœud principal. (Une fois les nœuds désactivés comme indiqué à l’étape 5, dans le panneau du groupe de machines virtuelles identiques du portail Azure, désallouez les nœuds de l’ancien type de nœud l’un après l’autre.)
 7. Supprimez l’équilibreur de charge associé à l’ancien groupe identique. Le cluster n’est pas disponible pendant que la nouvelle adresse IP publique et l’équilibreur de charge sont configurés pour le nouveau groupe identique.  
 8. Stockez les paramètres DNS de l’adresse IP publique associée à l’ancien groupe identique du type de nœud principal dans une variable et supprimez cette adresse IP publique.
 9. Remplacez les paramètres DNS de l’adresse IP publique associée au nouveau groupe identique du type de nœud principal par les paramètres DNS de l’adresse IP publique supprimée.  Le cluster est à nouveau accessible.

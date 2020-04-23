@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 47702959474a352a8e13710ec850f789dee4d517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c575389538230218e1e6e4f172ebcfbee8ee51dc
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278159"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273458"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Problèmes courants et correctifs relatifs aux URL de signature d’accès partagé (SAP)
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Problèmes courants et correctifs relatifs aux URL de signature d’accès partagé](https://aka.ms/AzureSAS_URL_FAQ) pour gérer vos offres migrées.
 
 Le tableau ci-après répertorie certains des problèmes courants rencontrés dans le cadre de l’utilisation des signatures d’accès partagé (qui permettent d’identifier et de partager les disques durs virtuels (VHD) chargés pour votre solution), ainsi que les mesures de résolution recommandées.
 

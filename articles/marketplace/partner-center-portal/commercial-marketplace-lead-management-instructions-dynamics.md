@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3e35b6d19905e3c5262dfea3e52511510c9ffe
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288816"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252780"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurer la gestion des prospects pour Dynamics 365 for Customer Engagement
 
@@ -180,6 +180,7 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
     ![Détails de la connexion – Destination du prospect](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. Fournissez l’**URL d’instance Dynamics 365**, par exemple `https://contoso.crm4.dynamics.com`.
+
 5. Sélectionnez la méthode d’**Authentification** : Azure Active Directory ou Office 365. 
 6. Si vous sélectionnez Azure Active Directory, fournissez l’**ID d’application (client)** (par exemple, `23456052-aaaa-bbbb-8662-1234df56788f`), l’**ID de répertoire** (par exemple, `12345678-8af1-4asf-1234-12234d01db47`) et la **Clé secrète client** (par exemple, `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
@@ -188,6 +189,13 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
 7. Si vous sélectionnez Office 365, fournissez le **Nom d’utilisateur** (par exemple, `contoso@contoso.onmicrosoft.com`), et le Mot de passe (par exemple, `P@ssw0rd`).
 
     ![Détails de la connexion – Nom d’utilisateur](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+
+8. **E-mail du contact** : fournissez les e-mails des personnes de votre société qui doivent recevoir des notifications par e-mail lors de la réception d’un nouveau prospect. Vous pouvez fournir plusieurs e-mails en les séparant par un point-virgule.
+9. Sélectionnez **OK**.
+
+Pour vous assurer que vous vous êtes bien connecté à une destination de prospect, cliquez sur le bouton Valider. En cas de réussite, un prospect de test se trouve dans la destination du prospect.
+
+![Gestion des prospects - compte de stockage des détails de connexion](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!Note]
 >Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.

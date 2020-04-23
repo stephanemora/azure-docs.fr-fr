@@ -1,74 +1,61 @@
 ---
 title: Licence de réinitialisation de mot de passe libre-service - Azure Active Directory
-description: Conditions de licence pour la réinitialisation du mot de passe en libre-service dans Azure AD
+description: Découvrir les différents besoins de licence pour la réinitialisation de mot de passe en libre-service Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 04/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598f3bd8500a59cd41cc4126915e6cccbd4fb2f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45ca11af061e37cf4f804ce2d7ceed72a9448294
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848559"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393076"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
+# <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Licences requises pour la réinitialisation de mot de passe en libre-service Azure Active Directory
 
-Azure Active Directory (Azure AD) est proposé en plusieurs éditions : Gratuit, Premium P1 et Premium P2. Il existe plusieurs fonctionnalités qui rendent la réinitialisation du mot de passe libre-service, y compris la modification, la réinitialisation, le déverrouillage et l’écriture différée, qui sont disponibles dans les différentes éditions d’Azure AD. Cet article tente d’expliquer les différences. Vous trouverez plus d’informations sur les fonctionnalités incluses dans chaque édition Azure AD sur la [Page de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Si vous souhaitez réduire le nombre d’appels au support technique et la perte de productivité quand un utilisateur ne parvient pas à se connecter à son appareil ou à une application, vous pouvez activer la technologie SSPR (réinitialisation de mot de passe en libre-service) pour les comptes d’utilisateurs Azure AD (Azure Active Directory). Les fonctionnalités SSPR incluent le changement, la réinitialisation, le déverrouillage et la réécriture de mot de passe dans un annuaire local. Les fonctionnalités SSPR de base sont disponibles gratuitement dans Office 365 et pour tous les utilisateurs Azure AD.
+
+Cet article détaille les différentes façons d’obtenir et d’utiliser la licence de réinitialisation de mot de passe en libre-service. Pour des détails spécifiques sur les prix et la facturation, consultez la [page de tarification d’Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Comparer les éditions et les fonctionnalités
 
-La réinitialisation du mot de passe Azure AD libre-service est fournie sous licence par utilisateur, pour s’assurer que les organisations de conformité soient obligées d’assigner la licence appropriée à leurs utilisateurs.
+La technologie SSPR est concédée sous licence par utilisateur. Pour des raisons de conformité, les organisations doivent affecter la licence appropriée à leurs utilisateurs.
 
-* Modification libre-service du mot de passe pour les utilisateurs du cloud
-   * Je suis un **utilisateur cloud uniquement** et je connais mon mot de passe.
-      * J’aimerais **modifier** mon mot de passe pour un nouveau.
-   * Cette fonctionnalité est incluse dans toutes les éditions d’Azure AD.
+Le tableau suivant présente les différents scénarios SSPR liés au changement, à la réinitialisation ou à la réécriture locale de mot de passe ainsi que les références SKU qui fournissent la fonctionnalité correspondante.
 
-* Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud
-   * Je suis un **utilisateur cloud uniquement** et j’ai oublié mon mot de passe.
-      * J’aimerais **réinitialiser** mon mot de passe pour un nouveau.
-   * Cette fonctionnalité est incluse dans les éditions Premium P1 et Premium P2 d’Azure AD, ainsi que dans Microsoft 365 Business ou Office 365.
-
-* Réinitialisation/modification/déverrouillage du mot de passe en libre-service **avec des réécritures locales**
-   * Je suis un **utilisateur hybride** mon compte d’utilisateur Active Directory local est synchronisé avec mon compte Azure AD à l’aide d’Azure AD Connect. Je souhaite modifier mon mot de passe, j’ai oublié mon mot de passe, ou il a été verrouillé.
-      * Je souhaite modifier mon mot de passe ou le réinitialiser en quelque chose que je connais, ou déverrouiller mon compte, **et** je souhaite que la modification soit synchronisée de nouveau à Active Directory en local.
-   * Cette fonctionnalité est incluse dans les éditions Premium P1 et Premium P2 d'Azure AD, ainsi que dans Microsoft 365 Business.
+| Fonctionnalité | Azure AD Gratuit | Office 365 Business Premium | Microsoft 365 Business | Azure AD Premium P1 ou P2 |
+| --- |:---:|:---:|:---:|:---:|
+| **Changement de mot de passe utilisateur cloud uniquement**<br />Quand un utilisateur d’Azure AD connaît son mot de passe et souhaite le remplacer par un nouveau. | ● | ● | ● | ● |
+| **Réinitialisation de mot de passe utilisateur cloud uniquement**<br />Quand un utilisateur d’Azure AD a oublié son mot de passe et doit le réinitialiser. | | ● | ● | ● |
+| **Changement ou réinitialisation de mot de passe utilisateur hybride avec réécriture locale**<br />Quand un utilisateur d’Azure AD synchronisé à partir d’un annuaire local via Azure AD Connect souhaite changer ou réinitialiser son mot de passe mais également réécrire le nouveau mot de passe localement. | | | ● | ● |
 
 > [!WARNING]
-> Les plans de licences Office 365 édition autonome *ne prennent pas en charge les opérations de « réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent un plan qui inclut l'édition Premium P1 ou Premium P2 d'Azure AD, ou Microsoft 365 Business, pour que cette fonctionnalité soit opérationnelle.
->
+> Les plans de licence Office 365 autonomes ne prennent pas en charge SSPR avec réécriture locale. Ces plans de licence Office 365 nécessitent Azure AD Premium P1, Premium P2 ou Microsoft 365 Business pour que cette fonctionnalité marche.
 
-Vous trouverez des informations de licence supplémentaires, notamment les prix, dans les pages suivantes :
+Pour plus d’informations sur les licences, notamment les coûts, consultez les pages suivantes :
 
-* [Site de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Fonctionnalités Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Entreprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Description du service Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
+* [Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Activer les licences utilisateur ou groupe
 
-Azure AD prend désormais en charge les licences basées sur des groupes. Les administrateurs peuvent attribuer des licences en bloc à un groupe d’utilisateurs, plutôt que de les attribuer une à la fois. Pour plus d’informations, consultez [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Azure AD prend en charge les licences basées sur les groupes. Les administrateurs peuvent attribuer des licences en bloc à un groupe d’utilisateurs, plutôt que de les attribuer une à la fois. Pour plus d’informations, consultez [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété **Emplacement d’utilisation** sur l’utilisateur. Vous pouvez effectuer l’attribution de licences dans la section **Utilisateur** > **Profil** > **Paramètres** du portail Azure. *Quand vous attribuez une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement de l’annuaire.*
+Selon le lieu où vous vous trouvez, certains services Microsoft ne sont pas disponibles. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété **Emplacement d’utilisation** sur l’utilisateur. Vous pouvez effectuer l’attribution de licences dans la section **Utilisateur** > **Profil** > **Paramètres** du portail Azure. *Quand vous attribuez une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement de l’annuaire.*
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
-* [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
-* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
-* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
-* [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
-* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
-* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](howto-sspr-reporting.md)
-* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
-* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
-* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
+Pour bien démarrer avec SSPR, suivez le tutoriel suivant :
+
+> [!div class="nextstepaction"]
+> [Tutoriel : Activer SSPR (réinitialisation de mot de passe en libre-service)](tutorial-enable-sspr.md)

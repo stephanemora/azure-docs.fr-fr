@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3a801af7b97954510139a009a6d1344b281cf056
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656422"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261803"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Créer une requête simple dans la Recherche cognitive Azure
 
 Dans la Recherche cognitive Azure, la [syntaxe de requête simple](query-simple-syntax.md) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral sur un index. Cet analyseur rapide gère des scénarios courants, notamment la recherche en texte intégral, filtrée et à facettes ainsi que la recherche géographique. 
 
-Dans cet article, nous utilisons des exemples pour illustrer la syntaxe simple.
+Dans cet article, nous utilisons des exemples pour illustrer la syntaxe simple, en renseignant le paramètre `search=` d’une opération [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 L’autre syntaxe de requête disponible est la syntaxe [Lucene complète](query-lucene-syntax.md), qui prend en charge des structures de requête plus complexes comme la recherche approximative et par caractères génériques, dont le traitement peut être plus long. Pour plus d’informations et pour obtenir des exemples illustrant la syntaxe complète, consultez l’article sur l’[utilisation de la syntaxe Lucene complète](search-query-lucene-examples.md).
 
