@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6f7634d16eeaa631f6d9f3c13ce23181ce7b40b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881806"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868718"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Application web appelant des API web : Appeler une API web
 
@@ -26,7 +26,7 @@ Maintenant que vous avez un jeton, vous pouvez appeler une API web protégée.
 
 Voici le code simplifié pour l’action du `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Du code a été ajouté pour montrer comment appeler Microsoft Graph en tant qu’API REST. L’URL de l’API Microsoft Graph est fournie dans le fichier appsettings.json et lue dans une variable nommée `webOptions` :
 
-```JSon
+```json
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",

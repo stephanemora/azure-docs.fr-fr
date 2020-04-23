@@ -1,19 +1,18 @@
 ---
 title: Gestion automatique des appareils à grande échelle Azure IoT Hub (CLI) | Microsoft Docs
 description: Utiliser des configurations automatiques Azure IoT Hub pour gérer plusieurs Modules ou appareils IoT
-author: ChrisGMsft
-manager: bruz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: chrisgre
-ms.openlocfilehash: 748f3e09fd03a6f37954c8dfaf4b6ae9144384bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: robinsh
+ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235596"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024963"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestion automatique des Modules et des appareils IoT avec Azure CLI
 

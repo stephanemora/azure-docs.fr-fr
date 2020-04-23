@@ -1,26 +1,19 @@
 ---
 title: Procédure pas à pas d’exemple d’infrastructure Azure
 description: Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un exemple d’infrastructure dans Azure.
-documentationcenter: ''
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: example-scenario
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab6f304d78357e261c68ebbcfcb3746844edce8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43e96b891e60dfcf8bc3c29b202bb60213905372
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74038561"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869467"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Windows
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
@@ -72,13 +65,13 @@ Adventure Works Cycles a déterminé qu’Azure Disques managés doivent être u
 Un réseau virtuel cloud a été créé avec les paramètres suivants via le portail Azure :
 
 * Nom : AZOS-USE-VN01
-* Localisation : USA Est 2
+* Emplacement : USA Est 2
 * Espace d’adressage du réseau virtuel : 10.0.0.0/8
 * Premier sous-réseau :
-  * Nom : FrontEnd
+  * Nom : FrontEnd
   * Espace d’adressage : 10.0.1.0/24
 * Second sous-réseau :
-  * Nom : BackEnd
+  * Nom : BackEnd
   * Espace d’adressage : 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité

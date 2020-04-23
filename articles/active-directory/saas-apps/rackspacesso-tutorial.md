@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 98a160b361e316c87e61855825c2cc36fdbb06d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093193"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutoriel : Intégration d'Azure Active Directory à Rackspace SSO
 
@@ -187,7 +187,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Configurer le mappage d’attributs dans le panneau de configuration de Rackspace
 
-Rackspace utilise une **stratégie de mappage d’attributs** pour affecter des rôles et des groupes Rackspace à vos utilisateurs avec authentification unique. La **stratégie de mappage d’attributs** traduit les revendications SAML Azure AD en champs de configuration des utilisateurs nécessaires à Rackspace. Vous trouverez plus d’informations dans la [documentation sur les concepts de base du mappage d’attributs](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) de Rackspace. Certaines considérations s’appliquent :
+Rackspace utilise une **stratégie de mappage d’attributs** pour affecter des rôles et des groupes Rackspace à vos utilisateurs avec authentification unique. La **stratégie de mappage d’attributs** traduit les revendications SAML Azure AD en champs de configuration des utilisateurs nécessaires à Rackspace. Vous trouverez plus d’informations dans la [documentation sur les concepts de base du mappage d’attributs](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/) de Rackspace. Certaines considérations s’appliquent :
 
 * Si vous voulez affecter différents niveaux d’accès Rackspace avec des groupes Azure AD, vous devez activer la revendication des groupes dans les paramètres d’authentification unique **Rackspace SSO** d’Azure. La **stratégie de mappage d’attributs** est alors utilisée pour mettre en correspondance ces groupes avec les rôles et les groupes Rackspace souhaités :
 
@@ -226,7 +226,7 @@ mapping:
 > [!TIP]
 > Veillez à utiliser un éditeur de texte qui valide la syntaxe YAML lors de la modification de votre fichier de stratégie.
 
-Pour obtenir plus d’exemples, consultez la [documentation des concepts de base du mappage d’attributs](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) de Rackspace.
+Pour obtenir plus d’exemples, consultez la [documentation des concepts de base du mappage d’attributs](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/) de Rackspace.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

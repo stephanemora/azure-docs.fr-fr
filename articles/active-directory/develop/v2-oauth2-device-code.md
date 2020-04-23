@@ -13,21 +13,18 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9186f633b773a243a84692c30ddc2c2261fb69ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 42f3ca233597d0fbc31ce656bd856875e873e3c2
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309406"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868483"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi d’autorisation d’appareil OAuth 2.0
 
-La plateforme d’identités Microsoft prend en charge l’[octroi d’autorisation d’appareil](https://tools.ietf.org/html/rfc8628), ce qui permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante.  Pour activer ce flux, l’appareil exige que l’utilisateur consulte une page web dans son navigateur sur un autre appareil pour se connecter.  Lorsque l’utilisateur est connecté, l’appareil peut obtenir des jetons d’accès et actualiser les jetons si nécessaire.  
+La plateforme d’identités Microsoft prend en charge l’[octroi d’autorisation d’appareil](https://tools.ietf.org/html/rfc8628), ce qui permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante.  Pour activer ce flux, l’appareil exige que l’utilisateur consulte une page web dans son navigateur sur un autre appareil pour se connecter.  Lorsque l’utilisateur est connecté, l’appareil peut obtenir des jetons d’accès et actualiser les jetons si nécessaire.
 
 Cet article explique comment programmer directement par rapport au protocole dans votre application.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
-
-> [!NOTE]
-> Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
@@ -43,7 +40,7 @@ Le client doit d’abord rechercher sur le serveur d’authentification un appar
 > Essayez d'exécuter cette requête dans Postman !
 > [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
@@ -62,7 +59,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Réponse d’autorisation d’appareil
 
-Une réponse réussie est un objet JSON contenant les informations requises pour autoriser l’utilisateur à se connecter.  
+Une réponse réussie est un objet JSON contenant les informations requises pour autoriser l’utilisateur à se connecter.
 
 | Paramètre | Format | Description |
 | ---              | --- | --- |
@@ -80,11 +77,11 @@ Une réponse réussie est un objet JSON contenant les informations requises pour
 
 Après avoir reçu `user_code` et `verification_uri`, le client les présente aux utilisateurs, en les invitant à se connecter à l’aide de leur téléphone mobile ou navigateur PC.
 
-Si l’utilisateur s’authentifie avec un compte personnel (sur /common ou /consumers), il est invité à se connecter à nouveau pour transférer l’état d’authentification à l’appareil.  Il est également invité à donner son consentement pour s’assurer qu’il connaît les autorisations accordées.  Cela ne s’applique pas aux comptes professionnels ou scolaires utilisés pour l’authentification. 
+Si l’utilisateur s’authentifie avec un compte personnel (sur /common ou /consumers), il est invité à se connecter à nouveau pour transférer l’état d’authentification à l’appareil.  Il est également invité à donner son consentement pour s’assurer qu’il connaît les autorisations accordées.  Cela ne s’applique pas aux comptes professionnels ou scolaires utilisés pour l’authentification.
 
 Tandis que l’utilisateur s’authentifie auprès de `verification_uri`, le client doit interroger le point de terminaison `/token` pour le jeton demandé à l’aide du `device_code`.
 
-``` 
+```HTTP
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -95,21 +92,21 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Paramètre | Obligatoire | Description|
 | -------- | -------- | ---------- |
-| `tenant`  | Obligatoire | Même locataire ou alias de locataire que celui utilisé dans la demande initiale. | 
+| `tenant`  | Obligatoire | Même locataire ou alias de locataire que celui utilisé dans la demande initiale. |
 | `grant_type` | Obligatoire | Doit être `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Obligatoire | Doit correspondre au `client_id` utilisé dans la requête initiale. |
 | `device_code`| Obligatoire | `device_code` retourné dans la requête d’autorisation d’appareil.  |
 
 ### <a name="expected-errors"></a>Erreurs attendues
 
-Étant donné que le flux de code d’appareil est un protocole d’interrogation, votre client doit s’attendre à recevoir des erreurs avant que l’utilisateur ait terminé l’authentification.  
+Étant donné que le flux de code d’appareil est un protocole d’interrogation, votre client doit s’attendre à recevoir des erreurs avant que l’utilisateur ait terminé l’authentification.
 
 | Error | Description | Action du client |
 | ------ | ----------- | -------------|
 | `authorization_pending` | L’utilisateur n’a pas encore terminé l’authentification, mais n’a pas annulé le flux. | Répétez la requête après `interval` secondes minimum. |
 | `authorization_declined` | L’utilisateur final a refusé la requête d’autorisation.| Arrêtez l’interrogation et revenez à un état non authentifié.  |
 | `bad_verification_code`| Le `device_code` envoyé au point de terminaison `/token` n’a pas été reconnu. | Vérifiez que le client envoie le `device_code` approprié dans la requête. |
-| `expired_token` | `expires_in` secondes minimum se sont écoulées, et l’authentification n’est plus possible avec ce `device_code`. | Arrêtez l’interrogation et revenez à un état non authentifié. |   
+| `expired_token` | `expires_in` secondes minimum se sont écoulées, et l’authentification n’est plus possible avec ce `device_code`. | Arrêtez l’interrogation et revenez à un état non authentifié. |
 
 ### <a name="successful-authentication-response"></a>Réponse d’authentification réussie
 
@@ -135,4 +132,4 @@ Une réponse de jeton réussie se présente ainsi :
 | `id_token`   | JWT | Émis si le paramètre `scope` d’origine inclut l’étendue `openid`.  |
 | `refresh_token` | Chaîne opaque | Émise si le paramètre `scope` d’origine inclut `offline_access`.  |
 
-Vous pouvez utiliser le jeton d’actualisation pour acquérir de nouveaux jetons d’accès et actualiser des jetons avec le même flux détaillé décrit dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+Vous pouvez utiliser le jeton d’actualisation pour acquérir de nouveaux jetons d’accès et actualiser des jetons avec le même flux détaillé décrit dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).

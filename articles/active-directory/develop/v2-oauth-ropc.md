@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 828bdab26684b29d664ea42d0b36f475c7872a80
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309461"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868654"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identités Microsoft et informations d’identification du mot de passe du propriétaire de la ressource OAuth 2.0
 
@@ -50,8 +50,8 @@ Le flux ROPC est une demande unique : il envoie l’identification du client et
 > [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
-```
-// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
+```HTTP
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -67,13 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Paramètre | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Locataire de l’annuaire auquel vous voulez connecter l’utilisateur. Peut être au format GUID ou sous forme de nom convivial. Ce paramètre ne peut pas être défini sur `common` ou `consumers`, mais peut être défini sur `organizations`. |
-| `client_id` | Obligatoire | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). | 
+| `client_id` | Obligatoire | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `grant_type` | Obligatoire | Cette propriété doit être définie sur `password`. |
 | `username` | Obligatoire | Adresse e-mail de l’utilisateur. |
 | `password` | Obligatoire | Mot de passe de l’utilisateur. |
 | `scope` | Recommandé | Une liste (séparée par des espaces) d’[étendues](v2-permissions-and-consent.md), ou d’autorisations, exigées par l’application. Dans un flux interactif, l’administrateur ou l’utilisateur doit accepter ces étendues au préalable. |
-| `client_secret`| Parfois obligatoire | Si votre application est un client public, `client_secret` ou `client_assertion` ne peut pas être inclus.  Si l’application est un client confidentiel, le paramètre doit être inclus. | 
-| `client_assertion` | Parfois obligatoire | Forme différente de `client_secret`, générée à l’aide d’un certificat.  Pour plus d’informations, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). | 
+| `client_secret`| Parfois obligatoire | Si votre application est un client public, `client_secret` ou `client_assertion` ne peut pas être inclus.  Si l’application est un client confidentiel, le paramètre doit être inclus. |
+| `client_assertion` | Parfois obligatoire | Forme différente de `client_secret`, générée à l’aide d’un certificat.  Pour plus d’informations, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). |
 
 ### <a name="successful-authentication-response"></a>Réponse d’authentification réussie
 

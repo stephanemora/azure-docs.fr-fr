@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43fbc158c9ed0bbe87a75cd845433c7a7be2e6d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086636"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867909"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Didacticiel : Intégration d’Azure Active Directory à Workstars
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec Workstars, procédez c
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<subdomain>.workstars.com/saml/login_check`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir la valeur, contactez l’[équipe de support technique Workstars](https://support.workstars.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir la valeur, contactez l’[équipe de support technique Workstars](http://support.workstars.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -210,7 +210,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-workstars-test-user"></a>Créer un utilisateur de test Workstars
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Workstars. Collaborez avec l’[équipe du support technique Workstars](https://support.workstars.com) pour ajouter des utilisateurs dans la plate-forme Workstars.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Workstars. Collaborez avec l’[équipe du support technique Workstars](http://support.workstars.com) pour ajouter des utilisateurs dans la plate-forme Workstars.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

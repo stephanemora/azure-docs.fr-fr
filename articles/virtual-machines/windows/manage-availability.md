@@ -1,26 +1,19 @@
 ---
 title: Gérer la disponibilité des machines virtuelles Windows dans Azure
 description: Découvrez comment utiliser plusieurs machines virtuelles afin de garantir la haute disponibilité de votre application Windows dans Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 02351953-7b6a-4657-b9e1-de2ea8f6aa05
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae5d60f77319a6590807ae0b18a0c07c116e128b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 354cd8d291f8ad5c842d33b5ac63b0deb58b7d41
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232073"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870039"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gestion de la disponibilité des machines virtuelles Windows dans Azure 
 

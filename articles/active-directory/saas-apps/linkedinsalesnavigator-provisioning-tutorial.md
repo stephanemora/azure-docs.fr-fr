@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77057377"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869742"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutoriel : Configurer LinkedIn Sales Navigator pour l’approvisionnement automatique d’utilisateurs
 
@@ -99,7 +99,7 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 11. Renseignez les champs suivants sous **Informations d’identification de l’administrateur** :
 
-    * Dans le champ **URL de locataire**, entrez https://api.linkedin.com.
+    * Dans le champ **URL de locataire**, entrez https://developer.linkedin.com.
 
     * Dans le champ **Jeton secret**, entrez le jeton d’accès que vous avez généré à l’étape 1, puis cliquez sur **Tester la connexion**.
 

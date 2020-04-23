@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a81f3ffb7ec190943c50127b129523badf0ef0a7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882979"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868991"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Application démon conçue pour appeler des API web - acquisition d'un jeton
 
@@ -173,7 +173,7 @@ Si vous n’avez pas encore de bibliothèque pour la langue de votre choix, vous
 
 #### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>Premier cas : accéder à la demande de jeton à l’aide d’un secret partagé
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -186,7 +186,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 #### <a name="second-case-access-the-token-request-by-using-a-certificate"></a>Deuxième cas : accéder à la demande de jeton à l’aide d’un certificat
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -215,7 +215,7 @@ Si vous recevez un message d'erreur indiquant que vous avez utilisé une étendu
 Si vous rencontrez l’erreur **Privilèges insuffisants pour effectuer l’opération** lors de l’appel de l’API, cela signifie que l’administrateur client doit accorder des autorisations à l’application. Consultez l'étape 6 de la section Inscrire l'application cliente ci-dessus.
 En général, une erreur similaire à celle-ci s’affiche :
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934148"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025031"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Déployer sur des hôtes dédiés
 
@@ -37,7 +37,7 @@ La propriété `sku` peut présenter l'une des valeurs suivantes :
 ## <a name="modify-your-json-deployment-template"></a>Modifier votre modèle de déploiement JSON
 
 Dans votre modèle de déploiement, modifiez ou ajoutez les propriétés suivantes :
-* Sous `resources`, définissez `apiVersion` sur `2012-12-01`.
+* Sous `resources`, définissez `apiVersion` sur `2019-12-01`.
 * Sous les propriétés du groupe de conteneurs, ajoutez une propriété `sku` avec la valeur `Dedicated`.
 
 Voici un exemple d’extrait de code pour la section Ressources d’un modèle de déploiement pour groupe de conteneurs qui utilise la référence SKU dédiée :
