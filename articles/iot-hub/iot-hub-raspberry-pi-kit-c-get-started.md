@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
-ms.openlocfilehash: 94ac75c4165b11e343ce5c31480a511ebf978a36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67838777"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640545"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connecter Raspberry Pi à Azure IoT Hub (C)
 
@@ -160,7 +160,7 @@ Une fois le BME280 connecté à votre Raspberry Pi, il doit se présenter comme 
 
 ### <a name="connect-pi-to-the-network"></a>Connexion de Pi au réseau
 
-Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. Utilisez le câble Ethernet pour connecter Pi à votre réseau câblé ou suivez les [instructions fournies par la Fondation Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/wifi/) pour connecter Pi à votre réseau sans fil. Une fois que votre Pi est correctement connecté au réseau, vous devez relever son [adresse IP](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
+Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. Utilisez le câble Ethernet pour connecter Pi à votre réseau câblé ou suivez les [instructions fournies par la Fondation Raspberry Pi](https://www.raspberrypi.org/documentation/configuration/wireless/) pour connecter Pi à votre réseau sans fil. Une fois que votre Pi est correctement connecté au réseau, vous devez relever son [adresse IP](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 ![Connecté au réseau câblé](./media/iot-hub-raspberry-pi-kit-c-get-started/5-power-on-pi.png)
 
