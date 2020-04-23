@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80325594eedb87293c31de3236bb4690eb89e05
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278142"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273016"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurer WinRM après la création d’une machine virtuelle
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machine virtuelle Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de machine virtuelle Azure](https://aka.ms/CreateAzureVMoffer) pour gérer vos offres migrées.
 
 Cet article explique comment configurer une machine virtuelle hébergée sur Azure pour activer WinRM sur HTTPS.  Cette configuration s’applique uniquement aux machines virtuelles Windows et requiert le processus en deux étapes suivant :
 
@@ -26,8 +29,8 @@ Cet article explique comment configurer une machine virtuelle hébergée sur Azu
 
 Le protocole WinRM sur HTTPS utilise le port 5986, qui n’est pas activé par défaut sur les machines virtuelles Windows préconfigurées proposées sur la Place de marché Azure. Pour activer ce protocole, procédez comme suit pour ajouter une nouvelle règle au groupe de sécurité réseau (NSG) dans le [portail Azure](https://portal.azure.com).  Pour plus d’informations sur les groupes de sécurité réseau, voir [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Accédez au panneau **Machines virtuelles >**   <*nom de la machine virtuelle*>   **> Paramètres/Mise en réseau**.
-2.  Cliquez sur le nom du groupe de sécurité réseau (dans cet exemple, **testvm11002**) pour afficher ses propriétés :
+1. Accédez au panneau **Machines virtuelles >**   <*nom de la machine virtuelle*>   **> Paramètres/Mise en réseau**.
+2. Cliquez sur le nom du groupe de sécurité réseau (dans cet exemple, **testvm11002**) pour afficher ses propriétés :
 
     ![Propriétés du groupe de sécurité réseau](./media/nsg-properties.png)
  

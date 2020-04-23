@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065941"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010577"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Événements en direct et sorties en direct dans Media Services
 
@@ -111,9 +111,12 @@ Vous pouvez utiliser des URL de redirection ou de non-redirection vers un micros
 
 * URL de redirection vers un microsite
 
-    Le mode de redirection vers un microsite est préféré par les diffuseurs multimédias importants qui utilisent des encodeurs de diffusion matériels et ne veulent pas reconfigurer leurs encodeurs quand ils démarrent l’événement en direct. Ils veulent une URL de réception prédictive, qui ne change pas au fil du temps.
+    Le mode de redirection vers un microsite est préféré par les diffuseurs multimédias importants qui utilisent des encodeurs de diffusion matériels et ne veulent pas reconfigurer leurs encodeurs quand ils démarrent l’événement en direct. Ces diffuseurs veulent une URL de réception prédictive qui ne change pas au fil du temps.
+    
+    > [!NOTE]
+    > Sur le portail Azure, l'URL de redirection vers un microsite est nommée « *URL d'entrée persistante* ».
 
-    Pour spécifier ce mode, définissez `vanityUrl` sur `true` lors de la création (valeur par défaut : `false`). Vous devez également transmettre votre jeton d’accès (`LiveEventInput.accessToken`) lors de la création. Vous spécifiez la valeur du jeton pour éviter qu’un jeton aléatoire soit inséré dans l’URL. Le jeton d’accès doit être une chaîne GUID valide (avec ou sans traits d’union). Une fois défini, le mode ne peut pas être mis à jour.
+    Pour spécifier ce mode dans l'API, définissez `vanityUrl` sur `true` au moment de la création (valeur par défaut : `false`). Vous devez également transmettre votre jeton d’accès (`LiveEventInput.accessToken`) lors de la création. Vous spécifiez la valeur du jeton pour éviter qu’un jeton aléatoire soit inséré dans l’URL. Le jeton d’accès doit être une chaîne GUID valide (avec ou sans traits d’union). Une fois défini, le mode ne peut pas être mis à jour.
 
     Le jeton d’accès doit être unique dans votre centre de données. Si votre application doit utiliser une URL personnelle, il est recommandé de toujours créer une nouvelle instance GUID pour votre jeton d’accès (au lieu de réutiliser un GUID existant).
 

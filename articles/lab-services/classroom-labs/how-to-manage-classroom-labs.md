@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: cc937589b2fc4f394b44cf6890a352d770751d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502024"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257740"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -37,6 +37,8 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     1. Spécifiez un **nom** pour votre laboratoire. 
     2. Sélectionnez la **taille des machines virtuelles**  dont vous avez besoin pour la classe. Pour obtenir la liste des tailles disponibles, consultez la section [Tailles de machine virtuelle](#vm-sizes). 
     3. Sélectionnez **l’image de machine virtuelle** que vous souhaitez utiliser pour le laboratoire de classe. Si vous sélectionnez une image Linux, vous voyez une option pour activer la connexion Bureau à distance pour celle-ci. Pour plus d’informations, consultez [Activer la connexion Bureau à distance pour Linux](how-to-enable-remote-desktop-linux.md).
+
+        Si vous vous êtes connecté avec les informations d’identification du propriétaire du compte Lab, vous verrez une option permettant d’activer d’autres images pour le lab. Pour plus d’informations, consultez [Activer des images au moment de la création d’un lab](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     4. Vérifiez le **tarif horaire total** affiché sur la page. 
     6. Sélectionnez **Enregistrer**.
 

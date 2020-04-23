@@ -4,12 +4,12 @@ description: Surveiller des topologies d’applications complexes avec la mise e
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666273"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80989525"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -85,7 +85,7 @@ Pour visualiser les alertes actives et les règles sous-jacentes qui entraînent
 
 La cartographie d’application utilise la propriété **nom du rôle cloud** pour identifier les composants sur la carte. Le SDK Application Insights ajoute automatiquement la propriété nom du rôle cloud aux données de télémétrie émises par les composants. Par exemple, le kit de développement logiciel (SDK) ajoute un nom de site web ou un nom de rôle de service à la propriété nom du rôle cloud. Toutefois, vous pouvez être amené à remplacer la valeur par défaut. Pour remplacer nom du rôle cloud et modifier ce qui s’affiche sur la cartographie d’application :
 
-### <a name="netnet-core"></a>.NET/.NET Core
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 **Écrire un initialiseur TelemetryInitializer personnalisé comme ci-dessous.**
 
@@ -153,7 +153,44 @@ Pour les applications [ASP.NET Core](asp-net-core.md#adding-telemetryinitializer
 }
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="java"></a>[Java](#tab/java)
+
+**Agent Java**
+
+Pour [l’agent Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) le nom du rôle cloud est défini comme suit :
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "roleName": "my cloud role name"
+    }
+  }
+}
+```
+
+Vous pouvez également définir le nom de rôle cloud à l'aide de la variable d’environnement ```APPLICATIONINSIGHTS_ROLE_NAME```.
+
+**Kit SDK Java**
+
+Si vous utilisez le kit de développement logiciel (SDK) Java Application Insights 2.5.0, vous pouvez spécifier le nom du rôle cloud en ajoutant `<RoleName>` à votre fichier `ApplicationInsights.xml` :
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
+Si vous utilisez Spring Boot avec le starter SpringBoot Application Insights, le seul changement nécessaire consiste à définir votre nom personnalisé pour l’application dans le fichier application.properties.
+
+`spring.application.name=<name-of-app>`
+
+Le starter SpringBoot attribue automatiquement nom du rôle cloud à la valeur que vous entrez pour la propriété spring.application.name.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,26 +211,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>Java
-
-À partir du kit SDK Java Application Insights 2.5.0, vous pouvez spécifier le nom du rôle cloud en ajoutant `<RoleName>` à votre fichier `ApplicationInsights.xml` :
-
-```XML
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-   <RoleName>** Your role name **</RoleName>
-   ...
-</ApplicationInsights>
-```
-
-Si vous utilisez Spring Boot avec le starter SpringBoot Application Insights, le seul changement nécessaire consiste à définir votre nom personnalisé pour l’application dans le fichier application.properties.
-
-`spring.application.name=<name-of-app>`
-
-Le starter SpringBoot attribue automatiquement nom du rôle cloud à la valeur que vous entrez pour la propriété spring.application.name.
-
-### <a name="clientbrowser-side-javascript"></a>JavaScript côté client/navigateur
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 appInsights.queue.push(() => {
@@ -203,6 +221,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+---
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Comprendre le nom du rôle cloud dans le contexte de la cartographie d'application
 

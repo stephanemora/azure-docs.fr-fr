@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668143"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261072"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertes de métrique avec seuils dynamiques dans Azure Monitor
 
@@ -93,7 +93,8 @@ Quand une règle d’alerte est créée pour la première fois, les seuils qui a
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quelle est la quantité de données requises pour déclencher une alerte ?
 
-En présence d’une nouvelle ressource ou si des données métriques sont manquantes, les seuils dynamiques ne déclenchent pas d’alertes avant que 3 jours ou 30 échantillons de données métriques soient disponibles et ce, afin de proposer des seuils précis.
+En présence d’une nouvelle ressource ou si des données métriques sont manquantes, les seuils dynamiques ne déclenchent pas d’alertes avant trois jours ou avant qu’au moins 30 échantillons de données métriques soient disponibles et ce, afin de proposer des seuils précis.
+Pour les ressources existantes avec des données métriques suffisantes, les seuils dynamiques peuvent déclencher immédiatement des alertes.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Bonnes pratiques concernant les seuils dynamiques
 

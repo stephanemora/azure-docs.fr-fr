@@ -1,18 +1,18 @@
 ---
 title: Utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 description: 'Cet article présente les concepts suivants : procédures stockées, des déclencheurs et fonctions définies par l’utilisateur dans Azure Cosmos DB.'
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 04/09/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065893"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010543"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -90,7 +90,7 @@ Comme pour les prédéclencheurs, les post-déclencheurs sont également associ�
 
 ## <a name="user-defined-functions"></a><a id="udfs"></a>Fonctions définies par l’utilisateur
 
-Les fonctions définies par l'utilisateur permettent d'étendre la syntaxe du langage de requête API SQL et de mettre en œuvre facilement une logique métier personnalisée. Elles ne peuvent être appelées que dans les requêtes. Les fonctions définies par l’utilisateur n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires. Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des fonctions définies par l’utilisateur](how-to-write-stored-procedures-triggers-udfs.md#udfs).
+[Les fonctions définies par l'utilisateur](sql-query-udfs.md) permettent d'étendre la syntaxe du langage de requête API SQL et de mettre en œuvre facilement une logique métier personnalisée. Elles ne peuvent être appelées que dans les requêtes. Les fonctions définies par l’utilisateur n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires. Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des fonctions définies par l’utilisateur](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
 ## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>API de requête intégrée au langage JavaScript
 

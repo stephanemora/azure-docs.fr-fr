@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235549"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010305"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -117,10 +117,10 @@ Vous pouvez configurer les paramètres suivants dans le panneau **Paramètres av
 * [Notifications de Keyspace (paramètres avancés)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Ports d’accès
-Par défaut, l’accès non SSL est désactivé pour les nouveaux caches. Pour activer le port non SSL, cliquez sur **Non** pour **Autoriser l’accès uniquement via SSL** dans le **panneau Paramètres avancés**, puis cliquez sur **Enregistrer**.
+Par défaut, l’accès non TLS/SSL est désactivé pour les nouveaux caches. Pour activer le port non TLS, cliquez sur **Non** pour **Autoriser l’accès uniquement via SSL** dans le **panneau Paramètres avancés**, puis cliquez sur **Enregistrer**.
 
 > [!NOTE]
-> L’accès SSL à Azure Cache for Redis prend en charge TLS 1.0, 1.1 et 1.2. Toutefois, les versions 1.0 et 1.1 vont bientôt être mises hors service.  Pour plus d’informations, lisez [Supprimer TLS 1.0 et 1.1](cache-remove-tls-10-11.md).
+> L’accès TLS à Azure Cache pour Redis prend en charge TLS 1.0, 1.1 et 1.2. Toutefois, les versions 1.0 et 1.1 vont bientôt être mises hors service.  Pour plus d’informations, lisez [Supprimer TLS 1.0 et 1.1](cache-remove-tls-10-11.md).
 
 ![Ports d’accès du cache Azure pour Redis](./media/cache-configure/redis-cache-access-ports.png)
 

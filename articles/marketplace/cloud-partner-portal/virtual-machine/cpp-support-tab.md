@@ -7,16 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: e8143f33aacbc68653d19ffb72e88af447f8cc40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2734bc0868584f9d02147abb953458bbcdec205e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288850"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273101"
 ---
 # <a name="virtual-machine-support-tab"></a>Onglet Support de machine virtuelle
 
-Dans l’onglet **Support** de la page **Nouvelle offre**, vous pouvez indiquer les ressources de support utilisateur et technique associées à votre offre.  L’onglet est divisé en trois zones : **Ingénierie**, **Support technique**, et **URL du support technique**.
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machine virtuelle Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de machine virtuelle Azure](https://aka.ms/CreateAzureVMoffer) pour gérer vos offres migrées.
+
+Dans l’onglet **Support** de la page **Nouvelle offre**, vous pouvez indiquer les ressources de support utilisateur et technique associées à votre offre.  Celui-ci est divisé en trois zones : **Ingénierie**, **Service clientèle** et **URL du support**.
 
 ![Onglet Support du formulaire Nouvelle offre pour les machines virtuelles](./media/publishvm_012.png)
 

@@ -1,179 +1,279 @@
 ---
-title: Étiqueter les ressources pour l’organisation logique
+title: Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique
 description: Indique comment appliquer des étiquettes afin d'organiser des ressources Azure dédiées à la facturation et à la gestion.
 ms.topic: conceptual
-ms.date: 01/03/2020
-ms.openlocfilehash: c7f8d8672e205fa677bff33c8ed173c1105b26c6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 04/10/2020
+ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357343"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255122"
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Organisation des ressources Azure à l'aide d'étiquettes
+# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
-Vous allez appliquer des balises à vos ressources Azure pour les organiser de façon logique dans une taxonomie. Chaque balise se compose d’une paire nom-valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
+Vous allez appliquer des étiquettes à vos ressources Azure, groupes de ressources et abonnements pour les organiser de façon logique dans une taxonomie. Chaque balise se compose d’une paire nom-valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
 
-Une fois que vous avez appliqué une balise, vous pouvez utiliser son nom et sa valeur pour récupérer toutes les ressources dans votre abonnement. Les balises vous permettent de récupérer les ressources associées de groupes de ressources différents. Cette approche est utile lorsque vous devez organiser les ressources à des fins de facturation ou de gestion.
+Pour obtenir des recommandations sur la façon d’implémenter une stratégie d’étiquetage, consultez [Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
-Votre taxonomie doit prendre en compte une stratégie de balisage des métadonnées en libre-service en plus d’une stratégie de balisage automatique pour réduire la charge pesant sur les utilisateurs et augmenter la précision.
+> [!IMPORTANT]
+> Les noms des étiquettes ne respectent pas la casse. Les valeurs des étiquettes respectent la casse.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="limitations"></a>Limites
-
-Les limites suivantes s’appliquent aux balises :
-
-* Les types de ressources ne prennent pas tous en charge les étiquettes. Pour déterminer si vous pouvez appliquer une étiquette à un type de ressource, consultez [Prise en charge des étiquettes pour les ressources Azure](tag-support.md).
-* Chaque ressource ou groupe de ressources peut inclure un maximum de 50 paires nom/valeur de balise. Si vous devez appliquer plus de balises que le nombre maximal autorisé, utilisez une chaîne JSON comme valeur de balise. La chaîne JSON peut contenir plusieurs valeurs appliquées à un seul nom de balise. Un groupe de ressources peut contenir de nombreuses ressources qui ont chacune 50 paires nom/valeur de balise.
-* Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères. Pour les comptes de stockage, le nom de balise est limité à 128 caractères, et la valeur de balise à 256 caractères.
-* Les machines virtuelles généralisées ne prennent pas en charge les balises.
-* Les ressources d’un groupe de ressources n’héritent pas des balises appliquées à ce groupe de ressources.
-* Les balises ne peuvent pas être appliquées à des ressources classiques comme les Services cloud.
-* Les noms de balise ne peuvent pas contenir ces caractères : `<`, `>`, `%`, `&`, `\`, `?`, `/`
-
-   > [!NOTE]
-   > Actuellement les zones Azure DNS et les services Traffic Manager n’autorisent pas non plus l’utilisation des espaces dans la balise. 
-
 ## <a name="required-access"></a>Accès requis
 
-Pour appliquer des étiquettes à des ressources, l'utilisateur doit disposer de l'accès en écriture pour ce type de ressource. Pour appliquer des étiquettes à tous les types de ressources, utilisez le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor). Pour appliquer des étiquettes à un seul type de ressource, utilisez le rôle Contributeur correspondant à cette ressource. Par exemple, pour appliquer des étiquettes aux machines virtuelles, utilisez le rôle [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Pour appliquer des étiquettes à une ressource, vous devez disposer d’un accès en écriture au type de ressource **Microsoft.Resources/tags**. Le rôle [Contributeur d’étiquette](../../role-based-access-control/built-in-roles.md#tag-contributor) vous permet d’appliquer des étiquettes à une entité sans avoir accès à l’entité elle-même. Actuellement, le rôle Contributeur d’étiquette ne peut pas appliquer d’étiquettes aux ressources ou groupes de ressources via le portail. Il peut appliquer des étiquettes aux abonnements via le portail. Il prend en charge toutes les opérations d’étiquettes via PowerShell et l’API REST.  
 
-## <a name="policies"></a>Stratégies
-
-Vous pouvez utiliser [Azure Policy](../../governance/policy/overview.md) pour appliquer des règles et des conventions d'étiquetage. En créant une stratégie, vous éviterez que des ressources non conformes aux étiquettes attendues par votre organisation soient déployées dans le cadre de votre abonnement. Au lieu d'appliquer des étiquettes ou de rechercher des ressources non conformes manuellement, vous pouvez créer une stratégie qui appliquera automatiquement les étiquettes nécessaires pendant le déploiement. Les étiquettes peuvent également être appliquées aux ressources existantes avec le nouvel effet [Modifier](../../governance/policy/concepts/effects.md#modify) et une [tâche de correction](../../governance/policy/how-to/remediate-resources.md). La section suivante présente des exemples de stratégies pour les étiquettes.
-
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
+Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) accorde également l’accès requis pour appliquer des étiquettes à n’importe quelle entité. Pour appliquer des étiquettes à un seul type de ressource, utilisez le rôle Contributeur correspondant à cette ressource. Par exemple, pour appliquer des étiquettes aux machines virtuelles, utilisez le rôle [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
-Pour afficher les étiquettes existantes d'un *groupe de ressources*, utilisez :
+### <a name="apply-tags"></a>Appliquer des étiquettes
+
+Azure PowerShell propose deux commandes pour appliquer des étiquettes : [New-AzTag](/powershell/module/az.resources/new-aztag) et [Update-AzTag](/powershell/module/az.resources/update-aztag). Vous devez disposer du module Az.Resources 1.12.0 ou version ultérieure. Vous pouvez vérifier votre version avec `Get-Module Az.Resources`. Vous pouvez installer ce module ou [installer Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou version ultérieure.
+
+**New-AzTag** remplace toutes les étiquettes de la ressource, du groupe de ressources ou de l’abonnement. Lors de l’appel de la commande, transmettez l’ID de ressource de l’entité que vous souhaitez étiquetter.
+
+L’exemple suivant applique un ensemble d’étiquettes à un compte de stockage :
 
 ```azurepowershell-interactive
-(Get-AzResourceGroup -Name examplegroup).Tags
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+$resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
+New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-Le script retourne les informations au format suivant :
+Une fois la commande terminée, notez que la ressource a deux étiquettes.
 
-```powershell
-Name                           Value
-----                           -----
-Dept                           IT
-Environment                    Test
+```output
+Properties :
+        Name    Value
+        ======  =======
+        Dept    Finance
+        Status  Normal
 ```
 
-Pour afficher les étiquettes existantes d’une *ressource dont le nom et le groupe de ressources sont spécifiés*, utilisez :
+Si vous réexécutez la commande, mais cette fois avec des étiquettes différentes, vous remarquerez que les étiquettes précédentes sont supprimées.
 
 ```azurepowershell-interactive
-(Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$tags = @{"Team"="Compliance"; "Environment"="Production"}
+New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-Ou, si vous avez l’ID d’une ressource, vous pouvez transmettre cet ID de ressource pour obtenir les étiquettes.
-
-```azurepowershell-interactive
-(Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
+```output
+Properties :
+        Name         Value
+        ===========  ==========
+        Environment  Production
+        Team         Compliance
 ```
 
-Pour obtenir *des groupes de ressources qui ont un nom et une valeur d’étiquette spécifiques*, utilisez :
+Pour ajouter des étiquettes à une ressource qui a déjà des étiquettes, utilisez **Update-AzTag**. Définissez le paramètre **-Operation** sur **Fusion**.
 
 ```azurepowershell-interactive
-(Get-AzResourceGroup -Tag @{ "Dept"="Finance" }).ResourceGroupName
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
-Pour obtenir *des ressources qui ont un nom et une valeur d’étiquette spécifiques*, utilisez :
+Notez que les deux nouvelles étiquettes ont été ajoutées aux deux étiquettes existantes.
 
-```azurepowershell-interactive
-(Get-AzResource -Tag @{ "Dept"="Finance"}).Name
+```output
+Properties :
+        Name         Value
+        ===========  ==========
+        Status       Normal
+        Dept         Finance
+        Team         Compliance
+        Environment  Production
 ```
 
-Pour obtenir *les ressources contenant un nom d'étiquette spécifique*, utilisez :
+Chaque nom d’étiquette ne peut avoir qu’une seule valeur. Si vous fournissez une nouvelle valeur pour une étiquette, l’ancienne valeur est remplacée même si vous utilisez l’opération de fusion. L’exemple suivant modifie l’étiquette d’état normal en vert.
 
 ```azurepowershell-interactive
-(Get-AzResource -TagName "Dept").Name
+$tags = @{"Status"="Green"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
-Chaque fois que vous appliquez des étiquettes à une ressource ou à un groupe de ressources, vous remplacez les étiquettes existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources comporte ou non des étiquettes existantes.
-
-Pour ajouter des étiquettes à un *groupe de ressources sans étiquettes existantes*, utilisez :
-
-```azurepowershell-interactive
-Set-AzResourceGroup -Name examplegroup -Tag @{ "Dept"="IT"; "Environment"="Test" }
+```output
+Properties :
+        Name         Value
+        ===========  ==========
+        Status       Green
+        Dept         Finance
+        Team         Compliance
+        Environment  Production
 ```
 
-Pour ajouter des étiquettes à un *groupe de ressources avec des étiquettes existantes*, récupérez les étiquettes existantes, ajoutez la nouvelle étiquette et réappliquez les étiquettes :
+Lorsque vous définissez le paramètre **-Operation** sur **Remplacer**, les étiquettes existantes sont remplacées par le nouvel ensemble d’étiquettes.
 
 ```azurepowershell-interactive
-$tags = (Get-AzResourceGroup -Name examplegroup).Tags
-$tags.Add("Status", "Approved")
-Set-AzResourceGroup -Tag $tags -Name examplegroup
+$tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Replace
 ```
 
-Pour ajouter des étiquettes à une *ressource sans étiquettes existantes*, utilisez :
+Seules les nouvelles étiquettes restent sur la ressource.
+
+```output
+Properties :
+        Name        Value
+        ==========  =========
+        CostCenter  00123
+        Team        Web
+        Project     ECommerce
+```
+
+Les mêmes commandes fonctionnent également avec les groupes de ressources ou les abonnements. Vous transmettez l’identificateur pour le groupe de ressources ou l’abonnement que vous souhaitez baliser.
+
+Pour ajouter un nouvel ensemble d’étiquettes à un groupe de ressources, utilisez :
 
 ```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
-Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $resource.ResourceId -Force
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
+New-AzTag -ResourceId $resourceGroup.ResourceId -tag $tags
+```
+
+Pour mettre à jour les étiquettes d’un groupe de ressources, utilisez :
+
+```azurepowershell-interactive
+$tags = @{"CostCenter"="00123"; "Environment"="Production"}
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
+Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $tags -Operation Merge
+```
+
+Pour ajouter un nouvel ensemble d’étiquettes à un abonnement, utilisez :
+
+```azurepowershell-interactive
+$tags = @{"CostCenter"="00123"; "Environment"="Dev"}
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+New-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags
+```
+
+Pour mettre à jour les étiquettes d’un abonnement, utilisez :
+
+```azurepowershell-interactive
+$tags = @{"Team"="Web Apps"}
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Update-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags -Operation Merge
 ```
 
 Vous pouvez avoir plusieurs ressources portant le même nom dans un groupe de ressources. Dans ce cas, vous pouvez définir chaque ressource à l’aide des commandes suivantes :
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
-$resource | ForEach-Object { Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Force }
+$resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Operation Merge }
 ```
 
-Pour ajouter des étiquettes à une *ressource avec des étiquettes existantes*, utilisez :
+### <a name="list-tags"></a>Répertorier les balises
+
+Pour obtenir les étiquettes d’une ressource, d’un groupe de ressources ou d’un abonnement, utilisez la commande [Get-AzTag](/powershell/module/az.resources/get-aztag) et transmettez l’ID de ressource de l’entité.
+
+Pour afficher les étiquettes d’une ressource, utilisez :
 
 ```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$resource.Tags.Add("Status", "Approved")
-Set-AzResource -Tag $resource.Tags -ResourceId $resource.ResourceId -Force
+$resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
+Get-AzTag -ResourceId $resource.id
 ```
 
-Pour appliquer toutes les étiquettes d’un groupe de ressources à ses ressources *sans conserver les étiquettes existantes*, utilisez le script suivant :
+Pour voir les étiquettes d’un groupe de ressources, utilisez :
 
 ```azurepowershell-interactive
-$group = Get-AzResourceGroup -Name examplegroup
-Get-AzResource -ResourceGroupName $group.ResourceGroupName | ForEach-Object {Set-AzResource -ResourceId $_.ResourceId -Tag $group.Tags -Force }
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
+Get-AzTag -ResourceId $resourceGroup.ResourceId
 ```
 
-Pour appliquer toutes les étiquettes d’un groupe de ressources à ses ressources et *conserver les étiquettes existantes sur les ressources qui ne sont pas des doublons*, utilisez le script suivant :
+Pour afficher les étiquettes d’un abonnement, utilisez :
 
 ```azurepowershell-interactive
-$group = Get-AzResourceGroup -Name examplegroup
-if ($null -ne $group.Tags) {
-    $resources = Get-AzResource -ResourceGroupName $group.ResourceGroupName
-    foreach ($r in $resources)
-    {
-        $resourcetags = (Get-AzResource -ResourceId $r.ResourceId).Tags
-        if ($resourcetags)
-        {
-            foreach ($key in $group.Tags.Keys)
-            {
-                if (-not($resourcetags.ContainsKey($key)))
-                {
-                    $resourcetags.Add($key, $group.Tags[$key])
-                }
-            }
-            Set-AzResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
-        }
-        else
-        {
-            Set-AzResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
-        }
-    }
-}
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Get-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
-Pour supprimer toutes les étiquettes, utilisez une table de hachage vide :
+### <a name="list-by-tag"></a>Liste par étiquette
+
+Pour obtenir des ressources qui ont un nom et une valeur d’étiquette spécifiques, utilisez :
 
 ```azurepowershell-interactive
-Set-AzResourceGroup -Tag @{} -Name examplegroup
+(Get-AzResource -Tag @{ "CostCenter"="00123"}).Name
+```
+
+Pour obtenir des ressources qui ont un nom et une valeur d’étiquette spécifiques avec une valeur d’étiquette, utilisez :
+
+```azurepowershell-interactive
+(Get-AzResource -TagName "Dept").Name
+```
+
+Pour obtenir des groupes de ressources qui ont un nom et une valeur d’étiquette spécifiques, utilisez :
+
+```azurepowershell-interactive
+(Get-AzResourceGroup -Tag @{ "CostCenter"="00123" }).ResourceGroupName
+```
+
+### <a name="remove-tags"></a>Supprimer des étiquettes
+
+Pour supprimer des étiquette spécifiques, utilisez **Update-AzTag** et définissez **-Operation** sur **supprimer**. Transmettez les étiquettes que vous souhaitez supprimer.
+
+```azurepowershell-interactive
+$removeTags = @{"Project"="ECommerce"; "Team"="Web"}
+Update-AzTag -ResourceId $resource.id -Tag $removeTags -Operation Delete
+```
+
+Les étiquettes spécifiées sont supprimées.
+
+```output
+Properties :
+        Name        Value
+        ==========  =====
+        CostCenter  00123
+```
+
+Pour supprimer toutes les étiquettes, utilisez la commande [Remove-AzTag](/powershell/module/az.resources/remove-aztag).
+
+```azurepowershell-interactive
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Remove-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Pour afficher les étiquettes existantes d'un *groupe de ressources*, utilisez :
+### <a name="apply-tags"></a>Appliquer des étiquettes
+
+Lors de l’ajout d’étiquettes à un groupe de ressources ou à une ressource, vous pouvez remplacer les étiquettes existantes ou ajouter de nouvelles étiquettes à des étiquettes existantes.
+
+Pour remplacer les étiquettes d’une ressource, utilisez :
+
+```azurecli-interactive
+az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+Pour ajouter une étiquette aux étiquettes existantes d’une ressource, utilisez :
+
+```azurecli-interactive
+az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+Pour remplacer les étiquettes existantes dans un groupe de ressources, utilisez :
+
+```azurecli-interactive
+az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+```
+
+Pour ajouter une étiquette aux étiquettes existantes dans un groupe de ressources, utilisez :
+
+```azurecli-interactive
+az group update -n examplegroup --set tags.'Status'='Approved'
+```
+
+Actuellement, Azure CLI ne prend pas en charge l’application d’étiquettes aux abonnements.
+
+### <a name="list-tags"></a>Répertorier les balises
+
+Pour afficher les étiquettes existantes d'une ressource, utilisez :
+
+```azurecli-interactive
+az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+```
+
+Pour afficher les étiquettes existantes d'un groupe de ressources, utilisez :
 
 ```azurecli-interactive
 az group show -n examplegroup --query tags
@@ -188,16 +288,12 @@ Le script retourne les informations au format suivant :
 }
 ```
 
-Alternativement, pour afficher les étiquettes existantes d'une *ressource dont le nom, le type et le groupe sont spécifiés*, utilisez :
+### <a name="list-by-tag"></a>Liste par étiquette
+
+Pour obtenir toutes les ressources contenant une étiquette et une valeur spécifiques, utilisez `az resource list` :
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
-```
-
-Durant un bouclage sur une collection de ressources, vous préférez peut-être afficher la ressource par ID de ressource. Un exemple complet est présenté plus loin dans cet article. Pour afficher les étiquettes existantes d'une *ressource dont l'ID de ressource est spécifié*, utilisez :
-
-```azurecli-interactive
-az resource show --id <resource-id> --query tags
+az resource list --tag Dept=Finance
 ```
 
 Pour obtenir des groupes de ressources contenant une étiquette spécifique, utilisez `az group list` :
@@ -206,64 +302,7 @@ Pour obtenir des groupes de ressources contenant une étiquette spécifique, uti
 az group list --tag Dept=IT
 ```
 
-Pour obtenir toutes les ressources contenant une étiquette et une valeur spécifiques, utilisez `az resource list` :
-
-```azurecli-interactive
-az resource list --tag Dept=Finance
-```
-
-Lors de l’ajout d’étiquettes à un groupe de ressources ou à une ressource, vous pouvez remplacer les étiquettes existantes ou ajouter de nouvelles étiquettes à des étiquettes existantes.
-
-Pour remplacer les étiquettes existantes dans un groupe de ressources, utilisez :
-
-```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
-```
-
-Pour ajouter une étiquette aux étiquettes existantes dans un groupe de ressources, utilisez :
-
-```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
-```
-
-Pour remplacer les étiquettes d’une ressource, utilisez :
-
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Pour ajouter une étiquette aux étiquettes existantes d’une ressource, utilisez :
-
-```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Pour appliquer toutes les étiquettes d’un groupe de ressources à ses ressources *sans conserver les étiquettes existantes*, utilisez le script suivant :
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '"{},' | sed 's/: /=/g')
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags $tags --id $id
-done
-```
-
-Pour appliquer toutes les étiquettes d’un groupe de ressources à ses ressources et *conserver les étiquettes existantes*, utilisez le script suivant :
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '"{},' | sed 's/: /=/g')
-
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  resourcejsontags=$(az resource show --id $id --query tags -o json)
-  resourcetags=$(echo $resourcejsontags | tr -d '"{},' | sed 's/: /=/g')
-  az resource tag --tags $tags$resourcetags --id $id
-done
-```
+### <a name="handling-spaces"></a>Gestion des espaces
 
 Si les noms ou les valeurs de vos étiquettes incluent des espaces, vous devez effectuer quelques étapes supplémentaires. L’exemple suivant applique toutes les étiquettes d’un groupe de ressources à ses ressources quand les étiquettes peuvent contenir des espaces.
 
@@ -283,17 +322,21 @@ IFS=$origIFS
 
 ## <a name="templates"></a>Modèles
 
-Pour marquer une ressource au cours du déploiement, ajoutez l’élément `tags` à la ressource que vous déployez. Indiquez le nom et la valeur de la balise.
+Vous pouvez baliser les ressources, les groupes de ressources et les abonnements pendant le déploiement avec un modèle Resource Manager.
 
-### <a name="apply-a-literal-value-to-the-tag-name"></a>Appliquer une valeur littérale au nom de balise
+### <a name="apply-values"></a>Appliquer les valeurs
 
-L’exemple suivant illustre un compte de stockage avec deux balises (`Dept` et `Environment`) définies sur des valeurs littérales :
+L’exemple suivant déploie un compte de stockage avec trois étiquettes. Deux des étiquettes (`Dept` et `Environment`) sont définies sur des valeurs littérales. Une étiquette (`LastDeployed`) a pour valeur un paramètre dont la valeur par défaut est la date actuelle.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "utcShort": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
         "location": {
             "type": "string",
             "defaultValue": "[resourceGroup().location]"
@@ -307,7 +350,8 @@ L’exemple suivant illustre un compte de stockage avec deux balises (`Dept` et 
             "location": "[parameters('location')]",
             "tags": {
                 "Dept": "Finance",
-                "Environment": "Production"
+                "Environment": "Production",
+                "LastDeployed": "[parameters('utcShort')]"
             },
             "sku": {
                 "name": "Standard_LRS"
@@ -319,11 +363,9 @@ L’exemple suivant illustre un compte de stockage avec deux balises (`Dept` et 
 }
 ```
 
-Pour définir une balise sur une valeur datetime, utilisez la [fonction utcNow](../templates/template-functions-string.md#utcnow).
+### <a name="apply-an-object"></a>Appliquer un objet
 
-### <a name="apply-an-object-to-the-tag-element"></a>Appliquer un objet à l’élément de balise
-
-Vous pouvez définir un paramètre d’objet qui stocke plusieurs balises et appliquer cet objet à l’élément de balise. Chaque propriété de l’objet devient une balise distincte pour la ressource. L’exemple suivant illustre un paramètre nommé `tagValues` appliqué à l’élément de balise.
+Vous pouvez définir un paramètre d’objet qui stocke plusieurs balises et appliquer cet objet à l’élément de balise. Cette approche offre plus de souplesse que l’exemple précédent, car l’objet peut avoir des propriétés différentes. Chaque propriété de l’objet devient une balise distincte pour la ressource. L’exemple suivant illustre un paramètre nommé `tagValues` appliqué à l’élément de balise.
 
 ```json
 {
@@ -359,7 +401,7 @@ Vous pouvez définir un paramètre d’objet qui stocke plusieurs balises et app
 }
 ```
 
-### <a name="apply-a-json-string-to-the-tag-name"></a>Appliquer une chaîne JSON au nom de balise
+### <a name="apply-a-json-string"></a>Analyser une chaîne JSON
 
 Pour stocker plusieurs valeurs dans une seule balise, appliquez une chaîne JSON qui représente les valeurs. La chaîne JSON complète est stockée sous la forme d’une balise ne pouvant pas dépasser 256 caractères. L’exemple illustre une balise unique nommée `CostCenter` qui contient plusieurs valeurs d’une chaîne JSON :  
 
@@ -426,13 +468,107 @@ Pour appliquer des balises d’un groupe de ressources à une ressource, utilise
 }
 ```
 
+### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Appliquer des étiquettes à des groupes de ressources ou à des abonnements
+
+Vous pouvez ajouter des étiquettes à un groupe de ressources ou à un abonnement en déployant le type de ressource **Microsoft.Resources/tags**. Les étiquettes sont appliquées au groupe de ressources cible ou à l’abonnement pour le déploiement. Chaque fois que vous déployez le modèle, vous remplacez les étiquettes précédemment appliquées.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "tagName": {
+            "type": "string",
+            "defaultValue": "TeamName"
+        },
+        "tagValue": {
+            "type": "string",
+            "defaultValue": "AppTeam1"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/tags",
+            "name": "default",
+            "apiVersion": "2019-10-01",
+            "dependsOn": [],
+            "properties": {
+                "tags": {
+                    "[parameters('tagName')]": "[parameters('tagValue')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+Pour appliquer les étiquettes à un groupe de ressources, utilisez PowerShell ou Azure CLI. Déployez sur le groupe de ressources que vous souhaitez baliser.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+```azurecli-interactive
+az deployment group create --resource-group exampleGroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+Pour appliquer les étiquettes à un abonnement, utilisez PowerShell ou Azure CLI. Déployez sur l’abonnement que vous souhaitez baliser.
+
+```azurepowershell-interactive
+New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+```azurecli-interactive
+az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+Le modèle suivant ajoute les étiquettes depuis un objet vers un groupe de ressources ou un abonnement.
+
+```json
+"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "tags": {
+            "type": "object",
+            "defaultValue": {
+                "TeamName": "AppTeam1",
+                "Dept": "Finance",
+                "Environment": "Production"
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/tags",
+            "name": "default",
+            "apiVersion": "2019-10-01",
+            "dependsOn": [],
+            "properties": {
+                "tags": "[parameters('tags')]"
+            }
+        }
+    ]
+}
+```
+
 ## <a name="portal"></a>Portail
 
 [!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="rest-api"></a>API REST
 
-Le portail Azure et PowerShell utilisent tous deux [l’API REST de Resource Manager](/rest/api/resources/) en arrière-plan. Si vous avez besoin d'intégrer l'étiquetage dans un autre environnement, vous pouvez récupérer des étiquettes en utilisant **GET** sur l'ID de ressource et mettre à jour le jeu d'étiquettes en utilisant un appel **PATCH**.
+Pour travailler avec des étiquettes par le biais de l’API REST Azure, utilisez :
+
+* [Étiquettes - Créer ou mettre à jour au niveau de l’étendue](/rest/api/resources/tags/createorupdateatscope) (opération PUT)
+* [Balises - Mettre à jour au niveau de l’étendue](/rest/api/resources/tags/updateatscope) (opération PATCH)
+* [Étiquettes - Obtenir au niveau de l’étendue](/rest/api/resources/tags/getatscope) (opération GET)
+* [Étiquettes - Supprimer au niveau de l’étendue](/rest/api/resources/tags/deleteatscope) (opération DELETE)
+
+## <a name="inherit-tags"></a>Hériter des étiquettes
+
+Les balises appliquées au groupe de ressources ou à l’abonnement ne sont pas héritées par les ressources. Pour appliquer des balises d’un abonnement ou d’un groupe de ressources aux ressources, consultez [Stratégies Azure - Étiquettes](tag-policies.md).
 
 ## <a name="tags-and-billing"></a>Étiquettes et facturation
 
@@ -442,7 +578,22 @@ Vous pouvez récupérer des informations sur les étiquettes par le biais des [A
 
 Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](/rest/api/billing/).
 
+## <a name="limitations"></a>Limites
+
+Les limites suivantes s’appliquent aux balises :
+
+* Les types de ressources ne prennent pas tous en charge les étiquettes. Pour déterminer si vous pouvez appliquer une étiquette à un type de ressource, consultez [Prise en charge des étiquettes pour les ressources Azure](tag-support.md).
+* Les groupes d’administration ne prennent actuellement pas en charge les étiquettes.
+* Chaque ressource, groupe de ressources et abonnement peuvent inclure un maximum de 50 paires nom/valeur d’étiquette. Si vous devez appliquer plus de balises que le nombre maximal autorisé, utilisez une chaîne JSON comme valeur de balise. La chaîne JSON peut contenir plusieurs valeurs appliquées à un seul nom de balise. Un groupe de ressources ou un abonnement peut contenir de nombreuses ressources qui ont chacune 50 paires nom/valeur d’étiquette.
+* Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères. Pour les comptes de stockage, le nom de balise est limité à 128 caractères, et la valeur de balise à 256 caractères.
+* Les machines virtuelles généralisées ne prennent pas en charge les balises.
+* Les balises ne peuvent pas être appliquées à des ressources classiques comme les Services cloud.
+* Les noms de balise ne peuvent pas contenir ces caractères : `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Actuellement les zones Azure DNS et les services Traffic Manager n’autorisent pas non plus l’utilisation des espaces dans la balise.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Les types de ressources ne prennent pas tous en charge les étiquettes. Pour déterminer si vous pouvez appliquer une étiquette à un type de ressource, consultez [Prise en charge des étiquettes pour les ressources Azure](tag-support.md).
-* Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](manage-resource-groups-portal.md).  
+* Pour obtenir des recommandations sur la façon d’implémenter une stratégie d’étiquetage, consultez [Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).

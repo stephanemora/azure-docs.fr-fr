@@ -1,38 +1,47 @@
 ---
-title: Publier une offre de services managés sur la Place de marché Azure
-description: Découvrez comment publier une offre de service managé qui intègre des clients à la gestion des ressources déléguées Azure.
-ms.date: 01/16/2020
+title: Publier une offre de services gérés sur la place de marché Azure
+description: Découvrez comment publier une offre de service géré qui intègre des clients à la gestion des ressources déléguées Azure.
+ms.date: 04/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328940"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991907"
 ---
-# <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
-
-Cet article explique comment publier une offre de services managés publics ou privés sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) via le [portail Cloud Partner](https://cloudpartner.azure.com/), qui permet à un client qui achète l’offre d’intégrer des ressources pour la gestion des ressources déléguées Azure.
-
-> [!NOTE]
-> Pour créer et publier ces offres, vous devez disposer d’un [compte valide dans l’Espace partenaires](../../marketplace/partner-center-portal/create-account.md). Si vous n’avez pas encore de compte, le [processus d’inscription](https://aka.ms/joinmarketplace) vous guide dans les étapes de création de compte dans l’Espace partenaires et d’inscription au programme de la Place de marché commerciale. Votre ID Microsoft Partner Network (MPN) est [automatiquement associé](../../billing/billing-partner-admin-link-started.md) aux offres que vous publiez pour suivre votre impact sur les engagements client.
->
-> Si vous ne souhaitez pas publier d’offre sur la Place de marché Azure, vous pouvez intégrer des clients manuellement à l’aide de modèles Azure Resource Manager. Pour plus d’informations, voir [Intégrer un client dans la gestion des ressources déléguées Azure](onboard-customer.md).
-
-La publication d’une offre de services managés est similaire à la publication d’un autre type d’offre sur la Place de marché Azure. Pour découvrir ce processus, voir [Guide de publication de la Place de marché Azure et AppSource](../../marketplace/marketplace-publishers-guide.md) et [Gérer les offres sur les places de marché Azure et AppSource](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md). Vous devez également examiner les [stratégies de certification de la Place de marché commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), en particulier la section [Managed Services](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
-
-Une fois qu’un client a ajouté votre offre, il est en mesure de déléguer un ou plusieurs abonnements ou groupes de ressources spécifiques qui seront ensuite [intégrés pour la gestion des ressources déléguées Azure](#the-customer-onboarding-process). Notez que l’intégration de l’abonnement doit être autorisée par le biais d’une inscription manuelle du fournisseur de ressources **Microsoft.ManagedServices** pour qu’un abonnement (ou que des groupes de ressources au sein d’un abonnement) puissent être intégrés.
+# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publier une offre de services gérés sur la place de marché Azure
 
 > [!IMPORTANT]
-> Chaque plan d’une offre de services managés comprend une section **Détails du manifeste** dans laquelle vous définissez les entités Azure Active Directory (Azure AD) de votre locataire qui ont accès aux groupes de ressources ou aux abonnements délégués pour les clients qui achètent ce plan. Il est important de savoir que tout groupe (ou utilisateur ou principal de service) que vous incluez ici offrira les mêmes autorisations à chaque client achetant le plan. Pour affecter différents groupes à chaque client, vous devez publier un plan privé distinct exclusif pour chaque client.
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de services gérés vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Créer une nouvelles offres de services gérés](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) pour gérer vos offres migrées.
 
-## <a name="create-your-offer-in-the-cloud-partner-portal"></a>Créer votre offre dans le portail Cloud Partner
+Dans cet article, vous allez découvrir comment publier une offre de service managé publique ou privée sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) à l’aide du [portail Cloud Partner](https://cloudpartner.azure.com/). Les clients qui achètent l’offre peuvent alors intégrer des abonnements et des groupes de ressources pour la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
+
+## <a name="publishing-requirements"></a>Exigences de publication
+
+Pour créer et publier des offres, vous devez disposer d’un [compte valide dans l’Espace partenaires](../../marketplace/partner-center-portal/create-account.md). Si vous n’avez pas encore de compte, le [processus d’inscription](https://aka.ms/joinmarketplace) vous guide lors des étapes de création de compte dans l’Espace partenaires et d’inscription au programme de la Place de marché commerciale.
+
+Conformément aux [exigences de certification des offres de services managés](https://docs.microsoft.com/legal/marketplace/certification-policies#7004-business-requirements), vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou Gold](https://docs.microsoft.com/partner-center/learn-about-competencies) ou être [Fournisseur de services managés Azure Expert](https://partner.microsoft.com/membership/azure-expert-msp) pour publier une offre de services managés.
+
+Votre ID Microsoft Partner Network (MPN) est [automatiquement associé](../../billing/billing-partner-admin-link-started.md) aux offres que vous publiez pour suivre votre impact sur les engagements client.
+
+> [!NOTE]
+> Si vous ne souhaitez pas publier d’offre sur la Place de marché Azure, vous pouvez intégrer des clients manuellement à l’aide de modèles Azure Resource Manager. Pour plus d’informations, voir [Intégrer un client dans la gestion des ressources déléguées Azure](onboard-customer.md).
+
+La publication d’une offre de services gérés est similaire à la publication d’un autre type d’offre sur la Place de marché Azure. Pour en savoir plus sur le processus général de publication, consultez [Guide de l’éditeur Place de marché Microsoft Azure et AppSource](../../marketplace/marketplace-publishers-guide.md). Vous devez également examiner les [stratégies de certification de la Place de marché commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies), en particulier la section [Managed Services](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
+
+Une fois qu’un client a ajouté votre offre, il est en mesure de déléguer un ou plusieurs abonnements ou groupes de ressources, qui seront ensuite [intégrés pour la gestion des ressources déléguées Azure](#the-customer-onboarding-process).
+
+> [!IMPORTANT]
+> Chaque plan d’une offre de services managés comprend une section **Détails du manifeste** dans laquelle vous définissez les entités Azure Active Directory (Azure AD) de votre locataire qui ont accès aux groupes de ressources ou aux abonnements délégués pour les clients qui achètent ce plan. Il est important de savoir que tout groupe (ou utilisateur ou principal de service) que vous incluez aura les mêmes autorisations pour chaque client achetant le plan. Pour affecter différents groupes à chaque client, vous devez publier un [plan privé](../../marketplace/private-offers.md) distinct exclusif pour chaque client.
+
+## <a name="create-your-offer"></a>Créer votre offre
 
 1. Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/).
 2. Dans le menu de navigation de gauche, sélectionnez **Nouvelle offre**, puis **Services managés**.
 3. Une fenêtre **Éditeur** s’affiche pour votre offre, comportant quatre sections à remplir : **Paramètres de l’offre**, **Plans**, **Place de marché** et **Support**. Lisez la suite pour obtenir des instructions sur la façon de compléter ces sections.
 
-## <a name="enter-offer-settings"></a>Entrer les paramètres de l’offre
+### <a name="enter-offer-settings"></a>Entrer les paramètres de l’offre
 
 Dans la section **Paramètres de l’offre**, entrez les informations suivantes :
 
@@ -44,13 +53,13 @@ Dans la section **Paramètres de l’offre**, entrez les informations suivantes�
 
 Quand vous avez terminé, sélectionnez **Enregistrer**. Vous êtes désormais prêt à passer à la section **Plans**.
 
-## <a name="create-plans"></a>Créer des plans
+### <a name="create-plans"></a>Créer des plans
 
 Chaque offre doit comprendre un ou plusieurs plans (parfois appelés références SKU). Vous pouvez ajouter plusieurs plans correspondant à différents ensembles de fonctionnalités proposés à différents prix, ou personnaliser un plan spécifique pour un public limité de clients spécifiques. Les clients peuvent afficher les plans qui sont à leur disposition sous l’offre parente.
 
 Dans la section Plans, sélectionnez **Nouveau plan**. Entrer ensuite un **ID de plan**. Cet ID ne peut contenir que des caractères alphanumériques minuscules, des tirets et des traits de soulignement, dont le nombre ne peut pas dépasser 50 signes. L’ID de plan peut être visible pour les clients dans des emplacements tels que les URL et états de facturation de produit. Une fois l’offre publiée, vous ne pouvez plus modifier cette valeur.
 
-### <a name="plan-details"></a>Détails du plan
+#### <a name="plan-details"></a>Détails du plan
 
 Complétez les sections suivantes dans **Détails du plan** :
 
@@ -65,7 +74,7 @@ Complétez les sections suivantes dans **Détails du plan** :
 > [!IMPORTANT]
 > Une fois que vous avez publié un plan public, vous ne pouvez plus le changer en plan privé. Pour contrôler les clients qui peuvent accepter votre offre et déléguer des ressources, utilisez un plan privé. Avec un plan public, vous ne pouvez pas limiter la disponibilité à des clients spécifiques ou à un certain nombre de clients (en revanche, vous pouvez arrêter complètement la vente du plan si vous le souhaitez). Vous pouvez [supprimer l’accès à une délégation](onboard-customer.md#remove-access-to-a-delegation) après qu’un client a accepté une offre uniquement si vous avez inclus une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de la publication de l’offre. Vous pouvez également contacter le client et lui demander de [supprimer votre accès](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
-### <a name="manifest-details"></a>Détails du manifeste
+#### <a name="manifest-details"></a>Détails du manifeste
 
 Complétez la section **Détails du manifeste** pour votre plan. Cela a pour effet de créer un manifeste contenant des informations d’autorisation pour la gestion des ressources du client. Ces informations sont nécessaires pour activer la gestion des ressources déléguées Azure.
 
@@ -88,14 +97,14 @@ Pour chaque **autorisation**, vous devez fournir les informations suivantes. Vou
 - **Définition de rôle** : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID d’objet Azure AD**. Pour obtenir une description de ces rôles, consultez les [Rôles intégrés](../../role-based-access-control/built-in-roles.md) et [Prise en charge des rôles pour la gestion des ressources déléguées Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
   > [!NOTE]
   > Comme les nouveaux rôles intégrés applicables sont ajoutés à Azure, ils sont disponibles ici, même si un certain temps puis s’écouler avant qu’ils n’apparaissent.
-- **Rôles attribuables** : cela est nécessaire uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces **Rôles attribuables** à des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur. Si vous ne sélectionnez pas un ou plusieurs rôles ici, votre envoi n’obtiendra pas la certification. (si vous n’avez pas sélectionné Administrateur de l’accès utilisateur pour la définition de rôle de cet utilisateur, ce champ est sans effet).
+- **Rôles attribuables** : cela est nécessaire uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces **Rôles attribuables** à des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur. Si vous ne sélectionnez pas un ou plusieurs rôles ici, votre envoi n’obtiendra pas la certification. (Si vous n’avez pas sélectionné Administrateur de l’accès utilisateur pour la définition de rôle de cet utilisateur, ce champ est sans effet.)
 
 > [!TIP]
 > Pour être sûr de pouvoir [supprimer l’accès à une délégation](onboard-customer.md#remove-access-to-a-delegation) en cas de nécessité, incluez une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
 
 Une fois que vous avez renseigné ces informations, vous pouvez sélectionner **Nouveau plan** autant de fois que nécessaire pour créer des plans supplémentaires. Lorsque vous avez terminé, sélectionnez **Enregistrer**, puis passez à la section **Place de marché**.
 
-## <a name="provide-marketplace-text-and-images"></a>Fournir du texte et des images à la Place de marché
+### <a name="provide-marketplace-text-and-images"></a>Fournir du texte et des images à la Place de marché
 
 La section **Place de marché** est l’endroit où vous fournissez le texte et les images que les clients verront sur la Place de marché et le portail Azure.
 
@@ -135,7 +144,7 @@ Enfin, entrez votre **Privacy Policy URL** (URL de la politique de confidentiali
 
 Veillez à enregistrer vos modifications avant de passer à la section **Support**.
 
-## <a name="add-support-info"></a>Ajouter des informations de support
+### <a name="add-support-info"></a>Ajouter des informations de support
 
 Dans la section **Support**, entrez le nom, l’adresse e-mail et le numéro de téléphone d’un contact d’ingénierie et d’un contact du service clientèle. Vous devez également fournir des URL de support. Microsoft peut utiliser ces informations en cas de nécessité de vous contacter à propos d’éventuels problèmes d’exploitation et de support.
 
@@ -158,5 +167,6 @@ Une fois que le client aura délégué un abonnement (ou un ou plusieurs groupes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Apprenez-en davantage sur la [Place de marché commerciale](../../marketplace/partner-center-portal/commercial-marketplace-overview.md).
 - Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).
 - [Affichez et gérez les clients](view-manage-customers.md) en accédant à **Mes clients** sur le portail Azure.

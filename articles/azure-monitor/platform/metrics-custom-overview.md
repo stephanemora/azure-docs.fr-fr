@@ -7,24 +7,41 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e104877ef641a87eac4ba19bb3342c6e029bf80c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 099ab150cde763551c2ad10a4e9159909ccff4dd
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294595"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270704"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
 
-Quand vous déployez des ressources et des applications dans Azure, il est généralement utile de collecter des données de télémétrie pour obtenir des insights sur leurs performances et leur intégrité. Azure met à votre disposition des métriques prêtes à l’emploi. Il s’agit de métriques standard ou de plateforme. Toutefois, ces métriques sont, par leur nature, limitées. Vous pouvez avoir besoin de collecter certains indicateurs de performance personnalisés ou des métriques métier pour obtenir des insights plus approfondis.
+Quand vous déployez des ressources et des applications dans Azure, il est généralement utile de collecter des données de télémétrie pour obtenir des insights sur leurs performances et leur intégrité. Azure met à votre disposition des métriques prêtes à l’emploi. Il s’agit de métriques [standard ou de plateforme](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). Toutefois, ces métriques sont, par leur nature, limitées. Vous pouvez avoir besoin de collecter certains indicateurs de performance personnalisés ou des métriques métier pour obtenir des insights plus approfondis.
 Ces métriques **personnalisées** peuvent être collectées par le biais des données de télémétrie de votre application, d’un agent s’exécutant sur vos ressources Azure ou même d’un système de supervision d’interaction indirecte, puis soumises directement à Azure Monitor. Après leur publication dans Azure Monitor, vous pouvez parcourir et interroger les métriques personnalisées relatives à vos ressources et applications Azure (et créer des alertes sur ces métriques) parallèlement aux métriques standard émises par Azure.
 
-## <a name="send-custom-metrics"></a>Envoyer des métriques personnalisées
+## <a name="methods-to-send-custom-metrics"></a>Méthodes d’envoi de métriques personnalisées
+
 Les métriques personnalisées peuvent être envoyées à Azure Monitor à l’aide de plusieurs méthodes :
 - Instrumenter votre application en utilisant le SDK Azure Application Insights et envoyer des données de télémétrie personnalisées à Azure Monitor 
 - Installer l’extension Microsoft Azure Diagnostics (WAD) sur votre [machine virtuelle Azure](collect-custom-metrics-guestos-resource-manager-vm.md), votre [groupe de machines virtuelles identiques](collect-custom-metrics-guestos-resource-manager-vmss.md), votre [machine virtuelle classique](collect-custom-metrics-guestos-vm-classic.md) ou votre [instance Cloud Services classique](collect-custom-metrics-guestos-vm-cloud-service-classic.md), et envoyer des compteurs de performances à Azure Monitor 
 - Installer [l’agent InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) sur votre machine virtuelle Linux Azure et envoyer les métriques à l’aide du plug-in de sortie Azure Monitor
 - Envoyer des métriques personnalisées [directement à l’API REST Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md) : `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`
+
+## <a name="pricing-model"></a>Modèle de tarification
+
+Il n’y a aucun coût d’ingestion des métriques standard (métriques de plateforme) dans le magasin de métriques Azure Monitor. Les métriques personnalisées gérées dans le magasin de métriques Azure Monitor sont facturées par Mo, chaque point de données de métrique personnalisée écrit étant considéré comme ayant une taille de 8 octets. Toutes les métriques ingérées sont conservées pendant 90 jours.
+
+Les requêtes de métriques sont facturées en fonction du nombre d’appels d’API standard. Un appel d’API standard est un appel qui analyse 1 440 points de données (1 440 est également le nombre total de points de données pouvant être stockés par métrique et par jour). Si un appel d’API analyse plus de 1 440 points de données, il est considéré comme plusieurs appels d’API standard. Si un appel d’API analyse moins de 1 440 points de données, il est considéré comme moins d’un appel d’API. Le nombre d’appels d’API standard est calculé chaque jour en tant que nombre total de points de données analysés par jour divisé par 1 440.
+
+Des détails spécifiques sur les prix des métriques personnalisées et des requêtes de métriques sont disponibles sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+
+> [!NOTE]  
+> Les métriques envoyées à Azure Monitor via le kit de développement logiciel (SDK) Application Insights sont facturées en tant que données de journal ingérées et n’entraînent de charges de métriques supplémentaires que si la fonctionnalité Application Insights [Activer les alertes sur les dimensions de métriques personnalisées](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) a été sélectionnée. En savoir plus sur le [modèle de tarification Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) et les [prix dans votre région](https://azure.microsoft.com/pricing/details/monitor/).
+
+> [!NOTE]  
+> Pour plus d’informations sur l’activation de la facturation des requêtes de métriques personnalisées et des requêtes de métriques, consultez la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). 
+
+## <a name="how-to-send-custom-metrics"></a>Comment envoyer des métriques personnalisées
 
 Lorsque vous envoyez des métriques personnalisées à Azure Monitor, chaque point de données (ou valeur) rapporté doit inclure les informations qui suivent.
 
@@ -34,7 +51,7 @@ Pour soumettre des métriques personnalisées à Azure Monitor, l’entité qui 
 2. [Principal du service Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Dans ce scénario, une application (ou service) Azure AD peut se voir accorder les autorisations nécessaires pour générer des métriques concernant une ressource Azure.
 Pour authentifier la requête, Azure Monitor valide le jeton d’application à l’aide de clés publiques Azure AD. Le rôle **Surveillance de l’éditeur de métriques** dispose déjà de cette autorisation. Cette autorisation est disponible dans le portail Azure. En fonction des ressources pour lesquelles il émettra des métriques personnalisées, le principal de service peut se voir accorder le rôle **Surveillance de l’éditeur de métriques** selon la portée nécessaire. Il peut s’agir d’un abonnement, d’un groupe de ressources ou d’une ressource.
 
-> [!NOTE]  
+> [!TIP]  
 > Lorsque vous demandez à un jeton Azure AD de générer des métriques personnalisées, vérifiez que l’audience ou la ressource pour laquelle le jeton est demandé est `https://monitoring.azure.com/`. Veillez à inclure la barre oblique (/) à la fin.
 
 ### <a name="subject"></a>Objet
@@ -42,8 +59,7 @@ Cette propriété capture l’ID de ressource Azure pour lequel la métrique per
 
 > [!NOTE]  
 > Vous ne pouvez pas générer de métriques personnalisées pour l’ID de ressource d’un abonnement ou d’un groupe de ressources.
->
->
+
 
 ### <a name="region"></a>Région
 Cette propriété capture la région Azure dans laquelle est déployée la ressource pour laquelle vous émettez des métriques. Les métriques doivent être émises vers le point de terminaison régional Azure Monitor correspondant à la région dans laquelle la ressource est déployée. Par exemple, les métriques personnalisées concernant une machine virtuelle déployée dans la région USA Ouest doivent être envoyées au point de terminaison Azure Monitor régional WestUS. Les informations de région sont également codées dans l’URL de l’appel d’API.

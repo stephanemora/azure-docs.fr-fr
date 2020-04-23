@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: e272a95c5eb7d00b7c2169acb820ec8e4e8d9614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb879a9578a550e972ed7874a42cf389271abf47
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280046"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270296"
 ---
 # <a name="container-marketplace-tab"></a>Onglet Place de marché de conteneur
+
+> [!IMPORTANT]
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de conteneur Azure](https://aka.ms/CreateContainerOffer) pour gérer vos offres migrées.
 
 L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ajouter votre contenu marketing spécifiques à la section **Vue d’ensemble**.
 

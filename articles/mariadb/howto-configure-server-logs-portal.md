@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 89bdd209315445519c35f3ef2c2f1ad2555106ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 1e67637d36eaba55e4c6baaf6f775fc7b79fcd14
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531394"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270591"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurer et consulter les journaux des requêtes lentes à partir du portail Azure
 
 Vous pouvez configurer, lister et télécharger les [journaux des requêtes lentes Azure Database for MariaDB](concepts-server-logs.md) à partir du portail Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Les étapes décrites dans cet article supposent que vous disposez d’un [serveur Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 ## <a name="configure-logging"></a>Configuration de la journalisation
@@ -32,11 +32,15 @@ Configurer l’accès au journal des requêtes lentes.
 
 4. Pour afficher les paramètres du serveur, sélectionnez **Cliquez ici pour activer les journaux et configurer les paramètres associés**.
 
-5. Changez les paramètres que vous devez ajuster. Activez notamment **slow_query_log** (**ON**). Toutes les modifications que vous apportez dans cette session sont surlignées en violet. 
+5. Définissez **slow_query_log** sur **ON** (Activé).
 
-   Après avoir changé les paramètres, sélectionnez **Enregistrer**. Vous pouvez aussi abandonner vos changements.
+6. Sélectionnez l’emplacement de sortie des journaux avec **log_output**. Pour envoyer des journaux vers le stockage local et vers les journaux de diagnostic Azure Monitor, sélectionnez **Fichier**. 
 
-   ![Capture d’écran des options Paramètres du serveur](./media/howto-configure-server-logs-portal/3-save-discard.png)
+7. Changez tous les autres paramètres nécessaires. 
+
+8. Sélectionnez **Enregistrer**. 
+
+   :::image type="content" source="./media/howto-configure-server-logs-portal/3-save-discard.png" alt-text="Capture d’écran des paramètres du journal des requêtes lentes et de l’enregistrement.":::
 
 À partir de la page **Paramètres du serveur**, vous pouvez revenir à la liste des journaux en fermant la page.
 

@@ -5,23 +5,25 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: bf7bebf6e72e373811879a311d70255c29988ed6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef22f7720a4af2239c55d1a01f9d3f11c878d66e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288578"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256312"
 ---
-<a name="go-live"></a>Go Live
-=======
+# <a name="go-live"></a>Go Live
+
+> [!NOTE]
+> Les API du portail Cloud Partner sont intégrées à l’Espace partenaires et continueront de fonctionner après la migration de vos offres vers l’Espace partenaires. L’intégration apporte de légères modifications. Passez en revue les modifications répertoriées dans la [référence API du portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) pour vous assurer que votre code continue à fonctionner après la migration vers l’Espace partenaires.
 
 Cette API démarre le processus de transmission de type push d’une application en production. Cette opération dure généralement longtemps. Cet appel utilise la liste d’e-mails de notification de l’opération de l’API [Publish](./cloud-partner-portal-api-publish-offer.md).
 
  `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/golive?api-version=2017-10-31` 
 
-<a name="uri-parameters"></a>Paramètres URI
+## <a name="uri-parameters"></a>Paramètres URI
 --------------
 
 |  **Nom**      |   **Description**                                                           | **Type de données** |
@@ -31,8 +33,7 @@ Cette API démarre le processus de transmission de type push d’une application
 | api-version    | Version la plus récente de l’API                                                   |  Date         |
 |  |  |  |
 
-
-<a name="header"></a>En-tête
+## <a name="header"></a>En-tête
 ------
 
 |  **Nom**       |     **Valeur**       |
@@ -41,22 +42,24 @@ Cette API démarre le processus de transmission de type push d’une application
 | Autorisation   | `Bearer YOUR_TOKEN` |
 |  |  |
 
-
-<a name="body-example"></a>Exemple de corps
-------------
+## <a name="body-example"></a>Exemple de corps
 
 ### <a name="response"></a>response
 
-`Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
+#### <a name="migrated-offers"></a>Offres migrées
 
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### <a name="non-migrated-offers"></a>Offres non migrées
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 ### <a name="response-header"></a>En-tête de réponse
 
 |  **Nom**             |      **Valeur**                                                            |
 |  --------             |      ----------                                                           |
-| Operation-Location    |  URL à interroger pour déterminer l’état actuel de l’opération.            |
+| Emplacement    |  Chemin relatif permettant de récupérer l’état de cette opération            |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Codes d’état de réponse
 

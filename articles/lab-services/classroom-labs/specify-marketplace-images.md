@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: ad56041f853d030e3a286610fe4872bffecaee12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a64dee6da521764a38fc60bee06545f6a561c297
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444894"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257694"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Spécifier les images de la Place de marché accessibles aux créateurs lab
 En tant que propriétaire d’un compte de laboratoire, vous pouvez spécifier les images de la place de marché que les créateurs de laboratoire peuvent utiliser pour créer des laboratoires dans le compte de laboratoire. 
@@ -50,6 +50,19 @@ Pour désactiver plusieurs images simultanément, activez les cases à cocher à
 Pour activer une image désactivée, sélectionnez **... (points de suspension)** dans la dernière colonne, puis sélectionnez **Activer l’image**. Vous pouvez également activer la case à cocher à côté du nom de l’image, puis sélectionner **Activer les images sélectionnées** dans la barre d’outils. 
 
 Pour activer plusieurs images simultanément, activez les cases à cocher à côté des noms des images, puis sélectionnez **Activer les images sélectionnées** dans la barre d’outils. 
+
+## <a name="enable-images-at-the-time-of-lab-creation"></a>Activer des images au moment de la création du lab
+Vous pouvez activer davantage d’images au moment de la création du lab : 
+
+1. Connectez-vous au [site web Azure Lab Services](https://labs.azure.com) avec les **informations d’identification du propriétaire du compte Lab**
+2. Sélectionnez l’image de machine virtuelle par défaut ou la flèche Bas. 
+3. Sélectionnez **Activer d'autres options d'image**. 
+
+    ![Activer d'autres options d'image](../media/specify-marketplace-images/enable-more-images-menu.png)
+4. Suivez les instructions de la section précédente pour activer les images sélectionnées. 
+5. Vous devrez peut-être fermer la fenêtre **Nouveau lab** et la rouvrir pour voir les images sélectionnées à l’étape précédente. 
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :

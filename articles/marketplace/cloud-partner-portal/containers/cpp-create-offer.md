@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: d2a18d0fee4352cd88e4c64ab99a7dfc1b08ed75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d678ad7b8c2b786239b294de873bc1d98fa5cb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280080"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270330"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Créer une offre de conteneur sur le Portail Cloud Partner
+
+> [!IMPORTANT]
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de conteneur Azure](https://aka.ms/CreateContainerOffer) pour gérer vos offres migrées.
 
 Cet article explique comment créer et publier une entrée d’offre de conteneur sur la Place de marché Azure. Les offres apparaissent sous la forme d’une entité distincte dans la Place de marché Microsoft Azure et sont associées à un ou plusieurs références SKU.  Une offre de conteneur se compose des regroupements de ressources et de services d’appui suivants :
 

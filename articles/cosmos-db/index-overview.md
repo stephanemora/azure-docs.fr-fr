@@ -4,14 +4,14 @@ description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873622"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273237"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 
@@ -82,7 +82,7 @@ L’index de **plage** est basé sur une structure de type arborescence ordonné
 
    Correspondance d’égalité sur un élément de tableau
    ```sql
-    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1")
     ```
 
 - Requêtes de plage :
@@ -164,7 +164,7 @@ Les index **composites** augmentent l’efficacité lorsque vous effectuez des o
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Tant qu’un prédicat de filtre utilise sur le type d’index, le moteur de requête évalue celui-ci en premier avant d’analyser le reste. Par exemple, si vous avez une requête SQL comme `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Tant qu’un prédicat de filtre utilise un type d’index, le moteur de requête évalue celui-ci en premier avant d’analyser le reste. Par exemple, si vous avez une requête SQL comme `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * La requête ci-dessus filtre d’abord les entrées où firstName = « Andrew » à l’aide de l’index. Elle transmet ensuite toutes les entrées firstName = « Andrew » via un pipeline pour évaluer le prédicat de filtre CONTAINS.
 

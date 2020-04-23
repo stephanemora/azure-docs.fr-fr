@@ -3,27 +3,23 @@ title: Annotations de version pour Application Insights | Microsoft Docs
 description: Ajouter des marqueurs déploiement ou de build aux graphiques Metrics Explorer dans Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: e0e2a106b276110e13b3c68889e4d1d349ba73a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666511"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010711"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
 
-Des annotations sur les graphiques [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) indiquent où vous avez déployé une nouvelle build ou d’autres événements importants. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées automatiquement par le système de génération [Azure DevOps Services.Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Vous pouvez également créer des annotations pour tout événement en les créant à partir de PowerShell.
-
-> [!NOTE]
-> Cet article reflète **l’expérience de métriques classique** qui est obsolète. Les annotations ne sont actuellement disponibles que dans l’expérience classique et dans les **[classeurs](../../azure-monitor/app/usage-workbooks.md)** . Pour en savoir plus sur l’interface des métriques, voir [Fonctionnalités avancées d’Azure Metrics Explorer.](../../azure-monitor/platform/metrics-charts.md)
-
-![Exemples d’annotations](./media/annotations/0-example.png)
+Des annotations indiquent où vous avez déployé une nouvelle build, ou d’autres événements importants. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées automatiquement par le système de génération [Azure DevOps Services.Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Vous pouvez également créer des annotations pour tout événement en les créant à partir de PowerShell.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Annotations de mise en production avec la build Azure Pipelines
 
 Les annotations de mise en production sont une fonctionnalité du service Azure Pipelines basé sur le cloud d’Azure DevOps.
 
 ### <a name="install-the-annotations-extension-one-time"></a>Installer l’extension Annotations (une fois)
+
 Pour pouvoir créer des annotations de mise en production, vous devez installer l’une des nombreuses extensions Azure DevOps disponibles dans Visual Studio Marketplace.
 
 1. Connectez-vous à votre projet [Azure DevOps](https://azure.microsoft.com/services/devops/).
@@ -74,11 +70,26 @@ Créez une clé API distincte pour chacun de vos modèles de mise en production 
 1. Sélectionnez **Enregistrer** dans la fenêtre principale du modèle de mise en production pour enregistrer le modèle.
 
 ## <a name="view-annotations"></a>Afficher les annotations
-Désormais, lorsque vous utilisez le modèle de mise en production pour déployer une nouvelle publication, une annotation est envoyée à Application Insights. Les annotations apparaissent sur les graphiques dans **Metrics Explorer**.
 
-Sélectionnez un marqueur d’annotation (flèche gris clair) pour ouvrir les détails sur la version, notamment le demandeur, la branche de contrôle de code source, le pipeline de mise en production et l’environnement.
 
-![Sélectionnez un marqueur d’annotation de version.](./media/annotations/8-release.png)
+   > [!NOTE]
+   > Les annotations de version ne sont actuellement pas disponibles dans le volet Métriques d’Application Insights
+
+Désormais, lorsque vous utilisez le modèle de mise en production pour déployer une nouvelle publication, une annotation est envoyée à Application Insights. Les annotations peuvent être affichées aux emplacements suivants :
+
+Volet d’utilisation, où vous pouvez également créer manuellement des annotations de version :
+
+![Capture d’écran du graphique à barres, avec le nombre de visites d’utilisateurs affiché sur une période de quelques heures. Les annotations de version s’affichent sous la forme de coches vertes au-dessus du graphique et indiquent quand une mise en production a eu lieu.](./media/annotations/usage-pane.png)
+
+Dans toute requête de classeur basée sur un journal, où la visualisation affiche l’heure le long de l’axe x.
+
+![Capture d’écran du volet Classeurs avec requête basée sur le journal de la série chronologique et les annotations affichées](./media/annotations/workbooks-annotations.png)
+
+Pour activer les annotations dans votre classeur, accédez à **Paramètres avancés** et sélectionnez **Afficher les annotations**.
+
+![Capture d’écran du menu Paramètres avancés avec les mots Afficher les annotations en surbrillance avec une coche en regard du paramètre pour l’activer.](./media/annotations/workbook-show-annotations.png)
+
+Sélectionnez un marqueur d’annotation pour ouvrir les détails sur la version, notamment le demandeur, la branche de contrôle de code source, le pipeline de mise en production et l’environnement.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Créer des annotations personnalisées à partir de PowerShell
 Vous pouvez utiliser le script PowerShell [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) de GitHub pour créer des annotations à partir de tout processus de votre choix, sans utiliser Azure DevOps. 

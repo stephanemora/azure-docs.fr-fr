@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 972bb2a804057037deedb448674abafcc175b21f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85910ee5467ecc9f4fe3c1a8bc13110b6f218e5c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314808"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272710"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planifier votre environnement Azure Time Series Insights en disponibilité générale
 
@@ -79,9 +79,7 @@ Vous pouvez ajuster la rétention et basculer entre les deux modes dans la page 
 
 ### <a name="environment-planning"></a>Planification de l’environnement
 
-La deuxième zone sur laquelle se concentrer pour planifier votre environnement Time Series Insights est la capacité d’entrée. La capacité d’entrée est un dérivé de l’allocation par minute.
-
-En termes de limitation, un paquet de données entré avec une taille de paquet de 32 Ko est considéré comme 32 événements, chacun faisant 1 Ko. La taille d’événement maximale autorisée est de 32 Ko. Les paquets de données de plus de 32 Ko sont tronqués.
+La deuxième zone sur laquelle se concentrer pour planifier votre environnement Time Series Insights est la capacité d’entrée. La capacité quotidienne de stockage et d’événements d’entrée est mesurée par minute, par blocs de 1 Ko. La taille de paquet maximale autorisée est de 32 Ko. Les paquets de données de plus de 32 Ko sont tronqués.
 
 Vous pouvez augmenter la capacité d’une référence SKU S1 ou S2 à 10 unités dans un environnement unique. Vous ne pouvez pas migrer d’un environnement S1 vers S2. Vous ne pouvez pas migrer d’un environnement S2 vers S1.
 

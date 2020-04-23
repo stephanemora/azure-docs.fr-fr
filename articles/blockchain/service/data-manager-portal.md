@@ -1,15 +1,15 @@
 ---
 title: Configurer Blockchain Data Manager avec le portail Azure - Azure Blockchain Service
 description: Créez et gérez Blockchain Data Manager pour Azure Blockchain Service avec le portail Azure.
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233833"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260596"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurer Blockchain Data Manager avec le Portail Azure
 
@@ -22,13 +22,13 @@ Pour configurer une instance Data Manager Blockchain, vous devez :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Effectuer l’étape [Démarrage rapide : Créer un membre blockchain à l’aide du portail Azure](create-member.md) ou [Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide de l’interface Azure CLI](create-member-cli.md)
+* Effectuer l’étape [Démarrage rapide : Créer un membre blockchain à l’aide du portail Azure](create-member.md) ou [Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide de l’interface Azure CLI](create-member-cli.md). Le service Azure Blockchain niveau *Standard* est recommandé lors de l’utilisation de Blockchain Data Manager.
 * Créer une [rubrique Event Grid](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * En savoir plus les [Gestionnaires d’événements dans Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## <a name="create-instance"></a>Créer une instance
 
-Une instance Blockchain Data Manager se connecte à un nœud de transaction Azure Blockchain Service et le surveille. Seuls les utilisateurs ayant accès au nœud de transaction peuvent créer une connexion. Une instance capture toutes les données de bloc brut et de transaction brute à partir du nœud de transaction.
+Une instance Blockchain Data Manager se connecte à un nœud de transaction Azure Blockchain Service et le surveille. Seuls les utilisateurs ayant accès au nœud de transaction peuvent créer une connexion. Une instance capture toutes les données de bloc brut et de transaction brute à partir du nœud de transaction. Blockchain Data Manager publie un message **RawBlockAndTransactionMsg** qui est un sur-ensemble des informations retournées par les requêtes web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) et [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction).
 
 Une connexion sortante envoie des données blockchain à Azure Event Grid. Vous configurez une seule connexion sortante lorsque vous créez l’instance. Blockchain Data Manager prend en charge plusieurs connexions sortantes de rubrique Event Grid pour une instance de Data Manager Blockchain donnée. Vous pouvez envoyer des données blockchain à une ou plusieurs destinations. Pour ajouter une autre destination, ajoutez simplement des connexions sortantes à l’instance.
 
