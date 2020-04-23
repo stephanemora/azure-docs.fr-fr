@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 71b3ec4bf505c333e5eca170e1f5e808ab51f41a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1116bd03cf0ef734b74b387ff8f3cff74b29b215
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280063"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270313"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Préparer vos ressources techniques de conteneur
+
+> [!IMPORTANT]
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Préparer vos ressources techniques de conteneur Azure](https://aka.ms/CreateContainerTechAssets) pour gérer vos offres migrées.
 
 Cet article décrit les étapes et les conditions requises pour configurer une offre de conteneur de la Place de marché Azure.
 
@@ -28,26 +31,26 @@ Concevoir, créer et tester ces ressources demande du temps et des connaissances
  
 En plus de votre domaine de solution, votre équipe d’ingénierie doit connaître les technologies Microsoft suivantes :
 
--   Connaissances de base des [services Azure](https://azure.microsoft.com/services/) 
--   Comment [concevoir et créer des applications Azure](https://azure.microsoft.com/solutions/architecture/)
--   Expérience de travail avec les [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/), [Stockage Azure](https://azure.microsoft.com/services/?filter=storage) et [Mise en réseau Azure](https://azure.microsoft.com/services/?filter=networking)
--   Expérience de travail avec [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
--   Expérience de travail avec [JSON](https://www.json.org/)
+-    Connaissances de base des [services Azure](https://azure.microsoft.com/services/) 
+-    Comment [concevoir et créer des applications Azure](https://azure.microsoft.com/solutions/architecture/)
+-    Expérience de travail avec les [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/), [Stockage Azure](https://azure.microsoft.com/services/?filter=storage) et [Mise en réseau Azure](https://azure.microsoft.com/services/?filter=networking)
+-    Expérience de travail avec [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+-    Expérience de travail avec [JSON](https://www.json.org/)
 
 ## <a name="suggested-tools"></a>Outils suggérés
 
 Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter la gestion de votre image conteneur :
 
--   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Azure CLI](https://docs.microsoft.com/cli/azure)
+-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-    [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 En outre, nous vous recommandons d’ajouter les outils suivants à votre environnement de développement :
 
--   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Extension : [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+-    [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-    [Visual Studio Code](https://code.visualstudio.com/)
+    *    Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *    Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *    Extension : [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Nous vous suggérons également d’examiner les outils disponibles sur la page [Outils de développement Azure](https://azure.microsoft.com/tools/) et, si vous utilisez Visual Studio, sur [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

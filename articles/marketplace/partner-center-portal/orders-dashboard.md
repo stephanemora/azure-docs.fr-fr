@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281406"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261259"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -124,7 +124,7 @@ Vous pouvez sélectionner plusieurs filtres afin d’afficher le graphe pour les
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des rapports d’analytique disponibles sur la place de marché commerciale de l’Espace partenaires, voir [Analytique de la place de marché commerciale dans l’Espace partenaires](./analytics.md).
+- Pour une vue d’ensemble des rapports d’analytique disponibles sur la place de marché commerciale de l’Espace partenaires, voir [Analytics pour la place de marché commerciale dans l’Espace partenaires](./analytics.md).
 - Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la place de marché pour vos offres, voir [Tableau de bord Résumé dans l’analytique de la place de marché commerciale](./summary-dashboard.md).
 - Pour consulter les métriques d’utilisation et de facturation à l’usage des offres de machines virtuelles, voir [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
 - Pour des informations détaillées sur vos clients, y compris des tendances de croissance, voir [Tableau de bord client dans l’analytique de la place de marché commerciale](./customer-dashboard.md).

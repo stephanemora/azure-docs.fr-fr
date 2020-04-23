@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c93dab2f6086b10e1e8d75c4fc3334a95c3fcafa
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 118653efc8829ac5ef6287bb36fb5595cff1147b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633270"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416128"
 ---
-# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Charger des données de vente au détail de Contoso dans un entrepôt de données SQL Synapse
+# <a name="load-contoso-retail-data-to-synapse-sql"></a>Chargement de données de vente au détail Contoso dans SQL Synapse 
 
 Ce tutoriel explique comment utiliser des commandes PolyBase et T-SQL pour charger deux tables de données de vente au détail de Contoso dans un entrepôt de données SQL Synapse.
 
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>Charger les données dans de nouvelles tables
 
-Pour charger des données à partir de Stockage Blob Azure dans la table de l’entrepôt de données, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Le chargement avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) s'appuie sur les tables externes fortement typées que vous venez de créer. Pour charger les données dans de nouvelles tables, utilisez une instruction CTAS par table.
+Pour charger des données à partir de Stockage Blob Azure dans la table de l’entrepôt de données, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Le chargement avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) s'appuie sur les tables externes fortement typées que vous venez de créer. Pour charger les données dans de nouvelles tables, utilisez une instruction CTAS par table.
 
 CTAS crée une table et la remplit avec les résultats d’une instruction select. CTAS définit la nouvelle table de manière à proposer les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Si vous sélectionnez toutes les colonnes d’une table externe, la nouvelle table est un réplica des colonnes et des types de données dans la table externe.
 

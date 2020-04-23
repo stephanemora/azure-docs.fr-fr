@@ -11,14 +11,16 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 5/14/2019
-ms.openlocfilehash: 70367a38fbf7b59486e2eaaf6c05634aa7575869
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77b49d8446c7882a155742e8455d77bd1ec110cb
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230001"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606191"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Activer l’authentification Azure Active Directory pour Azure-SSIS Integration Runtime
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article vous explique comment activer l’authentification Azure Active Directory (Azure AD) avec l’identité managée pour votre Azure Data Factory (ADF) et l’utiliser à la place de méthodes d’authentification conventionnelles (telles que l’authentification SQL) pour :
 
@@ -26,7 +28,7 @@ Cet article vous explique comment activer l’authentification Azure Active Dire
 
 - Connectez-vous à différentes ressources Azure lors de l’exécution de packages SSIS sur Azure-SSIS IR.
 
-Pour plus d’informations sur l’identité managée de votre ADF, consultez [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) (Identité managée pour Data Factory).
+Pour plus d’informations sur l’identité managée d’une fabrique ADF, consultez [Identité managée pour Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 >-  Dans ce scénario, l’authentification Azure AD avec l’identité managée pour votre ADF est utilisée uniquement pour la création et les opérations de démarrage suivantes de votre SSIS IR qui, à son tour, approvisionnera et se connectera à la base de données SSISDB. Pour les exécutions de package SSIS, votre SSIS IR se connectera toujours à la base de données SSISDB à l’aide de l’authentification SQL avec des comptes entièrement gérés, créés lors de l’approvisionnement de la base de données SSISDB.
@@ -63,7 +65,7 @@ Vous pouvez utiliser un groupe Azure AD existant ou en créer un à l’aide d�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Ajoutez au groupe l’identité managée pour votre service Azure Data Factory. Vous pouvez suivre l’article [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) (Identité managée pour Data Factory) pour obtenir l’ID d’objet principal de l’identité managée (par exemple 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc), mais n’utilisez pas l’ID d’application de l’identité managée à cette fin.
+3.  Ajoutez au groupe l’identité managée pour votre service Azure Data Factory. Vous pouvez suivre l’article [Identité managée pour Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) pour obtenir l’ID objet principal de l’identité managée (p. ex., 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc), mais n’utilisez pas l’ID d’application de l’identité managée à cette fin.
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

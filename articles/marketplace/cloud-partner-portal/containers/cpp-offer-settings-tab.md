@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: e7e56f3562965a0a49082024c905d90ed989ccdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfdc588ffe3ca8c0f21e4111b6f4c66de162299d
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280029"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270177"
 ---
 # <a name="container-offer-settings-tab"></a>Onglet des paramètres de l’offre de conteneur
+
+> [!IMPORTANT]
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de conteneur Azure](https://aka.ms/CreateContainerOffer) pour gérer vos offres migrées.
 
 La page **Conteneurs > Nouvelle offre** s’ouvre avec la cible sur l’onglet **Paramètres de l’offre**. 
 

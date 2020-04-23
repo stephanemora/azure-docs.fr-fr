@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407177"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -235,7 +235,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Existe-t-il une API pour accéder aux données des rapports sur la réinitialisation de mot de passe ou sur l’inscription à la réinitialisation de mot de passe ?**
 
-  > **R :** Oui. Pour découvrir comment accéder au flux de données de création de rapports de réinitialisation de mot de passe, consultez le [Guide pratique pour accéder aux événements de rapports de réinitialisation de mot de passe par programmation](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **R :** Oui. Pour savoir comment accéder aux données des rapports sur la réinitialisation de mot de passe, consultez [Informations de référence sur l’API REST Azure Log Analytics](/rest/api/loganalytics/).
   >
   >
 

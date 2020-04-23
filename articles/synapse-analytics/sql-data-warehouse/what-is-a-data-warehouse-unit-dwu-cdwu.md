@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a7f27215c7ba053933d9d12658253ea92aefa526
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351111"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408062"
 ---
 # <a name="data-warehouse-units-dwus"></a>Data Warehouse Units (DWUs)
 
@@ -24,14 +24,18 @@ Suggestions pour choisir le nombre idéal de Data Warehouse Units (DWU) en vue d
 
 ## <a name="what-are-data-warehouse-units"></a>Que sont les Data Warehouse Units ?
 
-Un [pool SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) représente une collection de ressources analytiques qui sont provisionnées pendant l’utilisation de [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Les ressources analytiques sont définies comme une combinaison d’UC, de mémoire et d’E/S. Ces trois ressources sont regroupées dans des unités d’échelle de calcul appelées Data Warehouse Units (DWU). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances. Une modification de votre niveau de service change le nombre de DWU disponibles sur le système, qui à son tour ajuste le niveau de performance et le coût de votre système.
+Un [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) représente une collection de ressources analytiques en cours d’approvisionnement. Les ressources analytiques sont définies comme une combinaison d’UC, de mémoire et d’E/S.
+
+Ces trois ressources sont regroupées dans des unités d’échelle de calcul appelées Data Warehouse Units (DWU). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances.
+
+Une modification de votre niveau de service change le nombre de DWU disponibles sur le système, qui à son tour ajuste le niveau de performance et le coût de votre système.
 
 Pour un meilleur niveau de performance, vous pouvez augmenter le nombre de DWU. Pour un niveau de performance inférieur, vous pouvez diminuer le nombre de DWU. Les coûts de stockage et de calcul sont facturés séparément. Ainsi, la modification des DWU n’a pas d’effet sur les coûts de stockage.
 
-Les performances des DWU sont basées sur les métriques de charge de travail suivantes :
+Les performances des DWU sont basées sur les métriques de charge de travail d’entrepôt de données suivantes :
 
-- À quelle vitesse une requête d’entreposage de données standard peut-t-elle analyser un grand nombre de lignes avant d’effectuer une agrégation complexe ? C’est une opération très gourmande en E/S et en UC.
-- À quelle vitesse un entrepôt de données peut-il traiter des données provenant du stockage d'objets blob Azure ou d’Azure Data Lake ? C’est une opération très gourmande en réseau et en UC.
+- À quelle vitesse une requête de pool SQL standard peut analyser un grand nombre de lignes avant d’effectuer une agrégation complexe. C’est une opération très gourmande en E/S et en UC.
+- À quelle vitesse un pool SQL peut ingérer des données provenant d’Azure Storage Blob ou d’Azure Data Lake. C’est une opération très gourmande en réseau et en UC.
 - Rapidité avec laquelle la commande T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) peut copier une table. Cette opération implique la lecture des données sur le système de stockage, leur distribution entre les nœuds de l’appliance et la réécriture dans le système de stockage. Cette opération est très gourmande en UC, E/S et réseau.
 
 Augmentation du nombre de DWU :
@@ -42,21 +46,37 @@ Augmentation du nombre de DWU :
 
 ## <a name="service-level-objective"></a>Objectif de niveau de service
 
-L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour le pool SQL Gen2 sont mesurés en Data Warehouse Units (DWU), par exemple DW2000c.
+L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour Gen2 sont mesurés en unités cDWU (compute Data Warehouse Unit), par exemple DW2000C. Les niveaux de service Gen1 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000.
 
-Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine le niveau de service de votre pool SQL.
+L’objectif de niveau de service (SLO) est le paramètre de scalabilité qui détermine le coût et le niveau de performance de votre pool SQL. Les niveaux de service pour le pool SQL Gen2 sont mesurés en Data Warehouse Units (DWU), par exemple DW2000c.
+
+> [!NOTE]
+> Azure SQL Data Warehouse Gen2 a récemment ajouté des fonctionnalités de mise à l'échelle supplémentaires pour la prise en charge des niveaux de calcul inférieurs à 100 cDWU. Les entrepôts de données Gen1 existants qui ont besoin des niveaux de calcul inférieurs peuvent désormais être mis à niveau vers Gen2 dans les régions actuellement disponibles sans aucun coût supplémentaire.  Si votre région n'est pas encore prise en charge, vous pouvez procéder à une mise à niveau vers une région qui l'est. Pour plus d’informations, consultez [Mettre à niveau vers Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine les niveaux de service et de performance de votre pool SQL.
 
 ```sql
 CREATE DATABASE mySQLDW
-( EDITION = 'Datawarehouse'
+(Edition = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
+## <a name="performance-tiers-and-data-warehouse-units"></a>Niveaux de performances et Data Warehouse Units
+
+Chaque niveau de performances utilise une unité de mesure légèrement différente pour ses DWU. Cette différence est répercutée sur la facture, car l’unité d’échelle s’applique directement à la facturation.
+
+- Les entrepôts de données Gen1 sont mesurés en unités DWU.
+- Les entrepôts de données Gen2 sont mesurés en unités cDWU.
+
+Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser l’entrepôt de données. Ces opérations se font toutes à la demande. Gen2 utilise un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.  
+
+Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](sql-data-warehouse-service-capacity-limits.md#workload-management).
+
 ## <a name="capacity-limits"></a>Limites de capacité
 
-Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../../sql-database/sql-database-service-tiers-dtu.md) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>De combien de DWU ai-je besoin ?
 
@@ -68,7 +88,9 @@ Le nombre idéal de DWU dépend en grande partie de votre charge de travail et d
 2. Surveillez les performances de votre application pendant le test des charges de données dans le système, en observant notamment le nombre de DWU sélectionné.
 3. Identifiez des besoins supplémentaires pour les périodes ponctuelles de pics d’activité. Les charges de travail présentant d'importantes variations d'activité doivent être fréquemment mises à l’échelle.
 
-SQL Analytics est un système de scale-out qui peut fournir des quantités importantes de calcul et lancer des requêtes sur une grande quantité de données. Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élevé de DWU, nous vous recommandons d’effectuer la mise à l’échelle de l’ensemble de données en vous assurant que vous disposez de suffisamment de données pour alimenter les UC. Pour le test de mise à l’échelle, nous recommandons d’utiliser au moins 1 To.
+Le pool SQL est un système de Scale-out qui peut fournir des quantités importantes de calcul et lancer des requêtes sur une grande quantité de données.
+
+Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élevé de DWU, nous vous recommandons d’effectuer la mise à l’échelle de l’ensemble de données en vous assurant que vous disposez de suffisamment de données pour alimenter les UC. Pour le test de mise à l’échelle, nous recommandons d’utiliser au moins 1 To.
 
 > [!NOTE]
 >
@@ -76,7 +98,7 @@ SQL Analytics est un système de scale-out qui peut fournir des quantités impo
 
 ## <a name="permissions"></a>Autorisations
 
-La modification des DWU requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql).
+La modification des DWU requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Les rôles intégrés pour les ressources Azure, comme Contributeur de base de données SQL et Contributeur de SQL Server, peuvent changer les paramètres des DWU.
 
@@ -109,26 +131,26 @@ Pour modifier les DWU :
 
 3. Cliquez sur **Enregistrer**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour confirmer ou sur **Non** pour annuler.
 
-### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Pour modifier les DWU, utilisez l’applet de commande PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L’exemple suivant définit l’objectif de niveau de service sur DW1000c pour la base de données MySQLDW hébergée sur le serveur MyServer.
+Pour modifier les DWU, utilisez l’applet de commande PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW hébergée sur le serveur MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Pour plus d’informations, consultez [Applets de commande PowerShell pour SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
+Pour plus d’informations, consultez [Applets de commande PowerShell pour SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
-Avec T-SQL, vous pouvez afficher les paramètres actuels de DWU, modifier ces paramètres et vérifier la progression.
+Avec T-SQL, vous pouvez afficher les paramètres actuels de DWU, les modifier et consulter la progression.
 
 Pour modifier les unités DWU :
 
 1. Connectez-vous à la base de données associée à votre serveur SQL Database logique.
-2. Utilisez l’instruction TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW.
+2. Utilisez l’instruction TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -146,12 +168,12 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000c
+        "requestedServiceObjectiveName": DW1000
     }
 }
 ```
 
-Pour plus d’exemples d’API REST, consultez [API REST pour SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
+Pour plus d’exemples d’API REST, consultez [API REST pour SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="check-status-of-dwu-changes"></a>Vérifier l’état des modifications de DWU
 
@@ -164,15 +186,14 @@ Vous ne pouvez pas vérifier l’état de la base de données pour les opératio
 Pour vérifier l’état des modifications de DWU :
 
 1. Connectez-vous à la base de données associée à votre serveur SQL Database logique.
+2. Envoyez la requête suivante pour vérifier l’état de la base de données.
 
-1. Envoyez la requête suivante pour vérifier l’état de la base de données.
+```sql
+SELECT    *
+FROM      sys.databases
+;
+```
 
-    ```sql
-    SELECT    *
-    FROM      sys.databases
-    ;
-    ```
-    
 1. Envoyez la requête suivante pour vérifier l’état de l’opération.
 
     ```sql
@@ -182,7 +203,7 @@ Pour vérifier l’état des modifications de DWU :
     AND       major_resource_id = 'MySQLDW'
     ;
     ```
-    
+
 Cette vue de gestion dynamique renvoie des informations sur diverses opérations de gestion de votre pool SQL, comme l’opération et l’état de l’opération, qui a la valeur IN_PROGRESS ou COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>Flux de travail de mise à l’échelle

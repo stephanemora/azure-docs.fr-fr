@@ -1,6 +1,6 @@
 ---
-title: Stocker les sauvegardes jusqu’à une durée de 10 ans
-description: Découvrez comment Azure SQL Database prend en charge le stockage des sauvegardes complètes de bases de données jusqu’à une durée de 10 ans.
+title: Rétention des sauvegardes à long terme
+description: Découvrez comment Azure SQL Database prend en charge le stockage des sauvegardes complètes de bases de données jusqu’à une durée de 10 ans via une stratégie de rétention à long terme.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,20 +11,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d015eea21bcfa499d6751e024a882a7316b7f1a5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77499974"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380758"
 ---
-# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database jusqu’à une durée de 10 ans
+# <a name="azure-sql-database-long-term-retention"></a>Conservation à long terme Azure SQL Database
 
-De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. À l’aide de la fonctionnalité de conservation à long terme (LTR), vous pouvez stocker des sauvegardes complètes de bases de données SQL dans un stockage Blob Azure en disposant d’un stockage géoredondant avec accès en lecture pour une période allant jusqu’à 10 ans. Vous pouvez ensuite restaurer la sauvegarde de votre choix en tant que nouvelle base de données. Pour plus d’informations sur la redondance du Stockage Azure, consultez [Redondance du Stockage Azure](../storage/common/storage-redundancy.md).
+De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. À l’aide de la fonctionnalité de conservation à long terme (LTR), vous pouvez stocker des sauvegardes complètes de bases de données SQL dans un stockage Blob Azure en disposant d’un stockage géoredondant avec accès en lecture pour une période allant jusqu’à 10 ans. Vous pouvez ensuite restaurer la sauvegarde de votre choix en tant que nouvelle base de données. Pour plus d’informations sur la redondance du Stockage Azure, consultez [Redondance du Stockage Azure](../storage/common/storage-redundancy.md). 
+
+La rétention à long terme peut être activée pour les bases de données uniques et mises en pool, et figure dans une préversion publique limitée pour les instances Azure SQL Database managées. 
 
 > [!NOTE]
-> La conservation à long terme (LTR) peut être activée pour les bases de données uniques et mises en pool. Elle n’est pas encore disponible pour les bases de données dans des instances managées. Vous pouvez utiliser des travaux SQL Agent pour planifier des [sauvegardes de base de données en copie seule](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) comme alternative à la conservation à long terme au-delà de 35 jours.
-> 
+> Vous pouvez utiliser des travaux SQL Agent pour planifier des [sauvegardes de base de données en copie seule](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) comme alternative à la conservation à long terme au-delà de 35 jours.
+
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Mode de fonctionnement de la rétention à long terme SQL Database
 
@@ -74,6 +76,16 @@ Si vous utilisez une géoréplication active ou des groupes de basculement en ta
 
 > [!NOTE]
 > Lorsque la base de données primaire d’origine récupère après une panne ayant entraîné le basculement, elle devient une nouvelle base de données secondaire. Par conséquent, la création de sauvegarde ne reprend pas, et la stratégie de conservation à long terme existante ne prend effet qu’après que la base de données est redevenue primaire. 
+
+## <a name="managed-instance-support"></a>Prise en charge Managed Instance
+
+L'utilisation de la rétention des sauvegardes à long terme avec des instances Azure SQL Database managées présente les limites suivantes :
+
+- **Préversion publique limitée** : cette préversion n'est disponible que pour les abonnements EA et CSP et est soumise à une disponibilité limitée.  
+- [**PowerShell uniquement**](sql-database-managed-instance-long-term-backup-retention-configure.md) : aucune prise en charge du portail Azure n’est actuellement disponible. La rétention à long terme doit être activée à l’aide de PowerShell. 
+
+Pour demander l’inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/) dans la rubrique de support **Sauvegarde, restauration et continuité de l’activité/rétention des sauvegardes à long terme**.
+
 
 ## <a name="configure-long-term-backup-retention"></a>Configurer la rétention des sauvegardes à long terme
 

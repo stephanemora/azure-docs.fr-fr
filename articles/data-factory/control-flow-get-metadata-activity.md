@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250272"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417120"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Vous pouvez utiliser l’activité d’obtention des métadonnées pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory. Vous pouvez utiliser cette activité dans les scénarios suivants :
 
@@ -54,6 +55,7 @@ L’activité d’obtention des métadonnées sélectionne un jeu de données en
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
+- Lorsque vous utilisez l’activité d’obtention des métadonnées sur un dossier, vérifiez que vous disposez de l’autorisation LIST/EXECUTE sur le dossier donné.
 - Pour Amazon S3 et Google Cloud Storage, `lastModified` s’applique au compartiment et à la clé, mais pas au dossier virtuel, et `exists` s’applique au compartiment et à la clé, mais pas au préfixe ou au dossier virtuel.
 - Pour le stockage Blob Azure, `lastModified` s’applique au conteneur et au blob, mais pas au dossier virtuel.
 - Le filtre `lastModified` s’applique actuellement aux éléments du filtre enfant mais pas au dossier/fichier spécifié lui-même.

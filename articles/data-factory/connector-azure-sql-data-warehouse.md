@@ -11,18 +11,27 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7fb1560fb9be809d816dde7dd69f1ec8afe5649f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422178"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417575"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide d’Azure Data Factory 
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version actuelle](connector-azure-sql-data-warehouse.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Synapse Analytics et utiliser Data Flow pour transformer les données dans Azure Data Lake Storage Gen2. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure SQL Data Warehouse et utiliser Data Flow pour transformer les données dans Azure Data Lake Storage Gen2. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Synapse Analytics et utiliser Data Flow pour transformer les données dans Azure Data Lake Storage Gen2. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
@@ -372,7 +381,7 @@ Pour copier des données vers Azure SQL Data Warehouse, définissez **SqlDWSink*
 | allowCopyCommand | Indique s’il faut utiliser [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (préversion) pour charger des données dans SQL Data Warehouse. `allowCopyCommand` et `allowPolyBase` ne peuvent pas avoir tous les deux la valeur True. <br/><br/>Consultez la section [Utiliser l’instruction COPY pour charger des données dans Azure SQL Data Warehouse](#use-copy-statement) afin de connaître les contraintes et les détails.<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non.<br>Appliquer lors de l’utilisation de l’instruction COPY. |
 | copyCommandSettings | Groupe de propriétés pouvant être spécifié lorsque la propriété `allowCopyCommand` est définie sur TRUE. | Non.<br/>Appliquer lors de l’utilisation de l’instruction COPY. |
 | writeBatchSize    | Nombre de lignes à insérer dans le tableau SQL **par lot**.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). Par défaut, Data Factory détermine de façon dynamique la taille de lot appropriée selon la taille de ligne. | Non.<br/>Appliquer lors de l’utilisation de l’insertion en bloc.     |
-| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/><br/>La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non.<br/>Appliquer lors de l’utilisation de l’insertion en bloc.        |
+| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/><br/>La valeur autorisée est **timespan**. Exemple : « 00:30:00 » (30 minutes). | Non.<br/>Appliquer lors de l’utilisation de l’insertion en bloc.        |
 | preCopyScript     | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Data Warehouse à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non                                            |
 | tableOption | Spécifie si la table du récepteur doit être créée automatiquement si elle n’existe pas en fonction du schéma source. La création automatique de la table n’est pas prise en charge quand une copie intermédiaire est configurée dans l’activité de copie. Les valeurs autorisées sont `none` (par défaut) et `autoCreate`. |Non |
 | disableMetricsCollection | Data Factory collecte des métriques telles que les DWU SQL Data Warehouse pour effectuer des suggestions et l’optimisation des performances de copie. Si ce comportement vous préoccupe, spécifiez `true` pour le désactiver. | Non (la valeur par défaut est `false`) |
@@ -531,7 +540,7 @@ Pour utiliser cette fonctionnalité, créez un [service lié au Stockage Blob Az
 
 ### <a name="best-practices-for-using-polybase"></a>Bonnes pratiques d’utilisation de PolyBase
 
-Les sections suivantes contiennent des bonnes pratiques qui s’ajoutent à celles mentionnées dans [Bonnes pratiques pour Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Les sections suivantes contiennent des bonnes pratiques qui s’ajoutent à celles mentionnées dans [Bonnes pratiques pour Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
 
 #### <a name="required-database-permission"></a>Autorisation de base de données requise
 
@@ -740,7 +749,7 @@ Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l�
 Quand vous copiez des données depuis ou vers Azure Synapse Analytics, les mappages suivants sont utilisés entre les types de données Azure Synapse Analytics et les types de données intermédiaires Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données sources au récepteur, consultez [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
 >[!TIP]
->Reportez-vous à l’article [Types de tables de données dans Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) pour découvrir les types de données pris en charge par SQL DW et les solutions de contournement pour les types non pris en charge.
+>Reportez-vous à l’article [Types de tables de données dans Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) pour découvrir les types de données pris en charge par SQL DW et les solutions de contournement pour les types non pris en charge.
 
 | Type de données Azure Synapse Analytics    | Type de données intermédiaires d’Azure Data Factory |
 | :------------------------------------ | :----------------------------- |

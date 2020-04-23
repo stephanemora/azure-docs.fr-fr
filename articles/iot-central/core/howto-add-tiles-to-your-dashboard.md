@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 49b41715d95a5f210e6e70faf09aa016d1478728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75e5a28f7ec56750432e74ee48ba68491a5e481
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158741"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310299"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurer le tableau de bord de l’application
 
@@ -74,7 +74,7 @@ Le tableau suivant résume l’utilisation des vignettes dans Azure IoT Central 
 | Contenu | Tableaux de bord d’ensemble d’appareils et d’applications |Les vignettes Markdown prises en charge sont des vignettes interactives qui affichent un en-tête et un texte de description. Vous pouvez utiliser cette vignette en tant que lien pour permettre aux utilisateurs d’accéder à une URL associée à votre application.|
 | Image | Tableaux de bord d’ensemble d’appareils et d’applications |Les vignettes d’image affichent une image personnalisée et peuvent être interactives. Utilisez une vignette d’image pour ajouter des graphiques à un tableau de bord et éventuellement permettre aux utilisateurs d’accéder à une URL pertinente pour votre application.|
 | Étiquette | Tableaux de bord d’applications |Les vignettes d’étiquette affichent un texte personnalisé sur un tableau de bord. Vous pouvez choisir la taille du texte. Utilisez une vignette d’étiquette pour ajouter des informations pertinentes au tableau de bord, telles que des descriptions, des informations de contact ou une assistance.|
-| Mappage | Tableaux de bord d’ensemble d’appareils et d’applications |Les vignettes de carte affichent l’emplacement et l’état d’un appareil sur une carte. Par exemple, vous pouvez voir l’endroit où se trouve un appareil et si son ventilateur est allumé.|
+| Mappage | Tableaux de bord des appareils et applications |Les vignettes de carte affichent l’emplacement d’un appareil sur une carte. Vous pouvez également afficher jusqu'à 100 points de l'historique des emplacements d'un appareil. Par exemple, vous pouvez afficher un itinéraire détaillant les emplacements d’un appareil au cours de la semaine dernière.|
 | Graphique en courbes | Tableaux de bord des appareils et applications |Les vignettes de graphique en courbes affichent un graphique des mesures agrégées d’un appareil pour une période de temps. Par exemple, vous pouvez afficher un graphique en courbes montrant la température et la pression moyennes d’un appareil au cours de la dernière heure.|
 | Graphique à barres | Tableaux de bord des appareils et applications |Les vignettes de graphique à barres affichent un graphique des mesures agrégées d’un appareil pour une période de temps. Par exemple, vous pouvez afficher un graphique à barres montrant la température et la pression moyennes d’un appareil au cours de la dernière heure.|
 | Graphique à secteurs | Tableaux de bord d’ensemble d’appareils et d’applications |Les vignettes de graphique à secteur affichent un graphique des mesures agrégées d’un appareil pour une période de temps.|

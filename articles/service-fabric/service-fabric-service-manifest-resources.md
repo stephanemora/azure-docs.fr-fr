@@ -3,19 +3,23 @@ title: Spécification de points de terminaison du service Service Fabric
 description: Comment décrire les ressources du point de terminaison dans un manifeste de service, y compris comment configurer des points de terminaison HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236601"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417592"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d’ensemble
-Le manifeste de service met les ressources à la disposition du service à déclarer/modifier sans changer le code compilé. Azure Service Fabric prend en charge la configuration des ressources des points de terminaison du service. L’accès aux ressources spécifiées dans le manifeste de service peut être contrôlé par le biais de la valeur SecurityGroup dans le manifeste de l’application. La déclaration des ressources permet de les modifier au moment du déploiement. Ainsi, le service n’a pas besoin d’introduire un nouveau mécanisme de configuration. La définition de schéma pour le fichier ServiceManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Le manifeste de service met les ressources à la disposition du service à déclarer, ou à modifier, sans changer le code compilé. Service Fabric prend en charge la configuration des ressources des points de terminaison du service. L’accès aux ressources spécifiées dans le manifeste de service peut être contrôlé par le biais de la valeur SecurityGroup dans le manifeste de l’application. La déclaration des ressources permet de les modifier au moment du déploiement. Ainsi, le service n’a pas besoin d’introduire un nouveau mécanisme de configuration. La définition de schéma pour le fichier ServiceManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Points de terminaison
 Lorsqu’une ressource de point de terminaison est définie dans le manifeste de service, Service Fabric alloue les ports de la plage de ports d’application réservés lorsqu’un port n’est pas spécifié de manière explicite. Examinez, par exemple, le point de terminaison *ServiceEndpoint1* spécifié dans l’extrait de code du manifeste fourni après ce paragraphe. En outre, les services peuvent également demander un port spécifique d’une ressource. Les réplicas de service exécutés sur des nœuds de cluster différents peuvent être alloués à des numéros de ports différents, tandis que les réplicas d’un service exécutés sur le même nœud partagent le port. Les réplicas de service peuvent alors utiliser ces ports pour la réplication et pour écouter les demandes du client.
+
+Lors de l’activation d’un service qui spécifie un point de terminaison https, Service Fabric définit l’entrée de contrôle d’accès pour le port, lie le certificat de serveur spécifié au port et accorde également à l’identité que le service exécute en tant qu’autorisations sur la clé privée du certificat. Le flux d’activation est appelé chaque fois que Service Fabric démarre, ou lorsque la déclaration de certificat de l’application est modifiée via une mise à niveau. Les modifications/renouvellements sont également surveillés dans le certificat de point de terminaison, et les autorisations sont réappliquées régulièrement si nécessaire.
+
+À l’arrêt du service, Service Fabric nettoie l’entrée de contrôle d’accès du point de terminaison et supprime la liaison de certificat. Toutefois, les autorisations appliquées à la clé privée du certificat ne sont pas nettoyées.
 
 > [!WARNING] 
 > De par leur conception, les ports statiques ne doivent pas chevaucher la plage de ports d’application spécifiée dans ClusterManifest. Si vous spécifiez un port statique, affectez-le hors de la plage de ports d’application ; sinon, des conflits de port se produiront. Avec la version 6.5CU2, nous émettons un **avertissement d’intégrité** quand nous détectons un tel conflit, mais nous laissons le déploiement continuer de façon synchronisée avec le comportement de la version 6.5 expédiée. Toutefois, nous pouvons empêcher le déploiement de l’application à partir des versions majeures suivantes.
@@ -85,6 +89,7 @@ Les points de terminaison HTTP sont automatiquement répertoriés dans la liste 
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+      <Endpoint Name="ServiceEndpoint4" Protocol="https" Port="14023"/>
 
       <!-- This endpoint is used by the replicator for replicating the state of your service.
            This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
@@ -106,7 +111,7 @@ Le protocole HTTPS assure l'authentification du serveur et est également utilis
 > Lorsque vous utilisez HTTPS, n’utilisez pas le même port et le même certificat pour les différentes instances de service (indépendantes de l’application) déployées sur le même nœud. La mise à niveau de deux services différents utilisant le même port dans différentes instances d’application aboutit à un échec. Pour plus d’informations, consultez [Mise à niveau de plusieurs applications avec des points de terminaison HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous devez fournir l’empreinte numérique de votre certificat. EndpointRef est une référence à EndpointResource dans ServiceManifest, pour lequel vous définissez le protocole HTTPS. Vous pouvez ajouter plusieurs EndpointCertificate.  
+Voici un exemple de fichier ApplicationManifest illustrant la configuration requise pour un point de terminaison HTTPS. Le certificat de serveur/point de terminaison peut être déclaré par empreinte numérique ou par nom commun de sujet, et une valeur doit être fournie. EndpointRef est une référence à EndpointResource dans ServiceManifest, dont le protocole doit être défini sur 'https'. Vous pouvez ajouter plusieurs EndpointCertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -127,7 +132,8 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous d
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
     <Policies>
-      <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByCN" EndpointRef="ServiceEndpoint4"/>
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
@@ -143,7 +149,8 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous d
     </Service>
   </DefaultServices>
   <Certificates>
-    <EndpointCertificate Name="TestCert1" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByTP" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByCN" X509FindType="FindBySubjectName" X509FindValue="ServiceFabric-EndpointCertificateBinding-Test" X509StoreName="MY" />  
   </Certificates>
 </ApplicationManifest>
 ```
@@ -170,7 +177,7 @@ Dans la section ServiceManifestImport, ajoutez une nouvelle section « Resource
       </Endpoints>
     </ResourceOverrides>
         <Policies>
-           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+           <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint"/>
         </Policies>
   </ServiceManifestImport>
 ```

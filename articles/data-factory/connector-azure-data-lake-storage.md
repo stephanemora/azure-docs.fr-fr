@@ -10,19 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 3c7ff0061a57d1a1a7525ec03b4f77c117415ca5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: 2e4e554bb6564adb8c6722533e127a758e5a9c24
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155849"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415401"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copier et transformer des données dans Data Lake Storage Gen2 avec Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) est un ensemble de fonctionnalités dédiées à l'analytique du Big Data et intégrées au service [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
 
 Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Data Lake Storage Gen2 et utiliser Data Flow pour transformer les données dans Azure Data Lake Storage Gen2. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+
+>[!TIP]
+>Pour plus d’informations sur le scénario de migration de lac de données ou d’entrepôt de données, consultez [Migration des données dans Azure à partir d’un lac de données ou d’un entrepôt de données avec Azure Data Factory](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -44,8 +49,6 @@ Pour l’activité de copie, avec ce connecteur, vous pouvez effectuer les opér
 >[!IMPORTANT]
 >Si vous activez l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans les paramètres du pare-feu Stockage Azure et que vous souhaitez utiliser le runtime d’intégration Azure pour vous connecter à Data Lake Storage Gen2, vous devez utiliser une [authentification d’identité managée](#managed-identity) pour ADLS Gen2.
 
->[!TIP]
->Si vous activez l’espace de noms hiérarchique, il n’existe actuellement aucune interopérabilité des opérations entre les API Blob et Azure Data Lake Storage Gen2. Si vous recevez l’erreur « ErrorCode=FilesystemNotFound » avec le message « Le système de fichiers spécifié n’existe pas », celle-ci vient du fait que le système de fichiers du récepteur spécifié a été créé via l’API Blob et non par le biais de l’API Azure Data Lake Storage Gen2 comme partout ailleurs. Pour résoudre ce problème, spécifiez un nouveau système de fichiers avec un nom qui n’existe pas en tant que nom d’un conteneur d’objets Blob. Ensuite, Data Factory crée automatiquement ce système de fichiers lors de la copie des données.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -410,7 +413,7 @@ Exemples de caractères génériques :
 
 * ```/data/sales/**/*.csv``` Obtient tous les fichiers CSV se trouvant sous /data/sales
 * ```/data/sales/20??/**/``` Obtient tous les fichiers datés du 20ème siècle
-* ```/data/sales/*/*/*.csv``` Obtient les fichiers CSV à deux niveaux sous/data/sales
+* ```/data/sales/*/*/*.csv``` Obtient les fichiers CSV à deux niveaux sous /data/sales
 * ```/data/sales/2004/*/12/[XY]1?.csv``` Obtient tous les fichiers CSV datés de décembre 2004, commençant par X ou Y et ayant comme préfixe un nombre à deux chiffres
 
 **Chemin racine de la partition :** Si vous avez partitionné des dossiers dans votre source de fichiers avec un format ```key=value``` (par exemple, année = 2019), vous pouvez attribuer le niveau supérieur de cette arborescence de dossiers de partitions à un nom de colonne dans votre flux de données.
@@ -462,7 +465,7 @@ Dans la transformation du récepteur, vous pouvez écrire dans un conteneur ou u
    * **Par défaut** : Autorisez Spark à nommer les fichiers en fonction des valeurs par défaut de la partition.
    * **Modèle** : Entrez un modèle qui énumère vos fichiers de sortie par partition. Par exemple, **loans[n].csv** crée loans1.csv, loans2.csv, etc.
    * **Par partition** : Entrez un nom de fichier pour chaque partition.
-   * **Comme les données de la colonne** : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination. Si vous avez un chemin d’accès de dossier dans votre jeu de données, il sera remplacé.
+   * **Comme les données de la colonne** : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination. Si vous avez un chemin de dossier dans votre jeu de données, il sera remplacé.
    * **Sortie d’un seul fichier** : Combinez les fichiers de sortie partitionnés en un seul fichier nommé. Le chemin est relatif au dossier du jeu de données. Sachez que cette opération de fusion peut échouer en fonction de la taille du nœud. Cette option n’est pas recommandée pour des jeux de données volumineux.
 
 **Tout mettre entre guillemets :** Détermine si toutes les valeurs doivent être placées entre guillemets

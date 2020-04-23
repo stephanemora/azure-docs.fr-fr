@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621959"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383068"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -72,9 +72,9 @@ Le pare-feu d’applications web (WAF, Web Application Firewall) est une fonctio
 
 Le service Pare-feu Azure complète les fonctionnalités de groupe de sécurité réseau. Ensemble, ils fournissent une meilleure sécurité réseau grâce à une défense approfondie. Les groupes de sécurité réseau assurent un filtrage du trafic distribué au niveau de la couche réseau pour limiter le trafic aux ressources au sein de réseaux virtuels de chaque abonnement. Pare-feu Azure est un service de pare-feu entièrement centralisé et avec état qui offre une protection au niveau du réseau et de l’application entre les différents abonnements et réseaux virtuels.
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Les groupes de sécurité réseau sont-ils pris en charge dans le sous-réseau de Pare-feu Azure ?
+## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>Les groupes de sécurité réseau sont-ils pris en charge dans AzureFirewallSubnet ?
 
-Pare-feu Azure est un service géré avec plusieurs couches de protection, y compris la protection de plateforme avec des groupes de sécurité réseau au niveau de la carte réseau (non visible).  Les groupes de sécurité réseau au niveau du sous-réseau ne sont pas nécessaires sur le sous-réseau de Pare-feu Azure, et sont désactivés pour empêcher toute interruption du service.
+Pare-feu Azure est un service géré avec plusieurs couches de protection, y compris la protection de plateforme avec des groupes de sécurité réseau au niveau de la carte réseau (non visible).  Les groupes de sécurité réseau au niveau du sous-réseau ne sont pas nécessaires sur AzureFirewallSubnet, et sont désactivés pour empêcher toute interruption du service.
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Comment faire pour configurer Pare-feu Azure avec mes points de terminaison de service ?
 
@@ -121,7 +121,7 @@ Oui, vous pouvez utiliser Pare-feu Azure dans un réseau virtuel de hub pour ach
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Pare-feu Azure peut-il envoyer et filtrer le trafic réseau entre des sous-réseaux d’un même réseau virtuel ou réseau virtuel appairé ?
 
-Oui. Toutefois, la configuration des UDR pour rediriger le trafic entre les sous-réseaux d'un même réseau virtuel nécessite une attention supplémentaire. Bien que l'utilisation de la plage d'adresses du réseau virtuel comme préfixe cible pour l'UDR soit suffisante, celle-ci achemine également tout le trafic d'une machine vers une autre au sein du même sous-réseau via l'instance du Pare-feu Azure. Pour éviter cela, incluez l'itinéraire du sous-réseau dans l'UDR, avec **VNET** comme type de tronçon suivant. La gestion de ces itinéraires peut être lourde et sujette à erreur. La méthode recommandée pour la segmentation interne du réseau consiste à utiliser des groupes de sécurité réseau, qui ne requièrent pas d'UDR.
+Oui. Toutefois, la configuration des UDR pour rediriger le trafic entre les sous-réseaux d'un même réseau virtuel nécessite une attention supplémentaire. Bien que l'utilisation de la plage d'adresses du réseau virtuel comme préfixe cible pour l'UDR soit suffisante, celle-ci achemine également tout le trafic d'une machine vers une autre au sein du même sous-réseau via l'instance du Pare-feu Azure. Pour éviter cela, incluez l'itinéraire du sous-réseau dans l'UDR, avec **VNET** comme type de tronçon suivant. La gestion de ces itinéraires peut être lourde et sujette à erreur. La méthode recommandée pour la segmentation interne du réseau consiste à utiliser des groupes de sécurité réseau, qui ne requièrent pas d’UDR.
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>La sortie de Pare-feu Azure traduit-elle l’adresse réseau source (SNAT) entre réseaux privés ?
 
@@ -151,8 +151,12 @@ Si vous configurez * **.contoso.com**, cela autorise *anyvalue*.contoso.com, mai
 
 Chaque fois qu’une modification de configuration est appliquée, Pare-feu Azure tente de mettre à jour toutes ses instances de serveur principal sous-jacentes. Dans de rares cas, il se peut qu’une de ces instances de serveur principal ne soit pas mise à jour avec la nouvelle configuration et le processus de mise à jour s’arrête avec un état d’approvisionnement ayant échoué. Votre Pare-feu Azure est toujours opérationnel, mais la configuration appliquée peut se trouver dans un état incohérent, où certaines instances ont toujours la configuration précédente et d’autres ont l’ensemble de règles mis à jour. Si cela se produit, essayez de mettre à jour votre configuration une fois de plus jusqu’à la réussite de l’opération que votre Pare-feu aie l’état d’approvisionnement *Réussite*.
 
-### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Comment le pare-feu Azure gère la maintenance planifiée et les défaillances non planifiées ?
+## <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Comment le pare-feu Azure gère la maintenance planifiée et les défaillances non planifiées ?
 Le pare-feu Azure est constitué de plusieurs nœuds back-end dans une configuration active-active.  Pour toute activité de maintenance planifiée, notre logique de drainage des connexions permet de mettre à jour les nœuds de manière appropriée.  Pour limiter le risque d’interruption, les mises à jour sont planifiées en dehors des heures d’ouverture, et ce pour chaque région Azure.  Pour les problèmes non planifiés, nous instancions un nouveau nœud pour remplacer le nœud défaillant.  La connectivité avec le nouveau nœud est généralement rétablie dans les 10 secondes suivant la défaillance.
+
+## <a name="how-does-connection-draining-work"></a>Comment fonctionne ce drainage des connexions ?
+
+Pour toute activité de maintenance planifiée, la logique de drainage des connexions met à jour les nœuds principaux de manière appropriée. Pare-feu Azure attend 90 secondes que les connexions existantes se ferment. Si nécessaire, les clients peuvent automatiquement rétablir la connectivité à un autre nœud principal.
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Une limite de caractères s'applique-t-elle aux noms des pare-feu ?
 
@@ -168,12 +172,42 @@ Non. Un sous-réseau de /26 suffit au Pare-feu Azure.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Comment puis-je augmenter le débit de mon pare-feu ?
 
-La capacité de débit initiale de Pare-feu Azure est de 2,5 à 3 Gbits/s et monte en charge jusqu’à 30 Gbits/s. Elle s’adapte en fonction de l’utilisation de l’UC et du débit. Contactez le support pour augmenter la capacité de débit de votre pare-feu si votre pare-feu ne s’adapte pas à vos besoins et que vous avez besoin d’une capacité de débit plus importante.
+La capacité de débit initiale de Pare-feu Azure est de 2,5 à 3 Gbits/s et monte en charge jusqu’à 30 Gbits/s. Elle s’adapte automatiquement en fonction de l’utilisation de l’UC et du débit.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Combien de temps le scale-out du Pare-feu Azure prend-il ?
 
-La montée en charge de Pare-feu Azure prend entre cinq et sept minutes. Si vous avez des rafales nécessitant une mise à l’échelle automatique plus rapide, contactez le support afin d’augmenter la capacité de débit initiale de votre pare-feu.
+Le Pare-feu Azure s'adapte progressivement lorsque le débit moyen ou la consommation du processeur atteint 60 %. Cette opération prend de cinq à sept minutes. Lors des tests de performances, veillez à tester pendant au moins 10 à 15 minutes et à initier de nouvelles connexions pour profiter des nœuds de pare-feu nouvellement créés.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Le Pare-feu Azure autorise-t-il l’accès à Active Directory par défaut ?
 
 Non. Le Pare-feu Azure bloque l’accès à Active Directory par défaut. Pour autoriser l’accès, configurez l’étiquette du service Azure Active Directory. Pour plus d’informations, consultez [Étiquettes du service Pare-feu Azure](service-tags.md).
+
+## <a name="can-i-exclude-a-fqdn-or-an-ip-address-from-azure-firewall-threat-intelligence-based-filtering"></a>Puis-je exclure un nom de domaine complet (FSDN) ou une adresse IP du filtrage basé sur la Threat Intelligence du Pare-feu Azure ?
+
+Oui, vous pouvez utiliser Azure PowerShell pour le faire :
+
+```azurepowershell
+# Add a Threat Intelligence Whitelist to an Existing Azure Firewall
+
+## Create the Whitelist with both FQDN and IPAddresses
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
+   -FQDN @("fqdn1", "fqdn2", …) -IpAddress @("ip1", "ip2", …)
+
+## Or Update FQDNs and IpAddresses separately
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist.FQDNs = @("fqdn1", "fqdn2", …)
+$fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
+
+Set-AzFirewall -AzureFirewall $fw
+```
+
+## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Pourquoi un test Ping TCP et des outils similaires peuvent-ils se connecter à un nom de domaine complet cible même si aucune règle n’autorise ce trafic sur le Pare-feu Azure ?
+
+Un test Ping TCP ne se connecte pas réellement au nom de domaine complet cible. En effet, le proxy transparent du Pare-feu Azure écoute le trafic sortant sur le port 80/443. Le test Ping TCP établit une connexion avec le pare-feu, qui supprime ensuite le paquet et consigne la connexion. Ce comportement n’a aucun impact sur la sécurité. Toutefois, pour éviter toute confusion, nous étudions la possibilité de modifier ce comportement.
+
+## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Le nombre d’adresses IP prises en charge par les groupes IP est-il limité ?
+
+Oui. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

@@ -1,26 +1,26 @@
 ---
-title: Configurer le protocole SSL de bout en bout avec Azure Application Gateway
-description: Cet article explique comment configurer le protocole SSL de bout en bout avec Azure Application Gateway en utilisant PowerShell.
+title: Configurer le protocole TLS de bout en bout avec Azure Application Gateway
+description: Cet article explique comment configurer le protocole TLS de bout en bout avec Azure Application Gateway en utilisant PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72286455"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312500"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configurer le protocole TLS de bout en bout avec Application Gateway en utilisant PowerShell
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Application Gateway prend en charge le chiffrement de bout en bout du trafic. Application Gateway arrête la connexion SSL au niveau de la passerelle d’application. La passerelle applique ensuite les règles d'acheminement au trafic, rechiffre le paquet, puis transfère celui-ci au serveur principal approprié selon les règles d'acheminement définies. Toute réponse du serveur web passe par le même processus vers l’utilisateur final.
+Azure Application Gateway prend en charge le chiffrement de bout en bout du trafic. Application Gateway arrête la connexion TLS/SSL au niveau de la passerelle d’application. La passerelle applique ensuite les règles d'acheminement au trafic, rechiffre le paquet, puis transfère celui-ci au serveur principal approprié selon les règles d'acheminement définies. Toute réponse du serveur web passe par le même processus vers l’utilisateur final.
 
-Application Gateway prend en charge la définition d’options SSL personnalisées. La passerelle prend également en charge la désactivation des versions suivantes du protocole : **TLSv1.0**, **TLSv1.1** et **TLSv1.2**, ainsi que la définition des suites de chiffrement à utiliser et leur ordre de préférence. Pour en savoir plus sur les options SSL configurables, consultez cette [vue d’ensemble de la stratégie SSL](application-gateway-SSL-policy-overview.md).
+Application Gateway prend en charge la définition d’options TLS personnalisées. La passerelle prend également en charge la désactivation des versions suivantes du protocole : **TLSv1.0**, **TLSv1.1** et **TLSv1.2**, ainsi que la définition des suites de chiffrement à utiliser et leur ordre de préférence. Pour en savoir plus sur les options TLS configurables, consultez cette [vue d’ensemble de la stratégie TLS](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 et SSL 3.0 sont désactivés par défaut et ne peuvent pas être activés. Ces protocoles sont considérés comme non sécurisés et ne peuvent pas être utilisés avec Application Gateway.
@@ -29,22 +29,22 @@ Application Gateway prend en charge la définition d’options SSL personnalisé
 
 ## <a name="scenario"></a>Scénario
 
-Dans ce scénario, vous allez apprendre à créer une passerelle d’application en utilisant un chiffrement SSL de bout en bout avec PowerShell.
+Dans ce scénario, vous allez apprendre à créer une passerelle d’application en utilisant un chiffrement TLS de bout en bout avec PowerShell.
 
 Ce scénario va :
 
 * créer un groupe de ressources nommé **appgw-rg** ;
 * créer un réseau virtuel nommé **appgwvnet** avec un espace d’adressage de **10.0.0.0/16** ;
 * créer deux sous-réseaux appelés **appgwsubnet** et **appsubnet** ;
-* créer une petite passerelle d’application prenant en charge le chiffrement SSL de bout en bout qui limite les versions de protocole SSL et les suites de chiffrement.
+* créer une petite passerelle d’application prenant en charge le chiffrement TLS de bout en bout qui limite les versions de protocole TLS et les suites de chiffrement.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour configurer un chiffrement SSL de bout en bout avec une passerelle d’application, un certificat est requis pour la passerelle et des certificats sont requis pour les serveurs principaux. Le certificat de passerelle est utilisé pour dériver une clé symétrique conformément aux spécifications du protocole SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat de passerelle doit être partagé au format Personal Information Exchange (PFX). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic.
+Pour configurer un chiffrement TLS de bout en bout avec une passerelle d’application, un certificat est requis pour la passerelle et des certificats sont requis pour les serveurs back-end. Le certificat de passerelle est utilisé pour dériver une clé symétrique conformément aux spécifications du protocole TLS. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat de passerelle doit être partagé au format Personal Information Exchange (PFX). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic.
 
-Pour le chiffrement SSL de bout en bout, le serveur principal doit être expressément approuvé par la passerelle d’application. Chargez le certificat public des serveurs principaux sur la passerelle d'application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur principal connues. Il sécurise la communication de bout en bout.
+Pour le chiffrement TLS de bout en bout, le serveur principal doit être expressément approuvé par la passerelle d’application. Chargez le certificat public des serveurs principaux sur la passerelle d'application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur principal connues. Il sécurise la communication de bout en bout.
 
 Ce processus de configuration est décrit dans les sections suivantes.
 
@@ -154,20 +154,20 @@ Tous les éléments de configuration sont définis avant la création de la pass
    ```
 
    > [!NOTE]
-   > Cet exemple configure le certificat utilisé pour la connexion SSL. Le certificat doit être au format .pfx et le mot de passe contenir entre 4 et 12 caractères.
+   > Cet exemple configure le certificat utilisé pour la connexion TLS. Le certificat doit être au format .pfx et le mot de passe contenir entre 4 et 12 caractères.
 
-6. Créez l’écouteur HTTP pour la passerelle d’application. Affectez la configuration IP frontale, le port et le certificat SSL à utiliser.
+6. Créez l’écouteur HTTP pour la passerelle d’application. Affectez la configuration IP frontale, le port et le certificat TLS/SSL à utiliser.
 
    ```powershell
    $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-7. Chargez le certificat à utiliser sur les ressources du pool principal pour lequel le chiffrement SSL est activé.
+7. Chargez le certificat à utiliser sur les ressources du pool de back-ends pour lequel TLS est activé.
 
    > [!NOTE]
-   > La sonde par défaut obtient la clé publique de la liaison SSL *par défaut* sur l’adresse IP du serveur principal et compare la valeur de clé publique reçue à celle que vous fournissez ici. 
+   > La sonde par défaut obtient la clé publique de la liaison TLS *par défaut* sur l’adresse IP du serveur principal et compare la valeur de clé publique reçue à celle que vous fournissez ici. 
    > 
-   > Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur le serveur principal, la clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que le trafic soit dirigé. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison SSL *par défaut*. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison SSL par défaut sur ceux-ci. Si vous ne le faites pas, les sondes échouent et le serveur principal ne figure pas dans la liste approuvée.
+   > Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur le serveur principal, la clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que le trafic soit dirigé. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison TLS *par défaut*. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison TLS par défaut sur ceux-ci. Si vous ne le faites pas, les sondes échouent et le serveur principal ne figure pas dans la liste approuvée.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -176,7 +176,7 @@ Tous les éléments de configuration sont définis avant la création de la pass
    > [!NOTE]
    > Le certificat fourni dans l’étape précédente doit être la clé publique du certificat .pfx présent sur le serveur principal. Exportez le certificat (pas le certificat racine) installé sur le serveur principal au format .CER (Claim, Evidence, and Reasoning) et utilisez-le dans cette étape. Cette étape permet d’ajouter le serveur principal à la liste approuvée par la passerelle d’application.
 
-   Si vous utilisez la référence SKU Application Gateway v2, créez un certificat racine approuvé au lieu d’un certificat d’authentification. Pour plus d’informations, consultez [Présentation du chiffrement SSL de bout en bout sur la passerelle Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku) :
+   Si vous utilisez la référence SKU Application Gateway v2, créez un certificat racine approuvé au lieu d’un certificat d’authentification. Pour plus d’informations, consultez [Présentation du chiffrement TLS de bout en bout sur la passerelle Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku) :
 
    ```powershell
    $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
@@ -209,7 +209,7 @@ Tous les éléments de configuration sont définis avant la création de la pass
     > [!NOTE]
     > Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles doivent être utilisées pour les tests de développement et non à des fins de production.
 
-11. Configurez la stratégie SSL à utiliser sur la passerelle d’application. La passerelle Application Gateway prend en charge la possibilité de définir une version minimale pour les versions du protocole SSL.
+11. Configurez la stratégie TLS à utiliser sur la passerelle d’application. La passerelle Application Gateway prend en charge la possibilité de définir une version minimale pour les versions du protocole TLS.
 
     Les valeurs suivantes représentent la liste des versions de protocole pouvant être définies :
 
@@ -247,7 +247,7 @@ Utiliser cette procédure pour appliquer un nouveau certificat si le certificat 
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Ajouter la nouvelle ressource de certificat à partir du fichier .cer qui contient la clé publique du certificat. Il peut également s’agir du même certificat que celui ajouté à l’écouteur pour la terminaison SSL au niveau de la passerelle d’application.
+2. Ajouter la nouvelle ressource de certificat à partir du fichier .cer qui contient la clé publique du certificat. Il peut également s’agir du même certificat que celui ajouté à l’écouteur pour la terminaison TLS au niveau de la passerelle d’application.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
@@ -300,9 +300,9 @@ Utilisez cette procédure pour supprimer un certificat expiré inutilisé à par
    ```
 
    
-## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limiter les versions du protocole SSL sur une passerelle d’application existante
+## <a name="limit-tls-protocol-versions-on-an-existing-application-gateway"></a>Limiter les versions du protocole TLS sur une passerelle d’application existante
 
-Les étapes précédentes vous ont guidé dans la création d’une application en utilisant un chiffrement SSL de bout en bout et en désactivant certaines versions du protocole SSL. L’exemple suivant désactive certaines stratégies SSL sur une passerelle d’application existante.
+Les étapes précédentes vous ont guidé dans la création d’une application en utilisant un chiffrement TLS de bout en bout et en désactivant certaines versions du protocole TLS. L’exemple suivant désactive certaines stratégies TLS sur une passerelle d’application existante.
 
 1. Récupérez la passerelle d’application à mettre à jour.
 
@@ -310,14 +310,14 @@ Les étapes précédentes vous ont guidé dans la création d’une application 
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Définissez une stratégie SSL. Dans l’exemple suivant, **TLSv1.0** et **TLSv1.1** sont désactivées et les suites de chiffrement **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** et **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** sont les seules autorisées.
+2. Définissez une stratégie TLS. Dans l’exemple suivant, **TLSv1.0** et **TLSv1.1** sont désactivées et les suites de chiffrement **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** et **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** sont les seules autorisées.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-3. Pour finir, mettez à jour la passerelle. Cette dernière étape est une tâche de longue haleine. Une fois l’opération terminée, le chiffrement SSL de bout en bout est configuré sur la passerelle d’application.
+3. Pour finir, mettez à jour la passerelle. Cette dernière étape est une tâche de longue haleine. Une fois l’opération terminée, le chiffrement TLS de bout en bout est configuré sur la passerelle d’application.
 
    ```powershell
    $gw | Set-AzApplicationGateway

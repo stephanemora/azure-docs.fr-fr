@@ -7,17 +7,17 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, red hat, cli
-ms.openlocfilehash: 423f09c135da51b8401c1933a4a271d0becd2c8f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f909c5870be6e394e457ad8f44ea5a253054ffe6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349431"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398890"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Créer un cluster Azure Red Hat OpenShift 4.3, y accéder et le gérer
 
 > [!IMPORTANT]
-> Notez qu’Azure Red Hat OpenShift 4.3 est disponible uniquement en préversion privée dans la région USA Est. L’acceptation de la préversion privée se fait sur invitation uniquement. Inscrivez votre abonnement avant d’essayer d’activer cette fonctionnalité : [Inscription à la préversion privée d’Azure Red Hat OpenShift](https://aka.ms/aro-preview-register)
+> Notez qu’à l’heure actuelle Azure Red Hat OpenShift 4.3 est seulement disponible en préversion privée dans les régions USA Est et USA Est 2. L’acceptation de la préversion privée se fait sur invitation uniquement. Inscrivez votre abonnement avant d’essayer d’activer cette fonctionnalité : [Inscription à la préversion privée d’Azure Red Hat OpenShift](https://aka.ms/aro-preview-register)
 
 > [!NOTE]
 > Les fonctionnalités d’évaluation sont en libre-service et sont fournies en l’état et en fonction des disponibilités. De plus, elles sont exclues du contrat de niveau de service (SLA) et de la garantie limitée. Par conséquent, ces fonctionnalités ne sont pas destinées à une utilisation en production.
@@ -65,10 +65,22 @@ L’extension `az aro` vous permet de créer des clusters Azure Red Hat OpenShif
    az -v
    ...
    Extensions:
-   aro                                0.1.0
+   aro                                0.3.0
    ...
    ```
-  
+
+### <a name="get-a-red-hat-pull-secret-optional"></a>Récupération d’un secret d’extraction Red Hat (facultatif)
+
+Un secret d’extraction Red Hat permet au cluster d’accéder à des registres de conteneurs Red Hat et à du contenu supplémentaire. Il est facultatif mais recommandé d’en utiliser un.
+
+Pour récupérer votre secret d’extraction :
+
+1. Atteindre https://cloud.redhat.com/openshift/install/azure/aro-provisioned.
+1. Connectez-vous à votre compte Red Hat ou créez un compte Red Hat avec votre adresse e-mail professionnelle ; acceptez les conditions générales.
+1. Sélectionnez **Télécharger le secret d’extraction**.
+
+Enregistrez le fichier *pull-secret.txt* à un emplacement sûr ; vous l’utiliserez chaque fois que vous créerez un cluster.
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Créer un réseau virtuel contenant deux sous-réseaux vides
 
 Pour créer un réseau virtuel contenant deux sous-réseaux vides, effectuez ces étapes.
@@ -79,15 +91,7 @@ Pour créer un réseau virtuel contenant deux sous-réseaux vides, effectuez ces
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
-   PULL_SECRET="<optional-pull-secret>"
    ```
-   >[!NOTE]
-   > Le secret d’extraction facultatif permet à votre cluster d’accéder à des registres de conteneurs Red Hat avec du contenu supplémentaire.
-   >
-   > Accédez à votre secret d’extraction en accédant à https://cloud.redhat.com/openshift/install/azure/installer-provisioned et en cliquant sur *Copy Pull Secret* (Copier le secret d’extraction).
-   >
-   > Vous devrez vous connecter à votre compte Red Hat ou créer un nouveau compte Red Hat avec votre adresse de messagerie professionnelle et accepter les conditions générales.
- 
 
 2. Créez un groupe de ressources pour votre cluster.
 
@@ -108,7 +112,7 @@ Pour créer un réseau virtuel contenant deux sous-réseaux vides, effectuez ces
 4. Ajoutez deux sous-réseaux vides à votre réseau virtuel.
 
    ```console
-    for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
+   for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
      az network vnet subnet create \
        -g "$RESOURCEGROUP" \
        --vnet-name vnet \
@@ -141,7 +145,9 @@ az aro create \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
   --worker-subnet "$CLUSTER-worker" \
-  --pull-secret "$PULL_SECRET"
+  --cluster-resource-group "aro-$CLUSTER" \
+  --domain "$CLUSTER" \
+  --pull-secret @pull-secret.txt
 ```
 
 >[!NOTE]

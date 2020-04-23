@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
-ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.date: 4/3/2020
+ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131963"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310119"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 
@@ -139,6 +139,8 @@ La reprise automatique est déclenchée si l’une des conditions suivantes est 
 |Modification de certaines métadonnées de base de données|Ajout de nouvelles balises de base de données.<br>Changement du nombre maximal de vCores, du nombre minimal de vCores ou du délai de mise en pause automatique.|
 |SQL Server Management Studio (SSMS)|L’utilisation de versions de SSMS antérieures à 18.1 et l’ouverture d’une nouvelle fenêtre de requête pour toute base de données du serveur entraînent la reprise des bases de données du même serveur qui ont été mises en pause automatiquement. Ce comportement ne se produit pas si vous utilisez SSMS version 18.1 ou ultérieure.|
 
+La surveillance, la gestion ou d'autres solutions permettant d'effectuer l'une des opérations énumérées ci-dessus déclenchent une reprise automatique.
+
 La reprise automatique est également déclenchée durant le déploiement de certaines mises à jour de service pour lesquelles la base de données doit être en ligne.
 
 ### <a name="connectivity"></a>Connectivité
@@ -149,11 +151,15 @@ Si une base de données serverless est mise en pause, la première connexion rep
 
 La latence pour la reprise automatique d’une base de données serverless est généralement d’environ une minute et pour la mise en pause automatique, entre une et dix minutes.
 
+### <a name="customer-managed-transparent-data-encryption-byok"></a>Chiffrement transparent des données géré par le client (BYOK)
+
+Si vous utilisez le [chiffrement transparent des données géré par le client](transparent-data-encryption-byok-azure-sql.md) (BYOK) et que la base de données serverless est mise en pause automatique lors de la suppression ou de la révocation de la clé, la base de données reste dans l’état de pause automatique.  Dans ce cas, après la reprise de la base de données, la base de données devient inaccessible pendant 10 minutes environ.  Une fois que la base de données devient inaccessible, le processus de récupération est le même que pour les bases de données de calcul provisionnées.  Si la base de données serverless est en ligne lors de la suppression ou de la révocation d’une clé, elle devient également inaccessible après environ 10 minutes, de la même façon qu’avec les bases de données de calcul approvisionnées.
+
 ## <a name="onboarding-into-serverless-compute-tier"></a>Intégration au niveau de calcul serverless
 
 La création d’une base de données ou le déplacement d’une base de données existante dans un niveau de calcul serverless s’effectuent selon le même modèle que la création d’une base de données dans un niveau de calcul provisionné, et impliquent les deux étapes suivantes.
 
-1. Spécifier le nom de l’objectif de service. L’objectif de service précise le niveau de service, la génération du matériel et le nombre maximal de vCores. Le tableau suivant présente les options d’objectif de service :
+1. Spécifiez l’objectif de service. L’objectif de service précise le niveau de service, la génération du matériel et le nombre maximal de vCores. Le tableau suivant présente les options d’objectif de service :
 
    |Nom de l’objectif de service|Niveau de service|Génération du matériel|vCores max.|
    |---|---|---|---|
@@ -172,12 +178,12 @@ La création d’une base de données ou le déplacement d’une base de donnée
    |Paramètre|Choix des valeurs|Valeur par défaut|
    |---|---|---|---|
    |Nombre minimal de vCores|Dépend du nombre maximal de vCores configuré. Voir [Limites des ressources](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 vCore|
-   |Délai de la mise en pause automatique|Minimum : 60 minutes (1 heure)<br>Maximum : 10 080 minutes (7 jours)<br>Incréments : 60 minutes<br>Désactiver la mise en pause automatique  -1|60 minutes|
+   |Délai de la mise en pause automatique|Minimum : 60 minutes (1 heure)<br>Maximum : 10 080 minutes (7 jours)<br>Incréments : 10 minutes<br>Désactiver la mise en pause automatique  -1|60 minutes|
 
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Créer une base de données dans le niveau de calcul serverless 
 
-Les exemples suivants créent une base de données au niveau de calcul serverless. Ces exemples spécifient explicitement le nombre minimal de vCores, le nombre maximal de vCores et le délai de mise en pause automatique.
+Les exemples suivants créent une base de données au niveau de calcul serverless.
 
 #### <a name="use-azure-portal"></a>Utiliser le portail Azure
 
@@ -201,7 +207,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Utiliser Transact-SQL (T-SQL)
 
-L’exemple suivant crée une base de données dans le niveau de calcul serverless.
+Lors de l’utilisation de T-SQL, les valeurs par défaut sont appliquées au vCores min. et au délai de la mise en pause automatique.
 
 ```sql
 CREATE DATABASE testdb
@@ -212,7 +218,7 @@ Pour plus d’informations, consultez [CREATE DATABASE](/sql/t-sql/statements/cr
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Déplacer une base de données du niveau de calcul provisionné vers le niveau de calcul serverless
 
-Les exemples suivants déplacent une base de données du niveau de calcul approvisionné vers le niveau de calcul serverless. Ces exemples spécifient explicitement le nombre minimal de vCores, le nombre maximal de vCores et le délai de mise en pause automatique.
+Les exemples suivants déplacent une base de données du niveau de calcul approvisionné vers le niveau de calcul serverless.
 
 #### <a name="use-powershell"></a>Utiliser PowerShell
 
@@ -233,7 +239,7 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Utiliser Transact-SQL (T-SQL)
 
-L’exemple suivant déplace une base de données du niveau de calcul provisionné vers le niveau de calcul serverless.
+Lors de l’utilisation de T-SQL, les valeurs par défaut sont appliquées au vCores min. et au délai de la mise en pause automatique.
 
 ```sql
 ALTER DATABASE testdb 

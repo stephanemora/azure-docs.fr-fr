@@ -4,14 +4,14 @@ description: En savoir plus sur l’utilisation des identités managées pour Az
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76986748"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461444"
 ---
-# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Utilisation des identités managées pour Azure avec Service Fabric (préversion)
+# <a name="using-managed-identities-for-azure-with-service-fabric"></a>Utilisation des identités managées pour Azure avec Service Fabric
 
 Une difficulté courante lors de la création d’applications cloud consiste à gérer en toute sécurité les informations d’identification dans votre code pour l’authentification auprès de différents services sans les enregistrer localement sur une station de travail de développeur ou dans le contrôle de code source. *Les identités managées pour Azure* résolvent ce problème pour toutes vos ressources dans Azure Active Directory (Azure AD) en leur fournissant des identités managées automatiquement dans Azure AD. Vous pouvez utiliser l’identité d’un service pour vous authentifier auprès d’un service qui prend en charge l’authentification Azure AD, y compris Key Vault, sans aucune information d’identification stockée dans votre code.
 
@@ -47,7 +47,7 @@ Les identités managées pour Service Fabric sont prises en charge uniquement da
 
 L’identité attribuée par le système d’une application est propre à cette application ; une identité attribuée par l’utilisateur est une ressource autonome, qui peut être attribuée à plusieurs applications. Dans une application, une seule identité (qu’elle soit attribuée par le système ou par l’utilisateur) peut être attribuée à plusieurs services de l’application, mais chaque service individuel ne peut être attribué qu’à une seule identité. Enfin, une identité doit être attribuée explicitement à un service pour pouvoir accéder à cette fonctionnalité. Dans les faits, le mappage des identités d’une application à ses services constitutifs permet une isolation dans l’application : un service peut uniquement utiliser l’identité qui lui est mappée.  
 
-Actuellement, les scénarios suivants sont pris en charge pour cette fonctionnalité d’évaluation :
+Voici les scénarios suivants pris en charge actuellement pour cette fonctionnalité :
 
 - Déployer une nouvelle application avec un ou plusieurs services et une ou plusieurs identités attribuées
 
@@ -57,12 +57,7 @@ Les scénarios suivants ne sont pas pris en charge ni recommandés ; notez que 
 
 - Supprimez ou modifiez les identités attribuées à une application. Si vous devez apporter des modifications, envoyez des déploiements distincts pour ajouter d’abord une nouvelle attribution d’identité, puis en supprimer une précédemment attribuée. La suppression d’une identité d’une application existante peut avoir des effets indésirables, notamment la sortie de votre application dans un état qui ne peut pas être mis à niveau. Il est sans danger de supprimer entièrement l’application si la suppression d’une identité est nécessaire ; notez que cette opération supprimera l’identité attribuée par le système (si définie) associée à l’application et supprimera toutes les associations avec les identités attribuées par l’utilisateur et attribuées à l’application.
 
-- La prise en charge de Service Fabric pour les identités managées n’est pour l’heure pas intégrée à [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md) ; l’intégration sera effective d’ici la fin de la période de préversion de la fonctionnalité d’identité managée.
-
->
-> [!NOTE]
->
-> Cette fonctionnalité est en préversion. Elle peut être sujette à des modifications fréquentes et ne convient pas aux déploiements de production.
+- La prise en charge par Service Fabric des identités managées n’est pas intégrée à l’heure actuelle dans [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

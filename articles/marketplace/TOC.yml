@@ -471,7 +471,7 @@
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
                 - name: Certifier une image de machine virtuelle Azure
                   href: ./partner-center-portal/azure-vm-image-certification.md
-                - name: URI SAS
+                - name: URI SAP
                   items:
                     - name: Obtenir un URI SAS
                       href: ./partner-center-portal/get-sas-uri.md

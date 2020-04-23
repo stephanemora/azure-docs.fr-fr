@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 870f7b0ab0f1d7b247435cdbb74e21801b3b052a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472356"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257179"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Présentation des FPGA (Field Programmable Gate Arrays) et de la façon dont ils sont déployés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ Microsoft Azure constitue le plus important investissement cloud au monde en mat
 Les FPGA sur Azure prennent en charge :
 
 + Les scénarios de classification et de reconnaissance d’images
-+ Le déploiement de TensorFlow
++ Déploiement de TensorFlow (requiert Tensorflow 1.x)
 + Le matériel FPGA d’Intel
 
 Ces modèles DNN sont actuellement disponibles :
@@ -115,9 +115,8 @@ Vous pouvez déployer un modèle en tant que service web sur FGPA avec des modè
 - Le kit de développement logiciel (SDK) Python pour modèles accélérés matériellement :
 
     ```bash
-    pip install --upgrade azureml-accel-models
+    pip install --upgrade azureml-accel-models[cpu]
     ```
-
 
 ## <a name="1-create-and-containerize-models"></a>1. Créer et conteneuriser des modèles
 

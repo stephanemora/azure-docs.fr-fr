@@ -1,5 +1,5 @@
 ---
-title: Compréhension d’Azure Security Center pour les configurations locales de l’agent pour C | Microsoft Docs
+title: Configuration locale de l’agent de sécurité (C)
 description: En savoir plus sur Azure Security Center pour les configurations locales de l’agent pour C.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,31 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2725a824da26dafcbc215e4c302ec38ad4b5a699
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68600308"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311705"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Fonctionnement du fichier LocalConfiguration.json - Agent C
 
 L’agent de sécurité Azure Security Center pour IoT utilise des configurations à partir d’un fichier de configuration local.
 L’agent de sécurité lit la configuration une seule fois, au démarrage de l’agent.
 La configuration trouvée dans le fichier de configuration local contient la configuration de l’authentification et d’autres configurations associées à l’agent.
-Le fichier contient les configurations dans des paires « clé/valeur » dans la notation JSON et les configurations sont renseignées quand l’agent est installé. 
+Le fichier contient les configurations dans des paires « clé/valeur » dans la notation JSON et les configurations sont renseignées quand l’agent est installé.
 
 Par défaut, le fichier est situé dans : /var/ASCIoTAgent/LocalConfiguration.json
 
-Les modifications apportées au fichier de configuration ont lieu au redémarrage de l’agent. 
+Les modifications apportées au fichier de configuration ont lieu au redémarrage de l’agent.
 
 ## <a name="security-agent-configurations-for-c"></a>Configurations de l’agent de sécurité pour C
-| Nom de la configuration | Valeurs possibles | Détails | 
+
+| Nom de la configuration | Valeurs possibles | Détails |
 |:-----------|:---------------|:--------|
 | AgentID | GUID | L’identificateur unique de l’agent |
 | TriggerdEventsInterval | Chaîne ISO8601 | Intervalle du planificateur pour la collecte des événements déclenchés |
 | ConnectionTimeout | Chaîne ISO8601 | Période avant l’expiration de la connexion à IoThub |
-| Authentication | JsonObject | Configuration de l'authentification. Cet objet contient toutes les informations nécessaires pour l’authentification avec IoTHub |
+| Authentification | JsonObject | Configuration de l'authentification. Cet objet contient toutes les informations nécessaires pour l’authentification avec IoTHub |
 | Identité | « DPS », « SecurityModule », « Device » | Identité d’authentification - DPS si l’authentification est effectuée via DPS, SecurityModule si l’authentification est effectuée via les informations d’identification du module de sécurité ou Device si l’authentification est effectuée avec les informations d’identification de l’appareil |
 | AuthenticationMethod | « SasToken », « SelfSignedCertificate » | le secret de l’utilisateur pour l’authentification : choisissez SasToken si le secret utilisé est une clé symétrique, choisissez SelfSignedCertificate si le secret est un certificat auto-signé.  |
 | FilePath | Chemin au fichier (chaîne) | Chemin d’accès au fichier qui contient le secret d’authentification |
@@ -53,6 +54,7 @@ Les modifications apportées au fichier de configuration ont lieu au redémarrag
 | DiagnosticEventMinimumSeverity | 0 <= nombre <= 4 | les messages de journal égaux ou supérieurs à cette gravité seront envoyés en tant qu’événements de diagnostic (0 est la gravité la plus faible) |
 
 ## <a name="security-agent-configurations-code-example"></a>Exemple de configurations de l’agent de sécurité
+
 ```JSON
 {
     "Configuration" : {
@@ -79,6 +81,7 @@ Les modifications apportées au fichier de configuration ont lieu au redémarrag
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Lire la [Vue d’ensemble](overview.md) du service Microsoft Azure Security Center pour IoT
 - En savoir plus sur l’[architecture](architecture.md) d’Azure Security Center pour IoT
 - Activer le [service](quickstart-onboard-iot-hub.md) Azure Security Center pour IoT

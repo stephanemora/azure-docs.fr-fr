@@ -4,12 +4,12 @@ description: Cet article vous guide tout au long de la procédure de surveillanc
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: 9bd028157b33817898ef69f9e47cb8b5d9b8f381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75367091"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310553"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Surveillance de runbooks avec des alertes de métriques
 
@@ -23,7 +23,7 @@ Se connecter à Azure à https://portal.azure.com
 
 Les alertes vous permettent de définir une condition à surveiller, ainsi qu’une action à entreprendre lorsque cette condition est remplie.
 
-Dans le portail Azure, accédez à votre compte Automation. Sous **Supervision**, sélectionnez **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**. L’étendue pour la cible est déjà définie sur votre compte Automation.
+Sur le Portail Azure, accédez à votre compte Automation. Sous **Supervision**, sélectionnez **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**. L’étendue pour la cible est déjà définie sur votre compte Automation.
 
 ### <a name="configure-alert-criteria"></a>Configurer les critères de l’alerte
 

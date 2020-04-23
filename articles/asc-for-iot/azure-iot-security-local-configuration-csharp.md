@@ -1,5 +1,5 @@
 ---
-title: Compréhension du fichier de configuration local de l’agent de sécurité Azure Security Center pour IoT pour C# | Microsoft Docs
+title: Configuration locale de l’agent de sécurité (C#)
 description: Découvrez-en plus sur le service de sécurité Azure Security Center pour IoT et le fichier de configuration local de l’agent de sécurité pour C#.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74664189"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311677"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Compréhension du fichier de configuration local (agent C#)
-
 
 L’agent de sécurité Azure Security Center pour IoT utilise des configurations à partir d’un fichier de configuration local.
 
@@ -35,18 +34,21 @@ L’agent de sécurité C# utilise plusieurs fichiers de configuration :
 - **Authentication.config** : configuration associée à l’authentification (y compris les détails de cette dernière).
 - **SecurityIotInterface.config** : configurations liées à l’IoT.
 
-Les fichiers de configuration contiennent la configuration par défaut. La configuration de l’authentification est remplie lors de l’installation de l’agent, et les modifications apportées au fichier de configuration sont appliquées au redémarrage de l’agent. 
+Les fichiers de configuration contiennent la configuration par défaut. La configuration de l’authentification est remplie lors de l’installation de l’agent, et les modifications apportées au fichier de configuration sont appliquées au redémarrage de l’agent.
 
 ## <a name="configuration-file-location"></a>Emplacement du fichier de configuration
+
 Pour Linux :
+
 - Les fichiers de configuration du système d’exploitation sont situés ici : `/var/ASCIoTAgent`.
 
 Pour Windows :
-- Les fichiers de configuration du système d’exploitation se trouvent dans le répertoire de l’agent de sécurité. 
+
+- Les fichiers de configuration du système d’exploitation se trouvent dans le répertoire de l’agent de sécurité.
 
 ### <a name="generalconfig-configurations"></a>Configurations du fichier General.config
 
-| Nom de la configuration | Valeurs possibles | Détails | 
+| Nom de la configuration | Valeurs possibles | Détails |
 |:-----------|:---------------|:--------|
 | agentId | GUID | Identificateur unique de l’agent. |
 | readRemoteConfigurationTimeout | TimeSpan | Intervalle d’extraction de la configuration distante à partir de IoT Hub. Si l’agent ne parvient pas à extraire la configuration dans le délai spécifié, l’opération arrive à expiration.|
@@ -61,6 +63,7 @@ Pour Windows :
 | defaultEventPriority | "High", "Low", "Off" | Priorité par défaut des événements. |
 
 ### <a name="generalconfig-example"></a>Exemple de fichier General.config
+
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <General>
@@ -80,7 +83,7 @@ Pour Windows :
 
 ### <a name="authenticationconfig"></a>Authentication.config
 
-| Nom de la configuration | Valeurs possibles | Détails | 
+| Nom de la configuration | Valeurs possibles | Détails |
 |:-----------|:---------------|:--------|
 | moduleName | string | Nom de l’identité du module de sécurité. Ce nom doit correspondre à celui de l’identité du module dans l’appareil. |
 | deviceId | string | ID de l’appareil (comme inscrit dans Azure IoT Hub). || schedulerInterval | Chaîne TimeSpan | Intervalle du planificateur interne. |
@@ -94,6 +97,7 @@ Pour Windows :
 |
 
 ### <a name="authenticationconfig-example"></a>Exemple de fichier Authentication.config
+
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
@@ -108,14 +112,16 @@ Pour Windows :
   <add key="registrationId" value="d1"/>
 </Authentication>
 ```
+
 ### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config
 
-| Nom de la configuration | Valeurs possibles | Détails | 
+| Nom de la configuration | Valeurs possibles | Détails |
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "Mqtt" | Type de transport IoT Hub. |
 |
 
 ### <a name="securityiotinterfaceconfig-example"></a>Exemple de fichier SecurityIotInterface. config
+
 ```XML
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
@@ -124,6 +130,7 @@ Pour Windows :
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Lire la [Vue d’ensemble](overview.md) du service Microsoft Azure Security Center pour IoT
 - En savoir plus sur l’[architecture](architecture.md) d’Azure Security Center pour IoT
 - Activer le [service](quickstart-onboard-iot-hub.md) Azure Security Center pour IoT

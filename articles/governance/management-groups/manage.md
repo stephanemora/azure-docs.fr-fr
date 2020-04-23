@@ -1,28 +1,25 @@
 ---
 title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
-ms.date: 12/18/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94df67888c0ed0ea532844a92a362a181621d3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 423d1837c3d5710e24abb94f5411200319e8a8aa
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78267939"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381680"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. Les groupes d’administration Azure fournissent un niveau d’étendue au-delà des abonnements. Vous organisez les abonnements en conteneurs appelés « groupes d’administration » et vous appliquez vos conditions de gouvernance aux groupes d’administration. Tous les abonnements d’un groupe d’administration héritent automatiquement des conditions appliquées à ce groupe d’administration.
 
-Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.  Pour plus d’informations sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](overview.md).
+Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements. Pour plus d’informations sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](./overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
->[!IMPORTANT]
->Le cache de groupe d’administration et les jetons utilisateur Azure Resource Manager sont conservés pendant 30 minutes avant d’être forcés à s’actualiser.  L’affichage d’une action telle que le déplacement d’un groupe d’administration ou d’un abonnement peut prendre jusqu’à 30 minutes.  
->Pour voir les mises à jour plus rapidement, vous devez mettre à jour votre jeton en actualisant le navigateur, en vous connectant puis vous déconnectant, ou en demandant un nouveau jeton.  
-
-
+> [!IMPORTANT]
+> Le cache de groupe d’administration et les jetons utilisateur Azure Resource Manager sont conservés pendant 30 minutes avant d’être forcés à s’actualiser. L’affichage d’une action telle que le déplacement d’un groupe d’administration ou d’un abonnement peut prendre jusqu’à 30 minutes. Pour voir les mises à jour plus rapidement, vous devez mettre à jour votre jeton en actualisant le navigateur, en vous connectant puis vous déconnectant, ou en demandant un nouveau jeton.  
 
 ## <a name="change-the-name-of-a-management-group"></a>Modifier le nom d’un groupe d’administration
 
@@ -40,11 +37,11 @@ Vous pouvez modifier le nom du groupe d’administration en utilisant le portail
 
 1. Sélectionnez l’option **Renommer le groupe** en haut de la page.
 
-   ![Option Renommer le groupe de la page Groupe d’administration](./media/detail_action_small.png)
+   :::image type="content" source="./media/detail_action_small.png" alt-text="Option Renommer le groupe de la page Groupe d’administration" border="false":::
 
 1. Lorsque le menu s’ouvre, entrez le nouveau nom à afficher.
 
-   ![Volet Renommer le groupe pour renommer le groupe d’administration](./media/rename_context.png)
+   :::image type="content" source="./media/rename_context.png" alt-text="Volet Renommer le groupe pour renommer le groupe d’administration" border="false":::
 
 1. Sélectionnez **Enregistrer**.
 
@@ -72,7 +69,8 @@ Pour supprimer un groupe d’administration, les conditions suivantes doivent ê
 
    - Pour déplacer un abonnement ou groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration et des abonnements dans la hiérarchie](#moving-management-groups-and-subscriptions).
 
-1. Vous devez disposer des autorisations en écriture sur le groupe d'administration (« Propriétaire », « Contributeur » ou « Contributeur du groupe d’administration »). Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).  
+1. Vous devez disposer des autorisations en écriture sur le groupe d'administration (« Propriétaire », « Contributeur » ou « Contributeur du groupe d’administration »). Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez  
+   [Gérer l’accès et les autorisations avec RBAC](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>Supprimer dans le portail
 
@@ -86,14 +84,14 @@ Pour supprimer un groupe d’administration, les conditions suivantes doivent ê
 
 1. Sélectionnez **Supprimer**.
 
-    > [!TIP]
-    > Si l’icône est désactivée, placez le curseur de la souris au-dessus d’elle pour en connaître la raison.
+   :::image type="content" source="./media/delete.png" alt-text="Renommer l'option Groupe" border="false":::
 
-   ![Renommer l'option Groupe](./media/delete.png)
+   > [!TIP]
+   > Si l’icône est désactivée, placez le curseur de la souris au-dessus d’elle pour en connaître la raison.
 
 1. Une fenêtre s’ouvre pour que vous confirmiez la suppression du groupe d’administration.
 
-   ![Fenêtre de confirmation de suppression du groupe](./media/delete_confirm.png)
+   :::image type="content" source="./media/delete_confirm.png" alt-text="Fenêtre de confirmation de suppression du groupe" border="false":::
 
 1. Sélectionnez **Oui**.
 
@@ -127,11 +125,11 @@ Vous pouvez afficher tous les groupes pour lesquels vous avez un rôle RBAC dire
 
 1. Pour afficher les détails du groupe d’administration, sélectionnez le lien **(détails)** en regard du titre du groupe d’administration. Si ce lien n’est pas disponible, vous n’avez pas les autorisations pour afficher ce groupe d’administration.
 
-   ![Principal](./media/main.png)
+   :::image type="content" source="./media/main.png" alt-text="Main" border="false":::
 
 ### <a name="view-in-powershell"></a>Afficher dans PowerShell
 
-Utilisez la commande Get-AzManagementGroup pour récupérer tous les groupes.  Consultez les modules [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) pour obtenir la liste complète des commandes GET PowerShell de groupe d’administration.  
+Utilisez la commande Get-AzManagementGroup pour récupérer tous les groupes. Consultez les modules [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) pour obtenir la liste complète des commandes GET PowerShell de groupe d’administration.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -206,23 +204,22 @@ Lors du déplacement d'un abonnement ou groupe d’administration en tant qu'enf
 
 Pour effectuer le déplacement, vous devez avoir : 
 
--  Les autorisations en écriture pour le groupe d’administration et l’attribution de rôle dans l’abonnement ou le groupe d’administration enfant.
-    - Un rôle intégré, par exemple, **Propriétaire**
+- Les autorisations en écriture pour le groupe d’administration et l’attribution de rôle dans l’abonnement ou le groupe d’administration enfant.
+  - Un rôle intégré, par exemple, **Propriétaire**
 - L’accès en écriture au groupe d’administration dans le groupe d’administration parent cible.
-    - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
+  - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
 - L’accès en écriture au groupe d’administration dans le groupe d’administration parent existant.
-    - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
+  - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
 
 **Exception** : Si le groupe d'administration parent cible ou existant correspond au groupe d'administration racine, les exigences en matière d'autorisations ne s'appliquent pas. Le groupe d’administration racine correspondant à l'emplacement de destination de tous les nouveaux groupes d’administration et abonnements, vous ne devez pas disposer d'autorisations sur ce dernier pour déplacer un élément.
 
-Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administration actuel, vos cibles de déplacement sont limitées. Vous pouvez uniquement déplacer l’abonnement vers un autre groupe d’administration pour lequel vous détenez le rôle Propriétaire. Vous ne pouvez pas le déplacer vers un groupe d’administration pour lequel vous détenez un rôle Contributeur si vous perdez la propriété de l’abonnement. Si vous vous voyez attribuer directement le rôle Propriétaire de l'abonnement (non hérité du groupe d’administration), vous pouvez le déplacer vers un groupe d’administration au sein duquel vous détenez un rôle Contributeur. 
+Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administration actuel, vos cibles de déplacement sont limitées. Vous pouvez uniquement déplacer l’abonnement vers un autre groupe d’administration pour lequel vous détenez le rôle Propriétaire. Vous ne pouvez pas le déplacer vers un groupe d’administration pour lequel vous détenez un rôle Contributeur si vous perdez la propriété de l’abonnement. Si vous vous voyez attribuer directement le rôle Propriétaire de l'abonnement (non hérité du groupe d’administration), vous pouvez le déplacer vers un groupe d’administration au sein duquel vous détenez un rôle Contributeur.
 
 Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).
 
-
 ## <a name="move-subscriptions"></a>Déplacer des abonnements 
 
-#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Ajouter un abonnement existant à un groupe d’administration dans le portail
+### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Ajouter un abonnement existant à un groupe d’administration dans le portail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -234,11 +231,11 @@ Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe
 
 1. Sélectionnez l’abonnement dans la liste portant le bon ID.
 
-   ![Abonnements disponibles pour ajouter un groupe d’administration](./media/add_context_sub.png)
+   :::image type="content" source="./media/add_context_sub.png" alt-text="Abonnements disponibles pour ajouter un groupe d’administration" border="false":::
 
 1. Sélectionnez « Enregistrer ».
 
-#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Supprimer un abonnement d’un groupe d’administration dans le portail
+### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Supprimer un abonnement d’un groupe d’administration dans le portail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -248,13 +245,13 @@ Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe
 
 1. Dans la liste, sélectionnez les points de suspension situés en fin de la ligne de l’abonnement à déplacer.
 
-   ![Option Déplacer dans un groupe d’administration](./media/move_small.png)
+   :::image type="content" source="./media/move_small.png" alt-text="Option Déplacer dans un groupe d’administration" border="false":::
 
 1. Sélectionnez **Déplacer**.
 
 1. Dans le menu qui s’ouvre, sélectionnez le **groupe d’administration parent**.
 
-   ![Volet Déplacer pour modifier le groupe parent](./media/move_small_context.png)
+   :::image type="content" source="./media/move_small_context.png" alt-text="Volet Déplacer pour modifier le groupe parent" border="false":::
 
 1. Sélectionnez **Enregistrer**.
 
@@ -303,7 +300,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - Si vous sélectionnez Nouveau, vous créez un groupe d’administration.
    - Si vous sélectionnez un groupe existant, une liste déroulante répertoriant tous les groupes d’administration s’affiche. Vous pouvez les déplacer vers ce groupe d’administration.  
 
-   ![Déplacer un groupe d’administration vers un groupe nouveau ou existant](./media/add_context_MG.png)
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Déplacer un groupe d’administration vers un groupe nouveau ou existant" border="false":::
 
 1. Sélectionnez **Enregistrer**.
 
@@ -326,9 +323,9 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditer les groupes d’administration à l’aide des journaux d’activité
 
-Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md). Vous pouvez interroger tous les événements qui se produisent dans un groupe d’administration au même emplacement central, tout comme d’autres ressources Azure.  Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
+Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md). Vous pouvez interroger tous les événements qui se produisent dans un groupe d’administration au même emplacement central, tout comme d’autres ressources Azure. Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
 
-![Journaux d’activité avec les groupes d’administration](media/al-mg.png)
+:::image type="content" source="./media/al-mg.png" alt-text="Journaux d’activité avec les groupes d’administration" border="false":::
 
 Quand vous cherchez à interroger les groupes d’administration en dehors du portail Azure, l’étendue cible pour les groupes d’administration ressemble à **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
@@ -336,9 +333,9 @@ Quand vous cherchez à interroger les groupes d’administration en dehors du po
 
 Lorsque vous référencez des groupes d’administration à partir d'actions d'un autre fournisseur de ressources, utilisez le chemin suivant en tant qu'étendue. Ce chemin d’accès est utilisé avec PowerShell, Azure CLI et les API REST.  
 
->"/providers/Microsoft.Management/managementGroups/{yourMgID}"
+`/providers/Microsoft.Management/managementGroups/{yourMgID}`
 
-À titre d'exemple, vous pouvez utiliser ce chemin d'accès lors de l'attribution d'un nouveau rôle à un groupe d’administration dans PowerShell
+À titre d'exemple, vous pouvez utiliser ce chemin d'accès lors de l'attribution d'un nouveau rôle à un groupe d’administration dans PowerShell :
 
 ```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
@@ -354,8 +351,8 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Pour en savoir plus sur les groupes d’administration, consultez :
 
-- [Créer des groupes d’administration pour organiser les ressources Azure](create.md)
-- [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
+- [Créer des groupes d’administration pour organiser les ressources Azure](./create.md)
+- [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](./manage.md)
 - [Consulter les groupes d’administration dans le module Azure PowerShell Resources](/powershell/module/az.resources#resources)
 - [Consulter les groupes d’administration dans l’API REST](/rest/api/resources/managementgroups)
 - [Consulter les groupes d’administration dans Azure CLI](/cli/azure/account/management-group)

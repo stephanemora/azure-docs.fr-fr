@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55e319ba8aecb9205c00dda4a400e37f7c010649
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370849"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257774"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – Guide de l’administrateur
 Les administrateurs des technologies de l’information qui gèrent les ressources cloud d’une université sont généralement responsables de la configuration du compte lab de leur établissement. Une fois un compte lab configuré, les administrateurs ou enseignants créent des laboratoires de salle de classe dans ce compte. Cet article offre une vue d’ensemble globale des ressources Azure en question ainsi que des conseils pour les créer.
@@ -59,7 +59,7 @@ La liste suivante met en avant les scénarios dans lesquels l’existence de plu
     
     Quand vous configurez un compte lab, vous définissez des stratégies qui s’appliquent à *tousl* les laboratoires de salle de classe relevant du compte lab, par exemple :
     - Le réseau virtuel Azure avec des ressources partagées auxquelles le labo de classe peut accéder. Par exemple, vous pouvez disposez d’un ensemble de labos de classe qui doit pouvoir accéder à un jeu de données partagées au sein d’un réseau virtuel.
-    - Les images de machine virtuelle qui permettent aux labos de classe de créer des machines virtuelles. Par exemple, vous pouvez disposer d’un ensemble de labos de classe qui doivent pouvoir accéder à l’image de la Place de marché [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). 
+    - Les images de machine virtuelle qui permettent aux labos de classe de créer des machines virtuelles. Par exemple, vous pouvez disposer d’un ensemble de labos de classe qui doivent pouvoir accéder à l’image de la Place de marché [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 
     
     Si vous avez des labos de classe qui ont chacun des besoins en stratégies uniques, il peut être avantageux de créer des comptes Lab distincts pour gérer séparément ces labos de classe.
 
@@ -129,7 +129,7 @@ Pour plus d’informations sur le nommage des autres ressources Azure, consultez
 
 Lors de la configuration de vos ressources du service Azure Lab Services, vous devez indiquer la région (ou localisation) du centre de données appelé à héberger la ressource. Voici plus d’informations sur la façon dont la région impacte chaque ressource impliquée dans la configuration d’un labo.
 
-### <a name="resource-group"></a>Groupe de ressources
+### <a name="resource-group"></a>Resource group
 
 La région désigne le centre de données où sont stockées les informations sur le groupe de ressources. Les ressources Azure contenues dans le groupe de ressources peuvent se trouver dans des régions différentes de celle de leur parent.
 
@@ -156,6 +156,9 @@ La localisation d’un labo de classe varie en fonction des facteurs suivants :
        
     Quand il n’y a **aucun** réseau virtuel appairé et que [les créateurs de labo sont autorisés à choisir la localisation du labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), les localisations qui peuvent être sélectionnées par le créateur de labo sont basées sur la capacité disponible.
 
+> [!NOTE]
+> Pour s’assurer qu’il y a suffisamment de capacité de machines virtuelles pour une région, il est important de commencer par demander de la capacité par le biais du compte Lab ou lors de la création du lab.
+
 Une règle générale consiste à attribuer à une ressource la région la plus proche de ses utilisateurs. Pour les labos de classe, cela signifie que le labo de classe doit être créé au plus près de vos étudiants. Pour les cours en ligne où les étudiants sont situés dans le monde entier, faites appel à votre meilleur jugement pour créer un labo de classe central. Sinon, scindez une classe en plusieurs labos de classe en fonction de la région de vos étudiants.
 
 ### <a name="shared-image-gallery"></a>Galerie d’images partagées
@@ -169,7 +172,7 @@ Au moment de créer un labo de classe, les administrateurs ou les créateurs de 
 | ---- | ----- | ------ | ------------- |
 | Petite| <ul><li>2 cœurs</li><li>3,5 Go de RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est idéale pour la ligne de commande, l’ouverture d’un navigateur web, les serveurs web à faible trafic et les bases de données de petite et moyenne taille. |
 | Moyenne | <ul><li>4 cœurs</li><li>7 Go de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse. |
-| Moyenne (virtualisation imbriquée) | <ul><li>4 cœurs</li><li>16 Go de RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse.  Cette taille prend également en charge la virtualisation imbriquée. |
+| Moyenne (virtualisation imbriquée) | <ul><li>4 cœurs</li><li>16 Go de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse.  Cette taille prend également en charge la virtualisation imbriquée. |
 | grand | <ul><li>8 cœurs</li><li>32 Go de RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux.  Cette taille prend également en charge la virtualisation imbriquée. |
 | GPU de petite taille (visualisation) | <ul><li>6 cœurs</li><li>56 Go de RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. |
 | GPU de petite taille (calcul) | <ul><li>6 cœurs</li><li>56 Go de RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Cette taille convient tout particulièrement aux applications qui nécessitent beaucoup de ressources informatiques comme l’intelligence artificielle et le Deep Learning. |

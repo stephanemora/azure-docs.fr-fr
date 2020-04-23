@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 02/04/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9dfe499a7d6084a23fd71ab98db472befe71fc04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024362"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416990"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
@@ -29,7 +29,7 @@ Cet Explorateur prend en charge les paramètres de requête d’URL pour spécif
 
 ## <a name="environment-id"></a>ID de l’environnement
 
-Le paramètre `environmentId=<guid>` spécifie l’ID de l’environnement cible. Il s’agit d’un composant du nom de domaine complet pour l’accès aux données. Vous le trouverez dans l’angle supérieur droit de l’écran présentation de l’environnement, sur le portail Azure. Cela correspond à tous les éléments précédant `env.timeseries.azure.com`.
+Le paramètre `environmentId=<guid>` spécifie l’ID de l’environnement cible. Il s’agit d’un composant du nom de domaine complet pour l’accès aux données. Vous le trouverez dans l’angle supérieur droit de l’écran présentation de l’environnement, sur le portail Azure. Il correspond à tout ce qui précède `env.timeseries.azure.com`.
 
 Exemple de paramètre d’ID de l’environnement : `?environmentId=10000000-0000-0000-0000-100000000108`.
 

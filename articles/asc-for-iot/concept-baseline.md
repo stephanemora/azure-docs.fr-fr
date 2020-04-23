@@ -1,5 +1,5 @@
 ---
-title: Comprendre la base de référence d’Azure Security Center pour IoT | Microsoft Docs
+title: Vérifications personnalisées et de base de référence
 description: Découvrez le concept de base de référence d’Azure Security Center pour IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72176614"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311654"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Base de référence d’Azure Security Center pour IoT et vérifications personnalisées
 
@@ -28,11 +28,11 @@ Cet article explique en quoi consiste la base de référence d’Azure Security 
 
 ## <a name="baseline"></a>Ligne de base
 
-Une base de référence établit un comportement standard pour chaque appareil et permet de déterminer plus facilement un comportement inhabituel ou un écart par rapport au comportement attendu.  
+Une base de référence établit un comportement standard pour chaque appareil et permet de déterminer plus facilement un comportement inhabituel ou un écart par rapport au comportement attendu.
 
 ## <a name="baseline-custom-checks"></a>Vérifications personnalisées de base de référence
 
-Pour les vérifications personnalisées de référence, une liste personnalisée de vérifications est établie pour la base de référence de chaque appareil à l’aide du **jumeau d’identité de module** de l’appareil. 
+Pour les vérifications personnalisées de référence, une liste personnalisée de vérifications est établie pour la base de référence de chaque appareil à l’aide du **jumeau d’identité de module** de l’appareil.
 
 ## <a name="setting-baseline-properties"></a>Définition des propriétés de la base de référence
 

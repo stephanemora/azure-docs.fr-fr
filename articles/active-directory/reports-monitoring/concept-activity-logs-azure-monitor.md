@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/22/2019
+ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231797"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261021"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité Azure Active Directory dans Azure Monitor
 
@@ -98,12 +98,13 @@ Les événements sont regroupés dans des intervalles d’environ cinq minutes e
 
 Par exemple, on compte normalement environ 18 événements par seconde pour un locataire important de plus de 100 000 utilisateurs, un taux qui équivaut à 5 400 événements toutes les cinq minutes. Étant donné que les journaux d’audit font environ 2 Ko par événement, cela équivaut à 10.8 Mo de données. Par conséquent, 43 sont envoyés à l’Event Hub dans cet intervalle de cinq minutes. 
 
-Le tableau suivant contient les coûts approximatifs pour un Event Hub de base dans l’USA Ouest, en fonction du volume de données d’événement. Utilisez la [Calculatrice de prix Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/) pour obtenir une estimation plus précise du volume de données que vous prévoyez pour votre application.
+Le tableau suivant contient les coûts estimés par mois pour un Event Hub de base aux USA Ouest en fonction du volume de données d’événement, qui peut varier d’un client à l’autre selon de nombreux facteurs tels que le comportement de connexion de l’utilisateur, etc. Utilisez la [Calculatrice de prix Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/) pour obtenir une estimation plus précise du volume de données que vous prévoyez pour votre application.
 
 | Catégorie de journal | Nombre d’utilisateurs | Événements par seconde | Événements par intervalle de cinq minutes | Volume par intervalle | Messages par intervalle | Messages par mois | Coût par mois (estimation) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100 000 | 18 | 5400 | 10,8 Mo | 43 | 371,520 | 10,83 $ |
 | Audit | 1 000 | 0.1 | 52 | 104 Ko | 1 | 8640 | 10,80 $ |
+| Connexions | 100 000 | 18000 | 5 400 000 | 10,.8 Go | 42188 | 364 504 320 | 23,9 $ |  
 | Connexions | 1 000 | 178 | 53400 | 106,8&nbsp;MO | 418 | 3 611 520 | 11,06 $ |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Considérations relatives au coût des journaux d’activité Azure Monitor
@@ -179,7 +180,7 @@ Cette section répond aux questions fréquemment posées et traitent des problè
 
 **Q : Quels sont les outils SIEM actuellement pris en charge ?** 
 
-**R** : Pour le moment, Azure Monitor est pris en charge par [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar et [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Pour en savoir plus sur le fonctionnement des connecteurs, consultez la section [Diffuser des données de surveillance Azure vers un Event Hub pour les utiliser dans un outil externe](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R** : **R** : Actuellement, Azure Monitor est pris en charge par [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm et Logz.io. Pour en savoir plus sur le fonctionnement des connecteurs, consultez la section [Diffuser des données de surveillance Azure vers un Event Hub pour les utiliser dans un outil externe](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 

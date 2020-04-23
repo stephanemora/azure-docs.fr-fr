@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7470af23059ccd07e48050e6dc34521e299a986f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76841095"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418607"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configurer un runtime d’intégration (IR) Azure-SQL Server Integration Services (SSIS) pour joindre un réseau virtuel
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Ce didacticiel décrit les étapes de base de l’utilisation du Portail Azure pour configurer un runtime d’intégration (IR) Azure-SQL Server Integration Services (SSIS) afin de joindre un réseau virtuel.
 
@@ -27,7 +29,7 @@ Procédez comme suit :
 - Configurez un réseau virtuel.
 - Joignez Azure-SSIS IR à un réseau virtuel à partir du portail Azure Data Factory.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - **Runtime d’intégration Azure SSIS**. Si vous n’avez pas de runtime d’intégration Azure-SSIS, [approvisionnez un runtime d’intégration Azure-SSIS dans Azure Data Factory](tutorial-deploy-ssis-packages-azure.md) avant de commencer.
 

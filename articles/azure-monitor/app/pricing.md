@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234689"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405385"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -27,6 +27,8 @@ Si vous avez des questions sur les tarifs d’Application Insights, vous pouvez 
 Les tarifs d’[Azure Application Insights][start] suivent un modèle de **paiement à l’utilisation**, basé sur le volume de données ingérées. Ils peuvent donc varier si la période de conservation des données est plus longue. Chaque ressource d’Application Insights est facturée comme un service distinct et s’ajoute à votre facture d’abonnement Azure. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application. Il n’existe aucun frais de volume de données pour l’utilisation du [Flux de métriques temps réel](../../azure-monitor/app/live-stream.md).
 
 Les [tests web à plusieurs étapes](../../azure-monitor/app/availability-multistep.md) donnent lieu à des frais supplémentaires. Il s’agit de tests web qui exécutent une séquence d’actions. Aucun frais supplémentaire n’est facturé pour les *tests Ping* sur une seule page. Les données de télémétrie des tests Ping et des tests à plusieurs étapes sont facturées comme les autres données de télémétrie de votre application.
+
+L’option Application Insights [Activation des alertes sur les dimensions de métrique personnalisées](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) peut également engendrer des coûts supplémentaires, car elle est susceptible d’entraîner la création de métriques pré-agrégation supplémentaires. [Cliquez ici pour en savoir plus](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) sur les métriques basées sur les journaux et pré-agrégées dans Application Insights et sur les [tarifs](https://azure.microsoft.com/pricing/details/monitor/) des métriques personnalisées Azure Monitor.
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimation des coûts de gestion de votre application
 
@@ -176,7 +178,7 @@ Pour [modifier la limite quotidienne via Azure Resource Manager](../../azure-mon
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Créer des alertes pour la limite quotidienne
 
-La limite quotidienne dans Application Insights crée un événement dans le journal d’activité Azure quand les volumes de données ingérées atteignent le niveau d’avertissement ou le niveau de limite quotidienne.  Vous pouvez [créer une alerte en fonction de ces événements du journal d’activité](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Les noms de signal de ces événements sont :
+La limite quotidienne Application Insights crée un événement dans le journal d’activité Azure quand les volumes de données ingérées atteignent le niveau d’avertissement ou le plafond quotidien.  Vous pouvez [créer une alerte en fonction de ces événements du journal d’activité](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Les noms de signal de ces événements sont :
 
 * Seuil d’avertissement de la limite quotidienne du composant Application Insights atteint
 
@@ -216,7 +218,9 @@ Pour changer le délai de conservation, dans votre ressource Application Insight
 
 ![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-005.png)
 
-La conservation peut également être [définie par programmation à l’aide du paramètre `retentionInDays` dans PowerShell](powershell.md#set-the-data-retention). En outre, si vous définissez la conservation des données sur 30 jours, vous pouvez déclencher un vidage immédiat d’anciennes données à l’aide du paramètre `immediatePurgeDataOn30Days`, ce qui peut être utile pour les scénarios liés à la conformité. Cette fonctionnalité de vidage est exposée uniquement via Azure Resource Manager et doit être utilisée avec une extrême prudence. L’heure de réinitialisation quotidienne pour la limite du volume de données peut être configurée à l’aide d’Azure Resource Manager pour définir le paramètre `dailyQuotaResetTime`.
+En cas de diminution de la conservation, une période de grâce de plusieurs jours s’applique avant la suppression des données les plus anciennes.
+
+La conservation peut également être [définie par programmation à l’aide du paramètre `retentionInDays` dans PowerShell](powershell.md#set-the-data-retention). Si vous définissez la conservation des données sur 30 jours, vous pouvez déclencher une purge immédiate des anciennes données avec le paramètre `immediatePurgeDataOn30Days`, ce qui peut être utile pour les scénarios liés à la conformité. Cette fonctionnalité de vidage est exposée uniquement via Azure Resource Manager et doit être utilisée avec une extrême prudence. L’heure de réinitialisation quotidienne pour la limite du volume de données peut être configurée à l’aide d’Azure Resource Manager pour définir le paramètre `dailyQuotaResetTime`.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Frais de transfert de données avec Application Insights
 
@@ -228,7 +232,7 @@ L’envoi de données à Application Insights peut entraîner des frais de bande
 
 ## <a name="disable-daily-cap-e-mails"></a>Désactiver les e-mails de limite quotidienne
 
-Pour désactiver les e-mails de limite de volume quotidienne, accédez à la section **Configurer** de votre ressource Application Insights dans le volet **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**. Il existe des paramètres pour envoyer un e-mail quand la limite est atteinte, ainsi que quand un niveau d’avertissement réglable a été atteint. Si vous souhaitez désactiver tous les e-mails liés à la limite de volume quotidienne, décochez les deux cases.
+Pour désactiver les e-mails de limite de volume quotidienne, accédez à la section **Configurer** de votre ressource Application Insights dans le volet **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**. Il existe des paramètres pour envoyer un e-mail quand la limite est atteinte, ainsi que quand un niveau d’avertissement réglable a été atteint. Si vous souhaitez désactiver tous les e-mails liés au plafond de volume quotidien, décochez les deux cases.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Niveau tarifaire Entreprise existant (par nœud)
 

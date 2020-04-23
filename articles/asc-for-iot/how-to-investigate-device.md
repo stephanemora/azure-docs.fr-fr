@@ -1,5 +1,5 @@
 ---
-title: Guide d’enquête des appareils Azure Security Center pour IoT | Microsoft Docs
+title: Examiner un appareil suspect
 description: Ce guide pratique explique comment utiliser Azure Security Center pour l’IoT afin d’examiner un appareil IoT suspect avec Log Analytics.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,23 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68596240"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311048"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Examiner un appareil IoT suspect
 
-Les alertes du service d’Azure Security Center pour IoT donnent des indications claires lorsqu’il est possible qu’un appareil IoT soit impliqué dans des activités suspectes ou compromis. 
+Les alertes du service d’Azure Security Center pour IoT donnent des indications claires lorsqu’il est possible qu’un appareil IoT soit impliqué dans des activités suspectes ou compromis.
 
-Dans ce guide, utilisez les suggestions d’enquête fournies afin de déterminer les risques potentiels pour votre organisation, de choisir le mode de correction adéquat et de vous prémunir au mieux contre des attaques similaires.  
+Dans ce guide, utilisez les suggestions d’enquête fournies afin de déterminer les risques potentiels pour votre organisation, de choisir le mode de correction adéquat et de vous prémunir au mieux contre des attaques similaires.
 
 > [!div class="checklist"]
 > * Rechercher les données de votre appareil
 > * Effectuer l’examen à l’aide de requêtes kql
-
 
 ## <a name="how-can-i-access-my-data"></a>Accéder à ses données
 
@@ -39,15 +38,15 @@ Par défaut, Azure Security Center pour IoT stocke vos suggestions et vos alerte
 
 Pour rechercher votre espace de travail Log Analytics pour le stockage des données :
 
-1. Ouvrez votre hub IoT. 
+1. Ouvrez votre hub IoT.
 1. Sous **Sécurité**, cliquez sur **Vue d’ensemble**, puis sélectionnez **Paramètres**.
-1. Changez les détails de la configuration de votre espace de travail Log Analytics. 
-1. Cliquez sur **Enregistrer**. 
+1. Changez les détails de la configuration de votre espace de travail Log Analytics.
+1. Cliquez sur **Enregistrer**.
 
 Une fois la configuration effectuée, procédez comme suit pour accéder aux données stockées dans votre espace de travail Log Analytics :
 
-1. Dans votre IoT Hub, sélectionnez et cliquez sur une alerte Azure Security Center pour IoT. 
-1. Cliquez sur **Investigation poussée**. 
+1. Dans votre IoT Hub, sélectionnez et cliquez sur une alerte Azure Security Center pour IoT.
+1. Cliquez sur **Investigation poussée**.
 1. Sélectionnez **Pour voir quels sont les appareils qui ont cette alerte, cliquez ici et consultez la colonne DeviceId**.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Étapes de l’examen des appareils IoT suspects
@@ -70,7 +69,7 @@ Pour savoir si d’autres alertes ont été déclenchées à peu près au même 
 
 ### <a name="users-with-access"></a>Utilisateurs disposant d’un accès
 
-Pour savoir quels utilisateurs ont accès à un appareil spécifique, utilisez la requête kql suivante : 
+Pour savoir quels utilisateurs ont accès à un appareil spécifique, utilisez la requête kql suivante :
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -85,13 +84,14 @@ Pour savoir quels utilisateurs ont accès à un appareil spécifique, utilisez l
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
  ```
-Ces données répondent aux questions suivantes : 
+Ces données répondent aux questions suivantes :
+
 - Quels sont les utilisateurs ayant accès à l’appareil ?
 - Les utilisateurs y ayant accès ont-ils les niveaux d’autorisation prévus ?
 
 ### <a name="open-ports"></a>Ouvrir les ports
 
-Pour savoir quels ports de l’appareil sont en cours d’utilisation ou ont été utilisés, exécutez la requête kql suivante : 
+Pour savoir quels ports de l’appareil sont en cours d’utilisation ou ont été utilisés, exécutez la requête kql suivante :
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -112,14 +112,15 @@ Pour savoir quels ports de l’appareil sont en cours d’utilisation ou ont ét
  ```
 
 Ces données répondent aux questions suivantes :
+
 - Quels sont les sockets d’écoute actifs sur l’appareil ?
 - Les sockets d’écoute actuellement actifs sont-ils censés être autorisés ?
 - Y a-t-il des adresses distantes suspectes connectées à l’appareil ?
 
 ### <a name="user-logins"></a>Connexions utilisateur
 
-Pour savoir quels utilisateurs se sont connectés à l’appareil, utilisez la requête kql suivante : 
- 
+Pour savoir quels utilisateurs se sont connectés à l’appareil, utilisez la requête kql suivante :
+
  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -143,13 +144,14 @@ Pour savoir quels utilisateurs se sont connectés à l’appareil, utilisez la r
  ```
 
 Les résultats de la requête répondent aux questions suivantes :
+
 - Quels sont les utilisateurs qui se sont connectés à l’appareil ?
 - Les utilisateurs qui se sont connectés sont-ils censés le faire ?
 - Ces utilisateurs se sont-ils connectés à partir d’adresses IP attendues ou inattendues ?
-  
+
 ### <a name="process-list"></a>Liste de processus
 
-Pour savoir si la liste de processus est conforme à ce qui est attendu, utilisez la requête kql suivante : 
+Pour savoir si la liste de processus est conforme à ce qui est attendu, utilisez la requête kql suivante :
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -186,4 +188,4 @@ Les résultats de la requête répondent aux questions suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir examiné un appareil pour mieux comprendre les risques que vous encourez, vous pouvez envisager de [configurer des alertes personnalisées](quickstart-create-custom-alerts.md) pour améliorer la sécurité de votre solution IoT. Si vous ne disposez pas d’un agent d’appareil, envisagez de [déployer un agent de sécurité](how-to-deploy-agent.md) ou de [changer la configuration d’un agent d’appareil existant](how-to-agent-configuration.md) afin d’améliorer vos résultats. 
+Après avoir examiné un appareil pour mieux comprendre les risques que vous encourez, vous pouvez envisager de [configurer des alertes personnalisées](quickstart-create-custom-alerts.md) pour améliorer la sécurité de votre solution IoT. Si vous ne disposez pas d’un agent d’appareil, envisagez de [déployer un agent de sécurité](how-to-deploy-agent.md) ou de [changer la configuration d’un agent d’appareil existant](how-to-agent-configuration.md) afin d’améliorer vos résultats.

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Découvrez comment résoudre les problèmes courants liés à l’activation et à l’utilisation d’Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: c12dfd385962d8dd7de8239a0d4ecd46746499c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fcf14bf42fc843a126fea269038087ee7fb0c6c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239764"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382041"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Résolution des problèmes Azure Dev Spaces
 
@@ -95,7 +95,7 @@ Pour résoudre ce problème, mettez à jour votre installation de l’interface 
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>Erreur « kube-apiserver inaccessible »
 
-Ce message d’erreur s’affiche lorsque Azure Dev Spaces ne parvient pas à se connecter au serveur d’API de votre cluster AKS. 
+Ce message d’erreur s’affiche lorsque Azure Dev Spaces ne parvient pas à se connecter au serveur d’API de votre cluster AKS.
 
 Si l’accès à votre serveur d’API de cluster AKS est verrouillé ou si [les plages d’adresses IP autorisées par le serveur API ](../aks/api-server-authorized-ip-ranges.md) sont activées pour votre cluster AKS, vous devez également [créer](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) ou [ mettre à jour](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) votre cluster pour [ autoriser des plages supplémentaires selon votre région](https://github.com/Azure/dev-spaces/tree/master/public-ips).
 
@@ -271,6 +271,113 @@ Par exemple, pour arrêter et désactiver le service *Windows BranchCache* :
 * Cliquez sur *Arrêter*.
 * Si vous le souhaitez, vous pouvez le désactiver en définissant *Type de démarrage* sur *Désactivé*.
 * Cliquez sur *OK*.
+
+### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Erreur « no AzureAssignedIdentity found for pod:azds/azds-webhook-deployment-\<id\> in assigned state »
+
+Lors de l'exécution d'un service avec Azure Dev Spaces sur un cluster AKS avec une [identité managée](../aks/use-managed-identity.md) et des [identités de pod managées](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities), le processus risque de se bloquer après l'étape *chart install*. Si vous inspectez l’élément *azds-injector-webhook* dans l'espace de noms *azds*, vous pouvez voir cette erreur.
+
+Les services Azure Dev Spaces fonctionnant sur votre cluster utilisent l'identité managée du cluster pour communiquer avec les services de backend d'Azure Dev Spaces à l'extérieur du cluster. Lorsque l’identité de pod managée est installée, des règles de mise en réseau sont configurées sur les nœuds de votre cluster afin de rediriger tous les appels pour les informations d’identification de l'identité managée vers un [DaemonSet Node Managed Identity (NMI) installé sur le cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Ce DaemonSet NMI identifie le pod appelant et s'assure que ce pod a été étiqueté de manière appropriée pour accéder à l'identité managée demandée. Azure Dev Spaces ne peut pas déterminer si un cluster contient une identité de pod managée et ne peut pas effectuer la configuration nécessaire pour permettre aux services Azure Dev Spaces d'accéder à l'identité managée du cluster. Comme les services Azure Dev Spaces n'ont pas été configurés pour accéder à l'identité managée du cluster, le DaemonSet NMI ne leur permettra pas d'obtenir un jeton AAD pour l'identité managée et ne pourra pas communiquer avec les services backend d'Azure Dev Spaces.
+
+Pour résoudre ce problème, appliquez un objet [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) pour l’élément *azds-injector-webhook* et mettrez à jour les pods instrumentés par Azure Dev Spaces pour accéder à l'identité managée.
+
+Créez un fichier nommé *webhookException.yaml* et copiez-y la définition YAML suivante :
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: azds-infrastructure-exception
+  namespace: azds
+spec:
+  PodLabels:
+    azds.io/uses-cluster-identity: "true"
+```
+
+Le fichier ci-dessus crée un objet *AzurePodIdentityException* pour l’élément *azds-injector-webhook*. Pour déployer cet objet, utilisez `kubectl` :
+
+```cmd
+kubectl apply -f webhookException.yaml
+```
+
+Pour mettre à jour les pods instrumentés par Azure Dev Spaces et accéder à l'identité managée, mettez à jour l’*espace de noms* dans la définition YAML ci-dessous et utilisez `kubectl` pour l'appliquer à chaque espace de développement.
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: azds-infrastructure-exception
+  namespace: myNamespace
+spec:
+  PodLabels:
+    azds.io/instrumented: "true"
+```
+
+Vous pouvez également créer les objets *AzureIdentity* et *AzureIdentityBinding* et mettre à jour les étiquettes des pods pour les charges de travail fonctionnant dans les espaces instrumentés par Azure Dev Spaces afin d’accéder à l'identité managée créée par le cluster AKS.
+
+Pour lister les détails de l'identité managée, exécutez la commande suivante pour votre cluster AKS :
+
+```azurecli
+az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
+```
+
+La commande ci-dessus génère les champs *clientId* et *resourceId* pour l'identité managée. Par exemple :
+
+```json
+{
+  "clientId": "<clientId>",
+  "resourceId": "/subscriptions/<subid>/resourcegroups/<resourcegroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<name>"
+}
+```
+
+Pour créer un objet *AzureIdentity*, créez un fichier nommé *clusteridentity.yaml* et utilisez la définition YAML suivante mise à jour avec les détails de votre identité managée provenant de la commande précédente :
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentity
+metadata:
+  name: my-cluster-mi
+spec:
+  type: 0
+  ResourceID: /subscriptions/<subid>/resourcegroups/<resourcegroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<name>
+  ClientID: <clientId>
+```
+
+Pour créer un objet *AzureIdentityBinding*, créez un fichier nommé *clusteridentitybinding.yaml* et utilisez la définition YAML suivante :
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentityBinding
+metadata:
+  name: my-cluster-mi-binding
+spec:
+  AzureIdentity: my-cluster-mi
+  Selector: my-label-value
+```
+
+Pour déployer les objets *AzureIdentity* et *AzureIdentityBinding*, utilisez `kubectl` :
+
+```cmd
+kubectl apply -f clusteridentity.yaml
+kubectl apply -f clusteridentitybinding.yaml
+```
+
+Après avoir déployé les objets *AzureIdentity* et *AzureIdentityBinding*, toute charge de travail avec l'étiquette *aadpodidbinding: my-label-value* peut accéder à l'identité managée du cluster. Ajoutez cette étiquette et redéployez toutes les charges de travail en cours d’exécution dans tout espace de développement. Par exemple :
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sample
+        aadpodidbinding: my-label-value
+    spec:
+      [...]
+```
 
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Problèmes courants liés à l’utilisation de Visual Studio et de Visual Studio Code avec Azure Dev Spaces
 

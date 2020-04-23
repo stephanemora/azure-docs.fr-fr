@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e14cc00d1bd716b3e4880e585b05447d2e55e2b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232973"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257434"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -2407,7 +2407,13 @@ Vous pouvez changer le comportement par défaut pour les déclencheurs et les ac
 
 Par défaut, les instances de workflow d’application logique s’exécutent toutes en même temps (simultanément ou en parallèle). Ce comportement signifie que chaque instance de déclencheur s’active avant la fin de l’exécution de l’instance de workflow active précédente. Toutefois, le nombre d’instances exécutées simultanément a une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Lorsque le nombre d’instances de workflow exécutées simultanément atteint cette limite, toute autre nouvelle instance doit attendre de s’exécuter. Cette limite aide à contrôler le nombre de requêtes reçues par les systèmes backend.
 
-Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. Cette propriété contrôle le nombre maximal d’instances de flux de travail qui peuvent s’exécuter en parallèle. Voici quelques considérations liées à l’activation du contrôle d’accès concurrentiel :
+Lorsque vous activez le contrôle d’accès concurrentiel du déclencheur, les instances de déclencheur s’exécutent en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite de concurrence, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. Cette propriété contrôle le nombre maximal de nouvelles instances de workflow qui peuvent s’exécuter en parallèle.
+
+Voici quelques considérations liées à l’activation de la concurrence sur un déclencheur :
+
+* Lorsque la concurrence est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
+
+* Vous ne pouvez pas désactiver la concurrence après avoir activé le contrôle de la concurrence.
 
 * Lorsque la concurrence est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
 

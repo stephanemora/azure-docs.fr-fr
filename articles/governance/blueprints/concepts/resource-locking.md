@@ -1,36 +1,39 @@
 ---
 title: Présentation du verrouillage des ressources
 description: Découvrez les options de verrouillage dans Azure Blueprints pour protéger les ressources au moment d’affecter un blueprint.
-ms.date: 02/27/2020
+ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199697"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383589"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
 La création d’environnements cohérents à l’échelle n’est vraiment utile que s’il existe un mécanisme pour gérer cette cohérence. Cet article explique le fonctionnement du verrouillage de ressources dans les blueprints Azure. Pour voir un exemple de verrouillage des ressources et d’application _d’affectations de refus_, consultez le didacticiel relatif à la [protection des nouvelles ressources](../tutorials/protect-new-resources.md).
 
+> [!NOTE]
+> Les verrous de ressources déployés par Azure Blueprints sont appliqués uniquement aux ressources déployées par l’affectation de blueprint. Aucun verrou n’est ajouté aux ressources existantes (telles que celles des groupes de ressources qui existent déjà).
+
 ## <a name="locking-modes-and-states"></a>Modes et états de verrouillage
 
 Le mode de verrouillage s’applique à l’attribution de blueprint et offre trois options : **Ne pas verrouiller**, **Lecture seule** ou **Ne pas supprimer**. Le mode de verrouillage est configuré durant le déploiement d’artefact au cours d’une attribution de blueprint. Un autre mode de verrouillage peut être défini en mettant à jour l’attribution de blueprint.
-Les modes de verrouillage ne peuvent cependant pas être modifiés en dehors des blueprints.
+Les modes de verrouillage ne peuvent cependant pas être modifiés en dehors d’Azure Blueprints.
 
 Les ressources créées par des artefacts dans une attribution de blueprint ont quatre états possibles : **Non verrouillé**, **Lecture seule**, **Modification/suppression impossible** ou **Suppression impossible**. Chaque type d’artefact peut être en état **Non verrouillé**. Le tableau suivant permet de déterminer l’état d’une ressource :
 
 |Mode|Type de ressource d’artefact|State|Description|
 |-|-|-|-|
-|Ne pas verrouiller|*|Non verrouillé|Les ressources ne sont pas protégées par des blueprints. Cet état est également utilisé pour des ressources ajoutées à un artéfact de groupe de ressources **En lecture seule** ou **Ne pas supprimer** à partir de l’extérieur d’une attribution de blueprint.|
+|Ne pas verrouiller|*|Non verrouillé|Les ressources ne sont pas protégées par Azure Blueprints. Cet état est également utilisé pour des ressources ajoutées à un artéfact de groupe de ressources **En lecture seule** ou **Ne pas supprimer** à partir de l’extérieur d’une attribution de blueprint.|
 |Lecture seule|Resource group|Modification/suppression impossible|Le groupe de ressources est en lecture seule et les balises sur le groupe de ressources ne peuvent pas être modifiées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
 |Lecture seule|Groupe de non-ressources|Lecture seule|La ressource ne peut pas être modifiée de quelque manière que ce soit (aucune modification possible et suppression impossible).|
 |Ne pas supprimer|*|Suppression impossible|Les ressources peuvent être modifiées mais pas supprimées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
 
 ## <a name="overriding-locking-states"></a>Neutralisation des états de verrouillage
 
-Il est généralement possible pour une personne disposant d’un [contrôle d’accès en fonction du rôle](../../../role-based-access-control/overview.md) (RBAC) approprié sur l’abonnement, tel que le rôle « Propriétaire », d’être autorisée à modifier ou supprimer n’importe quelle ressource. Cet accès n’est pas possible quand les blueprints appliquent un verrouillage dans le cadre d’une affectation déployée. Si l’attribution a été définie avec l’option **Lecture seule** ou **Ne pas supprimer**, même le propriétaire de l’abonnement ne peut pas effectuer l’action bloquée sur la ressource protégée.
+Il est généralement possible pour une personne disposant d’un [contrôle d’accès en fonction du rôle](../../../role-based-access-control/overview.md) (RBAC) approprié sur l’abonnement, tel que le rôle « Propriétaire », d’être autorisée à modifier ou supprimer n’importe quelle ressource. Cet accès n’est pas possible quand Azure Blueprints applique un verrouillage dans le cadre d’une affectation déployée. Si l’attribution a été définie avec l’option **Lecture seule** ou **Ne pas supprimer**, même le propriétaire de l’abonnement ne peut pas effectuer l’action bloquée sur la ressource protégée.
 
 Cette mesure de sécurité assure la cohérence du blueprint défini et protège l’environnement pour la création duquel il a été conçu contre toute modification ou suppression accidentelle ou programmatique.
 
@@ -94,13 +97,13 @@ S’il devient nécessaire de modifier ou supprimer une ressource protégée par
 - En mettant à jour de l’attribution de blueprint en la définissant sur un mode de verrouillage **Ne pas verrouiller**
 - Supprimer l’attribution de blueprint
 
-Une fois l’affectation supprimée, les verrous créés par les blueprints sont supprimés. Cependant, la ressource est conservée et doit être supprimée selon des procédés normaux.
+Une fois l’affectation supprimée, les verrous créés par Azure Blueprints sont supprimés. Cependant, la ressource est conservée et doit être supprimée selon des procédés normaux.
 
 ## <a name="how-blueprint-locks-work"></a>Fonctionnement des verrous de blueprint
 
-Une action de refus de type [Refuser les attributions](../../../role-based-access-control/deny-assignments.md) de contrôle d’accès en fonction du rôle (RBAC) est appliquée aux ressources d’artefact lors de l’attribution d’un blueprint si cette attribution a sélectionné l’option **Lecture seule** ou **Ne pas supprimer**. L’action de refus est ajoutée par l’identité managée de l’attribution de blueprint, et ne peut être supprimée des ressources d’artefacts que par cette même identité managée. Cette mesure de sécurité a pour effet d’appliquer le mécanisme de verrouillage et d’empêcher la suppression du verrou du blueprint en dehors de blueprints.
+Une action de refus de type [Refuser les attributions](../../../role-based-access-control/deny-assignments.md) de contrôle d’accès en fonction du rôle (RBAC) est appliquée aux ressources d’artefact lors de l’attribution d’un blueprint si cette attribution a sélectionné l’option **Lecture seule** ou **Ne pas supprimer**. L’action de refus est ajoutée par l’identité managée de l’attribution de blueprint, et ne peut être supprimée des ressources d’artefacts que par cette même identité managée. Cette mesure de sécurité a pour effet d’appliquer le mécanisme de verrouillage et d’empêcher la suppression du verrou du blueprint en dehors d’Azure Blueprints.
 
-![Affectation de refus blueprint sur groupe de ressources](../media/resource-locking/blueprint-deny-assignment.png)
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Affectation de refus blueprint sur groupe de ressources" border="false":::
 
 [Propriétés d’affectation de refus](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de chaque mode :
 

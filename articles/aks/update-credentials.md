@@ -1,21 +1,24 @@
 ---
-title: Réinitialiser les informations d’identification d’un cluster Azure Kubernetes Service (AKS)
+title: Réinitialiser les informations d’identification pour un cluster
+titleSuffix: Azure Kubernetes Service
 description: Découvrir comment mettre à jour ou réinitialiser les informations d’identification d’un principal de service ou d’une application AAD pour un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: b7d652be3733cb130a3973909de59489047efe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475542"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392628"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Mettre à jour ou faire tourner les informations d’identification pour Azure Kubernetes Service (AKS)
 
 Par défaut, les clusters AKS sont créés avec un principal de service dont le délai d’expiration est d’un an. À mesure que vous approchez de la date d’expiration, vous pouvez réinitialiser les informations d’identification afin de prolonger le délai d’expiration du principal de service. Vous souhaiterez peut-être également mettre à jour, ou faire pivoter, les informations d’identification dans le cadre d’une stratégie de sécurité définie. Cet article explique comment mettre à jour ces informations d’identification pour un cluster AKS.
 
-Vous avez peut-être également [intégré votre cluster AKS à Azure Active Directory][aad-integration] et l’utilisez comme fournisseur d’authentification pour votre cluster. Dans ce cas, vous aurez 2 autres identités créées pour votre cluster, l’application de serveur AAD et l’application de client AAD ; vous pouvez également réinitialiser ces informations d’identification. 
+Vous avez peut-être également [intégré votre cluster AKS à Azure Active Directory][aad-integration] et l’utilisez comme fournisseur d’authentification pour votre cluster. Dans ce cas, vous aurez 2 autres identités créées pour votre cluster, l’application de serveur AAD et l’application de client AAD ; vous pouvez également réinitialiser ces informations d’identification.
+
+Pour les autorisations, vous pouvez également utiliser une identité managée au lieu d’un principal de service. Les identités managées sont plus faciles à gérer que les principaux de service et ne nécessitent pas de mises à jour ni de rotations. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

@@ -1,6 +1,6 @@
 ---
-title: Arrêt SSL avec l’interface CLI – Azure Application Gateway
-description: Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide de l’interface CLI Azure.
+title: Arrêt TLS avec l’interface CLI – Azure Application Gateway
+description: Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt TLS à l’aide de l’interface CLI Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c297a7d34e8b85420329abaca0e15029ce207861
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246611"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311979"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide de l’interface CLI Azure
+# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Créer une passerelle d’application avec un arrêt TLS à l’aide de l’interface CLI Azure
 
-Vous pouvez utiliser Azure CLI pour créer une [passerelle d’application](overview.md) avec un certificat pour la [terminaison SSL](ssl-overview.md). Pour les serveurs principaux, vous pouvez utiliser un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool backend par défaut de la passerelle d’application.
+Vous pouvez utiliser Azure CLI pour créer une [passerelle d’application](overview.md) avec un certificat pour la [terminaison TLS](ssl-overview.md). Pour les serveurs principaux, vous pouvez utiliser un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool backend par défaut de la passerelle d’application.
 
 Dans cet article, vous apprendrez comment :
 

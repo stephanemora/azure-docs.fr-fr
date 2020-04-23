@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: dsindona
-ms.openlocfilehash: 7c799c4a56ee5fc2074e4d644bdbcbc6d2b1ca5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2a4bb107309894a7180e0a4585cdba6f04d1bee
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288748"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273033"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows Remote Management via HTTPS
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machine virtuelle Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de machine virtuelle Azure](https://aka.ms/CreateAzureVMoffer) pour gérer vos offres migrées.
 
 Cette section explique comment configurer une machine virtuelle Windows hébergée sur Azure, afin qu’elle puisse être gérée et déployée à distance avec PowerShell.  Pour activer la communication à distance PowerShell, la machine virtuelle cible doit exposer un point de terminaison HTTPS de gestion à distance de Windows (WinRM).  Pour plus d’informations sur la communication à distance PowerShell, consultez [Exécution des commandes à distance](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands).  Pour plus d’informations sur WinRM, consultez [Gestion à distance de Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 

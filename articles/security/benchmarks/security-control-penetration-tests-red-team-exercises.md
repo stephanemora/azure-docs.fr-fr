@@ -1,38 +1,36 @@
 ---
 title: Contrôle de sécurité Azure – Tests d’intrusion et exercices Red Team
-description: Tests d’intrusion et exercices Red Team pour le contrôle de sécurité
+description: Tests d’intrusion et exercices Red Team du contrôle de sécurité Azure
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/14/2020
 ms.author: mbaldwin
-ms.custom: security-recommendations
-ms.openlocfilehash: 952103d517e03230cdfa4e7531e27bb2d5f53a07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: security-benchmark
+ms.openlocfilehash: fe9c672e53ea0f46328320daf75f65fd77f5db29
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934318"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408293"
 ---
-# <a name="security-control-penetration-tests-and-red-team-exercises"></a>Contrôle de sécurité : Tests d’intrusion et exercices Red Team
+# <a name="security-control-penetration-tests-and-red-team-exercises"></a>Contrôle de sécurité : Tests d’intrusion et exercices Red Team
 
 Testez la force globale de la défense d’une organisation (technologie, processus et personnes) en simulant les objectifs et actions d’une personne malveillante.
 
-## <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1 : Procédez régulièrement à des tests d’intrusion de vos ressources Azure et veillez à résoudre tous les problèmes de sécurité critiques détectés dans un délai de 60 jours
+## <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1 : Procéder régulièrement à des tests d’intrusion des ressources Azure et veiller à corriger tous les problèmes de sécurité critiques détectés
 
 | Identifiant Azure | Identifiants CIS | Responsabilité |
 |--|--|--|
-| 11,1 | 20.1-20.8 | Partagé |
+| 11,1 | 20.1, 20.2, 20.3, 20.4, 20.5, 20.6, 20.7, 20.8 | Partagé |
 
-Suivez les règles d’engagement de Microsoft pour vous assurer que vos tests d’intrusion sont conformes aux stratégies de Microsoft :
+Suivez les règles d’engagement de Microsoft pour que vos tests d’intrusion soient conformes aux stratégies de Microsoft. Utilisez la stratégie et l’exécution de Red Teaming de Microsoft ainsi que les tests d’intrusion de site actif sur l’infrastructure cloud, les services et les applications gérés par Microsoft.
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+- [Règles d’engagement des tests d’intrusion](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-Vous trouverez plus d’informations sur la stratégie de Microsoft et l’exécution des tests Red Teaming et de pénétration de sites en direct sur l’infrastructure, les services et les applications cloud gérés par Microsoft ici :
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur les [contrôles de sécurité Azure](overview.md)
+- Revenir à la [Vue d’ensemble du benchmark de sécurité Azure](overview.md)

@@ -31,6 +31,8 @@
           href: concept-fundamentals-block-legacy-authentication.md
         - name: Identity Secure Score
           href: identity-secure-score.md
+        - name: Évaluation de l’accès continu
+          href: concept-fundamentals-continuous-access-evaluation.md
     - name: Groupes et utilisateurs
       items:
         - name: Gestion des groupes et des accès

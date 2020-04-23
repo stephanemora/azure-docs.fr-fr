@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: feacd463a10bae66dc8fa88a99b9ea60f399e9ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d73c858bdbfee7c5b7c7e31b62b1f601b7b6838a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74684166"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866438"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
@@ -175,7 +175,7 @@ Lorsque vous configurez une application console pour un déploiement de tâches 
           "runMode": "Continuous"
         }
 
-Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l’adresse [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) où vous pouvez le consulter.  
+Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l’adresse [https://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) où vous pouvez le consulter.  
 
 ### <a name="webjobs-listjson"></a><a id="webjobslist"></a>webjobs-list.json
 Lorsque vous liez un projet compatible avec des tâches web à un projet web, Visual Studio stocke le nom du projet de tâches web sous le nom de fichier *webjobs-list.json* dans le dossier *Propriétés* du projet web. La liste peut contenir plusieurs projets WebJobs, comme illustré dans l’exemple suivant :
@@ -192,7 +192,7 @@ Lorsque vous liez un projet compatible avec des tâches web à un projet web, Vi
           ]
         }
 
-Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l’adresse [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) où vous pouvez le consulter.
+Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l’adresse [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) où vous pouvez le consulter.
 
 ### <a name="deploy-a-webjobs-project"></a><a id="deploy"></a>Déployer un projet WebJobs
 Lorsqu'il est lié à un projet web, un projet de tâches web est déployé automatiquement avec ce dernier. Pour plus d’informations sur le déploiement du projet web, consultez **Procédures** > **Déployer une application** dans le volet de navigation gauche.
@@ -225,7 +225,7 @@ Un projet WebJobs utilise les mêmes expressions CRON pour la planification que 
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-### <a name="settingjob-reference"></a>Référence de setting.job
+### <a name="settingsjob-reference"></a>Référence settings.job
 
 Les paramètres suivants sont pris en charge par les tâches web :
 

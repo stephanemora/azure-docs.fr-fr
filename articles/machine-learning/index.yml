@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentation Azure Machine Learning
-summary: Découvrez comment utiliser Azure Machine Learning pour entraîner, déployer et gérer des modèles et pipelines Machine Learning à grande l’échelle. Des tutoriels, des exemples de code, des informations de référence des API, etc., vous montrent comment.
+summary: Découvrez comment entraîner, déployer et gérer des modèles Machine Learning, des expériences AutoML et des pipelines à grande échelle avec Azure Machine Learning. Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
 metadata:
   title: Documentation Azure Machine Learning
-  description: Découvrez comment utiliser Azure Machine Learning pour entraîner, déployer et gérer des pipelines et des modèles Machine Learning à grande échelle. Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
+  description: Découvrez comment entraîner, déployer et gérer des modèles Machine Learning, des expériences AutoML et des pipelines à grande échelle avec Azure Machine Learning. Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 03/18/2020
-  ms.openlocfilehash: 5855d523bf32798166ab32b6ff336cae95e81ca1
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 04/22/2020
+  ms.openlocfilehash: 174c5b1164505900345e35ff58d2970bf119cc82
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80063952"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82084207"
 landingContent:
 - title: Bien démarrer avec le Machine Learning
   linkLists:
@@ -27,16 +27,28 @@ landingContent:
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Le concepteur (glisser-déposer)
       url: tutorial-designer-automobile-price-train-score.md
+    - text: AutoML (peu/pas de code)
+      url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-    - text: ML automatisé
-      url: tutorial-first-experiment-automated-ml.md
+- title: Utiliser l’expérience web du studio
+  linkLists:
   - linkListType: overview
     links:
-    - text: Qu’est-ce qu’Azure Machine Learning ?
-      url: overview-what-is-azure-ml.md
-    - text: Architecture et concepts
-      url: concept-azure-machine-learning-architecture.md
+    - text: Qu’est-ce que le concepteur (glisser-déposer) ?
+      url: concept-designer.md
+    - text: Qu’est-ce que le machine learning automatisé ?
+      url: concept-automated-ml.md
+  - linkListType: tutorial
+    links:
+    - text: 'AutoML : créer un modèle de classification'
+      url: tutorial-first-experiment-automated-ml.md
+    - text: 'AutoML : entraîner et déployer des modèles ML'
+      url: how-to-use-automated-ml-for-ml-models.md
+    - text: 'Le concepteur : prédire les prix des voitures'
+      url: tutorial-designer-automobile-price-train-score.md
+    - text: Créer un projet d’étiquetage d’images
+      url: tutorial-labeling.md
 - title: Utiliser le SDK Python
   linkLists:
   - linkListType: tutorial
@@ -45,8 +57,10 @@ landingContent:
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Classifier des images
       url: tutorial-train-models-with-aml.md
-    - text: Prédire les prix des taxis avec ML automatisé
+    - text: Prédire les prix des courses de taxi avec AutoML
       url: tutorial-auto-train-models.md
+    - text: Créer des pipelines Azure ML
+      url: tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: Configurer votre environnement
@@ -59,20 +73,8 @@ landingContent:
       url: how-to-train-pytorch.md
     - text: Entraîner avec Keras
       url: how-to-train-keras.md
-- title: Générer des pipelines ML
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Créer des pipelines ML (Python)
-      url: tutorial-pipeline-batch-scoring-classification.md
-    - text: Régression linéaire pour prédire les prix (concepteur)
-      url: tutorial-designer-automobile-price-train-score.md
-  - linkListType: overview
-    links:
     - text: Que sont les pipelines ML ?
       url: concept-ml-pipelines.md
-    - text: Qu’est-ce que le concepteur ?
-      url: concept-designer.md
 - title: Déployer et gérer des modèles
   linkLists:
   - linkListType: how-to-guide
@@ -81,27 +83,25 @@ landingContent:
       url: concept-model-management-and-deployment.md
     - text: Comment et où déployer
       url: how-to-deploy-and-where.md
-    - text: Exemples MLOps
-      url: https://github.com/microsoft/MLOps
     - text: Prédiction en temps réel
       url: how-to-consume-web-service.md
     - text: Prédiction par lots
       url: how-to-use-parallel-run-step.md
-    - text: Authentification
-      url: how-to-setup-authentication.md
 - title: Accéder à la documentation de référence
   linkLists:
   - linkListType: reference
     links:
     - text: Kit SDK pour Python
       url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
-    - text: SDK pour R
-      url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+    - text: Algorithmes et modules du concepteur
+      url: algorithm-module-reference/module-reference.md
+    - text: Référentiel d’exemples MLOps
+      url: https://github.com/microsoft/MLOps
     - text: API REST
       url: https://docs.microsoft.com/rest/api/azureml/
     - text: Interface CLI de Machine Learning
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-    - text: Algorithmes et modules du concepteur
-      url: algorithm-module-reference/module-reference.md
     - text: Architectures de référence IA (GitHub)
       url: https://github.com/Microsoft/AI
+    - text: SDK pour R
+      url: https://azure.github.io/azureml-sdk-for-r/reference/index.html

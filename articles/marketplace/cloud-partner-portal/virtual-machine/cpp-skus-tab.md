@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 49f1de5128325b2884ea76b010727be45f1b195d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8dbadf959107e733a94216c8a01495e6ebf5039
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288884"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273118"
 ---
 # <a name="virtual-machine-skus-tab"></a>Onglet Références de machine virtuelle
+
+> [!IMPORTANT]
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machine virtuelle Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de machine virtuelle Azure](https://aka.ms/CreateAzureVMoffer) pour gérer vos offres migrées.
 
 L’onglet **Références** de la page **Nouvelle offre** permet de créer une ou plusieurs références SKU et de les associer à votre nouvelle offre.  Différentes références SKU permettent de différencier une solution par des ensembles de fonctionnalités, des types d’images de machine virtuelle, le débit ou l’évolutivité, les modèles de facturation ou une autre caractéristique.
 

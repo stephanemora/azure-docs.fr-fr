@@ -2,18 +2,18 @@
 title: Environnement interactif PySpark avec Azure HDInsight Tools
 description: Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code pour créer et envoyer des requêtes et des scripts.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 2a725f3c5c9e1428079807b5b76dbe72d416a9c7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73241549"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393671"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Définir l’environnement interactif de PySpark pour Visual Studio Code
 
@@ -34,32 +34,34 @@ Nous utilisons la commande **python/pip** pour créer un environnement virtuel a
 
 2. Installez **virtualenv** en exécutant la commande ci-dessous.
 
-   ```
+   ```bash
    pip install virtualenv
    ```
 
 ## <a name="other-packages"></a>Autres packages
 
-Si vous rencontrez un message d’erreur, installez les paquets requis en exécutant les commandes suivantes :
+Si vous rencontrez un message d’erreur, installez les packages requis en exécutant les commandes suivantes :
 
    ![Installer le package libkrb5 pour Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
-```
+```bash
 sudo apt-get install libkrb5-dev
 ```
 
-```
+```bash
 sudo apt-get install python-dev
 ```
 
-Redémarrez VS Code puis revenez à l’éditeur de script qui exécute **HDInsight: PySpark Interactive**.
+Redémarrez VS Code, puis revenez à l’éditeur de script qui exécute **HDInsight : PySpark Interactive**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 ### <a name="demo"></a>Démonstration
-* HDInsight pour VS Code : [vidéo](https://go.microsoft.com/fwlink/?linkid=858706)
+
+* HDInsight pour VS Code : [Vidéo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
+
 * [Utiliser Azure HDInsight Tools pour Visual Studio Code](hdinsight-for-vscode.md)
 * [Utiliser Azure Toolkit for IntelliJ pour créer et soumettre des applications Apache Spark Scala](spark/apache-spark-intellij-tool-plugin.md)
 * [Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance par SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)

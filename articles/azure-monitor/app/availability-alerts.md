@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654951"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382883"
 ---
 # <a name="availability-alerts"></a>Alertes de disponibilité
 
@@ -33,6 +33,9 @@ Les alertes sont maintenant activées automatiquement par défaut, mais afin de 
 2. Définissez le niveau de gravité et la description des règles souhaités, et surtout, le groupe d’actions disposant des préférences de notification que vous souhaitez utiliser pour cette règle d’alerte.
 
    ![Modifier après l’enregistrement](./media/availability-alerts/set-action-group.png)
+
+> [!NOTE]
+> Les alertes de disponibilité créées à l’aide de cette expérience sont basées sur l’état. Cela signifie que lorsque les critères d’alerte sont remplis, une seule alerte est générée lorsque le site est détecté comme étant non disponible. Si le site est toujours indisponible la prochaine fois que le critère d'alerte est évalué, aucune nouvelle alerte ne sera générée. Ainsi, si votre site était indisponible pendant une heure et que vous aviez configuré une alerte par e-mail, vous ne recevrez un e-mail que lorsque le site devient indisponible, puis un autre e-mail lorsqu’il redevient disponible. Vous ne recevrez pas d’alertes continues vous rappelant que le site n’est toujours pas disponible.
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>L’alerte sur les emplacements de X en dehors de Y signalant des échecs
 

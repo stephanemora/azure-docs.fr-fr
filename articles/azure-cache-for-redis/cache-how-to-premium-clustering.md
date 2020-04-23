@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a0e5b0c18264e1f7a98e81bcdfd56a7159235da
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235333"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010917"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Comment configurer le clustering pour le niveau Premium de Cache Azure pour Redis
 Le Cache Azure pour Redis offre différents types de caches permettant de choisir parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de niveau Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Cet article explique comment configurer le clustering dans une instance de niveau Premium de Cache Azure pour Redis.
@@ -23,8 +23,8 @@ Cache Azure pour Redis propose le cluster Redis tel qu’[implémenté dans Redi
 
 * Possibilité de fractionner automatiquement votre dataset parmi plusieurs nœuds. 
 * Continuité des opérations quand un sous-ensemble de nœuds rencontre des erreurs ou ne peut pas communiquer avec le reste du cluster. 
-* Débit supplémentaire : le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions. 
-* Taille de mémoire supplémentaire : augmente de façon linéaire à mesure que vous augmentez le nombre de partitions.  
+* Débit supplémentaire : le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions. 
+* Taille de mémoire supplémentaire : augmente de façon linéaire à mesure que vous augmentez le nombre de partitions.  
 
 Le clustering n’augmente pas le nombre de connexions disponibles pour un cache en cluster. Pour plus d’informations sur la taille, le débit et la bande passante des caches de niveau Premium, consultez [Que propose le Cache Azure pour Redis et quelle taille dois-je utiliser ?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
@@ -96,7 +96,7 @@ La liste suivante présente les réponses aux questions les plus fréquemment po
 * Si vous utilisez un fournisseur d’état de session ASP.NET Redis, vous devez utiliser la version 2.0.1 ou une version ultérieure. Consultez [Puis-je utiliser le clustering avec les fournisseurs d’état de session ASP.NET Redis et de mise en cache de la sortie ?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>Comment les clés sont-elles distribuées dans un cluster ?
-Selon la documentation Redis [Modèle de distribution de clés](https://redis.io/topics/cluster-spec#keys-distribution-model) , l’espace de clé est fractionné en 16 384 emplacements. Chaque clé est hachée et affectée à l’un de ces emplacements, qui sont répartis entre les nœuds du cluster. Vous pouvez configurer la partie de la clé qui est hachée pour vous assurer que plusieurs clés se trouvent dans la même partition à l’aide de balises de hachage.
+Selon la documentation Redis [Modèle de distribution de clés](https://redis.io/topics/cluster-spec#keys-distribution-model) : l’espace de clé est fractionné en 16 384 emplacements. Chaque clé est hachée et affectée à l’un de ces emplacements, qui sont répartis entre les nœuds du cluster. Vous pouvez configurer la partie de la clé qui est hachée pour vous assurer que plusieurs clés se trouvent dans la même partition à l’aide de balises de hachage.
 
 * Clés avec une balise de hachage : si une partie de la clé est placée entre `{` et `}`, seule cette partie de la clé est hachée aux fins de détermination de l'emplacement de hachage d'une clé. Par exemple, les 3 clés suivantes se trouvent dans la même partition : `{key}1`, `{key}2` et `{key}3`, étant donné que seule la partie `key` du nom est hachée. Pour obtenir une liste complète des spécifications de balises de hachage de clés, consultez [Balises de hachage de clés](https://redis.io/topics/cluster-spec#keys-hash-tags).
 * Clés sans balise de hachage : le nom entier de la clé est utilisé pour le hachage. Il en résulte une distribution statistiquement uniforme sur les partitions du cache.
@@ -125,7 +125,7 @@ Vous pouvez vous connecter à votre cache à l’aide des [points de terminaison
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Puis-je me connecter directement aux différentes partitions de mon cache ?
 Le protocole de clustering requiert que le client établisse les connexions de partition appropriée. Par conséquent, le client doit faire cela correctement pour vous. Ceci étant dit, chaque partition composée d’une paire de caches principal/réplica désignés collectivement sous le nom d’« instance de cache ». Vous pouvez vous connecter à ces instances de cache à l'aide de l'utilitaire redis-cli dans la branche [unstable](https://redis.io/download) du référentiel Redis sur GitHub. Cette version implémente la prise en charge de base lorsqu’elle est démarrée avec le commutateur `-c` . Pour plus d’informations, consultez [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) sur [https://redis.io](https://redis.io) dans le [tutoriel concernant les clusters Redis](https://redis.io/topics/cluster-tutorial).
 
-Sans SSL, utilisez les commandes suivantes.
+Sans TLS, utilisez les commandes suivantes.
 
     Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
     Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
@@ -133,7 +133,7 @@ Sans SSL, utilisez les commandes suivantes.
     ...
     Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-Avec SSL, remplacez `1300N` par `1500N`.
+Avec TLS, remplacez `1300N` par `1500N`.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Puis-je configurer le clustering pour un cache créé précédemment ?
 Oui. Vérifiez d’abord que votre cache est de niveau Premium (mettez-le à l’échelle si ce n’est pas le cas). Vous devriez alors voir les options de configuration du cluster, en particulier une option permettant d’activer un cluster. Vous pouvez changer la taille du cluster une fois le cache créé ou après l’activation initiale du clustering.

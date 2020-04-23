@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772225"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408634"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
 Cet article décrit comment répliquer des machines virtuelles Azure avec Azure Disk Encryption (ADE) activé, d’une région Azure vers une autre.
 
 >[!NOTE]
-> Site Recovery prend actuellement en charge ADE, avec et sans Azure Active Directory (AAD) pour les machines virtuelles exécutant les systèmes d’exploitation Windows et Linux.  Pour les machines exécutant ADE 1.1 (sans AAD), les machines virtuelles doivent utiliser des disques managés. Les machines virtuelles avec des disques non managés ne sont pas prises en charge. Si vous passez de ADE 0.1 (avec AAD) à 1.1, vous devez désactiver la réplication et activer la réplication pour une machine virtuelle après avoir activé 1.1.
+> Site Recovery prend actuellement en charge ADE, avec et sans Azure Active Directory (AAD) pour les machines virtuelles sur Windows. Dans le cas des systèmes d’exploitation Linux, nous ne gérons ADE que sans AAD. Par ailleurs, les machines virtuelles exécutant ADE 1.1 (sans AAD) doivent utiliser des disques managés. Les machines virtuelles avec des disques non managés ne sont pas prises en charge. Si vous passez de ADE 0.1 (avec AAD) à 1.1, vous devez désactiver la réplication et activer la réplication pour une machine virtuelle après avoir activé 1.1.
 
 
 ## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> Autorisations utilisateur requises

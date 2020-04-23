@@ -1,25 +1,26 @@
 ---
-title: Schéma des événements Azure SignalR dans Azure Event Grid
+title: Azure SingnalR comme source Event Grid
 description: Décrit les propriétés qui sont fournies pour les événements Azure SignalR avec Azure Event Grid
 services: event-grid
-author: chenyl
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 06/11/2019
-ms.author: chenyl
-ms.openlocfilehash: 3b072ff2b680ad6d144c7441190ab2df9870f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67788512"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393394"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Schéma des événements Azure Event Grid pour SignalR Service
 
-Cet article décrit les propriétés et le schéma des événements SignalR Service. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
+Cet article décrit les propriétés et le schéma des événements SignalR Service. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md). Cet article fournit également une liste de démarrages rapides et de tutoriels permettant d’utiliser Azure SignalR comme source d’événement.
 
+## <a name="event-grid-event-schema"></a>Schéma d’événement Event Grid
 
-## <a name="available-event-types"></a>Types d’événement disponibles
+### <a name="available-event-types"></a>Types d’événement disponibles
 
 SignalR Service émet les types d’événements suivants :
 
@@ -28,7 +29,7 @@ SignalR Service émet les types d’événements suivants :
 | Microsoft.SignalRService.ClientConnectionConnected | Déclenché lorsqu’une connexion client est établie. |
 | Microsoft.SignalRService.ClientConnectionDisconnected | Déclenché lorsqu’une connexion client est interrompue. |
 
-## <a name="example-event"></a>Exemple d’événement
+### <a name="example-event"></a>Exemple d’événement
 
 L’exemple suivant montre le schéma d’un événement de connexion client : 
 
@@ -71,7 +72,7 @@ Le schéma pour un événement de déconnexion de client est similaire :
 }]
 ```
 
-## <a name="event-properties"></a>Propriétés d’événement
+### <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
 
@@ -95,6 +96,12 @@ L’objet de données comporte les propriétés suivantes :
 | connectionId | string | Identificateur unique de la connexion client. |
 | userId | string | L’identificateur d’utilisateur défini dans la revendication. |
 | errorMessage | string | L’erreur qui provoque la déconnexion. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriels et guides pratiques
+|Intitulé | Description |
+|---------|---------|
+| [Réagir aux événements Azure SignalR Service à l’aide d’Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Vue d’ensemble de l’intégration d’Azure SignalR Service à Event Grid. |
+| [Comment envoyer des événements Azure SignalR Service à Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Montre comment envoyer des événements Azure SignalR Service à une application via Event Grid. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

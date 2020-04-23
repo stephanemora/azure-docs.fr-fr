@@ -7,17 +7,17 @@ ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 03/12/2020
-ms.openlocfilehash: 9c4215d2c2e811b4c6369ee3773fb811695da4fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: a342ef86817f4f66a6e74b72b4d167fa548b6345
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204356"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419185"
 ---
 # <a name="download-notebookspreview-data"></a>Télécharger des données de notebooks (préversion)
 
-La fonctionnalité Notebooks (préversion) sera supprimée le *13 avril 2020*. Passé cette date, l’onglet Notebooks (préversion) disparaîtra et les données de notebooks ne pourront pas être restaurées. Téléchargez vos données de notebooks avant le 13 avril 2020.
+La fonctionnalité Notebooks (préversion) a été supprimée le *13 avril 2020*. La suppression de l’onglet Notebooks (préversion) et des fichiers de notebook utilisateur est en cours dans les régions Azure du monde entier.
 
 Cet article fournit des instructions pas à pas sur la façon de télécharger des données de notebooks (préversion).
 

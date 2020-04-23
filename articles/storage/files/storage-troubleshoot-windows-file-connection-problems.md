@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136903"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383902"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -50,7 +50,7 @@ Si les utilisateurs accèdent au partage de fichiers Azure à l’aide de l’au
 
 ### <a name="solution-for-cause-3"></a>Solution pour la cause 3
 
-Pour mettre à jour les autorisations au niveau du partage, consultez [Assigner des autorisations d’accès à une identité](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity).
+Pour mettre à jour les autorisations au niveau du partage, consultez [Assigner des autorisations d’accès à une identité](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Les messages « Erreur 53 », « Erreur 67 » ou « Erreur 87 » s’affichent lorsque vous montez ou démontez un partage de fichiers Azure
@@ -324,6 +324,30 @@ L’erreur Erreur système 1359 est survenue. Une erreur interne se produit lor
 Actuellement, vous pouvez envisager de redéployer votre AAD DS à l’aide d’un nouveau nomde domaine DNS qui s’applique aux règles ci-dessous :
 - Les noms ne peuvent pas commencer par un caractère numérique.
 - Les noms doivent comprendre entre 3 et 63 caractères.
+
+## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Impossible de monter Azure Files avec les informations d’identification AD 
+
+### <a name="self-diagnostics-steps"></a>Étapes des autodiagnostics
+Tout d’abord, assurez-vous que vous avez suivi les quatre étapes permettant d’[activer l’authentification AD pour Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+
+Ensuite, essayez de [monter un partage Azure Files avec la clé de compte de stockage](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Si le montage échoue, téléchargez l’outil [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) qui vous permet de valider le client exécutant l’environnement, de détecter les problèmes d’incompatibilité des configurations client qui risquent de compromettre l’accès d’Azure Files, de fournir des conseils prescriptifs sur les correctifs autonomes et de collecter les suivis de diagnostic.
+
+Troisièmement, vous pouvez exécuter l’applet de commande Debug-AzStorageAccountAuth pour effectuer un ensemble de vérifications de base sur la configuration AD avec l’utilisateur AD connecté. Cette applet de commande est prise en charge sur [AzFilesHybrid 0.1.2 et versions ultérieures](https://github.com/Azure-Samples/azure-files-samples/releases). Vous devez exécuter cette applet de commande avec un utilisateur AD disposant de l’autorisation de propriétaire sur le compte de stockage cible.  
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+L’applet de commande effectue dans l’ordre les vérifications ci-dessous, puis fournit des conseils en cas d’échec :
+1. CheckPort445Connectivity : vérifier que le port 445 est ouvert pour la connexion SMB
+2. CheckDomainJoined : vérifier que l’ordinateur client est joint au domaine Active Directory
+3. CheckADObject : vérifier que l’utilisateur connecté dispose d’une représentation valide dans le domaine AD auquel le compte de stockage est associé
+4. CheckGetKerberosTicket : tenter d’obtenir un ticket Kerberos pour se connecter au compte de stockage 
+5. CheckADObjectPasswordIsCorrect : vérifier que le mot de passe configuré sur l’identité AD qui représente le compte de stockage correspond à celui de la clé Kerberos du compte de stockage
+6. CheckSidHasAadUser : vérifier que l’utilisateur AD connecté est synchronisé avec Azure AD
+
+Nous travaillons activement à l’extension de cette applet de commande de diagnostics pour fournir des conseils de dépannage plus performants.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

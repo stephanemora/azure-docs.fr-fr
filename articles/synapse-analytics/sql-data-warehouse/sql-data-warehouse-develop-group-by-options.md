@@ -1,6 +1,6 @@
 ---
 title: Utiliser les options Regrouper par
-description: Conseils relatifs à l’implémentation d’options de regroupement dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
+description: Conseils pour l’implémentation des options Group by dans le pool SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,30 +11,31 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f77445e80e701053b7fbfa1aa559248cf505353c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5d8d4c6d47e33ca365415542c2da9779b4d7d1dd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350524"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416192"
 ---
-# <a name="group-by-options-in-sql-data-warehouse"></a>Options de regroupement dans SQL Data Warehouse
-Conseils relatifs à l’implémentation d’options de regroupement dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
+# <a name="group-by-options-in-synapse-sql-pool"></a>Options Group by dans le pool SQL Synapse
+
+Dans cet article, vous trouverez des conseils pour l’implémentation des options Group by dans le pool SQL.
 
 ## <a name="what-does-group-by-do"></a>Que fait GROUP BY ?
 
-La clause [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL agrège des données en un ensemble de lignes récapitulatives. Certaines options de GROUP BY ne sont pas prises en charge par SQL Data Warehouse. Ces options sont dotées de solutions de contournement.
-
-Ces options sont :
+La clause [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL agrège des données en un ensemble de lignes récapitulatives. GROUP BY dispose de certaines options que le pool SQL ne prend pas en charge. Ces options comportent des solutions de contournement, qui sont les suivantes :
 
 * GROUP BY avec ROLLUP
 * GROUPING SETS
 * GROUP BY avec CUBE
 
 ## <a name="rollup-and-grouping-sets-options"></a>Options ROLLUP et GROUPING SETS
-L’option la plus simple consiste à utiliser UNION ALL à la place pour effectuer le cumul plutôt que de se fier à la syntaxe explicite. Le résultat est exactement le même.
+
+L’option la plus simple consiste à utiliser UNION ALL pour effectuer le cumul plutôt que de se fier à la syntaxe explicite. Le résultat est exactement le même.
 
 L’exemple suivant à l’aide de l’instruction GROUP BY avec l’option ROLLUP :
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -84,11 +85,12 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 Pour remplacer GROUPING SETS, le principe de l’exemple s’applique. Il vous suffit de créer des sections UNION ALL pour les niveaux d’agrégation que vous souhaitez afficher.
 
 ## <a name="cube-options"></a>Options CUBE
-Il est possible de créer une commande GROUP BY avec CUBE, à l’aide de l’approche UNION ALL. Il existe cependant un problème : le code peut rapidement devenir fastidieux et difficile à gérer. Pour réduire ce risque, vous pouvez utiliser cette approche plus avancée.
 
-Utilisons l’exemple ci-dessus.
+Il est possible de créer une instruction GROUP BY WITH CUBE à l’aide de l’approche UNION ALL. Il existe cependant un problème : le code peut rapidement devenir fastidieux et difficile à gérer. Pour atténuer ce problème, vous pouvez utiliser cette approche plus avancée.
 
-La première étape consiste à définir le « cube » qui définit tous les niveaux d’agrégation que nous souhaitons créer. N’oublions pas de tenir compte de l’action CROSS JOIN associant les deux tables dérivées. Cette action génère tous les niveaux qu’il nous faut. Le reste du code est uniquement placé à des fins de formatage.
+À l’aide de l’exemple précédent, la première étape consiste à définir le « cube » qui définit tous les niveaux d’agrégation que nous souhaitons créer.
+
+Prenez note de la CROSS JOIN des deux tables dérivées, car cela génère tous les niveaux pour nous. Le reste du code est uniquement placé à des fins de formatage :
 
 ```sql
 CREATE TABLE #Cube
@@ -119,11 +121,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Voici les résultats de CTAS :
+L’illustration suivante montre les résultats de CTAS :
 
 ![Regrouper par cube](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
-La deuxième étape consiste à spécifier une table cible pour stocker les résultats temporaires :
+La deuxième étape consiste à spécifier une table cible pour stocker les résultats intermédiaires :
 
 ```sql
 DECLARE
@@ -146,7 +148,7 @@ WITH
 ;
 ```
 
-Quant à la troisième étape, elle consiste à effectuer une boucle sur notre cube de colonnes effectuant l’agrégation. La requête sera exécutée une seule fois pour chaque ligne de la table temporaire « #Cube » ; elle stockera les résultats dans la table temporaire « #Results ».
+Quant à la troisième étape, elle consiste à effectuer une boucle sur notre cube de colonnes effectuant l’agrégation. La requête est exécutée une fois pour chaque ligne de la table temporaire #Cube. Les résultats sont stockés dans la table temporaire #Results :
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +172,7 @@ BEGIN
 END
 ```
 
-Enfin, vous pouvez renvoyer les résultats en lisant simplement les données de la table temporaire « #Results ».
+Enfin, vous pouvez renvoyer les résultats en lisant les données de la table temporaire #Results :
 
 ```sql
 SELECT *
@@ -182,5 +184,5 @@ ORDER BY 1,2,3
 Si nous fractionnons le code en sections et générons une construction en boucle, le code devient plus facile à gérer et à entretenir.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des conseils supplémentaires, consultez la [vue d’ensemble du développement](sql-data-warehouse-overview-develop.md).
 
+Pour obtenir des conseils supplémentaires, consultez la [vue d’ensemble du développement](sql-data-warehouse-overview-develop.md).

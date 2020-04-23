@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229493"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414510"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gérer les secrets chiffrés dans les applications Service Fabric
 Ce guide vous guide à travers les étapes de la gestion des secrets dans une application Service Fabric. Les secrets peuvent être des informations sensibles quelconques, notamment des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs qui ne doivent pas être traitées en texte brut.
@@ -57,6 +57,11 @@ Vous devez aussi inclure les secrets dans votre application Service Fabric en sp
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> Lors de l’activation d’une application pour laquelle SecretsCertificate est spécifié, Service Fabric trouve le certificat correspondant et accorde à l’identité sous laquelle l’application s’exécute des autorisations complètes sur la clé privée du certificat. Service Fabric surveillera les modifications du certificat, puis appliquera à nouveau les autorisations en conséquence. Pour détecter les modifications apportées à des certificats déclarés par nom commun, Service Fabric exécute une tâche périodique qui recherche tous les certificats correspondants et les compare à une liste mise en cache d’empreintes. Lorsqu’une nouvelle empreinte est détectée, cela signifie qu’un certificat de ce sujet a été renouvelé. La tâche s’exécute toutes les minutes sur chacun des nœuds du cluster.
+>
+> Bien que SecretsCertificate autorise les déclarations basées sur le sujet, sachez que les paramètres chiffrés sont liés à la paire de clés utilisée pour chiffrer les paramètres sur le client. Vous devez veiller à ce que le certificat de chiffrement d’origine (ou un équivalent) corresponde à la déclaration basée sur le sujet et soit installé, avec la clé privée correspondante, sur chacun des nœuds du cluster qui pourrait héberger l’application. Tous les certificats valides dans le temps correspondant à la déclaration basée sur le sujet et créés à partir de la même paire de clés que le certificat de chiffrement d’origine sont considérés comme équivalents.
+>
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Injection de secrets d’application dans des instances d’application
 Idéalement, un déploiement dans différents environnements doit être aussi automatisé que possible. Cela est possible en effectuant un chiffrement de secret dans un environnement de construction et en fournissant les secrets chiffrés en tant que paramètres lors de la création d’instances d’application.

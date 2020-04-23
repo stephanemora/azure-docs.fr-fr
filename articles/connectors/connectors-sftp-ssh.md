@@ -4,16 +4,16 @@ description: Automatiser les tâches qui supervisent, créent, gèrent, envoient
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
-ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128410"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393635"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -147,6 +147,16 @@ Si votre clé privée est au format PuTTY (qui utilise l’extension de nom de f
 
 1. Enregistrez le fichier de clé privée avec l’extension `.pem`.
 
+## <a name="considerations"></a>Considérations
+
+Cette section décrit les considérations à prendre en compte pour les déclencheurs et actions de ce connecteur.
+
+<a name="create-file"></a>
+
+### <a name="create-file"></a>Créer un fichier
+
+Pour créer un fichier sur votre serveur SFTP, vous pouvez utiliser l’action SFTP-SSH **Créer un fichier**. Lorsque cette action crée le fichier, le service Logic Apps appelle également automatiquement votre serveur SFTP pour récupérer les métadonnées associées. Toutefois, si vous déplacez le fichier qui vient d’être créé avant que le service Logic Apps ne puisse effectuer l’appel pour obtenir les métadonnées, vous recevez un message d’erreur `404`, `'A reference was made to a file or folder which does not exist'`. Pour ignorer la lecture des métadonnées du fichier après la création de ce dernier, suivez la procédure pour [ajouter et définir la propriété **Récupérer toutes les métadonnées de fichier** sur **Non**](#file-does-not-exist).
+
 <a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Se connecter à SFTP avec SSH
@@ -211,9 +221,27 @@ Ce déclencheur démarre un flux de travail d’application logique quand un fic
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - action SSH : Obtenir le contenu à l’aide du chemin
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>SFTP - action SSH : Obtenir le contenu d’un fichier à l’aide du chemin
 
-Cette action obtient le contenu d’un fichier sur un serveur SFTP. Par exemple, vous pouvez ajouter le déclencheur de l’exemple précédent et une condition à laquelle le contenu du fichier doit satisfaire. Si la condition est vérifiée, l’action qui obtient le contenu peut s’exécuter.
+Cette action récupère le contenu d’un fichier sur un serveur SFTP en spécifiant le chemin du fichier. Par exemple, vous pouvez ajouter le déclencheur de l’exemple précédent et une condition à laquelle le contenu du fichier doit satisfaire. Si la condition est vérifiée, l’action qui obtient le contenu peut s’exécuter.
+
+<a name="troubleshooting-errors"></a>
+
+## <a name="troubleshoot-errors"></a>Résoudre les erreurs
+
+Cette section décrit les solutions possibles aux erreurs ou problèmes courants.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Erreur 404 : « Une référence a été faite à un fichier ou dossier qui n’existe pas »
+
+Cette erreur peut se produire lorsque votre application logique crée un nouveau fichier sur votre serveur SFTP au moyen de l’action SFTP-SSH **Créer un fichier**, mais que le fichier qui vient d’être créé est immédiatement déplacé avant que le service Logic Apps ne puisse obtenir les métadonnées du fichier. Quand votre application logique exécute l’action **Créer un fichier**, le service Logic Apps appelle également automatiquement votre serveur SFTP pour récupérer les métadonnées associées. Toutefois, si le fichier est déplacé, le service Logic Apps ne le trouve plus. C’est pourquoi vous recevez le message d’erreur `404`.
+
+Si vous ne pouvez pas éviter ou retarder le déplacement du fichier, vous pouvez ignorer la lecture des métadonnées du fichier après sa création en procédant de la façon suivante :
+
+1. Dans l’action **Créer un fichier**, ouvrez la liste **Ajouter un nouveau paramètre**, sélectionnez la propriété **Récupérer toutes les métadonnées de fichier** et définissez la valeur sur **Non**.
+
+1. Si vous avez besoin de ces métadonnées de fichier ultérieurement, vous pourrez utiliser l’action **Récupérer les métadonnées de fichier**.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 

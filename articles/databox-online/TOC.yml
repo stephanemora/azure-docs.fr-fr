@@ -43,7 +43,7 @@
               href: data-box-gateway-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
               href: data-box-gateway-connect-powershell-interface.md
-        - name: Moniteur
+        - name: Superviser
           href: data-box-gateway-monitor.md
         - name: Dépanner
           href: data-box-gateway-troubleshoot.md
@@ -51,7 +51,9 @@
           href: data-box-edge-contact-microsoft-support.md
     - name: Notes de publication
       items:
-        - name: 1906 - Actuel
+        - name: 1911 - Actuel
+          href: data-box-gateway-1911-release-notes.md
+        - name: 1906
           href: data-box-gateway-1906-release-notes.md
         - name: 1905
           href: data-box-gateway-1905-release-notes.md
@@ -111,13 +113,15 @@
           href: data-box-edge-troubleshoot.md
         - name: Contacter le support Microsoft
           href: data-box-edge-contact-microsoft-support.md
-        - name: Moniteur
+        - name: Superviser
           href: data-box-edge-monitor.md
         - name: Retourner ou remplacer un appareil
           href: data-box-edge-return-device.md
     - name: Notes de publication
       items:
-        - name: 1906 - Actuel
+        - name: 1911 - Actuel
+          href: data-box-gateway-1911-release-notes.md
+        - name: 1906
           href: data-box-gateway-1906-release-notes.md
         - name: 1905
           href: data-box-gateway-1905-release-notes.md

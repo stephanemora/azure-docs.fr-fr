@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dsindona
-ms.openlocfilehash: db2300ae827677f8902e420b136acec3da694c8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0453117ee2984e0b8ebee60145353584a02a359a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280012"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270126"
 ---
 # <a name="container-publishing-prerequisites"></a>Conditions préalables à la publication des conteneurs
+
+> [!IMPORTANT]
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de conteneur Azure](https://aka.ms/CreateContainerOffer) pour gérer vos offres migrées.
 
 Cet article décrit les conditions préalables à la publication d’une offre de conteneur sur la Place de marché Azure.  Si vous ne l’avez pas déjà fait, passez en revue le [Guide de publication d’offres de conteneurs](../../marketplace-containers.md).
 
@@ -28,7 +31,7 @@ Pour publier une nouvelle image de conteneur, vous devez respecter les condition
 - Avoir vos métadonnées de conteneur prêtes à être utilisées. Par exemple, la liste non exhaustive suivante :
   - Un titre
   - Une description (au format HTML)
-  - Une image de logo (au format PNG) avec les tailles d’images fixes suivantes : 40 x 40 px, 90 x 90 px, 115 x 115 px et 255 x 115 px.
+  - Une image de logo (au format PNG), dans les tailles d’image fixes suivantes : 40x40 px, 90x90 px, 115x 115 px et 255x115 px.
 - Des *conditions d’utilisation* et une *politique de confidentialité*
 - Documentation de la solution Conteneur
 - Contacts du support

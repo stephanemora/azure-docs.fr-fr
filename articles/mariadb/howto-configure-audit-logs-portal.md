@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: d31b7531e00199ea63c7b057dacff1b67d7cedc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528929"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382965"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’audit dans le portail Azure
 
@@ -20,7 +20,7 @@ Vous pouvez configurer les [journaux d’audit Azure Database for MariaDB](conce
 > [!IMPORTANT]
 > Pour l’instant, la fonctionnalité Journal d’audit n’existe qu’en préversion.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
@@ -69,4 +69,5 @@ Activez et configurez l’enregistrement d’audit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur les [journaux d’audit](concepts-audit-logs.md) dans Azure Database for MariaDB.
+- Apprenez-en davantage sur les [journaux d’audit](concepts-audit-logs.md) dans Azure Database for MariaDB
+- Guide pratique pour configurer les journaux d’audit dans [Azure CLI](howto-configure-audit-logs-cli.md)

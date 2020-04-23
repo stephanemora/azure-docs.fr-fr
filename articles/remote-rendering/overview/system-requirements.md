@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: c239f7062dc39492a0cf63ac3aadbaf94acbf032
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8573a88d5371bbde07a541c789f52e6c44f1e279
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678967"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411132"
 ---
 # <a name="system-requirements"></a>Configuration système requise
 
@@ -45,7 +45,7 @@ Même si vous pouvez installer le codec H265 correct, les propriétés de sécur
 
 ## <a name="devices"></a>Appareils
 
-Actuellement, Azure Remote Rendering ne prend en charge que **HoloLens 2** et Windows Desktop UWP comme appareil cible.
+Actuellement, Azure Remote Rendering ne prend en charge que **HoloLens 2** et Windows Desktop comme appareil cible. Consultez la section [Limitations de la plateforme](../reference/limits.md#platform-limitations).
 
 Il est important d’utiliser le codec HEVC le plus récent, car les versions plus récentes présentent des améliorations significatives en matière de latence. Pour déterminer la version installée sur votre appareil :
 

@@ -1,15 +1,15 @@
 ---
-title: Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles, les services cloud et les applications web
+title: Mise à l’échelle automatique dans les machines virtuelles, Cloud Services et les applications web
 description: Mise à l’échelle automatique dans Microsoft Azure. S’applique aux machines virtuelles, aux jeux de mise à l’échelle de machine virtuelle, aux services cloud et aux applications web.
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a60c03f1928b38c78a59edca4b5493307d7d19d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eeb8b301bf087efa164a7864cdce3a04952f45ed
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75364371"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114141"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles Microsoft Azure, les services cloud et les applications web
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  

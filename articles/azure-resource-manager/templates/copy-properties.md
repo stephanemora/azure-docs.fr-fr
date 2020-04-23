@@ -2,13 +2,13 @@
 title: Définir plusieurs instances d’une propriété
 description: Utilisez l’opération de copie dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors de la création d’une propriété sur une ressource.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258105"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391334"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Itération de propriété dans les modèles ARM
 
@@ -30,7 +30,9 @@ L’élément copier utilise le format général suivant :
 ]
 ```
 
-Pour **name**, indiquez le nom de la propriété de ressource que vous souhaitez créer. La propriété **count** spécifie le nombre d’itérations que vous souhaitez pour la propriété.
+Pour **name**, indiquez le nom de la propriété de ressource que vous souhaitez créer.
+
+La propriété **count** spécifie le nombre d’itérations que vous souhaitez pour la propriété.
 
 La propriété **input** spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété **input**.
 
@@ -78,11 +80,7 @@ L’exemple suivant montre comment appliquer `copy` à la propriété dataDisks 
 }
 ```
 
-Notez que, lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de propriété, vous devez fournir le nom de l’itération.
-
-> [!NOTE]
-> L’itération de propriété prend également en charge un argument de contrepartie. La contrepartie doit venir après le nom de l’itération, par exemple copyIndex('dataDisks', 1).
->
+Notez que, lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de propriété, vous devez fournir le nom de l’itération. L’itération de propriété prend également en charge un argument de contrepartie. La contrepartie doit venir après le nom de l’itération, par exemple copyIndex('dataDisks', 1).
 
 Le Gestionnaire des ressources développe le tableau `copy` durant le déploiement. Le nom du tableau devient celui de la propriété. Les valeurs d’entrée deviennent les propriétés de l’objet. Le modèle déployé devient :
 
@@ -111,6 +109,66 @@ Le Gestionnaire des ressources développe le tableau `copy` durant le déploieme
         }
       ],
       ...
+```
+
+L’opération copy se révèle utile lorsque vous travaillez avec des tableaux, car vous pouvez itérer sur chaque élément du tableau. Utilisez la fonction `length` sur le tableau pour spécifier le nombre d’itérations, et `copyIndex` pour récupérer l’index actuel dans le tableau.
+
+L’exemple de modèle suivant crée un groupe de basculement pour les bases de données passées en tant que tableau.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 L'élément copy est un tableau. Vous pouvez donc spécifier plusieurs propriétés pour la ressource.

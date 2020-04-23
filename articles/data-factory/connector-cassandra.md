@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 9339fff820c0a0d915258ce3a0bc5371242ad50d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417470"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copier des données de Cassandra à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Version actuelle](connector-cassandra.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données Cassandra. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
@@ -42,7 +44,7 @@ Plus précisément, ce connecteur Cassandra prend en charge :
 >[!NOTE]
 >Pour une activité exécutée sur le runtime d’intégration auto-hébergé, Cassandra 3.x est pris en charge à partir d’Integration Runtime version 3.7 ou supérieure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -60,16 +62,16 @@ Les propriétés prises en charge pour le service lié Cassandra sont les suivan
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type |La propriété type doit être définie sur **Cassandra** |Oui |
+| type |La propriété type doit être définie sur : **Cassandra** |Oui |
 | host |Une ou plusieurs adresses IP ou noms d’hôte de serveurs Cassandra.<br/>Renseignez une liste des adresses IP ou des noms d’hôte séparée par des virgules pour vous connecter simultanément à tous les serveurs. |Oui |
 | port |Le port TCP utilisé par le serveur Cassandra pour écouter les connexions clientes. |Non (la valeur par défaut 9042) |
-| authenticationType | Type d'authentification utilisé pour se connecter à la base de données Cassandra.<br/>Valeurs autorisées : **De base** et **Anonyme**. |Oui |
+| authenticationType | Type d'authentification utilisé pour se connecter à la base de données Cassandra.<br/>Les valeurs autorisées sont les suivantes : **De base**, et **Anonyme**. |Oui |
 | username |Spécifiez le nom d’utilisateur du compte d’utilisateur. |Oui, si authenticationType est défini sur De base. |
-| password |Spécifiez le mot de passe du compte d'utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui, si authenticationType est défini sur De base. |
+| mot de passe |Spécifiez le mot de passe du compte d'utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui, si authenticationType est défini sur De base. |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 >[!NOTE]
->Actuellement la connexion à Cassandra à l’aide de SSL n’est pas prise en charge.
+>Actuellement la connexion à Cassandra à l’aide de TLS n’est pas prise en charge.
 
 **Exemple :**
 
@@ -103,7 +105,7 @@ Pour copier des données de Cassandra, affectez la valeur **CassandraTable** à 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **CassandraTable** | Oui |
+| type | La propriété type du jeu de données doit être définie sur : **CassandraTable** | Oui |
 | espace de clé |Nom de l’espace de clé ou du schéma dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
 | tableName |Nom de la table dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
 
@@ -138,9 +140,9 @@ Pour copier des données de Cassandra, définissez **Source** comme type source 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **CassandraSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **CassandraSource** | Oui |
 | query |Utilise la requête personnalisée pour lire des données. Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si « tableName » et « keyspace » sont spécifiés dans le jeu de données). |
-| Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations.<br/><br/>Valeurs autorisées : **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** et **LOCAL_ONE**. |Non (la valeur par défaut est `ONE`) |
+| Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations.<br/><br/>Les valeurs autorisées sont les suivantes : **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** et **LOCAL_ONE**. |Non (la valeur par défaut est `ONE`) |
 
 **Exemple :**
 

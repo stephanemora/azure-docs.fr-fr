@@ -5,28 +5,30 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231253"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113451"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logique de traitement des règles du service Pare-feu Azure
-Vous pouvez configurer des règles NAT, des règles de réseau et des règles d'application sur Pare-feu Azure. Les règles sont traitées selon leur type. 
+Vous pouvez configurer des règles NAT, des règles de réseau et des règles d'application sur Pare-feu Azure. Les collections de règles sont traitées en fonction du type de règle par ordre de priorité, des nombres inférieurs aux nombres supérieurs, compris entre 100 et 65 000. Un nom de règle de collection peut contenir uniquement des lettres, des chiffres, des traits de soulignement, des points ou des traits d’union. Il doit commencer par une lettre ou un chiffre et se terminer par une lettre, un chiffre ou un trait de soulignement. La longueur maximale du nom est limitée à 80 caractères.
+
+Le mieux est de commencer par espacer les numéros de priorité de la collection de règles par incréments de 100 (100, 200, 300, etc.). Vous avez ainsi de l’espace pour ajouter d’autres collections de règles si nécessaire.
 
 > [!NOTE]
 > Si vous activez le filtrage basé sur le renseignement sur les menaces (Threat Intelligence), ces règles sont prioritaires et sont toujours traitées en premier. Le filtrage basé sur le renseignement sur les menaces peut refuser le trafic avant que les règles configurées ne soient traitées. Pour plus d’informations, voir [Fonctionnalité de filtrage basé sur la Threat Intelligence du Pare-feu Azure](threat-intel.md).
 
-## <a name="outbound"></a>Règle de trafic sortant
+## <a name="outbound-connectivity"></a>Connectivité sortante
 
 ### <a name="network-rules-and-applications-rules"></a>Règles de réseau et règles d’application
 
 Si vous configurez des règles de réseau et des règles d'application, les règles de réseau sont appliquées par ordre de priorité avant les règles d'application. Ce processus prend fin dès qu’une règle est exécutée. Ainsi, si une correspondance est trouvée dans une règle de réseau, aucune autre règle n'est traitée.  En l’absence de correspondance avec les règles de réseau, si le protocole est HTTP, HTTPS ou MSSQL, le paquet est évalué par les règles d’application par ordre de priorité. Si aucune correspondance n’est trouvée, le paquet est évalué par rapport à la [collection de règles de l’infrastructure](infrastructure-fqdns.md). S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut.
 
-## <a name="inbound"></a>Trafic entrant
+## <a name="inbound-connectivity"></a>Connectivité entrante
 
 ### <a name="nat-rules"></a>Règles NAT
 

@@ -5,75 +5,81 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 04/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65768367"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407214"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
-Les e-mails d’invitation sont un composant essentiel pour intégrer des partenaires comme utilisateurs de collaboration B2B dans Azure AD. Vous pouvez les utiliser pour augmenter le niveau de confiance du destinataire. Vous pouvez ajouter de la légitimité et une preuve sociale à l’e-mail de sorte ce que le destinataire sélectionne sans crainte le bouton **Prise en main** pour accepter l’invitation. Cette approbation est un élément clé pour réduire les problèmes de partage. Et elle vous permet aussi d’envoyer de superbes e-mails !
+Les e-mails d’invitation sont un composant essentiel pour intégrer des partenaires comme utilisateurs de collaboration B2B dans Azure AD. Bien qu’il ne soit [pas obligatoire d’envoyer un e-mail pour inviter quelqu’un avec B2B Collaboration](add-user-without-invite.md), cela permet de donner à l’utilisateur toutes les informations dont il a besoin pour décider d’accepter ou non l’invitation. L’e-mail leur fournit également un lien qui pourra lui être utile lorsqu’il devra revenir consulter vos ressources.
 
 ![Capture d’écran montrant l’e-mail d’invitation B2B](media/invitation-email-elements/invitation-email.png)
 
+> [!NOTE]
+> Ce nouveau modèle d’e-mail étant toujours en cours de déploiement sur l’ensemble des locataires, certains d’entre eux utilisent encore une conception plus ancienne. À la fin du mois de mai 2020, les invitations de tous les locataires suivront ce modèle.
+
 ## <a name="explaining-the-email"></a>Explication de l’e-mail
+
 Examinons quelques-uns des éléments de l’e-mail pour savoir comment utiliser au mieux ces fonctionnalités.
 
 ### <a name="subject"></a>Objet
-L’objet de l’e-mail suit le modèle suivant : vous êtes invité à l’organisation &lt;nom_tenant&gt;.
+
+L’objet de l’e-mail suit ce modèle :
+
+&lt;nom_utilisateur&gt; vous invite à accéder aux applications de son organisation.
 
 ### <a name="from-address"></a>Adresse de l’expéditeur
-Nous utilisons un modèle similaire à LinkedIn pour l’adresse De.  Vous devez faire apparaître clairement qui est l’inviteur et à quelle entreprise il appartient, mais aussi indiquer que l’e-mail provient d’une adresse e-mail Microsoft. Le format est le suivant : Invitations Microsoft<invites@microsoft.com> ou &lt;nom d’affichage de l’inviteur&gt; de &lt;tenantname&gt; (par le biais de Microsoft) <invites@microsoft.com>.
+
+Nous utilisons un modèle similaire à LinkedIn pour l’adresse De. Ce modèle doit préciser que, même si l’e-mail est envoyé par invites@microsoft.com, l’invitation provient d’une autre organisation. Le format est le suivant : Microsoft Invitations <invites@microsoft.com> ou Invitations Microsoft pour le compte de &lt;nom_locataire&gt; <invites@microsoft.com>. 
 
 ### <a name="reply-to"></a>Adresse de réponse
+
 L’adresse e-mail de réponse est définie sur l’adresse e-mail de l’inviteur quand elle est disponible : ainsi, répondre à l’e-mail envoie un e-mail en retour à l’inviteur.
 
-### <a name="branding"></a>Personnalisation
-Les e-mails d’invitation de votre locataire utilisent la personnalisation d’entreprise que vous avez éventuellement définie pour votre locataire. Si vous voulez tirer parti de cette capacité, [voici](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) les informations de configuration. Le logo de la bannière s’affiche dans l’e-mail. Suivez [ces instructions](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) relatives à la taille et à la qualité de l’image pour obtenir un résultat optimal. En outre, le nom de l’entreprise apparaît également dans l’invite à l’action.
+### <a name="phishing-warning"></a>Avertissement d’hameçonnage
 
-### <a name="call-to-action"></a>Invite à l’action
-L’invite à l’action se compose de deux parties : explication de la raison pour laquelle le destinataire a reçu l’e-mail et ce qu’il est demandé comme action au destinataire.
-- La section « Pourquoi » peut être gérée au format suivant : vous êtes invité à accéder aux applications de l’organisation &lt;nom_tenant&gt;.
+L’e-mail commence par un bref avertissement sur l’hameçonnage, notifiant à l’utilisateur qu’il ne doit accepter que les invitations attendues. Il est recommandé de s’assurer que les partenaires que vous invitez ne seront pas surpris par votre invitation en la mentionnant à l’avance.
 
-- Et la section « Ce qu’il vous est demandé de faire » est indiquée par la présence du bouton **Bien démarrer**. Quand le destinataire a été ajouté sans que des invitations soient nécessaires, ce bouton ne s’affiche pas.
+![Image de l’avertissement d’hameçonnage dans l’e-mail](media/invitation-email-elements/phishing-warning.png)
 
 ### <a name="inviters-information"></a>Informations de l’inviteur
-Le nom d’affichage de l’inviteur est inclus dans l’e-mail. En outre, si vous avez configuré une image de profil pour votre compte Azure AD, l’e-mail d’invitation inclut également cette image. Ces deux éléments sont destinés à améliorer la confiance de votre destinataire dans l’e-mail.
 
-Si vous n’avez pas encore configuré votre image de profil, une icône comportant les initiales de l’inviteur remplace l’image, comme ceci :
+L’e-mail contient des informations sur l’inviteur et l’organisation à partir de laquelle il envoie l’invitation : nom et adresse e-mail de l’expéditeur, nom et domaine principal associés à l’organisation. Toutes ces informations doivent aider l’invité à prendre une décision informée concernant l’invitation.
 
-  ![Capture d’écran illustrant l’invitation avec l’affichage des initiales de l’inviteur](media/invitation-email-elements/inviters-initials.png)
+![Image des informations de l’inviteur dans l’e-mail](media/invitation-email-elements/inviters-information.png)
 
-### <a name="body"></a>body
-Le corps contient le message composé par l’inviteur pour [inviter un utilisateur invité dans un répertoire, un groupe ou une application](add-users-administrator.md) ou [avec l’API d’invitation](customize-invitation-api.md). Il s’agit d’une simple zone de texte qui ne traite pas les balises HTML pour des raisons de sécurité.
+### <a name="invitation-message"></a>Message d’invitation
 
-  ![Capture d’écran illustrant le corps de l’e-mail d’invitation](media/invitation-email-elements/invitation-email-body.png)
+Si l’inviteur ajoute un message à l’invitation lorsqu’il [invite un utilisateur à l’annuaire, au groupe ou à l’application](add-users-administrator.md) ou lorsqu’il [utilise l’API d’invitation](customize-invitation-api.md), le message est mis en surbrillance dans la section principale de l’e-mail. Le nom et l’image de profil de l’inviteur sont également indiqué s’il les a définis. Le message lui-même est une zone de texte. Il ne traite donc pas les balises HTML pour des raisons de sécurité.
+
+![Image du message d’invitation dans l’e-mail](media/invitation-email-elements/invitation-message.png)
+
+### <a name="accept-button-and-redirect-url"></a>Bouton Accepter et URL de redirection
+
+La section suivante de l’e-mail contient des informations sur l’endroit où l’invité sera redirigé une fois qu’il aura accepté l’invitation, ainsi que le bouton correspondant.  Par la suite, l’invité pourra toujours utiliser ce lien pour revenir directement à vos ressources.
+
+![Image du bouton Accepter et de l’URL de redirection dans l’e-mail](media/invitation-email-elements/accept-button.png)
 
 ### <a name="footer-section"></a>Section Pied de page
-Le pied de page contient la marque de la société Microsoft et permet au destinataire de savoir si l’e-mail a été envoyé à partir d’un alias non surveillé. 
 
-Cas particuliers :
+Le pied de page contient d’autres informations sur l’invitation envoyée. Il comporte toujours une option permettant à l’invité de bloquer les futures invitations. Si l’organisation a [défini une déclaration de confidentialité](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), le lien associé est affiché ici.  Sinon, une note indique que l’organisation n’a pas défini de déclaration de confidentialité.
 
-- L’inviteur n’a pas d’adresse e-mail dans la location de l’inviteur
-
-  ![Capture d’écran illustrant le cas où l’inviteur n’a pas l’e-mail dans la location de l’inviteur](media/invitation-email-elements/inviter-no-email.png)
-
-
-- Le destinataire n’a pas besoin de réclamer l’invitation
-
-  ![Capture d’écran illustrant le cas où le destinataire n’a pas besoin d’accepter l’invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
-
+![Image de la section de pied de page dans l’e-mail](media/invitation-email-elements/footer-section.png)
+ 
 ## <a name="how-the-language-is-determined"></a>Comment la langue est-elle déterminée ?
-Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue. 
+
+Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue.
+
 - Propriété **messageLanguage** de l'objet [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) si l'API Créer une invitation est utilisée
 -   Propriété **preferredLanguage** spécifiée dans l'[objet utilisateur](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) de l'invité
 -   **Langue de notification** définie dans les propriétés du client de base de l'utilisateur invité (pour les clients Azure AD uniquement)

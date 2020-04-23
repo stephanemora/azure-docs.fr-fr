@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421217"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418029"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata Vantage à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 >
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Version actuelle](connector-teradata.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de Teradata Vantage. Il s’appuie sur la [vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
@@ -256,7 +258,7 @@ Il vous est recommandé d’activer la copie en parallèle avec partitionnement 
 
 | Scénario                                                     | Paramètres suggérés                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Chargement complet à partir d’une table volumineuse.                                   | **Option de partition** : Hachage. <br><br/>Lors de l’exécution, Data Factory détecte automatiquement la colonne PK, y applique un hachage et copie les données par partitions. |
+| Chargement complet à partir d’une table volumineuse.                                   | **Option de partition** : Hachage. <br><br/>Lors de l’exécution, Data Factory détecte automatiquement la colonne d’index principale, y applique un hachage et copie les données par partitions. |
 | Chargez une grande quantité de données à l’aide d’une requête personnalisée.                 | **Option de partition** : Hachage.<br>**Requête**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour appliquer la partition par hachage. Si cette colonne n’est pas spécifiée, Data Factory détecte automatiquement la colonne PK de la table que vous avez spécifiée dans le jeu de données Teradata.<br><br>Lors de l’exécution, Data Factory remplace `?AdfHashPartitionCondition` par la logique de partition de hachage et l’envoie à Teradata. |
 | Chargez une grande quantité de données à l’aide d’une requête personnalisée, qui dispose d’une colonne d’entiers avec valeur uniformément distribuée pour le partitionnement par plages de valeurs. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Requête**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour partitionner les données. Vous pouvez procéder au partitionnement par rapport à la colonne avec le type de données entier.<br>**Limite supérieure de partition** et **limite inférieure de partition** : Indiquez si vous souhaitez filtrer le contenu par rapport à la colonne de partition pour récupérer uniquement les données entre les plages inférieure et supérieure.<br><br>Lors de l’exécution, Data Factory remplace `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` et `?AdfRangePartitionLowbound` par le nom réel de la colonne et les plages de valeurs de chaque partition, et les envoie à Teradata. <br>Par exemple, si l’ID de la colonne de partition « ID » est défini sur une limite inférieure de 1 et une limite supérieure de 80, avec une copie en parallèle définie sur 4, Data Factory récupère les données via 4 partitions. Les ID sont inclus entre [1,20], [21, 40], [41, 60] et [61, 80], respectivement. |
 

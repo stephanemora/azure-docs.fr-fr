@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/24/2020
-ms.openlocfilehash: 4265f6050b237cb40afeddfc228ade9be06be039
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.date: 04/14/2020
+ms.openlocfilehash: 098aeaa06a26c57744402722aa3eacc51ea85fb7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396785"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382869"
 ---
 # <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Collecter et analyser les journaux d’activités Azure dans Azure Monitor
 Le [journal d’activité Azure](platform-logs-overview.md) est un [journal de plateforme](platform-logs-overview.md) qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Si vous pouvez afficher le journal d’activité dans le Portail Azure, vous devez le configurer pour qu’il soit envoyé à un espace de travail Log Analytics afin d’activer des fonctionnalités Azure Monitor supplémentaires. Cet article explique comment effectuer cette configuration et comment envoyer le journal d’activité à Stockage Azure et aux Event Hubs.
@@ -25,7 +25,8 @@ La collecte du journal d’activité dans un espace de travail Log Analytics off
 - Stocker les entrées du journal d’activité au-delà de 90 jours.
 - Consolider les entrées de journal de plusieurs abonnements et locataires Azure en un seul endroit pour les analyser ensemble.
 
-
+> [!IMPORTANT]
+> La collecte des journaux de plusieurs locataires nécessite [Azure Lighthouse](/azure/lighthouse).
 
 ## <a name="collecting-activity-log"></a>Collecte du journal d’activité
 Le journal d’activité est collecté automatiquement pour [être affiché dans le Portail Azure](activity-log-view.md). Pour le collecter dans un espace de travail Log Analytics ou l’envoyer au stockage Azure ou à des Event Hubs, créez un [paramètre de diagnostic](diagnostic-settings.md). Il s’agit de la même méthode que celle utilisée pour les journaux de ressources, ce qui la rend cohérente pour tous les [journaux de plateforme](platform-logs-overview.md).  
