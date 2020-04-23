@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 317ca55adb9f680dc93343a185395abad08889da
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2ab5697ceff612e65174fdb7f9ef6137e2c8b9a5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881313"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537064"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Application web qui connecte les utilisateurs : Se connecter et se déconnecter
 
@@ -205,7 +205,7 @@ Une fois que l’utilisateur est connecté à votre application, vous voudrez le
 ## <a name="sign-out"></a>Se déconnecter
 
 La déconnexion d’une application web ne consiste pas seulement à supprimer les informations sur le compte connecté de l’état de l’application web.
-L’application web doit également rediriger l’utilisateur vers le point de terminaison `logout` de la plateforme d’identités Microsoft pour suivre la procédure de déconnexion. 
+L’application web doit également rediriger l’utilisateur vers le point de terminaison `logout` de la plateforme d’identités Microsoft pour suivre la procédure de déconnexion.
 
 Lorsque votre application web redirige l’utilisateur vers le point de terminaison `logout`, ce dernier efface la session de l’utilisateur dans le navigateur. Si votre application n’a pas atteint le point de terminaison `logout`, l’utilisateur se réauthentifie auprès de votre application sans entrer à nouveau ses informations d’identification. La raison en est qu’il disposera d’une session d’authentification unique valide avec le point de terminaison de la plateforme d’identité Microsoft.
 
@@ -306,7 +306,7 @@ Dans le guide de démarrage rapide Python, le bouton de déconnexion se trouve d
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Microsoft Identity Python Web App</h1>
+    <h1>Microsoft Identity Python web app</h1>
     Welcome {{ user.get("name") }}!
     <li><a href='/graphcall'>Call Microsoft Graph API</a></li>
     <li><a href="/logout">Logout</a></li>

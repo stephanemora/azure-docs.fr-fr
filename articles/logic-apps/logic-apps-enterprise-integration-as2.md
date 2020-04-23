@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650558"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458826"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages AS2 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -61,7 +61,7 @@ Cet article explique comment ajouter des actions de codage et de décodage AS2 �
 
 * Pour pouvoir utiliser le connecteur AS2, vous devez créer un [contrat](../logic-apps/logic-apps-enterprise-integration-agreements.md) AS2 entre vos partenaires commerciaux et le stocker dans votre compte d’intégration.
 
-* Si vous utilisez **Azure Key Vault** pour la gestion des certificats, vérifiez que les clés de coffre autorisent les opérations [Chiffrer](../key-vault/key-vault-overview.md) et **Déchiffrer**. Sinon, le codage et le décodage échouent.
+* Si vous utilisez **Azure Key Vault** pour la gestion des certificats, vérifiez que les clés de coffre autorisent les opérations [Chiffrer](../key-vault/general/overview.md) et **Déchiffrer**. Sinon, le codage et le décodage échouent.
 
   Dans le portail Azure, accédez à la clé de votre coffre de clés, examinez les **Opérations autorisées** et vérifiez que les actions **Chiffrer** et **Déchiffrer** sont sélectionnées. Par exemple :
 

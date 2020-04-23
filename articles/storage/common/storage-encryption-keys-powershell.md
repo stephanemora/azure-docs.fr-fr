@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f24c89a53af5e618d64b78d6001040190c1f339c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: bfc2e256396904456a7ee0fd8b6173c00a5f53d7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618344"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456394"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurer des clés gérées par le client avec Azure Key Vault à l’aide de PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Cet article explique comment configurer un coffre de clés Azure avec des clés gérées par le client à l’aide de PowerShell. Pour en savoir plus sur la création d’un coffre de clés à l’aide d’Azure CLI, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide de PowerShell](../../key-vault/quick-create-powershell.md).
+Cet article explique comment configurer un coffre de clés Azure avec des clés gérées par le client à l’aide de PowerShell. Pour en savoir plus sur la création d’un coffre de clés à l’aide d’Azure CLI, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide de PowerShell](../../key-vault/secrets/quick-create-powershell.md).
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Affecter une identité au compte de stockage
 
@@ -51,7 +51,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Pour savoir comment activer les options **Suppression réversible** et les **Ne pas vider** sur un coffre de clés existant avec PowerShell, consultez les sections intitulées **Activation de la suppression réversible** et **Activation de la protection contre le vidage** dans [Guide pratique pour utiliser la suppression réversible avec Azure Power​Shell](../../key-vault/key-vault-soft-delete-powershell.md).
+Pour savoir comment activer les options **Suppression réversible** et les **Ne pas vider** sur un coffre de clés existant avec PowerShell, consultez les sections intitulées **Activation de la suppression réversible** et **Activation de la protection contre le vidage** dans [Guide pratique pour utiliser la suppression réversible avec Azure Power​Shell](../../key-vault/general/soft-delete-powershell.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Configurer la stratégie d’accès au coffre de clés
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73498b3537f4cf9313fc9e2464785f63c2af0d5a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972860"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460730"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
 > [!NOTE]
@@ -233,7 +233,7 @@ Pour connaître les meilleures pratiques de paramétrage, consultez [Bonnes prat
 * Les paramètres varient selon l’environnement (exemple : développement, test et production)
 * les clés secrètes (notamment les mots de passe) ;
 
-Si vous avez besoin d’extraire des clés secrètes à partir [d’Azure Key Vault](../../key-vault/key-vault-overview.md) lors du déploiement d’entités Azure Data Factory à l’aide de modèles, spécifiez le **coffre de clés** et le **nom secret** comme indiqué dans l’exemple suivant :
+Si vous avez besoin d’extraire des clés secrètes à partir [d’Azure Key Vault](../../key-vault/general/overview.md) lors du déploiement d’entités Azure Data Factory à l’aide de modèles, spécifiez le **coffre de clés** et le **nom secret** comme indiqué dans l’exemple suivant :
 
 ```JSON
 "parameters": {

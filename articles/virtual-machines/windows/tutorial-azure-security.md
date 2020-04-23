@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6b763d08dc898566bfe0d7a28bf6471d4edf4c59
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8979206096896d30338af58387a312617144fd1f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74064955"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456224"
 ---
-# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Didacticiel : utiliser Azure Security Center pour surveiller les machines virtuelles Windows
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutoriel : Utiliser Azure Security Center pour superviser des machines virtuelles Windows
 
 Azure Security Center peut vous aider à acquérir une meilleure visibilité des pratiques de sécurité de vos ressources Azure. Azure Security Center assure une surveillance intégrée de la sécurité. Il peut détecter des menaces qui sans cela pourraient passer inaperçues. Ce didacticiel décrit Azure Security Center et comment effectuer les opérations suivantes :
 

@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07c8f84f2e37abd87953d8e4cb20b37258b25fda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c4f3ec2727d06528eab788a2a24a6190fe26533
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920474"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606146"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
 
 - [SAP Administration Guide (Guide d’administration de SAP)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP Installation Guide (Guide d’installation de SAP)](https://service.sap.com/instguides)
-- [Notes SAP](https://sservice.sap.com/notes)
+- [Notes SAP](https://service.sap.com/notes)
 
 ## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce guide, vous devez disposer des connaissances de base quant aux différents composants Azure suivants :

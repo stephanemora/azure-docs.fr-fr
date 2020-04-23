@@ -8,14 +8,14 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 000659793707c860de881f150e6ce07e4506c602
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3d533080af373ca209a9b393d02d1606d7cb22d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064966"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461733"
 ---
-# <a name="open-a-support-ticket-for-azure-data-box"></a>Ouvrir un ticket de support pour Azure Data Box 
+# <a name="open-a-support-ticket-for-azure-data-box"></a>Ouvrir un ticket de support pour Azure Data Box
 
 Cet article s’applique aux services Azure Data Box, Azure Data Box Heavy et Azure Data Box Disk, qui sont tous managés par le service Azure Data Box. Si vous rencontrez des problèmes avec votre service Azure Data Box, vous pouvez créer une demande de service pour obtenir un support technique. Cet article vous guide tout au long des procédures suivantes :
 
@@ -27,11 +27,11 @@ Cet article s’applique aux services Azure Data Box, Azure Data Box Heavy et Az
 Procédez comme suit pour créer une demande de support.
 
 1. Accédez à votre commande Data Box ou Data Box Disk. Accédez à la section **SUPPORT + DÉPANNAGE**, puis cliquez sur **Nouvelle demande de support**.
-     
+
     ![Nouvelle demande de support](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
-   
+
 2. Dans le panneau **Nouvelle demande de support**, cliquez sur **De base**. Dans le panneau **De base**, procédez comme suit :
-    
+
     1. Dans la liste déroulante **Type de problème**, sélectionnez **Technique**.
     2. Choisissez votre **abonnement**.
     3. Sous **Service**, sélectionnez **Tous les services**. Dans la liste déroulante, sélectionnez **Data Box**. 
@@ -41,7 +41,7 @@ Procédez comme suit pour créer une demande de support.
         ![Concepts de base](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. Dans le panneau **Nouvelle demande de support**, cliquez sur **2 Problème**. Dans le panneau **Problème**, procédez comme suit :
-    
+
     1. Définissez le champ **Gravité** sur **C - impact minimal**. L’équipe de support mettra à jour ce paramètre le cas échéant.
     2. Sélectionnez le **Type de problème** dans la liste déroulante.
     3. Selon le type de problème que vous avez sélectionné, choisissez une **Catégorie** correspondante.
@@ -58,7 +58,7 @@ Procédez comme suit pour créer une demande de support.
    1. Dans la section **Options de contact**, fournissez votre méthode de contact préférée (téléphone ou e-mail) et votre langue. Le temps de réponse est automatiquement sélectionné en fonction de votre plan d’abonnement.
    2. Dans **Informations de contact**, fournissez votre nom, votre adresse e-mail, un contact secondaire (facultatif) et votre pays/région. Sélectionnez **Enregistrer les modifications de contact pour les futures demandes de support**.
    3. Cliquez sur **Créer**.
-   
+
        ![Informations de contact](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
       Le Support Microsoft vous contacte à l’aide de ces informations pour approfondir le diagnostic et vous aider à résoudre le problème.
@@ -72,15 +72,14 @@ Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie de
 
 1. Pour accéder à la page d’aide et de support, cliquez sur **Parcourir > Aide + support**.
 
-    ![Gérer les demandes de support](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)   
+    ![Gérer les demandes de support](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)
 
 2. Une liste tabulaire des **demandes de support récentes** s’affiche sous **Aide + support**.
 
-    ![Gérer les demandes de support](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png) 
+    ![Gérer les demandes de support](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. Sélectionnez une demande de support. Vous pouvez afficher l’état et les détails de cette demande. Si vous souhaitez donner suite à cette demande, cliquez sur **+ Nouveau message**.
 
-   
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [résoudre les problèmes liés au service Data Box Disk](data-box-disk-troubleshoot.md).

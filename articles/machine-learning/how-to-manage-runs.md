@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: cdc739c7464b3deb87faaaabfd8d657ae8c28678
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985913"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617769"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,7 +80,7 @@ Pour démarrer une exécution de votre expérience, procédez comme suit :
     az login
     ```
     
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 1. Attachez une configuration d’espace de travail au dossier qui contient votre script de d’entraînement. Remplacez `myworkspace` par votre espace de travail Azure Machine Learning. Remplacez `myresourcegroup` par le groupe de ressources Azure qui contient votre espace de travail :
 

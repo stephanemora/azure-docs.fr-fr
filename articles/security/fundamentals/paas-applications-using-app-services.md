@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500281"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461665"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Bonnes pratiques pour la sécurisation des applications mobiles et web PaaS avec Azure App Service
 
@@ -36,7 +36,7 @@ App Service fournit un service OAuth 2.0 pour votre fournisseur d’identité. 
 La restriction de l’accès est indispensable pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour affecter des autorisations aux utilisateurs, groupes et applications à une certaine étendue, comme les principes de sécurité des privilèges minimum et du besoin de connaître. Pour en savoir plus sur l’octroi aux utilisateurs du droit d’accès aux applications, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview).
 
 ## <a name="protect-your-keys"></a>Protéger vos clés
-Si vous perdez vos clés d’abonnement, qu’importe la qualité de votre stratégie de sécurité ! Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Avec Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Vous pouvez également utiliser Key Vault pour gérer vos certificats TLS avec renouvellement automatique. Pour en savoir plus, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/key-vault-overview.md).
+Si vous perdez vos clés d’abonnement, qu’importe la qualité de votre stratégie de sécurité ! Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Avec Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Vous pouvez également utiliser Key Vault pour gérer vos certificats TLS avec renouvellement automatique. Pour en savoir plus, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md).
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>Limiter les adresses IP source entrantes
 Les [environnements App Service](../../app-service/environment/intro.md) proposent une fonctionnalité d’intégration de réseau virtuel qui vous permet de limiter les adresses IP sources entrantes par le biais de groupes de sécurité réseau (NSG). Si vous n’êtes pas familiarisé avec les réseaux Azure Virtual Network, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Pour en savoir plus, consultez [Intégrer une application à un réseau Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).

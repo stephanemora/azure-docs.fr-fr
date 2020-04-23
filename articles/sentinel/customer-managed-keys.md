@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: yelevin
-ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5eed208ed79aeab4e46ed90dd4d340a8b445be96
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587955"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461631"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurer une clé gérée par le client Azure Sentinel
 
@@ -60,11 +60,11 @@ Pour provisionner CMK, effectuez les étapes suivantes : 
     > [!NOTE]
     >  Azure Key Vault doit être configuré comme récupérable pour protéger votre clé et l’accès.
 
-1.  [Activez les options de récupération :](../key-vault/key-vault-best-practices.md#turn-on-recovery-options)
+1.  [Activez les options de récupération :](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Vérifiez que la [suppression réversible](../key-vault/key-vault-ovw-soft-delete.md) est activée.
+    -   Vérifiez que la [suppression réversible](../key-vault/general/overview-soft-delete.md) est activée.
 
-    -   Activez la [protection contre le vidage](../key-vault/key-vault-ovw-soft-delete.md#purge-protection) pour bénéficier d’une protection contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.
+    -   Activez la [protection contre le vidage](../key-vault/general/overview-soft-delete.md#purge-protection) pour bénéficier d’une protection contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>ÉTAPE 2 : Activer CMK sur votre espace de travail Log Analytics
 

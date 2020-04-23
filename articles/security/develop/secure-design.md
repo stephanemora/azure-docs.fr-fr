@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299412"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461716"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -242,7 +242,7 @@ La meilleure façon de se défendre contre ce genre d’attaque revient à deman
 
 La perte de clés ou d'informations d’identification est un problème courant. la seule chose qui est pire que la perte de vos clés et informations d’identification serait qu’un tiers non autorisé y accède. Les attaquants peuvent exploiter des techniques automatisées et manuelles pour trouver des clés et des secrets qui sont stockés dans des dépôts de code, comme GitHub. Ne placez pas de clés ni de secrets dans ces dépôts de code public, ou sur tout autre serveur.
 
-Placez toujours vos clés, certificats, secrets et chaînes de connexion dans une solution de gestion de clés. Vous pouvez utiliser une solution centralisée, dans laquelle clés et secrets sont stockés dans des modules de sécurité matériels (HSM). Azure vous fournit un module HSM dans le cloud avec [Azure Key Vault](../../key-vault/key-vault-overview.md).
+Placez toujours vos clés, certificats, secrets et chaînes de connexion dans une solution de gestion de clés. Vous pouvez utiliser une solution centralisée, dans laquelle clés et secrets sont stockés dans des modules de sécurité matériels (HSM). Azure vous fournit un module HSM dans le cloud avec [Azure Key Vault](../../key-vault/general/overview.md).
 
 Key Vault est un *magasin des secrets* : c’est un service cloud centralisé pour stocker des secrets d’application. Key Vault préserve la sécurité de vos données confidentielles en conservant les secrets de l’application dans un emplacement central unique et en fournissant l’accès sécurisé, le contrôle des autorisations et la journalisation des accès.
 
@@ -277,7 +277,7 @@ Quand vous insérez des commentaires dans votre code, assurez-vous que vous n’
 
 En fait, partez du principe que tous les éléments de votre projet de développement seront rendus publics lorsqu’il sera déployé. Évitez d’inclure des données sensibles de quelque type que ce soit dans le projet.
 
-Précédemment, nous avons abordé [Azure Key Vault](../../key-vault/key-vault-overview.md). Vous pouvez vous servir de Key Vault pour stocker des secrets, tels que des clés et des mots de passe, au lieu de les coder de manière irréversible. Lorsque vous utilisez Key Vault en association avec des identités managées pour les ressources Azure, votre application web Azure peut accéder aux valeurs de configuration secrètes facilement et de façon sécurisée, sans stocker de secrets dans votre configuration ou votre contrôle de code source. Pour en savoir plus, voir [Gérer des secrets dans vos applications serveur avec Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Précédemment, nous avons abordé [Azure Key Vault](../../key-vault/general/overview.md). Vous pouvez vous servir de Key Vault pour stocker des secrets, tels que des clés et des mots de passe, au lieu de les coder de manière irréversible. Lorsque vous utilisez Key Vault en association avec des identités managées pour les ressources Azure, votre application web Azure peut accéder aux valeurs de configuration secrètes facilement et de façon sécurisée, sans stocker de secrets dans votre configuration ou votre contrôle de code source. Pour en savoir plus, voir [Gérer des secrets dans vos applications serveur avec Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implémentation de mesures de prévention de défaillance
 

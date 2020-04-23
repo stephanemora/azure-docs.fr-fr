@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: carmonm
-editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64575593"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455360"
 ---
 # <a name="virtual-appliance-scenario"></a>Scénario d’appliance virtuelle
 Pour les clients Azure volumineux, il faut souvent fournir une application à deux niveaux exposée à Internet, tout en autorisant l’accès au niveau d’arrière-plan à partir d’un centre de données local. Ce document vous guide dans un scénario utilisant des itinéraires définis par l’utilisateur (UDR), une passerelle VPN et des appliances virtuelles de réseau pour déployer un environnement à deux niveaux conforme aux exigences suivantes :

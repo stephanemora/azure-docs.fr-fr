@@ -3,12 +3,12 @@ title: API Application Insights pour les événements et les métriques personn
 description: Insérez quelques lignes de code dans votre application de périphérique ou de bureau, votre page web ou votre service pour suivre l'utilisation et diagnostiquer les problèmes.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585875"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536945"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -107,7 +107,7 @@ Dans les projets Node.js, vous pouvez utiliser `new applicationInsights.Telemetr
 
 ## <a name="trackevent"></a>TrackEvent
 
-Dans Application Insights, un *événement personnalisé* est un point de données que vous pouvez afficher dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) en tant que nombre agrégé et dans [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md) en tant qu’occurrences individuelles. (Il n’est pas lié à des « événements » de type MVC ou autres.)
+Dans Application Insights, un *événement personnalisé* est un point de données que vous pouvez afficher dans [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) en tant que nombre agrégé et dans [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md) en tant qu’occurrences individuelles. (Il n’est pas lié à des « événements » de type MVC ou autres.)
 
 Insérez des appels `TrackEvent` dans votre code pour compter les différents événements. Par exemple, la fréquence à laquelle les utilisateurs choisissent une fonctionnalité particulière, la fréquence à laquelle ils atteignent des objectifs particuliers ou à laquelle ils commettent éventuellement des types d’erreurs particuliers.
 
@@ -443,7 +443,7 @@ requests
 
 Envoi d’exceptions à Application Insights :
 
-* Pour [les compter](../../azure-monitor/app/metrics-explorer.md), comme une indication de la fréquence d’un problème.
+* Pour [les compter](../../azure-monitor/platform/metrics-charts.md), comme une indication de la fréquence d’un problème.
 * Pour [inspecter les occurrences individuelles](../../azure-monitor/app/diagnostic-search.md).
 
 Les rapports incluent des arborescences des appels de procédure.
@@ -774,7 +774,7 @@ Si votre application regroupe les utilisateurs par comptes, vous pouvez égaleme
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-Dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), vous pouvez créer un graphique qui compte les **Utilisateurs authentifiés** et les **Comptes d’utilisateur**.
+Dans [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md), vous pouvez créer un graphique qui compte les **Utilisateurs authentifiés** et les **Comptes d’utilisateur**.
 
 Vous pouvez également [rechercher](../../azure-monitor/app/diagnostic-search.md) les points de données client avec des comptes et des noms d'utilisateur spécifiques.
 

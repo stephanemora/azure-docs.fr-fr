@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f58887a056c8ca0cd175a44127556562338de38
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411139"
+ms.locfileid: "81450030"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 
@@ -23,7 +23,7 @@ Les données stockées dans votre compte Azure Cosmos sont chiffrées automatiqu
 
 ![Couches de chiffrement autour des données du client](./media/how-to-setup-cmk/cmk-intro.png)
 
-Vous devez stocker les clés gérées par le client dans [Azure Key Vault](../key-vault/key-vault-overview.md) et fournir une clé pour chaque compte Azure Cosmos activé avec des clés gérées par le client. Cette clé est utilisée pour chiffrer toutes les données stockées dans ce compte.
+Vous devez stocker les clés gérées par le client dans [Azure Key Vault](../key-vault/general/overview.md) et fournir une clé pour chaque compte Azure Cosmos activé avec des clés gérées par le client. Cette clé est utilisée pour chiffrer toutes les données stockées dans ce compte.
 
 > [!NOTE]
 > Actuellement, les clés gérées par le client sont uniquement disponibles pour les nouveaux comptes Azure Cosmos. Vous devez les configurer lors de la création du compte.
@@ -44,8 +44,8 @@ L’utilisation de clés gérées par le client avec Azure Cosmos DB vous oblige
 
 Pour savoir comment activer ces propriétés sur une instance Azure Key Vault existante, consultez les sections « Activation de la suppression réversible » et « Activation de la protection contre le vidage » dans l’un des articles suivants :
 
-- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../key-vault/key-vault-soft-delete-powershell.md)
-- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../key-vault/key-vault-soft-delete-cli.md)
+- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../key-vault/general/soft-delete-powershell.md)
+- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../key-vault/general/soft-delete-cli.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Ajouter une stratégie d’accès à votre instance Azure Key Vault
 

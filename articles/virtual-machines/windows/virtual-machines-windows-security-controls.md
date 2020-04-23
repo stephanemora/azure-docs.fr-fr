@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f105eac0f6f21ea3358340a4e2aaec7d1f1a95ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 569c989e8876bb7213d1469c7a70da99aa0b1e9c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190558"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455340"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Contrôles de sécurité pour Machines virtuelles Windows
 
@@ -50,7 +50,7 @@ Cet article décrit les contrôles de sécurité intégrés dans Machines virtue
 
 | Contrôle de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement côté serveur au repos : Clés managées par Microsoft | Oui | Consultez [Chiffrer des disques virtuels sur une machine virtuelle Windows](/azure/virtual-machines/windows/encrypt-disks). |
+| Chiffrement côté serveur au repos : Clés managées par Microsoft | Oui | Consultez [Chiffrer des disques virtuels sur une machine virtuelle Windows](/azure/virtual-machines/windows/disk-encryption-overview). |
 | Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| Oui | Le service Machines virtuelles Azure prend en charge [ExpressRoute](/azure/expressroute) et le chiffrement de réseau virtuel. Consultez [Chiffrement en transit sur des machines virtuelles](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Oui | Les clés gérées par le client sont un scénario de chiffrement Azure pris en charge ; consultez [Vue d’ensemble du chiffrement Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |

@@ -11,16 +11,16 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: 3a4c1f8b95c66c26944d455a2ab6163d1da72731
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b7079262dc7db4f4a00a9dc79193da1574c7153a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414335"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605853"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment un éditeur de logiciels indépendant peut développer et installer des composants personnalisés payants ou sous licence pour les packages SQL Server Integration Services (SSIS) exécutés dans Azure dans le runtime d’intégration Azure-SSIS.
 

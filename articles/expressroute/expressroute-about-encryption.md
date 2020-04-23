@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75437044"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461461"
 ---
 # <a name="expressroute-encryption"></a>Chiffrement ExpressRoute
  
 ExpressRoute prend en charge deux technologies de chiffrement pour garantir la confidentialité et l’intégrité des données qui transitent entre votre réseau et le réseau de Microsoft.
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>Questions fréquentes sur le chiffrement point à point de MACsec
-MACsec est une [norme IEEE](https://1.ieee802.org/security/802-1ae/). Cette technologie chiffre les données au niveau de la couche MAC (Media Access Control) ou de la couche réseau 2. Vous pouvez utiliser MACsec pour chiffrer les liens physiques entre vos appareils réseau et les appareils réseau de Microsoft quand vous vous connectez à Microsoft par le biais d’[ExpressRoute Direct](expressroute-erdirect-about.md). MACsec est désactivé sur les ports ExpressRoute Direct par défaut. Vous apportez votre propre clé MACsec pour le chiffrement et la stockez dans [Azure Key Vault](../key-vault/key-vault-overview.md). Vous déterminez à quel moment permuter la clé. Consultez d’autres questions fréquentes ci-après.
+MACsec est une [norme IEEE](https://1.ieee802.org/security/802-1ae/). Cette technologie chiffre les données au niveau de la couche MAC (Media Access Control) ou de la couche réseau 2. Vous pouvez utiliser MACsec pour chiffrer les liens physiques entre vos appareils réseau et les appareils réseau de Microsoft quand vous vous connectez à Microsoft par le biais d’[ExpressRoute Direct](expressroute-erdirect-about.md). MACsec est désactivé sur les ports ExpressRoute Direct par défaut. Vous apportez votre propre clé MACsec pour le chiffrement et la stockez dans [Azure Key Vault](../key-vault/general/overview.md). Vous déterminez à quel moment permuter la clé. Consultez d’autres questions fréquentes ci-après.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>Puis-je activer MACsec sur mon circuit ExpressRoute provisionné par un fournisseur ExpressRoute ?
 Non. MACsec chiffre tout le trafic sur un lien physique avec une clé appartenant à une entité unique (le client). Il est donc disponible uniquement sur ExpressRoute Direct.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>Puis-je chiffrer certains circuits ExpressRoute sur mes ports ExpressRoute Direct et ne pas chiffrer les autres circuits sur les mêmes ports ? 

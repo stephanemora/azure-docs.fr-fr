@@ -3,16 +3,16 @@ title: Secret Azure Key Vault avec modèle
 description: Montre comment passer une clé secrète à partir d’un coffre de clés en tant que paramètre lors du déploiement.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 08b4042c6bad83f13ebaea0f46046ea7707fd868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458264"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement
 
-Au lieu de placer une valeur sécurisée (telle qu’un mot de passe) directement dans votre modèle ou fichier de paramètres, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/key-vault-overview.md) pendant un déploiement. Vous récupérez la valeur en référençant le coffre de clés et la clé secrète dans votre fichier de paramètres. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Le coffre de clés peut exister dans un autre abonnement que le groupe de ressources sur lequel vous effectuez le déploiement.
+Au lieu de placer une valeur sécurisée (telle qu’un mot de passe) directement dans votre modèle ou fichier de paramètres, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/general/overview.md) pendant un déploiement. Vous récupérez la valeur en référençant le coffre de clés et la clé secrète dans votre fichier de paramètres. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Le coffre de clés peut exister dans un autre abonnement que le groupe de ressources sur lequel vous effectuez le déploiement.
 
 Cet article se concentre sur le scénario de transmission d’une valeur sensible comme paramètre de modèle. Il ne couvre pas le scénario consistant à définir une propriété de machine virtuelle sur l’URL d’un certificat dans un coffre Key Vault. Vous trouverez un modèle de démarrage rapide de ce scénario dans [Installer un certificat à partir d’Azure Key Vault sur une machine virtuelle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
@@ -91,11 +91,11 @@ Set-AzKeyVaultAccessPolicy `
 
 Pour plus d’informations sur la création de coffres de clés et l’ajout des secrets, consultez :
 
-- [Définir et récupérer un secret à l'aide de l'interface de ligne de commande (CLI)](../../key-vault/quick-create-cli.md)
-- [Définir et récupérer un secret à l'aide de Powershell](../../key-vault/quick-create-powershell.md)
-- [Définir et récupérer un secret à l'aide du portail](../../key-vault/quick-create-portal.md)
-- [Définir et récupérer un secret à l'aide de .NET](../../key-vault/quick-create-net.md)
-- [Définir et récupérer un secret à l'aide de Node.js](../../key-vault/quick-create-node.md)
+- [Définir et récupérer un secret à l'aide de l'interface de ligne de commande (CLI)](../../key-vault/secrets/quick-create-cli.md)
+- [Définir et récupérer un secret à l'aide de Powershell](../../key-vault/secrets/quick-create-powershell.md)
+- [Définir et récupérer un secret à l'aide du portail](../../key-vault/secrets/quick-create-portal.md)
+- [Définir et récupérer un secret à l'aide de .NET](../../key-vault/secrets/quick-create-net.md)
+- [Définir et récupérer un secret à l'aide de Node.js](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>Accorder l'accès aux secrets
 
@@ -375,5 +375,5 @@ Le modèle suivant crée de façon dynamique l’ID du coffre de clés et le pas
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir des informations générales sur les coffres de clés, consultez [Présentation d’Azure Key Vault](../../key-vault/key-vault-overview.md).
+- Pour obtenir des informations générales sur les coffres de clés, consultez [Présentation d’Azure Key Vault](../../key-vault/general/overview.md).
 - Pour obtenir des exemples complets de référencement de clés secrètes, consultez [Exemples de coffres de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

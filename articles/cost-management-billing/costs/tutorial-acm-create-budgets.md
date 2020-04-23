@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 655194a1335ae258e27dff2c75a370578253794a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874277"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605867"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -185,7 +185,7 @@ Vous pouvez créer un budget en utilisant un modèle Azure Resource Manager. Le 
 
 Sélectionnez l’image suivante pour vous connecter au portail Azure et ouvrir le modèle :
 
-[![Déployer le modèle Créer un budget dans Azure](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
+[![Déployer le modèle Créer un budget dans Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
 
 Pour voir la liste de tous les paramètres de modèle et leurs descriptions, consultez le modèle [Créer un budget](https://azure.microsoft.com/resources/templates/create-budget/).
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa0dc204a017e2d40eb3952a9ede0755127f8de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970655"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460118"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption sur un réseau isolé
 
@@ -43,7 +43,7 @@ Les paramètres de groupe de sécurité réseau appliqués doivent permettre au 
 
 Si vous utilisez [Azure Disk Encryption avec Azure AD (version précédente)](disk-encryption-overview-aad.md), vous devez installer manuellement la bibliothèque [Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) pour toutes les distributions (en plus des packages appropriés à la distribution, comme [ci-dessus](#package-management)).
 
-Lorsque le chiffrement est activé avec des [informations d’identification Azure AD](disk-encryption-linux-aad.md), la machine virtuelle cible doit autoriser la connectivité aux points de terminaison Azure Active Directory et à ceux de Key Vault. Les points de terminaison d’authentification Azure Active Directory actuels sont gérés dans les sections 56 et 59 de la documentation [URL et plages d’adresses IP Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). Des instructions relatives à Key Vault sont fournies dans la documentation sur l’[accès à Azure Key Vault derrière un pare-feu](../../key-vault/key-vault-access-behind-firewall.md).
+Lorsque le chiffrement est activé avec des [informations d’identification Azure AD](disk-encryption-linux-aad.md), la machine virtuelle cible doit autoriser la connectivité aux points de terminaison Azure Active Directory et à ceux de Key Vault. Les points de terminaison d’authentification Azure Active Directory actuels sont gérés dans les sections 56 et 59 de la documentation [URL et plages d’adresses IP Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). Des instructions relatives à Key Vault sont fournies dans la documentation sur l’[accès à Azure Key Vault derrière un pare-feu](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure 
 

@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 3f4f1f5e163dfed9f356aed538d934d0e4258790
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618878"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456887"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutoriel - Chiffrer et déchiffrer des objets blob avec Azure Key Vault
 
@@ -23,7 +23,7 @@ Ce didacticiel décrit comment utiliser le chiffrement de stockage côté client
 
 **Durée estimée :** 20 minutes
 
-Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](../../key-vault/key-vault-overview.md).
+Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](../../key-vault/general/overview.md).
 
 Pour plus d’informations générales sur le chiffrement côté client du Stockage Azure, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -48,7 +48,7 @@ Voici une brève description du fonctionnement du chiffrement côté client :
 
 ## <a name="set-up-your-azure-key-vault"></a>Configurer votre coffre de clés Azure
 
-Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes qui sont décrites dans le didacticiel [Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET](../../key-vault/quick-create-net.md) :
+Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes qui sont décrites dans le didacticiel [Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET](../../key-vault/secrets/quick-create-net.md) :
 
 * Création d’un coffre de clés
 * Ajout d’une clé ou d’un secret au coffre de clés

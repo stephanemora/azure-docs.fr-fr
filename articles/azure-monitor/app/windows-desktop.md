@@ -3,12 +3,12 @@ title: Analyse des performances et de l’utilisation pour les applications de b
 description: Analysez l’utilisation et les performances de votre application de bureau Windows avec Application Insights.
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670829"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537387"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Analyse des niveaux de performance et de l’utilisation dans les applications de bureau Windows Classic
 
@@ -109,6 +109,6 @@ Instanciez l’initialiseur dans la méthode `Program.cs` `Main()` ci-dessous, e
 ## <a name="next-steps"></a>Étapes suivantes
 * [Création d’un tableau de bord](../../azure-monitor/app/overview-dashboard.md)
 * [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md)
-* [Exploration des mesures](../../azure-monitor/app/metrics-explorer.md)
+* [Exploration des mesures](../../azure-monitor/platform/metrics-charts.md)
 * [Écriture de requêtes Analytics](../../azure-monitor/app/analytics.md)
 

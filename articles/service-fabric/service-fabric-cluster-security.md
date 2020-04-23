@@ -4,12 +4,12 @@ description: Découvrez des scénarios de sécurité relatifs aux clusters Azure
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80753801"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461580"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 
@@ -90,7 +90,7 @@ Configurez les rôles clients Administrateur et Utilisateur lorsque vous créez 
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificats X.509 et Service Fabric
 
-Les certificats numériques X.509 sont couramment utilisés pour authentifier les clients et les serveurs. Ils sont également utilisés pour chiffrer et signer numériquement les messages. Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Pour plus d’informations sur les certificats numériques X.509, consultez [Utilisation des certificats](https://msdn.microsoft.com/library/ms731899.aspx). [Key Vault](../key-vault/key-vault-overview.md) sert à gérer des certificats pour des clusters Service Fabric dans Azure.
+Les certificats numériques X.509 sont couramment utilisés pour authentifier les clients et les serveurs. Ils sont également utilisés pour chiffrer et signer numériquement les messages. Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Pour plus d’informations sur les certificats numériques X.509, consultez [Utilisation des certificats](https://msdn.microsoft.com/library/ms731899.aspx). [Key Vault](../key-vault/general/overview.md) sert à gérer des certificats pour des clusters Service Fabric dans Azure.
 
 Quelques éléments importants à prendre en compte :
 

@@ -3,12 +3,12 @@ title: Séparation des données de télémétrie dans Azure Application Insights
 description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671458"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536775"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production
 
@@ -69,7 +69,7 @@ Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressou
 
 ![Cliquez sur Nouveau > Application Insights](./media/separate-resources/01-new.png)
 
-* **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md)Microsoft Azure. Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web.
+* **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md)Microsoft Azure. Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web.
 * **Groupe de ressources** facilite la gestion des propriétés telles que le [contrôle d’accès](../../azure-monitor/app/resources-roles-access-control.md). Vous pouvez utiliser des groupes de ressources distincts pour le développement, le test et la production.
 * **Abonnement** est votre compte de paiement dans Azure.
 * **Emplacement** correspond à l’endroit où nous conservons vos données. Actuellement, il n’est pas possible de le modifier. 
@@ -89,7 +89,7 @@ Vous avez besoin des clés d’instrumentation de toutes les ressources auxquell
 ## <a name="filter-on-build-number"></a>Filtrer sur le numéro de build
 Quand vous publiez une nouvelle version de votre application, vous voulez pouvoir distinguer la télémétrie des différentes builds.
 
-Vous pouvez définir la propriété Version de l’application pour filtrer les résultats de [recherche](../../azure-monitor/app/diagnostic-search.md) et de [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md).
+Vous pouvez définir la propriété Version de l’application pour filtrer les résultats de [recherche](../../azure-monitor/app/diagnostic-search.md) et de [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 ![Filtrage sur une propriété](./media/separate-resources/050-filter.png)
 
@@ -139,7 +139,7 @@ Pour vérifier la version de l’application, assurez-vous que `buildinfo.config
     </PropertyGroup>
 ```
 
-Quand il détient les informations de version, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lorsque vous effectuez des [recherches de diagnostic](../../azure-monitor/app/diagnostic-search.md) ou que vous [explorez les métriques](../../azure-monitor/app/metrics-explorer.md).
+Quand il détient les informations de version, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lorsque vous effectuez des [recherches de diagnostic](../../azure-monitor/app/diagnostic-search.md) ou que vous [explorez les métriques](../../azure-monitor/platform/metrics-charts.md).
 
 Toutefois, notez que le numéro de version de build est uniquement généré par Microsoft Build Engine, et non par la build de développement dans Visual Studio.
 

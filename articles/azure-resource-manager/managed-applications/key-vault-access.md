@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: f434ad6e19c89f248fec948c0a049fabb0f7c476
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226225"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458281"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Accéder à un secret dans le coffre de clés lors du déploiement d’applications managées Azure
 
-Lorsque vous avez besoin de passer une valeur sécurisée (par exemple, un mot de passe) comme paramètre au cours du déploiement, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/key-vault-overview.md). Pour accéder au coffre de clés lors du déploiement d’applications managées, vous devez accorder l’accès au principal de service du **fournisseur de ressources d’appliance**. Le service Applications managées utilise cette identité pour exécuter des opérations. Pour pouvoir récupérer une valeur dans un coffre de clés pendant le déploiement, le principal de service doit avoir accès à ce coffre.
+Lorsque vous avez besoin de passer une valeur sécurisée (par exemple, un mot de passe) comme paramètre au cours du déploiement, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/general/overview.md). Pour accéder au coffre de clés lors du déploiement d’applications managées, vous devez accorder l’accès au principal de service du **fournisseur de ressources d’appliance**. Le service Applications managées utilise cette identité pour exécuter des opérations. Pour pouvoir récupérer une valeur dans un coffre de clés pendant le déploiement, le principal de service doit avoir accès à ce coffre.
 
 Cet article décrit comment configurer le coffre de clés pour l’utiliser avec les applications managées.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1cc047ee60cf8287f32a42b878371c5fc9680b7a
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6c75b9c2feeab32c139998f617cacf540733e3bd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985743"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456343"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Présentation des principaux services de stockage Azure
 
@@ -131,7 +131,7 @@ Les bibliothèques clientes de Stockage Azure fournissent des méthodes pour chi
 
 ## <a name="redundancy"></a>Redondance
 
-Pour assurer la durabilité de vos données, Stockage Azure stocke plusieurs copies de vos données. Quand vous configurez votre compte de stockage, vous sélectionnez une option de redondance. Pour plus d’informations, consultez [Redondance de Stockage Azure](/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Pour assurer la durabilité de vos données, Stockage Azure stocke plusieurs copies de vos données. Quand vous configurez votre compte de stockage, vous sélectionnez une option de redondance. Pour plus d’informations, consultez [Redondance de Stockage Azure](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Transférer des données vers et depuis Stockage Azure
 

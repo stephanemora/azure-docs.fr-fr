@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 7779db053344f99238d38d5d49762730efbc5fc4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: efcb73866c83dcc03b5db8b7b97f438fb3010511
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346322"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452806"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Déployer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)
 
@@ -39,8 +40,6 @@ Dans cet article, avec les scripts en R que vous avez développés dans les part
 Dans la [première partie](sql-database-tutorial-predictive-model-prepare-data.md), vous avez appris à importer un exemple de base de données, puis à préparer les données destinées à utiliser pour entraîner un modèle prédictif en R.
 
 Dans la [deuxième partie](sql-database-tutorial-predictive-model-build-compare.md), vous avez appris à créer et à entraîner plusieurs modèles Machine Learning en R, puis à choisir le plus précis.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

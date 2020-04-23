@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 006c780aeb3db813c8fdfb5da0b5c13fc4dcfebc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067429"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451667"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted : protéger les données sensibles et stocker les clés de chiffrement dans Azure Key Vault
 
@@ -55,7 +55,7 @@ Pour obtenir l’*ID d’application* et la *clé*, suivez la procédure dans [U
 
 À présent que votre application cliente est configurée et que vous avez votre ID d’application, vous devez créer un coffre de clés et configurer sa stratégie d’accès pour que votre application et vous-même puissiez accéder aux clés secrètes contenues dans le coffre (clés Always Encrypted). Les autorisations *create*, *get*, *list*, *sign*, *verify*, *wrapKey* et *unwrapKey* sont nécessaires pour créer une clé principale de colonne et configurer le chiffrement avec SQL Server Management Studio.
 
-Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant. Pour obtenir une description détaillée de ces commandes et des informations complémentaires sur la création et la configuration d’un coffre de clés, consultez [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-overview.md).
+Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant. Pour obtenir une description détaillée de ces commandes et des informations complémentaires sur la création et la configuration d’un coffre de clés, consultez [Qu’est-ce qu’Azure Key Vault ?](../key-vault/general/overview.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

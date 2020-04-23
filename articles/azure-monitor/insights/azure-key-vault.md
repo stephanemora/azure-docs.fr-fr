@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667141"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455442"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solution Azure Key Vault Analytics dans Azure Monitor
 
@@ -94,7 +94,7 @@ Après avoir cliqué sur la vignette **Key Vault Analytics**, vous pouvez consul
     Sur l’une des pages de recherche de journal, vous pouvez afficher les résultats par date, les résultats détaillés et votre historique de recherches de journaux. Vous pouvez également filtrer par facettes pour affiner les résultats.
 
 ## <a name="azure-monitor-log-records"></a>Enregistrements de journaux Azure Monitor
-La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qui sont collectés à partir des [journaux AuditEvent](../../key-vault/key-vault-logging.md) dans les Diagnostics Azure.  Les propriétés de ces enregistrements figurent dans le tableau suivant :  
+La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qui sont collectés à partir des [journaux AuditEvent](../../key-vault/general/logging.md) dans les Diagnostics Azure.  Les propriétés de ces enregistrements figurent dans le tableau suivant :  
 
 | Propriété | Description |
 |:--- |:--- |
@@ -107,7 +107,7 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 | `httpStatusCode_d` |Code d’état HTTP retourné par la demande (par exemple, *200*) |
 | `id_s` |ID unique de la demande. |
 | `identity_claim_appid_g` | GUID de l’ID d’application |
-| `OperationName` |Nom de l’opération, comme décrit dans [journalisation d’Azure Key Vault](../../key-vault/key-vault-logging.md) |
+| `OperationName` |Nom de l’opération, comme décrit dans [journalisation d’Azure Key Vault](../../key-vault/general/logging.md) |
 | `OperationVersion` |Version d’API REST demandée par le client (par exemple *2015-06-01*) |
 | `requestUri_s` |URI de la demande. |
 | `Resource` |Nom du Key Vault. |

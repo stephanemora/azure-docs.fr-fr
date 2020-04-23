@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cecafd9209b095270e9a06ca59ffef162326efc2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657430"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537999"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -117,8 +117,6 @@ Vous pouvez [ajouter et modifier des chemins d’accès d’espace de noms](hpc-
 Renseignez ces valeurs pour chaque chemin d’espace de noms :
 
 * **Chemin de l’espace de noms virtuels** - Définissez le chemin côté client de cette cible de stockage. Pour plus d’informations sur la fonctionnalité Espace de noms virtuels, consultez [Configurer un espace de noms agrégé](hpc-cache-namespace.md).
-
-<!--  The virtual path should start with a slash ``/``. -->
 
 * **Chemin d’exportation NFS** - Entrez le chemin de l’exportation NFS.
 

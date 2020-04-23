@@ -3,23 +3,20 @@ title: Authentification et autorisation
 description: Renseignez-vous sur la prise en charge de l’authentification et de l’autorisation intégrées dans Azure App Service et Azure Functions, et découvrez en quoi elle peut vous aider à protéger votre application contre tout accès non autorisé.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.reviewer: mahender
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520691"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457856"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentification et autorisation dans Azure App Service et Azure Functions
 
-> [!NOTE]
-> À l’heure actuelle, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) ([MSAL](../active-directory/develop/msal-overview.md) inclus) n’est pas pris en charge pour Azure App Service et Azure Functions. Revenez plus tard pour suivre l’évolution de la situation.
->
 > [!NOTE]
 > À l’heure actuelle, ASP.NET Core ne prend pas en charge le remplissage de l’utilisateur actuel à l’aide de la fonctionnalité d’authentification/autorisation.
 >

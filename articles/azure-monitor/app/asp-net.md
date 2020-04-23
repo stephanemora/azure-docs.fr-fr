@@ -3,12 +3,12 @@ title: Configurer des analyses d’application web pour ASP.NET avec Azure Appli
 description: Configurez les outils d’analytique des performances, de la disponibilité et du comportement des utilisateurs de votre site web ASP.NET, hébergé en local ou dans Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdd5b1131a0d2d3e2f53840d21cedce1577fde03
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665916"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536894"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -93,7 +93,7 @@ Lorsque le portail s’ouvre, il affiche les données de télémétrie de votre 
 Dans le portail, cliquez sur n’importe quelle mosaïque ou n’importe quel graphique pour afficher plus de détails.
 
 ## <a name="step-4-publish-your-app"></a>Étape 4 : Publier votre application
-Publiez votre application sur votre serveur IIS ou sur Azure. Vérifiez [Live Metrics Stream (Flux continu de mesures)](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) pour vous assurer que tout fonctionne correctement.
+Publiez votre application sur votre serveur IIS ou sur Azure. Vérifiez [Live Metrics Stream (Flux continu de mesures)](../../azure-monitor/app/live-stream.md) pour vous assurer que tout fonctionne correctement.
 
 Vos données de télémétrie s’affichent dans le portail Application Insights, où vous pouvez surveiller les mesures et effectuer une recherche dans vos données de télémétrie. Vous pouvez également utiliser la puissante [langue de requête Kusto](/azure/kusto/query/) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
 

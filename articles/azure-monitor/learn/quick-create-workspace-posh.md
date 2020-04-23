@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3547062f100eeb4dfa741a0566d737a0eac776a0
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659898"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605109"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Créer un espace de travail Log Analytics avec Azure PowerShell
 
@@ -108,7 +108,7 @@ Les paramètres suivants sont définis comme une valeur par défaut :
     }
     ```
 
-2. Modifiez le modèle en fonction de vos besoins. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
+2. Modifiez le modèle en fonction de vos besoins. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
 3. Enregistrez ce fichier au format **deploylaworkspacetemplate.json** dans un dossier local.   
 4. Vous êtes prêt à déployer ce modèle. Utilisez les commandes suivantes à partir du dossier qui contient le modèle. Lorsque vous êtes invité à entrer un nom d’espace de travail, fournissez un nom globalement unique dans tous les abonnements Azure.
 

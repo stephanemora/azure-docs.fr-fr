@@ -3,12 +3,12 @@ title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 65cc220d32d1e1149b7026fc438f5e34262511dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131956"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605002"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
@@ -23,11 +23,11 @@ Vous pouvez déployer les types de ressources suivants au niveau de l’abonneme
 * [budgets](/azure/templates/microsoft.consumption/budgets)
 * [déploiements](/azure/templates/microsoft.resources/deployments) : pour les modèles imbriqués qui sont déployés sur des groupes de ressources.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/peerasns)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [remediations](/azure/templates/microsoft.policyinsights/remediations)
+* [remediations](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
 * [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)

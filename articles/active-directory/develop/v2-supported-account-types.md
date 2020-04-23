@@ -12,18 +12,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6c9ccb3dc29865c790e5d8cc9cfc35e68f5561d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886141"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535772"
 ---
 # <a name="supported-account-types"></a>Types de comptes pris en charge
 
 Cet article présente les types de comptes (parfois appelés publics) pris en charge dans les applications.
 
-<!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
+<!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Types de comptes pris en charge dans les applications de la plateforme d’identité Microsoft
 
@@ -44,7 +44,7 @@ Dans le cloud public Microsoft Azure, la plupart des types d’applications peuv
 
 Certains types de compte ne peuvent pas être utilisés avec certains flux d’authentification. Par exemple, dans les applications de bureau, les applications UWP ou démon :
 
-- Les applications de démon peuvent uniquement être utilisées avec des organisations Azure Active Directory. Il est inutile d’essayer d’utiliser des applications de démon pour gérer des comptes personnels Microsoft (l’autorisation de l’administrateur ne sera jamais accordée).  
+- Les applications de démon peuvent uniquement être utilisées avec des organisations Azure Active Directory. Il est inutile d’essayer d’utiliser des applications de démon pour gérer des comptes personnels Microsoft (l’autorisation de l’administrateur ne sera jamais accordée).
 - Vous pouvez uniquement utiliser le flux de l’authentification Windows intégrée avec des comptes professionnels ou scolaires (dans votre organisation ou une autre). En effet, l’authentification Windows intégrée fonctionne avec des comptes de domaine et nécessite que les ordinateurs soient joints à un domaine ou joints à Azure AD. Ce flux est inutile pour les comptes Microsoft personnels.
 - L’[octroi des informations d'identification liées au mot de passe du propriétaire de ressource](./v2-oauth-ropc.md) (nom d’utilisateur/mot de passe) ne peut pas être utilisé avec des comptes Microsoft personnels. En effet, les comptes Microsoft personnels nécessitent que l’utilisateur donne son accord pour l’accès aux ressources personnelles à chaque session de connexion. Pour cette raison, ce comportement n’est pas compatible avec les flux non interactifs.
 - Le flux de code d’appareil ne fonctionne pas encore avec les comptes Microsoft personnels.

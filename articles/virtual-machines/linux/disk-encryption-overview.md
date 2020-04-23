@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548437"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459778"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -105,7 +105,7 @@ Pour l’activation de la fonctionnalité Azure Disk Encryption, les machines vi
   - Pour obtenir un jeton afin de se connecter à votre coffre de clés, la machine virtuelle Linux doit être capable de se connecter au point de terminaison Azure Active Directory \[login.microsoftonline.com\].
   - Pour écrire les clés de chiffrement dans votre coffre de clés, la machine virtuelle Linux doit être capable de se connecter au point de terminaison Key Vault.
   - La machine virtuelle Linux doit être capable de se connecter au point de terminaison de stockage Azure qui héberge le référentiel d’extensions Azure et à un compte de stockage Azure qui héberge les fichiers de disque dur virtuel.
-  -  Si votre stratégie de sécurité limite l’accès à Internet à partir des machines virtuelles Azure, vous pouvez résoudre l’URI ci-dessus et configurer une règle spécifique pour autoriser les connexions sortantes vers les adresses IP. Pour plus d’informations, consultez l’article [Azure Key Vault derrière un pare-feu](../../key-vault/key-vault-access-behind-firewall.md).  
+  -  Si votre stratégie de sécurité limite l’accès à Internet à partir des machines virtuelles Azure, vous pouvez résoudre l’URI ci-dessus et configurer une règle spécifique pour autoriser les connexions sortantes vers les adresses IP. Pour plus d’informations, consultez l’article [Azure Key Vault derrière un pare-feu](../../key-vault/general/access-behind-firewall.md).  
 
 ## <a name="encryption-key-storage-requirements"></a>Exigences liées au stockage des clés de chiffrement  
 

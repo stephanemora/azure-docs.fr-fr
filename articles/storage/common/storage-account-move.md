@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73838700"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459030"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Déplacer un compte Stockage Azure vers une autre région
 
@@ -276,7 +276,7 @@ Pour supprimer un compte de stockage à l’aide du Portail Azure :
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Pour supprimer le groupe de ressources et les ressources associées, y compris le nouveau compte de stockage, utilisez la commande [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) :
+Pour supprimer le groupe de ressources et les ressources associées, y compris le nouveau compte de stockage, utilisez la commande [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) :
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount

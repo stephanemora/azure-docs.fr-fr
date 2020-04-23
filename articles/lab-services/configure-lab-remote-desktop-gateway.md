@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529418"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460985"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurer votre labo dans Azure DevTest Labs pour utiliser une passerelle des services Bureau à distance
 Dans Azure DevTest Labs, vous pouvez configurer une passerelle des services Bureau à distance pour votre labo afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP. Le labo fournit un emplacement centralisé permettant aux utilisateurs de votre labo de voir toutes les machines virtuelles auxquelles ils ont accès et de s’y connecter. Le bouton **Se connecter** dans la page **Machine virtuelle** crée un fichier RDP spécifique à la machine que vous pouvez ouvrir pour vous connecter à cette dernière. Vous pouvez personnaliser et sécuriser davantage la connexion RDP en connectant votre labo à une passerelle des services Bureau à distance. 
@@ -64,7 +64,7 @@ La fonction Azure gère les requêtes au format `https://{function-app-uri}/app/
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configurer le labo pour utiliser une authentification du jeton 
 Cette section montre comment configurer un labo pour utiliser une machine de passerelle des services Bureau à distance qui prend en charge l’authentification du jeton. Cette section n’explique pas comment configurer une batterie de serveurs de passerelle des services Bureau à distance proprement dite. Pour plus d’informations, consultez la section [Exemple pour créer une passerelle des services Bureau à distance](#sample-to-create-a-remote-desktop-gateway) à la fin de cet article. 
 
-Avant de mettre à jour les paramètres du labo, stockez la clé nécessaire pour réussir l’exécution de la fonction afin de retourner un jeton d’authentification dans le coffre de clés du labo. Vous pouvez obtenir la valeur de clé de la fonction dans la page **Gérer** de la fonction dans le portail Azure. Pour plus d’informations sur la façon d’enregistrer un secret dans un coffre de clés, consultez [Ajouter un secret au coffre de clés](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault). Enregistrez le nom du secret pour une utilisation ultérieure.
+Avant de mettre à jour les paramètres du labo, stockez la clé nécessaire pour réussir l’exécution de la fonction afin de retourner un jeton d’authentification dans le coffre de clés du labo. Vous pouvez obtenir la valeur de clé de la fonction dans la page **Gérer** de la fonction dans le portail Azure. Pour plus d’informations sur la façon d’enregistrer un secret dans un coffre de clés, consultez [Ajouter un secret au coffre de clés](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault). Enregistrez le nom du secret pour une utilisation ultérieure.
 
 Pour rechercher l’ID du coffre de clés du labo, exécutez la commande Azure CLI suivante : 
 

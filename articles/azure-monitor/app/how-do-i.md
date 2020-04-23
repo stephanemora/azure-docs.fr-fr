@@ -3,12 +3,12 @@ title: Comment... dans Azure Application Insights | Microsoft Docs
 description: FAQ dans Application Insights
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663855"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536860"
 ---
 # <a name="how-do-i--in-application-insights"></a>Comment ... dans Application Insights ?
 ## <a name="get-an-email-when-"></a>Recevoir un message électronique quand...
@@ -45,7 +45,7 @@ Les alertes ayant deux états, vous devez envoyer une valeur faible quand vous c
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Créez un graphique dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) pour afficher votre alarme :
+Créez un graphique dans [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) pour afficher votre alarme :
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -82,7 +82,7 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 
 ## <a name="visualize-data"></a>Visualiser les données
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Tableau de bord avec des métriques de plusieurs applications
-* Dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), personnalisez votre graphique et enregistrez-le en tant que favori. Épinglez-le au tableau de bord Azure.
+* Dans [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md), personnalisez votre graphique et enregistrez-le en tant que favori. Épinglez-le au tableau de bord Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Tableau de bord avec des données provenant d’autres sources et d’Application Insights
 * [Exportez la télémétrie dans Power BI](../../azure-monitor/app/export-power-bi.md ).
@@ -159,5 +159,5 @@ Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe u
 * **Serveur Unix** - [installer collectd](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Pour afficher davantage de compteurs de performances
-* Tout d’abord, [ajoutez un nouveau graphique](../../azure-monitor/app/metrics-explorer.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
+* Tout d’abord, [ajoutez un nouveau graphique](../../azure-monitor/platform/metrics-charts.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
 * Dans le cas contraire, [ajoutez le compteur au jeu collecté par le module de compteur de performances](../../azure-monitor/app/performance-counters.md).

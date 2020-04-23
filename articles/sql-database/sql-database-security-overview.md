@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124827"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461393"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -112,11 +112,11 @@ Par exemple, lorsque vous utilisez le pilote ADO.NET, cette opération s’effec
 
 [Transparent Data Encryption (TDE) pour Azure SQL Database](transparent-data-encryption-azure-sql.md) ajoute une couche de sécurité pour protéger les données au repos contre tout accès non autorisé ou hors connexion aux fichiers bruts ou sauvegardes. Parmi les scénarios courants, citons le vol de centre de données, l'élimination non sécurisée de matériel ou de supports tels que les lecteurs de disque et les bandes de sauvegarde. La fonctionnalité TDE chiffre l'intégralité de la base de données à l'aide d'un algorithme de chiffrement AES, sans que les développeurs d'applications aient besoin de modifier les applications existantes.
 
-Dans Azure, toutes les bases de données SQL créées sont chiffrées par défaut, et la clé de chiffrement de ces bases de données est protégée par un certificat de serveur intégré.  La maintenance et la rotation des certificats sont gérées par le service, sans intervention de l'utilisateur. Les clients peuvent également gérer eux-mêmes les clés de chiffrement dans [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
+Dans Azure, toutes les bases de données SQL créées sont chiffrées par défaut, et la clé de chiffrement de ces bases de données est protégée par un certificat de serveur intégré.  La maintenance et la rotation des certificats sont gérées par le service, sans intervention de l'utilisateur. Les clients peuvent également gérer eux-mêmes les clés de chiffrement dans [Azure Key Vault](../key-vault/general/secure-your-key-vault.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Gestion des clés dans Azure Key Vault
 
-[Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) prenant en charge la fonctionnalité  [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE), les clients peuvent assurer eux-mêmes la gestion et la rotation des clés à l'aide d' [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md), le système de gestion des clés externes basé sur le cloud d'Azure. Si l’accès de la base de données au coffre de clés est révoqué, une base de données ne peut pas être déchiffrée et lue en mémoire. Azure Key Vault propose une plateforme de gestion centrale des clés, utilise des modules de sécurité matériels étroitement surveillés (HSM) et permet la séparation des responsabilités entre la gestion de clés et des données pour aider à répondre aux exigences de conformité en matière de sécurité.
+[Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) prenant en charge la fonctionnalité  [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE), les clients peuvent assurer eux-mêmes la gestion et la rotation des clés à l'aide d' [Azure Key Vault](../key-vault/general/secure-your-key-vault.md), le système de gestion des clés externes basé sur le cloud d'Azure. Si l’accès de la base de données au coffre de clés est révoqué, une base de données ne peut pas être déchiffrée et lue en mémoire. Azure Key Vault propose une plateforme de gestion centrale des clés, utilise des modules de sécurité matériels étroitement surveillés (HSM) et permet la séparation des responsabilités entre la gestion de clés et des données pour aider à répondre aux exigences de conformité en matière de sécurité.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (Chiffrement en cours d’utilisation)
 

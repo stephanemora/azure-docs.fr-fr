@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33684a6292d7e51c04f6bacc7c49ee5986dbec10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502404"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605167"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architecture réseau de SAP HANA (grandes instances)
 
@@ -182,7 +182,7 @@ Pour plus d’informations sur l’activation d’ExpressRoute Global Reach, voi
 La grande instance HANA ne bénéficie *pas* d’une connectivité directe à Internet. Par exemple, cette limitation peut restreindre votre capacité à enregistrer l’image du système d’exploitation directement avec le fournisseur du système d’exploitation. Vous devrez peut-être travailler avec votre serveur d’outil de gestion des abonnements SUSE Linux Enterprise Server local ou d’un gestionnaire des abonnements Red Hat Enterprise Linux.
 
 ## <a name="data-encryption-between-vms-and-hana-large-instance"></a>Chiffrement des données entre des machines virtuelles et la grande instance HANA
-Les données transférées entre la grande instance HANA et des machines virtuelles ne sont pas chiffrées. En revanche, vous pouvez activer le chiffrement du trafic pour l’échange simple entre le SGBD HANA et les applications basées sur JDBC/ODBC. Pour plus d’informations, consultez [cette documentation par SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false).
+Les données transférées entre la grande instance HANA et des machines virtuelles ne sont pas chiffrées. En revanche, vous pouvez activer le chiffrement du trafic pour l’échange simple entre le SGBD HANA et les applications basées sur JDBC/ODBC. Pour plus d’informations, consultez [cette documentation par SAP](https://help.sap.com/viewer/102d9916bf77407ea3942fef93a47da8/1.0.11/en-US/dbd3d887bb571014bf05ca887f897b99.html).
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Utiliser des unités de grande instance HANA dans plusieurs régions
 

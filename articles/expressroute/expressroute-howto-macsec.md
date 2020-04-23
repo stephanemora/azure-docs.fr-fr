@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 572147ca43e9a4dea9d9601dfa1dac8ba1c97ed0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083546"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458230"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurer MACsec sur les ports ExpressRoute Direct
 
@@ -47,7 +47,7 @@ Pour commencer la configuration, connectez-vous à votre compte Azure et sélect
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Si vous avez déjà un coffre de clés ou un groupe de ressources, vous pouvez les réutiliser. Dans ce cas, vous devez impérativement activer la [fonctionnalité de **suppression réversible**](../key-vault/key-vault-ovw-soft-delete.md) sur votre coffre de clés existant. Si la suppression réversible n’est pas activée, vous pouvez l’activer à l’aide des commandes suivantes :
+    Si vous avez déjà un coffre de clés ou un groupe de ressources, vous pouvez les réutiliser. Dans ce cas, vous devez impérativement activer la [fonctionnalité de **suppression réversible**](../key-vault/general/overview-soft-delete.md) sur votre coffre de clés existant. Si la suppression réversible n’est pas activée, vous pouvez l’activer à l’aide des commandes suivantes :
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

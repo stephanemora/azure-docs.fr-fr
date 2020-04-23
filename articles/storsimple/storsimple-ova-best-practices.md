@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544338"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460645"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
 
@@ -199,7 +199,7 @@ Utilisez les bonnes pratiques suivantes lors de la configuration d’ACR pour le
 ### <a name="data-security-and-encryption"></a>Chiffrement et sécurité des données
 Votre baie virtuelle StorSimple Virtual Array a des fonctionnalités de chiffrement et de sécurité des données qui garantissent la confidentialité et l’intégrité de vos données. Lorsque vous utilisez ces fonctionnalités, nous vous recommandons de suivre ces bonnes pratiques : 
 
-* Définissez une clé de chiffrement de stockage cloud pour générer un chiffrement AES-256 avant l’envoi des données de votre baie virtuelle vers le cloud. Cette clé n’est pas requise si vos données sont chiffrées dès le départ. La clé peut être générée et protégée à l’aide d’un système de gestion de clés tel qu’ [Azure Key Vault](../key-vault/key-vault-overview.md).
+* Définissez une clé de chiffrement de stockage cloud pour générer un chiffrement AES-256 avant l’envoi des données de votre baie virtuelle vers le cloud. Cette clé n’est pas requise si vos données sont chiffrées dès le départ. La clé peut être générée et protégée à l’aide d’un système de gestion de clés tel qu’ [Azure Key Vault](../key-vault/general/overview.md).
 * Lorsque vous configurez le compte de stockage via le service StorSimple Manager, veillez à activer le mode TLS afin de créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud.
 * Régénérez les clés de vos comptes de stockage (en accédant au service Stockage Azure) régulièrement pour prendre en compte toutes les modifications de l’accès en fonction de la liste modifiée des administrateurs.
 * Les données figurant sur votre baie virtuelle sont compressées et dédupliquées avant leur envoi vers Azure. Nous ne recommandons pas l’utilisation du service de rôle Déduplication des données sur votre hôte Windows Server.

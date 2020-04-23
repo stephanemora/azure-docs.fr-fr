@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a4d7030f7a58a6252c6e596fc2c248163694a1e8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 0fb80b8a3fe9dd642b1574b35ff48b30272ce848
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880871"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533715"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutoriel : Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
 
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment utiliser la plateforme d’identités Microsoft 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-L’application est générée comme une application ASP.NET MVC. Elle utilise le middleware (intergiciel) OWIN OpenID Connect pour connecter les utilisateurs.  
+L’application est générée comme une application ASP.NET MVC. Elle utilise le middleware (intergiciel) OWIN OpenID Connect pour connecter les utilisateurs.
 
 Le composant « démon » de cet exemple est un contrôleur d’API : `SyncController.cs`. Lorsque le contrôleur est appelé, il tire (pull) une liste d’utilisateurs du locataire Azure Active Directory (Azure AD) à partir de Microsoft Graph. `SyncController.cs` est déclenché par un appel AJAX dans l’application web. Il utilise la [bibliothèque MSAL pour .NET](msal-overview.md) afin d’acquérir un jeton d’accès pour Microsoft Graph.
 
@@ -109,7 +109,7 @@ Si vous ne souhaitez pas utiliser l’automatisation, suivez les étapes décrit
    - Dans la section **URI de redirection (facultatif)** , sélectionnez **Web** dans la zone de liste modifiable et entrez les URI de redirection suivants :
        - **https://localhost:44316/**
        - **https://localhost:44316/Account/GrantPermissions**
-          
+
      S’il y a plus de deux URI de redirection, vous devrez les ajouter à partir de l’onglet **Authentification** une fois que l’application aura été créée.
 1. Sélectionnez **Inscrire** pour créer l’application.
 1. Sur la page **Vue d'ensemble** de l'application, recherchez la valeur de l'**ID d'application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
@@ -121,7 +121,7 @@ Si vous ne souhaitez pas utiliser l’automatisation, suivez les étapes décrit
 
    1. Entrez une description pour la clé (par exemple, **secret de l’application**).
    1. Sélectionnez une durée pour la clé : **Dans 1 an**, **Dans 2 ans** ou **N’expire jamais**.
-   1. Sélectionnez le bouton **Ajouter**. 
+   1. Sélectionnez le bouton **Ajouter**.
    1. Quand la valeur de la clé s’affiche, copiez puis enregistrez-la dans un endroit sûr. Vous aurez besoin de cette clé plus tard pour configurer le projet dans Visual Studio. Vous ne pourrez pas réafficher ni récupérer cette clé.
 1. Dans la liste des pages de l’application, sélectionnez **Autorisations de l’API**. Ensuite :
    1. Cliquez sur le bouton **Ajouter une autorisation**.
@@ -174,21 +174,21 @@ Le code correspondant à cet exemple se trouve dans les fichiers suivants :
 
 ## <a name="re-create-the-sample-app"></a>Recréer l’exemple d’application
 
-1. Dans Visual Studio, créez un projet **Visual C#** **Application web ASP.NET (.NET Framework)** . 
+1. Dans Visual Studio, créez un projet **Visual C#** **Application web ASP.NET (.NET Framework)** .
 1. Dans l’écran suivant, choisissez le modèle de projet **MVC**. Ensuite, ajoutez des références de dossier et de base pour **API web**, car vous ajouterez un contrôleur d’API Web plus tard. Conservez le mode d’authentification sélectionné par défaut pour le projet : **Aucune authentification**.
-1. Sélectionnez le projet dans la fenêtre **Explorateur de solutions**, puis appuyez sur la touche **F4**. 
+1. Sélectionnez le projet dans la fenêtre **Explorateur de solutions**, puis appuyez sur la touche **F4**.
 1. Dans les propriétés du projet, définissez **SSL activé** sur **True**. Notez les informations qui se trouvent dans **URL SSL**. Vous devrez les fournir au moment de configurer l’inscription de cette application dans le portail Azure.
-1. Ajoutez les packages NuGet middleware ASP.NET OWIN suivants : 
+1. Ajoutez les packages NuGet middleware ASP.NET OWIN suivants :
    - Microsoft.Owin.Security.ActiveDirectory
    - Microsoft.Owin.Security.Cookies
    - Microsoft.Owin.Host.SystemWeb
    - Microsoft.IdentityModel.Protocol.Extensions
    - Microsoft.Owin.Security.OpenIdConnect
-   - Microsoft.Identity.Client 
+   - Microsoft.Identity.Client
 1. Dans le dossier **App_Start** :
-   1. Créez une classe appelée **Startup.Auth.cs**. 
-   1. Supprimez **.App_Start** du nom de l’espace de noms. 
-   1. Remplacez le code de la classe **Startup** par le code de l’exemple d’application figurant dans le même fichier.       
+   1. Créez une classe appelée **Startup.Auth.cs**.
+   1. Supprimez **.App_Start** du nom de l’espace de noms.
+   1. Remplacez le code de la classe **Startup** par le code de l’exemple d’application figurant dans le même fichier.
    Veillez à copier l’intégralité de la définition de classe. La définition passe de **public class Startup** à **public partial class Startup**.
 1. Dans **Startup.Auth.cs**, corrigez les références manquantes en ajoutant les instructions **using** suggérées par la fonctionnalité IntelliSense de Visual Studio.
 1. Cliquez avec le bouton droit sur le projet, sélectionnez **Ajouter**, puis sélectionnez **Classe**.
@@ -220,12 +220,12 @@ Ce projet comporte des projets d’API web et d’applications web. Pour les dé
 1. Une fois le site web créé, recherchez-le dans le **tableau de bord**, puis sélectionnez-le pour ouvrir l’écran **Vue d’ensemble** du service d’application.
 1. Sous l’onglet **Vue d’ensemble** du service d’application, téléchargez le profil de publication en sélectionnant le lien **Obtenir le profil de publication**, puis enregistrez-le. Vous pouvez utiliser d’autres mécanismes de déploiement, comme le déploiement à partir du contrôle de code source.
 1. Passez à Visual Studio, puis :
-   1. Accédez au projet **dotnet-web-daemon-v2**. 
+   1. Accédez au projet **dotnet-web-daemon-v2**.
    1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
    1. Sélectionnez **Importer le profil** dans la barre inférieure, puis importez le profil de publication que vous avez téléchargé précédemment.
 1. Sélectionnez **Configurer**.
 1. Sous l’onglet **Connexion**, mettez à jour l’URL de destination afin qu’elle utilise « HTTPS ». Par exemple, utilisez [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Sélectionnez **Suivant**.
-1. Sous l’onglet **Paramètres**, vérifiez que l’option **Activer l’authentification d’organisation** n’est pas sélectionnée.  
+1. Sous l’onglet **Paramètres**, vérifiez que l’option **Activer l’authentification d’organisation** n’est pas sélectionnée.
 1. Sélectionnez **Enregistrer**. Sélectionnez **Publier** dans l’écran principal.
 
 Visual Studio publie le projet et ouvre automatiquement l’URL du projet dans un navigateur. Si la page web par défaut du projet s’affiche, la publication a réussi.

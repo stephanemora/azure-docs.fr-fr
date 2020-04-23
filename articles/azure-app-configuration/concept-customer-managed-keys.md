@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5749b2fc58c4e1c5c75142f85a5132946714e25b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77473201"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457431"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Utiliser des clés gérées par le client pour chiffrer vos données App Configuration
 Azure App Configuration [chiffre les informations sensibles au repos](../security/fundamentals/encryption-atrest.md). L’utilisation de clés gérées par le client offre une protection améliorée des données en vous permettant de gérer vos clés de chiffrement.  Quand un chiffrement avec des clés gérées est utilisé, toutes les informations sensibles dans App Configuration sont chiffrées avec une clé Azure Key Vault fournie par l’utilisateur.  Ceci donne la possibilité d’effectuer une rotation de la clé de chiffrement à la demande.  Ceci permet aussi de révoquer l’accès d’Azure App Configuration à des informations sensibles en révoquant l’accès à la clé par l’instance App Configuration.
@@ -20,7 +20,7 @@ Azure App Configuration [chiffre les informations sensibles au repos](../securit
 Azure App Configuration chiffre les informations sensibles au repos en utilisant une clé de chiffrement AES 256 bits fournie par Microsoft. Chaque instance App Configuration a sa propre clé de chiffrement gérée par le service et utilisée pour chiffrer les informations sensibles. Les informations sensibles incluent les valeurs qui se trouvent dans les paires clé-valeur.  Quand la fonctionnalité de clé gérée par le client est activée, App Configuration utilise une identité managée affectée à l’instance App Configuration pour s’authentifier auprès d’Azure Active Directory. L’identité managée appelle ensuite Azure Key Vault et encapsule la clé de chiffrement de l’instance App Configuration. La clé de chiffrement encapsulée est ensuite stockée et la clé de chiffrement désencapsulée est mise en cache pour une heure dans App Configuration. App Configuration actualise toutes les heures la version désencapsulée de la clé de chiffrement de l’instance App Configuration. Ceci garantit la disponibilité dans des conditions de fonctionnement normales. 
 
 >[!IMPORTANT]
-> Si l’identité affectée à l’instance App Configuration n’est plus autorisée à désencapsuler la clé de chiffrement de l’instance, ou si la clé gérée est supprimée définitivement, il n’est plus possible de déchiffrer les informations sensibles stockées dans l’instance App Configuration. L’utilisation de la fonction de [suppression réversible](../key-vault/key-vault-ovw-soft-delete.md) d’Azure Key Vault réduit le risque de suppression accidentelle de votre clé de chiffrement.
+> Si l’identité affectée à l’instance App Configuration n’est plus autorisée à désencapsuler la clé de chiffrement de l’instance, ou si la clé gérée est supprimée définitivement, il n’est plus possible de déchiffrer les informations sensibles stockées dans l’instance App Configuration. L’utilisation de la fonction de [suppression réversible](../key-vault/general/overview-soft-delete.md) d’Azure Key Vault réduit le risque de suppression accidentelle de votre clé de chiffrement.
 
 Quand des utilisateurs activent la fonctionnalité de clé gérée par le client sur leur instance Azure App Configuration, ils contrôlent la capacité du service à accéder à leurs informations sensibles. La clé gérée sert de clé de chiffrement racine. Un utilisateur peut révoquer l’accès de son instance App Configuration à sa clé gérée en changeant sa stratégie d’accès au coffre de clés. Quand cet accès est révoqué, App Configuration perd la capacité à déchiffrer les données utilisateur dans un délai d’une heure. À ce stade, l’instance App Configuration interdit toutes les tentatives d’accès. Cette situation est récupérable en accordant à nouveau au service l’accès à la clé gérée.  Dans un délai d’une heure, App Configuration est en mesure de déchiffrer les données utilisateur et de fonctionner dans des conditions normales.
 

@@ -3,12 +3,12 @@ title: Application Insights pour les services cloud Azure | Microsoft Docs
 description: Surveillance efficace de vos rôles Web et de travail avec Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234765"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537591"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -31,7 +31,7 @@ Cette option instrumente votre application au moment de l’exécution, ce qui v
 
 Si cette option vous suffit, vous avez terminé. 
 
-Les étapes suivantes sont la [consultation des métriques de votre application](../../azure-monitor/app/metrics-explorer.md), l’[interrogation de vos données avec Analytics](../../azure-monitor/app/analytics.md). 
+Les étapes suivantes sont la [consultation des métriques de votre application](../../azure-monitor/platform/metrics-charts.md), l’[interrogation de vos données avec Analytics](../../azure-monitor/app/analytics.md). 
 
 Pour superviser les performances dans le navigateur, vous pouvez configurer des [tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) et [ajouter du code à vos pages web](../../azure-monitor/app/javascript.md).
 
@@ -165,7 +165,7 @@ Cette étape est uniquement nécessaire si vous voulez capturer des requêtes SQ
 
 1. Ouvrez la ressource Application Insights que vous avez créée.
 
-   Les points de données individuels sont affichés dans [Recherche][diagnostic] et les données agrégées sont affichées dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md).
+   Les points de données individuels sont affichés dans [Recherche][diagnostic] et les données agrégées sont affichées dans [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 1. Ajoutez plus de données de télémétrie (voir les sections suivantes) et publiez votre application pour obtenir en direct des diagnostics et un retour sur l’utilisation. 
 
@@ -184,7 +184,7 @@ Les informations d’[Azure Diagnostics](https://docs.microsoft.com/azure/monito
 * Les journaux des événements Windows s’affichent comme traces et événements personnalisés.
 * Les journaux des applications, les journaux d’activité ETW et tous les journaux d’activité d’infrastructure des diagnostics s’affichent comme traces.
 
-Pour voir les compteurs de performances et le nombre d’événements, ouvrez [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) et ajoutez le graphique suivant :
+Pour voir les compteurs de performances et le nombre d’événements, ouvrez [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) et ajoutez le graphique suivant :
 
 ![Données Azure Diagnostics](./media/cloudservices/23-wad.png)
 

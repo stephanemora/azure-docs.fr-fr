@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac657e6627aff4eb588506118e5eeeaef70efba
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548608"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454643"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -61,7 +61,7 @@ Les trois modèles de chiffrement côté serveur offrent différentes caractéri
 
 Vous pouvez protéger les machines virtuelles Windows et Linux à l’aide de [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), qui utilise la technologie [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) et Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) pour protéger des disques du système d’exploitation et des disques de données avec un chiffrement de volume complet.
 
-Les clés de chiffrement et les secrets sont sauvegardés dans votre abonnement [Azure Key Vault](../../key-vault/key-vault-overview.md). À l’aide du service Sauvegarde Azure, vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées qui utilisent la configuration de clé de chiffrement à clé (KEK).
+Les clés de chiffrement et les secrets sont sauvegardés dans votre abonnement [Azure Key Vault](../../key-vault/general/overview.md). À l’aide du service Sauvegarde Azure, vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées qui utilisent la configuration de clé de chiffrement à clé (KEK).
 
 ### <a name="azure-storage-service-encryption"></a>Chiffrement du service de stockage Azure
 

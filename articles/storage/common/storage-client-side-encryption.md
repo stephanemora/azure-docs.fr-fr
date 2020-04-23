@@ -9,12 +9,12 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6cf19292c3675382789ca25af7f9b7f69e9066fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c07167a9f3a9194b7c45932ac749324429943ea9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228373"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450120"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,7 +106,7 @@ Dans les opérations de traitement par lots, la même clé de chiffrement de cl�
 > Pour effectuer des opérations de requête, vous devez spécifier un programme de résolution de clé capable de résoudre toutes les clés dans le jeu de résultats. Si une entité contenue dans le résultat de la requête ne peut pas être résolue par rapport à un fournisseur, la bibliothèque cliente génère une erreur. Pour toute requête effectuant des projections côté serveur, la bibliothèque cliente ajoute par défaut les propriétés de métadonnées de chiffrement spéciales (_ClientEncryptionMetadata1 et _ClientEncryptionMetadata2) aux colonnes sélectionnées.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les utilisateurs peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour plus d’informations, consultez la page [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/key-vault-overview.md)
+Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les utilisateurs peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour plus d’informations, consultez la page [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)
 
 La bibliothèque cliente de stockage utilise la bibliothèque principale du coffre de clés Key Vault afin de fournir une infrastructure commune de gestion des clés sur Azure. Les utilisateurs ont un avantage supplémentaire : la possibilité d’utiliser la bibliothèque d’extensions du coffre de clés. La bibliothèque d’extensions fournit une fonctionnalité utile basée sur des fournisseurs de clés Symmetric/RSA simples et transparents, en local et dans le cloud, avec capacité d’agrégation et de mise en cache.
 
@@ -245,4 +245,4 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 * [Tutoriel : Chiffrement et déchiffrement d’objets blob dans le service Stockage Microsoft Azure à l’aide d’Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Télécharger la [Bibliothèque cliente Azure Storage pour le package NuGet .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Télécharger les packages NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault  
-* Consulter la [documentation d’Azure Key Vault](../../key-vault/key-vault-overview.md)
+* Consulter la [documentation d’Azure Key Vault](../../key-vault/general/overview.md)

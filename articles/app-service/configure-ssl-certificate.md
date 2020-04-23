@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9f9fcc0b3d8dfe19961668e77da91bc9f14ff2d1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810595"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453895"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -94,7 +94,7 @@ Si vous achetez un certificat App Service dans Azure, Azure se charge des tâche
 
 - Prise en charge du processus d’achat sur GoDaddy
 - Vérification du domaine du certificat
-- Gestion du certificat dans [Azure Key Vault](../key-vault/key-vault-overview.md)
+- Gestion du certificat dans [Azure Key Vault](../key-vault/general/overview.md)
 - Gestion du renouvellement des certificats (voir [Renouveler le certificat](#renew-certificate))
 - Synchronisation automatique des certificats avec les copies importées dans les applications App Service
 
@@ -140,8 +140,8 @@ Dans la page **État de Key Vault**, cliquez sur **Référentiel Key Vault** pou
 | Resource group | Nous vous conseillons de choisir le même groupe de ressources que votre certificat App Service. |
 | Emplacement | Choisissez le même emplacement que votre application App Service. |
 | Niveau tarifaire | Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Stratégies d’accès| Définit les applications et l’accès autorisé aux ressources du coffre. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Accorder à plusieurs applications l’autorisation d’accéder à un coffre de clés](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Accès au réseau virtuel | Limitez l’accès au coffre à certains réseaux virtuels Azure. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](../key-vault/key-vault-network-security.md) |
+| Stratégies d’accès| Définit les applications et l’accès autorisé aux ressources du coffre. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Accorder à plusieurs applications l’autorisation d’accéder à un coffre de clés](../key-vault/general/group-permissions-for-apps.md). |
+| Accès au réseau virtuel | Limitez l’accès au coffre à certains réseaux virtuels Azure. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](../key-vault/general/network-security.md) |
 
 Une fois que vous avez sélectionné le coffre, fermez la page **Référentiel Key Vault**. L’option **Étape 1 : Stocker** doit afficher une coche verte de réussite. Gardez cette page ouverte pour l’étape suivante.
 

@@ -4,12 +4,12 @@ description: Vous prévient en cas de modifications inhabituelles du taux d’é
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671747"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536809"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) vous alerte automatiquement en quasi temps réel si votre application web enregistre une hausse anormale du taux de requêtes ayant échoué. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les requêtes ayant échoué ont généralement un code de réponse supérieur ou égal à 400. Pour vous aider à trier et diagnostiquer les causes du problème, les détails de l’alerte s’accompagnent d’une analyse des caractéristiques des échecs et des données d’application associées. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
@@ -353,7 +353,7 @@ La détection intelligente des anomalies de type échec vient compléter d’aut
 ## <a name="next-steps"></a>Étapes suivantes
 Ces outils de diagnostic vous aident à inspecter les données reçues de votre application :
 
-* [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md)
+* [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md)
 * [Navigateur de recherche](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics : un puissant langage de requête](../../azure-monitor/log-query/get-started-portal.md)
 

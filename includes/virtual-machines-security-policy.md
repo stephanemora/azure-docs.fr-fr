@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 14a6703b3e256d33ab3b18e1821587cc3eb293db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1ec61bf18248ea56c8ee5e430a671af7f39d732
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79381613"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458662"
 ---
 Il est important de sécuriser votre machine virtuelle pour les applications que vous exécutez. La sécurisation des machines virtuelles peut comprendre plusieurs services et fonctionnalités Azure qui garantissent un accès sécurisé à vos machines virtuelles et le stockage sécurisé des données. Cet article donne des informations vous permettant de sécuriser votre machine virtuelle et vos applications.
 
@@ -39,7 +39,7 @@ Pour en savoir plus sur le chiffrement côté serveur, consultez les articles su
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Pour renforcer la sécurité et la conformité de la machine virtuelle [Windows](../articles/virtual-machines/windows/encrypt-disks.md) et [Linux](../articles/virtual-machines/linux/disk-encryption-overview.md), les disques virtuels dans Azure peuvent être chiffrés. Les disques virtuels qui se trouvent sur des machines virtuelles Windows sont chiffrés au repos avec BitLocker. Les disques virtuels sur des machines virtuelles Linux sont chiffrés au repos à l’aide de la commande dm-crypt. 
+Pour renforcer la sécurité et la conformité de la machine virtuelle [Windows](../articles/virtual-machines/windows/disk-encryption-overview.md) et [Linux](../articles/virtual-machines/linux/disk-encryption-overview.md), les disques virtuels dans Azure peuvent être chiffrés. Les disques virtuels qui se trouvent sur des machines virtuelles Windows sont chiffrés au repos avec BitLocker. Les disques virtuels sur des machines virtuelles Linux sont chiffrés au repos à l’aide de la commande dm-crypt. 
 
 Le chiffrement de disques virtuels dans Azure n’entraîne aucun frais. Les clés de chiffrement sont stockées dans le coffre de clés Azure à l’aide d’une protection logicielle, mais vous pouvez importer ou générer vos clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Ces clés de chiffrement servent à chiffrer et à déchiffrer les disques virtuels connectés à votre machine virtuelle. Vous gardez le contrôle de ces clés de chiffrement et pouvez effectuer un audit de leur utilisation. Un principal de service Azure Active Directory fournit un mécanisme sécurisé pour l’émission de ces clés de chiffrement lors de la mise sous tension et hors tension des machines virtuelles.
 

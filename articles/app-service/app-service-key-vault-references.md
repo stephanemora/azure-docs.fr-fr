@@ -6,32 +6,32 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236041"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453725"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
-Cette rubrique vous montre comment utiliser des secrets d’Azure Key Vault dans votre application App Service ou Azure Functions, sans avoir à modifier le code. [Azure Key Vault](../key-vault/key-vault-overview.md) est un service qui fournit une gestion centralisée des secrets, avec un contrôle total sur les stratégies d’accès et l’historique d’audit.
+Cette rubrique vous montre comment utiliser des secrets d’Azure Key Vault dans votre application App Service ou Azure Functions, sans avoir à modifier le code. [Azure Key Vault](../key-vault/general/overview.md) est un service qui fournit une gestion centralisée des secrets, avec un contrôle total sur les stratégies d’accès et l’historique d’audit.
 
 ## <a name="granting-your-app-access-to-key-vault"></a>Autoriser votre application à accéder à Key Vault
 
 Pour pouvoir lire les secrets dans Key Vault, vous devez créer un coffre et donner à votre application l’autorisation d’y accéder.
 
-1. Créez un coffre de clés en suivant le [Guide de démarrage rapide de Key Vault](../key-vault/quick-create-cli.md).
+1. Créez un coffre de clés en suivant le [Guide de démarrage rapide de Key Vault](../key-vault/secrets/quick-create-cli.md).
 
 1. Créez une [identité managée affectée par le système](overview-managed-identity.md) pour votre application.
 
    > [!NOTE] 
    > Actuellement, les références Key Vault prennent uniquement en charge les identités managées affectées par le système. Vous ne pouvez pas utiliser d’identités affectées par l’utilisateur.
 
-1. Créez une [stratégie d’accès dans Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
+1. Créez une [stratégie d’accès dans Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
 
     > [!NOTE]
-    > Les références Key Vault ne sont actuellement pas en mesure de résoudre les secrets stockés dans un coffre de clés avec des [restrictions de réseau](../key-vault/key-vault-overview-vnet-service-endpoints.md).
+    > Les références Key Vault ne sont actuellement pas en mesure de résoudre les secrets stockés dans un coffre de clés avec des [restrictions de réseau](../key-vault/general/overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Syntaxe de référence
 

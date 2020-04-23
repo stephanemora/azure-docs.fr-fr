@@ -2,13 +2,13 @@
 title: Définition de plusieurs instances d’une valeur de sortie
 description: Utilisez l’opération copy dans un modèle Azure Resource Manager pour retourner une valeur à partir d’un déploiement sur plusieurs itérations.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 3889260d02f438274c80e99e99136515499443e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153384"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617838"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Itération de sortie dans les modèles ARM
 
@@ -21,12 +21,10 @@ Il est également possible d’utiliser copy avec des [ressources](copy-resource
 L’élément copy utilise le format général suivant :
 
 ```json
-"copy": [
-  {
-    "count": <number-of-iterations>,
-    "input": <values-for-the-variable>
-  }
-]
+"copy": {
+  "count": <number-of-iterations>,
+  "input": <values-for-the-output>
+}
 ```
 
 La propriété **count** indique le nombre d’itérations souhaité pour la valeur de sortie.

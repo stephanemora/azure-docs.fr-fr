@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: fadf07f312c86f8ca15f5a97ebbe99e84bcffc89
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 49a40d78b4ba3bc1e90bb341cca90bece0b998a8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548229"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450013"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 Cet article décrit les meilleures pratiques en matière de sécurité pour les machines virtuelles et les systèmes d’exploitation.
@@ -155,7 +155,7 @@ Voici les meilleures pratiques en matière d’utilisation d’Azure Disk Encryp
 **Détail** : Azure Disk Encryption génère et écrit les clés de chiffrement dans votre coffre de clés. La gestion des clés de chiffrement dans votre coffre de clés nécessite l’authentification Azure AD. Créez une application Azure AD à cet effet. Pour l’authentification, vous pouvez utiliser soit l’authentification par clé secrète client, soit [l’authentification Azure AD par certificat client](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 **Bonne pratique** : utiliser une clé de chiffrement à clé pour renforcer la sécurité des clés de chiffrement, et ajouter une clé de chiffrement à clé à votre coffre de clés.   
-**Détail** : Utilisez la cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../../key-vault/key-vault-hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
+**Détail** : Utilisez la cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../../key-vault/keys/hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
 
 **Bonne pratique** : prendre un [instantané](../../virtual-machines/windows/snapshot-copy-managed-disk.md) ou faire une sauvegarde avant de chiffrer les disques. Les sauvegardes offrent une possibilité de récupération en cas de défaillance inattendue au cours du chiffrement.   
 **Détail** : Les machines virtuelles avec des disques managés imposent une sauvegarde avant que le chiffrement soit effectué. Une fois la sauvegarde effectuée, vous pouvez utiliser la cmdlet **Set-AzVMDiskEncryptionExtension** pour chiffrer des disques managés en spécifiant le paramètre *-skipVmBackup*. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarde Azure](../../backup/backup-azure-vms-encryption.md).

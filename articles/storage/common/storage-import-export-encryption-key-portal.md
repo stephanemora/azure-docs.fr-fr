@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811443"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456496"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utiliser des clés gérées par le client dans Azure Key Vault pour le service Import/Export
 
 Azure Import/Export protège les clés BitLocker utilisées pour verrouiller les lecteurs à l’aide d’une clé de chiffrement. Par défaut, les clés BitLocker sont chiffrées avec des clés gérées par Microsoft. Pour un contrôle supplémentaire sur les clés de chiffrement, vous pouvez également fournir des clés gérées par le client.
 
-Les clés gérées par le client doivent être créées et stockées dans Azure Key Vault. Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../../key-vault/key-vault-overview.md)
+Les clés gérées par le client doivent être créées et stockées dans Azure Key Vault. Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../../key-vault/general/overview.md)
 
 Cet article explique comment utiliser des clés gérées par le client avec le service Import/Export dans le [portail Azure](https://portal.azure.com/).
 
@@ -33,12 +33,12 @@ Avant de commencer, vérifiez les points suivants :
     - [Création d’une tâche d’importation pour les fichiers](storage-import-export-data-to-files.md).
     - [Création d’une tâche d’exportation pour les objets BLOB](storage-import-export-data-from-blobs.md)
 
-2. Vous disposez d’une instance Azure Key Vault existante avec une clé que vous pouvez utiliser pour protéger votre clé BitLocker. Pour savoir comment créer un coffre de clés à l’aide du portail Azure, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure](../../key-vault/quick-create-portal.md).
+2. Vous disposez d’une instance Azure Key Vault existante avec une clé que vous pouvez utiliser pour protéger votre clé BitLocker. Pour savoir comment créer un coffre de clés à l’aide du portail Azure, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure](../../key-vault/secrets/quick-create-portal.md).
 
     - Les options **Suppression réversible** et **Ne pas vider** sont définies sur votre instance Key Vault existante. Ces propriétés ne sont pas activées par défaut. Pour activer ces propriétés, consultez les sections intitulées **Activation de la suppression réversible** et **Activation de la protection contre le vidage** dans l’un des articles suivants :
 
-        - [Guide pratique pour utiliser la suppression réversible avec Azure Power​Shell](../../key-vault/key-vault-soft-delete-powershell.md).
-        - [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/key-vault-soft-delete-cli.md).
+        - [Guide pratique pour utiliser la suppression réversible avec Azure Power​Shell](../../key-vault/general/soft-delete-powershell.md).
+        - [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/soft-delete-cli.md).
     - Le coffre de clés existant doit avoir une clé RSA d’une taille de 2048 ou plus. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
     - Le coffre de clés doit se trouver dans la même région que le compte de stockage pour vos données.  
     - Si vous n’avez pas d’instances Azure Key Vault existantes, vous pouvez également en créer de façon intégrée comme décrit dans la section suivante.

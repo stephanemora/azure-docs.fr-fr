@@ -3,12 +3,12 @@ title: Créer un cluster Azure Service Fabric
 description: Découvrez comment configurer un cluster Service Fabric sécurisé dans Azure à l’aide d’Azure Resource Manager.  Vous pouvez créer un cluster à l’aide d’un modèle par défaut ou à l’aide de votre propre modèle de cluster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624125"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458298"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -251,7 +251,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Utiliser un pointeur vers un secret chargé dans un coffre de clés
 
-Pour utiliser un coffre de clés existant, il doit être [activé pour le déploiement](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) afin d’autoriser le fournisseur de ressources de calcul à obtenir des certificats à partir de ce coffre et à les installer sur des nœuds de cluster.
+Pour utiliser un coffre de clés existant, il doit être [activé pour le déploiement](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) afin d’autoriser le fournisseur de ressources de calcul à obtenir des certificats à partir de ce coffre et à les installer sur des nœuds de cluster.
 
 Déployer le cluster à l’aide de PowerShell :
 

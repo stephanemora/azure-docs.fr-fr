@@ -4,18 +4,18 @@ description: Apprenez-en davantage sur le chiffrement au repos de votre registre
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5561998cf0b19698c8059a861a4014a171a7e7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498953"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461750"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Chiffrement à l’aide de clés gérées par le client
 
 Lorsque vous stockez des images et d’autres artefacts dans un registre de conteneurs Azure, Azure chiffre automatiquement le contenu du registre au repos avec des [clés gérées par le service](../security/fundamentals/encryption-atrest.md#data-encryption-models). Vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide d’une clé que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes utilisant Azure CLI et le portail Azure.
 
-Le chiffrement côté serveur avec des clés gérées par le client est pris en charge via l’intégration à [Azure Key Vault](../key-vault/key-vault-overview.md). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Avec Azure Key Vault, vous pouvez également auditer l’utilisation des clés.
+Le chiffrement côté serveur avec des clés gérées par le client est pris en charge via l’intégration à [Azure Key Vault](../key-vault/general/overview.md). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Avec Azure Key Vault, vous pouvez également auditer l’utilisation des clés.
 
 Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Références SKU Azure Container Registry](container-registry-skus.md).
 
@@ -176,7 +176,7 @@ Notez le **nom de ressource** de l’identité managée. Vous aurez besoin de ce
 
 ### <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
-Pour connaître la procédure de création d’un coffre de clés, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure](../key-vault/quick-create-portal.md).
+Pour connaître la procédure de création d’un coffre de clés, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure](../key-vault/secrets/quick-create-portal.md).
 
 Lorsque vous créez un coffre de clés pour une clé gérée par le client, sous l’onglet **Informations de base**, vous devez activer les paramètres de protection suivants : **Suppression réversible** et **Protection de purge**. Ces paramètres permettent d’éviter toute perte de données provoquée par la suppression accidentelle d’une clé ou d’un coffre de clés.
 
@@ -392,7 +392,7 @@ La révocation de la clé bloque efficacement l’accès à toutes les données 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez-en davantage sur le [chiffrement au repos dans Azure](../security/fundamentals/encryption-atrest.md).
-* Apprenez-en davantage sur les stratégies d’accès et sur la façon de [sécuriser l’accès à un coffre de clés](../key-vault/key-vault-secure-your-key-vault.md).
+* Apprenez-en davantage sur les stratégies d’accès et sur la façon de [sécuriser l’accès à un coffre de clés](../key-vault/general/secure-your-key-vault.md).
 * Pour fournir des commentaires sur les clés gérées par le client pour Azure Container Registry, visitez le [site GitHub ACR](https://aka.ms/acr/issues).
 
 
