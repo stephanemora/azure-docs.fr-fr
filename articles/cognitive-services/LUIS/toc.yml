@@ -179,7 +179,7 @@
         - name: Ajouter des modèles
           displayName: 'syntax, template, roles'
           href: luis-how-to-model-intent-pattern.md
-    - name: Entraîner
+    - name: Former
       href: luis-how-to-train.md
       displayName: 'negative sampling, nondeterministic, non-deterministic, UseAllTrainingData'
     - name: Test
@@ -328,7 +328,7 @@
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: limites
-      href: luis-boundaries.md
+      href: luis-limits.md
     - name: Paramètres de l’application
       href: luis-reference-application-settings.md
     - name: Référence d’entité prédéfinie
