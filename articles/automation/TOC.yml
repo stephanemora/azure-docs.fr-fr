@@ -26,6 +26,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
 - name: Concepts
   items:
+    - name: Vue d’ensemble de l’authentification des comptes Automation
+      href: automation-security-overview.md
     - name: Vue d’ensemble de l’exécution d’un runbook
       href: automation-runbook-execution.md
     - name: Vue d’ensemble des Runbook Worker hybrides
@@ -48,6 +50,8 @@
           href: automation-create-standalone-account.md
         - name: Créer un compte Automation avec un modèle Resource Manager
           href: automation-create-account-template.md
+        - name: Configurer l’authentification avec Amazon Web Services
+          href: automation-config-aws-account.md
         - name: Gérer un compte d’identification Automation
           href: manage-runas-account.md
         - name: Gérer la sécurité et les autorisations des rôles
@@ -156,6 +160,8 @@
               href: automation-dsc-diagnostics.md
             - name: Résoudre les problèmes liés à DSC
               href: troubleshoot/desired-state-configuration.md
+            - name: Historique des versions de l’extension Azure DSC
+              href: automation-dsc-extension-history.md
         - name: Suivi des modifications et inventaire
           items:
             - name: Vue d’ensemble
@@ -248,8 +254,6 @@
           href: automation-create-alert-triggered-runbook.md
         - name: "Gérer les services Office\_365"
           href: manage-office-365.md
-        - name: Authentifier des runbooks avec Amazon Web Services
-          href: automation-config-aws-account.md
         - name: Déployer une machine virtuelle AWS avec un runbook Automation
           href: automation-scenario-aws-deployment.md
         - name: Déployer un modèle Azure Resource Manager avec un runbook

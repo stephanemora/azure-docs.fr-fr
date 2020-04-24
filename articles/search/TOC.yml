@@ -232,7 +232,7 @@
           items:
             - name: Créer un suggesteur
               href: index-add-suggesters.md
-            - name: Ajouter des suggestions ou autoCompleter
+            - name: Ajouter l’autocomplétion et les suggestions
               href: search-autocomplete-tutorial.md
         - name: Interroger des données à partir de Power Apps
           href: search-howto-powerapps.md
@@ -256,8 +256,8 @@
           href: search-query-troubleshoot-collection-filters.md
         - name: Présentation des filtres de collection
           href: search-query-understand-collection-filters.md
-        - name: Exemples de facettes multiniveau
-          href: search-example-adventureworks-multilevel-faceting.md
+        - name: Filtrer par langage
+          href: search-filters-language.md
     - name: Résultats
       items:
         - name: Utiliser les résultats
@@ -455,10 +455,6 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Présentation des fichiers JFK
           href: 'https://aka.ms/jfkfiles'
-        - name: Présentation des postes de NYC
-          href: 'https://aka.ms/azjobsdemo'
-        - name: Recherche des cas d’utilisation
-          href: 'https://searchsamples.azurewebsites.net/'
     - name: Entrainement
       items:
         - name: Introduction (Microsoft Learn)

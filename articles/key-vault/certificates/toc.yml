@@ -19,6 +19,8 @@
   items:
     - name: Importation d’un certificat
       href: tutorial-import-certificate.md
+    - name: Configurer la rotation de certificat
+      href: tutorial-rotate-certificates.md
 - name: Concepts
   items:
     - name: Prise en main des certificats Key Vault

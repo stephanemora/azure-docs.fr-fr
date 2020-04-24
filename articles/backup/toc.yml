@@ -60,6 +60,8 @@
           href: sql-support-matrix.md
         - name: Tableau de prise en charge de sauvegarde SAP HANA
           href: sap-hana-backup-support-matrix.md
+        - name: Matrice de prise en charge de sauvegarde de partage de fichiers Azure
+          href: azure-file-share-support-matrix.md
         - name: Références SKU Machines virtuelles prises en charge pour Azure Policy
           href: backup-azure-policy-supported-skus.md
     - name: Forum Aux Questions (FAQ)
@@ -346,6 +348,8 @@
           href: backup-azure-security-feature.md
         - name: Contrôles de sécurité intégrés
           href: backup-security-controls.md
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Dépanner
       items:
         - name: Azure VM

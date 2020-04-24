@@ -1199,6 +1199,8 @@
           href: platform/diagnostic-logs-schema.md
         - name: Schéma du journal d'activité
           href: platform/activity-log-schema.md
+    - name: Informations de référence sur les tableaux Journaux Azure Monitor
+      href: 'https://docs.microsoft.com/azure/azure-monitor/reference/'
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights (préversion)

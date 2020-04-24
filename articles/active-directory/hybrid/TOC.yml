@@ -152,6 +152,8 @@
               href: plan-migrate-adfs-pass-through-authentication.md
             - name: Déplacer des groupes d’une forêt à une autre
               href: how-to-connect-migrate-groups.md
+            - name: Migrer vers l’authentification cloud avec un lancement intermédiaire
+              href: how-to-connect-staged-rollout.md
         - name: Considérations relatives à la conception d'identités hybrides
           items:
             - name: Présentation des considérations relatives à la conception d'identités hybrides
