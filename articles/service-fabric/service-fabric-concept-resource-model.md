@@ -4,12 +4,12 @@ description: Cet article fournit une vue d’ensemble de la gestion d’une appl
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 69c10b0e9d3b7c29122c8432ab1e4bc06d3a3120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481114"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682640"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modèle de ressource d’application Service Fabric
 
@@ -99,7 +99,7 @@ L’exemple d’application contient des [modèles Azure Resource Manager](https
 | applicationTypeVersion | La version du type d’application         | 1.0.0                                                        | Doit correspondre à ApplicationManifest.xml                 |
 | serviceName            | Nom du service         | Voting~VotingWeb                                             | Doit être au format ApplicationName~ServiceType            |
 | serviceTypeName        | Le nom du type de service                | VotingWeb                                                    | Doit correspondre à ServiceManifest.xml                 |
-| appPackageUrl          | L’URL du stockage Blob de l’application     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | L’URL du package d’application dans le stockage d’objets blob (la procédure de définition de l’URL est décrite ultérieurement dans cet article) |
+| appPackageUrl          | L’URL du stockage Blob de l’application     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | L’URL du package d’application dans le stockage d’objets blob (la procédure de définition de l’URL est décrite ultérieurement dans cet article) |
 
 ```json
 {
