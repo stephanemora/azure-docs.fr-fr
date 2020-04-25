@@ -68,6 +68,8 @@
           href: cognitive-search-tutorial-blob.md
         - name: Python
           href: cognitive-search-tutorial-blob-python.md
+    - name: Interroger des données à partir de Power Apps
+      href: search-howto-powerapps.md
 - name: Exemples
   items:
     - name: 'Exemples C#'
@@ -234,8 +236,6 @@
               href: index-add-suggesters.md
             - name: Ajouter l’autocomplétion et les suggestions
               href: search-autocomplete-tutorial.md
-        - name: Interroger des données à partir de Power Apps
-          href: search-howto-powerapps.md
         - name: Informations de référence sur la syntaxe
           items:
             - name: Syntaxe de requête simple

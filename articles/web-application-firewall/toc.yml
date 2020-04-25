@@ -107,7 +107,7 @@
           href: ./ag/bot-protection.md
         - name: Associer une stratégie à une passerelle d’application existante
           href: ./ag/associate-waf-policy-existing-gateway.md
-        - name: Journaux de diagnostic
+        - name: Journaux d’activité de ressources
           href: ./ag/web-application-firewall-logs.md
         - name: Résolution des problèmes du pare-feu d’applications web
           href: ./ag/web-application-firewall-troubleshoot.md

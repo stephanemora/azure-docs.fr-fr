@@ -7,6 +7,9 @@
 - name: Démarrages rapides
   expanded: true
   items:
+    - name: Modèle ARM
+      displayName: Resource Manager
+      href: quickstart-cluster-template.md
     - name: Créer une application .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Déployer une application de conteneur Linux
