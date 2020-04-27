@@ -13,30 +13,14 @@
       items:
         - name: Utilisation du portail web
           href: getting-started-build-a-classifier.md
-        - name: Utilisation du kit de développement logiciel (SDK) .NET
-          href: csharp-tutorial.md
-        - name: Utilisation du Kit de développement logiciel (SDK) Python
-          href: python-tutorial.md
-        - name: Utilisation du Kit de développement logiciel (SDK) Java
-          href: java-tutorial.md
-        - name: Utilisation du kit SDK Node.js
-          href: node-tutorial.md
-        - name: Utilisation du kit SDK Go
-          href: go-tutorial.md
+        - name: Utilisation du SDK Custom Vision
+          href: quickstarts/image-classification.md
     - name: Créer un détecteur d’objet
       items:
         - name: Utilisation du portail web
           href: get-started-build-detector.md
-        - name: Utilisation du kit de développement logiciel (SDK) .NET
-          href: csharp-tutorial-od.md
-        - name: Utilisation du Kit de développement logiciel (SDK) Python
-          href: python-tutorial-od.md
-        - name: Utilisation du Kit de développement logiciel (SDK) Java
-          href: java-tutorial-od.md
-        - name: Utilisation du kit SDK Node.js
-          href: node-tutorial-object-detection.md
-        - name: Utilisation du kit SDK Go
-          href: go-tutorial-object-detection.md
+        - name: Utilisation du SDK Custom Vision
+          href: quickstarts/object-detection.md
 - name: Tutoriels
   items:
     - name: Signaler les états visuels sur un appareil IoT

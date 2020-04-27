@@ -24,6 +24,8 @@
       href: private-endpoint-overview.md
     - name: Service Liaison privée
       href: private-link-service-overview.md
+    - name: Intégration DNS avec des points de terminaison privés
+      href: private-endpoint-dns.md
 - name: Procédures
   items:
     - name: Se connecter en privé à un compte de stockage

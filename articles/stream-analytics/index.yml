@@ -10,12 +10,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: dff33c61d67a25bfc5c1119e5408602df01e5e30
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 757c60487e4c4c7fedca4824cd40e86cbd9ca465
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "75359730"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82130947"
 landingContent:
 - title: À propos d’Azure Stream Analytics
   linkLists:
@@ -95,7 +95,7 @@ landingContent:
       url: stream-analytics-monitor-jobs.md
     - text: Superviser et gérer des tâches à partir de Visual Studio
       url: stream-analytics-monitor-jobs-use-vs.md
-    - text: Résoudre les problèmes à l’aide de journaux de diagnostic
+    - text: Résoudre les problèmes avec les journaux de ressources
       url: stream-analytics-job-diagnostic-logs.md
     - text: Déboguer à l’aide du diagramme de tâches
       url: stream-analytics-job-diagram-with-metrics.md
