@@ -1,25 +1,20 @@
 ---
 title: Tâches post-déploiement d’OpenShift Container Platform 3.11 dans Azure
 description: Tâches supplémentaires à effectuer après le déploiement d’un cluster OpenShift Container Platform 3.11.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1635589b282dc33f6a1e9c2552dc8a73c67b9004
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294742"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759521"
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
 

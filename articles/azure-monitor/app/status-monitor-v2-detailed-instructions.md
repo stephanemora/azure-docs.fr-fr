@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f6134e8f8fdb9af3f578afaf0670c32a3896e01
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234621"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81766867"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (anciennement appelé Status Monitor v2) : Instructions détaillées
 
@@ -219,7 +219,7 @@ Le kit de développement logiciel (SDK) Application Insights doit envoyer les do
 
 Utilisez la commande `Enable-ApplicationInsightsMonitoring` pour activer la supervision.
 
-Consultez la [documentation de référence de l’API](status-monitor-v2-api-enable-monitoring.md) pour obtenir une description détaillée de l’utilisation de cette cmdlet.
+Consultez la [documentation de référence de l’API](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring) pour obtenir une description détaillée de l’utilisation de cette cmdlet.
 
 
 
@@ -227,7 +227,7 @@ Consultez la [documentation de référence de l’API](status-monitor-v2-api-ena
 
  Affichez vos données de télémétrie :
 
-- [Explorez les métriques](../../azure-monitor/app/metrics-explorer.md) pour surveiller les performances et l’utilisation.
+- [Explorez les métriques](../../azure-monitor/platform/metrics-charts.md) pour surveiller les performances et l’utilisation.
 - [Effectuez des recherches dans les événements et les journaux](../../azure-monitor/app/diagnostic-search.md) pour diagnostiquer les problèmes.
 - [Utilisez la fonctionnalité Analytics](../../azure-monitor/app/analytics.md) pour des requêtes plus élaborées.
 - [Créez des tableaux de bord](../../azure-monitor/app/overview-dashboard.md).

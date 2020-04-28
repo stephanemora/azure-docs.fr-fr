@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403720"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769866"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutoriel : Utiliser Custom Vision avec un appareil IoT pour signaler des états visuels
 
 Cet exemple d’application montre comment utiliser Custom Vision pour effectuer l’apprentissage d’un appareil avec une caméra pour détecter les états visuels. Vous pouvez exécuter ce scénario de détection sur un appareil IoT à l’aide d’un modèle ONNX exporté.
 
-Un état visuel décrit le contenu d’une image : une salle vide ou une salle où des personnes sont présentes, une allée vide avec un camion, et ainsi de suite. Dans l’image ci-dessous, vous pouvez voir que l’application détecte quand une banane ou une pomme est placée devant la caméra.
+Un état visuel décrit le contenu d’une image : une salle vide ou une salle où des personnes sont présentes, une allée vide ou une allée avec camion, et ainsi de suite. Dans l’image ci-dessous, vous pouvez voir que l’application détecte quand une banane ou une pomme est placée devant la caméra.
 
 ![Animation d’une IU reconnaissant un fruit devant la caméra](./media/iot-visual-alerts-tutorial/scoring.gif)
 

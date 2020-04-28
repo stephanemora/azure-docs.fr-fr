@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 6c50e5892aca37bac47e68a9ae17435611c99817
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80157464"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025235"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
@@ -60,7 +60,7 @@ En tant que créateur de solution, vous utilisez IoT Central pour créer une sol
 - Une application basée sur le cloud qui reçoit des données de télémétrie de vos appareils et qui vous permet de gérer ces appareils.
 - Un code personnalisé exécuté sur plusieurs appareils, connecté à votre application basée sur le cloud.
 
-Vous pouvez déployer rapidement une nouvelle application IoT Central, puis la personnaliser selon vos propres exigences, depuis dans votre navigateur. Vous pouvez commencer avec un _modèle d’application_ générique ou avec l’un des modèles d’application axés sur la [vente au détail](../retail/overview-iot-central-retail-pnp.md), l’[énergie](../energy/overview-iot-central-energy.md), le [secteur public](../government/overview-iot-central-government.md) ou la [santé](../healthcare/overview-iot-central-healthcare.md).
+Vous pouvez déployer rapidement une nouvelle application IoT Central, puis la personnaliser selon vos propres exigences, depuis dans votre navigateur. Vous pouvez commencer avec un _modèle d’application_ générique ou avec l’un des modèles d’application axés sur la [vente au détail](../retail/overview-iot-central-retail.md), l’[énergie](../energy/overview-iot-central-energy.md), le [secteur public](../government/overview-iot-central-government.md) ou la [santé](../healthcare/overview-iot-central-healthcare.md).
 
 En tant que créateur de solution, vous utilisez les outils web pour créer un _modèle d’appareil_ pour les appareils qui se connectent à votre application. Un modèle d’appareil est le blueprint qui définit les caractéristiques et le comportement d’un type d’appareils tel que :
 
@@ -197,7 +197,7 @@ Chaque abonnement Azure a des quotas par défaut qui peuvent impacter l’étend
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent que vous avez une vue d’ensemble de IoT Central, voici les prochaines étapes suggérées :
+Maintenant que vous avez une vue d’ensemble d’IoT Central, voici quelques étapes suggérées :
 
 - Découvrez les [technologies et services Azure disponibles pour créer des solutions IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Vous familiariser avec [l’interface utilisateur de Azure IoT Central](overview-iot-central-tour.md).
@@ -205,3 +205,5 @@ Chaque abonnement Azure a des quotas par défaut qui peuvent impacter l’étend
 - Découvrez plus en détail [IoT Plug-and-Play (préversion)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Découvrez comment [connecter un appareil Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
 - Découvrez plus en détail les [technologies et services Azure IoT](../../iot-fundamentals/iot-services-and-technologies.md).
+
+Si vous êtes développeur d’appareils et que vous souhaitez vous immerger dans du code, l’étape suivante suggérée consiste à [Créer et connecter une application cliente à votre application Azure IoT Central](./tutorial-connect-device-nodejs.md).

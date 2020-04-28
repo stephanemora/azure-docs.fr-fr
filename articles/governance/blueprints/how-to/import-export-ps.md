@@ -3,12 +3,12 @@ title: Importer et exporter des blueprints avec PowerShell
 description: Découvrez comment utiliser vos définitions de blueprint en tant que code. Partagez-les, contrôlez leur code source et gérez-les à l’aide des commandes d’exportation et d’importation.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677134"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686833"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importer et exporter des définitions de blueprint avec PowerShell
 
@@ -88,7 +88,7 @@ Les étapes d’exportation de votre définition de blueprint sont simples. L’
 
 Une fois que vous disposez d’une [définition de blueprint exportée](#export-your-blueprint-definition) ou que vous avez créé manuellement une définition de plan dans la [structure de dossiers requise](#folder-structure-of-a-blueprint-definition), vous pouvez importer cette définition de blueprint dans une autre groupe d’administration ou abonnement.
 
-Pour obtenir des exemples de définitions de blueprint intégrées, voir le [dépôt GitHub Azure Blueprints](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+Pour obtenir des exemples de définitions de blueprint intégrées, voir le [dépôt GitHub Azure Blueprints](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Name** [obligatoire]
   - Spécifie le nom de la nouvelle définition de blueprint

@@ -1,23 +1,22 @@
 ---
-title: Créer une nouvelle offre Dynamics 365 Business Central dans la Place de marché commerciale existante
-description: Comment créer une nouvelle offre Dynamics 365 Business Central pour répertorier ou vendre dans la Place de marché Azure, AppSource ou via le programme de fournisseur de solutions Cloud (CSP) avec le portail de la Place de marché commerciale sur Microsoft Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Créer une nouvelle offre Dynamics 365 Business Central dans la Place de marché commerciale Microsoft
+description: Comment créer une nouvelle offre Dynamics 365 Business Central pour lister ou vendre dans la Place de marché Azure, dans Microsoft AppSource ou via le programme de fournisseur de solutions Cloud (CSP) avec le portail de la Place de marché commerciale dans l’Espace partenaires Microsoft.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 4c0467039cf4fefd7625f1146c4bade99b49304d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 04/09/2020
+ms.openlocfilehash: 10fa16767061506eccf212c182e738246dc9fe7b
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048724"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867222"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
-Cette rubrique explique comment créer une nouvelle offre Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) est un système de planification des ressources d’entreprise (ERP) qui gère un vaste éventail de processus d’entreprise, notamment en lien avec les finances, les opérations, la chaîne logistique, la gestion de la relation client et le commerce électronique. Les packages Premium prennent également en charge le modèle de déploiement classique et la fabrication. Toutes les offres pour Dynamics 365 Business Central doivent passer par notre processus de certification.
+Cet article explique comment créer une offre Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) est un système de planification des ressources d’entreprise (ERP) qui gère un vaste éventail de processus d’entreprise, notamment en lien avec les finances, les opérations, la chaîne logistique, la gestion de la relation client et le commerce électronique. Les packages Premium prennent également en charge le modèle de déploiement classique et la fabrication. Toutes les offres pour Dynamics 365 Business Central doivent passer par notre processus de certification.
 
 Pour commencer à créer des offres Dynamics 365 Business Central, veillez à d’abord [Créer un compte Partner Center](./create-account.md) et ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), et sélectionnez la page **Présentation**.
 
@@ -110,18 +109,16 @@ Entrez le numéro de version de votre offre. Cette version est indiquée aux cli
 
 ### <a name="terms-and-conditions"></a>Conditions générales
 
-Fournissez vos propres conditions générales dans le champ **Conditions générales**. Vous pouvez également fournir l’URL permettant d’accéder à vos conditions générales. Les clients doivent accepter ces conditions avant de pouvoir essayer votre offre.
+Fournissez vos propres conditions légales dans le champ **Conditions générales**. Vous pouvez également fournir l’URL permettant d’accéder à vos conditions générales. Les clients doivent accepter ces conditions avant de pouvoir essayer votre offre.
 
 ## <a name="offer-listing"></a>Annonce de l’offre
 
-La page de référencement de l’offre affiche les langues dans lesquelles votre offre sera répertoriée. Actuellement, **Anglais (États-Unis)** est la seule option disponible.
-
-Vous devez définir les informations de la Place de marché (nom de l’offre, description, images, etc.) pour chaque langue/marché. Sélectionnez le nom de la langue/du marché pour fournir ces informations.
+C’est dans la page Description de l’offre que vous pouvez définir les détails de votre offre (nom, description, images, etc.).
 
 > [!NOTE]
-> Il n’est pas nécessaire que le contenu du référencement de l’offre (par exemple, la description, les documents, les captures d’écran, les conditions d’utilisation, etc.) soit en anglais, tant que sa description commence par l’expression : « This application is available only in [langue autre que l’anglais]. » Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
+> Vous ne pouvez fournir les détails de l’offre que dans une seule langue. Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression « This application is available only in [langue non anglaise] ». Il est également possible de fournir l’*URL du lien Aide* pour offrir du contenu dans une langue autre que celle utilisée dans la description de l’offre.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nom
 
 Le nom que vous entrez ici s’affichera auprès des clients comme titre de votre référencement d’offre. Ce champ est prérempli avec le texte que vous avez entré pour **Alias d’offre** lorsque vous avez créé l’offre, mais vous pouvez modifier cette valeur. Ce nom peut être une marque déposée (et vous pouvez inclure des symboles de marque ou de copyright). Le nom ne peut pas comporter plus de 50 caractères et ne peut pas contenir d’emoji.
 
@@ -170,23 +167,23 @@ Vous pouvez éventuellement entrer jusqu’à trois mots clés de recherche pour
 
 Si vous souhaitez permettre aux clients de savoir que votre application fonctionne avec des produits spécifiques, saisissez jusqu’à trois noms de produit ici.
 
-### <a name="support-urls"></a>URL de support technique
+### <a name="helpprivacy-urls"></a>URL Aide et URL Confidentialité
 
 Cette section vous permet de fournir des liens permettant aux clients d’en savoir plus sur votre offre.
 
 #### <a name="help-link"></a>Lien d'aide
 
-Entrez l’URL à partir de laquelle les clients peuvent en savoir plus sur votre offre.
+Entrez l’URL à partir de laquelle les clients peuvent en savoir plus sur votre offre. Le **lien Aide** ne peut pas être le même que l’**URL du support** (voir ci-dessous).
 
-#### <a name="privacy-policy-url"></a>URL de la politique de confidentialité
+#### <a name="privacy-policy-link"></a>Lien de la politique de confidentialité
 
 Entrez l’URL du lien de la politique de confidentialité de votre organisation. Vous devez veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité et à renseigner une politique de confidentialité conforme.
 
-### <a name="contacts"></a>Contacts
+### <a name="contact-information"></a>Informations de contact
 
 Dans cette section, entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact d’ingénierie** et d’un **contact du service clientèle**. Ces informations ne sont pas présentées aux clients, mais seront disponibles pour Microsoft et pourront être fournies aux partenaires CSP.
 
-Dans la section **Contact de support**, vous devez également fournir **l’URL du support technique** où les partenaires CSP peuvent trouver l’assistance pour votre offre.
+Dans la section **Contact de support**, vous devez également fournir **l’URL du support technique** où les partenaires CSP peuvent trouver l’assistance pour votre offre. L’URL du support ne peut pas être la même que le **lien Aide**.
 
 ### <a name="supporting-documents"></a>Documents de soutien
 
@@ -194,15 +191,10 @@ Fournissez au moins un (et au plus trois) documents marketing associés ici, com
 
 ### <a name="marketplace-images"></a>Images de la Place de marché
 
-Dans cette section, vous pouvez fournir des logos et des images qui seront utilisés pour montrer votre offre au client. Toutes les images doivent être au format .png.
+Dans cette section, vous pouvez fournir des logos et des images qui seront utilisés pour montrer votre offre au client. Toutes les images doivent être au format .png. Chargez le logo de votre offre en deux tailles : **Petit (48 x 48)** et **Grand (216 x 216)** .
 
-#### <a name="store-logos"></a>Stocker des logos
-
-Fournissez le logo de votre offre en deux tailles : **Petit (48 x 48)** et **Grand (216 x 216)** .
-
-#### <a name="hero"></a>Bannière
-
-L’image de héros est facultative. Si vous en fournissez une, elle doit être au format 815 x 290 pixels.
+>[!Note]
+>Si vous rencontrez un problème de chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="screenshots"></a>Captures d’écran.
 
@@ -268,7 +260,7 @@ Obligatoire si votre offre doit être installée avec une autre extension qui a 
 
 ### <a name="url-to-app-installation"></a>URL d’installation de l’application
 
-Si vous avez sélectionné **Connexion** ci-dessus, indiquez l’URL de l’installation de votre application ici.
+Si vous avez sélectionné **Connexion** ci-dessus, indiquez l’URL de l’installation de votre application ici. Pour les services connectés ne nécessitant pas d’installation, fournissez l’URL de la page d’accueil ou de la page d’inscription correspondant à votre service.
 
 ## <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
@@ -307,9 +299,9 @@ Microsoft peut retirer la complexité de la configuration d’une version d’é
 
 - **Durée d’une version d’évaluation** (obligatoire) : Saisissez la durée d’activité de la version d’évaluation, en indiquant le nombre d’heures. Passée cette durée, la session prendra fin et aucune de vos licences ne sera plus utilisée. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Vous ne pouvez définir la durée qu’en nombre d’heures complètes (par exemple, « 2 » pour 2 heures, « 1,5 » est incorrect).  L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
 
-- **URL de l’instance** (obligatoire) : L’URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés (par exemple, https://testdrive.crm.dynamics.com).
+- **URL de l’instance** (obligatoire) : L’URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 exécutant votre application et où les exemples de données sont installés (par exemple `https://testdrive.crm.dynamics.com`).
 
-- **URL d’API web de l’instance** (obligatoire): Récupérez l’URL d’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en allant dans **Paramètres** \&gt; **Personnalisation** \&gt; **Ressources développeur** \&gt; **API web de l’instance (URL racine de service)** , copiez l’URL trouvée ici (par exemple, https://testdrive.crm.dynamics.com/api/data/v9.0) ).
+- **URL d’API web de l’instance** (obligatoire): Récupérez l’URL de l’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en accédant à **Paramètres** \&gt; **Personnalisation** \&gt; **Ressources développeur** \&gt; **API web de l’instance (URL racine du service)** , et copiez l’URL trouvée ici (par exemple `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Nom de rôle** (obligatoire).: Renseignez le nom du rôle de sécurité que vous avez défini dans votre version d’évaluation personnalisée de Dynamics 365, qui sera attribué à l’utilisateur lors de la version d’évaluation (par exemple, test-drive-role).
 
@@ -351,7 +343,11 @@ N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
 ### <a name="test-drive-marketplace-listings"></a>Référencements de versions d'évaluation sur la place de marché
 
-L'option **Référencement sur la place de marché** située sous l’onglet **Version d'évaluation** affiche les langues dans lesquelles votre version d'évaluation est disponible. Actuellement, **Anglais (États-Unis)** est le seul emplacement disponible. Sélectionnez le nom de la langue pour entrer des informations qui décrivent l’expérience de la version d'évaluation.
+L’option **Marketplace listing** (Listing Place de marché) qui se trouve sous l’onglet **Version d’évaluation** vous permet de définir les détails de la version d’évaluation.
+
+> [!NOTE]
+> Vous ne pouvez fournir les détails de la version d’évaluation que dans une seule langue. Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression « This application is available only in [langue non anglaise] ». Il est également possible de fournir l’*URL du lien Aide* pour offrir du contenu dans une langue autre que celle utilisée dans la description de la version d’évaluation.
+
 
 - **Description** (obligatoire) : Décrivez votre version d’évaluation, ce qui sera présenté, les objectifs que l’utilisateur pourra essayer, les fonctionnalités à explorer, et toute autre information qui aidera l’utilisateur à déterminer ou non s’il souhaite faire l’acquisition de votre offre. Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. 
 

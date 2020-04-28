@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 625b7fc8d49c91a9f2b1c09e1add72993e828d43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27e3f0ef7539f3fb875c087ff7d1351916877d19
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597800"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536479"
 ---
-Les partages de fichiers standard avec une limite de capacité de 100 Tio sont disponibles à l’échelle mondiale dans toutes les régions Azure, sauf :
+Les partages de fichiers standard d’une capacité de 100 Tio présentent certaines limitations.
 
-- Stockage localement redondant : Toutes les régions, sauf Afrique du Sud Nord, Afrique du Sud Ouest, Allemagne Centre-Ouest et Allemagne Nord.
-- Stockage redondant dans une zone : Pris en charge dans toutes les régions où le stockage redondant dans une zone est pris en charge, sauf Japon Est, Europe Nord et Afrique du Sud Nord.
-- Stockage géoredondant ou géoredondant interzone : Non pris en charge.
+- Actuellement, seuls les comptes de stockage localement redondant (LRS) et de stockage redondant interzone (ZRS) sont pris en charge.
+- Après avoir activé les partages de fichiers volumineux, vous ne pouvez plus convertir de comptes de stockage en comptes de stockage géoredondant (GRS) ou de stockage géoredondant interzone (GZRS).
+- Après avoir activé les partages de fichiers volumineux, vous ne pouvez plus les désactiver.

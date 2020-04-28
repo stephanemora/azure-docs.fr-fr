@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 5d6ba2bd52d8f4af4244e8ce1babeb7bc9d37fe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 1c6af4f44cd16405d1ef12ae909085220b0d072d
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235672"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733595"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connecter IoT DevKit AZ3166 à Azure IoT Hub
 
@@ -82,7 +83,13 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     ```
 
    > [!NOTE]
-   > Si vous obtenez une erreur lors de l’exécution de `device-identity`, installez l’[Extension Azure IOT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) pour obtenir plus d’informations.
+   > Si vous obtenez une erreur lors de l’exécution de `device-identity`, installez l’[Extension Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes propres à IoT Hub, à IoT Edge et au service IoT Device Provisioning (DPS) à Azure CLI.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire :
 
@@ -169,9 +176,7 @@ Suivez ces étapes pour préparer l’environnement de développement pour le De
 
     ![Installer Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Ou utilisez ce lien direct :
-    > [!div class="nextstepaction"]
-    > [Installer le pack d’extension Azure IoT Tools](vscode:extension/vsciot-vscode.azure-iot-tools)
+    Ou copiez et collez cette URL dans une fenêtre de navigateur : `vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > Le pack d’extension Azure IoT Tools contient [Azure IoT Device Workbench](https://aka.ms/iot-workbench), qui est utilisé pour le développement et le déboguage sur divers appareils d’IoT devkit. L’[extension Azure IoT Hub](https://aka.ms/iot-toolkit), également fournie avec le pack d’extension Azure IoT Tools, est utilisée pour gérer Azure IoT Hubs et interagir avec cet outil.
@@ -321,6 +326,17 @@ L’exemple d’application s’exécute correctement si les résultats suivants
 * Le témoin lumineux du kit MXChip IoT DevKit clignote.
 
 ![Sortie de Serial Monitor](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
+
+> [!NOTE]
+> Vous pouvez rencontrer une erreur pendant le test, suite à quoi la LED ne clignote pas, le portail Azure n’affiche pas les données entrantes provenant de l’appareil, alors que l’écran OLED de l’appareil s’affiche comme étant **En cours d’exécution...** . Pour résoudre le problème, dans le portail Azure, dans l’IoT Hub accédez à l’appareil et envoyez-lui un message. Si vous voyez la réponse suivante dans le moniteur de série dans VS Code, il est possible que la communication directe à partir de l’appareil soit bloquée au niveau du routeur. Vérifiez les règles du pare-feu et du routeur qui sont configurées pour les appareils connectés. Assurez-vous également que le port de sortie 1833 est ouvert.
+> 
+> ERREUR : mqtt_client. c (ln 454) : Erreur : échec lors de l’ouverture de la connexion au point de terminaison  
+> INFO : >>>État de connexion : déconnecté  
+> ERREUR : tlsio_mbedtls. c (ln 604) : Échec de l’ouverture des E/S sous-jacentes  
+> ERROR : mqtt_client.c (ln 1042) : Erreur : échec d’io_open  
+> ERREUR : iothubtransport_mqtt_common.c (ln 2283) : échec de la connexion à l’adresse atcsliothub.azure-devices.net.  
+> INFO : >>>Reconnectez-vous.  
+> INFO : Version d’IoThub : 1.3.6  
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Afficher les données de télémétrie reçues par Azure IoT Hub
 

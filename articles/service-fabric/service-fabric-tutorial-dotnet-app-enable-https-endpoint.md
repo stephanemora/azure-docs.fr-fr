@@ -4,12 +4,12 @@ description: Dans le cadre de ce didacticiel, vous allez apprendre à ajouter un
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 2b867a65fa11e14cdc3fc3e5c269686fa4d559de
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756086"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757175"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutoriel : Ajouter un point de terminaison HTTPS à un service frontal API Web ASP.NET Core à l’aide de Kestrel
 
@@ -41,7 +41,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installez Visual Studio 2019](https://www.visualstudio.com/) version 15.5 ou ultérieure avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
+* [Installez Visual Studio 2019](https://www.visualstudio.com/) version 16.5 ou ultérieure avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 * [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obtenir un certificat ou créer un certificat de développement auto-signé
@@ -156,27 +156,42 @@ Remplacez la chaîne « &lt;your_CN_value&gt; » par « mytestcert » si vou
 Sachez que dans le cas d’un déploiement local vers `localhost`, il est préférable d’utiliser « CN=localhost » pour éviter les exceptions d’authentification.
 
 ```csharp
-private X509Certificate2 GetHttpsCertificateFromStore()
+private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonName)
 {
     using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
     {
-        store.Open(OpenFlags.ReadOnly);
+        store.Open(OpenFlags.OpenExistingOnly | OpenFlags.ReadOnly);
         var certCollection = store.Certificates;
-        var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
+        var matchingCerts = new X509Certificate2Collection();
+    
+    foreach (var enumeratedCert in certCollection)
+    {
+      if (StringComparer.OrdinalIgnoreCase.Equals(subjectCommonName, enumeratedCert.GetNameInfo(X509NameType.SimpleName, forIssuer: false))
+        && DateTime.Now < enumeratedCert.NotAfter
+        && DateTime.Now >= enumeratedCert.NotBefore)
+        {
+          matchingCerts.Add(enumeratedCert);
+        }
+    }
+
+        if (matchingCerts.Count == 0)
+    {
+        throw new Exception($"Could not find a match for a certificate with subject 'CN={subjectCommonName}'.");
+    }
         
-        if (currentCerts.Count == 0)
-                {
-                    throw new Exception("Https certificate is not found.");
-                }
-        
-        return currentCerts[0];
+        return matchingCerts[0];
     }
 }
+
+
 ```
 
-## <a name="give-network-service-access-to-the-certificates-private-key"></a>Accorder l’accès SERVICE RÉSEAU à la clé privée du certificat
+## <a name="grant-network-service-access-to-the-certificates-private-key"></a>Accorder l’accès SERVICE RÉSEAU à la clé privée du certificat
 
 Au cours d’une étape précédente, vous avez importé le certificat dans le magasin `Cert:\LocalMachine\My` sur l’ordinateur de développement.  Maintenant, octroyez explicitement au compte exécutant le service (SERVICE RÉSEAU, par défaut) l’accès à la clé privée du certificat. Vous pouvez effectuer cette étape manuellement (à l’aide de l’outil certlm.msc), mais il est préférable d’exécuter automatiquement un script PowerShell en [configurant un script de démarrage](service-fabric-run-script-at-service-startup.md) dans l’élément **SetupEntryPoint** du manifeste de service.
+
+>[!NOTE]
+> Service Fabric prend en charge la déclaration de certificats de point de terminaison par empreinte ou par nom commun de sujet. Dans ce cas, le runtime configure la liaison et définit dans la liste de contrôle d’accès une entrée qui lie la clé privée du certificat à l’identité sous laquelle le service est en cours d’exécution. En outre, le runtime supervise le certificat pour savoir s’il doit faire l’objet de modifications ou d’un renouvellement, et redéfinit en conséquence la clé privée correspondante dans la liste de contrôle d’accès.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configurer le point d’entrée d’installation du service
 
@@ -385,7 +400,7 @@ $slb | Set-AzLoadBalancer
 
 Enregistrez tous les fichiers, basculez du mode Débogage vers le mode Mise en production, puis appuyez sur la touche F6 pour régénérer l’application.  Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**, puis sélectionnez **Publier**. Sélectionnez le point de terminaison de connexion du cluster créé au cours du didacticiel [Déployer une application sur un cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), ou sélectionnez un autre cluster.  Cliquez sur **Publier** pour publier l’application sur le cluster distant.
 
-Lors du déploiement de l’application, ouvrez un navigateur web et accédez à [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (mettez à jour l’URL avec le point de terminaison de connexion de votre cluster). Si vous utilisez un certificat auto-signé, vous obtenez un message d’avertissement signalant que votre PC n’a pas confiance en la sécurité de ce site web.  Poursuivez sur la page web.
+Lors du déploiement de l’application, ouvrez un navigateur web et accédez à `https://mycluster.region.cloudapp.azure.com:443` (mettez à jour l’URL avec le point de terminaison de connexion de votre cluster). Si vous utilisez un certificat auto-signé, vous obtenez un message d’avertissement signalant que votre PC n’a pas confiance en la sécurité de ce site web.  Poursuivez sur la page web.
 
 ![Application de vote][image3]
 

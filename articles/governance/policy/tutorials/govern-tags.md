@@ -1,19 +1,19 @@
 ---
 title: 'Tutoriel : Gérer la gouvernance des balises'
 description: Dans ce tutoriel, vous utilisez l’effet modify d’Azure Policy pour créer et appliquer un modèle de gouvernance des balises sur des ressources nouvelles ou existantes.
-ms.date: 11/25/2019
+ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75965997"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759068"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutoriel : Gérer la gouvernance des balises avec Azure Policy
 
 Les [balises](../../../azure-resource-manager/management/tag-resources.md) représentent un aspect essentiel de l’organisation des ressources Azure dans une taxonomie. Dès lors que les [meilleures pratiques de gestion des balises](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) sont suivies, les balises peuvent servir de base à l’application des stratégies d’entreprise avec Azure Policy ou au [suivi des coûts avec Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
-Quels que soient l’usage et la finalité des balises utilisées, il est important de pouvoir en ajouter, en modifier et en supprimer rapidement sur des ressources Azure.
+Quels que soient l’usage et la finalité des balises utilisées, il est important de pouvoir en ajouter, en modifier et en supprimer rapidement sur des ressources Azure. Pour voir si votre ressource Azure prend en charge l’étiquetage, consultez [Prise en charge des étiquettes](../../../azure-resource-manager/management/tag-support.md).
 
 L’effet [modify](../concepts/effects.md#modify) d’Azure Policy est conçu pour faciliter la gouvernance des balises à toutes les phases de gouvernance des ressources. **modify** est utile dans les cas suivants :
 

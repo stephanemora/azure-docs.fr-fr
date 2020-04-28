@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79298833"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758133"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
-Ce tutoriel vous explique comment, en tant que créateur, utiliser un modèle d’appareil de passerelle pour définir un appareil de passerelle dans votre application IoT Central. Vous configurez ensuite plusieurs appareils en aval qui se connectent à votre application IoT Central via l’appareil de passerelle. 
+*Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
+
+Ce tutoriel vous explique comment, en tant que créateur de solutions, utiliser un modèle d’appareil de passerelle pour définir un appareil de passerelle dans votre application IoT Central. Vous configurez ensuite plusieurs appareils en aval qui se connectent à votre application IoT Central via l’appareil de passerelle. 
 
 Dans ce tutoriel, vous créez un modèle d’appareil de passerelle **Smart Building** (Construction intelligente). Un appareil de passerelle **Construction intelligente** a des relations avec d’autres appareils en aval.
 
@@ -207,7 +209,7 @@ Dans ce didacticiel, vous avez appris à :
 > [!NOTE]
 > La génération de code basé sur VS Code n’est pas prise en charge pour les appareils de passerelle modélisés dans IoT Central.
 
-À présent, vous pouvez :
+Ensuite, en tant que développeur d’appareils, vous pouvez apprendre à :
 
 > [!div class="nextstepaction"]
-> [Connecter un appareil](tutorial-connect-device.md)
+> [Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central](tutorial-add-edge-as-leaf-device.md)

@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878242"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758840"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -141,7 +141,7 @@ Contrôle les options disponibles dans Application Insights, notamment les [opti
 Pour obtenir la structure JSON complète, reportez-vous à l’[exemple de fichier host.json](#sample-hostjson-file) précédent.
 
 > [!NOTE]
-> L’échantillonnage de journal peut faire que certaines exécutions n’apparaissent pas dans le panneau de surveillance Application Insights. Pour éviter l’échantillonnage des journaux, ajoutez `samplingExcludedTypes: "Request"` à la valeur `applicationInsights`.
+> L’échantillonnage de journal peut faire que certaines exécutions n’apparaissent pas dans le panneau de surveillance Application Insights. Pour éviter l’échantillonnage des journaux, ajoutez `excludedTypes: "Request"` à la valeur `samplingSettings`.
 
 | Propriété | Default | Description |
 | --------- | --------- | --------- | 
@@ -166,8 +166,8 @@ Pour obtenir la structure JSON complète, reportez-vous à l’[exemple de fichi
 | minSamplingPercentage | 0.1 | Comme le pourcentage d’échantillonnage varie, cette propriété détermine le pourcentage d’échantillonnage autorisé minimal. |
 | minSamplingPercentage | 0.1 | Comme le pourcentage d’échantillonnage varie, cette propriété détermine le pourcentage d’échantillonnage autorisé maximal. |
 | movingAverageRatio | 1.0 | Lors du calcul de la moyenne mobile, poids affecté à la valeur la plus récente. Utilisez une valeur inférieure ou égale à 1. Plus les valeurs sont petites, moins l’algorithme est réactif en cas de modifications brusques. |
-| excludedTypes | null | Une liste délimitée par des points-virgules des types que vous ne souhaitez pas voir échantillonnés. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés. |
-| includedTypes | null | Liste délimitée par des points-virgules des types que vous souhaitez échantillonner ; une liste vide signifie que tous les types sont impliqués. Le type répertorié dans `excludedTypes` remplace les types répertoriés ici. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés. |
+| excludedTypes | null | Une liste délimitée par des points-virgules des types que vous ne souhaitez pas voir échantillonnés. Les types reconnus sont les suivants : `Dependency`, `Event`, `Exception`, `PageView`, `Request` et `Trace`. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés. |
+| includedTypes | null | Liste délimitée par des points-virgules des types que vous souhaitez échantillonner ; une liste vide signifie que tous les types sont impliqués. Le type répertorié dans `excludedTypes` remplace les types répertoriés ici. Les types reconnus sont les suivants : `Dependency`, `Event`, `Exception`, `PageView`, `Request` et `Trace`. Les instances des types spécifiés sont échantillonnées ; les types non spécifiés ou implicites sont transmis sans échantillonnage. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
@@ -216,7 +216,7 @@ Le paramètre de configuration se trouve dans les [liaisons de Durable Functions
 
 ## <a name="eventhub"></a>eventHub
 
-Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons Event Hub](functions-bindings-event-hubs-output.md#host-json). 
+Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons Event Hub](functions-bindings-event-hubs-trigger.md#host-json). 
 
 ## <a name="extensions"></a>extensions
 

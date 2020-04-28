@@ -2,17 +2,17 @@
 title: Vue d’ensemble
 description: Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure.
 ms.topic: overview
-ms.date: 03/25/2020
-ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/21/2020
+ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80258139"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870493"
 ---
 # <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
-Azure Resource Manager est le service de déploiement et de gestion d’Azure. Il fournit une couche de gestion qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure. Vous utilisez des fonctionnalités de gestion, telles que le contrôle d’accès, les verrous et les étiquettes, pour sécuriser et organiser vos ressources après le déploiement.
+Azure Resource Manager est le service de déploiement et de gestion d’Azure. Il fournit une couche de gestion qui vous permet de créer, de mettre à jour et de supprimer des ressources dans votre compte Azure. Vous utilisez des fonctionnalités de gestion, telles que le contrôle d’accès, les verrous et les étiquettes, pour sécuriser et organiser vos ressources après le déploiement.
 
 Pour en savoir plus sur les modèles Azure Resource Manager, consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).
 
@@ -30,39 +30,39 @@ Toutes les fonctionnalités disponibles dans le portail sont également disponib
 
 Si vous êtes un nouvel utilisateur d’Azure Resource Manager, vous pouvez ne pas connaître certains termes.
 
-* **ressource** : élément gérable disponible dans Azure. Les machines virtuelles, les comptes de stockage, les applications web, les bases de données et les réseaux virtuels sont des exemples de ressources.
+* **ressource** : élément gérable disponible dans Azure. Les machines virtuelles, les comptes de stockage, les applications web, les bases de données et les réseaux virtuels sont des exemples de ressources. Les groupes de ressources, les abonnements, les groupes d’administration et les étiquettes sont également des exemples de ressources.
 * **groupe de ressources** : conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources inclut les ressources que vous voulez gérer en tant que groupe. Vous déterminez quelles sont les ressources qui appartiennent à un groupe de ressources en fonction de ce qui convient le mieux à votre organisation. Voir [Groupes de ressources](#resource-groups).
 * **fournisseur de ressources** : service qui fournit des ressources Azure. Par exemple, Microsoft.Compute est un fournisseur de ressources courant, qui fournit la ressource de machine virtuelle. Microsoft.Storage est un autre fournisseur de ressources courant. Consultez [Fournisseurs et types de ressources](resource-providers-and-types.md).
-* **Modèle Resource Manager** : fichier JSON (JavaScript Object Notation) qui définit une ou plusieurs ressources à déployer dans un groupe de ressources ou un abonnement. Le modèle peut être utilisé pour déployer les ressources de manière cohérente et répétée. Consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).
+* **Modèle Resource Manager** : fichier JSON (JavaScript Object Notation) qui définit une ou plusieurs ressources à déployer dans un groupe de ressources, un abonnement, un groupe d’administration ou un locataire. Le modèle peut être utilisé pour déployer les ressources de manière cohérente et répétée. Consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).
 * **syntaxe déclarative** : syntaxe qui vous permet de déclarer « Voici ce que je souhaite créer » sans avoir à écrire la séquence de commandes de programmation pour le créer. Le modèle Resource Manager est un exemple de syntaxe déclarative. Dans le fichier, vous définissez les propriétés afin de déployer l’infrastructure vers Azure.  Consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Avantages de l’utilisation de Resource Manager
 
 Avec Resource Manager, vous pouvez :
 
-* Gérer votre infrastructure à l’aide de modèles déclaratifs plutôt que de scripts
+* Gérer votre infrastructure à l’aide de modèles déclaratifs plutôt que de scripts.
 
-* Déployer, gérer et superviser toutes les ressources de votre solution sous forme de groupe, plutôt qu’individuellement
+* Déployer, gérer et superviser toutes les ressources de votre solution sous forme de groupe, plutôt qu’individuellement.
 
-* Redéployer votre solution tout au long du cycle de vie de développement et vérifier que vos ressources sont déployées dans un état cohérent
+* Redéployer votre solution tout au long du cycle de vie de développement et vérifier que vos ressources sont déployées dans un état cohérent.
 
-* Définir les dépendances entre les ressources pour qu’elles soient déployées dans le bon ordre
+* Définir les dépendances entre les ressources pour qu’elles soient déployées dans le bon ordre.
 
-* Appliquer le contrôle d’accès à tous les services de votre groupe de ressources, car le contrôle d’accès en fonction du rôle (RBAC) est intégré de manière native à la plateforme de gestion
+* Appliquer le contrôle d’accès à tous les services, car le contrôle d’accès en fonction du rôle (RBAC) est intégré de manière native à la plateforme de gestion.
 
-* Appliquer des étiquettes aux ressources pour organiser de manière logique toutes les ressources de votre abonnement
+* Appliquer des étiquettes aux ressources pour organiser de manière logique toutes les ressources de votre abonnement.
 
-* Clarifier la facturation de votre organisation en affichant les coûts d’un groupe de ressources qui partagent la même étiquette
+* Clarifier la facturation de votre organisation en affichant les coûts d’un groupe de ressources qui partagent la même étiquette.
 
-## <a name="understand-scope"></a>Comprendre la portée
+## <a name="understand-scope"></a>Comprendre l’étendue.
 
 Azure fournit quatre niveaux d’étendue : [Groupes d’administration](../../governance/management-groups/overview.md), Abonnements, [Groupes de ressource](#resource-groups) et Ressources. L’image suivante représente un exemple de ces couches.
 
-![Étendue](./media/overview/scope-levels.png)
+![Niveaux de gestion](./media/overview/scope-levels.png)
 
 Vous appliquez les paramètres de gestion à tous ces niveaux de l’étendue. Le niveau que vous sélectionnez détermine à quel point le paramètre est appliqué. Les niveaux inférieurs héritent des paramètres des niveaux supérieurs. Par exemple, Lorsque vous appliquez une [stratégie](../../governance/policy/overview.md) à l’abonnement, cette stratégie est appliquée à tous les groupes de ressources et les ressources de votre abonnement. Lorsque vous appliquez une stratégie sur le groupe de ressources, cette stratégie est appliquée sur le groupe de ressources et toutes ses ressources. Toutefois, un autre groupe de ressources ne dispose pas de cette affectation de stratégie.
 
-Vous pouvez déployer des modèles sur des groupes d'administration, des abonnements ou des groupes de ressources.
+Vous pouvez déployer des modèles sur des locataires, des groupes d’administration, des abonnements ou des groupes de ressources.
 
 ## <a name="resource-groups"></a>Groupes de ressources
 
@@ -71,6 +71,8 @@ Lorsque vous définissez votre groupe de ressources, vous devez prendre en compt
 * Toutes les ressources de votre groupe doivent partager le même cycle de vie. Les opérations de déploiement, de mise à jour et de suppression porteront sur toutes les ressources du groupe. Si l’une des ressources, comme un serveur de base de données, doit exister dans un autre cycle de déploiement, elle doit appartenir à un autre groupe de ressources.
 
 * Chaque ressource ne peut exister que dans un seul groupe de ressources.
+
+* Certaines ressources peuvent exister en dehors d’un groupe de ressources. Ces ressources sont déployées dans l’[abonnement](../templates/deploy-to-subscription.md), le [groupe d’administration](../templates/deploy-to-management-group.md) ou le [locataire](../templates/deploy-to-tenant.md). Seuls des types de ressources spécifiques sont pris en charge dans ces étendues.
 
 * Vous pouvez à tout moment ajouter ou supprimer une ressource au niveau d’un groupe de ressources.
 

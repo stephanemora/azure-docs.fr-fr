@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78f7c935e64276e7f4862dad966b99bff6bd246d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228325"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481938"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -100,7 +100,7 @@ Une opération d’écriture est d’abord validée dans la région primaire, pu
 
 Le stockage géo-redondant interzone (GZRS, en préversion) combine la haute disponibilité fournie par la redondance entre zones de disponibilité avec la protection contre les pannes régionales assurée par la géo-réplication. Les données d’un compte de stockage GZRS sont répliquées dans trois [zones de disponibilité Azure](../../availability-zones/az-overview.md) au sein de la région primaire, ainsi que vers une région géographique secondaire pour offrir une protection contre des catastrophes régionales. Microsoft recommande d’utiliser une réplication GZRS pour les applications ayant des besoins élevés en termes de cohérence, de durabilité, de disponibilité, de performances et de résilience pour la récupération d’urgence.
 
-Avec un compte de stockage GZRS, vous pouvez continuer à lire et écrire des données si une zone de disponibilité devient indisponible ou n’est pas récupérable. De plus, vos données sont également durables en cas de panne régionale totale ou d’incident empêchant la récupération de la région primaire. Le stockage GZRS est conçu pour fournir une durabilité des objets d’au moins 99,99999999999999 % (16 chiffres 9) sur une année donnée.
+Avec un compte de stockage GZRS, vous pouvez continuer à lire et écrire des données si une zone de disponibilité devient indisponible ou n’est pas récupérable. De plus, vos données sont également durables en cas de panne régionale totale ou d’une catastrophe naturelle empêchant la récupération de la région primaire. Le stockage GZRS est conçu pour fournir une durabilité des objets d’au moins 99,99999999999999 % (16 chiffres 9) sur une année donnée.
 
 Seuls les comptes de stockage v2 à usage général prennent en charge GZRS et RA-GZRS. Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md). Les réplications GZRS et RA-GZRS prennent en charge les objets blob de bloc, les objets blob de page (à l’exception des disques VHD), les fichiers, les tables et les files d’attente.
 
@@ -125,7 +125,7 @@ Pour plus d’informations sur les prix de la préversion, consultez les prix de
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Accès en lecture aux données dans la région secondaire
 
-Le stockage géo-redondant (GRS ou GZRS) réplique vos données vers un autre emplacement physique dans la région secondaire pour offrir une protection contre les pannes régionales. Toutefois, ces données peuvent être lues uniquement si le client ou Microsoft lance un basculement de la région primaire vers la région secondaire. Lorsque vous activez l’accès en lecture à la région secondaire, vos données sont accessibles en lecture si la région primaire devient indisponible. Pour un accès en lecture dans la région secondaire, activez le stockage géographiquement redondant avec accès en lecture (RA-GRS) ou le stockage géographiquement redondant interzone avec accès en lecture (RA-GZRS).
+Le stockage géo-redondant (GRS ou GZRS) réplique vos données vers un autre emplacement physique dans la région secondaire pour offrir une protection contre les pannes régionales. Toutefois, ces données peuvent être lues uniquement si le client ou Microsoft lance un basculement de la région primaire vers la région secondaire. Lorsque vous activez l’accès en lecture à la région secondaire, vos données sont accessibles en lecture si la région primaire devient indisponible. Pour l’accès en lecture à la région secondaire, activez le stockage géographiquement redondant avec accès en lecture (RA-GRS) ou le stockage géographiquement redondant interzone avec accès en lecture (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Concevoir vos applications pour l’accès en lecture à la région secondaire
 
@@ -160,7 +160,7 @@ Le tableau suivant montre la durabilité et la disponibilité de vos données da
 
 <sup>2</sup> Pour plus d’informations sur les types de comptes de stockage, consultez [Vue d’ensemble des comptes de stockage](storage-account-overview.md).
 
-Toutes les données de tous les types de comptes de stockage sont copiées en fonction de l’option de redondance définie pour le compte de stockage. Des objets, dont des objets blob de blocs, les objets blob d’ajout, des objets blob de pages, des files d’attente, des tables et des fichiers sont copiés.
+Toutes les données de tous les types de comptes de stockage et [tous les niveaux (notamment Archive)](../blobs/storage-blob-storage-tiers.md) sont copiées en fonction de l’option de redondance pour le compte de stockage. Des objets, dont des objets blob de blocs, les objets blob d’ajout, des objets blob de pages, des files d’attente, des tables et des fichiers sont copiés.
 
 Pour des informations sur les prix des différentes options de redondance, voir [Tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 

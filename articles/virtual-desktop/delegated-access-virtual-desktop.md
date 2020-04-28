@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e27550ecc5b42c2bf0d947690da09e13d88ea4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128034"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683917"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Accès délégué dans Windows Virtual Desktop
 
@@ -37,8 +37,8 @@ L’accès délégué de Windows Virtual Desktop prend en charge les valeurs sui
 L’accès délégué dans Windows Virtual Desktop a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs et principaux de service.
 
 * Un propriétaire RDS peut tout gérer, y compris l’accès aux ressources.
-* Un contributeur RDS peut tout gérer, sauf l’accès aux ressources.
-* Un lecteur RDS peut tout voir, mais ne peut faire aucun changement.
+* Un contributeur RDS (Services Bureau à distance) peut tout gérer, mais il n'a pas accès aux ressources.
+* Un lecteur RDS (Services Bureau à distance) peut tout voir, mais il ne peut apporter aucune modification.
 * Un opérateur RDS peut consulter les activités de diagnostic.
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlets Azure PowerShell pour les attributions de rôles

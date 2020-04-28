@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a7210915920ed9ab2a5ddc47a27c2587895a57a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064275"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768253"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Composants et limitations d’Azure Load Balancer
 Azure Load Balancer contient plusieurs composants clés pour son fonctionnement.  Ces composants peuvent être configurés dans votre abonnement via le portail Azure, Azure CLI ou Azure PowerShell.  
@@ -171,6 +171,8 @@ L’équilibreur de charge prend en charge les références SKU De base et Stan
 
 La configuration du scénario complet peut varier légèrement selon la référence SKU. Dans la documentation relative à Load Balancer, les articles qui s’appliquent uniquement à une référence SKU précise sont signalés. Pour comparer les références SKU et comprendre leurs différences, consultez le tableau ci-dessous. Pour plus d’informations, consultez [Vue d’ensemble du niveau Standard d’Azure Load Balancer](load-balancer-standard-overview.md).
 
+Pour passer de la version De base à la version Standard de Load Balancer, consultez [Mettre à niveau la version De base de Load Balancer](upgrade-basic-standard.md).
+
 >[!NOTE]
 > Microsoft recommande Standard Load Balancer.
 Les machines virtuelles autonomes, les groupes à haute disponibilité et les groupes de machines virtuelles identiques peuvent uniquement être connectés à une référence SKU, jamais aux deux. Les références SKU de Load Balancer et des adresses IP publiques doivent correspondre lorsque vous les utilisez avec des adresses IP publiques. Les références SKU de Load Balancer et des adresses IP publiques ne sont pas mutables.
@@ -207,6 +209,7 @@ Pour plus d’informations, consultez [Limites de Load balancer](https://docs.mi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Pour passer de la version De base à la version Standard de Load Balancer, consultez [Mettre à niveau la version De base de Load Balancer](upgrade-basic-standard.md).
 - Consultez [Créer un service Standard Load Balancer public](quickstart-load-balancer-standard-public-portal.md) pour bien démarrer avec Load Balancer : créez un équilibreur de charge, créez des machines virtuelles avec une extension IIS personnalisée installée et équilibrez la charge de l’application web entre les machines virtuelles.
 - En savoir plus sur [Azure Load Balancer](load-balancer-overview.md).
 - Découvrez comment utiliser [Standard Load Balancer et les zones de disponibilité](load-balancer-standard-availability-zones.md).

@@ -1,15 +1,15 @@
 ---
 title: Intégration continue avec Azure Pipelines
 description: Découvrez comment générer, tester et déployer des modèles Azure Resource Manager en continu.
-ms.date: 03/13/2020
+ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255071"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084326"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -57,11 +57,7 @@ Si vous n’avez pas de compte GitHub, consultez [Prérequis](#prerequisites).
 
 1. Sélectionnez le bouton vert **New** (Nouveau).
 1. Dans **Repository name** (nom du référentiel), entrez un nom de référentiel.  Par exemple, **AzureRmPipeline-repo**. N’oubliez pas de remplacer chaque occurrence de **AzureRmPipeline** par le nom de votre projet. Vous pouvez sélectionner **Public** ou **Private** (Privé) pour ce didacticiel. Puis sélectionnez **Create repository** (Créer un référentiel).
-1. Notez l’URL. L’URL du référentiel est au format suivant :
-
-    ```url
-    https://github.com/[YourAccountName]/[YourRepositoryName]
-    ```
+1. Notez l’URL. L’URL du dépôt est au format suivant : **https://github.com/ [NomDeVotreCompte]/[NomDeVotreDépôt]** .
 
 Ce référentiel est appelé *remote repository* (référentiel distant). Chacun des développeurs du même projet peut cloner son *référentiel local*, puis fusionner ses modifications dans le référentiel distant.
 

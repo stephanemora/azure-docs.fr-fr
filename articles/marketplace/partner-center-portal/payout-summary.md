@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 678dc8b058d0ae0694dafeb4222b2fc9f10ecda7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a930dfb38007349155581424d03ee7b3e7a6b46
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288697"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730200"
 ---
 # <a name="payout-reporting"></a>Rapports de paiement
 
@@ -175,4 +175,4 @@ Cette option permet de télécharger chaque article de revenu que vous voyez dan
 
 ## <a name="billing-questions-and-support"></a>Questions et support sur la facturation
 
-Pour obtenir de l'aide sur les questions de facturation, contactez le [support de l'éditeur de la place de marché commerciale](https://aka.ms/marketplacepublishersupport).
+Pour obtenir de l'aide sur les questions de facturation, contactez le [support de l'éditeur de la place de marché commerciale](https://partner.microsoft.com/support/v2/?stage=1).

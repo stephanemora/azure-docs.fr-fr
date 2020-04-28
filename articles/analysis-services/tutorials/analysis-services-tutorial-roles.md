@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: fa3a6fefce808e51c2ad1d9d18bf4766cdf689c3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406239"
+ms.locfileid: "81454252"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutoriel : Configurer l’administrateur du serveur et les rôles d’utilisateur
 
@@ -67,7 +67,7 @@ Pour les tâches restantes, vous utilisez SSMS pour vous connecter à votre serv
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Ajouter un compte d’utilisateur au rôle d’administrateur du serveur
 
-Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe à partir d’Azure AD pour le rôle d’administrateur de serveur. Si vous ajoutez un groupe de sécurité, il doit avoir la propriété `MailEnabled` définie sur `True`. Lorsque vous spécifiez un groupe par adresse e-mail, utilisez `obj:groupid@tenantid`.
+Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe à partir d’Azure AD pour le rôle d’administrateur de serveur. Si vous spécifiez un groupe de sécurité, utilisez `obj:groupid@tenantid`.
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur votre nom de serveur, puis cliquez sur **Propriétés**. 
 2. Dans la fenêtre **Propriétés de Analysis Server**, cliquez sur **Sécurité** > **Ajouter**.

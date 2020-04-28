@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284872"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81755415"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -76,9 +76,9 @@ Configurer les propriétés de l’entreprise | Administrateur général |
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Authentification directe | Administrateur général | 
-Lire toute la configuration | Lecteur général | 
-Authentification unique homogène | Administrateur général | 
+Authentification directe | Administrateur d’identité hybride | 
+Lire toute la configuration | Lecteur général | Administrateur d’identité hybride |
+Authentification unique homogène | Administrateur d’identité hybride | 
 
 ## <a name="connect-health"></a>Connect Health
 

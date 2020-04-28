@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230673"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534463"
 ---
 # <a name="application-configuration-options"></a>Options de configuration d’application
 
@@ -106,11 +106,11 @@ L’URI de redirection est l’URI auquel le fournisseur d’identité renvoie l
 ### <a name="redirect-uri-for-public-client-apps"></a>URI de redirection pour les applications clientes publiques
 
 Si vous êtes un développeur d’application cliente publique utilisant MSAL :
-- Vous souhaitez utiliser `.WithDefaultRedirectUri()` dans les applications de bureau ou UWP (MSAL.NET 4.1 +). Cette méthode permet de définir la propriété URI de redirection de l’application cliente publique sur l’URI de redirection recommandé par défaut pour les applications clientes publiques. 
+- Vous souhaitez utiliser `.WithDefaultRedirectUri()` dans les applications de bureau ou UWP (MSAL.NET 4.1 +). Cette méthode permet de définir la propriété URI de redirection de l’application cliente publique sur l’URI de redirection recommandé par défaut pour les applications clientes publiques.
 
-  Plateforme  | URI de redirection  
+  Plateforme  | URI de redirection
   ---------  | --------------
-  Application de bureau (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  Application de bureau (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
   UWP | valeur de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Cela active l’authentification unique avec le navigateur en définissant la valeur sur le résultat de WebAuthenticationBroker.GetCurrentApplicationCallbackUri() que vous devez inscrire
   .NET Core | `https://localhost`. Cela permet à l’utilisateur d’utiliser le navigateur système pour l’authentification interactive, car .NET Core n’a pas d’interface utilisateur pour l’affichage Web incorporé pour le moment.
 
@@ -130,7 +130,7 @@ Pour plus d’informations sur Android, voir [Authentification répartie dans An
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>URI de redirection pour les applications clientes confidentielles
 
-Pour les applications web, l’URI de redirection (ou URI de réponse) est l’URI qu’Azure AD utilise pour renvoyer le jeton à l’application. Cette URI peut s’agir de l’URL de l’application web/API Web si l’application confidentielle est l’une des applications suivantes. L’URI de redirection doit être inscrit dans l’inscription d’application. Cette inscription est particulièrement importante lorsque vous déployez une application que vous avez initialement testée localement. Vous devez ensuite ajouter l’URL de réponse de l’application déployée dans le portail d’inscription d’application.
+Pour les applications web, l’URI de redirection (ou URI de réponse) est l’URI qu’Azure AD utilise pour renvoyer le jeton à l’application. Cet URI peut être l'URL de l'application web/API Web si l'application confidentielle correspond à l'une des applications suivantes. L’URI de redirection doit être inscrit dans l’inscription d’application. Cette inscription est particulièrement importante lorsque vous déployez une application que vous avez initialement testée localement. Vous devez ensuite ajouter l’URL de réponse de l’application déployée dans le portail d’inscription d’application.
 
 Pour les applications démon, vous n’avez pas besoin de spécifier un URI de redirection.
 

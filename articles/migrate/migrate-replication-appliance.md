@@ -3,12 +3,12 @@ title: Appliance de réplication Azure Migrate
 description: Apprenez-en davantage sur l’appliance de réplication Azure Migrate pour une migration VMWare basée sur un agent.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225433"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535211"
 ---
 # <a name="replication-appliance"></a>Appliance de réplication
 
@@ -28,8 +28,11 @@ L’appliance de réplication est déployée lorsque vous configurez la migratio
 
 **Utilisé pour** | **Détails**
 --- |  ---
-Migration de machines virtuelles VMware basées sur des agents | Vous téléchargez le modèle OVA à partir du hub Azure Migrate, puis vous importez sur vCenter Server pour créer la machine virtuelle de l’appliance.
-Migration de machine physique basée sur un agent | Si vous ne disposez pas d’une infrastructure VMware ou si vous ne pouvez pas créer une machine virtuelle VMware à l’aide d’un modèle OVA, téléchargez un programme d’installation de logiciel à partir du Hub Azure Migrate et exécutez-le pour configurer l’ordinateur de l’appliance.
+**Migration basée sur un agent de machines virtuelles VMware** | Vous téléchargez le modèle OVA à partir du hub Azure Migrate, puis vous importez sur vCenter Server pour créer la machine virtuelle de l’appliance.
+**Migration basée sur un agent de machines physiques** | Si vous ne disposez pas d’une infrastructure VMware ou si vous ne pouvez pas créer une machine virtuelle VMware à l’aide d’un modèle OVA, téléchargez un programme d’installation de logiciel à partir du Hub Azure Migrate et exécutez-le pour configurer l’ordinateur de l’appliance.
+
+> [!NOTE]
+> Si vous effectuez un déploiement dans Azure Government, utilisez le fichier d'installation pour déployer l'appliance de réplication.
 
 ## <a name="appliance-requirements"></a>Configuration requise de l’appliance
 
@@ -74,7 +77,7 @@ Télécharger et installer dans Azure Migrate | Lorsque vous installez l’appli
 
 ## <a name="url-access"></a>accès URL
 
-L’appliance de réplication doit accéder à ces URL.
+L'appliance de réplication doit avoir accès à ces URL dans le cloud public Azure.
 
 **URL** | **Détails**
 --- | ---
@@ -84,10 +87,26 @@ L’appliance de réplication doit accéder à ces URL.
 \*.hypervrecoverymanager.windowsazure.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
 https:\//management.azure.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
 *.services.visualstudio.com | Utilisé dans le cadre de la télémétrie (facultatif)
-time.nist.gov | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
 time.windows.com | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | L’installation OVF nécessite l’accès à ces URL. Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Pour terminer le téléchargement de MySQL
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Le programme d'installation de l'appliance doit avoir accès à ces URL. Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Pour effectuer le téléchargement de MySQL. Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l'URL du CDN est également autorisée, si nécessaire.
+
+
+## <a name="azure-government-url-access"></a>Accès aux URL Azure Government
+
+L'appliance de réplication doit avoir accès à ces URL dans Azure Government.
+
+**URL** | **Détails**
+--- | ---
+\*.backup.windowsazure.us | Élément utilisé pour la coordination et le transfert des données répliquées
+\*.store.core.windows.net | Élément utilisé pour la coordination et le transfert des données répliquées
+\*.blob.core.windows.net | Utilisé pour l’accès au compte de stockage qui stocke les données répliquées
+\*.hypervrecoverymanager.windowsazure.us | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
+https:\//management.usgovcloudapi.net | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
+*.services.visualstudio.com | Utilisé dans le cadre de la télémétrie (facultatif)
+time.nist.gov | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Le programme d'installation de l'appliance avec OVA doit avoir accès à ces URL. Azure Active Directory les utilise pour le contrôle d'accès et la gestion des identités.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Pour effectuer le téléchargement de MySQL. Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l'URL du CDN est également autorisée, si nécessaire.
 
 ## <a name="port-access"></a>Accès au port
 

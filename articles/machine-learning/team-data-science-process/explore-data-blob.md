@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 29011760a94a05020150ceddeba4303b87c2f610
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e429dce497411305964cb1ec5298228dc4093b1f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722184"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685952"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorer les données dans le stockage d’objets blob Azure avec Pandas
 
@@ -35,30 +35,31 @@ Pour explorer et manipuler un jeu de données, celui-ci doit d’abord être té
 
 1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python suivant en utilisant le service BLOB. Remplacez la variable dans le code ci-dessous par vos propres valeurs :
 
-```python
-from azure.storage.blob import BlockBlobService
-import tables
+    ```python
+    from azure.storage.blob import BlockBlobService
+    import pandas as pd
+    import tables
 
-STORAGEACCOUNTNAME= <storage_account_name>
-STORAGEACCOUNTKEY= <storage_account_key>
-LOCALFILENAME= <local_file_name>
-CONTAINERNAME= <container_name>
-BLOBNAME= <blob_name>
+    STORAGEACCOUNTNAME= <storage_account_name>
+    STORAGEACCOUNTKEY= <storage_account_key>
+    LOCALFILENAME= <local_file_name>
+    CONTAINERNAME= <container_name>
+    BLOBNAME= <blob_name>
 
-#download from blob
-t1=time.time()
-blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
-t2=time.time()
-print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-```
+    #download from blob
+    t1=time.time()
+    blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+    blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
+    t2=time.time()
+    print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+    ```
 
 1. Lisez les données du fichier téléchargé dans une table Pandas.
 
-```python
-# LOCALFILE is the file path
-dataframe_blobdata = pd.read_csv(LOCALFILE)
-```
+    ```python
+    # LOCALFILE is the file path
+    dataframe_blobdata = pd.read_csv(LOCALFILENAME)
+    ```
 
 Vous êtes maintenant prêt à explorer les données et à générer des fonctionnalités sur cet ensemble de données.
 
@@ -67,72 +68,72 @@ Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 
 1. Vérifiez le **nombre de lignes et de colonnes**
 
-```python
-print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-```
+    ```python
+    print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
+    ```
 
 1. **Vérifiez** les premières ou dernières **lignes** de l’ensemble de données ci-dessous :
 
-```python
-dataframe_blobdata.head(10)
+    ```python
+    dataframe_blobdata.head(10)
 
-dataframe_blobdata.tail(10)
-```
+    dataframe_blobdata.tail(10)
+    ```
 
 1. Vérifiez le **type de données** dans lequel chaque colonne a été importée, à l’aide du code suivant :
 
-```python
-for col in dataframe_blobdata.columns:
-    print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
-```
+    ```python
+    for col in dataframe_blobdata.columns:
+        print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
+    ```
 
 1. Vérifiez les **statistiques de base** des colonnes dans l’ensemble de données, comme indiqué ci-dessous :
 
-```python
-dataframe_blobdata.describe()
-```
+    ```python
+    dataframe_blobdata.describe()
+    ```
 
 1. Regardez le nombre d’entrées pour chaque valeur de colonne, comme indiqué ci-dessous :
 
-```python
-dataframe_blobdata['<column_name>'].value_counts()
-```
+    ```python
+    dataframe_blobdata['<column_name>'].value_counts()
+    ```
 
 1. **valeurs manquantes** par rapport au nombre réel d’entrées dans chaque colonne, à l’aide du code suivant :
 
-```python
-miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
-print miss_num
-```
+    ```python
+    miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
+    print miss_num
+    ```
 
 1. Si des **valeurs sont manquantes** dans une colonne spécifique, vous pouvez les supprimer comme suit :
 
-```python
-dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-dataframe_blobdata_noNA.shape
-```
+    ```python
+    dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+    dataframe_blobdata_noNA.shape
+    ```
 
-L’autre solution pour remplacer les valeurs manquantes consiste à utiliser la fonction mode :
+    L’autre solution pour remplacer les valeurs manquantes consiste à utiliser la fonction mode :
 
-```python
-dataframe_blobdata_mode = dataframe_blobdata.fillna(
-    {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
-```
+    ```python
+    dataframe_blobdata_mode = dataframe_blobdata.fillna(
+        {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
+    ```
 
 1. Créez un **histogramme** à l’aide d’un nombre variable de compartiments pour tracer la distribution d’une variable :
 
-```python
-dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
+    ```python
+    dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 
-np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-```
+    np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
+    ```
 
 1. Examinez les **corrélations** entre les variables à l’aide d’un nuage de points ou de la fonction de corrélation intégrée :
 
-```python
-# relationship between column_a and column_b using scatter plot
-plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
+    ```python
+    # relationship between column_a and column_b using scatter plot
+    plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
 
-# correlation between column_a and column_b
-dataframe_blobdata[['<column_a>', '<column_b>']].corr()
-```
+    # correlation between column_a and column_b
+    dataframe_blobdata[['<column_a>', '<column_b>']].corr()
+    ```

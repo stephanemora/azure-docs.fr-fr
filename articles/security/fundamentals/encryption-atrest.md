@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 42b83963dc4996a7347d57be712451086fa79b26
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548626"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454677"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -163,11 +163,11 @@ Pour les opérations utilisant des clés de chiffrement, une identité de servic
 Pour obtenir une clé à utiliser dans le chiffrement ou le déchiffrement des données au repos, l’identité de service pour le compte duquel l’instance du service Resource Manager s’exécutera doit avoir les autorisations UnwrapKey (pour obtenir la clé de déchiffrement) et WrapKey (pour insérer une clé dans le coffre de clés lors de la création d’une nouvelle clé).
 
 >[!NOTE]
->Pour plus d’informations sur les autorisations de Key Vault, consultez la page consacrée à la sécurisation de votre coffre de clés dans la [documentation d’Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md).
+>Pour plus d’informations sur les autorisations de Key Vault, consultez la page consacrée à la sécurisation de votre coffre de clés dans la [documentation d’Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 
 **Avantages**
 
-- Contrôle total sur les clés utilisées : les clés de chiffrement sont gérées dans le coffre de clés du client, sous le contrôle du client.
+- Contrôle total sur les clés utilisées : les clés de chiffrement sont gérées dans le coffre de clés du client, sous le contrôle du client.
 - Possibilité de chiffrer de plusieurs services en un seul service maître
 - Possibilité de séparer la gestion de clés du modèle de gestion global pour le service
 - Possibilité de définir l’emplacement du service et des clés dans des régions différentes
@@ -180,7 +180,7 @@ Pour obtenir une clé à utiliser dans le chiffrement ou le déchiffrement des d
 
 #### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>Chiffrement côté serveur à l’aide de clés gérées par le client dans du matériel contrôlé par le client
 
-Certains services Azure activent le modèle de gestion de clés HYOK (Host Your Own Key). Ce mode de gestion est utile dans les scénarios où il est nécessaire de chiffrer les données au repos et de gérer les clés dans un référentiel propriétaire non contrôlé par Microsoft. Dans ce modèle, le service doit récupérer la clé à partir d’un site externe. Les garanties de disponibilité et de performances sont affectées et la configuration est plus complexe. En outre, comme le service n’a pas accès à la clé de chiffrement des données pendant les opérations de chiffrement et de déchiffrement, les garanties de sécurité globale de ce modèle sont similaires à celles du modèle où les clés sont gérées par le client dans Azure Key Vault.  Par conséquent, ce modèle n’est pas approprié pour la plupart des organisations, sauf si elles ont des exigences spécifiques de gestion des clés. En raison de ces limitations, la plupart des services Azure ne gèrent pas le chiffrement côté serveur à l’aide de clés gérées par le serveur dans le matériel contrôlé par le client.
+Certains services Azure activent le modèle de gestion de clés HYOK (Host Your Own Key). Ce mode de gestion est utile dans les scénarios où il est nécessaire de chiffrer les données au repos et de gérer les clés dans un dépôt propriétaire non contrôlé par Microsoft. Dans ce modèle, le service doit récupérer la clé à partir d’un site externe. Les garanties de disponibilité et de performances sont affectées et la configuration est plus complexe. En outre, comme le service n’a pas accès à la clé de chiffrement des données pendant les opérations de chiffrement et de déchiffrement, les garanties de sécurité globale de ce modèle sont similaires à celles du modèle où les clés sont gérées par le client dans Azure Key Vault.  Par conséquent, ce modèle n’est pas approprié pour la plupart des organisations, sauf si elles ont des exigences spécifiques de gestion des clés. En raison de ces limitations, la plupart des services Azure ne gèrent pas le chiffrement côté serveur à l’aide de clés gérées par le serveur dans le matériel contrôlé par le client.
 
 ##### <a name="key-access"></a>Accès aux clés
 
@@ -263,18 +263,26 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 |                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’une clé gérée par le client**             | **Côté client à l’aide d’une clé gérée par le client**      |
 | **IA et Machine Learning**      |                    |                    |                    |
 | Recherche cognitive Azure           | Oui                | Oui                | -                  |
+| Azure Cognitive Services         | Oui                | Oui                | -                  |
 | Azure Machine Learning           | Oui                | Oui                | -                  |
 | Azure Machine Learning Studio    | Oui                | Préversion, RSA 2048 bits | -               |
+| Content Moderator                | Oui                | Oui                | -                  |
+| Face                             | Oui                | Oui                | -                  |
+| Language Understanding           | Oui                | Oui                | -                  |
+| Personalizer                     | Oui                | Oui                | -                  |
+| QnA Maker                        | Oui                | Oui                | -                  |
+| Services Speech                  | Oui                | Oui                | -                  |
+| Translator Text                  | Oui                | Oui                | -                  |
 | Power BI                         | Oui                | Préversion, RSA 2048 bits | -                  |
 | **Analyse**                    |                    |                    |                    |
-| Azure Stream Analytics           | Oui                | -                  | -                  |
+| Azure Stream Analytics           | Oui                | N/A\*            | -                  |
 | Event Hubs                       | Oui                | Oui, toutes les longueurs RSA. | -                  |
 | Fonctions                        | Oui                | Oui, toutes les longueurs RSA. | -                  |
 | Azure Analysis Services          | Oui                | -                  | -                  |
 | Azure Data Catalog               | Oui                | -                  | -                  |
-| Apache Kafka sur Azure HDInsight  | Oui                | Toutes les longueurs RSA.   | -                  |
+| Azure HDInsight                  | Oui                | Tous                | -                  |
 | Azure Monitor Application Insights | Oui                | Oui                | -                  |
-| Azure Monitor Log Analytics | Oui                | Oui                | -                  |
+| Azure Monitor Log Analytics      | Oui                | Oui                | -                  |
 | Explorateur de données Azure              | Oui                | Oui                | -                  |
 | Azure Data Factory               | Oui                | Oui                | -                  |
 | Azure Data Lake Store            | Oui                | Oui, RSA 2048 bits  | -                  |
@@ -286,11 +294,12 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | Virtual Machines                 | Oui                | Oui, RSA 2048 bits  | -                  |
 | Groupe de machines virtuelles identiques        | Oui                | Oui, RSA 2048 bits  | -                  |
 | SAP HANA                         | Oui                | Oui, RSA 2048 bits  | -                  |
-| App Service                      | Oui                | Oui                | -                  |
-| Automatisation                       | Oui                | Oui                | -                  |
-| Portail Azure                     | Oui                | Oui                | -                  |
+| App Service                      | Oui                | Oui\*\*            | -                  |
+| Automatisation                       | Oui                | Oui\*\*            | -                  |
+| Azure Functions                  | Oui                | Oui\*\*            | -                  |
+| Portail Azure                     | Oui                | Oui\*\*            | -                  |
 | Logic Apps                       | Oui                | Oui                | -                  |
-| Applications managées Azure       | Oui                | Oui                | -                  |
+| Applications managées Azure       | Oui                | Oui\*\*            | -                  |
 | Service Bus                      | Oui                | Oui                | -                  |
 | Site Recovery                    | Oui                | Oui                | -                  |
 | **Bases de données**                    |                    |                    |                    |
@@ -304,8 +313,9 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | Stockage Table                    | Oui                | Oui                | Oui                |
 | Azure Cosmos DB                  | Oui                | Oui                | -                  |
 | Azure Databricks                 | Oui                | Oui                | -                  |
+| Azure Database Migration Service | Oui                | N/A\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps                     | Oui                | -                  | Oui                |
+| Azure DevOps Services            | Oui                | -                  | Oui                |
 | Azure Repos                      | Oui                | -                  | Oui                |
 | **Identité**                     |                    |                    |                    |
 | Azure Active Directory           | Oui                | -                  | -                  |
@@ -316,24 +326,38 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | Gestion des API                   | Oui                | -                  | -                  |
 | **Services IoT**                 |                    |                    |                    |
 | IoT Hub                          | Oui                | Oui                | Oui                |
+| IoT Hub Device Provisioning      | Oui                | Oui                | -                  |
 | **Gestion et gouvernance**    |                    |                    |                    |
 | Azure Site Recovery              | Oui                | -                  | -                  |
+| Azure Migrate                    | Oui                | Oui                | -                  |
 | **Média**                        |                    |                    |                    |
 | Media Services                   | Oui                | -                  | Oui                |
+| **Sécurité**                     |                    |                    |                    |
+| Azure Security Center pour IoT    | Oui                | Oui                | -                  |
+| Azure Sentinel                   | Oui                | Oui                | -                  |
 | **Stockage**                      |                    |                    |                    |
 | Stockage Blob                     | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Stockage Blob Premium             | Oui                | Oui, RSA 2048 bits  | Oui                |
 | Stockage sur disque                     | Oui                | Oui                | -                  |
+| Disque Ultra               | Oui                | Oui                | -                  |
 | Stockage sur disque managé             | Oui                | Oui                | -                  |
 | Stockage Fichier                     | Oui                | Oui, RSA 2048 bits  | -                  |
+| Stockage Premium de fichiers             | Oui                | Oui, RSA 2048 bits  | -                  |
+| File Sync                        | Oui                | Oui, RSA 2048 bits  | -                  |
 | Stockage File d’attente                    | Oui                | Oui                | Oui                |
 | Avere vFXT                       | Oui                | -                  | -                  |
-| Azure NetApp Files               | Oui                | -                  | -                  |
+| Cache Azure pour Redis            | Oui                | N/A\*              | -                  |
+| Azure NetApp Files               | Oui                | Oui                | -                  |
 | Stockage archive                  | Oui                | Oui, RSA 2048 bits  | -                  |
 | StorSimple                       | Oui                | Oui, RSA 2048 bits  | Oui                |
 | Sauvegarde Azure                     | Oui                | Oui                | Oui                |
 | Data Box                         | Oui                | -                  | Oui                |
 | Data Box Edge                    | Oui                | Oui                | -                  |
 
+\* Ce service ne rend pas les données persistantes. Les caches temporaires éventuels sont chiffrés avec une clé Microsoft.
+
+\*\* Ce service prend en charge le stockage des données dans votre propre coffre de clés, compte de stockage ou tout autre service de persistance des données qui prend déjà en charge le chiffrement côté serveur avec clé gérée par le client.
+
 ## <a name="conclusion"></a>Conclusion
 
-La protection des données des clients stockées au sein des services Azure est d’une importance capitale pour Microsoft. Tous les services hébergés par Azure doivent à terme fournir des options de chiffrement au repos. Les services fondamentaux, comme Stockage Azure, Azure SQL Database et les services clés de décisionnel et d’analytique, offrent déjà des options de chiffrement au repos. Certains de ces services prennent en charge les clés contrôlées par le client ou le chiffrement côté client, ainsi que les clés et le chiffrement gérés par le service. Les services Microsoft Azure étendent considérablement la disponibilité du chiffrement au repos, et la disponibilité en préversion puis générale de nouvelles options est planifiée dans les mois à venir.
+La protection des données des clients stockées au sein des services Azure est d’une importance capitale pour Microsoft. Tous les services hébergés par Azure doivent à terme fournir des options de chiffrement au repos. Les services Azure prennent en charge les clés managées par le service, les clés gérées par le client ou le chiffrement côté client. Les services Azure étendent considérablement la disponibilité du chiffrement au repos, et la disponibilité en préversion puis générale de nouvelles options est planifiée dans les mois à venir.

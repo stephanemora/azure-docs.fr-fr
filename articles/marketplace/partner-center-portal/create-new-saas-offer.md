@@ -1,22 +1,22 @@
 ---
-title: Créer une nouvelle offre SaaS dans la Place de marché commerciale existante
-description: Comment créer une nouvelle offre Software as a service (SaaS) pour répertorier ou vendre dans la Place de marché Azure, AppSource ou via le programme de fournisseur de solutions Cloud (CSP) avec le portail de la Place de marché commerciale sur Microsoft Partner Center.
+title: Créer une offre SaaS pour la Place de marché commerciale Microsoft
+description: Explique comment créer une nouvelle offre Software as a service (SaaS) pour lister ou vendre dans Microsoft AppSource, la Place de marché Azure, ou par le biais du programme de fournisseur de solutions Cloud (CSP) à l’aide du programme de la Place de marché commerciale Microsoft dans Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 3f2201db4b78ba61ba15608a676a8b9f8f5e612a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: a39e1e19f65722b4b5ae809ca943da719a3c6e22
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286198"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869771"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
-Pour commencer à créer des offres Software as a service (SaaS), veillez à d’abord [Créer un compte Partner Center](./create-account.md) et ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), et sélectionnez l’onglet **Présentation**.
+Pour commencer à créer des offres Software as a service (SaaS), veillez à d’abord [Créer un compte Partner Center](./create-account.md), ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), et sélectionnez l’onglet **Vue d’ensemble**.
 
 ![Tableau de bord de la Place de marché commerciale sur Partner Center](./media/new-offer-overview.png)
 
@@ -82,6 +82,7 @@ Afin de répertorier des offres SaaS avec la Place de marché commerciale sur Pa
 - Pour des exigences plus complètes, consultez le [Guide de publication des offres SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 #### <a name="saas-pricing-and-billing-options"></a>Tarifs SaaS et options de facturation
+
 Lorsque des solutions SaaS sont exécutées dans l’abonnement Azure de l’éditeur, les frais de licence payés par les clients incluent le coût de l’infrastructure sur laquelle le logiciel est déployé. L’utilisation de l’infrastructure Azure est présentée et facturée directement à vous, le partenaire. Les frais réels d’utilisation de l’infrastructure ne sont pas visibles par le client. Les éditeurs doivent grouper les frais d’utilisation de l’infrastructure Azure avec les frais liés aux licences logicielles. 
 
 SaaS propose une facturation mensuelle ou annuelle basée sur un tarif fixe pour chaque utilisateur, ou une facturation à l’utilisation à l’aide du service de facturation limitée. La place de marché commerciale de Microsoft fonctionne selon un modèle d’agence. Les prix sont définis par l’éditeur, les factures sont établies par Microsoft et l’éditeur est payé par Microsoft qui prélève des frais d’agence.
@@ -109,16 +110,19 @@ Promouvoir votre entreprise avec Microsoft en créant une liste de la Place de m
 
 - **Comment voulez-vous qu’interagissent les clients avec l’offre de liste ?**
 
-##### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
+#### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
+
 Répertoriez gratuitement votre offre aux clients en fournissant une URL valide (qui commence par *http* ou *https*), où ils peuvent obtenir une version d’évaluation via une [authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Par exemple : `https://contoso.com/saas-app`
 
-##### <a name="free-trial-listing"></a>Essai gratuit (annonce)
+#### <a name="free-trial-listing"></a>Essai gratuit (annonce)
+
 Répertoriez votre offre aux clients avec un lien vers une version d’évaluation gratuite en fournissant une URL valide (qui commence par *http* ou *https*), où ils peuvent obtenir une version d’évaluation via une [authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Par exemple : `https://contoso.com/trial/saas-app`. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
 
 > [!NOTE]
 > Les jetons que votre application recevra via votre lien d’évaluation peuvent uniquement être utilisés pour obtenir des informations utilisateur par le biais de Azure AD pour automatiser la création de comptes dans votre application. Les comptes Microsoft (MSA) ne sont pas pris en charge pour l’authentification à l’aide de ce jeton.
 
-##### <a name="contact-me"></a>Me contacter
+#### <a name="contact-me"></a>Me contacter
+
 Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Exemple d’annonce d’offre sur Place de marché
@@ -127,16 +131,16 @@ Collectez des informations de contact client en connectant votre système de ges
 
 ## <a name="enable-a-test-drive"></a>Activer une version d’évaluation
 
-Une version d’évaluation vous permet de présenter votre offre à vos clients potentiels en leur donnant la possibilité de l’« essayer avant de l’acheter », ce qui se traduit par une hausse du taux de conversion et par la génération de prospects hautement qualifiés. [Découvrez-en plus sur les versions d’évaluation.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+Une version d’évaluation vous permet de présenter votre offre à vos clients potentiels en leur donnant la possibilité de l’« essayer avant de l’acheter », ce qui se traduit par une hausse du taux de conversion et par la génération de prospects hautement qualifiés. Pour en savoir plus, consultez [Autoriser vos clients à évaluer votre offre](./test-drive.md).
 
 - **Activer une version d’évaluation** (Cocher la case)
 
 En activant une version d’évaluation, vous devrez configurer un environnement de démonstration pour que les clients puissent essayer votre offre pendant une période donnée. 
 
-#### <a name="test-drive-resources"></a>Ressources pour les versions d’évaluation
-- [Meilleures pratiques techniques pour version d’évaluation](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Meilleures pratiques marketing pour version d’évaluation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Document d’une page pour présenter une version d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+### <a name="test-drive-resources"></a>Ressources pour les versions d’évaluation
+
+- [Bonnes pratiques marketing en matière d’évaluation de solutions](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)- [Test Drive technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Test Drive overview (téléchargement PDF)](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
 ## <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
@@ -286,6 +290,9 @@ Suivez les instructions suivantes pour utiliser l’éditeur de texte enrichi :
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
+>[!Note]
+>Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
+
 #### <a name="additional-marketplace-listing-resources"></a>Ressources d’annonce supplémentaires de place de marché
 
 - [Meilleures pratiques pour les annonces d’offre d’une place de marché](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
@@ -299,7 +306,7 @@ L’onglet **Préversion** vous permet de définir un **Public de préversion** 
 
 - **Définir un public pour la Préversion : Ajoutez une seule adresse e-mail de compte AAD/MSA par ligne, avec une description facultative.**
 
-Ajoutez manuellement jusqu’à dix (10) adresses e-mail ou vingt (20) en chargeant un fichier CSV, pour un compte Microsoft (MSA) ou des comptes Azure Active Directory (AAD) existants afin d’aider à la validation de votre offre avant sa publication. En ajoutant ces comptes, vous définissez un public qui sera autorisé à accéder à la préversion de votre offre avant sa publication sur les places de marché. Si votre offre est déjà publiée, vous pouvez toujours définir un public pour la préversion en vue de test de changements ou de mises à jour futurs.
+Ajoutez manuellement jusqu’à dix adresses e-mail, ou 20 en chargeant un fichier CSV, pour un compte Microsoft (MSA) ou des comptes Azure Active Directory (AAD) existants afin d’aider à la validation de votre offre avant sa publication. En ajoutant ces comptes, vous définissez un public qui sera autorisé à accéder à la préversion de votre offre avant sa publication sur les places de marché. Si votre offre est déjà publiée, vous pouvez toujours définir un public pour la préversion en vue de test de changements ou de mises à jour futurs.
 
 > [!NOTE]
 > Le public pour la préversion n’est pas le même que le public privé. Un public de préversion est autorisé à accéder à votre offre _avant_ sa publication sur les places de marché. Vous pouvez aussi choisir de créer un plan et de le rendre disponible uniquement à un public privé. Dans l’onglet **Liste des plans**, vous pouvez définir un public privé en cochant **Il s’agit d’un plan privé**. Vous pouvez définir un public privé comprenant jusqu’à 20 000 clients à l’aide des ID de locataire Azure.
@@ -359,7 +366,7 @@ Les offres SaaS via la place de marché commercial vous permettent de fournir un
 >[!Note]
 >Si le client choisit de passer à un plan sans essai gratuit, la conversion aura lieu, mais l’essai gratuit sera immédiatement perdue.  En outre, une fois qu’un client a commencé à payer un plan, il ne peut plus obtenir d’essai gratuit sur le même abonnement, même s’il est converti en référence SKU qui prend en charge les essais gratuits.
 
-La possibilité de configurer un essai gratuit est disponible pour chaque plan de votre offre. Accédez simplement à la tarification et à la disponibilité de chaque offre et cochez la case pour autoriser un essai d’un mois.
+La possibilité de configurer un essai gratuit est disponible pour chaque plan de votre offre. Accédez aux tarifs et à la disponibilité de chaque offre et cochez la case pour autoriser un essai d’un mois.
 
 ![Case à cocher d’essai gratuit d’un mois](./media/free-trial-enable.png)
 
@@ -377,7 +384,7 @@ Pour obtenir des informations sur les abonnements clients qui participent actuel
 
 Chaque plan doit être disponible sur au moins un marché. Cochez la case des emplacements dans lesquels vous souhaitez que ce plan soit disponible. Une zone de recherche et un bouton pour sélectionner les pays « reversant les taxes », pour lesquels Microsoft reverse les ventes et utilise les taxes en votre nom, sont inclus pour vous aider.
 
-Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et ajouté un autre emplacement de marché, le prix de ce nouveau marché sera calculé selon le taux de change en vigueur. Vous devez toujours vérifier le prix de chaque marché avant toute publication. La tarification peut être vérifiée à l’aide du lien « Exporter les prix (xlsx) », après avoir enregistré vos changements.
+Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et ajouté un autre emplacement de marché, le prix de ce nouveau marché sera calculé selon le taux de change en vigueur. Vérifiez le prix de chaque place de marché avant toute publication. La tarification peut être vérifiée à l’aide du lien « Exporter les prix (xlsx) », après avoir enregistré vos changements.
 
 #### <a name="pricing"></a>Tarifs
 
@@ -395,7 +402,7 @@ Sélectionnez la fréquence de paiement du prix indiqué. Vous devez renseigner 
 
 - **Prix** : USD par mois ou USD par an
 
-Les prix fixés dans une devise locale (USD = dollar américain) sont convertis dans la devise locale de tous les marchés sélectionnés selon les taux de change en vigueur disponibles lors de la configuration. Validez ces prix avant la publication en exportant la feuille de calcul de tarification et en vérifiant le prix de chaque marché. Si vous souhaitez fixer des prix personnalisés dans un marché individuel, modifiez et importez la feuille de calcul de tarification. Vous êtes responsable de valider cette tarification et possédez ces paramètres.
+Les prix fixés en USD (USD = dollar américain) sont convertis dans la devise locale de tous les marchés sélectionnés selon les taux de change en vigueur disponibles lors de l’enregistrement. Validez ces prix avant la publication en exportant la feuille de calcul de tarification et en vérifiant le prix de chaque marché. Si vous souhaitez fixer des prix personnalisés dans un marché individuel, modifiez et importez la feuille de calcul de tarification. Vous êtes responsable de valider cette tarification et possédez ces paramètres.
 *\*Vous devez d’abord enregistrer les modifications de votre tarification pour autoriser l’export des données de tarification.*
 
 Vérifiez vos prix avec soin avant la publication, car il y a des restrictions sur ce qui peut être modifié après la publication d’un plan :
@@ -418,7 +425,7 @@ Cochez cette case pour rendre votre plan privé et visible uniquement pour le pu
 
 Affectez le public qui aura accès à ce plan privé. L’accès est affecté à l’aide d’ID locataire avec l’option d’inclure une description de chaque ID locataire affecté. Un maximum de 10 ID locataire peut être ajouté, ou de 20 000 ID locataire client en important un fichier CSV.
 
-Un locataire est une représentation d’une organisation, dont l’ID est représenté sous la forme d’un GUID (Identificateur Global Unique, un nombre entier de 128 bits utilisé pour identifier les ressources). Il s’agit d’une instance Azure AD dédiée, reçue par une organisation ou un développeur d’applications lorsque l’organisation ou le développeur d’applications crée une relation avec Microsoft (l’inscription à Azure, Microsoft Intune ou Microsoft 365, par exemple). Chaque client Azure AD est distinct et indépendant des autres clients Azure AD. Pour vérifier le locataire, connectez-vous au Portail Azure avec le compte que vous souhaitez utiliser pour gérer votre application. Si vous disposez d’un locataire, vous êtes automatiquement connecté à celui-ci, et vous pouvez voir son nom directement sous le nom de votre compte. Dans l’angle supérieur droit du Portail Azure, survolez le nom de votre compte avec la souris pour voir votre nom, votre adresse e-mail, votre répertoire et votre ID de locataire (un GUID), ainsi que votre domaine. Si votre compte est associé à plusieurs locataires, vous pouvez sélectionner le nom de votre compte pour ouvrir un menu dans lequel vous pouvez passer d’un locataire à l’autre. Chaque locataire a son propre ID. Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide d’une URL de nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+Un locataire est une représentation d’une organisation, dont l’ID est représenté sous la forme d’un GUID (Identificateur Global Unique, un nombre entier de 128 bits utilisé pour identifier les ressources). Il s’agit d’une instance Azure AD dédiée, reçue par une organisation ou un développeur d’applications quand l’organisation ou le développeur d’applications crée une relation avec Microsoft (par exemple en cas d’inscription à Azure, Microsoft Intune ou Microsoft 365). Chaque client Azure AD est distinct et indépendant des autres clients Azure AD. Pour vérifier le locataire, connectez-vous au Portail Azure avec le compte que vous souhaitez utiliser pour gérer votre application. Si vous disposez d’un locataire, vous êtes automatiquement connecté à celui-ci, et vous pouvez voir son nom directement sous le nom de votre compte. Dans l’angle supérieur droit du Portail Azure, survolez le nom de votre compte avec la souris pour voir votre nom, votre adresse e-mail, votre répertoire et votre ID de locataire (un GUID), ainsi que votre domaine. Si votre compte est associé à plusieurs locataires, vous pouvez sélectionner le nom de votre compte pour ouvrir un menu dans lequel vous pouvez passer d’un locataire à l’autre. Chaque locataire a son propre ID. Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide d’une URL de nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 Tandis que les offres SaaS utilisent des ID de locataire pour définir un public privé, d’autres types d’offre peuvent utiliser des ID d’abonnement Azure (qui sont également représentés sous forme de GUID).
 
@@ -429,10 +436,6 @@ Tandis que les offres SaaS utilisent des ID de locataire pour définir un public
 
 ![Exemple de liste de plans de place de marché avec remarques](./media/marketplace-plan.svg)
 
-## <a name="test-drive"></a>Test drive
-
-[!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Audience du revendeur CSP (fournisseur de solutions cloud)
 
 Choisir de rendre votre offre disponible dans le programme CSP permet aux fournisseurs de solutions Cloud de vendre votre produit dans une offre groupée de solution à leurs clients. Pour plus d’informations, consultez [Fournisseur de solutions cloud](https://go.microsoft.com/fwlink/?linkid=2111109).
@@ -441,7 +444,7 @@ Choisir de rendre votre offre disponible dans le programme CSP permet aux fourni
 
 Une fois que vous avez rempli toutes les sections nécessaires de l’offre, sélectionnez **Publier** en haut à droite du portail. Vous serez redirigé vers la page **Vérifier et publier**.
 
-#### <a name="submit-offer-to-preview"></a>Soumettre l’offre en préversion
+### <a name="submit-offer-to-preview"></a>Soumettre l’offre en préversion
 
 S’il s’agit de votre première publication de cette offre, vous pouvez :
 

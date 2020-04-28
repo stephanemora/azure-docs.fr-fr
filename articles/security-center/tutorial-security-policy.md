@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73906860"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024878"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -62,11 +62,11 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
 1. Choisissez parmi les options disponibles sur cette page :
 
-    1. Pour utiliser des stratégies sectorielles, cliquez sur **Ajouter d’autres standards**. Pour plus d’informations, voir [Mise à jour des packages de conformité dynamique](update-regulatory-compliance-packages.md).
+    1. Pour utiliser des stratégies sectorielles, sélectionnez **Ajouter d'autres standards**. Pour plus d’informations, voir [Mise à jour des packages de conformité dynamique](update-regulatory-compliance-packages.md).
 
-    1. Pour attribuer et gérer des initiatives personnalisées, cliquez sur **Ajouter des initiatives personnalisées**. Pour plus d’informations, voir [Utilisation de stratégies de sécurité personnalisées](custom-security-policies.md).
+    1. Pour attribuer et gérer des initiatives personnalisées, sélectionnez **Ajouter des initiatives personnalisées**. Pour plus d’informations, voir [Utilisation de stratégies de sécurité personnalisées](custom-security-policies.md).
 
-    1. Pour afficher et modifier la stratégie par défaut, cliquez sur **afficher la stratégie effective**, puis procédez comme décrit ci-dessous. 
+    1. Pour afficher et modifier la stratégie par défaut, sélectionnez **Afficher la stratégie actuelle**, puis procédez comme décrit ci-dessous. 
 
        ![Écran des stratégies](./media/security-center-policies/policy-screen.png)
        
@@ -96,20 +96,20 @@ Security Center utilise le contrôle d’accès en fonction du rôle (RBAC) qui 
 Si la stratégie de sécurité par défaut génère une suggestion qui n’est pas pertinent pour votre environnement, vous pouvez l’arrêter en désactivant la définition de stratégie qui envoie la recommandation.
 Pour plus d’informations sur les recommandations, consultez [Gestion des recommandations de sécurité](security-center-recommendations.md).
 
-1. Dans la section **Politique et conformité** de Security Center, cliquez sur **Stratégie de sécurité**.
+1. Dans la section **Stratégie et conformité** de Security Center, sélectionnez **Stratégie de sécurité**.
 
    ![gestion des stratégies](./media/tutorial-security-policy/policy-management.png)
 
-2. Cliquez sur le groupe d’abonnements ou d’administration pour lequel vous souhaitez désactiver la suggestion.
+2. Sélectionnez le groupe d'abonnements ou d'administration pour lequel vous souhaitez désactiver la recommandation.
 
    > [!NOTE]
    > N’oubliez pas qu’un groupe d’administration applique ses stratégies à ses abonnements. Par conséquent, si vous désactivez la stratégie d’un abonnement, et que l’abonnement appartient à un groupe d’administration qui utilise toujours la même stratégie, vous continuerez à recevoir les suggestion de la stratégie. La stratégie sera toujours appliquée à partir du niveau d’administration, et les suggestions seront toujours générées.
 
-1. Cliquez sur **Afficher la stratégie actuelle**.
+1. Sélectionnez **Afficher la stratégie actuelle**.
 
    ![désactiver une stratégie](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. Cliquez sur la stratégie affectée.
+1. Sélectionnez la stratégie attribuée.
 
    ![désactiver une stratégie](./media/tutorial-security-policy/security-policy.png)
 
@@ -117,7 +117,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
    ![désactiver une stratégie](./media/tutorial-security-policy/disable-policy.png)
 
-1. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
    > [!NOTE]
    > La désactivation d’une stratégie peut prendre jusqu’à 12 heures pour entrer en vigueur.

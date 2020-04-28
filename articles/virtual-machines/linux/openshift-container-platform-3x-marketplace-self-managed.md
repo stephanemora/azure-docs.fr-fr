@@ -1,25 +1,21 @@
 ---
 title: Déployer un cluster OpenShift Container Platform 3.11 autogéré à l’aide de l’offre de la Place de marché dans Azure
 description: Déployez un cluster OpenShift Container Platform 3.11 autogéré à l’aide de l’offre de la Place de marché dans Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561318"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759576"
 ---
 # <a name="configure-prerequisites"></a>Configuration préalable requise
 

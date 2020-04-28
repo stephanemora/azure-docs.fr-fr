@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-ms.date: 01/15/2019
-ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73819938"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687753"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Prise en main des fonctionnalités JSON dans Azure SQL Database
 Azure SQL Database vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](https://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON. Les scénarios JSON suivants sont disponibles dans Azure SQL Database :
@@ -30,7 +30,7 @@ Si vous disposez d’un service web qui prélève des données de la couche de b
 
 Dans l’exemple suivant, les lignes de la table Sales.Customer sont converties au format JSON à l’aide de la clause FOR JSON :
 
-```
+```sql
 select CustomerName, PhoneNumber, FaxNumber
 from Sales.Customers
 FOR JSON PATH
@@ -38,7 +38,7 @@ FOR JSON PATH
 
 La clause FOR JSON PATH convertit les résultats de la requête au format de texte JSON. Les noms des colonnes sont utilisés en tant que clés, tandis que les valeurs des cellules sont générées en tant que valeurs JSON :
 
-```
+```json
 [
 {"CustomerName":"Eric Torres","PhoneNumber":"(307) 555-0100","FaxNumber":"(307) 555-0101"},
 {"CustomerName":"Cosmina Vlad","PhoneNumber":"(505) 555-0100","FaxNumber":"(505) 555-0101"},
@@ -50,7 +50,7 @@ Le jeu de résultats est mis en forme de tableau JSON, où chaque ligne est form
 
 PATH indique que vous pouvez personnaliser le format de sortie de votre résultat JSON à l’aide d’une notation par points dans des alias de colonne. La requête suivante modifie le nom de la clé « CustomerName » dans le format JSON de sortie, et place les numéros de téléphone et de télécopie dans le sous-objet « Contact » :
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
 from Sales.Customers
 where CustomerID = 931
@@ -59,7 +59,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 Le résultat de cette requête ressemble à ceci :
 
-```
+```json
 {
     "Name":"Nada Jovanovic",
     "Contact":{
@@ -73,7 +73,7 @@ Dans cet exemple, nous renvoyons un objet JSON au lieu d’un tableau, en spéci
 
 La valeur principale de la clause FOR JSON est qu’elle vous permet de renvoyer des données hiérarchiques complexes à partir de votre base de données sous la forme de tableaux ou d’objets JSON imbriqués. L’exemple suivant montre comment inclure les lignes de la table `Orders` appartenant à `Customer` sous forme d’un tableau imbriqué de `Orders` :
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
         Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
 from Sales.Customers Customer
@@ -81,12 +81,11 @@ from Sales.Customers Customer
         on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
-
 ```
 
 Au lieu d’envoyer des requêtes séparées pour obtenir des données du client, puis d’extraire une liste de commandes associées, vous pouvez obtenir toutes les données nécessaires à l’aide d’une requête unique, comme illustré dans l’exemple de sortie suivant :
 
-```
+```json
 {
   "Name":"Nada Jovanovic",
   "Phone":"(215) 555-0100",
@@ -95,7 +94,7 @@ Au lieu d’envoyer des requêtes séparées pour obtenir des données du client
     {"OrderID":382,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":395,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":1657,"OrderDate":"2013-01-31","ExpectedDeliveryDate":"2013-02-01"}
-]
+  ]
 }
 ```
 
@@ -104,7 +103,7 @@ Si vous n’avez pas de données strictement structurées, si vous avez des sous
 
 JSON est un format texte utilisable comme tout autre type de chaîne dans Azure SQL Database. Vous pouvez envoyer ou stocker des données JSON en tant que type NVARCHAR standard :
 
-```
+```sql
 CREATE TABLE Products (
   Id int identity primary key,
   Title nvarchar(200),
@@ -120,7 +119,7 @@ END
 
 Les données JSON utilisées dans cet exemple sont représentées à l’aide du type NVARCHAR(MAX). Des données JSON peuvent être insérées dans cette table ou fournies en tant qu’argument de la procédure stockée à l’aide de la syntaxe Transact-SQL standard, comme indiqué dans l’exemple suivant :
 
-```
+```sql
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
@@ -131,7 +130,7 @@ Si vous avez des données au format JSON stockées dans des tables SQL Azure, l
 
 Les fonctions JSON disponibles dans Azure SQL Database vous permettent de traiter des données au format JSON comme tout autre type de données SQL. Vous pouvez facilement extraire des valeurs du texte JSON et utiliser des données JSON dans toute requête :
 
-```
+```sql
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
 from Products
 where JSON_VALUE(Data, '$.Color') = 'White'
@@ -149,7 +148,7 @@ La fonction JSON_MODIFY permet de spécifier le chemin d’accès de la valeur d
 
 Étant donné que JSON est stocké dans un texte standard, il n’est nullement garanti que le format des valeurs stockées dans les colonnes de texte est correct. Vous pouvez vérifier que le texte stocké dans une colonne JSON est correctement mis en forme en utilisant des contraintes de vérification Azure SQL Database standard et la fonction ISJSON :
 
-```
+```sql
 ALTER TABLE Products
     ADD CONSTRAINT [Data should be formatted as JSON]
         CHECK (ISJSON(Data) > 0)
@@ -168,7 +167,7 @@ Dans l’exemple ci-dessus, nous pouvons spécifier où localiser le tableau JSO
 
 Nous pouvons transformer un tableau JSON dans la variable @orders en un ensemble de lignes, analyser ce résultat ou insérer des lignes dans une table standard :
 
-```
+```sql
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
 AS BEGIN
 
@@ -181,9 +180,9 @@ AS BEGIN
             Customer varchar(200),
             Quantity int
      )
-
 END
 ```
+
 La collection de commandes mise en forme de tableau JSON et fournie en tant que paramètre à la procédure stockée peut être analysée et insérée dans la table Orders.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -4,12 +4,12 @@ description: Résolvez les problèmes d’installation et d’enregistrement du 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7a1cac63ba6497b8580c83fe2b666b020701283a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421294"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688049"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -62,7 +62,7 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Envoi d’un ou de plusieurs agents à des serveurs protégés via une transmission de type push | L’opération de l’agent a échoué en raison d’une erreur de communication avec le service Coordinateur d’agents DPM sur \<ServerName>. | **Si l’action recommandée affichée dans le produit ne fonctionne pas, procédez comme suit** : <ul><li> Si vous joignez un ordinateur à partir d’un domaine non approuvé, suivez [ces étapes](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> (OU) </li><li> Si vous joignez un ordinateur à partir d’un domaine approuvé, résolvez les problèmes à l’aide de la procédure décrite dans [ce blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>(OU)</li><li> Essayez de désactiver l’antivirus. Si cela résout le problème, modifiez les paramètres de l’antivirus comme suggéré dans [cet article](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).</li></ul> |
+| Envoi d’un ou de plusieurs agents à des serveurs protégés via une transmission de type push | L’opération de l’agent a échoué en raison d’une erreur de communication avec le service Coordinateur d’agents DPM sur \<ServerName>. | **Si l’action recommandée affichée dans le produit ne fonctionne pas, procédez comme suit** : <ul><li> Si vous joignez un ordinateur à partir d’un domaine non approuvé, suivez [ces étapes](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> (OU) </li><li> Si vous joignez un ordinateur à partir d’un domaine approuvé, résolvez les problèmes à l’aide de la procédure décrite dans [ce blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>(OU)</li><li> Essayez de désactiver l’antivirus. Si cela résout le problème, modifiez les paramètres de l’antivirus comme suggéré dans [cet article](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Le programme d’installation n’a pas pu mettre à jour les métadonnées du registre
 
@@ -96,7 +96,7 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | Backup | Si vous sauvegardez uniquement l’état du système, vérifiez que l’ordinateur présente un espace disponible suffisant pour stocker cette sauvegarde. | <ol><li>Vérifiez que la sauvegarde Windows Server est installée sur l’ordinateur protégé.</li><li>Vérifiez que l’ordinateur protégé dispose d’un espace suffisant pour l’état du système. Pour ce faire, le plus simple est d’accéder à l’ordinateur protégé, d’ouvrir la sauvegarde Windows Server, de cliquer sur les sélections, puis de sélectionner la récupération complète. L’interface utilisateur vous indique ensuite l’espace requis. Ouvrez la **sauvegarde Windows Server** >  **, puis cliquez sur Sauvegarde locale** > **Planification de la sauvegarde** > **Sélectionner la configuration de sauvegarde** > **Serveur complet** (la taille est affichée). Utilisez cette taille à des fins de vérification.</li></ol>
 | Backup | Échec de la sauvegarde à des fins de récupération complète | Si la taille de la récupération complète est importante, déplacez certains fichiers d’application vers le disque du système d’exploitation et recommencez. |
 | Backup | L’option permettant de reprotéger une machine virtuelle VMware sur un nouveau serveur de sauvegarde Microsoft Azure ne s’affiche pas comme pouvant être ajoutée. | Les propriétés VMware sont pointés vers une ancienne instance du serveur de sauvegarde Microsoft Azure mise hors service. Pour résoudre ce problème :<br><ol><li>Dans VCenter (équivalent SC-VMM), accédez à l’onglet **Résumé**, puis **Attributs personnalisés**.</li>  <li>Supprimez le nom de l’ancien serveur de sauvegarde Microsoft Azure de la valeur **DPMServer**.</li>  <li>Revenez au nouveau serveur de sauvegarde Microsoft Azure et modifiez le groupe de protection.  Après un clic sur le bouton **Actualiser**, la machine virtuelle comporte une case à cocher indiquant qu’elle peut être ajoutée à la protection.</li></ol> |
-| Backup | Erreur lors de l’accès aux dossiers/fichiers partagés. | Essayez de modifier les paramètres d’antivirus comme indiqué dans l’article [Exécution d’un logiciel antivirus sur le serveur DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).|
+| Backup | Erreur lors de l’accès aux dossiers/fichiers partagés. | Essayez de modifier les paramètres d’antivirus comme indiqué dans l’article [Exécution d’un logiciel antivirus sur le serveur DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).|
 
 ## <a name="change-passphrase"></a>Modification de la phrase secrète
 

@@ -3,12 +3,12 @@ title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager pour le déploiement de ressources.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885733"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086332"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
@@ -50,7 +50,7 @@ Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’u
 
 * **Blueprints de déploiement** : Vous pouvez tirer parti des [plans](../../governance/blueprints/overview.md) fournis par Microsoft pour respecter les normes réglementaires et de conformité. Ces blueprints incluent des modèles prédéfinis pour différentes architectures.
 
-* **Intégration CI/CD** : Vous pouvez intégrer des modèles dans vos outils d’intégration et de déploiement continus (CI/CD), qui peuvent automatiser vos pipelines de mise en production en vue d’effectuer des mises à jour rapides et fiables des applications et des infrastructures. À l’aide de la tâche de modèle Resource Manager et Azure DevOps, vous pouvez utiliser Azure Pipelines pour générer et déployer des projets de modèle Azure Resource Manager en continu. Pour en savoir plus, consultez [Projet VS avec des pipelines](add-template-to-azure-pipelines.md) et [Intégration continue avec Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+* **Intégration CI/CD** : Vous pouvez intégrer des modèles dans vos outils d’intégration et de déploiement continus (CI/CD), qui peuvent automatiser vos pipelines de mise en production en vue d’effectuer des mises à jour rapides et fiables des applications et des infrastructures. À l’aide de la tâche de modèle Resource Manager et Azure DevOps, vous pouvez utiliser Azure Pipelines pour générer et déployer des projets de modèle Azure Resource Manager en continu. Pour plus d’informations, consultez [Projet VS avec Azure Pipelines](add-template-to-azure-pipelines.md) et le [Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines](./deployment-tutorial-pipeline.md).
 
 * **Code exportable** : Vous pouvez obtenir un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en consultant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](export-template-portal.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
 

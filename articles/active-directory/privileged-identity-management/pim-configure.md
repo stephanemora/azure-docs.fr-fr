@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bfb0cc61b61328df86c27498a1007f2372fb9548
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74899981"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867444"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -50,9 +50,7 @@ Une fois que vous aurez configuré Privileged Identity Management, vous verrez l
 
 ## <a name="who-can-do-what"></a>Qui peut faire quoi ?
 
-Si vous êtes la première personne à utiliser Privileged Identity Management, les rôles [Administrateur de sécurité](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) et [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) vous sont automatiquement attribués dans l’annuaire.
-
-Pour les rôles Azure AD dans Privileged Identity Management, seul un utilisateur qui possède le rôle d’administrateur de rôle privilégié peut gérer les affectations des autres administrateurs. Vous pouvez [accorder l’accès à d’autres administrateurs pour la gestion de Privileged Identity Management](pim-how-to-give-access-to-pim.md). Les administrateurs généraux, les administrateurs de la sécurité, les lecteurs généraux et les lecteurs Sécurité peuvent aussi consulter les attributions de rôles Azure AD dans Privileged Identity Management.
+Pour les rôles Azure AD dans Privileged Identity Management, seul un utilisateur qui détient le rôle Administrateur de rôle privilégié ou Administrateur général peut gérer les affectations des autres administrateurs. Vous pouvez [accorder l’accès à d’autres administrateurs pour la gestion de Privileged Identity Management](pim-how-to-give-access-to-pim.md). Les administrateurs généraux, les administrateurs de la sécurité, les lecteurs généraux et les lecteurs Sécurité peuvent aussi consulter les attributions de rôles Azure AD dans Privileged Identity Management.
 
 Pour les rôles de ressources Azure dans Privileged Identity Management, seul un administrateur d’abonnement, un propriétaire de ressource ou un administrateur de l’accès utilisateur aux ressources peut gérer les affectations des autres administrateurs. Par défaut, les utilisateurs qui possèdent un rôle d’administrateur de rôle privilégié, d’administrateur de la sécurité ou de lecteur Sécurité ne peuvent pas consulter les attributions de rôles de ressources Azure dans Privileged Identity Management.
 

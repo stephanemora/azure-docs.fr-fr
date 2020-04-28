@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 29ac9239b8dc87b1ed12fc8333bf5201fe8fa204
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a1229ee389b41625554fb2869089b08a3cb9cb6d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617128"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676514"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gérer les runbooks dans Azure Automation
 
@@ -46,13 +46,13 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 Vous pouvez créer un runbook dans Azure Automation en important un script PowerShell ou PowerShell Workflow ( **.ps1**), un runbook graphique exporté ( **.graphrunbook**) ou un script Python2 ( **.py**).  Vous devez spécifier le [type de runbook](automation-runbook-types.md) qui sera créé à lors de l’importation et ce, en tenant compte des considérations suivantes.
 
-* Un fichier **.ps1** qui ne contient pas de workflow peut être importé dans un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) ou un [runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Si vous l’importez dans un runbook PowerShell Workflow, il est converti en workflow. Dans ce cas, les commentaires sont inclus dans le runbook pour décrire les modifications apportées.
+* Vous pouvez importer un fichier **.ps1** qui ne contient pas de workflow dans un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) ou un [runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Si vous l’importez dans un runbook PowerShell Workflow, il est converti en workflow. Dans ce cas, les commentaires sont inclus dans le runbook pour décrire les modifications apportées.
 
-* Un fichier **.ps1** contenant un workflow PowerShell peut uniquement être importé dans un runbook [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Si le fichier contient plusieurs workflows PowerShell, l’importation échoue. Vous devez enregistrer chaque workflow dans son propre fichier, puis les importer séparément.
+* Vous ne pouvez importer un fichier **.ps1** contenant un workflow PowerShell que dans un [runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Si le fichier contient plusieurs workflows PowerShell, l’importation échoue. Vous devez enregistrer chaque workflow dans son propre fichier, puis les importer séparément.
 
-* Un fichier **.ps1** contenant un workflow PowerShell ne doit pas être importé dans un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks), car le moteur de script PowerShell ne peut pas le reconnaître.
+* N'importez pas de fichier **.ps1** contenant un workflow PowerShell dans un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) car le moteur de script PowerShell ne peut pas le reconnaître.
 
-* Un fichier **.graphrunbook** peut uniquement être importé dans un nouveau [runbook graphique](automation-runbook-types.md#graphical-runbooks). Notez que vous pouvez uniquement créer un runbook graphique à partir d’un fichier **.graphrunbook**.
+* Vous ne pouvez importer un fichier **.graphrunbook** que dans un nouveau [runbook graphique](automation-runbook-types.md#graphical-runbooks). Notez que vous pouvez uniquement créer un runbook graphique à partir d’un fichier **.graphrunbook**.
 
 ### <a name="import-a-runbook-from-a-file-with-the-azure-portal"></a>Importer un runbook à partir d’un fichier avec le portail Azure
 
