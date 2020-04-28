@@ -46,12 +46,12 @@ Vous n’avez peut-être pas accès à votre compte Azure Active Directory (Azur
    >[!NOTE]
    >Si votre administrateur n’a pas encore activé la possibilité de réinitialiser votre mot de passe, vous verrez un lien **Contactez votre administrateur** à la place de l’écran **Retournez sur votre compte**. Ce lien vous permet de contacter votre administrateur pour réinitialiser votre mot de passe, que ce soit par e-mail ou un portail web.
 
-3. Choisissez l’une des méthodes suivantes pour vérifier votre identité et modifier votre mot de passe. Selon la façon dont votre administrateur a configuré votre organisation, vous devrez peut-être exécuter ce processus une deuxième fois, et entrer des informations supplémentaires pour une deuxième étape de vérification.
+3. Choisissez l’une des méthodes suivantes pour vérifier votre identité et modifier votre mot de passe. Selon la façon dont votre administrateur a configuré votre organisation, vous devrez peut-être exécuter ce processus une deuxième fois et entrer des informations supplémentaires pour une deuxième étape de vérification.
 
     ![Retournez sur votre compte, étape de vérification n°1](media/security-info/security-info-back-into-acct2.png)
 
     >[!NOTE]
-    >Selon la façon dont votre administrateur a configuré votre organisation, certaines de ces options de vérification peuvent ne pas être disponibles. Pour la vérification à l’aide d’au moins une des méthodes suivantes, vous devez avoir préalablement configuré votre appareil mobile.<br><br>En outre, il est possible que votre nouveau mot de passe doive répondre à certaines exigences de solidité. Les mots de passe solides présentent généralement de 8 à 16 caractères, et contiennent des caractères majuscules et minuscules, au moins un chiffre et au moins un caractère spécial.
+    >Selon la façon dont votre administrateur a configuré votre organisation, certaines de ces options de vérification peuvent ne pas être disponibles. Pour la vérification à l’aide d’au moins une des méthodes suivantes, vous devez avoir préalablement configuré votre appareil mobile.<br><br>En outre, il est possible que votre nouveau mot de passe doive répondre à certaines exigences de sécurité. Les mots de passe forts présentent généralement de 8 à 16 caractères, et contiennent des caractères majuscules et minuscules, au moins un chiffre et au moins un caractère spécial.
 
 - **Réinitialiser votre mot de passe à l’aide d’une adresse e-mail.** Envoie un e-mail à l’adresse de messagerie que vous avez précédemment configurée lors de la vérification en deux étapes ou dans les informations de sécurité. Si votre administrateur a activé l’expérience informations de sécurité, vous trouverez plus d’informations sur la configuration d’une adresse e-mail dans l’article [Set up security info to use email (preview)](security-info-setup-email.md) (Configurer les informations de sécurité pour utiliser l’e-mail [préversion]). Si vous n’utilisez pas encore les informations de sécurité, vous trouverez plus d’informations sur la configuration d’une adresse e-mail dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md). 
 
@@ -133,7 +133,7 @@ Utilisez cette méthode si vous avez l’habitude d’accéder à vos applicatio
 
 4. Saisissez votre ancien mot de passe, créez un nouveau mot de passe et confirmez-le, puis cliquez sur **Soumettre**.
 
-### <a name="to-change-your-password-at-windows-sign-in"></a>Pour modifier votre mot de passe lors de l’authentification Windows
+### <a name="to-change-your-password-at-windows-sign-in"></a>Pour modifier votre mot de passe lors de la connexion à Windows
 
 Si votre administrateur a activé la fonctionnalité, vous verrez un lien de **réinitialisation du mot de passe** sur votre écran d’authentification à Windows 7, Windows 8, Windows 8.1 ou Windows 10.
 
@@ -145,7 +145,7 @@ Si votre administrateur a activé la fonctionnalité, vous verrez un lien de **r
 
 4. Sur la page **Créer un mot de passe**, entrez un nouveau mot de passe, confirmez-le, puis sélectionnez **Suivant**.
 
-    Les mots de passe solides présentent généralement de 8 à 16 caractères, et contiennent des caractères majuscules et minuscules, au moins un chiffre et au moins un caractère spécial.
+    Les mots de passe forts présentent généralement de 8 à 16 caractères, et contiennent des caractères majuscules et minuscules, au moins un chiffre et au moins un caractère spécial.
 
 5. Une fois que vous obtenez le message indiquant que votre mot de passe a été réinitialisé, sélectionnez **Terminer**.
 
@@ -157,9 +157,9 @@ Voici quelques cas d'erreur courants et leurs solutions :
 
 |Problème|Description|Solution|
 | --- | --- | --- |
-|J’obtiens une erreur quand j’essaie de changer mon mot de passe. |Votre mot de passe contient un mot, une expression ou un modèle qui rend votre mot de passe facile à deviner.| Réessayez en utilisant un mot de passe plus robuste.|
+|J’obtiens une erreur quand j’essaie de changer mon mot de passe. |Votre mot de passe contient un mot, une expression ou un modèle qui rend votre mot de passe facile à deviner.| Réessayez en utilisant un mot de passe plus fort.|
 |Après avoir entré mon identifiant utilisateur, j’accède à une page indiquant « Veuillez contacter votre administrateur ».|Microsoft a déterminé que votre mot de passe de compte d’utilisateur est géré par votre administrateur dans un environnement local. De ce fait, vous ne pouvez pas réinitialiser votre mot de passe à partir du lien « Vous ne pouvez pas accéder à votre compte ». |Contactez votre administrateur pour obtenir de l’aide.|
-|L’erreur « Votre compte n’est pas activé pour la réinitialisation de mot de passe » s’affiche lorsque j’entre mon identifiant utilisateur.|Votre administrateur n’a pas encore configuré votre compte de façon à ce que vous puissiez réinitialiser votre mot de passe.|Votre administrateur n’a pas activé la réinitialisation de mot de passe pour votre organisation à partir du lien « Votre compte n’est pas accessible » ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité.<br><br> Pour réinitialiser votre mot de passe, vous devez sélectionner le lien « Contacter un administrateur » afin d’envoyer un e-mail à l’administrateur de votre entreprise et l’informez que vous souhaitez réinitialiser votre mot de passe.|
+|L’erreur « Votre compte n’est pas activé pour la réinitialisation de mot de passe » s’affiche lorsque j’entre mon identifiant utilisateur.|Votre administrateur n’a pas encore configuré votre compte pour vous permettre de réinitialiser votre mot de passe.|Votre administrateur n’a pas activé la réinitialisation de mot de passe pour votre organisation à partir du lien « Votre compte n’est pas accessible » ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité.<br><br> Pour réinitialiser votre mot de passe, vous devez sélectionner le lien « Contacter un administrateur » afin d’envoyer un e-mail à l’administrateur de votre entreprise et l’informer que vous souhaitez réinitialiser votre mot de passe.|
 |Après avoir saisi mon identifiant utilisateur, j’obtiens une erreur indiquant « Nous n’avons pas pu vérifier votre compte ».|Le processus d’authentification n’a pas pu vérifier les informations liées à votre compte.|Si vous obtenez ce message, deux raisons possibles :<br><br>1. Votre administrateur a activé la réinitialisation de mot de passe pour votre organisation, mais vous n’êtes pas inscrit pour utiliser le service. Pour vous inscrire à la réinitialisation du mot de passe, consultez l’un des articles suivants, selon votre méthode de vérification : [Configurer les informations de sécurité pour utiliser une application d’authentification (préversion) ](security-info-setup-auth-app.md), [Configurer les informations de sécurité pour utiliser un appel téléphonique (préversion)](security-info-setup-phone-number.md), [Configurer les informations de sécurité pour utiliser l’envoi de SMS (préversion)](security-info-setup-text-msg.md), [Configurer les informations de sécurité pour utiliser les e-mails (préversion)](security-info-setup-email.md) ou [Configurer les informations de sécurité pour utiliser les questions de sécurité (préversion)](security-info-setup-questions.md).<br><br>2. Votre administrateur n’a pas activé la réinitialisation de mot de passe pour votre organisation. Dans ce cas, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise demandant de réinitialiser votre mot de passe.|
 
 ## <a name="next-steps"></a>Étapes suivantes
