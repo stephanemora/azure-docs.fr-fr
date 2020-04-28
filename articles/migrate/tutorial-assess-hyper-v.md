@@ -2,14 +2,14 @@
 title: Évaluer des machines virtuelles Hyper-V pour la migration vers Azure avec Azure Migrate | Microsoft Docs
 description: Décrit comment évaluer des machines virtuelles Hyper-V locales pour la migration vers Azure avec Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: cb3c29e01b7917a6d639b6b2a53fc2842efc2172
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336772"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535449"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
@@ -49,7 +49,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 4. Dans **Bien démarrer**, cliquez sur **Ajouter des outils**.
 5. Sous l’onglet **Projet de migration**, sélectionnez votre abonnement Azure, puis créez un groupe de ressources si vous n’en avez pas.
-6. Dans **Détails du projet**, spécifiez le nom du projet et la région où vous voulez créer le projet. [Passez en revue](migrate-support-matrix.md#supported-geographies) les régions dans lesquelles vous pouvez créer un projet Azure Migrate.
+6. Dans **Détails du projet**, spécifiez le nom du projet et la région où vous voulez créer le projet. Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et du [secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - La région du projet est utilisée seulement pour stocker les métadonnées collectées à partir des machines virtuelles locales.
     - Vous pouvez sélectionner une autre région cible Azure quand vous migrez les machines virtuelles. Toutes les régions Azure sont prises en charge pour la cible de migration.
@@ -67,9 +67,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurer l’appliance Azure Migrate
 
-Azure Migrate Server Assessment utilise une appliance Azure Migrate légère. L’appliance effectue la découverte des machines virtuelles, puis envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate.
-- L’appliance peut être configurée sur une machine virtuelle Hyper-V au moyen d’un disque dur virtuel Hyper-V téléchargé. Vous pouvez également configurer l’appliance sur une machine virtuelle ou physique à l’aide d’un script d’installation PowerShell.
-- Ce tutoriel utilise le disque dur virtuel. Passez en revue [cet article](deploy-appliance-script.md) si vous souhaitez configurer l’appliance à l’aide d’un script.
+
+Azure Migrate Server Assessment utilise une appliance Azure Migrate légère. L’appliance effectue la découverte des machines virtuelles, puis envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate. L’appliance peut être configurée de plusieurs façons.
+
+- Configurez-la sur une machine virtuelle Hyper-V au moyen d’un disque dur virtuel Hyper-V téléchargé. Il s’agit de la méthode utilisée dans ce tutoriel.
+- Configurez-la sur une machine virtuelle Hyper-V ou machine physique avec un script d’installation PowerShell. [Cette méthode](deploy-appliance-script.md) doit être utilisée si vous ne pouvez pas configurer une machine virtuelle à l’aide du disque dur virtuel, ou si vous êtes dans Azure Government.
 
 Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment, configurez-la pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
@@ -125,9 +127,9 @@ Importez le fichier téléchargé, puis créez la machine virtuelle.
 7. Dans Gestionnaire Hyper-V > **Machines virtuelles**, démarrez la machine virtuelle.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
+## <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
-Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL Azure](migrate-appliance.md#url-access).
+Vérifiez que la machine virtuelle de l’appliance peut se connecter aux URL Azure pour les clouds [publics](migrate-appliance.md#public-cloud-urls) et du [secteur public](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="configure-the-appliance"></a>Configurer l’appliance
 

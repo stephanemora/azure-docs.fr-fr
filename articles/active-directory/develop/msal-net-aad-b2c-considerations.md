@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d31cf3a4e024dc59b865d096cbd0829d50f61a1a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230649"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533953"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales
 
@@ -34,7 +34,7 @@ Cette page est destinée à MSAL 3.x. Si vous êtes intéressé par MSAL 2.x, 
 L’autorité à utiliser est `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`, dans laquelle :
 
 - `azureADB2CHostname` est le nom du locataire Azure AD B2C plus l’hôte (par exemple `{your-tenant-name}.b2clogin.com`),
-- `tenant` est le nom complet du locataire Azure AD B2C (par exemple, `{your-tenant-name}.onmicrosoft.com`) ou le GUID du locataire, 
+- `tenant` est le nom complet du locataire Azure AD B2C (par exemple, `{your-tenant-name}.onmicrosoft.com`) ou le GUID du locataire,
 - `policyName` est le nom de la stratégie ou du flux utilisateur à appliquer (par exemple « b2c_1_susi » pour les inscriptions/connexions).
 
 Pour plus d’informations sur les autorités Azure Active Directory B2C, voir cette [documentation](/azure/active-directory-b2c/b2clogin).
@@ -121,7 +121,7 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 ## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Informations d’identification de mot de passe du propriétaire de ressource (ROPC) avec Azure AD B2C
 Pour des informations plus détaillées sur le flux ROPC, consultez cette [documentation](v2-oauth-ropc.md).
 
-Ce flux est **déconseillé**, car votre application demandant à un utilisateur son mot de passe n’est pas sécurisée. Pour plus d’informations sur ce problème, consultez [cet article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
+Ce flux est **déconseillé**, car votre application demandant à un utilisateur son mot de passe n’est pas sécurisée. Pour plus d’informations sur ce problème, consultez [cet article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
 
 En utilisant le nom d’utilisateur/mot de passe, vous abandonnez un certain nombre de choses :
 - Principes de base de l’identité moderne : les mots de passe sont récupérés, relus. Du fait de ce concept d’un secret partagé qui peut être intercepté. C’est incompatible avec l’option sans mot de passe.
@@ -155,15 +155,15 @@ Si vous êtes un développeur Azure AD B2C qui utilise Google comme fournisseur 
 
 Nous fournirons une mise à jour concernant ce [problème](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) en cas de changement.
 
-## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Mise en cache avec Azure AD B2C dans MSAL.Net 
+## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Mise en cache avec Azure AD B2C dans MSAL.Net
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problème connu avec Azure AD B2C
 
-MSAL.Net prend en charge un [cache de jeton](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). La clé de la mise en cache de jeton est basée sur les revendications retournées par le fournisseur d’identité. Actuellement, MSAL.Net a besoin de deux revendications pour générer une clé de cache de jeton :  
-- `tid`, qui est l’ID de locataire Azure AD et 
-- `preferred_username` 
+MSAL.Net prend en charge un [cache de jeton](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). La clé de la mise en cache de jeton est basée sur les revendications retournées par le fournisseur d’identité. Actuellement, MSAL.Net a besoin de deux revendications pour générer une clé de cache de jeton :
+- `tid`, qui est l’ID de locataire Azure AD et
+- `preferred_username`
 
-Ces deux revendications sont absentes dans la plupart des scénarios Azure AD B2C. 
+Ces deux revendications sont absentes dans la plupart des scénarios Azure AD B2C.
 
 L’impact sur le client se traduit lorsque vous tentez d’afficher le champ du nom d’utilisateur, vous pouvez obtenir « Absent de la réponse de jeton » comme valeur. Si tel est le cas, cela est dû au fait qu’Azure AD B2C ne retourne pas de valeur dans IdToken pour preferred_username, en raison des limitations des comptes sociaux et des fournisseurs d’identité externes (IdPs). Azure AD retourne une valeur pour preferred_username, car il sait qui est l’utilisateur, par contre, pour Azure AD B2C, étant donné que l’utilisateur peut se connecter avec un compte local, Facebook, Google, GitHub, etc., il n’y a pas de valeur constante utilisable par Azure AD B2C pour preferred_username. Pour ne pas bloquer MSAL dans son déploiement de la compatibilité du cache avec ADAL, nous avons décidé d’utiliser de notre côté « Absent de la réponse de jeton » lors de la gestion des comptes Azure AD B2C, quand IdToken ne retournera rien pour preferred_username. MSAL doit retourner une valeur pour preferred_username, afin de maintenir la compatibilité du cache entre les bibliothèques.
 
@@ -178,10 +178,10 @@ Vous pouvez également utiliser la revendication `tid`, si vous utilisez les [st
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Atténuation pour « Absent de la réponse de jeton »
 Une option consiste à utiliser la revendication « name » (nom) comme nom d’utilisateur par défaut. Le processus est mentionné dans cette [documentation B2C](../../active-directory-b2c/user-flow-overview.md) -> « Dans la colonne Revendication de retour, choisissez les revendications à renvoyer à votre application dans les jetons d’authentification, après une expérience de modification de profil réussie. Par exemple, sélectionnez Nom d’affichage, Code postal ».
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 
 D’autres informations détaillées sur l’acquisition de jetons de manière interactive avec MSAL.NET pour les applications Azure AD B2C sont fournies dans l’exemple suivant.
 
 | Exemple | Plateforme | Description|
 |------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Une application Xamarin Forms simple expliquant comment utiliser MSAL.NET pour authentifier les utilisateurs via Azure AD B2C, et accéder à une API web avec les jetons générés.|
+|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Application Xamarin Forms simple expliquant comment utiliser MSAL.NET pour authentifier les utilisateurs via Azure AD B2C et accéder à une API web avec les jetons générés.|

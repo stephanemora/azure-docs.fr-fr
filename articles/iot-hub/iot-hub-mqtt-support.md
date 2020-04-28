@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 86fc5d4845e746604c1ba69f661d1b9ea9d8dca4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233217"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732312"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -25,7 +28,7 @@ IoT Hub n’est pas un répartiteur MQTT complet et ne prend pas en charge tous 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Toutes les communications des appareils avec IoT Hub doivent être sécurisées à l’aide de TLS/SSL. Par conséquent, IoT Hub ne prend pas en charge les connexions non sécurisées sur le port 1883.
+Toutes les communications des appareils avec IoT Hub doivent être sécurisées à l’aide de TLS/SSL. Par conséquent, IoT Hub ne prend pas en charge les connexions non sécurisées sur le port 1883.
 
 ## <a name="connecting-to-iot-hub"></a>Connexion à IoT Hub
 
@@ -118,7 +121,7 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 
   Pour plus d’informations sur la génération de jetons de signature d’accès partagé, consultez la section consacrée aux appareils de [Utilisation de jetons de sécurité IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Lors du test, vous pouvez également utiliser les [Outils IoT Azure pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) multiplateforme ou l’outil [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) afin de générer rapidement un jeton de signature d’accès partagé que vous pouvez copier et coller dans votre propre code :
+  Lors du test, vous pouvez également utiliser [Azure IoT Tools pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) multiplateforme ou de la commande d'extension CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) afin de générer rapidement un jeton de signature d’accès partagé que vous pouvez copier et coller dans votre propre code :
 
 ### <a name="for-azure-iot-tools"></a>Pour Azure IoT Tools
 
@@ -129,16 +132,6 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 3. Définissez un **Délai d’expiration** et appuyez sur « ENTRÉE ».
   
 4. Le jeton SAP est créé et copié dans le Presse-papiers.
-
-### <a name="for-device-explorer"></a>Pour Device Explorer
-
-1. Accédez à l’onglet **Management** (Gestion) de **l’Explorateur d’appareils**.
-
-2. Cliquez sur **SAS Token** (Jeton SAP) en haut à droite.
-
-3. Dans **SASTokenForm**, sélectionnez votre appareil dans la liste déroulante **DeviceID**. Définissez votre **TTL**(Durée de vie).
-
-4. Cliquez sur **Generate** (Générer) pour créer votre jeton.
 
    Le jeton SAP généré présente la structure suivante :
 

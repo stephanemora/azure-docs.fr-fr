@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 005d4fe1b6ec59e7f05be3dd2ab3e72d0e7aa8e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236989"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677458"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process en action : Utilisation des clusters Azure HDInsight Hadoop
 Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
@@ -721,7 +721,7 @@ Pour générer des requêtes Hive dans le module [Importer des données][import-
 
 Voici certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
 
-**URI du serveur HCatalog** : Si le nom du cluster est **abc123**, utilisez : https://abc123.azurehdinsight.net.
+**URI du serveur HCatalog** : si le nom du cluster est **abc123**, utilisez : https:\//abc123.azurehdinsight.net.
 
 **Nom du compte utilisateur Hadoop** : Nom d’utilisateur choisi pour le cluster (et non le nom d’utilisateur de l’accès à distance).
 

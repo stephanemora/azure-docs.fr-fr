@@ -7,16 +7,19 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: b7aebb5b9c1aa6566cedda869f97f2d1aa20df83
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.custom: mqtt
+ms.openlocfilehash: a8c5d9479585c0a519d0ad05a4d73f3f15b21287
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674651"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758203"
 ---
-# <a name="tutorial-create-and-connect-a-nodejs-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutoriel : Créer et connecter une application cliente Node.js à votre application Azure IoT Central (Node.js)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central (Node.js)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
+
+*Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
 
 Ce tutoriel explique comment, en tant que développeur d’appareils, connecter une application cliente Node.js à votre application Azure IoT Central. L’application Node.js simule le comportement d’un appareil capteur environnemental. Vous utilisez un exemple de _modèle de capacité d’appareil_ pour créer un _modèle d’appareil_  dans IoT Central. Vous ajoutez des vues au modèle d’appareil pour permettre à un opérateur d’interagir avec un appareil.
 
@@ -325,7 +328,12 @@ Vous pouvez voir comment l’appareil répond aux commandes et aux mises à jour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les modèles de capacité d’appareil et sur la façon de créer vos propres modèles d’appareil, poursuivez avec le guide pratique :
+En tant que développeur d’appareils, maintenant que vous avez appris les bases de la création d’un appareil à l’aide de Node.js, les prochaines étapes suggérées sont les suivantes :
+
+- Découvrez comment connecter un appareil réel à IoT Central dans l’article sur les procédures [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](./howto-connect-devkit.md).
+- Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
+
+Si vous préférez suivre l’ensemble des tutoriels IoT Central et en savoir plus sur la création d’une solution IoT Central, consultez :
 
 > [!div class="nextstepaction"]
-> [Définir un nouveau type d’appareil IoT](./howto-set-up-template.md)
+> [Créer un modèle d’appareil de passerelle](./tutorial-define-gateway-device-type.md)

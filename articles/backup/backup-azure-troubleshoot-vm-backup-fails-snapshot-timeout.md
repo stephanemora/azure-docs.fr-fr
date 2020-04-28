@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226097"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677409"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -141,6 +141,13 @@ Si l’opération de sauvegarde planifiée empiète sur la configuration de la s
 **Message d’erreur** : Échec de la sauvegarde en raison d’une erreur. Pour plus d’informations, consultez les détails du message d’erreur.
 
 Cette erreur est signalée par la machine virtuelle IaaS. Pour identifier la cause racine du problème, accédez aux paramètres du coffre Recovery Services. Dans la section **Analyse**, sélectionnez **Travaux de sauvegarde** pour filtrer et afficher l’état. Cliquez sur **Échecs** pour consulter les détails du message d’erreur sous-jacent. Effectuez d’autres actions conformément aux recommandations figurant sur la page des détails de l’erreur.
+
+## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - Échec de la sauvegarde : cette machine virtuelle n'est pas (activement) protégée par Sauvegarde Azure
+
+**Code d’erreur** : UserErrorBcmDatasourceNotPresent <br>
+**Message d’erreur** : Échec de la sauvegarde : cette machine virtuelle n'est pas (activement) protégée par Sauvegarde Azure.
+
+Vérifiez si la machine virtuelle est activement protégée par Sauvegarde Azure (autrement dit, qu'elle n'est pas en pause). Pour résoudre ce problème, assurez-vous que la machine virtuelle est active, puis retentez l'opération.
 
 ## <a name="causes-and-solutions"></a>Causes et solutions
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: c348a172b16e12334d33cf2718609694147fdce3
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 8f050a43cbdf4ab29df55cd5526eb231c301b271
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674960"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732681"
 ---
 # <a name="power-bi-app-creation-overview"></a>Vue d’ensemble de la création d’applications Power BI
 
@@ -69,7 +69,7 @@ Vous ne pouvez créer une application Power BI que dans l’environnement [Powe
 2. Créez et testez votre application dans Power BI.
 3. Lorsque vous recevez l’URL d’installation de l’application, ajoutez-la à la page **Configuration technique** dans l’Espace partenaires.
 
-Une fois votre application créée et testée dans Power BI, enregistrez l’URL d’installation de l’application, car vous en aurez besoin pour [créer une offre d’application Power BI](https://aka.ms/AzureCreatePBIServiceApp).
+Une fois votre application créée et testée dans Power BI, enregistrez l’URL d’installation de l’application, car vous en aurez besoin pour [créer une offre d’application Power BI](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer).
 
 ### <a name="business-requirements"></a>Exigences commerciales
 
@@ -81,4 +81,4 @@ Les exigences de l’entreprise incluent des obligations procédurales, contract
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une offre d’application Power BI dans l’Espace partenaires](https://aka.ms/AzureCreatePBIServiceApp)
+- [Créer une offre d’application Power BI dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)

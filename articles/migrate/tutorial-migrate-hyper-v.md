@@ -2,16 +2,16 @@
 title: Migrer des machines virtuelles Hyper-V vers Azure avec la migration de serveurs Azure Migrate | Microsoft Docs
 description: Découvrir comment migrer des machines virtuelles Hyper-V locales vers Azure avec la migration de serveurs Azure Migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6b9732aab9e3fe0d26b4c572efe87c3a9d3e29f6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422698"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535347"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrer des machines virtuelles Hyper-V vers Azure 
 
@@ -19,12 +19,12 @@ Cet article explique comment effectuer une migration sans agent de machines virt
 
 [Azure Migrate](migrate-services-overview.md) offre un hub central pour suivre la découverte, l’évaluation et la migration vers Azure de vos applications et charges de travail locales, ainsi que de machines virtuelles cloud privées/publiques. Le hub fournit des outils Azure Migrate pour l’évaluation et la migration ainsi que des offres de fournisseurs de logiciels indépendants (ISV) tiers.
 
-Ce tutoriel est le troisième d’une série qui montre comment évaluer et migrer des machines virtuelles Hyper-V vers Azure à l’aide d’Azure Migrate Server Assessment et Server Migration. Dans ce tutoriel, vous allez apprendre à :
+Ce tutoriel est le troisième d’une série qui montre comment évaluer et migrer des machines virtuelles Hyper-V vers Azure à l’aide d’Azure Migrate : Évaluation du serveur et Migration de serveur. Dans ce tutoriel, vous allez apprendre à :
 
 
 > [!div class="checklist"]
 > * Préparer Azure et votre environnement Hyper-V local
-> * Configurer l’environnement source et déployer une appliance de réplication.
+> * Configurer l’environnement source.
 > * Configurez l’environnement cible.
 > * Activez la réplication.
 > * Exécuter une migration de test pour vérifier que tout fonctionne comme prévu.
@@ -38,23 +38,28 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Avant de commencer ce didacticiel, vous devez :
 
 1. [Examiner](hyper-v-migration-architecture.md) l’architecture de la migration Hyper-V.
-2. [Suivre le premier tutoriel](tutorial-prepare-hyper-v.md) de cette série pour configurer Azure et Hyper-V pour la migration. Dans le premier tutoriel, vous avez effectué les opérations suivantes :
-    - [Préparer Azure](tutorial-prepare-hyper-v.md#prepare-azure) pour la migration.
-    - [Préparer l’environnement local](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration) pour la migration.
-3. Nous vous recommandons d’essayer d’évaluer les machines virtuelles Hyper-V avec Azure Migrate : Server Assessment avant de les migrer vers Azure. Pour ce faire, [suivez le deuxième tutoriel](tutorial-assess-hyper-v.md) de cette série. Bien qu’il soit recommandé de tester l’exécution d’une évaluation, vous n’êtes pas obligé d’en exécuter une avant de migrer des machines virtuelles.
-4. Vérifier que le rôle Contributeur de machines virtuelles est attribué à votre compte Azure pour que vous soyez autorisé à effectuer les opérations suivantes :
+2. [Passer en revue](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) la configuration requise pour l’hôte Hyper-V et les URL Azure auxquelles les hôtes Hyper-V doivent accéder.
+3. [Passer en revue](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) la configuration requise des machines virtuelles Hyper-V que vous souhaitez migrer. Les machines virtuelles Hyper-V doivent satisfaire aux [exigences des machines virtuelles Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
+2. Nous vous recommandons de suivre les tutoriels précédents de cette série. Le [premier tutoriel](tutorial-prepare-hyper-v.md) vous montre comment configurer Azure et Hyper-V pour la migration. Le deuxième tutoriel vous montre comment [évaluer les machines virtuelles Hyper-V] (tutorial-assess-hyper-v.md avant la migration, à l’aide d’Azure Migrate : Évaluation du serveur. 
+    > [!NOTE]
+    > Bien qu’il soit recommandé de tester l’exécution d’une évaluation, vous n’êtes pas obligé d’en exécuter une avant de migrer des machines virtuelles.
+    > Pour la migration de machines virtuelles Hyper-V, Azure Migrate : Migration de serveur exécute des agents logiciels (fournisseur Microsoft Azure Site Recovery et agent Microsoft Azure Recovery Services) sur des hôtes Hyper-V ou des nœuds de cluster pour orchestrer et répliquer des données vers Azure Migrate. L’[appliance Azure Migrate](migrate-appliance.md) n’est pas utilisée pour la migration Hyper-V.
+
+3. Vérifier que le rôle Contributeur de machines virtuelles est attribué à votre compte Azure pour que vous soyez autorisé à effectuer les opérations suivantes :
 
     - Créer une machine virtuelle dans le groupe de ressources sélectionné
     - Créer une machine virtuelle dans le réseau virtuel sélectionné
     - Écrire sur un disque managé Azure.
-5. [Configurez un réseau Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Quand vous effectuez une migration vers Azure, les machines virtuelles Azure créées sont jointes à un réseau Azure que vous spécifiez lors de la configuration de la migration.
+4. [Configurez un réseau Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Quand vous effectuez une migration vers Azure, les machines virtuelles Azure créées sont jointes à un réseau Azure que vous spécifiez lors de la configuration de la migration.
 
+## <a name="add-the-azure-migrateserver-migration-tool"></a>Ajouter l’outil Azure Migrate : Migration de serveur
 
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Ajouter l’outil Azure Migrate Server Migration
+Ajoutez l’outil Azure Migrate : Migration de serveur.
 
-Si vous n’avez pas suivi le deuxième tutoriel pour évaluer les machines virtuelles Hyper-V, vous devez [suivre ces instructions](how-to-add-tool-first-time.md) pour configurer un projet Azure Migrate et ajouter l’outil Azure Migrate Server Assessment au projet.
+- Si vous avez suivi le deuxième tutoriel pour [évaluer les machines virtuelles VMware](/tutorial-assess-hyper-v.md), vous avez déjà configuré un projet Azure Migrate et vous pouvez ajouter l’outil maintenant.
+- Si vous n’avez pas suivi le deuxième tutoriel, [suivez ces instructions](how-to-add-tool-first-time.md) pour configurer un projet Azure Migrate. Vous ajoutez l’outil Azure Migrate : Migration de serveur quand vous créez le projet.
 
-Si vous avez suivi le deuxième tutoriel et que vous avez déjà un projet Azure Migrate, ajoutez l’outil Azure Migrate Server Migration comme suit :
+Si vous avez un projet configuré, ajoutez l’outil comme suit :
 
 1. Dans le projet Azure Migrate, cliquez sur **Vue d’ensemble**. 
 2. Dans **Découvrir, évaluer et migrer des serveurs**, cliquez sur **Évaluer et migrer des serveurs**.
@@ -66,25 +71,8 @@ Si vous avez suivi le deuxième tutoriel et que vous avez déjà un projet Azure
 
     ![Outil Server Migration](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
-
-## <a name="set-up-the-azure-migrate-appliance"></a>Configurer l’appliance Azure Migrate
-
-Azure Migrate Server Migration exécute un agent logiciel sur des nœuds de cluster ou des hôtes Hyper-V pour orchestrer la migration et répliquer les données sur Azure Migrate. Aucune appliance dédiée n’est nécessaire pour la migration.
-
-- L’appliance Azure Migrate Server Assessment effectue la découverte des machines virtuelles, puis envoie les métadonnées et données de performances des machines virtuelles à Azure Migrate Server Migration.
-- L’orchestration de la migration et la réplication des données sont gérées par le fournisseur Microsoft Azure Site Recovery et l’agent Microsoft Azure Recovery Service.
-
-Pour configurer l’appliance :
-- Si vous avez suivi le deuxième tutoriel pour évaluer des machines virtuelles Hyper-V, vous avez déjà configuré l’appliance au cours de ce tutoriel ; ce n’est donc pas nécessaire de le refaire.
-- Si vous n’avez pas suivi ce tutoriel, vous devez configurer l’appliance maintenant. Pour ce faire, procédez comme suit : 
-
-    - Téléchargez un disque dur virtuel Hyper-V compressé à partir du portail Azure.
-    - Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment. 
-    - Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
-
-    Suivez les instructions détaillées indiquées dans [cet article](how-to-set-up-appliance-hyper-v.md) pour configurer l’appliance.
-
 ## <a name="prepare-hyper-v-hosts"></a>Préparer les hôtes Hyper-V
+
 
 1. Dans le projet Azure Migrate > **Serveurs**, dans **Azure Migrate : Server Migration**, cliquez sur **Découvrir**.
 2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Oui, avec Hyper-V**.
@@ -111,21 +99,6 @@ La finalisation de l’inscription peut prendre jusqu’à 15 minutes, jusqu’
 
 ![Serveurs découverts](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
-### <a name="register-hyper-v-hosts"></a>Inscrire des hôtes Hyper-V
-
-Installez le fichier de configuration téléchargé (AzureSiteRecoveryProvider.exe) sur chaque hôte Hyper-V pertinent.
-
-1. Exécutez le fichier de configuration du fournisseur sur chaque l’hôte ou nœud de cluster.
-2. Dans l’Assistant Configuration du fournisseur > **Microsoft Update**, choisissez d’utiliser Microsoft Update pour rechercher les mises à jour du fournisseur.
-3. Dans **Installation**, acceptez l’emplacement d’installation par défaut pour le fournisseur et l’agent, et sélectionnez **Installer**.
-4. Après l’installation, dans l’Assistant Inscription > **Paramètres du coffre**, sélectionnez **Parcourir** et, dans **Fichier de clé**, sélectionnez le fichier de clé de coffre que vous avez téléchargé.
-5. Dans **Paramètres du proxy**, indiquez la façon dont le fournisseur exécuté sur l’hôte se connecte à Internet.
-    - Si l’appliance se trouve derrière un serveur proxy, vous devez spécifier les paramètres du proxy.
-    - Spécifiez le nom du proxy sous la forme **http://ip-address** ou **http://FQDN** . Les serveurs proxy HTTPS ne sont pas pris en charge.
-   
-
-6. Vérifiez que le fournisseur peut atteindre les [URL nécessaires](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts).
-7. Dans **Inscription**, une fois que l’hôte est inscrit, cliquez sur **Terminer**.
 
 ## <a name="replicate-hyper-v-vms"></a>Répliquer des machines virtuelles Hyper-V
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63ec58711c5dd142064e2d5cb29ccaa9eb9c0ed9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c2427fff37158745e416f4b2f0641697ad62ea9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79300353"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682689"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à InVision
 
@@ -157,13 +157,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     e. Dans la zone de texte **SAML Certificate** (Certificat SAML), ouvrez le fichier **Certificat (en base64)** téléchargé du portail Azure dans le Bloc-notes, copiez son contenu et collez-le dans la zone de texte SAML Certificate.
 
-    f. Sélectionnez **SHA-256** dans la liste déroulante **HASH Algorithm** (Algorithme de hachage).
+    f. Dans la zone de texte **Name** **ID Format**, utilisez `Unspecified`.
 
-    g. Dans **SSO Button Label**, entrez un nom comme étiquette du bouton SSO.
+    g. Sélectionnez **SHA-256** dans la liste déroulante **HASH Algorithm** (Algorithme de hachage).
 
-    h. Activez **Allow Just-in-Time provisioning** (Autoriser le provisionnement juste-à-temps).
+    h. Dans **SSO Button Label**, entrez un nom comme étiquette du bouton SSO.
 
-    i. Cliquez sur **Update**.
+    i. Activez **Allow Just-in-Time provisioning** (Autoriser le provisionnement juste-à-temps).
+
+    j. Cliquez sur **Update**.
 
 ### <a name="create-invision-test-user"></a>Créer un utilisateur de test InVision
 

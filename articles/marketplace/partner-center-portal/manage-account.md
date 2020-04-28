@@ -1,22 +1,22 @@
 ---
-title: Comment gérer un compte Place de marché commerciale dans l’Espace partenaires
-description: Découvrez comment gérer un compte Place de marché commerciale dans l’Espace partenaires.
+title: Comment gérer un compte Place de marché commerciale dans l’Espace partenaires Microsoft
+description: Découvrez comment gérer un compte Place de marché commerciale dans l’Espace partenaires Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 6d3952c38703d8102a45c4117e3c59e3fa464957
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e057ca16e2e4f7fcb16ee39d090be853639fc12
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275813"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731444"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Comment gérer votre compte Place de marché commerciale dans l’Espace partenaires
+# <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
-Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez gérer votre compte et les offres à l’aide du [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez utiliser le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour gérer votre compte et les offres.
 
 Dans cet article, nous aborderons comment gérer votre compte Espace partenaires, notamment comment :
 
@@ -35,12 +35,12 @@ Dans cet article, nous aborderons comment gérer votre compte Espace partenaires
 
 Si vous ne l’avez pas déjà fait, vous (ou l’administrateur de votre organisation) devez accéder aux [paramètres du compte](https://partner.microsoft.com/dashboard/account/management) de votre compte Espace partenaires pour :
 - Vérifier l’état de vérification du compte de votre entreprise
-- Confirmer vos ID Symantec, ID de vendeur, ID MPN, ID d’éditeur et informations de contact, notamment les coordonnées du vendeur et de l’approbateur de l’entreprise
+- Confirmer vos ID Symantec, ID de vendeur, ID MPN (Microsoft Partner Network), ID d’éditeur et informations de contact, notamment les coordonnées du vendeur et de l’approbateur de l’entreprise
 - Créer des comptes d’utilisateur pour toute personne qui utilise votre compte professionnel dans l’Espace partenaires
 
 ### <a name="open-developer-settings"></a>Ouvrir les paramètres du développeur
 
-Les paramètres de compte se trouvent dans le coin supérieur droit du [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace) dans l’Espace partenaires. Sélectionnez l’icône d’engrenage (dans le coin supérieur droit du tableau de bord), puis  **Paramètres du développeur**.
+Les **paramètres de compte** se trouvent dans le coin supérieur droit du [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace) dans l’Espace partenaires. Sélectionnez l’icône d’engrenage (dans le coin supérieur droit du tableau de bord), puis  **Paramètres du développeur**.
 
 ![Menu Paramètres de compte de l’Espace partenaires](./media/dashboard-developer-settings.png)
 
@@ -70,7 +70,7 @@ Pour configurer votre compte de paiement, vous devez **associer votre compte Mic
 1. Accédez à la [page Vue d’ensemble de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
 2. Dans la section profil, sélectionnez **Associer votre compte Microsoft**.
 3. Lorsque vous y êtes invité, connectez-vous avec votre compte Microsoft. Ce compte ne peut pas être déjà associé à un autre compte Espace partenaires.
-4. Pour terminer la configuration de votre compte de paiement, déconnectez-vous complètement de l’Espace partenaires, puis reconnectez-vous avec votre compte Microsoft (plutôt qu’avec votre compte professionnel).
+4. Pour terminer la configuration de votre compte de paiement, déconnectez-vous de l’Espace partenaires, puis reconnectez-vous avec votre compte Microsoft (plutôt qu’avec votre compte professionnel).
 
 Maintenant que votre compte Microsoft est associé, pour ajouter un compte de paiement, vous devez :
 - **Choisir un mode de paiement** : Compte bancaire ou PayPal
@@ -120,14 +120,14 @@ Les paramètres de gestion des périphériques s’appliquent uniquement aux pub
 
 Les identificateurs globaux uniques (GUID) sont des nombres de référence uniques (avec 32 chiffres hexadécimaux) qui peuvent être utilisés pour surveiller votre utilisation d’Azure. 
 
-Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. L’équipe de stockage Azure a créé un [formulaire générateur de GUID](https://aka.ms/StoragePartners) qui vous enverra par e-mail un GUID au format approprié et pourra être réutilisé dans les différents systèmes de suivi.
+Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. L’équipe de stockage Azure a créé un [formulaire générateur de GUID](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) qui vous enverra par e-mail un GUID au format approprié et pourra être réutilisé dans les différents systèmes de suivi.
 
 Nous vous recommandons de créer un GUID unique pour chaque offre et canal de distribution de chaque produit. Si vous ne souhaitez pas que les rapports soient scindés, vous pouvez choisir d'utiliser un GUID unique pour les différents canaux de distribution du produit.
 
-Si vous déployez un produit à l'aide d'un modèle et qu'il est disponible à la fois sur la Place de marché Azure et sur GitHub, vous pouvez créer et enregistrer 2 GUID distincts :
+Si vous déployez un produit à l’aide d’un modèle et qu’il est disponible à la fois sur la Place de marché Azure et sur GitHub, vous pouvez créer et enregistrer deux GUID distincts :
 
-*   Produit A sur la Place de marché Azure
-*   Produit A sur GitHub
+*    Produit A sur la Place de marché Azure
+*    Produit A sur GitHub
 
 Les rapports sont établis à l'aide de la valeur de partenaire (ID partenaire Microsoft) et des GUID. Vous pouvez également suivre les GUID alignés sur chaque plan au sein de l’offre à un niveau plus granulaire.
 
@@ -145,23 +145,20 @@ L’Espace partenaires s’appuie sur [Azure Active Directory](https://docs.micr
 
 ## <a name="manage-users"></a>Gestion des utilisateurs
 
-La section **Utilisateurs** de l’Espace partenaires (sous **Paramètres de compte**) vous permet d’utiliser Azure AD pour gérer les utilisateurs, groupes et applications Azure AD qui ont accès à votre compte Espace partenaires. Pour gérer les utilisateurs, vous devez être connecté avec votre [compte professionnel](./company-work-accounts.md) (le locataire Azure AD associé). Pour gérer les utilisateurs d’un compte professionnel/locataire différent, vous devez vous déconnecter et puis vous reconnecter en tant qu’utilisateur avec les autorisateurs **Manager** sur ce compte/locataire.
+La section **Utilisateurs** de l’Espace partenaires (sous **Paramètres de compte**) vous permet d’utiliser Azure AD pour gérer les utilisateurs, groupes et applications Azure AD qui ont accès à votre compte Espace partenaires. Votre compte doit disposer d’autorisations [**de niveau Manager**](#define-user-roles-and-permissions) pour le [compte professionnel (locataire Azure AD)](./company-work-accounts.md) dans lequel vous voulez ajouter ou modifier des utilisateurs. Pour gérer les utilisateurs d’un compte professionnel/locataire différent, vous devez vous déconnecter et puis vous reconnecter en tant qu’utilisateur avec les autorisateurs **Manager** sur ce compte/locataire.
 
 Une fois connecté avec votre compte professionnel (locataire Azure AD), vous pouvez :
-- [Ajouter ou supprimer des utilisateurs](#add-or-remove-users)
+
+- [Ajouter ou supprimer des utilisateurs](#add-existing-users)
 - [Modifier le mot de passe d’un utilisateur](#change-a-user-password)
-- [Ajouter ou supprimer des groupes](#add-or-remove-users)
+- [Ajouter ou supprimer des groupes](#manage-groups)
 - [Ajouter ou supprimer des applications Azure AD](#add-new-azure-ad-applications)
 - [Gérer les clés d’une application Azure AD](#manage-keys-for-an-azure-ad-application)
 - [Définir des rôles et autorisations d’utilisateur](#define-user-roles-and-permissions)
 
 N’oubliez pas que tous les utilisateurs de l’Espace partenaires (y compris les groupes et applications Azure AD) doivent posséder un compte professionnel actif dans un [locataire Azure AD](#manage-tenants) associé à votre compte Espace partenaires.
 
-### <a name="add-or-remove-users"></a>Ajouter ou supprimer des utilisateurs
-
-Votre compte doit disposer d’autorisations [**de niveau Manager**](#define-user-roles-and-permissions) pour le [compte professionnel (locataire Azure AD)](./company-work-accounts.md) dans lequel vous voulez ajouter ou modifier des utilisateurs.
-
-#### <a name="add-existing-users"></a>Ajouter des utilisateurs existants
+### <a name="add-existing-users"></a>Ajouter des utilisateurs existants
 
 Pour ajouter des utilisateurs qui existent déjà dans le [compte professionnel (locataire Azure AD)](./company-work-accounts.md) de votre entreprise à votre compte Espace partenaires :
 
@@ -172,7 +169,7 @@ Pour ajouter des utilisateurs qui existent déjà dans le [compte professionnel 
 4. Dans la section **Rôles**, spécifiez le(s) rôle(s) ou les autorisations personnalisées pour les utilisateurs sélectionnés.
 5. Sélectionnez **Enregistrer**.
 
-#### <a name="create-new-users"></a>Créer de nouveaux utilisateurs
+### <a name="create-new-users"></a>Créer de nouveaux utilisateurs
 
 Pour créer de nouveaux comptes d’utilisateur, vous devez disposer d’un compte avec des autorisations d’[**Administrateur général**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
@@ -186,7 +183,7 @@ Pour créer de nouveaux comptes d’utilisateur, vous devez disposer d’un comp
 
 La création d’un utilisateur dans l’Espace partenaires entraîne également la création d’un compte pour cet utilisateur dans le compte professionnel (locataire Azure AD) auquel vous êtes connecté. Les modifications apportées à un nom d’utilisateur dans l’Espace partenaires seront également apportées dans le compte professionnel de votre organisation (locataire Azure AD).
 
-#### <a name="invite-new-users-by-email"></a>Inviter de nouveaux utilisateurs par e-mail
+### <a name="invite-new-users-by-email"></a>Inviter de nouveaux utilisateurs par e-mail
 
 Pour inviter des utilisateurs qui ne font actuellement pas partie du compte professionnel de votre entreprise (locataire Azure AD) par courrier électronique, vous devez disposer d’un compte avec des autorisations d’[**Administrateur général**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
@@ -202,11 +199,11 @@ Si vous avez besoin de renvoyer une invitation, accédez à la page **Utilisateu
 > [!NOTE]
 > Si votre organisation utilise l’[intégration d’annuaire](https://go.microsoft.com/fwlink/p/?LinkID=724033) pour synchroniser le service d’annuaire local avec votre compte Azure AD, vous ne pourrez pas créer de nouveaux utilisateurs, groupes ou applications Azure AD dans l’Espace partenaires. Vous (ou un autre administrateur de l’annuaire local) devez les créer directement dans le répertoire local avant de pouvoir les afficher et les ajouter dans l’Espace partenaires.
 
-#### <a name="remove-a-user"></a>Supprimer un utilisateur
+### <a name="remove-a-user"></a>Supprimer un utilisateur
 
 Pour supprimer un utilisateur de votre compte professionnel (locataire Azure AD), accédez à **Utilisateurs** (sous **Paramètres de compte**), sélectionnez l’utilisateur que vous souhaitez supprimer à l’aide de la case à cocher dans la colonne de droite, puis sélectionnez **Supprimer** dans les actions disponibles. Une fenêtre contextuelle s’affiche pour confirmer que vous souhaitez supprimer le ou les utilisateurs sélectionnés.
 
-#### <a name="change-a-user-password"></a>Modifier le mot de passe utilisateur
+### <a name="change-a-user-password"></a>Modifier le mot de passe utilisateur
 
 Si l’un de vos utilisateurs a besoin de modifier son mot de passe, il peut le faire lui-même si vous avez fourni une **adresse e-mail de récupération de mot de passe** lors de la création du compte d’utilisateur. Vous pouvez également mettre à jour le mot de passe utilisateur en suivant les étapes ci-dessous. Pour modifier un mot de passe utilisateur dans votre compte professionnel d’entreprise (locataire Azure AD), vous devez être connecté sur un compte avec des autorisations d’[**Administrateur général**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Notez que cela modifiera le mot de passe utilisateur dans votre locataire Azure AD, ainsi que le mot de passe permettant d’accéder à l’Espace partenaires.
 
@@ -218,7 +215,7 @@ Si l’un de vos utilisateurs a besoin de modifier son mot de passe, il peut le 
 
 Les groupes vous permettent de contrôler ensemble plusieurs rôles d’utilisateur et autorisations.
 
-#### <a name="add-an-existing-group"></a>Ajouter un groupe existant
+### <a name="add-an-existing-group"></a>Ajouter un groupe existant
 
 Pour ajouter un groupe qui existe déjà dans le compte professionnel (locataire Azure AD) de votre entreprise à votre compte Espace partenaires :
 
@@ -231,7 +228,7 @@ Si vous sélectionnez plusieurs groupes à ajouter à votre compte Espace parten
 
 Lorsque vous ajoutez un groupe existant, chaque utilisateur membre de ce groupe peut accéder à votre compte Espace partenaires grâce aux autorisations associées au rôle du groupe.
 
-#### <a name="add-a-new-group"></a>Ajouter un groupe
+### <a name="add-a-new-group"></a>Ajouter un groupe
 
 Pour ajouter un nouveau groupe à votre compte Espace partenaires :
 
@@ -245,7 +242,7 @@ Pour ajouter un nouveau groupe à votre compte Espace partenaires :
 
 Notez que ce nouveau groupe sera créé dans le compte professionnel de votre organisation (locataire Azure AD), et pas uniquement dans votre compte Espace partenaires.
 
-#### <a name="remove-a-group"></a>Supprimer un groupe
+### <a name="remove-a-group"></a>Supprimer un groupe
 
 Pour supprimer un groupe de votre compte professionnel (locataire Azure AD), accédez à **Utilisateurs** (sous **Paramètres de compte**), sélectionnez le groupe que vous souhaitez supprimer à l’aide de la case à cocher dans la colonne de droite, puis sélectionnez **Supprimer** dans les actions disponibles. Une fenêtre contextuelle s’affiche pour confirmer que vous souhaitez supprimer le ou les groupes sélectionnés.
 
@@ -253,7 +250,7 @@ Pour supprimer un groupe de votre compte professionnel (locataire Azure AD), acc
 
 Vous pouvez autoriser les applications ou services faisant partie de l’Azure AD de votre entreprise à accéder à votre compte Espace partenaires.
 
-#### <a name="add-existing-azure-ad-applications"></a>Ajouter une application Azure AD existante
+### <a name="add-existing-azure-ad-applications"></a>Ajouter une application Azure AD existante
 
 Pour ajouter des applications qui existent déjà dans Azure Active Directory :
 
@@ -263,7 +260,7 @@ Pour ajouter des applications qui existent déjà dans Azure Active Directory :
 4. Dans la section **Rôles**, spécifiez le(s) rôle(s) ou les autorisations personnalisées pour les applications Azure AD sélectionnées.
 5. Sélectionnez **Enregistrer**.
 
-#### <a name="add-new-azure-ad-applications"></a>Ajouter de nouvelles applications Azure AD
+### <a name="add-new-azure-ad-applications"></a>Ajouter de nouvelles applications Azure AD
 
 Si vous souhaitez accorder l’accès à l’Espace partenaires à un tout nouveau compte d’application Azure AD, vous pouvez en créer un dans la section **Utilisateurs**. Notez que ce nouveau compte sera créé dans le compte professionnel de votre organisation (locataire Azure AD), et pas uniquement dans votre compte Espace partenaires. Si vous utilisez principalement cette application Azure AD pour l’authentification à l’Espace partenaires, et que vous ne souhaitez pas que les utilisateurs y accèdent directement, vous pouvez entrer une adresse valide pour l’**URL de réponse** et l’**URI ID d’application**, tant que ces valeurs ne sont pas utilisées par une autre application Azure AD de votre répertoire.
 
@@ -276,11 +273,11 @@ Si vous souhaitez accorder l’accès à l’Espace partenaires à un tout nouve
 
 Une fois que vous avez ajouté ou créé une application Azure AD, vous pouvez revenir à la section **Utilisateurs** et sélectionner le nom de l’application pour passer en revue les paramètres de l’application, tels que l’ID du locataire, l’ID client, l’URL de réponse et l’URI ID d’application.
 
-#### <a name="remove-an-application"></a>Supprimer une application
+### <a name="remove-an-azure-ad-application"></a>Supprimer une application Azure AD
 
 Pour supprimer une application de votre compte professionnel (locataire Azure AD), accédez à **Utilisateurs** (sous **Paramètres de compte**), sélectionnez l’application que vous souhaitez supprimer à l’aide de la case à cocher dans la colonne de droite, puis sélectionnez **Supprimer** dans les actions disponibles. Une fenêtre contextuelle s’affiche pour confirmer que vous souhaitez supprimer la ou les applications sélectionnées.
 
-#### <a name="manage-keys-for-an-azure-ad-application"></a>Gérer les clés d’une application Azure AD
+### <a name="manage-keys-for-an-azure-ad-application"></a>Gérer les clés d’une application Azure AD
 
 Si votre application Azure AD lit et écrit des données dans Microsoft Azure AD, elle aura besoin d’une clé. Vous pouvez créer des clés pour une application Azure AD en modifiant ses informations dans l’Espace partenaires. Vous pouvez également supprimer les clés qui ne sont plus nécessaires.
 
@@ -350,7 +347,3 @@ Lorsque vous supprimez un locataire, tous les utilisateurs qui ont été ajouté
 La section **Contrats** de l’Espace partenaires (sous **Paramètres de compte**) vous permet d’afficher une liste des contrats de publication que vous avez autorisés. Ces contrats sont répertoriés selon le nom, le numéro de version, la date à laquelle ils ont été acceptés et le nom de l’utilisateur qui a accepté le contrat.
 
 Les **actions nécessaires** peuvent apparaître en haut de cette page s’il existe des mises à jour de contrat qui nécessitent votre attention. Pour accepter un contrat modifié, commencez par lire la version du contrat liée, puis sélectionnez **Accepter le contrat**.
-
-## <a name="next-steps"></a>Étapes suivantes
-
-- [Créer une nouvelle offre SaaS](./create-new-saas-offer.md)

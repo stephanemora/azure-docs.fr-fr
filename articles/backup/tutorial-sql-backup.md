@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SQL Server sur Azure
 description: Dans ce tutoriel, découvrez comment sauvegarder, dans un coffre Recovery Services de la sauvegarde Azure, une base de données SQL Server s’exécutant sur une machine virtuelle Azure.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171881"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680731"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Sauvegarder une base de données SQL Server dans une machine virtuelle Azure
 
@@ -64,7 +64,7 @@ Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Plac
 * Crochets de fermeture « ] »
 * Noms de bases de données commençant par « F:\ »
 
-Il existe bien des alias pour les caractères non pris en charge dans la table Azure, mais nous vous recommandons de les éviter. [Plus d’informations](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)
+Il existe bien des alias pour les caractères non pris en charge dans la table Azure, mais nous vous recommandons de les éviter. [Plus d’informations](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

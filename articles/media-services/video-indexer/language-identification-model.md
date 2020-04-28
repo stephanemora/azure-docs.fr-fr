@@ -8,18 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: 7a2e03b8dacbf6c3ff20e02c804804b671e86d97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513879"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687120"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifier automatiquement la langue parlée avec le modèle d’identification de langue
 
-Video Indexer prend en charge l’identification automatique de la langue, qui est le processus qui consiste à identifier automatiquement le contenu de la langue parlée à partir de l’audio et à envoyer le fichier multimédia à la transcription dans le langage dominant identifié. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, le russe et le portugais (Brésil). 
+Video Indexer prend en charge l’identification automatique de la langue, qui est le processus qui consiste à identifier automatiquement le contenu de la langue parlée à partir de l’audio et à envoyer le fichier multimédia à la transcription dans le langage dominant identifié. 
+
+L’identification de la langue (LID) prend actuellement en charge : l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin), le japonais, le russe et le portugais (Brésil). 
+
+Veillez à consulter la section [Instructions et limitations](#guidelines-and-limitations) ci-dessous.
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Choix de l’identification de la langue automatique pour l’indexation
 
@@ -49,7 +53,10 @@ Le langage dominant du modèle est disponible dans Insights JSON en tant qu’at
 
 ## <a name="guidelines-and-limitations"></a>Instructions et limitations
 
-* Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, le russe et le portugais (Brésil).
+* L’identification automatique de la langue (LID) prend en charge les langues suivantes : 
+
+    l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin), le japonais, le russe et le portugais (Brésil).
+* Même si Video Indexer prend en charge l’arabe (moderne standard et levantin), l’hindi et le coréen, ces langues ne sont pas prises en charge dans l’identification de la langue.
 * Si l’audio contient des langues autres que la liste prise en charge ci-dessus, le résultat est incertain.
 * Si Video Indexer ne parvient pas à identifier la langue avec un niveau de confiance suffisant (`>0.6`), la langue par défaut est l’anglais.
 * Il n’existe pas de prise en charge actuelle du fichier avec des langues audio mixtes. Si l’audio contient des langues mixtes, le résultat est incertain. 

@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 8bb56db9eed962ac8f8202c61a7446527c15dfc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e16453cc2a6044c4b153bd1556d85545ff9625
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060896"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086612"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recommandations de sécurité pour Stockage File d’attente
 
@@ -53,6 +53,7 @@ Azure Security Center analyse périodiquement l’état de sécurité de vos res
 | Activer des règles de pare-feu | Configurez des règles de pare-feu pour limiter l’accès à votre compte de stockage aux demandes provenant d’adresses IP ou de plages d’adresses IP spécifiées, ou d’une liste de sous-réseaux dans un réseau virtuel Azure (VNet). Pour plus d’informations sur la configuration des règles de pare-feu, consultez [Paramètres de proxy et de pare-feu d’Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Autoriser les services Microsoft approuvés à accéder au compte de stockage | L’activation des règles de pare-feu pour votre compte de stockage bloque les demandes entrantes pour les données par défaut, sauf si les demandes proviennent d’un service qui fonctionne au sein d’un réseau virtuel (VNet) Azure ou à partir d’adresses IP publiques autorisées. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. Vous pouvez autoriser les demandes provenant d’autres services Azure en ajoutant une exception pour autoriser les services Microsoft approuvés à accéder au compte de stockage. Pour plus d’informations sur l’ajout d’une exception pour les services Microsoft approuvés, consultez [Paramètres de proxy et de pare-feu d’Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md).| - |
 | Utiliser des points de terminaison privés | Un point de terminaison privé affecte une adresse IP privée de votre réseau virtuel Azure au compte de stockage. Il sécurise tout le trafic entre votre réseau virtuel et le compte de stockage via une liaison privée. Pour plus d’informations sur les points de terminaison privés, consultez [Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Utiliser des balises de service de réseau virtuel | Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent. Pour plus d’informations sur les balises de service prises en charge par Stockage Azure, consultez [Vue d’ensemble des balises de service Azure](../../virtual-network/service-tags-overview.md). Pour un tutoriel qui montre comment utiliser les balises de service pour créer des règles de réseau sortant, consultez [Restreindre l’accès aux ressources PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Limiter l’accès réseau à des réseaux spécifiques | La limitation de l’accès réseau aux réseaux hébergeant des clients nécessitant un accès réduit l’exposition de vos ressources aux attaques réseau. | [Oui](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Journalisation/Supervision

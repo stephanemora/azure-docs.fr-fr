@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: cebe5564767ee345c1aea96b6ac54b9398c3e9a3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461264"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733026"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurer une application Windows Java pour Azure App Service
 
@@ -37,6 +37,24 @@ Ne déployez pas votre fichier .war à l’aide du protocole FTP. L’outil FTP 
 
 Vous trouverez des rapports de performances, des visualisations de trafic et des contrôles d’intégrité pour chaque application dans le portail Azure. Pour plus d’informations, consultez [Présentation des diagnostics Azure App Service](overview-diagnostics.md).
 
+### <a name="use-flight-recorder"></a>Utiliser une boîte noire
+
+Tous les runtimes Java sur App Service qui utilisent des JVM Azul sont fournis avec la boîte noire Zulu. Vous pouvez l’utiliser pour enregistrer les événements de niveau JVM, système et Java pour surveiller le comportement de vos applications Java et résoudre les problèmes de ces dernières.
+
+Pour effectuer un enregistrement programmé, vous aurez besoin du PID (ID de processus) de l’application Java. Pour rechercher le PID, ouvrez un navigateur sur le site GCL de votre application web à l’adresse https://<votre-nom-de-site>.scm.azurewebsites.net/ProcessExplorer/. Cette page affiche les processus en cours d’exécution dans votre application web. Recherchez le processus nommé « java » dans le tableau et copiez le PID (ID de processus) correspondant.
+
+Ouvrez ensuite la **Console de débogage** dans la barre d’outils supérieure du site GCL et exécutez la commande suivante. Remplacez `<pid>` par l’ID de processus que vous avez copié précédemment. Cette commande démarre un enregistrement de 30 secondes du profileur de votre application Java et génère un fichier nommé `timed_recording_example.jfr` dans le répertoire `D:\home`.
+
+```
+jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
+```
+
+Pour plus d’informations, consultez les [informations de référence sur la commande Jcmd](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
+
+#### <a name="analyze-jfr-files"></a>Analyser les fichiers `.jfr`
+
+Utilisez [FTPS](deploy-ftp.md) pour télécharger votre fichier JFR sur votre ordinateur local. Pour analyser le fichier JFR, téléchargez et installez [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Pour obtenir des instructions sur Zulu Mission Control, consultez la [documentation d’Azul](https://docs.azul.com/zmc/) et les [instructions d’installation](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+
 ### <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
@@ -56,7 +74,7 @@ Azure App Service prend en charge le réglage et la personnalisation prêts à l
 
 - [Configurer les paramètres d’application](configure-common.md#configure-app-settings)
 - [Configurer un nom de domaine personnalisé](app-service-web-tutorial-custom-domain.md)
-- [Configurer des liaisons SSL](configure-ssl-bindings.md)
+- [Configurer des liaisons TLS](configure-ssl-bindings.md)
 - [Ajouter un CDN](../cdn/cdn-add-to-web-app.md)
 - [Configurer le site Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
@@ -165,11 +183,11 @@ Pour désactiver cette fonctionnalité, créez un paramètre d’application nom
 
 ### <a name="configure-tlsssl"></a>Configurer TLS/SSL
 
-Suivez les instructions dans [Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service](configure-ssl-bindings.md) pour télécharger un certificat SSL existant et le lier au nom de domaine de votre application. Par défaut, votre application autorisera toujours les connexions HTTP. Suivez les étapes spécifiques du tutoriel pour appliquer SSL et TLS.
+Suivez les instructions dans [Sécuriser un nom DNS personnalisé avec une liaison TLS dans Azure App Service](configure-ssl-bindings.md) pour charger un certificat TLS/SSL existant et le lier au nom de domaine de votre application. Par défaut, votre application autorisera toujours les connexions HTTP. Suivez les étapes spécifiques du tutoriel pour appliquer SSL et TLS.
 
 ### <a name="use-keyvault-references"></a>Utiliser des références KeyVault
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) fournit une gestion des secrets centralisée avec des stratégies d’accès et un historique d’audit. Vous pouvez stocker des secrets (tels que des mots de passe ou chaînes de connexion) dans KeyVault et accéder à ces secrets dans votre application via des variables d’environnement.
+[Azure Key Vault](../key-vault/general/overview.md) fournit une gestion des secrets centralisée avec des stratégies d’accès et un historique d’audit. Vous pouvez stocker des secrets (tels que des mots de passe ou chaînes de connexion) dans KeyVault et accéder à ces secrets dans votre application via des variables d’environnement.
 
 Tout d’abord, suivez les instructions de [Autoriser votre application à accéder à Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) et de [création d’une référence KeyVault à votre secret dans un paramètre d’application](app-service-key-vault-references.md#reference-syntax). Vous pouvez vérifier la résolution de la référence en secret en imprimant la variable d’environnement tout en accédant à distance au terminal App Service.
 
@@ -214,7 +232,7 @@ Ces instructions s’appliquent à toutes les connexions de base de données. Vo
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Télécharger](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Télécharger](https://dev.mysql.com/downloads/connector/j/) (sélectionnez « Indépendant de la plateforme ») |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Télécharger](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Télécharger](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
 
 Pour configurer Tomcat afin d’utiliser Java Database Connectivity (JDBC) ou l’API Java Persistence (JPA), commencez par personnaliser la variable d’environnement `CATALINA_OPTS` lue par Tomcat au démarrage. Définissez ces valeurs via un paramètre d’application dans le [plug-in Maven App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) :
 
@@ -300,7 +318,7 @@ Le kit de développement Java (JDK) pris en charge d’Azure est [Zulu](https://
 
 Les mises à jour de la version majeure sont fournies via de nouvelles options de runtime dans Azure App Service pour Windows. Les clients effectuent une mise à jour avec ces versions plus récentes de Java en configurant leur déploiement App Service et doivent s’occuper des tests et de s’assurer que la mise à jour majeure répond à leurs besoins.
 
-Les kits JDK pris en charge sont automatiquement mis à jour tous les trimestres, en janvier, avril, juillet et octobre de chaque année. Pour plus d’informations sur Java sur Azure, consultez [ce document de support](https://docs.microsoft.com/azure/java/jdk/).
+Les kits JDK pris en charge sont automatiquement mis à jour tous les trimestres, en janvier, avril, juillet et octobre de chaque année. Pour plus d’informations sur Java sur Azure, consultez [ce document de support](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ### <a name="security-updates"></a>Mises à jour de sécurité
 

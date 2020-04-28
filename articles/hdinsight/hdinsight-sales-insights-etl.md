@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 03/24/2020
-ms.openlocfilehash: a4df99c45b27ad662133010422cae2e30e36e584
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.date: 04/15/2020
+ms.openlocfilehash: c213b0089af0af295d44afd38bbc5c17b6db159d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80247263"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535228"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutoriel : Créer un pipeline de données de bout en bout pour dériver des insights de ventes dans Azure HDInsight
 
@@ -27,23 +27,28 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Azure CLI. Voir [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI : version 2.2.0 ou ultérieure. Voir [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+* jq, processeur JSON en ligne de commande.  Voir [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * Membre du [rôle intégré Azure Propriétaire](../role-based-access-control/built-in-roles.md).
 
-* [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331), pour visualiser les insights métier à la fin de ce tutoriel.
+* Si vous utilisez PowerShell pour déclencher le pipeline Data Factory, vous avez besoin du [module Az](https://docs.microsoft.com/powershell/azure/overview).
+
+* [Power BI Desktop](https://aka.ms/pbiSingleInstaller), pour visualiser les insights métier à la fin de ce tutoriel.
 
 ## <a name="create-resources"></a>Créer des ressources
 
 ### <a name="clone-the-repository-with-scripts-and-data"></a>Cloner le dépôt avec des scripts et des données
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous à votre abonnement Azure. Si vous prévoyez d’utiliser Azure Cloud Shell, sélectionnez **Essayer** dans le coin supérieur droit du bloc de code. Sinon, entrez la commande suivante :
 
-1. Ouvrez Azure Cloud Shell à partir de la barre de menus supérieure. Sélectionnez votre abonnement pour créer un partage de fichiers si vous y êtes invité par Cloud Shell.
+    ```azurecli-interactive
+    az login
 
-   ![Ouvrir Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
-
-1. Dans le menu déroulant **Sélectionner l’environnement**, choisissez **Bash**.
+    # If you have multiple subscriptions, set the one to use
+    # az account set --subscription "SUBSCRIPTIONID"
+    ```
 
 1. Assurez-vous que vous êtes membre du rôle Azure [Propriétaire](../role-based-access-control/built-in-roles.md). Remplacez `user@contoso.com` par votre compte, puis entrez la commande suivante :
 
@@ -55,29 +60,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
     Si aucun enregistrement n’est retourné, vous n’êtes pas membre et ne pouvez pas suivre ce tutoriel.
 
-1. Listez vos abonnements en entrant la commande suivante :
-
-    ```azurecli
-    az account list --output table
-    ```
-
-    Notez l’ID de l’abonnement que vous allez utiliser pour ce projet.
-
-1. Définissez l’abonnement que vous allez utiliser pour ce projet. Remplacez `SUBSCRIPTIONID` par la valeur réelle, puis entrez la commande ci-après.
-
-    ```azurecli
-    subscriptionID="SUBSCRIPTIONID"
-    az account set --subscription $subscriptionID
-    ```
-
-1. Créez un groupe de ressources pour le projet. Remplacez `RESOURCEGROUP` par le nom de votre choix, puis entrez la commande ci-après.
-
-    ```azurecli
-    resourceGroup="RESOURCEGROUP"
-    az group create --name $resourceGroup --location westus
-    ```
-
-1. Téléchargez les données et les scripts de ce tutoriel à partir du [dépôt ETL HDInsight d’insights de ventes](https://github.com/Azure-Samples/hdinsight-sales-insights-etl).  Entrez la commande suivante :
+1. Téléchargez les données et les scripts de ce tutoriel à partir du [dépôt ETL HDInsight d’insights de ventes](https://github.com/Azure-Samples/hdinsight-sales-insights-etl). Entrez la commande suivante :
 
     ```bash
     git clone https://github.com/Azure-Samples/hdinsight-sales-insights-etl.git
@@ -98,11 +81,19 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     chmod +x scripts/*.sh
     ````
 
-1. Exécutez le script. Remplacez `RESOURCE_GROUP_NAME`, et `LOCATION` par les valeurs pertinentes, puis entrez la commande suivante :
+1. Définissez la variable pour le groupe de ressources. Remplacez `RESOURCE_GROUP_NAME` par le nom d’un groupe de ressources existant ou nouveau, puis entrez la commande ci-après :
 
     ```bash
-    ./scripts/resources.sh RESOURCE_GROUP_NAME LOCATION
+    resourceGroup="RESOURCE_GROUP_NAME"
     ```
+
+1. Exécutez le script. Remplacez `LOCATION` par la valeur voulue, puis entrez la commande ci-après :
+
+    ```bash
+    ./scripts/resources.sh $resourceGroup LOCATION
+    ```
+
+    Si vous ne savez pas quelle région spécifier, vous pouvez récupérer la liste des régions prises en charge pour votre abonnement avec la commande [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations).
 
     La commande déploie les ressources suivantes :
 
@@ -115,49 +106,26 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 La création du cluster peut prendre environ 20 minutes.
 
-Le script `resources.sh` contient les commandes suivantes. Vous n’avez pas besoin d’exécuter ces commandes si vous avez déjà exécuté le script à l’étape précédente.
-
-* `az group deployment create` - Cette commande utilise un modèle Azure Resource Manager (`resourcestemplate.json`) pour créer les ressources spécifiées avec la configuration souhaitée.
-
-    ```azurecli
-    az group deployment create --name ResourcesDeployment \
-        --resource-group $resourceGroup \
-        --template-file resourcestemplate.json \
-        --parameters "@resourceparameters.json"
-    ```
-
-* `az storage blob upload-batch` - Cette commande charge également les fichiers .csv de données de ventes dans le compte Stockage Blob créé à l’aide de la commande suivante :
-
-    ```azurecli
-    az storage blob upload-batch -d rawdata \
-        --account-name <BLOB STORAGE NAME> -s ./ --pattern *.csv
-    ```
-
-Le mot de passe par défaut utilisé pour l’accès SSH aux clusters est `Thisisapassword1`. Si vous souhaitez changer le mot de passe, accédez au fichier `resourcesparameters.json`, puis modifiez le mot de passe pour les paramètres `sparksshPassword`, `sparkClusterLoginPassword`, `llapClusterLoginPassword` et `llapsshPassword`.
+Le mot de passe par défaut utilisé pour l’accès SSH aux clusters est `Thisisapassword1`. Si vous souhaitez changer le mot de passe, accédez au fichier `./templates/resourcesparameters_remainder.json`, puis modifiez le mot de passe pour les paramètres `sparksshPassword`, `sparkClusterLoginPassword`, `llapClusterLoginPassword` et `llapsshPassword`.
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Vérifier le déploiement et recueillir des informations sur les ressources
 
-1. Si vous souhaitez vérifier l’état de votre déploiement, accédez au groupe de ressources dans le portail Azure. Sélectionnez **Déploiements** sous **Paramètres**. Sélectionnez le nom de votre déploiement, `ResourcesDeployment`. Ici, vous pouvez voir les ressources qui ont été déployées avec succès et celles qui sont toujours en cours de déploiement.
+1. Si vous souhaitez vérifier l’état de votre déploiement, accédez au groupe de ressources dans le portail Azure. Sous **Paramètres**, sélectionnez **Déploiements**, puis votre déploiement. Ici, vous pouvez voir les ressources qui ont été déployées avec succès et celles qui sont toujours en cours de déploiement.
 
 1. Pour voir les noms des clusters, entrez la commande suivante :
 
-    ```azurecli
-    sparkCluster=$(az hdinsight list \
-        --resource-group $resourceGroup \
-        --query "[?contains(name,'spark')].{clusterName:name}" -o tsv)
+    ```bash
+    sparkClusterName=$(cat resourcesoutputs_remainder.json | jq -r '.properties.outputs.sparkClusterName.value')
+    llapClusterName=$(cat resourcesoutputs_remainder.json | jq -r '.properties.outputs.llapClusterName.value')
 
-    llapCluster=$(az hdinsight list \
-        --resource-group $resourceGroup \
-        --query "[?contains(name,'llap')].{clusterName:name}" -o tsv)
-
-    echo $sparkCluster
-    echo $llapCluster
+    echo "Spark Cluster" $sparkClusterName
+    echo "LLAP cluster" $llapClusterName
     ```
 
 1. Pour voir le compte de stockage Azure et la clé d’accès, entrez la commande suivante :
 
     ```azurecli
-    blobStorageName=$(cat resourcesoutputs.json | jq -r '.properties.outputs.blobStorageName.value')
+    blobStorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.blobStorageName.value')
 
     blobKey=$(az storage account keys list \
         --account-name $blobStorageName \
@@ -171,7 +139,7 @@ Le mot de passe par défaut utilisé pour l’accès SSH aux clusters est `Thisi
 1. Pour voir le compte Data Lake Storage Gen2 et la clé d’accès, entrez la commande suivante :
 
     ```azurecli
-    ADLSGen2StorageName=$(cat resourcesoutputs.json | jq -r '.properties.outputs.adlsGen2StorageName.value')
+    ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.adlsGen2StorageName.value')
 
     adlsKey=$(az storage account keys list \
         --account-name $ADLSGen2StorageName \
@@ -191,10 +159,13 @@ Cette fabrique de données aura un pipeline avec deux activités :
 * La première activité copiera les données de Stockage Blob Azure dans le compte de stockage Data Lake Storage Gen2 afin d’imiter l’ingestion des données.
 * La deuxième activité transformera les données dans le cluster Spark. Le script transforme les données en supprimant les colonnes indésirables. Il ajoute également une nouvelle colonne qui calcule le chiffre d’affaires généré par une transaction unique.
 
-Pour configurer votre pipeline Azure Data Factory, exécutez la commande suivante :
+Pour configurer votre pipeline Azure Data Factory, exécutez la commande ci-dessous.  Vous devez toujours vous trouver au niveau du répertoire `hdinsight-sales-insights-etl`.
 
 ```bash
-./scripts/adf.sh
+blobStorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.blobStorageName.value')
+ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.adlsGen2StorageName.value')
+
+./scripts/adf.sh $resourceGroup $ADLSGen2StorageName $blobStorageName
 ```
 
 Ce script effectue les opérations suivantes :
@@ -205,35 +176,47 @@ Ce script effectue les opérations suivantes :
 1. Il obtient les clés de stockage pour le compte Data Lake Storage Gen2 et le compte de stockage Blob.
 1. Il crée un autre déploiement de ressources pour créer un pipeline Azure Data Factory, avec ses services liés et ses activités associés. Il transmet les clés de stockage en tant que paramètres au fichier de modèle pour que les services liés puissent accéder correctement aux comptes de stockage.
 
-Le pipeline Data Factory est déployé à l’aide de la commande suivante :
-
-```azurecli-interactive
-az group deployment create --name ADFDeployment \
-    --resource-group $resourceGroup \
-    --template-file adftemplate.json \
-    --parameters "@adfparameters.json"
-```
-
 ## <a name="run-the-data-pipeline"></a>Exécuter le pipeline de données
 
 ### <a name="trigger-the-data-factory-activities"></a>Déclencher les activités Data Factory
 
 La première activité dans le pipeline Data Factory que vous avez créée déplace les données de Stockage Blob vers Data Lake Storage Gen2. La deuxième activité applique les transformations Spark aux données et enregistre les fichiers .csv transformés à un nouvel emplacement. L’exécution du pipeline entier peut prendre quelques minutes.
 
-Pour déclencher les pipelines, vous pouvez effectuer l’une des deux actions suivantes :
+Pour récupérer le nom Data Factory, entrez la commande suivante :
 
-* Déclencher les pipelines Data Factory dans PowerShell. Remplacez `DataFactoryName` par le nom Data Factory réel, puis exécutez les commandes suivantes :
+```azurecli
+cat resourcesoutputs_adf.json | jq -r '.properties.outputs.factoryName.value'
+```
+
+Pour déclencher le pipeline, vous pouvez effectuer l’une des deux actions suivantes :
+
+* Déclenchez le pipeline Data Factory dans PowerShell. Remplacez `RESOURCEGROUP` et `DataFactoryName` par les valeurs appropriées, puis exécutez les commandes suivantes :
 
     ```powershell
-    Invoke-AzDataFactoryV2Pipeline -DataFactory DataFactoryName -PipelineName "CopyPipeline_k8z"
-    Invoke-AzDataFactoryV2Pipeline -DataFactory DataFactoryName -PipelineName "sparkTransformPipeline"
+    # If you have multiple subscriptions, set the one to use
+    # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
+    $resourceGroup="RESOURCEGROUP"
+    $dataFactory="DataFactoryName"
+
+    $pipeline =Invoke-AzDataFactoryV2Pipeline `
+        -ResourceGroupName $resourceGroup `
+        -DataFactory $dataFactory `
+        -PipelineName "IngestAndTransform"
+
+    Get-AzDataFactoryV2PipelineRun `
+        -ResourceGroupName $resourceGroup  `
+        -DataFactoryName $dataFactory `
+        -PipelineRunId $pipeline
     ```
+
+    Réexécutez `Get-AzDataFactoryV2PipelineRun` si nécessaire pour superviser la progression.
 
     ou
 
-* Ouvrez la fabrique de données et sélectionnez **Créer et surveiller**. Déclenchez le pipeline de copie, puis le pipeline Spark à partir du portail. Pour plus d’informations sur le déclenchement de pipelines par le biais du portail, consultez [Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Ouvrez la fabrique de données et sélectionnez **Créer et surveiller**. Déclenchez le pipeline `IngestAndTransform` à partir du portail. Pour plus d’informations sur le déclenchement de pipelines par le biais du portail, consultez [Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
-Pour vérifier que les pipelines ont été exécutés, vous pouvez effectuer l’une des opérations suivantes :
+Pour vérifier que le pipeline a été exécuté, vous pouvez effectuer l’une des opérations suivantes :
 
 * Accédez à la section **Superviser** de votre fabrique de données par le biais du portail.
 * Dans l’Explorateur Stockage Azure, accédez à votre compte de stockage Data Lake Storage Gen 2. Accédez au système de fichiers `files`, puis au dossier `transformed` et vérifiez son contenu pour voir si le pipeline a réussi.
@@ -242,37 +225,48 @@ Pour découvrir d’autres façons de transformer des données avec HDInsight, c
 
 ### <a name="create-a-table-on-the-interactive-query-cluster-to-view-data-on-power-bi"></a>Créer une table sur le cluster Interactive Query pour afficher les données sur Power BI
 
-1. Copiez le fichier `query.hql` sur le cluster LLAP en utilisant SCP. Remplacez `LLAPCLUSTERNAME` par le nom réel, puis entrez la commande ci-après :
+1. Copiez le fichier `query.hql` sur le cluster LLAP en utilisant SCP. Entrez la commande :
 
     ```bash
-    scp scripts/query.hql sshuser@LLAPCLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
+    llapClusterName=$(cat resourcesoutputs_remainder.json | jq -r '.properties.outputs.llapClusterName.value')
+    scp scripts/query.hql sshuser@$llapClusterName-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
-2. Utilisez SSH pour accéder au cluster LLAP. Remplacez `LLAPCLUSTERNAME` par le nom réel, puis entrez la commande ci-après. Si vous n’avez pas modifié le fichier `resourcesparameters.json`, le mot de passe est `Thisisapassword1`.
+    Rappel : Le mot de passe par défaut est `Thisisapassword1`.
+
+1. Utilisez SSH pour accéder au cluster LLAP. Entrez la commande :
 
     ```bash
-    ssh sshuser@LLAPCLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@$llapClusterName-ssh.azurehdinsight.net
     ```
 
-3. Utilisez la commande suivante pour exécuter le script :
+1. Utilisez la commande suivante pour exécuter le script :
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f query.hql
     ```
 
-Ce script crée une table managée sur le cluster Interactive Query, à laquelle vous pouvez accéder à partir de Power BI.
+    Ce script crée une table managée sur le cluster Interactive Query, à laquelle vous pouvez accéder à partir de Power BI.
 
 ### <a name="create-a-power-bi-dashboard-from-sales-data"></a>Créer un tableau de bord Power BI à partir de données de ventes
 
 1. Ouvrez Power BI Desktop.
-1. Sélectionnez **Obtenir des données**.
-1. Recherchez **Cluster HDInsight Interactive Query**.
-1. Collez l’URI de votre cluster à cet emplacement. Il doit respecter le format `https://LLAPCLUSTERNAME.azurehdinsight.net`.
 
-   Entrez `default` pour la base de données.
-1. Entrez le nom d’utilisateur et le mot de passe que vous utilisez pour accéder au cluster.
+1. Dans le menu, accédez à **Obtenir des données** > **Plus...**  > **Azure** > **HDInsight Interactive Query**.
 
-Une fois les données chargées, vous pouvez faire des essais avec le tableau de bord que vous souhaitez créer. Pour bien démarrer avec les tableaux de bord Power BI, consultez les liens suivants :
+1. Sélectionnez **Connecter**.
+
+1. Dans la boîte de dialogue **HDInsight Interactive Query** :
+    1. Dans la zone de texte **Serveur**, entrez le nom de votre cluster LLAP au format `https://LLAPCLUSTERNAME.azurehdinsight.net`.
+    1. Dans la zone de texte **Base de données**, entrez `default`.
+    1. Sélectionnez **OK**.
+
+1. Dans la boîte de dialogue **AzureHive** :
+    1. Dans la zone de texte **Nom d’utilisateur**, entrez `admin`.
+    1. Dans la zone de texte **Mot de passe**, entrez `Thisisapassword1`.
+    1. Sélectionnez **Connecter**.
+
+1. Dans **Navigateur**, sélectionnez `sales` et/ou `sales_raw` pour afficher un aperçu des données. Une fois les données chargées, vous pouvez faire des essais avec le tableau de bord que vous souhaitez créer. Pour bien démarrer avec les tableaux de bord Power BI, consultez les liens suivants :
 
 * [Introduction aux tableaux de bord pour les concepteurs Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Tutoriel : Bien démarrer avec le service Power BI](https://docs.microsoft.com/power-bi/service-get-started)
@@ -281,9 +275,18 @@ Une fois les données chargées, vous pouvez faire des essais avec le tableau de
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources à l’aide de la commande suivante afin de ne pas être facturé.
 
-```azurecli-interactive
-az group delete -n $resourceGroup
-```
+1. Pour supprimer le groupe de ressources, entrez la commande ci-après :
+
+    ```azurecli
+    az group delete -n $resourceGroup
+    ```
+
+1. Pour supprimer le principal de service, entrez les commandes ci-après :
+
+    ```azurecli
+    servicePrincipal=$(cat serviceprincipal.json | jq -r '.name')
+    az ad sp delete --id $servicePrincipal
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

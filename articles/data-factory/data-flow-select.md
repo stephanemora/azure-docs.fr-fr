@@ -1,5 +1,5 @@
 ---
-title: Transformation de sélection de flux de données de mappage
+title: Transformation de sélection dans le flux de données de mappage
 description: Transformation de sélection (Select) de mappage de Data Flow pour Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/18/2020
-ms.openlocfilehash: 498ce053e8a52897d9087091b92fa51a04e195a4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413250"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686498"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Transformation de sélection dans le flux de données de mappage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utilisez une transformation de sélection pour renommer, supprimer ou réorganiser les colonnes. Cette transformation ne modifie pas les données de ligne, mais choisit les colonnes qui sont propagées en aval. 
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6e3313e3ae201d0b730d8582fed9659d89f0d0c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80063057"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686483"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
@@ -35,14 +35,6 @@ Voici quelques exemples de ce que vous pouvez faire avec le contrôle d’accès
 - Permettre à un groupe d’administrateurs de base de données de gérer des bases de données SQL dans un abonnement
 - Permettre à un utilisateur à gérer toutes les ressources dans un groupe de ressources, telles que des machines virtuelles, des sites Web et des sous-réseaux
 - Permettre à une application d’accéder à toutes les ressources d’un groupe de ressources
-
-## <a name="best-practice-for-using-rbac"></a>Meilleure pratique pour l’utilisation de RBAC
-
-Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions sur une étendue donnée.
-
-Lorsque vous planifiez votre stratégie de contrôle d’accès, vous pouvez accorder aux utilisateurs les privilèges minimaux pour effectuer leur travail. Le diagramme suivante illustre un modèle suggéré pour l’utilisation de RBAC.
-
-![RBAC et privilège minimum](./media/overview/rbac-least-privilege.png)
 
 ## <a name="how-rbac-works"></a>Fonctionnement du le contrôle d’accès en fonction du rôle (RBAC)
 
@@ -139,4 +131,4 @@ Voici les principales étapes suivies par RBAC pour déterminer si vous avez acc
 - [Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure avec le portail Azure](check-access.md)
 - [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)
 - [Comprendre les différents rôles dans Azure](rbac-and-directory-admin-roles.md)
-- [Adoption du cloud d’entreprise : Gestion de l’accès aux ressources dans Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
+- [Framework d’adoption du cloud : Gestion de l’accès aux ressources dans Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

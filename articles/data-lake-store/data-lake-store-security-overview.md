@@ -2,33 +2,30 @@
 title: Vue d’ensemble de la sécurité dans Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Comprendre en quoi Azure Data Lake Storage Gen1 est un magasin de Big Data plus sécurisé
 services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: ebd5b2ac-c5cc-46d4-9cfd-1a1ee70024c2
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 4e640aa1cb02174c935c0f7c1d61ab2fca5ea046
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75974579"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086570"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sécurité dans Azure Data Lake Storage Gen1
+
 Un grand nombre d’entreprises tirent parti de l’analyse du Big Data pour bénéficier d’informations métier afin de prendre des décisions éclairées. Une organisation peut évoluer dans un environnement complexe et réglementé, avec un nombre croissant d’utilisateurs divers. Il est essentiel pour une entreprise de garantir que les données métier critiques sont stockées de manière plus sécurisée, avec le niveau d’accès adéquat pour chaque utilisateur. Azure Data Lake Storage Gen1 vous permet de respecter ces exigences de sécurité. Dans cet article, découvrez les fonctionnalités de sécurité de Data Lake Storage Gen1, notamment :
 
-* Authentication
+* Authentification
 * Autorisation
 * Isolement réseau
 * Protection de données
 * Audit
 
 ## <a name="authentication-and-identity-management"></a>Authentification et gestion des identités
+
 L’authentification est le processus par lequel l’identité d’un utilisateur est vérifiée lorsque celui-ci interagit avec Data Lake Storage Gen1 ou tout service qui se connecte à Data Lake Storage Gen1. Pour l’authentification et la gestion des identités, Data Lake Storage Gen1 utilise [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), une solution complète pour la gestion des identités et des accès dans le cloud qui simplifie la gestion des utilisateurs et des groupes.
 
 Chaque abonnement Azure peut être associé à une instance d’Azure Active Directory. Seuls les utilisateurs et les identités de service qui sont définis dans votre service Azure Active Directory peuvent accéder à votre compte Data Lake Storage Gen1, à l’aide du portail Azure, des outils de ligne de commande, ou via les applications clientes que votre organisation crée avec le Kit de développement logiciel (SDK) Data Lake Storage Gen1. Les principaux avantages de l’utilisation d’Azure Active Directory en tant que mécanisme de contrôle d’accès centralisé sont les suivants :
@@ -39,12 +36,14 @@ Chaque abonnement Azure peut être associé à une instance d’Azure Active Dir
 * Fédération avec les services de répertoire d’entreprise et les fournisseurs d’identité cloud.
 
 ## <a name="authorization-and-access-control"></a>Autorisation et contrôle d’accès
+
 Une fois qu’un utilisateur est authentifié par Azure Active Directory pour accéder à Data Lake Storage Gen1, les contrôles d’autorisation accèdent aux autorisations pour Data Lake Storage Gen1. Data Lake Storage Gen1 sépare l’autorisation pour les activités relatives aux comptes et aux données de la manière suivante :
 
 * [Le contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) (RBAC) fournit par Azure pour la gestion des comptes ;
 * ACL POSIX pour accéder aux données dans le magasin
 
 ### <a name="rbac-for-account-management"></a>RBAC pour la gestion des comptes
+
 Par défaut, quatre rôles de base sont définis pour Data Lake Storage Gen1. Les rôles permettent d’exécuter différentes opérations sur un compte Data Lake Storage Gen1 via le portail Azure, les applets de commande PowerShell et les API REST. Les rôles Propriétaire et Collaborateur peuvent effectuer un large éventail de fonctions d’administration sur le compte. Vous pouvez assigner le rôle Lecteur aux utilisateurs qui voient uniquement les données de gestion des comptes.
 
 ![Rôles RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Rôles RBAC")
@@ -62,6 +61,7 @@ Notez que, même si les rôles sont attribués pour la gestion des comptes, cert
 Pour obtenir des instructions, consultez [Affecter les utilisateurs ou les groupes de sécurité aux comptes Azure Data Lake Storage Gen1](data-lake-store-secure-data.md#assign-users-or-security-groups-to-data-lake-storage-gen1-accounts).
 
 ### <a name="using-acls-for-operations-on-file-systems"></a>Utilisation des ACL pour les opérations sur les systèmes de fichiers
+
 Data Lake Storage Gen1 est un système de fichiers hiérarchique comme Hadoop HDFS Distributed File System (HDFS), et il prend en charge les [ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Elle contrôle la lecture (r), l’écriture (w) et exécute(x) les autorisations des ressources pour le rôle Propriétaire, le groupe Propriétaires et d’autres utilisateurs et groupes. Dans Data Lake Storage Gen1, les ACL peuvent être activées au niveau du dossier racine, des sous-dossiers et des fichiers individuels. Pour plus d’informations sur le fonctionnement des ACL dans le contexte de Data Lake Storage Gen1, consultez [Contrôle d’accès dans Data Lake Storage Gen1](data-lake-store-access-control.md).
 
 Nous vous recommandons de définir des ACL pour plusieurs utilisateurs à l’aide des [groupes de sécurité](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Ajoutez des utilisateurs dans un groupe de sécurité, puis affectez les ACL d’un fichier ou dossier à ce groupe de sécurité. Cela est utile lorsque vous souhaitez fournir des autorisations assignées, parce que vous êtes limité à un maximum de 28 entrées pour les autorisations assignées. Pour plus d’informations sur comment améliorer la sécurisation des données stockées dans Data Lake Storage Gen1 à l’aide de groupes de sécurité Azure Active Directory, consultez [Affecter des utilisateurs ou un groupe de sécurité comme ACL au système de fichiers Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
@@ -69,11 +69,15 @@ Nous vous recommandons de définir des ACL pour plusieurs utilisateurs à l’ai
 ![Lister les autorisations d’accès](./media/data-lake-store-security-overview/adl.acl.2.png "Lister les autorisations d’accès")
 
 ## <a name="network-isolation"></a>Isolement réseau
+
 Utilisez Data Lake Storage Gen1 pour contrôler l’accès à votre magasin de données au niveau du réseau. Vous pouvez activer des pare-feu et définir une plage d’adresses IP pour vos clients approuvés. Avec une plage d’adresses IP, seuls les clients qui ont une adresse IP dans la plage définie peuvent se connecter à Data Lake Storage Gen1.
 
 ![Paramètres de pare-feu et adresse IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Paramètres de pare-feu et adresse IP")
 
+Les réseaux virtuels Azure prennent en charge les balises de service pour Data Lake Gen 1. Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent. Pour plus d’informations, consultez [Présentation des balises de Service Azure](../virtual-network/service-tags-overview.md).
+
 ## <a name="data-protection"></a>Protection de données
+
 Data Lake Storage Gen1 protège vos données tout au long de leur cycle de vie. Pour les données en transit, Data Lake Storage Gen1 utilise le protocole normalisé TLS (Transport Layer Security) 1.2 pour sécuriser les données sur le réseau.
 
 ![Chiffrement dans Data Lake Storage Gen1](./media/data-lake-store-security-overview/adls-encryption.png "Chiffrement dans Data Lake Storage Gen1")
@@ -83,12 +87,14 @@ Data Lake Storage Gen1 assure également le chiffrement des données stockées d
 Concernant la gestion des clés, Data Lake Storage Gen1 met à votre disposition deux modes pour gérer les clés de chiffrement principales, qui sont nécessaires pour déchiffrer les données stockées dans le Data Lake Storage Gen1. Vous pouvez soit laisser Data Lake Storage Gen1 gérer les clés de chiffrement principales, soit choisir de conserver la propriété des clés de chiffrement principales en utilisant votre compte Azure Key Vault. Vous spécifiez le mode de gestion de clés lors de la création du compte Data Lake Storage Gen1. Pour savoir comment fournir une configuration avec chiffrement, consultez [Prise en main d’Azure Data Lake Storage Gen1 à l’aide du Portail Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="activity-and-diagnostic-logs"></a>Journaux d’activités et de diagnostic
+
 Vous pouvez utiliser les journaux d’activité ou de diagnostic selon si vous recherchez des journaux d’activité sur des activités liées à la gestion ou des activités liées aux données.
 
 * Les activités liées à la gestion des comptes utilisent les API Azure Resource Manager et sont affichées dans le Portail Azure via les journaux d’activité.
 * Les activités liées aux données utilisent les API REST WebHDFS et sont affichées dans le portail via les journaux de diagnostic.
 
 ### <a name="activity-log"></a>Journal d’activité
+
 Pour respecter les réglementations, une organisation peut avoir besoin de pistes d’audit adéquates des activités de gestion des comptes si elle doit examiner en profondeur des incidents spécifiques. Data Lake Storage Gen1 est doté de fonctionnalités intégrées d’analyse et journalise toutes les activités de gestion des comptes.
 
 Pour les pistes d’audit de gestion des comptes, affichez et choisissez les colonnes que vous souhaitez journaliser. Vous pouvez également exporter des journaux d’activité vers le Stockage Azure.
@@ -98,6 +104,7 @@ Pour les pistes d’audit de gestion des comptes, affichez et choisissez les col
 Pour plus d’informations sur l’utilisation des journaux d’activité, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="diagnostics-logs"></a>Journaux de diagnostics
+
 Vous pouvez activer l’audit d’accès aux données et la journalisation des diagnostics dans le Portail Azure et envoyer des journaux à un compte de stockage Blob Azure, à Event Hub ou à des journaux Azure Monitor.
 
 ![Journaux de diagnostics](./media/data-lake-store-security-overview/diagnostic-logs.png "Journaux de diagnostics")
@@ -105,11 +112,13 @@ Vous pouvez activer l’audit d’accès aux données et la journalisation des d
 Pour plus d’informations sur l’utilisation des journaux de diagnostic avec Data Lake Storage Gen1, consultez [Accès aux journaux de diagnostic pour Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md).
 
 ## <a name="summary"></a>Résumé
+
 Les clients professionnels exigent une plateforme cloud d’analyse des données sécurisée et facile à utiliser. Data Lake Storage Gen1 est conçu pour répondre à ces exigences par le biais de la gestion des identités et l’authentification via l’intégration Azure Active Directory, l’autorisation basée sur les ACL, l’isolement réseau, le chiffrement des données en transit et au repos et l’audit.
 
 Si vous souhaitez voir de nouvelles fonctionnalités de Data Lake Storage Gen1, envoyez-nous vos commentaires sur notre [forum UserVoice Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
 ## <a name="see-also"></a>Voir aussi
+
 * [Vue d’ensemble d’Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Prise en main de Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)

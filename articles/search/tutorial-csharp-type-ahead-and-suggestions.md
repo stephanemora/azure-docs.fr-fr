@@ -1,50 +1,48 @@
 ---
-title: Tutoriel C# sur l’auto-complétion et les suggestions
+title: Autocomplétion et suggestions
 titleSuffix: Azure Cognitive Search
-description: Ce tutoriel présente la complétion automatique et les suggestions qui permettent de collecter les entrées de termes de recherche des utilisateurs à l’aide d’une liste déroulante. Il s’appuie sur un projet existant basé sur des hôtels.
+description: Ce tutoriel présente l’autocomplétion et les suggestions qui permettent de collecter les entrées de termes de recherche des utilisateurs à l’aide d’une liste déroulante. Il s’appuie sur un projet existant basé sur des hôtels.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/15/2020
+ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121533"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641072"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Tutoriel C# : Ajouter l’auto-complétion et des suggestions - Recherche cognitive Azure
+# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>Tutoriel C# : Ajouter l’autocomplétion et les suggestions - Recherche cognitive Azure
 
-Découvrez comment implémenter l’auto-complétion et les suggestions quand un utilisateur commence à taper dans la zone de recherche. Dans ce tutoriel, nous allons montrer les résultats d’auto-complétion et les résultats de suggestions séparément, puis illustrer une méthode permettant de les combiner pour créer une expérience utilisateur plus riche. Il suffit à l’utilisateur d’appuyer sur deux ou trois touches pour obtenir tous les résultats disponibles. Ce tutoriel repose sur le projet de pagination créé dans le [Tutoriel C#  : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md).
+Découvrez comment implémenter l’autocomplétion (requêtes en saisie semi-automatique et suggestions de documents) quand un utilisateur commence à taper dans une zone de recherche. Dans ce tutoriel, nous allons montrer les requêtes autocomplétées et les résultats de suggestions séparément, puis ensemble. Il suffit à l’utilisateur de taper deux ou trois caractères pour obtenir tous les résultats disponibles.
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Ajouter des suggestions
 > * Mettre en évidence les suggestions
-> * Ajouter l’auto-complétion
+> * Ajouter l’autocomplétion
 > * Combiner l’auto-complétion et les suggestions
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
+Ce tutoriel fait partie d’une série et repose sur le projet de pagination créé dans le [Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md).
 
-Disposer pleinement du projet [Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md). Ce projet peut être votre propre version, effectuée dans le tutoriel précédent, ou vous pouvez l’installer à partir de GitHub : [Créer votre première application](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Vous pouvez également télécharger et exécuter la solution pour ce tutoriel spécifique : [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Ajouter des suggestions
 
 Nous allons commencer par le cas le plus simple de proposition de choix à l’utilisateur : une liste déroulante de suggestions.
 
-1. Dans le fichier index.cshtml, modifiez l’instruction **TextBoxFor** comme suit.
+1. Dans le fichier index.cshtml, remplacez l’`@id` de l’instruction **TextBoxFor** par **azureautosuggest**.
 
     ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-    Le point important ici est que nous avons défini l’ID de la zone de recherche sur **azureautosuggest**.
-
-2. Après cette instruction, après la balise **&lt;/div&gt;** fermante, entrez ce script.
+2. Après cette instruction, après la balise **&lt;/div&gt;** fermante, entrez ce script. Ce script tire parti du [widget d’autocomplétion](https://api.jqueryui.com/autocomplete/) de la bibliothèque de l’interface utilisateur open source jQuery pour présenter la liste déroulante des résultats suggérés. 
 
     ```javascript
     <script>
@@ -59,13 +57,11 @@ Nous allons commencer par le cas le plus simple de proposition de choix à l’u
     </script>
     ```
 
-    Nous avons connecté ce script à la zone de recherche par le biais du même ID. De plus, deux caractères au minimum sont nécessaires pour déclencher la recherche, et nous appelons l’action **Suggest** dans le contrôleur Home avec deux paramètres de requête (**highlights** et **fuzzy**), définis sur false dans cette instance.
+    L’ID « azureautosuggest » connecte le script ci-dessus à la zone de recherche. L’option source du widget est définie sur une méthode Suggest qui appelle l’API Suggest avec deux paramètres de requête : **highlights** et **fuzzy**, tous deux ayant la valeur false dans cette instance. De plus, un minimum de deux caractères sont nécessaires pour déclencher la recherche.
 
-### <a name="add-references-to-jquery-scripts-to-the-view"></a>Ajouter des références aux scripts jquery à la vue
+### <a name="add-references-to-jquery-scripts-to-the-view"></a>Ajouter des références aux scripts jQuery à la vue
 
-La fonction d’auto-complétion appelée dans le script ci-dessus n’est pas quelque chose que nous devons écrire nous-mêmes, car elle est disponible dans la bibliothèque jquery. 
-
-1. Pour accéder à la bibliothèque jquery, remplacez la section &lt;head&gt; du fichier de la vue par le code suivant.
+1. Pour accéder à la bibliothèque jQuery, remplacez la section &lt;head&gt; du fichier de la vue par le code suivant :
 
     ```cs
     <head>
@@ -80,7 +76,7 @@ La fonction d’auto-complétion appelée dans le script ci-dessus n’est pas q
     </head>
     ```
 
-2. Nous devons également supprimer ou commenter une ligne référençant jquery dans le fichier _Layout.cshtml (dans le dossier **Views/Shared**). Recherchez les lignes suivantes et commentez la première ligne de script comme indiqué. Cette modification permet d’éviter les conflits de références à jquery.
+2. Étant donné que nous introduisons une nouvelle référence jQuery, nous devons également supprimer (ou commenter) la référence jQuery par défaut dans le fichier _Layout.cshtml (dans le dossier **Views/Shared**). Recherchez les lignes suivantes et commentez la première ligne de script comme indiqué. Cette modification permet d’éviter les conflits de références à jQuery.
 
     ```html
     <environment include="Development">
@@ -90,7 +86,7 @@ La fonction d’auto-complétion appelée dans le script ci-dessus n’est pas q
     </environment>
     ```
 
-    Maintenant, nous pouvons utiliser les fonctions jquery d’auto-complétion prédéfinies.
+    Maintenant, nous pouvons utiliser les fonctions jQuery d’autocomplétion prédéfinies.
 
 ### <a name="add-the-suggest-action-to-the-controller"></a>Ajouter l’action Suggest au contrôleur
 
@@ -114,7 +110,8 @@ La fonction d’auto-complétion appelée dans le script ci-dessus n’est pas q
                 parameters.HighlightPostTag = "</b>";
             }
 
-            // Only one suggester can be specified per index. The name of the suggester is set when the suggester is specified by other API calls.
+            // Only one suggester can be specified per index. It is defined in the index schema.
+            // The name of the suggester is set when the suggester is specified by other API calls.
             // The suggester for the hotel database is called "sg", and simply searches the hotel name.
             DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", parameters);
 
@@ -128,7 +125,7 @@ La fonction d’auto-complétion appelée dans le script ci-dessus n’est pas q
 
     Le paramètre **Top** spécifie le nombre de résultats à retourner (s’il n’est pas spécifié, le nombre par défaut est 5). Un _suggesteur_ est spécifié sur l’index Azure, au moment où les données sont configurées et non par une application cliente, comme ce tutoriel. Dans ce cas, le suggesteur est appelé « sg », et il recherche uniquement dans le champ **HotelName**. 
 
-    La correspondance approximative permet d’inclure les « correspondances proches » dans la sortie. Si le paramètre **highlights** est défini sur true, des balises HTML en gras sont ajoutées à la sortie. Nous allons définir ces deux paramètres sur true dans la section suivante.
+    La correspondance approximative permet d’inclure les « correspondances proches » dans la sortie, à une distance maximale d’une modification. Si le paramètre **highlights** est défini sur true, des balises HTML en gras sont ajoutées à la sortie. Nous allons définir ces deux paramètres sur true dans la section suivante.
 
 2. Vous pouvez obtenir des erreurs de syntaxe. Si c’est le cas, ajoutez les deux instructions **using** suivantes au début du fichier.
 
@@ -151,7 +148,7 @@ La fonction d’auto-complétion appelée dans le script ci-dessus n’est pas q
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Mettre en évidence les suggestions
 
-Nous pouvons améliorer un peu l’apparence des suggestions proposées à l’utilisateur, en définissant le paramètre **highlights** sur true. Toutefois, nous devons d’abord ajouter du code à la vue pour afficher le texte en gras.
+Nous pouvons améliorer l’apparence des suggestions proposées à l’utilisateur en affectant la valeur true au paramètre **highlights**. Toutefois, nous devons d’abord ajouter du code à la vue pour afficher le texte en gras.
 
 1. Dans la vue (index.cshtml), ajoutez le script suivant après le script **azureautosuggest** que vous avez entré plus haut.
 
@@ -194,11 +191,11 @@ Nous pouvons améliorer un peu l’apparence des suggestions proposées à l’u
 
 4. La logique utilisée dans le script de mise en évidence ci-dessus n’est pas infaillible. Si vous entrez un terme qui apparaît deux fois dans le même nom, les résultats en gras ne sont pas tout à fait ce que vous souhaiteriez. Essayez de taper « mo ».
 
-    Il appartient au développeur de déterminer si un script fonctionne « suffisamment bien » ou s’il doit faire l’objet d’ajustements. Nous n’allons pas approfondir la mise en évidence dans ce tutoriel, mais il est important de rechercher un algorithme précis si vous souhaitez mettre en place une mise en évidence de qualité.
+    Il appartient au développeur de déterminer si un script fonctionne « suffisamment bien » ou s’il doit faire l’objet d’ajustements. Nous n’allons pas approfondir la mise en évidence dans ce tutoriel, mais il peut être important de trouver un algorithme précis si la mise en évidence n’est pas efficace pour vos données. Pour plus d’informations, consultez [Mise en surbrillance des correspondances](search-pagination-page-layout.md#hit-highlighting).
 
-## <a name="add-autocompletion"></a>Ajouter l’auto-complétion
+## <a name="add-autocomplete"></a>Ajouter l’autocomplétion
 
-Une autre variante, qui diffère légèrement des suggestions, est l’auto-complétion. Là encore, nous allons commencer par l’implémentation la plus simple, avant d’améliorer l’expérience utilisateur.
+Une autre variante, qui diffère légèrement des suggestions, est l’autocomplétion, qui permet d’entrer automatiquement un terme de requête Là encore, nous allons commencer par l’implémentation la plus simple, avant d’améliorer l’expérience utilisateur.
 
 1. Entrez le script suivant dans la vue, après vos scripts précédents.
 
@@ -246,7 +243,7 @@ Une autre variante, qui diffère légèrement des suggestions, est l’auto-comp
 
     Notez que nous utilisons la même fonction de *suggesteur*, appelée « sg », dans la recherche avec auto-complétion, que pour les suggestions (l’auto-complétion ne porte donc que sur les noms d’hôtel).
 
-    Parmi les paramètres **AutocompleteMode** disponibles, nous utilisons **OneTermWithContext**. Reportez-vous à [Auto-complétion Azure](https://docs.microsoft.com/rest/api/searchservice/autocomplete) pour obtenir une description de la plage d’options.
+    Parmi les paramètres **AutocompleteMode** disponibles, nous utilisons **OneTermWithContext**. Pour obtenir une description des options supplémentaires, consultez [API Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete).
 
 4. Exécutez l'application. Notez que la plage d’options affichées dans la liste déroulante est constituée de mots uniques. Essayez de taper des mots commençant par « re ». Comme vous pouvez le constater, le nombre d’options diminue à mesure que vous tapez des lettres.
 

@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: batch
-author: laurenhughes
+author: LauraBrenner
 ms.service: batch
 ms.topic: include
 ms.date: 05/28/2019
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: include file
-ms.openlocfilehash: 22bfc3c86605f4c2eed4c022919b3643f394ea95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0d74aa38dffdd41fbe617066391ef271a507349
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67080921"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81734892"
 ---
 | **Ressource** | **Limite par défaut** | **Limite maximale** |
 | --- | --- | --- |
@@ -23,7 +23,10 @@ ms.locfileid: "67080921"
 | Travaux et planifications de travaux **[actifs](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** par compte Batch (les travaux **terminés** n’ont aucune limite) | 100-300 | 1 000<sup>1</sup> |
 | Pools par compte Batch | 20-100 | 500<sup>1</sup> |
 
+<sup>1</sup>Si vous voulez solliciter un dépassement de cette limite, contactez le support Azure.
+
 > [!NOTE]
 > Les limites par défaut varient selon le type d’abonnement que vous utilisez pour créer un compte Batch. Les quotas de cœurs affichés correspondent aux comptes Batch en mode service Batch. [Affichez les quotas dans votre compte Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>1</sup>Si vous voulez solliciter un dépassement de cette limite, contactez le support Azure.
+> [!IMPORTANT]
+> Pour mieux gérer la capacité au cours de la pandémie mondiale, nous avons réduit les quotas de cœurs par défaut des nouveaux comptes Batch par rapport à la plage de valeurs ci-dessus dans certaines régions et pour certains types d’abonnements (quotas réduits à zéro cœur dans certains cas). Quand vous créez un compte Batch, [vérifiez votre quota de cœurs](../articles/batch/batch-quota-limit.md#view-batch-quotas) et [demandez une augmentation du quota de cœurs](../articles/batch/batch-quota-limit.md#increase-a-quota) si nécessaire. 

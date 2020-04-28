@@ -5,38 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 2/11/2020
+ms.date: 04/13/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77166451"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603417"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutoriel : Inviter en bloc des utilisateurs Azure AD B2B Collaboration (préversion)
-
-|     |
-| --- |
-| Cet article décrit une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-> [!NOTE]
-> Depuis le 22/12/2019, la fonctionnalité d’invitation des utilisateurs en bloc (préversion) a été temporairement désactivée.
-> Il n’existe actuellement aucune date connue pour la réactivation de cette fonctionnalité dans le portail Azure. Pour convier en bloc des utilisateurs invités à l’aide de PowerShell, consultez le [tutoriel sur l’invitation en bloc B2B](bulk-invite-powershell.md) ou [le code B2B et les exemples PowerShell](code-samples.md).
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutoriel : Inviter en bloc des utilisateurs Azure AD B2B Collaboration
 
 Si vous utilisez Azure Active Directory (Azure AD) B2B Collaboration pour travailler avec des partenaires externes, vous pouvez inviter en même temps plusieurs utilisateurs invités pour votre organisation. Dans ce tutoriel, vous allez apprendre à utiliser le portail Azure pour envoyer des invitations en bloc à des utilisateurs externes. Vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
-> * Utiliser **Inviter des utilisateurs en bloc (préversion)** pour préparer un fichier de valeurs séparées par des virgules (.csv) avec les informations de l’utilisateur et les préférences d’invitation
+> * Utiliser **Inviter des utilisateurs en bloc** pour préparer un fichier de valeurs séparées par des virgules (.csv) avec les informations de l’utilisateur et les préférences d’invitation
 > * Charger le fichier .csv sur Azure AD
 > * Vérifier que les utilisateurs ont été ajoutés à l’annuaire
 
-Si vous n’avez pas Azure Active Directory, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
+Si vous n’avez pas Azure Active Directory, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -47,7 +38,7 @@ Vous avez besoin d’au moins deux comptes de messagerie de test auxquels vous p
 1. Connectez-vous au portail Azure en utilisant un compte d’administrateur d’utilisateurs de l’organisation.
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
 3. Sous **Gérer**, sélectionnez **Utilisateurs** > **Inviter en bloc**.
-4. Dans la page **Inviter des utilisateurs en bloc (préversion)** , sélectionnez **Télécharger** pour obtenir un fichier .csv valide avec les propriétés de l’invitation.
+4. Dans la page **Inviter des utilisateurs en bloc**, sélectionnez **Télécharger** pour obtenir un fichier .csv valide avec les propriétés de l’invitation.
 
     ![Bouton Télécharger dans Inviter en bloc](media/tutorial-bulk-invite/bulk-invite-button.png)
 
@@ -63,10 +54,10 @@ Vous avez besoin d’au moins deux comptes de messagerie de test auxquels vous p
    > N’utilisez pas de virgules dans le **Message d’invitation personnalisé**, car le message ne pourrait pas être analysé correctement.
 
 6. Enregistrez le fichier .
-7. Dans la page **Inviter des utilisateurs en bloc (préversion)** , sous **Chargez votre fichier .csv**, accédez au fichier. Quand vous sélectionnez le fichier, la validation du fichier .csv démarre. 
+7. Dans la page **Inviter des utilisateurs en bloc**, sous **Chargez votre fichier .csv**, accédez au fichier. Quand vous sélectionnez le fichier, la validation du fichier .csv démarre. 
 8. Quand le contenu du fichier est validé, un message indique **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
 9. Une fois votre fichier validé, sélectionnez **Envoyer** pour démarrer l’opération en bloc Azure qui ajoute les invitations. 
-10. Pour voir l’état du travail, sélectionnez **Cliquez ici pour afficher l’état de chaque opération**. Vous pouvez également sélectionner **Résultats de l’opération en bloc (préversion)** dans la section **Activité**. Pour plus d’informations sur chaque élément de ligne au sein de l’opération en bloc, sélectionnez les valeurs sous les colonnes **Nombre de réussites**, **Nombre d’échecs** ou **Nombre total de requêtes**. Si des échecs se sont produits, les raisons sont affichées.
+10. Pour voir l’état du travail, sélectionnez **Cliquez ici pour afficher l’état de chaque opération**. Vous pouvez également sélectionner **Résultats de l’opération en bloc** dans la section **Activité**. Pour plus d’informations sur chaque élément de ligne au sein de l’opération en bloc, sélectionnez les valeurs sous les colonnes **Nombre de réussites**, **Nombre d’échecs** ou **Nombre total de requêtes**. Si des échecs se sont produits, les raisons sont affichées.
 
     ![Exemple de résultats de l’opération en bloc](media/tutorial-bulk-invite/bulk-operation-results.png)
 

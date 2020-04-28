@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399452"
+ms.locfileid: "81529890"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -92,7 +92,7 @@ Explorez la [documentation de référence sur l’API REST](https://westus2.dev.
 
 Les exigences d’entrée pour le modèle de reçu sont légèrement différentes.
 
-* Le format doit être JPEG, PNG, BMP, PDF (texte ou numérisé) ou TIFF.
+* Format JPEG, PNG, PDF (texte ou numérisé) ou TIFF.
 * La taille du fichier doit être inférieure à 20 Mo.
 * Les dimensions des images doivent être comprises entre 50 x 50 et 10 000 x 10 000 pixels.
 * Les dimensions des PDF ne doivent pas dépasser 17 x 17 pouces, ce qui correspond aux formats de papier Legal ou A3, et plus petits.

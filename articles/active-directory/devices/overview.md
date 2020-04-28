@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80331812"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024436"
 ---
 # <a name="what-is-a-device-identity"></a>Qu’est-ce qu’une identité d’appareil ?
 
@@ -53,6 +53,9 @@ Pour obtenir un appareil à Azure AD, vous avez plusieurs options :
 
 ![Appareils affichés dans le panneau Appareils Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
 
+> [!NOTE]
+> Un état hybride fait référence à plus que le simple état d’un appareil. Pour qu’un état hybride soit valide, un utilisateur Azure AD valide est également requis.
+
 ## <a name="device-management"></a>Gestion des appareils
 
 Vous pouvez gérer les appareils Azure AD avec des outils de gestion des appareils mobiles (MDM) tels que Microsoft Intune, Microsoft Endpoint Configuration Manager, la stratégie de groupe (jonction hybride Azure AD), Mobile Application Management (MAM) ou autres outils tiers.
@@ -63,6 +66,8 @@ L’inscription et la jonction d’appareils à Azure AD permet aux utilisateurs
 
 > [!NOTE]
 > Les stratégies d’accès conditionnel en fonction de l’appareil s’appliquent uniquement à des appareils joints à Azure AD Hybride ou à des appareils conformes joints à Azure AD ou inscrits auprès d’Azure AD.
+
+Le jeton d’actualisation principal contient des informations sur l’appareil, et il est obligatoire pour l’authentification unique. Si vous avez défini une stratégie d’accès conditionnel basé sur l’appareil sur une application, sans jeton d’actualisation principal l’accès est refusé. Les stratégies d’accès conditionnel hybride nécessitent un appareil à l’état hybride et un utilisateur valide qui est connecté.
 
 Les appareils qui sont des appareils Azure AD joints ou des appareils Azure AD joints hybrides bénéficient de l’authentification unique aux ressources sur site de votre organisation ainsi qu’aux ressources cloud. Pour plus d’informations, consultez [Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD](azuread-join-sso.md).
 

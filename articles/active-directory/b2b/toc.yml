@@ -17,7 +17,7 @@
       items:
         - name: Inviter en bloc via PowerShell
           href: bulk-invite-powershell.md
-        - name: Inviter en bloc via le portail (préversion)
+        - name: Inviter en bloc via le portail
           href: tutorial-bulk-invite.md
         - name: Application de l’authentification multifacteur via Azure Multi-Factor Authentication
           href: b2b-tutorial-require-mfa.md

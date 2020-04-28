@@ -2,14 +2,14 @@
 title: Migrer des machines virtuelles VMware à l’aide de la migration de serveurs Azure Migrate sans agent
 description: Découvrez comment exécuter la migration sans agent des machines virtuelles VMware avec Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 825d6ff16a1f51fa476541ee10fea5f8a1c2972e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4612c9b0ea2ef8d53b0c04f47628f3789705d833
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78304206"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535313"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrer des machines virtuelles VMware vers Azure (sans agent)
 
@@ -55,9 +55,12 @@ Avant de commencer ce didacticiel, vous devez :
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Ajouter l’outil Azure Migrate Server Migration
 
-Si vous n’avez pas suivi le deuxième tutoriel pour évaluer les machines virtuelles VMware, vous devez [suivre ces instructions](how-to-add-tool-first-time.md) pour configurer un projet Azure Migrate et sélectionner l’outil Azure Migrate Server Migration. 
+Ajoutez l’outil Azure Migrate : Migration de serveur.
 
-Si vous avez suivi le deuxième tutoriel et que vous avez déjà configuré un projet Azure Migrate, ajoutez l’outil Azure Migrate Server Migration comme suit :
+- Si vous avez suivi le deuxième tutoriel pour [évaluer les machines virtuelles VMware](/tutorial-assess-vmware.md), vous pouvez ajouter l’outil.
+- Si vous n’avez pas suivi le deuxième tutoriel, [suivez ces instructions](how-to-add-tool-first-time.md) pour configurer un projet Azure Migrate.  Vous ajoutez l’outil Azure Migrate : Migration de serveur quand vous créez le projet.
+
+Si vous avez un projet configuré, ajoutez l’outil comme suit :
 
 1. Dans le projet Azure Migrate, cliquez sur **Vue d’ensemble**. 
 2. Dans **Découvrir, évaluer et migrer des serveurs**, cliquez sur **Évaluer et migrer des serveurs**.
@@ -74,15 +77,14 @@ Si vous avez suivi le deuxième tutoriel et que vous avez déjà configuré un p
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurer l’appliance Azure Migrate
 
-Azure Migrate Server Migration exécute une appliance de machines virtuelles VMware légère. L’appliance effectue la découverte des machines virtuelles et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate Server Migration. La même appliance est également utilisée par l’outil Azure Migrate Server Assessment.
+Azure Migrate Server Migration exécute une appliance de machines virtuelles VMware légère. L’appliance effectue la découverte des machines virtuelles et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate : Migration de serveur. La même appliance est également utilisée par l’outil Azure Migrate : Évaluation du serveur pour effectuer la migration sans agent des machines virtuelles VMware.
 
-Si vous avez suivi le deuxième tutoriel pour évaluer des machines virtuelles VMware, vous avez déjà configuré l’appliance au cours de ce tutoriel. Si vous n’avez pas suivi ce tutoriel, vous devez configurer l’appliance maintenant. Pour ce faire, procédez comme suit : 
+- Si vous avez suivi le [tutoriel pour évaluer des machines virtuelles VMware](tutorial-assess-vmware.md), vous avez déjà configuré l’appliance au cours de ce tutoriel.
+- Si vous n’avez pas suivi ce tutoriel, vous pouvez configurer l’appliance maintenant en utilisant l’une des méthodes suivantes :
+    - [Configurez-la](how-to-set-up-appliance-vmware.md) sur une machine virtuelle VMware au moyen d’un modèle OVA téléchargé.
+    - Configurez-la sur une machine virtuelle VMware ou machine physique avec un script d’installation PowerShell. [Cette méthode](deploy-appliance-script.md) doit être utilisée si vous ne pouvez pas configurer une machine virtuelle à l’aide d’un modèle OVA, ou si vous êtes dans Azure Government.
 
-- Téléchargez un fichier de modèle OVA, puis importez-le dans vCenter Server.
-- Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment. 
-- Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
-
-Suivez les instructions indiquées dans [cet article](how-to-set-up-appliance-vmware.md) pour configurer l’appliance.
+Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment, configurez-la pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
 
 ## <a name="prepare-vms-for-migration"></a>Préparer les machines virtuelles pour la migration

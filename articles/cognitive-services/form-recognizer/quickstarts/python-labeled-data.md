@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482313"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531098"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’API REST et de Python
 
@@ -40,7 +40,7 @@ Vérifiez que tous les documents d’entraînement ont le même format. Si vous 
 
 Pour effectuer l’entraînement d’un modèle à l’aide de données étiquetées, vous avez besoin des fichiers suivants comme entrées dans le sous-dossier. Vous allez apprendre à créer ces fichiers ci-après.
 
-* **Formulaires sources** : formulaires desquels extraire les données. Les types pris en charge sont JPEG, PNG, BMP, PDF ou TIFF.
+* **Formulaires sources** : formulaires desquels extraire les données. Les types pris en charge sont JPEG, PNG, PDF ou TIFF.
 * **Fichiers de disposition OCR** : fichiers JSON qui décrivent la taille et les positions de tout texte lisible dans chaque formulaire source. Vous utiliserez l’API de disposition Form Recognizer pour générer ces données. 
 * **Fichiers d’étiquette** : fichiers JSON qui décrivent les étiquettes de données qu’un utilisateur a entrées manuellement.
 
@@ -219,7 +219,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body =  {
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -455,7 +455,7 @@ Une fois le processus terminé, vous recevez une réponse `202 (Success)` avec d
                     "#/readResults/0/lines/8/words/1"
                   ]
                 },
-                ...     
+                ...        
               ]
             }
           ]

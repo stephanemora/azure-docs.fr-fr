@@ -1,18 +1,18 @@
 ---
-title: Migration de compte du Portail Cloud Partner vers l’Espace partenaires - Place de marché commerciale pour Azure
-description: Découvrez comment migrer votre compte du Portail Cloud Partner vers l'Espace partenaires. – Place de marché commerciale pour Azure
+title: Migration de compte du portail Cloud Partner vers l’Espace partenaires - Place de marché commerciale pour Azure
+description: Découvrez comment migrer votre compte du Portail Cloud Partner vers l’Espace partenaires - place de marché commerciale pour Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 4aa336183d25a524246a2036fb95e0a7657b84f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279808"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024419"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migration de compte du Portail Cloud Partner vers l’Espace partenaires
 
@@ -43,11 +43,21 @@ Cliquez sur la bannière pour démarrer le processus de migration de votre compt
 
     Si votre compte du portail Cloud Partner n’a pas d’ID Microsoft Partner Network ou si celui-ci n’est pas valide, vous devrez vous inscrire au programme Microsoft Partner Network dans le cadre du processus d’activation.
 
+## <a name="publishers-moving-from-cpp"></a>Éditeurs migrant à partir du portail CPP
+
+Si votre compte a été migré depuis le [portail Cloud Partner (CPP)](https://cloudpartner.azure.com), vous n’avez pas besoin de créer un nouveau compte Espace partenaires. Vous devez avoir reçu un lien personnalisé vers votre nouveau compte Espace partenaires dans votre messagerie électronique et dans une bannière de notification après vous être connecté à votre compte CPP existant.
+
+Une fois que vous avez activé votre nouveau compte Espace partenaires en cliquant sur ce lien personnalisé, vous pouvez revenir à votre compte en vous rendant sur le [Tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
+
+Le contrat d’éditeur et les informations sur le profil de l’entreprise seront migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil et de paiement précédemment configurées, les comptes d’utilisateur et les autorisations, ainsi que les offres actives associées à votre compte CPP.
+
+Une fois que les informations de votre compte ont été déplacées de CPP vers l’Espace partenaires, vous n’utiliserez plus le portail CPP pour effectuer des mises à jour de compte ou pour gérer les utilisateurs, les autorisations et la facturation. Pendant une période limitée, les mises à jour de compte que vous effectuez dans l’Espace partenaires seront automatiquement répercutées dans votre compte CPP en lecture seule jusqu’à ce que le portail CPP soit déprécié.
+
 ## <a name="sign-up-for-microsoft-partner-network-program"></a>S'inscrire au programme Microsoft Partner Network
 
 Les entreprises qui souhaitent s’associer à Microsoft doivent rejoindre le Microsoft Partner Network (MPN) et obtenir un ID MPN. Si vous êtes déjà membre de Microsoft Partner Network et que vous avez un ID MPN, conservez les informations à portée de main, car vous en aurez besoin lors du processus d’activation du compte.  
 
-Si vous n’êtes pas membre du Microsoft Partner Network, vous pouvez [vous inscrire ici](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) pour obtenir un ID MPN. Prenez note de votre ID MPN, car vous devrez l’entrer pendant le processus d’activation du compte.
+Si vous n’êtes pas membre du Microsoft Partner Network, vous pouvez [vous inscrire ici](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) pour obtenir un ID MPN. Prenez note de votre ID MPN, car vous devrez l’entrer pendant le processus d’activation du compte.
 
 Pour en savoir plus sur le Microsoft Partner Network, consultez [Rejoindre le Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) sur le site web des partenaires. Pour en savoir plus sur les avantages dont bénéficient les éditeurs de logiciels indépendants membres du Microsoft Partner Network, consultez le [hub de ressources pour éditeurs de logiciels indépendants](https://partner.microsoft.com/isv-resource-hub).  
 
@@ -61,7 +71,7 @@ Pour obtenir des informations spécifiques sur ce qui doit être fait d’ici le
 > Cela ne s’applique pas aux offres Dynamics 365 Business Central.  
 
 1. Si votre compte d’appartenance MPN a été initialement créé dans Partner Membership Center (PMC), connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) pour vérifier que ce compte a été migré. Si vous voyez un écran de profil avec votre ID MPN, vous pouvez continuer. Sinon, vous devez démarrer la migration de votre compte en suivant les invites affichées dans [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Si vous avez besoin d’aide, consultez la page de [support](https://partner.microsoft.com/support?issueid=100-0077).
-2. Accédez à la [page Vue d’ensemble de la Place de marché commerciale dans l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Si vous voyez la mention « Place de marché commerciale » dans le volet de navigation de gauche, vous êtes inscrit et vous pouvez passer à l’étape suivante. Sinon, [inscrivez-vous dès maintenant sur la Place de marché commerciale](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv).
+2. Accédez à la [page Vue d’ensemble de la Place de marché commerciale dans l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Si vous voyez la mention « Place de marché commerciale » dans le volet de navigation de gauche, vous êtes inscrit et vous pouvez passer à l’étape suivante. Sinon, [inscrivez-vous dès maintenant sur la Place de marché commerciale](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 3. Vérifiez que vos offres sont proposées dans AppSource [en recherchant vos offres](https://appsource.microsoft.com/). Si vos offres se trouvent déjà dans AppSource, passez à l’étape suivante. Si l’une de vos offres n’est pas dans AppSource, créez une [offre Dynamics 365 Customer Engagement](create-new-customer-engagement-offer.md) ou une [offre Dynamics 365 Operations](create-new-operations-offer.md).
 4. Sur la [page Contrats](https://partner.microsoft.com/dashboard/account/agreements) de l’Espace partenaires, consultez et acceptez **l’addendum Business Applications ISV**.
 5. Dans les [Paramètres du compte](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) de l’Espace partenaires, vérifiez que vos informations de facturation sont complètes.
@@ -73,10 +83,10 @@ Pour obtenir des informations spécifiques sur ce qui doit être fait d’ici le
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-Participez aux [appels hebdomadaires de la communauté des éditeurs de logiciels indépendants Dynamics](https://aka.ms/DynamicsISV-CommunityCall) pour obtenir de l’aide et des mises à jour.
+Procurez-vous de l’aide auprès d’experts et de pairs dans les forums et découvrez les blogs, les webinaires, les vidéos, les événements et bien plus encore sur [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-Si vous avez besoin d’aide pour la publication, la certification ou la gestion de vos offres de la Place de marché, [soumettez un ticket de support](https://aka.ms/MarketplacePublisherSupport).
+Si vous avez besoin d’aide pour la publication, la certification ou la gestion de vos offres de la Place de marché, [soumettez un ticket de support](https://partner.microsoft.com/support/v2/?stage=1).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-step"></a>Étape suivante
 
 - [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](./manage-account.md)

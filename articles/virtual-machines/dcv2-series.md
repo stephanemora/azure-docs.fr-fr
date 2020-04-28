@@ -7,19 +7,19 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: 7834c8a32d4d85fc354bac209e13f19f3b8315fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d35e37e53b84d317446a93a2301fc3b703b426b7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80256927"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085720"
 ---
-# <a name="preview-dcsv2-series"></a>Aperçu : série DCsv2
+# <a name="dcsv2-series"></a>série DCsv2
 
 
 La série DCsv2 permet de protéger la confidentialité et l’intégrité de vos données et de votre code lors de leur traitement dans le cloud public. Ces machines bénéficient du processeur Intel XEON E-2288G de dernière génération avec la technologie SGX. Avec Intel Turbo Boost Technology, ces machines peuvent atteindre 5,0 GHz. Les instances de la série DCsv2 permettent aux clients de créer des applications sécurisées basées sur enclave pour protéger leur code et leurs données en cours d’utilisation.
 
-Les exemples de cas d’utilisation incluent le partage de données pluripartites confidentielles, la détection des fraudes, le blanchiment d’argent, la blockchain, l’analyse de l’utilisation confidentielle, l’analyse décisionnelle et le machine learning confidentiel.
+Les exemples de cas d’usage incluent le partage de données pluripartites confidentielles, la détection des fraudes, le blanchiment d’argent, la blockchain, l’analyse de l’utilisation confidentielle, l’analyse décisionnelle et le machine learning confidentiel.
 
 Premium Storage : Pris en charge*
 
@@ -41,9 +41,9 @@ Mises à jour avec préservation de la mémoire : Non pris en charge
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16 000/128 (172)                                                         | 12 800/192                                 | 2                                            |
 
 - Les machines virtuelles de la série DCsv2 sont des [machines virtuelles de 2e génération](./linux/generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
-- Actuellement disponibles uniquement dans les régions Royaume-Uni Sud et Canada Centre.
-- Génération précédente de machines virtuelles de calcul confidentiel : [Série DC](sizes-previous-gen.md)
-- Créer des machines virtuelles DCsv2 à l’aide du Portail Azure [Créer une machine virtuelle – Portail](./linux/quick-create-portal.md)
+- Elles sont actuellement disponibles uniquement dans les régions Royaume-Uni Sud, Canada Centre et USA Est.
+- Génération précédente de machines virtuelles de calcul confidentiel : [Série DC](sizes-previous-gen.md#preview-dc-series)
+- Créer des machines virtuelles DCsv2 à l’aide du [Portail Azure](./linux/quick-create-portal.md) ou de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 
 
 

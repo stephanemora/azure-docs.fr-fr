@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Oneteam | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Oneteam | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Oneteam.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 195fa26a38d89d9ef738e6060ff7dab602d5c234
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 875114c53cb3193b1b140e95be19daf7fb6415a9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67095906"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870310"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Didacticiel : Intégration d’Azure Active Directory à Oneteam
+# <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutoriel : Intégration d’Azure Active Directory à Oneteam
 
 Dans ce didacticiel, vous allez apprendre à intégrer Oneteam à Azure Active Directory (Azure AD).
 L’intégration de Oneteam dans Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Oneteam dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Oneteam, vous avez besoin des éléments suivants :
 
@@ -118,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec Oneteam, effectuez les
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<team name>.one-team.io/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Oneteam](https://support.one-team.com/hc/requests/new). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’équipe du support technique Oneteam. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -136,7 +136,7 @@ Pour configurer l’authentification unique Azure AD avec Oneteam, effectuez les
 
 ### <a name="configure-oneteam-single-sign-on"></a>Configurer l’authentification unique Oneteam
 
-Pour configurer l’authentification unique côté **Oneteam**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Oneteam](https://support.one-team.com/hc/requests/new). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Oneteam**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’équipe du support technique de Oneteam. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -194,7 +194,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, un utilisateur nommé Britta Simon est créé dans Oneteam. Oneteam prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans Oneteam, il est créé après l’authentification.
 
 >[!NOTE]
->Si vous devez créer un utilisateur manuellement, vous pouvez ouvrir un ticket de support auprès de [l’équipe Oneteam](https://support.one-team.com/hc/requests/new).
+>Si vous devez créer un utilisateur manuellement, vous pouvez ouvrir un ticket de support auprès de l’équipe Oneteam.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

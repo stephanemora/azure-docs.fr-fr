@@ -2,18 +2,30 @@
 title: Nouveautés d’Azure Migrate
 description: Découvrez les nouveautés et les mises à jour récentes du service Azure Migrate.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 9767f3ea31b57d23c8a6772ff5eb6500f7550802
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127591"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677242"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer localement des serveurs, applications et données vers le cloud Microsoft Azure. Cet article synthétise les nouvelles versions et fonctionnalités d’Azure Migrate.
+
+
+## <a name="update-april-2020"></a>Mise à jour (avril 2020)
+
+Azure Migrate prend en charge les déploiements dans Azure Government. 
+
+- Vous pouvez découvrir et évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V et des serveurs physiques.
+- Vous pouvez migrer des machines virtuelles Hyper-V, des machines virtuelles VMware et des serveurs physiques vers Azure.
+- Pour la migration VMware, vous pouvez utiliser la migration sans agent ou basée sur un agent. [Plus d’informations](server-migrate-overview.md)
+- [Passez en revue](migrate-support-matrix.md#supported-geographies-azure-government) les zones géographiques et régions prises en charge pour Azure Government.
+- L’[analyse des dépendances basée sur les agents](concepts-dependency-visualization.md#agent-based-analysis) n’est pas prise en charge dans Azure Government.
+- Les fonctionnalités d’évaluation sont prises en charge dans Azure Government, plus spécifiquement l’[analyse des dépendances sans agent](concepts-dependency-visualization.md#agentless-analysis) et la [découverte d’application](how-to-discover-applications.md).
 
 ## <a name="update-march-2020"></a>Mise à jour (mars 2020)
 
@@ -58,7 +70,7 @@ La version actuelle d’Azure Migrate (publiée en juillet 2019) propose un cer
 
 ## <a name="azure-migrate-previous-version"></a>Version précédente d’Azure Migrate
 
-Si vous utilisiez la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), vous devez désormais utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ou d’effectuer de nouvelles découvertes. Vous pouvez toujours accéder aux projets existants. Pour ce faire, dans le portail Azure > **Tous les services**, recherchez **Azure Migrate**. Les notifications Azure Migrate contiennent un lien permettant d’accéder aux anciens projets Azure Migrate.
+Si vous utilisez la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), vous devez désormais utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ou d’effectuer de nouvelles découvertes. Vous pouvez toujours accéder aux projets existants. Pour ce faire, dans le portail Azure > **Tous les services**, recherchez **Azure Migrate**. Les notifications Azure Migrate contiennent un lien permettant d’accéder aux anciens projets Azure Migrate.
 
 
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2584a8d4e68b7c16b3acdc29f64f0a19d83d735
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235557"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457669"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -30,9 +30,27 @@ La fonctionnalité de Runbook Worker hybride prend en charge les distributions s
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS et 18.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 et 12 (x86/x64)
 
+## <a name="supported-runbook-types"></a>Types de Runbook pris en charge
+
+Les Runbooks Worker hybrides ne prennent pas en charge la totalité des types de Runbook dans Azure Automation.
+
+Les types de Runbook suivants fonctionnent sur un Worker hybride Linux :
+
+* Python 2
+* PowerShell
+
+  > [!NOTE]
+  > Les Runbooks PowerShell ont besoin que PowerShell Core soit installé sur l’ordinateur Linux. Consultez la rubrique [Installation de PowerShell Core sous Linux](/powershell/scripting/install/installing-powershell-core-on-linux) pour connaître la procédure d’installation.
+
+Les types de Runbooks suivants ne fonctionnent pas sur un Worker hybride Linux :
+
+* PowerShell Workflow
+* Graphique
+* Graphique workflow PowerShell
+
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Installation de la fonctionnalité Runbook Worker hybride Linux
 
-L’installation et la configuration de la fonctionnalité Runbook Worker hybride sur un ordinateur Linux est un processus simple qui permet d’installer et de configurer le rôle manuellement. Cela nécessite l’activation de la solution **Automation Hybrid Worker** dans votre espace de travail Azure Log Analytics, puis l’exécution d’un ensemble de commandes pour inscrire l’ordinateur en tant que Worker et l’ajouter à un groupe.
+L'installation et la configuration de la fonctionnalité Runbook Worker hybride sur un ordinateur Linux est un processus manuel simple. Cela nécessite l'activation de la solution Automation Hybrid Worker dans votre espace de travail Azure Log Analytics, puis l'exécution d'un ensemble de commandes pour inscrire l'ordinateur en tant que Worker et l'ajouter à un groupe.
 
 Voici la configuration minimale requise pour une fonctionnalité Runbook Worker hybride Linux :
 
@@ -56,9 +74,9 @@ Voici la configuration minimale requise pour une fonctionnalité Runbook Worker 
 
 Avant de continuer, notez l’espace de travail Log Analytics lié à votre compte Automation. Notez également la clé primaire de votre compte Automation. Vous trouverez ces deux informations sur le portail Azure en sélectionnant votre compte Automation, l’**espace de travail** correspondant à l’ID d’espace de travail et **Clés** pour la clé primaire. Pour plus d’informations sur les ports et les adresses nécessaires à la fonctionnalité Runbook Worker hybride, consultez la rubrique [Configuration de votre réseau](automation-hybrid-runbook-worker.md#network-planning).
 
-1. Activez la solution **Automation Hybrid Worker** dans Azure en utilisant l’une des méthodes suivantes :
+1. Activez la solution Automation Hybrid Worker dans Azure en utilisant l'une des méthodes suivantes :
 
-   * Ajoutez la solution **Automation Hybrid Worker** à votre abonnement à l’aide de la procédure décrite dans la rubrique [Ajouter des solutions de journaux Azure Monitor à votre espace de travail](../log-analytics/log-analytics-add-solutions.md).
+   * Ajoutez la solution Automation Hybrid Worker à votre abonnement en suivant la procédure décrite dans la rubrique [Ajouter des solutions de journaux Azure Monitor à votre espace de travail](../log-analytics/log-analytics-add-solutions.md).
    * Exécutez l’applet de commande suivante :
 
         ```azurepowershell-interactive
@@ -79,36 +97,18 @@ Avant de continuer, notez l’espace de travail Log Analytics lié à votre comp
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
    ```
 
-1. Une fois la commande exécutée, la page **Groupes de travail hybrides** du portail Azure affiche le nouveau groupe et le nombre de membres. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de la page **Groupes de Workers hybrides** et sélectionner la vignette **Workers hybrides**. La page **Workers hybrides** affiche chaque membre du groupe listé.
+1. Une fois la commande exécutée, la page Groupes de Workers hybrides du portail Azure affiche le nouveau groupe et le nombre de membres. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de la page Groupes de Workers hybrides et sélectionner la vignette **Workers hybrides**. La page Workers hybrides affiche chacun des membres du groupe listé.
 
 > [!NOTE]
-> Si vous utilisez l’extension de machine virtuelle Azure Monitor pour Linux sur une machine virtuelle Azure, nous vous recommandons de définir `autoUpgradeMinorVersion` sur la valeur false, car la mise à niveau automatique des versions peut provoquer des problèmes au niveau du runbook Worker hybride. Pour savoir comment mettre à niveau l’extension manuellement, consultez [Déploiement d’Azure CLI](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Si vous utilisez l'extension de machine virtuelle Azure Monitor pour Linux sur une machine virtuelle Azure, nous vous recommandons de définir `autoUpgradeMinorVersion` sur la valeur false, car la mise à niveau automatique des versions peut provoquer des problèmes au niveau du Runbook Worker hybride. Pour savoir comment mettre à niveau l'extension manuellement, consultez [Déploiement Azure CLI](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Désactivation de la validation de signature
 
-Par défaut, les Runbooks Workers hybrides Linux nécessitent la validation de signature. Si vous exécutez un Runbook non signé sur un Worker, une erreur d’échec de la validation de la signature s’affiche. Pour désactiver la validation de la signature, exécutez la commande suivante. Remplacez le deuxième paramètre par votre ID d’espace de travail Log Analytics.
+Par défaut, les Runbooks Workers hybrides Linux nécessitent la validation de signature. Si vous exécutez un runbook non signé sur un Worker, l'erreur `Signature validation failed` s'affiche. Pour désactiver la validation de la signature, exécutez la commande suivante. Remplacez le deuxième paramètre par votre ID d’espace de travail Log Analytics.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
  ```
-
-## <a name="supported-runbook-types"></a>Types de Runbook pris en charge
-
-Les Runbooks Worker hybrides ne prennent pas en charge la totalité des types de Runbook dans Azure Automation.
-
-Les types de Runbook suivants fonctionnent sur un Worker hybride Linux :
-
-* Python 2
-* PowerShell
-
-  > [!NOTE]
-  > Les Runbooks PowerShell ont besoin que PowerShell Core soit installé sur l’ordinateur Linux. Consultez la rubrique [Installation de PowerShell Core sous Linux](/powershell/scripting/install/installing-powershell-core-on-linux) pour connaître la procédure d’installation.
-
-Les types de Runbooks suivants ne fonctionnent pas sur un Worker hybride Linux :
-
-* PowerShell Workflow
-* Graphique
-* Graphique workflow PowerShell
 
 ## <a name="next-steps"></a>Étapes suivantes
 

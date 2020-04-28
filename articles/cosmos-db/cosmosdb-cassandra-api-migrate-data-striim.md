@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50028e81c4ca130aa3266c164a431dc935a271cb
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71266054"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730035"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrer des données vers un compte d’API Cassandra Azure Cosmos DB à l’aide de Striim
 
@@ -155,7 +155,7 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
    ![Se connecter à la cible](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Avant de configurer la cible, vérifiez que vous avez ajouté un [certificat racine Baltimore à l’environnement Java de Striim](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
+1. Avant de configurer la cible, vérifiez que vous avez ajouté un [certificat racine Baltimore à l’environnement Java de Striim](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
 
 1. Entrez les propriétés de configuration de votre instance d’Azure Cosmos DB cible, puis sélectionnez **Save** (Enregistrer) pour continuer. Voici les paramètres clés à noter :
 

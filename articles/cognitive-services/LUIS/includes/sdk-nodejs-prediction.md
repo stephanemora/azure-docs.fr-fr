@@ -10,12 +10,12 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9c15e4217c5331346c5a95329bae7e2a4f0e0841
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371932"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732069"
 ---
 Utilisez la bibliothèque de client du runtime LUIS (Language Understanding) pour Node.js afin de disposer des prédictions suivantes :
 
@@ -28,6 +28,7 @@ Utilisez la bibliothèque de client du runtime LUIS (Language Understanding) pou
 
 * Ressource de runtime Language Understanding : [vous devez en créer une dans le portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
 * [Node.JS](https://nodejs.org)
+* Un ID d’application LUIS : utilisez l’ID d’application IoT publique `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La requête utilisateur utilisée dans le code du guide de démarrage rapide est propre à cette application.
 
 ## <a name="setting-up"></a>Configuration
 
@@ -39,7 +40,7 @@ Obtenez votre [clé de runtime](../luis-how-to-azure-subscription.md) en créant
 
 ### <a name="create-a-new-javascript-nodejs-file"></a>Créer un fichier JavaScript (Node.js)
 
-Créez un fichier JavaScript dans votre éditeur ou IDE favori, en le nommant `luis_prediction.js`.
+Créez un fichier JavaScript dans votre éditeur ou IDE favori et nommez-le `luis_prediction.js`.
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>Installer la bibliothèque NPM pour le runtime LUIS
 

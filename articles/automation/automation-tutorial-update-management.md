@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677034"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604675"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
@@ -40,13 +40,13 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 
-Une fois que vous avez activé Update Management, la page **Gestion des mises à jour** s’ouvre. Si des mises à jour sont identifiées comme manquantes, une liste des mises à jour manquantes s’affiche sous l’onglet **Mises à jour manquantes**.
+Une fois que vous avez activé Gestion des mises à jour, la page Gestion des mises à jour s’ouvre. Si des mises à jour sont identifiées comme manquantes, une liste des mises à jour manquantes s’affiche sous l’onglet **Mises à jour manquantes**.
 
 Sous **Lien d’informations**, sélectionnez le lien de mise à jour pour ouvrir l’article du support de la mise à jour. Vous y trouverez des informations importantes sur la mise à jour.
 
 ![Afficher l’état des mises à jour](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Cliquez n’importe où sur la mise à jour pour ouvrir le volet **Recherche dans les journaux** pour la mise à jour sélectionnée. La requête pour la recherche dans les journaux est prédéfinie pour cette mise à jour spécifique. Vous pouvez modifier cette requête ou créer votre propre requête afin d’afficher des informations détaillées sur les mises à jour déployées ou manquantes dans votre environnement.
+Cliquez n’importe où ailleurs sur la mise à jour afin d’ouvrir le volet Recherche dans les journaux pour la mise à jour sélectionnée. La requête pour la recherche dans les journaux est prédéfinie pour cette mise à jour spécifique. Vous pouvez modifier cette requête ou créer votre propre requête afin d’afficher des informations détaillées sur les mises à jour déployées ou manquantes dans votre environnement.
 
 ![Afficher l’état des mises à jour](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -58,7 +58,7 @@ Lors de cette étape, vous allez configurer une alerte afin d’être informé d
 
 Dans votre compte Automation, accédez à **Alertes** sous **Supervision**, puis cliquez sur **Nouvelle règle d’alerte**.
 
-Votre compte Automation est déjà sélectionné en tant que ressource. Si vous souhaitez le changer, cliquez sur **Sélectionner**. Dans la page **Sélectionner une ressource**, choisissez **Comptes Automation** dans le menu déroulant **Filtrer par type de ressource**. Sélectionnez votre compte Automation, puis cliquez sur **Terminé**.
+Votre compte Automation est déjà sélectionné en tant que ressource. Si vous souhaitez le changer, cliquez sur **Sélectionner**. Dans la page Sélectionner une ressource, choisissez **Comptes Automation** dans le menu déroulant **Filtrer par type de ressource**. Sélectionnez votre compte Automation, puis cliquez sur **Terminé**.
 
 Cliquez sur **Ajouter une condition** pour sélectionner le signal qui convient à votre déploiement de mises à jour. Le tableau suivant présente les détails des deux signaux disponibles.
 
@@ -85,11 +85,11 @@ Dans le champ **Nom du groupe d’actions**, entrez un nom pour l’alerte et un
 
 Sous **Actions**, entrez un nom pour l’action, par exemple **Notification par e-mail**. Comme **Type d’action**, sélectionnez **E-mail/SMS/Push/Voix**. Pour **Détails**, sélectionnez **Modifier les détails**.
 
-Dans le volet **E-mail/SMS/Push/Voix**, entrez un nom. Sélectionnez la case à cocher **E-mail**, puis entrez une adresse e-mail valide.
+Dans le volet E-mail/SMS/Push/Voix, entrez un nom. Cochez la case **E-mail**, puis entrez une adresse e-mail valide.
 
 ![Configurer l’e-mail du groupe d’actions](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-Dans le volet **E-mail/SMS/Push/Voix**, cliquez sur **OK**. Dans le volet **Ajouter un groupe d’actions**, cliquez sur **OK**.
+Dans le volet E-mail/SMS/Push/Voix, cliquez sur **OK**. Dans le volet Ajouter un groupe d’actions, cliquez sur **OK**.
 
 Pour personnaliser l’objet de l’e-mail d’alerte, sous **Créer une règle**, sous **Personnaliser les actions**, sélectionnez **Objet de l’e-mail**. Lorsque vous avez terminé, cliquez sur **Créer une règle d’alerte**. L’alerte vous avertit quand un déploiement de mises à jour s’est correctement déroulé et précise quelles machines en ont bénéficié.
 
@@ -132,7 +132,7 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 > Vous ne pouvez pas spécifier des mises à jour qui ont été remplacées pour être incluses dans le déploiement des mises à jour.
 >
 
-* **Paramètres de planification** : le volet **Paramètres de planification** s’affiche. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
+* **Paramètres de planification** : le volet Paramètres de planification s’affiche. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
 
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Sous **Récurrence**, sélectionnez **Une fois**. Conservez la valeur par défaut de 1 jour et cliquez sur **OK**. Ces entrées configurent une planification périodique.
 

@@ -1,34 +1,34 @@
 ---
-title: 'PowerShell : Charger et lier SSL'
-description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment lier un certificat SSL personnalisé à une application.
+title: 'PowerShell : Charger et lier TLS/SSL'
+description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment lier un certificat TLS/SSL personnalisé à une application.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8422c4ef29366888a2bdd53c18462e6cfb680c78
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5116585b701717a82b757cae70f938c321a1f7d1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80044560"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532542"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-powershell"></a>Lier un certificat SSL personnalisé à une application web à l’aide de PowerShell
+# <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Lier un certificat TLS/SSL personnalisé à une application web à l’aide de PowerShell
 
-Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis lie le certificat SSL d’un nom de domaine personnalisé à celle-ci. 
+Cet exemple de script crée une application web dans App Service avec ses ressources associées, puis lie le certificat TLS/SSL d’un nom de domaine personnalisé à celle-ci. 
 
 Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Connect-AzAccount` pour créer une connexion avec Azure. Vérifiez également les points suivants :
 
 - Une connexion avec Azure a été créée à l’aide de la commande `az login`.
 - Vous avez accès à la page de configuration DNS du bureau d’enregistrement de votre domaine.
-- Vous disposez d’un fichier .PFX valide et de son mot de passe pour le certificat SSL que vous souhaitez charger et lier.
+- Vous disposez d’un fichier .PFX valide et de son mot de passe pour le certificat TLS/SSL que vous souhaitez charger et lier.
 
 ## <a name="sample-script"></a>Exemple de script
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
@@ -49,7 +49,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crée une application web. |
 | [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | Modifie le niveau tarifaire d’un plan App Service. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifie la configuration d’une application web. |
-| [New-AzWebAppSSLBinding](/powershell/module/az.websites/new-azwebappsslbinding) | Crée une liaison de certificat SSL pour une application web. |
+| [New-AzWebAppSSLBinding](/powershell/module/az.websites/new-azwebappsslbinding) | Crée une liaison de certificat TLS/SSL pour une application web. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

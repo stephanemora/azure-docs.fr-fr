@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: b68179caed4df5efd3696d7d6a3739a1e07a3c80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae76c30f63c87f7e741fff31792d520fb144b93b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232029"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084275"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -27,7 +27,7 @@ Les machines virtuelles de 2e génération utilisent la nouvelle architecture de
 Les machines virtuelles de 1ère génération sont prises en charge dans toutes les tailles de machines virtuelles dans Azure (sauf les machines virtuelles de série Mv2). Azure prend désormais en charge la 2e génération de machines virtuelles des séries sélectionnées suivantes :
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
-* [Série DC](../dcv2-series.md)
+* [Série DCsv2](../dcv2-series.md)
 * [Séries DSv2](../dv2-dsv2-series.md) et [Dsv3](../dv3-dsv3-series.md)
 * [Série Esv3](../ev3-esv3-series.md)
 * [Série Fsv2](../fsv2-series.md)
@@ -53,7 +53,7 @@ Les machines virtuelles de 2e génération prennent en charge les images de la P
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
 * RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.0, 7.7, 7.6, 7.5, 7.4
+* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 7.7, 7.7-CI
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Local Machines virtuelles de 2e génération Azure

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 1bd5248e0a6a6c7c569c85e8c1af3e30f8b7f9e4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 7652bacdebec19f8a5d55874cfb903e8748cef4d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474265"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639718"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutoriel : Créer et configurer une instance Azure Active Directory Domain Services
 
@@ -157,7 +157,7 @@ Les étapes de génération et de stockage de ces hachages de mot de passe sont 
 > [!TIP]
 > Si votre locataire Azure AD utilise une combinaison d’utilisateurs cloud uniquement et d’utilisateurs provenant de votre annuaire Active Directory local, vous devez effectuer ces deux ensembles d’étapes.
 
-Pour les comptes d’utilisateurs cloud uniquement, les utilisateurs doivent changer leur mot de passe avant de pouvoir utiliser Azure AD DS. Ce processus de changement du mot de passe entraîne la génération et le stockage dans Azure AD des hachages de mot de passe pour l’authentification Kerberos et NTLM. Vous pouvez faire expirer les mots de passe de tous les utilisateurs du locataire qui doivent utiliser Azure AD DS, ce qui force le changement de mot de passe à la connexion suivante, ou bien demander à ces utilisateurs de changer manuellement leur mot de passe. Pour ce tutoriel, nous changeons manuellement le mot de passe d’un utilisateur.
+Pour les comptes d’utilisateurs cloud uniquement, les utilisateurs doivent changer leur mot de passe avant de pouvoir utiliser Azure AD DS. Ce processus de changement du mot de passe entraîne la génération et le stockage dans Azure AD des hachages de mot de passe pour l’authentification Kerberos et NTLM. Le compte n’est pas synchronisé entre Azure AD et Azure AD DS tant que le mot de passe n’a pas été changé. Vous pouvez faire expirer les mots de passe de tous les utilisateurs cloud du locataire qui doivent utiliser Azure AD DS, ce qui force le changement de mot de passe à la connexion suivante, ou demander aux utilisateurs cloud de changer manuellement leur mot de passe. Pour ce tutoriel, nous changeons manuellement le mot de passe d’un utilisateur.
 
 Pour qu’un utilisateur puisse réinitialiser son mot de passe, le locataire Azure AD doit être [configuré pour la réinitialisation du mot de passe en libre-service][configure-sspr].
 

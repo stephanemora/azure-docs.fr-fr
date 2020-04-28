@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406727"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770297"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory
 
@@ -48,8 +48,6 @@ Vous pouvez publier des applications avec des caractères génériques si les UR
 Par exemple : `http(s)://*.adventure-works.com`.
 
 Alors que les URL internes et externes peuvent utiliser des domaines différents, une bonne pratique consiste à utiliser des domaines identiques. Quand vous publiez l’application, vous voyez une erreur si une des URL n’a pas de caractère générique.
-
-Si vous avez d’autres applications avec différents paramètres de configuration, vous devez publier ces exceptions en tant qu’applications distinctes pour remplacer les valeurs par défaut définies pour le caractère générique. Les applications sans caractère générique ont toujours priorité sur les applications génériques. Du point de vue de la configuration, ce sont « juste » des applications normales.
 
 La création d’une application générique repose sur le même [flux de publication d’application](application-proxy-add-on-premises-application.md) que celui de toutes les autres applications. La seule différence est que vous ajoutez un caractère générique dans les URL et éventuellement la configuration de l’authentification unique.
 

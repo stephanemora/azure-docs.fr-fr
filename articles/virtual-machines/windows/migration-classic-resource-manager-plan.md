@@ -1,30 +1,24 @@
 ---
 title: Planification de migration de ressources Classic vers Azure Resource Manager
 description: Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
-services: virtual-machines-windows
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 62cc33b9cfe1a0dc96f0a6a771b753ff48bfb9f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ae2e1a85d5250e4da836c6f57e3619befd9330
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919547"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865925"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 
 > [!IMPORTANT]
-> Aujourd'hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [Apprenez-en davantage]( https://aka.ms/classicvmretirement) sur cette désapprobation et [son impact sur vous](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Aujourd’hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [En savoir plus]( https://aka.ms/classicvmretirement) sur cette dépréciation et [la façon dont elle vous concerne](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier le parcours de migration pour éviter tout heurt. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration.
 
@@ -88,7 +82,7 @@ Les clients les plus efficaces disposent de plans détaillés qui abordent, docu
 
 Voici quelques-uns des problèmes rencontrés dans la majorité des migrations importantes. Cette liste n’est pas exhaustive. Reportez-vous aux [fonctionnalités et configurations non prises en charge](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) pour plus de détails.  Il n’est pas certain que vous rencontriez ces problèmes techniques ; si c’est le cas, vous garantirez une meilleure expérience en résolvant ces points avant de tenter la migration.
 
-- **Effectuer un essai à blanc Valider/Préparer/Abandonner** : il s’agit sans doute de l’étape la plus importante pour garantir la réussite de la migration de Classic vers Azure Resource Manager. L’API de migration comporte trois étapes principales : valider, préparer et soumettre. L’étape Valider lit l’état de votre environnement Classic et retourne un résultat comportant tous les problèmes. Toutefois, dans la mesure où il peut exister des problèmes dans la pile Azure Resource Manager, elle n’intercepte pas tout. L’étape suivante du processus de migration, Préparer, aide à mettre en évidence ces problèmes. Elle déplace les métadonnées de Classic vers Azure Resource Manager, mais ne valide pas le déplacement et ne supprime ni ne modifie rien du côté de Classic. L’essai à blanc implique de préparer la migration, puis d’abandonner (**ne pas soumettre**) la préparation de la migration. L’essai à blanc Valider/Préparer/Abandonner a pour objectif de montrer toutes les métadonnées de la pile Azure Resource Manager, de les examiner (*par programme ou dans le portail*) et de vérifier que tous les éléments migrent correctement et viennent à bout des problèmes techniques.  Il donne également une idée de la durée de la migration de façon à permettre de planifier un temps d’arrêt adapté.  Une opération Valider/Préparer/Abandonner ne provoque pas de temps d’arrêt pour les utilisateurs ; par conséquent, elle ne perturbe pas l’utilisation des applications.
+- **Effectuer un essai à blanc Valider/Préparer/Abandonner** : il s’agit sans doute de l’étape la plus importante pour garantir la réussite de la migration de Classic vers Azure Resource Manager. L’API de migration comporte trois étapes principales : valider, préparer et soumettre. L’étape Valider lit l’état de votre environnement Classic et retourne un résultat comportant tous les problèmes. Toutefois, dans la mesure où il peut exister des problèmes dans la pile Azure Resource Manager, elle n’intercepte pas tout. L’étape suivante du processus de migration, Préparer, aide à mettre en évidence ces problèmes. Elle déplace les métadonnées de Classic vers Azure Resource Manager, mais ne valide pas le déplacement et ne supprime ni ne modifie rien du côté de Classic. L’essai à blanc implique de préparer la migration, puis d’abandonner (**ne pas soumettre**) la préparation de la migration. L’essai à blanc Valider/Préparer/Abandonner a pour objectif de montrer toutes les métadonnées de la pile Azure Resource Manager, de les examiner (*par programme ou dans le portail*) et de vérifier que tous les éléments migrent correctement et viennent à bout des problèmes techniques.  Il donne également une idée de la durée de la migration de façon à permettre de planifier un temps d’arrêt adapté.  Une opération Valider/Préparer/Abandonner ne provoque pas de temps d’arrêt pour les utilisateurs ; par conséquent, elle ne perturbe pas l’utilisation des applications.
   - Les éléments ci-dessous devront être résolus avant l’essai à blanc, mais un test d’essai à blanc éliminera également sans risque ces étapes de préparation si elles ne sont pas suivies. Nous avons conclu que l’essai à blanc représente un moyen sûr et incomparable d’assurer la préparation à la migration lors de la migration d’entreprise.
   - Au cours de la préparation, le plan de contrôle (opérations de gestion Azure) sera verrouillé pour l’ensemble du réseau virtuel ; ainsi, aucune modification ne pourra être apportée aux métadonnées de la machine virtuelle au cours de l’opération Valider/Préparer/Abandonner.  Par ailleurs, aucune fonction de l’application (bureau à distance, utilisation de la machine virtuelle, etc.) ne sera affectée.  Les utilisateurs des machines virtuelles ne sauront pas que l’essai à blanc est en cours d’exécution.
 

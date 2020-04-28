@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: f6203f987654b33b32da72bfec030a9d0ab69df8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981526"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086383"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -534,6 +534,13 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | --- | --- | --- | --- |
 > | clusters | resource group | 4-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
 > | workspaces | resource group | 4-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
+
+## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+
+> [!div class="mx-tableFixed"]
+> | Entité | Étendue | Longueur | Caractères valides |
+> | --- | --- | --- | --- |
+> | solutions | espace de travail | N/A | Pour les solutions créées par Microsoft, le nom doit suivre le modèle suivant :<br>`SolutionType(WorkspaceName)`<br><br>Pour les solutions créées par des tiers, le nom doit suivre le modèle suivant :<br>`SolutionType[WorkspaceName]`<br><br>Par exemple, un nom valide est :<br>`AntiMalware(contoso-IT)`<br><br>Le type de solution respecte la casse. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 

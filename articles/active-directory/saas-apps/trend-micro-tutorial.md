@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a4c2cddbc9086c80922fcf9c5d96cd197ab4778
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5f4dc7223d64fd299da70375329260f7b4f8b322
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425278"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083357"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-securitytmws"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Trend Micro Web Security(TMWS)
 
@@ -87,7 +87,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     b. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
     > [!NOTE]
-    > La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Pour obtenir la valeur de l’identificateur, contactez l’[équipe de support client Trend Micro Web Security (TMWS)](https://success.trendmicro.com/contact-support-north-america). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Vous pouvez récupérer ces valeurs dans la zone **Paramètres du fournisseur de services** du portail d’administration Azure, sur l’écran **Méthode d’authentification** pour Azure AD en accédant à **Administration > Services d’annuaire**.
 
 1. L’application Trend Micro Web Security(TMWS) attend les mêmes assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -167,13 +167,47 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Sous la zone Donner son consentement, cliquez sur **Accorder un consentement d’administrateur pour < votre compte d’administrateur > (Répertoire par défaut)** , puis sur **Oui**. Un message s’affiche pour confirmer que le consentement d’administrateur a bien été accordé pour les autorisations demandées.
 
-1. Cliquez sur **Vue d’ensemble**. 
+1. Cliquez sur **Overview**. 
 
 1. Dans le panneau qui s’affiche à droite, enregistrez l’ID d’application (client) et l’ID de l’annuaire (locataire). Par la suite, vous taperez ces informations dans TMWS. Vous pouvez aussi cliquer sur **Noms de domaine personnalisés** sous Azure **Active Directory > Gérer** et enregistrer le nom de domaine dans le volet de droite.
 
 ## <a name="configure-trend-micro-web-security-sso"></a>Configurer l’authentification unique Trend Micro Web Security (TMWS)
 
-Pour configurer l’authentification unique côté **Trend Micro Web Security(TMWS)** , vous devez envoyer le **Certificat (en base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe de support Trend Micro Web Security(TMWS)](https://success.trendmicro.com/contact-support-north-america). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Connectez-vous à la console de gestion TMWS et accédez à **Administration** > **USERS & AUTHENTICATION** > **Directory Services**.
+
+1. Cliquez dans la partie supérieure de l’écran.
+
+1. Dans l’écran Authentication Method qui s’affiche, cliquez sur **Azure AD**.
+
+1. Cliquez sur **On** ou **Off** pour spécifier si les utilisateurs AD de votre organisation sont autorisés à accéder aux sites web par le biais de TMWS si leurs données ne sont pas synchronisées avec TMWS.
+
+    > [!NOTE]
+    > Les utilisateurs qui ne sont pas synchronisés à partir d’Azure AD peuvent être authentifiés uniquement par le biais de passerelles TMWS connues ou du port dédié à votre organisation.
+
+1. Dans la section **Identity Provider Settings**, effectuez les étapes suivantes :
+
+    a. Dans le champ **Service URL**, collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
+
+    b. Dans le champ **Logon name attribute**, collez le nom de la revendication utilisateur avec l’attribut source **user.onpremisessamaccountname**, copié à partir du portail Azure.
+
+    c. Dans le champ **Public SSL certificate**, utilisez le **certificat (en base64)** téléchargé (spécifié sur le portail Azure).
+
+1. Dans la section **Synchronization Settings**, effectuez les étapes suivantes :
+
+    a. Dans le champ **Tenant**, utilisez l’**ID d’annuaire (locataire)** ou le **nom de domaine personnalisé**, copié à partir du portail Azure.
+
+    b. Dans le champ **Application ID**, spécifiez l’**ID d’application (client)** , copié à partir du portail Azure.
+
+    c. Dans le champ **Client secret**, utilisez le **secret client** copié à partir du portail Azure.
+
+    d. Dans le champ **Synchronization schedule**, sélectionnez le type de synchronisation avec Azure AD : manuelle ou selon une planification. Si vous choisissez la synchronisation manuelle, chaque fois que des modifications sont apportées aux informations des utilisateurs Active Directory, veillez à revenir à l’écran Directory Services et à effectuer une synchronisation manuelle pour que les informations de TMWS restent à jour.
+
+    e. Cliquez sur **Test Connection** pour vérifier si le service Azure AD peut être connecté correctement. 
+    
+    f. Cliquez sur **Enregistrer**.
+ 
+ > [!NOTE]
+ > Pour plus d’informations sur la configuration de Trend Micro Web Security avec Azure AD, consultez [ce document](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

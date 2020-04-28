@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671977"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086607"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -91,6 +91,8 @@ L’indexeur n’a pas pu exécuter une compétence dans l’ensemble de compét
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Erreur : Impossible d’exécuter la compétence en raison de l’échec de la requête de l’API web
 L’exécution de la compétence a échoué parce que l’appel de l’API web a échoué. En règle générale, cette classe de défaillance se produit lorsque des compétences personnalisées sont utilisées. Dans ce cas, vous devez déboguer votre code personnalisé pour résoudre le problème. Si au contraire l’échec provient d’une compétence intégrée, consultez le message d’erreur dans lequel vous trouverez peut-être de l’aide pour résoudre le problème.
+
+Lors du débogage de ce problème, prêtez attention aux éventuels [avertissements d’entrée de compétence](#warning-skill-input-was-invalid) pour cette compétence. Le point de terminaison de votre API web peut échouer, car l’indexeur lui transmet une entrée inattendue.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 

@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b93035fc7e315f8117516771236186f9d942a0aa
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223776"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604656"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Détecter les logiciels installés sur vos machines Azure et non-Azure
 
@@ -27,12 +27,12 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Afficher les logiciels installés
 > * Rechercher les journaux d’activité d’inventaire des logiciels installés
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche Watcher.
+* Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche d’observateur.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) à intégrer.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
@@ -43,7 +43,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Pour ce didacticiel, vous devez d’abord activer le suivi des modifications et l’inventaire. Si vous avez déjà activé la solution **Change Tracking**, cette étape n’est pas nécessaire.
 
-Accédez à votre compte Automation et sélectionnez **Inventory** sous **GESTION DE LA CONFIGURATION**.
+Accédez à votre compte Automation et sélectionnez **Inventaire** sous **Gestion de la configuration**.
 
 Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
 
@@ -62,13 +62,13 @@ Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données so
 
 ## <a name="onboard-a-vm"></a>Intégrer une machine virtuelle
 
-Dans votre compte Automation, accédez à **Inventory** sous **GESTION DE LA CONFIGURATION**.
+Dans votre compte Automation, accédez à **Inventaire** sous **Gestion de la configuration**.
 
-Sélectionnez **+ Add Azure VM** (+ Ajouter une machine virtuelle Azure), la page **Machines virtuelles** s’ouvre et vous permet de sélectionner une machine virtuelle existante à dans la liste. Sélectionnez la machine virtuelle que vous souhaitez intégrer. Sur la page qui s’ouvre, cliquez sur **activer** pour activer la solution sur la machine virtuelle. L’agent de gestion Microsoft est déployé sur la machine virtuelle et configure l’agent pour communiquer avec l’espace de travail Log Analytics que vous avez configuré lors de l’activation de la solution. L’exécution de l’intégration peut prendre plusieurs minutes. À ce stade, vous pouvez sélectionner une nouvelle machine virtuelle dans la liste et en intégrer une autre.
+Sélectionnez **+ Ajouter une machine virtuelle Azure** pour ouvrir la page Machines virtuelles qui vous permet de sélectionner une machine virtuelle existante dans la liste. Sélectionnez la machine virtuelle que vous souhaitez intégrer. Sur la page qui s’ouvre, cliquez sur **activer** pour activer la solution sur la machine virtuelle. L’agent de gestion Microsoft est déployé sur la machine virtuelle et configure l’agent pour communiquer avec l’espace de travail Log Analytics que vous avez configuré lors de l’activation de la solution. L’exécution de l’intégration peut prendre plusieurs minutes. À ce stade, vous pouvez sélectionner une nouvelle machine virtuelle dans la liste et en intégrer une autre.
 
 ## <a name="onboard-a-non-azure-machine"></a>Intégrer une machine non-Azure
 
-Pour ajouter des machines non-Azure, installez l’agent pour [Windows](../azure-monitor/platform/agent-windows.md) ou [Linux](automation-linux-hrw-install.md) selon votre système d’exploitation. Une fois l’agent installé, accédez à votre compte Automation et à **Inventory** sous **GESTION DE LA CONFIGURATION**. Lorsque vous cliquez sur **Manage Machines** (Gérer les machines), une liste des machines signalant à votre espace de travail Log Analytics que la solution n’y est pas activée s’affiche. Sélectionnez l’option appropriée pour votre environnement.
+Pour ajouter des machines non-Azure, installez l’[agent Log Analytics pour Windows](../azure-monitor/platform/agent-windows.md) ou l’[agent Log Analytics pour Linux](automation-linux-hrw-install.md) selon votre système d’exploitation. Une fois l’agent installé, accédez à votre compte Automation et à **Inventaire** sous **Gestion de la configuration**. Lorsque vous cliquez sur **Manage Machines** (Gérer les machines), une liste des machines signalant à votre espace de travail Log Analytics que la solution n’y est pas activée s’affiche. Sélectionnez l’option appropriée pour votre environnement.
 
 * **Enable on all available machines** (Activer sur toutes les machines disponibles) : cette option active la solution sur toutes les machines communiquant avec votre espace de travail Log Analytics à ce moment.
 * **Enable on all available machines and future machines** (Activer sur toutes les machines disponibles et les machines futures) : cette option active la solution sur toutes les machines communiquant avec votre espace de travail Log Analytics, ainsi que sur toutes les machines ajoutées à l’avenir à l’espace de travail.
@@ -78,11 +78,11 @@ Pour ajouter des machines non-Azure, installez l’agent pour [Windows](../azure
 
 ## <a name="view-installed-software"></a>Afficher les logiciels installés
 
-Lorsque la solution de suivi des modifications et d’inventaire est activée, vous pouvez voir les résultats sur la page **Inventaire**.
+Lorsque la solution de suivi des modifications et d’inventaire est activée, vous pouvez afficher les résultats dans la page Inventaire.
 
-Dans votre compte Automation, sélectionnez **Inventory** sous **GESTION DE LA CONFIGURATION**.
+Dans votre compte Automation, sélectionnez **Inventaire** sous **Gestion de la configuration**.
 
-Sur la page **Inventaire**, cliquez sur l’onglet **Logiciels**.
+Dans la page Inventaire, cliquez sur l’onglet **Logiciels**.
 
 Dans l’onglet **Logiciels**, un tableau dresse la liste des logiciels détectés. Les logiciels sont regroupés par nom et par version.
 
@@ -95,14 +95,14 @@ Cliquez sur une ligne pour afficher les propriétés de l’enregistrement du lo
 Pour rechercher un logiciel ou un groupe de logiciels spécifique, vous pouvez faire une recherche dans la zone de texte située juste au-dessus de la liste des logiciels.
 Le filtre vous permet de faire une recherche à partir du nom du logiciel, de la version ou de l’éditeur.
 
-Par exemple, la recherche de « Contoso » renvoie tous les logiciels dont le nom, l’éditeur ou la version contient « Contoso ».
+Par exemple, la recherche de **Contoso** renvoie tous les logiciels dont le nom, l’éditeur ou la version contient **Contoso**.
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Rechercher les journaux d’activité d’inventaire des logiciels installés
 
-L’inventaire génère des données de journal d’activité qui sont envoyées aux journaux d’activité Azure Monitor. Pour rechercher les journaux d’activité en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Inventaire**.
+L’inventaire génère des données de journal d’activité qui sont envoyées aux journaux d’activité Azure Monitor. Pour rechercher dans les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la page Inventaire.
 
-Les données d’inventaire sont stockées sous le type **ConfigurationData**.
-L’exemple de requête Log Analytics suivant retourne les résultats d’inventaire dans lesquels le serveur de publication est « Microsoft Corporation ».
+Les données d’inventaire sont stockées sous le type `ConfigurationData`.
+L’exemple de requête Log Analytics suivant retourne les résultats d’inventaire dans lesquels l’éditeur est **Microsoft Corporation**.
 
 ```loganalytics
 ConfigurationData
@@ -116,7 +116,7 @@ Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans
 ### <a name="single-machine-inventory"></a>Inventaire d’une machine unique
 
 Pour voir l’inventaire des logiciels d’une seule machine, vous pouvez accéder à l’inventaire à partir de la page de ressources de la machine virtuelle Azure ou utiliser les journaux d’activité Azure Monitor pour filtrer la machine correspondante.
-L’exemple suivant de requête Log Analytics retourne la liste des logiciels pour une machine nommée ContosoVM.
+L’exemple de requête Log Analytics suivant retourne la liste des logiciels pour une machine nommée **ContosoVM**.
 
 ```loganalytics
 ConfigurationData

@@ -1,22 +1,22 @@
 ---
-title: Prise en charge de la disponibilité géographique et des devises | Azure
-description: Disponibilité géographique dans la place de marché Azure et AppSource
+title: Disponibilité géographique et prise en charge des devises pour la place de marché commerciale | Place de marché Azure
+description: Disponibilité géographique dans la place de marché commerciale
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 79965180d897b91afc1fb1a27e777e385108d2c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288425"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687585"
 ---
-# <a name="geographic-availability-and-currency-support"></a>Prise en charge de la disponibilité géographique et des devises
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la place de marché commerciale
 
-Les offres de la Place de marché Azure et AppSource peuvent être achetées dans 141 zones géographiques, déterminées par l’adresse de facturation du client, et les transactions effectuées dans 17 devises. Le tableau ci-dessous répertorie les emplacements géographiques pris en charge, leur [code alpha ISO 3166 à deux chiffres](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)et la devise attribuée.
+Les offres de la place de marché commerciale peuvent être achetées dans 141 zones géographiques, définies par l’adresse de facturation du client, et les transactions peuvent être effectuées dans 17 devises. Le tableau ci-dessous répertorie les emplacements géographiques pris en charge, leur [code alpha ISO 3166 à deux chiffres](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)et la devise attribuée.
 
 |   Nom du pays/de la région               |   ISO-2   |   Devise   |
 |-------------------------------------|-----------|--------------|
@@ -109,7 +109,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Maroc                             | MA        | USD          |
 | Namibie                             | N/D        | USD          |
 | Népal                               | NP        | USD          |
-| Pays-bas                         | NL        | EUR          |
+| Pays-Bas                         | NL        | EUR          |
 | Nicaragua                           | NI        | USD          |
 | Nouvelle-Zélande                         | NZ        | NZD          |
 | Nigeria                             | NG        | USD          |
@@ -153,7 +153,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Ouganda                              | UG        | USD          |
 | Ukraine                             | UA        | USD          |
 | Émirats Arabes Unis                | AE        | USD          |
-| United Kingdom                      | Go        | GBP          |
+| Royaume-Uni                      | Go        | GBP          |
 | États-Unis                       | US        | USD          |
 | Uruguay                             | UY        | USD          |
 | Ouzbékistan                          | UZ        | USD          |

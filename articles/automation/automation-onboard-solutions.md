@@ -1,18 +1,18 @@
 ---
-title: Intégrer les solutions de mises à jour et Change Tracking pour Azure Automation
+title: Intégrer des solutions de mise à jour, de suivi des modifications et d’inventaire à Azure Automation
 description: En savoir plus sur l’intégration des solutions de mises à jour et Change Tracking pour Azure Automation.
 services: automation
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 721157c333e381799ef08930c667c51a51a4fd6a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75421840"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457618"
 ---
-# <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Intégrer les solutions de mises à jour et Change Tracking pour Azure Automation
+# <a name="onboard-update-change-tracking-and-inventory-solutions-to-azure-automation"></a>Intégrer des solutions de mise à jour, de suivi des modifications et d’inventaire à Azure Automation
 
 Dans ce didacticiel, vous découvrez comment intégrer automatiquement à Azure Automation des solutions de mise à jour, Change Tracking et d’inventaire pour des machines virtuelles :
 
@@ -22,6 +22,9 @@ Dans ce didacticiel, vous découvrez comment intégrer automatiquement à Azure 
 > * Installer et mettre à jour les modules
 > * Importer le runbook d’intégration
 > * Démarrer le runbook
+
+>[!NOTE]
+>Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,79 +40,84 @@ Vous pouvez intégrer des machines de plusieurs façons : vous pouvez intégrer
 
 ### <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 
-La solution Change Tracking et Inventory fournit la possibilité de [suivre les changements](automation-vm-change-tracking.md) et de [faire l’inventaire](automation-vm-inventory.md) de vos machines virtuelles. Dans cette étape, vous activez la solution sur une machine virtuelle.
+Les solutions Change Tracking et Inventory vous permettent de [suivre les modifications](automation-vm-change-tracking.md) et d’effectuer l’[inventaire](automation-vm-inventory.md) de vos machines virtuelles. Au cours de cette étape, vous allez activer les solutions sur une machine virtuelle.
 
-1. Dans le menu de gauche, sélectionnez **Comptes Automation**, puis sélectionnez votre compte Automation dans la liste.
-1. Sélectionnez **Inventory** sous **GESTION DE LA CONFIGURATION**.
-1. Sélectionnez un espace de travail Log Analytics existant ou créez-en un. Cliquez sur le bouton **Activer**.
+1. Dans le portail Azure, sélectionnez **Comptes Automation**, puis votre compte Automation dans la liste.
+1. Sélectionnez **Inventaire** sous **Gestion de la configuration**.
+1. Sélectionnez un espace de travail Log Analytics existant ou créez-en un. 
+1. Cliquez sur **Activer**.
 
-![Intégrer la solution Update](media/automation-onboard-solutions/inventory-onboard.png)
-
-Quand vous recevez la notification d’intégration de la solution Change Tracking et Inventory, cliquez sur **Update Management** sous **GESTION DE LA CONFIGURATION**.
+    ![Intégrer la solution Update](media/automation-onboard-solutions/inventory-onboard.png)
 
 ### <a name="enable-update-management"></a>Activer Update Management
 
 La solution Update Management vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles Microsoft Azure. Vous pouvez évaluer l’état des mises à jour disponibles, planifier l’installation des mises à jour obligatoires et examiner les résultats des déploiements pour vérifier que les mises à jour ont été appliquées à la machine virtuelle. Dans cette étape, vous activez la solution pour votre machine virtuelle.
 
-1. Dans votre compte Automation, sélectionnez **Update Management** sous **GESTION DES MISES À JOUR**.
-1. L’espace de travail Log Analytics sélectionné est le même que celui utilisé à l’étape précédente. Cliquez sur **Activer** pour intégrer la solution Update Management.
+1. Dans votre compte Automation, sélectionnez **Gestion des mises à jour** dans la section **Gestion des mises à jour**.
+1. L’espace de travail Log Analytics sélectionné est celui utilisé à l’étape précédente. Cliquez sur **Activer** pour intégrer la solution Update Management. Pendant l’installation de la solution Update Management, une bannière bleue s’affiche. 
 
-![Intégrer la solution Update](media/automation-onboard-solutions/update-onboard.png)
-
-Pendant l’installation de la solution Update Management, une bannière bleue s’affiche. Quand la solution est activée, sélectionnez **Change Tracking** sous **GESTION DE LA CONFIGURATION** pour accéder à l’étape suivante.
+    ![Intégrer la solution Update](media/automation-onboard-solutions/update-onboard.png)
 
 ### <a name="select-azure-vm-to-be-managed"></a>Sélectionnez la machine virtuelle Azure à gérer
 
 Maintenant que les solutions sont activées, vous pouvez ajouter une machine virtuelle Azure à intégrer à ces solutions.
 
-1. Dans votre compte Automation, dans la page **Change Tracking**, sélectionnez **+ Ajouter une machine virtuelle Azure** pour ajouter votre machine virtuelle.
+1. Dans votre compte Automation, sélectionnez **Suivi des modifications** sous **Gestion de la configuration**. 
+2. Dans la page Suivi des modifications, cliquez sur **Ajouter des machines virtuelles Azure** pour ajouter votre machine virtuelle.
 
-1. Sélectionnez votre machine virtuelle dans la liste et sélectionnez **Activer**. Cette action active la solution Change Tracking et Inventory pour la machine virtuelle.
+3. Sélectionnez votre machine virtuelle dans la liste et cliquez sur **Activer**. Cette action active les solutions Change Tracking et Inventory pour la machine virtuelle.
 
    ![Activer la solution Update pour la machine virtuelle](media/automation-onboard-solutions/enable-change-tracking.png)
 
-1. Quand vous recevez la notification d’intégration de la machine virtuelle, dans votre compte Automation, sélectionnez **Update Management** sous **GESTION DES MISES À JOUR**.
+4. Quand vous recevez la notification d’intégration de la machine virtuelle, sélectionnez **Gestion des mises à jour** sous **Gestion des mises à jour**.
 
-1. Sélectionnez **+ Ajouter une machine virtuelle Azure** pour ajouter votre machine virtuelle.
+5. Sélectionnez **Ajouter des machines virtuelles Azure** pour ajouter votre machine virtuelle.
 
-1. Sélectionnez votre machine virtuelle dans la liste et sélectionnez **Activer**. Cette action active la solution Update Management pour la machine virtuelle.
+6. Sélectionnez votre machine virtuelle dans la liste et sélectionnez **Activer**. Cette action active la solution Update Management pour la machine virtuelle.
 
    ![Activer la solution Update pour la machine virtuelle](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Si vous n’attendez pas la fin de l’autre solution, quand vous activez la solution suivante, vous recevez un message indiquant : *Une autre solution est en cours d’installation sur cette machine virtuelle ou sur une autre. Au terme de l’opération, le bouton Activer est disponible et vous pouvez demander l’installation de la solution sur cette machine virtuelle.*
+> Si vous n’attendez pas la fin de l’autre solution, quand vous activez la solution suivante, vous recevez le message : `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
 
 ## <a name="install-and-update-modules"></a>Installer et mettre à jour les modules
 
-Vous devez effectuer la mise à jour vers les derniers modules Azure et importer `AzureRM.OperationalInsights` pour pouvoir automatiser l’intégration de la solution.
+Il est nécessaire d’effectuer la mise à jour vers les derniers modules Azure et d’importer le module [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) pour automatiser correctement l’intégration de la solution.
 
 ## <a name="update-azure-modules"></a>Mettre à jour les modules Azure
 
-Dans votre compte Automation, sélectionnez **Modules** sous **RESSOURCES PARTAGÉES**. Sélectionnez **Mettre à jour les modules Azure** pour mettre à jour les modules Azure vers la dernière version. Sélectionnez **Oui** à l’invite pour mettre à jour tous les modules Azure existants vers la dernière version.
+1. Dans votre compte Automation, sélectionnez **Modules** sous **Ressources partagées**. 
+2. Sélectionnez **Mettre à jour les modules Azure** pour mettre à jour les modules Azure vers la dernière version. 
+3. Cliquez sur **Oui** pour mettre à jour tous les modules Azure existants vers la dernière version.
 
 ![Mettre à jour les modules](media/automation-onboard-solutions/update-modules.png)
 
-### <a name="install-azurermoperationalinsights-module"></a>Installer le module AzureRM.OperationalInsights
+### <a name="install-azoperationalinsights-module"></a>Installer le module Az.OperationalInsights
 
-Dans la page **Modules**, sélectionnez **Parcourir la galerie** pour ouvrir la galerie des modules. Recherchez AzureRM.OperationalInsights et importez ce module dans le compte Automation.
+1. Dans le compte Automation, sélectionnez **Modules** sous **Ressources partagées**. 
+2. Sélectionnez **Parcourir la galerie** pour ouvrir la galerie des modules. 
+3. Recherchez Az.OperationalInsights et importez ce module dans le compte Automation.
 
 ![Importer le module OperationalInsights](media/automation-onboard-solutions/import-operational-insights-module.png)
 
 ## <a name="import-the-onboarding-runbook"></a>Importer le runbook d’intégration
 
-1. Dans votre compte Automation, sélectionnez **Runbooks** sous **AUTOMATISATION DES PROCESSUS**.
+1. Dans votre compte Automation, sélectionnez **Runbooks** sous **Automatisation des processus**.
 1. Sélectionnez **Parcourir la galerie**.
-1. Recherchez **Update et Change Tracking**, cliquez sur le runbook et sélectionnez **Importer** dans la page **Afficher la source**. Sélectionnez **OK** pour importer le runbook dans le compte Automation.
+1. Recherchez `update and change tracking`.
+3. Sélectionnez le runbook, puis cliquez sur **Importer** dans la page Afficher la source. 
+4. Cliquez sur **OK** pour importer le runbook dans le compte Automation.
 
    ![Importer le runbook d’intégration](media/automation-onboard-solutions/import-from-gallery.png)
 
-1. Dans la page **Runbook**, sélectionnez **Modifier**, puis **Publier**. Dans la boîte de dialogue **Publier le runbook**, sélectionnez **Oui** pour le publier.
+6. Dans la page Runbook, cliquez sur **Modifier**, puis sélectionnez **Publier**. 
+7. Dans le volet Publier un runbook, cliquez sur **Oui** pour le publier.
 
 ## <a name="start-the-runbook"></a>Démarrer le runbook
 
-Vous devez avoir intégré la solution de mise à jour ou Change Tracking à une machine virtuelle Azure pour pouvoir démarrer ce runbook. Il nécessite une machine virtuelle et un groupe de ressources existants avec la solution embarquée pour les paramètres.
+Vous devez avoir intégré les solutions de mise à jour ou de suivi des modifications à une machine virtuelle Azure pour démarrer ce runbook. Il nécessite une machine virtuelle et un groupe de ressources existants avec la solution embarquée pour les paramètres.
 
-1. Ouvrez le runbook Enable-MultipleSolution.
+1. Ouvrez le runbook **Enable-MultipleSolution**.
 
    ![Runbooks avec plusieurs solutions](media/automation-onboard-solutions/runbook-overview.png)
 
@@ -119,8 +127,8 @@ Vous devez avoir intégré la solution de mise à jour ou Change Tracking à une
    * **VMRESOURCEGROUP** : Nom du groupe de ressources des machines virtuelles à intégrer.
    * **SUBSCRIPTIONID** : Laissez vide. ID d’abonnement de la nouvelle machine virtuelle à intégrer. Laissez cet espace vide pour utiliser l’abonnement de l’espace de travail. Lorsqu’un ID d’abonnement différent est fourni, le compte RunAs pour ce compte Automation devrait également être ajouté comme contributeur pour cet abonnement.
    * **ALREADYONBOARDEDVM** : Nom de la machine virtuelle manuellement intégrée à la solution Updates ou Change Tracking.
-   * **ALREADYONBOARDEDVMRESOURCEGROUP** : Nom du groupe de ressources auquel appartient la machine virtuelle.
-   * **SOLUTIONTYPE** : Entrez **Updates** ou **Change Tracking**
+   * **ALREADYONBOARDEDVMRESOURCEGROUP** : Nom du groupe de ressources auquel appartient la machine virtuelle.
+   * **SOLUTIONTYPE** : Entrez **Updates** ou **ChangeTracking**.
 
    ![Paramètres du runbook Enable-MultipleSolution](media/automation-onboard-solutions/runbook-parameters.png)
 
@@ -131,8 +139,8 @@ Vous devez avoir intégré la solution de mise à jour ou Change Tracking à une
 
 Pour supprimer une machine virtuelle de Update Management :
 
-* Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la rechercher enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
-* Supprimez l’agent [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+1. Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la recherche enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
+2. Supprimez l’[agent Log Analytics pour Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 288d4e4d0c5faa6bb2b51451fb36bbb6d666c9eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756413"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683175"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configurer l’exportation en continu de la télémétrie de diagnostic d’Azure SQL Database
 
@@ -363,7 +363,7 @@ Vous pouvez utiliser SQL Analytics comme un tableau de bord hiérarchique pour a
 
 ## <a name="stream-into-event-hubs"></a>Transmission en continu vers Event Hubs
 
-Vous pouvez diffuser en continu les métriques et les journaux de ressources SQL Database dans Event Hubs à l’aide de l’option intégrée **Diffuser vers un Event Hub** dans le Portail Azure. Vous pouvez également activer l’ID de règle Service Bus à l’aide de paramètres de diagnostic via les cmdlets PowerShell, l’interface CLI Azure ou l’API REST Azure Monitor.
+Vous pouvez diffuser en continu les métriques et les journaux de ressources SQL Database dans Event Hubs à l’aide de l’option intégrée **Diffuser vers un Event Hub** dans le Portail Azure. Vous pouvez également activer l’ID de règle Service Bus à l’aide de paramètres de diagnostic via les cmdlets PowerShell, l’interface CLI Azure ou l’API REST Azure Monitor. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
 
 ### <a name="what-to-do-with-metrics-and-resource-logs-in-event-hubs"></a>Que faire des métriques et des journaux de ressources dans Event Hubs
 

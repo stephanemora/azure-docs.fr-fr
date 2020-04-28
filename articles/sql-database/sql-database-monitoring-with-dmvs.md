@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214023"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683018"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique
 
@@ -604,7 +604,7 @@ L’exemple suivant vous montre différentes manières d’utiliser la vue du ca
 
 3. Avec les informations ci-dessus relatives aux valeurs moyennes et maximales de chaque métrique de ressources, vous pouvez évaluer l’adéquation entre votre charge de travail et la taille de calcul que vous avez choisie. En général, les valeurs moyennes de **sys.resource_stats** vous offrent une bonne référence à utiliser par rapport à la taille cible. Elles doivent constituer votre principale jauge de mesure. Par exemple, vous pouvez utiliser le niveau de service Standard avec la taille de calcul S2. Les pourcentages d’utilisation moyens pour les lectures et écritures d’UC et d’E/S se situent en deçà de 40 %, le nombre moyen de Workers est inférieur à 50 et le nombre moyen de sessions est inférieur à 200. Votre charge de travail peut être prise en charge par la taille de calcul S1. Il est facile de voir si votre base de données s’intègre dans les limites de Workers et de sessions. Pour voir si une base de données peut s’adapter à une taille de calcul inférieure en ce qui concerne l’UC, les lectures et les écritures, divisez le nombre de DTU de la taille de calcul inférieure par le nombre de DTU de votre taille de calcul actuelle, puis multipliez le résultat par 100 :
 
-    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+    `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
     Le résultat correspond à la différence de performances relative entre les deux tailles de calcul en pourcentage. Si votre utilisation des ressources ne dépasse pas ce résultat, votre charge de travail peut être traitée par la taille de calcul inférieure. Toutefois, vous devez également examiner toutes les plages de valeurs d’utilisation des ressources, et déterminer, d’après le pourcentage, combien de fois la charge de travail de votre base de données pourrait s’adapter à la taille de calcul inférieure. La requête suivante génère le pourcentage d’adéquation par dimension de ressource, selon le seuil de 40 % calculé dans cet exemple :
 

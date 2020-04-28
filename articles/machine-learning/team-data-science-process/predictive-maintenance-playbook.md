@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 5cf3f02284777a54a9d26cad8a7f3b5b4fa6b335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087768"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686751"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -449,6 +449,6 @@ En plus du contenu et de formations sur les concepts généraux et la mise en pr
 | [Webinaires Microsoft AI sur YouTube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Présentation de Microsoft AI](https://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partenaires |
-| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partenaires |
+| [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partenaires |
 
 De plus, des MOOCS gratuits (cours en ligne ouverts à tous) sur l’IA sont proposés par des universités comme Stanford et MIT, ainsi que par d’autres établissements d’enseignement.

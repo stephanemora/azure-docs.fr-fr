@@ -2,13 +2,13 @@
 title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: 4200784e3018ec80d9fbbbc0d3680b6b0e6d2cb3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 04/21/2020
+ms.openlocfilehash: 00bd85febe34a7bd9b4e993d5697fa810347711b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656205"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768732"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 

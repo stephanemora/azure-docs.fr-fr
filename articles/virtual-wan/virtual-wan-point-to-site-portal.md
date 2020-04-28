@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 04/16/2020
 ms.author: alzam
-ms.openlocfilehash: fd415e1da00f52a9a3b55c946a07a30cf841cf4a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 11007bc39cb1112799c89afaf0ca670aa6760de6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80060308"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482126"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de VPN utilisateur à l’aide d’Azure Virtual WAN
 
@@ -110,6 +110,32 @@ Une configuration P2S définit les paramètres permettant de connecter des clien
 4. Cochez la case **Inclure la passerelle point à site** et sélectionnez l’**unité d’échelle de passerelle** souhaitée.
 
    ![nouveau site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+
+Le tableau ci-dessous présente les détails sur les **unités d’échelle** disponibles.
+
+| **Unité d’échelle** | **Débit** | **Connexions P2S** |
+| --- | --- | --- |
+| 1| 500 Mbits/s | 500 |
+| 2| 1 Gbit/s | 500 |
+| 3| 1,5 Gbits/s | 500 |
+| 4| 2 Gbit/s | 1 000 |
+| 5| 2,5 Gbits/s | 1 000 |
+| 6| 3 Gbits/s | 1 000 |
+| 7| 3,5 Gbits/s | 5 000 |
+| 8| 4 Gbits/s | 5 000 |
+| 9| 4,5 Gbits/s | 5 000 |
+| 10| 5 Gbit/s | 5 000 |
+| 11| 5,5 Gbits/s | 5 000 |
+| 12| 6 Gbits/s | 5 000 |
+| 13| 6,5 Gbits/s | 10000 |
+| 14| 7 Gbits/s | 10000 |
+| 15| 7,5 Gbits/s | 10000 |
+| 16| 8 Gbits/s | 10000 |
+| 17| 8,5 Gbits/s | 10000 |
+| 18| 9 Gbits/s | 10000 |
+| 19| 9,5 Gbits/s | 10000 |
+| 20| 10 Gbits/s | 10000 |
+
 5. Entrez le **Pool d’adresses** à partir duquel les clients VPN se verront attribuer des adresses IP.
 6. Cliquez sur **Confirmer**.
 7. L’opération peut prendre jusqu’à 30 minutes.

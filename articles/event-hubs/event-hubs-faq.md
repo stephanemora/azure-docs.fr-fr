@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283665"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086366"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -182,7 +182,7 @@ Lors des tests, les critères suivants ont été utilisés :
 Les résultats vous donnent une idée de ce qui peut être réalisé avec un cluster Event Hubs dédié. De plus, un cluster dédié est fourni avec la fonctionnalité Event Hubs Capture activée pour vos scénarios de micro-batching et de rétention à long terme.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Comment créer un cluster Event Hubs Dedicated ?
-Vous créez un cluster dédié Event Hubs en soumettant une [requête de support d’augmentation du quota](https://portal.azure.com/#create/Microsoft.Support) ou en contactant l’[équipe Event Hubs](mailto:askeventhubs@microsoft.com). Le déploiement et la mise à disposition de votre cluster demandent généralement deux semaines. Ce processus est temporaire jusqu’à ce qu’un libre-service complet soit disponible via le portail Azure ou les modèles Azure Resource Manager, ce qui prend environ deux heures pour déployer le cluster.
+Vous créez un cluster dédié Event Hubs en soumettant une [requête de support d’augmentation du quota](https://portal.azure.com/#create/Microsoft.Support) ou en contactant l’[équipe Event Hubs](mailto:askeventhubs@microsoft.com). Le déploiement et la mise à disposition de votre cluster demandent généralement deux semaines. Ce processus est temporaire jusqu’à ce qu’un libre-service complet soit disponible via le portail Azure.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227817"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082116"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
 Les attributs sont regroupés selon l’application Azure AD associée.
 
@@ -375,7 +375,7 @@ Ce groupe est un ensemble d'attributs utilisés comme attributs nécessaires au 
 * Yammer (seul l’utilisateur est consommé)
 * [Scénarios de collaboration transorganisationnelle B2B (Business-to-Business) hybride proposés par des ressources comme SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Office 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base.
+Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Office 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base. Notez que l’authentification unique ou le provisionnement de certaines applications tierces requièrent la configuration de la synchronisation des attributs en plus des attributs décrits ici. Les spécifications de l’application sont décrites dans le [tutoriel sur l’application SaaS](../saas-apps/tutorial-list.md) pour chaque application.
 
 | Nom de l'attribut | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |
@@ -425,12 +425,12 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 | Nom d’attribut (instance locale d’AD) | Nom d’attribut (interface utilisateur Connect) | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Dérivé de cloudAnchor dans Azure AD. Cet attribut est une nouveauté dans Exchange 2016 et Windows Server 2016 AD. |
-| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archive en ligne : permet aux clients d’archiver le courrier. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
-| msExchSafeSenderHash| ms-Exch-SafeSendersHash  |X | | |Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Activer la messagerie unifiée (MU) - messagerie vocale en ligne : utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne. |
-| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Conservation pour litige : permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archive en ligne : Permet aux clients d’archiver le courrier. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrage : Réécrit le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrage : Réécrit le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
+| msExchSafeSenderHash| ms-Exch-SafeSendersHash  |X | | |Filtrage : Réécrit le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Activer la messagerie unifiée (MU) - Messagerie vocale en ligne : Utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Conservation pour litige : Permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige. |
 | proxyAddresses| proxyAddresses |X |X |X |Seule l’adresse x500 d’Exchange Online est insérée. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Permet à une boîte aux lettres Exchange Online d’obtenir des droits SendOnBehalfTo sur les boîtes aux lettres Exchange sur site des utilisateurs. Nécessite Azure AD Connect 1.1.552.0 ou version ultérieure. |
 
