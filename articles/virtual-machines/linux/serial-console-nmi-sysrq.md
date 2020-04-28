@@ -1,24 +1,18 @@
 ---
 title: Console série Azure pour les appels SysRq et NMI
 description: Utilisation de la console série pour les appels SysRq et NMI dans les machines virtuelles Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034998"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758487"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utiliser la console série pour les appels SysRq et NMI
 
@@ -62,7 +56,7 @@ Dans le guide administrateur SysRq ci-dessus :
 |``h``  |   Affiche l’aide (les touches qui ne sont pas mentionnées ici affichent aussi l’aide, mais il est facile de mémoriser ``h`` :-)
 |``i``  |    Envoie un SIGKILL à tous les processus, sauf init.
 |``j``  |    Forçage de « Just thaw it » (simple libération) - systèmes de fichiers gelés par l’ioctl FIFREEZE.
-|``k``  |    La clé d’accès sécurisée (SAK) arrête tous les programmes de la console virtuelle en cours. REMARQUE :  consultez les commentaires importants disponibles ci-dessous, à la section SAK.
+|``k``  |    La clé d’accès sécurisée (SAK) arrête tous les programmes de la console virtuelle en cours. REMARQUE : consultez les commentaires importants ci-dessous dans la section SAK.
 |``l``  |    Affiche un historique des piles de tous les processeurs actifs.
 |``m``  |    Sauvegarde les informations de la mémoire actuelle sur votre console.
 |``n``  |    Utilisé pour que les tâches RT soient agréables

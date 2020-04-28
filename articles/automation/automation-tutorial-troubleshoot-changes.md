@@ -7,16 +7,16 @@ keywords: modification, suivi, automatisation
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 89f5e00c75b6b85c9a14de02504136907cde62b5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75420631"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604694"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
-Dans ce didacticiel, vous allez apprendre à dépanner les modifications apportées à une machine virtuelle Azure. En activant le suivi des modifications, vous pouvez suivre celles apportées aux logiciels, fichiers, démons Linux, services Windows et clés de registre Windows présents sur vos ordinateurs.
+Dans ce didacticiel, vous allez apprendre à dépanner les modifications apportées à une machine virtuelle Azure. En activant le suivi des modifications, vous pouvez suivre celles apportées aux logiciels, fichiers, démons Linux, services Windows et clés de Registre Windows présents sur vos ordinateurs.
 L’identification de ces modifications de configuration peut vous aider à mettre à jour les problèmes opérationnels constatés dans votre environnement.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Afficher les modifications
 > * Configurer des alertes
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -42,20 +42,22 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 Connectez-vous au portail Azure sur https://portal.azure.com.
 
-## <a name="enable-change-tracking-and-inventory"></a>Activer le suivi des modifications et l’inventaire
+## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 
-Pour ce didacticiel, vous devez d’abord activer Suivi des modifications et inventaire pour votre machine virtuelle. Si vous avez déjà activé une autre solution d’automatisation pour une machine virtuelle, cette étape n’est pas nécessaire.
+Pour ce tutoriel, vous devez d’abord activer Change Tracking et Inventory pour votre machine virtuelle. Si vous avez déjà activé une autre solution d’automatisation pour une machine virtuelle, cette étape n’est pas nécessaire.
 
-1. Dans le menu de gauche, sélectionnez **Machines virtuelles**, puis choisissez une machine virtuelle dans la liste
-1. Dans le menu de gauche, dans la section **OPÉRATIONS**, cliquez sur **Inventaire**. La page **Suivi des modifications** s’ouvre.
+1. Dans le menu de gauche, sélectionnez **Machines virtuelles**, puis choisissez une machine virtuelle dans la liste.
+1. Dans le menu de gauche, sélectionnez **Inventory** sous **Opérations**. La page Inventory s’ouvre.
 
-![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) L’écran **Change Tracking** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
+![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme l’inventaire.
+Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
+
+Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme Inventory.
 L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
-Au cours de l’intégration, la machine virtuelle est approvisionnée avec l’agent Microsoft Monitoring Agent (MMA) et un Worker hybride.
-Cet agent sert à communiquer avec la machine virtuelle et à obtenir des informations sur les logiciels installés.
+Pendant l’intégration, la machine virtuelle est provisionnée avec l’agent Log Analytics pour Windows et un runbook worker hybride.
+L’agent sert à communiquer avec la machine virtuelle et à obtenir des informations sur les logiciels installés.
 
 L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
 Une fois la solution activée, des informations sur les logiciels installés et les changements apportés à la machine virtuelle sont envoyées aux journaux d’activité Azure Monitor.
@@ -63,11 +65,11 @@ Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données so
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilisation du suivi des changements dans les journaux Azure Monitor
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilisation de Change Tracking dans les journaux Azure Monitor
 
-Le suivi des changements génère des données de journal qui sont envoyées aux journaux Azure Monitor.
-Pour rechercher les journaux d’activité en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Suivi des modifications**.
-Les données de suivi des modifications sont stockées sous le type **ConfigurationData**.
+Change Tracking génère des données de journal qui sont envoyées aux journaux Azure Monitor.
+Pour rechercher dans les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la page Change Tracking.
+Les données de Change Tracking sont stockées sous le type `ConfigurationChange`.
 L’exemple de requête Log Analytics ci-après renvoie tous les services Windows arrêtés.
 
 ```loganalytics
@@ -75,38 +77,37 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux d’activité Azure Monitor, consultez [Journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux Azure Monitor, consultez [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="configure-change-tracking"></a>Configurer le suivi des modifications
+## <a name="configure-change-tracking"></a>Configurer Change Tracking
 
-Le suivi des modifications vous donne la possibilité d’effectuer le suivi des changements de configuration apportés à votre machine virtuelle. Les étapes suivantes vous montrent comment configurer le suivi des clés de Registre et des fichiers.
+Change Tracking vous donne la possibilité d’effectuer le suivi des changements de configuration apportés à votre machine virtuelle. Les étapes suivantes vous montrent comment configurer le suivi des clés de Registre et des fichiers.
 
-Pour choisir les fichiers et clés de Registre à collecter et dont effectuer le suivi, sélectionnez **Modifier les paramètres** en haut de la page **Suivi des modifications**.
+Pour choisir les fichiers et clés de Registre à collecter et suivre, sélectionnez **Modifier les paramètres** en haut de la page Change Tracking.
 
 > [!NOTE]
-> L’inventaire et le suivi des modifications utilisent les mêmes paramètres de collecte, et ces paramètres sont configurés au niveau de l’espace de travail.
+> Inventory et Change Tracking utilisent les mêmes paramètres de collecte, et ces paramètres sont configurés au niveau de l’espace de travail.
 
-Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés de Registre Windows, puis les fichiers Windows ou Linux à suivre, comme décrit dans les trois sections suivantes.
+Dans la page Configuration de l’espace de travail, ajoutez les clés de Registre Windows, puis les fichiers Windows ou Linux à suivre, comme décrit dans les trois sections suivantes.
 
 ### <a name="add-a-windows-registry-key"></a>Ajouter une clé de Registre Windows
 
-1. Dans l’onglet **Registre Windows**, sélectionnez **Ajouter**.
-    La fenêtre **Ajouter le Registre Windows pour le suivi des modifications**.
+1. Dans l’onglet **Registre Windows**, sélectionnez **Ajouter**. 
 
-1. Dans la fenêtre **Ajouter le Registre Windows pour le suivi des modifications**, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**.
+1. Dans la page Ajouter le Registre Windows pour le suivi des modifications, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**
 
 |Propriété  |Description  |
 |---------|---------|
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
+|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
 ### <a name="add-a-windows-file"></a>Ajouter un fichier Windows
 
-1. Dans l’onglet **Fichiers Windows**, sélectionnez **Ajouter**. La fenêtre **Ajouter le fichier Windows pour le suivi des modifications**.
+1. Dans l’onglet **Fichiers Windows**, sélectionnez **Ajouter**. 
 
-1. Dans la fenêtre **Ajouter le fichier Windows pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
+1. Dans la page Ajouter le fichier Windows pour le suivi des modifications, entrez les informations correspondant au fichier ou répertoire à suivre et cliquez sur **Enregistrer**
 
 |Propriété  |Description  |
 |---------|---------|
@@ -115,13 +116,13 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\\\*.txt »<br>Vous pouvez également utiliser des variables d’environnement telles que « %winDir%\System32\\\*.* »         |
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
 ### <a name="add-a-linux-file"></a>Ajouter un fichier Linux
 
-1. Dans l’onglet **Fichiers Linux**, sélectionnez **Ajouter**. La fenêtre **Ajouter le fichier Linux pour le suivi des modifications**.
+1. Dans l’onglet **Fichiers Linux**, sélectionnez **Ajouter**. 
 
-1. Dans la fenêtre **Ajouter le fichier Linux pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
+1. Dans la page Ajouter le fichier Linux pour le suivi des modifications, entrez les informations correspondant au fichier ou répertoire à suivre et cliquez sur **Enregistrer**.
 
 |Propriété  |Description  |
 |---------|---------|
@@ -133,24 +134,24 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
 |Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : True ou False.|
 
    > [!NOTE]
-   > L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
+   > L’option **Gérer les liens** n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
 
 ## <a name="enable-activity-log-connection"></a>Activer la connexion du journal d’activité
 
-À partir de la page **Suivi des modifications** sur votre machine virtuelle, sélectionnez **Manage Activity Log Connection** (Gérer la connexion du journal d’activité). Cette tâche ouvre la page **Journal des activités Azure**. Sélectionnez **Connexion** pour connecter le suivi des modifications au journal des activités Azure pour votre machine virtuelle.
+À partir de la page Suivi des modifications sur votre machine virtuelle, sélectionnez **Gérer la connexion du journal d’activité**. Cette tâche ouvre la page Journal d’activité Azure. Cliquez sur **Connexion** pour connecter Change Tracking au journal d’activité Azure pour votre machine virtuelle.
 
-Une fois ce paramètre activé, accédez à la page **Vue d’ensemble** de votre machine virtuelle, puis sélectionnez **Arrêter** pour l’arrêter. Lorsque vous y êtes invité, sélectionnez **Oui** pour arrêter la machine virtuelle. Celle-ci étant libérée, sélectionnez **Démarrer** pour redémarrer votre machine virtuelle.
+Une fois ce paramètre activé, accédez à la page Vue d’ensemble de votre machine virtuelle, puis sélectionnez **Arrêter** pour l’arrêter. Lorsque vous y êtes invité, sélectionnez **Oui** pour arrêter la machine virtuelle. Celle-ci étant libérée, sélectionnez **Démarrer** pour redémarrer votre machine virtuelle.
 
-Le fait d’arrêter et de démarrer une machine virtuelle enregistre un événement dans son journal d’activité. Revenez à la page **Suivi des modifications**. Sélectionnez l’onglet **Événements** au bas de la page. Après un certain temps, les événements apparaissent dans le graphique et le tableau. Comme dans l’étape précédente, chaque événement peut être sélectionné pour en afficher le détail.
+Le fait d’arrêter et de démarrer une machine virtuelle enregistre un événement dans son journal d’activité. Revenez à la page Suivi des modifications. Sélectionnez l’onglet **Événements** au bas de la page. Après un certain temps, les événements apparaissent dans le graphique et le tableau. Comme dans l’étape précédente, chaque événement peut être sélectionné pour en afficher le détail.
 
 ![Comment afficher le détail des modifications dans le portail](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
 
 ## <a name="view-changes"></a>Afficher les modifications
 
-Lorsque la solution de suivi des modifications et d’inventaire est activée, vous pouvez afficher les résultats sur la page **Suivi des modifications**.
+Lorsque la solution Change Tracking et Inventory est activée, vous pouvez voir les résultats dans la page Suivi des modifications.
 
 À partir de votre machine virtuelle, sélectionnez **Suivi des modifications** sous **OPÉRATIONS**.
 
@@ -165,7 +166,7 @@ L’onglet **Événements** du tableau affiche les événements du journal d’a
 
 Vous pouvez voir, dans les résultats, que plusieurs modifications ont été apportées au système, y compris aux logiciels et services. Vous pouvez utiliser les filtres en haut de la page pour filtrer les résultats par **type de modification** ou par plage de temps.
 
-En sélectionnant une modification **WindowsServices**, vous ouvrez la fenêtre **Détails de la modification**. Cette fenêtre présente les détails de la modification, ainsi que les valeurs avant et après. Dans ce cas, le service Protection logicielle a été arrêté.
+En sélectionnant une modification **WindowsServices**, vous ouvrez la page Détails de la modification qui présente des détails sur la modification ainsi que les valeurs avant et après. Dans ce cas, le service Protection logicielle a été arrêté.
 
 ![Comment afficher le détail des modifications dans le portail](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
@@ -175,11 +176,11 @@ L’affichage des modifications dans le Portail Azure est pratique, mais pouvoir
 
 Pour ajouter une alerte associée à l’arrêt d’un service, accédez à **Surveiller** dans le Portail Azure. Sous **Services partagés**, sélectionnez **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
 
-Cliquez sur **Sélectionner** pour choisir une ressource. Sur la page **Sélectionner une ressource**, sélectionnez **Log Analytics** dans le menu déroulant **Filtrer par type de ressource**. Sélectionnez votre espace de travail Log Analytics, puis sélectionnez **Terminé**.
+Cliquez sur **Sélectionner** pour choisir une ressource. Dans la page Sélectionner une ressource, sélectionnez **Log Analytics** dans le menu déroulant **Filtrer par type de ressource**. Sélectionnez votre espace de travail Log Analytics, puis sélectionnez **Terminé**.
 
 ![Sélectionner une ressource](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Cliquez sur **Ajouter une condition**, sur la page **Configurer la logique du signal**, dans le tableau, sélectionnez **Recherche de journal personnalisée**. Entrez la requête suivante dans la zone de texte de la requête de recherche :
+Cliquez sur **Ajouter une condition** dans la page Configurer la logique du signal et, dans le tableau, sélectionnez **Recherche personnalisée dans les journaux**. Entrez la requête suivante dans la zone de texte de la requête de recherche :
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -201,7 +202,7 @@ Sous **Actions**, entrez un nom pour l’action, tel que **Administrateurs de la
 
 ![Ajouter un groupe d'actions](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
 
-Dans le volet **E-mail/SMS/Push/Voix**, entrez un nom. Sélectionnez la case à cocher **E-mail**, puis entrez une adresse e-mail valide. Cliquez sur **OK** dans la page **E-mail/SMS/Push/Voix**, puis sur **OK** dans la page **Ajouter un groupe d’actions**.
+Dans le volet E-mail/SMS/Push/Voix, entrez un nom. Sélectionnez la case à cocher **E-mail**, puis entrez une adresse e-mail valide. Cliquez sur **OK** dans le volet, puis sur **OK** dans la page Ajouter un groupe d’actions.
 
 Pour personnaliser l’objet de l’e-mail d’alerte, sous **Créer une règle** > **Personnaliser les actions**, sélectionnez **Objet de l’e-mail**. Lorsque vous avez terminé, cliquez sur **Créer une règle d’alerte**. L’alerte vous avertit quand un déploiement de mises à jour s’est correctement déroulé et précise quelles machines en ont bénéficié.
 

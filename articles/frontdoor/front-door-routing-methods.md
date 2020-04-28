@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 69ef68dafc2385eb5614179c3d04265250383104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471538"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687804"
 ---
 # <a name="front-door-routing-methods"></a>Méthodes de routage Front Door
 
@@ -27,7 +27,7 @@ Quatre concepts principaux pour le routage de trafic sont disponibles dans Front
 * **[Latence](#latency) :** Le routage basé sur la latence garantit que les requêtes sont envoyées aux backends ayant la latence la plus faible acceptables dans une plage de sensibilité. Essentiellement, vos requêtes utilisateur sont envoyées à l’ensemble de backends le plus « proche » en ce qui concerne la latence du réseau.
 * **[Priority](#priority):** Vous pouvez attribuer des priorités à vos différents backends si vous voulez utiliser un backend de service principal pour l’ensemble du trafic et fournir une solution de secours en cas d’indisponibilité du backend principal ou des backends de secours.
 * **[Weighted](#weighted):** Vous pouvez attribuer des poids à vos différents backends si vous voulez répartir le trafic entre un ensemble de backends, que ce soit de façon équitable ou selon des coefficients de pondération.
-* **Affinité de session :** Vous pouvez configurer l’affinité de session pour vos hôtes frontend ou domaines quand vous voulez que les requêtes suivantes d’un utilisateur soient envoyées au même backend tant que la session utilisateur est toujours active et que les sondes d’intégrité indiquent que l’instance de backend est toujours intègre. 
+* **[Affinité de session](#affinity) :** vous pouvez configurer l’affinité de session pour vos hôtes frontend ou domaines quand vous voulez que les requêtes suivantes d’un utilisateur soient envoyées au même backend tant que la session utilisateur est toujours active et que les sondes d’intégrité indiquent que l’instance de backend est toujours intègre. 
 
 Toutes les configurations Front Door incluent la supervision de l’intégrité des backends et le basculement global instantané automatisé. Pour plus d’informations, consultez [Supervision des backends Front Door](front-door-health-probes.md). Votre porte d’entrée peut être configurée pour fonctionner en se basant sur une méthode de routage unique, ou bien vous pouvez, en fonction des besoins de votre application, utiliser plusieurs ou toutes ces méthodes de routage conjointement afin de créer une topologie de routage optimale.
 

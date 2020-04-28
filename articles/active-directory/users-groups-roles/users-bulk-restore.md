@@ -1,11 +1,11 @@
 ---
-title: Restaurer des utilisateurs en bloc (préversion) dans le portail Azure Active Directory | Microsoft Docs
+title: Restaurer en bloc des utilisateurs supprimés sur le portail Azure Active Directory | Microsoft Docs
 description: Restaurer des utilisateurs supprimés en bloc dans le centre d’administration Azure AD dans Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75fe224491c2853f819a45db678e87849dc72d1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174253"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532705"
 ---
-# <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Restaurer des utilisateurs supprimés en bloc (préversion) dans Azure Active Directory
+# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurer en bloc des utilisateurs supprimés dans Azure Active Directory
 
 Azure Active Directory (Azure AD) prend en charge les opérations de création, de suppression et d’invitation en bloc d’utilisateurs, ainsi que le téléchargement de listes d’utilisateurs, de groupes et de membres de groupes.
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) prend en charge les opérations de création, 
 
    ![Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à ajouter](./media/users-bulk-restore/upload-button.png)
 
-1. Dans la page **Restauration en bloc (préversion)** , sous **Charger votre fichier csv**, accédez au fichier. Quand vous sélectionnez le fichier et cliquez sur **Envoyer**, la validation du fichier CSV démarre.
+1. Sur la page **Restauration en bloc**, sous **Charger votre fichier csv**, accédez au fichier. Quand vous sélectionnez le fichier et cliquez sur **Envoyer**, la validation du fichier CSV démarre.
 1. Quand le contenu du fichier est validé, un message indique **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
 1. Lorsque votre fichier réussit la validation, sélectionnez **Envoyer** pour démarrer l’opération en bloc Azure qui restaure les utilisateurs.
 1. Une fois l’opération de restauration terminée, vous recevez une notification indiquant que l’opération en bloc a réussi.
@@ -45,9 +45,9 @@ Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier 
 
 ## <a name="check-status"></a>Vérification du statut
 
-Vous pouvez voir l’état de toutes vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc (préversion)** .
+Pour connaître l'état de toutes vos demandes d'opérations en bloc en attente, consultez la page **Résultats des opérations en bloc**.
 
-   ![Vérifier l’état du chargement dans la page Résultats de l’opération en bloc](./media/users-bulk-restore/bulk-center.png)
+[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
 
 Ensuite, vous pouvez vérifier que les utilisateurs que vous avez restaurés existent bien au sein de l’organisation Azure AD via le portail Azure ou à l’aide de PowerShell.
 

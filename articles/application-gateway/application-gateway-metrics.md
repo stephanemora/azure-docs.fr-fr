@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: abff2f16d9559f015417711820a993badd636f7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133075"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457873"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -102,7 +102,7 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 - **Requêtes ayant échoué**
 
-  Nombre de requêtes en échec servies par Application Gateway. Le nombre de demandes peut être filtré pour afficher le nombre d’affichages par combinaison de paramètres HTTP/pool principal spécifique.
+  Nombre de requêtes traitées par Application Gateway avec des codes d'erreur serveur 5xx. Cela comprend les codes 5xx générés à partir d'Application Gateway, ainsi que les codes 5xx générés à partir du serveur principal. Le nombre de demandes peut être filtré pour afficher le nombre d’affichages par combinaison de paramètres HTTP/pool principal spécifique.
    
 - **Unités de capacité facturables fixes**
 
@@ -162,7 +162,7 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 - **Requêtes ayant échoué**
 
-  Nombre de requêtes en échec servies par Application Gateway. Le nombre de demandes peut être filtré pour afficher le nombre d’affichages par combinaison de paramètres HTTP/pool principal spécifique.
+  Nombre de requêtes traitées par Application Gateway avec des codes d'erreur serveur 5xx. Cela comprend les codes 5xx générés à partir d'Application Gateway, ainsi que les codes 5xx générés à partir du serveur principal. Le nombre de demandes peut être filtré pour afficher le nombre d’affichages par combinaison de paramètres HTTP/pool principal spécifique.
 
 - **État de la réponse**
 

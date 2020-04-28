@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262484"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604613"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tâches dans Fonctions durables (Azure Functions)
 
@@ -35,7 +35,13 @@ Toutes ces ressources sont automatiquement créées dans le compte Stockage Azur
 
 ## <a name="task-hub-names"></a>Noms de hub de tâches
 
-Les hubs de tâches sont identifiés à l’aide d’un nom qui est déclaré dans le fichier *host.json*, comme indiqué dans l’exemple suivant :
+Les hubs de tâches sont identifiés par un nom conforme aux règles suivantes :
+
+* Nom uniquement composé de caractères alphanumériques
+* Nom commençant par une lettre
+* Nom compris entre 3 et 45 caractères
+
+Le nom du hub de tâches est déclaré dans le fichier *host.json*, comme illustré dans l'exemple suivant :
 
 ### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 

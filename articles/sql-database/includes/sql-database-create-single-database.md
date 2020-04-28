@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
-ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563ac8748e9d4f8a254a151814491113b9c816e6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79199635"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685133"
 ---
 Lors de cette étape, vous allez créer un serveur Azure SQL Database et une base de données unique qui utilise des exemples de données AdventureWorksLT. Vous pouvez créer la base de données à l’aide des menus et écrans du portail Azure, ou à l’aide d’un script Azure CLI ou PowerShell dans Azure Cloud Shell.
 
@@ -106,7 +106,7 @@ location=westus2
 adminlogin=azureuser
 password=Azure1234567
 
-# Set a logical server name that is unique in the system
+# Set a logical server name that is unique to Azure DNS (<server_name>.database.windows.net)
 servername=server-$RANDOM
 
 # Set the ip address range that can access your database
