@@ -11,23 +11,20 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 04/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8c4169ccfb35b74b92ea4996cbc779bac35d6ccb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9a7d0530c4f03138fad3e4aaa473d54e1cfd5b0a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715861"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686571"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor
 
 > [!NOTE]
-> Cet article explique en quoi consistent vos coûts pour les journaux Azure Monitor et comment les contrôler. Un article associé, [Surveiller l’utilisation et l’estimation des coûts](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs), explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctionnalités de surveillance Azure en fonction des différents modèles tarifaires.
-
-> [!NOTE]
-> Tous les prix et coûts indiqués dans cet article sont fournis uniquement à titre d’exemple. 
+> Cet article explique en quoi consistent vos coûts pour les journaux Azure Monitor et comment les contrôler. Un article associé, [Surveiller l’utilisation et l’estimation des coûts](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs), explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctionnalités de surveillance Azure en fonction des différents modèles tarifaires. Tous les prix et coûts indiqués dans cet article sont fournis uniquement à titre d’exemple. 
 
 Les journaux Azure Monitor sont conçus pour la mise à l’échelle et la prise en charge de la collecte, de l’indexation et du stockage de quantités importantes de données quotidiennes provenant de toute source de votre entreprise ou déployées dans Azure.  Si ce peut être un élément moteur pour votre organisation, la rentabilité est au final ce qui importe le plus. À cette fin, il est important de comprendre que le coût d’un espace de travail Log Analytics n’est pas seulement fonction du volume des données collectées, mais qu’il dépend aussi du plan sélectionné et de la durée de stockage des données générées à partir de vos sources connectées.  
 
@@ -41,8 +38,7 @@ Les tarifs par défaut de Log Analytics suivent un modèle de **paiement à l’
   - Nombre de machines virtuelles surveillées
   - Type des données collectées à partir de chaque machine virtuelle surveillée 
   
-En plus du modèle Paiement à l’utilisation, Log Analytics possède des niveaux de **réservation de capacité** qui vous permettent d’économiser jusqu’à 25 % par rapport au tarif de Paiement à l’utilisation. Les tarifs de la réservation de capacité vous permettent d’acheter une réservation à partir de 100 Go/jour. Toute utilisation au-dessus du niveau de réservation sera facturée au tarif de paiement à l’utilisation. Les niveaux de réservation de capacité ont une période d’engagement de 31 jours. Pendant la période d’engagement, vous pouvez passer à un niveau supérieur de réservation de capacité (ce qui relancera la période d’engagement de 31 jours), mais vous ne pouvez pas revenir à un Paiement à l’utilisation ou à un niveau inférieur de réservation de capacité avant que la période d’engagement ne soit terminée. 
-[En savoir plus](https://azure.microsoft.com/pricing/details/monitor/) sur les tarifs de la réservation de capacité et de paiement à l’utilisation de Log Analytics. 
+En plus du modèle Paiement à l’utilisation, Log Analytics possède des niveaux de **réservation de capacité** qui vous permettent d’économiser jusqu’à 25 % par rapport au tarif de Paiement à l’utilisation. Les tarifs de la réservation de capacité vous permettent d’acheter une réservation à partir de 100 Go/jour. Toute utilisation au-dessus du niveau de réservation sera facturée au tarif de paiement à l’utilisation. Les niveaux de réservation de capacité ont une période d’engagement de 31 jours. Pendant la période d’engagement, vous pouvez passer à un niveau supérieur de réservation de capacité (ce qui relancera la période d’engagement de 31 jours), mais vous ne pouvez pas revenir à un Paiement à l’utilisation ou à un niveau inférieur de réservation de capacité avant que la période d’engagement ne soit terminée. La facturation des niveaux de réservation de capacité est effectuée quotidiennement. [En savoir plus](https://azure.microsoft.com/pricing/details/monitor/) sur les tarifs de la réservation de capacité et de paiement à l’utilisation de Log Analytics. 
 
 Dans tous les niveaux tarifaires, le volume de données est calculé à partir d’une représentation sous forme de chaîne des données à mesure qu’elles sont prêtes à être stockées. Plusieurs [propriétés communes à tous les types de données](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) ne sont pas incluses dans le calcul de la taille de l’événement, notamment `_ResourceId`, `_ItemId`, `_IsBillable` et `_BilledSize`.
 
@@ -88,7 +84,12 @@ Vous pouvez également [définir le niveau tarifaire via Azure Resource Manager]
 
 ## <a name="legacy-pricing-tiers"></a>Niveaux de tarification hérités
 
-Les abonnements qui incluaient un espace de travail Log Analytics ou une ressource Application Insights avant le 2 avril 2018, ou qui sont liés à un Contrat Entreprise commencé avant le 1er février 2019, auront toujours accès aux niveaux tarifaires hérités : **Gratuit**, **Autonome (par Go)** et **Par nœud (OMS)** .  Les espaces de travail du niveau tarifaire Gratuit présentent une ingestion des données quotidienne limitée à 500 Mo (à l’exception des types de données de sécurité collectés par Azure Security Center) et une conservation des données limitée à 7 jours. Le niveau tarifaire Gratuit est conçu à des fins d’évaluation uniquement. Les espaces de travail des niveaux tarifaires Autonome et Par nœud présentent une rétention configurable par l’utilisateur jusqu’à 2 ans. 
+Les abonnements qui incluaient un espace de travail Log Analytics ou une ressource Application Insights avant le 2 avril 2018, ou qui sont liés à un Contrat Entreprise commencé avant le 1er février 2019, auront toujours accès aux niveaux tarifaires hérités : **Gratuit**, **Autonome (par Go)** et **Par nœud (OMS)** .  Les espaces de travail du niveau tarifaire Gratuit présentent une ingestion des données quotidienne limitée à 500 Mo (à l’exception des types de données de sécurité collectés par Azure Security Center) et une conservation des données limitée à 7 jours. Le niveau tarifaire Gratuit est conçu à des fins d’évaluation uniquement. Les espaces de travail des niveaux tarifaires Autonome et Par nœud présentent une rétention configurable par l’utilisateur de 30 à 730 jours.
+
+Le niveau tarifaire par nœud est facturé par machine virtuelle (nœud) surveillée sur une granularité horaire. Pour chaque nœud analysé, 500 Mo de données non facturées par jour sont affectées à l’espace de travail. Cette allocation est agrégée au niveau de l’espace de travail. Les données ingérées au-delà de l’allocation de données quotidienne agrégée sont facturées par Go comme dépassement de données. Notez que sur votre facture le service indiqué est **Insight and Analytics** pour l’utilisation de Log Analytics si l’espace de travail se trouve dans le niveau tarifaire Par nœud. 
+
+> [!TIP]
+> Si votre espace de travail a accès au niveau tarifaire **Par nœud**, mais que vous vous demandez si ce serait moins cher dans un niveau Paiement à l’utilisation, vous pouvez [utiliser la requête ci-dessous](#evaluating-the-legacy-per-node-pricing-tier) pour obtenir facilement une recommandation. 
 
 Les espaces de travail créés avant avril 2016 peuvent également accéder aux niveaux tarifaires **Standard** et **Premium** d’origine, assortis d’une durée de conservation des données fixe de 30 et 365 jours respectivement. Il n’est pas possible de créer des espaces de travail avec les niveaux tarifaires **Standard** ou **Premium**. De plus, si un espace de travail est retiré de ces niveaux tarifaires, il ne peut pas y être inclus de nouveau. 
 
@@ -99,7 +100,7 @@ Plus d’informations sur les limitations des niveaux tarifaires sont disponible
 
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 
-Les étapes suivantes décrivent la configuration de la durée de conservation des données de journal dans votre espace de travail.
+Les étapes suivantes décrivent la configuration de la durée de conservation des données de journal dans votre espace de travail. La rétention des données peut être configurée entre 30 et 730 jours (2 ans) pour tous les espaces de travail, sauf si elle utilise le niveau tarifaire gratuit hérité. 
 
 ### <a name="default-retention"></a>Durée de conservation par défaut
 
@@ -110,14 +111,18 @@ Pour définir la durée de conservation par défaut pour votre espace de travail
 3. Dans le volet, déplacez le curseur pour augmenter ou diminuer le nombre de jours, puis cliquez sur **OK**.  Si vous avez opté pour le niveau *Gratuit*, vous ne pouvez pas modifier la période de rétention de données et vous devez passer au niveau payant afin de contrôler ce paramètre.
 
     ![Changer le paramètre de conservation des données de l’espace de travail](media/manage-cost-storage/manage-cost-change-retention-01.png)
+
+En cas de diminution de la conservation, une période de grâce de plusieurs jours s’applique avant la suppression des données les plus anciennes. 
     
 La rétention peut également être [définie via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) à l’aide du paramètre `retentionInDays`. En outre, si vous définissez la conservation des données sur 30 jours, vous pouvez déclencher un vidage immédiat d’anciennes données à l’aide du paramètre `immediatePurgeDataOn30Days`, ce qui peut être utile pour les scénarios liés à la conformité. Cette fonctionnalité est exposée uniquement via Azure Resource Manager. 
 
 Deux types de données (`Usage` et `AzureActivity`) sont conservés pendant 90 jours par défaut, et aucun frais n’est facturé pour cette rétention de 90 jours. Ces types de données sont également exempts des frais d’ingestion de données. 
 
+
+
 ### <a name="retention-by-data-type"></a>Durée de conservation par type de données
 
-Il est également possible de spécifier des paramètres de conservation différents pour des types de données individuels. Chaque type de données est une sous-ressource de l’espace de travail. Par exemple, la table SecurityEvent peut être traitée dans [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) comme suit :
+Il est également possible de spécifier des paramètres de rétention différents pour des types de données individuels allant de 30 à 730 jours (à l’exception des espaces de travail du niveau tarifaire gratuit hérité). Chaque type de données est une sous-ressource de l’espace de travail. Par exemple, la table SecurityEvent peut être traitée dans [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) comme suit :
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -147,6 +152,8 @@ Pour définir la durée de conservation d’un type de données particulier (dan
     }
 ```
 
+Les valeurs valides pour `retentionInDays` sont comprises entre 30 et 730.
+
 Les types de données `Usage` et `AzureActivity` ne peuvent pas être définis avec une durée de conservation personnalisée. Ils prendront la durée maximale de conservation de l’espace de travail par défaut ou 90 jours. 
 
 Un excellent outil pour se connecter directement à Azure Resource Manager pour définir la durée de conservation par type de données est l’outil OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Découvrez plus d’informations sur ARMclient dans les articles de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) et de [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Voici un exemple d’utilisation d’ARMClient, définissant une durée de conservation de 730 jours pour les données SecurityEvent :
@@ -155,24 +162,21 @@ Un excellent outil pour se connecter directement à Azure Resource Manager pour 
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
 ```
 
-> [!NOTE]
+> [!TIP]
 > La définition d’une durée de conservation sur des types de données individuels peut être utilisée pour réduire vos coûts de conservation de données.  Pour les données collectées à partir d’octobre 2019 (date de publication de cette fonctionnalité), la réduction de la durée de conservation de certains types de données peut réduire vos coûts de conservation à terme.  Pour les données collectées précédemment, la définition d’une durée de conservation inférieure pour un type individuel n’affecte pas vos coûts de conservation.  
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Gérer votre volume de données maximal quotidien
 
 Vous pouvez configurer une limite quotidienne et restreindre l’ingestion quotidienne de votre espace de travail, mais soyez vigilant, car votre objectif n’est pas d’atteindre la limite quotidienne.  Si vous l’atteignez, vous perdrez des données pour le reste de la journée, ce qui peut impacter les autres services et solutions Azure dont les fonctionnalités dépendent de la disponibilité de données à jour dans l’espace de travail.  Ces fonctionnalités peuvent correspondre, par exemple, à votre capacité à observer et à recevoir des alertes lorsque les conditions d’intégrité des ressources de service informatique sont impactées.  La limite quotidienne est destinée à être utilisée comme un moyen de gérer l’augmentation inattendue du volume de données de vos ressources managées ou lorsque vous souhaitez limiter les frais non planifiés de votre espace de travail.  
 
-Lorsque cette limite quotidienne est atteinte, la collecte des types de données facturables s’arrête pour le reste de la journée. Une bannière d’avertissement s’affiche en haut de la page de l’espace de travail Log Analytics sélectionné, et un événement d’opération est envoyé vers la table *Opération* dans la catégorie **LogManagement**. La collecte de données reprend après l’heure de réinitialisation définie dans *La limite quotidienne est fixée à*. Nous vous recommandons de définir une règle d’alerte en fonction de cet événement d’opération, configuré pour avertir lorsque la limite de données quotidienne a été atteinte. 
+Peu après que cette limite quotidienne est atteinte, la collecte des types de données facturables s’arrête pour le reste de la journée. (La latence inhérente à l’application de la limite quotidienne peut signifier que la limite n’est pas appliquée précisément au niveau de limite quotidienne spécifié.) Une bannière d’avertissement s’affiche en haut de la page de l’espace de travail Log Analytics sélectionné, et un événement d’opération est envoyé vers la table *Opération* dans la catégorie **LogManagement**. La collecte de données reprend après l’heure de réinitialisation définie dans *La limite quotidienne est fixée à*. Nous vous recommandons de définir une règle d’alerte en fonction de cet événement d’opération, configuré pour avertir lorsque la limite de données quotidienne a été atteinte. 
 
-> [!NOTE]
+> [!WARNING]
 > La limite quotidienne n’arrête pas la collecte de données à partir d’Azure Security Center, à l’exception des espaces de travail dans lesquels Azure Security Center a été installé avant le 19 juin 2017. 
-
-> [!NOTE]
-> La latence inhérente à l’application de la limite quotidienne peut signifier que la limite n’est pas appliquée précisément au niveau de limite quotidienne spécifié. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifier la limite de données quotidienne à définir
 
-Consultez [Utilisation et estimation des coûts Log Analytics](usage-estimated-costs.md) pour comprendre les tendances d’ingestion des données et la limite quotidienne de volume à définir. Effectuez cette opération avec précaution, car vous ne pourrez plus surveiller vos ressources, une fois que la limite sera atteinte. 
+Consultez [Utilisation et estimation des coûts Log Analytics](usage-estimated-costs.md) pour comprendre les tendances d’ingestion des données et la limite quotidienne de volume à définir. Effectuez cette opération avec précaution, car vous ne pourrez plus surveiller vos ressources une fois que la limite sera atteinte. 
 
 ### <a name="set-the-daily-cap"></a>Définir la limite quotidienne
 
@@ -208,125 +212,145 @@ Une fois que l’alerte est définie et que la limite est atteinte, l’alerte e
 
 Une utilisation plus importante est due à l’un des éléments suivants, voire les deux :
 - Plus de nœuds que prévu envoient des données à l’espace de travail Log Analytics
-- Plus de données que prévu sont envoyées à l’espace de travail Log Analytics
+- Plus de données que prévu sont envoyées à l'espace de travail Log Analytics (peut-être parce que l'on commence à utiliser une nouvelle solution ou que l'on modifie la configuration d'une solution existante)
 
 ## <a name="understanding-nodes-sending-data"></a>Présentation des nœuds qui envoient des données
 
-Pour plus d’informations sur le nombre d’ordinateurs qui ont envoyé quotidiennement des pulsations au cours du mois passé, utilisez
+Pour plus d'informations sur le nombre de nœuds qui ont signalé quotidiennement des pulsations de l'agent au cours du mois précédent, utilisez
 
 ```kusto
-Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
+Heartbeat 
+| where TimeGenerated > startofday(ago(31d))
+| summarize nodes = dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart
 ```
-
-Pour obtenir une liste d’ordinateurs qui seront facturés en tant que nœuds si l’espace de travail se trouve au niveau tarifaire Par nœud hérité, recherchez les nœuds qui envoient des **types de données facturés** (certains types de données sont gratuits). Pour ce faire, utilisez la `_IsBillable`[propriété](log-standard-properties.md#_isbillable) et utilisez le champ tout à gauche du nom de domaine complet. Vous obtenez la liste des ordinateurs avec des données facturées :
+Pour obtenir le nombre de nœuds envoyant des données au cours des dernières 24 heures, utilisez la requête : 
 
 ```kusto
 union withsource = tt * 
-| where _IsBillable == true 
+| where TimeGenerated > ago(24h)
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodes = dcount(computerName)
+```
+
+Pour obtenir la liste des nœuds qui envoient des données (et le volume de données envoyées par chacun d'eux), la requête suivante peut être utilisée :
+
+```kusto
+union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-Le nombre de nœuds facturables indiqué peut être estimé comme suit : 
-
-```kusto
-union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize billableNodes=dcount(computerName)
-```
-
-> [!NOTE]
+> [!TIP]
 > L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie. Cette requête remplace l’ancienne méthode d’interrogation d’informations par ordinateur avec le type de données Utilisation.  
-
-Un calcul plus précis de ce qui est réellement facturé consiste à obtenir le nombre d’ordinateurs par heure qui envoient des types de données facturés. (Pour les espaces de travail du niveau tarifaire Par nœud hérité, Log Analytics calcule le nombre de nœuds qui doivent être facturés sur une base horaire.) 
-
-```kusto
-union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
-```
 
 ## <a name="understanding-ingested-data-volume"></a>Présentation du volume de données ingéré
 
-Sur la page **Utilisation et estimation des coûts**, le graphique *Ingestion de données par solution* montre le volume total des données envoyées et la quantité envoyée par chaque solution. Vous pouvez ainsi dégager des tendances, par exemple si l’utilisation des données globales (ou l’utilisation par une solution particulière) augmente, reste stable ou diminue. La requête utilisée pour générer ce résultat est
+Sur la page **Utilisation et estimation des coûts**, le graphique *Ingestion de données par solution* montre le volume total des données envoyées et la quantité envoyée par chaque solution. Vous pouvez ainsi dégager des tendances, par exemple si l’utilisation des données globales (ou l’utilisation par une solution particulière) augmente, reste stable ou diminue. 
+
+### <a name="data-volume-for-specific-events"></a>Volume de données pour des événements spécifiques
+
+Pour examiner la taille des données ingérées pour un ensemble particulier d’événements, vous pouvez interroger la table spécifique (`Event` dans cet exemple), puis limiter la requête aux événements intéressants (dans cet exemple, l’ID d’événement 5145 ou 5156) :
 
 ```kusto
-Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
+Event
+| where TimeGenerated > startofday(ago(31d)) and TimeGenerated < startofday(now()) 
+| where EventID == 5145 or EventID == 5156
+| where _IsBillable == true
+| summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
+``` 
+
+Notez que la clause `where IsBillable = true` exclut les types de données de certaines solutions pour lesquels il n'existe aucun frais d'ingestion. 
+
+### <a name="data-volume-by-solution"></a>Volume de données par solution
+
+La requête utilisée pour afficher le volume de données facturable par solution au cours du dernier mois (à l’exception du dernier jour partiel) est la suivante :
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Notez que la clause « where IsBillable = true » exclut les types de données de certaines solutions pour lesquels il n’existe aucun frais d’ingestion. 
+La clause avec `TimeGenerated` permet uniquement de s’assurer que l’expérience de requête dans le portail Azure va au-delà des 24 heures par défaut. Lorsque vous utilisez le type de données Utilisation, `StartTime` et `EndTime` représentent les intervalles de temps pour lesquels les résultats sont présentés. 
 
-Vous pouvez explorer de façon plus précise et déterminer ainsi des tendances pour des types de données spécifiques, par exemple si vous souhaitez étudier les données de journaux d’activité IIS :
+### <a name="data-volume-by-type"></a>Volume de données par type
+
+Vous pouvez approfondir pour afficher les tendances par type de données :
 
 ```kusto
-Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
+```
+
+Ou pour afficher un tableau par solution et par type pour le mois précédent,
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
 
 ### <a name="data-volume-by-computer"></a>Volume de données par ordinateur
 
-Pour afficher la **taille** des événements facturables ingérés par ordinateur, utilisez la [propriété](log-standard-properties.md#_billedsize)`_BilledSize` qui fournit la taille en octets :
+Le type de données `Usage` n'inclut pas d'informations au niveau de l'ordinateur. Pour afficher la **taille** des données ingérées par ordinateur, utilisez la `_BilledSize` [propriété](log-standard-properties.md#_billedsize), qui fournit la taille en octets :
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 La `_IsBillable`[propriété](log-standard-properties.md#_isbillable) spécifie si les données ingérées occasionnent des frais.
 
-Pour afficher le nombre d’événements **facturables** reçus par ordinateur, utilisez 
+Pour afficher le **nombre** d'événements facturables ingérés par ordinateur, utilisez 
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount=count() by computerName  | sort by eventCount nulls last
-```
-
-Si vous souhaitez afficher les types de données facturables qui envoient des données à un ordinateur spécifique, utilisez :
-
-```kusto
-union withsource = tt *
-| where Computer == "computer name"
-| where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last
+| summarize eventCount = count() by computerName  | sort by eventCount nulls last
 ```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de données par ressource Azure, groupe de ressources ou abonnement
 
-Pour les données provenant de nœuds hébergés dans Azure, vous pouvez obtenir la **taille** des événements facturables ingérés __par ordinateur__. Utilisez la [propriété](log-standard-properties.md#_resourceid) _ResourceId qui fournit le chemin d’accès complet à la ressource :
+Pour les données provenant de nœuds hébergés dans Azure, vous pouvez obtenir la **taille** des données ingérées __par ordinateur__. Utilisez la [propriété](log-standard-properties.md#_resourceid) _ResourceId, qui fournit le chemin d'accès complet à la ressource :
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Pour les données provenant de nœuds hébergés dans Azure, vous pouvez obtenir la **taille** des événements facturables ingérés __par abonnement Azure__. Analysez la propriété `_ResourceId` comme suit :
+Pour les données provenant de nœuds hébergés dans Azure, vous pouvez obtenir la **taille** des données ingérées __par abonnement Azure__. Analysez la propriété `_ResourceId` comme suit :
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
 La définition de `subscriptionId` sur `resourceGroup` permet d’afficher le volume de données ingéré facturable par groupe de ressources Azure. 
 
-
-> [!NOTE]
+> [!WARNING]
 > Certains champs du type de données Utilisation, bien que faisant partie du schéma, sont maintenant déconseillés et leurs valeurs ne seront plus fournies. Il s’agit de **Computer** et des champs liées à l’ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** et **AverageProcessingTimeMs**.
 
 ### <a name="querying-for-common-data-types"></a>Interrogation de types de données courants
@@ -361,6 +385,18 @@ Voici quelques suggestions pour réduire le volume de journaux d’activité col
 | syslog                     | Modifiez la [configuration du syslog](data-sources-syslog.md) de façon à : <br> - Réduire le nombre d’installations collectées <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations* et *Débogage*. |
 | AzureDiagnostics           | Modifiez la collection de journaux de ressources pour : <br> - Réduire le nombre de journaux d’activité d’envoi de ressources à Log Analytics <br> - Collecter uniquement les journaux d’activité nécessaires |
 | Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../insights/solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement. |
+
+### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obtention des nœuds facturés au niveau tarifaire Par nœud
+
+Pour obtenir une liste d’ordinateurs qui seront facturés en tant que nœuds si l’espace de travail se trouve au niveau tarifaire Par nœud hérité, recherchez les nœuds qui envoient des **types de données facturés** (certains types de données sont gratuits). Pour ce faire, utilisez la `_IsBillable`[propriété](log-standard-properties.md#_isbillable) et utilisez le champ tout à gauche du nom de domaine complet. Vous obtenez alors le nombre d'ordinateurs dont les données sont facturées à l'heure (ce qui correspond à la granularité à laquelle les nœuds sont comptés et facturés) :
+
+```kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ### <a name="getting-security-and-automation-node-counts"></a>Obtention du nombre de nœuds Security et Automation
 
@@ -405,6 +441,59 @@ Pour afficher le nombre de nœuds Automation distincts, utilisez la requête :
  ) on lowComputer
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
 ```
+
+## <a name="evaluating-the-legacy-per-node-pricing-tier"></a>Évaluation du niveau tarifaire hérité Par nœud
+
+Décider si les espaces de travail ayant accès au niveau tarifaire hérité **Par nœud** sont mieux dans ce niveau, ou dans un niveau actuel **Paiement à l’utilisation** ou **Réservation de capacité**, est souvent difficile pour les clients.  Cela implique de bien comprendre le compromis entre le coût fixe par nœud supervisé dans le niveau de tarification Par nœud et son allocation de données incluse de 500 Mo/nœud/jour, et le coût supporté en payant simplement les données ingérées dans le niveau Paiement à l’utilisation (Par Go). 
+
+Pour faciliter cette évaluation, vous pouvez utiliser la requête suivante pour obtenir une recommandation sur le niveau tarifaire optimal en fonction des modèles d’utilisation d’un espace de travail.  Cette requête examine les nœuds supervisés et les données ingérées dans un espace de travail au cours des 7 derniers jours, et elle évalue pour chaque jour le niveau de tarification qui aurait été optimal. Pour utiliser la requête, vous devez spécifier si l’espace de travail utilise Azure Security Center en définissant `workspaceHasSecurityCenter` sur `true` ou sur `false`, puis en mettant à jour (facultatif) les prix Par nœud et Par Go dont votre organisation bénéficie. 
+
+```kusto
+// Set these parameters before running query
+let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
+let PerNodePrice = 15.; // Enter your price per node / month 
+let PerGBPrice = 2.30; // Enter your price per GB 
+// ---------------------------------------
+let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+union withsource = tt * 
+| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
+| summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
+| join (
+    Heartbeat 
+    | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+    | where Computer != ""
+    | summarize ASCnodesPerHour = dcount(Computer) by bin(TimeGenerated, 1h) 
+    | extend ASCnodesPerHour = iff(workspaceHasSecurityCenter, ASCnodesPerHour, 0)
+    | summarize ASCnodesPerDay = sum(ASCnodesPerHour)/24.  by day=bin(TimeGenerated, 1d)   
+) on day
+| join (
+    Usage 
+    | where TimeGenerated > ago(8d)
+    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where IsBillable == true
+    | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
+    | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
+    | summarize DataGB=sum(Quantity)/1000., NonSecurityDataGB=sum(NonSecurityData)/1000., SecurityDataGB=sum(SecurityData)/1000. by day=bin(StartTime, 1d)  
+) on day
+| extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
+| extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)) * PerGBPrice,
+             DataGB * PerGBPrice)
+| extend OverageGB = iff(workspaceHasSecurityCenter, 
+             max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay, 0.))
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
+             iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
+| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, Recommendation // Comment this line to see details
+| sort by day asc
+```
+
+Cette requête n’est pas une réplication exacte de la façon dont l’utilisation est calculée, mais elle fonctionne pour fournir des recommandations de niveau tarifaire dans la plupart des cas.  
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Créer une alerte lorsque la collection de données est volumineuse
 

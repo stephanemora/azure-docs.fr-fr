@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e9f22df8df77c3d59990d26b0f63f134f537d4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c224f1e3b7ce53df9bfb24b0c9a9ac14f15996fe
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75561791"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867717"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workpath"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Workpath
 
@@ -96,7 +96,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.workpath.com/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Workpath](https://help.workpath.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Workpath](https://www.workpath.com/en/company/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Votre application Workpath s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -149,7 +149,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-workpath-sso"></a>Configurer l’authentification unique Workpath
 
-Pour configurer l’authentification unique côté **Workpath**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le Portail Azure à l’[équipe de support technique Workpath](https://help.workpath.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Workpath**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le Portail Azure à l’[équipe de support technique Workpath](https://www.workpath.com/en/company/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-workpath-test-user"></a>Créer un utilisateur de test Workpath
 

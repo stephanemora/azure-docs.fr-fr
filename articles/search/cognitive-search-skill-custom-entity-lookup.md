@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369775"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085737"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Compétence cognitive Recherche d'entité personnalisée (préversion)
 
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## <a name="data-limits"></a>Limites de données
 + La taille maximale prise en charge pour les enregistrements d'entrée est de 256 Mo. Si vous devez subdiviser vos données avant de les envoyer à la compétence de recherche d'entité personnalisée, utilisez la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md).
-+ La taille maximale prise en charge pour la table de définition des entités est de 10 Mo si elle est fournie à l'aide du paramètre *entitiesDefitionUri*. 
++ La taille maximale prise en charge pour la table de définition des entités est de 10 Mo si elle est fournie à l’aide du paramètre *entitiesDefinitionUri*. 
 + Si les entités sont définies au format inline, à l'aide du paramètre *inlineEntitiesDefinition*, la taille maximale prise en charge est de 10 Ko.
 
 ## <a name="skill-parameters"></a>Paramètres de la compétence
@@ -63,13 +63,13 @@ Les paramètres respectent la casse.
 
 La liste des entités personnalisées peut être fournie à la compétence Recherche d'entité personnalisée de trois façons différentes. Vous pouvez fournir la liste dans un fichier .CSV, un fichier .JSON ou une définition inline dans le cadre de la définition de la compétence.  
 
-Si le fichier de définition est un fichier .CSV ou .JSON, le chemin d'accès à celui-ci doit être fourni dans le paramètre *entitiesDefitionUri*. Dans ce cas, le fichier est téléchargé une fois au début de chaque exécution de l'indexeur. Le fichier doit être accessible aussi longtemps que l'indexeur est censé s'exécuter. En outre, le fichier doit être encodé en UTF-8.
+Si le fichier de définition est un fichier .CSV ou .JSON, le chemin d'accès à celui-ci doit être fourni dans le paramètre *entitiesDefinitionUri*. Dans ce cas, le fichier est téléchargé une fois au début de chaque exécution de l'indexeur. Le fichier doit être accessible aussi longtemps que l'indexeur est censé s'exécuter. En outre, le fichier doit être encodé en UTF-8.
 
 Si la définition est fournie au format inline, elle doit être fournie au format inline comme contenu du paramètre de compétence *inlineEntitiesDefinition*. 
 
 ### <a name="csv-format"></a>Format CSV
 
-Vous pouvez fournir la définition des entités personnalisées à rechercher dans un fichier CSV (Comma-Separated Value) en indiquant le chemin d'accès à celui-ci et en le définissant dans le paramètre de compétence *entitiesDefitionUri*. Le chemin d'accès doit correspondre à un emplacement https. La taille du fichier de définition ne doit pas dépasser 10 Mo.
+Vous pouvez fournir la définition des entités personnalisées à rechercher dans un fichier CSV (Comma-Separated Value) en indiquant le chemin d’accès à celui-ci et en le définissant dans le paramètre de compétence *entitiesDefinitionUri*. Le chemin d'accès doit correspondre à un emplacement https. La taille du fichier de définition ne doit pas dépasser 10 Mo.
 
 Le format CSV est simple. Chaque ligne représente une entité unique, comme illustré ci-dessous :
 
@@ -85,7 +85,7 @@ Trois entités peuvent ici être renvoyées en tant qu'entités trouvées (Bill 
 
 Vous pouvez également fournir la définition des entités personnalisées à rechercher dans un fichier JSON. Le format JSON vous offre un peu plus de flexibilité, car il vous permet de définir des règles de correspondance « par terme ». Par exemple, vous pouvez spécifier la distance de correspondance approximative (distance de Damerau-Levenshtein) pour chaque terme, ou indiquer si la correspondance doit respecter la casse ou non. 
 
- Comme avec les fichiers CSV, vous devez fournir le chemin d'accès au fichier JSON et le définir dans le paramètre de compétence *entitiesDefitionUri*. Le chemin d'accès doit correspondre à un emplacement https. La taille du fichier de définition ne doit pas dépasser 10 Mo.
+ Comme avec les fichiers CSV, vous devez fournir le chemin d’accès au fichier JSON et le définir dans le paramètre de compétence *entitiesDefinitionUri*. Le chemin d'accès doit correspondre à un emplacement https. La taille du fichier de définition ne doit pas dépasser 10 Mo.
 
 La définition de liste d'entités personnalisées JSON la plus élémentaire peut être une liste d'entités à comparer :
 
