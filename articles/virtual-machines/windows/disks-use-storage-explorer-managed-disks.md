@@ -9,10 +9,10 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
 ms.openlocfilehash: 33f107bfbd4cc96a1103f0a310125b6c2f7013e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74014624"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Utiliser l’Explorateur Stockage Azure pour gérer des disques managés Azure
