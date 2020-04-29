@@ -4,10 +4,10 @@ description: Répertorie tous les espaces de noms de fournisseurs de ressources 
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: 55fbe4ae383e5275d185e2a03224e77660a01ef5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382507"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fournisseurs de ressources pour les services Azure
