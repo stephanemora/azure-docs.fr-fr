@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237205"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605911"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Appeler des fonctions Azure à partir d’Azure Logic Apps
 
@@ -101,7 +101,9 @@ Maintenant que vous avez créé votre fonction Azure, suivez les étapes pour d�
 
 ## <a name="create-functions-inside-logic-apps"></a>Créer des fonctions au sein d’applications logiques
 
-Avant de pouvoir créer une fonction Azure à partir de votre application logique à l’aide du Concepteur d’application logique, vous devez d’abord disposer d’une application de fonction Azure, qui est un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
+Vous pouvez créer des fonctions Azure directement depuis le flux de travail de votre application logique à l’aide de l’action intégrée Azure Functions dans le Concepteur d’application logique, mais cette méthode est réservée aux fonctions Azure écrites en JavaScript. Pour les autres langages, vous pouvez créer des fonctions Azure via l’expérience Azure Functions du portail Azure. Pour plus d'informations, consultez [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
+
+Cela étant, avant de pouvoir créer une fonction Azure, vous devez déjà disposer d’une application de fonction Azure, à savoir d'un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 

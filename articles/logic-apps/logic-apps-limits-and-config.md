@@ -3,15 +3,15 @@ title: Limites et configuration
 description: Limites de service, telles que la durée, le débit et la capacité, ainsi que valeurs de configuration, telles que des adresses IP à autoriser, pour Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 418be090e7ff78ec0089c115c9884ffeffdda871
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: c650cfcbfeddaa83d8bf3127024ac77b93456a57
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237173"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683143"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -84,7 +84,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Déclencheur simultané | - Illimité lorsque le contrôle d’accès concurrentiel est désactivé <p><p>- 25 est la limite par défaut lorsque le contrôle d’accès concurrentiel est activé, que vous ne pouvez pas annuler une fois qu’il est activé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant être exécutée simultanément ou en parallèle. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Déclencheur simultané | - Illimité lorsque le contrôle d’accès concurrentiel est désactivé <p><p>- 25 est la limite par défaut quand le contrôle d’accès concurrentiel est activé, que vous ne pouvez pas annuler une fois que vous avez activé l’accès concurrentiel. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant être exécutée simultanément ou en parallèle. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Exécutions en attente maximale | - Sans accès concurrentiel, le nombre minimal d’exécutions en attente est 1, tandis que leur nombre maximal est 50. <p><p>- Avec l’accès concurrentiel, le nombre minimal d’exécutions en attente est égal à 10 plus le nombre d’exécutions simultanées (concurrence du déclencheur). Vous pouvez modifier le nombre maximal jusqu’à la valeur maximale 100 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p><p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de tableau qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](logic-apps-perform-data-operations.md#filter-array-action). |
 | Accès concurrentiel Foreach | La limite par défaut est 20 lorsque le contrôle d’accès concurrentiel est désactivé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite indique le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter simultanément ou en parallèle. <p><p>Pour changer la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer la limite de simultanéité « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
@@ -112,7 +112,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 
 ### <a name="integration-service-environment-ise"></a>Environnement de service d’intégration (ISE)
 
-Les limites de débit pour la référence SKU Premium sont les suivantes :
+Les limites de débit pour la [référence SKU ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) sont les suivantes :
 
 | Nom | Limite | Notes |
 |------|-------|-------|
@@ -124,8 +124,7 @@ Les limites de débit pour la référence SKU Premium sont les suivantes :
 Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter des tests de charge susceptibles d’entraîner leur dépassement, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) afin d’obtenir de l’aide.
 
 > [!NOTE]
-> La [référence SKU du développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) n’a pas de limites publiées, car elle ne dispose d’aucun contrat de niveau de service (SLA) ni de fonctionnalité de mise à l’échelle.
-> Utilisez cette référence SKU uniquement à des fins d’expérimentation, de développement et de test, pas pour la production ou les tests de performances.
+> La [référence SKU ISE Développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) n’a pas de limites publiées, aucune possibilité de montée en puissance et aucun contrat SLA. Utilisez cette référence SKU uniquement à des fins d’expérimentation, de développement et de test, pas pour la production ou les tests de performances.
 
 <a name="gateway-limits"></a>
 
@@ -166,6 +165,8 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 | Limite d’évaluation des expressions | 131 072 caractères | Les expressions `@concat()`, `@base64()`, `@string()` ne peuvent pas contenir plus de caractères. |
 | Limite de caractères de l’URL de la requête | 16 384 caractères |
 |||
+
+<a name="retry-policy-limits"></a>
 
 #### <a name="retry-policy"></a>Stratégie de nouvelle tentative
 
@@ -279,12 +280,9 @@ Les limites de taille des messages qui s’appliquent aux protocoles B2B sont l
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Désactivation ou suppression des applications logiques
 
-Lorsque vous désactivez une application logique, aucune nouvelle exécution n’est instanciée.
-Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées, ce qui peut prendre du temps.
+Lorsque vous désactivez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées, ce qui peut prendre du temps.
 
-Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée.
-Toutes les exécutions en cours et en attente sont annulées.
-Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps.
+Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente sont annulées. Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps.
 
 <a name="configuration"></a>
 
@@ -298,9 +296,11 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortan
 > * **LogicAppsManagement** : représente les préfixes d’adresses IP entrantes pour le service Logic Apps.
 > * **LogicApps** : représente les préfixes d’adresse IP sortantes pour le service Logic Apps.
 
+* Pour [Azure Chine 21Vianet](https://docs.microsoft.com/azure/china/), les adresses IP fixes ou réservées ne sont pas disponibles pour les [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) et les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), par exemple Stockage Azure, SQL Server, Office 365 Outlook, etc.
+
 * Pour prendre en charge les appels que les applications logiques passent directement à [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) et à d’autres requêtes HTTP, configurez votre pare-feu avec toutes les adresses IP [entrantes](#inbound) *et* [sortantes](#outbound) qui sont utilisées par le service Logic Apps, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous les en-têtes **Entrantes** et **Sortantes** dans cette section, et sont triées par région.
 
-* Pour prendre en charge les appels que passent les [connecteurs managés par Microsoft](../connectors/apis-list.md), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région.
+* Pour prendre en charge les appels que passent les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région.
 
 * Pour permettre la communication des applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), veillez à [ouvrir ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
@@ -308,13 +308,14 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortan
 
   Par exemple, les applications logiques n’ont pas directement accès aux comptes de stockage qui utilisent des règles de pare-feu et se trouvent dans la même région. Toutefois, si vous autorisez les [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound), vos applications logiques peuvent accéder à des comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou des connecteurs de Stockage File d’attente Azure. Pour accéder à votre Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP à la place. Pour d’autres options, voir [Accéder à des comptes de stockage derrière des pare-feu](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
-* Pour les connecteurs personnalisés, [Azure Government](../azure-government/documentation-government-overview.md) et [21Vianet - Azure Chine](https://docs.microsoft.com/azure/china/), il n’y a pas d’adresses IP fixes ou réservées disponibles.
-
 <a name="inbound"></a>
 
 ### <a name="inbound-ip-addresses"></a>Adresses IP entrantes
 
-Cette section répertorie les adresses IP entrantes pour le service Azure Logic Apps uniquement. Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région. Cette balise fonctionne dans les régions où le service Logic Apps est disponible. Si vous avez Azure Government, consultez [Azure Government - Adresses IP entrantes](#azure-government-inbound).
+Cette section répertorie les adresses IP entrantes pour le service Azure Logic Apps uniquement. Si vous avez Azure Government, consultez [Azure Government - Adresses IP entrantes](#azure-government-inbound).
+
+> [!TIP]
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région. Cette balise fonctionne dans les régions où le service Logic Apps est disponible.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -345,6 +346,7 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 | États-Unis - partie centrale méridionale | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Inde Sud | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Asie Sud-Est | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
+| Émirats arabes unis Centre | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
 | Sud du Royaume-Uni | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Ouest du Royaume-Uni | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | Centre-USA Ouest | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
@@ -370,14 +372,17 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 
 ### <a name="outbound-ip-addresses"></a>Adresses IP sortantes
 
-Cette section répertorie les adresses IP sortantes pour le service Azure Logic Apps et les connecteurs managés. Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région. Cette balise fonctionne dans les régions où le service Logic Apps est disponible. Pour les connecteurs managés, utilisez les adresses IP. Si vous avez Azure Government, consultez [Azure Government - Adresses IP sortantes](#azure-government-outbound).
+Cette section répertorie les adresses IP sortantes pour le service Azure Logic Apps et les connecteurs managés. Si vous avez Azure Government, consultez [Azure Government - Adresses IP sortantes](#azure-government-outbound).
+
+> [!TIP]
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région. Cette balise fonctionne dans les régions où le service Logic Apps est disponible. Pour les connecteurs managés, vous devez continuer à utiliser les adresses IP.
 
 <a name="multi-tenant-outbound"></a>
 
 #### <a name="multi-tenant-azure---outbound-ip-addresses"></a>Azure multilocataires - Adresses IP sortantes
 
-| Région | Adresse IP Logic Apps | Adresse IP des connecteurs managés |
-|--------|---------------|-----------------------|
+| Région multilocataire | Adresse IP Logic Apps | Adresse IP des connecteurs managés |
+|---------------------|---------------|-----------------------|
 | Australie Est | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213, 52.237.214.72 |
 | Sud-Australie Est | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34, 52.255.48.202 |
 | Brésil Sud | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207, 191.232.191.157 |
@@ -401,6 +406,7 @@ Cette section répertorie les adresses IP sortantes pour le service Azure Logic
 | États-Unis - partie centrale méridionale | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 52.171.130.92 |
 | Inde Sud | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225, 13.71.127.26 |
 | Asie Sud-Est | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19, 52.187.115.69 |
+| Émirats arabes unis Centre | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.28, 20.45.67.45, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
 | Sud du Royaume-Uni | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15, 51.140.61.124, 51.140.74.150 |
 | Ouest du Royaume-Uni | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.124.13, 51.141.52.185 |
 | Centre-USA Ouest | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 13.78.132.82, 52.161.101.204 |

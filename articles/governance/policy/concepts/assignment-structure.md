@@ -1,14 +1,14 @@
 ---
 title: Informations détaillées sur la structure d’attribution des stratégies
 description: Décrit la définition d’attribution des stratégies qui est utilisée par Azure Policy pour associer des définitions et des paramètres de stratégie aux ressources à des fins d’évaluation.
-ms.date: 09/23/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231413"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683217"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
@@ -20,6 +20,7 @@ Vous devez utiliser du code JSON pour créer une attribution de stratégie. L�
 - description
 - metadata
 - le mode d’application
+- étendues exclues
 - la définition de la stratégie
 - parameters
 
@@ -34,6 +35,7 @@ Par exemple, le code JSON suivant montre une attribution de stratégie en mode 
             "assignedBy": "Cloud Center of Excellence"
         },
         "enforcementMode": "DoNotEnforce",
+        "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
         "parameters": {
             "prefix": {
@@ -65,6 +67,10 @@ Cette propriété a les valeurs suivantes :
 |Désactivé |DoNotEnforce |string |Oui |Non | L’effet de stratégie n’est pas appliqué pendant la création ou la mise à jour d’une ressource. |
 
 Si **enforcementMode** n’est pas spécifié dans la définition d’une stratégie ou d’une initiative, la valeur _Default_ est utilisée. Les [tâches de correction](../how-to/remediate-resources.md) peuvent être démarrées pour les stratégies [deployIfNotExists](./effects.md#deployifnotexists), même lorsque **enforcementMode** est défini sur _DoNotEnforce_.
+
+## <a name="excluded-scopes"></a>Étendues exclues
+
+L’**étendue** de l’affectation comprend tous les conteneurs de ressources enfants et les ressources enfants. Si la définition ne doit pas être appliquée à un conteneur de ressources enfant ou une ressource enfant, ces derniers peuvent être exclus de l’évaluation en définissant **notScopes**. Cette propriété est un tableau qui permet d’exclure un ou plusieurs conteneurs de ressources ou ressources de l’évaluation. **notScopes** peut être ajouté ou mis à jour au terme de l’affectation initiale.
 
 ## <a name="policy-definition-id"></a>ID de définition de stratégie
 

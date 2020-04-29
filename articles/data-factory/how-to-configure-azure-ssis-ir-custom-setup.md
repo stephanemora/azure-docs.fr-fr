@@ -11,15 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: d6252b7a0ecce553bc3a1519055375fd4cd034f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: ab2ba31d6b712bd3399bc8bf5b491337d462dac9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336218"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606215"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personnaliser l’installation d’un Azure-SSIS Integration Runtime
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 L’installation personnalisée d’un Azure-SQL Server Integration Services Integration Runtime (Azure-SSIS IR) fournit une interface permettant d’ajouter vos propres étapes lors de l’installation ou de la reconfiguration de votre Azure-SSIS IR. 
 
@@ -32,7 +34,7 @@ Vous pouvez effectuer des installations personnalisées sur votre Azure-SSIS IR 
 Vous pouvez installer des composants gratuits et sans licence ainsi que des composants payants et sous licence avec des installations personnalisées rapides et standard. Si vous êtes un éditeur de logiciels indépendant (ISV), consultez [Développer des composants payants ou sous licence pour un Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
-> Les nœuds de série v2 d’Azure-SSIS IR ne convenant pas pour une installation personnalisée, utilisez des nœuds de série v3 à la place. Si vous utilisez déjà des nœuds de série v2, basculez dès que possible vers des nœuds de série v3.
+> Afin de tirer parti des améliorations futures, nous vous recommandons d'utiliser la série de nœuds v3 ou version ultérieure pour votre runtime d'intégration Azure-SSIS IR, en l'association à une configuration personnalisée.
 
 ## <a name="current-limitations"></a>Limites actuelles
 
