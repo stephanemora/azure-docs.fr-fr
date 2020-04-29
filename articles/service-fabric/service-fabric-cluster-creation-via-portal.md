@@ -4,10 +4,10 @@ description: Apprenez à configurer un cluster Service Fabric sécurisé dans Az
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458315"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure

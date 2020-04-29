@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 07e103c3e1f56e8a46ea24e750d83e719abab3d5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457975"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Chiffrement des données pour le serveur unique Azure Database pour PostgreSQL avec le portail Azure
@@ -67,13 +67,13 @@ Découvrez comment utiliser le portail Azure pour configurer et gérer le chiffr
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Utilisation du chiffrement des données pour les serveurs de restauration ou réplicas
 
-Une fois Azure Database pour PostgreSQL Serveur unique chiffré à l'aide d'une clé gérée par le client stockée dans Key Vault, toute copie nouvellement créée du serveur est également chiffrée. Vous pouvez effectuer cette nouvelle copie par l’intermédiaire d’une opération locale ou de restauration géographique, ou par le biais d’une opération de réplica (locale ou inter-région). Ainsi, pour un serveur PostgreSQL chiffré, vous pouvez utiliser les étapes suivantes afin de créer un serveur restauré chiffré.
+Une fois Azure Database pour PostgreSQL Serveur unique chiffré à l'aide d'une clé gérée par le client stockée dans Key Vault, toute copie nouvellement créée du serveur est également chiffrée. Vous pouvez effectuer cette nouvelle copie par l’intermédiaire d’une opération de restauration locale ou géographique, ou par le biais d’une opération de réplica (locale ou interrégion). Ainsi, pour un serveur PostgreSQL chiffré, vous pouvez utiliser les étapes suivantes afin de créer un serveur restauré chiffré.
 
 1. Sur votre serveur, sélectionnez **Vue d’ensemble** > **Restaurer**.
 
    ![Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence des éléments Vue d’ensemble et Restaurer](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
-   Autrement, pour un serveur de réplication, sous l’en tête **Paramètres**, sélectionnez **Réplication**.
+   Autrement, pour un serveur compatible avec la réplication, sous le titre **Paramètres**, sélectionnez **Réplication**.
 
    ![Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence de Réplication](media/concepts-data-access-and-security-data-encryption/postgresql-replica.png)
 
@@ -84,13 +84,13 @@ Une fois Azure Database pour PostgreSQL Serveur unique chiffré à l'aide d'une 
 3. Pour rendre le serveur accessible, revalidez la clé sur le serveur restauré. Sélectionnez **Chiffrement des données** > **Revalider la clé**.
 
    > [!NOTE]
-   > La première tentative de revalidation échoue, car le principal de service du nouveau serveur doit avoir accès au coffre de clés. Pour générer le principal de service, sélectionnez **Revalider la clé**. Vous verrez un message d’erreur, mais pourrez générer le principal de service. Ensuite, reportez-vous à [ces étapes](#set-the-right-permissions-for-key-operations) plus haut dans cet article.
+   > La première tentative de revalidation échouera, car le principal de service du nouveau serveur doit avoir accès au coffre de clés. Pour générer le principal de service, sélectionnez **Revalider la clé**. Vous verrez un message d’erreur, mais pourrez générer le principal de service. Ensuite, reportez-vous à [ces étapes](#set-the-right-permissions-for-key-operations) plus haut dans cet article.
 
    ![Capture d’écran d’Azure Database pour PostgreSQL, avec mise en évidence de l’option de revalidation](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
-   Vous devez autoriser le coffre de clés à avoir accès au nouveau serveur.
+   Vous devez autoriser le coffre de clés à accéder au nouveau serveur.
 
-4. Après avoir inscrit le principal de service, revalidez la clé pour que le serveur reprenne ses fonctionnalités normales.
+4. Après avoir inscrit le principal de service, revalidez la clé pour que le serveur reprenne son fonctionnement normal.
 
    ![Capture d’écran d’Azure Database pour PostgreSQL, montrant les fonctionnalités restaurées](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 

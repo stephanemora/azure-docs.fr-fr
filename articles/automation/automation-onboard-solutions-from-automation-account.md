@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235529"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457652"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -18,7 +18,7 @@ Azure Automation fournit des solutions pour gérer les mises à jour de sécurit
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Se connecter à Azure à https://portal.azure.com
+Connectez-vous à Azure sur https://portal.azure.com.
 
 ## <a name="enable-solutions"></a>Activer des solutions
 
@@ -61,7 +61,7 @@ Quand un ordinateur est ajouté aux solutions Update Management ou Change Tracki
 
 Accédez à votre espace de travail Log Analytics et sélectionnez **Recherches enregistrées** sous **Général**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
 
-|Name     |Category  |Alias  |
+|Nom     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Mises à jour        | Updates__MicrosoftDefaultComputerGroup         |
@@ -82,7 +82,7 @@ Cliquez sur **+ Ajouter des machines virtuelles Azure**, sélectionnez une ou pl
 
 Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement. À partir de votre compte Automation, sélectionnez **Inventorier** ou **Suivi des modifications** sous **Gestion de la configuration**, ou **Gestion des mises à jour** sous **Gestion des mises à jour**.
 
-Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre contenant des [instructions pour installer et configurer Microsoft Monitoring Agent sur la machine](../azure-monitor/platform/log-analytics-agent.md) pour que celle-ci puisse commencer à envoyer des informations à la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire, car les informations de l’espace de travail sont entrées dans l’agent existant.
+Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre et présente des [instructions d'installation et de configuration de l'agent Log Analytics pour Windows](../azure-monitor/platform/log-analytics-agent.md) afin de permettre à la machine de commencer à envoyer des informations à la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire et les informations de l’espace de travail sont entrées dans l’agent existant.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Intégrer des machines dans l’espace de travail
 
@@ -135,7 +135,7 @@ Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si
 
 * Planifications de mises à jour – Chacune a un nom qui correspond aux déploiements de mises à jour que vous avez créés.
 
-* Groupes de travail hybrides créés pour la solution : Chacun porte un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
+* Groupes Worker hybrides créés pour la solution – Chacun a un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
 
 Si vous avez utilisé la solution Démarrer et Arrêter des machines virtuelles pendant les heures creuses, vous pouvez, si vous le souhaitez, supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 
@@ -150,7 +150,7 @@ Vous pouvez également dissocier votre espace de travail de votre compte Automat
 Pour supprimer une machine virtuelle de Update Management :
 
 * Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la rechercher enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
-* Supprimez l’agent [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Supprimez l’[agent Log Analytics pour Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

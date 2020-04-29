@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295176"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457907"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Accès conditionnel : Sécurisation de l’inscription des informations de sécurité
 
@@ -32,9 +32,9 @@ La stratégie suivante s’applique à tous les utilisateurs sélectionnés, qui
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**, puis sélectionnez les utilisateurs et les groupes auxquels vous souhaitez appliquer cette stratégie.
 
    > [!WARNING]
-   > Les utilisateurs doivent être activés pour l’[inscription combinée en préversion](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Les utilisateurs doivent être activés pour l’[inscription combinée](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Sous **Applications cloud ou actions**, sélectionnez **Actions utilisateur**, cochez **Inscrire des informations de sécurité (préversion)** .
+1. Sous **Applications cloud ou actions**, sélectionnez **Actions utilisateur**, cochez **Inscrire des informations de sécurité**.
 1. Sous **Conditions** > **Emplacements**.
    1. Configurez **Oui**.
    1. Incluez **N’importe quel emplacement**.

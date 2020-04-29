@@ -4,15 +4,15 @@ description: Découvrez comment gérer les rôles et les utilisateurs sur un ser
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273699"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454201"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 
@@ -25,10 +25,9 @@ Les autorisations des rôles incluent :
 *  **Processus** : les utilisateurs peuvent se connecter et effectuer des opérations de traitement sur la base de données et analyser les données des bases de données du modèle.
 *  **Lecture** : les utilisateurs peuvent utiliser une application cliente pour se connecter et analyser les données des bases de données du modèle.
 
-Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et ajoutez des utilisateurs ou des groupes à ces rôles à l’aide du Gestionnaire de rôles dans les projets Visual Studio avec Analysis Services. Lors du déploiement sur un serveur, vous utilisez SQL Server Management Studio (SSMS), [cmdlets PowerShell Analysis Services](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) pour ajouter ou supprimer des rôles et des membres utilisateur.
+Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et ajoutez des utilisateurs ou des groupes à ces rôles à l’aide du Gestionnaire de rôles dans les projets Visual Studio avec Analysis Services. Lors du déploiement sur un serveur, utilisez SQL Server Management Studio (SSMS), [cmdlets PowerShell Analysis Services](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) pour ajouter ou supprimer des rôles et des membres utilisateur.
 
-Les **groupes de sécurité** doivent être [à extension de messagerie](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) avec la propriété `MailEnabled` définie sur `True`. Lorsque vous spécifiez un groupe par adresse e-mail, utilisez `obj:groupid@tenantid`.
-
+Lors de l'ajout d'**un groupe de sécurité**, utilisez `obj:groupid@tenantid`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Pour ajouter ou gérer des rôles et des utilisateurs dans Visual Studio  
   
@@ -133,7 +132,7 @@ Les filtres de lignes définissent les lignes d’une table qui peuvent être in
   
 Les filtres de lignes peuvent être définis uniquement pour les rôles avec des autorisations de Lecture et de Lecture et processus. Par défaut, si un filtre de lignes n’est pas défini pour une table en particulier, les membres peuvent interroger toutes les lignes de la table, sauf si le filtrage croisé s’applique à partir d’une autre table.
   
- Les filtres de lignes nécessitent une formule DAX, qui doit correspondre à une valeur TRUE/FALSE, pour définir les lignes qui peuvent être interrogées par les membres de ce rôle en particulier. Les lignes non incluses dans la formule DAX ne peuvent pas être interrogées. Par exemple, la table Clients avec l’expression de filtres de la ligne suivante, *=Customers [Country] = “USA”* , les membres du rôle Ventes peuvent voir uniquement les clients aux États-Unis.  
+ Les filtres de lignes nécessitent une formule DAX, qui doit correspondre à une valeur TRUE/FALSE, pour définir les lignes qui peuvent être interrogées par les membres de ce rôle en particulier. Les lignes non incluses dans la formule DAX ne peuvent pas être interrogées. Par exemple, la table Clients avec l’expression de filtres de la ligne suivante, *=Customers [Country] = "USA"* , les membres du rôle Ventes peuvent voir uniquement les clients aux États-Unis.  
   
 Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes connexes. Lorsqu'une table contient plusieurs relations, les filtres appliquent la sécurité de la relation qui est active. Les filtres de lignes sont croisés avec d’autres filtres de lignes définis pour les tables associées, par exemple :  
   

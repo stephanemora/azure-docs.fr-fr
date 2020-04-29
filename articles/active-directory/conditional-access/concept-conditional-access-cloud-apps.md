@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671943"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457295"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
@@ -120,7 +120,7 @@ Outre les applications Microsoft, les administrateurs peuvent ajouter aux strat�
 
 ## <a name="user-actions"></a>Actions utilisateur
 
-Les actions utilisateur sont des tâches qui peuvent être effectuées par un utilisateur. La seule action actuellement prise en charge est **Enregistrer les informations de sécurité (préversion)** , qui permet d’appliquer la stratégie d’accès conditionnel lorsque les utilisateurs pour lesquels l’inscription combinée est activée tentent d’enregistrer leurs informations de sécurité. Vous trouverez plus d’informations dans l’article [Enregistrement des informations de sécurité combinées (préversion)](../authentication/concept-registration-mfa-sspr-combined.md).
+Les actions utilisateur sont des tâches qui peuvent être effectuées par un utilisateur. La seule action actuellement prise en charge est **Enregistrer les informations de sécurité**, qui permet d’appliquer la stratégie d’accès conditionnel lorsque les utilisateurs pour lesquels l’inscription combinée est activée tentent d’enregistrer leurs informations de sécurité. Vous trouverez plus d’informations dans l’article [Enregistrement des informations de sécurité combinées](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

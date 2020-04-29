@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: peterclu
-ms.author: peterlu
-ms.date: 02/22/2020
-ms.openlocfilehash: 7fcfc7c15f94d7b569629e53534d731126172260
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+author: likebupt
+ms.author: keli19
+ms.date: 04/13/2020
+ms.openlocfilehash: c46c21b5662b924552f850f226a12c7350b4625a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399062"
+ms.locfileid: "81458196"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning (préversion)
 
@@ -59,6 +59,10 @@ Pour savoir quels algorithmes choisir, consultez
 | Recommandation | Génération de modèles de recommandation. | [Évaluer le générateur de recommandations](evaluate-recommender.md) <br/> [Noter le générateur de recommandations SVD](score-svd-recommender.md) <br/> [Entraîner le générateur de recommandations SVD](train-SVD-recommender.md) |
 | Détection des anomalies | Créez des modèles de détection des anomalies. | [Détection des anomalies basée sur l'analyse en composantes principales (ACP)](pca-based-anomaly-detection.md) <br/> [Former le modèle de détection des anomalies](train-anomaly-detection-model.md) |
 
+
+## <a name="web-service"></a>Service Web
+
+Découvrez les [modules de service web](web-service-input-output.md) nécessaires à l’inférence en temps réel dans le concepteur Azure Machine Learning.
 
 ## <a name="error-messages"></a>Messages d’erreur
 

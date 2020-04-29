@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81455408"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
