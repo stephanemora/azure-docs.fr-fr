@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883472"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450877"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
-Le manifeste d’application contient une définition de tous les attributs d’un objet d’application dans la plateforme d’identité Microsoft. Il sert également de mécanisme de mise à jour de l’objet d’application. Pour plus d’informations sur l’entité Application et son schéma, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+Le manifeste d’application contient une définition de tous les attributs d’un objet d’application dans la plateforme d’identité Microsoft. Il sert également de mécanisme de mise à jour de l’objet d’application. Pour plus d’informations sur l’entité Application et son schéma, consultez la [documentation relative à l’entité Application de l’API Graph](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
 
 Vous pouvez configurer les attributs d’une application via le portail Azure ou par programmation à l’aide de [l’API REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) ou de [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Toutefois, il existe des scénarios dans lesquels vous devez modifier le manifeste de l’application pour configurer un attribut de l’application. Ces scénarios sont les suivants :
 
@@ -40,6 +40,20 @@ Pour configurer le manifeste de l’application :
 ## <a name="manifest-reference"></a>Référence du manifeste
 
 Cette section décrit les attributs trouvés dans le manifeste de l’application.
+
+### <a name="id-attribute"></a>attribut id
+
+| Clé | Type de valeur |
+| :--- | :--- |
+| id | String |
+
+Identificateur unique de l’application dans le répertoire. Cet ID n’est l’identificateur utilisé pour identifier l’application d’une transaction de protocole. Il est utilisé pour référencer l’objet dans les requêtes de répertoire.
+
+Exemple :
+
+```json
+    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
 
 ### <a name="accesstokenacceptedversion-attribute"></a>attribut accessTokenAcceptedVersion
 
@@ -230,19 +244,7 @@ Exemple :
     "optionalClaims": null,
 ```
 
-### <a name="id-attribute"></a>attribut id
 
-| Clé | Type de valeur |
-| :--- | :--- |
-| id | String |
-
-Identificateur unique de l’application dans le répertoire. Cet ID n’est l’identificateur utilisé pour identifier l’application d’une transaction de protocole. Il est utilisé pour référencer l’objet dans les requêtes de répertoire.
-
-Exemple :
-
-```json
-    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
 
 ### <a name="identifieruris-attribute"></a>attribut identifierUris
 

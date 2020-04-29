@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667342"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451123"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planifier un déploiement d'Azure Multi-Factor Authentication
 
@@ -144,7 +144,7 @@ L’utilisateur reçoit un SMS avec le code de vérification et il est invité �
 
 ## <a name="plan-registration-policy"></a>Planifier la stratégie d'inscription
 
-Les administrateurs doivent déterminer comment les utilisateurs inscrivent leurs méthodes. Les organisations doivent [activer la nouvelle expérience d’inscription combinée](howto-registration-mfa-sspr-combined.md) pour Azure MFA et la réinitialisation de mot de passe en libre-service (SSPR). La fonctionnalité SSPR permet aux utilisateurs de réinitialiser leur mot de passe de manière sécurisée avec les mêmes méthodes que l’authentification multifacteur. Nous vous recommandons cette inscription combinée, actuellement en préversion publique, car il s'agit d'une excellente expérience pour les utilisateurs puisqu'elle permet une inscription unique pour les deux services. L’activation des mêmes méthodes pour SSPR et Azure MFA permet aux utilisateurs de s’inscrire pour utiliser ces deux fonctionnalités.
+Les administrateurs doivent déterminer comment les utilisateurs inscrivent leurs méthodes. Les organisations doivent [activer la nouvelle expérience d’inscription combinée](howto-registration-mfa-sspr-combined.md) pour Azure MFA et la réinitialisation de mot de passe en libre-service (SSPR). La fonctionnalité SSPR permet aux utilisateurs de réinitialiser leur mot de passe de manière sécurisée avec les mêmes méthodes que l’authentification multifacteur. Nous vous recommandons cette inscription combinée car il s'agit d'une excellente expérience pour les utilisateurs puisqu'elle permet une inscription unique pour les deux services. L’activation des mêmes méthodes pour SSPR et Azure MFA permet aux utilisateurs de s’inscrire pour utiliser ces deux fonctionnalités.
 
 ### <a name="registration-with-identity-protection"></a>Inscription avec Identity Protection
 

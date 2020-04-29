@@ -1,31 +1,26 @@
 ---
 title: Résoudre les problèmes d’inscription combinée - Azure Active Directory
-description: Résoudre les erreurs d’authentification multifacteur et d’inscription combinée à la réinitialisation de mot de passe en libre-service Azure AD (préversion)
+description: Résoudre les erreurs d’authentification multifacteur et d’inscription combinée à la réinitialisation de mot de passe en libre-service Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847386"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450936"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Résoudre les problèmes d’inscription des informations de sécurité combinée (préversion)
+# <a name="troubleshooting-combined-security-information-registration"></a>Résoudre les problèmes d’inscription des informations de sécurité combinée
 
 Les informations contenues dans cet article sont destinées à guider les administrateurs qui cherchent à résoudre les problèmes signalés par des utilisateurs de l’expérience d’inscription combinée.
-
-|     |
-| --- |
-| L’inscription d’informations de sécurité combinée pour la réinitialisation de mot de passe en libre-service Azure Active Directory (Azure AD) et l’authentification multifacteur Azure est une fonctionnalité en préversion publique d’Azure AD. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 ## <a name="audit-logs"></a>Journaux d’audit
 
@@ -150,16 +145,16 @@ Dans une fenêtre PowerShell, exécutez la commande suivante en fournissant les 
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Désactiver l’expérience de préversion
+### <a name="disable-the-updated-experience"></a>Désactiver l’expérience mise à jour
 
-Pour désactiver l’expérience de préversion pour vos utilisateurs, procédez comme suit :
+Pour désactiver l’expérience mise à jour pour vos utilisateurs, procédez comme suit :
 
 1. Connectez-vous au portail Microsoft Azure en tant qu’administrateur d’utilisateurs.
 2. Accédez à **Azure Active Directory** > **Paramètres utilisateur** > **Gérer les paramètres des fonctionnalités préliminaires du volet d’accès**.
 3. Sous **Users can use preview features for registering and managing security info** (les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité), positionnez le sélecteur sur **None** (Aucune), puis sélectionnez **Enregistrer**.
 
-Les utilisateurs ne seront plus invités à s’inscrire à l’aide de l’expérience en préversion.
+Les utilisateurs ne seront plus invités à s’inscrire à l’aide de l’expérience mise à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Apprenez-en davantage sur la préversion publique d’inscription combinée pour la réinitialisation de mot de passe et l’authentification multifacteur Azure en libre-service](concept-registration-mfa-sspr-combined.md)
+* [Apprenez-en davantage sur l'inscription combinée pour la réinitialisation de mot de passe et l’authentification multifacteur Azure en libre-service](concept-registration-mfa-sspr-combined.md)

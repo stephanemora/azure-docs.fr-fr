@@ -11,10 +11,10 @@ author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
 ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418998"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Exécuter des pipelines Azure Machine Learning dans Azure Data Factory

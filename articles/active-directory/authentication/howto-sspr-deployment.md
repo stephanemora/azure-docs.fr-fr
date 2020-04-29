@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676739"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450987"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -115,7 +115,7 @@ Avant de déployer la SSPR, vous pouvez déterminer le nombre et le coût moyen 
 
 Microsoft recommande aux organisations d’activer l’expérience combinée d’inscription à SSPR et MFA (authentification multifacteur). Lorsque vous activez cette expérience d’inscription combinée, les utilisateurs ne doivent sélectionner qu’une fois leurs informations d’inscription pour activer ces deux fonctionnalités.
 
-L'expérience d'inscription combinée n'oblige pas les organisations à activer à la fois la SSPR et Azure MFA. L'inscription combinée permet aux organisations de bénéficier d'une meilleure expérience utilisateur. Pour plus d'informations, consultez [Inscription combinée d'informations de sécurité (préversion)](concept-registration-mfa-sspr-combined.md)
+L'expérience d'inscription combinée n'oblige pas les organisations à activer à la fois la SSPR et Azure MFA. L'inscription combinée permet aux organisations de bénéficier d'une meilleure expérience utilisateur. Pour plus d'informations, consultez [Inscription combinée d'informations de sécurité](concept-registration-mfa-sspr-combined.md).
 
 ## <a name="plan-the-deployment-project"></a>Planifier le projet de déploiement
 

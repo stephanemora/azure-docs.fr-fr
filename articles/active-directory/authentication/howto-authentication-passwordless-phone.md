@@ -4,19 +4,19 @@ description: Activer la connexion sans mot de passe pour Azure AD à l’aide de
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126686"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450970"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -29,7 +29,7 @@ Au lieu d’obtenir une invite de mot de passe après avoir entré un nom d’ut
 > [!NOTE]
 > Cette fonctionnalité est disponible dans l'application Microsoft Authenticator depuis mars 2017. Il est donc possible que lorsque la stratégie est activée pour un répertoire, les utilisateurs rencontrent ce flux immédiatement et voient un message d'erreur s'ils n'ont pas été activés par la stratégie. Gardez ce point à l’esprit et préparez vos utilisateurs à cette modification.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Azure Multi-Factor Authentication, avec notifications push autorisées en tant que méthode de vérification 
 - Installation de la dernière version de Microsoft Authenticator sur des appareils exécutant iOS 8.0 ou une version ultérieure, ou Android 6.0 ou une version ultérieure.
@@ -41,7 +41,7 @@ Au lieu d’obtenir une invite de mot de passe après avoir entré un nom d’ut
 
 ### <a name="enable-the-combined-registration-experience"></a>Activer l’expérience d’inscription combinée
 
-Les fonctionnalités d’inscription pour les méthodes d’authentification sans mot de passe s’appuient sur l’inscription en préversion. Suivez les étapes de l’article [Activer l’inscription d’informations de sécurité combinées (préversion)](howto-registration-mfa-sspr-combined.md)pour activer l’inscription combinée en préversion.
+Les fonctionnalités d’inscription pour les méthodes d’authentification sans mot de passe s’appuient sur la fonctionnalité d'inscription combinée. Suivez les étapes de l’article [Activer l’inscription d’informations de sécurité combinées](howto-registration-mfa-sspr-combined.md)pour activer l’inscription combinée.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Activer les méthodes d’authentification sans mot de passe par téléphone
 
@@ -82,13 +82,13 @@ L’administrateur peut choisir d’autoriser l’utilisateur à utiliser l’au
 
 ### <a name="ad-fs-integration"></a>Intégration AD FS
 
-Lorsqu’un utilisateur a activé l’information d’identification sans mot de passe Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utilisez votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. 
+Lorsqu’un utilisateur a activé l’information d’identification sans mot de passe Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utiliser votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. 
 
 Si la vérification d’authentification par téléphone sans mot de passe est en attente pour un utilisateur et que celui-ci tente de se connecter à nouveau, l’utilisateur peut accéder à ADFS pour saisir un mot de passe à la place.  
 
 ### <a name="azure-mfa-server"></a>Serveur Azure MFA
 
-Les utilisateurs finals qui sont activés pour MFA par le biais d’un serveur Azure MFA local d’une organisation peuvent toujours créer et utiliser une information d’identification de connexion par téléphone sans mot de passe. Si l’utilisateur tente de mettre à niveau plusieurs installations (supérieures à 5) de Microsoft Authenticator avec cette information d’identification, cette modification peut générer une erreur.  
+Les utilisateurs finaux qui sont activés pour MFA par le biais d’un serveur Azure MFA local d’une organisation peuvent toujours créer et utiliser une information d’identification de connexion par téléphone sans mot de passe. Si l’utilisateur tente de mettre à niveau plusieurs installations (supérieures à 5) de Microsoft Authenticator avec cette information d’identification, cette modification peut générer une erreur.  
 
 ### <a name="device-registration"></a>Enregistrement de l’appareil
 
