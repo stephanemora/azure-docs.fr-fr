@@ -4,12 +4,12 @@ description: Découvrez comment appeler des processus métier à partir de votre
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604849"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562302"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutoriel : Envoyer un e-mail et appeler d’autres processus métier à partir d’App Service
 
@@ -26,27 +26,27 @@ Dans ce tutoriel, vous envoyez des e-mails Gmail à partir de votre application 
 
 Déployez une application avec le framework de langage de votre choix dans App Service. Pour suivre un tutoriel sur le déploiement d’un exemple d’application, voir ci-dessous :
 
-# <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
+### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
 [Tutoriel : Créer une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
 [Tutoriel : Créer une application ASP.NET Core et SQL Database dans Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
 
-# <a name="nodejs"></a>[Node.JS](#tab/node)
+### <a name="nodejs"></a>[Node.JS](#tab/node)
 
 [Tutoriel : Créer une application Node.js et MongoDB dans Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 
-# <a name="php"></a>[PHP](#tab/php)
+### <a name="php"></a>[PHP](#tab/php)
 
 [Tutoriel : Créer une application PHP et MySQL dans Azure](app-service-web-tutorial-php-mysql.md)
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 [Tutoriel : Exécuter une application web Python (Django) avec PostgreSQL dans Azure App Service](containers/tutorial-python-postgresql-app.md)
 
-# <a name="ruby"></a>[Ruby](#tab/ruby)
+### <a name="ruby"></a>[Ruby](#tab/ruby)
 
 [Générer une application Ruby et Postgres dans Azure App Service sur Linux](containers/tutorial-ruby-postgres-app.md)
 
@@ -150,7 +150,7 @@ Dans votre code, effectuez une requête HTTP POST standard sur l’URL dans l’
 
 Pour voir un exemple, cliquez sur l’onglet du framework/langage de votre choix ci-dessous.
 
-# <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
+### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
 Dans ASP.NET, vous pouvez envoyer la requête HTTP POST avec la classe [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient). Par exemple :
 
@@ -175,7 +175,7 @@ var statusCode = result.StatusCode.ToString();
 
 Si vous testez ce code sur l’exemple d’application du [Tutoriel : Créer une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md), vous pouvez l’utiliser pour envoyer une confirmation par e-mail dans l’[action Créer](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63), après l’ajout de l’élément `Todo`. Pour utiliser le code asynchrone ci-dessus, convertissez l’action Créer en type asynchrone.
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
 Dans ASP.NET Core, vous pouvez envoyer la requête HTTP POST avec la classe [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient). Par exemple :
 
@@ -203,7 +203,7 @@ var statusCode = result.StatusCode.ToString();
 
 Si vous testez ce code sur l’exemple d’application du [Tutoriel : Créer une application ASP.NET Core et SQL Database dans Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), vous pouvez l’utiliser pour envoyer une confirmation par e-mail dans l’[action create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), après l’ajout de l’élément `Todo`.
 
-# <a name="nodejs"></a>[Node.JS](#tab/node)
+### <a name="nodejs"></a>[Node.JS](#tab/node)
 
 Dans Node.js, vous pouvez facilement envoyer la requête HTTP POST avec un package npm comme [axios](https://www.npmjs.com/package/axios). Par exemple :
 
@@ -230,7 +230,7 @@ var jsonData = {
 
 Si vous testez ce code sur l’exemple d’application du [Tutoriel : Créer une application Node.js et MongoDB dans Azure](app-service-web-tutorial-nodejs-mongodb-app.md), vous pouvez l’utiliser pour envoyer une confirmation par e-mail dans la [fonction create](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), après que [l’article a été enregistré avec succès](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
-# <a name="php"></a>[PHP](#tab/php)
+### <a name="php"></a>[PHP](#tab/php)
 
 Dans PHP, vous pouvez envoyer facilement la requête HTTP POST avec [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). Par exemple :
 
@@ -262,7 +262,7 @@ Log::info(print_r($response, TRUE));
 
 Si vous testez ce code sur l’exemple d’application du [Tutoriel : Créer une application PHP et MySQL dans Azure](app-service-web-tutorial-php-mysql.md), vous pouvez l’utiliser pour envoyer une confirmation par e-mail dans la [fonction Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), juste avant l’instruction return.
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 Dans Python, vous pouvez envoyer facilement la requête HTTP POST avec [requests](https://pypi.org/project/requests/). Par exemple :
 
@@ -293,7 +293,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
 
 Si vous testez ce code sur l’exemple d’application du [Tutoriel : Exécuter une application web Python (Django) avec PostgreSQL dans Azure App Service](containers/tutorial-python-postgresql-app.md), vous pouvez l’utiliser pour envoyer une confirmation par e-mail dans la [fonction Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), juste avant l’instruction return.
 
-# <a name="ruby"></a>[Ruby](#tab/ruby)
+### <a name="ruby"></a>[Ruby](#tab/ruby)
 
 Dans Ruby, vous pouvez envoyer facilement la requête HTTP POST avec [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Par exemple :
 
@@ -312,7 +312,7 @@ Si vous testez ce code sur l’exemple d’application du tutoriel [Générer un
 
 ---
 
-# <a name="more-resources"></a>Plus de ressources
+## <a name="more-resources"></a>Plus de ressources
 
 [Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service](app-service-web-tutorial-rest-api.md)  
 [Informations de référence sur les requêtes/réponses HTTP pour Logic Apps](../connectors/connectors-native-reqres.md)  
