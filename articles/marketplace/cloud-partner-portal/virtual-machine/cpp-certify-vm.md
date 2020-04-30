@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: dsindona
-ms.openlocfilehash: ce1e001b9cafff83a3f9bf546d6903cc4a4f450f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 81dec159a8a84adce97750666baba455ae3fdd93
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273492"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147079"
 ---
 # <a name="certify-your-vm-image"></a>Certifier votre image de machine virtuelle
 
 > [!IMPORTANT]
-> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Certification d’une image de machine virtuelle Azure](https://aks.ms/CertifyVMimage) pour gérer vos offres migrées.
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Certification d’une image de machine virtuelle Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) pour gérer vos offres migrées.
 
 Une fois que vous avez créé et déployé votre machine virtuelle, vous devez tester et soumettre l’image de machine virtuelle pour la certification Place de marché Microsoft Azure. Cet article vous explique où obtenir l’outil *Certification Test Tool for Azure Certified*, comment l’utiliser pour certifier votre image de machine virtuelle et comment charger les résultats de la vérification dans le conteneur Azure où résident vos disques durs virtuels (VHD). 
 

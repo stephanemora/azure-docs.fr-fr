@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187239"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159333"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capturer des données Event Hubs dans le Stockage Azure et les lire à l’aide de Python (azure-eventhub version 5)
 
@@ -46,7 +46,7 @@ Dans ce guide de démarrage rapide, vous allez :
 - Un compte de stockage Azure, un conteneur d’objets blob dans le compte de stockage et une chaîne de connexion au compte de stockage. Si vous n’avez pas ces éléments, effectuez les étapes suivantes :  
     1. [Créer un compte de stockage Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
     1. [Créer un conteneur d’objets blob dans le compte de stockage](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-    1. [Obtenir la chaîne de connexion au compte de stockage](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string)
+    1. [Obtenir la chaîne de connexion au compte de stockage](../storage/common/storage-configure-connection-string.md)
 
     Veillez à enregistrer la chaîne de connexion et le nom du conteneur en vue de les utiliser dans ce guide de démarrage rapide.  
 - Activez la fonctionnalité Capture pour le hub d’événements. Pour ce faire, suivez les instructions dans [Activer Event Hubs Capture à l’aide du portail Azure](event-hubs-capture-enable-through-portal.md). Sélectionnez le compte de stockage et le conteneur d’objets blob que vous avez créés à l’étape précédente. Vous pouvez également activer la fonctionnalité quand vous créez un hub d’événements.  

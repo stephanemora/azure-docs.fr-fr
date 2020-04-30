@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dsindona
-ms.openlocfilehash: 0453117ee2984e0b8ebee60145353584a02a359a
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2a5d82af609ab5eafbbc29dc95b8b6e4c8aa32df
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270126"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146255"
 ---
 # <a name="container-publishing-prerequisites"></a>Conditions préalables à la publication des conteneurs
 
 > [!IMPORTANT]
-> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de conteneur Azure](https://aka.ms/CreateContainerOffer) pour gérer vos offres migrées.
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Créer une offre de conteneur Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) pour gérer vos offres migrées.
 
 Cet article décrit les conditions préalables à la publication d’une offre de conteneur sur la Place de marché Azure.  Si vous ne l’avez pas déjà fait, passez en revue le [Guide de publication d’offres de conteneurs](../../marketplace-containers.md).
 

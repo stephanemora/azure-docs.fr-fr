@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 42c58a84c71b6573814e82517373db6900a83658
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 71c50e8efdf26f2a7d3f270a774b08e49c92faa7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025014"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159418"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Recevoir des événements des hubs d’événements ou leur en envoyer à l’aide de JavaScript (azure/event-hubs version 5)
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide du package JavaScript **azure/event-hubs version 5**. 
@@ -119,7 +119,7 @@ Pour créer un compte de stockage Azure et un conteneur d’objets blob dans cel
 
 1. [Créer un compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
 2. [Créer un conteneur d’objets blob dans le compte de stockage](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-3. [Obtenir la chaîne de connexion au compte de stockage](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Obtenir la chaîne de connexion au compte de stockage](../storage/common/storage-configure-connection-string.md)
 
 Veillez à enregistrer la chaîne de connexion et le nom du conteneur en vue de les utiliser dans le code de réception.
 

@@ -1,14 +1,14 @@
 ---
 title: Publier une offre de services gérés sur la place de marché Azure
 description: Découvrez comment publier une offre de service géré qui intègre des clients à la gestion des ressources déléguées Azure.
-ms.date: 04/08/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 19c4d1a4bd0ffd7c0162cbf7f20c49a5b219b9bc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991907"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146737"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publier une offre de services gérés sur la place de marché Azure
 
@@ -72,7 +72,7 @@ Complétez les sections suivantes dans **Détails du plan** :
 |**Ce plan est-il privé ?**     | Indique si la référence SKU est privée ou publique. La valeur par défaut est **Non** (publique). Si vous conservez cette sélection, votre plan ne sera pas limité à des clients spécifiques (ou à un certain nombre de clients). Une fois que vous avez publié un plan public, vous ne pouvez plus le modifier en plan privé par la suite. Pour que ce plan soit disponible uniquement pour des clients spécifiques, sélectionnez **Oui**. Dans ce cas, vous devez identifier les clients en fournissant leurs ID d’abonnement. Vous pouvez entrer ceux-ci un par un (pour jusqu’à 10 abonnements) ou en chargeant un fichier .csv (pour jusqu’à 20 000 abonnements). Veillez à inclure vos propres abonnements ici afin de pouvoir tester et valider l’offre. Pour plus d’informations, voir [Références SKU et plans privés](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
 
 > [!IMPORTANT]
-> Une fois que vous avez publié un plan public, vous ne pouvez plus le changer en plan privé. Pour contrôler les clients qui peuvent accepter votre offre et déléguer des ressources, utilisez un plan privé. Avec un plan public, vous ne pouvez pas limiter la disponibilité à des clients spécifiques ou à un certain nombre de clients (en revanche, vous pouvez arrêter complètement la vente du plan si vous le souhaitez). Vous pouvez [supprimer l’accès à une délégation](onboard-customer.md#remove-access-to-a-delegation) après qu’un client a accepté une offre uniquement si vous avez inclus une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de la publication de l’offre. Vous pouvez également contacter le client et lui demander de [supprimer votre accès](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Une fois que vous avez publié un plan public, vous ne pouvez plus le changer en plan privé. Pour contrôler les clients qui peuvent accepter votre offre et déléguer des ressources, utilisez un plan privé. Avec un plan public, vous ne pouvez pas limiter la disponibilité à des clients spécifiques ou à un certain nombre de clients (en revanche, vous pouvez arrêter complètement la vente du plan si vous le souhaitez). Vous pouvez [supprimer l’accès à une délégation](remove-delegation.md) après qu’un client a accepté une offre uniquement si vous avez inclus une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de la publication de l’offre. Vous pouvez également contacter le client et lui demander de [supprimer votre accès](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 #### <a name="manifest-details"></a>Détails du manifeste
 
@@ -100,7 +100,7 @@ Pour chaque **autorisation**, vous devez fournir les informations suivantes. Vou
 - **Rôles attribuables** : cela est nécessaire uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces **Rôles attribuables** à des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur. Si vous ne sélectionnez pas un ou plusieurs rôles ici, votre envoi n’obtiendra pas la certification. (Si vous n’avez pas sélectionné Administrateur de l’accès utilisateur pour la définition de rôle de cet utilisateur, ce champ est sans effet.)
 
 > [!TIP]
-> Pour être sûr de pouvoir [supprimer l’accès à une délégation](onboard-customer.md#remove-access-to-a-delegation) en cas de nécessité, incluez une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
+> Pour être sûr de pouvoir [supprimer l’accès à une délégation](remove-delegation.md) en cas de nécessité, incluez une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
 
 Une fois que vous avez renseigné ces informations, vous pouvez sélectionner **Nouveau plan** autant de fois que nécessaire pour créer des plans supplémentaires. Lorsque vous avez terminé, sélectionnez **Enregistrer**, puis passez à la section **Place de marché**.
 
@@ -116,7 +116,7 @@ Renseignez les champs suivants dans la section **Vue d’ensemble** :
 |**Résumé**     | Brève description de la finalité ou de la fonction de votre offre. Généralement affiché sous le titre. Longueur maximale de 100 caractères.        |
 |**Long Summary** (Résumé long)     | Récapitulatif plus long de la finalité ou de la fonction de votre offre. Longueur maximale de 256 caractères.        |
 |**Description**     | Plus d’informations sur votre offre. Ce champ peut compter jusqu’à 3 000 caractères et prend en charge la mise en forme HTML simple. Vous devez inclure les mots « service managé » ou « services managés » quelque part dans votre description.       |
-|**Marketing Identifier** (Identificateur marketing)     | Identificateur unique compatible avec les URL. Cet identificateur peut uniquement contenir des caractères alphanumériques en minuscules et les tirets. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est *contoso* et votre identificateur marketing *sampleApp*, l’URL de votre offre sur la Place de marché Azure sera *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp* .        |
+|**Marketing Identifier** (Identificateur marketing)     | Identificateur unique compatible avec les URL. Cet identificateur peut uniquement contenir des caractères alphanumériques en minuscules et les tirets. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est *contoso* et votre identificateur marketing *sampleApp*, l’URL de votre offre sur la Place de marché Azure sera `https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp` .       |
 |**ID d’abonnement pour préversion**     | Ajoutez entre 1 et 100 identificateurs d’abonnement. Les clients associés à ces abonnements pourront afficher l’offre sur la Place de marché Azure avant sa mise en ligne. Nous vous suggérons d’inclure ici vos propres abonnements afin de pouvoir prévisualiser l’apparence de votre offre sur la Place de marché Azure avant de la mettre à la disposition des clients  (le support technique Microsoft et les équipes d’ingénierie pourront également voir votre offre pendant cette période de préversion).   |
 |**Liens utiles**     | URL associées à votre offre, telles celles de la documentation, des notes de publication, du FAQ, etc.        |
 |**Catégories suggérées (cinq au maximum)**     | Une ou plusieurs catégories (jusqu’à cinq) s’appliquant à votre offre. Ces catégories aident les clients à découvrir votre offre sur la Place de marché et le portail Azure.        |

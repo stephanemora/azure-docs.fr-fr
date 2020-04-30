@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 2fdbc2a11bd963057b465a629757f2be51ae4061
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 46b3764fe2a1e09875f2b92a461591b6ff08540f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273849"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147902"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle
 
 > [!IMPORTANT]
-> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle](https://aka.ms/GetSASURI) pour gérer vos offres migrées.
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues) pour gérer vos offres migrées.
 
 Pendant le processus de publication, vous devez fournir un identificateur de ressource uniforme (URI) pour chaque disque dur virtuel (VHD) associé à vos références SKU. Microsoft doit accéder à ces disques durs virtuels pendant le processus de certification. Cet article explique comment générer un URI de signature d’accès partagé (SAS) pour chaque disque dur virtuel. Vous allez entrer cet URI dans l’onglet **Références** du portail Microsoft Cloud Partner.
 

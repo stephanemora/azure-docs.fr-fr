@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 988121effb35949cce442ba9458789105e88feec
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: df219ad7428eed5283c7a30a232308dca84fd25f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273441"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146970"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problèmes courants lors de la création d’un disque dur virtuel (FAQ)
 
 > [!IMPORTANT]
-> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Forum aux questions sur la création de VHD](https://aka.ms/VHDcreationIssues) pour gérer vos offres migrées.
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Forum aux questions sur la création de VHD](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation) pour gérer vos offres migrées.
 
 Le forum aux questions (FAQ) suivant traite des problèmes courants rencontrés lors de la création d’un disque dur virtuel (VHD) et d’une machine virtuelle. 
 

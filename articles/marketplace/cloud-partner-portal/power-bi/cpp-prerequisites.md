@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ac27a2c95789eac3e824e4ecb31138a6720868a6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f68d8cfb4a221d1f7ec5123f532e7b0bf420b123
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981645"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147690"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Conditions préalables à une offre d’application Power BI
 
 >[!Important]
->À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres d’applications Power BI vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création d’applications Power BI](https://aka.ms/AzurePBIAppCreationOverview) pour gérer vos offres migrées.
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres d’applications Power BI vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création d’applications Power BI](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) pour gérer vos offres migrées.
 
 Cet article fournit les exigences techniques et métiers que vous devez respecter avant de pouvoir publier une offre d’application Power BI sur la place de marché AppSource.  Si vous ne l’avez pas déjà fait, passez en revue le [Guide de publication des offres Office 365, Dynamics 365, PowerApps et Power BI](../../appsource-offer-publishing-guide.md).
 

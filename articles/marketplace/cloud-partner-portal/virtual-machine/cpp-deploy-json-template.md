@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: f3e3dc6e0d73627f49ba04a8b861253bafcddfa9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273917"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82148047"
 ---
 # <a name="virtual-hard-disk-deployment-template"></a>Modèle de déploiement de disque dur virtuel
 
 > [!IMPORTANT]
-> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Certification d’une image de machine virtuelle Azure](https://aks.ms/CertifyVMimage) pour gérer vos offres migrées.
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Certification d’une image de machine virtuelle Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) pour gérer vos offres migrées.
 
-Le modèle Azure Resource Manager suivant définit une nouvelle instance de machine virtuelle Azure, créée à partir d’un disque dur virtuel local.  Ce modèle est utilisé dans l’article [Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur](./cpp-deploy-vm-user-image.md). 
+Le modèle Azure Resource Manager suivant définit une nouvelle instance de machine virtuelle Azure, créée à partir d’un disque dur virtuel local.  Ce modèle est utilisé dans l’article [Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur](./cpp-deploy-vm-user-image.md).
 
 ```json
 {

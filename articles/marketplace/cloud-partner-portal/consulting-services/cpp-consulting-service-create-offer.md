@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ed744cfbb49393980c2622b00233fca373b32019
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a9fbf402bb8de11ae0353ef05d2a526d686c5884
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985131"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82148175"
 ---
 # <a name="create-a-consulting-offer"></a>Créer une offre de conseil
 
 >[!Important]
->À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de services de conseil vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création de services de conseil](https://aka.ms/AzureCreateConsultingService) pour gérer vos offres migrées.
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de services de conseil vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création de services de conseil](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) pour gérer vos offres migrées.
 
 Cet article explique comment créer et publier une offre de service de conseil.
 

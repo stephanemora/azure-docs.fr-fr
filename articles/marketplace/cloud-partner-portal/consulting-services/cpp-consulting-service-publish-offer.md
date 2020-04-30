@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 3a06bae941c75e43a0e4ea2b66cc420e7a2467c3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c602bbee128c3338d841cb4564add26ba1c9e841
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985080"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146643"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Publier une offre de service de conseil
 
 >[!Important]
->À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de services de conseil vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création de services de conseil](https://aka.ms/AzureCreateConsultingService) pour gérer vos offres migrées.
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de services de conseil vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création de services de conseil](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) pour gérer vos offres migrées.
 
 Après avoir complété les **Paramètres de l'offre**, les **Détails de la vitrine** et les **Coordonnées**, sélectionnez **Publier** et fournissez une adresse e-mail. Une fois Microsoft prêt à publier votre offre, vous recevez un e-mail pour en afficher un aperçu avant sa mise en service. Vous pouvez revenir au portail pour vérifier l’état de votre offre à tout moment.
 

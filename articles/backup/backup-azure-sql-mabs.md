@@ -3,12 +3,12 @@ title: Sauvegarder des bases de données SQL Server à l'aide du serveur de sauv
 description: Cet article présente les étapes de configuration de la sauvegarde des bases de données SQL Server à l'aide du serveur de sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 4a4d4b7e70e2df0e014ea4b4d23027aa7c48f2fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cd6a8b76e4618031f4d21dc04a82a78fad0076d
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505947"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159248"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Sauvegarder des bases de données SQL Server sur Azure à l'aide du serveur de sauvegarde Azure
 
@@ -24,7 +24,7 @@ Pour sauvegarder une base de données SQL Server et la récupérer à partir d'A
 
 Avant de commencer, assurez-vous d'avoir [installé et préparé le serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md).
 
-## <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde 
+## <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde
 
 Pour protéger des bases de données SQL Server dans Azure, commencez par créer une stratégie de sauvegarde :
 
@@ -87,7 +87,6 @@ Pour protéger des bases de données SQL Server dans Azure, commencez par créer
     > Utilisez Data Protection Manager (DPM) pour planifier les sauvegardes Azure après la fin des sauvegardes sur disque local. Lorsque vous suivez cette pratique, la dernière sauvegarde sur disque est copiée sur Azure.
     >
 
-
 1. Cliquez sur la planification de stratégie de rétention. Pour plus d'informations sur le fonctionnement de la stratégie de rétention, consultez [Utilisation de Sauvegarde Azure pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 
     ![Choisir une stratégie de rétention sur le serveur de sauvegarde Microsoft Azure](./media/backup-azure-backup-sql/pg-retentionschedule.png)
@@ -123,7 +122,7 @@ Un point de récupération est créé lors de la première sauvegarde. Au lieu d
 1. Dans le menu déroulant, sélectionnez **Protection en ligne**. Sélectionnez ensuite **OK** pour démarrer la création d'un point de récupération dans Azure.
 
     ![Démarrer la création d'un point de récupération dans Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-1. Vous pouvez voir la progression du travail dans l'espace de travail **Surveillance**. 
+1. Vous pouvez voir la progression du travail dans l'espace de travail **Surveillance**.
 
     ![Afficher la progression du travail sur la console Surveillance](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 

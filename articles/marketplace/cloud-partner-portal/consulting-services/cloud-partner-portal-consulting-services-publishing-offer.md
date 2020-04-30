@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: dace05715828395aed3953b42bf7926df292bbdb
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: bdc2537d21fd88c677d07ebdb5170cdf14c7489d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981339"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146714"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Offre de service de conseil Azure et Dynamics 365
 
 >[!Important]
->À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de service de conseil vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création de services de conseil](https://aka.ms/AzureCreateConsultingService) pour gérer vos offres migrées.
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de service de conseil vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création de services de conseil](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) pour gérer vos offres migrées.
 
 Cet article explique comment publier une offre de service de conseil sur la <a href="https://azuremarketplace.microsoft.com">Place de marché Microsoft Azure</a> ou sur <a href="https://appsource.microsoft.com">AppSource</a>. Les solutions basées sur Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> et <a href="https://powerapps.microsoft.com">Power Apps</a> peuvent être listées sur AppSource. D'autres offres basées sur d'autres <a href="https://azure.microsoft.com/services">services Microsoft Azure</a> peuvent être répertoriées sur la Place de marché Azure.
 

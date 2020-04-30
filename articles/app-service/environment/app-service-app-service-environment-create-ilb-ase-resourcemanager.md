@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: f05780610a2a6033b069721b143aca5e5efa6c35
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: e24e78d5661c2fbb60a96c2fb6d6192ffade9579
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804518"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159692"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Comment créer un ILB ASE à l’aide des modèles Azure Resource Manager
 
@@ -50,7 +50,7 @@ Une fois le fichier *azuredeploy.parameters.json* renseigné pour un ILB ASE, ce
 Une fois le modèle Azure Resource Manager soumis, la création de l’ILB ASE prendra quelques heures.  Une fois la création terminée, l’ASE ILB s’affichera dans le portail dans la liste des environnements App Service pour l’abonnement qui a déclenché le déploiement.
 
 ## <a name="uploading-and-configuring-the-default-tlsssl-certificate"></a>Chargement et configuration du certificat TLS/SSL « par défaut »
-Une fois l’ILB ASE créé, un certificat TLS/SSL doit être associé à l’ASE en tant que certificat TLS/SSL « par défaut » utilisé pour établir des connexions TLS/SSL avec les applications.  Poursuivons avec l’exemple de la société fictive Contoso Corporation. Si le suffixe DNS par défaut de l’ASE est *internal-contoso.com*, une connexion à *https://some-random-app.internal-contoso.com* nécessite un certificat TLS/SSL valide pour * *.internal-contoso.com*. 
+Une fois l’ILB ASE créé, un certificat TLS/SSL doit être associé à l’ASE en tant que certificat TLS/SSL « par défaut » utilisé pour établir des connexions TLS/SSL avec les applications.  Poursuivons avec l’exemple de la société fictive Contoso Corporation. Si le suffixe DNS par défaut de l’ASE est *internal-contoso.com*, une connexion à *`https://some-random-app.internal-contoso.com`* nécessite un certificat TLS/SSL valide pour * *.internal-contoso.com*. 
 
 Il existe plusieurs façons de se procurer un certificat TLS/SSL valide, notamment les autorités de certification internes, l’achat d’un certificat auprès d’un émetteur externe ou l’utilisation d’un certificat auto-signé.  Quelle que soit la source du certificat TLS/SSL, les attributs de certificat suivants doivent être configurés correctement :
 
@@ -122,7 +122,7 @@ Une fois le fichier *azuredeploy.parameters.json* complété, le certificat TLS/
 
 Une fois le modèle Azure Resource Manager soumis, cela prendra environ quarante minutes par serveur frontal de l’ASE pour que la modification soit appliquée.  Par exemple, avec un ASE par défaut utilisant deux serveurs frontaux, l’application du modèle prendra environ une heure et vingt minutes.  Lorsque le modèle est en cours d’exécution, l’ASE ne peut pas être mis à l’échelle.  
 
-Une fois le modèle terminé, les applications de l’ILB ASE sont accessibles via le protocole HTTPS et les connexions sont sécurisées à l’aide du certificat TLS/SSL par défaut.  Le certificat TLS/SSL par défaut est utilisé quand l’adresse des applications de l’ILB ASE se compose du nom de l’application et du nom d’hôte par défaut.  Par exemple, *https://mycustomapp.internal-contoso.com* utilise le certificat TLS/SSL par défaut pour * *.internal-contoso.com*.
+Une fois le modèle terminé, les applications de l’ILB ASE sont accessibles via le protocole HTTPS et les connexions sont sécurisées à l’aide du certificat TLS/SSL par défaut.  Le certificat TLS/SSL par défaut est utilisé quand l’adresse des applications de l’ILB ASE se compose du nom de l’application et du nom d’hôte par défaut.  Par exemple, *`https://mycustomapp.internal-contoso.com`* utilise le certificat TLS/SSL par défaut pour * *.internal-contoso.com*.
 
 Cependant, à l’instar des applications qui s’exécutent sur le service multilocataire public, les développeurs peuvent aussi configurer des noms d’hôte personnalisés pour des applications individuelles, puis configurer des liaisons de certificat SNI TLS/SSL uniques pour ces applications individuelles.  
 

@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 1116bd03cf0ef734b74b387ff8f3cff74b29b215
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 68db606c9a01c4b1122f9b0cce620762485ca40a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270313"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82148275"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Préparer vos ressources techniques de conteneur
 
 > [!IMPORTANT]
-> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Préparer vos ressources techniques de conteneur Azure](https://aka.ms/CreateContainerTechAssets) pour gérer vos offres migrées.
+> À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de conteneur Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données dans [Préparer vos ressources techniques de conteneur Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) pour gérer vos offres migrées.
 
 Cet article décrit les étapes et les conditions requises pour configurer une offre de conteneur de la Place de marché Azure.
 
