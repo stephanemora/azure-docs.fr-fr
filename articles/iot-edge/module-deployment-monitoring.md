@@ -8,18 +8,18 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76895969"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127601"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
 
 Les déploiements automatiques et les déploiements en couches facilitent la gestion et la configuration de nombreux modules sur les appareils IoT Edge.
 
-Azure IoT Edge propose deux méthodes de configuration des modules à exécuter sur des appareils IoT Edge. La première consiste à déployer les modules sur la base de chaque appareil. Vous créez un manifeste de déploiement, puis vous l’appliquez à un appareil donné par nom. La seconde méthode consiste à déployer automatiquement les modules sur tous les appareils inscrits répondant à un ensemble de conditions définies. Vous créez un manifeste de déploiement, puis définissez les appareils auxquels il s’applique en fonction des [indicateurs](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) dans le jumeau d'appareil.
+Azure IoT Edge propose deux méthodes de configuration des modules à exécuter sur des appareils IoT Edge. La première consiste à déployer les modules sur la base de chaque appareil. Vous créez un manifeste de déploiement, puis vous l’appliquez à un appareil donné par nom. La seconde méthode consiste à déployer automatiquement les modules sur tous les appareils inscrits répondant à un ensemble de conditions définies. Vous créez un manifeste de déploiement, puis définissez les appareils auxquels il s’applique en fonction des [indicateurs](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) dans le jumeau d'appareil.
 
 Cet article se concentre sur la configuration et la supervision de flottes d’appareils, collectivement appelées *déploiements automatiques IoT Edge*. Les étapes de déploiement de base sont les suivantes :
 
@@ -28,7 +28,7 @@ Cet article se concentre sur la configuration et la supervision de flottes d’a
 3. Le service IoT Hub récupère l’état des appareils IoT Edge et les met à la disposition de l’opérateur.  Par exemple, un opérateur voit quand un appareil Edge n’est pas correctement configuré ou si un module échoue en cours de runtime.
 4. À tout moment, les nouveaux appareils IoT Edge qui remplissent les conditions de ciblage sont configurés pour le déploiement.
 
-Cet article décrit chaque composant impliqué dans la configuration et la surveillance d’un déploiement. Pour connaître la procédure de création et de mise à jour d’un déploiement, consultez [Déployer et surveiller des modules IoT Edge à l’échelle](how-to-deploy-monitor.md).
+Cet article décrit chaque composant impliqué dans la configuration et la surveillance d’un déploiement. Pour connaître la procédure de création et de mise à jour d’un déploiement, consultez [Déployer et surveiller des modules IoT Edge à l’échelle](how-to-deploy-at-scale.md).
 
 ## <a name="deployment"></a>Déploiement
 
@@ -197,5 +197,5 @@ Effectuez des restaurations dans l’ordre suivant :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller les modules IoT Edge à grande échelle](how-to-deploy-monitor.md).
+* Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller les modules IoT Edge à grande échelle](how-to-deploy-at-scale.md).
 * En savoir plus sur d’autres concepts IoT Edge tels que le [runtime IoT Edge](iot-edge-runtime.md) et les [modules IoT Edge](iot-edge-modules.md).
