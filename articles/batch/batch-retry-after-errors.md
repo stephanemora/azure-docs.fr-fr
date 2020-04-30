@@ -1,26 +1,15 @@
 ---
 title: Réessayer d’exécuter des tâches après une erreur
 description: Recherchez les erreurs et réessayez l’exécution.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-batch
-ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/15/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 94ed936e619461a2dbf7ec837c2d80e21c01c88e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8addc4418f268a2c27b730543bdb309ef45fd5f4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919989"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116534"
 ---
 # <a name="detecting-and-handling-batch-service-errors"></a>Détection et gestion des erreurs du service Batch
 
