@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367089"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535534"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
 
@@ -240,7 +240,7 @@ Cependant, à moins que vous n’ayez besoin de ces informations pour suivre la 
 **Pour activer le suivi au niveau de l’activité :**
 
 1. Dans le portail Azure, ouvrez votre compte Automation.
-2. Sélectionnez **Runbooks** dans la section **Automatisation de processus** pour ouvrir la liste des Runbooks.
+2. Sélectionnez **Runbooks** sous **Automatisation de processus** pour ouvrir la liste des runbooks.
 3. Dans la page Runbooks, sélectionnez un Runbook graphique dans votre liste de Runbooks.
 4. Sous **paramètres**, cliquez sur **journalisation et le suivi**.
 5. Sur la page Journalisation et suivi, sous **Journaliser les enregistrements détaillés**, cliquez sur **On** (Activé) pour activer la journalisation détaillée.
@@ -253,7 +253,7 @@ Cependant, à moins que vous n’ayez besoin de ces informations pour suivre la 
 Azure Automation peut envoyer un état de tâche du Runbook et des flux de tâches à votre espace de travail Log Analytics. Azure Monitor prend en charge les journaux qui vous permettent d’effectuer les opérations suivantes :
 
 * Obtenir des informations sur vos travaux Automation.
-* Déclencher un e-mail ou une alerte en fonction du statut de votre travail de Runbook, par exemple, échec ou état suspendu.
+* Déclencher un e-mail ou une alerte en fonction du statut de votre travail de runbook, par exemple, échec ou état suspendu.
 * Écrire des requêtes avancées sur plusieurs flux de travaux.
 * Mettre en corrélation des travaux sur différents comptes Automation.
 * Afficher l'historique des travaux.

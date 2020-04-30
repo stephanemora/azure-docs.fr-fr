@@ -1,17 +1,14 @@
 ---
 title: Questions fréquentes (FAQ) sur Azure Migrate
 description: Obtenez des réponses aux questions courantes au sujet du service Azure Migrate.
-author: snehaamicrosoft
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: snehaa
-ms.openlocfilehash: c85c5c6e11beb0178139dad152f56f420b2ac26f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78926725"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530315"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate : Questions courantes
 
@@ -56,8 +53,7 @@ Choisissez votre outil en fonction de ce que vous voulez faire :
 
 ## <a name="which-geographies-are-supported"></a>Quelles sont les zones géographiques prises en charge ?
 
-- **Machines virtuelles VMware** : passez en revue les [zones géographiques prises en charge](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) par Azure Migrate pour les machines virtuelles VMware.
-- **Machines virtuelles Hyper-V** : passez en revue les [zones géographiques prises en charge](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v) par Azure Migrate pour les machines virtuelles Hyper-V.
+Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et du [secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="how-do-i-get-started"></a>Comment faire pour démarrer ?
 

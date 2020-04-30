@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672371"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535687"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrer un nom DNS actif vers Azure App Service
 
@@ -21,7 +21,7 @@ Lorsque vous migrez un site actif et son nom de domaine DNS vers App Service, ce
 
 Si vous ne vous inquiétez pas des temps d’arrêt durant la résolution DNS, voir [Mapper un nom DNS personnalisé existant vers Azure App Service](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cette procédure :
 
@@ -129,7 +129,7 @@ Vous pouvez trouver l’unité de déploiement de votre application en examinant
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment lier un certificat SSL personnalisé à App Service.
+Découvrez comment lier un certificat TLS/SSL personnalisé à App Service.
 
 > [!div class="nextstepaction"]
-> [Lier un certificat SSL à Azure App Service](configure-ssl-bindings.md)
+> [Sécuriser un nom DNS personnalisé avec une liaison TLS dans Azure App Service](configure-ssl-bindings.md)

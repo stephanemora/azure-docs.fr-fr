@@ -13,12 +13,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e8c890a6daf2411b09162ab0072aed594820b936
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886345"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535891"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -59,12 +59,12 @@ Selon le scénario, un client d’entreprise peut appliquer et supprimer des str
 
 Certains scénarios requièrent des modifications de code pour gérer l’accès conditionnel, tandis que d’autres travaillent tel quel. Voici quelques scénarios utilisant l’accès conditionnel pour l’authentification multifacteur qui donne une idée de la différence.
 
-* Vous générez une application iOS de client unique et appliquez une stratégie d’accès conditionnel. L’application connecte un utilisateur et ne demande pas l’accès à une API. Lorsque l’utilisateur se connecte, la stratégie est appelée automatiquement et l’utilisateur doit effectuer l’authentification multifacteur (MFA). 
+* Vous générez une application iOS de client unique et appliquez une stratégie d’accès conditionnel. L’application connecte un utilisateur et ne demande pas l’accès à une API. Lorsque l’utilisateur se connecte, la stratégie est appelée automatiquement et l’utilisateur doit effectuer l’authentification multifacteur (MFA).
 * Vous générez une application native qui utilise un service de niveau intermédiaire pour accéder à une API en aval. Un client d’entreprise de la société utilisant cette application applique une stratégie à l’API en aval. Quand un utilisateur final se connecte, l’application native demande l’accès au niveau intermédiaire et envoie le jeton. Le niveau intermédiaire effectue le flux Pour le compte pour demander l’accès à l’API en aval. À ce stade, un défi de « revendications » est présenté au niveau intermédiaire. Le niveau intermédiaire renvoie la demande à l’application native, qui doit se conformer à la stratégie d’accès conditionnel.
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-Microsoft Graph possède des considérations spéciales concernant la création d’applications des environnements avec accès conditionnel. En règle générale, les mécanismes d’accès conditionnel ont le même comportement, mais les stratégies que voient vos utilisateurs sont basées sur les données sous-jacentes demandées au graph par votre application. 
+Microsoft Graph possède des considérations spéciales concernant la création d’applications des environnements avec accès conditionnel. En règle générale, les mécanismes d’accès conditionnel ont le même comportement, mais les stratégies que voient vos utilisateurs sont basées sur les données sous-jacentes demandées au graph par votre application.
 
 Plus précisément, toutes les étendues de Microsoft Graph représentent un jeu de données auquel il est possible d’appliquer des stratégies individuellement. Dans la mesure où les stratégies d’accès conditionnel sont assignées à des jeux de données spécifiques, Azure AD applique des stratégies d’accès conditionnel basées sur les données derrière Graph, plus que sur Graph.
 
@@ -74,13 +74,13 @@ Par exemple, si une application demande les étendues suivantes de Microsoft Gra
 scopes="Bookings.Read.All Mail.Read"
 ```
 
-Une application peut s’attendre à ce que ses utilisateurs répondent à toutes les stratégies définies sur Bookings et Exchange. Certaines étendues peuvent mapper vers plusieurs jeux de données si elles disposent de l’accès. 
+Une application peut s’attendre à ce que ses utilisateurs répondent à toutes les stratégies définies sur Bookings et Exchange. Certaines étendues peuvent mapper vers plusieurs jeux de données si elles disposent de l’accès.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Conformité à une stratégie d’accès conditionnel
 
 Pour différentes topologies d’applications, une stratégie d’accès conditionnel est évaluée lorsque la session est établie. Étant donné qu’une stratégie d’accès conditionnel fonctionne sur la granularité des applications et des services, le point sur lequel elle est appelée dépend essentiellement du scénario que vous essayez d’accomplir.
 
-Lorsque votre application tente d’accéder à un service avec une stratégie d’accès conditionnel, elle peut rencontrer un défi d’accès conditionnel. Ce défi est encodé dans le paramètre `claims` qui est fourni dans une réponse d’Azure AD. Voici un exemple de ce paramètre de défi : 
+Lorsque votre application tente d’accéder à un service avec une stratégie d’accès conditionnel, elle peut rencontrer un défi d’accès conditionnel. Ce défi est encodé dans le paramètre `claims` qui est fourni dans une réponse d’Azure AD. Voici un exemple de ce paramètre de défi :
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -106,7 +106,7 @@ Les sections suivantes décrivent des scénarios courants plus complexes. Le pri
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scénario : application effectuant le flux Pour le compte de
 
-Dans ce scénario, nous abordons le cas dans lequel une application native appelle une API/ service Web. À son tour, ce service exécute le flux On-Behalf-Of pour appeler un service en aval. Dans notre cas, nous avons appliqué notre stratégie d’accès conditionnel pour le service en aval (API Web 2) et nous utilisons une application native plutôt qu’une application démon/serveur. 
+Dans ce scénario, nous abordons le cas dans lequel une application native appelle une API/ service Web. À son tour, ce service exécute le flux On-Behalf-Of pour appeler un service en aval. Dans notre cas, nous avons appliqué notre stratégie d’accès conditionnel pour le service en aval (API Web 2) et nous utilisons une application native plutôt qu’une application démon/serveur.
 
 ![Application effectuant le diagramme de flux Pour le compte](./media/v2-conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -159,7 +159,7 @@ Dans MSAL.js, il existe quelques fonctions qui obtiennent des jetons : `loginPo
 * `acquireTokenSilent(…)` peut ensuite être utilisé pour obtenir silencieusement un jeton d’accès c'est-à-dire qu’il n’affiche pas l’interface utilisateur dans tous les cas.
 * `acquireTokenPopup(…)` et `acquireTokenRedirect(…)` sont tous deux utilisés pour demander interactivement un jeton pour une ressource, ce qui signifie qu’ils affichent toujours l’interface utilisateur de connexion.
 
-Lorsqu’une application a besoin d’un jeton d’accès pour appeler une API Web, elle tente une `acquireTokenSilent(…)`. Si la session du jeton a expiré ou si nous devons nous conformer à une stratégie d’accès conditionnel, la fonction *acquireToken* échoue et l’application utilise `acquireTokenPopup()` ou `acquireTokenRedirect()`.
+Lorsqu’une application a besoin d’un jeton d’accès pour appeler une API web, elle tente une `acquireTokenSilent(…)`. Si la session du jeton a expiré ou si nous devons nous conformer à une stratégie d’accès conditionnel, la fonction *acquireToken* échoue et l’application utilise `acquireTokenPopup()` ou `acquireTokenRedirect()`.
 
 ![Application monopage utilisant le diagramme de flux MSAL](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
@@ -175,7 +175,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Notre application a besoin d’intercepter le `error=interaction_required`. L’application peut alors utiliser `acquireTokenPopup()` ou `acquireTokenRedirect()` sur la même ressource. L’utilisateur est obligé d’effectuer une authentification multifacteur. Une fois que l’utilisateur a terminé l’authentification multifacteur, l’application émet un nouveau jeton d’accès pour la ressource demandée.
 
-Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Cet exemple de code utilise la stratégie d’accès conditionnel et l’API Web précédemment inscrites avec un SPA JS pour illustrer ce scénario. Il explique comment gérer correctement le défi de revendications et obtenir un jeton d’accès qui peut être utilisé pour votre API Web. Vous pouvez également extraire [l’exemple de code Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) général pour obtenir des conseils sur une SPA Angular
+Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Cet exemple de code utilise la stratégie d’accès conditionnel et l’API Web précédemment inscrites avec un SPA JS pour illustrer ce scénario. Il explique comment gérer correctement le défi de revendications et obtenir un jeton d’accès qui peut être utilisé pour votre API web. Vous pouvez également extraire [l’exemple de code Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) général pour obtenir des conseils sur une SPA Angular
 
 ## <a name="see-also"></a>Voir aussi
 

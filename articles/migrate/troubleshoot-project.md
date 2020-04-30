@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: 3b8c2f6ec33965317d2aaa23a36b6becff11a54a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75722126"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535398"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Résoudre les problèmes des projets Azure Migrate
 
@@ -32,7 +32,7 @@ La recherche d’un projet Azure Migrate existant varie selon que vous utilisez 
 
 ## <a name="cant-find-a-geography"></a>Impossible de trouver une zone géographique
 
-Vous pouvez créer un projet Azure Migrate dans des [zones géographiques prises en charge](migrate-support-matrix.md#supported-geographies). Notez que la zone géographique du projet est utilisée pour stocker les métadonnées de machines découvertes. Vous pouvez également évaluer ou migrer des machines vers d’autres emplacements.
+Vous pouvez créer un projet Azure Migrate dans des zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et du [secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="what-are-vm-limits"></a>Quelles sont les limites des machines virtuelles ?
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 753d606e1fc2dc966c970a210cf6fc5066d5ed83
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460135"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>FAQ sur Azure Disk Encryption pour machines virtuelles Linux
 
@@ -21,7 +21,7 @@ Cet article fournit des réponses aux questions fréquemment posées sur le serv
 
 ## <a name="what-is-azure-disk-encryption-for-linux-vms"></a>Qu’est-ce qu’Azure Disk Encryption pour machines virtuelles Linux
 
-Le service Azure Disk Encryption pour machines virtuelles Linux utilise la fonctionnalité dm-crypt de Linux pour effectuer un chiffrement complet du disque du système d’exploitation* et des disques de données. Il assure en outre le chiffrement du disque de ressources éphémères lors de l’utilisation de la [fonctionnalité EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). Le contenu est chiffré à partir de la machine virtuelle vers le serveur principal de stockage. Donc, en fournissant un chiffrement de bout en bout avec une clé gérée par le client.
+Le service Azure Disk Encryption pour machines virtuelles Linux utilise la fonctionnalité dm-crypt de Linux pour effectuer un chiffrement complet du disque du système d’exploitation* et des disques de données. Il assure en outre le chiffrement du disque de ressources éphémères lors de l’utilisation de la [fonctionnalité EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). Le contenu est chiffré à partir de la machine virtuelle vers le serveur principal de stockage. Donc, un chiffrement de bout en bout est assuré avec une clé gérée par le client.
  
 Consultez [Machines virtuelles et systèmes d’exploitation pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
@@ -148,7 +148,9 @@ Azure Disk Encryption utilise la valeur de déchiffrement par défaut aes-xts-pl
 Non, les données ne sont pas effacées des lecteurs de données déjà chiffrés à l’aide d’Azure Disk Encryption. De même qu’EncryptFormatAll n’a pas chiffré à nouveau le lecteur du système d’exploitation, il ne chiffre pas à nouveau le lecteur de données déjà chiffré. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Le système de fichiers XFS est-il pris en charge ?
-Les volumes XFS sont pris en charge pour le chiffrement de disque de données uniquement avec EncryptFormatAll. Ce paramètre reformate le volume, effaçant toutes les données qui s’y trouvaient précédemment. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Le chiffrement des disques du système d’exploitation XFS est pris en charge.
+
+Le chiffrement des disques de données XFS est pris en charge uniquement lorsque le paramètre EncryptFormatAll est utilisé. Ce paramètre reformate le volume, effaçant toutes les données qui s’y trouvaient précédemment. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Puis-je sauvegarder et restaurer une machine virtuelle chiffrée ? 
 

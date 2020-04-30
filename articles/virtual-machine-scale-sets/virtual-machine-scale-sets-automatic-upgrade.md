@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393785"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458979"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure
 
@@ -158,7 +158,7 @@ az provider register --namespace Microsoft.Compute
 - La nouvelle version de l’image ne doit pas être exclue de la version la plus récente pour cette image de la galerie. Les versions d’image exclues de la dernière version de l’image de la galerie ne sont pas déployées dans le groupe identique via la mise à niveau automatique de l’image du système d’exploitation.
 
 > [!NOTE]
->Un groupe identique peut avoir besoin de jusqu’à 2 heures pour obtenir le premier déploiement d’image après la configuration du groupe identique pour les mises à niveau automatiques du système d’exploitation. Il s’agit d’un délai unique par groupe identique. Les lancements des images suivantes s’appliquent au groupe identique sans ce délai.
+>Un groupe identique peut nécessiter jusqu’à 3 heures pour lancer le premier déploiement de mise à niveau d’une image après la configuration du groupe identique pour les mises à niveau automatiques du système d’exploitation. Il s’agit d’un délai unique par groupe identique. Les déploiements d’images suivants sont déclenchés sur le groupe identique dans un délai de 30 minutes.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configurer la mise à niveau automatique d’image de système d’exploitation

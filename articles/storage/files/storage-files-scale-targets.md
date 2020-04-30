@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228285"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536430"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 
@@ -51,8 +51,7 @@ Consultez la section [Objectifs de mise à l’échelle d’un compte de stockag
 ### <a name="file-share-and-file-scale-targets"></a>Partage de fichiers et objectifs de mise à l’échelle des fichiers
 
 > [!NOTE]
-> Les partages de fichiers standard supérieurs à 5 Tio présentent certaines limitations et restrictions régionales.
-> Pour obtenir la liste des limitations, des informations régionales et des instructions permettant d’activer ces tailles de partage de fichiers plus volumineuses, consultez la section [Intégrer des partages de fichiers plus grands](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) du guide de planification.
+> Les partages de fichiers standard d’une taille supérieure à 5 Tio présentent certaines limitations. Pour obtenir la liste des limitations et des instructions permettant d’activer des tailles de partage de fichiers plus volumineuses, consultez la section [Activer des partages de fichiers plus grands sur les partages de fichiers standard](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) du guide de planification.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

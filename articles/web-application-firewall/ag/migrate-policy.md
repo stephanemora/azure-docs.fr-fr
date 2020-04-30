@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: 1fac524af4b69f8e35934840643c6d3ad99fe1cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74174242"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536622"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrer les stratégies de pare-feu d’applications web à l’aide d’Azure PowerShell
 
@@ -28,6 +28,13 @@ Pour exécuter le script de migration, procédez comme suit :
 2. Copiez le script dans la fenêtre Cloud Shell et exécutez-le.
 3. Le script demande l’ID d’abonnement, le nom du groupe de ressources, le nom de la passerelle d’application à laquelle la configuration WAF est associée et le nom de la stratégie WAF à créer. Une fois que vous avez saisi ces entrées, le script s’exécute et crée votre stratégie WAF
 4. Associez la nouvelle stratégie WAF à votre passerelle d’application. Accédez à la stratégie WAF dans le portail et sélectionnez l’onglet  **Passerelles d’application associées**. Sélectionnez **Associer une passerelle d’application**, puis la passerelle d’application à laquelle associer la stratégie WAF.
+
+> [!NOTE]
+> Le script n’effectue pas de migration si les conditions suivantes sont réunies :
+> - Une règle entière est désactivée. Pour effectuer une migration, assurez-vous qu’aucun élément RuleGroup entier n’est désactivé.
+> - Une ou plusieurs entrées d’exclusion avec l’opérateur *Égal à tout*. Pour effectuer une migration, assurez-vous que les entrées d’exclusion avec l’opérateur *Égal à tout* n’est pas présent.
+>
+> Pour plus d’informations, consultez la fonction *ValidateInput* dans le script.
 
 ```azurepowershell-interactive
 <#PSScriptInfo

@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 1ee2efbb8aebfc2f1a94c89edef6166898946d8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8708c458e1064e4b9ea7dc67f1a4d4fbce1547b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74422530"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481962"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -78,7 +78,7 @@ Un groupe de synchronisation dispose des propriétés suivantes :
 | | Synchronisation des données | Réplication transactionnelle |
 |---|---|---|
 | Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration |
-| Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’une base de données unique Azure SQL Database ou d’une base de données mise en pool<br/>- Coût de maintenance élevé |
+| Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d'une base de données unique Azure SQL Database ou d'une base de données mise en pool<br/>- Coût de maintenance élevé |
 
 ## <a name="get-started-with-sql-data-sync"></a>Prise en main de SQL Data Sync
 
@@ -134,6 +134,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - L’authentification Azure Active Directory n’est pas prise en charge.
 - Les tables avec le même nom mais avec un schéma différent (par exemple dbo.customers et sales.customers) ne sont pas prises en charge.
 - Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge.
+- Le déplacement de serveurs entre différents abonnements n’est pas pris en charge. 
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 

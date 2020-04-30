@@ -6,20 +6,20 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198596"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535585"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurer une passerelle Application Gateway avec un point de terminaison d’équilibreur de charge interne (ILB)
 
 Vous pouvez configurer Azure Application Gateway avec une adresse IP virtuelle accessible via Internet ou avec un point de terminaison interne non exposé à Internet. Un point de terminaison interne utilise une adresse IP privée pour le serveur frontal, également appelée *point de terminaison d’équilibreur de charge interne*.
 
-Il est utile de configurer la passerelle à l’aide d’une adresse IP privée frontale pour des applications métier internes non exposées à Internet. C’est également utile pour les services et niveaux au sein d’une application multiniveau qui se trouvent dans une limite de sécurité non exposée à Internet, mais qui requiert tout de même une distribution de charge par tourniquet, une adhérence de session ou une terminaison SSL (Secure Sockets Layer).
+Il est utile de configurer la passerelle à l’aide d’une adresse IP privée frontale pour des applications métier internes non exposées à Internet. Elle est également utile pour les services et niveaux au sein d'une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui requiert tout de même une distribution de charge par tourniquet, une adhérence de session ou une terminaison TLS (Transport Layer Security), anciennement SSL (Secure Sockets Layer).
 
 Cet article vous guide dans les étapes de configuration d’une passerelle Application Gateway avec une adresse IP privée frontale à l’aide du portail Azure.
 
@@ -95,8 +95,8 @@ Pour ce faire, procédez comme suit :
    - Sélectionnez *myResourceGroupAG* pour **Groupe de ressources**.
    - *myVM* - pour **Nom de la machine virtuelle**.
    - Sélectionnez **Windows Server 2019 Datacenter** pour **Image**.
-   - *azureadmin* - pour **Nom d’utilisateur**.
-   - *Azure123456!* pour **Mot de passe**.
+   - un **nom d'utilisateur** valide.
+   - un **mot de passe** valide.
 5. Acceptez les valeurs par défaut restantes, puis sélectionnez **Suivant : Disques**.
 6. Acceptez les valeurs par défaut, puis sélectionnez **Suivant : Mise en réseau**.
 7. Assurez-vous que **myVNet** est sélectionné pour le réseau virtuel et que le sous-réseau est **myBackendSubnet**.

@@ -3,22 +3,21 @@ title: Filtres de rubrique Azure Service Bus | Microsoft Docs
 description: Cet article explique comment les abonnés peuvent définir les messages qu’ils souhaitent recevoir d’une rubrique en spécifiant des filtres.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/27/2020
+ms.topic: conceptual
+ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774496"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482067"
 ---
 # <a name="topic-filters-and-actions"></a>Actions et filtres de rubrique
 
@@ -32,7 +31,18 @@ Service Bus prend en charge trois conditions de filtre :
 
 -   *Filtres SQL* : **SqlFilter** contient une expression conditionnelle de type SQL qui est évaluée dans le répartiteur par rapport aux propriétés utilisateur et système des messages entrants. Toutes les propriétés système doivent avoir le préfixe `sys.` dans l’expression conditionnelle. Le [sous-ensemble du langage SQL pour les conditions de filtre](service-bus-messaging-sql-filter.md) recherche la présence de propriétés (`EXISTS`), de valeurs Null (`IS NULL`), d’opérateurs de relation logiques NOT/AND/OR, d’une arithmétique numérique simple et de critères spéciaux de texte simples avec `LIKE`.
 
--   *Filtres de corrélation* : **CorrelationFilter** contient un ensemble de conditions qui sont mises en correspondance par rapport à une ou plusieurs propriétés utilisateur et système d’un message entrant. En général, la mise en correspondance s’effectue par rapport à la propriété **CorrelationId**, mais l’application peut également choisir de le faire par rapport aux propriétés **ContentType**, **Label**, **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId** ou **To** et à des propriétés définies par l’utilisateur. Il y a correspondance quand la valeur d’une propriété d’un message entrant est identique à la valeur spécifiée dans le filtre de corrélation. Pour les expressions de chaîne, la comparaison respecte la casse. Quand vous spécifiez plusieurs propriétés de correspondance, le filtre les combine en une condition AND logique, ce qui implique que toutes les conditions du filtre doivent être remplies pour qu’il y ait correspondance.
+-   *Filtres de corrélation* : **CorrelationFilter** contient un ensemble de conditions qui sont mises en correspondance par rapport à une ou plusieurs propriétés utilisateur et système d’un message entrant. En général, la mise en correspondance s’effectue par rapport à la propriété **CorrelationId**, mais l’application peut également choisir de le faire par rapport aux propriétés suivantes :
+
+    - **ContentType**
+     - **Étiquette**
+     - **MessageId**
+     - **ReplyTo**
+     - **ReplyToSessionId**
+     - **SessionId** 
+     - **To**
+     - et à des propriétés définies par l’utilisateur. 
+     
+     Il y a correspondance quand la valeur d’une propriété d’un message entrant est identique à la valeur spécifiée dans le filtre de corrélation. Pour les expressions de chaîne, la comparaison respecte la casse. Quand vous spécifiez plusieurs propriétés de correspondance, le filtre les combine en une condition AND logique, ce qui implique que toutes les conditions du filtre doivent être remplies pour qu’il y ait correspondance.
 
 Tous les filtres évaluent les propriétés des messages. Ils ne peuvent pas évaluer le corps des messages.
 
@@ -52,10 +62,17 @@ Le partitionnement utilise des filtres pour distribuer les messages aux différe
 
 Le routage utilise des filtres pour distribuer les messages aux différents abonnements à la rubrique de manière prévisible, mais pas nécessairement en mode mutuellement exclusif. Utilisés conjointement avec la fonctionnalité de [transfert automatique](service-bus-auto-forwarding.md), les filtres de rubrique permettent de créer des graphiques de routage complexes dans un espace de noms Service Bus pour la distribution de messages dans une région Azure. Avec Azure Functions ou Azure Logic Apps servant de pont entre les espaces de noms Azure Service Bus, vous pouvez créer des topologies globales complexes avec une intégration directe dans les applications métier.
 
+
+> [!NOTE]
+> Actuellement, le portail Azure ne vous permet pas de spécifier des règles de filtre pour les abonnements. Vous pouvez utiliser l’un des Kits de développement logiciel (SDK) pris en charge ou des modèles Resource Manager pour définir des règles d’abonnement. 
+
 ## <a name="next-steps"></a>Étapes suivantes
+Consultez les exemples suivants : 
 
-Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
+- [.NET : tutoriel d’envoi et de réception de base avec des filtres](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
+- [.NET : filtres de rubrique](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
+- [Script de type](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
+- [Modèle Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
-* [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Syntaxe SQLFilter](service-bus-messaging-sql-filter.md)
-* [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
