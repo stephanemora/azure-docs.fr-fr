@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236389"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209143"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -129,7 +129,7 @@ Notez les points suivants pour cette version :
 La référence SKU Event Hubs Standard prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant ainsi des emplacements isolés des défaillances au sein d'une région Azure. 
 
 > [!NOTE]
-> Pour Azure Event Hubs Standard, la prise en charge des zones de disponibilité s'applique uniquement aux [régions Azure](../availability-zones/az-overview.md#services-support-by-region) où des zones de disponibilité sont déjà présentes.
+> Pour Azure Event Hubs Standard, la prise en charge des zones de disponibilité s'applique uniquement aux [régions Azure](../availability-zones/az-region.md) où des zones de disponibilité sont déjà présentes.
 
 Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Event Hubs ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
 

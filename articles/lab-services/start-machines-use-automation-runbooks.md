@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df6d7943a5344b4288dfe369dcce9087b894984f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76166309"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580593"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Démarrer des machines virtuelles dans un labo dans un certain ordre en utilisant des runbooks Azure Automation
 La fonctionnalité de [démarrage automatique](devtest-lab-set-lab-policy.md#set-autostart) de DevTest Labs vous permet configurer des machines virtuelles pour qu’elles démarrent automatiquement à une heure spécifiée. Cependant, cette fonctionnalité ne prend pas en charge le démarrage des machines dans un ordre spécifique. Il existe plusieurs scénarios où ce type d’automatisation peut être utile.  Voici un de ces scénarios : une machine virtuelle Jumpbox dans un labo doit être démarrée en premier, avant les autres machines virtuelles, car la machine Jumpbox est utilisée comme point d’accès aux autres machines virtuelles.  Cet article vous montre comment configurer un compte Azure Automation avec un runbook PowerShell qui exécute un script. Le script utilise des étiquettes sur les machines virtuelles du labo pour vous permettre de contrôler l’ordre de démarrage sans devoir modifier le script.
@@ -133,7 +133,7 @@ While ($current -le 10) {
 ```
 
 ## <a name="create-a-schedule"></a>Créer une planification
-Pour que ce script s’exécute tous les jours, [créez une planification](../automation/shared-resources/schedules.md#creating-a-schedule) dans le compte Automation. Une fois que la planification est créée, [liez-la au runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+Pour que ce script s’exécute tous les jours, [créez une planification](../automation/shared-resources/schedules.md#create-a-schedule) dans le compte Automation. Une fois que la planification est créée, [liez-la au runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook). 
 
 Dans une situation à grande échelle où il existe plusieurs abonnements avec plusieurs labos, stockez les informations des paramètres dans un fichier pour les différents labos et passez le fichier au script à la place des paramètres individuels. Le script devrait alors être modifié, mais l’exécution resterait fondamentalement la même. Bien que cet exemple utilise Azure Automation pour exécuter le script PowerShell, il existe d’autres options, comme l’utilisation d’une tâche dans un pipeline de build/mise en production.
 
