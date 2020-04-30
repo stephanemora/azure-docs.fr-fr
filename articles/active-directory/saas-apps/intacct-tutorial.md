@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b28390dba009226d493f5bfc6a5270b067f5bba0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73570551"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201344"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutoriel : Intégrer Sage Intacct à Azure Active Directory
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | ---------------| --------------- |
     | Nom de l’entreprise | **ID de société Sage Intacct** |
     | name | La valeur doit être la même que l’**ID d’utilisateur** Sage Intacct que vous entrez dans la **section Créer un utilisateur de test Sage Intacct**, décrite plus loin dans ce didacticiel. |
-    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | La valeur doit être la même que l’**ID d’utilisateur de l’authentification unique fédérée** Sage Intacct que vous entrez dans la **section Créer un utilisateur de test Sage Intacct**, décrite plus loin dans ce didacticiel. |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | La valeur doit être la même que l’**ID d’utilisateur de l’authentification unique fédérée** Sage Intacct que vous entrez dans la **section Créer un utilisateur de test Sage Intacct**, décrite plus loin dans ce didacticiel. |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 

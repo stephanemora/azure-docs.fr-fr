@@ -1,0 +1,7 @@
+- name: Documentation sur l’ingénierie SRE
+  href: ../index.yml
+- name: Forum Aux Questions (FAQ)
+  expanded: true
+  items:
+    - name: SRE et DevOps
+      href: devops.md

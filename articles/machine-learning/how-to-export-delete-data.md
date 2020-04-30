@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 03/06/2020
+ms.date: 04/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4abef0146b4bf0cfaa254d196b0ca68f0d8ac883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50234eb356314039b8023f0442207ae0b762676e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218288"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191632"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exporter ou supprimer vos données d’espace de travail Machine Learning
 
@@ -252,12 +252,3 @@ Dans le concepteur où vous avez créé votre expérimentation, supprimez des re
 
 Pour supprimer des jeux de données dans le concepteur, utilisez le portail Azure ou l’Explorateur Stockage pour accéder aux comptes de stockage connectés et y supprimer les jeux de données. La désinscription de jeux de données dans le concepteur supprime seulement le point de référence dans le stockage.
 
-## <a name="export-data-in-the-designer"></a>Explorer des données dans le concepteur
-
-Dans le concepteur où vous avez créé votre expérimentation, exportez les données que vous avez ajoutées :
-
-1. Sur la gauche, sélectionnez **Jeux de données**.
-
-1. Dans la liste, sélectionnez le jeu de données à exporter
-
-    ![Télécharger des données](./media/how-to-export-delete-data/unregister-dataset.png)

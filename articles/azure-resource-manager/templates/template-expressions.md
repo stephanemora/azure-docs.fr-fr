@@ -3,12 +3,12 @@ title: Modèle de syntaxe et d’expressions
 description: Décrit la syntaxe JSON déclarative pour les modèles Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 172838fa24709eb60fbcb6a68277f44bbd42f01e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460107"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203826"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntaxe et expressions dans les modèles Azure Resource Manager
 
@@ -123,7 +123,7 @@ La même mise en forme s’applique quand il s’agit de transmettre des valeurs
 
 ## <a name="null-values"></a>Valeurs Null
 
-Pour définir une propriété sur la valeur Null, vous pouvez utiliser **null** ou **[json('null')]** . La [fonction json](template-functions-array.md#json) retourne un objet vide quand vous fournissez `null` comme paramètre. Dans les deux cas, les modèles Resource Manager font comme si la propriété n’était pas présente.
+Pour définir une propriété sur la valeur Null, vous pouvez utiliser **null** ou **[json('null')]** . La [fonction json](template-functions-object.md#json) retourne un objet vide quand vous fournissez `null` comme paramètre. Dans les deux cas, les modèles Resource Manager font comme si la propriété n’était pas présente.
 
 ```json
 "stringValue": null,

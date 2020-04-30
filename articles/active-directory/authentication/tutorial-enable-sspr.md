@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b9052f364dfbae205dd324ba69de9578ccc225
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77026312"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201990"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutoriel : Permettre aux utilisateurs de déverrouiller leur compte ou de réinitialiser des mots de passe à l’aide de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -104,7 +104,7 @@ Pour informer les utilisateurs de l’activité des comptes, vous pouvez configu
 Si les utilisateurs ont besoin d’aide supplémentaire avec le processus SSPR, vous pouvez personnaliser le lien « Contactez votre administrateur ». Ce lien est utilisé lors du processus d’inscription SSPR et quand un utilisateur déverrouille son compte ou réinitialise son mot de passe. Pour vous assurer que les utilisateurs bénéficient du support nécessaire, nous vous recommandons vivement de fournir une adresse e-mail ou une URL de support technique personnalisée.
 
 1. Dans la page **Personnalisation** du menu de gauche, affectez la valeur **Oui** à *Personnaliser le lien du support technique*.
-1. Dans le champ **Personnaliser le lien du support technique**, spécifiez une adresse e-mail ou une URL de page web où vos utilisateurs peuvent obtenir une aide supplémentaire de la part de votre organisation, par exemple *https://support.contoso.com/* .
+1. Dans le champ **Personnaliser le lien du support technique**, spécifiez une adresse e-mail ou une URL de page web où vos utilisateurs peuvent obtenir une aide supplémentaire de la part de votre organisation, par exemple *`https://support.contoso.com/`* .
 1. Pour appliquer le lien personnalisé, sélectionnez **Enregistrer**.
 
 ## <a name="test-self-service-password-reset"></a>Tester la réinitialisation de mot de passe en libre-service

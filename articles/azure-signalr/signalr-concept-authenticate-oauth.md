@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5608d71c4a91c9b46b8ed7de13c9d4c06a3f195f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74158285"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194599"
 ---
 # <a name="azure-signalr-service-authentication"></a>Authentification par Azure SignalR Service
 
@@ -545,8 +545,8 @@ Pour finir, vous devez mettre à jour l’**URL de la page d’accueil** et l’
 
     | Paramètre | Exemple |
     | ------- | ------- |
-    | URL de la page d’accueil | https://signalrtestwebapp22665120.azurewebsites.net/home |
-    | URL de rappel d’autorisation | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
+    | URL de la page d’accueil | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
+    | URL de rappel d’autorisation | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |
 
 3. Accédez à l’URL de votre application web, puis testez l’application.
 

@@ -243,11 +243,13 @@
             - name: Autonome - tous les environnements
               items:
                 - name: Java (préversion)
-                  href: app/java-in-process-agent.md
-                - name: Configuration des machine virtuelles Java
-                  href: app/java-standalone-arguments.md
-                - name: Options de configuration Java
-                  href: app/java-standalone-config.md
+                  items:
+                    - name: Vue d’ensemble
+                      href: app/java-in-process-agent.md
+                    - name: Options de configuration
+                      href: app/java-standalone-config.md
+                    - name: Configuration d’arguments JVM
+                      href: app/java-standalone-arguments.md
             - name: Serveurs locaux
               items:
                 - name: ASP.NET
@@ -690,8 +692,10 @@
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Activer pour un cluster hybride
                   href: insights/container-insights-hybrid-setup.md
-                - name: Activer pour Azure Red Hat OpenShift
+                - name: "Activer pour Azure Red Hat OpenShift\_v3"
                   href: insights/container-insights-azure-redhat-setup.md
+                - name: "Activer pour Azure Red Hat OpenShift\_v4"
+                  href: insights/container-insights-azure-redhat4-setup.md
                 - name: Correspondances de régions
                   href: insights/container-insights-region-mapping.md
             - name: Superviser les performances
@@ -724,10 +728,16 @@
               href: insights/container-insights-update-metrics.md
             - name: Configuration de la supervision de l’intégrité
               href: insights/container-insights-health-monitors-config.md
-            - name: Désactiver la supervision AKS
-              href: insights/container-insights-optout.md
-            - name: Désactiver la supervision de Red Hat OpenShift
-              href: insights/container-insights-optout-openshift.md
+            - name: Désactiver l’analyse
+              items:
+                - name: Désactiver la supervision AKS
+                  href: insights/container-insights-optout.md
+                - name: "Désactiver la supervision de Red Hat OpenShift\_v3"
+                  href: insights/container-insights-optout-openshift-v3.md
+                - name: "Désactiver la supervision de Red Hat OpenShift\_v4"
+                  href: insights/container-insights-optout-openshift-v4.md
+                - name: Désactiver la supervision du cluster hybride
+                  href: insights/container-insights-optout-hybrid.md
             - name: Dépannage
               href: insights/container-insights-troubleshoot.md
         - name: Surveillance de Docker et du conteneur Windows

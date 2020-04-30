@@ -2,14 +2,14 @@
 title: 'Démarrage rapide : Utiliser le SDK pour créer et gérer la base de connaissances - QnA Maker'
 description: Ce guide de démarrage rapide vous montre comment créer et gérer votre base de connaissances à l’aide du SDK client.
 ms.topic: quickstart
-ms.date: 01/13/2020
+ms.date: 04/27/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 065f88ce12037109773b7023972c151d968840a8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 350020069edc2ae01f1716b1e6166da43054b24b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79218481"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204013"
 ---
 # <a name="quickstart-create-and-manage-knowledge-base"></a>Démarrage rapide : Créer et gérer la base de connaissances
 

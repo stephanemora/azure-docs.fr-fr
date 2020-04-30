@@ -136,10 +136,10 @@
         - name: Approvisionner le débit sur les conteneurs et les bases de données
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Provisionner le débit - Mode AutoPilot
-          href: provision-throughput-autopilot.md
-        - name: Questions fréquentes (FAQ) sur Autopilot
-          href: autopilot-faq.md
+        - name: Provisionner le débit - Mode de mise à l’échelle automatique
+          href: provision-throughput-autoscale.md
+        - name: Questions fréquentes (FAQ) sur la mise à l’échelle automatique
+          href: autoscale-faq.md
     - name: requête SQL
       items:
         - name: Prise en main
@@ -518,6 +518,7 @@
         - name: Coût total de possession (TCO)
           href: total-cost-ownership.md
         - name: Comprendre votre facture
+          displayName: free tier
           href: understand-your-bill.md
         - name: Optimiser le coût du débit provisionné
           displayName: 'request units, RUs, RU'
@@ -531,6 +532,7 @@
         - name: Optimiser le coût multirégion
           href: optimize-cost-regions.md
         - name: Optimiser le coût de développement/test
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Optimiser le coût avec une capacité réservée
           href: cosmos-db-reserved-capacity.md

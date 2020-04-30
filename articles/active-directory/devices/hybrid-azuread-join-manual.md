@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802550"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201021"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -140,7 +140,7 @@ Le script ci-après présente un exemple d’utilisation de l’applet de comman
 L’applet de commande `Initialize-ADSyncDomainJoinedComputerSync` :
 
 * Utilise le module Active Directory PowerShell et les outils Azure Active Directory Domain Services (Azure AD DS). Ces outils supposent que les services web Active Directory s’exécutent sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures.
-* Est pris en charge seulement par le module MSOnline PowerShell version 1.1.166.0. Pour télécharger ce module, utilisez ce [lien](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
+* Est pris en charge seulement par le module MSOnline PowerShell version 1.1.166.0. Pour télécharger ce module, utilisez ce [lien](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Si les outils AD DS ne sont pas installés, `Initialize-ADSyncDomainJoinedComputerSync` échoue. Vous pouvez installer les outils AD DS via le Gestionnaire de serveur, sous **Fonctionnalités** > **Outils d’administration de serveur distant** > **Outils d’administration de rôles**.
 
 Dans le cas de contrôleurs de domaine exécutant Windows Server 2008 ou des versions antérieures, utilisez le script suivant pour créer le point de connexion de service. Dans une configuration multi-forêt, utilisez le script ci-dessous pour créer le point de connexion de service dans chacune des forêts contenant des ordinateurs.
@@ -185,7 +185,7 @@ Lorsque vous utilisez AD FS, vous devez activer les points de terminaison WS-Tru
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> **adfs/services/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet ; ils NE doivent PAS être exposés comme points de terminaison extranet via le proxy d’application web. Pour en savoir plus sur la désactivation des points de terminaison Windows WS-Trust, consultez [Désactiver les points de terminaison Windows WS-Trust sur le proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service** > **Points de terminaison**.
+> **adfs/services/trust/2005/windowstransport** et **adfs/services/trust/13/windowstransport** doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet et ils NE doivent PAS être exposés comme points de terminaison accessibles sur extranet via le proxy d’application web. Pour en savoir plus sur la désactivation des points de terminaison Windows WS-Trust, consultez [Désactiver les points de terminaison Windows WS-Trust sur le proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service** > **Points de terminaison**.
 
 > [!NOTE]
 >Si vous n’utilisez pas AD FS en tant que service de fédération local, suivez les instructions de votre fournisseur pour vous assurer que celui-ci prend en charge les points de terminaison WS-Trust 1.3 ou 2005 et que ces derniers sont publiés par le biais du fichier Metadata Exchange (MEX).

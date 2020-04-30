@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
-ms.date: 09/26/2019
+ms.date: 04/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b1c3435222ada52c01f21c2c242dc886f566a81
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72757074"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192848"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Cas d’utilisation de l’analytique intégrée à Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Grâce à l'intégration native d'Apache Spark, Azure Cosmos DB offre un moyen r
 
 Vous serez peut-être amené à devoir répondre à des questions portant sur les données, comme l'exécution d'événements à des moments précis. Par exemple, pour obtenir le nombre d’états d’activité CRM à une certaine date. Si vous avez exécuté le rapport il y a une semaine, le nombre d’états correspond aux états de chaque activité à un moment donné. En exécutant le même rapport aujourd’hui, vous obtiendrez le nombre d’activités dont les états correspondent au jour, ce qui peut avoir changé depuis la semaine précédente, au fil de leur cycle de vie, de l’ouverture à la fermeture. Dès lors, vous devez reporter sur l'instantané chaque étape du cycle de vie du cas.
 
-Dans les scénarios d'entrepôt de données traditionnels, le concept d'instantané n’est pas possible, car les entrepôts de données ne sont pas conçus pour l’incorporer et les données fournissent uniquement une vue actuelle de la situation. Avec Azure Cosmos DB, les utilisateurs ont la possibilité d’implémenter le concept de voyage dans le temps, d'interroger et d’exécuter des analyses sur les données de manière rétrospective et d'en savoir plus sur les données à un moment précis de l’historique. Ainsi, les utilisateurs peuvent facilement afficher les vues actuelles et historiques des données et y exécuter des analyses.
+Avec Azure Cosmos DB, les utilisateurs ont la possibilité d’implémenter le concept de voyage dans le temps, d'interroger et d’exécuter des analyses sur les données de manière rétrospective et d'en savoir plus sur les données à un moment précis de l’historique. Ainsi, les utilisateurs peuvent facilement afficher les vues actuelles et historiques des données et y exécuter des analyses.
 
 ## <a name="globally-distributed-machine-learning-and-ai"></a>Machine Learning et IA distribués à l'échelle mondiale
 

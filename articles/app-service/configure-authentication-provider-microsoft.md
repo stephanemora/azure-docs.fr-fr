@@ -7,12 +7,12 @@ ms.date: 08/08/2019
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: a78208ba592f86400e9b06b15d8a76923dda736f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 6fe0e39584cbaa001e11f712bb2f60b45dba6914
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519896"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203486"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion de compte Microsoft
 
@@ -42,7 +42,7 @@ Cette rubrique montre comment configurer Azure App Service ou Azure Functions af
 
 1. Accédez à votre application dans le [Azure portal].
 1. Sélectionnez **Paramètres** > **Authentification/Autorisation**, puis vérifiez que **l’authentification App Service** est activée, sur **On**.
-1. Sous **Fournisseurs d’authentification**, cliquez sur **Azure Active Directory**. Sélectionnez **Avancé** sous **Mode d’administration**. Collez l’ID d’application (client) et la clé secrète client que vous avez obtenus précédemment. Utilisez **https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0** pour le champ **URL de l’émetteur**.
+1. Sous **Fournisseurs d’authentification**, cliquez sur **Azure Active Directory**. Sélectionnez **Avancé** sous **Mode d’administration**. Collez l’ID d’application (client) et la clé secrète client que vous avez obtenus précédemment. Utilisez **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** pour le champ **URL de l’émetteur**.
 1. Sélectionnez **OK**.
 
    App Service fournit une authentification, mais ne restreint pas l’accès autorisé au contenu et aux API de votre site. Vous devez autoriser les utilisateurs dans votre code d'application.

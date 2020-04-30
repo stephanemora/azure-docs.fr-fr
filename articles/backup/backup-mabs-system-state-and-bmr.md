@@ -3,12 +3,12 @@ title: Protection de la récupération de l’état du système et complète
 description: Utilisez le serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 358a1c96d598788170993fc48e60daae2b6b036c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505884"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192363"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète à l’aide du serveur de sauvegarde Azure
 
@@ -43,14 +43,14 @@ Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour p
 
 ## <a name="how-system-state-backup-works"></a>Fonctionnement de la sauvegarde de l’état du système
 
-Lors d’une sauvegarde de l’état du système, le Serveur de sauvegarde communique avec l’application Sauvegarde Windows Server pour demander une sauvegarde de l’état du système du serveur. Par défaut, le Serveur de sauvegarde et l’application Sauvegarde Windows Server utilisent le lecteur offrant le plus d’espace libre. Les informations relatives à ce lecteur sont enregistrées dans le fichier *PSDataSourceConfig.xml*. 
+Lors d’une sauvegarde de l’état du système, le Serveur de sauvegarde communique avec l’application Sauvegarde Windows Server pour demander une sauvegarde de l’état du système du serveur. Par défaut, le Serveur de sauvegarde et l’application Sauvegarde Windows Server utilisent le lecteur offrant le plus d’espace libre. Les informations relatives à ce lecteur sont enregistrées dans le fichier *PSDataSourceConfig.xml*.
 
-Vous pouvez personnaliser le lecteur que le Serveur de sauvegarde utilise pour sauvegarder l’état du système : 
+Vous pouvez personnaliser le lecteur que le Serveur de sauvegarde utilise pour sauvegarder l’état du système :
 
-1. Sur le serveur protégé, accédez à *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*. 
-1. Ouvrez le fichier *PSDataSourceConfig.xml* pour le modifier. 
-1. Modifiez la valeur \<FilesToProtect\> pour la lettre de lecteur. 
-1. Enregistrez et fermez le fichier. 
+1. Sur le serveur protégé, accédez à *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*.
+1. Ouvrez le fichier *PSDataSourceConfig.xml* pour le modifier.
+1. Modifiez la valeur \<FilesToProtect\> pour la lettre de lecteur.
+1. Enregistrez et fermez le fichier.
 
 Si un groupe de protection est défini pour protéger l’état du système de l’ordinateur, exécutez une vérification de cohérence. Si une alerte est générée, sélectionnez **Modifier le groupe de protection** dans l’alerte, puis suivez les instructions des pages de l’Assistant. Ensuite, exécutez une autre vérification de cohérence.
 
@@ -117,7 +117,7 @@ Pour sauvegarder l’état du système et la récupération complète :
 
     N’oubliez pas que vous ne pouvez pas protéger la récupération complète et l’état du système pour un même ordinateur dans des groupes différents. Par ailleurs, lorsque vous sélectionnez la récupération complète, la protection de l’état du système est automatiquement activée. Pour plus d’informations, voir [Déployer des groupes de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
 
-1. Dans la page **Sélectionner la méthode de protection des données**, choisissez comment gérer les sauvegardes à court terme et les sauvegardes à long terme. 
+1. Dans la page **Sélectionner la méthode de protection des données**, choisissez comment gérer les sauvegardes à court terme et les sauvegardes à long terme.
 
     La sauvegarde à court terme est toujours effectuée d’abord sur disque, avec l’option de sauvegarder du disque dans Azure à l’aide de Sauvegarde Microsoft Azure (à court ou long terme). Une alternative à la sauvegarde à long terme dans le cloud consiste à configurer la sauvegarde à long terme sur un lecteur de bandes ou dans une bibliothèque de bandes autonomes connectés au Serveur de sauvegarde.
 
@@ -139,23 +139,23 @@ Pour sauvegarder l’état du système et la récupération complète :
     * L’**Espace disque à approvisionner sur le Serveur de sauvegarde Azure** est l’espace que le Serveur de sauvegarde recommande pour le groupe de protection. Le Serveur de sauvegarde utilise ces paramètres pour choisir le volume de sauvegarde idéal. Vous pouvez modifier les choix de volume de sauvegarde dans **Détails de l’allocation de disque**.
     * Pour les charges de travail, dans le menu déroulant, sélectionnez le stockage par défaut. Vos modifications changent les valeurs de **Stockage Total** et **Stockage libre** dans le volet **Stockage sur disque disponible**. L’espace sous-provisionné est la quantité de stockage que le Serveur de sauvegarde suggère que vous ajoutiez au volume pour garantir des sauvegardes sans heurt.
 
-1. Dans la page **choisir la méthode de création de réplica**, sélectionnez la façon de gérer la réplication initiale complète des données. 
+1. Dans la page **choisir la méthode de création de réplica**, sélectionnez la façon de gérer la réplication initiale complète des données.
 
     Si vous choisissez de répliquer sur le réseau, nous vous recommandons de choisir une heure creuse. Si les quantités de données sont importantes ou si les conditions réseau ne sont pas optimales, envisagez de répliquer les données hors connexion à l’aide d’un support amovible.
 
-1. Dans la page **Sélectionner les options de vérification de cohérence**, indiquez comment automatiser les vérifications de cohérence. 
+1. Dans la page **Sélectionner les options de vérification de cohérence**, indiquez comment automatiser les vérifications de cohérence.
 
     Vous pouvez choisir d’exécuter une vérification uniquement lorsque les données du réplica deviennent incohérentes, ou selon une planification. Si vous ne voulez pas configurer une vérification de cohérence automatique, vous pouvez effectuer une vérification manuelle à toute moment. Pour effectuer une vérification manuelle, dans la zone **Protection** de la Console Administrateur du Serveur de sauvegarde, cliquez avec le bouton droit sur le groupe de protection, puis sélectionnez **Effectuer une vérification de cohérence**.
 
 1. Si vous avez choisi de sauvegarder dans le cloud à l’aide de Sauvegarde Azure, dans la page **Indiquer les données de protection en ligne**, sélectionnez les charges de travail que vous souhaitez sauvegarder dans Azure.
 
-1. Dans la page **Spécifier la planification de sauvegarde en ligne**, sélectionnez la fréquence des sauvegardes incrémentielles dans Azure. 
+1. Dans la page **Spécifier la planification de sauvegarde en ligne**, sélectionnez la fréquence des sauvegardes incrémentielles dans Azure.
 
     Vous pouvez planifier des sauvegardes pour qu’elles s’exécutent tous les jours, toutes les semaines, tous les mois et toutes les années. Vous pouvez également sélectionner la date et l’heure auxquelles les sauvegardes doivent s’exécuter. Les sauvegardes peuvent avoir lieu jusqu’à deux fois par jour. Chaque fois qu’une sauvegarde s’exécute, un point de récupération de données est créé dans Azure à partir de la copie des données de sauvegarde qui sont stockées sur le disque du Serveur de sauvegarde.
 
 1. Dans la page **Spécifier la stratégie de rétention en ligne**, sélectionnez la façon dont les points de récupération créés à partir des sauvegardes quotidiennes, hebdomadaires, mensuelles et annuelles sont conservés dans Azure.
 
-1. Dans la page **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données doit se produire. 
+1. Dans la page **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données doit se produire.
 
     Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). Une sauvegarde en mode hors connexion utilise la fonctionnalité Azure Import. Pour plus d’informations, voir [Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure](offline-backup-azure-data-box.md).
 
@@ -175,23 +175,23 @@ Pour exécuter la récupération sur l’ordinateur Serveur de sauvegarde :
 
 1. Dans la page **Sélectionner le type de récupération**, sélectionnez **Copier dans un dossier réseau**.
 
-1. Dans la page **Spécifier la destination**, sélectionnez la destination des données copiées. 
+1. Dans la page **Spécifier la destination**, sélectionnez la destination des données copiées.
 
     N’oubliez pas que la destination doit offrir suffisamment d’espace. Nous vous recommandons de créer un dossier pour la destination.
 
 1. Dans la page **Spécifier les options de récupération**, sélectionnez les paramètres de sécurité. Ensuite, indiquez s’il faut utiliser des instantanés matériels basés sur le réseau de zone de stockage (SAN) pour accélérer la récupération. Cette option est disponible uniquement si :
-    * Vous disposez d’un réseau SAN qui fournit cette fonctionnalité. 
+    * Vous disposez d’un réseau SAN qui fournit cette fonctionnalité.
     * Vous pouvez créer et diviser un clone pour le rendre accessible en écriture.
     * L’ordinateur protégé et l’ordinateur Serveur de sauvegarde sont connectés au même réseau.
 
-1. Configurez les options de notification. 
+1. Configurez les options de notification.
 1. Dans la page **Confirmation**, sélectionnez **Récupérer**.
 
 Pour configurer l’emplacement du partage :
 
 1. Dans l’emplacement de restauration, accédez au dossier contenant la sauvegarde.
 
-1. Partagez le dossier situé un niveau au-dessus de *WindowsImageBackup*, de façon à ce que la racine du dossier partagé soit le dossier *WindowsImageBackup*. 
+1. Partagez le dossier situé un niveau au-dessus de *WindowsImageBackup*, de façon à ce que la racine du dossier partagé soit le dossier *WindowsImageBackup*.
 
     Si vous ne partagez pas ce dossier, la restauration ne trouve pas la sauvegarde. Pour vous connecter en utilisant WinRE, vous avez besoin d’un partage auquel vous pouvez accéder dans WinRE avec l’adresse IP et les informations d’identification correctes.
 
@@ -219,16 +219,16 @@ Pour exécuter la récupération dans le Serveur de sauvegarde :
 
 1. Sur la page **Sélectionner le type de récupération**, sélectionnez **Copier dans un dossier réseau**.
 
-1. Dans la page **Spécifier la destination**, sélectionnez l’emplacement auquel copier les données. 
+1. Dans la page **Spécifier la destination**, sélectionnez l’emplacement auquel copier les données.
 
     N’oubliez pas que la destination que vous sélectionnez doit offrir suffisamment d’espace. Nous vous recommandons de créer un dossier pour la destination.
 
-1. Dans la page **Spécifier les options de récupération**, sélectionnez les paramètres de sécurité. Ensuite, indiquez s’il faut utiliser des instantanés matériels basés sur le SAN pour accélérer la récupération. Cette option est disponible uniquement si : 
+1. Dans la page **Spécifier les options de récupération**, sélectionnez les paramètres de sécurité. Ensuite, indiquez s’il faut utiliser des instantanés matériels basés sur le SAN pour accélérer la récupération. Cette option est disponible uniquement si :
     * Vous disposez d’un réseau SAN qui fournit cette fonctionnalité.
-    * Vous pouvez créer et diviser un clone pour le rendre accessible en écriture. 
+    * Vous pouvez créer et diviser un clone pour le rendre accessible en écriture.
     * L’ordinateur protégé et l’ordinateur Serveur de sauvegarde sont connectés au même réseau.
 
-1. Configurez les options de notification. 
+1. Configurez les options de notification.
 1. Dans la page **Confirmation**, sélectionnez **Récupérer**.
 
 Pour exécuter l’application Sauvegarde Windows Server :
@@ -241,22 +241,22 @@ Pour exécuter l’application Sauvegarde Windows Server :
 
 1. Dans la page **Sélectionner l’emplacement pour la récupération de l’état du système**, choisissez **Emplacement d’origine**.
 
-1. Dans la page **Confirmation**, sélectionnez **Récupérer**. 
+1. Dans la page **Confirmation**, sélectionnez **Récupérer**.
 
 1. Après la restauration, redémarrez le serveur.
 
-Vous pouvez également exécuter la restauration de l’état du système depuis une invite de commandes : 
+Vous pouvez également exécuter la restauration de l’état du système depuis une invite de commandes :
 
-1. Démarrez l’application Sauvegarde Windows Server sur l’ordinateur que vous souhaitez récupérer. 
+1. Démarrez l’application Sauvegarde Windows Server sur l’ordinateur que vous souhaitez récupérer.
 
 1. Pour obtenir l’identificateur de version, depuis une invite de commandes, entrez ce qui suit :
 
    ```wbadmin get versions -backuptarget \<servername\sharename\>```
 
-1. Utilisez l’identificateur de version pour démarrer la restauration de l’état du système. À l’invite de commandes, tapez : 
+1. Utilisez l’identificateur de version pour démarrer la restauration de l’état du système. À l’invite de commandes, tapez :
 
     ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
-1. Confirmez que vous souhaitez démarrer la récupération. Vous pouvez voir le processus dans la fenêtre d’invite de commandes. Un journal de restauration est créé. 
+1. Confirmez que vous souhaitez démarrer la récupération. Vous pouvez voir le processus dans la fenêtre d’invite de commandes. Un journal de restauration est créé.
 
 1. Après la restauration, redémarrez le serveur.

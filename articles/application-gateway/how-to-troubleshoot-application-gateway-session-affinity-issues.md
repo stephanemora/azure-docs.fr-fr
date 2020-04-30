@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: aa3617b30fe1ef9b4d4a6c5fe5aac51bff95bb92
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: f5f5c16f3d6aa1d7115e99cbae0dbd6cd926b25a
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866686"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202534"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Résoudre des problèmes d’affinité de session dans Azure Application Gateway
 
@@ -75,7 +75,7 @@ Si l’application ne peut pas gérer l’affinité basée sur les cookies, vous
 
 #### <a name="symptom"></a>Symptôme
 
-Si vous avez activé le paramètre Affinité basée sur les cookies, lorsque vous accédez à Application Gateway via une URL au nom court telle que [http://website](http://website/) dans Internet Explorer, la requête continue de rebondir entre les serveurs principaux.
+Si vous avez activé le paramètre Affinité basée sur les cookies, lorsque vous accédez à Application Gateway via une URL au nom court telle que `http://website` dans Internet Explorer, la requête continue de rebondir entre les serveurs principaux.
 
 Pour identifier ce problème, suivez les instructions :
 

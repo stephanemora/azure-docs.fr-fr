@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4278f00b1026fe4d1b95634540d6d035d43ca5ab
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67100085"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutoriel : Intégration d’Azure Active Directory à InsideView
 
@@ -143,13 +143,13 @@ Pour configurer l’authentification unique Azure AD avec InsideView, effectuez 
 
     1. Ouvrez le certificat brut que vous avez téléchargé à partir du portail Azure. Copiez le contenu du certificat dans le Presse-papiers, puis collez le contenu dans la zone **STS Certificate**.
 
-    1. Dans la zone **Crm User Id Mapping** (Mappage d’ID utilisateur Crm), entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+    1. Dans la zone **Crm User Id Mapping** (Mappage d’ID utilisateur Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
-    1. Dans la zone **Crm Email Mapping** (Mappage d’e-mail Crm), entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+    1. Dans la zone **Crm Email Mapping** (Mappage d’e-mail Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
-    1. Dans la zone **Crm First Name Mapping** (Mappage du prénom Crm), entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
+    1. Dans la zone **Crm First Name Mapping** (Mappage du prénom Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
 
-    1. Dans la zone **Crm lastName Mapping** (Mappage du nom Crm), entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .  
+    1. Dans la zone **Crm lastName Mapping** (Mappage du nom Crm), entrez **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .  
 
     1. Sélectionnez **Enregistrer**.
 

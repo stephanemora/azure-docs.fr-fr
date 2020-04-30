@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77582651"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193273"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -125,17 +125,17 @@ Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publ
 
 Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants :
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
 
 Avec le Peering Microsoft, sélectionnez les services/régions suivants et les valeurs de communauté pertinentes :
 
-* Azure Active Directory (12076:5060)
-* Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
-* Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
+- Azure Active Directory (12076:5060)
+- Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
+- Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
 
 Pour plus d’informations, consultez [Configuration requise pour le routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 

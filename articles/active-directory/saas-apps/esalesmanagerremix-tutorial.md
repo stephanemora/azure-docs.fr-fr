@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65406949"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202394"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Intégrer Azure Active Directory à E Sales Manager Remix
 
@@ -158,7 +158,7 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
     
     b. Dans la section **Éléments Collaboration**, dans la liste déroulante, sélectionnez **e-mail**.
 
-    c. Dans la zone **éléments Collaboration**, collez la valeur de revendication que vous avez copiée plus tôt à partir du portail Azure (c’est-à-dire **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** ).
+    c. Dans la zone **éléments Collaboration**, collez la valeur de revendication que vous avez copiée plus tôt à partir du portail Azure (c’est-à-dire **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** ).
 
     d. Dans le champ **Émetteur (ID d’entité)** , collez la valeur Identificateur que vous avez copiée plus tôt à partir de la section relative aux **domaine et adresses URL E Sales Manager Remix** du portail Azure.
 
