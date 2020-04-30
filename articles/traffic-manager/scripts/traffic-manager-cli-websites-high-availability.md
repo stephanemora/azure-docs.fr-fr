@@ -15,10 +15,10 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: rohink
 ms.openlocfilehash: e108fbe54ce67d4eb354319450259fc410462c53
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460611"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Acheminer le trafic pour la haute disponibilité des applications à l’aide d’Azure CLI
