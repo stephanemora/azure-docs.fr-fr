@@ -3,12 +3,12 @@ title: Exporter vers SQL à partir d’Application Insights | Microsoft Docs
 description: Exportez de façon continue les données Application Insights vers SQL à l’aide de Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663673"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536911"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
 Cet article explique comment déplacer vos données de télémétrie d’[Azure Application Insights][start] vers une base de données Azure SQL à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -61,10 +61,10 @@ Comme l’exportation continue génère toujours des données vers un compte de 
     ![Choisissez les types d’événements.](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Laissez les données s'accumuler. Installez-vous confortablement et laissez les utilisateurs utiliser votre application pendant un certain temps. Les données de télémétrie vont vous être transmises et vous permettre d’afficher des graphiques statistiques dans [Metrics explorer](../../azure-monitor/app/metrics-explorer.md) et des événements dans [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md). 
+1. Laissez les données s'accumuler. Installez-vous confortablement et laissez les utilisateurs utiliser votre application pendant un certain temps. Les données de télémétrie vont vous être transmises et vous permettre d’afficher des graphiques statistiques dans [Metrics explorer](../../azure-monitor/platform/metrics-charts.md) et des événements dans [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md). 
    
     Les données seront également exportées vers votre stockage. 
-2. Inspectez les données exportées, soit dans le portail (choisissez **Parcourir**, sélectionnez votre compte de stockage, puis **Conteneurs**), soit dans Visual Studio. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer**, puis ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
+2. Inspectez les données exportées, soit dans le portail (choisissez **Parcourir**, sélectionnez votre compte de stockage, puis **Conteneurs**), soit dans Visual Studio. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer**, puis ouvrez Azure / Stockage. (Si vous n’avez pas cette option de menu, vous devez installer le SDK Azure : ouvrez la boîte de dialogue Nouveau projet, puis ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
    
     ![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -240,7 +240,7 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
 
 ## <a name="related-articles"></a>Articles connexes
-* [Exporter vers PowerBI à l’aide de Stream Analytics](../../azure-monitor/app/export-power-bi.md )
+* [Exporter vers Power BI à l’aide de Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](../../azure-monitor/app/export-data-model.md)
 * [Exportation continue dans Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -249,7 +249,7 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
 

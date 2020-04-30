@@ -11,14 +11,15 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 6645c2672e15c562216b4347f779ef3634a2f124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3007865c15ceb03b104282c29179ec59a8196b38
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130873"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604599"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 L’expérience en matière d’interface utilisateur Azure Data Factory comporte deux expériences disponibles pour la création visuelle :
 
@@ -231,7 +232,7 @@ Un volet latéral s’ouvre, dans lequel vous confirmez que la branche de public
 En règle générale, vous ne souhaitez pas autoriser tous les membres de l’équipe à mettre à jour la fabrique. Les paramètres des autorisations suivants sont recommandés :
 
 *   Tous les membres de l’équipe doivent disposer d'autorisations de lecture dans la fabrique de données.
-*   Seul un ensemble sélectionné de personnes doit être autorisé à publier sur la fabrique. Pour ce faire, elles doivent avoir le rôle **Contributeurs de Data Factory** sur la fabrique. Pour plus d’informations sur les autorisations, consultez [Rôles et autorisations pour Azure Data Factory](concepts-roles-permissions.md).
+*   Seul un ensemble sélectionné de personnes doit être autorisé à publier sur la fabrique. Pour ce faire, elles doivent avoir le rôle **Contributeurs de Data Factory** sur le groupe de ressources où se trouve la fabrique. Pour plus d’informations sur les autorisations, consultez [Rôles et autorisations pour Azure Data Factory](concepts-roles-permissions.md).
    
 Il est recommandé de ne pas autoriser les archivages directs dans la branche de collaboration. Cette restriction peut aider à éviter les bogues, car chaque archivage passe par un processus de demande de tirage décrit dans [Création de branches de fonctionnalités](source-control.md#creating-feature-branches).
 

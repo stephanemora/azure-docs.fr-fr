@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
-ms.openlocfilehash: f13e4066137e0d76612040d9f6e5ff3d0aa399c8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b02fda545ac135735186885d7db597885bf6cc21
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273900"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147962"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Déployer une machine virtuelle à partir de vos disques durs virtuels
 
 > [!IMPORTANT]
-> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données fournies dans [Créer vos ressources techniques de machine virtuelle Azure](https://aka.ms/AzureVMTechAsset) pour gérer vos offres migrées.
+> Depuis le 13 avril 2020, nous avons commencé à déplacer la gestion de vos offres de machines virtuelles Azure vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions données fournies dans [Créer vos ressources techniques de machine virtuelle Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) pour gérer vos offres migrées.
 
 Cette section explique comment déployer une machine virtuelle à partir d’un disque dur virtuel (VHD) déployé dans Azure.  Elle répertorie les outils nécessaires et explique comment les utiliser pour créer une image de machine virtuelle d’utilisateur, puis la déployer vers Azure à l’aide de scripts PowerShell.
 

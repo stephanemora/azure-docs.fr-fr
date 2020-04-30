@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.openlocfilehash: 62e6b007e89fc6be726d3d971ca838770db9cb6e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 51607f44f75cbd93c7ecf1c77bb52c73b27b5f3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75422150"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159743"
 ---
 # <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Déployer un conteneur Linux personnalisé dans Azure App Service
 
@@ -21,8 +21,8 @@ App Service sur Linux fournit des piles d’applications prédéfinies sur Linux
 * un [compte Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) ;
 * [Docker](https://www.docker.com/community-edition)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* L’[extension Azure App Service pour VS Code](vscode:extension/ms-azuretools.vscode-azureappservice). Vous pouvez utiliser cette extension pour créer, gérer et déployer des applications web Linux sur la plateforme PaaS (Platform as a Service) Azure.
-* L’[extension Docker pour VS Code](vscode:extension/ms-azuretools.vscode-docker). Vous pouvez utiliser cette extension pour simplifier la gestion des images et commandes Docker locales, ainsi que pour déployer des images d’application générées sur Azure.
+* L’[extension Azure App Service pour VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Vous pouvez utiliser cette extension pour créer, gérer et déployer des applications web Linux sur la plateforme PaaS (Platform as a Service) Azure.
+* L’[extension Docker pour VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Vous pouvez utiliser cette extension pour simplifier la gestion des images et commandes Docker locales, ainsi que pour déployer des images d’application générées sur Azure.
 
 ## <a name="create-an-image"></a>Créer une image
 
