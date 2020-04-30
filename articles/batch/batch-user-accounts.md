@@ -1,34 +1,21 @@
 ---
 title: Exécuter des tâches sous des comptes d’utilisateur - Azure Batch
 description: Il est utile de pouvoir configurer le compte d’utilisateur sous lequel vous voulez exécuter une tâche. Découvrez les types de comptes d’utilisateur et comment les configurer.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/18/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227405"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82111740"
 ---
 > [!NOTE] 
 > Pour des raisons de sécurité, les comptes d’utilisateur décrits dans cet article sont différents des comptes d’utilisateur utilisés pour le protocole RDP (Remote Desktop) ou le protocole SSH (Secure Shell). 
 >
 > Pour vous connecter à un nœud qui exécute une configuration de machine virtuelle Linux via le protocole SSH, consultez [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Pour vous connecter à des nœuds exécutant Windows via RDP, consultez [Connexion à une machine virtuelle Azure exécutant Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Pour vous connecter à un nœud qui exécute la configuration du service cloud via RDP, consultez [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
->
->
-
 
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Exécuter des tâches sous des comptes d’utilisateur dans Azure Batch
 

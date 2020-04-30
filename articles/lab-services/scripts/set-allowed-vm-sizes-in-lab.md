@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/24/2020
 ms.author: spelluru
-ms.openlocfilehash: a1b0e9a4aed475f04ec8dcffa9bc95b7c7c713e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3dbee7d0ac928c4f18f25348e714aba9c1cd13
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760449"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100768"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Utiliser PowerShell pour définir les tailles de machine virtuelle autorisées dans Azure Lab Services
 

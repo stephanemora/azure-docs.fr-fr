@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a5942a9d614bbb06fadb1d4b16d4c68c007434c7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 24567461ee8a87fc9dbd1c5fb4eba5e34d458f7b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885316"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82097759"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Paramètres obligatoires
 
-`AcquireTokenInteractive` n’a qu’un seul paramètre obligatoire, ``scopes``, qui contient une énumération de chaînes définissant les étendues pour lesquelles un jeton est nécessaire. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence d’API de chaque API Microsoft Graph, à la section intitulée « Autorisations ». Par exemple, pour [lister les contacts de l’utilisateur](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), vous devez utiliser les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` n’a qu’un seul paramètre obligatoire, ``scopes``, qui contient une énumération de chaînes définissant les étendues pour lesquelles un jeton est nécessaire. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence d’API de chaque API Microsoft Graph, à la section intitulée « Autorisations ». Par exemple, pour [lister les contacts de l’utilisateur](https://docs.microsoft.com/graph/api/user-list-contacts), vous devez utiliser les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 Sur Android, vous devez également spécifier l’activité parente au moyen de `.WithParentActivityOrWindow`, comme indiqué, afin que le jeton retourne à cette activité parente après l’interaction. Si vous ne le précisez pas, une exception est levée lors de l’appel de `.ExecuteAsync()`.
 

@@ -1,20 +1,19 @@
 ---
 title: Contrôles de sécurité pour Machines virtuelles Windows Azure
 description: Check-list des contrôles de sécurité pour l’évaluation de Machines virtuelles Windows Azure
-services: virtual-machines
 ms.service: virtual-machines
-documentationcenter: ''
+ms.subservice: security
 author: msmbaldwin
 manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 569c989e8876bb7213d1469c7a70da99aa0b1e9c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ac1ed9ac25d65d0391175fc6d43b48048da74926
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455340"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101584"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Contrôles de sécurité pour Machines virtuelles Windows
 

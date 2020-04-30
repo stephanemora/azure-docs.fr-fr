@@ -3,12 +3,12 @@ title: 'Tutoriel : Entité de liste - LUIS'
 description: Obtenez des données qui correspondent à une liste d’éléments prédéfinie. Chaque élément de la liste peut avoir des synonymes qui correspondent également exactement
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9530719c43260751d64d7ccf446bc7941078d6e9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79297405"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101125"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutoriel : Obtenir des données exactes correspondant au texte d’un énoncé avec une entité de liste
 
@@ -33,7 +33,7 @@ Pour cette application de commande de pizzas importée, créez une entité de li
 Une entité de type liste est un choix approprié pour ce type de données lorsque :
 
 * Les valeurs des données sont un ensemble connu.
-* L’ensemble ne dépasse pas les [limites](luis-boundaries.md) maximum de LUIS pour ce type d’entité.
+* L’ensemble ne dépasse pas les [limites](luis-limits.md) maximum de LUIS pour ce type d’entité.
 * Le texte de l’énoncé est une correspondance insensible à la casse avec un synonyme ou le nom canonique. LUIS n’utilise pas la liste au-delà de la correspondance. Une simple entité de liste ne suffit pas pour résoudre la recherche de radical, les pluriels et autres variantes. Pour gérer les variantes, envisagez d’utiliser un [modèle](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) avec la syntaxe de texte facultative.
 
 > [!CAUTION]

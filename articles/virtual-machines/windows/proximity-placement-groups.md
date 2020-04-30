@@ -3,17 +3,17 @@ title: 'PowerShell : Utiliser des groupes de placements de proximité'
 description: Découvrez comment créer et utiliser des groupes de placements de proximité à l’aide d’Azure PowerShell.
 services: virtual-machines
 ms.service: virtual-machines
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
-ms.openlocfilehash: f69e245d72a63b942896cdd9f4a2225cb4c1706d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: zivr
+ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78208523"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82098524"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Déployer des machines virtuelles dans des groupes de placements avec PowerShell
 

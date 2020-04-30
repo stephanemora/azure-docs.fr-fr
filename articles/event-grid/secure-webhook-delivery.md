@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 074378668b0516936e11968ea8c800d3daa667bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cb8168cd6d1c19cc797a7cd5454b96131fa35be
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931553"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106615"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 
@@ -103,10 +103,10 @@ else
     
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
     
-Write-Host "My Azure AD Tenant Id" + $myTenantId
-Write-Host "My Azure AD Application Id" + $myAzureADApplicationObjectId
-Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
-Write-Host "My Azure AD Application's Roles"
+Write-Host "My Azure AD Tenant Id: $myTenantId"
+Write-Host "My Azure AD Application Id: $($myApp.AppId)"
+Write-Host "My Azure AD Application ObjectId: $($myApp.ObjectId)"
+Write-Host "My Azure AD Application's Roles: "
 Write-Host $myApp.AppRoles
 ```
     

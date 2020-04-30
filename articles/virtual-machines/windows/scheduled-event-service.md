@@ -1,21 +1,18 @@
 ---
 title: Surveiller les événements planifiés pour vos machines virtuelles Windows dans Azure
 description: Découvrez comment surveiller vos machines virtuelles Azure pour les événements planifiés.
-services: virtual-machines-windows
-documentationcenter: ''
 author: mysarn
-manager: gwallace
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
+ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
-ms.topic: conceptual
-ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073314"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82099595"
 ---
 # <a name="monitoring-scheduled-events"></a>Surveillance d’événements planifiés
 

@@ -1,21 +1,21 @@
 ---
 title: Niveaux tarifaires - Azure Database for MariaDB
 description: Découvrez les différents niveaux tarifaires d’Azure Database for MariaDB, notamment les générations de calcul, les types de stockage, la taille de stockage, les vCores, la mémoire et les périodes de conservation des sauvegardes.
-author: jan-eng
-ms.author: janeng
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 39af6850810fa471003cea27ed274972fb2ff046
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f00d93a639bacd1d0862fed7b6b003302bb2920e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528028"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82097657"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Niveaux tarifaires pour Azure Database for MariaDB
 
-Vous pouvez créer un serveur Azure Database for MariaDB dans l’un des trois différents niveaux tarifaires : De base, Usage général et Mémoire optimisée. Les niveaux tarifaires diffèrent par la quantité de calcul dans vCores qui peut être configurée, la mémoire par vCore et la technologie de stockage utilisée pour stocker les données. Toutes les ressources sont provisionnées au niveau du serveur MariaDB. Un serveur peut avoir une ou plusieurs bases de données.
+Vous pouvez créer un serveur Azure Database for MariaDB dans un des trois différents niveaux tarifaires : De base, Usage général et À mémoire optimisée. Les niveaux tarifaires diffèrent par la quantité de calcul dans vCores qui peut être configurée, la mémoire par vCore et la technologie de stockage utilisée pour stocker les données. Toutes les ressources sont provisionnées au niveau du serveur MariaDB. Un serveur peut avoir une ou plusieurs bases de données.
 
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|

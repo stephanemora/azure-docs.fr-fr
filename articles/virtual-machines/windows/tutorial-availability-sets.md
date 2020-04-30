@@ -1,26 +1,20 @@
 ---
 title: 'Tutoriel : Haute disponibilité pour les machines virtuelles Windows dans Azure'
 description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour déployer des machines virtuelles hautement disponibles dans les groupes à haute disponibilité
-documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 59bf06d2b279bad792bdc42a7c3b6acc2bc304b8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d269b95e5e6fb8491afd4c2f9729cbb047cf3419
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985709"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100445"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure PowerShell
 

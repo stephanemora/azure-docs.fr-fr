@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 7afba24d6334991a694d43b2258244ec425884d5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 959e473cb52e23c9d04586f0b24da34537f4e660
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985505"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115599"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure version 2 avec des machines virtuelles Linux
 L’extension de script personnalisé version 2 télécharge et exécute des scripts sur des machines virtuelles Azure. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration/gestion. Il est possible de télécharger des scripts à partir du Stockage Azure ou de tout autre emplacement Internet accessible, ou de les fournir au runtime de l’extension. 
@@ -99,7 +99,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
        "storageAccountName": "<storage-account-name>",
        "storageAccountKey": "<storage-account-key>",
        "fileUris": ["https://.."],
-        "managedIdentity" : "<managed-identity-identifier>"
+       "managedIdentity" : "<managed-identity-identifier>"
     }
   }
 }

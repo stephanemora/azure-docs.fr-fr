@@ -1,25 +1,19 @@
 ---
 title: Créer une instance Azure Shared Image Gallery à l’aide du portail
 description: Découvrez comment utiliser le Portail Azure pour créer et partager des images de machine virtuelle.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.subservice: imaging
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.custom: ''
-ms.openlocfilehash: 83cdae95d43884647e257cbf1808222a542a212e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1560a67d73b712ba1f295992fce4f7f1a2ae75bd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458094"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100700"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Créer une instance Azure Shared Image Gallery à l’aide du portail
 

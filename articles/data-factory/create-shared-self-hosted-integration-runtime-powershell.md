@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: cabdb45467f71749184c5f9a6a112242a82d618b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416601"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106608"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
 
@@ -174,7 +174,7 @@ Accordez l’autorisation à la fabrique de données qui doit accéder au runtim
 ```powershell
 New-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId ` #MSI of the Data Factory with which it needs to be shared
-    -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' ` #This is the Contributor role
+    -RoleDefinitionName 'Contributor' `
     -Scope $SharedIR.Id
 ```
 
@@ -201,7 +201,7 @@ Pour révoquer l'accès d'une fabrique de données à partir du runtime d'intég
 ```powershell
 Remove-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId `
-    -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' `
+    -RoleDefinitionName 'Contributor' `
     -Scope $SharedIR.Id
 ```
 

@@ -3,12 +3,12 @@ title: Type d’entité de liste - LUIS
 description: Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité Recommander pour trouver des suggestions de nouveaux mots à partir de la liste actuelle.
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297235"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82097572"
 ---
 # <a name="list-entity"></a>Entité de liste
 
@@ -20,7 +20,7 @@ Une entité de liste n’est pas issue de l’apprentissage automatique. Il s’
 
 * Sont un ensemble connu.
 * Ne changent pas souvent. Si vous avez besoin de modifier la liste souvent ou si vous souhaitez que la liste se développe automatiquement, une entité simple améliorée avec une liste d’expressions est un meilleur choix.
-* L’ensemble ne dépasse pas les [limites](luis-boundaries.md) maximum de LUIS pour ce type d’entité.
+* L’ensemble ne dépasse pas les [limites](luis-limits.md) maximum de LUIS pour ce type d’entité.
 * Le texte de l’énoncé est une correspondance insensible à la casse avec un synonyme ou le nom canonique. LUIS n’utilise pas la liste au-delà de la correspondance. Une simple entité de liste ne suffit pas pour résoudre la correspondance approximative, la recherche de radical, les pluriels et d’autres variantes. Pour gérer les variantes, envisagez d’utiliser un [modèle](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) avec la syntaxe de texte facultative.
 
 ![entité de liste](./media/luis-concept-entities/list-entity.png)

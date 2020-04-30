@@ -4,12 +4,12 @@ description: Extraire des données d’un texte d’énoncé avec des intentions
 author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cea4a46564210ad8c37fdeda68e24337091d0bb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219199"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100292"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données d’un texte d’énoncé avec des intentions et des entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
@@ -31,7 +31,7 @@ Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migratio
 
 * * *
 
-La valeur `appID` est disponible dans la page **Paramètres** de l’application LUIS ; elle fait également partie de l’URL (après `/apps/`) dans la page de modification de l’application. La clé `subscription-key` est la clé du point de terminaison utilisée pour interroger l’application. Vous pouvez utiliser votre clé gratuite de démarrage/création tant que vous apprenez à vous servir de LUIS, mais il est important de remplacer la clé de point de terminaison par une clé qui prend en charge votre [utilisation attendue de LUIS](luis-boundaries.md#key-limits). L’unité `timezoneOffset` est exprimée en minutes.
+La valeur `appID` est disponible dans la page **Paramètres** de l’application LUIS ; elle fait également partie de l’URL (après `/apps/`) dans la page de modification de l’application. La clé `subscription-key` est la clé du point de terminaison utilisée pour interroger l’application. Vous pouvez utiliser votre clé gratuite de démarrage/création tant que vous apprenez à vous servir de LUIS, mais il est important de remplacer la clé de point de terminaison par une clé qui prend en charge votre [utilisation attendue de LUIS](luis-limits.md#key-limits). L’unité `timezoneOffset` est exprimée en minutes.
 
 La **réponse HTTPS** contient toutes les informations que LUIS peut déterminer sur les intentions et les entités à partir du modèle publié à un instant t d’un point de terminaison intermédiaire ou de production. L’URL de point de terminaison se trouve sur le site web [LUIS](luis-reference-regions.md), dans la section **Manage** (Gérer), dans la page **Keys and endpoints** (Clés et points de terminaison).
 

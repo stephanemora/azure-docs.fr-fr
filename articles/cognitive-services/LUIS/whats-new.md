@@ -3,12 +3,12 @@ title: 'Nouveauté : service Language Understanding (LUIS)'
 description: Cet article est régulièrement mis à jour avec des informations nouvelles sur l’API Language Understanding Azure Cognitive Services.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 6334b157f68f09f2b165c6073ba63f45a0caf3c4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8e3b6f729f69866cdb797cdfd1887de4f5e2be05
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538016"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82097725"
 ---
 # <a name="whats-new-in-language-understanding"></a>Nouveauté du service Language Understanding
 
@@ -38,7 +38,7 @@ Découvrir les nouveautés du service. Ces éléments incluent des notes de publ
     * [Entité issue du Machine Learning décomposable](tutorial-machine-learned-entity.md)
 * Fonctionnalités avancées de compréhension de la langue ([génération de modèles linguistiques sophistiqués](luis-concept-entity-types.md) avec moins d’efforts).
 * Définition de fonctionnalités de machine learning au niveau du modèle et activation de modèles à utiliser en tant que signaux pour d’autres modèles, comme l’utilisation d’entités en tant que fonctionnalités pour des intentions et d’autres entités.
-* Nouvelles [limites](luis-boundaries.md) étendues (maximum plus élevé pour les listes d’expressions et le nombre total d’expressions, ainsi que nouveau modèle en tant que limites de fonctionnalité)
+* Nouvelles [limites](luis-limits.md) étendues (maximum plus élevé pour les listes d’expressions et le nombre total d’expressions, ainsi que nouveau modèle en tant que limites de fonctionnalité)
 * Extraction d’informations à partir de texte au format de structure hiérarchique profonde, qui rend les applications de conversation plus puissantes.
 
     ![image d’entité issue de l’apprentissage automatique](./media/whats-new/deep-entity-extraction-example.png)

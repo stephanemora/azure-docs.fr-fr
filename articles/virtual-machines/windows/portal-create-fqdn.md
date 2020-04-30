@@ -1,25 +1,20 @@
 ---
 title: Créer un nom de domaine complet pour une machine virtuelle Windows dans le portail Azure
 description: Apprenez à créer un nom de domaine complet pour une machine virtuelle Resource Manager dans le portail Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: a2ae5887-76df-485e-ae19-0efd96df8600
 ms.service: virtual-machines-windows
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7bfa510068d71afb7701ab8964f06053d38ac70
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ece0877c97d3c2cda30aab1b3f7fe56f20080996
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458894"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101652"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Créer un nom de domaine complet dans le portail Azure pour une machine virtuelle Windows
 

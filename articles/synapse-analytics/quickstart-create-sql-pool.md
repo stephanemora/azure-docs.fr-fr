@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b3cd4ed280529efbde32fb89e6bac20640940fff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a50f203b8057dd4ea51eff1cf09fc97fb598cb3e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419873"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82096433"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool"></a>Démarrage rapide : Créer un pool SQL Synapse
 
@@ -81,5 +81,5 @@ Une fois le pool SQL créé, vous pouvez l’utiliser dans l’espace de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Démarrage rapide : Créer un pool Apache Spark dans Synapse Studio à l’aide des outils web](spark/apache-spark-notebook-create-spark-use-sql.md).
+- Consultez [Démarrage rapide : Créer un pool Apache Spark dans Synapse Studio à l’aide des outils web](quickstart-apache-spark-notebook.md).
 - Consultez [Démarrage rapide : Créer un pool Apache Spark à l’aide du portail Azure](quickstart-create-apache-spark-pool.md).

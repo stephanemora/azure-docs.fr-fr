@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a77e6c9086a745804c23f431f633d530e2655f16
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868897"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82098898"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenir un jeton pour une application mobile qui appelle des API web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive` n'a qu'un seul paramètre obligatoire : `scopes`. Le paramètre `scopes` énumère les chaînes qui définissent les étendues pour lesquelles un jeton est requis. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence de chaque API Microsoft Graph. Dans les informations de référence, accédez à la section « Autorisations ».
 
-Par exemple, pour [répertorier les contacts de l'utilisateur](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), utilisez les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Par exemple, pour [répertorier les contacts de l'utilisateur](https://docs.microsoft.com/graph/api/user-list-contacts), utilisez les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 Sur Android, vous pouvez spécifier l'activité parente lors de la création de l'application à l'aide de `PublicClientApplicationBuilder`. Si vous ne spécifiez pas l'activité parente à ce moment-là, vous pouvez la spécifier ultérieurement à l'aide de `.WithParentActivityOrWindow`, comme dans la section suivante. Si vous spécifiez l'activité parente, le jeton y revient après l'interaction. Si vous ne la spécifiez pas, l'appel `.ExecuteAsync()` renvoie une exception.
 

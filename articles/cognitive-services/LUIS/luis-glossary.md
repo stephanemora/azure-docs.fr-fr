@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219151"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82099357"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Le glossaire Language Understanding (LUIS) explique les termes que vous pourriez rencontrer lors de l’utilisation du service API LUIS.
@@ -30,7 +30,7 @@ La création correspond à la possibilité de créer, de gérer et de déployer 
 
 ## <a name="authoring-key"></a><a name="authoring-key"></a>Clé de création
 
-Cette clé, auparavant nommée clé « programmatique », est utilisée pour créer l’application et non pour les requêtes du point de terminaison au niveau de la production. Pour plus d'informations, voir [Limites des clés](luis-boundaries.md#key-limits).
+Cette clé, auparavant nommée clé « programmatique », est utilisée pour créer l’application et non pour les requêtes du point de terminaison au niveau de la production. Pour plus d'informations, voir [Limites des clés](luis-limits.md#key-limits).
 
 ## <a name="batch-test-json-file"></a><a name="batch-test-json-file"></a>Fichier JSON de tests par lot
 
@@ -51,7 +51,7 @@ Un contributeur est pareil qu’un [collaborateur](#collaborator).
 
 ## <a name="descriptor"></a><a name="descriptor"></a>Descripteur
 
-Un descripteur est une [fonctionnalité](#features) appliquée à un modèle au moment de la formation, y compris des [listes de phrases](#phrase-list) et des [entités](#entity). 
+Un descripteur est une [fonctionnalité](#features) appliquée à un modèle au moment de la formation, y compris des [listes de phrases](#phrase-list) et des [entités](#entity).
 
 ## <a name="domain"></a><a name="domain"></a>Domaine
 
@@ -121,7 +121,7 @@ Renommée [clé de création](#authoring-key).
 
 ## <a name="publish"></a><a name="publish"></a>Publication
 
-La publication consiste à rendre disponible une version active de LUIS sur le [point de terminaison](#endpoint) de mise en lots ou de production.  
+La publication consiste à rendre disponible une version active de LUIS sur le [point de terminaison](#endpoint) de mise en lots ou de production.
 
 ## <a name="quota"></a><a name="quota"></a>Quota
 

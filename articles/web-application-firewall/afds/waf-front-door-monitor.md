@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: 4488fadf5db3b32049b5dce4bbee1fa76c320e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4f666415a96307b89022c6caf6af90581f294f3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284141"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115361"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Surveillance et journalisation du pare-feu d’applications web Azure 
 
@@ -39,7 +39,7 @@ L’exemple de requête suivant obtient les journaux WAF sur les requêtes bloqu
 ``` WAFlogQuery
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
-| where action_name_s == "Block"
+| where action_s == "Block"
 
 ```
 

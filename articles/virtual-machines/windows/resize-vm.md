@@ -1,25 +1,19 @@
 ---
 title: Redimensionner une machine virtuelle Windows dans Azure
 description: Modifier la taille de la machine virtuelle utilisée pour une machine virtuelle Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
+ms.subservice: sizes
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 6718804d4635edb2628b53017ab9d377928afad8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75941719"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82099884"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionner une machine virtuelle Windows
 

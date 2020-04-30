@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68989697"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100785"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -87,7 +87,6 @@ De plus, vous devez :
 
 - Lire et implémenter ce [conseil sur la gestion d’activités inhabituelles](https://aka.ms/fixaccount). 
 - [Activer le pipeline d’audit](https://aka.ms/improvesecurity) pour vous aider à analyser l’activité sur votre abonnement. Une fois fini, votre banque d’informations d’audit commence à remplir les journaux d’activités. À ce stade, vous pouvez également tirer parti de la [ressource de recherche et d'enquête du centre de sécurité et de conformité](https://aka.ms/sccsearch). 
-- Utilisez ce [script pour activer l’audit de la boîte aux lettres](https://aka.ms/mailboxaudit1) pour tous vos comptes. 
 - Vérifiez les autorisations des délégués et les règles d’envoi de courrier pour toutes vos boîtes aux lettres. Vous pouvez utiliser ce [script PowerShell](https://aka.ms/delegateforwardrules) pour réaliser cette tâche. 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 954e7a22ae6b242c6221119c688259e4ce629a2a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219155"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82101057"
 ---
 # <a name="authoring-and-runtime-keys"></a>Clés de création et d'exécution
 
-Language Understanding (LUIS) possède deux services et ensembles d’API : 
+Language Understanding (LUIS) possède deux services et ensembles d’API :
 
 * Création (anciennement _programmatique_)
 * Runtime de prédiction
@@ -42,8 +42,8 @@ Lorsque vous commencez à utiliser LUIS, une **clé de démarrage** est créée 
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
 
-LUIS autorise trois types de ressources Azure : 
- 
+LUIS autorise trois types de ressources Azure :
+
 |Clé|Objectif|Service cognitif `kind`|Service cognitif `type`|
 |--|--|--|--|
 |[Clé de création](#programmatic-key)|Accédez aux données d’application et gérez-les avec des créations, des formations, des publications et des tests. Créez une clé de création LUIS si vous envisagez de créer des applications LUIS par programmation.<br><br>L’objectif de la clé de `LUIS.Authoring` est de vous permettre d’effectuer les opérations suivantes :<br>* gérer par programme les applications et les modèles Language Understanding, y compris la formation et la publication ;<br> * contrôler les autorisations d'accès à la ressource de création en attribuant le [rôle de contributeur](#contributions-from-other-authors) à des utilisateurs.|`LUIS.Authoring`|`Cognitive Services`|
@@ -55,42 +55,42 @@ LUIS autorise trois types de ressources Azure :
 Il est important de créer des applications LUIS dans les [régions](luis-reference-regions.md#publishing-regions) où vous souhaitez publier et interroger.
 
 > [!CAUTION]
-> Pour des raisons pratiques, de nombreux exemples utilisent la [clé de démarrage](#starter-key) car son [quota](luis-boundaries.md#key-limits) inclut quelques appels gratuits au point de terminaison de prédiction.  
+> Pour des raisons pratiques, de nombreux exemples utilisent la [clé de démarrage](#starter-key) car son [quota](luis-limits.md#key-limits) inclut quelques appels gratuits au point de terminaison de prédiction.
 
 
 ### <a name="query-prediction-resources"></a>Interroger les ressources de prédiction
 
-* La clé d'exécution peut être utilisée pour toutes vos applications LUIS, ou pour des applications LUIS spécifiques. 
-* N'utilisez pas la clé d'exécution pour la création d'applications LUIS. 
+* La clé d'exécution peut être utilisée pour toutes vos applications LUIS, ou pour des applications LUIS spécifiques.
+* N'utilisez pas la clé d'exécution pour la création d'applications LUIS.
 
 Le point de terminaison d'exécution LUIS accepte deux styles de requêtes, les deux utilisant la clé d'exécution de point de terminaison de prédiction, mais à des emplacements différents.
 
-Le point de terminaison utilisé pour accéder à l'environnement d'exécution utilise un sous-domaine propre à la région de votre ressource, indiquée par le terme `{region}` dans le tableau suivant. 
+Le point de terminaison utilisé pour accéder à l'environnement d'exécution utilise un sous-domaine propre à la région de votre ressource, indiquée par le terme `{region}` dans le tableau suivant.
 
 ## <a name="assignment-of-the-key"></a>Attribution de la clé
 
-Vous pouvez [attribuer](luis-how-to-azure-subscription.md) la clé d'exécution à partir du [portail LUIS](https://www.luis.ai) ou via les API correspondantes. 
+Vous pouvez [attribuer](luis-how-to-azure-subscription.md) la clé d'exécution à partir du [portail LUIS](https://www.luis.ai) ou via les API correspondantes.
 
 ## <a name="key-limits"></a>Limites de clés
 
-Vous pouvez générer jusqu'à 10 clés de création par région et par abonnement. 
+Vous pouvez générer jusqu'à 10 clés de création par région et par abonnement.
 
-Consultez [Limites de clés](luis-boundaries.md#key-limits) et [Régions Azure](luis-reference-regions.md). 
+Consultez [Limites de clés](luis-limits.md#key-limits) et [Régions Azure](luis-reference-regions.md).
 
 Les régions de publication sont différentes des régions de création. Veillez à créer une application dans la région de création qui correspond à la région de publication dans laquelle vous souhaitez que votre application cliente soit située.
 
 ## <a name="key-limit-errors"></a>Erreurs de limites de clés
-Si vous dépassez votre quota de transactions par seconde (TPS), vous recevez une erreur HTTP 429. Si vous dépassez votre quota de transactions par mois (TPM), vous recevez une erreur HTTP 403. 
+Si vous dépassez votre quota de transactions par seconde (TPS), vous recevez une erreur HTTP 429. Si vous dépassez votre quota de transactions par mois (TPM), vous recevez une erreur HTTP 403.
 
 ## <a name="contributions-from-other-authors"></a>Contributions d'autres auteurs
 
-**Pour la [création d'applications migrées](luis-migration-authoring.md) de ressource** : les _contributeurs_ sont gérés dans le Portail Azure pour la ressource de création, à l’aide de la page de **contrôle d’accès (IAM)** . Apprenez à [ajouter un utilisateur](luis-how-to-collaborate.md) à l'aide de l'adresse e-mail du collaborateur et du rôle de _contributeur_. 
+**Pour la [création d'applications migrées](luis-migration-authoring.md) de ressource** : les _contributeurs_ sont gérés dans le Portail Azure pour la ressource de création, à l’aide de la page de **contrôle d’accès (IAM)** . Apprenez à [ajouter un utilisateur](luis-how-to-collaborate.md) à l'aide de l'adresse e-mail du collaborateur et du rôle de _contributeur_.
 
 **Pour les applications qui n'ont pas encore été migrées** : tous les _collaborateurs_ sont gérés sur le portail Luis à partir de la page **Gérer -> Collaborateurs**.
 
 ## <a name="move-transfer-or-change-ownership"></a>Déplacer, transférer ou modifier la propriété
 
-Une application est définie par ses ressources Azure, qui sont elles-mêmes déterminées par l'abonnement du propriétaire. 
+Une application est définie par ses ressources Azure, qui sont elles-mêmes déterminées par l'abonnement du propriétaire.
 
 Vous pouvez déplacer votre application LUIS. Utilisez les ressources documentaires suivantes à partir du portail Azure ou de l'interface Azure CLI :
 
@@ -98,22 +98,22 @@ Vous pouvez déplacer votre application LUIS. Utilisez les ressources documentai
 * [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Déplacer des ressources au sein d'un même abonnement ou entre des abonnements différents](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
-Pour transférer la [propriété](../../cost-management-billing/manage/billing-subscription-transfer.md) de votre abonnement : 
+Pour transférer la [propriété](../../cost-management-billing/manage/billing-subscription-transfer.md) de votre abonnement :
 
 **Pour les utilisateurs ayant migré - [création d’applications de ressources migrées](luis-migration-authoring.md)**  : En tant que propriétaire de la ressource, vous pouvez ajouter un `contributor`.
 
-**Pour les utilisateurs qui n’ont pas encore été migrés** : Exportez votre application sous forme de fichier JSON. Un autre utilisateur LUIS peut importer l'application, devenant ainsi le propriétaire de celle-ci. La nouvelle application aura un ID d'application différent.  
+**Pour les utilisateurs qui n’ont pas encore été migrés** : Exportez votre application sous forme de fichier JSON. Un autre utilisateur LUIS peut importer l'application, devenant ainsi le propriétaire de celle-ci. La nouvelle application aura un ID d'application différent.
 
 ## <a name="access-for-private-and-public-apps"></a>Accès pour les applications privées et publiques
 
-Pour une application **privée**, l'environnement d'exécution est accessible aux propriétaires et aux contributeurs. Pour une application **publique**, l'environnement d'exécution est accessible à tous les utilisateurs qui disposent de leur propre ressource d'exécution Azure [Cognitive Service](../cognitive-services-apis-create-account.md) ou [LUIS](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) et de l'ID de l'application publique. 
+Pour une application **privée**, l'environnement d'exécution est accessible aux propriétaires et aux contributeurs. Pour une application **publique**, l'environnement d'exécution est accessible à tous les utilisateurs qui disposent de leur propre ressource d'exécution Azure [Cognitive Service](../cognitive-services-apis-create-account.md) ou [LUIS](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) et de l'ID de l'application publique.
 
 Aucun catalogue d'applications publiques n'est actuellement disponible.
 
 ### <a name="authoring-access"></a>Accès création
-L'accès à l'application à partir du portail [LUIS](luis-reference-regions.md#luis-website) ou des [API de création](https://go.microsoft.com/fwlink/?linkid=2092087) est contrôlé par la ressource de création Azure. 
+L'accès à l'application à partir du portail [LUIS](luis-reference-regions.md#luis-website) ou des [API de création](https://go.microsoft.com/fwlink/?linkid=2092087) est contrôlé par la ressource de création Azure.
 
-Le propriétaire et tous les contributeurs disposent de l'accès requis pour créer l'application. 
+Le propriétaire et tous les contributeurs disposent de l'accès requis pour créer l'application.
 
 |L’accès à la création inclut|Notes|
 |--|--|
@@ -131,7 +131,7 @@ Le propriétaire et tous les contributeurs disposent de l'accès requis pour cr�
 
 ### <a name="prediction-endpoint-runtime-access"></a>Accès à l'environnement d'exécution du point de terminaison de prédiction
 
-L'accès permettant d'interroger le point de terminaison de prédiction est contrôlé par un paramètre de la page **Informations sur l'application** dans la section **Gérer**. 
+L'accès permettant d'interroger le point de terminaison de prédiction est contrôlé par un paramètre de la page **Informations sur l'application** dans la section **Gérer**.
 
 |[Point de terminaison privé](#runtime-security-for-private-apps)|[Point de terminaison public](#runtime-security-for-public-apps)|
 |:--|:--|
@@ -153,19 +153,19 @@ L'environnement d'exécution d'une application privée est uniquement disponible
 
 Une fois qu’une application est configurée comme étant publique, _toute_ clé de création LUIS valide ou clé de point de terminaison LUIS peut interroger votre application, tant que la clé n’a pas épuisé le quota de point de terminaison.
 
-Un utilisateur qui n'est pas propriétaire ou contributeur ne peut accéder à l'environnement d'exécution d'une application publique que s'il dispose de l'ID de l'application. LUIS ne dispose pas d’un _marché_ public, ni d’un autre moyen de rechercher une application publique.  
+Un utilisateur qui n'est pas propriétaire ou contributeur ne peut accéder à l'environnement d'exécution d'une application publique que s'il dispose de l'ID de l'application. LUIS ne dispose pas d’un _marché_ public, ni d’un autre moyen de rechercher une application publique.
 
 Une application publique est publiée dans toutes les régions. Ainsi, un utilisateur ayant une clé de ressource LUIS basée sur une région peut accéder à l’application dans toute région associée à la clé de ressource.
 
 ## <a name="transfer-of-ownership"></a>Transfert de propriété
 
-LUIS n’a pas le concept de transfert de la propriété d’une ressource. 
+LUIS n’a pas le concept de transfert de la propriété d’une ressource.
 
-## <a name="securing-the-endpoint"></a>Sécurisation du point de terminaison 
+## <a name="securing-the-endpoint"></a>Sécurisation du point de terminaison
 
-Vous pouvez déterminer qui peut voir votre clé d'exécution de point de terminaison de prédiction LUIS en l'appelant dans un environnement serveur à serveur. Si vous utilisez LUIS à partir d’un bot, la connexion entre le bot et LUIS est déjà sécurisée. Si vous appelez le point de terminaison LUIS directement, vous devez créer une API côté serveur (comme une [fonction](https://azure.microsoft.com/services/functions/) Azure) avec un accès contrôlé (comme [AAD](https://azure.microsoft.com/services/active-directory/)). Lorsque l’API côté serveur est appelée et que l’authentification et l’autorisation sont vérifiées, passez l’appel à LUIS. Bien que cette stratégie n’empêche pas les attaques de type interception (man-in-the-middle), elle masque votre point de terminaison à vos utilisateurs, vous permet d’effectuer le suivi de l’accès et vous permet d’ajouter la journalisation de la réponse du point de terminaison (comme [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
+Vous pouvez déterminer qui peut voir votre clé d'exécution de point de terminaison de prédiction LUIS en l'appelant dans un environnement serveur à serveur. Si vous utilisez LUIS à partir d’un bot, la connexion entre le bot et LUIS est déjà sécurisée. Si vous appelez le point de terminaison LUIS directement, vous devez créer une API côté serveur (comme une [fonction](https://azure.microsoft.com/services/functions/) Azure) avec un accès contrôlé (comme [AAD](https://azure.microsoft.com/services/active-directory/)). Lorsque l’API côté serveur est appelée et que l’authentification et l’autorisation sont vérifiées, passez l’appel à LUIS. Bien que cette stratégie n’empêche pas les attaques de type interception (man-in-the-middle), elle masque votre point de terminaison à vos utilisateurs, vous permet d’effectuer le suivi de l’accès et vous permet d’ajouter la journalisation de la réponse du point de terminaison (comme [Application Insights](https://azure.microsoft.com/services/application-insights/)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Comprendre les concepts du [contrôle de version](luis-concept-version.md). 
+* Comprendre les concepts du [contrôle de version](luis-concept-version.md).
 * Apprenez à [créer des clés](luis-how-to-azure-subscription.md).

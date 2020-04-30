@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0aaa13ff4d3331378cc17cd0cde29be43822397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460787"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086128"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Logiciels SAP dont le déploiement est pris en charge sur Azure
 Cet article explique comment identifier les logiciels SAP dont le déploiement est pris en charge sur Azure, ainsi que les versions de système d’exploitation ou système de gestion de base de données nécessaires.
@@ -135,7 +135,13 @@ La prise en charge de SAP DataHub/Vora par Azure Kubernetes Service (AKS) est d�
 
 La prise en charge de SAP BPC 10.1 SP08 est décrite dans la [Note de support SAP n°2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-La prise en charge de SAP Hybris Commerce Platform 5.x and 6.x sur Azure est détaillée dans le [Wiki Hybris](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud)
+La prise en charge de SAP Hybris Commerce Platform sur Azure est détaillée dans la [documentation Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). La prise en charge du système SGBD pour SAP Hybris Commerce Platform se répartit comme suit :
+
+- SQL Server et Oracle sur la plateforme du système d’exploitation Windows. Les versions minimales les plus récentes s’appliquent à SAP NetWeaver. Pour plus d’informations, consultez [la note n°1928533 sur la prise en charge de SAP](https://launchpad.support.sap.com/#/notes/1928533)
+- SAP HANA sur Red Hat et SUSE Linux. Les types de machines virtuelles certifiés SAP HANA sont requis, comme indiqué plus haut dans [ce document](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). SAP Hybris Commerce Platform est considéré comme une charge de travail OLTP
+- SQL Azure DB à partir de SAP (Hybris) Commerce Platform version 1811
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes
