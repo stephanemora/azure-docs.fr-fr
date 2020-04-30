@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 61da2454d6a72d43a7b4600d7ea85e6a3f82958f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 886bff3f57f101229c04e91cfa4cf85051f8b1c6
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60754953"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561125"
 ---
 # <a name="monitor-your-azure-data-box-gateway"></a>Superviser votre appareil Azure Data Box Gateway
 
-Cet article explique comment superviser votre appareil Azure Data Box Gateway. Pour ce faire, vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale. Utilisez le portail Azure pour voir les événements de l’appareil, configurer et gérer les alertes et voir les métriques.
+Cet article explique comment superviser votre appareil Azure Data Box Gateway. Pour ce faire, vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale. Utilisez le portail Azure pour voir les événements de l’appareil, configurer et gérer les alertes et voir les métriques. 
 
 Dans cet article, vous apprendrez comment :
 

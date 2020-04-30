@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6478656855e29ada829db4356f976b2f04ceb83a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74233111"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582762"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
 
@@ -63,8 +63,8 @@ Avant de pouvoir gérer des groupes à l’aide des applets de commande Azure AD
 L’applet de commande vous demande de fournir les informations d’identification à utiliser pour accéder à votre répertoire. Dans cet exemple, nous utilisons karen@drumkit.onmicrosoft.com pour accéder au répertoire de démonstration. L’applet de commande renvoie une confirmation pour indiquer que la session a été correctement connectée à votre répertoire :
 
 ```powershell
-    Account                       Environment Tenant
-    -------                       ----------- ------
+    Account                       Environment Tenant ID
+    -------                       ----------- ---------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 ```
 

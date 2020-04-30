@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686876"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561681"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutoriel : Se connecter à Azure Data Box Gateway, le configurer et l’activer
 
@@ -65,7 +65,7 @@ Le tableau de bord présente les différents paramètres nécessaires à la conf
    
 ![Page « Tableau de bord » de l’interface utilisateur web locale](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-1. Dans le volet gauche, sélectionnez **Nom de l’appareil**, puis entrez un nom convivial pour votre appareil. Ce nom convivial doit contenir entre 1 et 15 caractères et être composé de lettres, de chiffres et de traits d’union.
+1. Dans le volet gauche, sélectionnez **Nom de l’appareil**, puis entrez un nom convivial pour votre appareil. Ce nom convivial doit contenir entre 1 et 15 caractères et être composé de lettres, de chiffres et de traits d’union. 
 
     ![Page « Nom de l'appareil » de l’interface utilisateur web locale](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 

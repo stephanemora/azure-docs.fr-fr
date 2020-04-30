@@ -2,13 +2,13 @@
 title: Lier des modèles pour déploiement
 description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 322797383ee865ceb66c44793387da827aeb8879
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/29/2020
+ms.openlocfilehash: 3525c89c0db30c2061108b4d185c65552c73af28
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131925"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583790"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -35,7 +35,7 @@ Pour imbriquer un modèle, ajoutez une [ressource de déploiement](/azure/templa
   "resources": [
     {
       "name": "nestedTemplate1",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
@@ -64,7 +64,7 @@ L’exemple suivant déploie un compte de stockage au moyen d’un modèle imbri
   "resources": [
     {
       "name": "nestedTemplate1",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
@@ -101,7 +101,7 @@ La portée est définie par la propriété `expressionEvaluationOptions`. Par d�
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2017-05-10",
+  "apiVersion": "2019-10-01",
   "name": "nestedTemplate1",
   "properties": {
   "expressionEvaluationOptions": {
@@ -124,7 +124,7 @@ Le modèle suivant montre la façon dont sont résolues les expressions de modè
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -208,7 +208,7 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -292,7 +292,7 @@ Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/m
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -326,7 +326,7 @@ Les paramètres du modèle lié peuvent être indiqués dans un fichier externe 
 "resources": [
   {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2018-05-01",
+  "apiVersion": "2019-10-01",
   "name": "linkedTemplate",
   "properties": {
     "mode": "Incremental",
@@ -349,7 +349,7 @@ Pour passer des valeurs de paramètre inline, utilisez la propriété **paramete
 "resources": [
   {
    "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2018-05-01",
+   "apiVersion": "2019-10-01",
    "name": "linkedTemplate",
    "properties": {
      "mode": "Incremental",
@@ -412,7 +412,7 @@ L’exemple de modèle suivant montre comment utiliser copy avec un modèle imbr
 "resources": [
   {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2018-05-01",
+  "apiVersion": "2019-10-01",
   "name": "[concat('nestedTemplate', copyIndex())]",
   // yes, copy works here
   "copy":{
@@ -486,7 +486,7 @@ Le modèle principal déploie le modèle lié et obtient la valeur retournée. R
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -593,7 +593,7 @@ Pour utiliser l’adresse IP publique du modèle précédent lors du déploiemen
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -666,7 +666,7 @@ Le modèle suivant est lié au modèle précédent. Il crée trois adresses IP p
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -733,7 +733,7 @@ L’exemple suivant montre comment passer un jeton SAP lors de la liaison à un 
   "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
+    "apiVersion": "2019-10-01",
     "name": "linkedTemplate",
     "properties": {
     "mode": "Incremental",

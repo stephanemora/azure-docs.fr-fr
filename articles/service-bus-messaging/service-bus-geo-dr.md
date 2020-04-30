@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49748006baf779e6aea4322068ca3bd07a03a0a3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229653"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209398"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -140,7 +140,7 @@ Notez les points suivants pour cette version :
 La référence SKU de Service Bus Premium prend également en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure.
 
 > [!NOTE]
-> Dans Azure Service Bus Premium, la prise en charge des zones de disponibilité est fournie uniquement pour les [régions Azure](../availability-zones/az-overview.md#services-support-by-region) qui comprennent déjà des zones de disponibilité.
+> Dans Azure Service Bus Premium, la prise en charge des zones de disponibilité est fournie uniquement pour les [régions Azure](../availability-zones/az-region.md) qui comprennent déjà des zones de disponibilité.
 
 Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Service Bus ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
 

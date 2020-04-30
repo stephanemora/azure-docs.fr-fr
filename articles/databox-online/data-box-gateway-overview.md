@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8911c1099db36b7e4e6d568ea64ae4afa3cc826e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "69900585"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561061"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Présentation d’Azure Data Box Gateway
 
@@ -89,7 +89,7 @@ La solution Data Box Gateway se compose d’une ressource Data Box Gateway, d’
 
 Il n’est pas nécessaire que l’appareil physique Data Box Gateway, la ressource Azure et le compte de stockage cible vers lequel vous transférez les données se trouvent dans la même région.
 
-- **Disponibilité des ressources** : pour obtenir la liste de toutes les régions où la ressource Data Box Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilité des ressources** : pour obtenir la liste de toutes les régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure.
 

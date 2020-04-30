@@ -1,23 +1,15 @@
 ---
 title: Conserver les données de sortie dans le Stockage Azure avec l’API de service Batch - Azure Batch
 description: Découvrez comment utiliser l’API de service Batch pour conserver les données de sortie d’un travail et d’une tâche Batch dans le Stockage Azure.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 03/05/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 11bd8bc427dd3da35ec5aa0f728f6b04b7d4527d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022849"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234279"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Conserver les données de tâche dans le stockage Azure avec l’API de service Batch
 
@@ -34,7 +26,7 @@ Azure Batch offre plusieurs manières de conserver les sorties de tâche. L’ut
 - Vous souhaitez écrire du code pour conserver le résultat de la tâche à partir de votre application cliente, sans modifier l’application exécutée par votre tâche.
 - Vous souhaitez conserver le résultat des tâches Batch et des tâches du Gestionnaire de travaux dans des pools créés avec la configuration de machine virtuelle.
 - Vous souhaitez conserver le résultat vers un conteneur de stockage Azure avec un nom arbitraire.
-- Vous souhaitez conserver le résultat vers un conteneur de stockage Azure nommé conformément à la [norme relative aux Conventions applicables aux fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Vous souhaitez conserver le résultat vers un conteneur de stockage Azure nommé conformément à la [norme relative aux Conventions applicables aux fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
 
 Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Par exemple, l’API de service Batch ne prend pas en charge actuellement la diffusion en continu du résultat vers le stockage Azure pendant l’exécution de la tâche. Pour diffuser le résultat en continu, utilisez la bibliothèque de Conventions applicables aux fichiers Batch, disponible pour .NET. Pour d’autres langages, vous devez implémenter votre propre solution. Pour en savoir plus sur les autres options de conservation des sorties de tâche, consultez l’article [Conserver les sorties de travail et de tâche terminées dans Azure Storage](batch-task-output.md).
 
@@ -163,7 +155,7 @@ Le fichier `fileuploadout.txt` contient la progression du chargement. Vous pouve
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Utiliser l’API de service Batch avec la norme relative aux Conventions applicables aux fichiers Batch
 
-Quand vous conservez le résultat de la tâche avec l’API de service Batch, vous pouvez nommer votre conteneur de destination et les objets blob comme vous le souhaitez. Vous pouvez également choisir de les nommer en respectant la [norme relative aux Conventions applicables aux fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Cette norme détermine les noms du conteneur de destination et de l’objet blob dans le stockage Azure pour un fichier de sortie donnée en fonction des noms du projet et de la tâche. Si vous utilisez cette norme pour nommer les fichiers de sortie, vos fichiers de sortie sont visibles dans le [portail Azure](https://portal.azure.com).
+Quand vous conservez le résultat de la tâche avec l’API de service Batch, vous pouvez nommer votre conteneur de destination et les objets blob comme vous le souhaitez. Vous pouvez également choisir de les nommer en respectant la [norme relative aux Conventions applicables aux fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). Cette norme détermine les noms du conteneur de destination et de l’objet blob dans le stockage Azure pour un fichier de sortie donnée en fonction des noms du projet et de la tâche. Si vous utilisez cette norme pour nommer les fichiers de sortie, vos fichiers de sortie sont visibles dans le [portail Azure](https://portal.azure.com).
 
 Si vous développez en C#, vous pouvez utiliser les méthodes intégrées à la [bibliothèque Conventions applicables aux fichiers Batch pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Cette bibliothèque crée les chemins de conteneurs et d’objets blob pour vous avec des noms corrects. Par exemple, vous pouvez appeler l’API pour obtenir le nom correct pour le conteneur, en fonction du nom du travail :
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 241866129aa36d67af18fab86a26d9cbf7ce42d6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604759"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582459"
 ---
 # <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Procédure de configuration de la solution Start/Stop VMs during off-hours
 
@@ -125,7 +125,7 @@ Lorsque vous exécutez le runbook **AutoStop_CreateAlert_Parent**, celui-ci vér
 
 ### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Pour cibler l’action d’arrêt automatique vers une liste de machines virtuelles
 
-1. Créez une [planification](shared-resources/schedules.md#creating-a-schedule) et liez-la au runbook **AutoStop_CreateAlert_Parent** en ajoutant une liste de noms de machines virtuelles séparés par des virgules au paramètre `VMList`.
+1. Créez une [planification](shared-resources/schedules.md#create-a-schedule) et liez-la au runbook **AutoStop_CreateAlert_Parent** en ajoutant une liste de noms de machines virtuelles séparés par des virgules au paramètre `VMList`.
 
 2. Si vous souhaitez exclure certaines machines virtuelles de l’arrêt automatique, vous pouvez ajouter une liste de noms de machines virtuelles séparés par des virgules à la variable `External_ExcludeVMNames`.
 

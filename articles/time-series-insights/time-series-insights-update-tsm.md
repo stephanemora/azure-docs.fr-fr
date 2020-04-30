@@ -8,21 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476652"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580601"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modèle de série chronologique dans Azure Time Series Insights en préversion
 
 Cet article décrit le modèle de série chronologique, les fonctionnalités et la façon de commencer à créer et à mettre à jour vos propres modèles dans l’environnement Azure Time Series Insights (préversion).
 
 > [!TIP]
->  * Pour obtenir un exemple de modèle de série chronologique en direct, accédez à l’environnement de  [démonstration du parc éolien de Contoso](https://insights.timeseries.azure.com/preview/samples).
+>
+> * Pour obtenir un exemple de modèle de série chronologique en direct, accédez à l’environnement de  [démonstration du parc éolien de Contoso](https://insights.timeseries.azure.com/preview/samples).
 > * Pour découvrir comment naviguer dans l’interface utilisateur du modèle de série chronologique, consultez l’article sur l’[explorateur d’Azure Time Series Insights (préversion)](time-series-insights-update-explorer.md).
 > * Découvrez [comment utiliser le modèle de série chronologique](time-series-insights-update-how-to-tsm.md) à l’aide de l’explorateur web Time Series Insights.
 
@@ -51,9 +52,9 @@ Ces limites ont révélé l’importance d’outils intelligents d’agrégation
 
 [![Exemple de graphique de four intelligent de modèle de série chronologique](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* Le modèle de série chronologique joue un rôle essentiel dans les requêtes et la navigation, car il contextualise les données en permettant d’établir des comparaisons dans des intervalles de temps et entre les types de capteurs et d’appareils. (**A**) 
+* Le modèle de série chronologique joue un rôle essentiel dans les requêtes et la navigation, car il contextualise les données en permettant d’établir des comparaisons dans des intervalles de temps et entre les types de capteurs et d’appareils. (**A**)
 * Les données sont davantage contextualisées parce que les données conservées dans le modèle de série chronologique préservent les calculs de requête de série chronologique en tant que variables et les réutilisent au moment de la requête.
-* Le modèle de série chronologique organise et agrège les données pour améliorer les fonctionnalités de visualisation et de gestion. (**B**) 
+* Le modèle de série chronologique organise et agrège les données pour améliorer les fonctionnalités de visualisation et de gestion. (**B**)
 
 ### <a name="key-capabilities"></a>Fonctionnalités clés
 
@@ -290,7 +291,7 @@ Les types Time Series Insights peuvent avoir de nombreuses variables qui spécif
 
 Chaque variable peut être de trois *types* : *numérique*, *catégoriel* et *agrégé*.
 
-* Les types **numériques** fonctionnent avec des valeurs continues. 
+* Les types **numériques** fonctionnent avec des valeurs continues.
 * Les types **catégoriels** fonctionnent avec un ensemble défini de valeurs discrètes.
 * Les valeurs **agrégées** combinent plusieurs variables d’un même type (toutes numériques ou toutes catégorielles).
 

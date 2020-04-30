@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dde84f0973cc7e21e57574bbabe398b38581358f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022679"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562388"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Cas d’utilisation pour Azure Data Box Gateway
 
@@ -77,7 +77,7 @@ Ce transfert en bloc termine la phase d’amorçage initiale.
 
 ### <a name="ongoing-feed-with-data-box-gateway"></a>Flux en cours avec Data Box Gateway
 
-Suivez ces étapes pour l’ingestion en continu par Data Box Gateway.
+Suivez ces étapes pour l’ingestion en continu par Data Box Gateway. 
 
 1. Créez un partage cloud sur Data Box Gateway. Ce partage charge automatiquement toutes les données sur le compte Stockage Azure. Accédez à **Partages** dans votre ressource Data Box Gateway et cliquez sur **+ Ajouter un partage**.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78249875"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207885"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutoriel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail
 
@@ -60,7 +60,7 @@ Commencez par créer un équilibreur de charge standard public qui permet d’é
     |Zone de disponibilité| Sélectionnez **Redondant dans une zone**.    |
      
     >[!NOTE]
-     >Veillez à créer votre équilibreur de charge et toutes ses ressources dans un emplacement prenant en charge les zones de disponibilité. Pour plus d’informations, consultez [Régions prenant en charge les zones de disponibilité](../availability-zones/az-overview.md#services-support-by-region). 
+     >Veillez à créer votre équilibreur de charge et toutes ses ressources dans un emplacement prenant en charge les zones de disponibilité. Pour plus d’informations, consultez [Régions prenant en charge les zones de disponibilité](../availability-zones/az-region.md). 
 
 3. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**.  
   

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d3d1b9af0b26fa775beb78b313937890cb9287b3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 99c64e703158c40c2cc110a18be7b8c8d3800ff0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633772"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207800"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Démarrage rapide : Configurer l’isolation de la charge de travail à l’aide de T-SQL
 
@@ -30,10 +30,6 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 Ce guide de démarrage rapide suppose que vous avez déjà une instance SQL Analytics dans Azure Synapse et que vous disposez d’autorisations CONTROL DATABASE. Si vous devez en créer un, utilisez la section [Créer et connecter - Portail](create-data-warehouse-portal.md) pour créer un entrepôt de données nommé **mySampleDataWarehouse**.
-
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-login-for-dataloads"></a>Créer une connexion pour DataLoads
 
@@ -111,20 +107,6 @@ Vous êtes facturé pour les unités d’entrepôt de données et les données s
 
 - Si vous voulez conserver les données dans le stockage, vous pouvez suspendre le calcul quand vous n’utilisez pas le pool SQL. Quand vous suspendez le calcul, vous êtes facturé uniquement pour le stockage des données. Quand vous êtes prêt à utiliser les données, reprenez le calcul.
 - Si vous voulez éviter des frais futurs, vous pouvez supprimer l’entrepôt de données.
-
-Suivez ces étapes pour nettoyer les ressources.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez votre entrepôt de données.
-
-    ![Nettoyer les ressources](./media/quickstart-configure-workload-isolation-tsql/clean-up-resources.png)
-
-2. Pour suspendre le calcul, sélectionnez le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible.  Pour reprendre le calcul, sélectionnez **Démarrer**.
-
-3. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, sélectionnez **Supprimer**.
-
-4. Pour supprimer le serveur SQL que vous avez créé, sélectionnez **mynewserver-20180430.database.windows.net** dans l’image précédente, puis **Supprimer**.  N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
-
-5. Pour supprimer le groupe de ressources, sélectionnez **myResourceGroup**, puis **Supprimer le groupe de ressources**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feae75b1fbb832f833a01fa20ce07962ab5c484f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60755303"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561418"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway  
 
@@ -84,4 +84,4 @@ Pour supprimer une planification de bande passante associée à votre appareil D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [gérer la bande passante](data-box-gateway-manage-bandwidth-schedules.md).
+- Découvrez comment [gérer la bande passante](data-box-gateway-manage-bandwidth-schedules.md). 

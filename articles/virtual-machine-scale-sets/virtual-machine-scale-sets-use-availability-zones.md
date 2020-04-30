@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: jushiman
-ms.openlocfilehash: c8795f46e47b2ab43898f6f436b9ee6026a22fa7
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: a23164215376bee291c07d49c88bd9e916d710bf
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011563"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207834"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -56,7 +56,7 @@ Quand vous déployez un groupe de machines virtuelles identiques, vous pouvez ut
 
 Quand vous créez un groupe identique dans une zone unique, vous contrôlez la zone dans laquelle toutes ces instances de machine virtuelle s’exécutent, et le groupe identique est géré et automatiquement mis à l’échelle dans cette zone uniquement. Un groupe identique redondant interzone permet de créer un groupe identique unique qui couvre plusieurs zones. Au fur et à mesure que les instances de machine virtuelle sont créées, elles sont, par défaut, uniformément réparties sur les différentes zones. En cas d’interruption dans l’une de ces zones, le groupe identique n’effectue pas automatiquement de scale-out pour augmenter la capacité. Une meilleure pratique serait de configurer des règles de mise à l’échelle automatique en fonction de l’utilisation du processeur ou de la mémoire. Les règles de mise à l’échelle automatique permettraient au groupe identique de réagir en cas de perte d’instances de machine virtuelle dans cette zone en augmentant la taille des instances dans les zones opérationnelles restantes.
 
-Pour utiliser les zones de disponibilité, votre groupe identique doit être créé dans une [région Azure prise en charge](../availability-zones/az-overview.md#services-support-by-region). Vous pouvez créer un groupe identique qui utilise des zones de disponibilité avec l’une des méthodes suivantes :
+Pour utiliser les zones de disponibilité, votre groupe identique doit être créé dans une [région Azure prise en charge](../availability-zones/az-region.md). Vous pouvez créer un groupe identique qui utilise des zones de disponibilité avec l’une des méthodes suivantes :
 
 - [Azure portal](#use-the-azure-portal)
 - Azure CLI

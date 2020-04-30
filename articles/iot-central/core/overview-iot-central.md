@@ -8,13 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: timlt
-ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025235"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560954"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
@@ -157,11 +156,11 @@ Pour toute solution IoT conçue pour fonctionner à grande échelle, il est impo
 
 Les [tableaux de bord](./howto-set-up-template.md#generate-default-views) intégrés proposent une interface utilisateur personnalisable qui permet de superviser la télémétrie et l’intégrité des appareils. Commencez avec un tableau de bord prédéfini dans un [modèle d’application](howto-use-app-templates.md) ou créez vos propres tableaux de bord en fonction des besoins de vos opérateurs. Vous pouvez partager les tableaux de bord avec tous les utilisateurs de votre application ou les maintenir privés.
 
-### <a name="rules-and-actions"></a>Règles et actions 
+### <a name="rules-and-actions"></a>Règles et actions
 
 Générez des [règles personnalisées](tutorial-create-telemetry-rules.md) en fonction de l’état et des données de télémétrie des appareils pour identifier ceux qui ont besoin d’attention. Configurez des actions pour notifier les personnes concernées et faire en sorte que des mesures correctives soient prises en temps voulu.
 
-### <a name="jobs"></a>travaux 
+### <a name="jobs"></a>travaux
 
 Les [travaux](howto-run-a-job.md) vous permettent d’appliquer des mises à jour uniques ou en bloc aux appareils en définissant des propriétés ou en appelant des commandes. 
 

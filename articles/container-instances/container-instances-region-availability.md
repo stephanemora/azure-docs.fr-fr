@@ -2,14 +2,14 @@
 title: Disponibilité des ressources par région
 description: Disponibilité des ressources de calcul et de mémoire pour le service Azure Container Instances dans différentes régions Azure.
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 04/27/2020
 ms.author: danlep
-ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 119c1202fe59e02a1b6ff802e3dbdc4d52133abe
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399398"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583897"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 

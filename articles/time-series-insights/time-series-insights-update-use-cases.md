@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 50ac2a728750c6b01dfc57fa7e20df25c856395a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93813dfaecf40fcb5cab0856d013fb890118886c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087392"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580668"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Cas d’usage de la préversion d’Azure Time Series Insights
 
@@ -42,13 +42,13 @@ Explorez et analysez instantanément des milliards d’événements pour repére
 
 La plupart des clients s’accordent pour dire que l’une des fonctionnalités les plus intéressantes de Time Series Insights est la rapidité avec laquelle les informations sont fournies :
 
-* Time Series Insights ne requiert aucune préparation de données initiale. 
-* Très rapide, il vous connecte à des milliards d’événements dans votre environnement Azure IoT Hub ou d’instances Azure Event Hubs en quelques minutes. 
+* Time Series Insights ne requiert aucune préparation de données initiale.
+* Très rapide, il vous connecte à des milliards d’événements dans votre environnement Azure IoT Hub ou d’instances Azure Event Hubs en quelques minutes.
 * Une fois connecté, vous pouvez visualiser et analyser des milliards d’événements pour repérer les anomalies et découvrir les tendances cachées de vos données.
 
 Time Series Insights est intuitif et simple à utiliser. Vous pouvez interagir avec vos données sans avoir à écrire une seule ligne de code. En outre, il n’est pas nécessaire d’apprendre un nouveau langage, bien que Time Series Insights fournisse un langage de requête texte précis pour les utilisateurs avancés qui maîtrisent SQL. Quant aux novices, ils peuvent utiliser la plateforme via un mode d’exploration simplifié.
 
-Les clients tirent parti de la vitesse de diagnostic des problèmes liés aux ressources. Ils peuvent effectuer des analyses d’opérations de développement pour identifier la cause racine d’un bogue dans une solution IoT. Ils peuvent également identifier les zones à marquer pour investigation dans le cadre de leurs initiatives en science des données. 
+Les clients tirent parti de la vitesse de diagnostic des problèmes liés aux ressources. Ils peuvent effectuer des analyses d’opérations de développement pour identifier la cause racine d’un bogue dans une solution IoT. Ils peuvent également identifier les zones à marquer pour investigation dans le cadre de leurs initiatives en science des données.
 
 Il existe trois méthodes principales pour interagir avec les données stockées dans Time Series Insights :
 

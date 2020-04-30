@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b452362744d7fbf655ea043127a15f5173d04e4c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231441"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562455"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Résoudre les problèmes d’Azure Data Box Gateway 
 
@@ -40,7 +40,7 @@ Pour diagnostiquer et corriger les erreurs d’appareil, vous pouvez exécuter l
 
 ## <a name="collect-support-package"></a>Collecter un package de support
 
-Un package de journaux d’activité contient tous les journaux d’activité pertinents qui peuvent aider l’équipe du Support Microsoft à résoudre les problèmes des appareils. Vous pouvez générer un package de journaux par le biais de l’interface utilisateur web locale.
+Un package de journaux d’activité contient tous les journaux d’activité pertinents qui peuvent aider l’équipe du Support Microsoft à résoudre les problèmes des appareils. Vous pouvez générer un package de journaux par le biais de l’interface utilisateur web locale. 
 
 Pour collecter un package de support, procédez comme suit. 
 

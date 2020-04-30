@@ -1,16 +1,14 @@
 ---
 title: Gérer les secrets d’application Azure Service Fabric
 description: Découvrez comment sécuriser des valeurs secrètes dans une application Service Fabric (non dépendante de la plateforme).
-author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: vturecek
-ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414510"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583237"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gérer les secrets chiffrés dans les applications Service Fabric
 Ce guide vous guide à travers les étapes de la gestion des secrets dans une application Service Fabric. Les secrets peuvent être des informations sensibles quelconques, notamment des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs qui ne doivent pas être traitées en texte brut.

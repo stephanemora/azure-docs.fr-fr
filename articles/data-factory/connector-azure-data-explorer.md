@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 12bf807f5866567508b644105f377cfde1494250
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ba8c35fc1802f7ef3ac54c693c8106bbc40cc185
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410779"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560167"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 
@@ -196,7 +196,7 @@ Pour copier des données vers Azure Data Explorer, définissez la propriété ty
 |:--- |:--- |:--- |
 | type | La propriété **type** du récepteur d’activité de copie doit être définie sur : **AzureDataExplorerSink**. | Oui |
 | ingestionMappingName | Nom d’un [mappage](/azure/kusto/management/mappings#csv-mapping) créé au préalable sur une table Kusto. Pour mapper les colonnes de la source et Azure Data Explorer, ce qui s’applique à [tous les magasins et formats de source pris en charge](copy-activity-overview.md#supported-data-stores-and-formats), notamment les formats CSV/JSON/Avro, vous pouvez utiliser l’activité de copie [mappage des colonnes](copy-activity-schema-and-type-mapping.md) (implicitement par nom ou explicitement configurée) et/ou les mappages d’Azure Data Explorer. | Non |
-| additionalProperties | Conteneur des propriétés qui peut être utilisé pour spécifier l’une des propriétés d’ingestion qui ne sont pas déjà définies par le récepteur Azure Data Explorer. Plus précisément, il peut être utile pour spécifier des balises d’ingestion. Pour en savoir plus, consultez le [document relatif à l’ingestion des données Azure Data Explorer](https://kusto.azurewebsites.net/docs/management/data-ingestion/index.html). | Non |
+| additionalProperties | Conteneur des propriétés qui peut être utilisé pour spécifier l’une des propriétés d’ingestion qui ne sont pas déjà définies par le récepteur Azure Data Explorer. Plus précisément, il peut être utile pour spécifier des balises d’ingestion. Pour en savoir plus, consultez le [document relatif à l’ingestion des données Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | Non |
 
 **Exemple :**
 

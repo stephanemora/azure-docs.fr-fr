@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 952a94797e01a3931fdd151461250af0c2590c11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76120539"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559580"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Liaisons Mobile Apps pour Azure Functions 
 
@@ -50,17 +50,17 @@ Voici les données de liaison dans le fichier *function.json* :
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
         "name": "record",
         "type": "mobileTable",
         "tableName": "MyTable",
-        "id" : "{queueTrigger}",
+        "id": "{queueTrigger}",
         "connection": "My_MobileApp_Url",
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
@@ -95,17 +95,17 @@ Voici les données de liaison dans le fichier *function.json* :
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
         "name": "record",
         "type": "mobileTable",
         "tableName": "MyTable",
-        "id" : "{queueTrigger}",
+        "id": "{queueTrigger}",
         "connection": "My_MobileApp_Url",
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
@@ -194,19 +194,19 @@ Voici les données de liaison dans le fichier *function.json* :
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
-    "name": "record",
-    "type": "mobileTable",
-    "tableName": "MyTable",
-    "connection": "My_MobileApp_Url",
-    "apiKey": "My_MobileApp_Key",
-    "direction": "out"
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "out"
     }
 ]
 }
@@ -235,19 +235,19 @@ Voici les données de liaison dans le fichier *function.json* :
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
-    "name": "record",
-    "type": "mobileTable",
-    "tableName": "MyTable",
-    "connection": "My_MobileApp_Url",
-    "apiKey": "My_MobileApp_Key",
-    "direction": "out"
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "out"
     }
 ],
 "disabled": false

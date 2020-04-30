@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: 69ff58d6cdabe49000b00afecfc6b4ad1a3f2daa
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f9bb8743f0b0852e46b440de22038e3f84272e93
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76841844"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561009"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutoriel : Créer une application iOS qui lance le lecteur immersif avec le contenu d’une photo (Swift)
 
@@ -53,7 +53,7 @@ Le moyen le plus simple d’utiliser le kit SDK Lecteur immersif est via CocoaPo
   target 'picture-to-immersive-reader-swift' do
   use_frameworks!
   # Pods for picture-to-immersive-reader-swift
-  pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'
+  pod 'immersive-reader-sdk', :git => 'https://github.com/microsoft/immersive-reader-sdk.git'
   end
 ```
 4. Dans le terminal, dans le répertoire de votre projet Xcode, exécutez la commande `pod install` pour installer le pod du kit SDK Lecteur immersif.

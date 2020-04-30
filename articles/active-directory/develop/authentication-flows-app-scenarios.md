@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: bf47a352542be0ad4467ed420cc38f62da0d47dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 66c34206b96acf0414f2f2285ca267fa5c9c2e03
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81534850"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583172"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
@@ -44,7 +44,7 @@ Les applications peuvent être catégorisées comme suit :
 - [Ressources protégées et applications clientes](#protected-resources-vs-client-applications) : certains scénarios concernent la protection de ressources telles que des applications web ou des API web. D’autres scénarios concernent l’acquisition d’un jeton de sécurité pour appeler une API web protégée.
 - [Avec utilisateurs ou sans utilisateurs](#with-users-or-without-users) : certains scénarios impliquent un utilisateur connecté, tandis que d’autres (comme les scénarios de démon) n’impliquent pas d’utilisateur.
 - [Applications clientes monopages, publiques et confidentielles](#single-page-public-client-and-confidential-client-applications) : il s’agit des trois grandes catégories d’applications. Chacune est utilisée avec différents objets et bibliothèques.
-- [Audience de connexion](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types) : les flux d’authentification disponibles diffèrent en fonction de l’audience de connexion. Certains flux sont disponibles uniquement pour les comptes professionnels ou scolaires. D’autres sont disponibles pour les comptes professionnels ou scolaires et pour les comptes Microsoft personnels. L’audience autorisée dépend des flux d’authentification.
+- [Audience de connexion](v2-supported-account-types.md) : les flux d’authentification disponibles diffèrent en fonction de l’audience de connexion. Certains flux sont disponibles uniquement pour les comptes professionnels ou scolaires. D’autres sont disponibles pour les comptes professionnels ou scolaires et pour les comptes Microsoft personnels. L’audience autorisée dépend des flux d’authentification.
 - [Flux OAuth 2.0 pris en charge](#scenarios-and-supported-authentication-flows) :  les flux d’authentification sont utilisés pour implémenter les scénarios d’applications qui demandent des jetons. Il n’existe pas de mappage un-à-un entre des scénarios d’applications et des flux d’authentification.
 - [Plateformes prises en charge](#scenarios-and-supported-platforms-and-languages) : Tous les scénarios d’applications ne sont pas disponibles pour toutes les plateformes.
 

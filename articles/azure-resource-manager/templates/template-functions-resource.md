@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 90cee78c29c26c88d808cdef798e74a2184a5fcf
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 04/28/2020
+ms.openlocfilehash: 4038d95942805ae26b5e82d5b766a80a92ae11bc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804756"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231303"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Fonctions de ressource pour les modèles ARM
 
@@ -28,9 +28,7 @@ Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel,
 
 ## <a name="extensionresourceid"></a>extensionResourceId
 
-```json
-extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
-```
+`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Retourne l’ID d’une [ressource d’extension](../management/extension-resource-types.md), un type de ressource qui s’applique à une autre ressource pour y ajouter des fonctionnalités.
 
@@ -108,9 +106,7 @@ L’exemple suivant retourne l’ID de la ressource pour un verrou de groupe de 
 
 ## <a name="list"></a>list*
 
-```json
-list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
-```
+`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
 La syntaxe de cette fonction varie en fonction du nom des opérations de liste. Chaque implémentation retourne des valeurs pour le type de ressource qui prend en charge une opération de liste. Le nom de l’opération doit commencer par `list`. Des utilisations courantes sont `listKeys` et `listSecrets`.
 
@@ -356,9 +352,7 @@ Pour obtenir le jeton SAS, passez un objet pour l’heure d’expiration. L’he
 
 ## <a name="providers"></a>fournisseurs
 
-```json
-providers(providerNamespace, [resourceType])
-```
+`providers(providerNamespace, [resourceType])`
 
 Renvoie des informations sur un fournisseur de ressources et les types de ressources qu’il prend en charge. Si vous ne fournissez pas un type de ressource, la fonction retourne tous les types pris en charge pour le fournisseur de ressources.
 
@@ -433,9 +427,7 @@ Pour le fournisseur de ressources **Microsoft.Web** et le type de ressource **si
 
 ## <a name="reference"></a>reference
 
-```json
-reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
-```
+`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Renvoie un objet représentant l’état d’exécution d’une ressource.
 
@@ -670,9 +662,7 @@ L’objet complet retourné présente le format suivant :
 
 ## <a name="resourcegroup"></a>resourceGroup
 
-```json
-resourceGroup()
-```
+`resourceGroup()`
 
 Renvoie un objet qui représente le groupe de ressources actuel.
 
@@ -750,9 +740,7 @@ L’exemple précédent renvoie un objet dans le format suivant :
 
 ## <a name="resourceid"></a>resourceId
 
-```json
-resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
-```
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. Le format de l’identificateur retourné varie selon que le déploiement se produit à l’échelle d’un groupe de ressources, d’un abonnement, d’un groupe d’administration ou d’un locataire.
 
@@ -907,9 +895,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="subscription"></a>subscription
 
-```json
-subscription()
-```
+`subscription()`
 
 Retourne des détails concernant l’abonnement pour le déploiement actuel.
 
@@ -950,9 +936,7 @@ Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur p
 
 ## <a name="subscriptionresourceid"></a>subscriptionResourceId
 
-```json
-subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)
-```
+`subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
 
 Retourne l’identificateur unique d’une ressource déployée au niveau de l’abonnement.
 
@@ -1034,9 +1018,7 @@ Le modèle suivant attribue un rôle intégré. Vous pouvez le déployer soit su
 
 ## <a name="tenantresourceid"></a>tenantResourceId
 
-```json
-tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
-```
+`tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
 
 Retourne l’identificateur unique d’une ressource déployée au niveau du tenant.
 

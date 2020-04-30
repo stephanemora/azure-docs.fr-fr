@@ -1,25 +1,15 @@
 ---
 title: Conserver les données de sortie dans Stockage Azure avec la bibliothèque File Conventions .NET - Azure Batch
 description: Apprenez à utiliser la bibliothèque File Conventions d’Azure Batch pour conserver les sorties de travaux et de tâches dans Stockage Azure et les afficher dans le portail Azure.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e331dcfc9acf7a5e8a83be788b566cf92eaeb8f4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548049"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232698"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
 
@@ -192,7 +182,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Afficher les fichiers de sortie dans le portail Azure
 
-Le portail Azure affiche les fichiers de sortie de tâches et les journaux d’activité qui sont conservés dans un compte Azure Storage lié à l’aide du [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Vous pouvez implémenter ces conventions vous-même dans le langage de votre choix ou utiliser la bibliothèque File Conventions dans vos applications .NET.
+Le portail Azure affiche les fichiers de sortie de tâches et les journaux d’activité qui sont conservés dans un compte Azure Storage lié à l’aide du [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). Vous pouvez implémenter ces conventions vous-même dans le langage de votre choix ou utiliser la bibliothèque File Conventions dans vos applications .NET.
 
 Pour activer l’affichage de vos fichiers de sortie dans le portail, vous devez respecter les exigences suivantes :
 

@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: d160b0ead1ceb8c41bede20cb389a360d24258f9
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683355"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561369"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Limites d’Azure Data Box Gateway
 
-Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Data Box Gateway. 
+Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Data Box Gateway.
 
 ## <a name="data-box-gateway-service-limits"></a>Limites de service Data Box Gateway
 

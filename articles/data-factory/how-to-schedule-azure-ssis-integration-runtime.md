@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 50ff0afe13b5b098fbc8d9fbeefba295a6217192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606067"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584026"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter Azure-SSIS Integration Runtime selon une planification
 
@@ -353,7 +353,7 @@ La section suivante indique comment créer un runbook PowerShell. Le script asso
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Créer des planifications pour que le runbook démarre ou arrête Azure-SSIS Integration Runtime
 
-Dans la section précédente, vous avez créé un runbook Azure Automation qui peut démarrer ou arrêter Azure-SSIS Integration Runtime. Dans cette section, vous créez deux planifications pour votre runbook. Quand vous configurez la première planification, vous spécifiez **START** pour **OPERATION**. De même, quand vous configurez la seconde planification, vous spécifiez **STOP** pour **OPERATION**. Pour obtenir des instructions détaillées sur la création des planifications, consultez l’article [Créer une planification](../automation/shared-resources/schedules.md#creating-a-schedule).
+Dans la section précédente, vous avez créé un runbook Azure Automation qui peut démarrer ou arrêter Azure-SSIS Integration Runtime. Dans cette section, vous créez deux planifications pour votre runbook. Quand vous configurez la première planification, vous spécifiez **START** pour **OPERATION**. De même, quand vous configurez la seconde planification, vous spécifiez **STOP** pour **OPERATION**. Pour obtenir des instructions détaillées sur la création des planifications, consultez l’article [Créer une planification](../automation/shared-resources/schedules.md#create-a-schedule).
 
 1. Dans la fenêtre **Runbook**, sélectionnez **Planifications**, puis sélectionnez **+ Ajouter une planification** dans la barre d’outils. 
 

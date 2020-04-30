@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 29eb0625ceebf4fee75d0c1accef7ae03b5f61b9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984944"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208378"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
 
@@ -36,7 +36,7 @@ Service Bus Premium prend en charge la géo-reprise d’activité après sinistr
 La référence SKU de Service Bus Premium prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), en fournissant des emplacements isolés des pannes au sein d’une même région Azure. Service Bus gère trois copies de la banque de messagerie (1 copie principale et 2 secondaires). Service Bus synchronise les opérations relatives aux données et à la gestion sur les trois copies. Si la copie principale échoue, l’une des copies secondaires devient la copie principale, sans temps d’arrêt ressenti. Si les applications constatent des déconnexions temporaires de Service Bus, la logique de nouvelle tentative dans le SDK se reconnectera automatiquement à Service Bus. 
 
 > [!NOTE]
-> Dans Azure Service Bus Premium, la prise en charge des zones de disponibilité est fournie uniquement pour les [régions Azure](../availability-zones/az-overview.md#services-support-by-region) qui comprennent déjà des zones de disponibilité.
+> Dans Azure Service Bus Premium, la prise en charge des zones de disponibilité est fournie uniquement pour les [régions Azure](../availability-zones/az-region.md) qui comprennent déjà des zones de disponibilité.
 
 Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Service Bus ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
 

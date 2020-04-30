@@ -5,14 +5,15 @@ keywords: connexion postgresql,chaîne de connexion,problèmes de connectivité
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: c064aca484f85c44dada9888012140784a96863f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abcc979bb36fe0acb663a511875a1e186c2c0739
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977503"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583970"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Résoudre les problèmes de connexion à Azure Database pour PostgreSQL - Hyperscale (Citus)
 
