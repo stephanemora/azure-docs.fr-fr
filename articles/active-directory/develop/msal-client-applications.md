@@ -13,12 +13,12 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084123"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534310"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Applications clientes publiques et confidentielles
 La bibliothèque d’authentification Microsoft (MSAL) définit deux types de clients : les clients publics et les clients confidentiels. Les deux types de clients se distinguent par leur capacité à s’authentifier en toute sécurité avec le serveur d’autorisation et à préserver la confidentialité de leurs identifiants client. En revanche, Azure AD Authentication Library (ADAL) utilise ce qu’on appelle le *contexte d’authentification* (qui est une connexion à Azure AD).
@@ -28,7 +28,7 @@ La bibliothèque d’authentification Microsoft (MSAL) définit deux types de cl
     Applications clientes confidentielles : <BR>
     ![Application web](media/msal-client-applications/web-app.png) ![ API web](media/msal-client-applications/web-api.png) ![Démon/Service](media/msal-client-applications/daemon-service.png)
 
-- **Les applications clientes publiques** sont des applications qui s’exécutent sur des appareils, des ordinateurs de bureau ou dans un navigateur web. Comme elles ne sont pas réputées garder les clés secrètes d’application en toute sécurité, elles n’accèdent aux API web que pour le compte de l’utilisateur. (Elles ne prennent en charge que les flux de clients publics.) Les clients publics ne disposent pas de clés secrètes de client comme elles ne peuvent pas contenir les clés secrètes définies lors de la configuration.
+- **Les applications clientes publiques** sont des applications qui s’exécutent sur des appareils, des ordinateurs de bureau ou dans un navigateur web. N'étant pas approuvées pour conserver les clés secrètes d’application, elles n’accèdent aux API web que pour le compte de l’utilisateur. (Elles ne prennent en charge que les flux de clients publics.) Les clients publics ne disposent pas de clés secrètes de client comme elles ne peuvent pas contenir les clés secrètes définies lors de la configuration.
 
     Applications clientes publiques : <BR>
     ![Application de bureau](media/msal-client-applications/desktop-app.png) ![API sans navigateur](media/msal-client-applications/browserless-app.png) ![Application mobile](media/msal-client-applications/mobile-app.png)

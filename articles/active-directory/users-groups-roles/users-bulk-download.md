@@ -1,11 +1,11 @@
 ---
-title: Télécharger une liste d’utilisateurs (préversion) dans le portail Azure Active Directory | Microsoft Docs
+title: Télécharger une liste d'utilisateurs dans le portail Azure Active Directory | Microsoft Docs
 description: Téléchargez des enregistrements d’utilisateur en bloc dans le centre d’administration Azure dans Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 02/06/2020
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063830"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532637"
 ---
-# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Télécharger une liste d’utilisateurs (préversion) dans le portail Azure Active Directory
+# <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Télécharger une liste d’utilisateurs dans le portail Azure Active Directory
 
 Azure Active Directory (Azure AD) prend en charge les opérations d’importation (création) d’utilisateurs en bloc.
 
 ## <a name="required-permissions"></a>Autorisations requises
 
-Pour télécharger la liste des utilisateurs à partir du centre d’administration Azure AD, vous devez être connecté avec un ID d’utilisateur associé à un ou plusieurs rôles Administrateur au niveau de l’organisation dans Azure AD. Les inviteurs d’invités et les développeurs d’applications ne sont pas considérés comme des rôles Administrateur.
+Pour télécharger la liste des utilisateurs à partir du centre d’administration Azure AD, vous devez être connecté avec un ID d’utilisateur associé à un ou plusieurs rôles Administrateur au niveau de l’organisation dans Azure AD (Administrateur d'utilisateurs correspond au rôle minimum requis). Les inviteurs d’invités et les développeurs d’applications ne sont pas considérés comme des rôles Administrateur.
 
 ## <a name="to-download-a-list-of-users"></a>Pour télécharger une liste d’utilisateurs
 
@@ -70,9 +70,9 @@ Pour télécharger la liste des utilisateurs à partir du centre d’administrat
 
 ## <a name="check-status"></a>Vérification du statut
 
-Vous pouvez voir l’état de vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc (préversion)** .
+Pour connaître l'état de vos demandes d'opérations en bloc en attente, consultez la page **Résultats des opérations en bloc**.
 
-   ![Vérifier l’état du chargement dans la page Résultats de l’opération en bloc](./media/users-bulk-download/bulk-center.png)
+[![](media/users-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
 

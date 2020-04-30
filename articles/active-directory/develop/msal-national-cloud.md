@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76695736"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533987"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
 
@@ -71,7 +71,7 @@ Pour activer votre application MSAL.js pour les clouds souverains :
 ### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 
 1. Connectez-vous au [portail Azure](https://portal.azure.us/).
-    
+
    Pour rechercher des points de terminaison de portail Azure pour d’autres clouds nationaux, consultez [Points de terminaison d’inscription d’application](authentication-national-cloud.md#app-registration-endpoints).
 
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
@@ -126,12 +126,12 @@ Dans ce code :
 - `Enter_the_Tenant_Info_Here` est défini sur l’une des options suivantes :
     - Si votre application prend en charge les **Comptes dans cet annuaire organisationnel**, remplacez cette valeur par l’ID de locataire ou le nom du locataire (par exemple, contoso.microsoft.com).
     - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`.
-    
+
     Pour rechercher des points de terminaison d’authentification pour tous les clouds nationaux, consultez [Points de terminaison d’authentification Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > Les comptes Microsoft personnels ne sont pas pris en charge dans les clouds nationaux.
-  
+
 - `graphEndpoint` est le point de terminaison Microsoft Graph pour Microsoft Cloud for US Government.
 
    Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison Microsoft Graph dans des clouds nationaux](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
@@ -149,16 +149,16 @@ Pour activer votre application MSAL Python pour les clouds souverains :
     ```json
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
-    
+
 - Pour appeler Microsoft Graph, vous devez disposer d’une URL de point de terminaison Graph spécifique qui dépend du cloud que vous utilisez. Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison racine de service de jetons et d’inscription de l’application](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     Voici un exemple de point de terminaison Graph, avec l’étendue :
-    
+
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
     "scope": "User.Read"
     ```
-    
+
 ## <a name="java"></a>[Java](#tab/java)
 
 Pour activer votre application MSAL pour Java pour les clouds souverains :
@@ -194,12 +194,12 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
@@ -213,7 +213,7 @@ Par exemple, si vous souhaitez que votre application soit mutualisée dans un cl
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```

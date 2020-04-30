@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75548817"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461648"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
@@ -32,7 +32,7 @@ Nous recommandons les bonnes pratiques suivantes pour la sécurité Azure Servic
 -   Utiliser des certificats X.509.
 -   Configurer des stratégies de sécurité.
 -   Implémenter la configuration de la sécurité de Reliable Actors.
--   Configurer SSL pour Azure Service Fabric.
+-   Configurer TLS pour Azure Service Fabric.
 -   Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric.
 -   Configurer Azure Key Vault pour la sécurité.
 -   Affecter des utilisateurs aux rôles.
@@ -118,13 +118,13 @@ Chaque acteur se définit comme une instance d’un type d’acteur, de la même
 Les [configurations de sécurité du réplicateur](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) sont utilisées pour sécuriser le canal de communication utilisé durant la réplication. Cette configuration empêche un service de voir le trafic de réplication des autres services et garantit que les données hautement disponibles sont sécurisées. Par défaut, une section de configuration de sécurité vide empêche de sécuriser la réplication.
 Les configurations de réplicateur servent à configurer le réplicateur responsable de la haute fiabilité de l’état du fournisseur d’état d’acteur.
 
-## <a name="configure-ssl-for-azure-service-fabric"></a>Configurer SSL pour Azure Service Fabric
-Le processus d’authentification serveur [authentifie](../../service-fabric/service-fabric-cluster-creation-via-arm.md) les points de terminaison de gestion de cluster auprès d’un client de gestion. Le client de gestion reconnaît ensuite qu’il communique avec le cluster réel. Ce certificat fournit également un certificat [SSL](../../service-fabric/service-fabric-cluster-creation-via-arm.md) pour l’API de gestion HTTPS et Service Fabric Explorer par le biais de HTTPS.
+## <a name="configure-tls-for-azure-service-fabric"></a>Configurer TLS pour Azure Service Fabric
+Le processus d’authentification serveur [authentifie](../../service-fabric/service-fabric-cluster-creation-via-arm.md) les points de terminaison de gestion de cluster auprès d’un client de gestion. Le client de gestion reconnaît ensuite qu’il communique avec le cluster réel. Ce certificat fournit également un protocole [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) pour l’API de gestion HTTPS et pour Service Fabric Explorer via HTTPS.
 Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Quand vous demandez un certificat auprès d’une autorité de certification, le nom d’objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour votre cluster.
 
-Pour configurer SSL pour une application, vous devez tout d’abord obtenir un certificat SSL qui a été signé par une autorité de certification. L’autorité de certification est un tiers de confiance qui émet des certificats à des fins de sécurité SSL. Si vous n’avez pas de certificat SSL, vous devez en obtenir un auprès d’une société qui en vend.
+Pour configurer TLS pour une application, vous devez tout d’abord obtenir un certificat SSL/TLS qui a été signé par une autorité de certification. L’autorité de certification est un tiers approuvé qui émet des certificats à des fins de sécurité TLS. Si vous n’avez pas encore de certificat SSL/TLS, vous devez en obtenir un auprès d’une entreprise qui en vend.
 
-Le certificat SSL doit répondre aux prérequis suivants dans Azure :
+Le certificat doit répondre aux prérequis suivants pour les certificats SSL/TLS dans Azure :
 -   Le certificat doit contenir une clé privée.
 
 -   Le certificat doit être créé pour l’échange de clés et être exportable dans un fichier d’échange d’informations personnelles (.pfx).
@@ -135,13 +135,13 @@ Le certificat SSL doit répondre aux prérequis suivants dans Azure :
     - Demandez un certificat à une autorité de certification avec un nom d’objet qui correspond au nom de domaine personnalisé de votre service. Par exemple, si votre nom de domaine personnalisé est __contoso__ **.com**, le certificat fourni par votre autorité de certification doit avoir comme nom d’objet **.contoso.com** ou __www__ **.contoso.com**.
 
     >[!NOTE]
-    >Vous ne pouvez pas obtenir de certificat SSL auprès d’une autorité de certification pour le domaine __cloudapp__ **.net**.
+    >Vous ne pouvez pas obtenir de certificat SSL/TLS auprès d’une autorité de certification pour le domaine __cloudapp__ **.net**.
 
 -   Le certificat doit utiliser au minimum un chiffrement à 2 048 bits.
 
 Le protocole HTTP n’est pas sécurisé et peut faire l’objet d’écoutes clandestines. Les données qui sont transmises via HTTP sont envoyées en texte en clair à partir du navigateur web au serveur web ou entre d’autres points de terminaison. Des attaquants peuvent intercepter et afficher des données sensibles envoyées via HTTP, telles que les détails d’une carte de crédit et des informations de connexion de compte. Quand les données sont envoyées ou publiées par le biais d’un navigateur via HTTPS, SSL garantit que les informations sensibles sont chiffrées et protégées contre une interception.
 
-Pour en savoir plus sur l’utilisation des certificats SSL, consultez [Configurer SSL pour des applications Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
+Pour en savoir plus sur l’utilisation des certificats SSL/TLS, consultez [Configuration de TLS pour une application dans Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric
 Configurez un cluster sécurisé à 3 types de nœud en utilisant le [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) comme exemple. Contrôlez les trafics réseau entrant et sortant à l’aide du modèle et de groupes de sécurité réseau.
@@ -155,7 +155,7 @@ Service Fabric utilise les certificats à des fins d’authentification et de ch
 
 Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Azure Key Vault sert à [gérer des certificats](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) pour des clusters Service Fabric dans Azure. Le fournisseur de ressources Azure qui crée les clusters extrait les certificats d’un coffre de clés. Ensuite, le fournisseur installe les certificats sur les machines virtuelles quand le cluster est déployé sur Azure.
 
-Il existe une relation de certificat entre [Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md), le cluster Service Fabric et le fournisseur de ressources qui utilise les certificats. Quand le cluster est créé, les informations relatives à la relation de certificat sont stockées dans un coffre de clés.
+Il existe une relation de certificat entre [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), le cluster Service Fabric et le fournisseur de ressources qui utilise les certificats. Quand le cluster est créé, les informations relatives à la relation de certificat sont stockées dans un coffre de clés.
 
 Il existe deux étapes de base pour configurer un coffre de clés :
 1. Créez un groupe de ressources dédié à votre coffre de clés.
@@ -166,7 +166,7 @@ Il existe deux étapes de base pour configurer un coffre de clés :
 
     Le coffre de clés doit être activé pour le déploiement. Le fournisseur de ressources de calcul peut ensuite obtenir les certificats du coffre et les installer sur les instances de machine virtuelle.
 
-Pour plus d’informations sur la configuration d’un coffre de clés, consultez [Présentation d'Azure Key Vault](../../key-vault/key-vault-overview.md).
+Pour plus d’informations sur la configuration d’un coffre de clés, consultez [Présentation d'Azure Key Vault](../../key-vault/general/overview.md).
 
 ## <a name="assign-users-to-roles"></a>Affecter des utilisateurs aux rôles
 Une fois que vous avez créé les applications pour représenter votre cluster, affectez les utilisateurs aux rôles qui sont pris en charge par Service Fabric : lecture seule et administrateur. Vous pouvez assigner ces rôles à l’aide du portail Azure.

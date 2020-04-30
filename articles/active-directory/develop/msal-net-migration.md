@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: cccb886e13482292e8ab9afa2b34bd9dd2c3229b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f389943d284c573312473f426048f8aadb79088e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050303"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533970"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -31,11 +31,11 @@ Microsoft Authentication Library pour .NET (MSAL.NET) et la Bibliothèque d’au
 
 **MSAL.NET est désormais la bibliothèque d'authentification recommandée avec la plateforme d'identités Microsoft**. Aucune nouvelle fonctionnalité ne sera implémentée sur ADAL.NET. Les efforts se focalisent sur l'amélioration de MSAL.
 
-Cet article décrit les différences entre la Bibliothèque d'authentification Microsoft pour .NET (MSAL.NET) et la Bibliothèque d'authentification Azure AD pour .NET (ADAL.NET). Il vous aide également à migrer vers MSAL.  
+Cet article décrit les différences entre la Bibliothèque d'authentification Microsoft pour .NET (MSAL.NET) et la Bibliothèque d'authentification Azure AD pour .NET (ADAL.NET). Il vous aide également à migrer vers MSAL.
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Différences entre les applications ADAL et MSAL
 
-Dans la plupart des cas, vous avez besoin d’utiliser MSAL.NET et le point de terminaison de la plateforme d’identités Microsoft, à savoir la dernière génération de bibliothèques d’authentification de Microsoft. En utilisant MSAL.NET, vous acquérez des jetons pour la connexion des utilisateurs à votre application avec Azure AD (comptes professionnels et scolaires), des comptes (personnels) Microsoft (MSA) ou Azure AD B2C. 
+Dans la plupart des cas, vous avez besoin d’utiliser MSAL.NET et le point de terminaison de la plateforme d’identités Microsoft, à savoir la dernière génération de bibliothèques d’authentification de Microsoft. En utilisant MSAL.NET, vous acquérez des jetons pour la connexion des utilisateurs à votre application avec Azure AD (comptes professionnels et scolaires), des comptes (personnels) Microsoft (MSA) ou Azure AD B2C.
 
 Si vous connaissez déjà le point de terminaison Azure AD pour développeurs (v1.0) (et ADAL.NET), envisagez de lire l’article sur les [différences du point de terminaison de la plateforme d’identités Microsoft (v2.0)](active-directory-v2-compare.md).
 
@@ -53,7 +53,7 @@ Pour utiliser MSAL.NET, vous devez ajouter le package NuGet [Microsoft.Identity.
 
 ADAL.NET acquiert des jetons pour les *ressources*, alors que MSAL.NET en acquiert pour les *étendues*. Plusieurs remplacements AcquireToken MSAL.NET exigent un paramètre appelé scopes(`IEnumerable<string> scopes`). Ce paramètre est une simple liste de chaînes qui déclarent les autorisations souhaitées et les ressources demandées. Les [étendues de Microsoft Graph](/graph/permissions-reference) figurent parmi les plus connues.
 
-Il est également possible dans MSAL.NET d’accéder aux ressources v1.0. Consultez plus d’informations dans [Étendues pour une application v1.0](#scopes-for-a-web-api-accepting-v10-tokens). 
+Il est également possible dans MSAL.NET d’accéder aux ressources v1.0. Consultez plus d’informations dans [Étendues pour une application v1.0](#scopes-for-a-web-api-accepting-v10-tokens).
 
 ### <a name="core-classes"></a>Classes principales
 
@@ -63,7 +63,7 @@ Il est également possible dans MSAL.NET d’accéder aux ressources v1.0. Consu
 
 ### <a name="iaccount-not-iuser"></a>IAccount au lieu de IUser
 
-ADAL.NET manipulait des utilisateurs. Cependant, un utilisateur correspond à un être humain ou à un agent logiciel, mais il peut posséder/détenir/avoir la responsabilité d’un ou plusieurs comptes dans le système d’identités Microsoft (plusieurs comptes Azure AD, Azure AD B2C, des comptes personnels Microsoft). 
+ADAL.NET manipulait des utilisateurs. Cependant, un utilisateur correspond à un être humain ou à un agent logiciel, mais il peut posséder/détenir/avoir la responsabilité d’un ou plusieurs comptes dans le système d’identités Microsoft (plusieurs comptes Azure AD, Azure AD B2C, des comptes personnels Microsoft).
 
 MSAL.NET 2.x définit maintenant le concept de compte (par le biais de l’interface IAccount). Ce changement cassant fournit la bonne sémantique : le fait que le même utilisateur puisse avoir plusieurs comptes, dans des annuaires Azure AD différents. De plus, MSAL.NET fournit de meilleures informations dans les scénarios d’invité, car des informations de compte d’accueil sont fournies.
 
@@ -108,7 +108,7 @@ Dans ADAL.NET, les exceptions de demande de revendication sont gérées de la ma
 Dans MSAL.NET, les exceptions de demande de revendication sont gérées de la manière suivante :
 
 - Les `Claims` font surface dans `MsalServiceException`.
-- Il existe une méthode `.WithClaim(claims)` qui peut s’appliquer au générateur `AcquireTokenInteractive`. 
+- Il existe une méthode `.WithClaim(claims)` qui peut s’appliquer au générateur `AcquireTokenInteractive`.
 
 ### <a name="supported-grants"></a>Octrois pris en charge
 
@@ -133,7 +133,7 @@ Type d’application | Accorder | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
 Application web, API web, démon | Informations d’identification du client | [Flux d’informations d’identification du client dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Flux d’informations d’identification du client dans MSAL.NET](msal-authentication-flows.md#client-credentials)
 API Web | OBO (On-Behalf-Of) | [Appels de service à service pour le compte de l’utilisateur avec ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [OBO dans MSAL.NET](msal-authentication-flows.md#on-behalf-of)
-Application web | Code d’authentification | [Acquisition des jetons avec des codes d’autorisation sur les applications web avec ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Acquisition des jetons avec des codes d’autorisation sur les applications web avec MSAL.NET](msal-authentication-flows.md#authorization-code)
+Application web | Code d’authentification | [Acquisition des jetons avec des codes d’autorisation sur les applications web avec ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Acquisition des jetons avec des codes d’autorisation sur les applications web avec MSAL.NET](msal-authentication-flows.md#authorization-code)
 
 ### <a name="cache-persistence"></a>Persistance du cache
 
@@ -151,7 +151,7 @@ Si vous utilisez l’autorité `https://login.microsoftonline.com/common` dans v
 
 Il existe deux versions des jetons :
 - Jetons v1.0
-- Jetons v2.0 
+- Jetons v2.0
 
 Le point de terminaison v1.0 (utilisé par ADAL) émet uniquement des jetons v1.0.
 
@@ -167,7 +167,7 @@ Les autorisations OAuth2 sont des étendues d’autorisation qu’une applicatio
 
 Pour acquérir des jetons pour une application acceptant les jetons v1.0 (par exemple, l’API Microsoft Graph, disponible à l’adresse https://graph.microsoft.com) ), vous devez créer des `scopes` en concaténant un identificateur de ressource de votre choix avec une autorisation OAuth2 souhaitée pour cette ressource.
 
-Par exemple, pour accéder au nom de l’utilisateur à une API web v1.0 dont l’URI de l’ID d’application est `ResourceId`, vous devez utiliser :
+Par exemple, pour accéder au nom de l’utilisateur à une API web v1.0 dont l’URI de l’ID d’application est `ResourceId`, vous devez utiliser :
 
 ```csharp
 var scopes = new [] {  ResourceId+"/user_impersonation"};
@@ -180,9 +180,9 @@ ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
-#### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Avertissement : Une ou deux barres obliques dans l’étendue correspondant à une API web v1.0 ?
+#### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Avertissement : Une ou deux barres obliques dans l’étendue correspondant à une API web v1.0 ?
 
-Si vous voulez écrire l’étendue correspondant à l’API Azure Resource Manager (https://management.core.windows.net/) ), vous devez demander l’étendue suivante (notez les deux barres obliques) : 
+Si vous voulez écrire l’étendue correspondant à l’API Azure Resource Manager (https://management.core.windows.net/) ), vous devez demander l’étendue suivante (notez les deux barres obliques) :
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -214,29 +214,30 @@ En cas de flux d’informations d’identification du client, l’étendue à pa
 
 ## <a name="adal-to-msal-migration"></a>Migration ADAL vers MSAL
 
-Dans ADAL.NET v2. X, les jetons d’actualisation ont été exposés, ce qui vous permet de développer des solutions autour de l’utilisation de ces jetons en les mettant en cache et en utilisant les méthodes `AcquireTokenByRefreshToken` fournies par ADAL 2.x. Certaines de ces solutions ont été utilisées dans des scénarios comme :
-* Services durables qui exécutent des actions, notamment l’actualisation des tableaux de bord pour le compte des utilisateurs alors que ces utilisateurs ne sont plus connectés. 
+Dans ADAL.NET v2. X, les jetons d’actualisation ont été exposés, ce qui vous permet de développer des solutions autour de l’utilisation de ces jetons en les mettant en cache et en utilisant les méthodes `AcquireTokenByRefreshToken` fournies par ADAL 2.x.
+Certaines de ces solutions ont été utilisées dans des scénarios comme :
+* Services durables qui exécutent des actions, notamment l’actualisation des tableaux de bord pour le compte des utilisateurs alors que ces utilisateurs ne sont plus connectés.
 * Scénarios WebFarm pour permettre au client d’apporter le RT au service web (la mise en cache est effectuée côté client, le cookie est chiffré, et non côté serveur).
 
-Pour des raisons de sécurité, MSAL.NET n'expose pas les jetons d'actualisation : MSAL gère l'actualisation des jetons pour vous. 
+Pour des raisons de sécurité, MSAL.NET n'expose pas les jetons d'actualisation : MSAL gère l'actualisation des jetons pour vous.
 
 Heureusement, MSAL.NET dispose maintenant d'une API qui vous permet de migrer vos jetons d'actualisation précédents (acquis avec ADAL) dans `IConfidentialClientApplication` :
 
 ```csharp
 /// <summary>
-/// Acquires an access token from an existing refresh token and stores it and the refresh token into 
+/// Acquires an access token from an existing refresh token and stores it and the refresh token into
 /// the application user token cache, where it will be available for further AcquireTokenSilent calls.
-/// This method can be used in migration to MSAL from ADAL v2 and in various integration 
-/// scenarios where you have a RefreshToken available. 
+/// This method can be used in migration to MSAL from ADAL v2 and in various integration
+/// scenarios where you have a RefreshToken available.
 /// (see https://aka.ms/msal-net-migration-adal2-msal2)
 /// </summary>
-/// <param name="scopes">Scope to request from the token endpoint. 
+/// <param name="scopes">Scope to request from the token endpoint.
 /// Setting this to null or empty will request an access token, refresh token and ID token with default scopes</param>
 /// <param name="refreshToken">The refresh token from ADAL 2.x</param>
 IByRefreshToken.AcquireTokenByRefreshToken(IEnumerable<string> scopes, string refreshToken);
 ```
- 
-Avec cette méthode, vous pouvez fournir le jeton d’actualisation utilisé précédemment, ainsi que toutes les étendues (ressources) souhaitées. Le jeton d’actualisation est échangé avec un nouveau jeton et mis en cache dans votre application.  
+
+Avec cette méthode, vous pouvez fournir le jeton d’actualisation utilisé précédemment, ainsi que toutes les étendues (ressources) souhaitées. Le jeton d’actualisation est échangé avec un nouveau jeton et mis en cache dans votre application.
 
 Étant donné que cette méthode est destinée aux scénarios inhabituels, elle n’est pas facilement accessible avec `IConfidentialClientApplication` sans être d’abord castée vers `IByRefreshToken`.
 
@@ -253,7 +254,7 @@ app = ConfidentialClientApplicationBuilder.Create(clientId)
  .WithClientSecret(ClientSecret)
  .Build();
 IByRefreshToken appRt = app as IByRefreshToken;
-         
+
 AuthenticationResult result = await appRt.AcquireTokenByRefreshToken(null, rt)
                                          .ExecuteAsync()
                                          .ConfigureAwait(false);

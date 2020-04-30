@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138018"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461699"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -74,7 +74,7 @@ Les principes et modèles pour le périmètre du réseau existaient depuis des d
 Voici les bonnes pratiques en matière de gestion du périmètre d’identité.
 
 **Bonne pratique** : sécurisez vos clés et informations d’identification pour sécuriser votre déploiement PaaS.   
-**Détail** : La perte de clés ou d'informations d’identification est un problème courant. Vous pouvez utiliser une solution centralisée où les clés et les secrets peuvent être stockés dans des modules de sécurité matériels (HSM). [Azure Key Vault](../../key-vault/key-vault-overview.md) sauvegarde vos clés et vos secrets en chiffrant les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .pfx et les mots de passe à l’aide de clés protégées par des HSM.
+**Détail** : La perte de clés ou d'informations d’identification est un problème courant. Vous pouvez utiliser une solution centralisée où les clés et les secrets peuvent être stockés dans des modules de sécurité matériels (HSM). [Azure Key Vault](../../key-vault/general/overview.md) sauvegarde vos clés et vos secrets en chiffrant les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .pfx et les mots de passe à l’aide de clés protégées par des HSM.
 
 **Bonne pratique** : ne placez pas vos informations d’identification et autres secrets dans le code source ni GitHub.   
 **Détail** : la seule chose qui est pire que la perte de vos clés et informations d’identification serait qu’un tiers non autorisé y accède. Des pirates peuvent tirer parti de technologies de robot pour rechercher les clés et les secrets stockés dans des référentiels de code, tels que GitHub. Ne placez pas de clé ni de secrets dans ces référentiels de code publics.
@@ -101,7 +101,7 @@ Le tableau suivant répertorie les menaces STRIDE et donne des exemples d’att�
 | Menace | Propriété de sécurité | Atténuation des risques pour la plateforme Azure |
 | --- | --- | --- |
 | Usurpation d’identité | Authentification | Exigez des connexions HTTPS. |
-| Falsification | Intégrité | Validez des certificats SSL. |
+| Falsification | Intégrité | Validez des certificats TLS/SSL. |
 | Répudiation | Non-répudiation | Activez [la surveillance et les diagnostics Azure](/azure/architecture/best-practices/monitoring). |
 | Divulgation d’informations | Confidentialité | Chiffrez les données sensibles au repos à l’aide de [certificats de service](/rest/api/appservice/certificates). |
 | Denial of service (déni de service) | Disponibilité | Surveillez les mesures de performances pour des conditions potentielles de déni de service. Implémentez des filtres de connexion. |
