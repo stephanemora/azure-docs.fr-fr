@@ -13,14 +13,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cccd2df334828c0b8103e4da2ffcd8549673b69c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bdc7e6e3795719128a8ecfb1e8bc97c1a9a08c7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696994"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759029"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procédure : Limiter votre application Azure AD à un ensemble d’utilisateurs
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procédure : Limiter votre application Azure AD à un ensemble d’utilisateurs dans un locataire Azure AD
 
 Les applications inscrites dans un locataire Azure Active Directory (Azure AD) sont, par défaut, disponibles pour tous les utilisateurs du locataire qui parviennent à s’authentifier.
 
@@ -28,7 +28,7 @@ De même, avec une application [mutualisée](howto-convert-app-to-be-multi-tenan
 
 Les développeurs et les administrateurs de locataires ont souvent des exigences impliquant de limiter une application à un certain ensemble d’utilisateurs. Pour ce faire, les développeurs peuvent utiliser des modèles d’autorisation courants comme le contrôle d’accès en fonction du rôle, mais cette approche nécessite une quantité de travail importante.
 
-Azure AD permet aux développeurs et administrateurs de locataires de limiter une application à un ensemble spécifique d’utilisateurs ou de groupes de sécurité dans le locataire.
+Les développeurs et administrateurs de locataires peuvent également limiter une application à un ensemble spécifique d’utilisateurs ou de groupes de sécurité dans le locataire grâce à la fonctionnalité intégrée d’Azure AD.
 
 ## <a name="supported-app-configurations"></a>Configurations d’application prises en charge
 
@@ -62,7 +62,7 @@ Il existe deux façons de créer une application avec l’affectation d’utilis
 
 1. Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez affecter un utilisateur ou un groupe de sécurité.
 1. Sur la page **Vue d’ensemble** de l’application, sélectionnez **Propriétés** dans le menu de navigation de gauche de l’application.
-1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Quand cette option est définie sur **Oui**, les utilisateurs doivent tout d’abord être affectés à cette application avant de pouvoir y accéder.
+1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Lorsque cette option a la valeur **Oui**, les utilisateurs du locataire doivent d’abord être affectés à cette application, sans quoi ils ne pourront pas se connecter à cette application.
 1. Sélectionnez **Enregistrer** pour enregistrer cette modification de la configuration.
 
 ### <a name="app-registration"></a>Inscription d'application
@@ -75,7 +75,7 @@ Il existe deux façons de créer une application avec l’affectation d’utilis
 1. Créez ou sélectionnez l’application que vous souhaitez gérer. Vous devez être **propriétaire** de cette inscription d’application.
 1. Dans la page **Vue d'ensemble** de l’application, suivez le lien **Application gérée dans l’annuaire local** sous les éléments essentiels en haut de la page. Cela vous permet de vous connecter à l’_application d’entreprise gérée_ de l’inscription de votre application.
 1. Dans le panneau de navigation de gauche, sélectionnez **Propriétés**.
-1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Quand cette option est définie sur **Oui**, les utilisateurs doivent tout d’abord être affectés à cette application avant de pouvoir y accéder.
+1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Lorsque cette option a la valeur **Oui**, les utilisateurs du locataire doivent d’abord être affectés à cette application, sans quoi ils ne pourront pas se connecter à cette application.
 1. Sélectionnez **Enregistrer** pour enregistrer cette modification de la configuration.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Affecter des utilisateurs et des groupes à l’application
@@ -89,6 +89,14 @@ Une fois que vous avez configuré votre application pour activer l’affectation
      Une liste des utilisateurs et des groupes de sécurité s’affiche, ainsi qu’une zone de texte pour rechercher et localiser un utilisateur ou un groupe spécifique. Cet écran vous permet de sélectionner plusieurs utilisateurs et groupes d’un coup.
 
 1. Une fois que vous avez sélectionné les utilisateurs et groupes, appuyez sur le bouton **Sélectionner** en bas pour passer à l’étape suivante.
+1. (Facultatif) Si vous avez défini des rôles d’application dans votre application, vous pouvez utiliser l’option **Sélectionner un rôle** pour affecter les utilisateurs et groupes sélectionnés à un des rôles de l’application. 
 1. Appuyez sur le bouton **Attribuer** en bas pour terminer l’attribution des utilisateurs et des groupes à l’application. 
 1. Vérifiez que les utilisateurs et les groupes ajoutés figurent dans la liste **Utilisateurs et groupes** mise à jour.
 
+## <a name="more-information"></a>Informations complémentaires
+
+- [Procédure : Ajouter des rôles d’application dans votre application](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [Ajouter une autorisation à une application web ASP.NET Core à l'aide de rôles d'application et de revendications de rôles](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Utilisation de groupes de sécurité et de rôles d’Application dans vos applications (vidéo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Azure Active Directory, désormais avec les revendications de groupe et les rôles d’application](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
+- [Manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

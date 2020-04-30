@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78384830"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767031"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
@@ -88,7 +88,7 @@ Pour vérifier que le Bureau à distance utilise le codage avec accélération G
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Grâce à ces instructions, vous pouvez commencer à utiliser l’accélération GPU sur une machine virtuelle hôte de session unique. Considérations supplémentaires pour l’activation de l’accélération GPU sur un plus grand pool d’hôtes :
+Grâce à ces instructions, vous pouvez commencer à utiliser l’accélération GPU sur un hôte de session unique (une machine virtuelle). Considérations supplémentaires pour l’activation de l’accélération GPU sur un plus grand pool d’hôtes :
 
 * Envisagez d’utiliser une [extension de machine virtuelle](/azure/virtual-machines/extensions/overview) pour simplifier l’installation et les mises à jour des pilotes sur plusieurs machines virtuelles. Utilisez l’[extension du pilote GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) pour les machines virtuelles dotées de GPU NVIDIA et utilisez l’extension du pilote GPU AMD (bientôt disponible) pour les machines virtuelles dotées de GPU AMD.
 * Envisagez d’utiliser la stratégie de groupe Active Directory pour simplifier la configuration de la stratégie de groupe sur plusieurs machines virtuelles. Pour plus d’informations sur le déploiement de la stratégie de groupe dans le domaine Active Directory, consultez [Utilisation d’objets stratégie de groupe](https://go.microsoft.com/fwlink/p/?LinkId=620889).

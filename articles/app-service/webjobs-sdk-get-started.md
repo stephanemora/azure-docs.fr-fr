@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: bfbae282f9c383c19aae84a70dfc53f754bd9367
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ee724ec66d5fb474f8c8a9a967cc7235fef5e85
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77592609"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732621"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -37,28 +37,31 @@ Cet article vous explique comment déployer WebJobs en tant qu'application conso
 
 ## <a name="webjobs-nuget-packages"></a>Packages NuGet WebJobs
 
-1. Installez la dernière version 3.x stable du package NuGet `Microsoft.Azure.WebJobs.Extensions`, qui inclut `Microsoft.Azure.WebJobs`.
+1. Installez la dernière version 3.x stable du package NuGet [`Microsoft.Azure.WebJobs.Extensions`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/), qui inclut `Microsoft.Azure.WebJobs`.
 
-     Voici la commande **Console du Gestionnaire de package** pour la version 3.0.2 :
+     Voici la commande **Console du Gestionnaire de package** :
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version <3_X_VERSION>
      ```
+
+    Dans cette commande, remplacez `<3_X_VERSION>` par une version prise en charge du package. 
 
 ## <a name="create-the-host"></a>Créer l’hôte
 
 L’hôte est le conteneur d’exécution pour les fonctions. Il écoute les déclencheurs et appelle les fonctions. Les étapes suivantes créent un hôte implémentant [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), qui est l’hôte générique dans ASP.NET Core.
 
-1. Dans *Program.cs*, ajoutez une instruction `using` :
+1. Dans *Program.cs*, ajoutez les instructions `using` suivantes :
 
     ```cs
+    using System.Threading.Tasks;
     using Microsoft.Extensions.Hosting;
     ```
 
 1. Remplacez la méthode `Main` par le code suivant :
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -68,7 +71,7 @@ L’hôte est le conteneur d’exécution pour les fonctions. Il écoute les dé
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -79,12 +82,12 @@ Dans ASP.NET Core, les configurations de l’hôte sont définies par l’appel 
 
 Dans cette section, vous allez configurer la journalisation de console qui utilise le [framework de journalisation ASP.NET Core](/aspnet/core/fundamentals/logging).
 
-1. Installez la dernière version stable du package NuGet `Microsoft.Extensions.Logging.Console`, qui inclut `Microsoft.Extensions.Logging`.
+1. Installez la dernière version stable du package NuGet [`Microsoft.Extensions.Logging.Console`](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/), qui inclut `Microsoft.Extensions.Logging`.
 
-   Voici la commande **Console du Gestionnaire de package** pour la version 2.2.0 :
+   Voici la commande **Console du Gestionnaire de package** :
 
    ```powershell
-   Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
+   Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
 
 1. Dans *Program.cs*, ajoutez une instruction `using` :
@@ -92,6 +95,8 @@ Dans cette section, vous allez configurer la journalisation de console qui utili
    ```cs
    using Microsoft.Extensions.Logging;
    ```
+
+    Dans cette commande, remplacez `<3_X_VERSION>` par une version 3.x prise en charge du package.
 
 1. Appelez la méthode [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) sur [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). La méthode [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) ajoute la journalisation de console à la configuration.
 
@@ -105,7 +110,7 @@ Dans cette section, vous allez configurer la journalisation de console qui utili
     La méthode `Main` se présente désormais ainsi :
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -119,7 +124,7 @@ Dans cette section, vous allez configurer la journalisation de console qui utili
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -129,7 +134,7 @@ Dans cette section, vous allez configurer la journalisation de console qui utili
     * Désactive la [journalisation du tableau de bord](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). Le tableau de bord est un outil de surveillance hérité ; la journalisation du tableau de bord n’est pas recommandée pour les scénarios de production de débit élevé.
     * Ajoute le fournisseur de console avec le [filtrage](webjobs-sdk-how-to.md#log-filtering) par défaut.
 
-Vous pouvez désormais ajouter une fonction qui est déclenchée par des messages arrivant dans une [file d’attente du stockage Azure](../azure-functions/functions-bindings-storage-queue.md).
+Vous pouvez désormais ajouter une fonction qui est déclenchée par des messages arrivant dans une file d’attente du stockage Azure.
 
 ## <a name="install-the-storage-binding-extension"></a>Installer l’extension liaison de stockage
 
@@ -137,11 +142,13 @@ Vous pouvez désormais ajouter une fonction qui est déclenchée par des message
 
 1. Installez la dernière version stable du package NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), version 3.x. 
 
-    Voici la commande **Console du Gestionnaire de package** pour la version 3.0.4 :
+    Voici la commande **Console du Gestionnaire de package** :
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <3_X_VERSION>
     ```
+    
+    Dans cette commande, remplacez `<3_X_VERSION>` par une version prise en charge du package. 
 
 2. Dans la méthode d’extension `ConfigureWebJobs`, appelez la méthode `AddAzureStorage` sur l’instance [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) pour initialiser l’extension de stockage. À ce stade, la méthode `ConfigureWebJobs` est semblable à l’exemple suivant :
 
@@ -158,26 +165,26 @@ Vous pouvez désormais ajouter une fonction qui est déclenchée par des message
 1. Cliquez avec le bouton droit sur le projet, sélectionnez **Ajouter** > **Nouvel élément...** , choisissez **Classe**, nommez le nouveau fichier de classe C# *Functions.cs*, puis sélectionnez **Ajouter**.
 
 1. Dans Functions.cs, remplacez le modèle généré par le code suivant :
-
-   ```cs
-   using Microsoft.Azure.WebJobs;
-   using Microsoft.Extensions.Logging;
-
-   namespace WebJobsSDKSample
-   {
-       public class Functions
-       {
-           public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
-           {
-               logger.LogInformation(message);
-           }
-       }
-   }
-   ```
+    
+    ```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Extensions.Logging;
+    
+    namespace WebJobsSDKSample
+    {
+        public class Functions
+        {
+            public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
+            {
+                logger.LogInformation(message);
+            }
+        }
+    }
+    ```
 
    L’attribut `QueueTrigger` indique au runtime d’appeler cette fonction lorsqu’un nouveau message est écrit dans une file d’attente de stockage Azure appelée `queue`. Le contenu du message en file d’attente est fourni pour le code de méthode dans le paramètre `message`. Le corps de la méthode correspond à l’endroit où vous traitez les données du déclencheur. Dans cet exemple, le code ne fait qu’enregistrer le message.
 
-   Le paramètre `message` ne doit pas nécessairement être une chaîne. Vous pouvez également le lier à un objet JSON, un tableau d’octets ou un objet [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). Consultez la section relative à [l’utilisation des déclencheurs de file d’attente](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Chaque type de liaison (par exemple, des files d’attente, des objets blob ou des tables) dispose d’un ensemble différent de types de paramètre auquel vous pouvez lier des éléments.
+   Le paramètre `message` ne doit pas nécessairement être une chaîne. Vous pouvez également le lier à un objet JSON, un tableau d’octets ou un objet [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). Consultez la section relative à [l’utilisation des déclencheurs de file d’attente](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Chaque type de liaison (par exemple, des files d’attente, des objets blob ou des tables) dispose d’un ensemble différent de types de paramètre auquel vous pouvez lier des éléments.
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -273,7 +280,7 @@ Dans cette section, vous allez générer et exécuter le projet localement et d�
 
    Comme vous avez utilisé l’attribut `QueueTrigger` dans la fonction `ProcessQueueMessage`, le runtime du Kit de développement logiciel (SDK) WeJobs écoute les messages en file d’attente lors du démarrage. Il recherche un nouveau message dans la file d’attente nommée *file d’attente* et appelle la fonction.
 
-   En raison de la [temporisation exponentielle de l’interrogation de la file d’attente](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm), 2 minutes peuvent être nécessaires au runtime pour trouver le message et appeler la fonction. Ce délai d’attente peut être réduit en lançant l’exécution en [mode de développement](webjobs-sdk-how-to.md#host-development-settings).
+   En raison de la [temporisation exponentielle de l’interrogation de la file d’attente](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm), 2 minutes peuvent être nécessaires au runtime pour trouver le message et appeler la fonction. Ce délai d’attente peut être réduit en lançant l’exécution en [mode de développement](webjobs-sdk-how-to.md#host-development-settings).
 
    La sortie de console se présente ainsi :
 
@@ -351,21 +358,22 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 
 Pour tirer parti de la journalisation [Application Insights](../azure-monitor/app/app-insights-overview.md), mettez à jour votre code de journalisation pour effectuer les opérations suivantes :
 
-* Ajouter un fournisseur de journalisation Application Insights avec le [filtrage](webjobs-sdk-how-to.md#log-filtering) par défaut. Tous les journaux d’activité d’information et de niveau supérieur accèdent à la console et à Application Insights lorsque vous l’exécutez localement.
+* Ajoutez un fournisseur de journalisation Application Insights avec le [filtrage](webjobs-sdk-how-to.md#log-filtering) par défaut. Lors de l’exécution locale, toutes les informations et les journaux de niveau supérieur sont écrits à la fois dans la console et dans Application Insights.
 * Placez l'objet [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) dans un bloc `using` pour vous assurer que la sortie du journal est vidée lorsque l’hôte s’arrête.
 
-1. Installez la dernière version 3.x stable du package NuGet pour le fournisseur de journalisation Application Insights : `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
+1. Installez la dernière version 3.x stable du package NuGet [`Microsoft.Azure.WebJobs.Logging.ApplicationInsights`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
-   Voici la commande **Console du Gestionnaire de package** pour la version 3.0.2 :
+   Voici la commande **Console du Gestionnaire de package** :
 
    ```powershell
-   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version 3.0.2
+   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <3_X_VERSION>
    ```
+    Dans cette commande, remplacez `<3_X_VERSION>` par une version prise en charge du package.
 
 1. Ouvrez *Program.cs* et remplacez le code existant dans la méthode `Main` par le code suivant :
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
@@ -388,7 +396,7 @@ Pour tirer parti de la journalisation [Application Insights](../azure-monitor/ap
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -436,7 +444,7 @@ Lors du déploiement, vous créez une instance App Service dans laquelle exécut
 1. Actualisez la page **File d’attente** ; le nouveau message disparaît, car il a été traité par la fonction qui s’exécute dans Azure.
 
    > [!TIP]
-   > Si vous procédez au test dans Azure, utilisez le [mode de développement](webjobs-sdk-how-to.md#host-development-settings) pour vous assurer qu’une fonction de déclenchement de file d’attente est appelée immédiatement et éviter les retards dus à la [temporisation exponentielle de l’interrogation de la file d’attente](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm).
+   > Si vous procédez au test dans Azure, utilisez le [mode de développement](webjobs-sdk-how-to.md#host-development-settings) pour vous assurer qu’une fonction de déclenchement de file d’attente est appelée immédiatement et éviter les retards dus à la [temporisation exponentielle de l’interrogation de la file d’attente](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
 
 ### <a name="view-logs-in-application-insights"></a>Afficher les journaux d’activité dans Application Insights
 

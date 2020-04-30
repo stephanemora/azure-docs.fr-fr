@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602943"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758893"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -155,14 +155,14 @@ Les déclencheurs automatiques appellent une fonction en réponse à un événem
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-L’attribut `QueueTrigger` indique au runtime d’appeler la fonction chaque fois qu’un message de file d’attente apparaît dans la file d’attente `myqueue-items`. L’attribut `Blob` indique au runtime d’utiliser le message de file d’attente pour lire un objet blob dans le conteneur *sample-workitems*. Le contenu du message de file d’attente, passé à la fonction dans le paramètre `myQueueItem`, est le nom de l’objet blob.
+L’attribut `QueueTrigger` indique au runtime d’appeler la fonction chaque fois qu’un message de file d’attente apparaît dans la file d’attente `myqueue-items`. L’attribut `Blob` indique au runtime d’utiliser le message de file d’attente pour lire un objet blob dans le conteneur *sample-workitems*. Le nom de l’élément d’objet BLOB dans le conteneur `samples-workitems` est obtenu directement à partir du déclencheur de file d’attente en tant qu’expression de liaison (`{queueTrigger}`).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-Pour plus d’informations, consultez l’article sur la [liaison Event Hubs](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings).
+Pour plus d’informations, consultez l’article sur la [liaison Event Hubs](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json).
 
 ### <a name="queue-storage-trigger-configuration"></a>Configuration du déclencheur Stockage File d’attente
 

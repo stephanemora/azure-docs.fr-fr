@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587896"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686631"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Repérer les menaces avec Azure Sentinel
 
@@ -54,7 +54,7 @@ La fonctionnalité de repérage d’Azure Sentinel vous offre les avantages suiv
 
 3. Examinez rapidement la requête sous-jacente dans le volet de détails de requête ou cliquez sur **Afficher le résultat de la requête** pour ouvrir la requête dans Log Analytics. Dans la zone inférieure, passez en revue les correspondances de la requête.
 
-4.  Pour marquer toutes les lignes suspectes qui doivent être examinées, cliquez sur chaque ligne et sélectionnez **Ajouter un signet**. 
+4.    Pour marquer toutes les lignes suspectes qui doivent être examinées, cliquez sur chaque ligne et sélectionnez **Ajouter un signet**. 
 
 5. Ensuite, réaccédez à la page **Repérage** principale et cliquez sur l’onglet **Signets** pour visualiser toutes les activités suspectes. 
 
@@ -66,7 +66,7 @@ La fonctionnalité de repérage d’Azure Sentinel vous offre les avantages suiv
 
 ## <a name="query-language"></a>Langage de requête 
 
-La fonctionnalité de repérage d’Azure Sentinel repose sur le langage de requête Kusto. Pour plus d’informations sur le langage de requête et sur les opérateurs pris en charge, consultez l’article [Référence sur le langage de requête](https://docs.loganalytics.io/docs/Language-Reference/).
+La fonctionnalité de repérage d’Azure Sentinel repose sur le langage de requête Kusto. Pour plus d’informations sur le langage de requête et sur les opérateurs pris en charge, consultez l’article [Référence sur le langage de requête](/azure/azure-monitor/log-query/get-started-queries).
 
 ## <a name="public-hunting-query-github-repository"></a>Référentiel public GitHub de requêtes de repérage
 

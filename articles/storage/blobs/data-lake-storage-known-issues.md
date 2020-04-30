@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115326"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767964"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -62,14 +62,11 @@ Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="file-system-support-in-sdks"></a>Prise en charge des systèmes de fichiers dans les SDK
+## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Prise en charge des systèmes de fichiers dans les SDK, PowerShell et Azure CLI
 
-Actuellement, les opérations d’obtention et de définition de listes de contrôle d’accès ne sont pas récursives.
-
-## <a name="file-system-support-in-powershell-and-azure-cli"></a>Prise en charge des systèmes de fichiers dans PowerShell et Azure CLI
-
-- La prise en charge de [PowerShell](data-lake-storage-directory-file-acl-powershell.md) et d’[Azure CLI](data-lake-storage-directory-file-acl-cli.md) sont en préversion publique.
 - Actuellement, les opérations d’obtention et de définition de listes de contrôle d’accès ne sont pas récursives.
+- La prise en charge pour [Azure CLI](data-lake-storage-directory-file-acl-cli.md) est en préversion publique.
+
 
 ## <a name="lifecycle-management-policies"></a>Stratégies de gestion du cycle de vie
 

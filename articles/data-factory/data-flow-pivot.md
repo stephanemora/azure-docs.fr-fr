@@ -1,5 +1,5 @@
 ---
-title: Transformation d’ajout de tableau croisé dynamique dans le flux de données de mappage
+title: Transformation de tableau croisé dynamique dans le flux de données de mappage
 description: Ajouter un tableau croisé dynamique à l’aide de la transformation d’ajout de tableau croisé dynamique de flux de données de mappage pour Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,73 +7,103 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: a2276f5714db427586dbd56027e51c167b8c604f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413598"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686421"
 ---
-# <a name="azure-data-factory-pivot-transformation"></a>Transformation d’ajout de tableau croisé dynamique Azure Data Factory
+# <a name="pivot-transformation-in-mapping-data-flow"></a>Transformation de tableau croisé dynamique dans le flux de données de mappage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Utilisez l’ajout d’un tableau croisé dynamique dans ADF Data Flow comme une agrégation où une ou plusieurs colonnes de regroupement voient leurs valeurs de lignes distinctes transformées en colonnes individuelles. En fait, vous pouvez faire ajouter un tableau croisé dynamique de valeurs de lignes à de nouvelles colonnes (transformer des données en métadonnées).
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-![Options d’ajout de tableau croisé dynamique](media/data-flow/pivot1.png "ajouter un tableau croisé dynamique 1")
+Utilisez la transformation de tableau croisé dynamique pour créer plusieurs colonnes à partir des valeurs de lignes uniques d’une seule colonne. Un tableau croisé dynamique est une transformation d’agrégation dans laquelle vous sélectionnez l’option Regrouper par colonnes et générez des colonnes de tableau croisé dynamique à l’aide de [fonctions d’agrégation](data-flow-expression-functions.md#aggregate-functions).
 
-## <a name="group-by"></a>Regrouper par
+## <a name="configuration"></a>Configuration
 
-![Options d’ajout de tableau croisé dynamique](media/data-flow/pivot2.png "ajouter un tableau croisé dynamique 2")
+La transformation de tableau croisé dynamique requiert trois entrées différentes : regrouper par colonnes, la clé de tableau croisé dynamique et comment générer les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique
 
-Commencez par définir les colonnes de groupement souhaitée pour l’agrégation de votre ajout de tableau croisé dynamique. Vous pouvez définir plus d’1 colonne ici avec le signe + en regard de la liste des colonnes.
+### <a name="group-by"></a>Regrouper par
 
-## <a name="pivot-key"></a>Clé de tableau croisé dynamique
+![Options de regroupement](media/data-flow/pivot2.png "[Options Regrouper par")
 
-![Options d’ajout de tableau croisé dynamique](media/data-flow/pivot3.png "ajouter un tableau croisé dynamique 3")
+Sélectionnez les colonnes sur lesquelles agréger les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique. Les données de sortie regroupent en une seule ligne toutes les lignes ayant les mêmes valeurs Regrouper par. L’agrégation effectuée dans la colonne ayant fait l’objet d’un ajout de tableau croisé dynamique est effectuée sur chaque groupe.
 
-La clé d’ajout du tableau croisé dynamique est la colonne qu’ADF ajoutera de la ligne dans la colonne. Par défaut, chaque valeur unique du jeu de données pour ce champ ajoutera un tableau croisé dynamique à une colonne. Toutefois, vous pouvez éventuellement entrer les valeurs du jeu de données que vous souhaitez ajouter en tant que tableau croisé dynamique aux valeurs de la colonne. Il s’agit de la colonne qui détermine les nouvelles colonnes qui seront créées.
+Cette section est facultative. Si aucune colonne Regrouper par n’est sélectionnée, l’ensemble du flux de données est agrégé et une seule ligne est sortie.
 
-## <a name="pivoted-columns"></a>Colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique
+### <a name="pivot-key"></a>Clé de tableau croisé dynamique
 
-![Options d’ajout de tableau croisé dynamique](media/data-flow/pivot4.png "ajouter un tableau croisé dynamique 4")
+![Clé de tableau croisé dynamique](media/data-flow/pivot3.png "Clé de tableau croisé dynamique")
 
-Pour finir, vous choisirez l’agrégation que vous souhaitez utiliser pour les valeurs du tableau croisé dynamique ajouté et la façon dont vous souhaitez afficher les colonnes dans la nouvelle projection de sortie à partir de la transformation.
+La clé de tableau croisé dynamique est la colonne dont les valeurs de ligne ont fait l’objet d’un ajout de tableau croisé dynamique dans de nouvelles colonnes. Par défaut, la transformation de tableau croisé dynamique crée une colonne pour chaque valeur de ligne unique.
 
-(Facultatif) Vous pouvez définir un modèle d’affectation de noms avec un préfixe, un milieu et un suffixe à ajouter à chaque nouveau nom de colonne à partir des valeurs de ligne.
+Dans la section intitulée **Valeur**, vous pouvez entrer des valeurs de ligne spécifiques devant faire l’objet d’un ajout de tableau croisé dynamique. Seules les valeurs de ligne entrées dans cette section font l’objet d’un ajout de tableau croisé dynamique. L’activation de la **valeur Null** crée une colonne ayant fait l’objet d’un ajout de tableau croisé dynamique pour les valeurs Null dans la colonne.
 
-Par exemple, l’ajout d’un tableau croisé dynamique « Ventes » par « Région » génère de nouvelles valeurs de colonne à partir de chaque valeur des ventes, à savoir "25", "50", "1000", etc. Toutefois, si vous définissez une valeur de préfixe « Ventes- », chaque valeur de colonne ajoutera « Ventes- » au début de la valeur.
+### <a name="pivoted-columns"></a>Colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique
 
-![Options d’ajout de tableau croisé dynamique](media/data-flow/pivot5.png "ajouter un tableau croisé dynamique 5")
+![Colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique](media/data-flow/pivot4.png "Colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique")
 
-La disposition des colonnes sur « Normal » regroupera toutes les colonnes du tableau croisé dynamique ajouté avec leurs valeurs agrégées. La disposition des colonnes sur « Latéral » alternera entre colonne et valeur.
+Pour chaque valeur de clé de tableau croisé dynamique unique qui devient une colonne, générez une valeur de ligne agrégée pour chaque groupe. Vous pouvez créer plusieurs colonnes par clé de tableau croisé dynamique. Chaque colonne de tableau croisé dynamique doit contenir au moins une [fonction d’agrégation](data-flow-expression-functions.md#aggregate-functions).
 
-### <a name="aggregation"></a>Agrégation
+**Modèle de nom de colonne :** Sélectionnez le mode de mise en forme du nom de colonne de chaque colonne de tableau croisé dynamique. Le nom de colonne en sortie est une combinaison de la valeur de clé de tableau croisé dynamique, du préfixe de colonne et du préfixe facultatif, du suffixe, des caractères du milieu. 
 
-Pour définir l’agrégation que vous souhaitez utiliser pour les valeurs d’ajout de tableau croisé dynamique, cliquez sur le champ en bas du volet Colonnes avec ajout de tableau croisé dynamique. Vous entrerez dans le Générateur d’expressions ADF Data Flow, où vous pouvez créer une expression d’agrégation et fournir un nom d’alias descriptif pour vos nouvelles valeurs agrégées.
+**Disposition de colonne :** Si vous générez plusieurs colonnes de tableau croisé dynamique par clé de tableau croisé dynamique, choisissez la façon dont vous souhaitez trier les colonnes. 
 
-Utiliser le langage d’expression ADF Data Flow pour décrire les transformations de colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique dans le Générateur d’expressions : https://aka.ms/dataflowexpressions.
+**Préfixe de colonne :** Si vous générez plusieurs colonnes de tableau croisé dynamique par clé de tableau croisé dynamique, entrez un préfixe de colonne pour chaque colonne. Ce paramètre est facultatif si vous n’avez qu’une colonne ayant fait l’objet d’un ajout de tableau croisé dynamique.
+
+## <a name="help-graphic"></a>Graphe d’aide
+
+Le graphique d’aide ci-dessous montre comment les différents composants de tableau croisé dynamique interagissent les uns avec les autres
+
+![Graphique d’aide sur le tableau croisé dynamique](media/data-flow/pivot5.png "Graphique d’aide sur le tableau croisé dynamique")
 
 ## <a name="pivot-metadata"></a>Métadonnées de tableau croisé dynamique
 
-La transformation Ajout de tableau croisé dynamique produit de nouveaux noms de colonnes dynamiques en fonction de vos données entrantes. La clé de tableau croisé dynamique génère les valeurs pour chaque nouveau nom de colonne. Si vous ne spécifiez pas de valeurs individuelles et que vous souhaitez créer des noms de colonnes dynamiques pour chaque valeur unique dans votre clé de tableau croisé dynamique, l’interface utilisateur n’affichera pas les métadonnées dans Inspecter et il n’y aura aucune propagation de colonne sur la transformation Récepteur. Si vous définissez des valeurs pour la clé de tableau croisé dynamique, ADF peut déterminer les nouveaux noms de colonnes et ces noms de colonnes seront disponibles dans le mappage Inspecter et Récepteur.
+Si aucune valeur n’est spécifiée dans la configuration de la clé de tableau croisé dynamique, les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique sont générées dynamiquement au moment de l’exécution. Le nombre de colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique est égal au nombre de valeurs de clés de tableau croisé dynamique, multiplié par le nombre de colonnes du tableau croisé dynamique. Comme il peut s’agir d’un nombre variable, l’expérience utilisateur n’affiche pas les métadonnées de colonne dans l’onglet **Inspecter** et il n’y a pas de propagation de colonne. Pour transformer ces colonnes, utilisez les fonctionnalités du [modèle de colonne](concepts-data-flow-column-pattern.md) du flux de données de mappage. 
 
-### <a name="generate-a-new-model-from-dynamic-columns"></a>Générer un nouveau modèle à partir de colonnes dynamiques
+Si des valeurs de clés de tableau croisé dynamique spécifiques sont définies, les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique s’affichent dans les métadonnées. Les noms de colonnes sont disponibles dans le mappage Inspecter et Récepteur.
 
-Un tableau croisé dynamique génère de nouveaux noms de colonnes de manière dynamique en fonction des valeurs de ligne. Vous pouvez convertir ces nouvelles colonnes en métadonnées qui peuvent ensuite être référencées dans votre flux de données. Pour ce faire, cliquez sur l’onglet Aperçu des données. Toutes les nouvelles colonnes générées par la transformation de votre tableau croisé dynamique s’affichent avec une icône « dérivée » dans l’en-tête du tableau. Cliquez sur le bouton « Mapper les dérivées » pour transformer ces nouvelles colonnes en métadonnées, de sorte qu’elles fassent partie du modèle de votre flux de données.
+### <a name="generate-metadata-from-drifted-columns"></a>Générer des métadonnées à partir de colonnes dérivées
+
+Un tableau croisé dynamique génère de nouveaux noms de colonnes de manière dynamique en fonction des valeurs de ligne. Vous pouvez ajouter ces nouvelles colonnes dans les métadonnées qui peuvent ensuite être référencées dans votre flux de données. Pour ce faire, utilisez l’action rapide [Mapper les éléments dérivés](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) dans l’aperçu des données. 
 
 ![Colonnes de tableau croisé dynamique](media/data-flow/newpivot1.png "Mappage de colonnes dérivées de tableau croisé dynamique")
 
-### <a name="landing-new-columns-in-sink"></a>Chargement de nouvelles colonnes dans Récepteur
+### <a name="sinking-pivoted-columns"></a>Réception de colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique
 
-Même avec des noms de colonnes dynamiques dans Ajout de tableau croisé dynamique, vous pouvez toujours recevoir vos nouveaux noms de colonnes et nouvelles valeurs dans votre magasin de destination. Il vous suffit d’activer « Autoriser la dérive de schéma » dans vos paramètres de récepteur. Vous ne verrez pas les nouveaux noms dynamiques dans vos métadonnées de colonnes, mais l’option de dérive de schéma vous permettra de charger les données.
+Bien que les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique soient dynamiques, elles peuvent toujours être écrites dans votre magasin de données de destination. Activez **Autoriser la dérive de schéma** dans vos paramètres de récepteur. Cela vous permet d’écrire des colonnes qui ne sont pas incluses dans les métadonnées. Vous ne verrez pas les nouveaux noms dynamiques dans vos métadonnées de colonnes, mais l’option de dérive de schéma vous permettra de charger les données.
 
-### <a name="view-metadata-in-design-mode"></a>Afficher les métadonnées en mode design
+### <a name="rejoin-original-fields"></a>Rejoindre des champs d’origine
 
-Si vous souhaitez voir les nouveaux noms de colonnes en tant que métadonnées dans Inspecter, et que vous souhaitez que les colonnes se propagent explicitement sur la transformation Récepteur, définissez des valeurs explicites sous l’onglet Clé de tableau croisé dynamique.
+La transformation de tableau croisé dynamique projette uniquement les colonnes Regrouper par et ayant fait l’objet d’un ajout de tableau croisé dynamique. Si vous souhaitez que vos données de sortie incluent d’autres colonnes d’entrée, utilisez un modèle de [jointure réflexive](data-flow-join.md#self-join).
 
-### <a name="how-to-rejoin-original-fields"></a>Comment rejoindre des champs d’origine
-La transformation par ajout de tableau croisé dynamique projettera uniquement les colonnes utilisées dans l’agrégation, le regroupement et l’action d’ajout de tableau croisé dynamique. Si vous souhaitez inclure les autres colonnes de l’étape précédente dans votre flux, utilisez une nouvelle branche de l’étape précédente et le modèle de jointure réflexive pour connecter le flux aux métadonnées d’origine.
+## <a name="data-flow-script"></a>Script de flux de données
+
+### <a name="syntax"></a>Syntaxe
+
+```
+<incomingStreamName>
+    pivot(groupBy(Tm),
+        pivotBy(<pivotKeyColumn, [<specifiedColumnName1>,...,<specifiedColumnNameN>]),
+        <pivotColumnPrefix> = <pivotedColumnValue>,
+        columnNaming: '< prefix >< $N | $V ><middle >< $N | $V >< suffix >',
+        lateral: { 'true' | 'false'}
+    ) ~> <pivotTransformationName
+```
+### <a name="example"></a> Exemple
+
+Les écrans affichés dans la section de configuration comportent le script de transmission de données suivant :
+
+```
+BasketballPlayerStats pivot(groupBy(Tm),
+    pivotBy(Pos),
+    {} = count(),
+    columnNaming: '$V$N count',
+    lateral: true) ~> PivotExample
+
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

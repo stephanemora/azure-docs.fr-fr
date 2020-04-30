@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71199991"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686934"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Générer et déployer le service de gestion de certificats OPC Vault
 
@@ -22,7 +22,7 @@ Cet article explique comment déployer le service de gestion de certificats OPC�
 > [!NOTE]
 > Pour plus d’informations, consultez le [dépôt OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service) sur GitHub.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="install-required-software"></a>Installer les logiciels nécessaires
 
@@ -107,7 +107,7 @@ Utilisez un nom de groupe de ressources court et simple. Le nom sert aussi à no
 
 ### <a name="website-name-already-in-use"></a>Nom du site web déjà utilisé
 
-Le nom du site web est peut déjà être utilisé. Vous devez dans ce cas utiliser un autre nom de groupe de ressources. Les noms d’hôtes utilisés par le script de déploiement sont https://resourcegroupname.azurewebsites.net et https://resourgroupname-service.azurewebsites.net.
+Le nom du site web est peut déjà être utilisé. Vous devez dans ce cas utiliser un autre nom de groupe de ressources. Les noms d’hôtes utilisés par le script de déploiement sont les suivants : https:\//resourcegroupname.azurewebsites.net et https:\//resourgroupname-service.azurewebsites.net.
 Les autres noms de services résultent d’une combinaison de hachages de noms courts et ne risquent pas d’entrer en conflit avec d’autres services.
 
 ### <a name="azure-ad-registration"></a>inscription Azure AD. 

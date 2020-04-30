@@ -10,20 +10,23 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9f12b2b31da4c7fe67eef9674d96b517d4e2bfa
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231805"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867749"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Assistant de sécurité des rôles Azure AD dans Privileged Identity Management
 
 Si vous êtes la première personne à utiliser Privileged Identity Management (PIM) dans votre organisation Azure Active Directory (Azure AD), un Assistant vous est proposé pour la prise en main. Celui-ci vous aide à comprendre les risques liés à la sécurité des identités privilégiées et la façon d’utiliser Privileged Identity Management pour les limiter. Vous n’avez pas besoin d’apporter des modifications aux affectations de rôle existantes dans l’Assistant. Vous pouvez le faire ultérieurement si vous préférez.
+
+> [!Important]
+> L’assistant de sécurité est momentanément indisponible. Nous vous remercions de votre patience.
 
 ## <a name="wizard-overview"></a>Présentation de l’Assistant
 
@@ -32,7 +35,7 @@ Avant que votre organisation ne commence à utiliser Privileged Identity Managem
 La deuxième étape de l’Assistant vous donne la possibilité de modifier les attributions du rôle d’administrateur.  
 
 > [!WARNING]
-> Il est important de disposer d’au moins un Administrateur général et de plusieurs Administrateurs de rôle privilégié avec un compte d’organisation (et non un compte Microsoft). S’il n’existe qu’un seul Administrateur de rôle privilégié, l’organisation ne peut pas gérer Privileged Identity Management si ce compte est supprimé.
+> Il est important de disposer d’au moins un Administrateur général et de plusieurs Administrateurs de rôle privilégié avec un compte professionnel ou scolaire (et non un compte Microsoft). S’il n’existe qu’un seul Administrateur de rôle privilégié, l’organisation ne peut pas gérer Privileged Identity Management si ce compte est supprimé.
 > En outre, conservez les attributions de rôle permanentes si un utilisateur possède un compte Microsoft (en d’autres termes, un compte pour se connecter aux services Microsoft tels que Skype et Outlook.com). Si vous envisagez de demander une authentification multifacteur pour l’activation de ce rôle, cet utilisateur sera verrouillé.
 
 ## <a name="run-the-wizard"></a>Exécuter l'assistant

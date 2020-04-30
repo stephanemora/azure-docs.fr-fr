@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0a884850d57418e9daafba980d0a08dc86fc0974
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 89ae088b9cbb3bb3c593cfcbbfb4ce619baccfa8
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309395"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868406"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi implicite
 
@@ -33,9 +33,6 @@ Cet article explique comment programmer directement par rapport au protocole dan
 
 Toutefois, si vous préférez ne pas utiliser de bibliothèque dans votre application à page unique et envoyer vous-même des messages de protocole, suivez la procédure générale ci-dessous.
 
-> [!NOTE]
-> Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure AD (Azure Active Directory). Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).
-
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Scénarios adaptés à l’octroi implicite OAuth2
 
 La spécification OAuth2 indique que l’octroi implicite a été conçu pour autoriser les applications d’agent utilisateur, c’est-à-dire les applications JavaScript qui s’exécutent dans un navigateur. La caractéristique déterminante de ces applications réside dans le fait que le code JavaScript est utilisé pour accéder aux ressources du serveur (généralement une API web) et mettre à jour l’expérience utilisateur de l’application en conséquence. Pensez à des applications comme Gmail ou Outlook Web Access : lorsque vous sélectionnez un message dans votre boîte de réception, seul le volet de visualisation du message change pour afficher la nouvelle sélection, tandis que le reste de la page reste inchangé. Cette caractéristique contraste avec les applications web classiques à redirection, pour lesquelles chaque interaction utilisateur entraîne une publication (postback) et un rendu complets de la page de la nouvelle réponse du serveur.
@@ -47,7 +44,7 @@ En général, les applications à redirection sécurisent leurs demandes par des
 Actuellement, la méthode recommandée de protection des appels d’une API Web consiste à utiliser l’approche de jeton de support OAuth2, dans laquelle chaque appel est accompagné d’un jeton d’accès OAuth2. L’API Web examine le jeton d’accès entrant et, si elle y détecte les périmètres nécessaires, elle autorise l’accès à l’opération demandée. Le flux implicite fournit un mécanisme pratique permettant aux applications JavaScript d’obtenir des jetons d’accès pour une API Web, offrant ainsi de nombreux avantages sur les cookies :
 
 * Les jetons peuvent être obtenus de façon fiable sans avoir recours aux appels cross-origin – l’inscription obligatoire de l’URI de redirection vers laquelle les jetons sont retournés garantit que les jetons ne sont pas déplacés.
-* Les applications JavaScript peuvent obtenir autant de jetons d’accès que nécessaire, pour un nombre illimité d’API Web ciblées, sans aucune restriction sur les domaines.
+* Les applications JavaScript peuvent obtenir autant de jetons d’accès que nécessaire, pour un nombre illimité d’API Web ciblées, sans aucune restriction sur les domaines
 * Les fonctionnalités HTML5 comme le stockage de session ou local accordent un contrôle total sur la gestion de la mise en cache et de la durée de vie des jetons, tandis que la gestion des cookies est opaque pour l’application.
 * Les jetons d'accès ne sont pas vulnérables aux falsifications de requête intersites (CSRF, Cross Site Request Forgery).
 
@@ -120,7 +117,7 @@ Une fois que l’utilisateur a procédé à l’authentification et accordé son
 
 Une réponse correcte utilisant `response_mode=fragment` et `response_type=id_token+token` ressemble à ceci (des sauts de ligne sont ici insérés pour une meilleure lisibilité) :
 
-```
+```HTTP
 GET https://localhost/myapp/#
 &token_type=Bearer
 &expires_in=3599
@@ -141,7 +138,7 @@ GET https://localhost/myapp/#
 
 Les réponses d’erreur peuvent également être envoyées à l’élément `redirect_uri` , de manière à ce que l’application puisse les traiter de manière appropriée :
 
-```
+```HTTP
 GET https://localhost/myapp/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -187,7 +184,7 @@ Grâce au paramètre `prompt=none` , cette requête va immédiatement réussir o
 
 Une réponse correcte utilisant `response_mode=fragment` se présente ainsi :
 
-```
+```HTTP
 GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
@@ -209,7 +206,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 Les réponses d’erreur peuvent également être envoyées à l’élément `redirect_uri` , de manière à ce que l’application puisse les traiter de manière appropriée. Dans le cas de `prompt=none`, une erreur se présentera généralement ainsi :
 
-```
+```HTTP
 GET https://localhost/myapp/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently

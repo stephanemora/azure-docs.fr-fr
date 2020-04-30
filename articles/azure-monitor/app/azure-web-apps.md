@@ -3,12 +3,13 @@ title: Analyser les performances d’Azure App Service | Microsoft Docs
 description: Analyse des performances des applications pour les services d’application Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437187"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729808"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -55,15 +56,16 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. La supervision des applications ASP.NET est activée par défaut avec deux niveaux de collecte différents.
 
     ![Choisir les options par plateforme](./media/azure-web-apps/choose-options-new.png)
-
-   * Le niveau de **collecte De base** .NET fournit les fonctionnalités APM principales pour une instance unique.
-
-   * Le niveau de **collecte Recommandé** .NET :
-       * Ajoute les tendances d’utilisation de l’UC, de la mémoire et des E/S.
-       * Met en corrélation les microservices entre les limites de requête/dépendance.
-       * Collecte les tendances d’utilisation et permet la mise en corrélation des résultats de la disponibilité avec les transactions.
-       * Collecte les exceptions non gérées par le processus hôte.
-       * Améliore la précision des métriques APM avec charge, quand l’échantillonnage est utilisé.
+ 
+ Voici un résumé des données collectées pour chaque itinéraire :
+        
+|  | Collection .NET Basic | Collecte Recommandé .NET |
+| --- | --- | --- |
+| Ajoute les tendances d’utilisation de l’UC, de la mémoire et des E/S |Oui |Oui |
+| Collecte les tendances d’utilisation et permet la mise en corrélation des résultats de la disponibilité avec les transactions | Oui |Oui |
+| Collecte les exceptions non gérées par le processus hôte | Oui |Oui |
+| Améliore la précision des métriques APM avec charge, quand l’échantillonnage est utilisé | Oui |Oui |
+| Met en corrélation les microservices dans les limites de requête/dépendance | Non (fonctionnalités APM à instance unique uniquement) |Oui |
 
 3. Pour configurer des paramètres tels que l’échantillonnage, que vous pouviez auparavant contrôler au moyen du fichier applicationinsights.config, vous pouvez maintenant interagir avec ces mêmes paramètres en définissant les paramètres de l’application avec le préfixe correspondant. 
 

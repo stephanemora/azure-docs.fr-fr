@@ -12,19 +12,16 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d83e336c73d9288b97a0564472caa497ab64b4b1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 161f97dc99ce5ce16d7c40126b95a769c4b79621
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309241"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868335"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plateforme d’identités Microsoft et protocole OpenID Connect
 
 OpenID Connect est un protocole d’authentification basé sur OAuth 2.0 que vous pouvez utiliser pour connecter de façon sécurisée un utilisateur à une application Web. En utilisant l’implémentation d’OpenID Connect provenant du point de terminaison de la plateforme d’identités Microsoft, vous pouvez ajouter l’accès à la connexion et aux API à vos applications web. Cet article est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une des bibliothèques open source de Microsoft.
-
-> [!NOTE]
-> Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory (Azure AD). Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*, ce qui vous permet de procéder à une authentification unique à l’aide d’OAuth. OpenID Connect introduit le concept de *jeton d'ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur. Il permet également les informations de base de profil de l'utilisateur. Comme OpenID Connect étend OAuth 2.0, les applications peuvent acquérir de manière sûre les *jetons d’accès* pouvant être utilisés pour accéder à des ressources sécurisées à l’aide d’un [serveur d’autorisation](active-directory-v2-protocols.md#the-basics). Le point de terminaison de la plateforme d’identités Microsoft permet également aux applications tierces qui sont inscrites auprès d’Azure AD d’émettre des jetons d’accès pour des ressources sécurisées telles que des API web. Pour plus d’informations sur la configuration d’une application pour l’émission de jetons d’accès, consultez [Inscription d’une application avec le point de terminaison de la plateforme d’identités Microsoft](quickstart-register-app.md). Nous recommandons d'utiliser OpenID Connect si vous concevez une [application web](v2-app-types.md#web-apps) hébergée sur un serveur et accessible par le biais d’un navigateur.
 
@@ -41,6 +38,7 @@ OpenID Connect décrit un document de métadonnées qui contient la plupart des 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+
 > [!TIP]
 > Essayez ! Cliquez sur [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) pour voir la configuration des clients `common`.
 
@@ -55,7 +53,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 Les métadonnées représentent un simple document JavaScript Objet Notation (JSON). Consultez l’extrait suivant pour obtenir un exemple. Le contenu de l'extrait de code est décrit en détail dans les [spécifications d’OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
-```
+```json
 {
   "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
   "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
@@ -87,7 +85,7 @@ Lorsque votre application web a besoin d’authentifier l’utilisateur, elle p
 
 Par exemple :
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -126,7 +124,7 @@ Une fois que l’utilisateur a procédé à l’authentification et accordé son
 
 Une réponse correcte lorsque vous utilisez `response_mode=form_post` ressemble à ceci :
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -143,7 +141,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 Les réponses d’erreur peuvent également être envoyées à l'URI de redirection, de manière que l’application puisse les traiter. Une réponse d’erreur ressemble à ceci :
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -190,7 +188,7 @@ Si vous souhaitez déconnecter l’utilisateur de votre application, vous ne pou
 
 Vous pouvez rediriger l’utilisateur vers le `end_session_endpoint` répertorié dans le document de métadonnées OpenID Connect :
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
@@ -214,7 +212,7 @@ Le flux complet de connexion OpenID Connect et d’acquisition des jetons ressem
 ## <a name="get-access-tokens"></a>Obtenir des jetons d’accès
 Pour acquérir des jetons d’accès, modifiez la requête de connexion :
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -222,8 +220,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 &response_type=id_token%20code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
 &response_mode=form_post                              // 'form_post' or 'fragment'
-&scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
-offline_access%20                                         
+&scope=openid%20                                      // Include both 'openid' and scopes that your app needs
+offline_access%20
 https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
@@ -239,7 +237,7 @@ En incluant des étendues d’autorisation dans la requête et en utilisant `res
 
 Une réponse correcte utilisant `response_mode=form_post` se présente ainsi :
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 Les réponses d’erreur peuvent également être envoyées à l'URI de redirection, de manière que l’application puisse les traiter de manière appropriée. Une réponse d’erreur ressemble à ceci :
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded

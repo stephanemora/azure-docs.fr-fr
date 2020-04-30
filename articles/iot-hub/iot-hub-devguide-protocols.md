@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237361"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729113"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Référence - Choisir un protocole de communication
 
@@ -39,7 +42,7 @@ Prenez en compte les points suivants lorsque vous choisissez votre protocole pou
 
 * **Modèle Cloud vers appareil**. HTTPS ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Ainsi, quand vous utilisez HTTPS, les appareils interrogent IoT Hub pour rechercher les messages cloud-à-appareil. Cette approche est inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP,S chaque appareil doit interroger la présence de messages toutes les 25 minutes ou plus. AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud-à-appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages IoT Hub-à-appareil. Si la latence de remise pose problème, MQTT ou AMQP sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTPS fonctionne aussi bien.
 
-* **Passerelles de champ**. Quand vous utilisez MQTT et HTTPS, il est impossible de connecter plusieurs appareils (chacun avec ses propres informations d’identification par appareil) à l’aide de la même connexion TLS. Pour les [scénarios de passerelle de champ](iot-hub-devguide-endpoints.md#field-gateways) qui nécessitent une connexion TLS entre la passerelle de champ et IoT Hub pour chaque appareil connecté, ces protocoles ne représentent pas la solution optimale.
+* **Passerelles de champ**. MQTT et HTTPS prennent uniquement en charge une identité d’appareil unique (ID d’appareil et informations d’identification) par connexion TLS. Pour cette raison, ces protocoles ne sont pas pris en charge pour les [scénarios de passerelle de champ](iot-hub-devguide-endpoints.md#field-gateways) qui nécessitent le multiplexage de messages à l’aide de plusieurs identités d’appareil sur une seule connexion ou un pool de connexions en amont d’IoT Hub. Ces passerelles peuvent utiliser un protocole qui prend en charge plusieurs identités d’appareil par connexion, comme AMQP, pour leur trafic en amont.
 
 * **Appareils faibles en ressources**. Les bibliothèques MQTT et HTTPS sont moins encombrantes que les bibliothèques AMQP. Par conséquent, si l’appareil dispose de ressources limitées (par exemple, moins de 1 Mo de mémoire RAM), ces protocoles sont peut-être les seuls protocoles d’implémentation disponibles.
 

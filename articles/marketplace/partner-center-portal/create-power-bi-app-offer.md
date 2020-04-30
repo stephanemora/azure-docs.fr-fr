@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/22/2020
 ms.locfileid: "81867595"
 ---
 # <a name="create-a-power-bi-app"></a>Créer une offre d’application Power BI
@@ -223,7 +223,7 @@ Fournissez au moins un et au plus trois documents marketing associés au format 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
 >[!Note]
->Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
+>Si vous rencontrez un problème de téléchargement de fichiers, assurez-vous que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 

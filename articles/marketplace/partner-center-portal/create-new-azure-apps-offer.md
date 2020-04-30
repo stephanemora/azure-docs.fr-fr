@@ -1,5 +1,5 @@
 ---
-title: Créer une offre Azure Apps dans la Place de marché commerciale
+title: Créer une offre Azure Apps sur la Place de marché commerciale
 description: Découvrez comment créer une offre Azure Apps pour référencer ou vendre votre application sur la Place de marché Azure, sur AppSource ou via le programme Fournisseur de solutions cloud (CSP), en utilisant le portail de la Place de marché commerciale dans l’Espace partenaires Microsoft.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 0ff1bbd976273a7d0cbfb22effebdf45c84d2f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 516ebce176f53a0495ea493f5327658162e7ea9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277237"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867281"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -58,7 +58,7 @@ Examinez la documentation suivante relative aux applications Azure, qui fournit 
 
     * [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/)
     * [Modèles de démarrage rapide Azure sur GitHub](https://github.com/azure/azure-quickstart-templates)
-    * [Publier une définition d’application](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [Publier une définition d’application](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Déployer une application de catalogue de services](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * Tutoriels :
@@ -103,7 +103,7 @@ Vous pouvez examiner les outils disponibles dans la page [Outils de développeme
 
 ## <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
-Pour créer une offre d’application Azure, commencez par [créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), puis ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) et sélectionnez l’onglet **Présentation**.
+Pour créer une offre d'application Azure, commencez par [créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), puis ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) et sélectionnez l'onglet **Présentation**.
 
 >[!Note]
 >Si vous modifiez une offre publiée dans l’Espace partenaires, les modifications seront répercutées dans le système et les vitrines des Stores uniquement après la republication de votre offre.  Vous devez donc toujours soumettre l’offre pour publication après y avoir apporté des modifications.
@@ -114,7 +114,7 @@ Sélectionnez le bouton **+ Nouvelle offre**, puis sélectionnez l'élément de 
 
 ### <a name="offer-id-and-alias"></a>ID et alias de l’offre
 
-* **ID de l’offre** : Identificateur unique de chaque offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). <br> <br> L’ID de votre offre doit être en caractères alphanumériques minuscules (traits d’union et traits de soulignement compris, mais sans espaces blancs). Il est limité à 50 caractères et n’est plus modifiable une fois que vous avez sélectionné Créer. <br> <br> Par exemple, si vous entrez `test-offer-1` ici, l’URL de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`. 
+* **ID de l’offre** : Identificateur unique de chaque offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). <br> <br> L’ID de votre offre doit être en caractères alphanumériques minuscules (traits d’union et traits de soulignement compris, mais sans espaces blancs). Il est limité à 50 caractères et n'est plus modifiable une fois que vous avez sélectionné Créer. <br> <br> Par exemple, si vous entrez `test-offer-1` ici, l’URL de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`. 
 
 * **Alias de l’offre** : Le nom utilisé pour faire référence à l’offre dans l’espace partenaires. Ce nom n’est pas utilisé dans la Place de marché et est différent du nom de l’offre et des autres informations qui seront présentées aux clients. Cette valeur ne peut pas être modifiée après que vous ayez sélectionné **Créer**.
 
@@ -221,6 +221,9 @@ Dans la section **Contact de support**, vous devez également fournir **l’URL 
 
 Dans cette section, vous pouvez fournir des logos et des images qui seront utilisés pour montrer votre offre au client. Toutes les images doivent être au format .png.
 
+>[!Note]
+>Si vous rencontrez un problème de téléchargement de fichiers, assurez-vous que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’espace partenaires.
+
 #### <a name="store-logos"></a>Stocker des logos
 
 Fournissez le logo de votre offre en trois tailles : **Petit (48 x 48)** , **Moyen (90 x 90)** et **Grand (216 x 216)** .
@@ -293,7 +296,7 @@ Ce plan doit être rendu disponible dans au moins un cloud.
 
 Sélectionnez l’option **Azure public** pour que votre solution puisse être déployée vers des clients dans toutes les régions Azure publiques intégrées à la Place de marché.  Apprenez-en davantage sur la [disponibilité géographique](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Sélectionnez l’option **Azure Government Cloud** pour que votre solution puisse être déployée dans le [cloud Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). Ce cloud de la communauté du secteur public est accessible aux clients d’administrations fédérales, étatiques, locales ou communautaires des États-Unis ainsi qu’à leurs partenaires éligibles.  En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires pour publier dans le cloud de cette communauté.  Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement).  Avant de publier dans le cloud [Azure Government](https://aka.ms/azuregovpublish), Microsoft vous recommande de tester et de valider votre solution dans l’environnement, car certains points de terminaison peuvent être différents. Pour tester votre solution dans un environnement de préproduction, demandez un compte d’essai en utilisant ce [lien](https://azure.microsoft.com/global-infrastructure/government/request/).
+Sélectionnez l’option **Azure Government Cloud** pour que votre solution puisse être déployée dans le [cloud Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). Ce cloud de la communauté du secteur public est accessible aux clients d’administrations fédérales, étatiques, locales ou communautaires des États-Unis ainsi qu’à leurs partenaires éligibles.  En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires pour publier dans le cloud de cette communauté.  Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement).  Avant de publier dans le cloud [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft vous recommande de tester et de valider votre solution dans l’environnement, car certains points de terminaison peuvent être différents. Pour tester votre solution dans un environnement de préproduction, demandez un compte d’essai en utilisant ce [lien](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!Note]
 >Une fois qu’un plan est publié comme disponible dans un cloud, ce cloud ne peut plus être supprimé.
@@ -355,7 +358,7 @@ Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et
 
 Indiquez le tarif mensuel de ce plan.  Ce tarif s’ajoute aux coûts logiciels de paiement à l’utilisation et aux coûts de l’infrastructure Azure qui sont engendrés par les ressources déployées par cette solution.
 
-Les prix fixés dans une devise locale (USD = dollar américain) sont convertis dans la devise locale de tous les marchés sélectionnés selon les taux de change en vigueur disponibles lors de la configuration. Validez ces prix avant la publication en exportant la feuille de calcul de tarification et en vérifiant le prix de chaque marché. Si vous souhaitez fixer des prix personnalisés dans un marché individuel, modifiez et importez la feuille de calcul de tarification. 
+Les prix fixés en USD (USD = dollar américain) sont convertis dans la devise locale de tous les marchés sélectionnés selon les taux de change en vigueur disponibles lors de l’enregistrement. Validez ces prix avant la publication en exportant la feuille de calcul de tarification et en vérifiant le prix de chaque marché. Si vous souhaitez fixer des prix personnalisés dans un marché individuel, modifiez et importez la feuille de calcul de tarification. 
 
 >[!Note]
 >Vous devez d’abord enregistrer les modifications de vos tarifs pour autoriser l’exportation des données de tarification.
@@ -397,7 +400,16 @@ Tous les packages de plan d’application Azure doivent inclure ces deux fichier
 
 * Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
+Tailles maximales de fichiers prises en charge :
+
+* Jusqu’à 1 Go dans la taille totale des archives `.zip` compressées
+
+* Jusqu’à 1 Go pour tous les fichiers non compressés individuels au sein de l’archive `.zip`  
+
 Toutes les nouvelles offres d’applications Azure doivent également inclure un GUID d’[attribution de l’utilisation de client partenaire Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
+
+>[!Note]
+>Si vous rencontrez un problème de téléchargement de fichiers, assurez-vous que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’espace partenaires.
 
 ### <a name="previously-published-packages"></a>Packages précédemment publiés 
 
@@ -444,7 +456,7 @@ Définissez qui doit avoir un accès administrateur à cette application managé
 Pour chaque principal, sélectionnez l’un des rôles intégrés Azure AD dans la liste (Propriétaire ou Contributeur). Le rôle sélectionné détermine les autorisations que le principal aura sur les ressources dans l’abonnement client. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC), consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 >[!Note]
->Vous avez la possibilité d’ajouter jusqu’à 100 autorisations par cloud. Toutefois, il est généralement plus simple de créer un groupe d’utilisateurs Active Directory et de spécifier son ID dans le champ « ID du principal ».  Avec cette méthode, vous pourrez ajouter des utilisateurs au groupe d’administration après le déploiement du plan et vous n’aurez pas besoin de mettre à jour le plan simplement pour ajouter des autorisations.
+>Vous avez la possibilité d'ajouter jusqu'à 100 autorisations par cloud. Toutefois, il est généralement plus simple de créer un groupe d'utilisateurs Active Directory et de spécifier son ID dans le champ « ID du principal ».  Avec cette méthode, vous pourrez ajouter des utilisateurs au groupe d’administration après le déploiement du plan et vous n’aurez pas besoin de mettre à jour le plan simplement pour ajouter des autorisations.
 
 ### <a name="policy-settings"></a>Paramètres de stratégie
 

@@ -1,22 +1,18 @@
 ---
 title: Guide d’activation de la virtualisation imbriquée dans les machines virtuelles Azure
 description: Guide d’activation de la virtualisation imbriquée dans les machines virtuelles Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: d127d3f9e66b7d2d40aa420e2116fee17d996514
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 2c66f88cc49028fae50d89a9a7c24233d5a926b4
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437305"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865712"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
@@ -42,7 +38,7 @@ Créez une connexion Bureau à distance à la machine virtuelle.
 
 1. Cliquez sur le bouton **Connexion** dans les propriétés de la machine virtuelle. Un fichier de protocole Remote Desktop Protocol (fichier .rdp) est créé et téléchargé.
 
-2. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé. À l’invite, cliquez sur **Se connecter**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponible sur le Mac App Store.
+2. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé. À l’invite, cliquez sur **Se connecter**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) disponible sur le Mac App Store.
 
 3. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle, puis cliquez sur **OK**.
 

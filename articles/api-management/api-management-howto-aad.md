@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473538"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868391"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -38,7 +38,7 @@ Cet article explique comment activer l’accès au portail des développeurs pou
 3. Dans la zone de recherche, tapez **api**.
 4. Sélectionnez **Services Gestion des API**.
 5. Sélectionnez votre instance de service Gestion des API.
-6. Sous **Sécurité**, sélectionnez **Identités**.
+6. Sous **Portail des développeurs**, sélectionnez **Identités**.
 7. Cliquez sur **+Ajouter** en haut.
 
     Le volet **Ajouter le fournisseur d’identité** s’affiche à droite.

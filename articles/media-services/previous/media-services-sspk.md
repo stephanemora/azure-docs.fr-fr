@@ -1,6 +1,6 @@
 ---
-title: Licence du kit de portage du client de diffusion en continu lisse Microsoft®
-description: En savoir plus sur la licence du kit de portage Smooth Streaming client Microsoft®.
+title: Licence du kit de portage du client Microsoft&reg; Smooth Streaming
+description: En savoir plus sur la licence du kit de portage du client Microsoft&reg; Smooth Streaming.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096714"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686911"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licence du kit de portage du client de diffusion en continu lisse Microsoft® 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licence du kit de portage du client Microsoft&reg; Smooth Streaming 
 ## <a name="overview"></a>Vue d’ensemble
 Le kit de portage client Smooth Streaming Microsoft (**SSPK** en abrégé) est une implémentation du client Smooth Streaming optimisée pour aider les fabricants de périphériques intégrés, les opérateurs mobiles et du câble, les fournisseurs de services de contenu, les fabricants de combinés, les éditeurs de logiciels indépendants (ISV) et les fournisseurs de solutions à créer des produits et des services pour diffuser du contenu adaptatif dans un format Smooth Streaming. SSPK est une implémentation Smooth Streaming cliente indépendante de l’appareil et de la plateforme pouvant être transférée par le titulaire de la licence vers n’importe quel appareil ou plateforme. 
 
@@ -73,7 +73,7 @@ Le produit client final de Smooth Streaming est proposé selon un modèle soumis
 ## <a name="licensing-procedure-and-sspk-access"></a>Procédure d’achat de licence et accès à SSPK
 Veuillez envoyer un e-mail à [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) pour toute requête relative aux licences.
 
-Le [portail de distribution SSPK Distribution](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) est accessible aux détenteurs de licences intermédiaires enregistrés.
+Le portail de distribution SSPK Distribution est accessible aux détenteurs de licences intermédiaires enregistrés.
 
 Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des questions techniques à [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 

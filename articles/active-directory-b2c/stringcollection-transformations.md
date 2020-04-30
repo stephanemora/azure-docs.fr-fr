@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186775"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729714"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformations de revendications StringCollection
 
@@ -50,7 +50,7 @@ La transformation de revendication suivante ajoute le ClaimType **e-mail** au Cl
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com"]
@@ -84,7 +84,7 @@ Utilisez cette transformation de revendication pour ajouter une valeur de chaîn
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com"]
@@ -115,7 +115,7 @@ L’exemple suivant lit la revendication **otherMails** et retourne le premier �
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com", "someone@contoso.com"]
@@ -159,4 +159,38 @@ L’exemple suivant vérifie si le type de revendication stringCollection `roles
 - Revendications de sortie :
     - **outputClaim** : "true"
 
+## <a name="stringcollectioncontainsclaim"></a>StringCollectionContainsClaim
 
+Vérifie si un type de revendication StringCollection contient une valeur de revendication.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | collection | stringCollection | Type de revendication dans lequel effectuer la recherche. |
+| InputClaim | item|string| Le type de revendication qui contient la valeur à rechercher.|
+|InputParameter|ignoreCase|string|Spécifie si cette comparaison doit ignorer la casse des chaînes comparées.|
+| OutputClaim | outputClaim | boolean | ClaimType généré après l’appel de cette ClaimsTransformation. Indicateur booléen si la collection contient une telle chaîne |
+
+L’exemple suivant vérifie si le type de revendication stringCollection `roles` contient la valeur du type de revendication `role`.
+
+```XML
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- Revendications d’entrée :
+    - **collection** : ["reader", "author", "admin"]
+    - **item** : "Admin"
+- Paramètres d’entrée :
+    - **ignoreCase** : "true"
+- Revendications de sortie :
+    - **outputClaim** : "true"

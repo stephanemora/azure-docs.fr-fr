@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76167344"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767890"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -45,7 +45,6 @@ Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Jap
 
 \* USA Ouest 2 est momentanément indisponible en tant qu’emplacement de réplica inter-régions.
 
-
 ### <a name="paired-regions"></a>Régions jumelées
 Outre les régions de réplica universelles, vous pouvez créer un réplica en lecture dans la région Azure jumelée de votre serveur maître. Si vous ne connaissez pas la région jumelée de votre région, vous trouverez plus d’informations dans l’[article sur les régions jumelées Azure](../best-practices-availability-paired-regions.md).
 
@@ -71,7 +70,7 @@ Découvrez comment [créer un réplica en lecture dans le portail Azure](howto-r
 
 ## <a name="connect-to-a-replica"></a>Se connecter à un réplica
 
-Au moment de sa création, un réplica hérite des règles de pare-feu ou du point de terminaison de service VNet (réseau virtuel) du serveur maître. Ensuite, ces règles sont indépendantes du serveur maître.
+Au moment de sa création, un réplica hérite des règles de pare-feu du serveur maître. Ensuite, ces règles sont indépendantes du serveur maître.
 
 Le réplica hérite du compte Administrateur du serveur maître. Tous les comptes d’utilisateur sur le serveur maître sont répliqués sur les réplicas en lecture. Vous pouvez uniquement vous connecter à un réplica en lecture à l’aide des comptes d’utilisateur disponibles sur le serveur maître.
 
@@ -124,7 +123,7 @@ Un réplica est créé à partir de la même configuration que celle du serveur 
 > [!IMPORTANT]
 > Avant de mettre à jour une configuration de serveur maître avec de nouvelles valeurs, mettez à jour la configuration du réplica avec des valeurs égales ou supérieures. Ainsi, vous avez la garantie que le réplica peut suivre les changements apportés au maître.
 
-Les règles de pare-feu, les règles de réseau virtuel et les paramètres de paramétrage sont hérités du serveur maître au réplica lorsque le réplica est créé. Par la suite, les règles du réplica sont indépendantes.
+Les règles de pare-feu et les paramètres de paramétrage sont hérités du serveur maître au réplica lorsque le réplica est créé. Par la suite, les règles du réplica sont indépendantes.
 
 ### <a name="stopped-replicas"></a>Réplicas arrêtés
 

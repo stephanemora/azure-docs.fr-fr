@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811241"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686807"
 ---
 # <a name="develop-a-secure-web-app"></a>Développer une application web sécurisée
 
@@ -803,7 +803,7 @@ Dans le portail Azure, configurez l’application pour utiliser les informations
 Après avoir ajouté la configuration et les secrets Azure AD à Key Vault, les utilisateurs peuvent être authentifiés dans l’application à l’aide de l’authentification OAuth Azure.
 Dans le code d’application, cela est géré par la Bibliothèque d'authentification Azure Active Directory (ADAL).
 
-Lorsque les secrets se trouvent dans Key Vault et que l’application a accès aux secrets et à la base de données, le service d’application est accessible via l'URL d'application de la passerelle (https://GATEWAY_HASH.cloudapp.net), que vous pouvez obtenir dans le panneau correspondant).
+Lorsque les secrets se trouvent dans Key Vault et que l’application a accès aux secrets et à la base de données, le service d’application est accessible via l'URL d'application de la passerelle (https:\//GATEWAY_HASH.cloudapp.net), que vous pouvez obtenir dans le panneau correspondant.
 
 Lorsque vous vous connectez à Azure AD, si un message d'erreur indique « L’utilisateur n’est pas inscrit dans le répertoire auquel vous essayez d'accéder », vous devez ajouter cet utilisateur. Pour ce faire, accédez à l'onglet **Utilisateurs** d'Azure AD et ajoutez l’utilisateur manuellement en entrant ses détails ou en l'invitant à entrer son adresse e-mail en tant qu'utilisateur invité Azure AD dans le panneau **Inviter**.
 
@@ -978,7 +978,7 @@ L'outil [ZAP d'OWASP](https://www.zaproxy.org/) est un analyseur de vulnérabili
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Rechercher et corriger les vulnérabilités dans les dépendances d’application
 
-Pour rechercher et corriger les dépendances d'application, vous pouvez utiliser l'outil [Vérification de dépendance OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+Pour rechercher et corriger les dépendances d'application, vous pouvez utiliser l'outil [Vérification de dépendance OWASP](https://owasp.org/www-project-dependency-check/).
 
 Safety est une application similaire qui vérifie les dépendances. Elle est disponible sur [GitHub](https://github.com/pyupio/safety). Safety analyse les vulnérabilités détectées par rapport à des bases de données de vulnérabilités bien connues.
 

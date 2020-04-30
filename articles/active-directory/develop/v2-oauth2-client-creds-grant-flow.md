@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c6113490cf7d754a9e45638e4a0bfa588f1942ca
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 36a5fdf990432e3a41cf8fc578fa20b4910250b2
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309430"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868452"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -26,9 +26,6 @@ Vous pouvez utiliser [l’octroi des informations d’identification du client O
 Cet article explique comment programmer directement par rapport au protocole dans votre application. Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
 
 Le flux d’octroi des informations d’identification du client OAuth 2.0 permet à un service web (client confidentiel) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Dans ce scénario, le client est généralement un service web de niveau intermédiaire, un service démon ou un site web. Pour augmenter le niveau d’assurance, la plateforme d’identités Microsoft autorise également le service d’appel à utiliser un certificat (au lieu d’un secret partagé) comme une information d’identification.
-
-> [!NOTE]
-> Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios Azure AD et fonctionnalités. Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).
 
 Dans l’octroi *OAuth à trois branches* le plus courant, une application cliente est autorisée à accéder à une ressource pour le compte d’un utilisateur spécifique. L’autorisation est déléguée de l’utilisateur à l’application, en général, durant le processus de [consentement](v2-permissions-and-consent.md). Toutefois, dans le flux des informations d’identification du client (*OAuth à deux branches*), les autorisations sont accordées directement à l’application elle-même. Lorsque l’application présente un jeton à une ressource, la ressource impose que l’application elle-même, et non pas l’utilisateur, ait l’autorisation d’effectuer une action.
 
@@ -70,7 +67,7 @@ Pour utiliser les autorisations d’application dans votre application, suivez l
 
 
 > [!NOTE]
-> Lors de l’authentification en tant qu’application, par opposition à l’authentification avec un utilisateur, vous ne pouvez pas utiliser d’« autorisations déléguées » (étendues accordées par un utilisateur).  Vous devez utiliser des « autorisations d’application », également appelées « rôles », accordées par un administrateur pour l’application (ou par le biais d’une pré-autorisation par l’API web).    
+> Lors de l’authentification en tant qu’application, par opposition à l’authentification avec un utilisateur, vous ne pouvez pas utiliser d’« autorisations déléguées » (étendues accordées par un utilisateur).  Vous devez utiliser des « autorisations d’application », également appelées « rôles », accordées par un administrateur pour l’application (ou par le biais d’une pré-autorisation par l’API web).
 
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
@@ -93,7 +90,7 @@ Lorsque vous êtes prêt à demander les autorisations à l’administrateur de 
 > [!TIP]
 > Essayez d'exécuter cette requête dans Postman ! Utilisez votre propre ID d’application pour de meilleurs résultats. L’application du tutoriel ne vous demande pas d’autorisations utiles. [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/adminconsent?
@@ -102,9 +99,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http://localhost/myapp/permissions
 ```
 
-```
-// Pro tip: Try pasting the following request in a browser.
-```
+Conseil pro : Essayez de coller la requête suivante dans un navigateur.
 
 ```
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
@@ -123,7 +118,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 Si l’administrateur approuve les autorisations pour votre application, la réponse correcte sera :
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
@@ -137,7 +132,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 Si l’administrateur n’approuve pas les autorisations pour votre application, la réponse d’échec ressemble à ce qui suit :
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
@@ -157,7 +152,7 @@ Une fois que vous avez acquis l’autorisation nécessaire pour votre applicatio
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : Requête de jeton d’accès avec un secret partagé
 
-```
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -168,8 +163,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-```
-// Replace {tenant} with your tenant! 
+```Bash
+# Replace {tenant} with your tenant!
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
@@ -183,7 +178,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : Requête de jeton d’accès avec un certificat
 
-```
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -210,7 +205,7 @@ Notez que les paramètres sont presque les mêmes que dans le cas de la demande 
 
 Une réponse correcte se présente ainsi :
 
-```
+```json
 {
   "token_type": "Bearer",
   "expires_in": 3599,
@@ -228,7 +223,7 @@ Une réponse correcte se présente ainsi :
 
 Une réponse d’erreur ressemble à ceci :
 
-```
+```json
 {
   "error": "invalid_scope",
   "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
@@ -254,17 +249,15 @@ Une réponse d’erreur ressemble à ceci :
 
 Maintenant que vous avez acquis un jeton, utilisez-le pour effectuer des demandes auprès de la ressource. Lorsque le jeton expire, répétez la demande auprès du point de terminaison `/token` pour acquérir un nouveau jeton d’accès.
 
-```
+```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-```
-// Pro tip: Try the following command! (Replace the token with your own.)
-```
+```bash
+# Pro tip: Try the following command! (Replace the token with your own.)
 
-```
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 

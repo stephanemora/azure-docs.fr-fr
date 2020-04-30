@@ -7,17 +7,17 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 2923e087426ee04c74da629f4e2d2d49a06eb1ef
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/20/2020
+ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416532"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729140"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Transformation de modification de ligne dans le flux de données de mappage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utiliser la transformation de Alter Row pour définir des stratégies insert, delete, update et upsert sur les lignes. Vous pouvez ajouter des conditions de type un-à-plusieurs en tant qu’expressions. Ces conditions doivent être spécifiées par ordre de priorité, car chaque ligne sera marquée avec la stratégie liée à la première correspondance. Chacune de ces conditions peut entraîner l'insertion, la mise à jour, la suppression ou l'upsert d'une ligne (ou de plusieurs lignes). Alter Row peut produire des actions DDL et DML sur votre base de données.
 
@@ -48,10 +48,12 @@ Pour que les stratégies de modification de ligne fonctionnent, le flux de donn�
 
 ![Récepteur Alter Row](media/data-flow/alter-row2.png "Récepteur Alter Row")
 
- Le comportement par défaut est d’autoriser uniquement les insertions. Pour autoriser les mises à jour, les opérations upsert ou les suppressions, cochez la case dans le récepteur correspondant à cette condition. Si les mises à jour, les opérations upsert ou les suppressions sont activées, vous devez spécifier les colonnes clés du récepteur sur lesquelles effectuer la correspondance.
+Le comportement par défaut est d’autoriser uniquement les insertions. Pour autoriser les mises à jour, les opérations upsert ou les suppressions, cochez la case dans le récepteur correspondant à cette condition. Si les mises à jour, les opérations upsert ou les suppressions sont activées, vous devez spécifier les colonnes clés du récepteur sur lesquelles effectuer la correspondance.
 
 > [!NOTE]
 > Si vos insertions, mises à jour ou opérations upsert modifient le schéma de la table cible du récepteur, le flux de données échoue. Pour modifier le schéma cible dans votre base de données, choisissez **Recréer la table** en tant qu’action de table. Cela supprime et recrée votre table selon la nouvelle définition de schéma.
+
+La transformation du récepteur requiert une clé unique ou une série de clés pour l’identification de ligne unique dans votre base de données cible. Pour les récepteurs SQL, définissez les clés sous l’onglet Paramètres du récepteur. Pour CosmosDB, définissez la clé de partition dans les paramètres et définissez également le champ système CosmosDB « ID » dans votre mappage de récepteur. Pour CosmosDB, il est obligatoire d’inclure la colonne système « ID » pour les mises à jour, les opérations upserts et les suppressions.
 
 ## <a name="data-flow-script"></a>Script de flux de données
 
@@ -67,7 +69,7 @@ Pour que les stratégies de modification de ligne fonctionnent, le flux de donn�
         ) ~> <alterRowTransformationName>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 L’exemple ci-dessous est une transformation de modification de ligne nommée `CleanData` qui prend un flux entrant `SpecifyUpsertConditions` et crée trois conditions de modification de ligne. Dans la transformation précédente, une colonne nommée `alterRowCondition` est calculée pour déterminer si une ligne est ou n’est pas insérée, mise à jour ou supprimée dans la base de données. Si la valeur de la colonne a une valeur de chaîne qui correspond à la règle de modification de ligne, cette stratégie lui est affectée.
 

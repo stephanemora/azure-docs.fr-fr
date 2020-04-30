@@ -3,20 +3,25 @@ title: Remplacer les points de terminaison par défaut des SDK Azure Application
 description: Modifiez les points de terminaison par défaut des SDK Azure Monitor Application Insights pour certaines régions, comme Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298320"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729524"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Remplacer les points de terminaison par défaut d’Application Insights
 
 Pour pouvoir envoyer des données Application Insights vers certaines régions, vous devez remplacer les adresses des points de terminaison par défaut. Chaque SDK nécessite des modifications légèrement différentes, qui sont toutes décrites dans cet article. Ces modifications incluent d’adapter l’exemple de code et de remplacer les valeurs des espaces réservés `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` et `Profile_Query_Endpoint_address` par les adresses réelles des points de terminaison applicables à votre région. Vous trouverez à la fin de cet article des liens vers les adresses des points de terminaison pour les régions où cette configuration est requise.
 
+> [!NOTE]
+> Les [chaînes de connexion](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) sont la nouvelle méthode préférée pour définir des points de terminaison personnalisés dans Application Insights.
+
+---
+
 ## <a name="sdk-code-changes"></a>Modification du code des SDK
 
-### <a name="net-with-applicationinsightsconfig"></a>.NET avec applicationinsights.config
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > Le fichier applicationinsights.config est automatiquement remplacé à chaque mise à niveau d’un SDK. Après avoir effectué une mise à niveau d’un SDK, n’oubliez pas d’entrer à nouveau les valeurs de points de terminaison propres à votre région.
@@ -41,7 +46,7 @@ Pour pouvoir envoyer des données Application Insights vers certaines régions, 
 </ApplicationInsights>
 ```
 
-### <a name="aspnet-core"></a>ASP.NET Core
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Modifiez le fichier appsettings.json dans votre projet comme suit pour adapter le point de terminaison principal :
 
@@ -68,6 +73,8 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
     //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
+
+# <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
 ### <a name="azure-functions-v2x"></a>Azure Functions v2.x
 
@@ -120,7 +127,7 @@ namespace Example
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="java"></a>[Java](#tab/java)
 
 Modifiez le fichier applicationinsights.xml pour changer l’adresse du point de terminaison par défaut.
 
@@ -155,7 +162,7 @@ Modifiez le fichier `application.properties` en ajoutant ce qui suit :
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,7 +181,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 ```javascript
 <script type="text/javascript">
@@ -187,9 +194,11 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-### <a name="python"></a>Python
+# <a name="python"></a>[Python](#tab/python)
 
 Pour obtenir des conseils sur la modification du point de terminaison d’ingestion pour le SDK opencensus-python, consultez le [référentiel opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## <a name="regions-that-require-endpoint-modification"></a>Régions nécessitant une modification des points de terminaison
 

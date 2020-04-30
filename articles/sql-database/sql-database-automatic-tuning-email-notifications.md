@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 1dbcf953ad5f70c6ddf2a73eef2ea712f1e1278c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b3b235833e794e48ae655d184bf938effc0d7ac0
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632078"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768376"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 
@@ -38,17 +38,17 @@ Pour utiliser Azure Automation, la première étape consiste à créer un compte
 
 Suivez ces étapes pour créer un compte Azure Automation en sélectionnant et en configurant l’application Automation de la Place de Marché :
 
-- Connectez-vous au portail Azure.
-- Cliquez sur « **+ Créer une ressource** » dans l’angle supérieur gauche.
-- Recherchez « **Automation** » (appuyez sur Entrée).
-- Cliquez sur l’application Automation dans les résultats de recherche.
+1. Connectez-vous au portail Azure.
+1. Cliquez sur « **+ Créer une ressource** » dans l’angle supérieur gauche.
+1. Recherchez « **Automation** » (appuyez sur Entrée).
+1. Cliquez sur l’application Automation dans les résultats de recherche.
 
-![Ajout d’Azure Automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
+    ![Ajout d’Azure Automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
 
-- Une fois dans le volet « Créer un compte Automation », cliquez sur « **Créer** ».
-- Fournissez les informations requises : entrez un nom pour ce compte Automation, sélectionnez votre ID d’abonnement Azure et les ressources Azure à utiliser pour l’exécution du script PowerShell.
-- Pour l’option « **Créer un compte d’identification Azure** », sélectionnez **Oui** afin de configurer le type de compte sous lequel le script PowerShell s’exécute avec l’aide d’Azure Automation. Pour en savoir plus sur les types de comptes, consultez [Compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
-- Terminez la création du compte Automation en cliquant sur **Créer**.
+1. Une fois dans le volet « Créer un compte Automation », cliquez sur « **Créer** ».
+1. Fournissez les informations requises : entrez un nom pour ce compte Automation, sélectionnez votre ID d’abonnement Azure et les ressources Azure à utiliser pour l’exécution du script PowerShell.
+1. Pour l’option « **Créer un compte d’identification Azure** », sélectionnez **Oui** afin de configurer le type de compte sous lequel le script PowerShell s’exécute avec l’aide d’Azure Automation. Pour en savoir plus sur les types de comptes, consultez [Compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+1. Terminez la création du compte Automation en cliquant sur **Créer**.
 
 > [!TIP]
 > Prenez note du nom de votre compte Azure Automation, de l’ID d’abonnement et des ressources (par exemple en effectuant un copier-coller dans un bloc-notes) exactement comme vous les avez entrés lors de la création de l’application Automation. Vous aurez besoin de ces informations ultérieurement.
@@ -60,7 +60,7 @@ Si vous avez plusieurs abonnements Azure pour lesquels vous souhaitez générer 
 
 Le script PowerShell de récupération des suggestions de réglage automatique utilise les commandes [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) et [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction), pour lesquelles le module Azure version 4 ou ultérieure est nécessaire.
 
-- Si vos modules Azure doivent être mis à jour, voir [Prise en charge de modules Az dans Azure Automation](../automation/az-modules.md).
+- Si vos modules Azure doivent être mis à jour, voir [Prise en charge de modules Az dans Azure Automation](../automation/shared-resources/modules.md).
 
 ## <a name="create-azure-automation-runbook"></a>Créer un runbook Azure Automation
 
@@ -68,18 +68,18 @@ L’étape suivante consiste à créer un runbook dans Azure Automation, à l’
 
 Suivez ces étapes pour créer un runbook Azure Automation :
 
-- Accédez au compte Azure Automation créé à l’étape précédente.
-- Une fois dans le volet du compte Automation, cliquez sur l’élément de menu « **Runbooks** » sur le côté gauche pour créer un runbook Azure Automation avec le script PowerShell. Pour en savoir plus sur la création de runbooks d’automation, consultez [Création d’un runbook](../automation/manage-runbooks.md#creating-a-runbook).
-- Pour ajouter un nouveau runbook, cliquez sur l’option de menu « **+ Ajouter un runbook** », puis sur « **Création rapide – Créer un runbook**».
-- Dans le volet Runbook, tapez le nom de votre runbook (pour les besoins de cet exemple, « **AutomaticTuningEmailAutomation** » est utilisé), sélectionnez **PowerShell** comme type de runbook et écrivez une description de ce runbook pour décrire sa fonction.
-- Cliquez sur le bouton **Créer** pour terminer la création du runbook.
+1. Accédez au compte Azure Automation créé à l’étape précédente.
+1. Une fois dans le volet du compte Automation, cliquez sur l’élément de menu « **Runbooks** » sur le côté gauche pour créer un runbook Azure Automation avec le script PowerShell. Pour en savoir plus sur la création de runbooks d’automation, consultez [Création d’un runbook](../automation/manage-runbooks.md#creating-a-runbook).
+1. Pour ajouter un nouveau runbook, cliquez sur l’option de menu « **+ Ajouter un runbook** », puis sur « **Création rapide – Créer un runbook**».
+1. Dans le volet Runbook, tapez le nom de votre runbook (pour les besoins de cet exemple, « **AutomaticTuningEmailAutomation** » est utilisé), sélectionnez **PowerShell** comme type de runbook et écrivez une description de ce runbook pour décrire sa fonction.
+1. Cliquez sur le bouton **Créer** pour terminer la création du runbook.
 
-![Ajouter le runbook Azure Automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
+    ![Ajouter le runbook Azure Automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
 
 Suivez ces étapes pour charger un script PowerShell à l’intérieur du runbook créé :
 
-- Dans le volet « **Modifier le runbook PowerShell** », sélectionnez « **RUNBOOKS** » dans l’arborescence et développez l’affichage jusqu’à voir le nom de votre runbook (dans cet exemple, «  **AutomaticTuningEmailAutomation** »). Sélectionnez ce runbook.
-- Sur la première ligne de « Modifier le runbook PowerShell » (en commençant par le numéro 1), copiez-collez le code de script PowerShell suivant. Ce script PowerShell est fourni tel quel pour vous aider à démarrer. Modifiez-le en fonction de vos besoins.
+1. Dans le volet « **Modifier le runbook PowerShell** », sélectionnez « **RUNBOOKS** » dans l’arborescence et développez l’affichage jusqu’à voir le nom de votre runbook (dans cet exemple, «  **AutomaticTuningEmailAutomation** »). Sélectionnez ce runbook.
+1. Sur la première ligne de « Modifier le runbook PowerShell » (en commençant par le numéro 1), copiez-collez le code de script PowerShell suivant. Ce script PowerShell est fourni tel quel pour vous aider à démarrer. Modifiez-le en fonction de vos besoins.
 
 Dans l’en-tête du script PowerShell fourni, vous devez remplacer `<SUBSCRIPTION_ID_WITH_DATABASES>` par votre ID d’abonnement Azure. Pour découvrir comment récupérer votre ID d’abonnement Azure, consultez [Getting your Azure Subscription GUID (Obtention de votre GUID d’abonnement Azure)](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
 
@@ -184,19 +184,19 @@ Avec les étapes ci-dessus, le script PowerShell pour récupérer les recommanda
 
 Pour terminer la solution, la dernière étape consiste à créer un flux d’automation dans Microsoft Flow composé de trois actions (tâches) :
 
-1. «**Azure Automation - Créer une tâche** » : sert à exécuter le script PowerShell pour récupérer les recommandations de réglage automatique à l’intérieur du runbook Azure Automation.
-2. « **Azure Automation - Obtenir la sortie de tâche** » : sert à récupérer la sortie à partir du script PowerShell exécuté.
-3. « **Office 365 Outlook - Envoyer un message électronique** » : sert à envoyer un e-mail. Les e-mails sont envoyés à l’aide du compte Office 365 de la personne qui crée le flux.
+ - «**Azure Automation - Créer une tâche** » : sert à exécuter le script PowerShell pour récupérer les recommandations de réglage automatique à l’intérieur du runbook Azure Automation.
+ - « **Azure Automation - Obtenir la sortie de tâche** » : sert à récupérer la sortie à partir du script PowerShell exécuté.
+ - « **Office 365 Outlook - Envoyer un message électronique** » : sert à envoyer un e-mail. Les e-mails sont envoyés à l’aide du compte Office 365 de la personne qui crée le flux.
 
 Pour en savoir plus sur les fonctionnalités de Microsoft Flow, consultez [Bien démarrer avec Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 Les prérequis pour cette étape consistent à créer un compte [Microsoft Flow](https://flow.microsoft.com) et à se connecter. Une fois dans la solution, suivez ces étapes pour configurer un **nouveau flux** :
 
-- Accédez à l’élément de menu « **Mes flux** ».
-- Dans Mes flux, sélectionnez le lien « **+ Créer entièrement** » en haut de la page.
-- Cliquez sur le lien « **Rechercher parmi des centaines de connecteurs et déclencheurs** » en bas de la page.
-- Dans le champ de recherche, tapez « **récurrence** » et sélectionnez « **Planification - Récurrence** » dans les résultats de recherche pour planifier la tâche de remise par e-mail.
-- Dans le volet Récurrence, dans le champ Fréquence, sélectionnez la fréquence de planification pour ce flux à exécuter, par exemple envoyer un e-mail automatisé chaque minute, heure, jour, semaine, et ainsi de suite.
+1. Accédez à l’élément de menu « **Mes flux** ».
+1. Dans Mes flux, sélectionnez le lien « **+ Créer entièrement** » en haut de la page.
+1. Cliquez sur le lien « **Rechercher parmi des centaines de connecteurs et déclencheurs** » en bas de la page.
+1. Dans le champ de recherche, tapez « **récurrence** » et sélectionnez « **Planification - Récurrence** » dans les résultats de recherche pour planifier la tâche de remise par e-mail.
+1. Dans le volet Récurrence, dans le champ Fréquence, sélectionnez la fréquence de planification pour ce flux à exécuter, par exemple envoyer un e-mail automatisé chaque minute, heure, jour, semaine, et ainsi de suite.
 
 L’étape suivante consiste à ajouter trois tâches (créer, obtenir la sortie et envoyer un e-mail) au flux récurrent nouvellement créé. Pour ajouter les tâches requises au flux, effectuez les étapes suivantes :
 

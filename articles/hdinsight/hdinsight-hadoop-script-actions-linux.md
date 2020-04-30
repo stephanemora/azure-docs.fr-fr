@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931694"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767537"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
@@ -159,7 +159,7 @@ Dans cet exemple, la commande `hdfs` utilise en toute transparence l’emplaceme
 HDInsight journalise la sortie de script qui est écrite dans STDOUT et STDERR. Vous pouvez afficher ces informations à l’aide de l’interface utilisateur web d’Ambari.
 
 > [!NOTE]  
-> Apache Ambari n’est disponible que si le cluster a été créé avec succès. Si vous utilisez une action de script lors de la création du cluster et que la création échoue, consultez la section de dépannage de [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) pour découvrir d’autres façons d’accéder aux informations de journalisation.
+> Apache Ambari n’est disponible que si le cluster a été créé avec succès. Si vous utilisez une action de script lors de la création du cluster et que la création échoue, consultez la section de [Résoudre les problèmes liés aux actions de script](./troubleshoot-script-action.md) pour découvrir d’autres façons d’accéder aux informations de journalisation.
 
 La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple :
 
@@ -175,7 +175,7 @@ Par défaut, `echo` envoie la chaîne vers STDOUT. Pour la diriger vers STDERR, 
 
 Cela redirige les informations écrites dans STDOUT vers STDERR (2) à la place. Pour plus d’informations sur la redirection des E/S, voir [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Pour plus d’informations sur l’affichage des informations consignées par les actions de script, voir [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+Pour plus d’informations sur l’affichage des informations consignées par les actions de script, consultez [Résoudre les problèmes liés aux actions de script](./troubleshoot-script-action.md).
 
 ### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Enregistrer des fichiers au format ASCII avec les fins de ligne LF
 
