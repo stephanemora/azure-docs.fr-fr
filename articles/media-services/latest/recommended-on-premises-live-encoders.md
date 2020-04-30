@@ -6,15 +6,15 @@ keywords: encodage;encodeurs;média
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 5e16f1fb948ddb435c5002c16125b36fa61d50a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0676b6b183c64dcd0fb15b87de48a4afed3a0011
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336241"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641804"
 ---
 # <a name="tested-on-premises-live-streaming-encoders"></a>Encodeurs de streaming en direct locaux testés
 
@@ -57,8 +57,6 @@ Lors de la diffusion en flux continu via RTMP, vérifiez les paramètres de pare
 - Telestream Wirecast (version 13.0.2 ou et versions ultérieures en raison de la configuration TLS 1.2)
 - Telestream Wirecast S (seul RTMP est pris en charge)
 - Teradek Slice 756
-- TriCaster 8000
-- Tricaster Mini HD-4
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0cb7957008308425d91abb3e0f828cc40301736
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064928"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683325"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -40,7 +40,7 @@ Microsoft a conclu un partenariat avec Gemalto pour fournir le service HSM dédi
 
 ### <a name="q-what-is-an-hsm-used-for"></a>Q : À quoi sert un HSM ?
 
-Un module HSM sert à stocker les clés de chiffrement utilisées pour les fonctionnalités de chiffrement comme SSL (Secure Socket Layer), le chiffrement de données, l’infrastructure à clé publique (PKI), la gestion des droits numériques (DRM) et la signature de documents.
+Un module HSM sert à stocker les clés de chiffrement utilisées pour les fonctionnalités de chiffrement comme TLS (Transport Layer Security), le chiffrement de données, l’infrastructure à clé publique (PKI), la gestion des droits numériques (DRM) et la signature de documents.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>Q : Comment fonctionne un HSM dédié ?
 
@@ -69,6 +69,7 @@ Depuis fin mars 2019, le service HSM dédié est disponible dans les 14 régi
 * USA Est
 * USA Est 2
 * USA Ouest
+* USA Ouest 2
 * États-Unis - partie centrale méridionale
 * Asie Sud-Est
 * Asie Est
@@ -84,6 +85,10 @@ Depuis fin mars 2019, le service HSM dédié est disponible dans les 14 régi
 * Est du Canada
 * Australie Est
 * Sud-Australie Est
+* Suisse Nord
+* Suisse Ouest
+* Gouvernement américain - Virginie
+* Gouvernement des États-Unis – Texas
 
 ## <a name="interoperability"></a>Interopérabilité
 
@@ -132,13 +137,13 @@ Oui. Consultez le guide de migration Gemalto.
 
 ### <a name="q-how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm"></a>Q : Comment choisir entre Azure Key Vault et le service HSM dédié Azure ?
 
-Le service HSM dédié Azure est tout indiqué pour les entreprises qui migrent vers des applications locales Azure qui utilisent des modules HSM. Les modules HSM dédiés proposent une option qui permet de migrer une application moyennant des modifications minimes. Si des opérations de chiffrement sont effectuées dans le code de l’application s’exécutant dans une machine virtuelle ou une application web Azure, elles peuvent utiliser HSM dédié. En règle générale, les logiciels prêts à l’emploi s’exécutant selon des modèles IaaS (infrastructure as a service) et qui prennent en charge les modules HSM comme magasin de clés peuvent utiliser le service HSM dédié, notamment Application Gateway ou Traffic Manager pour le SSL sans clé, les services de certificats Active Directory (AD CS), ou des outils d’infrastructure à clé publique (PKI) similaires, des outils/applications utilisés pour la signature de documents, la signature de code ou un serveur SQL Server (IaaS) configuré avec le chiffrement transparent des données (TDE) en ayant la clé principale dans un module HSM utilisant un fournisseur de gestion de clés extensible (EKM). Azure Key Vault convient pour des applications « natives du cloud » ou pour des scénarios de chiffrement au repos où les données des clients sont traitées par des scénarios PaaS (Platform as a Service) ou SaaS (Software as a Service), comme le chiffrement Clé client dans Office 365, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store avec la clé gérée par le client, le chiffrement Stockage Azure avec la clé gérée par le client et Azure SQL avec la clé gérée par le client.
+Le service HSM dédié Azure est tout indiqué pour les entreprises qui migrent vers des applications locales Azure qui utilisent des modules HSM. Les modules HSM dédiés proposent une option qui permet de migrer une application moyennant des modifications minimes. Si des opérations de chiffrement sont effectuées dans le code de l’application s’exécutant dans une machine virtuelle ou une application web Azure, elles peuvent utiliser HSM dédié. En règle générale, les logiciels prêts à l’emploi s’exécutant selon des modèles IaaS (infrastructure as a service) et qui prennent en charge les modules HSM comme magasin de clés peuvent utiliser le service HSM dédié, notamment Application Gateway ou Traffic Manager pour le TLS sans clé, les services de certificats Active Directory (AD CS), ou des outils d’infrastructure à clé publique (PKI) similaires, des outils/applications utilisés pour la signature de documents, la signature de code ou un serveur SQL Server (IaaS) configuré avec le chiffrement transparent des données (TDE) en ayant la clé principale dans un module HSM utilisant un fournisseur de gestion de clés extensible (EKM). Azure Key Vault convient pour des applications « natives du cloud » ou pour des scénarios de chiffrement au repos où les données des clients sont traitées par des scénarios PaaS (Platform as a Service) ou SaaS (Software as a Service), comme le chiffrement Clé client dans Office 365, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store avec la clé gérée par le client, le chiffrement Stockage Azure avec la clé gérée par le client et Azure SQL avec la clé gérée par le client.
 
 ### <a name="q-what-usage-scenarios-best-suit-azure-dedicated-hsm"></a>Q : Quels sont les scénarios d’utilisation les plus adaptés au service HSM dédié Azure ?
 
 Le service HSM dédié Azure est tout particulièrement indiqué pour les scénarios de migration. Cela vaut pour la migration d’applications locales vers Azure qui utilisent déjà des modules HSM. Il propose une option de migration sans accroc vers Azure qui ne demande qu’un minimum de modifications au niveau de l’application. Si des opérations de chiffrement sont effectuées dans le code de l’application s’exécutant dans une machine virtuelle ou une application web Azure, le service HSM dédié peut être utilisé. En règle générale, les logiciels prêts à l’emploi s’exécutant selon des modèles IaaS (infrastructure as a service) et qui prennent en charge les modules HSM comme magasin de clés peuvent utiliser le service HSM dédié, notamment :
 
-* Application Gateway ou Traffic Manager pour le SSL sans clé
+* Application Gateway ou Traffic Manager pour le TLS sans clé
 * Services de certificats Active Directory (AD CS)
 * Outils d’infrastructure à clé publique (PKI) similaires
 * Outils/applications utilisés pour la signature de document

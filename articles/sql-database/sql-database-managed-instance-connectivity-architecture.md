@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481097"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677168"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans Azure SQL Database
 
@@ -306,6 +306,7 @@ Les fonctionnalités de réseau virtuel suivantes ne sont actuellement pas prise
 - **Homologation Microsoft** : L’activation de l’[homologation Microsoft](../expressroute/expressroute-faqs.md#microsoft-peering) sur des circuits ExpressRoute homologués, directement ou transitivement, avec un réseau virtuel dans lequel Managed Instance réside, affecte le flux de trafic entre les composants Managed Instance au sein du réseau virtuel et les services dont il dépend, ce qui engendre des problèmes de disponibilité. Des déploiements de Managed Instance sur un réseau virtuel avec une homologation Microsoft déjà activée sont supposés échouer.
 - **Homologation de réseau virtuel mondial** : La connectivité d’[homologation de réseau virtuel](../virtual-network/virtual-network-peering-overview.md) entre régions Azure ne fonctionne pas pour Managed Instance en raison de [contraintes d’équilibreur de charge documentées](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 - **AzurePlatformDNS** : L’utilisation de la [balise de service](../virtual-network/service-tags-overview.md) AzurePlatformDNS pour bloquer la résolution DNS de plateforme rendrait Managed Instance indisponible. Même si Managed Instance prend en charge le DNS défini par le client pour la résolution DNS à l’intérieur le moteur, il existe une dépendance sur le DNS de plateforme pour les opérations de plateforme.
+- **Passerelle NAT** : L’utilisation du service [NAT de réseau virtuel](../virtual-network/nat-overview.md) pour contrôler la connectivité sortante avec une adresse IP publique spécifique rendrait Managed Instance indisponible. Le service Managed Instance est actuellement limité à l’utilisation d’un équilibreur de charge de base qui ne permet pas la coexistence de flux entrants et sortants avec le service NAT de réseau virtuel.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Déconseillé] Configuration réseau requise sans la configuration de sous-réseau assistée par le service
 

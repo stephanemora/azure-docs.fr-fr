@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 143a2ec0bfbcc6997eb6d8b2599b848a509ee773
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309488"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677984"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Types d’application pour la plateforme d’identité Microsoft
 
 Le point de terminaison de la plateforme d’identité Microsoft v2.0 prend en charge l’authentification pour plusieurs architectures d’application modernes, toutes basées sur des protocoles industriels standard [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Cet article décrit les types d’application que vous pouvez générer à l’aide de la plateforme d’identité Microsoft, quelle que soit votre plateforme ou votre langage préférés. Ces informations sont conçues pour vous aider à comprendre les scénarios de haut niveau avant de [commencer à manipuler le code](v2-overview.md#getting-started).
-
-> [!NOTE]
-> Le point de terminaison de la plateforme d’identité Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory (Azure AD). Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Concepts de base
 
@@ -84,7 +81,7 @@ En plus de la connexion simple, une application de serveur web peut également n
 
 ## <a name="web-apis"></a>API Web
 
-Vous pouvez utiliser le point de terminaison de la plateforme d’identité Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Les API web peuvent être implémentées dans de nombreuses plateformes et langages. Elles peuvent également être implémentées à l’aide de déclencheurs HTTP dans Azure Functions. En lieu et place des jetons d’ID et des cookies de session, une API Web utilise les jetons d’accès OAuth 2.0 pour sécuriser les données et authentifier les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP de la manière suivante :
+Vous pouvez utiliser le point de terminaison de la plateforme d’identité Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Les API web peuvent être implémentées dans de nombreuses plateformes et langages. Elles peuvent également être implémentées à l’aide de déclencheurs HTTP dans Azure Functions. En lieu et place des jetons d’ID et des cookies de session, une API web utilise les jetons d’accès OAuth 2.0 pour sécuriser les données et authentifier les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP de la manière suivante :
 
 ```HTTP
 GET /api/items HTTP/1.1
@@ -94,15 +91,15 @@ Accept: application/json
 ...
 ```
 
-L’API web utilise le jeton d’accès pour vérifier l’identité de l’appelant de l’API et extraire des informations à son sujet à partir de revendications encodées dans le jeton d’accès. Pour en savoir plus sur les différents types de jetons utilisés dans le point de terminaison de la plateforme d’identité Microsoft, consultez les articles de référence au [jeton d’accès](access-tokens.md) et à [id_token](id-tokens.md).
+L’API web utilise le jeton d’accès pour vérifier l’identité de l’appelant de l’API et extraire des informations le concernant à partir de revendications encodées dans le jeton d’accès. Pour en savoir plus sur les différents types de jetons utilisés dans le point de terminaison de la plateforme d’identité Microsoft, consultez les articles de référence au [jeton d’accès](access-tokens.md) et à [id_token](id-tokens.md).
 
-Une API web peut octroyer aux utilisateurs la possibilité d’accepter/de refuser des fonctionnalités ou données spécifiques en exposant des autorisations (également appelées [étendues](v2-permissions-and-consent.md)). Pour qu’une application appelante puisse acquérir l’autorisation à une étendue, l’utilisateur doit accepter l’étendue au cours d’un flux. La plateforme d’identité demande l’autorisation à l’utilisateur, puis enregistre ces autorisations dans l’ensemble des jetons d’accès reçus par l’API web. L’API web valide les jetons d’accès qu’elle reçoit à chaque appel et effectue des vérifications d’autorisation.
+Une API web peut octroyer aux utilisateurs la possibilité d’accepter/de refuser des fonctionnalités ou données spécifiques en exposant des autorisations (également appelées [étendues](v2-permissions-and-consent.md)). Pour qu’une application appelante puisse acquérir l’autorisation à une étendue, l’utilisateur doit accepter l’étendue au cours d’un flux. La plateforme d’identité demande l’autorisation à l’utilisateur, puis enregistre ces autorisations dans l’ensemble des jetons d’accès reçus par l’API web. L’API web valide les jetons d’accès qu’elle reçoit à chaque appel et procède à des vérifications d’autorisation.
 
-Une API web peut recevoir des jetons d’accès de tous types d’applications, notamment des applications de serveur web, des applications de bureau et mobiles, des applications de page unique, des démons côté serveur, et même d’autres API web. Le flux de haut niveau pour une API Web ressemble à ceci :
+Une API web peut recevoir des jetons d’accès de tous types d’applications, notamment des applications de serveur web, des applications de bureau et mobiles, des applications de page unique, des démons côté serveur, et même d’autres API web. Le flux de haut niveau d'une API web se présente comme suit :
 
 ![Affiche le flux d’authentification d’API web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Pour savoir comment sécuriser une API web avec des jetons d’accès OAuth2, consultez les exemples de code d’API web de la section sur la [prise en main de la plateforme d’identité Microsoft](v2-overview.md#getting-started).
+Pour savoir comment sécuriser une API web avec des jetons d’accès OAuth2, consultez les exemples de code d’API web de la section [Prise en main de la plateforme d’identités Microsoft](v2-overview.md#getting-started).
 
 Dans de nombreux cas, les API web doivent également envoyer des demandes à d’autres API web en aval, sécurisées par la plateforme d’identité Microsoft. Pour ce faire, elles peuvent utiliser le flux **Au nom de** d’Azure AD, qui permet à l’API web d’échanger un jeton d’accès entrant contre un autre jeton d’accès, à utiliser pour les requêtes sortantes. Pour en savoir plus, voir [Plateforme d’identité Microsoft et flux On-Behalf-Of OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 
@@ -110,7 +107,7 @@ Dans de nombreux cas, les API web doivent également envoyer des demandes à d�
 
 Les applications installées sur un appareil, comme les applications de bureau et les applications mobiles nécessitent bien souvent un accès à des services principaux ou à des API web, qui stockent les données et exécutent des fonctions pour le compte d’un utilisateur. Ces applications peuvent ajouter des fonctionnalités de connexion et d’autorisation à des services principaux à l’aide du [flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-Dans ce flux, l’application reçoit un code d’autorisation à partir du point de terminaison de la plateforme d’identité Microsoft lorsque l’utilisateur se connecte. Le code d'autorisation représente l'autorisation de l'application d'appeler les services principaux pour le compte de l'utilisateur connecté. L’application peut ensuite échanger le code d’autorisation en arrière-plan contre un jeton d’accès et un jeton d’actualisation OAuth 2.0. L’application peut utiliser le jeton d’accès pour s’authentifier sur des API web dans des requêtes HTTP et solliciter le jeton d’actualisation afin de récupérer de nouveaux jetons d’accès une fois les anciens expirés.
+Dans ce flux, l’application reçoit un code d’autorisation à partir du point de terminaison de la plateforme d’identité Microsoft lorsque l’utilisateur se connecte. Le code d'autorisation représente l'autorisation de l'application d'appeler les services principaux pour le compte de l'utilisateur connecté. L’application peut ensuite échanger le code d’autorisation en arrière-plan contre un jeton d’accès et un jeton d’actualisation OAuth 2.0. L’application peut utiliser le jeton d’accès pour s’authentifier sur des API web dans des requêtes HTTP et solliciter le jeton d’actualisation afin de récupérer de nouveaux jetons d’accès une fois les anciens expirés.
 
 ![Affiche le flux d’authentification des applications natives](./media/v2-app-types/convergence-scenarios-native.svg)
 

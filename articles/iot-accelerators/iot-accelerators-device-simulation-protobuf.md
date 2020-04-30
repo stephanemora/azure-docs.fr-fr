@@ -6,15 +6,17 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom:
+- mvc
+- amqp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250225"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684004"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Sérialiser des données de télémétrie à l'aide de Protocol Buffers
 
@@ -32,7 +34,7 @@ Les étapes décrites dans ce guide pratique montrent comment :
 1. Générer des classes Protobuf
 1. Tester les topologies localement
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes décrites dans ce guide pratique, vous devez disposer des éléments suivants :
 
@@ -70,7 +72,7 @@ Ouvrez le fichier **.vscode/launch.json** et assignez la chaîne de connexion de
 
 Pour exécuter le microservice d'adaptateur de stockage localement, cliquez sur **Déboguer \> Démarrer le débogage**.
 
-Dans Visual Studio Code, la fenêtre **Terminal** affiche la sortie du microservice en cours d'exécution, avec une URL pour la vérification d'intégrité du service web : <http://127.0.0.1:9022/v1/status>. Quand vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
+Dans Visual Studio Code, la fenêtre **Terminal** affiche la sortie du microservice en cours d'exécution, avec une URL pour la vérification d'intégrité du service web : <http://127.0.0.1:9022/v1/status>. Lorsque vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
 
 Laissez le microservice d'adaptateur de stockage s'exécuter dans cette instance de Visual Studio Code pendant que vous effectuez les étapes suivantes.
 

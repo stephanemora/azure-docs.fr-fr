@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d845e245a242a88d16a2597f0144a0ae4a727cb0
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671713"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640968"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profiler des applications web ASP.NET Core Azure Linux avec Application Insights Profiler
 
@@ -23,7 +23,7 @@ Après avoir terminé cette procédure pas à pas, votre application peut collec
 
 ![Traces du profileur](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Les instructions suivantes s’appliquent à tous les environnements de développement Windows, Linux et Mac :
 
 * Installez le [kit SDK .NET Core 2.1.2 ou une version ultérieure](https://dotnet.microsoft.com/download/archives).
@@ -168,13 +168,9 @@ Vous devez obtenir une sortie similaire à la suivante :
 
     ![Afficher les traces du profileur](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="known-issues"></a>Problèmes connus
-
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Le bouton Profile Now ne fonctionne pas pour Linux Profiler
-La version Linux de Profiler App Insights ne prend pas encore en charge le profilage à la demande avec ce bouton.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous utilisez des conteneurs personnalisés qui sont hébergés par Azure App Service, suivez les instructions dans [Activer le profileur de service pour l’application ASP.NET Core en conteneur](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) pour activer Application Insights Profiler.
 
-Signalez tout problème ou suggestion sur le référentiel GitHub Application Insights : [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+Signalez tout problème ou suggestion sur le dépôt GitHub Application Insights : [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).

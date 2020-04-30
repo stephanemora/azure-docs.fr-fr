@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336726"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677324"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -41,6 +41,15 @@ Cela peut se produire si l’ordinateur de l’appliance se trouve derrière un 
 - Veillez à fournir les informations d’identification pour l’autorisation si le proxy en a besoin.
 - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, ajoutez [ces URL](migrate-appliance.md#url-access) à une liste verte.
 - Si vous utilisez un proxy d’interception pour vous connecter à Internet, importez le certificat de proxy sur la machine virtuelle de l’appliance en suivant [ces étapes](https://docs.microsoft.com/azure/migrate/concepts-collector).
+
+## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Impossible de se connecter à Azure à partir de l’application web de l’appliance
+
+L’erreur « Désolé, nous n'avons pas pu vous connecter » s’affiche si vous utilisez un compte Azure incorrect pour vous connecter à Azure. Cette erreur se produit pour deux raisons :
+
+- Si vous vous connectez à l’application web de l’appliance pour le cloud public, à l’aide des informations d’identification du compte d’utilisateur pour le portail cloud Government.
+- Si vous vous connectez à l’application web de l’appliance pour le cloud Government à l’aide des informations d’identification du compte d’utilisateur pour le portail du cloud privé.
+
+Vérifiez que vous utilisez les informations d’identification qui conviennent.
 
 ##  <a name="datetime-synchronization-error"></a>Erreur de synchronisation de date/heure
 

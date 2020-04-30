@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72792908"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618030"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Recherche cognitive Azure – Questions fréquentes (FAQ)
 
@@ -24,16 +24,6 @@ ms.locfileid: "72792908"
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>En quoi la Recherche cognitive Azure est-elle différente de la recherche en texte intégral de mon système de gestion de base de données (SGBD) ?
 
 La Recherche cognitive Azure comprend les fonctionnalités suivantes : prise en charge de plusieurs sources de données, [analyse linguistique de nombreuses langues](https://docs.microsoft.com/rest/api/searchservice/language-support), [analyse personnalisée des entrées de données intéressantes et inhabituelles](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), contrôles de classement des recherches par le biais de [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), tampon clavier, mise en surbrillance des résultats et navigation par facettes. Elle comprend également d’autres fonctionnalités, telles que les synonymes et une syntaxe de requête riche, toutefois ces fonctionnalités ne lui sont pas propres.
-
-### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Quelle est la différence entre la Recherche cognitive Azure et Elasticsearch ?
-
-Lorsqu’ils comparent les technologies de recherche, les clients demandent souvent des précisions sur les différences entre la Recherche cognitive Azure et Elasticsearch. Lorsque les clients choisissent la Recherche cognitive Azure plutôt qu’Elasticsearch pour leurs projets d’applications de recherche, c’est généralement parce qu’elle facilite l’une de leurs tâches principales ou parce qu’ils ont besoin de l’intégrer à d’autres technologies Microsoft :
-
-+ La Recherche cognitive Azure est un service cloud complètement managé qui présente des contrats de niveau de service (SLA) à 99,9 % quand il est provisionné avec suffisamment de redondance (2 réplicas pour l’accès en lecture et trois réplicas pour l’accès en lecture-écriture).
-+ Les [processeurs de langage naturel](https://docs.microsoft.com/rest/api/searchservice/language-support) Microsoft offrent une analyse linguistique à la pointe de la technologie.  
-+ Les [indexeurs de la Recherche cognitive Azure](search-indexer-overview.md) peuvent analyser diverses sources de données Azure en vue d’une indexation initiale et incrémentielle.
-+ Si vous avez besoin d’une réponse rapide aux fluctuations de volume des requêtes ou de l’indexation, vous pouvez utiliser les [curseurs](search-manage.md#scale-up-or-down) du portail Azure, ou exécuter un [script PowerShell](search-manage-powershell.md), en ignorant la gestion des partitions.  
-+ Les [fonctionnalités de calcul de score et de paramétrage](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) permettent d’améliorer le classement des recherches, bien au-delà de ce que le moteur de recherche seul peut fournir.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Puis-je suspendre le service Recherche cognitive Azure et arrêter la facturation ?
 
@@ -91,7 +81,15 @@ La plupart des requêtes de recherche de caractère générique, comme les requ�
 
 Par défaut, les résultats de la recherche sont notés en fonction des [propriétés statistiques des termes correspondants](search-lucene-query-architecture.md#stage-4-scoring), et sont classés du score le plus haut vers le score le plus bas. Cependant, certains types de requête (caractère générique, préfixe, expression régulière) contribuent toujours à un score constant dans le score général du document. Ce comportement est normal. La Recherche cognitive Azure impose un score constant pour permettre aux correspondances trouvées par le biais de l’extension de requête d’être incluses dans les résultats, sans affecter le classement.
 
-Par exemple, supposons l’entrée « tour* » dans une recherche par caractères génériques, qui retourne les résultats « tours », « tourettes » et « tourmaline ». Étant donné la nature de ces résultats, il est impossible de déduire raisonnablement quels termes sont plus utiles que d’autres. Pour cette raison, nous ignorons les fréquences de terme lors de la notation des résultats dans les requêtes avec caractère générique, préfixe et expression régulière. Les résultats de recherche basés sur une entrée partielle reçoivent un score constant afin d’éviter que des résultats inattendus ne soient retournés.
+Par exemple, supposons l’entrée « tour* » dans une recherche par caractères génériques, qui retourne les résultats « tours », « tourettes » et « tourmaline ». Étant donné la nature de ces résultats, il est impossible de déduire raisonnablement quels termes sont plus utiles que d’autres. Pour cette raison, nous ignorons les fréquences de terme lors de la notation des résultats dans les requêtes avec caractère générique, préfixe et expression régulière. Les résultats de recherche basés sur une entrée partielle reçoivent un score constant afin d’éviter que des résultats inattendus ne soient retournés.
+
+## <a name="skillset-operations"></a>Opérations d’ensemble de compétences
+
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Y a-t-il des conseils ou des astuces pour réduire les frais liés aux services cognitifs lors de l’ingestion ?
+
+Nous comprenons bien que vous ne souhaitez pas exécuter des compétences intégrées ou des compétences personnalisées plus que ce qui est absolument nécessaire, en particulier si vous avez des millions de documents à traiter. Dans ce souci, nous avons ajouté des fonctionnalités d’« enrichissement incrémentiel » à l’exécution d’ensemble de compétences. En résumé, vous pouvez fournir un emplacement de cache (une chaîne de connexion de stockage blob) qui sera utilisé pour stocker la sortie des étapes d’enrichissement « intermédiaires ».  Cela permet de faire en sorte que le pipeline d’enrichissement soit intelligent et n’applique que les enrichissements nécessaires lorsque vous modifiez votre ensemble de compétences. Cela permet également de réduire le temps d’indexation puisque le pipeline est plus efficace.
+
+En savoir plus sur l’[enrichissement incrémentiel](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Modèles de conception
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57c3c2c7a0c923921c727ccea7839940457bc1ee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418812"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682993"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Voir le contenu d’un fichier suivi avec Change Tracking
 
@@ -44,19 +44,19 @@ Le suivi de contenu de fichier vous permet de voir le contenu d’un fichier ava
 
 Les étapes suivantes vous indiquent comment activer le suivi des changements pour un fichier :
 
-1. Dans la page **Modifier les paramètres** de **Change Tracking**, sélectionnez l’onglet **Fichiers Windows** ou **Fichiers Linux**, puis cliquez sur **Ajouter**
+1. Dans la page Modifier les paramètres de **Change Tracking**, sélectionnez l’onglet **Fichiers Windows** ou **Fichiers Linux**, puis cliquez sur **Ajouter**.
 
-1. Renseignez les informations du chemin de fichier et sélectionnez **True** sous **Charger le contenu de fichier pour tous les paramètres**. Ce paramètre active le suivi de contenu de fichier pour ce chemin de fichier uniquement.
+1. Renseignez les informations du chemin de fichier et sélectionnez True sous **Charger le contenu de fichier pour tous les paramètres**. Ce paramètre active le suivi de contenu de fichier pour ce chemin de fichier uniquement.
 
    ![ajouter un fichier Linux](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>Voir le contenu d’un fichier suivi
 
-1. Dès qu’un changement est détecté pour le fichier ou un fichier dans le chemin, il s’affiche dans le portail. Sélectionnez le changement de fichier dans la liste des changements. Le volet **Détails du changement** s’affiche.
+1. Dès qu’un changement est détecté pour le fichier ou un fichier dans le chemin, il s’affiche dans le portail. Sélectionnez le changement de fichier dans la liste des changements. Le volet Détails du changement s’affiche.
 
    ![répertorier les changements](./media/change-tracking-file-contents/change-list.png)
 
-1. Dans la page **Détails du changement**, vous voyez les informations standard du fichier avant et après, en haut à gauche, cliquez sur **Voir les changements de contenu de fichier** pour voir le contenu du fichier.
+1. Le volet Modifier les détails présente les informations de fichier standard avant et après. Sélectionnez **Voir les modifications de contenu de fichier** pour afficher le contenu du fichier.
 
    ![Détails du changement](./media/change-tracking-file-contents/change-details.png)
 

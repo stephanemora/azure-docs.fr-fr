@@ -5,31 +5,28 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9a3c88ea0c3e656adf0f8c514b418cfc07c9590
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335768"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676443"
 ---
-# <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
+# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gérer les mises à jour pour plusieurs machines virtuelles Azure
 
-Vous pouvez utiliser la solution de gestion des mises à jour pour gérer les mises à jour et les correctifs pour vos machines virtuelles Windows et Linux. À partir de votre compte [Azure Automation](automation-offering-get-started.md) compte, vous pouvez :
+Vous pouvez utiliser Azure Automation Update Management pour gérer les mises à jour et les correctifs pour vos machines virtuelles Windows et Linux. À partir de votre compte [Azure Automation](automation-offering-get-started.md) compte, vous pouvez :
 
-- Intégrer des machines virtuelles
-- Évaluer l’état des mises à jour disponibles
-- Planifier l’installation des mises à jour requises
-- Passez en revue les résultats du déploiement pour vérifier que les mises à jour ont été appliquées correctement à toutes les machines virtuelles pour lesquelles la gestion des mises à jour est activée
+- Intégrer des machines virtuelles.
+- Évaluer l’état des mises à jour disponibles.
+- Planifier l’installation des mises à jour requises.
+- Passer en revue les résultats du déploiement pour vérifier que les mises à jour ont été appliquées correctement à toutes les machines virtuelles pour lesquelles Update Management est activé.
+
+Vous en saurez plus sur la configuration système exigée pour Update Management en consultant [Configuration exigée pour le client Update Management](automation-update-management.md#clients).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser la gestion des mises à jour, vous devez avoir :
-
-- Une machine virtuelle ou un ordinateur virtuel avec l’un des systèmes d’exploitation pris en charge.
-
-- Un accès à un référentiel de mises à jour pour les machines virtuelles Linux intégrées à la solution.
-
-Vous en saurez plus sur la configuration système exigée pour Update Management en consultant [Configuration exigée pour le client Update Management](automation-update-management.md#clients).
+* Une machine virtuelle ou un ordinateur virtuel avec l’un des systèmes d’exploitation pris en charge.
+* Un accès à un référentiel de mises à jour pour les machines virtuelles Linux intégrées à Update Management.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Activer la gestion des mises à jour pour les machines virtuelles Azure
 
@@ -53,25 +50,23 @@ Vous devez installer l’agent Log Analytics pour Windows et Linux sur les machi
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Afficher les ordinateurs attachés à votre compte Automation
 
-Après avoir activé la gestion des mises à jour pour vos machines, vous pouvez afficher leurs informations en cliquant sur **Ordinateurs**. Vous pouvez afficher des informations sur le *nom de la machine*, l’*état de conformité*, l’*environnement*, le *type de système d’exploitation*, les *mises à jour critiques et de sécurité installées*, les *autres mises à jour installées*, et la *préparation à la mise à jour de l’agent* pour vos ordinateurs.
+Après avoir activé la gestion des mises à jour pour vos machines, vous pouvez afficher leurs informations en cliquant sur **Ordinateurs**. Vous pouvez afficher des informations sur le nom de la machine, l’état de conformité, l’environnement, le type de système d’exploitation, les mises à jour critiques et de sécurité installées, les autres mises à jour installées, et la préparation à la mise à jour de l’agent pour vos ordinateurs.
 
   ![Afficher l’onglet des ordinateurs](./media/manage-update-multi/update-computers-tab.png)
 
-Les ordinateurs pour lesquels la gestion des mises à jour a été récemment activée n’ont peut-être pas encore été évalués. L’état de conformité de ces ordinateurs est **Non évalué**. Voici une liste des valeurs possibles de l’état de conformité :
+Les ordinateurs pour lesquels la gestion des mises à jour a été récemment activée n’ont peut-être pas encore été évalués. L’état de conformité de ces ordinateurs est `Not assessed`. Voici une liste des valeurs possibles de l’état de conformité :
 
-- **Conforme** : ordinateurs sans aucune mise à jour critique ou de sécurité manquante.
+- `Compliant`: ordinateurs sans aucune mise à jour critique ou de sécurité manquante.
+- `Non-compliant`: ordinateurs avec des mises à jour critiques ou de sécurité manquantes.
+- `Not assessed`: l’ordinateur n’a transmis aucune donnée d’évaluation de mise à jour dans le délai prévu. Pour les ordinateurs Linux, le délai prévu correspond à la dernière heure. Pour les ordinateurs Windows, le délai prévu correspond aux 12 dernières heures.
 
-- **Non conforme** : ordinateurs avec des mises à jour critiques ou de sécurité manquantes.
-
-- **Non évalué** : l’ordinateur n’a transmis aucune donnée d’évaluation de mise à jour dans le délai prévu. Pour les ordinateurs Linux, le délai prévu est au cours de la dernière heure. Pour les ordinateurs Windows, le délai prévu est au cours des 12 dernières heures.
-
-Pour afficher l’état de l’agent, sélectionnez le lien dans la colonne **Préparation de la mise à jour de l’agent**. Cette action ouvre le volet **Worker hybride** qui indique l’état du worker hybride. L’illustration suivante montre un exemple d’agent qui n’a pas été connecté à la gestion des mises à jour pendant une période prolongée :
+Pour afficher l’état de l’agent, sélectionnez le lien dans la colonne **Préparation de la mise à jour de l’agent**. Cette action ouvre le volet Worker hybride qui indique l’état du Worker hybride. L’illustration suivante montre un exemple d’agent qui n’a pas été connecté à la gestion des mises à jour pendant une période prolongée :
 
 ![Afficher l’onglet des ordinateurs](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Afficher une évaluation des mises à jour
 
-Une fois la gestion des mises à jour activée, le volet **Gestion des mises à jour** s’ouvre. Vous pouvez voir une liste des mises à jour manquantes sous l’onglet **Mises à jour manquantes**.
+Une Update Management activé, le volet Update Management s’ouvre. Vous pouvez voir une liste des mises à jour manquantes sous l’onglet **Mises à jour manquantes**.
 
 ## <a name="collect-data"></a>Collecter les données
 
@@ -132,7 +127,7 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
   - Outils
   - Mises à jour
 
-- **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](automation-tutorial-update-management.md#schedule-an-update-deployment).
+- **Mises à jour à inclure/exclure** : ceci ouvre la page Inclure/Exclure. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
 > Il est important de se souvenir que les exclusions sont prioritaires sur les inclusions. Par exemple, si vous définissez une règle d’exclusion de `*`, aucun correctif ou package n’est installé puisque cette règle les exclut tous. Les correctifs exclus sont toujours affichés comme étant manquants sur l’ordinateur. Sur les machines Linux, si un package est inclus, mais qu’il a un package dépendant exclu, le package n’est pas installé.
@@ -176,11 +171,11 @@ En cas d’échec d’une ou plusieurs mises à jour dans le déploiement, l’�
 
 Pour voir le tableau de bord dédié au déploiement des mises à jour, sélectionnez le déploiement terminé.
 
-Le volet **Résultats des mises à jour** affiche un récapitulatif du nombre total de mises à jour et les résultats du déploiement de la machine virtuelle. Dans le tableau de droite se trouvent une répartition détaillée de chaque mise à jour et les résultats de l’installation. Les résultats de l’installation peuvent être l’une des valeurs suivantes :
+Le volet Résultats des mises à jour affiche un récapitulatif du nombre total de mises à jour et les résultats du déploiement de la machine virtuelle. Dans le tableau de droite se trouvent une répartition détaillée de chaque mise à jour et les résultats de l’installation. Les résultats de l’installation peuvent être l’une des valeurs suivantes :
 
-- **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée de fenêtre de maintenance définie.
-- **Opération réussie** : la mise à jour a réussi.
-- **Échec** : la mise à jour a échoué.
+- `Not attempted`: la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée de fenêtre de maintenance définie.
+- `Succeeded`: la mise à jour a réussi.
+- `Failed`: la mise à jour a échoué.
 
 Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
 

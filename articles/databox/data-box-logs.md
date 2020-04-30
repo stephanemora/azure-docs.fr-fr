@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229789"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676406"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Suivi et journalisation des événements de votre Azure Data Box et Azure Data Box Heavy
 
@@ -47,7 +47,7 @@ Pour restreindre l’accès à une commande, vous pouvez :
 - Affecter un rôle au niveau d’une commande. L’utilisateur dispose uniquement des autorisations définies par son rôle pour interagir avec cette commande Data Box spécifique, et rien d’autre.
 - Affectez un rôle au niveau du groupe de ressources. L’utilisateur a accès à toutes les commandes Data Box au sein d’un groupe de ressources.
 
-Pour plus d’informations sur l’utilisation suggérée des rôles RBAC, consultez la page sur les [meilleures pratiques associées au contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md#best-practice-for-using-rbac).
+Pour plus d’informations sur l’utilisation suggérée des rôles RBAC, consultez [Meilleures pratiques pour Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## <a name="track-the-order"></a>Suivre la commande
 

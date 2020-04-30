@@ -5,20 +5,19 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d84566c7680081561f60d4825f25a9ce19e02b24
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844800"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682975"
 ---
-# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
+# <a name="track-environment-changes-with-change-tracking"></a>Suivre les modifications d'environnement avec Change Tracking
 
 Cet article vous aide à utiliser la solution Change Tracking pour identifier facilement les modifications apportées dans votre environnement. La solution suit les modifications de configuration suivantes pour vous aider à identifier les problèmes de fonctionnement :
 
 - Logiciels Windows
 - Logiciel Linux (packages)
-
     >[!NOTE]
     >Change Tracking suit uniquement les logiciels gérés avec le gestionnaire de package de la distribution.
 
@@ -27,22 +26,34 @@ Cet article vous aide à utiliser la solution Change Tracking pour identifier fa
 - Services Windows
 - Démons Linux
 
-Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et au Registre Windows ainsi qu’aux démons Linux sur les serveurs supervisés sont envoyées au service cloud Azure Monitor pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
+Une fois que la solution est activée, vous pouvez afficher le résumé des modifications de vos ordinateurs surveillés en sélectionnant **Change Tracking** sous **Gestion de la configuration** dans votre compte Automation.
 
 > [!NOTE]
 > Azure Automation Change Tracking suit les modifications apportées aux machines virtuelles. Pour suivre les modifications de propriété Azure Resource Manager, consultez [Historique des modifications](../governance/resource-graph/how-to/get-resource-changes.md) d'Azure Resource Graph.
 
-## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
+Vous pouvez afficher les modifications apportées à vos ordinateurs, puis explorer les détails de chaque événement. Des listes déroulante sont disponibles en haut du graphique pour les informations en fonction du type de modification et des intervalles de temps. Vous pouvez également cliquer et faire glisser le curseur sur le graphique pour sélectionner un intervalle de temps personnalisé. **Type de modification** peut présenter l'une des valeurs suivantes : **Événements**, **Démons**, **Fichiers**, **Registre**, **Logiciels**, **Services Windows**. La catégorie affiche le type de modification parmi les suivant : **Ajouté**, **Modifié** ou **Supprimé**.
+
+![image du tableau de bord de suivi des modifications](./media/change-tracking/change-tracking-dash01.png)
+
+Cliquer sur une modification ou un événement permet de faire apparaître des informations détaillées s’y rapportant. Comme vous pouvez le voir à partir de l’exemple, le type de démarrage du service est passé de Manuel à Auto.
+
+![image des détails du suivi des modifications](./media/change-tracking/change-tracking-details.png)
+
+Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et au Registre Windows ainsi qu’aux démons Linux sur les serveurs supervisés sont envoyées au service cloud Azure Monitor pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
+
+## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
+
+### <a name="windows-operating-systems"></a>Systèmes d’exploitation Windows
 
 Les versions suivantes du système d’exploitation Windows sont officiellement prises en charge pour l’agent Windows :
 
 * Windows Server 2008 R2 ou version ultérieure
 
-## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
+### <a name="linux-operating-systems"></a>Systèmes d’exploitation Linux
 
 Les distributions Linux suivantes sont officiellement prises en charge. Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste. Sauf indication contraire, toutes les versions mineures sont prises en charge pour chaque version majeure répertoriée.
 
-### <a name="64-bit"></a>64 bits
+#### <a name="64-bit"></a>64 bits
 
 * CentOS 6 et 7
 * Amazon Linux 2017.09
@@ -52,7 +63,7 @@ Les distributions Linux suivantes sont officiellement prises en charge. Toutefoi
 * Ubuntu Linux 14.04 LTS, 16.04 LTS et 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
-### <a name="32-bit"></a>32 bits
+#### <a name="32-bit"></a>32 bits
 
 * CentOS 6
 * Oracle Linux 6
@@ -60,123 +71,20 @@ Les distributions Linux suivantes sont officiellement prises en charge. Toutefoi
 * Debian GNU/Linux 8 et 9
 * Ubuntu Linux 14.04 LTS et 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a><a name="onboard"></a>Activer Change Tracking et l’inventaire
-
-Pour commencer à suivre les modifications, vous devez activer la solution Change Tracking et Inventory. Il existe de nombreuses façons d’intégrer les machines à Change Tracking et Inventory. Voici des méthodes recommandées et prises en charge pour intégrer la solution.
-
-* [Depuis une machine virtuelle](automation-onboard-solutions-from-vm.md)
-* [Depuis plusieurs machines](automation-onboard-solutions-from-browse.md)
-* [Depuis votre compte Automation](automation-onboard-solutions-from-automation-account.md)
-* [Avec un runbook Azure Automation](automation-onboard-solutions.md)
-
-## <a name="configuring-change-tracking-and-inventory"></a>Configuration de Change Tracking et Inventory
-
-Pour découvrir comment intégrer des ordinateurs à la solution, visitez : [Intégration de solutions Automation](automation-onboard-solutions-from-automation-account.md). Une fois que vous avez une machine intégrée à la solution Change Tracking and Inventory, vous pouvez configurer les éléments à suivre. Quand vous activez le suivi d’un nouveau fichier ou d’une nouvelle clé de Registre, ceux-ci sont activés à la fois pour Change Tracking et Inventory.
-
-Pour suivre les modifications apportées à des fichiers sur Windows et Linux, les hachages MD5 de fichiers sont utilisés. Ces hachages sont ensuite utilisés pour détecter si une modification a été apportée depuis le dernier inventaire.
-
-### <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
-
-Azure Security Center a ajouté le contrôle d’intégrité des fichiers (FIM) basé sur Azure Change Tracking. Alors que FIM surveille uniquement les fichiers et les registres, la solution Change Tracking complète comprend également les éléments suivants :
-
-- Modifications de logiciel
-- Services Windows
-- Démons Linux
-
-Si vous avez déjà activé FIM et que vous souhaitez essayer la solution complète de suivi des modifications, vous devez effectuer les étapes suivantes. Vos paramètres ne sont pas supprimés par ce processus.
-
-> [!NOTE]
-> L’activation de la solution complète de suivi des modifications peut entraîner des frais supplémentaires. Pour plus d’informations, consultez [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/).
-
-1. Supprimez la solution de surveillance en accédant à l’espace de travail et en la recherchant dans la [liste des solutions de surveillance installées](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
-2. Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur Supprimer, comme indiqué dans [Supprimer une solution de surveillance](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Pour réactiver la solution, accédez au compte Automation et sélectionnez **Suivi des modifications** dans le menu des ressources sous **Gestion de la configuration**.
-4. Confirmez les détails de votre paramètre d’espace de travail, puis cliquez sur **Activer**.
-
-### <a name="configure-linux-files-to-track"></a>Configuration des fichiers Linux à suivre
-
-Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des ordinateurs Linux :
-
-1. Dans votre compte Automation, sélectionnez **Change Tracking** sous **GESTION DE LA CONFIGURATION**. Cliquez sur **Modifier les paramètres** (le symbole engrenage).
-2. Dans la page **Change Tracking**, sélectionnez **Fichiers Linux**, puis cliquez sur **+ Ajouter** pour ajouter un nouveau fichier à suivre.
-3. Dans la fenêtre **Ajouter le fichier Linux pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
-
-|Propriété  |Description  |
-|---------|---------|
-|activé     | Détermine si le paramètre est appliqué.        |
-|Item Name     | Nom convivial du fichier à suivre.        |
-|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Entrer le chemin     | Chemin dans lequel rechercher le fichier. Par exemple : « /etc/* .conf »       |
-|Type de chemin     | Type d’élément à suivre. Valeurs possibles : fichier et répertoire.        |
-|Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
-|Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
-|Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n'inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du contenu retourné.     |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
-
-> [!NOTE]
-> L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
-
-### <a name="configure-windows-files-to-track"></a>Configuration des fichiers Windows à suivre
-
-Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ordinateurs Windows :
-
-1. Dans votre compte Automation, sélectionnez **Change Tracking** sous **GESTION DE LA CONFIGURATION**. Cliquez sur **Modifier les paramètres** (le symbole engrenage).
-2. Dans la page **Change Tracking**, sélectionnez **Fichiers Windows**, puis cliquez sur **+ Ajouter** pour ajouter un nouveau fichier à suivre.
-3. Dans la fenêtre **Ajouter le fichier Windows pour le suivi des modifications**, entrez les informations du fichier à suivre et cliquez sur **Enregistrer**.
-
-|Propriété  |Description  |
-|---------|---------|
-|activé     | Détermine si le paramètre est appliqué.        |
-|Item Name     | Nom convivial du fichier à suivre.        |
-|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\\\*.txt »<br>Vous pouvez également utiliser des variables d’environnement telles que « %winDir%\System32\\\*.* »       |
-|Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
-
-## <a name="wildcard-recursion-and-environment-settings"></a>Caractère générique, récursivité et paramètres d’environnement
-
-La récursivité vous permet de spécifier des caractères génériques pour simplifier le suivi entre les répertoires, et des variables d’environnement pour vous permettre d’effectuer le suivi de fichiers entre les environnements avec plusieurs noms de lecteurs ou des noms de lecteurs dynamiques. La liste suivante répertorie les informations courantes que vous devez connaître lors de la configuration de la récursivité :
-
-* Les caractères génériques sont requis pour effectuer le suivi de plusieurs fichiers
-* Si vous utilisez des caractères génériques, ceux-ci ne peuvent être utilisés que dans le dernier segment du chemin d’accès. (par exemple, `c:\folder\*file*` ou `/etc/*.conf`)
-* Si le chemin d’accès d’une variable d’environnement n’est pas valide, la validation réussit, mais ce chemin d’accès échoue lors de l’exécution de l’inventaire.
-* Évitez les chemins d’accès généraux comme `c:\*.*` lors de la définition du chemin d’accès, auquel cas un trop grand nombre de dossiers sont parcourus.
-
-## <a name="configure-file-content-tracking"></a>Configurer le suivi de contenu de fichier
-
-Avec File Content Change Tracking, vous pouvez voir le contenu d’un fichier avant et après modification. Cette fonctionnalité est disponible pour les fichiers Windows et Linux. À chaque modification, le contenu du fichier est stocké dans un compte de stockage, avec présentation de celui-ci avant et après la modification, à la suite ou côte à côte. Pour plus d’informations, consultez [Afficher le contenu d’un fichier suivi](change-tracking-file-contents.md).
-
-![Afficher les modifications d’un fichier](./media/change-tracking-file-contents/view-file-changes.png)
-
-### <a name="configure-windows-registry-keys-to-track"></a>Configurer les clés de Registre Windows pour effectuer le suivi
-
-Utilisez les étapes suivantes pour configurer le suivi des clés de Registre sur des ordinateurs Windows :
-
-1. Dans votre compte Automation, sélectionnez **Change Tracking** sous **GESTION DE LA CONFIGURATION**. Cliquez sur **Modifier les paramètres** (le symbole engrenage).
-2. Dans la page **Change Tracking**, sélectionnez **Registre Windows**, puis cliquez sur **+ Ajouter** pour ajouter une nouvelle clé de Registre à suivre.
-3. Dans la fenêtre **Ajouter le Registre Windows pour le suivi des modifications**, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**.
-
-|Propriété  |Description  |
-|---------|---------|
-|activé     | Détermine si le paramètre est appliqué.        |
-|Item Name     | Nom convivial de la clé de Registre à suivre.        |
-|Groupe     | Nom de groupe pour le regroupement logique des clés de Registre.        |
-|Clé de Registre Windows   | Chemin dans lequel rechercher la clé de Registre. Par exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
-
 ## <a name="limitations"></a>Limites
 
 Actuellement, la solution Change Tracking ne prend pas en charge les éléments suivants :
 
 * Récursivité pour le suivi du Registre Windows
 * Systèmes de fichiers réseau
-* Les différentes méthodes d’installation ne sont pas suivies
-* * Les fichiers .exe ne sont pas suivis pour Windows
+* Méthodes d'installation différentes
+* Fichiers * **. exe** pour Windows
 
 Autres limitations :
 
 * La colonne **Taille maximale des fichiers** et ses valeurs ne sont pas utilisées dans l’implémentation actuelle.
-* Si vous collectez plus de 2500 fichiers dans le cycle de collecte de 30 minutes, les performances de la solution peuvent être dégradées.
-* Lorsque le trafic réseau est élevé, l’affichage des enregistrements de modifications peut prendre jusqu’à six heures.
+* Si vous collectez plus de 2500 fichiers dans le cycle de collecte de 30 minutes, les performances de la solution peuvent être dégradées.
+* Lorsque le trafic réseau est élevé, l’affichage des enregistrements de modifications peut prendre jusqu’à six heures.
 * Si vous modifiez la configuration lorsqu’un ordinateur est arrêté, l’ordinateur risque de publier des modifications appartenant à la configuration précédente.
 
 ## <a name="known-issues"></a>Problèmes connus
@@ -185,6 +93,26 @@ La solution Change Tracking connaît les problèmes suivants :
 
 * Les mises à jour de correctif logiciel ne sont pas collectées sur les machines Windows 2016 Core RS3.
 * Les démons Linux peuvent indiquer un état modifié, même si aucune modification n’est intervenue. Cela est dû à la façon dont le champ `SvcRunLevels` est capturé.
+
+## <a name="network-requirements"></a>Configuration requise pour le réseau
+
+Change Tracking requiert spécifiquement les adresses suivantes. Les communications vers ces adresses utilisent le port 443.
+
+|Azure (public)  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|\* .azure-automation.net|*.azure-automation.us|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Caractère générique, récursivité et paramètres d’environnement
+
+La récursivité vous permet de spécifier des caractères génériques pour simplifier le suivi entre les répertoires, et des variables d’environnement pour vous permettre d’effectuer le suivi de fichiers entre les environnements avec plusieurs noms de lecteurs ou des noms de lecteurs dynamiques. La liste suivante répertorie les informations courantes que vous devez connaître lors de la configuration de la récursivité :
+
+* Les caractères génériques sont requis pour effectuer le suivi de plusieurs fichiers.
+* Les caractères génériques ne peuvent être utilisés que dans le dernier segment d’un chemin d’accès, par exemple, c:\folder\\file* ou /etc/*.conf.
+* Si le chemin d’accès d’une variable d’environnement n’est pas valide, la validation réussit, mais ce chemin d’accès échoue lors de l’exécution de l’inventaire.
+* Évitez les chemins d’accès généraux lors de la définition du chemin d’accès, auquel cas un trop grand nombre de dossiers peuvent être parcourus.
 
 ## <a name="change-tracking-data-collection-details"></a>Détails de la collecte de données de suivi des modifications
 
@@ -211,7 +139,7 @@ Le tableau suivant montre les limites des éléments suivis par machine pour Cha
 |Services|250||
 |Daemon|250||
 
-La consommation moyenne de données Log Analytics d'une machine utilisant la solution Change Tracking and Inventory est d'environ 40 Mo par mois. Cette valeur est approximative et sujette à modification en fonction de votre environnement. Nous vous recommandons de surveiller votre environnement pour connaître votre consommation exacte.
+La consommation moyenne de données Log Analytics d'une machine utilisant la solution Change Tracking est d'environ 40 Mo par mois. Cette valeur est approximative et sujette à modification en fonction de votre environnement. Nous vous recommandons de surveiller votre environnement pour connaître votre consommation exacte.
 
 ### <a name="windows-service-tracking"></a>Suivi du service Windows
 
@@ -249,36 +177,103 @@ Le contrôle des modifications apportées aux clés de Registre a pour objectif 
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Surveille la liste des DLL système connues ou couramment utilisées ; ce système empêche quiconque d’exploiter des autorisations faibles de répertoire d’application en déposant des versions de type cheval de Troie des DLL système.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Surveille la liste des packages capables de recevoir des notifications d’événements de la part de Winlogon, le modèle de prise en charge de l’ouverture de session interactive du système d’exploitation Windows.
 
-## <a name="network-requirements"></a>Configuration requise pour le réseau
+## <a name="enable-change-tracking"></a><a name="onboard"></a>Activer Change Tracking
 
-Les adresses suivantes sont exigées particulièrement pour Change Tracking. La communication avec ces adresses s’effectue par le biais du port 443.
+Pour commencer à suivre les modifications, vous devez activer la solution Change Tracking. Il existe de nombreuses façons d’intégrer les machines à Change Tracking. Voici des méthodes recommandées et prises en charge pour intégrer la solution.
 
-|Azure (public)  |Azure Government  |
+* [Depuis une machine virtuelle](automation-onboard-solutions-from-vm.md)
+* [Depuis plusieurs machines](automation-onboard-solutions-from-browse.md)
+* [Depuis votre compte Automation](automation-onboard-solutions-from-automation-account.md)
+* [Avec un runbook Azure Automation](automation-onboard-solutions.md)
+
+## <a name="configure-change-tracking"></a>Configurer Change Tracking
+
+Pour découvrir comment intégrer des ordinateurs à la solution, consultez [Intégration de solutions Automation](automation-onboard-solutions-from-automation-account.md). Une fois que vous avez une machine intégrée à la solution Change Tracking, vous pouvez configurer les éléments à suivre. Lorsque vous activez le suivi d’un nouveau fichier ou d’une nouvelle clé de Registre, ceux-ci sont activés pour Change Tracking.
+
+Pour suivre les modifications apportées à des fichiers sur Windows et Linux, les hachages MD5 de fichiers sont utilisés. Ces hachages sont ensuite utilisés pour détecter si une modification a été apportée depuis le dernier inventaire.
+
+## <a name="enable-file-integrity-monitoring-in-azure-security-center"></a>Activer le monitoring d'intégrité de fichier dans Azure Security Center
+
+Azure Security Center a ajouté le monitoring d'intégrité de fichier (FIM) basé sur Azure Change Tracking. Alors que FIM surveille uniquement les fichiers et les registres, la solution Change Tracking complète comprend également les éléments suivants :
+
+- Modifications de logiciel
+- Services Windows
+- Démons Linux
+
+Si vous avez déjà activé FIM et que vous souhaitez essayer la solution complète de suivi des modifications, vous devez effectuer les étapes suivantes. Vos paramètres ne sont pas supprimés par ce processus.
+
+> [!NOTE]
+> L’activation de la solution complète de suivi des modifications peut entraîner des frais supplémentaires. Pour plus d’informations, consultez [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/).
+
+1. Supprimez la solution de surveillance en accédant à l’espace de travail et en la recherchant dans la [liste des solutions de surveillance installées](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
+2. Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur Supprimer, comme indiqué dans [Supprimer une solution de surveillance](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+3. Pour réactiver la solution, accédez au compte Automation et sélectionnez **Change Tracking** sous **Gestion de la configuration**.
+4. Confirmez les détails de votre paramètre d’espace de travail, puis cliquez sur **Activer**.
+
+## <a name="configure-file-content-change-tracking"></a>Configurer File Content Change Tracking
+
+Avec File Content Change Tracking, vous pouvez voir le contenu d’un fichier avant et après modification. Cette fonctionnalité est disponible pour les fichiers Windows et Linux. Pour chaque modification apportée à un fichier, le contenu du fichier est stocké dans un compte de stockage. Le fichier est affiché avant et après la modification, inline ou côte à côte. Pour plus d’informations, consultez [Afficher le contenu d’un fichier suivi](change-tracking-file-contents.md).
+
+![Afficher les modifications d’un fichier](./media/change-tracking-file-contents/view-file-changes.png)
+
+## <a name="configure-windows-registry-keys-to-track"></a>Configurer les clés de Registre Windows pour effectuer le suivi
+
+Utilisez les étapes suivantes pour configurer le suivi des clés de Registre sur des ordinateurs Windows :
+
+1. Dans votre compte Automation, sélectionnez **Change Tracking** sous **Gestion de la configuration**. Cliquez sur **Modifier les paramètres** (le symbole engrenage).
+2. Dans la page Change Tracking, sélectionnez **Registre Windows**, puis cliquez sur **+ Ajouter** pour ajouter une nouvelle clé de Registre à suivre.
+3. Dans la fenêtre **Ajouter le Registre Windows pour le suivi des modifications**, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**.
+
+|Propriété  |Description  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|\* .azure-automation.net|*.azure-automation.us|
+|activé     | Détermine si le paramètre est appliqué.        |
+|Item Name     | Nom convivial de la clé de Registre à suivre.        |
+|Groupe     | Nom de groupe pour le regroupement logique des clés de Registre.        |
+|Clé de Registre Windows   | Chemin dans lequel rechercher la clé de Registre. Par exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
-## <a name="use-change-tracking"></a>Utilisation du suivi des modifications
+## <a name="configure-file-tracking-on-windows"></a>Configurer le suivi des fichiers sur Windows
 
-Une fois que la solution est activée, vous pouvez afficher le résumé des modifications de vos ordinateurs surveillés en sélectionnant **Change Tracking** sous **GESTION DE LA CONFIGURATION** dans votre compte Automation.
+Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ordinateurs Windows :
 
-Vous pouvez afficher les modifications apportées à vos ordinateurs, puis explorer les détails de chaque événement. Des listes déroulante sont disponibles en haut du graphique pour les informations en fonction du type de modification et des intervalles de temps. Vous pouvez également cliquer et faire glisser le curseur sur le graphique pour sélectionner un intervalle de temps personnalisé. **Type de modification** peut présenter l'une des valeurs suivantes : **Événements**, **Démons**, **Fichiers**, **Registre**, **Logiciels**, **Services Windows**. La catégorie affiche le type de modification parmi les suivant : **Ajouté**, **Modifié** ou **Supprimé**.
+1. Dans votre compte Automation, sélectionnez **Change Tracking** sous **Gestion de la configuration**. Cliquez sur **Modifier les paramètres** (le symbole engrenage).
+2. Dans la page Change Tracking, sélectionnez **Fichiers Windows**, puis cliquez sur **+ Ajouter** pour ajouter un nouveau fichier à suivre.
+3. Dans la fenêtre **Ajouter le fichier Windows pour le suivi des modifications**, entrez les informations du fichier à suivre et cliquez sur **Enregistrer**.
 
-![image du tableau de bord de suivi des modifications](./media/change-tracking/change-tracking-dash01.png)
+|Propriété  |Description  |
+|---------|---------|
+|activé     | True si le paramètre est appliqué, et false dans le cas contraire.        |
+|Item Name     | Nom convivial du fichier à suivre.        |
+|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
+|Entrer le chemin     | Chemin d’accès pour rechercher le fichier, par exemple, **c:\temp\\\*.txt**<br>Vous pouvez également utiliser des variables d’environnement telles que `%winDir%\System32\\\*.*`.       |
+|Récursivité     | True si la récursivité est utilisée lorsque vous recherchez l’élément à suivre, et False dans le cas contraire.        |
+|Télécharger le contenu du fichier pour tous les paramètres| True pour charger le contenu du fichier d'après les modifications suivies, et False dans le cas contraire.|
 
-Cliquer sur une modification ou un événement permet de faire apparaître des informations détaillées s’y rapportant. Comme vous pouvez le voir à partir de l’exemple, le type de démarrage du service est passé de Manuel à Auto.
+## <a name="configure-file-tracking-on-linux"></a>Configurer le suivi des fichiers sur Linux
 
-![image des détails du suivi des modifications](./media/change-tracking/change-tracking-details.png)
+Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des ordinateurs Linux :
+
+1. Dans votre compte Automation, sélectionnez **Change Tracking** sous **Gestion de la configuration**. Cliquez sur **Modifier les paramètres** (le symbole engrenage).
+2. Dans la page Change Tracking, sélectionnez **Fichiers Linux**, puis cliquez sur **+ Ajouter** pour ajouter un nouveau fichier à suivre.
+3. Dans la fenêtre **Ajouter le fichier Linux pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
+
+|Propriété  |Description  |
+|---------|---------|
+|activé     | Détermine si le paramètre est appliqué.        |
+|Item Name     | Nom convivial du fichier à suivre.        |
+|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
+|Entrer le chemin     | Chemin dans lequel rechercher le fichier. Par exemple : « /etc/* .conf »       |
+|Type de chemin     | Type d’élément à suivre. Valeurs possibles : fichier et répertoire.        |
+|Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
+|Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
+|Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n'inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du contenu retourné.     |
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+
+> [!NOTE]
+> L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
 
 ## <a name="search-logs"></a>Rechercher des journaux d’activité
 
-En plus des détails fournis dans le portail, des recherches peuvent être effectuées dans les journaux d’activité. Avec la page **Change Tracking** ouverte, cliquez sur **Log Analytics** pour ouvrir la page **Journaux**.
-
-### <a name="sample-queries"></a>Exemples de requêtes
-
-Le tableau suivant fournit des exemples de recherches dans les journaux d’enregistrements de modification collectés par cette solution :
+En matière d'enregistrements de modification, vous pouvez effectuer différentes recherches dans les journaux. Avec la page Change Tracking ouverte, cliquez sur **Log Analytics** pour ouvrir la page Journaux. Le tableau suivant fournit des exemples de recherches dans les journaux d’enregistrements de modification collectés par cette solution :
 
 |Requête  |Description  |
 |---------|---------|
@@ -287,15 +282,15 @@ Le tableau suivant fournit des exemples de recherches dans les journaux d’enre
 
 ## <a name="alert-on-changes"></a>Alerte sur les modifications
 
-L'une des principales caractéristiques de la solution Change Tracking and Inventory est sa capacité à alerter sur l'état de la configuration et sur les modifications apportées à l'état de la configuration de votre environnement hybride.
-
-Dans l'exemple suivant, la capture d'écran montre que le fichier `C:\windows\system32\drivers\etc\hosts` a été modifié sur une machine. Ce fichier est important car le fichier Hosts est utilisé par Windows pour associer des noms d'hôtes à des adresses IP et il prime même sur le DNS, ce qui a pu entraîner des problèmes de connectivité ou la redirection du trafic vers des sites web malveillants ou dangereux.
+L'une des principales caractéristiques de la solution Change Tracking consiste à alerter sur l'état de la configuration et sur les modifications apportées à l'état de la configuration de votre environnement hybride. L’exemple suivant montre que le fichier **C:\windows\system32\drivers\etc\hosts** a été modifié sur une machine. Ce fichier est important car Windows l'utilise pour associer des noms d'hôtes à des adresses IP. Cette opération prime sur le DNS, ce qui peut entraîner des problèmes de connectivité ou la redirection du trafic vers des sites web malveillants ou dangereux.
 
 ![Graphique montrant la modification du fichier Hosts](./media/change-tracking/changes.png)
 
 Pour analyser cette modification plus en détail, accédez à Recherche dans les journaux en cliquant sur **Log Analytics**. Une fois dans Recherche dans les journaux, recherchez les modifications apportées au contenu du fichier Hosts à l'aide de la requête `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Cette requête permet de rechercher les modifications apportées au contenu des fichiers dont le chemin d'accès complet contient le mot « hosts ». Vous pouvez également rechercher un fichier spécifique en remplaçant le chemin d'accès par sa forme complète (par exemple, `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
-Une fois que la requête a renvoyé les résultats souhaités, cliquez sur le bouton **Nouvelle règle d'alerte** de l'expérience Recherche dans les journaux pour ouvrir la page de création d'alerte. Vous pouvez également accéder à cette expérience via **Azure Monitor** sur le portail Azure. Dans l'expérience de création d'alerte, vérifiez à nouveau notre requête et modifiez la logique d'alerte. Pour cet exemple, vous souhaitez que l'alerte soit déclenchée à la moindre modification détectée sur l'ensemble des machines de l'environnement.
+Une fois que la requête a renvoyé les résultats souhaités, cliquez sur **Nouvelle règle d'alerte** dans la recherche dans les journaux pour ouvrir la page de création d'alerte. Vous pouvez également accéder à cette expérience via **Azure Monitor** sur le portail Azure. 
+
+Vérifiez à nouveau votre requête et modifiez la logique d’alerte. Pour cet exemple, vous souhaitez que l'alerte soit déclenchée à la moindre modification détectée sur l'ensemble des machines de l'environnement.
 
 ![Image illustrant la requête de modification pour le suivi des modifications apportées au fichier Hosts](./media/change-tracking/change-query.png)
 
@@ -307,7 +302,7 @@ Une fois tous les paramètres et la logique définis, nous pouvons appliquer l'a
 
 ### <a name="alert-suggestions"></a>Suggestions d'alertes
 
-L'alerte relative aux modifications apportées au fichier Hosts est une bonne application des alertes disponibles pour les données Change Tracking or Inventory, mais il existe de nombreux autres scénarios d'alerte, y compris les cas définis dans la section ci-dessous ainsi que leurs exemples de requêtes.
+L'alerte relative aux modifications apportées au fichier hosts est une bonne application des alertes disponibles pour les données Change Tracking or Inventory, mais il existe de nombreux autres scénarios d'alerte, y compris les cas définis dans la section ci-dessous ainsi que leurs exemples de requêtes.
 
 |Requête  |Description  |
 |---------|---------|

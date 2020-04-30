@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 9403cc05ed5b31f3b76c16c4232506e2ddc5da2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402912"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682755"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -81,7 +81,9 @@ L’exemple de modèle suivant montre comment créer un espace de travail avec t
 
 * Activer les paramètres de confidentialité élevée pour l’espace de travail
 * Activer le chiffrement pour l’espace de travail
-* Utiliser une instance Azure Key Vault existante
+* Utiliser une instance Azure Key Vault existante pour récupérer les clés gérées par le client
+
+Pour plus d'informations, consultez [Chiffrement au repos](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -121,7 +123,7 @@ L’exemple de modèle suivant montre comment créer un espace de travail avec t
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -256,27 +258,31 @@ L’exemple de modèle suivant montre comment créer un espace de travail avec t
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbi_workspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-Pour récupérer l’ID de Key Vault et l’URI de clé requis par ce modèle, vous pouvez utiliser Azure CLI. La commande suivante est un exemple d’utilisation d’Azure CLI pour obtenir l’ID de la ressource et l’URI de Key Vault :
+Pour récupérer l’ID de Key Vault et l’URI de clé requis par ce modèle, vous pouvez utiliser Azure CLI. La commande suivante obtient l'ID Key Vault :
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-Cette commande retourne une valeur semblable au texte suivant. La première valeur est l’ID et la seconde est l’URI :
+Cette commande renvoie une valeur semblable `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`.
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+Pour obtenir l’URI de la clé gérée par le client, utilisez la commande suivante :
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+Cette commande renvoie une valeur semblable `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`.
+
+> [!IMPORTANT]
+> Une fois l'espace de travail créé, vous ne pouvez pas modifier les paramètres des données confidentielles, du chiffrement, de l’ID du coffre de clés ou des identificateurs de clés. Pour modifier ces valeurs, vous devez créer un espace de travail à l’aide des nouvelles valeurs.
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
