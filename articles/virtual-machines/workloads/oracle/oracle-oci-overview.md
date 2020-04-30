@@ -3,7 +3,7 @@ title: Intégrer Microsoft Azure avec l’infrastructure cloud Oracle | Microsof
 description: Découvrez les solutions qui intègrent des applications Oracle exécutées sur Microsoft Azure dans des bases de données de l’infrastructure cloud Oracle (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: BorisB2015
 manager: gwallace
 tags: ''
 ms.assetid: ''
@@ -11,30 +11,30 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
-ms.author: rogirdh
+ms.date: 03/16/2020
+ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e70eedcfcdf548965b79e4a48a3a8bfa643f0396
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300551"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687425"
 ---
-# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Solutions d’applications Oracle intégrant Microsoft Azure et l’infrastructure cloud Oracle (préversion)
+# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Solutions d’applications Oracle intégrant Microsoft Azure et l’infrastructure cloud Oracle
 
 Microsoft et Oracle ont collaboré pour fournir une latence faible et une connectivité à débit élevé entre clouds, ce qui vous permet de bénéficier du meilleur des deux clouds. 
 
 Cette connectivité entre clouds permet de partitionner une application multiniveau pour exécuter votre niveau de base de données sur une infrastructure cloud Oracle (OCI), et l’application ainsi que d’autres niveaux sur Microsoft Azure. L’expérience est similaire à l’exécution de la pile complète de la solution dans un seul cloud. 
-
-> [!IMPORTANT]
-> Cette fonctionnalité entre clouds est actuellement en préversion, et [des limitations s’appliquent](#region-availability). Pour établir une connectivité à latence faible entre Azure et OCI, cette fonctionnalité doit d’abord être activée dans votre abonnement Azure. Vous devez vous inscrire à la préversion en répondant à l’enquête de ce petit [formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Vous recevrez un e-mail une fois votre abonnement inscrit. Vous ne pouvez pas utiliser la fonctionnalité tant que vous n’avez pas reçu l’e-mail de confirmation. Vous pouvez également contacter votre représentant Microsoft pour pouvoir utiliser cette préversion. L’accès à la fonctionnalité en préversion est subordonné à la disponibilité et est restreint par Microsoft à sa seule discrétion. Le fait de répondre à l’enquête ne garantit pas l’accès. Cette préversion est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Pour plus d’informations, consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 Si vous êtes intéressé par le déploiement complet de solutions Oracle sur l’infrastructure Azure, consultez [Images de machines virtuelles Oracle et leur déploiement sur Microsoft Azure](oracle-vm-solutions.md).
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
 La connectivité entre clouds vous fournit une solution permettant d’exécuter les applications leaders d’Oracle et vos propres applications personnalisées sur des machines virtuelles Azure tout en bénéficiant des avantages de services de base de données hébergés dans OCI. 
+
+> [!IMPORTANT]
+> Oracle certifie que ces applications s’exécutent dans Azure lors de l’utilisation de la solution d’interconnexion Azure / Oracle Cloud en mai 2020.
 
 Vous pouvez notamment exécuter les applications suivantes dans une configuration entre clouds :
 
@@ -55,6 +55,7 @@ La connectivité intercloud est limitée aux régions suivantes :
 * Azure Royaume-Uni Sud (uksouth) et OCI London (Royaume-Uni Sud)
 * Azure Canada Centre (canadacentral) et OCI Toronto (Canada Sud-Est)
 * Azure Europe Ouest (westeurope) et OCI Amsterdam (Pays-Bas Nord-Ouest)
+* Azure Japon Est (japaneast) & OCI Tokyo (Japon Est)
 
 ## <a name="networking"></a>Mise en réseau
 
