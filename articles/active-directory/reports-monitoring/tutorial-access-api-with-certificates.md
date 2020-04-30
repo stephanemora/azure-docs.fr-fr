@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014267"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081708"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutoriel : Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats
 
@@ -44,7 +44,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser un certificat de test pour
     - Les jetons d’accès d’utilisateur, de clés d’application et de certificats à l’aide d’ADAL
     - L’API Graph gérant les résultats paginés
 
-6. S’il s’agit de la première utilisation du module, exécutez **Install-MSCloudIdUtilsModule**. Dans le cas contraire, importez-le à l’aide de la commande Powershell **Import-Module**. Votre session doit ressembler à ce qui suit : ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. S’il s’agit de la première utilisation du module, exécutez **Install-MSCloudIdUtilsModule**. Dans le cas contraire, importez-le à l’aide de la commande PowerShell **Import-Module**. Votre session doit ressembler à ce qui suit : ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 7. Utilisez la cmdlet PowerShell **New-SelfSignedCertificate** pour créer un certificat de test.
 
@@ -63,13 +63,13 @@ Dans ce didacticiel, vous allez apprendre à utiliser un certificat de test pour
 
 1. Accédez au [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**, puis **Inscriptions des applications**, et choisissez votre application dans la liste. 
 
-2. Sélectionnez **Paramètres** > **Clés**, puis **Télécharger la clé publique**.
+2. Sélectionnez **Certificats et secrets** sous la section **Gérer** dans le panneau d’inscription d’application et sélectionnez **Charger le certificat**.
 
-3. Sélectionnez le fichier de certificat de l’étape précédente, puis **Enregistrer**. 
+3. Sélectionnez le fichier de certificat de l’étape précédente, puis **Ajouter**. 
 
-4. Notez l’ID de l’application et l’empreinte du certificat que vous venez d’enregistrer avec votre application. Pour rechercher l’empreinte, à partir de la page de votre application dans le portail, accédez à **Paramètres** et cliquez sur **Clés**. L’empreinte se trouve sous la liste **Clés publiques**.
+4. Notez l’ID de l’application et l’empreinte du certificat que vous venez d’enregistrer avec votre application. Pour rechercher l’empreinte, à partir de la page de votre application dans le portail, accédez à **Certificats et secrets** sous la section **Gérer**. L’empreinte se trouve sous la liste **Certificats**.
 
-5. Ouvrez le manifeste de l’application dans l’éditeur de manifeste en ligne et remplacez la propriété *keyCredentials* par les nouvelles informations de votre certificat, en utilisant le schéma suivant. 
+5. Ouvrez le manifeste de l’application dans l’éditeur de manifeste en ligne et vérifiez que la propriété *keycredentials* est mise à jour avec vos nouvelles informations de certificat, comme indiqué ci-dessous : 
 
    ```
    "keyCredentials": [
@@ -81,23 +81,20 @@ Dans ce didacticiel, vous allez apprendre à utiliser un certificat de test pour
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. Enregistrez le manifeste. 
-  
-7. Maintenant, vous pouvez obtenir un jeton d’accès pour l’API Graph MS en utilisant ce certificat. Utilisez la cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** du module PowerShell MSCloudIdUtils, en transmettant l’ID d’application et le thumbprint obtenus à l’étape précédente. 
+   ``` 
+6. Maintenant, vous pouvez obtenir un jeton d’accès pour l’API Graph MS en utilisant ce certificat. Utilisez la cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** du module PowerShell MSCloudIdUtils, en transmettant l’ID d’application et le thumbprint obtenus à l’étape précédente. 
 
    ![Portail Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Utilisez le jeton d’accès dans votre script PowerShell pour interroger l’API Graph. Utilisez la cmdlet **Invoke-MSCloudIdMSGraphQuery** à partir de MSCloudIDUtils pour énumérer le point de terminaison SignIns et DirectoryAudits. Cette cmdlet gère les résultats composés de plusieurs pages et les envoie ensuite dans le pipeline PowerShell.
+7. Utilisez le jeton d’accès dans votre script PowerShell pour interroger l’API Graph. Utilisez la cmdlet **Invoke-MSCloudIdMSGraphQuery** à partir de MSCloudIDUtils pour énumérer le point de terminaison SignIns et DirectoryAudits. Cette cmdlet gère les résultats composés de plusieurs pages et les envoie ensuite dans le pipeline PowerShell.
 
-9. Interrogez le point de terminaison directoryAudits pour récupérer les journaux d’audit. 
+8. Interrogez le point de terminaison directoryAudits pour récupérer les journaux d’audit. 
    ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Interrogez le point de terminaison SignIns pour récupérer les journaux d’activité de connexion.
+9. Interrogez le point de terminaison SignIns pour récupérer les journaux d’activité de connexion.
     ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. Vous pouvez maintenant choisir d’exporter ces données dans un fichier CSV et de les enregistrer dans un système SIEM. Vous pouvez également encapsuler votre script dans une tâche planifiée pour obtenir régulièrement des données Azure AD à partir de votre client sans avoir à stocker des clés d’application dans le code source. 
+10. Vous pouvez maintenant choisir d’exporter ces données dans un fichier CSV et de les enregistrer dans un système SIEM. Vous pouvez également encapsuler votre script dans une tâche planifiée pour obtenir régulièrement des données Azure AD à partir de votre client sans avoir à stocker des clés d’application dans le code source. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

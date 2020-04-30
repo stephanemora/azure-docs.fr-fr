@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae244d93d679199aaa0bd08891cd34d4ca3a2ddc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74024964"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085108"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Rôles d’administrateurs personnalisés Azure Active Directory (préversion)
 
@@ -35,6 +35,22 @@ L’octroi d’une autorisation à l’aide de rôles Azure AD personnalisés es
 Une fois que vous avez créé votre définition de rôle, attribuez-la à un utilisateur en créant une attribution de rôle. Une attribution de rôle accorde à l’utilisateur les autorisations dans une définition de rôle au niveau d’une étendue spécifiée. Ce processus en deux étapes vous permet de créer une définition de rôle unique et de l’attribuer plusieurs fois à différentes étendues. Une étendue définit l’ensemble des ressources Azure AD auxquelles le membre du rôle a accès. L’étendue la plus courante est l’étendue à l’échelle de l’organisation (échelle-org). Un rôle personnalisé peut être attribué à une étendue d’échelle de l’organisation, ce qui signifie que le membre du rôle dispose des autorisations de rôle sur toutes les ressources de l’organisation. Un rôle personnalisé peut également être attribué au niveau de l’étendue d’objet. Un exemple d’étendue d’objet est une application unique. Le même rôle peut être attribué à un utilisateur sur toutes les applications de l’organisation, puis à un autre utilisateur avec une étendue limitée à l’application Contoso Expense Reports.  
 
 Les rôles personnalisés et intégrés Azure AD utilisent des concepts similaires au [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md). La [différence entre ces deux systèmes de contrôle d’accès en fonction du rôle](../../role-based-access-control/rbac-and-directory-admin-roles.md) est qu’Azure RBAC contrôle l’accès aux ressources Azure, telles que les machines virtuelles ou le stockage à l’aide de la gestion des ressources Azure, et que les rôles personnalisés Azure AD contrôlent l’accès aux ressources Azure AD à l’aide de l’API Graph. Les deux systèmes utilisent le concept de définition de rôle et d’attribution de rôle.
+
+### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Comment Azure AD détermine si un utilisateur a accès à une ressource
+
+Voici les principales étapes suivies par Azure AD pour déterminer si vous avez accès à une ressource de gestion. Utilisez ces informations pour résoudre les problèmes d’accès.
+
+1. Un utilisateur (ou un principal de service) acquiert un jeton pour le point de terminaison Microsoft Graph ou Azure AD Graph.
+
+1. L’utilisateur effectue un appel d’API à Azure Active Directory (Azure AD) via Microsoft Graph ou Azure AD Graph à l’aide du jeton émis.
+
+1. Selon les circonstances, Azure AD effectue l’une des actions suivantes :
+
+    - Évalue les appartenances aux rôles de l’utilisateur en fonction de la [revendication wids](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) dans le jeton d’accès de l’utilisateur.
+    - Récupère toutes les attributions de rôles qui s’appliquent à l’utilisateur, directement ou via l’appartenance à un groupe, à la ressource sur laquelle l’action est effectuée.
+
+1. Azure AD détermine si l’action contenue dans l’appel d’API est incluse dans les rôles dont l’utilisateur dispose pour cette ressource.
+1. Si l’utilisateur n’a aucun rôle avec l’action appropriée dans l’étendue demandée, l’accès n’est pas octroyé. Autrement, l’accès est accordé.
 
 ### <a name="role-assignments"></a>Affectations de rôles
 

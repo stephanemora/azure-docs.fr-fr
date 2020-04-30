@@ -1,27 +1,25 @@
 ---
-title: Guide de publication d’une offre d’application managée Azure Application
-description: Cet article décrit les conditions requises pour publier une application managée sur la place de marché
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: 'Applications Azure : Guide de publication d’une offre d’application managée | Place de marché Azure'
+description: Cet article décrit les conditions requises pour publier une application managée sur la Place de marché Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 04/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 38323ecfee69460b16542a3e004513f6a7389c41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 946e7524eada600d5ef17b2663a3fea066dcfaa2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288408"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084870"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Applications Azure : Guide de publication d’une offre d’application managée
+# <a name="azure-applications-managed-application-offer-publishing-requirements"></a>Applications Azure : Exigences relatives à la publication d’une offre d’application managée
 
-Une application managée constitue l’un des principaux moyens de publier une solution sur la place de marché. Utilisez ce guide pour comprendre les exigences propres à cette offre. 
+Cet article explique la configuration requise pour le type d’offre d’application managée, qui est une façon de publier une offre d’application Azure dans la Place de marché Azure. Les applications managées sont des offres de transaction qui sont déployées et facturées via la Place de marché Azure. L’appel à l’action qu’un utilisateur voit est « Obtenir maintenant ».
 
-Il s’agit d’offres de transaction qui sont déployées et facturées via la place de marché. L’appel à l’action qu’un utilisateur voit est « Obtenir maintenant ».
+Utilisez le type d’offre d’application managée lorsque les conditions suivantes sont requises :
 
-Utilisez le type d’offre Application Azure : application managée lorsque les conditions suivantes sont requises :
 - Vous déployez une solution basée sur un abonnement pour votre client à l’aide d’une machine virtuelle ou d’une solution IaaS complète.
 - Vous ou votre client exigez que la solution soit gérée par un partenaire.
 
@@ -32,21 +30,18 @@ Utilisez le type d’offre Application Azure : application managée lorsque les
 
 |Spécifications |Détails  |
 |---------|---------|
-|Déployée dans l’abonnement Azure d’un client | Les applications managées doivent être déployées dans l’abonnement du client et peuvent être gérées par un tiers. | 
+|Déployée dans l’abonnement Azure d’un client | Les applications managées doivent être déployées dans l’abonnement du client et peuvent être gérées par un tiers. |
 |Facturation et mesure    |  Les ressources seront approvisionnées dans l’abonnement Azure du client. Les machines virtuelles avec paiement à l’utilisation (PAYGO) feront l’objet de transactions avec le client par le biais de Microsoft et seront facturées dans le cadre de l’abonnement Azure (PAYGO) du client. <br> Dans le cas de BYOL (apportez votre propre licence), Microsoft facturera les frais d’infrastructure engagés dans l’abonnement client, mais vous effectuerez la transaction de vos frais de licence logicielle directement avec le client.        |
-|Disque dur virtuel compatible avec Azure    |   Les machines virtuelles doivent être basées sur Windows ou Linux.<ul> <ul> <li>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer un disque dur virtuel compatible avec Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
+|Disque dur virtuel compatible avec Azure    |   Les machines virtuelles doivent être basées sur Windows ou Linux.<ul> <ul> <li>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer une offre d’application Azure](./partner-center-portal/create-new-azure-apps-offer.md).</li> </ul> |
 
 >[!NOTE]
 > Les applications managées doivent pouvoir être déployées via la Place de marché. Si la communication avec le client constitue un sujet d’inquiétude, nous vous recommandons de joindre les clients intéressés après avoir activé le partage des prospects.  
 
 >[!Note]
->L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](./cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible. Pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft, consultez [Fournisseurs de solutions cloud](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous ne l’avez pas déjà fait, 
 
-- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
-
-Si vous êtes inscrit et créez une nouvelle offre ou travaillez sur une offre existante,
-
-- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre.
+- Si vous ne l’avez pas déjà fait, [renseignez-vous](https://azuremarketplace.microsoft.com/sell) au sujet de la Place de marché Azure.
+- [Connectez-vous à l’Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
+- Pour plus d’informations, consultez [Créer une offre d’application Azure](./partner-center-portal/create-new-azure-apps-offer.md).

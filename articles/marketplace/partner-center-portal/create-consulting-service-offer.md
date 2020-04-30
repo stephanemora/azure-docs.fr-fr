@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: eff37750f0580a28c9644ee1ffb7fe4e95038709
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873818"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81869791"
 ---
 # <a name="create-a-consulting-service-offer"></a>Créer une offre de services de conseil
 
@@ -174,6 +174,9 @@ Ajoutez jusqu’à trois (mais au moins un) documents PDF venant appuyer votre o
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
+>[!Note]
+>Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
+
 #### <a name="store-logos"></a>Stocker des logos
 
 Fournissez des fichiers .png du logo de votre offre dans chacune des tailles en pixels suivantes :
@@ -185,7 +188,7 @@ Tous les logos sont requis et sont utilisés à différents endroits de l’anno
 
 #### <a name="screenshots-optional"></a>Captures d’écran (facultatif)
 
-Ajoutez jusqu’à cinq captures d’écran qui illustrent le fonctionnement de votre offre. Chacune doit avoir une taille de 1280 x 720 pixels et être au format .png.
+Ajoutez jusqu’à cinq captures d’écran qui illustrent le fonctionnement de votre offre. Chacune doit avoir une taille de 1280 x 720 pixels et être au format .png.
 
 #### <a name="videos-optional"></a>Vidéos (facultatif)
 

@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Linux
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f93aafc8f2c016218b1b7fea82558ea6ba4b4ff8
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365398"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024980"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -24,6 +24,10 @@ Utilisez les actions suivantes pour créer votre propre configuration pour la va
 
 > [!IMPORTANT]
 > Les stratégies personnalisées avec Guest Configuration sont une fonctionnalité en préversion.
+>
+> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure.
+> Pour déployer l’extension à grande échelle sur toutes les machines Linux, attribuez les définitions de stratégie suivantes :
+>   - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Installer le module PowerShell
 
@@ -44,7 +48,7 @@ Le module de ressource Guest Configuration nécessite les logiciels suivants :
 
 - PowerShell 6.2 ou ultérieur. S’il n’est pas installé, suivez [ces instructions](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou ultérieur. S’il n’est pas installé, suivez [ces instructions](/powershell/azure/install-az-ps).
-  - Seuls les modules AZ Az.Accounts et Az.Resources sont requis.
+  - Seuls les modules AZ (Az.Accounts et Az.Resources) sont requis.
 
 ### <a name="install-the-module"></a>Installer le module
 
@@ -89,7 +93,7 @@ supports:
     - os-family: unix
 ```
 
-Enregistrez ce fichier dans un dossier nommé `linux-path` à l’intérieur du répertoire de votre projet.
+Enregistrez ce fichier nommé `inspec.yml` dans un dossier nommé `linux-path` dans le répertoire de votre projet.
 
 Ensuite, créez le fichier Ruby avec l’abstraction de langage InSpec utilisée pour auditer l’ordinateur.
 
@@ -99,9 +103,9 @@ describe file('/tmp') do
 end
 ```
 
-Enregistrez ce fichier dans un nouveau dossier nommé `controls` dans le répertoire `linux-path`.
+Enregistrez ce fichier nommé `linux-path.rb` dans un nouveau dossier nommé `controls` dans le répertoire `linux-path`.
 
-Enfin, créez une configuration, importez le module de ressource **GuestConfiguration** et utilisez la ressource `ChefInSpecResource` pour définir le nom du profil InSpec.
+Enfin, créez une configuration, importez le module de ressources **PSDesiredStateConfiguration** et compilez la configuration.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -119,10 +123,15 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
+import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
+Enregistrez ce fichier sous le nom `config.ps1` dans le dossier du projet. Exécutez-le dans PowerShell en exécutant `./config.ps1` dans le terminal. Un fichier mof est créé.
+
 La commande `Node AuditFilePathExists` n’est pas techniquement obligatoire, mais elle produit un fichier `AuditFilePathExists.mof` plutôt que `localhost.mof`par défaut. Le fait d’avoir le nom de fichier. mof à la suite de la configuration permet d’organiser facilement de nombreux fichiers à grande échelle.
+
+
 
 Vous devez maintenant avoir une structure de projet comme indiqué ci-dessous :
 
@@ -150,8 +159,8 @@ Exécutez la commande suivante pour créer un package à l’aide de la configur
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
-  -Configuration './Config/AuditFilePathExists.mof'
-  -ChefProfilePath './'
+  -Configuration './Config/AuditFilePathExists.mof' `
+  -ChefInSpecProfilePath './'
 ```
 
 Après avoir créé le package de configuration et avant de le publier sur Azure, vous pouvez tester le package à partir de votre station de travail ou de votre environnement d’intégration CI/CD. La cmdlet GuestConfiguration `Test-GuestConfigurationPackage` comprend le même agent dans votre environnement de développement que celui utilisé dans les machines Azure. Via cette solution, vous pouvez effectuer un test d’intégration en local avant la publication dans les environnements cloud facturés.
@@ -168,7 +177,7 @@ Exécutez la commande suivante pour tester le package créé par l’étape pré
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage `
-  -Path ./AuditFilePathExists.zip
+  -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
 La cmdlet prend aussi en charge l’entrée depuis le pipeline PowerShell. Dirige la sortie de la cmdlet `New-GuestConfigurationPackage` vers la cmdlet `Test-GuestConfigurationPackage`.
