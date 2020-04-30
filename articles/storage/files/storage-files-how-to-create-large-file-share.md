@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060996"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537676"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Activer et créer des partages de fichiers volumineux
 
 Lorsque vous activez des partages de fichiers volumineux sur votre compte de stockage, l’échelle de vos partages de fichiers peut augmenter jusqu’à 100 Tio. Vous pouvez activer cette mise à l’échelle sur vos comptes de stockage existants pour vos partages de fichiers existants.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -43,7 +43,7 @@ L’activation de partages de fichiers volumineux sur un compte est un processus
     ![Capture d’écran montrant comment créer un groupe de ressources sur le portail](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Ensuite, entrez un nom pour votre compte de stockage. Le nom doit être unique dans tout Azure. Le nom doit comporter entre 3 et 24 caractères, et être constitué seulement de chiffres et de lettres minuscules.
-1. Sélectionnez un emplacement pour votre compte de stockage et vérifiez qu’il s’agit de l’[une des réplications prises en charge pour les partages de fichiers volumineux](storage-files-planning.md#regional-availability).
+1. Sélectionnez l’emplacement de votre compte de stockage.
 1. Définissez la réplication sur **Stockage localement redondant** ou sur **Stockage redondant interzone**.
 1. Laissez ces champs définis sur leur valeur par défaut :
 

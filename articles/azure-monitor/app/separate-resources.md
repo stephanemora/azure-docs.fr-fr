@@ -4,10 +4,10 @@ description: Télémétrie directe de différentes ressources pour les tampons d
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536775"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production

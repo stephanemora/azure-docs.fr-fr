@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous allez utiliser un modèle 
 ms.date: 03/16/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 9f9998c407c39d11615a5997549a363a276b9e10
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ae6b2d151baaa904215639276c7fb74766810c6a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471402"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606594"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle Resource Manager
 
@@ -43,7 +43,7 @@ La ressource définie dans le modèle est :
 
 1. Sélectionnez l’image suivante pour vous connecter au portail Azure et ouvrir le modèle :
 
-   [![Déployer le modèle de stratégie sur Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   [![Déployer le modèle de stratégie sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. Sélectionnez ou entrez les valeurs suivantes :
 

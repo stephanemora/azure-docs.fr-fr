@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2bd9b4f46e28a28f99045319d8ac606cdcee7216
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53dfe07ebd4925c96290db140b6e613c38eef564
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536783"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617341"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -144,7 +144,7 @@ Dans les résultats de recherche, vous devez voir des enregistrements de pulsati
 Utilisez les étapes suivantes pour effectuer l’installation et la configuration de l’agent.
 
 1. Autorisez la solution à intégrer l’ordinateur agent. Consultez [Intégrer des machines dans l’espace de travail](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
-2. Vérifiez que l’agent a correctement téléchargé la solution Automation. Il doit contenir un dossier nommé **AzureAutomationFiles** dans **C:\Program Files\Microsoft Monitoring Agent\Agent**. 
+2. Vérifiez que l’agent a correctement téléchargé la solution Automation. 
 3. Pour vérifier la version du runbook Worker hybride, accédez à **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** et notez le sous-dossier **version**.
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>Étape 4 : Installer l’environnement du runbook et vous connecter à Azure Automation

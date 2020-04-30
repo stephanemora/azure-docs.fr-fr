@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547752"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604810"
 ---
 # <a name="encrypt-secure-assets-in-azure-automation"></a>Chiffrer les ressources sécurisées dans Azure Automation
 
@@ -32,7 +32,7 @@ Chaque ressource sécurisée est chiffrée et stockée dans Azure Automation à 
 
 Vous pouvez gérer le chiffrement des ressources sécurisées pour votre compte Automation avec vos propres clés. Quand vous spécifiez une clé gérée par le client au niveau du compte Automation, cette clé est utilisée pour protéger la clé de chiffrement de compte et contrôler son accès. Cette dernière est à son tour utilisée pour chiffrer et déchiffrer toutes les ressources sécurisées. Les clés managées par le client offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos ressources sécurisées.
 
-Utilisez Azure Key Vault pour stocker les clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés.  Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/key-vault-overview.md)
+Utilisez Azure Key Vault pour stocker les clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés.  Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/general/overview.md)
 
 ## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Activer des clés gérées par le client pour un compte Automation
 
@@ -56,9 +56,9 @@ Avant d’activer les clés gérées par le client pour un compte Automation, vo
  - Seules les clés RSA sont prises en charge avec le chiffrement Azure Automation. Pour plus d’informations sur les clés, consultez [À propos des clés, des secrets et des certificats Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - Le compte Automation et le coffre de clés peuvent figurer dans des abonnements différents, mais doivent se trouver dans le même locataire Azure Active Directory.
 
-### <a name="assign-an-identity-to-the-automation-account"></a>Affecter une identité au compte Automation
+### <a name="assign-an-identity-to-the-automation-account"></a>Attribuer une identité au compte Automation
 
-Pour utiliser des clés gérées par le client avec un compte Automation, votre compte Automation doit s’authentifier auprès du coffre de clés qui stocke les clés gérées par le client. Azure Automation utilise des identités managées attribuées par le système pour authentifier le compte auprès d’Azure Key Vault. Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Pour utiliser des clés gérées par le client avec un compte Automation, votre compte Automation doit s’authentifier auprès du coffre de clés qui stocke les clés gérées par le client. Azure Automation utilise des identités managées attribuées par le système pour authentifier le compte auprès d’Azure Key Vault. Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 Configurez une identité managée attribuée par le système pour le compte Automation à l’aide de l’appel d’API REST suivant :
 
@@ -192,10 +192,7 @@ Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-overview.md)
-
+- [Qu’est-ce qu’Azure Key Vault ?](../key-vault/general/overview.md)
 - [Ressources de certificats dans Azure Automation](shared-resources/certificates.md)
-
 - [Ressources d’informations d’identification dans Azure Automation](shared-resources/credentials.md)
-
 - [Ressources de variables dans Azure Automation](shared-resources/variables.md)

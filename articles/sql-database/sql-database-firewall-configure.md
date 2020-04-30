@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531275"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606088"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Quand un ordinateur tente de se connecter à votre serveur de base de données �
 
 ### <a name="connections-from-inside-azure"></a>Connexions à partir d’Azure
 
-Pour autoriser des applications hébergées dans Azure à se connecter à votre serveur SQL, vous devez activer les connexions Azure. Quand une application tente de se connecter à votre serveur de base de données à partir d’Azure, le pare-feu vérifie que les connexions Azure sont autorisées. Un paramètre de pare-feu avec des adresses IP de début et de fin définies sur *0.0.0.0* indique que les connexions Azure sont autorisées. Vous pouvez l’activer directement à partir du panneau du portail Azure en définissant des règles de pare-feu, ainsi qu’en définissant **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé** dans les paramètres **Pare-feux et réseaux virtuels**. Si la connexion n’est pas autorisée, la demande n’atteint pas le serveur SQL Database.
+Pour autoriser des applications hébergées dans Azure à se connecter à votre serveur SQL, vous devez activer les connexions Azure. Quand une application tente de se connecter à votre serveur de base de données à partir d’Azure, le pare-feu vérifie que les connexions Azure sont autorisées. Vous pouvez l’activer directement à partir du panneau du portail Azure en définissant des règles de pare-feu, ainsi qu’en définissant **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé** dans les paramètres **Pare-feux et réseaux virtuels**. Si la connexion n’est pas autorisée, la demande n’atteint pas le serveur SQL Database.
 
 > [!IMPORTANT]
 > Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Si vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.

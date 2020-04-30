@@ -1,6 +1,6 @@
 ---
 title: Gérer DNS pour Azure AD Domain Services | Microsoft Docs
-description: Découvrez comment installer les Outils du serveur DNS pour gérer le DNS pour un domaine managé Azure Active Directory Domain Services.
+description: Découvrez comment installer les outils du serveur DNS pour gérer le DNS et créer des redirecteurs conditionnels pour un domaine managé Azure Active Directory Domain Services.
 author: iainfoulds
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -8,26 +8,24 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/31/2019
+ms.date: 04/16/2020
 ms.author: iainfou
-ms.openlocfilehash: f0d8f73b47b1110e8e05365013bbf07fd94eb6ca
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: f4bd3f75c3246cb11e88dbaae817eba8ac76b394
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655082"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603559"
 ---
-# <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrer DNS dans un domaine managé Azure AD Domain Services
+# <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-ad-domain-services-managed-domain"></a>Administrer DNS et créer des redirecteurs conditionnels dans un domaine managé Azure AD Domain Services
 
 Dans Azure Active Directory Domain Services (Azure AD DS), DNS est un composant clé. Azure AD DS inclut un serveur DNS qui fournit la résolution de noms pour le domaine managé. Ce serveur DNS comprend des enregistrements DNS intégrés et des mises à jour pour les composants clés qui permettent l’exécution du service.
 
 Lorsque vous exécutez vos propres applications et services, il se peut que vous deviez créer des enregistrements DNS pour des machines qui ne sont pas jointes au domaine, ou configurer des adresses IP virtuelles pour des équilibreurs de charge ou des redirecteurs DNS externes. Les utilisateurs qui appartiennent au groupe *Administrateurs AAD DC* bénéficient de privilèges d’administration DNS sur le domaine managé Azure AD DS, et peuvent créer et modifier des enregistrements DNS personnalisés.
 
-Dans un environnement hybride, les zones DNS et les enregistrements configurés dans un environnement AD DS local ne sont pas synchronisées avec Azure AD DS. Pour définir et utiliser vos propres entrées DNS, créez des enregistrements dans le serveur DNS Azure AD DS ou utilisez des redirecteurs conditionnels qui pointent vers des serveurs DNS existants dans votre environnement.
+Dans un environnement hybride, les zones DNS et les enregistrements configurés dans d'autres espaces de noms DNS, comme un environnement AD DS local, ne sont pas synchronisées avec Azure AD DS. Pour résoudre les ressources nommées dans d’autres espaces de noms DNS, créez et utilisez des redirecteurs conditionnels pointant vers des serveurs DNS existants dans votre environnement.
 
-Cet article explique comment installer les Outils du serveur DNS, puis utiliser la console DNS pour gérer les enregistrements dans Azure AD DS.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+Cet article explique comment installer les Outils du serveur DNS, puis utiliser la console DNS pour gérer les enregistrements et créer des redirecteurs conditionnels dans Azure AD DS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -39,6 +37,8 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Connectivité à partir de votre réseau virtuel Azure AD DS vers l’emplacement où vos autres espaces de noms DNS sont hébergés.
+    * Cette connectivité peut être assurée moyennant une connexion [Azure ExpressRoute][expressroute] ou [Passerelle VPN Azure][vpn-gateway].
 * Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
     * Si nécessaire, suivez les étapes du tutoriel pour [créer et joindre une machine virtuelle Windows Server à un domaine managé][create-join-windows-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
@@ -56,7 +56,7 @@ Pour créer et modifier des enregistrements DNS dans azure AD DS, vous devez ins
 1. Sur la page **Rôles de serveurs**, cliquez sur **Suivant**.
 1. Dans la page **Fonctionnalités**, développez le nœud **Outils d’administration de serveur distant**, puis développez le nœud **Outils d’administration de rôles**. Sélectionnez la fonctionnalité **Outils du serveur DNS** dans la liste Outils d’administration de rôles.
 
-    ![Choisir d’installer les Outils du serveur DNS à partir de la liste des outils d’administration de rôles disponibles](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
+    ![Choisir d’installer les Outils du serveur DNS à partir de la liste des outils d’administration de rôles disponibles](./media/manage-dns/install-dns-tools.png)
 
 1. Dans la page **Confirmation**, sélectionnez **Installer**. L’installation des outils de gestion des stratégies de groupe peut prendre une ou deux minutes.
 1. Une fois l’installation de la fonctionnalité terminée, sélectionnez **Fermer** pour quitter l’Assistant **Ajout de rôles et de fonctionnalités**.
@@ -71,14 +71,39 @@ Une fois les Outils du serveur DNS installés, vous pouvez administrer les enreg
 1. Dans l’écran d’accueil, sélectionnez **Outils d’administration**. Une liste des outils de gestion disponibles s’affiche, dont le **DNS** installé dans la section précédente. Sélectionnez **DNS** pour lancer la console Gestion du service DNS.
 1. Dans la boîte de dialogue **Connexion au serveur DNS**, sélectionnez **L’ordinateur suivant**, puis entrez le nom de domaine DNS du domaine managé, par exemple *aaddscontoso.com* :
 
-    ![Se connecter au domaine managé Azure AD DS dans la console DNS](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
+    ![Se connecter au domaine managé Azure AD DS dans la console DNS](./media/manage-dns/connect-dns-server.png)
 
 1. La console DNS se connecte au domaine managé Azure AD DS. Développez **Zones de recherche directe** ou **Zones de recherche inversée** pour créer vos entrées DNS requises ou modifier des enregistrements existants en fonction des besoins.
 
-    ![Console DNS - Administration du domaine](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
+    ![Console DNS - Administration du domaine](./media/manage-dns/dns-manager.png)
 
 > [!WARNING]
 > Lorsque vous gérez des enregistrements à l’aide des Outils du serveur DNS, veillez à ne pas supprimer ou modifier les enregistrements DNS intégrés qu’Azure AD DS utilise. Les enregistrements DNS intégrés incluent les enregistrements DNS de domaine, les enregistrements de serveur de noms et d’autres enregistrements utilisés pour le lieu du contrôleur de domaine. Si vous modifiez ces enregistrements, les services de domaine sont interrompus sur le réseau virtuel.
+
+## <a name="create-conditional-forwarders"></a>Créer des redirecteurs conditionnels
+
+Une zone DNS Azure AD DS doit uniquement contenir la zone et les enregistrements du domaine managé proprement dit. Ne créez pas de zones supplémentaires dans Azure AD DS pour résoudre les ressources nommées dans d’autres espaces de noms DNS. Privilégiez les redirecteurs conditionnels dans le domaine managé Azure AD DS pour indiquer au serveur DNS à quel emplacement résoudre les adresses de ces ressources.
+
+Dans un serveur DNS, un redirecteur conditionnel est une option de configuration qui vous permet de définir un domaine DNS, par exemple *contoso.com*, vers lequel transférer les requêtes. À la différence du serveur DNS local qui tente de résoudre les requêtes pour les enregistrements de ce domaine, les requêtes DNS sont transférées au DNS configuré pour ce domaine. Cette configuration permet de s’assurer que les enregistrements DNS qui conviennent sont renvoyés, car vous ne créez pas de zone DNS locale à l'aide d'enregistrements en double dans le domaine managé Azure AD DS pour refléter ces ressources.
+
+Pour créer un redirecteur conditionnel dans votre domaine managé Azure AD DS, procédez comme suit :
+
+1. Sélectionnez votre zone DNS Azure AD DS, par exemple *aaddscontoso.com*.vb.
+1. Sélectionnez **Redirecteurs conditionnels**, puis cliquez avec le bouton droit et sélectionnez **Nouveau redirecteur conditionnel...**
+1. Entrez votre autre **Domaine DNS**, par exemple *contoso.com*, puis entrez les adresses IP des serveurs DNS pour cet espace de noms, comme illustré dans l’exemple suivant :
+
+    ![Ajouter et configurer un redirecteur conditionnel pour le serveur DNS](./media/manage-dns/create-conditional-forwarder.png)
+
+1. Cochez la case pour **Stocker ce redirecteur conditionnel dans Active Directory, et le répliquer comme suit**, puis sélectionnez l’option *Tous les serveurs DNS de ce domaine*, comme illustré dans l’exemple suivant :
+
+    ![Console DNS - Administration du domaine](./media/manage-dns/store-in-domain.png)
+
+    > [!IMPORTANT]
+    > Si le redirecteur conditionnel est stocké dans la *forêt* et non dans le *domaine*, il échoue.
+
+1. Pour créer le redirecteur conditionnel, sélectionnez **OK**.
+
+La résolution de noms des ressources dans d’autres espaces de noms à partir de machines virtuelles connectées au domaine managé Azure AD DS doit maintenant être correctement résolue. Les requêtes correspondant au domaine DNS configuré dans le redirecteur conditionnel sont transmises aux serveurs DNS qui conviennent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -88,6 +113,8 @@ Pour plus d’informations sur la gestion DNS, consultez l’article [Outils DNS
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
+[expressroute]: ../expressroute/expressroute-introduction.md
+[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm

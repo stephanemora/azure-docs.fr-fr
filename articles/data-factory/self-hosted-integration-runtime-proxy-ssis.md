@@ -11,15 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: 9a1923057bc318869f491791520aacb4d0d17591
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/15/2020
+ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346635"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605490"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment exécuter des packages SQL Server Integration Services (SSIS) sur Azure-SSIS Integration Runtime (Azure-SSIS IR) dans Azure Data Factory avec un runtime d’intégration auto-hébergé (IR auto-hébergé) configuré en tant que proxy. 
 
@@ -52,7 +54,7 @@ Pour finir, vous téléchargez et installez la dernière version de l’IR auto-
 
 Si ce n’est pas déjà fait, créez un service lié de stockage d’objets blob Azure dans la fabrique de données où votre instance d’Azure-SSIS IR est configurée. Pour ce faire, consultez [Créer un service lié Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Veillez à effectuer les opérations suivantes :
 - Pour **Magasin de données**, sélectionnez **Stockage Blob Azure**.  
-- Pour **Se connecter via le runtime d’intégration**, sélectionnez **AutoResolveIntegrationRuntime** (pas votre Azure-SSIS IR ni votre IR auto-hébergé), car nous utilisons l’IR Azure par défaut pour extraire les informations d’identification d’accès de votre Stockage Blob Azure.  
+- Pour **Se connecter via le runtime d'intégration**, sélectionnez **AutoResolveIntegrationRuntime** (et non votre Azure-SSIS IR ou votre IR auto-hébergé), car nous utilisons le runtime d'intégration Azure par défaut pour récupérer les informations d'accès à votre Stockage Blob Azure.
 - Pour **Méthode d’authentification**, sélectionnez **Clé de compte**, **URI SAS** ou **Principal du service**.  
 
     >[!TIP]
@@ -171,7 +173,7 @@ Si vous devez utiliser un chiffrement renforcé ou un protocole réseau plus sé
 
 ## <a name="current-limitations"></a>Limites actuelles
 
-- Seules les tâches de flux de données dont les sources sont Open Database Connectivity (ODBC)/OLEDB/Flat File sont actuellement prises en charge. 
+- Seules les tâches de flux de données dont les sources sont Open Database Connectivity (ODBC)/OLEDB/Flat File ou dont la destination est OLEDB sont actuellement prises en charge. 
 - Seuls les services liés de stockage d’objets blob Azure configurés avec une authentification de type *Clé de compte*, *URI SAS (Shared Access Signature)* ou *Principal du service* sont actuellement pris en charge.
 - *ParameterMapping* n'est pas encore pris en charge dans la source OLEDB. Pour résoudre ce problème, utilisez *Commande SQL à partir d'une variable* en tant que mode d'accès (*AccessMode*) et utilisez *Expression* pour insérer vos variables/paramètres dans une commande SQL. À titre d’illustration, consultez le package *ParameterMappingSample.dtsx* qui se trouve dans le dossier *SelfHostedIRProxy/Limitations* de notre conteneur de préversions publiques. À l’aide d’Explorateur Stockage Azure, vous pouvez vous connecter à notre conteneur de préversions publiques en entrant l’URI SAS ci-dessus.
 

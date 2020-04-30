@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6ab13dea1a1db96cbb2f2ac70b9779eca60591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885272"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) (ancien didacticiel)
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 ![Amazon Web Services (AWS) dans la liste des résultats](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Nous vous déconseillons de connecter une application AWS à tous vos comptes AWS. Nous vous recommandons plutôt d’utiliser [cette](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approche pour configurer plusieurs instances du compte AWS à plusieurs instances d’applications AWS dans Azure AD. Vous devez uniquement utiliser [cette](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approche si vous disposez d’un nombre très réduit de comptes et de rôles AWS. [ce](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) modèle n’est pas évolutif au fur et à mesure que les comptes et rôles AWS au sein de ces comptes augmentent. En outre, [cette](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approche n’utilise pas la fonctionnalité d’importation de rôles AWS à l’aide de l’approvisionnement d’utilisateurs Azure AD, et vous devez donc ajouter/mettre à jour/supprimer manuellement les rôles. Pour d’autres limitations sur [cette](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approche, consultez les détails ci-dessous.
+> Nous vous déconseillons de connecter une application AWS à tous vos comptes AWS. Nous vous recommandons plutôt d’utiliser [cette](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approche pour configurer plusieurs instances du compte AWS à plusieurs instances d’applications AWS dans Azure AD. Vous ne devez utiliser cette approche qu'en présence d'un nombre limité de comptes et de rôles AWS ; ce modèle n’est pas évolutif car les comptes et les rôles AWS au sein de ces comptes augmentent. Cette approche n’utilise pas la fonctionnalité d’importation de rôles AWS à l’aide de l’approvisionnement d’utilisateurs Azure AD, et vous devez donc ajouter/mettre à jour/supprimer manuellement les rôles. Pour d’autres limitations sur cette approche, consultez les détails ci-dessous.
 
 **Nous vous déconseillons d’utiliser cette approche pour les raisons suivantes :**
 
