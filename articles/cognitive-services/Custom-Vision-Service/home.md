@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: bdb2b31ee3abb30e6e7339f641b778ff5dc522b0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 79ecb801e1b4d0fa96ca7ae06223fc231cbf12e6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403805"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129885"
 ---
 # <a name="what-is-custom-vision"></a>Qu’est-ce que Custom Vision ?
 
@@ -49,4 +49,4 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez le guide [Créer un classifieur](getting-started-build-a-classifier.md) pour découvrir comment utiliser le service Custom Vision sur le web. Sinon, vous pouvez terminer le [tutoriel de classification d’images](csharp-tutorial.md) pour implémenter un scénario de base dans le code.
+Suivez le guide [Créer un classifieur](getting-started-build-a-classifier.md) pour découvrir comment utiliser le service Custom Vision sur le web. Sinon, vous pouvez terminer le [tutoriel de classification d’images](quickstarts/image-classification.md) pour implémenter un scénario de base dans le code.

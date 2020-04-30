@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 1569b6081adad4cae0855f9adfb4e14e910bf819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78899419"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82127773"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Sélectionner un domaine pour un projet Custom Vision
 
@@ -68,6 +68,6 @@ Lorsque l'option _Vision AI Dev Kit_ (Kit de développement Vision AI) est sél
 >Le domaine __General (compact)__ (Général (compact)) disponible pour la détection d'objets requiert une logique de post-traitement particulière. Pour plus d'informations, un exemple de script est disponible dans le package zip exporté. Si vous avez besoin d'un modèle sans logique de post-traitement, utilisez __General (compact) [S1]__ (Général (compact) [S1]).
 
 >[!IMPORTANT]
->Rien ne garantit que les modèles exportés donneront exactement les mêmes résultats que l'API de prédiction du cloud. Une légère différence en termes de plateforme exécutée ou d'implémentation du prétraitement peut donner des résultats très différents avec les modèles. Pour plus d'informations sur la logique de prétraitement, consultez [ce document](python-tutorial.md).
+>Rien ne garantit que les modèles exportés donneront exactement les mêmes résultats que l'API de prédiction du cloud. Une légère différence en termes de plateforme exécutée ou d'implémentation du prétraitement peut donner des résultats très différents avec les modèles. Pour plus d'informations sur la logique de prétraitement, consultez [ce document](quickstarts/image-classification.md).
 
 \[1\] Processeur Intel Xeon E5-2690 et GPU NVIDIA Tesla M60

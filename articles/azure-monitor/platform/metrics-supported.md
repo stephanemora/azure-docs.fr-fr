@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 80e38893d764f35511793d8b31f596dcbf16dd42
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991890"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128447"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -2407,7 +2407,7 @@ Les métriques sont organisées par espace de noms. Pour obtenir la liste des se
 |Http5xx|Erreurs de serveur http|Count|Total|Erreurs de serveur http|Instance|
 |MemoryWorkingSet|Plage de travail de la mémoire|Octets|Average|Plage de travail de la mémoire|Instance|
 |AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Average|Plage de travail moyenne de la mémoire|Instance|
-|ResponseTime|Temps de réponse|Secondes|Total|Temps de réponse|Instance|
+|HttpResponseTime|Temps de réponse|Secondes|Total|Temps de réponse|Instance|
 |AverageResponseTime|Temps de réponse moyen (déconseillé)|Secondes|Average|Temps de réponse moyen|Instance|
 |AppConnections|Connexions|Count|Average|Connexions|Instance|
 |Poignées|Nombre de descripteurs|Count|Average|Nombre de descripteurs|Instance|

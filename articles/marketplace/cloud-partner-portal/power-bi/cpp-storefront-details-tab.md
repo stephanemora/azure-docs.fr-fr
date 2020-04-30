@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: f4fb5fba78cdea7996d006d34b2f07f3ac5e58fa
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9db01941c21dbd26d149f3623319557e4c625350
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981288"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82141789"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Onglet Détails de la vitrine des applications Power BI
 
 >[!Important]
->À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres d’applications Power BI vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création d’applications Power BI](https://aka.ms/AzureCreatePBIServiceApp) pour gérer vos offres migrées.
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres d’applications Power BI vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions indiquées dans [Vue d’ensemble de la création d’applications Power BI](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) pour gérer vos offres migrées.
 
 Sur la page **Nouvelle offre**, utilisez l’onglet **Détails de la vitrine** pour fournir des informations légales, commerciales et marketing à vos clients potentiels. Dans cet onglet, vous pouvez également configurer la gestion des prospects générés par la Place de marché Azure. Ce formulaire long est divisé en six sections : **Détails de l’offre**, **Détails de l’annonce**, **Artefacts marketing**, **Informations légales**, **Service clientèle** et **Gestion des prospects**.  Un astérisque (*) à la fin d’une étiquette de champ signifie que le champ est obligatoire.
 

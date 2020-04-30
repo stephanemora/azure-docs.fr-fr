@@ -4,16 +4,16 @@ description: Créez des certificats de test et apprenez à les installer sur un 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/14/2020
+ms.date: 04/23/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 364846f6cef196f6cefa7872af48f262b387db4f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 9540913cd86b74fd51e96aa9d1d1dd34c5d60631
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393821"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129796"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge
 
@@ -313,7 +313,7 @@ Votre appareil IoT a également besoin d’une copie de ses certificats d’appa
 3. Récupérez l’empreinte digitale SHA1 (appelée empreinte dans les contextes IoT Hub) à partir de chaque certificat. L’empreinte digitale est une chaîne hexadécimale d’une longueur de 40 caractères. Pour afficher le certificat et trouver l’empreinte digitale, utilisez la commande openssl suivante :
 
    ```PowerShell
-   openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint | sed 's/[:]//g'
+   openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint
    ```
 
    Exécutez cette commande deux fois, une fois pour le certificat principal et une fois pour le certificat secondaire. Vous fournissez des empreintes digitales pour les deux certificats lorsque vous inscrivez un nouvel appareil IoT à l’aide de certificats X.509 auto-signés.

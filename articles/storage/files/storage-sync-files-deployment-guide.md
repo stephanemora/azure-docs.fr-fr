@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c4e762ebf10a5ca2120c13a52750a7781d60b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232265"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137720"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -410,7 +410,7 @@ Ce scénario puissant, communément appelé restauration libre-service, permet a
 Les instantanés VSS et Versions précédentes fonctionnent indépendamment d'Azure File Sync. Toutefois, la hiérarchisation cloud doit être définie sur un mode compatible. De nombreux points de terminaison de serveur Azure File Sync peuvent être présents sur le même volume. Vous devez effectuer l’appel PowerShell suivant par volume doté d'un point de terminaison de serveur sur lequel vous envisagez d'utiliser ou utilisez la hiérarchisation cloud.
 
 ```powershell
-Import-Module ‘<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll’
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
 Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]] 
 ```
 
@@ -426,7 +426,7 @@ Les instantanés VSS portent sur un volume entier. Par défaut, jusqu’à 64 i
 Pour savoir si la compatibilité de la restauration libre-service est activée, exécutez la cmdlet suivante.
 
 ```powershell
-    Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
+Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 ```
 
 Elle répertorie tous les volumes présents sur le serveur, ainsi que le nombre de jours compatibles avec la hiérarchisation cloud de chacun. Ce nombre est automatiquement calculé en fonction du nombre maximal d’instantanés possibles par volume et de la planification d'instantanés par défaut. Ainsi, par défaut, toutes les versions précédentes présentées à un professionnel de l’information peuvent être utilisées à des fins de restauration. Il en va de même si vous modifiez la planification par défaut afin de permettre plus d'instantanés.
