@@ -3,12 +3,12 @@ title: Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 description: Présentation de la sauvegarde de bases de données SQL Server à l’aide du service Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8cbb8c833bc2933afac300bcc848fd50861011d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505939"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183787"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 
@@ -24,13 +24,14 @@ Pour sauvegarder une base de données SQL Server sur Azure et la récupérer à 
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Avant de commencer, assurez-vous que vous respectez les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites-and-limitations) pour l’utilisation de Sauvegarde Azure afin de protéger des charges de travail. Voici quelques-unes des tâches préalables : 
+Avant de commencer, assurez-vous que vous respectez les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites-and-limitations) pour l’utilisation de Sauvegarde Azure afin de protéger des charges de travail. Voici quelques-unes des tâches préalables :
+
 * Créer un coffre de sauvegarde.
-* Télécharger les informations d’identification du coffre. 
+* Télécharger les informations d’identification du coffre.
 * Installer l’agent de Sauvegarde Azure.
 * Inscrire le serveur auprès du coffre.
 
-## <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde 
+## <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde
 
 Pour protéger des bases de données SQL Server dans Azure, commencez par créer une stratégie de sauvegarde :
 
@@ -74,7 +75,7 @@ Pour protéger des bases de données SQL Server dans Azure, commencez par créer
     La copie de sauvegarde initiale nécessite le transfert de la totalité de la source de données (base de données SQL Server). Les données de sauvegarde sont déplacées du serveur de production (ordinateur SQL Server) vers le serveur DPM. Si cette sauvegarde est volumineuse, le transfert des données sur le réseau peut entraîner une saturation de la bande passante. Pour cette raison, les administrateurs peuvent choisir d'utiliser des supports amovibles pour transférer la sauvegarde initiale **Manuellement**. Ils peuvent également transférer les données **Automatiquement sur le réseau** à une heure spécifiée.
 
     Une fois la sauvegarde initiale terminée, les sauvegardes se poursuivent de façon incrémentielle sur la copie de sauvegarde initiale. Les sauvegardes incrémentielles sont en général très limitées et sont faciles à transférer sur le réseau.
-    
+
 1. Choisissez quand exécuter une vérification de cohérence. Sélectionnez ensuite **Suivant**.
 
     ![Choisir quand exécuter une vérification de cohérence](./media/backup-azure-backup-sql/pg-consistent.png)
@@ -106,7 +107,7 @@ Pour protéger des bases de données SQL Server dans Azure, commencez par créer
     * La sauvegarde du samedi à 12h00 est conservée pendant 104 semaines.
     * La sauvegarde du dernier samedi du mois à 12h00 est conservée pendant 60 mois.
     * La sauvegarde du dernier samedi de mars à 12h00 est conservée pendant 10 ans.
-    
+
     Après avoir choisi une stratégie de rétention, sélectionnez **Suivant**.
 
 1. Choisissez comment transférer la copie de sauvegarde initiale vers Azure.

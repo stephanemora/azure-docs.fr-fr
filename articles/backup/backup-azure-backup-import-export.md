@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Sauvegarde Azure pour envoyer des donn�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206756"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183889"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Workflow de la sauvegarde hors connexion dans Sauvegarde Azure
 
@@ -36,7 +36,7 @@ Les charges de travail ou fonctionnalités Sauvegarde Azure suivantes prennent e
 > * Sauvegarde de fichiers et dossiers avec l’agent Microsoft Azure Recovery Services (MARS), également appelé agent de sauvegarde Azure.
 > * Sauvegarde de l’ensemble des charges de travail et fichiers avec Microsoft System Center Data Protection Manager (DPM).
 > * Sauvegarde de l’ensemble des charges de travail et fichiers avec le serveur de sauvegarde Microsoft Azure.
- 
+
    > [!NOTE]
    > La sauvegarde hors connexion n’est pas prise en charge pour les sauvegardes d’état du système effectuées à l’aide de l’agent de sauvegarde Azure.
 

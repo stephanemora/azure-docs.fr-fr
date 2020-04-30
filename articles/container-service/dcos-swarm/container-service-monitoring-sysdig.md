@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: a22d48554573e2517b318f6172b759864bf46612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 611d3e6d5ecaf986cc09c550c4aee760ed0a0d98
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277730"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166142"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(DÉCONSEILLÉ) Superviser un cluster Azure Container Service avec Sysdig
 
@@ -31,7 +31,7 @@ Sysdig est un service qui vous permet de surveiller vos conteneurs au sein de vo
 ## <a name="configure-a-sysdig-deployment-with-marathon"></a>Configurer un déploiement Sysdig avec Marathon
 Ces étapes vous expliquent comment configurer et déployer des applications Sysdig dans votre cluster avec Marathon. 
 
-Accédez à l’IU DC/OS via [http://localhost:80/](http://localhost:80/). Une fois dans l’IU DC/OS, accédez à Universe (Univers) en bas à gauche de la page, puis recherchez « Sysdig ».
+Accédez à l’IU DC/OS via `http://localhost:80/`. Une fois dans l’IU DC/OS, accédez à Universe (Univers) en bas à gauche de la page, puis recherchez « Sysdig ».
 
 ![Sysdig dans l’Univers DC/OS](./media/container-service-monitoring-sysdig/sysdig1.png)
 

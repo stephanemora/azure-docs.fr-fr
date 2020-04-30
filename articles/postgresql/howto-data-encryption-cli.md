@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: fcdd7c13c9e0a5f9e858309bea50bb0264b7b301
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 77c464f51bd17921052b3ae1e9fefb49e777d6c2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460679"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181903"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Chiffrement des données pour le serveur unique Azure Database pour PostgreSQL avec l’interface de ligne de commande Azure
 
@@ -32,7 +32,7 @@ Découvrez comment utiliser l’interface de ligne de commande Azure pour config
     az keyvault key create --name <key_name> -p software --vault-name <vault_name>
     ```
 
-* Pour que vous puissiez utiliser un coffre de clés existant, celui-ci doit avoir les propriétés suivantes à utiliser en tant que clé gérée par le client :
+* Pour que vous puissiez utiliser un coffre de clés existant, celui-ci doit avoir les propriétés suivantes à utiliser comme clé gérée par le client :
   * [Suppression réversible](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
@@ -54,13 +54,13 @@ Découvrez comment utiliser l’interface de ligne de commande Azure pour config
 
 1. Il existe deux façons d’obtenir l’identité managée pour votre serveur unique Azure Database pour PostgreSQL.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Créez un serveur Azure Database pour MySQL avec une identité gérée.
+    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Créez un serveur Azure Database pour MySQL avec une identité managée.
 
     ```azurecli-interactive
     az postgres server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
     ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Mettez à jour un serveur Azure Database pour MySQL existant pour obtenir une identité gérée.
+    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Mettez à jour un serveur Azure Database pour MySQL existant pour obtenir une identité managée.
 
     ```azurecli-interactive
     az postgres server update –name <server name>  -g <resoure_group> --assign-identity
@@ -80,7 +80,7 @@ Découvrez comment utiliser l’interface de ligne de commande Azure pour config
     az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    URL de la clé :  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    URL de la clé :  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Utilisation du chiffrement des données pour les serveurs de restauration ou réplicas
 
@@ -91,7 +91,7 @@ Une fois Azure Database pour PostgreSQL Serveur unique chiffré à l'aide d'une 
   *  [Créer un serveur de restauration](howto-restore-server-cli.md) 
   *  [Créer un serveur réplica en lecture](howto-read-replicas-cli.md) 
 
-### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Une fois le serveur restauré, revalidez le chiffrement des données sur le serveur restauré
+### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Quand le serveur est restauré, revalidez le chiffrement des données sur ce dernier.
 
     ```azurecli-interactive
     az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
@@ -105,7 +105,7 @@ Une fois Azure Database pour PostgreSQL Serveur unique chiffré à l'aide d'une 
     az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Répertorier la clé utilisée
 

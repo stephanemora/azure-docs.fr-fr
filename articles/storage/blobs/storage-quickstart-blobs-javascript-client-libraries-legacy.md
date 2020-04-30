@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 920d3d6c1cfc928efa5daa2d6c0aa3a6b4e81375
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619128"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82161123"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -28,7 +28,7 @@ Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets bl
 - Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
 - Un serveur web local. Cet article utilise [Node.js](https://nodejs.org) pour ouvrir un serveur de base.
 - [Visual Studio Code](https://code.visualstudio.com).
-- Une extension de VS Code pour le débogage de navigateur, par exemple [Débogueur pour chrome](vscode:extension/msjsdiag.debugger-for-chrome) ou [Débogueur pour Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
+- Une extension de VS Code pour le débogage de navigateur, par exemple [Débogueur pour chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) ou [Débogueur pour Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configuration des règles CORS du compte de stockage
 
@@ -94,7 +94,7 @@ Maintenant que la SAS est générée, copiez la valeur de retour et enregistrez-
 
 ## <a name="implement-the-html-page"></a>Mettre en œuvre la page HTML
 
-Dans cette section, vous allez créer une page web de base et configurer Visual Studio Code pour lancer et déboguer la page. Toutefois, avant de procéder au lancement, vous devez utiliser Node.js pour démarrer un serveur web local et présenter la page lorsque votre navigateur la demande. Ensuite, vous ajouterez du code JavaScript pour appeler diverses API de stockage Blob et afficher les résultats dans la page. Vous pouvez également voir les résultats de ces appels dans le [portail Azure](https://portal.azure.com), [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer) et [l’extension Stockage Azure](vscode:extension/ms-azuretools.vscode-azurestorage) pour Visual Studio Code.
+Dans cette section, vous allez créer une page web de base et configurer Visual Studio Code pour lancer et déboguer la page. Toutefois, avant de procéder au lancement, vous devez utiliser Node.js pour démarrer un serveur web local et présenter la page lorsque votre navigateur la demande. Ensuite, vous ajouterez du code JavaScript pour appeler diverses API de stockage Blob et afficher les résultats dans la page. Vous pouvez également voir les résultats de ces appels dans le [portail Azure](https://portal.azure.com), [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer) et [l’extension Stockage Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) pour Visual Studio Code.
 
 ### <a name="set-up-the-web-application"></a>Configurer l’application Web
 

@@ -4,12 +4,12 @@ description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en deh
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 080b0bc53b2058bd186e90f354b8f5bcda510414
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d45716fea92a25b0deea6ee5c1972820341d64a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197050"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183855"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 
@@ -137,7 +137,7 @@ Les informations de cette section vous permettent de terminer le workflow de sau
     ![Page Importer](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
     Voici la page correspondante dans DPM. <br/>
-    
+
     ![Page d’importation de DPM et du serveur de sauvegarde Azure](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     Les champs que vous remplissez sont les suivants :
@@ -242,7 +242,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA q
     ![Stocker les informations d’expédition](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
    > [!IMPORTANT]
-   > Assurez-vous que les lecteurs parviennent au centre de données Azure dans les deux semaines suivant la fourniture des informations d’expédition à l’aide de l’utilitaire *AzureOfflineBackupDiskPrep*. À défaut, les lecteurs pourraient ne pas être traités. 
+   > Assurez-vous que les lecteurs parviennent au centre de données Azure dans les deux semaines suivant la fourniture des informations d’expédition à l’aide de l’utilitaire *AzureOfflineBackupDiskPrep*. À défaut, les lecteurs pourraient ne pas être traités.
 
 Une fois les étapes précédentes terminées, le centre de données Azure est prêt à recevoir les lecteurs et à les traiter afin de transférer les données de sauvegarde des lecteurs vers le compte de stockage Azure de type classique que vous avez créé.
 

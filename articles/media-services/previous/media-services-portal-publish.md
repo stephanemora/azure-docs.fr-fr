@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 5f242018abfb15cea1b76cbcaad00942ec25d78d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abdb926825abcac4485cb11b71bdc82597391727
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69015073"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176819"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publier du contenu dans le portail Azure  
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.locfileid: "69015073"
 
 Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre actif multimédia en créant un localisateur. Les localisateurs permettent d’accéder aux fichiers d’actifs multimédias. Azure Media Services prend en charge deux types de localisateurs : 
 
-* **Localisateurs de streaming (OnDemandOrigin)** . Les localisateurs de streaming sont utilisés pour le streaming adaptatif. Parmi les exemples de streaming adaptatif, nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). Pour créer un localisateur de streaming, votre actif multimédia doit contenir un fichier .ism. Par exemple : http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Localisateurs de streaming (OnDemandOrigin)** . Les localisateurs de streaming sont utilisés pour le streaming adaptatif. Parmi les exemples de streaming adaptatif, nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). Pour créer un localisateur de streaming, votre actif multimédia doit contenir un fichier .ism. Par exemple : `http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest`.
 * **Localisateurs progressifs (signature d’accès partagé)** . Les localisateurs progressifs sont utilisés pour diffuser des vidéos par téléchargement progressif.
 
 Pour créer une URL de streaming HLS, ajoutez *(format=m3u8-aapl)* à l’URL :

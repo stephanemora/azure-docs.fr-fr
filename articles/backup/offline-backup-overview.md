@@ -3,12 +3,12 @@ title: Vue d’ensemble de la sauvegarde hors connexion
 description: En savoir plus sur les composants de la sauvegarde hors connexion. Ils incluent la sauvegarde hors connexion basée sur Azure Data Box et la sauvegarde hors connexion basée sur le service Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4dae68c46e0072a726bba13139e405b44be0f008
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196154"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160919"
 ---
 # <a name="overview-of-offline-backup"></a>Vue d’ensemble de la sauvegarde hors connexion
 
@@ -27,7 +27,7 @@ La sauvegarde hors connexion est proposée dans deux modes, selon le propriétai
 
 ## <a name="offline-backup-based-on-azure-data-box-preview"></a>Sauvegarde hors connexion basée sur Azure Data Box (préversion)
 
-Ce mode est actuellement pris en charge avec l’agent Microsoft Azure Recovery Services (MARS), en préversion. Cette option a recours à [Azure Data Box](https://azure.microsoft.com/services/databox/) pour l’envoi des appliances de transfert à votre centre de données ou bureau distant. Ces appliances appartiennent à Microsoft et elles sont sécurisées, inviolables et dotées de connecteurs USB. Les données de sauvegarde sont écrites directement sur ces appareils. Cette option réduit les efforts nécessaires pour trouver vos propres disques et connecteurs compatibles avec Azure ou pour approvisionner un stockage temporaire comme emplacement intermédiaire. Microsoft gère également la logistique du transfert de bout en bout, que vous pouvez suivre par le biais du Portail Azure. 
+Ce mode est actuellement pris en charge avec l’agent Microsoft Azure Recovery Services (MARS), en préversion. Cette option a recours à [Azure Data Box](https://azure.microsoft.com/services/databox/) pour l’envoi des appliances de transfert à votre centre de données ou bureau distant. Ces appliances appartiennent à Microsoft et elles sont sécurisées, inviolables et dotées de connecteurs USB. Les données de sauvegarde sont écrites directement sur ces appareils. Cette option réduit les efforts nécessaires pour trouver vos propres disques et connecteurs compatibles avec Azure ou pour approvisionner un stockage temporaire comme emplacement intermédiaire. Microsoft gère également la logistique du transfert de bout en bout, que vous pouvez suivre par le biais du Portail Azure.
 
 Une architecture décrivant le déplacement des données de sauvegarde avec cette option est illustrée ici.
 
@@ -44,7 +44,7 @@ Pour utiliser la sauvegarde hors connexion basée sur Azure Data Box, consultez 
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Sauvegarde hors connexion basée sur le service Azure Import/Export
 
-Cette option est prise en charge par le serveur de sauvegarde Microsoft Azure (MABS), System Center Data Protection Manager (DPM) DPM-A et l’agent MARS. Elle utilise le [service Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). Vous pouvez transférer des données de sauvegarde initiales vers Azure à l’aide de vos propres disques et connecteurs compatibles avec Azure. Cette approche nécessite l’approvisionnement d’un stockage temporaire appelé « emplacement intermédiaire » et l’emploi d’utilitaires prédéfinis pour formater et copier les données de sauvegarde sur les disques appartenant au client. 
+Cette option est prise en charge par le serveur de sauvegarde Microsoft Azure (MABS), System Center Data Protection Manager (DPM) DPM-A et l’agent MARS. Elle utilise le [service Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). Vous pouvez transférer des données de sauvegarde initiales vers Azure à l’aide de vos propres disques et connecteurs compatibles avec Azure. Cette approche nécessite l’approvisionnement d’un stockage temporaire appelé « emplacement intermédiaire » et l’emploi d’utilitaires prédéfinis pour formater et copier les données de sauvegarde sur les disques appartenant au client.
 
 Une architecture décrivant le déplacement des données de sauvegarde avec cette option est illustrée ici.
 
@@ -81,6 +81,6 @@ Le tableau suivant compare les deux options disponibles pour vous aider à faire
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
-* [Workflow de la sauvegarde hors connexion dans Sauvegarde Azure](backup-azure-backup-import-export.md) 
-* [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](backup-azure-backup-server-import-export-.md)
+- [Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
+- [Workflow de la sauvegarde hors connexion dans Sauvegarde Azure](backup-azure-backup-import-export.md)
+- [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](backup-azure-backup-server-import-export-.md)

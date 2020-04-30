@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les fonctionnalités de sécurité dans
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586391"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186768"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
 
@@ -21,10 +21,10 @@ Les préoccupations en matière de risques de sécurité, comme les logiciels ma
 
 > [!NOTE]
 > Les fonctionnalités de sécurité ne doivent pas être activées si vous utilisez une sauvegarde de machine virtuelle IaaS (Infrastructure en tant que service). Ces fonctionnalités ne sont pas encore disponibles pour la sauvegarde de machine virtuelle IaaS, donc leur activation n’aura aucun impact. Vous ne devez activer les fonctionnalités de sécurité que si vous utilisez : <br/>
->  * **Agent Azure Backup**. Version minimale de l’agent 2.0.9052. Une fois que vous avez activé ces fonctionnalités, vous devez effectuer une mise à niveau vers cette version de l’agent pour effectuer des opérations critiques. <br/>
->  * **Serveur de sauvegarde Azure**. Version minimale de l’agent Azure Backup 2.0.9052 avec la mise à jour 1 du serveur de sauvegarde Azure. <br/>
->  * **System Center Data Protection Manager**. Version minimale de l’agent Azure Backup version 2.0.9052 avec Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
-
+>
+> - **Agent Azure Backup**. Version minimale de l’agent 2.0.9052. Une fois que vous avez activé ces fonctionnalités, vous devez effectuer une mise à niveau vers cette version de l’agent pour effectuer des opérations critiques. <br/>
+> - **Serveur de sauvegarde Azure**. Version minimale de l’agent Azure Backup 2.0.9052 avec la mise à jour 1 du serveur de sauvegarde Azure. <br/>
+> - **System Center Data Protection Manager**. Version minimale de l’agent Azure Backup version 2.0.9052 avec Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
 > Ces fonctionnalités ne sont disponibles que pour le coffre Recovery Services. Tous les coffres Recovery Services nouvellement créés ont ces fonctionnalités activées par défaut. Pour les coffres Recovery Services existants, les utilisateurs activent ces fonctionnalités en suivant les étapes mentionnées dans la section ci-dessous. Une fois les fonctionnalités activées, elles s’appliquent à l’ensemble des ordinateurs agents Recovery Services, instances de serveur de sauvegarde Azure, et serveurs Data Protection Manager inscrits avec le coffre. L’activation de ce paramètre ne s’effectue qu’une seule fois et il est impossible de désactiver ces fonctionnalités après leur activation.

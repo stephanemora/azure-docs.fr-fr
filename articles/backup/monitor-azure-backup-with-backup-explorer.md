@@ -4,12 +4,12 @@ description: Cet article explique comment utiliser l'Explorateur de sauvegarde p
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: fa30a061dfe0d9f7721bd2405280f8a01bea87fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87780124d531212a141520df65ff7408cc120e55
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131811"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160987"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Superviser vos sauvegardes avec l’Explorateur de sauvegarde
 
@@ -17,17 +17,18 @@ Sachant que les organisations sauvegardent de plus en plus de machines dans le c
 
 L'Explorateur de sauvegarde est un classeur intégré à Azure Monitor qui permet aux clients du service Sauvegarde Azure de bénéficier de cet emplacement centralisé. L'Explorateur de sauvegarde vous aide à superviser les activités opérationnelles de l'ensemble du parc de sauvegarde Azure, en couvrant les locataires, les emplacements, les abonnements, les groupes de ressources et les coffres. Les principales fonctionnalités de l'Explorateur de sauvegarde sont les suivantes :
 
-* **Perspective à grande échelle** : bénéficiez d'une vue agrégée des éléments, travaux, alertes, stratégies et ressources de sauvegarde qui n'ont pas encore été configurés pour la sauvegarde dans l'ensemble du parc. 
+* **Perspective à grande échelle** : bénéficiez d'une vue agrégée des éléments, travaux, alertes, stratégies et ressources de sauvegarde qui n'ont pas encore été configurés pour la sauvegarde dans l'ensemble du parc.
 * **Analyse approfondie** : consultez des informations détaillées sur vos travaux, alertes, stratégies et éléments de sauvegarde à un emplacement centralisé.
 * **Interfaces interactives** : après avoir identifié un problème, vous pouvez le résoudre en accédant facilement à l'élément de sauvegarde ou à la ressource Azure concerné.
 
 Ces fonctionnalités sont fournies prêtes à l'emploi par une intégration native à Azure Resource Graph et aux classeurs Azure Monitor.
 
 > [!NOTE]
+>
 > * Pour le moment, l'Explorateur de sauvegarde est uniquement disponible pour les données des machines virtuelles Azure.
 > * L'Explorateur de sauvegarde a été conçu comme un tableau de bord opérationnel qui permet de visualiser les informations relatives à vos sauvegardes des 7 derniers jours (maximum).
 > * L’Explorateur de sauvegarde n’est actuellement pas pris en charge sur les clouds nationaux.
-> * Il est actuellement impossible de personnaliser le modèle de l'Explorateur de sauvegarde. 
+> * Il est actuellement impossible de personnaliser le modèle de l'Explorateur de sauvegarde.
 > * Nous vous déconseillons de créer des automatisations personnalisées sur les données Azure Resource Graph.
 
 ## <a name="get-started"></a>Bien démarrer
@@ -48,13 +49,11 @@ L'Explorateur de sauvegarde contient plusieurs onglets, chacun fournissant des i
 
 L'onglet **Résumé** offre un aperçu rapide de l'état global de votre parc de sauvegarde. Par exemple, vous pouvez voir le nombre d'éléments protégés, le nombre d'éléments pour lesquels la protection n'a pas été activée ou le nombre de travaux ayant abouti au cours des 24 dernières heures.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYd]
 
 ### <a name="the-backup-items-tab"></a>L'onglet Éléments de sauvegarde
 
 Vous pouvez filtrer et afficher chacun de vos éléments de sauvegarde par abonnement, par coffre et autres caractéristiques. Sélectionnez le nom d'un élément de sauvegarde pour ouvrir le volet Azure correspondant à cet élément. Par exemple, dans le tableau, vous pouvez remarquer que la dernière sauvegarde de l'élément *X* a échoué. En sélectionnant *X*, vous accédez au volet **Sauvegarde** de l'élément, où vous pouvez déclencher une opération de sauvegarde à la demande.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYc]
 
@@ -62,20 +61,17 @@ Vous pouvez filtrer et afficher chacun de vos éléments de sauvegarde par abonn
 
 Sélectionnez l'onglet **Travaux** pour afficher les détails de tous les travaux qui ont été déclenchés au cours des 7 derniers jours. Vous pouvez ici appliquer les filtres suivants : *Opération de travail*, *État du travail* et *Code d'erreur* (pour les travaux qui ont échoué).
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
 ### <a name="the-alerts-tab"></a>L'onglet Alertes
 
 Sélectionnez l'onglet **Alertes** pour afficher les détails de toutes les alertes générées sur vos coffres au cours des 7 derniers jours. Vous pouvez filtrer les alertes par type (*Échec de la sauvegarde* ou *Échec de la restauration*), par état actuel (*Active* ou *Résolue*) et par gravité (*Critique*, *Avertissement* ou *Information*). Vous pouvez également sélectionner un lien pour accéder à la machine virtuelle Azure et prendre les éventuelles mesures nécessaires.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 
 ### <a name="the-policies-tab"></a>L'onglet Stratégies
 
 Sélectionnez l'onglet **Stratégies** pour consulter des informations sur toutes les stratégies de sauvegarde qui ont été créées dans votre parc de sauvegarde. Vous pouvez voir le nombre d'éléments associés à chaque stratégie, ainsi que la durée de conservation et la fréquence de sauvegarde spécifiées par la stratégie.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nLKV]
 
@@ -84,7 +80,6 @@ Sélectionnez l'onglet **Stratégies** pour consulter des informations sur toute
 La sauvegarde doit être activée pour toutes les machines qui nécessitent une protection. Grâce à l'Explorateur de sauvegarde, les administrateurs de sauvegarde peuvent rapidement identifier les machines d'une organisation qui ne sont pas encore protégés par une sauvegarde. Pour afficher ces informations, sélectionnez l'onglet **Sauvegarde non activée**.
 
 Le volet **Sauvegarde non activée** affiche la liste de machines non protégées sous forme de tableau. Votre organisation peut attribuer différentes étiquettes aux machines de production et aux machines de test, ou aux machines qui remplissent diverses fonctions. Dans la mesure où chaque classe de machines requiert une stratégie de sauvegarde distincte, le filtrage par étiquette vous permet d'afficher les informations spécifiques à chacune. La sélection du nom d'une machine vous redirige vers le volet **Configurer la sauvegarde** de cette machine, où vous pouvez choisir d'appliquer une stratégie de sauvegarde appropriée.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQXZ]
 

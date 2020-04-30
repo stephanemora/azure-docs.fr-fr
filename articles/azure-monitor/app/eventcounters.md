@@ -3,16 +3,16 @@ title: Compteurs d’événements dans Application Insights | Microsoft Docs
 description: Supervisez les compteurs d’événements .NET/.NET Core système et personnalisés dans Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 2094c012e86131073fc66be4f2ac2fb2e81ef4c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1037766587f58a30c20f614726e1241c16e5a16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663587"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187093"
 ---
 # <a name="eventcounters-introduction"></a>Présentation des compteurs d’événements
 
-`EventCounter` est le mécanisme .NET/.NET Core permettant de publier et consommer des compteurs ou des statistiques. [Ce](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document donne une vue d’ensemble des `EventCounters` et des exemples sur la façon de les publier et de les consommer. Les compteurs d’événements sont pris en charge sur toutes les plateformes de système d’exploitation : Windows, Linux et macOS. Vous pouvez les considérer comme l’équivalent multiplateforme des [compteurs de performances](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter), uniquement pris en charge dans les systèmes Windows.
+`EventCounter` est le mécanisme .NET/.NET Core permettant de publier et consommer des compteurs ou des statistiques. [Ce](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document donne une vue d’ensemble des `EventCounters` et des exemples sur la façon de les publier et de les consommer. Les compteurs d’événements sont pris en charge sur toutes les plateformes de système d’exploitation : Windows, Linux et macOS. Vous pouvez les considérer comme l’équivalent multiplateforme des [compteurs de performances](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter), uniquement pris en charge dans les systèmes Windows.
 
 Alors que les utilisateurs peuvent publier n’importe quel `EventCounters` personnalisé pour répondre à leurs besoins, le runtime .NET Core 3.0 publie un ensemble de ces compteurs par défaut. Le présent document décrit les étapes nécessaires à la collecte et à l’affichage des `EventCounters` (définis par le système ou par l’utilisateur) dans Azure Application Insights.
 

@@ -23,7 +23,7 @@
               href: ./standard-contract.md
             - name: Attribution de l’utilisation de client partenaire Azure
               href: ./azure-partner-customer-usage-attribution.md
-        - name: Guide de publication par Type d’offre
+        - name: Guides de publication par type d’offre
           href: ./publisher-guide-by-offer-type.md
           items:
             - name: Virtual Machines
@@ -38,9 +38,9 @@
               href: ./marketplace-containers.md
             - name: "Modules IoT\_Edge"
               href: ./iot-edge-module.md
-            - name: Service de conseil
+            - name: Services de conseil
               href: ./consulting-services.md
-            - name: "Guide de publication Office\_365, Dynamics\_365 et Power\_BI"
+            - name: 'Office 365, Dynamics 365 et Power BI'
               href: ./appsource-offer-publishing-guide.md
             - name: Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
               href: ./enable-appsource-marketplace-using-azure-ad.md
@@ -559,6 +559,8 @@
       href: ./partner-center-portal/publishing-status.md
     - name: Mettre à jour les offres existantes
       href: ./partner-center-portal/update-existing-offer.md
+    - name: Activer les avantages
+      href: ./partner-center-portal/marketplace-rewards.md
     - name: Options de support
       href: ./partner-center-portal/support.md
     - name: Analytique de l’Espace partenaires

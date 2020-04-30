@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 95a579cacc339360295f5f25fa6415ab29cd68ff
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: e3af10e5e9b56b537fedf0af7ffa7ddb37030c73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673899"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189179"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -23,7 +23,7 @@ Cet article décrit les mises à jour de l’entrée et du stockage des données
 
 ## <a name="data-ingress"></a>Entrée de données
 
-Votre environnement Azure Time Series Insights contient un *moteur d’ingestion* pour collecter, traiter et stocker des données de série chronologique. 
+Votre environnement Azure Time Series Insights contient un *moteur d’ingestion* pour collecter, traiter et stocker des données de série chronologique.
 
 Vous devez garder certaines considérations à l’esprit pour vous assurer que toutes les données entrantes sont traitées, atteindre une grande échelle d’entrée et réduire la *latence d’ingestion* (temps que Time Series Insights met à lire et à traiter les données de la source de l’événement) lors de la [planification de votre environnement](time-series-insights-update-plan.md).
 
@@ -31,7 +31,7 @@ Les stratégies d’entrée de données de la préversion de Time Series Insight
 
 ### <a name="ingress-policies"></a>Stratégies d’entrée
 
-L’*entrée de données* implique la manière dont les données sont envoyées à un environnement en préversion d’Azure Time Series Insights. 
+L’*entrée de données* implique la manière dont les données sont envoyées à un environnement en préversion d’Azure Time Series Insights.
 
 La configuration, la mise en forme et les meilleures pratiques clés sont résumées ci-dessous.
 
@@ -42,10 +42,11 @@ La préversion d’Azure Time Series Insights prend en charge les sources d’é
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-La préversion d’Azure Time Series Insights prend en charge un maximum de deux sources d’événements par instance. Lorsque vous connectez une source d'événements, votre environnement TSI lit tous les événements stockés dans votre hub IoT ou Event Hub, en commençant par l'événement le plus ancien. 
+La préversion d’Azure Time Series Insights prend en charge un maximum de deux sources d’événements par instance. Lorsque vous connectez une source d'événements, votre environnement TSI lit tous les événements stockés dans votre hub IoT ou Event Hub, en commençant par l'événement le plus ancien.
 
-> [!IMPORTANT] 
-> * Vous pouvez rencontrer une latence initiale élevée lors de la jonction d’une source d’événement à votre environnement en préversion. 
+> [!IMPORTANT]
+>
+> * Vous pouvez rencontrer une latence initiale élevée lors de la jonction d’une source d’événement à votre environnement en préversion.
 > La latence de la source d’événement dépend du nombre d’événements actuellement présents dans votre IoT Hub ou votre Event Hub.
 > * Une latence élevée sera impartie après la réception des données de la source d’événements. Si vous rencontrez une latence élevée, soumettez un ticket de support via le portail Azure.
 
@@ -64,7 +65,7 @@ Les types de données pris en charge sont les suivants :
 
 #### <a name="objects-and-arrays"></a>Objets et tableaux
 
-Vous pouvez envoyer des types complexes tels que des objets et des tableaux dans votre charge utile d’événement, mais vos données subissent un processus d’aplatissement lorsqu’elles sont stockées. 
+Vous pouvez envoyer des types complexes tels que des objets et des tableaux dans votre charge utile d’événement, mais vos données subissent un processus d’aplatissement lorsqu’elles sont stockées.
 
 Des informations détaillées décrivant comment mettre en forme vos événements JSON, envoyer un type complexe et aplatir des objets imbriqués sont disponibles dans [Comment mettre en forme JSON pour l’entrée et la requête](./time-series-insights-update-how-to-shape-events.md) afin de faciliter la planification et l’optimisation.
 
@@ -78,7 +79,7 @@ Nous vous recommandons d’utiliser les meilleures pratiques suivantes :
 
 * Découvrez comment optimiser et façonner vos données JSON, ainsi que les limitations actuelles de la préversion, en lisant [comment mettre en forme JSON pour l’entrée et la requête](./time-series-insights-update-how-to-shape-events.md).
 
-### <a name="ingress-scale-and-preview-limitations"></a>Limitations de l’échelle d’entrée et de la préversion 
+### <a name="ingress-scale-and-preview-limitations"></a>Limitations de l’échelle d’entrée et de la préversion
 
 Les limitations d’entrée de la préversion d’Azure Time Series Insights sont décrites ci-dessous.
 
@@ -93,7 +94,8 @@ En général, les taux d’entrée sont considérés comme le facteur du nombre 
 
 Par défaut, la préversion de Time Series Insights peut ingérer des données entrantes à un débit allant **jusqu’à 1 mégaoctet par seconde (Mbits/s) par environnement Time Series Insights**. Il existe des limitations supplémentaires [par partition de hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits).
 
-> [!TIP] 
+> [!TIP]
+>
 > * Une prise en charge de l’environnement pour l’ingestion de vitesses jusqu’à 16 Mbits/s peut être fournie sur demande.
 > * Contactez-nous si vous avez besoin d’un débit supérieur en soumettant un ticket de support via le portail Azure.
  
@@ -117,7 +119,7 @@ Par défaut, la préversion de Time Series Insights peut ingérer des données e
 
 Lors de la planification de votre environnement Time Series Insights, il est important de tenir compte de la configuration des sources de l’événement que vous comptez connecter à Time Series Insights. IoT Hub et Event Hubs utilisent des partitions afin d’activer la mise à l’échelle horizontale pour le traitement des événements. 
 
-Une *partition* est une séquence ordonnée d’événements conservée dans un hub. Le nombre de partitions est défini lors de la phase de création du hub et ne peut pas être modifié. 
+Une *partition* est une séquence ordonnée d’événements conservée dans un hub. Le nombre de partitions est défini lors de la phase de création du hub et ne peut pas être modifié.
 
 Pour les meilleures pratiques de partitionnement d’Event Hubs, voir [De combien de partitions ai-je besoin ?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
 
@@ -132,7 +134,7 @@ La préversion d’Azure Time Series Insights a actuellement une **limite géné
 
 Lors de la création d’un appareil dans IoT Hub, cet appareil est définitivement attribué à une partition. IoT Hub est ainsi en mesure de garantir l’ordre des événements (puisque l’affectation ne change jamais).
 
-Une affectation de partition fixe a également une incidence sur les instances Time Series Insights qui ingèrent les données envoyées à partir de l’IoT Hub en aval. Lorsque des messages provenant de plusieurs appareils sont transférés au hub à l’aide du même ID de passerelle, ils peuvent arriver dans la même partition au même moment, ce qui peut entraîner un dépassement des limites d’échelle par partition. 
+Une affectation de partition fixe a également une incidence sur les instances Time Series Insights qui ingèrent les données envoyées à partir de l’IoT Hub en aval. Lorsque des messages provenant de plusieurs appareils sont transférés au hub à l’aide du même ID de passerelle, ils peuvent arriver dans la même partition au même moment, ce qui peut entraîner un dépassement des limites d’échelle par partition.
 
 **Impact** :
 
@@ -145,6 +147,7 @@ Pour limiter ce risque, nous vous recommandons d’adopter les meilleures pratiq
 
 > [!IMPORTANT]
 > Pour les environnements qui utilisent IoT Hub comme source d’événements, calculez le taux d’ingestion à l’aide du nombre de hubs en cours d’utilisation pour vous assurer que le taux tombe sous la limite de 0,5 Mbits/s par partition de la préversion.
+>
 > * Même si plusieurs événements se produisent simultanément, la limite de la préversion n’est pas dépassée.
 
   ![Diagramme de partitions IoT Hub](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
@@ -186,7 +189,7 @@ Pour obtenir une description complète du stockage Blob Azure, lisez l’[intro
 
 Lorsque vous créez un environnement pour la préversion d’Azure Time Series Insights assorti d’un paiement à l’utilisation (PAYG), un compte d’objets blob GPv1 de Stockage Azure est créé en tant que magasin froid à long terme.  
 
-La préversion d’Azure Time Series Insights conserve jusqu’à deux copies de chaque événement dans votre compte Stockage Azure. Une copie stocke les événements classés par heure d’ingestion, autorisant toujours l’accès aux événements dans un ordre chronologique. Au fil du temps, Time Series Insights (préversion) crée également une copie repartitionnée des données à optimiser pour une interrogation performante de Time Series Insights. 
+La préversion d’Azure Time Series Insights conserve jusqu’à deux copies de chaque événement dans votre compte Stockage Azure. Une copie stocke les événements classés par heure d’ingestion, autorisant toujours l’accès aux événements dans un ordre chronologique. Au fil du temps, Time Series Insights (préversion) crée également une copie repartitionnée des données à optimiser pour une interrogation performante de Time Series Insights.
 
 Pendant la durée de la préversion publique, les données sont stockées indéfiniment dans votre compte de Stockage Azure.
 
@@ -194,7 +197,7 @@ Pendant la durée de la préversion publique, les données sont stockées indéf
 
 Pour garantir les performances des requêtes et la disponibilité des données, ne modifiez ni ne supprimez aucun objet blob créé par Time Series Insights (préversion).
 
-#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Accès aux données du magasin froid Time Series Insights (préversion) 
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Accès aux données du magasin froid Time Series Insights (préversion)
 
 En plus d’accéder à vos données à partir de l’[Explorateur Time Series Insights (préversion)](./time-series-insights-update-explorer.md) et de [Time Series Query](./time-series-insights-update-tsq.md), vous pouvez également accéder à vos données directement à partir des fichiers Parquet stockés dans le magasin froid. Par exemple, vous pouvez lire, transformer et nettoyer les données d’un notebook Jupyter, puis les utiliser pour effectuer l’apprentissage de votre modèle Azure Machine Learning dans le même workflow Spark.
 
@@ -223,6 +226,7 @@ Time Series Insights (préversion) stocke des copies de vos données comme suit�
 Dans les deux cas, la propriété Time du fichier Parquet correspond à l’heure de création du blob. Les données du dossier `PT=Time` sont conservées sans aucune modification une fois qu’elles sont écrites dans le fichier. Les données du dossier `PT=TsId` seront optimisées pour les requêtes au fil du temps et ne sont pas statiques.
 
 > [!NOTE]
+>
 > * `<YYYY>` correspond à une représentation de l’année à quatre chiffres.
 > * `<MM>` correspond à une représentation du mois à deux chiffres.
 > * `<YYYYMMDDHHMMSSfff>` correspond à une représentation de l’horodatage avec une année à quatre chiffres (`YYYY`), un mois à deux chiffres (`MM`), un jour à deux chiffres (`DD`), une heure à deux chiffres (`HH`), une minute à deux chiffres (`MM`), une seconde à deux chiffres (`SS`) et une milliseconde à trois chiffres (`fff`).

@@ -10,14 +10,8 @@
   items:
     - name: Essayer Content Moderator sur le web
       href: quick-start.md
-    - name: Utilisation du kit de développement logiciel (SDK) client
-      items:
-        - name: Utilisation du kit de développement logiciel (SDK) .NET
-          href: dotnet-sdk-quickstart.md
-        - name: Utilisation du Kit de développement logiciel (SDK) Python
-          href: python-sdk-quickstart.md
-        - name: Utilisation du Kit de développement logiciel (SDK) Java
-          href: java-sdk-quickstart.md
+    - name: Utilisation de la bibliothèque de client
+      href: client-libraries.md
 - name: Tutoriels
   items:
     - name: Modérer les images d’e-commerce

@@ -138,6 +138,8 @@
           href: service-fabric-security-controls.md
         - name: Authentification par certificat dans Service Fabric
           href: cluster-security-certificates.md
+        - name: Gestion des certificats dans Service Fabric
+          href: cluster-security-certificate-management.md
     - name: Terminologie
       href: service-fabric-technical-overview.md
     - name: Création d’applications

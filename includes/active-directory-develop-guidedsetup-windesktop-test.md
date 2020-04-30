@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2325509f68ced7c66d9f733b07247ae01301b565
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79128484"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181531"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -46,8 +46,6 @@ Une fois connecté, vous devez voir les informations de profil utilisateur qui s
 |**Nom d’utilisateur** |<span>user@domain.com</span> |Nom d’utilisateur employé pour identifier l’utilisateur.|
 |**Token Expires** |DateTime |Date et heure auxquelles expire le jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
 
-
-<!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Informations supplémentaires sur les étendues et les autorisations déléguées
 
 L’API Microsoft Graph nécessite l’étendue *user.read* pour lire le profil d’un utilisateur. Par défaut, cette étendue est automatiquement ajoutée à toutes les applications inscrites dans le portail d’inscription de l’application. D’autres API pour Microsoft Graph ainsi que des API personnalisées pour votre serveur principal peuvent nécessiter des étendues supplémentaires. L’API Microsoft Graph nécessite l’étendue *Calendars.Read* pour lister les calendriers de l’utilisateur.
@@ -56,7 +54,5 @@ Pour accéder aux calendriers de l’utilisateur dans le contexte d’une applic
 
 >[!NOTE]
 >L’utilisateur peut être invité à donner des consentements supplémentaires à mesure que vous augmentez le nombre d’étendues.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]
