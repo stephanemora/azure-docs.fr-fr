@@ -14,10 +14,10 @@ manager: cgronlun
 ms.date: 11/20/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 34ba75b6126024c9cd43d6fe474f7c1b62dd990f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81453147"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principales différences entre Machine Learning Services dans Azure SQL Database (préversion) et Machine Learning Services dans SQL Server
