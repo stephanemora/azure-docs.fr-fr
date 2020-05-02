@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475247"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160220"
 ---
 # <a name="azure-media-services-concepts"></a>Concepts Azure Media Services 
 
@@ -111,7 +111,7 @@ Pour plus d’informations sur les encodeurs pris en charge, consultez la page [
 ## <a name="live-streaming"></a>Vidéo en flux continu
 Dans Azure Media Services, un canal représente un pipeline de traitement du contenu de diffusion en direct. Un canal reçoit des flux d’entrée en direct de l’une des deux manières suivantes :
 
-* Un encodeur en direct local envoie au canal un paquet RTMP ou Smooth Streaming (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs live suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Ateme, Imagine Communications, Envivio, Cisco et Elemental. Les encodeurs live suivants produisent un flux au format RTMP : Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision et Tricaster. Les flux reçus transitent par les canaux sans transcodage et encodage supplémentaires. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un encodeur en direct local envoie au canal un paquet RTMP ou Smooth Streaming (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs live suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Ateme, Imagine Communications, Envivio, Cisco et Elemental. Les encodeurs live suivants produisent un flux au format RTMP : Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek et Haivision. Les flux reçus transitent par les canaux sans transcodage et encodage supplémentaires. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 * Un flux à débit unique (dans l’un des formats suivants : RTMP ou Smooth Streaming [MP4 fragmenté]) est envoyé au canal qui est activé pour effectuer un encodage en direct avec Media Services. Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 ### <a name="channel"></a>Channel
@@ -192,7 +192,7 @@ Le téléchargement progressif vous permet de commencer la lecture multimédia a
 
 Pour fournir aux utilisateurs des URL de téléchargement progressif, vous devez d’abord créer un localisateur OnDemandOrigin. La création du localisateur vous donne le chemin d’accès de base à l’élément multimédia. Vous devez ensuite ajouter le nom du fichier MP4. Par exemple :
 
-http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+`http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
 ### <a name="streaming-urls"></a>URL de diffusion
 Diffusion en continu de votre contenu aux clients. Pour fournir aux utilisateurs des URL de diffusion en continu, vous devez d’abord créer un localisateur OnDemandOrigin. La création du localisateur vous donne le chemin d’accès de base à l’élément multimédia qui contient le contenu que vous souhaitez diffuser. Toutefois, pour pouvoir diffuser ce contenu vous devez modifier ce chemin d’accès. Pour construire une URL complète vers le fichier manifeste de diffusion en continu, vous devez concaténer la valeur de chemin d’accès du localisateur et le nom du fichier manifeste (nom_fichier.ISM). Ensuite, ajoutez /Manifest et un format approprié (si nécessaire) au chemin d’accès du localisateur.

@@ -36,8 +36,12 @@
       href: powershell-samples.md
 - name: Concepts
   items:
-    - name: Composants et limitations
-      href: concepts-limitations.md
+    - name: Components
+      href: components.md
+    - name: Concepts
+      href: concepts.md
+    - name: Types
+      href: types.md
     - name: Surveillance de l’intégrité
       items:
         - name: Sondes d’intégrité
@@ -64,7 +68,7 @@
       href: load-balancer-security-controls.md
 - name: Procédures
   items:
-    - name: Groupes identiques de machines virtuelles
+    - name: 'Groupes identiques de machines virtuelles '
       items:
         - name: Utiliser avec un équilibreur de charge Azure existant - Portail
           href: configure-vm-scale-set-portal.md
@@ -133,6 +137,8 @@
       items:
         - name: Résoudre les problèmes liés à Azure Load Balancer
           href: load-balancer-troubleshoot.md
+        - name: Résoudre les erreurs de déploiement courantes
+          href: load-balancer-common-deployment-errors.md
 - name: Informations de référence
   items:
     - name: Exemples de code

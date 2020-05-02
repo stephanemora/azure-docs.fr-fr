@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: 3d8f4a28961be7e0ece517e00026d9711d8f67e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/17/2020
+ms.openlocfilehash: 736653e82f753341fbbdfb795f229145bba96162
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198869"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188189"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimiser les travaux Apache Spark dans Azure HDInsight
 
-Découvrez comment optimiser la configuration de cluster [Apache Spark](https://spark.apache.org/) pour votre charge de travail.  La principale difficulté est une sollicitation trop importante de la mémoire, causée par une configuration incorrecte (en particulier, par des exécuteurs de taille non adaptée), des opérations longues et des tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources. Pour plus d’informations sur la prise en main d’Apache Spark sur HDInsight, consultez [Créer un cluster Apache Spark à l’aide de Portail Azure](apache-spark-jupyter-spark-sql-use-portal.md).
+Découvrez comment optimiser la configuration de cluster Apache Spark pour votre charge de travail.  Les difficultés les plus courantes concernent la sollicitation de la mémoire, en raison de configurations inappropriées (par exemple, des Exécuteurs de taille incorrecte) ainsi que les opérations durables et les tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark durables et consommatrices de ressources. Pour plus d’informations sur la prise en main d’Apache Spark sur HDInsight, consultez [Créer un cluster Apache Spark à l’aide de Portail Azure](apache-spark-jupyter-spark-sql-use-portal.md).
 
 Les sections suivantes décrivent des recommandations et des optimisations courantes de travaux Spark.
 
@@ -55,7 +55,7 @@ Le meilleur format du point de vue des performances est parquet avec *compressio
 
 ## <a name="select-default-storage"></a>Sélectionner le stockage par défaut
 
-Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azure ou Azure Data Lake Storage comme stockage par défaut de votre cluster. Les deux options offrent l’avantage d’un stockage à long terme pour les clusters temporaires. Ainsi, vos données ne sont pas supprimées automatiquement quand vous supprimez votre cluster. Vous pouvez recréer un cluster temporaire et encore accéder à vos données.
+Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azure ou Azure Data Lake Storage comme stockage par défaut de votre cluster. Les deux options vous permettent de bénéficier d’un stockage à long terme pour les clusters transitoires. Ainsi, vos données ne sont pas supprimées automatiquement lorsque vous supprimez votre cluster. Vous pouvez recréer un cluster temporaire et encore accéder à vos données.
 
 | Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d'utilisation |
 | --- | --- | --- | --- | --- |
@@ -63,13 +63,13 @@ Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azur
 | Stockage Blob Azure (sécurisé) | **wasbs:** //url/ | **Standard** | Oui | Cluster temporaire |
 | Azure Data Lake Storage Gen 2| **abfs:** //url/ | **Plus rapide** | Oui | Cluster temporaire |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **Plus rapide** | Oui | Cluster temporaire |
-| HDFS local | **hdfs:** //url/ | **Le plus rapide** | Non | Cluster 24/7 interactif |
+| HDFS local | **hdfs:** //url/ | **Le plus rapide** | Non  | Cluster 24/7 interactif |
 
-Pour obtenir une description complète des options de disponibles pour les clusters HDInsight, consultez [Comparer les options de stockage à utiliser avec les clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
+Pour obtenir une description complète des options de stockage, consultez [Comparer les options de stockage à utiliser avec les clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
 ## <a name="use-the-cache"></a>Utiliser le cache
 
-Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez utiliser par le biais de différentes méthodes telles que `.persist()`, `.cache()` et `CACHE TABLE`. Cette mise en cache native est efficace avec les petits jeux de données, ainsi que dans les pipelines ETL où vous devez mettre en cache des résultats intermédiaires. Toutefois, la mise en cache native de Spark ne fonctionne pas correctement avec le partitionnement, car une table mise en cache ne conserve pas les données de partitionnement. Une technique de mise en cache plus générique et plus fiable est *la mise en cache de la couche de stockage*.
+Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez utiliser par le biais de différentes méthodes telles que `.persist()`, `.cache()` et `CACHE TABLE`. Cette mise en cache native est efficace avec les petits jeux de données et dans les pipelines ETL où vous devez mettre en cache des résultats intermédiaires. Toutefois, la mise en cache native de Spark ne fonctionne pas correctement avec le partitionnement, car une table mise en cache ne conserve pas les données de partitionnement. Une technique de mise en cache plus générique et plus fiable est *la mise en cache de la couche de stockage*.
 
 * Mise en cache native de Spark (non recommandée)
     * Convient aux petits jeux de données
@@ -86,10 +86,10 @@ Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez u
 
 ## <a name="use-memory-efficiently"></a>Utiliser efficacement la mémoire
 
-Spark opère en plaçant les données en mémoire. La gestion des ressources en mémoire est donc un aspect clé de l’optimisation de l’exécution des travaux Spark.  Vous pouvez appliquer plusieurs techniques pour utiliser efficacement la mémoire de votre cluster.
+Spark fonctionne en plaçant les données en mémoire. La gestion des ressources en mémoire est donc un aspect clé de l’optimisation de l’exécution des travaux Spark.  Vous pouvez appliquer plusieurs techniques pour utiliser efficacement la mémoire de votre cluster.
 
 * Privilégiez les partitions de données de petite taille, et prenez en compte la taille, les types et la distribution des données dans votre stratégie de partitionnement.
-* Utilisez la [sérialisation des données Kryo](https://github.com/EsotericSoftware/kryo), plus récente et plus efficace, au lieu de la sérialisation Java par défaut.
+* Utilisez la sérialisation [`Kryo data serialization`](https://github.com/EsotericSoftware/kryo), plus récente et plus efficace, au lieu de la sérialisation Java par défaut.
 * Privilégiez l’utilisation de YARN, car il sépare `spark-submit` en lot.
 * Surveillez et affinez les paramètres de configuration de Spark.
 
@@ -97,7 +97,7 @@ Pour référence, la structure de la mémoire Spark et certains des principaux p
 
 ### <a name="spark-memory-considerations"></a>Considérations relatives à la mémoire Spark
 
-Si vous utilisez [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), celui-ci contrôle la somme maximale de mémoire utilisée par tous les conteneurs sur chaque nœud Spark.  Le diagramme suivant montre les objets clés et leurs relations.
+Si vous utilisez Apache Hadoop YARN, la plateforme contrôle la mémoire utilisée par tous les conteneurs sur chaque nœud Spark.  Le diagramme suivant montre les objets clés et leurs relations.
 
 ![Gestion de la mémoire Spark avec YARN](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
@@ -106,7 +106,7 @@ Pour éviter les messages « Mémoire insuffisante », essayez les solutions sui
 * Passez en revue les lectures aléatoires de gestion DAG. Réduisez par la réduction côté mappage, prépartitionnez (ou compartimentez) les données sources, optimisez les lectures aléatoires uniques, et réduisez la quantité de données envoyées.
 * Privilégiez `ReduceByKey` (avec sa limite de mémoire fixe) à `GroupByKey`, qui fournit des agrégations, le fenêtrage et d’autres fonctions, mais qui n’a pas de limite de mémoire.
 * Privilégiez `TreeReduce`, qui effectue plus de travail sur les partitions ou les exécuteurs, à `Reduce`, qui effectue tout le travail sur le pilote.
-* Tirez parti des DataFrames plutôt que des objets RDD de niveau inférieur.
+* Utilisez des DataFrames plutôt que des objets RDD de niveau inférieur.
 * Créez des ComplexTypes qui encapsulent des actions, telles que « N premiers », différentes agrégations ou opérations de fenêtrage.
 
 Pour obtenir des étapes supplémentaires de résolution des problèmes, consultez [Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
@@ -116,11 +116,11 @@ Pour obtenir des étapes supplémentaires de résolution des problèmes, consult
 Les travaux Spark étant distribués, une sérialisation des données appropriée est importante afin d’optimiser les performances.  Il existe deux options de sérialisation pour Spark :
 
 * La sérialisation Java est l’option par défaut.
-* La sérialisation Kryo est un format plus récent susceptible d’entraîner une sérialisation plus rapide et plus compacte que Java.  Kryo exige que vous inscriviez les classes dans votre programme, et il ne prend pas encore en charge tous les types sérialisables.
+* La sérialisation `Kryo` est un format plus récent susceptible d’entraîner une sérialisation plus rapide et plus compacte que Java.  `Kryo` requiert l’inscription des classes dans votre programme et ne prend pas encore en charge tous les types sérialisables.
 
 ## <a name="use-bucketing"></a>Utiliser la création de compartiments
 
-La création de compartiments est semblable au partitionnement des données, mais chaque compartiment peut contenir un ensemble de valeurs de colonne plutôt qu’une seule valeur. Elle fonctionne bien pour le partitionnement sur un grand nombre de valeurs (plusieurs millions, voire plus), telles que les identificateurs de produits. Un compartiment est déterminé en hachant la clé de compartiment de la ligne. Les tables compartimentées offrent des optimisations uniques, car elles stockent des métadonnées relatives à la façon dont elles ont été compartimentées et triées.
+La création de compartiments est semblable au partitionnement des données, mais chaque compartiment peut contenir un ensemble de valeurs de colonne plutôt qu’une seule valeur. Cette méthode fonctionne bien pour le partitionnement sur un grand nombre de valeurs (plusieurs millions, voire plus), telles que les identificateurs de produits. Un compartiment est déterminé en hachant la clé de compartiment de la ligne. Les tables compartimentées offrent des optimisations uniques, car elles stockent des métadonnées relatives à la façon dont elles ont été compartimentées et triées.
 
 Voici quelques fonctionnalités avancées offertes par les compartiments :
 
@@ -132,9 +132,9 @@ Vous pouvez utiliser le partitionnement et la création de compartiments en mêm
 
 ## <a name="optimize-joins-and-shuffles"></a>Optimiser les jointures et les lectures aléatoires
 
-Si vous avez des travaux lents sur une jointure ou une lecture aléatoire, la cause est probablement *l’asymétrie des données* des travaux. Par exemple, un travail de mappage peut prendre 20 secondes, mais l’exécution d’un travail où les données sont jointes ou assignées de manière aléatoire prend des heures. Pour corriger l’asymétrie des données, vous devez convertir l’intégralité de la clé en valeur salt, ou utiliser une *valeur salt isolée* pour uniquement un sous-ensemble de clés. Si vous utilisez une valeur salt isolée, vous devez effectuer un filtrage supplémentaire afin d’isoler votre sous-ensemble de clés salt dans les jointures de mappage. Une autre option consiste à introduire une colonne de compartiment et à pré-agréger d’abord dans les compartiments.
+Si vous avez des travaux lents sur une jointure ou une lecture aléatoire, la cause est probablement l’*asymétrie des données*. L’asymétrie des données désigne une asymétrie dans vos données de travail. Par exemple, un travail de mappage peut prendre 20 secondes, mais l’exécution d’un travail où les données sont jointes ou assignées de manière aléatoire prend des heures. Pour corriger l’asymétrie des données, vous devez convertir l’intégralité de la clé en valeur salt, ou utiliser une *valeur salt isolée* pour uniquement un sous-ensemble de clés. Si vous utilisez une valeur salt isolée, vous devez effectuer un filtrage supplémentaire afin d’isoler votre sous-ensemble de clés salt dans les jointures de mappage. Une autre option consiste à introduire une colonne de compartiment et à pré-agréger d’abord dans les compartiments.
 
-Un autre facteur pouvant ralentir les jointures est le type de jointure. Par défaut, Spark utilise le type de jointure `SortMerge`. Ce type de jointure convient parfaitement aux grands jeux de données, mais il est coûteux en terme de calcul car il doit d’abord trier les côtés gauche et droit des données avant de les fusionner.
+Un autre facteur pouvant ralentir les jointures est le type de jointure. Par défaut, Spark utilise le type de jointure `SortMerge`. Ce type de jointure convient parfaitement aux grands jeux de données, mais il est coûteux en terme de calcul, car il doit d’abord trier les côtés gauche et droit des données avant de les fusionner.
 
 Une jointure `Broadcast` est particulièrement adaptée aux petits jeux de données, ou quand un côté de la jointure est beaucoup plus petit que l’autre. Ce type de jointure diffuse un côté à tous les exécuteurs. Il exige donc davantage de mémoire pour les diffusions en général.
 
@@ -161,13 +161,15 @@ Pour gérer le parallélisme en cas de jointures cartésiennes, vous pouvez ajou
 
 ## <a name="customize-cluster-configuration"></a>Personnaliser la configuration du cluster
 
-En fonction de votre charge de travail de cluster Spark, vous pouvez déterminer qu’une configuration Spark autre que la configuration par défaut entraînerait une optimisation de l’exécution des travaux Spark.  Effectuez des tests d’évaluation avec des exemples de charges de travail afin de valider les configurations de cluster différentes des configurations par défaut.
+En fonction de la charge de travail de votre cluster Spark, vous pouvez déterminer qu’une configuration Spark autre que la configuration par défaut entraînerait une optimisation de l’exécution des travaux Spark.  Effectuez des tests d’évaluation avec des exemples de charges de travail afin de valider les configurations de cluster différentes des configurations par défaut.
 
 Voici quelques paramètres courants que vous pouvez ajuster :
 
-* `--num-executors` définit le nombre approprié d’exécuteurs.
-* `--executor-cores` définit le nombre de cœurs pour chaque exécuteur. En règle générale, vous devez avoir des exécuteurs de taille moyenne, car d’autres processus consomment une partie de la mémoire disponible.
-* `--executor-memory` définit la taille de la mémoire pour chaque exécuteur, ce qui contrôle la taille de segment de mémoire sur YARN. Vous devez conserver de la mémoire pour la surcharge d’exécution.
+|Paramètre |Description |
+|---|---|
+|--num-executors|Définit le nombre approprié d’Exécuteurs.|
+|--executor-cores|Définit le nombre de cœurs de chaque exécuteur. En règle générale, vous devez avoir des exécuteurs de taille moyenne, car d’autres processus consomment une partie de la mémoire disponible.|
+|--executor-memory|Définit la taille de la mémoire pour chaque Exécuteur, ce qui contrôle la taille de segment de mémoire sur YARN. Conservez de la mémoire pour la surcharge d’exécution.|
 
 ### <a name="select-the-correct-executor-size"></a>Sélectionner la taille d’exécuteur correcte
 
@@ -182,15 +184,15 @@ Lors du choix de votre configuration d’exécuteur, n’oubliez pas de prendre 
     2. Réduisez le nombre de connexions ouvertes entre les exécuteurs (N2) sur les clusters de grande taille (> 100 exécuteurs).
     3. Augmentez la taille de segment de mémoire afin de prendre en compte les tâches utilisant beaucoup de mémoire.
     4. Facultatif : réduisez la surcharge de mémoire par exécuteur.
-    5. Facultatif : augmentez l’utilisation et la concurrence en surabonnant le processeur.
+    5. Facultatif : augmentez l’utilisation et la concurrence en surabonnant l’UC.
 
-En règle générale, lors de la sélection de la taille d’exécuteur :
+En règle générale, lors de la sélection de la taille d’Exécuteur :
 
 1. Commencez avec 30 Go par exécuteur et distribuez les cœurs disponibles.
 2. Augmentez le nombre de cœurs d’exécuteur pour les clusters de grande taille (> 100 exécuteurs).
 3. Modifiez la taille en fonction des tests d’évaluation et de facteurs tels que la surcharge de garbage collection.
 
-Lors de l’exécution de requêtes simultanées, considérez les points suivants :
+Lors de l’exécution de requêtes simultanées, tenez compte des points suivants :
 
 1. Commencez avec 30 Go par exécuteur et tous les cœurs.
 2. Créez plusieurs applications Spark parallèles en surabonnant les UC (amélioration de la latence d’environ 30 %).
@@ -199,9 +201,9 @@ Lors de l’exécution de requêtes simultanées, considérez les points suivant
 
 Pour plus d’informations sur l’utilisation d’Ambari pour configurer des exécuteurs, consultez [Paramètres Apache Spark : exécuteurs Spark](apache-spark-settings.md#configuring-spark-executors).
 
-Surveillez les performances de vos requêtes afin de détecter les valeurs hors norme ou autres problèmes de performances, en examinant l’affichage de la chronologie, le graphique SQL, les statistiques des travaux, et ainsi de suite. Pour plus d’informations sur le débogage des travaux Spark à l’aide de YARN et du serveur d’historique Spark, consultez [Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight](apache-spark-job-debugging.md). Pour obtenir des conseils sur l’utilisation du serveur de chronologie YARN, consultez [Accéder aux journaux d’activité d’applications YARN Apache Hadoop](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Surveillez les performances des requêtes afin de détecter les valeurs hors norme ou autres problèmes de performances en examinant l’affichage de la chronologie, ainsi que le graphique SQL, les statistiques des travaux, et ainsi de suite. Pour plus d’informations sur le débogage des travaux Spark à l’aide de YARN et du serveur d’historique Spark, consultez [Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight](apache-spark-job-debugging.md). Pour obtenir des conseils sur l’utilisation du serveur de chronologie YARN, consultez [Accéder aux journaux d’activité d’applications YARN Apache Hadoop](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Parfois, un ou plusieurs exécuteurs sont plus lents que les autres, et l’exécution des tâches prend beaucoup plus de temps. Cela se produit fréquemment sur les clusters de grande taille (> 30 nœuds). Dans ce cas, répartissez le travail parmi un plus grand nombre de tâches afin que le planificateur puisse compenser cette lenteur. Par exemple, faites en sorte d’avoir au moins deux fois plus de tâches que le nombre de cœurs d’exécuteur dans l’application. Vous pouvez également activer l’exécution spéculative des tâches avec `conf: spark.speculation = true`.
+Parfois, un ou plusieurs exécuteurs sont plus lents que les autres, et l’exécution des tâches prend beaucoup plus de temps. Cette lenteur se produit fréquemment sur les clusters de grande taille (> 30 nœuds). Dans ce cas, répartissez le travail parmi un plus grand nombre de tâches afin que le planificateur puisse compenser cette lenteur. Par exemple, faites en sorte d’avoir au moins deux fois plus de tâches que le nombre de cœurs d’exécuteur dans l’application. Vous pouvez également activer l’exécution spéculative des tâches avec `conf: spark.speculation = true`.
 
 ## <a name="optimize-job-execution"></a>Optimiser l’exécution des travaux
 
@@ -224,7 +226,7 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 * [Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight](apache-spark-job-debugging.md)
 * [Gérer les ressources d’un cluster Apache Spark sur HDInsight](apache-spark-resource-manager.md)
-* [Utiliser l’API REST Apache Spark pour envoyer des travaux à distance à un cluster Apache Spark](apache-spark-livy-rest-interface.md)
+* [Configurer les paramètres d’Apache Spark](apache-spark-settings.md)
 * [Optimisation d’Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
 * [Guide pratique pour paramétrer vos travaux Apache Spark afin qu’ils fonctionnent](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
-* [Sérialisation Kryo](https://github.com/EsotericSoftware/kryo)
+* [`Kryo Serialization`](https://github.com/EsotericSoftware/kryo)

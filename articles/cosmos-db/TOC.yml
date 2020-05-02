@@ -697,6 +697,8 @@
               href: mongodb-feature-support-36.md
             - name: Prise en charge du protocole filaire (3.2)
               href: mongodb-feature-support.md
+            - name: Questions fréquentes (FAQ)
+              href: mongodb-api-faq.md
         - name: Guides pratiques
           items:
             - name: Guide de prémigration
@@ -763,6 +765,10 @@
           items:
             - name: 1 - Interroger les données
               href: tutorial-query-graph.md
+        - name: Concepts
+          items:
+            - name: Questions fréquentes (FAQ)
+              href: gremlin-api-faq.md
         - name: Guides pratiques
           items:
             - name: Modélisation des données de graphe
@@ -844,6 +850,10 @@
             - name: 'F#'
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
+        - name: Concepts
+          items:
+            - name: Questions fréquentes (FAQ)
+              href: table-api-faq.md
         - name: Guides pratiques
           items:
             - name: Générer des applications avec l’API Table

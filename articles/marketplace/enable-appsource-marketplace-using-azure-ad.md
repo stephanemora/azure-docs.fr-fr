@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286317"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160611"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
 
@@ -34,18 +34,18 @@ Aux différents [types d’offre et options de référencement](https://docs.mic
 | **Type d’offre**    | **Authentification unique Azure AD nécessaire ?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Me contacter | Version d’évaluation | Version d’évaluation | Transaction |
-| Machine virtuelle | N/A | Non | Non | Non |
+| Machine virtuelle | N/A | Non  | Non  | Non  |
 | Applications Azure ( modèle de solution)  | N/A | N/A | N/A | N/A |
-| Applications managées  | N/A | N/A | N/A | Non |
-| SaaS  | Non | Oui | Oui | Oui |
-| Containers  | N/A | N/A | N/A | Non |
-| Services de conseil  | Non | N/A | N/A | N/A |
+| Applications managées  | N/A | N/A | N/A | Non  |
+| SaaS  | Non  | Oui | Oui | Oui |
+| Containers  | N/A | N/A | N/A | Non  |
+| Services de conseil  | Non  | N/A | N/A | N/A |
 
 Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 ## <a name="azure-ad-integration"></a>Intégration Azure AD
 
-- Pour savoir comment activer l’authentification unique en intégrant Azure AD dans votre liste, consultez [Azure Active Directory pour les développeurs]( https://aka.ms/aaddev).
+- Pour savoir comment activer l’authentification unique en intégrant Azure AD dans votre liste, consultez [Azure Active Directory pour les développeurs]( https://docs.microsoft.com/azure/active-directory/develop/).
 - Pour obtenir des détails sur l’authentification unique Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="enable-a-trial-listing"></a>Activer une liste d’essai
@@ -87,5 +87,10 @@ Utilisez Azure AD pour permettre l’une des actions suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vérifiez que vous êtes [inscrit sur la Place de marché Azure](https://azuremarketplace.microsoft.com/sell).
-- Pour plus d’informations sur la façon de créer ou de compléter votre offre, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Si vous ne l’avez pas déjà fait, 
+
+- [En savoir plus](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
+
+Pour vous inscrire dans l’Espace partenaires, commencez à créer une offre ou à en utiliser une existante :
+
+- [Connectez-vous à l’Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
