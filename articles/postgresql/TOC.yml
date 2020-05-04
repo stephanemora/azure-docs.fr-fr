@@ -1,4 +1,4 @@
-- name: Base de données Azure pour les documents PostgreSQL
+- name: Documentation Azure DB pour PostgreSQL
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -167,6 +167,10 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Configuration du chiffrement SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: Continuité de l’activité
+          items:
+            - name: Sauvegarde et restauration
+              href: concepts-hyperscale-backup.md
         - name: Surveiller et régler
           items:
             - name: Surveiller et régler
@@ -273,6 +277,8 @@
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
+            - name: Validation du chiffrement des données
+              href: howto-data-encryption-validation.md
         - name: Redémarrer le serveur
           items:
             - name: Portail Azure

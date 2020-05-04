@@ -48,6 +48,8 @@
       href: authentication-requests-and-responses.md
     - name: Aide sur la limitation de requêtes Azure Key Vault
       href: overview-throttling.md
+    - name: Disponibilité et redondance d’Azure Key Vault
+      href: disaster-recovery-guidance.md
     - name: Points de terminaison de service de réseau virtuel pour Azure Key Vault - Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: Guides pratiques
@@ -92,6 +94,10 @@
           href: soft-delete-cli.md
         - name: Utiliser la suppression réversible avec Power​Shell
           href: soft-delete-powershell.md
+    - name: Déplacer un coffre de clés
+      items:
+        - name: Déplacer un coffre de clés dans une nouvelle région
+          href: keyvault-moveregion.md
     - name: Dépanner
       items:
         - name: Modifier l’ID de locataire d’un coffre de clés après un déplacement d’abonnement

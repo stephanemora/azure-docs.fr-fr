@@ -262,9 +262,11 @@
       items:
         - name: Utiliser les résultats
           href: search-pagination-page-layout.md
-        - name: Réglage de la pertinence (profils de scoring)
+        - name: Scoring de pertinence
+          href: index-similarity-and-scoring.md
+        - name: Profils de score
           href: index-add-scoring-profiles.md
-        - name: Réglage de la pertinence (algorithme de similarité)
+        - name: Algorithme de similarité
           href: index-ranking-similarity.md
     - name: Plan
       items:

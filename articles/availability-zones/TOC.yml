@@ -8,10 +8,12 @@
   items:
     - name: Haute disponibilité des applications Azure
       href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+    - name: Régions et zones de disponibilité
+      href: az-overview.md
     - name: Documentation sur les zones de disponibilité
       items:
-        - name: "Que sont les zones de disponibilité\_?"
-          href: az-overview.md
+        - name: Régions prenant en charge les zones de disponibilité
+          href: az-region.md
         - name: Machines virtuelles
           items:
             - name: "Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface\_CLI"
@@ -26,7 +28,7 @@
               href: '../virtual-machines/linux/add-disk.md#attach-a-new-disk-to-a-vm'
             - name: Ajouter un disque managé dans des zones de disponibilité avec PowerShell
               href: '../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine'
-        - name: Groupes identiques de machines virtuelles
+        - name: 'Groupes identiques de machines virtuelles '
           items:
             - name: Créer un groupe identique dans une zone de disponibilité
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
