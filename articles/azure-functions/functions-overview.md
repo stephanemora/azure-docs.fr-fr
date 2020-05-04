@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77621003"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Présentation d’Azure Functions
@@ -85,7 +85,7 @@ Pour plus d’informations sur les plans d’hébergement, consultez [Comparaiso
   Commencez avec [Visual Studio Code](functions-create-first-function-vs-code.md), la [ligne de commande](functions-create-first-azure-function-azure-cli.md) ou utilisez le [portail Azure](functions-create-first-azure-function.md).
 
 - [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-  fournit des informations techniques supplémentaires sur l’exécution d’Azure Functions, ainsi qu’une référence pour le codage de fonctions et la définition des déclencheurs et des liaisons.
+   fournit des informations techniques supplémentaires sur l’exécution d’Azure Functions, ainsi qu’une référence pour le codage de fonctions et la définition des déclencheurs et des liaisons.
 
 - [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
   Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins.

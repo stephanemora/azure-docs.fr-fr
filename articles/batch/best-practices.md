@@ -1,18 +1,14 @@
 ---
-title: Meilleures pratiques – Azure Batch
+title: Meilleures pratiques
 description: Découvrez les meilleures pratiques et des conseils utiles pour le développement de votre solution Azure Batch.
-author: LauraBrenner
-ms.author: labrenne
 ms.date: 04/03/2020
-ms.service: batch
 ms.topic: article
-manager: evansma
-ms.openlocfilehash: 94483f8e15b0cd90f76e369034e987bec6da127c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655844"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117503"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 

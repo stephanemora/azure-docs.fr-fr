@@ -109,7 +109,7 @@
           href: ../virtual-machines/windows/sizes-gpu.md
           maintainContext: true
           items:
-            - name: Configuration des pilotes GPU
+            - name: Configurer les pilotes GPU NVIDIA
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
         - name: Calcul haute performance
@@ -311,7 +311,7 @@
       items:
         - name: Linux
           href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
-        - name: Windows
+        - name: ' Windows'
           href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
