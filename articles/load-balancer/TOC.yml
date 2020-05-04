@@ -40,8 +40,6 @@
       href: components.md
     - name: Concepts
       href: concepts.md
-    - name: Types
-      href: types.md
     - name: Surveillance de l’intégrité
       items:
         - name: Sondes d’intégrité
