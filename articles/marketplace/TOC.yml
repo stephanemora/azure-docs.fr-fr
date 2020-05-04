@@ -449,6 +449,8 @@
           items:
             - name: Créer une offre d’application Azure
               href: ./partner-center-portal/create-new-azure-apps-offer.md
+            - name: Facturation des applications Azure basée sur des mesures
+              href: ./partner-center-portal/azure-app-metered-billing.md
             - name: Gestion des commentaires de révision
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API pour l’intégration
@@ -515,11 +517,6 @@
               href: ./partner-center-portal/create-new-saas-offer.md
             - name: Facturation à l’usage SaaS
               href: ./partner-center-portal/saas-metered-billing.md
-              items:
-                - name: API de service de mesure de la Place de marché - Questions fréquentes (FAQ)
-                  href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-                - name: API de service de mesure de la Place de marché
-                  href: ./partner-center-portal/marketplace-metering-service-apis.md
             - name: API de traitement SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -546,6 +543,14 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+        - name: Service de mesure de la Place de marché
+          items:
+            - name: Stratégies d’authentification
+              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+            - name: API de service de mesure de la Place de marché
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
+            - name: API de service de mesure de la Place de marché - Questions fréquentes (FAQ)
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: Tester votre offre
           href: ./partner-center-portal/test-drive.md
         - name: Option de co-vente
