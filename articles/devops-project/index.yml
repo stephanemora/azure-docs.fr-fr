@@ -1,30 +1,30 @@
 ### YamlMime:Landing
-title: Documentation Azure DevOps Projects
-summary: Azure DevOps Project présente une expérience simplifiée où vous apportez votre code et référentiel Git existants, ou choisissez parmi les exemples d’applications pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) vers Azure.
+title: Documentation Azure DevOps Starter
+summary: Azure DevOps Starter présente une expérience simplifiée où vous apportez votre code et dépôt Git existants, ou choisissez parmi les exemples d’applications pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) vers Azure.
 metadata:
-  title: Documentation Azure DevOps Projects
+  title: Documentation Azure DevOps Starter
   description: Apportez vos code et dépôt Git existants ou choisissez un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
-  ms.date: 03/05/2020
-  ms.openlocfilehash: f03a03b353ffa0d0562169a51a2552c2f2ab143b
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 03/24/2020
+  ms.openlocfilehash: 461d088f85f6845dfb9204381209b477b384a0be
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78942462"
+  ms.lasthandoff: 04/28/2020
+  ms.locfileid: "82231462"
 landingContent:
-- title: À propos d’Azure DevOps Projects
+- title: À propos d’Azure DevOps Starter
   linkLists:
   - linkListType: overview
     links:
-    - text: Présentation d’Azure DevOps Project
+    - text: Qu’est-ce qu’Azure DevOps Starter ?
       url: overview.md
   - linkListType: video
     links:
-    - text: Vidéo Créer CI/CD avec Azure DevOps Project (8:53)
+    - text: Vidéo sur la création de CI/CD avec Azure DevOps Starter (8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
 - title: Créer un pipeline CI/CD
   linkLists:

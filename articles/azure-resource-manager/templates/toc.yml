@@ -44,7 +44,7 @@
           href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Stratégie
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-        - name: Messagerie Service Bus
+        - name: "Messagerie Service Bus\_"
           href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: SQL Database
           href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -291,7 +291,7 @@
       items:
         - name: Toutes les fonctions
           href: template-functions.md
-        - name: Fonctions de tableau et d’objet
+        - name: Fonctions Tableau
           href: template-functions-array.md
         - name: Fonctions de comparaison
           href: template-functions-comparison.md
@@ -303,6 +303,8 @@
           href: template-functions-logical.md
         - name: Fonctions Numériques
           href: template-functions-numeric.md
+        - name: Fonctions d’objet
+          href: template-functions-object.md
         - name: Fonctions de ressource
           href: template-functions-resource.md
         - name: Fonctions de chaînes

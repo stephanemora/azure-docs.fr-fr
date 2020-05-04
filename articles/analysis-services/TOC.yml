@@ -43,6 +43,8 @@
       href: analysis-services-long-operations.md
     - name: Sources de données prises en charge
       href: analysis-services-datasource.md
+    - name: Questions fréquentes (FAQ) sur la connectivité réseau
+      href: analysis-services-network-faq.md
 - name: Procédures
   items:
     - name: Serveur

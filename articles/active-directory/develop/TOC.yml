@@ -103,7 +103,15 @@
   items:
     - name: Principes fondamentaux de l’authentification
       displayName: Auth basics
-      href: authentication-scenarios.md
+      items:
+        - name: Authentification ou autorisation
+          href: authentication-vs-authorization.md
+        - name: Jetons de sécurité
+          href: security-tokens.md
+        - name: Modèle d'application
+          href: application-model.md
+        - name: Flux de connexion des applications
+          href: app-sign-in-flow.md
     - name: Flux d’authentification et scénarios d’application
       displayName: Auth flows
       href: authentication-flows-app-scenarios.md
@@ -250,129 +258,120 @@
       items:
         - name: Vue d’ensemble
           href: msal-overview.md
-        - name: Comptes et profils de locataire - Android
-          href: accounts-overview.md
-        - name: Agents d’autorisation - Android
-          href: authorization-agents.md
-        - name: Authentification répartie - Android
-          href: brokered-auth.md
-        - name: Migration
+        - name: .NET
+          displayName: 'xamarin, ASP.NET Core'
           items:
-            - name: Vue d’ensemble
-              href: msal-migration.md
+            - name: Initialiser des applications
+              href: msal-net-initializing-client-applications.md
+            - name: Assertions de client
+              href: msal-net-client-assertions.md
+            - name: Intégrer avec Azure AD B2C
+              href: msal-net-aad-b2c-considerations.md
+            - name: Intégration avec ADFS
+              href: msal-net-adfs-support.md
             - name: Migrer vers MSAL.NET
               href: msal-net-migration.md
-            - name: Migrer vers MSAL.js
-              href: msal-compare-msal-js-and-adal-js.md
-            - name: Migrer vers MSAL.Android
-              href: migrate-android-adal-msal.md
-            - name: Migrer vers MSAL.iOS / macOS
-              href: migrate-objc-adal-msal.md
-            - name: Migrer vers MSAL Python
-              href: migrate-python-adal-msal.md
-            - name: Migrer vers MSAL pour Java
-              href: migrate-adal-msal-java.md
             - name: Migrer des applications Xamarin avec des répartiteurs vers MSAL.NET
               href: msal-net-migration-ios-broker.md
-        - name: Flux d’authentification pris en charge
-          href: msal-authentication-flows.md
-        - name: Applications clientes publiques monocomptes et multicomptes (Android)
-          href: single-multi-account.md
-        - name: Acquérir et mettre en cache des jetons
+            - name: Considérations sur le navigateur web
+              href: msal-net-web-browsers.md
+            - name: Gérer les erreurs et exceptions
+              href: msal-handling-exceptions.md?tabs=dotnet
+            - name: Journalisation
+              href: msal-logging.md?tabs=dotnet
+        - name: Android
           items:
+            - name: Comptes et profils de locataire
+              href: accounts-overview.md
+            - name: Agents d’autorisation
+              href: authorization-agents.md
+            - name: Authentification répartie
+              href: brokered-auth.md
+            - name: Intégrer avec Azure AD B2C
+              href: msal-android-b2c.md
+            - name: Migrer vers MSAL.Android
+              href: migrate-android-adal-msal.md
+            - name: Mode d’appareil partagé
+              href: msal-android-shared-devices.md
+              displayName: 'firstline worker, frontline worker, flw'
+            - name: Applications clientes publiques monocomptes et multicomptes
+              href: single-multi-account.md
+            - name: Journalisation
+              href: msal-logging.md?tabs=android
+        - name: iOS et macOS
+          items:
+            - name: Intégrer avec Azure AD B2C
+              href: 'config-authority.md#b2c'
+            - name: Migrer vers MSAL.iOS / macOS
+              href: migrate-objc-adal-msal.md
+            - name: Mode d’appareil partagé pour les appareils iOS
+              href: msal-ios-shared-devices.md
+              displayName: 'firstline worker, frontline worker, flw'
+            - name: Authentification unique entre les applications MSAL
+              href: single-sign-on-macos-ios.md
+            - name: Authentification unique entre les applications ADAL et MSAL
+              href: sso-between-adal-msal-apps-macos-ios.md
+            - name: "Résoudre les problèmes SSL (MSAL\_iOS/macOS)"
+              href: ssl-issues.md
+            - name: Gérer les erreurs et exceptions
+              href: msal-handling-exceptions.md?tabs=iosmacos
+            - name: Journalisation
+              href: msal-logging.md?tabs=swift
+        - name: Java
+          items:
+            - name: Migrer vers MSAL pour Java
+              href: migrate-adal-msal-java.md
+            - name: Prise en charge ADFS dans MSAL pour Java
+              href: msal-java-adfs-support.md
+            - name: Gérer les erreurs et exceptions
+              href: msal-handling-exceptions.md?tabs=java
+            - name: Journalisation
+              href: msal-logging.md?tabs=java
+        - name: JavaScript et Node.js
+          items:
+            - name: Initialiser des applications - JavaScript
+              href: msal-js-initializing-client-applications.md
+            - name: Intégrer avec Azure AD B2C
+              href: msal-b2c-overview.md
+            - name: Migrer vers MSAL.js
+              href: msal-compare-msal-js-and-adal-js.md
+            - name: Authentification unique avec MSAL.js
+              href: msal-js-sso.md
+            - name: Considérations - IE
+              href: msal-js-use-ie-browser.md
+            - name: Problèmes connus - Internet Explorer et Microsoft Edge
+              href: msal-js-known-issues-ie-edge-browsers.md
+            - name: Problèmes connus - Safari
+              href: msal-js-known-issues-safari-browser.md
+            - name: Gérer les erreurs et exceptions
+              href: msal-handling-exceptions.md?tabs=javascript
+            - name: Journalisation
+              href: msal-logging.md?tabs=javascript
+        - name: Python
+          items:
+            - name: Migrer vers MSAL Python
+              href: migrate-python-adal-msal.md
+            - name: Prise en charge ADFS dans MSAL pour Python
+              href: msal-python-adfs-support.md
+            - name: Gérer les erreurs et exceptions
+              href: msal-handling-exceptions.md?tabs=python
+            - name: Journalisation
+              href: msal-logging.md?tabs=python
+        - Name: Toutes les plateformes
+          items:
+            - name: Flux d’authentification pris en charge
+              href: msal-authentication-flows.md
             - name: Acquérir et mettre en cache des jetons
               href: msal-acquire-cache-tokens.md
-            - name: Étendues pour les applications v1.0
-              href: msal-v1-app-scopes.md
-        - name: Applications clientes
-          displayName: Client apps
-          items:
-            - name: Configurer une revendication de rôle
-              href: active-directory-enterprise-app-role-management.md
-            - name: Personnaliser des revendications - Portail
-              href: active-directory-saml-claims-customization.md
-            - name: Personnaliser des revendications - PowerShell
-              href: active-directory-claims-mapping.md
-            - name: Configurer des revendications facultatives
-              href: active-directory-optional-claims.md
-            - name: Configurer les durées de vie des jetons
-              href: active-directory-configurable-token-lifetimes.md
-            - name: Gérer les changements de cookie SameSite dans le navigateur Chrome
-              href: howto-handle-samesite-cookie-changes-chrome-browser.md
-        - name: Configuration de l’application
-          displayName: App configuration
-          items:
-            - name: Applications clientes
+            - name: Applications clientes publiques et confidentielles
               href: msal-client-applications.md
             - name: Configuration de l’application
               href: msal-client-application-configuration.md
-            - name: Initialiser des applications - .NET
-              href: msal-net-initializing-client-applications.md
-            - name: Assertions de client - .NET
-              href: msal-net-client-assertions.md
-            - name: Initialiser des applications - JavaScript
-              href: msal-js-initializing-client-applications.md
-        - name: Gérer les erreurs et exceptions
-          href: msal-handling-exceptions.md
-        - name: Journalisation
-          href: msal-logging.md
-        - name: Appareils partagés
-          items:
-            - name: Vue d’ensemble des appareils partagés
+            - name: Appareils partagés
               href: msal-shared-devices.md
-              displayName: 'shared device mode, firstline worker, frontline worker'
-            - name: Mode d’appareil partagé pour les appareils iOS
-              href: msal-ios-shared-devices.md
-              displayName: 'firstline worker, frontline worker'
-            - name: Mode d’appareil partagé pour les appareils Android
-              href: msal-android-shared-devices.md
-              displayName: 'firstline worker, frontline worker'
-        - name: Authentification unique
-          displayName: SSO
-          items:
-            - name: Authentification unique avec MSAL.js
-              href: msal-js-sso.md
-            - name: Authentification unique avec MSAL pour iOS et macOS
-              items:
-                - name: Authentification unique entre les applications MSAL
-                  href: single-sign-on-macos-ios.md
-                - name: Authentification unique entre les applications ADAL et MSAL
-                  href: sso-between-adal-msal-apps-macos-ios.md
-        - name: Intégration avec ADFS
-          displayName: Active Directory Federation Services
-          items:
-            - name: Prise en charge d’ADFS dans MSAL.NET
-              href: msal-net-adfs-support.md
-            - name: Prise en charge ADFS dans MSAL pour Python
-              href: msal-python-adfs-support.md
-            - name: Prise en charge ADFS dans MSAL pour Java
-              href: msal-java-adfs-support.md
-        - name: Intégrer avec Azure AD B2C
-          items:
-            - name: Android
-              href: msal-android-b2c.md
-            - name: JavaScript
-              href: msal-b2c-overview.md
-            - name: .NET
-              href: msal-net-aad-b2c-considerations.md
-            - name: iOS et macOS
-              href: 'config-authority.md#b2c'
-        - name: Considérations et problèmes connus
-          items:
-            - name: MSAL.NET
-              items:
-                - name: Navigateurs web
-                  href: msal-net-web-browsers.md
-            - name: MSAL.js
-              items:
-                - name: Considérations - IE
-                  href: msal-js-use-ie-browser.md
-                - name: Problèmes connus - Internet Explorer et Microsoft Edge
-                  href: msal-js-known-issues-ie-edge-browsers.md
-                - name: Problèmes connus - Safari
-                  href: msal-js-known-issues-safari-browser.md
-            - name: "Résoudre les problèmes SSL (MSAL\_iOS/macOS)"
-              href: ssl-issues.md
+              displayName: 'shared device mode, firstline worker, frontline worker, flw'
+            - name: Gérer les changements de cookie SameSite dans le navigateur Chrome
+              href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Protocoles d’authentification
       displayName: Auth protocol
       items:
@@ -457,9 +456,13 @@
     - name: Provisionnement automatique des utilisateurs (SCIM)
       items:
         - name: "Qu’est-ce que le provisionnement utilisateur automatique\_?"
-          href: /azure/active-directory/manage-apps/user-provisioning
-        - name: Création et intégration d’un point de terminaison SCIM
-          href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
+          href: /azure/active-directory/app-provisioning/user-provisioning
+        - name: Développer et intégrer un point de terminaison SCIM
+          href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+        - name: Scénarios courants de provisionnement
+          href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+        - name: Automatiser la configuration avec MS Graph
+          href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
 - name: Guides pratiques
   items:
     - name: Authentification

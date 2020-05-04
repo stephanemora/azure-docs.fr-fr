@@ -4,6 +4,8 @@
   items:
     - name: "Qu’est-ce qu’Azure Front Door\_?"
       href: front-door-overview.md
+    - name: Nouveautés d’Azure Front Door
+      href: front-door-whats-new.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -17,6 +19,8 @@
       href: front-door-custom-domain-https.md
     - name: Configurer une stratégie de filtrage géographique pour votre porte d’entrée
       href: front-door-tutorial-geo-filtering.md
+    - name: Configurer un moteur de règles
+      href: front-door-tutorial-rules-engine.md
 - name: Exemples
   items:
     - name: Modèles de Gestionnaire des ressources
@@ -53,6 +57,12 @@
       href: front-door-url-redirect.md
     - name: Domaine générique
       href: front-door-wildcard-domain.md
+    - name: Moteur de règles
+      href: front-door-rules-engine.md
+    - name: Conditions de correspondance du moteur de règles
+      href: front-door-rules-engine-match-conditions.md
+    - name: Actions du moteur de règles
+      href: front-door-rules-engine-actions.md
 - name: Guides pratiques
   items:
     - name: Rediriger le trafic
