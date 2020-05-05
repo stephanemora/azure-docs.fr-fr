@@ -1,18 +1,19 @@
-- name: Benchmarks de sécurité Azure
+- name: Benchmark de sécurité Azure
   href: index.yml
 - name: Introduction
   href: introduction.md
 - name: Security Controls
+  expanded: true
   items:
     - name: Vue d’ensemble des contrôles de sécurité Azure
       href: overview.md
-    - name: Sécurité réseau
+    - name: Sécurité du réseau
       href: security-control-network-security.md
-    - name: Journalisation et supervision
+    - name: Enregistrement et surveillance
       href: security-control-logging-monitoring.md
     - name: Contrôle des accès et des identités
       href: security-control-identity-access-control.md
-    - name: Protection des données
+    - name: Protection de données
       href: security-control-data-protection.md
     - name: Gestion des vulnérabilités
       href: security-control-vulnerability-management.md
@@ -22,15 +23,15 @@
       href: security-control-secure-configuration.md
     - name: Défense contre les programmes malveillants
       href: security-control-malware-defense.md
-    - name: Récupération des données
+    - name: Récupération de données
       href: security-control-data-recovery.md
     - name: Réponse aux incidents
       href: security-control-incident-response.md
     - name: Tests d’intrusion et exercices Red Team
       href: security-control-penetration-tests-red-team-exercises.md
-- name: Bases de référence de la sécurité
+- name: Bases de référence de la sécurité pour Azure
   items:
-    - name: Vue d’ensemble des bases de référence de la sécurité Azure
+    - name: Vue d’ensemble des bases de référence de la sécurité pour Azure
       href: security-baselines-overview.md
     - name: Base de référence de la sécurité Azure Cache pour Redis
       href: ../../azure-cache-for-redis/security-baseline.md

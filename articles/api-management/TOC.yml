@@ -101,10 +101,12 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Approvisionner une passerelle auto-hébergée
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Déployer une passerelle auto-hébergée sur Azure Kubernetes Service
+          href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Déployer une passerelle auto-hébergée sur Kubernetes
-          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+          href: how-to-deploy-self-hosted-gateway-kubernetes.md
         - name: Déployer une passerelle auto-hébergée sur Docker
-          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+          href: how-to-deploy-self-hosted-gateway-docker.md
         - name: Configurer un domaine personnalisé pour une passerelle auto-hébergée
           href: api-management-howto-configure-custom-domain-gateway.md
     - name: Cache
@@ -209,12 +211,20 @@
           href: api-management-transformation-policies.md
     - name: Gérer en production
       items:
+        - name: Exporter des API vers Power Platform
+          href: export-api-power-platform.md
         - name: Gérer les groupes
           href: api-management-howto-create-groups.md
         - name: Récupérer les adresses IP
           href: api-management-howto-ip-addresses.md
         - name: Journaliser les événements dans Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
+        - name: Enregistrer des requêtes avec Azure Application Insights
+          href: api-management-howto-app-insights.md
+        - name: Configurer les journaux et les métriques cloud pour une passerelle auto-hébergée
+          href: how-to-configure-cloud-metrics-logs.md
+        - name: Configurer les journaux et les métriques locaux pour une passerelle auto-hébergée
+          href: how-to-configure-local-metrics-logs.md
         - name: Enregistrer des requêtes avec Azure Application Insights
           href: api-management-howto-app-insights.md
         - name: Installer la récupération d’urgence à l’aide de la sauvegarde/restauration

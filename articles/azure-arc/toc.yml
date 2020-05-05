@@ -4,6 +4,11 @@
   items:
     - name: "Qu’est-ce qu’Azure Arc pour les serveurs\_?"
       href: ./servers/overview.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md
 - name: Guides pratiques
   items:
     - name: "Se connecter à Azure\_Arc"

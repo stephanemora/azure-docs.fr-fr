@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: "À partir d’un runbook\_Automation"
                   href: automation-onboard-solutions.md
-            - name: Afficher le contenu des fichiers suivis
+            - name: Gérer Change Tracking et Inventory
               href: change-tracking-file-contents.md
             - name: Gérer une collecte de données d’inventaire à partir de machines virtuelles
               href: automation-vm-inventory.md
@@ -226,11 +226,11 @@
           href: automation-view-update-assessments.md
         - name: Gérer les pré-scripts et les post-scripts
           href: pre-post-scripts.md
-        - name: Intégreravec Configuration Manager
+        - name: Intégrer avec Configuration Manager
           href: updatemgmt-mecmintegration.md
         - name: Configurer le client Windows Update
           href: automation-configure-windows-update.md
-        - name: Utilisation de groupes dynamiques
+        - name: Utiliser des groupes dynamiques
           href: automation-update-management-groups.md
         - name: Interroger les journaux Update Management
           href: automation-update-management-query-logs.md

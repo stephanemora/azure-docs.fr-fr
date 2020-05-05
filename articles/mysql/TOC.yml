@@ -9,12 +9,19 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer une base de données - Portail
-      href: quickstart-create-mysql-server-database-using-azure-portal.md
-    - name: Créer une base de données - Interface de ligne de commande Azure
-      href: quickstart-create-mysql-server-database-using-azure-cli.md
-    - name: Créer une base de données - Commande up Azure CLI
-      href: quickstart-create-server-up-azure-cli.md
+    - name: Créer une base de données
+      items:
+        - name: Créer une base de données - Portail
+          href: quickstart-create-mysql-server-database-using-azure-portal.md
+        - name: Créer une base de données - Interface de ligne de commande Azure
+          href: quickstart-create-mysql-server-database-using-azure-cli.md
+        - name: Créer une base de données - Commande up Azure CLI
+          href: quickstart-create-server-up-azure-cli.md
+        - name: Créer une base de données - Azure PowerShell
+          href: quickstart-create-mysql-server-database-using-azure-powershell.md
+        - name: Créer une base de données - Modèle ARM
+          href: quickstart-create-mysql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
     - name: Connexion et requête
       items:
         - name: PHP
@@ -43,6 +50,8 @@
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
         - name: "Modèle Azure\_Resource\_Manager"
           href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
     - name: 2 - Créer une application web
@@ -160,6 +169,8 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: Migrer une base de données
       items:
         - name: Vider et restaurer
@@ -186,12 +197,16 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: Augmenter automatiquement le stockage
       items:
         - name: Portail Azure
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: Accéder aux journaux d’activité du serveur
       items:
         - name: Journaux des requêtes lentes
@@ -218,6 +233,8 @@
           href: howto-read-replicas-portal.md
         - name: 'Créer des réplicas en lecture avec Azure CLI, l’API REST'
           href: howto-read-replicas-cli.md
+        - name: Créer des réplicas en lecture Azure PowerShell
+          href: howto-read-replicas-powershell.md
     - name: Dépanner
       items:
         - name: Résoudre les erreurs de connexion
@@ -250,6 +267,8 @@
           href: howto-data-encryption-portal.md
         - name: Azure CLI
           href: howto-data-encryption-cli.md
+        - name: Validation du chiffrement des données
+          href: howto-data-encryption-validation.md
     - name: Intégration Azure AD
       items:
         - name: Configurer l’intégration d’Azure AD
@@ -264,6 +283,8 @@
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: Informations de référence
   items:
     - name: Azure CLI
