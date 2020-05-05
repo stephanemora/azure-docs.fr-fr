@@ -1,25 +1,19 @@
 ---
-title: Sécuriser et utiliser des stratégies sur vos machines virtuelles Linux dans Azure
-description: Découvrez-en plus sur la sécurité et les stratégies pour les machines virtuelles et Linux dans Azure.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Sécuriser et utiliser des stratégies
+description: Découvrez-en plus sur la sécurité et les stratégies pour les machines virtuelles dans Azure.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 9cd31d39d2881aebf83d5b40aa826433de5d0993
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 131b552e6f330cdbce87a35ae45a3e8f38f3fda1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74035058"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81758541"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Sécuriser et utiliser des stratégies sur des machines virtuelles dans Azure
 

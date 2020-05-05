@@ -1,18 +1,18 @@
 ---
-title: Services Go-To-Market - Bonnes pratiques marketing | Azure
+title: Services Go-To-Market – Bonnes pratiques marketing | Place de marché Azure
 description: 'Go-To-Market Services : cette section décrit les bonnes pratiques marketing pour les éditeurs de la Place de marché Microsoft Azure'
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 6/24/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 2926752884576bcf3a7a15d68eecb6f1248f7e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e874343b5bb38928ae2fc429d901d8f7ec163580
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286266"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81684596"
 ---
 # <a name="marketing-best-practices"></a>Meilleures pratiques marketing
 
@@ -22,6 +22,6 @@ Une liste de places de marché optimisées et des campagnes de commercialisation
 
 Pour en savoir plus sur les services GTM de la place de marché, consultez [Services de commercialisation](https://partner.microsoft.com/reach-customers/gtm).
 
-Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com) pour créer et configurer votre offre.
+Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer et configurer votre offre.
 
 ---

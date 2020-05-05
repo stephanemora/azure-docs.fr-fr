@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417779"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81679999"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrer vos déploiements de mises à jour OMS vers Azure
 
-Le portail Operations Management Suite (OMS) est en cours de [dépréciation](../azure-monitor/platform/oms-portal-transition.md). Toutes les fonctionnalités qui étaient disponibles dans le portail OMS pour Update Management sont disponibles dans le portail Azure. Cet article fournit les informations nécessaires pour migrer vers le portail Azure.
+Le portail Operations Management Suite (OMS) est en cours de [dépréciation](../azure-monitor/platform/oms-portal-transition.md). Toutes les fonctionnalités qui étaient disponibles dans le portail OMS pour Update Management sont disponibles dans le portail Azure, par le biais des journaux Azure Monitor. Cet article fournit les informations nécessaires pour migrer vers le portail Azure.
 
 ## <a name="key-information"></a>Informations essentielles
 
@@ -23,7 +23,7 @@ Le portail Operations Management Suite (OMS) est en cours de [dépréciation](..
 
 ## <a name="access-the-azure-portal"></a>Accéder au portail Azure
 
-À partir de votre espace de travail OMS, cliquez sur **Ouvrir dans Azure**. Vous accédez alors à l’espace de travail Log Analytics qui était utilisé par OMS.
+À partir de votre espace de travail OMS, cliquez sur **Ouvrir dans Azure**. Cette sélection vous permet d’accéder à l’espace de travail Log Analytics utilisé par OMS.
 
 ![Ouvrir dans Azure - Portail OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -31,11 +31,13 @@ Dans le portail Azure, cliquez sur **Compte Automation**.
 
 ![Journaux d’activité Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
 
-Dans votre compte Automation, cliquez sur **Update Management** pour ouvrir Update Management.
+Dans votre compte Automation, cliquez sur **Update Management**.
 
 ![Update Management](media/migrate-oms-update-deployments/azure-automation.png)
 
-À l’avenir, vous pouvez accédez directement au portail Azure. Sous **Tous les services**, sélectionnez **Comptes Automation** sous **Outils de gestion**, sélectionnez le compte Automation approprié, puis cliquez sur **Update Management**.
+Dans le portail Azure, sélectionnez **Comptes Automation** sous **Tous les services**. 
+
+Sous **Outils de gestion**, sélectionnez le compte Automation approprié, puis cliquez sur **Update Management**.
 
 ## <a name="recreate-existing-deployments"></a>Recréer des déploiements existants
 
@@ -49,13 +51,13 @@ Pour créer un déploiement de mises à jour, accédez au portail Azure, sélect
 
 ![Planifier le déploiement de la mise à jour](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-Le volet **Nouveau déploiement de mises à jour** s’ouvre. Entrez les valeurs des propriétés décrites dans le tableau suivant, puis cliquez sur **Créer** :
+Le volet Nouveau déploiement de mises à jour s’ouvre. Entrez les valeurs des propriétés décrites dans le tableau suivant, puis cliquez sur **Créer** :
 
-Pour les ordinateurs à mettre à jour, sélectionnez la recherche enregistrée utilisée par le déploiement OMS existant.
+Pour les **ordinateurs à mettre à jour**, sélectionnez la recherche enregistrée utilisée par le déploiement OMS existant.
 
 | Propriété | Description |
 | --- | --- |
-|Name |Nom unique identifiant le déploiement de mises à jour. |
+|Nom |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Sélectionnez **Linux** ou **Windows**.|
 |Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md). |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin. CentOS ne prend pas directement en charge cette fonction.|

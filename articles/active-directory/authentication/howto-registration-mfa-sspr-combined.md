@@ -1,38 +1,30 @@
 ---
 title: Prendre en main l'inscription combinée - Azure Active Directory
-description: Activez l’authentification multifacteur et l’inscription à la réinitialisation de mot de passe en libre-service Azure AD combinée (préversion publique)
+description: Activez l’inscription combinée à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 04/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry, calebb
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e22871114f260417e8a1514546c88ec4541064a4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 466b063253ee49ab58c2685f359b4bb8a4079532
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309750"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81639697"
 ---
-# <a name="enable-combined-security-information-registration-preview"></a>Activer l’inscription d’informations de sécurité combinée (préversion)
+# <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Activation de l’inscription combinée des informations de sécurité dans Azure Active Directory
 
-Avant d’activer la nouvelle expérience, consultez l’article [Inscription d’informations de sécurité combinée (préversion)](concept-registration-mfa-sspr-combined.md) afin de bien comprendre les fonctionnalités et les effets de cette fonctionnalité.
+Avant l’inscription combinée, les utilisateurs s’inscrivaient séparément à des méthodes d’authentification pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR). Certains étaient troublés par le fait que des méthodes similaires servaient pour l’authentification multifacteur et la réinitialisation SSPR, mais qu’ils devaient s’inscrire aux deux fonctionnalités. Désormais, avec l’inscription combinée, les utilisateurs peuvent s’inscrire une seule fois et bénéficier des avantages de l’authentification multifacteur et de la réinitialisation SSPR.
+
+Avant d’activer la nouvelle expérience, consultez l’article [Inscription combinée des informations de sécurité](concept-registration-mfa-sspr-combined.md) pour bien comprendre ses fonctionnalités et ses effets.
 
 ![Amélioration de l’expérience d’inscription d’informations de sécurité combinée](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
-
-|     |
-| --- |
-| L’inscription d’informations de sécurité combinée pour la réinitialisation de mot de passe en libre-service Azure Active Directory (Azure AD) et l’authentification multifacteur Azure est une fonctionnalité en préversion publique d’Azure AD. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-> [!NOTE]
-> Les organisations qui ont activé la préversion précédente pour l’inscription et la gestion d’informations de sécurité doivent effectuer les étapes ci-dessous pour activer l’expérience de préversion améliorée. Pour les organisations qui n’opèrent pas le changement, le 8 octobre 2019, Microsoft fera basculer les utilisateurs de la préversion précédente pour l’inscription et la gestion d’informations de sécurité dans l’expérience améliorée. 
-> 
-> Si vous n’avez activé aucune préversion, votre organisation ne sera pas impactée.
 
 ## <a name="enable-combined-registration"></a>Activer une inscription combinée
 
@@ -43,9 +35,6 @@ Procédez comme suit pour activer l’inscription combinée :
 3. Sous **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité**, choisissez d’autoriser un groupe **sélectionné** d’utilisateurs ou **Tous** les utilisateurs.
 
    ![Activer l’expérience en préversion des informations de sécurité combinée pour tous les utilisateurs](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
-
-> [!IMPORTANT]
-> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les options d’appels téléphoniques resteront disponibles pour les utilisateurs de locataires Azure AD payants.
 
 > [!NOTE]
 > Une fois que vous activez l’inscription combinée, les utilisateurs qui inscrivent ou confirment leur numéro de téléphone ou une application mobile via celle-ci ont la possibilité d’utiliser aussi bien le numéro que l’application pour l’authentification MFA et la réinitialisation SSPR, si ces méthodes sont activées dans les stratégies MFA et SSPR. Si vous désactivez cette expérience par la suite, les utilisateurs qui accèdent à la précédente page d’inscription SSPR à l’adresse `https://aka.ms/ssprsetup` doivent effectuer une authentification multifacteur.
@@ -58,45 +47,41 @@ Si vous avez configuré la liste Affectation site à zone dans Internet Explorer
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Stratégies d’accès conditionnel pour l’inscription combinée
 
-La sécurisation de l’inscription des utilisateurs pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service est désormais possible avec les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité en préversion est à la disposition des organisations qui ont activé l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité peut être activée dans les organisations qui souhaitent que les utilisateurs s’inscrivent à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service depuis un emplacement central, tel qu’un emplacement réseau approuvé pendant l’intégration de ressources humaines. Pour plus d’informations sur la création d’emplacements approuvés dans l’accès conditionnel, consultez l’article [Qu’est-ce que la condition d’emplacement de l’accès conditionnel Azure Active Directory ?](../conditional-access/location-condition.md#named-locations)
+La sécurisation de l’inscription des utilisateurs pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service est désormais possible avec les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité est accessible aux organisations qui ont activé la [fonctionnalité d’inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité peut être activée dans les organisations qui souhaitent que les utilisateurs s’inscrivent à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service depuis un emplacement central, tel qu’un emplacement réseau approuvé pendant l’intégration de ressources humaines.
+
+Pour plus d’informations sur la création d’emplacements approuvés dans l’accès conditionnel, consultez l’article [Qu’est-ce que la condition d’emplacement de l’accès conditionnel Azure Active Directory ?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Créer une stratégie pour exiger l’inscription à partir d’un emplacement approuvé
 
-La stratégie suivante s’applique à tous les utilisateurs sélectionnés, qui tentent de s’inscrire à l’aide de l’expérience d’inscription combinée et bloque l’accès, sauf si ces derniers se connectent à partir d’un emplacement réseau approuvé.
-
-![Créer une stratégie d’accès conditionnel pour contrôler l’inscription d’informations de sécurité](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+La stratégie suivante s’applique à tous les utilisateurs sélectionnés qui tentent de s’inscrire à l’aide de l’expérience d’inscription combinée ; elle leur bloque l’accès sauf s’ils se connectent à partir d’un emplacement réseau approuvé.
 
 1. Dans le portail **Azure**, accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel**.
-1. Sélectionnez **Nouvelle stratégie**.
-1. Sous Nom, entrez un nom pour cette stratégie. Par exemple, **Inscription d’informations de sécurité combinée sur les réseaux approuvés**
-1. Sous **Affectations**, cliquez sur **Utilisateurs et groupes**, puis sélectionnez les utilisateurs et les groupes auxquels vous souhaitez appliquer cette stratégie
+1. Sélectionnez **+ Nouvelle stratégie**.
+1. Donnez un nom à cette stratégie, par exemple *Inscription combinée des informations de sécurité sur les réseaux approuvés*.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**. Choisissez les utilisateurs et les groupes auxquels vous souhaitez appliquer cette stratégie, puis sélectionnez **Terminé**.
 
    > [!WARNING]
-   > Les utilisateurs doivent être activés pour l’[inscription combinée en préversion](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Les utilisateurs doivent avoir activé l’inscription combinée.
 
-1. Sous **Applications cloud ou actions**, sélectionnez **Actions utilisateur**, cochez **Inscrire des informations de sécurité (préversion)**
-1. Sous **Conditions** > **Emplacements**
+1. Sous **Applications ou actions cloud**, sélectionnez **Actions utilisateurs**. Cochez **Inscrire les informations de sécurité**, puis sélectionnez **Terminé**.
+
+    ![Création d’une stratégie d’accès conditionnel personnalisée pour contrôler l’inscription des informations de sécurité](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+
+1. Sous **Conditions** > **Emplacements**, configurez les options suivantes :
    1. Configurer **Oui**
    1. Inclure **N’importe quel emplacement**
    1. Exclure **Tous les emplacements approuvés**
-   1. Cliquez sur **Terminé** dans le panneau des emplacements
-   1. Cliquez sur **Terminé** dans le panneau des conditions
-1. Sous **Contrôles d’accès** > **Octroyer**
-   1. Cliquez sur **Bloquer l’accès**.
-   1. Puis sur **Sélectionner**.
+1. Sélectionnez **Terminé** dans la fenêtre *Emplacements*, puis **Terminé** dans la fenêtre *Conditions*.
+1. Sous **Contrôles d’accès** > **Accorder**, choisissez **Bloquer l’accès**, puis **Sélectionner**.
 1. Définissez l’option **Appliquer la stratégie** sur **Activé**.
-1. Puis, cliquez sur **Créer**
+1. Pour finaliser la stratégie, sélectionnez **Créer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Obliger les utilisateurs à réinscrire les méthodes d’authentification](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+Si vous avez besoin d’aide, consultez [Résolution des problèmes liés à l’inscription combinée des informations de sécurité](howto-registration-mfa-sspr-combined-troubleshoot.md) ou [Présentation de la condition d’emplacement dans l’accès conditionnel Azure Active Directory](../conditional-access/location-condition.md).
 
-[Méthodes disponibles pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service](concept-authentication-methods.md)
+Pour activer les fonctionnalités de votre locataire Azure AD, consultez les tutoriels [Activation de la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md) et [Activation d’Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-[Configurer la réinitialisation du mot de passe en libre-service](howto-sspr-deployment.md)
+Découvrez comment [activer l’inscription combinée dans votre locataire](howto-registration-mfa-sspr-combined.md) ou [obliger les utilisateurs à se réinscrire à certaines méthodes d’authentification](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-[Configurer Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-
-[Résoudre les problèmes d’inscription d’informations de sécurité combinée](howto-registration-mfa-sspr-combined-troubleshoot.md)
-
-[Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ?](../conditional-access/location-condition.md)
+Vous pouvez également consulter les [méthodes disponibles pour Azure Multi-Factor Authentication et SSPR](concept-authentication-methods.md).

@@ -1,30 +1,30 @@
 ---
-title: Fichier Include
+title: Fichier include
 titleSuffix: Azure
-description: Fichier Include
+description: Fichier include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 7316dba7559c4a50e94771d69ce03bac51c0f3c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e9a9a0415a85c8b8c5fb27d911124c43a2447d0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773736"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678552"
 ---
-Dans un navigateur, accédez au [portail](https://portal.azure.com/) et connectez-vous avec votre compte Azure.
+Dans un navigateur, accédez au [Portail Azure](https://portal.azure.com/) et connectez-vous avec votre compte Azure.
 
 Si vous disposez de plusieurs abonnements et que vous souhaitez en changer :
 
-1. Cliquez sur le bouton Profil, puis sélectionnez **Changer de répertoire**.
+1. Sélectionnez le bouton Profil, puis **Changer de répertoire**.
 
     > [!div class="mx-imgBorder"]
-    > ![Sélectionnez Changer de répertoire](../media/choose-subscription-2.png)
+    > ![Select Switch directory](../media/choose-subscription-2.png)
 
-1. Choisissez l’abonnement que vous souhaitez utiliser pour la configuration du peering.
+1. Choisissez l’abonnement que vous souhaitez utiliser pour la configuration du Peering.
 
     > [!div class="mx-imgBorder"]
     > ![Choisissez l’abonnement](../media/choose-subscription-3.png)

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582476"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81451429"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -67,7 +67,7 @@ Les organisations doivent respecter les prérequis suivants avant d’initier un
 
 | Configuration requise | Application Authenticator | Clés de sécurité FIDO2 |
 | --- | --- | --- |
-| [L’inscription combinée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR)](howto-registration-mfa-sspr-combined.md) est activée (fonctionnalité d’évaluation) | √ | √ |
+| [L’inscription combinée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR)](howto-registration-mfa-sspr-combined.md) est activée | √ | √ |
 | [Les utilisateurs peuvent exécuter Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | √ | √ |
 | [Les utilisateurs se sont inscrits à Azure Multi-Factor Authentication et SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Les utilisateurs ont inscrit leurs appareils mobiles sur Azure Active Directory](../devices/overview.md) | √ |   |
@@ -230,7 +230,7 @@ Le tableau ci-dessous fournit quelques exemples de scénarios de création de ra
 
 Les utilisateurs peuvent inscrire et gérer leurs informations d’identification en accédant à [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Ce lien dirige les utilisateurs vers l’expérience de gestion des informations d’identification de l’utilisateur final, qui a été activée par le biais de l’expérience d’inscription combinée SSPR/MFA. Azure AD enregistre l’inscription des appareils de sécurité FIDO2 et les modifications apportées aux méthodes d’authentification par les utilisateurs.
 
-### <a name="plan-security"></a>Planifier la sécurité
+### <a name="plan-security"></a>Planifier la sécurité 
 Dans le cadre de ce plan de lancement, Microsoft recommande l’activation de l’authentification sans mot de passe pour tous les comptes administrateurs privilégiés.
 
 Lorsque les utilisateurs activent ou désactivent le compte sur une clé de sécurité, ou qu’ils réinitialisent le second facteur pour la clé de sécurité sur leurs machines Windows 10, une entrée est ajoutée au journal de sécurité, sous les ID d’événement suivants : *4670* et *5382*.

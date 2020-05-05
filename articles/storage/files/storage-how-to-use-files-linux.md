@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 72264755d5f0379f0ffb07852f48885126a36898
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: fcc9876caf0c002650ab30b7eaed7dc44e2f135e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411606"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137737"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [client SMB en mode noyau](https://wiki.samba.org/index.php/LinuxCIFS). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
@@ -248,22 +248,22 @@ Pour monter un partage de fichiers Azure sur Linux, le port 445 doit être acce
 
 | Distribution | Possibilité de désactivation de SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | Non |
+| Ubuntu 14.04-16.04 | Non  |
 | Ubuntu 18.04 | Oui |
 | Ubuntu 19.04+ | Oui |
-| Debian 8-9 | Non |
+| Debian 8-9 | Non  |
 | Debian 10+ | Oui |
 | Fedora 29+ | Oui |
-| CentOS 7 | Non | 
+| CentOS 7 | Non  | 
 | CentOS 8+ | Oui |
-| Red Hat Enterprise Linux 6.x-7.x | Non |
+| Red Hat Enterprise Linux 6.x-7.x | Non  |
 | Red Hat Enterprise Linux 8+ | Oui |
-| openSUSE Leap 15.0 | Non |
+| openSUSE Leap 15.0 | Non  |
 | openSUSE Leap 15.1+ | Oui |
 | openSUSE Tumbleweed | Oui |
-| SUSE Linux Enterprise 11.x-12.x | Non |
-| SUSE Linux Enterprise 15 | Non |
-| SUSE Linux Enterprise 15.1 | Non |
+| SUSE Linux Enterprise 11.x-12.x | Non  |
+| SUSE Linux Enterprise 15 | Non  |
+| SUSE Linux Enterprise 15.1 | Non  |
 
 Vous pouvez vérifier si votre distribution Linux prend en charge le paramètre de module `disable_legacy_dialects` via la commande suivante.
 
@@ -319,11 +319,6 @@ Vous pouvez vérifier que cela a fonctionné en chargeant le module SMB :
 sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
-
-## <a name="feedback"></a>Commentaires
-Utilisateurs de Linux, nous attendons votre avis !
-
-Azure Files pour le groupe d’utilisateurs Linux propose un forum qui vous permet de partager vos commentaires quand vous évaluez et adoptez le stockage de fichiers sur Linux. Envoyez un e-mail aux [utilisateurs Linux d’Azure Files](mailto:azurefiles@microsoft.com) pour rejoindre le groupe d’utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez ces liens pour en savoir plus sur Azure Files :

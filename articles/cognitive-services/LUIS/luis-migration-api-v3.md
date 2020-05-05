@@ -2,27 +2,25 @@
 title: Modifications de point de terminaison de prédiction dans l’API V3
 description: Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 9a8e8cb331dd11eebaddbcbf8f603c1148415aef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79117374"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81530383"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
 Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 **État généralement disponible** : cette API V3 inclut des modifications significatives de requête et de réponse JSON par rapport à l’API V2.
 
 L’API V3 fournit les nouvelles fonctionnalités suivantes :
 
-* [Entités externes](#external-entities-passed-in-at-prediction-time)
-* [Listes dynamiques](#dynamic-lists-passed-in-at-prediction-time)
+* [Entités externes](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
+* [Listes dynamiques](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Évolutions de JSON – Entités prédéfinies](#prebuilt-entity-changes)
 
 La [requête](#request-changes) et la [réponse](#response-changes) du point de terminaison de prédiction ont évolué de manière significative afin de prendre en charge les nouvelles fonctionnalités mentionnées ci-dessus, notamment les suivantes :
@@ -123,13 +121,11 @@ L’API V3 possède de différents paramètres de chaîne de requête.
 
 |Propriété|Type|Version|Default|Objectif|
 |--|--|--|--|--|
-|`dynamicLists`|tableau|V3 uniquement|Non requis.|Les [listes dynamiques](#dynamic-lists-passed-in-at-prediction-time) vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS.|
-|`externalEntities`|tableau|V3 uniquement|Non requis.|Les [entités externes](#external-entities-passed-in-at-prediction-time) permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. |
+|`dynamicLists`|tableau|V3 uniquement|Non requis.|Les [listes dynamiques](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS.|
+|`externalEntities`|tableau|V3 uniquement|Non requis.|Les [entités externes](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. |
 |`options.datetimeReference`|string|V3 uniquement|Pas de valeur par défaut|Utilisé pour déterminer le [décalage de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Le format du datetimeReference est [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.preferExternalEntities`|boolean|V3 uniquement|false|Indique si l’[entité externe (dont le nom est identique à celui de l’entité existante)](#override-existing-model-predictions) de l’utilisateur est utilisée ou si l’entité existante du modèle est utilisée pour la prédiction. |
+|`options.preferExternalEntities`|boolean|V3 uniquement|false|Indique si l’[entité externe (dont le nom est identique à celui de l’entité existante)](schema-change-prediction-runtime.md#override-existing-model-predictions) de l’utilisateur est utilisée ou si l’entité existante du modèle est utilisée pour la prédiction. |
 |`query`|string|V3 uniquement|Obligatoire.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
-
-
 
 ## <a name="response-changes"></a>Évolutions de la réponse
 
@@ -226,7 +222,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 Dans V2, le tableau `entities` retournait toutes les entités prédites avec le nom d’entité en guise d’identificateur unique. Dans V3, si l’entité utilise des rôles et que la prédiction porte sur un rôle d’entité, l’identificateur principal est le nom de rôle. Cela est possible, car les noms de rôle d’entité doivent être uniques dans toute l’application, y compris les autres noms de modèle (intention, entité).
 
-L’exemple suivant contient un énoncé qui comporte le texte `Yellow Bird Lane`. Ce texte est prédit en tant que rôle `Location` d’une entité `Destination` personnalisée.
+L’exemple suivant contient un énoncé qui comporte le texte `Yellow Bird Lane`. Ce texte est prédit en tant que rôle `Destination` d’une entité `Location` personnalisée.
 
 |Texte d’énoncé|Nom de l’entité|Nom de rôle|
 |--|--|--|
@@ -281,185 +277,12 @@ Dans V3, le même résultat est obtenu avec l’indicateur `verbose` pour retour
 }
 ```
 
-## <a name="external-entities-passed-in-at-prediction-time"></a>Entités externes transmises au moment de la prédiction
+<a name="external-entities-passed-in-at-prediction-time"></a>
+<a name="override-existing-model-predictions"></a>
 
-Les entités externes permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. Cela vous permet d’utiliser vos propres extracteurs d’entités distincts et personnalisés avant d’envoyer des requêtes à votre point de terminaison de prédiction. Cette opération étant exécutée sur le point de terminaison de prédiction de requête, vous n’avez pas besoin de réentraîner votre modèle et de le publier.
+## <a name="extend-the-app-at-prediction-time"></a>Étendre l’application au moment de la prédiction
 
-L’application cliente fournit son propre extracteur d’entités en gérant la mise en correspondance des entités et en déterminant l’emplacement au sein de l’énoncé des entités mises en correspondance, puis en envoyant ces informations avec la demande.
-
-Les entités externes constituent le mécanisme qui permet d’étendre n’importe quel type d’entité tout en étant toujours utilisées comme signaux pour d’autres modèles comme les rôles, les composites et autres.
-
-Cela s’avère utile pour une entité qui n’a accès à des données qu’au moment de l’exécution de la prédiction de requête. Les données qui évoluent constamment ou qui sont propres à chaque utilisateur sont des exemples de ce type de données. Vous pouvez étendre une entité de contact LUIS avec des informations externes provenant de la liste de contacts d’un utilisateur.
-
-### <a name="entity-already-exists-in-app"></a>L’entité existe déjà dans l’application
-
-La valeur de `entityName` pour l’entité externe, qui est transmise dans le corps POST de demande du point de terminaison, doit déjà exister dans l’application entraînée et publiée au moment où la demande est effectuée. Tous les types étant pris en charge, le type d’entité n’a pas d’importance.
-
-### <a name="first-turn-in-conversation"></a>Premier tour de la conversation
-
-Imaginez un premier énoncé de conversation de bot conversationnel où un utilisateur entre les informations incomplètes suivantes :
-
-`Send Hazem a new message`
-
-La demande du chatbot à LUIS peut transmettre des informations dans le corps POST concernant `Hazem` de façon à les faire correspondre directement à l’un des contacts de l’utilisateur.
-
-```json
-    "externalEntities": [
-        {
-            "entityName":"contacts",
-            "startIndex": 5,
-            "entityLength": 5,
-            "resolution": {
-                "employeeID": "05013",
-                "preferredContactType": "TeamsChat"
-            }
-        }
-    ]
-```
-
-La réponse de prédiction comprend cette entité externe, avec toutes les autres entités prédites, car elle est définie dans la demande.
-
-### <a name="second-turn-in-conversation"></a>Deuxième tour de la conversation
-
-L’énoncé utilisateur suivant dans le bot conversationnel utilise un terme plus vague :
-
-`Send him a calendar reminder for the party.`
-
-Dans l’énoncé précédent, `him` sert de référence à `Hazem`. Dans le corps POST, le bot conversationnel peut mapper `him` à la valeur d’entité extraite du premier énoncé, `Hazem`.
-
-```json
-    "externalEntities": [
-        {
-            "entityName":"contacts",
-            "startIndex": 5,
-            "entityLength": 3,
-            "resolution": {
-                "employeeID": "05013",
-                "preferredContactType": "TeamsChat"
-            }
-        }
-    ]
-```
-
-La réponse de prédiction comprend cette entité externe, avec toutes les autres entités prédites, car elle est définie dans la demande.
-
-### <a name="override-existing-model-predictions"></a>Remplacer les prédictions de modèle existantes
-
-La propriété des options `preferExternalEntities` indique que si l’utilisateur envoie une entité externe qui se chevauche avec une entité prédite de même nom, LUIS choisit l’entité transmise ou l’entité existant dans le modèle.
-
-Prenons l’exemple de la requête `today I'm free`. LUIS détecte `today` comme datetimeV2 avec la réponse suivante :
-
-```JSON
-"datetimeV2": [
-    {
-        "type": "date",
-        "values": [
-            {
-                "timex": "2019-06-21",
-                "value": "2019-06-21"
-            }
-        ]
-    }
-]
-```
-
-Si l’utilisateur envoie l’entité externe :
-
-```JSON
-{
-    "entityName": "datetimeV2",
-    "startIndex": 0,
-    "entityLength": 5,
-    "resolution": {
-        "date": "2019-06-21"
-    }
-}
-```
-
-Si `preferExternalEntities` a la valeur `false`, LUIS retourne une réponse comme si l’entité externe n’était pas envoyée.
-
-```JSON
-"datetimeV2": [
-    {
-        "type": "date",
-        "values": [
-            {
-                "timex": "2019-06-21",
-                "value": "2019-06-21"
-            }
-        ]
-    }
-]
-```
-
-Si `preferExternalEntities` a la valeur `true`, LUIS retourne une réponse comprenant ce qui suit :
-
-```JSON
-"datetimeV2": [
-    {
-        "date": "2019-06-21"
-    }
-]
-```
-
-
-
-#### <a name="resolution"></a>Résolution
-
-La propriété _facultative_ `resolution` est retournée dans la réponse de prédiction, ce qui vous permet de transmettre les métadonnées associées à l’entité externe, puis de la recevoir en retour dans la réponse.
-
-Le principal objectif est d’étendre les entités prédéfinies, mais il ne se limite pas à ce type d’entité.
-
-La propriété `resolution` peut être un nombre, une chaîne, un objet ou un tableau :
-
-* "Dallas"
-* {"text": "value"}
-* 12345
-* ["a", "b", "c"]
-
-
-
-## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Listes dynamiques transmises au moment de la prédiction
-
-Les listes dynamiques vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS.
-
-Cette fonctionnalité est utile quand vos valeurs d’entité de liste doivent être modifiées périodiquement. Elle vous permet d’étendre une entité de liste déjà entraînée et publiée :
-
-* Au moment de la demande du point de terminaison de prédiction de requête.
-* Pour une demande unique.
-
-L’entité de liste peut être vide dans l’application LUIS, mais elle doit exister. L’entité de liste n’est pas modifiée dans l’application LUIS, mais la capacité de prédiction au niveau du point de terminaison est étendue pour inclure jusqu’à 2 listes de plus de 1 000 éléments.
-
-### <a name="dynamic-list-json-request-body"></a>Corps de demande JSON de liste dynamique
-
-Envoyez le corps JSON suivant pour ajouter une nouvelle sous-liste constituée de synonymes à la liste et prédire l’entité de liste pour le texte, `LUIS`, avec le demande de prédiction de requête `POST` :
-
-```JSON
-{
-    "query": "Send Hazem a message to add an item to the meeting agenda about LUIS.",
-    "options":{
-        "timezoneOffset": "-8:00"
-    },
-    "dynamicLists": [
-        {
-            "listEntity*":"ProductList",
-            "requestLists":[
-                {
-                    "name": "Azure Cognitive Services",
-                    "canonicalForm": "Azure-Cognitive-Services",
-                    "synonyms":[
-                        "language understanding",
-                        "luis",
-                        "qna maker"
-                    ]
-                }
-            ]
-        }
-    ]
-}
-```
-
-La réponse de prédiction comprend cette entité de liste, comprenant toutes les autres entités prédites, car elle est définie dans la demande.
+Découvrez les [concepts](schema-change-prediction-runtime.md) permettant d’étendre l’application au niveau du runtime de prédiction.
 
 ## <a name="deprecation"></a>Dépréciation
 

@@ -1,49 +1,49 @@
 ---
-title: Fichier Include
+title: Fichier include
 titleSuffix: Azure
-description: Fichier Include
+description: Fichier include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e3e87e59f5b3c95051d9ee53e4b8d87afe9d9ba8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e06b5261ca6923e158c818d236a30cf6ebff189b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773744"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680922"
 ---
-Cette section décrit comment effectuer les opérations de modification suivantes pour le peering direct :
+Cette section décrit comment effectuer les opérations de modification suivantes pour le Peering direct.
 
-### <a name="add-exchange-peering-connections"></a>Ajouter des connexions de peering Exchange
+### <a name="add-exchange-peering-connections"></a>Ajouter des connexions de Peering Exchange
 
-1. Cliquez sur le bouton **+ Ajouter des connexions** en haut et configurez une nouvelle connexion de peering.
+1. Sélectionnez le bouton **+ Ajouter des connexions** et configurez une nouvelle connexion de Peering.
     > [!div class="mx-imgBorder"]
     > ![Affichage des ressources de peering](../media/setup-exchange-modify-addconnection.png)
-1. Remplissez le formulaire **Connexion de Peering direct**, puis cliquez sur **Enregistrer**. Pour obtenir de l’aide sur la configuration d’une connexion de Peering, consultez les étapes de la section « Créer et approvisionner un Peering direct » ci-dessus.
+1. Remplissez le formulaire **Connexion de Peering Exchange**, puis sélectionnez **Enregistrer**. Pour obtenir de l’aide sur la configuration d’une connexion de Peering, consultez les étapes de la section « Créer et approvisionner un Peering direct ».
     > [!div class="mx-imgBorder"]
-    > ![Affichage des ressources de peering](../media/setup-exchange-modify-savenewconnection.png)
+    > ![Exchange Peering Connection form](../media/setup-exchange-modify-savenewconnection.png)
 
 ### <a name="remove-exchange-peering-connections"></a>Supprimer des connexions de peering Exchange
 
-1. Cliquez sur une connexion de Peering que vous souhaitez supprimer, puis cliquez sur le bouton **...**  > **Supprimer la connexion**.
+1. Sélectionnez une connexion de Peering que vous souhaitez supprimer, puis sélectionnez **…**  > **Supprimer la connexion**.
     > [!div class="mx-imgBorder"]
-    > ![Suppression de la connexion de Peering](../media/setup-exchange-modify-deleteconnection.png)
-1. Entrez l’ID de ressource dans la zone **Confirmer la suppression** comme indiqué dans les zones mises en surbrillance, puis cliquez sur **Supprimer**.
+    > ![Delete connection button](../media/setup-exchange-modify-deleteconnection.png)
+1. Entrez l’ID de ressource dans la case **Confirmer la suppression**, puis sélectionnez **Supprimer**.
     > [!div class="mx-imgBorder"]
-    > ![Connexion de Peering DeleteConfirm](../media/setup-exchange-modify-deleteconnectionconfirm.png)
+    > ![Delete confirmation](../media/setup-exchange-modify-deleteconnectionconfirm.png)
 
-### <a name="add-ipv4ipv6-session-on-active-connections"></a>Ajouter une session IPv4/IPv6 sur les connexions actives
+### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Ajouter une session IPv4 ou IPv6 sur des connexions actives
 
-1. Cliquez sur une connexion de peering que vous souhaitez modifier, puis cliquez sur le bouton **...**  > **Modifier la connexion**.
+1. Sélectionnez une connexion de Peering que vous souhaitez modifier, puis sélectionnez **…**  > **Modifier la connexion**.
     > [!div class="mx-imgBorder"]
-    > ![Modification de la connexion de peering](../media/setup-exchange-modify-editconnection.png)
-1. Ajoutez des informations sur l’**adresse IPv4** ou l’**adresse IPv6**, puis cliquez sur **Enregistrer**.
+    > ![Edit connection button](../media/setup-exchange-modify-editconnection.png)
+1. Ajoutez des informations sur l’**adresse IPv4** ou l’**adresse IPv6**, puis sélectionnez **Enregistrer**.
     > [!div class="mx-imgBorder"]
-    > ![Modifier la connexion de Peering](../media/setup-exchange-modify-editconnectionsettings.png)
+    > ![Peering connection modifications](../media/setup-exchange-modify-editconnectionsettings.png)
 
-### <a name="remove-ipv4ipv6-session-on-active-connections"></a>Supprimer la session IPv4/IPv6 sur les connexions actives
+### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Supprimer une session IPv4 ou IPv6 sur des connexions actives
 
-La suppression d’une session IPv4/IPv6 à partir d’une connexion existante n’est actuellement pas prise en charge sur le portail. Contactez le [Peering Microsoft](mailto:peeringexperience@microsoft.com).
+La suppression d’une session IPv4 ou IPv6 sur une connexion existante n’est actuellement pas prise en charge sur le portail. Pour plus d’informations, contactez l’équipe [Peering Microsoft](mailto:peeringexperience@microsoft.com).

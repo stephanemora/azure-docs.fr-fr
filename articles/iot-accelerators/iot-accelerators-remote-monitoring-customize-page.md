@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240263"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187260"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-La commande précédente exécute l’interface utilisateur localement sur [http://localhost:3000/dashboard](http://localhost:3000/dashboard).
+La commande précédente exécute l’interface utilisateur localement à l’adresse `http://localhost:3000/dashboard`.
 
 Sans connecter votre instance locale de l’interface utilisateur web à une instance déployée de l’accélérateur de solution, vous voyez des erreurs sur le tableau de bord. Ces erreurs n’affectent pas votre capacité à tester la nouvelle page.
 
@@ -154,7 +154,7 @@ Si vous le souhaitez, vous pouvez connecter votre copie locale en cours d’exé
 
 1. Déployez une instance de **base** de l’accélérateur de solution à l’aide de l’interface CLI **pcs**. Notez le nom de votre déploiement et les informations d’identification que vous avez fournies pour la machine virtuelle. Pour plus d’informations, consultez [Déployer à l’aide de l’interface CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Utilisez le portail Azure ou [l’interface CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour activer l’accès SSH à la machine virtuelle qui héberge les microservices dans votre solution. Par exemple :
+1. Utilisez le portail Azure ou [l’interface CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour activer l’accès SSH à la machine virtuelle qui héberge les microservices dans votre solution. Par exemple : 
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -162,7 +162,7 @@ Si vous le souhaitez, vous pouvez connecter votre copie locale en cours d’exé
 
     Vous devez uniquement activer l’accès SSH durant le test et le développement. Si vous activez SSH, [vous devez le désactiver à nouveau dès que possible](../security/fundamentals/network-best-practices.md).
 
-1. Utilisez le portail Azure ou [l’interface CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour rechercher le nom et l’adresse IP publique de votre machine virtuelle. Par exemple :
+1. Utilisez le portail Azure ou [l’interface CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour rechercher le nom et l’adresse IP publique de votre machine virtuelle. Par exemple : 
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

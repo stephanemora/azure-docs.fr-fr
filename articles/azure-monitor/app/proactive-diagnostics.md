@@ -3,12 +3,12 @@ title: Détection intelligente dans Azure Application Insights | Microsoft Docs
 description: Application Insights réalise une analyse télémétrique approfondie automatique de votre application et vous avertit des éventuels problèmes de performances.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671798"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81536792"
 ---
 # <a name="smart-detection-in-application-insights"></a>Détection intelligente dans Application Insights
  La détection intelligente vous informe automatiquement des éventuels problèmes de performances et des défaillances dans votre application web. Elle effectue une analyse proactive des données de télémétrie que votre application envoie à [Application Insights](../../azure-monitor/app/app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
@@ -34,7 +34,7 @@ La fonctionnalité de détection intelligente vous envoie une notification quand
 
 * [Détection intelligente des anomalies de type échec](../../azure-monitor/app/proactive-failure-diagnostics.md). Nous utilisons l’apprentissage automatique pour définir la fréquence attendue des demandes entraînant un échec pour votre application, en la mettant en corrélation avec la charge et d’autres facteurs. Si le taux d’échec est situé en dehors de la plage attendue, nous envoyons une alerte.
 * [Détection intelligente des anomalies de performances](../../azure-monitor/app/proactive-performance-diagnostics.md). Vous recevez des notifications si le temps de réponse d’une opération ou la durée d’une dépendance ralentit par rapport à l’historique de la ligne de base ou si nous identifions un modèle anormal dans le temps de réponse ou le temps de chargement de la page.   
-* Les dégradations et problèmes généraux, notamment la [dégradation de Trace](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), la [fuite de mémoire](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), l’[élévation anormale du volume des exceptions ](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) et les [anti-modèles de sécurité](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* Les dégradations et problèmes généraux, notamment la [dégradation de Trace](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), la [fuite de mémoire](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), l’[élévation anormale du volume des exceptions](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) et les [anti-modèles de sécurité](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
 
 (Les liens d’aide dans chaque notification vous renvoient vers les articles pertinents.)
 
@@ -53,7 +53,7 @@ Vous pouvez également utiliser les modèles Azure Resource Manager pour modifie
 ## <a name="next-steps"></a>Étapes suivantes
 Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
 
-* [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md)
+* [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md)
 * [Navigateur de recherche](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics : un puissant langage de requête](../../azure-monitor/log-query/get-started-portal.md)
 

@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878950"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81537319"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -152,9 +152,9 @@ La sauvegarde Azure a ajouté la fonctionnalité de restauration inter-régions 
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Oui.   Prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Toutes les régions publiques Azure.  |
-| Agent MARS/En local | Non                                                           | N/A               |
-| SQL /SAP HANA          | Non                                                           | N/A               |
-| AFS                    | Non                                                           | N/A               |
+| Agent MARS/En local | Non                                                            | N/A               |
+| SQL /SAP HANA          | Non                                                            | N/A               |
+| AFS                    | Non                                                            | N/A               |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

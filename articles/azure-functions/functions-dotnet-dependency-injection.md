@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: f8f1eb353087c5121eaafb4c8789e7a2f7638b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475119"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678454"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
 Azure Functions prend en charge le modèle de conception logicielle d’injection de dépendances, qui est une technique pour obtenir une [inversion de contrôle](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre les classes et leurs dépendances.
 
-- L’injection de dépendance dans Azure Functions repose sur les fonctionnalités d’injection de dépendance .Net Core. Une certaine familiarité avec les fonctionnalités d’[injection de dépendance de .Net Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) est recommandée. Il existe cependant des différences dans la façon de modifier les dépendances et la façon dont les valeurs de configuration sont lues avec Azure Functions sur le plan de consommation.
+- L’injection de dépendance dans Azure Functions repose sur les fonctionnalités d’injection de dépendance .Net Core. Il est recommandé d’avoir une certaine connaissance de [l’injection de dépendance .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Il existe des différences dans le remplacement des dépendances et la lecture des valeurs de configuration avec Azure Functions sur le plan de consommation.
 
 - L’injection de dépendances est prise en charge depuis Azure Functions 2.x.
 

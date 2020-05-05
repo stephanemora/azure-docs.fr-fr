@@ -2,13 +2,13 @@
 title: Déployer des ressources avec Azure CLI et un modèle
 description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282645"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81685702"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure
 
@@ -168,7 +168,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Gérer le format JSON étendu
 
-Pour déployer un modèle avec des chaînes ou des commentaires sur plusieurs lignes, vous devez utiliser le commutateur `--handle-extended-json-format`.  Par exemple :
+Pour déployer un modèle avec des commentaires ou à plusieurs chaînes de ligne à l’aide d’Azure CLI version 2.3.0 ou antérieure, vous devez utiliser le commutateur `--handle-extended-json-format`.  Par exemple :
 
 ```json
 {

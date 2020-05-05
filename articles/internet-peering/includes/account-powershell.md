@@ -1,41 +1,41 @@
 ---
-title: Fichier Include
+title: Fichier include
 titleSuffix: Azure
-description: Fichier Include
+description: Fichier include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3a5f7157ef8f3645dd03ec93684238dd8bbc067e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: beffb2babefd86c2807e21e9337cba66f42fcfc2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773640"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678485"
 ---
-Avant de commencer la configuration, installez et importez les modules requis. Vous aurez besoin de privilèges d’administrateur pour installer les modules dans PowerShell.
+Avant de commencer la configuration, installez et importez les modules requis. Vous avez besoin des privilèges d’administrateur pour installer les modules dans PowerShell.
 
-1. Installer et importer un module Az
+1. Installez et importez le module Az.
     ```powershell
     Install-Module Az -AllowClobber
     Import-Module Az
     ```
-1. Installer et importer un module Az.Peering
+1. Installez et importez le module Az.Peering.
     ```powershell
     Install-Module -Name Az.Peering -AllowClobber
     Import-Module Az.Peering
     ```
-1. Vérifiez que les modules sont importés avec succès à l’aide de la commande ci-dessous.
+1. Vérifiez que les modules ont été importés correctement à l’aide de cette commande :
     ```powershell
     Get-Module
     ```
-1. Connectez-vous à votre compte Azure à l’aide de la commande suivante.
+1. Connectez-vous à votre compte Azure à l’aide de cette commande :
     ```powershell
     Connect-AzAccount
     ```
-1. Vérifiez les abonnements pour le compte et sélectionnez l’abonnement dans lequel vous souhaitez créer un peering.
+1. Vérifiez les abonnements pour le compte et sélectionnez l’abonnement dans lequel vous souhaitez créer un Peering.
     ```powershell
     Get-AzSubscription
     Select-AzSubscription -SubscriptionId "subscription-id"
@@ -46,8 +46,8 @@ Avant de commencer la configuration, installez et importez les modules requis. V
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> Si vous n’avez pas encore associé votre ASN et votre abonnement, suivez les étapes de la procédure [Associer le numéro ASN de l’homologue](../howto-subscription-association-powershell.md). Cela est requis pour demander un peering.
+> Si vous n’avez pas encore associé votre ASN et votre abonnement, suivez les étapes de la procédure [Associer le numéro ASN de l’homologue](../howto-subscription-association-powershell.md). Cette action est requise pour demander un Peering.
 
 > [!NOTE]
-> L’emplacement du groupe de ressources est indépendant de l’emplacement où vous choisissez de configurer un peering.
+> L’emplacement d’un groupe de ressources est indépendant de l’emplacement où vous choisissez de configurer un Peering.
 &nbsp;

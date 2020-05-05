@@ -1,24 +1,19 @@
 ---
 title: Cycle de vie et états d’une machine virtuelle Linux dans Azure
-description: Vue d’ensemble du cycle de vie d’une machine virtuelle Linux dans Azure, y compris des descriptions des différents états qu’une machine virtuelle peut avoir à n’importe quel moment.
-services: virtual-machines-linux
-documentationcenter: ''
+description: Vue d’ensemble du cycle de vie d’une machine virtuelle dans Azure, y compris des descriptions des différents états qu’une machine virtuelle peut avoir à n’importe quel moment.
+services: virtual-machines
 author: shandilvarun
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 1ddd245b03d8886d686daba34a00c63ec64ffb07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1452252e6cbd7b741c14c2ea52728ba144c65a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034779"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81757858"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Cycle de vie et états des machines virtuelles
 

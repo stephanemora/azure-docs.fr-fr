@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 4cb2159b02635e659a8ca7236523e899bf01550c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411152"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133239"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ?
 
@@ -99,7 +99,7 @@ Azure SQL Database offre des fonctionnalités avancées de supervision et de ré
 
 Le [Magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), fonctionnalité de supervision SQL Server intégrée, consigne en temps réel les performances de vos requêtes et vous permet d’identifier les problèmes de performances potentiels et les principaux consommateurs de ressources. Le paramétrage automatique et les recommandations fournissent des conseils concernant les requêtes avec les performances régressées et les index manquants ou dupliqués. Dans SQL Database, le paramétrage automatique vous permet soit d’appliquer manuellement les scripts qui peuvent résoudre les problèmes, soit de laisser SQL Database appliquer le correctif. SQL Database peut également tester et vérifier si le correctif présente un avantage, et conserver ou annuler le changement en fonction du résultat. Outre les fonctionnalités du Magasin des requêtes et de paramétrage automatique, vous pouvez utiliser les composants [DMV et XEvent](sql-database-monitoring-with-dmvs.md) standard pour superviser les performances des charges de travail.
 
-Azure fournit des outils intégrés de [supervision](sql-database-performance-guidance.md) et d’[alerte](sql-database-insights-alerts-portal.md) qui, combinés avec des évaluations des performances, vous permettent de superviser l’état de milliers de bases de données. Ces outils vous permettent d’évaluer rapidement l’impact d’un scale-up ou d’un scale-down en fonction de vos besoins actuels ou projetés en matière de performances. En outre, SQL Database peut [émettre des métriques et des journaux de diagnostic](sql-database-metrics-diag-logging.md) pour faciliter la supervision. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
+Azure fournit des outils intégrés de [supervision](sql-database-performance-guidance.md) et d’[alerte](sql-database-insights-alerts-portal.md) qui, combinés avec des évaluations des performances, vous permettent de superviser l’état de milliers de bases de données. Ces outils vous permettent d’évaluer rapidement l’impact d’un scale-up ou d’un scale-down en fonction de vos besoins actuels ou projetés en matière de performances. De plus, SQL Database peut [émettre des métriques et des journaux de ressources](sql-database-metrics-diag-logging.md) pour faciliter la supervision. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
 
 - **Stockage Azure** : Pour archiver à petit prix de gros volumes de données de télémétrie.
 - **Azure Event Hubs** : Pour intégrer des données de télémétrie SQL Database à votre solution de supervision personnalisée ou à vos pipelines chauds.

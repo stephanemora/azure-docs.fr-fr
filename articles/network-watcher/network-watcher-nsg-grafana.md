@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f038412079ad0620a445b85e4bbc3c325e1aa211
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840908"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100105"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gérer les journaux de flux des groupes de sécurité réseau avec Network Watcher et Grafana
 
 Les [journaux de flux des groupes de sécurité réseau (NSG)](network-watcher-nsg-flow-logging-overview.md) fournissent des informations permettant de comprendre le trafic IP entrant et sortant des interfaces réseau. Ces journaux de flux affichent les flux entrants et sortants en fonction de la règle NSG, de la carte réseau à laquelle le flux s’applique, des informations relatives aux 5 tuples du flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
-
-> [!Warning]  
-> Les étapes suivantes fonctionnent avec les journaux de flux version 1. Pour plus d’informations, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md). Les instructions suivantes ne fonctionnent pas avec la version 2 des fichiers journaux, sans modification.
 
 Un réseau peut comprendre plusieurs groupes de sécurité réseau pour lesquels la journalisation du flux est activée. Une telle quantité de données de journalisation est difficile à analyser et empêche la bonne compréhension des journaux d’activité. Cet article fournit une solution pour gérer de manière centralisée les journaux de flux des groupes de sécurité réseau à l’aide de Grafana, un outil de création de graphes open source, à l’aide d’ElasticSearch, qui est un moteur de recherche et d’analytique distribué, et à l’aide de Logstash, qui est un pipeline open source de traitement des données côté serveur.  
 
@@ -107,6 +104,11 @@ Logstash vous permet d’aplatir les journaux de flux au format JSON à un nivea
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+      "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+      "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+      "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+      "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+      "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"

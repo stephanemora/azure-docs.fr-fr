@@ -8,24 +8,24 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 69031550bdab1535213c78f81426fa76e8ea62ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7639499aaef8d479c2552849b2124e709c46fd36
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773644"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680779"
 ---
-# <a name="create-or-modify-a-direct-peering-using-powershell"></a>Créer ou modifier un Peering direct à l’aide de PowerShell
+# <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Créer ou modifier un Peering direct à l’aide de PowerShell
 
-Cet article explique comment créer un Peering direct Microsoft à l’aide des cmdlets PowerShell et du modèle de déploiement Resource Manager. Il montre également comment vérifier l’état de la ressource, la mettre à jour, la supprimer et la déprovisionner.
+Cet article explique comment créer un Peering direct Microsoft à l’aide de cmdlets PowerShell et du modèle de déploiement Azure Resource Manager. Il montre également comment vérifier l’état de la ressource, la mettre à jour, la supprimer et la déprovisionner.
 
-Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-direct-portal.md).
+Si vous préférez, vous pouvez suivre ce guide en utilisant le [Portail Azure](howto-direct-portal.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
-* Passez en revue [Configuration requise](prerequisites.md) et [Procédure pas à pas du Peering direct](walkthrough-direct-all.md) avant de commencer la configuration.
-* Si vous avez déjà un Peering direct avec Microsoft, qui n’est pas converti en ressources Azure, consultez [Convertir un Peering direct existant en ressource Azure à l’aide de PowerShell](howto-legacy-direct-powershell.md)
+* Passez en revue les [prérequis](prerequisites.md) et la [procédure pas à pas du Peering direct](walkthrough-direct-all.md) avant de commencer la configuration.
+* Si vous avez déjà des connexions de Peering direct avec Microsoft qui ne sont pas converties en ressources Azure, consultez [Convertir un Peering direct hérité en ressource Azure à l’aide de PowerShell](howto-legacy-direct-powershell.md).
 
-### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Utiliser Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
 ## <a name="create-and-provision-a-direct-peering"></a>Créer et provisionner un Peering direct
@@ -50,8 +50,8 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer ou modifier un Peering Exchange à l’aide de PowerShell](howto-exchange-powershell.md).
-* [Convertir un Peering Exchange existant en ressource Azure à l’aide de PowerShell](howto-legacy-exchange-powershell.md).
+* [Créer ou modifier un Peering Exchange à l’aide de PowerShell](howto-exchange-powershell.md)
+* [Convertir un Peering Exchange hérité en ressource Azure à l’aide de PowerShell](howto-legacy-exchange-powershell.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant la commande suivante :
@@ -60,4 +60,4 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
 Get-Help Get-AzPeering -detailed
 ```
 
-Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).
+Pour plus d’informations, consultez les [FAQ sur le Peering Internet](faqs.md).

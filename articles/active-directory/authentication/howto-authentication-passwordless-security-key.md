@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653939"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81450919"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Activer la connexion par clé de sécurité sans mot de passe (préversion)
 
@@ -48,7 +48,7 @@ Les appareils joints à Azure AD Hybride doivent exécuter Windows 10 Insider B
 
 ### <a name="enable-the-combined-registration-experience"></a>Activer l’expérience d’inscription combinée
 
-Les fonctionnalités d’inscription pour les méthodes d’authentification sans mot de passe s’appuient sur l’inscription en préversion. Suivez les étapes de l’article [Activer l’inscription d’informations de sécurité combinées (préversion)](howto-registration-mfa-sspr-combined.md)pour activer l’inscription combinée en préversion.
+Les fonctionnalités d’inscription pour les méthodes d’authentification sans mot de passe s’appuient sur la fonctionnalité d'inscription combinée. Suivez les étapes de l’article [Activer l’inscription combinée d’informations de sécurité (préversion)](howto-registration-mfa-sspr-combined.md) pour activer l’inscription combinée.
 
 ### <a name="enable-fido2-security-key-method"></a>Activer la méthode de clé de sécurité FIDO2
 

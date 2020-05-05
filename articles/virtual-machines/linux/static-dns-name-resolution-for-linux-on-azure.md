@@ -1,26 +1,19 @@
 ---
 title: Utiliser un DNS interne pour la résolution de noms de machine virtuelle avec Azure CLI
-description: Comment créer des cartes réseau virtuelles et utiliser des DNS internes pour la résolution des noms de machine virtuelle sur Azure avec Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
+description: Comment créer des cartes d’interface réseau virtuelles et utiliser des DNS internes pour la résolution de noms de machine virtuelle sur Azure avec Azure CLI.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: networking
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: acfdfd4edf90b90998a913fa0c6479bedf0028b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07a78e4987a844627824ac5034046cf6a393ad8d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034747"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81757848"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Création de cartes d’interface réseau virtuelle et d’utilisation des DNS internes pour la résolution des noms de machine virtuelle sur Azure
 

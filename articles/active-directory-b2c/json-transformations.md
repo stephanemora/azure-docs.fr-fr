@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187591"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81756757"
 ---
 # <a name="json-claims-transformations"></a>Transformations de revendications JSON
 
@@ -53,7 +53,7 @@ L’exemple suivant génère une chaîne JSON en fonction de la valeur de revend
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 La transformation des revendications suivante génère une revendication de chaîne JSON qui constituera le corps de la requête envoyée à SendGrid (un fournisseur de messagerie tiers). La structure de l'objet JSON est définie par les ID en notation par points des éléments InputParameters et des éléments TransformationClaimTypes de InputClaims. Les nombres dans la notation par points impliquent des tableaux. Les valeurs proviennent des valeurs InputClaims et des propriétés « Value » des éléments InputParameters.
 
@@ -116,7 +116,7 @@ Dans l’exemple suivant, la transformation de revendication a extrait l’élé
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 - Revendications d’entrée :
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
@@ -214,7 +214,7 @@ Dans l’exemple suivant, la transformation de revendication extrait l’éléme
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 - Revendications d’entrée :
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
@@ -222,6 +222,39 @@ Dans l’exemple suivant, la transformation de revendication extrait l’éléme
     - **claimToExtract** :  id
 - Revendications de sortie :
     - **extractedClaim**: 6353399
+
+## <a name="getsingleitemfromjson"></a>GetSingleItemFromJson
+
+Obtient le premier élément des données JSON.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputJson | string | ClaimTypes utilisés par la transformation de revendication pour obtenir l’élément à partir des données JSON. |
+| OutputClaim | key | string | Première clé de l’élément dans le JSON. |
+| OutputClaim | value | string | Première valeur de l’élément dans le JSON. |
+
+Dans l’exemple suivant, la transformation de revendication extrait le premier élément (prénom) à partir des données JSON.
+
+```XML
+<ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="givenNameKey" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a> Exemple
+
+- Revendications d’entrée :
+  - **inputJson** : {"givenName": "Emilty", "lastName": "Smith"}
+- Revendications de sortie :
+  - **key** : givenName
+  - **value** : Emilty
+
 
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
 
@@ -245,7 +278,7 @@ Dans l’exemple suivant, la transformation de revendication extrait le premier 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 - Revendications d’entrée :
   - **inputJsonClaim** : ["someone@example.com", "Someone", 6353399]
@@ -274,7 +307,7 @@ Convertit des données XML au format JSON.
 
 Dans l’exemple suivant, la transformation de revendication convertit les données XML suivantes au format JSON.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 Revendication d’entrée :
 
 ```XML
@@ -294,3 +327,5 @@ Revendication de sortie :
   }
 }
 ```
+
+

@@ -1,6 +1,6 @@
 ---
-title: Diagnostiquer le Runbook Worker hybride Windows – Azure Update Management
-description: Découvrez comment détecter et résoudre les problèmes liés au Runbook Worker hybride Azure Automation sur Windows qui prend en charge Update Management.
+title: Résolution des problèmes de l’agent de mise à jour Windows dans Azure Automation Update Management
+description: Découvrez comment détecter et résoudre les problèmes liés à l’agent de mise à jour Windows à l’aide de la solution Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ec35d11eba59ea21947e2c3cd5286bababa4eabb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6983a2ac7ab5fafcb00aee0b72221a8540ea1668
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76153852"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678970"
 ---
-# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Comprendre et résoudre l’intégrité du Runbook Worker hybride Windows dans Update Management
+# <a name="troubleshoot-windows-update-agent-issues"></a>Résoudre les problèmes de l’agent de mise à jour Windows
 
-De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas à l’état **Prêt** dans Update Management. Dans Update Management, vous pouvez vérifier l’intégrité d’un agent Runbook Worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure à partir du portail Azure et les machines non-Azure dans le [scénario hors connexion](#troubleshoot-offline).
+De nombreuses raisons peuvent expliquer pourquoi votre machine n’apparaît pas comme étant prête (saine) dans Update Management. Dans Update Management, vous pouvez vérifier l’intégrité d’un agent Runbook Worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure à partir du portail Azure et les machines non-Azure dans le [scénario hors connexion](#troubleshoot-offline).
 
 Voici les trois états de préparation possibles d’une machine :
 
-* **Prêt** - Le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a moins de 1 heure.
-* **Déconnecté** - Le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a plus de 1 heure.
-* **Non configuré** - Le Runbook Worker hybride est introuvable ou n’a pas terminé son intégration.
+* Prêt : le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a moins de 1 heure.
+* Déconnecté : le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a plus de 1 heure.
+* Non configuré : le Runbook Worker hybride est introuvable ou n’a pas terminé son intégration.
 
 > [!NOTE]
-> L’état actuel de la machine peut s’afficher avec un certain retard sur le portail Azure.
+> L’état actuel d’une machine peut s’afficher avec un léger retard sur le Portail Azure.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 
-Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page **Résoudre les problèmes de l’Agent de mise à jour**. Pour les machines non-Azure, le lien vous dirige vers cet article. Consultez les [instructions hors connexion](#troubleshoot-offline) pour résoudre les problèmes d’une machine non-Azure.
+Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page Résoudre les problèmes de l’agent de mise à jour. Pour les machines non-Azure, le lien vous dirige vers cet article. Consultez les [instructions hors connexion](#troubleshoot-offline) pour résoudre les problèmes d’une machine non-Azure.
 
 ![Mettre à jour la liste de gestion des machines virtuelles](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > Pour vérifier l’intégrité du Runbook Worker hybride, la machine virtuelle doit être en cours d’exécution. Si la machine virtuelle n’est pas en cours d’exécution, un bouton **Démarrer la machine virtuelle** s’affiche.
 
-Dans la page **Résoudre les problèmes de l’agent de mise à jour**, sélectionnez **Exécuter les vérifications** pour démarrer l’utilitaire de résolution des problèmes. L’utilitaire de résolution des problèmes utilise la [commande Run](../../virtual-machines/windows/run-command.md) pour exécuter un script sur la machine et vérifier les dépendances. Quand l’utilitaire de résolution des problèmes a terminé, il retourne le résultat des vérifications.
+Dans la page Résoudre les problèmes de l’agent de mise à jour, sélectionnez **Exécuter les vérifications** pour démarrer l’utilitaire de résolution des problèmes. L’utilitaire de résolution des problèmes utilise la [commande Run](../../virtual-machines/windows/run-command.md) pour exécuter un script sur la machine et vérifier les dépendances. Quand l’utilitaire de résolution des problèmes a terminé, il retourne le résultat des vérifications.
 
 ![Page Résoudre les problèmes de l’agent de mise à jour](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -86,15 +86,13 @@ Les configurations du pare-feu et du proxy doivent permettre à l’agent Runboo
 
 ### <a name="monitoring-agent-service-status"></a>État du service de Monitoring Agent
 
-Cette vérification détermine si `HealthService` (Microsoft Monitoring Agent) est en cours d’exécution sur l’ordinateur.
+Cette vérification détermine si l’agent Log Analytics pour Windows (`healthservice`) est en cours d’exécution sur l’ordinateur. Pour en savoir plus sur la résolution des problèmes de ce service, consultez [l’agent Log Analytics pour Windows ne s’exécute pas](hybrid-runbook-worker.md#mma-not-running).
 
-Pour en savoir plus sur la résolution des problèmes de ce service, consultez [Microsoft Monitoring Agent n’est pas en cours d’exécution](hybrid-runbook-worker.md#mma-not-running).
-
-Pour réinstaller Microsoft Monitoring Agent, consultez [Installer et configurer Microsoft Monitoring Agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Pour réinstaller l’agent Log Analytics pour Windows, consultez [installer et configurer l’agent Log Analytics pour Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Événements de service de Monitoring Agent
 
-Cette vérification détermine si des événements `4502` sont apparus dans le journal Azure Operations Manager de la machine au cours des dernières 24 heures.
+Cette vérification détermine si des événements 4502 apparaissent dans le journal Azure Operations Manager de la machine au cours des dernières 24 heures.
 
 Pour en savoir plus sur cet événement, consultez le [guide de résolution des problèmes](hybrid-runbook-worker.md#event-4502) pour cet événement.
 
@@ -167,9 +165,9 @@ RuleName                    : Monitoring Agent service status
 RuleGroupName               : VM Service Health Checks
 RuleDescription             : HealthService must be running on the machine
 CheckResult                 : Failed
-CheckResultMessage          : Microsoft Monitoring Agent service (HealthService) is not running
+CheckResultMessage          : Log Analytics for Windows service (HealthService) is not running
 CheckResultMessageId        : MonitoringAgentServiceRunningCheck.Failed
-CheckResultMessageArguments : {Microsoft Monitoring Agent, HealthService}
+CheckResultMessageArguments : {Log Analytics agent for Windows, HealthService}
 
 RuleId                      : MonitoringAgentServiceEventsCheck
 RuleGroupId                 : servicehealth
@@ -177,9 +175,9 @@ RuleName                    : Monitoring Agent service events
 RuleGroupName               : VM Service Health Checks
 RuleDescription             : Event Log must not have event 4502 logged in the past 24 hours
 CheckResult                 : Failed
-CheckResultMessage          : Microsoft Monitoring Agent service Event Log (Operations Manager) does not exist on the machine
+CheckResultMessage          : Log Analytics agent for Windows service Event Log (Operations Manager) does not exist on the machine
 CheckResultMessageId        : MonitoringAgentServiceEventsCheck.Failed.NoLog
-CheckResultMessageArguments : {Microsoft Monitoring Agent, Operations Manager, 4502}
+CheckResultMessageArguments : {Log Analytics agent for Windows, Operations Manager, 4502}
 
 RuleId                      : CryptoRsaMachineKeysFolderAccessCheck
 RuleGroupId                 : permissions

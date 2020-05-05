@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447061"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187226"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un panneau personnalisé au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
@@ -90,7 +90,7 @@ Si l’interface utilisateur web n’est pas déjà en cours d’exécution loca
 npm start
 ```
 
-La commande précédente exécute l’interface utilisateur localement sur [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Accédez à la page **Tableau de bord** pour afficher le nouveau panneau.
+La commande précédente exécute l’interface utilisateur localement à l’adresse `http://localhost:3000/dashboard`. Accédez à la page **Tableau de bord** pour afficher le nouveau panneau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

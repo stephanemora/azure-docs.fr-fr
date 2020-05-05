@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 929938bba9c9512ecfd663a540cf4a7ebbf68e2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371815"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189852"
 ---
 # <a name="create-python-model-module"></a>Module Create Python Model
 
@@ -31,13 +31,21 @@ Après avoir créé le modèle, vous pouvez utiliser le module [Train Model](tra
 ## <a name="configure-the-module"></a>Configurer le module
 
 L’utilisation de ce module nécessite une connaissance intermédiaire ou approfondie de Python. Le module prend en charge l’utilisation de tout apprenant qui est inclus dans les packages Python déjà installés dans Azure Machine Learning. Consultez la liste des packages Python préinstallés dans le module [Execute Python Script](execute-python-script.md).
-  
 
+> [!NOTE]
+> Soyez très prudent lorsque vous écrivez votre script et assurez-vous qu'il n'existe pas d’erreur de syntaxe, telle que l’utilisation d’un objet non déclaré ou d’un module non importé.
+
+> [!NOTE]
+> Portez également une attention particulière à la liste des modules préinstallés dans [Exécuter le script Python](execute-python-script.md). Importez uniquement les modules installés. N’installez pas les packages supplémentaires tels que « pip install xgboost » dans ce script, au risque de générer des erreurs lors de la lecture de modèles dans des modules en aval.
+  
 Cet article explique comment utiliser le module **Créer un modèle Python** avec un pipeline simple. Voici un diagramme du pipeline :
 
 ![Diagramme de Create Python Model](./media/module/create-python-model.png)
 
 1. Sélectionnez **Créer un modèle Python** et modifiez le script pour implémenter votre processus de modélisation ou de gestion des données. Vous pouvez baser le modèle sur tout apprenant inclus dans un package Python dans l’environnement Azure Machine Learning.
+
+> [!NOTE]
+> Portez une attention particulière aux commentaires de l’exemple de code du script et vérifiez que votre script respecte strictement la condition, y compris le nom de la classe, les méthodes ainsi que la signature de la méthode. Toute violation entraîne des exceptions. 
 
    L’exemple suivant de code de classifieur Naive Bayes à deux classes utilise le package populaire *sklearn* :
 
@@ -50,7 +58,9 @@ Cet article explique comment utiliser le module **Créer un modèle Python** ave
        # predict: which generates prediction result, the input argument and the prediction result MUST be pandas DataFrame.
    # The signatures (method names and argument names) of all these methods MUST be exactly the same as the following example.
 
-
+   # Please do not install extra packages such as "pip install xgboost" in this script,
+   # otherwise errors will be raised when reading models in down-stream modules.
+   
    import pandas as pd
    from sklearn.naive_bayes import GaussianNB
 
@@ -61,10 +71,15 @@ Cet article explique comment utiliser le module **Créer un modèle Python** ave
            self.feature_column_names = list()
 
        def train(self, df_train, df_label):
+           # self.feature_column_names records the column names used for training.
+           # It is recommended to set this attribute before training so that the
+           # feature columns used in predict and train methods have the same names.
            self.feature_column_names = df_train.columns.tolist()
            self.model.fit(df_train, df_label)
 
        def predict(self, df):
+           # The feature columns used for prediction MUST have the same names as the ones for training.
+           # The name of score column ("Scored Labels" in this case) MUST be different from any other columns in input data.
            return pd.DataFrame(
                {'Scored Labels': self.model.predict(df[self.feature_column_names]), 
                 'probabilities': self.model.predict_proba(df[self.feature_column_names])[:, 1]}
@@ -73,9 +88,9 @@ Cet article explique comment utiliser le module **Créer un modèle Python** ave
 
    ```
 
-1. Connecter le module **Create Python Model** que vous venez de créer à **Train Model** et à **Score Model**.
+2. Connecter le module **Create Python Model** que vous venez de créer à **Train Model** et à **Score Model**.
 
-1. Si vous devez évaluer le modèle, ajoutez un module [Execute Python Script](execute-python-script.md) et modifiez le script Python.
+3. Si vous devez évaluer le modèle, ajoutez un module [Execute Python Script](execute-python-script.md) et modifiez le script Python.
 
    Le script suivant est un exemple de code d’évaluation :
 
@@ -88,7 +103,7 @@ Cet article explique comment utiliser le module **Créer un modèle Python** ave
    # imports up here can be used to 
    import pandas as pd
 
-   # The entry point function can contain up to two input arguments:
+   # The entry point function MUST have two input arguments:
    #   Param<dataframe1>: a pandas.DataFrame
    #   Param<dataframe2>: a pandas.DataFrame
    def azureml_main(dataframe1 = None, dataframe2 = None):

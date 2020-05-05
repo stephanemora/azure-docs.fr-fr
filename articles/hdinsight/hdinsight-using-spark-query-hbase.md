@@ -6,26 +6,24 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 02/24/2020
-ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/20/2020
+ms.openlocfilehash: e5d9d4f215752d95ee1d676e8a5b126b6d0d3ab2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623104"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190620"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utiliser Apache Spark pour lire et écrire des données Apache HBase
 
-Apache HBase est généralement interrogé soit avec son API de bas niveau (analyses, obtentions et insertions), soit avec une syntaxe SQL en utilisant Apache Phoenix. Apache fournit également le connecteur Apache HBase Spark, qui est une alternative pratique et performante pour interroger et modifier des données stockées par HBase.
+Apache HBase est généralement interrogé soit avec son API de bas niveau (analyses, obtentions et insertions), soit avec une syntaxe SQL en utilisant Apache Phoenix. Apache fournit également le connecteur Apache Spark HBase. Il constitue une alternative pratique et performante pour interroger et modifier des données stockées par HBase.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Deux clusters HDInsight distincts déployés dans le même [réseau virtuel](./hdinsight-plan-virtual-network-deployment.md). Un cluster HBase et un cluster Spark avec Spark 2.1 (HDInsight 3.6) minimum installé. Pour plus d’informations, consultez [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* Le [schéma d’URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) de votre principal espace de stockage de clusters. Ce schéma serait wasb:// pour le Stockage Blob Azure, abfs:// pour Azure Data Lake Storage Gen2 ou adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Blob, l’URI sera `wasbs://`.  Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
+* Le schéma d'URI de votre principal espace de stockage de clusters. Ce schéma serait wasb:// pour le Stockage Blob Azure, `abfs://` pour Azure Data Lake Storage Gen2 ou adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Blob, l’URI sera `wasbs://`.  Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Procédure générale
 

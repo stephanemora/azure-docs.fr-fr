@@ -1,22 +1,22 @@
 ---
-title: Services Go-To-Market - Bonnes pratiques pour le référencement des offres | Azure
+title: Services Go-To-Market – Bonnes pratiques pour le référencement des offres | Place de marché Azure
 description: 'Services Go-To-Market : cette section décrit les bonnes pratiques pour le référencement des offres'
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 3cb625e613d8dbe9398e947925a8dc574a277614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f5083b5f00834e65a8385835635588033bd977
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286249"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81684576"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
-Les tableaux dans cette section fournissent des suggestions pour créer et proposer des offres sur les places de marché. Ppour écrire et configurer vos supports marketing, accédez au [Portail Cloud Partner](https://cloudpartner.azure.com/#insights). 
+Les tableaux dans cette section fournissent des suggestions pour créer et proposer des offres sur les places de marché. Pour écrire et configurer vos supports marketing, accédez à l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). 
 
 ## <a name="storefront-offer-details"></a>Détails des offres de la vitrine
 
@@ -25,14 +25,14 @@ Les tableaux dans cette section fournissent des suggestions pour créer et propo
 | Nom de l’offre | Spécifiez un titre fort :<br> <ul> <li> Le nom de votre application doit indiquer son atout principal à vos clients. </li> <li> Incluez des mots clés de recherche dans le titre de votre application pour bénéficier d’un meilleur classement dans les résultats des moteurs de recherche. </li> </ul> Suivez un ensemble de formats de titre pour consulter les listes de service :<br>[Nom de l’offre] : [Durée] [Type d’offre] (par exemple, *Contoso : implémentation de 2 semaines*) <br><br> Respectez les directives des marques :<br>Lorsque vous faites référence aux marques Microsoft ainsi qu’aux noms des logiciels, produits et services Microsoft, suivez les [Directives relatives aux marques et aux marques déposées Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx), ainsi que d’autres directives pertinentes et propres aux produits. |
 | Description de l’offre | Rédigez une description claire pour votre offre :<br> <ul> <li> Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description. </li> <li> Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche. </li> <li> Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients. </li> <li> Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.</li> <li> De plus, les annonces de service de conseil doivent clairement indiquer le service professionnel que vous fournissez. </li></ul> Votre proposition de valeur doit comprendre les composants suivants :<ul><li>Description du produit.</li><li>Type d’utilisateur qui tire parti du produit.</li><li>Besoin ou problèmes du client auxquels le produit répond.</li></ul> |
 
-Les tableaux dans cette section fournissent des suggestions pour créer et proposer des offres sur les places de marché. Ppour écrire et configurer vos supports marketing, accédez au [Portail Cloud Partner](https://cloudpartner.azure.com/#insights). 
+Les tableaux dans cette section fournissent des suggestions pour créer et proposer des offres sur les places de marché. Pour écrire et configurer vos supports marketing, accédez à l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). 
 
 ## <a name="storefront-listing-details"></a>Détails de l’annonce en vitrine
 
 | Organisation de la vitrine | Bonne pratique |
 |:--- |:--- |  
-| Secteurs d’activité : services de conseil et applications AppSource uniquement | Sélectionnez des secteurs si votre offre répond à des besoins spécifiques à certains secteurs d’activité : <ul><li> Veillez à citer ces réponses aux besoins de secteurs spécifiques dans la description de votre offre.</li> </ul> **Remarque** : Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
-| Catégories | Sélectionnez les catégories qui correspondent le mieux à votre offre :<br> <ul> <li> Choisissez soigneusement ces catégories, car les utilisateurs s’en servent pour rechercher les applications les plus adaptées à leurs besoins. </li> <li> Assurez-vous d’expliquer dans la description comment votre offre peut répondre aux besoins propres au secteur en question. </li> </ul> **Remarque** : Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Secteurs d’activité : services de conseil et applications AppSource uniquement | Sélectionnez des secteurs si votre offre répond à des besoins spécifiques à certains secteurs d’activité : <ul><li> Veillez à citer ces réponses aux besoins de secteurs spécifiques dans la description de votre offre.</li> </ul> **Remarque** : Le nombre maximal d’options varie selon le type d’offre et est indiqué dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). |
+| Catégories | Sélectionnez les catégories qui correspondent le mieux à votre offre :<br> <ul> <li> Choisissez soigneusement ces catégories, car les utilisateurs s’en servent pour rechercher les applications les plus adaptées à leurs besoins. </li> <li> Assurez-vous d’expliquer dans la description comment votre offre peut répondre aux besoins propres au secteur en question. </li> </ul> **Remarque** : Le nombre maximal d’options varie selon le type d’offre et est indiqué dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). |
 | Produits avec lesquels votre application fonctionne (3 max.) : Applications AppSource uniquement | Citez des produits supplémentaires et les technologies que votre solution utilise ou prolonge. Par exemple, Azure IoT Hub ou Azure Machine Learning. |
 | Mots clés de recherche (3 max.) | Les mots clés de recherche peuvent aider les utilisateurs professionnels à trouver votre offre quand ils effectuent une recherche : <ul> <li> Dans la Place de marché Microsoft Azure </li> <li> Sur AppSource </li> <li> À l’aide de moteurs de recherche </li> </ul> Pour que votre annonce apparaisse dans ces recherches, vous devez : <ul> <li> Identifier les trois principaux mots clés de recherche pour votre offre </li> <li> Incorporer les mots clés de recherche au résumé et à la description de l’offre </li> <li> Lister les mots clés de recherche ici </li> </ul> |
 
@@ -89,12 +89,12 @@ Quand vous créez un lien entre le badge AppSource ou Place de marché Azure de 
 
 L’exemple d’URL suivant contient à la fois les deux paramètres de requête précédents : `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-L’ajout de ces paramètres dans votre URL AppSource vous permet d’observer l’efficacité de votre campagne dans le tableau de bord d’analytique du [Portail Cloud Partner](https://cloudpartner.azure.com/#insights).
+L’ajout de ces paramètres dans votre URL AppSource vous permet d’observer l’efficacité de votre campagne dans le tableau de bord d’analytique de l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en plus sur les [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
+Apprenez-en plus sur les [avantages de la place de marché commerciale](./gtm-your-marketplace-benefits.md).
 
-Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com) pour créer et configurer votre offre.
+Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer et configurer votre offre.
 
 ---

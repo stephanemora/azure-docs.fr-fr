@@ -10,15 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: d52366684d772f91b53a1ab385b51ae4f11f0a5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158344"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81758244"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Connecter un appareil de passerelle Rigado Cascade 500 à votre application IoT Central
 
+*Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
 
 Cet article vous explique comment, en tant que concepteur de solutions, vous pouvez connecter un appareil de passerelle Rigado Cascade 500 à votre application Microsoft Azure IoT Central. 
 
@@ -70,4 +71,7 @@ Vous êtes maintenant prêt à utiliser votre appareil C500 dans votre applicati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à connecter un Rigado Cascade 500 à votre application Azure IoT Central, l’étape suivante suggérée est d’apprendre à [créer une application Analytique dans le magasin](../retail/tutorial-in-store-analytics-create-app-pnp.md) pour créer une solution de bout en bout. 
+Si vous êtes un développeur d’appareils, nous vous suggérons les étapes suivantes :
+
+- En savoir plus sur la [connectivité des appareils dans Azure IoT Central](./concepts-get-connected.md)
+- Découvrir comment [superviser la connectivité des appareils à l’aide d’Azure CLI](./howto-monitor-devices-azure-cli.md)

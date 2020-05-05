@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e610bf94dfdee4e2765e4fae4259f18a9f1036b5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408831"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81639993"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure AD Domain Services
 
@@ -109,10 +109,11 @@ Les règles de groupe de sécurité réseau suivantes sont requises pour permett
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Synchronisation avec votre locataire Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
-| 636         | TCP      | Quelconque                                | Quelconque         | Allow  | Non       | Activé uniquement lorsque vous configurez le LDAP sécurisé (LDAPS). |
 
 > [!WARNING]
 > Ne modifiez pas manuellement ces configurations et ressources réseau. Lorsque vous associez un groupe de sécurité réseau mal configuré ou une table d’itinéraire définie par l’utilisateur au sous-réseau dans lequel Azure AD DS est déployé, vous risquez de perturber la capacité de Microsoft à traiter et à gérer le domaine. La synchronisation entre votre locataire Azure AD et votre domaine managé Azure AD DS est également interrompue.
+>
+> Si vous utilisez le protocole LDAP sécurisé, vous pouvez ajouter la règle de port TCP 636 requise pour autoriser le trafic externe, si nécessaire. L’ajout de cette règle ne place pas vos règles de groupe de sécurité réseau dans un état non pris en charge. Pour plus d’informations, consultez [Verrouiller l’accès LDAP sécurisé via Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet).
 >
 > Règles par défaut pour *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound* et *DenyAllOutBound* existent également pour le groupe de sécurité réseau. Ne modifiez pas et ne supprimez pas ces règles par défaut.
 >

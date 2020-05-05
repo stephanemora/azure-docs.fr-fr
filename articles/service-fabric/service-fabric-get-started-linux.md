@@ -3,12 +3,12 @@ title: Configurer votre environnement de développement sur Linux
 description: Installez le runtime et le Kit de développement logiciel (SDK), puis créez un cluster de développement local sur Linux. Une fois la configuration terminée, vous êtes prêt à générer des applications.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309117"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193409"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ Démarrez un cluster local une fois l’installation terminée.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Ouvrez un navigateur web et accédez à [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). Au moment où le cluster démarre, vous accédez au tableau de bord Service Fabric Explorer. La configuration complète du cluster peut prendre plusieurs minutes. Si votre navigateur ne parvient pas à ouvrir l’URL, ou si Service Fabric Explorer n’indique pas que le système est prêt, patientez quelques minutes, puis réessayez.
+2. Ouvrez un navigateur web et accédez à **Service Fabric Explorer** (`http://localhost:19080/Explorer`). Au moment où le cluster démarre, vous accédez au tableau de bord Service Fabric Explorer. La configuration complète du cluster peut prendre plusieurs minutes. Si votre navigateur ne parvient pas à ouvrir l’URL, ou si Service Fabric Explorer n’indique pas que le système est prêt, patientez quelques minutes, puis réessayez.
 
     ![Service Fabric Explorer sur Linux][sfx-linux]
 
@@ -265,7 +265,7 @@ Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’en
 
 2. Pour installer le plug-in Service Fabric, sélectionnez **Aide** > **Installer un nouveau logiciel**.
 
-3. Dans le champ **Work with** (Utiliser), tapez **https://dl.microsoft.com/eclipse** .
+3. Dans la zone **Work with** (Utiliser avec), entrez **https:\//dl.microsoft.com/eclipse**.
 
 4. Sélectionnez **Ajouter**.
 

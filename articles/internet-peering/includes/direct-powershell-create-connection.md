@@ -1,25 +1,25 @@
 ---
-title: Fichier Include
+title: Fichier include
 titleSuffix: Azure
-description: Fichier Include
+description: Fichier include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 610bac5c08d7f3aa3c93e273bc6573a08ca1239f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773664"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680826"
 ---
-L’exemple suivant montre comment créer un peering direct 10 Gbits/s à Seattle.
+L’exemple suivant montre comment créer un Peering direct 10 Gbits/s à Seattle.
 
-Utilisez la cmdlet PowerShell **New-AzPeeringDirectConnectionObject** pour créer des DirectConnections à utiliser dans la nouvelle demande de peering.
+Utilisez la cmdlet PowerShell **New-AzPeeringDirectConnectionObject** pour créer des objets DirectConnection à utiliser dans la nouvelle demande de Peering.
 
-Voici un exemple de création d’une connexion directe DirectConnection :
+Cet exemple montre comment créer un objet DirectConnection.
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> Dans l’exemple ci-avant, l’<index> de $peeringLocation [<index>] doit correspondre à l’emplacement de peering de votre choix.
+> Dans l’exemple précédent, la valeur de <index> **$peeringLocation[]** <index> doit correspondre à l’emplacement de Peering de votre choix.
 
-Créez une autre connexion au cas où vous auriez besoin d’une redondance à l’emplacement du Peering donné :
+Créez une autre connexion au cas où vous auriez besoin d’une redondance à un emplacement du Peering donné.
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Utilisez la cmdlet PowerShell **New-AzPeering** pour créer un peering direct. Cette commande requiert l’ID de ressource ASN qui peut être récupéré comme indiqué ci-dessous.
+Utilisez la cmdlet PowerShell **New-AzPeering** pour créer un Peering direct. Cette commande requiert un ID de ressource ASN, qui peut être récupéré comme indiqué ici.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Voici un exemple de réponse lorsque la requête a été traitée avec succès :
+Voici un exemple de réponse lorsque la requête a bien été traitée.
 
 ```powershell
 
@@ -78,4 +78,4 @@ Voici un exemple de réponse lorsque la requête a été traitée avec succès 
     Tags                 : {}
 
 ```
-Notez que, à la place de **{subscriptionId}** dans la sortie ci-dessus, l’ID d’abonnement réel sera affiché.
+Notez que, à la place de **{subscriptionId}** dans cette sortie, l’ID d’abonnement réel sera affiché.

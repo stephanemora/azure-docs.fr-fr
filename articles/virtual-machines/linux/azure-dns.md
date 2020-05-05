@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 3d5ecaf67dcff182c7dace474b7bda45cdfd5c58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969316"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81641727"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure
 Azure fournit une résolution des noms DNS par défaut pour toutes les machines virtuelles d’un même réseau virtuel. Vous pouvez implémenter votre propre solution de résolution de noms DNS en configurant vos propres services DNS sur vos machines virtuelles hébergées sur Azure. Les scénarios suivants vous aideront à choisir la solution qui fonctionne dans votre situation.
@@ -79,7 +79,7 @@ Plusieurs packages de mise en cache DNS sont disponibles, comme dnsmasq. Voici l
 5. Redémarrez le service réseau (« service network restart ») pour définir le cache en tant que résolveur DNS local.
 
 > [!NOTE]
-> Le package « dnsmasq » constitue l’un des nombreux caches DNS disponibles pour Linux. Avant de l’utiliser, vérifiez son adéquation à vos besoins et qu’aucun autre cache n’est installé.
+> : Le package « dnsmasq » constitue l’un des nombreux caches DNS disponibles pour Linux. Avant de l’utiliser, vérifiez son adéquation à vos besoins et qu’aucun autre cache n’est installé.
 >
 >
 
@@ -97,7 +97,7 @@ Pour vérifier les paramètres actuels sur une machine virtuelle Linux, exécute
 Le fichier resolv.conf est généré automatiquement et ne doit pas être modifié. Les étapes spécifiques pour l’ajout de la ligne « options » varient selon la distribution :
 
 **Ubuntu** (utilise resolvconf)
-1. Ajoutez la ligne « options » à « /etc/resolveconf/resolv.conf.d/head »
+1. Ajoutez la ligne options à « /etc/resolvconf/resolv.conf.d/head ».
 2. Exécutez « resolvconf -u » pour mettre à jour.
 
 **SUSE** (utilise netconf)

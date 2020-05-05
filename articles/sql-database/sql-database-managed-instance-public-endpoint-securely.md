@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f11c19ba33ee2fbae0fef265371bedad2fe29cb7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821740"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81684951"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Utilisez une instance gérée Azure SQL Database en toute sécurité avec des points de terminaison publics
 
@@ -35,7 +35,7 @@ Bien que non obligatoire, le modèle de déploiement courant pour une instance g
 
 ## <a name="secure-data-in-motion"></a>Sécuriser les données en mouvement
 
-Le trafic de données des instances gérées est toujours chiffré si le pilote client prend en charge le chiffrement. Les données envoyées entre l’instance gérée et d’autres machines virtuelles ou services Azure ne quittent jamais le réseau principal d’Azure. S’il existe une connexion entre l’instance gérée et un réseau local, nous vous recommandons d’utiliser Azure ExpressRoute avec un peering Microsoft. ExpressRoute vous permet d’éviter le déplacement de données via l’Internet public. Pour la connectivité privée de l’instance gérée, seul le peering privé peut être utilisé.
+Le trafic de données des instances gérées est toujours chiffré si le pilote client prend en charge le chiffrement. Les données envoyées entre l’instance gérée et d’autres machines virtuelles ou services Azure ne quittent jamais le réseau principal d’Azure. S’il existe une connexion entre l’instance gérée et un réseau local, nous vous recommandons d’utiliser Azure ExpressRoute. ExpressRoute vous permet d’éviter le déplacement de données via l’Internet public. Pour la connectivité privée de l’instance gérée, seul le peering privé peut être utilisé.
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>Verrouiller la connectivité entrante et sortante
 

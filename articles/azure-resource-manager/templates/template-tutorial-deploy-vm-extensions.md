@@ -2,15 +2,15 @@
 title: Déployer des extensions de machine virtuelle avec un modèle
 description: Découvrez comment déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager
 author: mumian
-ms.date: 03/31/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7397e9387fe3354a926ed607a9132ab6ddc7e785
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477599"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184960"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM
 
@@ -23,7 +23,6 @@ Ce tutoriel décrit les tâches suivantes :
 > * Ouvrir un modèle de démarrage rapide
 > * Modifier le modèle
 > * Déployer le modèle
-> * Vérifier le déploiement
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -42,29 +41,34 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="prepare-a-powershell-script"></a>Préparer un script PowerShell
 
-Un script PowerShell avec le contenu suivant est partagé à partir de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1) :
+Vous pouvez utiliser un script PowerShell inline ou un fichier de script.  Ce tutoriel montre comment utiliser un fichier de script. Un script PowerShell avec le contenu suivant est partagé à partir de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1) :
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Si vous choisissez de publier le fichier sur votre propre emplacement, vous devrez mettre à jour l’élément `fileUri` du modèle plus tard dans ce tutoriel.
+Si vous choisissez de publier le fichier sur votre propre emplacement, mettez à jour l’élément `fileUri` du modèle plus tard dans ce tutoriel.
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
 Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. Dans Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
-1. Dans la zone **Nom de fichier**, collez l’URL suivante : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+1. Dans la zone **Nom de fichier**, collez l’URL suivante :
+
+    ```url
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    ```
 
 1. Pour ouvrir le fichier, sélectionnez **Ouvrir**.
     Le modèle définit cinq ressources :
 
-   * **Microsoft.Storage/storageAccounts**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * **Microsoft.Network/publicIPAddresses**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * **Microsoft.Network/virtualNetworks**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * **Microsoft.Network/networkInterfaces**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * **Microsoft.Compute/virtualMachines**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
      Il est préférable d’avoir des notions de base sur ce modèle avant de le personnaliser.
 
@@ -77,7 +81,7 @@ Ajoutez une ressource d’extension de machine virtuelle au modèle existant ave
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2018-06-01",
+  "apiVersion": "2019-12-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -105,6 +109,14 @@ Pour plus d’informations sur la définition de cette ressource, consultez les 
 * **fileUris** : il s’agit des emplacements où sont stockés les fichiers de script. Si vous choisissez de ne pas utiliser l’emplacement fourni, vous devez mettre à jour les valeurs.
 * **commandToExecute** : cette commande appelle le script.
 
+Pour utiliser un script inline, supprimez **fileUris** et mettez à jour **commandToExecute** sur :
+
+```powershell
+powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
+```
+
+Ce script inline met également à jour le contenu iisstart.html.
+
 Vous devez également ouvrir le port HTTP pour pouvoir accéder au serveur web.
 
 1. Recherchez **securityRules** dans le modèle.
@@ -130,10 +142,13 @@ Vous devez également ouvrir le port HTTP pour pouvoir accéder au serveur web.
 
 Pour connaître la procédure de déploiement, consultez la section « Déployer le modèle » du [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Nous vous recommandons d’utiliser un mot de passe généré pour le compte administrateur de la machine virtuelle. Consultez la section [Prérequis](#prerequisites) de cet article.
 
-## <a name="verify-the-deployment"></a>Vérifier le déploiement
+À partir de Cloud Shell, exécutez la commande suivante pour récupérer l’adresse IP publique de la machine virtuelle :
 
-1. Dans le portail Azure, sélectionnez la machine virtuelle.
-1. Dans la vue d’ensemble de la machine virtuelle, copiez l’adresse IP en sélectionnant **Cliquez pour copier**, puis collez-la dans un onglet de navigateur. La page d’accueil Internet Information Services (IIS) par défaut s’ouvre :
+```azurepowershell
+(Get-AzPublicIpAddress -ResourceGroupName $resourceGroupName).IpAddress
+```
+
+Collez l’adresse IP dans un navigateur web. La page d’accueil Internet Information Services (IIS) par défaut s’ouvre :
 
 ![Page d’accueil Internet Information Services (IIS)](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 

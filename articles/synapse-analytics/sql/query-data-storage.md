@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cdad95b1a910a45629e85bcc716218b272afd9de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421293"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116245"
 ---
 # <a name="overview-query-data-in-storage"></a>Présentation : Interroger des données dans le stockage
 
@@ -72,9 +72,6 @@ Vous devez créer des informations d’identification avant de pouvoir exécuter
 > Par défaut, SQL à la demande utilise toujours le transfert AAD.
 
 Pour plus d’informations sur la gestion du contrôle d’accès au stockage, consultez ce [lien](develop-storage-files-storage-access-control.md).
-
-> [!WARNING]
-> Vous devez créer des informations d’identification pour un compte de stockage qui se trouve dans votre région de point de terminaison. Bien que SQL à la demande puisse accéder aux stockages de différentes régions, le fait d’avoir le stockage et le point de terminaison dans la même région procure une meilleure expérience en matière de performances.
 
 Pour créer des informations d’identification destinées aux conteneurs CSV, JSON et Parquet, exécutez le code ci-dessous :
 

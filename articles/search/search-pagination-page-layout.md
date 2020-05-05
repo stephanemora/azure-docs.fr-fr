@@ -7,132 +7,129 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 04/01/2020
+ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721572"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81641616"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
-Cet article explique comment implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation. Les options de page qui fournissent des données ou des informations aux résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées au service Recherche cognitive Azure. 
 
-Dans l’API REST, les demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de la nature de la demande et de la formulation de la réponse. Dans le kit SDK .NET, l’API équivalente est la classe [DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
+Cet article explique comment obtenir une réponse à une requête qui renvoie le nombre total de documents correspondants, les résultats paginés, les résultats triés et les termes mis en surbrillance.
 
-Pour générer rapidement une page de recherche pour votre client, explorez les options suivantes :
+La structure d’une réponse est déterminée par les paramètres de la requête : [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) dans l’API REST, ou [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) dans le Kit de développement logiciel (SDK) .NET.
 
-+ Utilisez le [générateur d’applications](search-create-app-portal.md) du portail pour créer une page HTML avec barre de recherche, navigation par facettes et zone de résultats.
-+ Pour créer un client fonctionnel, suivez le tutoriel [Créer votre première application en C#](tutorial-csharp-create-first-app.md).
+## <a name="result-composition"></a>Composition des résultats
 
-Plusieurs exemples de code comportent une interface frontale web qui se trouve ici : [Application de démonstration New York City Jobs](https://azjobsdemo.azurewebsites.net/), [exemple de code JavaScript avec un site de démonstration en direct](https://github.com/liamca/azure-search-javascript-samples) et [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Bien qu’un document de recherche puisse comporter un grand nombre de champs, en général, seuls quelques-uns sont nécessaires pour représenter chaque document dans le jeu de résultats. Dans une demande de requête, ajoutez `$select=<field list>` pour spécifier les champs qui s’affichent dans la réponse. Un champ doit être attribué en tant que **Récupérable** dans l’index pour être inclus dans un résultat. 
 
-> [!NOTE]
-> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Pour plus d’informations sur la syntaxe des demandes, consultez [API REST de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice).
->
-
-## <a name="total-hits-and-page-counts"></a>Nombre total de résultats et nombre de pages
-
-L’affichage du nombre total des résultats d’une requête et la présentation de ces résultats en blocs plus petits sont des éléments de base sur presque toutes les pages de recherche.
-
-![][1]
-
-Dans Recherche cognitive Azure, vous utilisez les paramètres `$count`, `$top` et `$skip` pour renvoyer ces valeurs. L’exemple suivant illustre un exemple de demande du nombre total de correspondances sur un index nommé « online-catalog », retourné sous la forme `@odata.count` :
-
-    GET /indexes/online-catalog/docs?$count=true
-
-Récupérez des documents par groupes de 15 et affichez le nombre total de résultats à partir de la première page :
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
-
-La pagination des résultats nécessite `$top` et `$skip`, où `$top` indique le nombre d’éléments à renvoyer dans un lot, et `$skip` spécifie le nombre d’éléments à ignorer. Dans l’exemple suivant, chaque page affiche les 15 éléments suivants, conformément aux sauts incrémentiels indiqués dans le paramètre `$skip` .
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
-
-## <a name="layout"></a>Disposition
-
-Vous souhaiterez peut-être afficher une miniature, un sous-ensemble de champs et un lien vers la fiche produit complète sur vos pages de résultats de recherche.
-
- ![][2]
-
-Dans Recherche cognitive Azure, vous pouvez utiliser `$select` et une [requête d’API Recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents) pour implémenter cette expérience.
-
-Pour renvoyer un sous-ensemble de champs relatif à une disposition en mosaïque :
-
-    GET /indexes/online-catalog/docs?search=*&$select=productName,imageFile,description,price,rating
-
-Les images et les fichiers multimédias ne peuvent pas faire l’objet de recherches directes et doivent être stockés sur une autre plateforme de stockage, comme l’espace de stockage Azure Blob, afin de limiter les coûts. Dans les index et les documents, définissez un champ destiné à stocker l’adresse URL du contenu externe. Vous pourrez utiliser ce champ comme référence d’image. L’URL de l’image doit se trouver dans le document.
-
-Pour récupérer une page de description de produit relative à un événement **onClick** , utilisez la [recherche de document](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) afin d’indiquer la clé du document à récupérer. Le type de données de la clé est `Edm.String`. Dans cet exemple, il s’agit de *246810*.
-
-    GET /indexes/online-catalog/docs/246810
-
-## <a name="sort-by-relevance-rating-or-price"></a>Tri par pertinence, évaluation ou prix
-
-Les données sont souvent triées par défaut en fonction de la pertinence, mais il est courant de proposer d’autres ordres de tri afin que les clients puissent rapidement réorganiser les résultats existants.
-
- ![][3]
-
-Dans Recherche cognitive Azure, le tri repose sur l’expression `$orderby` pour tous les champs indexés comme étant `"Sortable": true.`. Une clause `$orderby` est une expression OData. Pour plus d’informations sur la syntaxe, voir [Syntaxe des expressions OData pour les filtres et les clauses order by](query-odata-filter-orderby-syntax.md).
-
-La pertinence est clairement liée aux profils de score. Vous pouvez utiliser le score par défaut, qui repose sur l’analyse de texte et les statistiques pour ordonner tous les résultats : dans ce cas, les documents présentant des correspondances plus nombreuses ou plus fortes affichent un score plus élevé.
-
-D’autres ordres de tri sont souvent associés aux événements **onClick** qui renvoient à une méthode permettant de générer l’ordre de tri. Par exemple, avec cet élément de page :
-
- ![][4]
-
-Vous pouvez créer la méthode qui accepte l’option de tri sélectionnée comme entrée, et renvoie une liste ordonnée conforme aux critères associés à cette option.
-
- ![][5]
-
-> [!NOTE]
-> Si le score par défaut suffit dans de nombreuses situations, nous vous recommandons tout de même de baser la pertinence sur un profil de score personnalisé. Un profil de score personnalisé accorde plus d’importance aux éléments qui avantagent votre entreprise. Pour plus d’informations, voir [Ajout de profils de score](index-add-scoring-profiles.md) .
->
-
-## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
-
-Vous pouvez appliquer une mise en forme aux termes correspondants dans les résultats de recherche, ce qui facilite la recherche de correspondance. Des instructions pour la mise en surbrillance des correspondances sont fournies dans la [demande de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
-
-La mise en forme est appliquée aux requêtes de termes entières. Les requêtes portant sur des termes partiels, telles que des recherches approximatives ou des recherches par caractères génériques entraînant une extension de requête dans le moteur, ne peuvent pas utiliser la mise en surbrillance des correspondances.
+Les champs qui fonctionnent le mieux incluent ceux qui distinguent et différencient les documents, en fournissant suffisamment d’informations pour inviter l’utilisateur à cliquer sur le document. Sur un site d’e-commerce, il peut s’agir d’un nom de produit, d’une description, d’une couleur, d’une taille, d’un prix et d’une évaluation. Pour l’exemple intégré hotels-sample-index, il peut s’agir de champs dans l’exemple suivant :
 
 ```http
-POST /indexes/hotels/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
     {  
-      "search": "something",  
-      "highlight": "Description"  
+      "search": "sandy beaches",
+      "select": "HotelId, HotelName, Description, Rating, Address/City"
+      "count": true
     }
 ```
 
+> [!NOTE]
+> Si vous souhaitez inclure des fichiers image dans un résultat, tel qu’une photo de produit ou un logo, stockez-les en dehors de Recherche cognitive Azure, mais incluez un champ dans votre index pour référencer l’URL d’image dans le document de recherche. Les exemples d’index qui prennent en charge les images dans les résultats incluent la démonstration **realestate-sample-us**, présentée dans ce [guide de démarrage rapide](search-create-app-portal.md), et l’[application de démonstration New York City Jobs](https://aka.ms/azjobsdemo).
 
+## <a name="paging-results"></a>Résultats de pagination
 
-## <a name="faceted-navigation"></a>Navigation à facettes
+Par défaut, le moteur de recherche retourne jusqu’aux 50 premières correspondances, comme déterminé par le score de recherche si la requête est une recherche en texte intégral, ou dans un ordre arbitraire pour les requêtes de correspondance exacte.
 
-Les options de navigation de recherche sont communes à toutes les pages de résultats et se trouvent souvent sur le côté ou en haut de la page. Dans Recherche cognitive Azure, la navigation à facettes permet une recherche autonome en fonction de filtres prédéfinis. Pour en savoir plus, consultez [Navigation à facettes dans Recherche cognitive Azure](search-faceted-navigation.md).
+Pour retourner un nombre différent de documents correspondants, ajoutez les paramètres `$top` et `$skip` à la demande de requête. La liste suivante explique la logique.
 
-## <a name="filters-at-the-page-level"></a>Filtres au niveau de la page
++ Ajoutez `$count=true` pour obtenir le nombre total de documents correspondants dans un index.
 
-Si votre solution comporte dans sa conception des pages de recherche dédiées à certains types de contenu (par exemple, une application de vente au détail en ligne avec des départements figurant en haut de la page), vous pouvez associer une [expression de filtre](search-filters.md) à un événement **onClick** pour ouvrir une page à l’état préfiltré.
++ Retournez le premier jeu de 15 documents correspondants plus un nombre total de correspondances : `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-Vous pouvez envoyer un filtre avec ou sans expression de recherche. Par exemple, la demande suivante applique un filtre en fonction du nom de la marque et ne renvoie que les documents correspondants.
++ Retournez le deuxième jeu, en ignorant les 15 premiers pour obtenir les 15 suivants : `$top=15&$skip=15`. Procédez de la même façon pour le troisième jeu de 15 : `$top=15&$skip=30`
 
-    GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
+Il n’est pas garanti que les résultats des requêtes paginées soient stables si l’index sous-jacent est modifié. La pagination modifie la valeur de `$skip` pour chaque page, mais chaque requête est indépendante et opère sur l’affichage actuel des données telles qu’elles existent dans l’index au moment de la requête. En d’autres termes, il n’y a aucune mise en cache ni capture instantanée des résultats, comme c’est le cas dans une base de données à usage général.
+ 
+Voici un exemple de la façon dont vous pouvez obtenir des doublons. Imaginons un index avec quatre documents :
 
-Pour en savoir plus sur les expressions `$filter`, consultez [Recherche de documents (API Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+    { "id": "1", "rating": 5 }
+    { "id": "2", "rating": 3 }
+    { "id": "3", "rating": 2 }
+    { "id": "4", "rating": 1 }
+ 
+Supposons à présent que vous souhaitiez que les résultats soient retournés par deux, classés par évaluation. Vous exécuterez cette requête pour obtenir la première page des résultats, `$top=2&$skip=0&$orderby=rating desc`, et vous obtenez les résultats suivants :
 
-## <a name="see-also"></a>Voir aussi
+    { "id": "1", "rating": 5 }
+    { "id": "2", "rating": 3 }
+ 
+Sur le service, supposez qu’un cinquième document est ajouté à l’index entre les appels de requête : `{ "id": "5", "rating": 4 }`.  Peu de temps après, vous exécutez une requête pour extraire la deuxième page, `$top=2&$skip=2&$orderby=rating desc`, et vous obtenez ces résultats :
 
-- [API REST Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice)
-- [Opérations d’index](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
-- [Opérations de document](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Navigation par facettes dans Recherche cognitive Azure](search-faceted-navigation.md)
+    { "id": "2", "rating": 3 }
+    { "id": "3", "rating": 2 }
+ 
+Notez que le document 2 est extrait 2 fois. Cela est dû au fait que le nouveau document 5 a une plus grande valeur d’évaluation. Il est donc trié avant le document 2 et atterrit sur la première page. Bien que ce comportement puisse être inattendu, c’est généralement ainsi qu’un moteur de recherche se comporte.
 
-<!--Image references-->
-[1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG
-[2]: ./media/search-pagination-page-layout/Pages-2-Tiled.PNG
-[3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
-[4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
-[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
+## <a name="ordering-results"></a>Classement des résultats
+
+Pour les requêtes de recherche en texte intégral, les résultats sont automatiquement classés en fonction d’un score de recherche, calculé sur la base de la fréquence et de la proximité des termes dans un document, les scores les plus élevés étant attribués aux documents présentant des correspondances plus nombreuses ou plus fortes sur un terme de recherche. 
+
+Les scores de recherche donnent une impression générale de pertinence, reflétant la force de la correspondance par rapport à d’autres documents du même jeu de résultats. Les scores ne sont pas toujours cohérents d’une requête à l’autre. Par conséquent, lorsque vous utilisez des requêtes, vous pouvez remarquer des différences mineures dans l’ordre des documents recherchés. Il existe plusieurs explications à cette situation.
+
+| Cause | Description |
+|-----------|-------------|
+| Volatilité des données | Le contenu de l’index varie au fur et à mesure que vous ajoutez, modifiez ou supprimez des documents. La fréquence des termes changera à mesure que les mises à jour de l’index seront traitées, ce qui aura un impact sur les scores de recherche des documents correspondants. |
+| Réplicas multiples | Pour les services qui utilisent plusieurs réplicas, les requêtes sont émises en parallèle pour chaque réplicas. Les statistiques d’index utilisées pour calculer un score de recherche sont calculées par réplica, les résultats étant fusionnés et classés dans la réponse de la requête. Les réplicas sont principalement des miroirs les uns des autres, mais les statistiques peuvent varier en raison de petites différences d’état. Par exemple, un réplica peut avoir supprimé des documents contribuant à leurs statistiques, qui ont été fusionnées à partir d’autres réplicas. En règle générale, les différences dans les statistiques par réplica sont plus perceptibles dans les index plus petits. |
+| Scores identiques | Si plusieurs documents ont le même score, chacun d’entre eux peut apparaître en premier.  |
+
+### <a name="consistent-ordering"></a>Classement cohérent
+
+Étant donné la flexibilité dans le classement des résultats, vous souhaiterez peut-être explorer d’autres options si la cohérence est une exigence de l’application. L’approche la plus simple consiste à trier en fonction d’une valeur de champ, comme une évaluation ou une date. Pour les scénarios où vous souhaitez effectuer un tri en fonction d’un champ spécifique, tel qu’une évaluation ou une date, vous pouvez définir explicitement une [expression `$orderby`](query-odata-filter-orderby-syntax.md), qui peut être appliquée à n’importe quel champ indexé en tant que **Triable**.
+
+Une autre option consiste à utiliser un [profil de scoring personnalisé](index-add-scoring-profiles.md). Les profils de scoring vous permettent de mieux contrôler le classement des éléments dans les résultats de recherche, avec la possibilité d’augmenter le nombre de correspondances trouvées dans des champs spécifiques. La logique de scoring supplémentaire peut aider à surmonter les différences mineures entre les réplicas, car les scores de recherche pour chaque document sont plus éloignés les uns des autres. Nous vous recommandons d’utiliser l’[algorithme de classement](index-ranking-similarity.md) pour cette approche.
+
+## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
+
+La mise en surbrillance des correspondances fait référence au formatage du texte (par exemple, les mise en surbrillance en gras ou en jaune) appliquée au terme correspondant dans un résultat, ce qui permet de repérer facilement l’occurrence. Des instructions pour la mise en surbrillance des correspondances sont fournies dans la [demande de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents). Le moteur de recherche englobe le terme correspondant dans des balises, `highlightPreTag` et `highlightPostTag`, et votre code traite la réponse (par exemple, en appliquant une police en gras).
+
+La mise en forme est appliquée aux requêtes de termes entières. Dans l’exemple suivant, les termes « sablonneux », « sable », « plages » et « plage » trouvés dans le champ Description sont balisés pour la mise en surbrillance. Les requêtes qui déclenchent une extension de requête dans le moteur, telles que les recherches floues ou par caractères génériques, offrent une prise en charge limitée de la mise en surbrillance des correspondances.
+
+```http
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+```
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+    {  
+      "search": "sandy beaches",  
+      "highlight": "Description"
+    }
+```
+
+### <a name="new-behavior-starting-july-15"></a>Nouveau comportement (à partir du 15 juillet)
+
+Les services créés après le 15 juillet 2020 offriront une expérience de mise en surbrillance différente. Le comportement de mise en surbrillance ne varie pas pour les services créés avant cette date. 
+
+Avec le nouveau comportement :
+
+* Seules les expressions qui correspondent à la requête d’expression complète sont renvoyées. La requête « super bowl » retourne les résultats mis en surbrillance comme suit :
+
+    ```html
+    '<em>super bowl</em> is super awesome with a bowl of chips'
+    ```
+  Notez que le terme *bowl of chips* n’est pas mis en surbrillance, car il ne correspond pas à l’expression complète.
+  
+* Il est possible de spécifier la taille de fragment retournée pour la mise en surbrillance. La taille du fragment est spécifiée sous la forme d’un nombre de caractères (la valeur maximale est de 1000 caractères).
+
+Lorsque vous écrivez du code client qui implémente la mise en surbrillance des correspondances, tenez compte de cette modification. Notez que cela n’aura aucun impact sauf si vous créez un service de recherche entièrement nouveau.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour générer rapidement une page de recherche pour votre client, envisagez les options suivantes :
+
++ Dans le portail, le [générateur d’applications](search-create-app-portal.md) crée une page HTML avec une barre de recherche, une navigation par facettes et une zone de résultats qui contient des images.
++ Le tutoriel [Créer votre première application en C#](tutorial-csharp-create-first-app.md) permet de créer un client fonctionnel. L’exemple de code illustre les requêtes paginées, la mise en surbrillance des correspondances et le tri.
+
+Plusieurs exemples de code comportent une interface frontale web qui se trouve ici : [Application de démonstration New York City Jobs](https://aka.ms/azjobsdemo), [exemple de code JavaScript avec un site de démonstration en direct](https://github.com/liamca/azure-search-javascript-samples) et [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).

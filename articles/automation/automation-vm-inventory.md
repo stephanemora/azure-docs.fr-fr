@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventaire, automatisation, suivi des modifications
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844817"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617371"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
 
@@ -53,9 +53,9 @@ Une fois le déploiement terminé, la barre d’état disparaît. Le système es
 
 Par défaut, les logiciels, les services Windows et les démons Linux sont configurés pour la collection. Pour collecter l’inventaire des fichiers et registres Windows, configurez les paramètres de collection d’inventaire.
 
-1. Dans la vue **Inventaire**, sélectionnez le bouton **Modifier les paramètres** situé en haut de la fenêtre.
-2. Pour ajouter un nouveau paramètre de collection, accédez à la catégorie de paramètres que vous souhaitez ajouter en sélectionnant les onglets **Registre Windows**, **Fichiers Windows** et **Fichiers Linux**.
-3. Sélectionnez la catégorie appropriée et cliquez sur **Ajouter** en haut de la fenêtre.
+1. En haut de la page Inventaire, cliquez sur **Modifier les paramètres**.
+2. Pour ajouter un nouveau paramètre de collection, accédez à la catégorie de paramètres concernée en sélectionnant l’onglet **Registre Windows**, **Fichiers Windows** ou **Fichiers Linux**.
+3. Sélectionnez la catégorie appropriée et cliquez sur **Ajouter** en haut de la page.
 
 Les tables suivantes fournissent des informations sur chaque propriété qui peut être configurée pour les différentes catégories.
 
@@ -72,23 +72,23 @@ Les tables suivantes fournissent des informations sur chaque propriété qui peu
 
 |Propriété  |Description  |
 |---------|---------|
-|activé     | Détermine si le paramètre est appliqué.        |
+|activé     | True si le paramètre est appliqué, False sinon.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
-|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Entrer le chemin     | Chemin dans lequel rechercher le fichier. Exemple : « c:\temp\myfile.txt ».
+|Groupe     | Nom de groupe pour le regroupement logique des fichiers.       |
+|Entrer le chemin     | Chemin dans lequel rechercher le fichier. Exemple : **C:\temp\monfichier.txt**.
 
 ### <a name="linux-files"></a>Fichiers Linux
 
 |Propriété  |Description  |
 |---------|---------|
-|activé     | Détermine si le paramètre est appliqué.        |
+|activé     | True si le paramètre est appliqué, False sinon.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « /etc/*.conf ».       |
-|Type de chemin     | Type d’élément à suivre. Valeurs possibles : fichier et répertoire.        |
-|Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
-|Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
-|Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
+|Entrer le chemin     | Chemin dans lequel rechercher le fichier. Exemple : **/etc/*.conf**.       |
+|Type de chemin     | Type d’élément à suivre. Valeurs possibles : Fichier et Répertoire.        |
+|Récursivité     | True si la récursivité est utilisée pour rechercher l’élément à suivre, False sinon.        |
+|Utiliser sudo     | True si sudo est utilisé pour rechercher l’élément, False sinon.         |
+|Liens     | Valeur indiquant le traitement des liens symboliques lors du parcours des répertoires. Les valeurs possibles sont les suivantes : <br> Ignorer : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>Suivre : suit les liens symboliques pendant la récursivité et inclut également les fichiers/répertoires référencés.<br>Gérer : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
 
 ## <a name="manage-machine-groups"></a>Gérer des groupes de machines
 
@@ -104,9 +104,9 @@ La sélection d’un groupe de machines dans la liste affiche la page Groupes de
 
 ![Affichage de la page d’un groupe de machines](./media/automation-vm-inventory/machine-group-page.png)
 
-Cliquez sur le bouton **+ Cloner** pour cloner le groupe de machines. Ici, vous devez attribuer au groupe un nouveau nom, ainsi qu’un alias pour le groupe. Vous pouvez modifier la définition à ce stade. Après avoir modifié la requête, cliquez sur le bouton **Valider la requête** pour afficher l’aperçu des machines sélectionnées. Lorsque le groupe vous convient, cliquez sur **Créer** pour créer le groupe de machines.
+Cliquez sur **+ Cloner** pour cloner le groupe de machines. Vous devez donner au groupe un nouveau nom, ainsi qu’un alias. Vous pouvez modifier la définition à ce stade. Après avoir modifié la requête, cliquez sur **Valider la requête** pour afficher un aperçu des machines sélectionnées. Lorsque le groupe de machines vous convient, cliquez sur **Créer** pour le créer.
 
-Si vous souhaitez créer un autre groupe de machines, sélectionnez **+ Créer un groupe de machines**. Ce bouton affiche la page **Create a machine group** (Créer un groupe de machines) qui vous permet de définir votre nouveau groupe. Cliquez sur **Créer** pour créer le groupe.
+Si vous souhaitez créer un autre groupe de machines, cliquez sur **+ Créer un groupe de machines**. Ce bouton ouvre la page **Créer un groupe de machines** permettant de définir le nouveau groupe. Cliquez sur **Créer** pour créer le groupe.
 
 ![Création d’un groupe de machines](./media/automation-vm-inventory/create-new-group.png)
 
@@ -115,18 +115,17 @@ Si vous souhaitez créer un autre groupe de machines, sélectionnez **+ Créer u
 Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procédez comme suit :
 
 1. Dans le volet de gauche du portail Azure, cliquez sur **Log Analytics**, puis sélectionnez l’espace de travail que vous avez utilisé lors de l’intégration de votre machine virtuelle.
-2. Dans la fenêtre **Log Analytics**, dans le menu **Ressource**, sous la catégorie **Sources de données de l’espace de travail**, sélectionnez **Machines virtuelles**.
-3. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez déconnecter. Une coche verte s’affiche en regard du texte indiquant **Cet espace de travail** dans la colonne **Connexion OMS**, sur la machine virtuelle.
+2. Sur la page Log Analytics, ouvrez le menu **Ressource**.
+3. Sélectionnez **Machines virtuelles** sous **Sources de données de l’espace de travail**.
+4. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez déconnecter. Une coche verte s’affiche en regard du texte indiquant **Cet espace de travail** dans la colonne **Connexion OMS**, sur la machine virtuelle.
 
    >[!NOTE]
-   >Pour OMS, nous parlons désormais de journaux Azure Monitor.
+   >Pour faire référence à Operations Management Suite (OMS), nous parlons maintenant de journaux Azure Monitor.
    
-4. Sur la partie supérieure de la page suivante, sélectionnez **Déconnecter**.
-5. Dans la fenêtre de confirmation, cliquez sur **Oui**.
-    Cette action déconnecte la machine de la fonction de gestion.
+5. En haut de la page suivante, cliquez sur **Déconnecter**.
+6. Dans la fenêtre de confirmation, cliquez sur **Oui** pour déconnecter la machine de la gestion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la gestion des modifications dans les paramètres de registre et les fichiers sur vos machines virtuelles, consultez l’article relatif au [suivi des modifications apportées à votre environnement logiciel avec la solution Change Tracking](../log-analytics/log-analytics-change-tracking.md).
 * Pour en savoir plus sur la gestion des mises à jour Windows et de packages sur des machines virtuelles, consultez [La solution Update Management dans Azure](../operations-management-suite/oms-solution-update-management.md).
-

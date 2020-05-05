@@ -1,24 +1,24 @@
 ---
-title: Contrat Standard | Azure
+title: Contrat Standard | Place de marché Azure
 description: Contrat Standard pour la Place de marché Azure et AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 00a83a1b3005043f317ed49cafa735540cd21793
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284957"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81681442"
 ---
 # <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrat standard pour la place de marché commerciale de Microsoft
 
 Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un contrat Standard pour la place de marché commerciale de Microsoft afin de faciliter les transactions sur la place de marché. Plutôt que d’élaborer des conditions générales personnalisées, les éditeurs de la place de marché commerciale peuvent choisir de proposer leur logiciel dans le cadre du contrat Standard, que les clients ne doivent accepter qu’une seule fois. Le contrat Standard est disponible ici : [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
 
-Les conditions générales d’une offre sont définies lors de la création de l’offre dans l’Espace partenaires ou le Portail Cloud Partner. Vous pouvez choisir d’utiliser le contrat Standard pour la place de marché commerciale de Microsoft au lieu de fournir vos propres conditions générales.
+Les conditions générales d’une offre sont définies lors de la création de l’offre dans l’Espace partenaires. Vous pouvez choisir d’utiliser le contrat Standard pour la place de marché commerciale de Microsoft au lieu de fournir vos propres conditions générales.
 
 >[!Note]
 >Après avoir publié une offre à l’aide du contrat Standard pour la place de marché commerciale de Microsoft, vous ne pouvez pas utiliser vos propres conditions générales. Vous devez faire un choix entre les deux. Vous proposez votre solution avec le contrat Standard *ou* avec vos propres conditions générales. Si vous souhaitez modifier les conditions du contrat Standard, vous pouvez le faire par le biais des Modifications du contrat Standard.

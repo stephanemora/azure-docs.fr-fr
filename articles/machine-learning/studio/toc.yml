@@ -52,8 +52,6 @@
           href: create-workspace.md
         - name: Gérer
           href: manage-workspace.md
-        - name: Dépanner
-          href: troubleshooting-creating-ml-workspace.md
         - name: Déployer à l’aide d’ARM
           href: deploy-with-resource-manager-template.md
     - name: Importer les données de formation
@@ -84,8 +82,6 @@
               href: algorithm-parameters-optimize.md
             - name: Interpréter les résultats
               href: interpret-model-results.md
-            - name: Débogage
-              href: debug-models.md
         - name: Reformer des modèles
           items:
             - name: "«\_Nouveaux\_» services web"
@@ -96,19 +92,12 @@
           items:
             - name: Bien démarrer dans R
               href: r-get-started.md
-            - name: Exécuter des scripts R
-              href: extend-your-experiment-with-r.md
             - name: Créer des modules R personnalisés
               href: custom-r-modules.md
             - name: Exécuter des scripts Python
               href: execute-python-scripts.md
     - name: Sélectionner un algorithme
-      items:
-        - name: Choisir des algorithmes
-          href: algorithm-choice.md
-        - name: Exemples d'algorithmes
-          displayName: 'infographic, studio basics'
-          href: basics-infographic-with-algorithm-examples.md
+      href: algorithm-choice.md
     - name: Déployer des modèles
       items:
         - name: Déployer un service web
@@ -143,14 +132,6 @@
           href: consuming-from-excel.md
         - name: Utiliser le complément Excel
           href: excel-add-in-for-web-services.md
-    - name: Cas d'utilisation
-      items:
-        - name: Attrition clients
-          href: azure-ml-customer-churn-scenario.md
-        - name: analyse de sentiments
-          href: text-analytics-module-tutorial.md
-        - name: Migrer l’analytique d’Excel vers Studio (classique)
-          href: use-case-excel-studio.md
     - name: Supprimer et exporter les données de clients
       items:
         - name: Données Studio (classique)

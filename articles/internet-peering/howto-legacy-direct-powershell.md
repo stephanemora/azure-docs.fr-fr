@@ -1,39 +1,39 @@
 ---
-title: Convertir un Peering direct hérité en ressource Azure à l’aide de PowerShell
+title: Conversion d’un peering Direct hérité en ressource Azure avec PowerShell
 titleSuffix: Azure
-description: Convertir un Peering direct hérité en ressource Azure à l’aide de PowerShell
+description: Convertissez un peering Direct hérité en ressource Azure avec PowerShell.
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: ba41f4ad8014ba3e85174b7c32e11394f0068643
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d2a8c910c9e384e137785bc1cd491bc85c7e7a8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773884"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678495"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>Convertir un Peering direct hérité en ressource Azure à l’aide de PowerShell
+# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Conversion d’un peering Direct hérité en ressource Azure avec PowerShell
 
-Cet article explique comment convertir un Peering direct hérité existant en ressource Azure à l’aide d’applets de commande PowerShell.
+Cet article explique comment convertir un peering Direct hérité en ressource Azure avec les cmdlets PowerShell.
 
-Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-legacy-direct-portal.md).
+Si vous préférez, vous pouvez suivre ce guide en utilisant le [Portail](howto-legacy-direct-portal.md) Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-* Passez en revue [Configuration requise](prerequisites.md) et [Procédure pas à pas du Peering direct](walkthrough-direct-all.md) avant de commencer la configuration.
+* Lisez les [prérequis](prerequisites.md) et la [procédure pas à pas du peering Direct](walkthrough-direct-all.md) avant de commencer la configuration.
 
-### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Utilisation d’Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Convertir un Peering direct hérité en ressource Azure
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Conversion d’un peering Direct hérité en ressource Azure
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Vous connecter à votre compte Azure et sélectionner votre abonnement
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-legacy-direct-peering-for-conversion"></a><a name= get></a>Obtenir le Peering direct hérité pour la conversion
-Vous trouverez ci-dessous un exemple pour obtenir un Peering direct hérité à l’emplacement de Peering Seattle
+### <a name="get-a-legacy-direct-peering-for-conversion"></a><a name= get></a>Récupération d’un peering Direct hérité pour la conversion
+Cet exemple montre comment obtenir un peering Direct hérité à l’emplacement de peering Seattle.
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -79,13 +79,13 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### <a name="convert-legacy-direct-peering"></a>Convertir un Peering direct hérité
+### <a name="convert-a-legacy-direct-peering"></a>Conversion d’un peering Direct hérité
 
 &nbsp;
 > [!IMPORTANT]
-> Notez que lors de la conversion d’un Peering hérité en ressource Azure, les modifications ne sont pas prises en charge. &nbsp;
+> Lors de la conversion d’un peering hérité en ressource Azure, les modifications ne sont pas prises en charge. &nbsp;
 
-Utilisez la commande ci-dessous pour convertir un Peering direct hérité en ressource Azure :
+Utilisez cette commande pour convertir un peering Direct hérité en ressource Azure :
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -112,7 +112,7 @@ Tags                 : {}
 ```
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant la commande suivante :
+Pour obtenir une description détaillée de tous les paramètres, exécutez cette commande :
 
 ```powershell
 Get-Help Get-AzPeering -detailed
@@ -122,4 +122,4 @@ Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer ou modifier un Peering direct à l’aide de PowerShell](howto-direct-powershell.md).
+* [Création ou modification d’un peering Direct avec PowerShell](howto-direct-powershell.md)

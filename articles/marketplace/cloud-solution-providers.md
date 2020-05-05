@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 9d7cbdd5ad551ba48f08f62237d5384aa7998fb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b962610c585df288a9cb3297ed8e09c8abc5ac0a
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281661"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160645"
 ---
 # <a name="cloud-solution-providers"></a>Fournisseurs de solutions cloud
 
@@ -105,7 +105,7 @@ Si vous avez autorisé un partenaire dans le programme CSP et que ce partenaire 
 
 Si un partenaire du programme CSP n’a pas vendu votre produit à ses clients et que vous souhaitez supprimer le CSP après la publication de votre offre, suivez les instructions ci-dessous :
 
-1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://partner.microsoft.com/support/v2/?stage=1). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -127,7 +127,7 @@ Utilisez cette section pour naviguer entre les trois options pour le revendeur C
 
 Si votre offre est actuellement **Option 1 : Tous les partenaires du programme CSP** et que vous souhaitez accéder à l’une des deux autres options, suivez les instructions ci-dessous pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://partner.microsoft.com/support/v2/?stage=1). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -145,7 +145,7 @@ Si votre offre est actuellement **Option 1 : Tous les partenaires du programme 
 
 Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 1 : Tous les partenaires du programme CSP**, suivez les instructions ci-dessous pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://partner.microsoft.com/support/v2/?stage=1). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -158,7 +158,7 @@ Si votre offre est actuellement **Option 2 : Partenaires spécifiques du progra
 
  Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 3 : Aucun partenaire du programme CSP**, vous ne pouvez accéder à cette option que si les partenaires du programme CSP que vous aviez précédemment autorisés n’ont pas revendu votre offre aux clients finaux. Utilisez les instructions suivantes pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://partner.microsoft.com/support/v2/?stage=1). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -195,4 +195,4 @@ Consultez le [Guide de l’éditeur Place de marché Azure et AppSource](https:/
 
 Pour en savoir plus sur les services GTM de la place de marché, consultez [Services de commercialisation](https://partner.microsoft.com/reach-customers/gtm).
 
-Connectez-vous à [l’Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) ou au [portail Cloud Partner](https://cloudpartner.azure.com/) pour créer et configurer votre offre.
+Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer et configurer votre offre.

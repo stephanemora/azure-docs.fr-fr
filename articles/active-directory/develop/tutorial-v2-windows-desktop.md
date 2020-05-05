@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aa09d06af4706af3ae120f62a897c0bc632fb657
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990937"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181532"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
 Ce guide explique comment une application de bureau Windows .NET (XAML) native utilise un jeton d’accès pour appeler l’API Microsoft Graph. L’application peut également accéder aux autres API qui nécessitent des jetons d’accès d’un point de terminaison de la plateforme d’identité Microsoft v2.0 pour les développeurs. Cette plateforme était anciennement Azure AD.
 
-À la fin de ce guide, votre application sera capable d’appeler une API protégée utilisant des comptes personnels (y compris outlook.com, live.com, etc.). L’application utilisera également des comptes professionnels et scolaires de toute entreprise ou organisation utilisant Azure Active Directory.  
+À la fin de ce guide, votre application sera capable d’appeler une API protégée utilisant des comptes personnels (y compris outlook.com, live.com, etc.). L’application utilisera également des comptes professionnels et scolaires de toute entreprise ou organisation utilisant Azure Active Directory.
 
 > [!NOTE]
 > Ce guide nécessite Visual Studio 2015 Update 3, Visual Studio 2017 ou Visual Studio 2019. Vous n’avez aucune de ces versions ? [Téléchargez Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/).
@@ -38,7 +38,7 @@ L’exemple d’application que vous créez avec ce guide permet à une applicat
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Gestion de l’acquisition de jetons pour accéder à des API web protégées
 
-Une fois l’utilisateur authentifié, l’exemple d’application reçoit un jeton que vous pouvez utiliser pour interroger l’API Microsoft Graph ou une API web sécurisée par la plateforme d’identité Microsoft pour les développeurs.
+Une fois l’utilisateur authentifié, l’exemple d’application reçoit un jeton que vous pouvez utiliser pour interroger l’API Microsoft Graph ou une API web sécurisée par la plateforme d’identités Microsoft pour les développeurs.
 
 Les API comme Microsoft Graph nécessitent un jeton d’accès pour autoriser l’accès à des ressources spécifiques. Par exemple, un jeton est nécessaire pour lire le profil d’un utilisateur, accéder au calendrier d’un utilisateur ou envoyer un e-mail. Votre application peut demander un jeton d’accès à l’aide de MSAL pour accéder à ces ressources en spécifiant les étendues d’API. Ce jeton d’accès est ensuite ajouté à l’en-tête d’autorisation HTTP pour chaque appel effectué sur la ressource protégée.
 
@@ -77,7 +77,7 @@ Pour créer l’application, procédez comme suit :
     Install-Package Microsoft.Identity.Client -Pre
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > Cette commande installe Microsoft Authentication Library. MSAL gère l’acquisition, la mise en cache et l’actualisation des jetons d’utilisateur permettant d’accéder aux API protégées par Azure Active Directory v2.0.
     >
 
@@ -136,7 +136,7 @@ Dans cette étape, vous allez créer une classe pour gérer l’interaction avec
                 .Build();
         }
 
-        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // Below are the clientId (Application Id) of your app registration and the tenant information.
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
         // - the content of Tenant by the information about the accounts allowed to sign-in in your application:
@@ -156,7 +156,7 @@ Dans cette étape, vous allez créer une classe pour gérer l’interaction avec
 
 ## <a name="create-the-application-ui"></a>Créer l’interface utilisateur de l’application
 
-La section suivante explique comment une application peut interroger un serveur principal protégé tel que Microsoft Graph. 
+La section suivante explique comment une application peut interroger un serveur principal protégé tel que Microsoft Graph.
 
 Un fichier *MainWindow.xaml* doit être automatiquement créé dans le cadre de votre modèle de projet. Ouvrez ce fichier et remplacez le nœud *\<Grid>* de votre application par le code suivant :
 
@@ -253,7 +253,6 @@ Dans cette section, vous allez utiliser MSAL pour obtenir un jeton pour l’API 
         }
     ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Informations complémentaires
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
@@ -266,14 +265,13 @@ La méthode `AcquireTokenSilent` gère les acquisitions et renouvellements de je
 
 La méthode `AcquireTokenSilent` peut échouer. Cet échec peut être dû à une déconnexion de l’utilisateur ou à la modification de son mot de passe sur un autre appareil. Quand la bibliothèque MSAL détecte que le problème peut être résolu par une intervention interactive, elle déclenche une exception `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
 
-* Elle peut appeler immédiatement `AcquireTokenInteractive`. Cet appel invite l’utilisateur à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion n’est disponible pour l’utilisateur. L’exemple généré par cette installation guidée utilise ce modèle, que vous pouvez voir en action la première fois que vous exécutez l’exemple. 
+* Elle peut appeler immédiatement `AcquireTokenInteractive`. Cet appel invite l’utilisateur à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion n’est disponible pour l’utilisateur. L’exemple généré par cette installation guidée utilise ce modèle, que vous pouvez voir en action la première fois que vous exécutez l’exemple.
 
-* Aucun utilisateur n’ayant encore utilisé l’application, `PublicClientApp.Users.FirstOrDefault()` contient une valeur null, et une exception `MsalUiRequiredException` est levée. 
+* Aucun utilisateur n’ayant encore utilisé l’application, `PublicClientApp.Users.FirstOrDefault()` contient une valeur null, et une exception `MsalUiRequiredException` est levée.
 
 * Le code de l’exemple gère ensuite cette exception en appelant `AcquireTokenInteractive`, après quoi l’utilisateur est invité à se connecter.
 
 * Il peut également afficher à la place une indication visuelle informant les utilisateurs qu’une connexion interactive est nécessaire, pour permettre à ces derniers de sélectionner le bon moment pour se connecter. L’application peut également effectuer une nouvelle tentative de `AcquireTokenSilent` ultérieurement. Ce modèle est souvent utilisé quand les utilisateurs peuvent utiliser d’autres fonctionnalités de l’application sans interruption, par exemple, quand le contenu hors connexion est disponible dans l’application. Dans ce cas, les utilisateurs peuvent décider de se connecter pour accéder à la ressource protégée ou pour actualiser les informations obsolètes. L’application peut également décider d’effectuer une nouvelle tentative de `AcquireTokenSilent` une fois le réseau rétabli après une indisponibilité temporaire.
-<!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Appeler l’API Microsoft Graph à l’aide du jeton que vous venez d’obtenir
 
@@ -306,11 +304,9 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Informations supplémentaires sur l’envoi d’un appel REST à une API protégée
 
 Dans cet exemple d’application, vous utiliserez la méthode `GetHttpContentWithToken` pour envoyer une requête HTTP `GET` à une ressource protégée qui requiert un jeton, puis pour retourner le contenu à l’appelant. Cette méthode ajoute le jeton acquis à l’en-tête d’autorisation HTTP. Dans cet exemple, la ressource est le point de terminaison *me* de l’API Microsoft Graph, qui affiche les informations de profil de l’utilisateur.
-<!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>Ajouter une méthode pour déconnecter un utilisateur
 
@@ -322,7 +318,7 @@ Pour déconnecter un utilisateur, ajoutez la méthode suivante à votre fichier 
 /// </summary>
 private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
-    var accounts = await App.PublicClientApp.GetAccountsAsync(); 
+    var accounts = await App.PublicClientApp.GetAccountsAsync();
 
     if (accounts.Any())
     {
@@ -341,13 +337,11 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Plus d'informations sur la déconnexion d’utilisateurs
 
 La méthode `SignOutButton_Click` supprime l’utilisateur du cache utilisateur de MSAL en ordonnant à MSAL d’oublier l’utilisateur actuel pour que la demande suivante d’acquisition de jeton n’aboutisse que si elle est effectuée de manière interactive.
 
 Bien que l’application de cet exemple ne prenne en charge qu’un seul utilisateur, MSAL autorise les scénarios où plusieurs comptes peuvent être connectés en même temps. C’est le cas, par exemple, d’une application de messagerie hébergeant plusieurs comptes d’un même utilisateur.
-<!--end-collapse-->
 
 ## <a name="display-basic-token-information"></a>Afficher les informations de base du jeton
 
@@ -368,10 +362,8 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 }
 ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Informations complémentaires
 
 Outre le jeton d’accès qui est utilisé pour appeler l’API Microsoft Graph, MSAL obtient également un jeton d’ID une fois l’utilisateur connecté. Ce jeton contient un petit sous-ensemble d’informations pertinentes pour les utilisateurs. La méthode `DisplayBasicTokenInfo` affiche les informations de base du jeton. Par exemple, le nom affiché et l’ID de l’utilisateur, ainsi que la date d’expiration du jeton et la chaîne qui représente le jeton d’accès lui-même. Si vous cliquez plusieurs fois sur le bouton *Call Microsoft Graph API* (Appeler l’API Microsoft Graph), vous observerez que le même jeton a été réutilisé pour les demandes suivantes. Vous constatez également que la date d’expiration est différée lorsque MSAL détermine qu’il est temps de renouveler le jeton.
-<!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]

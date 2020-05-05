@@ -8,20 +8,20 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 450328fecde3be0ee0cead174c9d172bf3ac1000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155968"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82192984"
 ---
 # <a name="whats-new-in-personalizer"></a>Nouveautés de Personalizer
 
-Découvrir les nouveautés du service. Ces éléments peuvent inclure des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester aux faits des nouveautés du service.  
+Découvrir les nouveautés du service. Ces éléments peuvent inclure des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester aux faits des nouveautés du service.
 
-## <a name="release-notes"></a>Notes de publication 
+## <a name="release-notes"></a>Notes de publication
 
 ### <a name="march-2020"></a>Mars 2020
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 24591c20ed707d9541eece0698ecd6e6b5ddee35
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 9601689bbce9566b52664058911e9c45647152d6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878185"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116816"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configurer des règles de pare-feu IP pour Azure Service Bus
 Par défaut, les espaces de noms Service Bus sont accessibles à partir d’Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez la limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -28,6 +28,20 @@ Cette fonctionnalité est utile dans les scénarios où Azure Service Bus ne do
 
 ## <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Service Bus. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge. Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Service Bus est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP. Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
+
+>[!WARNING]
+> La mise en place de règles de pare-feu peut empêcher d’autres services Azure d’interagir avec Service Bus.
+>
+> Les services Microsoft de confiance ne sont pas pris en charge quand le filtrage d’adresse IP (règles de pare-feu) est implémenté. Ils le seront prochainement.
+>
+> Scénarios courants Azure qui ne fonctionnent pas avec le filtrage d’adresse IP (notez que cette liste **N’EST PAS** exhaustive) :
+> - Intégration à Azure Event Grid
+> - Routes Azure IoT Hub
+> - Azure IoT Device Explorer
+>
+> Les services Microsoft suivants doivent se trouver sur un réseau virtuel
+> - Azure App Service
+> - Azure Functions
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 Cette section explique comment utiliser le portail Azure afin de créer des règles de pare-feu IP pour un espace de noms Service Bus. 
@@ -41,7 +55,7 @@ Cette section explique comment utiliser le portail Azure afin de créer des règ
     2. Dans **Plage d’adresses**, entrez une adresse IPv4 ou une plage d’adresses IPv4 spécifique en notation CIDR. 
     3. Spécifiez si vous voulez **Autoriser les services Microsoft approuvés à contourner ce pare-feu**. 
 
-        ![Pare-feu – Option Tous les réseaux sélectionnée](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+        ![Option Pare-feu - Tous les réseaux sélectionnée](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer les paramètres. Patientez quelques minutes jusqu’à ce que la confirmation s’affiche dans les notifications du portail.
 
 ## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
