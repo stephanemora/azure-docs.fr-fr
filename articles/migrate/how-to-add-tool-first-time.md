@@ -1,17 +1,14 @@
 ---
 title: Ajouter un outil d’évaluation et de migration dans Azure Migrate
 description: Décrit comment créer un projet Azure Migrate et ajouter un outil d’évaluation et de migration.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/16/2020
+ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74185948"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81537727"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Ajouter un outil d’évaluation/de migration pour la première fois
 
@@ -37,28 +34,14 @@ Configurez un nouveau projet de Azure Migrate dans un abonnement Azure et ajoute
 
 1. Dans **Découvrir, évaluer et migrer des serveurs**, cliquez sur **Ajouter des outils**.
 2. Dans **Projet de migration**, sélectionnez votre abonnement Azure, puis créez un groupe de ressources si vous n’en avez pas.
-3. Dans **Détails du projet**, spécifiez le nom du projet ainsi que la zone géographique où vous souhaitez le créer. 
+3. Dans **Détails du projet**, spécifiez le nom du projet ainsi que la zone géographique où vous souhaitez le créer.  Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et [gouvernementaux](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Créer un projet Azure Migrate](./media/how-to-add-tool-first-time/migrate-project.png)
 
-    Vous pouvez créer un projet Azure Migrate dans les zones géographiques suivantes.
+    - La zone géographique spécifiée pour le projet est utilisée uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales. Vous pouvez sélectionner n’importe quelle région cible pour la migration réelle.
+    - Si vous devez déployer un projet dans une région spécifique d’une zone géographique, utilisez l’API suivante pour créer un projet. Spécifiez l’ID d’abonnement, le nom du groupe de ressources et le nom du projet, ainsi que l’emplacement. Passez en revue les zones géographiques ou les régions prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et [gouvernementaux](migrate-support-matrix.md#supported-geographies-azure-government).
 
-   **Zone géographique** | **Région de l’emplacement de stockage**
-    --- | ---
-    Asia   | Asie Sud-Est ou Asie Est
-    Europe | Europe Nord ou Europe Ouest
-    Japon  | Japon Est ou Japon Ouest
-    United Kingdom | Royaume-Uni Sud ou Royaume-Uni Ouest
-    États-Unis | USA Centre ou USA Ouest 2
-    Canada | Centre du Canada
-    Inde  | Inde Centre ou Inde Sud
-    Australie | Australie Sud-Est
-
-    La zone géographique spécifiée pour le projet est utilisée uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales. Vous pouvez sélectionner n’importe quelle région cible pour la migration réelle.
-
-    Si vous souhaitez spécifier une région spécifique dans une zone géographique pour le déploiement du projet de migration et des ressources associées (les restrictions de stratégie de votre abonnement peuvent autoriser le déploiement de ressources Azure uniquement dans une région Azure spécifique), vous pouvez utiliser l’API ci-dessous pour créer un projet de migration. Spécifiez l’ID d’abonnement, le nom du groupe de ressources, le nom du projet Migrate et l’emplacement (n’importe quelle région Azure mentionnée dans le tableau, dans laquelle Azure Migrate est déployé).
-
-    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+        `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
 
 
 4. Cliquez sur **Suivant**, puis ajoutez un outil d’évaluation ou de migration.
@@ -70,7 +53,7 @@ Configurez un nouveau projet de Azure Migrate dans un abonnement Azure et ajoute
 2. Dans **Sélectionner l’outil de migration**, ajoutez un outil de migration en fonction des besoins. Si vous n’avez pas besoin d’un outil de migration pour le moment, sélectionnez **Ignorer l’ajout d’un outil de migration pour l’instant** > **Suivant**.
 3. Dans **Vérifier + ajouter des outils**, passez en revue les paramètres, puis cliquez sur **Ajouter des outils**.
 
-Après avoir créé le projet, vous pouvez sélectionner des outils supplémentaires pour l’évaluation et la migration des serveurs, des charges de travail, des bases de données et des applications Web.
+Après avoir créé le projet, vous pouvez sélectionner des outils supplémentaires pour l’évaluation et la migration des serveurs, des charges de travail, des bases de données et des applications web.
 
 ## <a name="create-additional-projects"></a>Créer des projets supplémentaires
 

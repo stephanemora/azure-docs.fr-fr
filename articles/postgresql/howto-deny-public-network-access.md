@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 4dff2321414721dbd415b468e59aea0ab4b3acee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79372731"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Refus d’accès réseau public dans Azure Database pour PostgreSQL – Serveur unique avec le Portail Azure
 
 Cet article explique comment configurer un serveur unique Azure Database pour PostgreSQL de façon à refuser toutes les configurations publiques et à n’autoriser que les connexions établies via des points de terminaison privés afin d’améliorer la sécurité réseau.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser ce guide pratique, il vous faut :
 
 * Un [Serveur unique Azure Database pour PostgreSQL](quickstart-create-PostgreSQL Single server-server-database-using-azure-portal.md)
 
-## <a name="set-deny-public-network-access"></a>Définition du refus d’accès réseau public
+## <a name="set-deny-public-network-access"></a>Définir le refus d’accès au réseau public
 
 Suivez les étapes ci-dessous pour définir le refus d’accès réseau public pour un serveur unique PostgreSQL :
 
@@ -37,7 +37,7 @@ Suivez les étapes ci-dessous pour définir le refus d’accès réseau public p
 
 1. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
-1. Une notification confirme que le paramètre de sécurité des connexions a bien été activé.
+1. Une notification confirme que le paramètre de sécurité de la connexion a bien été activé.
 
     ![Azure Database pour PostgreSQL – Serveur unique – Refus d’accès réseau réussi](./media/howto-deny-public-network-access/deny-public-network-access-success.png)
 

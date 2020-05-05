@@ -12,10 +12,10 @@ ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79218975"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
@@ -89,7 +89,7 @@ Le point de terminaison de l’API REST a le format suivant :
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Remplacez `<REGION_IDENTIFIER>` par l’identificateur correspondant à la région de votre abonnement dans le tableau suivant :
+Remplacez `<REGION_IDENTIFIER>` par l'identificateur correspondant à la région de votre abonnement dans le tableau suivant :
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
