@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188432"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678102"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Par exemple : `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Par exemple : `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Sélectionnez **Inscription**. Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
 1. Sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.
@@ -57,10 +57,10 @@ Si vous souhaitez obtenir les revendications `family_name` et `given_name` à pa
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
 1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
-1. Dans la section **Gérer**, sélectionnez **Configuration de jetons (préversion)** .
+1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
 1. Sélectionnez **Ajouter une revendication facultative**.
-1. Sélectionnez le type de jeton que vous souhaitez configurer.
-1. Sélectionnez les revendications facultatives à ajouter.
+1. Dans **Type de jeton**, sélectionnez **ID**.
+1. Sélectionnez les revendications facultatives à ajouter, `family_name` et `given_name`.
 1. Cliquez sur **Add**.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie

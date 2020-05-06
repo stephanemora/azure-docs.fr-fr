@@ -4,18 +4,18 @@ description: Découvrez la clause SQL ORDER BY pour Azure Cosmos DB. Utilisez SQ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/17/2020
 ms.author: tisande
-ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188731"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81641392"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clause ORDER BY dans Azure Cosmos DB
 
-La clause ORDER BY facultative spécifie l’ordre de tri des résultats retournés par la requête.
+La clause `ORDER BY` facultative spécifie l’ordre de tri des résultats retournés par la requête.
 
 ## <a name="syntax"></a>Syntaxe
   
@@ -31,9 +31,9 @@ ORDER BY <sort_specification>
   
    Spécifie une propriété ou expression sur laquelle trier le jeu de résultats de requête. Une colonne de tri peut être spécifiée en tant qu’alias de nom ou de propriété.  
   
-   Plusieurs propriétés peuvent être spécifiées. Les noms de propriété doivent être uniques. La séquence des propriétés de tri dans la clause ORDER BY détermine l’organisation du jeu de résultats trié. Autrement dit, le jeu de résultats est trié par la première propriété, puis cette liste triée est triée par la deuxième propriété, et ainsi de suite.  
+   Plusieurs propriétés peuvent être spécifiées. Les noms de propriété doivent être uniques. La séquence des propriétés de tri dans la clause `ORDER BY` détermine l’organisation du jeu de résultats trié. Autrement dit, le jeu de résultats est trié par la première propriété, puis cette liste triée est triée par la deuxième propriété, et ainsi de suite.  
   
-   Les noms de propriétés référencés dans la clause ORDER BY doivent correspondre à une propriété dans la liste de sélection ou à une propriété définie dans la collection spécifiée dans la clause FROM sans ambiguïté.  
+   Les noms de propriétés référencés dans la clause `ORDER BY` doivent correspondre à une propriété dans la liste de sélection ou à une propriété définie dans la collection spécifiée dans la clause `FROM` sans ambiguïté.  
   
 - `<sort_expression>`  
   
@@ -45,9 +45,9 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Spécifie que les valeurs dans la colonne spécifiée doivent être triées par ordre croissant ou décroissant. ASC effectue le tri de la valeur la plus faible à la valeur la plus élevée. DESC effectue le tri de la valeur la plus élevée à la valeur la plus faible. ASC correspond à l'ordre de tri par défaut. Les valeurs NULL sont traitées comme les plus petites valeurs possibles.  
+   Spécifie que les valeurs dans la colonne spécifiée doivent être triées par ordre croissant ou décroissant. `ASC` effectue le tri de la valeur la plus faible à la valeur la plus élevée. `DESC` effectue le tri de la valeur la plus élevée à la valeur la plus faible. `ASC` correspond à l’ordre de tri par défaut. Les valeurs NULL sont traitées comme les plus petites valeurs possibles.  
   
-## <a name="remarks"></a>Notes  
+## <a name="remarks"></a>Notes   
   
    La clause `ORDER BY` nécessite que la stratégie d’indexation comprenne un index pour les champs de tri. Le runtime de requête Azure Cosmos DB prend en charge le tri par rapport à un nom de propriété et non par rapport à des propriétés calculées. Azure Cosmos DB prend en charge plusieurs propriétés `ORDER BY`. Pour exécuter une requête avec plusieurs propriétés ORDER BY, vous devez définir un [index composite](index-policy.md#composite-indexes) sur les champs de tri.
 
@@ -152,7 +152,7 @@ Les résultats incluent uniquement le document dont `lastName` est définie :
     ]
 ```
 
-Si nous mettons à jour la stratégie d’indexation du conteneur pour inclure explicitement un chemin d’accès pour `lastName`, nous inclurons des documents avec une propriété de tri non définie dans les résultats de la requête. Vous devez définir explicitement le chemin d’accès menant à cette valeur scalaire (et non au-delà de celle-ci). Vous devez utiliser le caractère `?` dans la définition de votre chemin d’accès dans la stratégie d’indexation pour vous assurer que vous indexez explicitement la propriété `lastName` et qu’il n’y a pas d’autres chemins d’accès imbriqués au-delà.
+Si nous mettons à jour la stratégie d’indexation du conteneur pour inclure explicitement un chemin d’accès pour `lastName`, nous inclurons des documents avec une propriété de tri non définie dans les résultats de la requête. Vous devez définir explicitement le chemin d’accès menant à cette valeur scalaire (et non au-delà de celle-ci). Vous devez utiliser le caractère `?` dans la définition de votre chemin d’accès dans la stratégie d’indexation pour vous assurer que vous indexez explicitement la propriété `lastName` et qu’il n’y a pas d’autres chemins d’accès imbriqués au-delà. Si votre requête `Order By` utilise un [index composite](index-policy.md#composite-indexes), les résultats incluront toujours les documents avec une propriété de tri non définie dans les résultats de la requête.
 
 Voici un exemple de stratégie d’indexation qui vous permet d’afficher des documents avec une propriété `lastName` non définie dans les résultats de la requête :
 

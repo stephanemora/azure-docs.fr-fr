@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/19/2020
 ms.openlocfilehash: b42f0d7a8146f7f2b313959273abd22303c89a60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062544"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Journaux d’audit dans Azure Database pour MySQL
@@ -143,7 +143,7 @@ Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELEC
 
 Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le biais des journaux de diagnostic, vous pouvez effectuer une analyse plus poussée de vos événements audités. Voici quelques exemples de requêtes pour vous aider à commencer. Veillez à mettre à jour les exemples ci-dessous avec le nom de votre serveur.
 
-- Lister les événements GÉNÉRAUX sur un serveur spécifique :
+- Lister les événements généraux (GENERAL) sur un serveur spécifique
 
     ```kusto
     AzureDiagnostics
@@ -153,7 +153,7 @@ Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le 
     | order by TimeGenerated asc nulls last 
     ```
 
-- Lister les événements de CONNEXION sur un serveur spécifique :
+- Lister les événements de connexion (CONNECTION) sur un serveur spécifique
 
     ```kusto
     AzureDiagnostics
@@ -163,7 +163,7 @@ Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le 
     | order by TimeGenerated asc nulls last
     ```
 
-- Résumer les événements audités sur un serveur spécifique :
+- Récapituler les événements audités sur un serveur spécifique
 
     ```kusto
     AzureDiagnostics

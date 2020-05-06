@@ -4,12 +4,12 @@ description: Découvrez comment les adresses IP entrantes et sortantes sont util
 ms.topic: article
 ms.date: 06/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235693"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81537625"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Adresses IP entrantes et sortantes dans Azure App Service
 
@@ -23,7 +23,7 @@ Quel que soit le nombre d’instances scale-out, chaque application a une seule 
 
 - Supprimer une application, puis la recréer dans un autre groupe de ressources.
 - Supprimer la dernière application dans une combinaison de groupe de ressources _et_ de région, puis la recréer.
-- Supprimer une liaison SSL existante, comme pendant un renouvellement de certificat (veuillez consulter [Renouveler un certificat](configure-ssl-certificate.md#renew-certificate)).
+- Supprimer une liaison TLS existante, comme pendant un renouvellement de certificat (veuillez consulter [Renouveler un certificat](configure-ssl-certificate.md#renew-certificate)).
 
 ## <a name="find-the-inbound-ip"></a>Rechercher l’IP entrante
 
@@ -35,7 +35,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>Obtenir une adresse IP entrante statique
 
-Vous pouvez avoir besoin d’une adresse IP statique dédiée pour votre application. Pour obtenir une adresse IP entrante statique, vous devez configurer une [liaison SSL basée sur l’adresse IP](configure-ssl-bindings.md#secure-a-custom-domain). Si vous n’avez pas besoin de la fonctionnalité SSL pour sécuriser votre application, vous pouvez même télécharger un certificat auto-signé pour cette liaison. Dans une liaison SSL basée sur l’adresse IP, le certificat est lié à l’adresse IP elle-même. App Service fournit donc une adresse IP statique pour que cela se produise. 
+Vous pouvez avoir besoin d’une adresse IP statique dédiée pour votre application. Pour obtenir une adresse IP entrante statique, vous devez [sécuriser un domaine personnalisé](configure-ssl-bindings.md#secure-a-custom-domain). Si vous n’avez pas besoin de la fonctionnalité TLS pour sécuriser votre application, vous pouvez même charger un certificat autosigné pour cette liaison. Dans une liaison TLS basée sur l’adresse IP, le certificat est lié à l’adresse IP elle-même. App Service fournit donc une adresse IP statique pour que cela se produise. 
 
 ## <a name="when-outbound-ips-change"></a>Lorsque les adresses IP sortantes changent
 

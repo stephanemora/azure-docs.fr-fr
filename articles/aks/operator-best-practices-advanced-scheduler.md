@@ -5,12 +5,12 @@ description: Découvrir les bonnes pratiques de l’opérateur relatives à l’
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668359"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617522"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -134,7 +134,7 @@ Pour plus d’informations sur l’utilisation de sélecteurs de nœud, consulte
 
 Un sélecteur de nœud est un moyen simple d’affecter des pods à un nœud donné. Pour plus de flexibilité, utilisez l’*affinité de nœud*. Avec l’affinité de nœud, vous définissez ce qui se passe si le pod ne peut pas être mis en correspondance avec un nœud. Vous pouvez *exiger* que le planificateur Kubernetes mette en correspondance un pod avec un hôte étiqueté. Vous pouvez également *préférer* une correspondance, mais autoriser la planification du pod sur un autre hôte si aucune correspondance n’est disponible.
 
-L’exemple suivant définit l’affinité de nœud avec la valeur *requiredDuringSchedulingIgnoredDuringExecution*. Selon cette affinité, la planification Kubernetes doit utiliser un nœud avec une étiquette correspondante. Si aucun nœud n’est disponible, le pod doit attendre pour que planification puisse se poursuivre. Pour autoriser la planification du pod sur un autre nœud, vous pouvez affecter à la place *preferredDuringScheduledIgnoreDuringExecution* :
+L’exemple suivant définit l’affinité de nœud avec la valeur *requiredDuringSchedulingIgnoredDuringExecution*. Selon cette affinité, la planification Kubernetes doit utiliser un nœud avec une étiquette correspondante. Si aucun nœud n’est disponible, le pod doit attendre pour que planification puisse se poursuivre. Pour autoriser la planification du pod sur un autre nœud, vous pouvez définir la valeur *preferredDuringSchedulingIgnoreDuringExecution* :
 
 ```yaml
 kind: Pod

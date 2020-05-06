@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/13/2020
-ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: 8d4e9a1e255884b9250879ab486d7a4e2849473a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770891"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192091"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 
@@ -141,11 +141,6 @@ Voici une description de quelques icônes présentes dans la fenêtre :
 |SSH + Connexion du cluster|Fournit les informations nécessaires pour accéder au cluster à l’aide de SSH.|
 |DELETE|permet de supprimer le cluster HDInsight.|
 
-## <a name="customize-clusters"></a>Personnaliser des clusters
-
-* [Personnaliser des clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
-* [Personnaliser des clusters HDInsight Linux à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md)
-
 ## <a name="delete-the-cluster"></a>Supprimer le cluster
 
 Consultez [Suppression d’un cluster HDInsight avec votre navigateur, PowerShell ou l’interface de ligne de commande Azure](./hdinsight-delete-cluster.md).
@@ -160,5 +155,4 @@ Vous avez créé un cluster HDInsight. Apprenez maintenant à l’utiliser.
 
 * [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
 * [Bien démarrer avec Apache HBase sur HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Développer des topologies Java pour Apache Storm sur HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Créer une application autonome à l’aide de Scala](spark/apache-spark-create-standalone-application.md)
+* [Personnaliser des clusters HDInsight Linux à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md)

@@ -7,17 +7,17 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/12/2019
-ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/15/2020
+ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418420"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81606116"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dérive de schéma dans le flux de données de mappage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Il y a dérive de schéma quand les métadonnées de vos sources sont fréquemment mises à jour. Des champs, colonnes et types peuvent être ajoutés, supprimés ou modifiés à la volée. Sans gestion de la dérive de schéma, votre flux de données devient vulnérable aux modifications apportées aux sources de données en amont. En cas de modification des colonnes et des champs entrants, les modèles ETL types échouent, car ils sont généralement liés à ces noms de source.
 
@@ -30,6 +30,10 @@ Pour vous protéger contre la dérive de schéma, il est important de disposer d
 Azure Data Factory prend en charge en mode natif des schémas flexibles qui passent d’une exécution à une autre pour que vous puissiez générer une logique de transformation de données générique sans devoir recompiler vos flux de données.
 
 Vous devez prendre une décision relative à l’architecture de votre flux de données pour accepter la dérive de schéma dans celui-ci. Lorsque vous effectuez cette opération, vous pouvez vous protéger contre les modifications de schéma à partir des sources. Toutefois, vous perdez alors la liaison anticipée de vos colonnes et types tout au long de votre flux de données. Azure Data Factory traite les flux d’une dérive de schéma en tant que flux de la liaison tardive. Ainsi, quand vous générez vos transformations, les noms des colonnes dérivées ne sont pas disponibles dans les vues de schéma dans le flux.
+
+Cette vidéo présente quelques-unes des solutions complexes que vous pouvez facilement mettre en place dans ADF avec la fonctionnalité de dérive de schéma du flux de données. Dans cet exemple, nous créons des modèles réutilisables basés sur des schémas flexibles de base de données :
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## <a name="schema-drift-in-source"></a>Dérive de schéma dans la source
 

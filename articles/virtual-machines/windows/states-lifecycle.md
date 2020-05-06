@@ -1,24 +1,18 @@
 ---
 title: Cycle de vie et états d’une machine virtuelle Windows dans Azure
 description: Vue d’ensemble du cycle de vie d’une machine virtuelle Windows dans Azure, y compris des descriptions des différents états qu’une machine virtuelle peut avoir à n’importe quel moment.
-services: virtual-machines-windows
-documentationcenter: ''
 author: shandilvarun
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: f7823d0e34fb6a79e79e9feab8eea77785b3d0da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbe236cc4a407cca78f7f7ab64f3809797c02614
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74068223"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100598"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Cycle de vie et états des machines virtuelles
 

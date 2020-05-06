@@ -2,13 +2,13 @@
 title: Prise en charge de la migration Hyper-V dans Azure Migrate
 description: Découvrez la prise en charge de la migration Hyper-V avec Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 8ec0b72cac75518ac938faa202b28d055409e8dc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225421"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81538186"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matrice de prise en charge pour la migration Hyper-V
 
@@ -23,19 +23,45 @@ Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la r
 
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
-| **Déploiement**       | L'hôte Hyper-V peut être autonome ou déployé dans un cluster. <br/>Le logiciel de réplication Azure Migrate (fournisseur de réplication Hyper-V) doit être installé sur les hôtes Hyper-V.|
+| **Déploiement**       | L'hôte Hyper-V peut être autonome ou déployé dans un cluster. <br/>Le logiciel de réplication Azure Migrate (fournisseur de réplication Hyper-V) est installé sur les hôtes Hyper-V.|
 | **autorisations**           | Vous avez besoin des droits d'administrateur sur l'hôte Hyper-V. |
 | **Système d'exploitation hôte** | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2. |
-| **Accès URL** | Le logiciel du fournisseur de réplication sur les hôtes Hyper-V doit accéder à ces URL :<br/><br/> – login.microsoftonline.com: Contrôle d’accès et gestion des identités avec Active Directory.<br/><br/> – *.backup.windowsazure.com: Transfert des données de réplication et coordination. URL du service de migration.<br/><br/> – *.blob.core.windows.net: Chargez des données dans des comptes de stockage.<br/><br/> – dc.services.visualstudio.com: Chargez les journaux d’applications utilisés pour la supervision interne.<br/><br/> - time.windows.com : Vérifie la synchronisation horaire entre l’horloge système et l’heure globale.
 | **Accès au port** |  Connexions sortantes sur le port HTTPS 443 pour envoyer les données de réplication des machines virtuelles.
+
+### <a name="url-access-public-cloud"></a>Accès URL (cloud public)
+
+Le logiciel du fournisseur de réplication sur les hôtes Hyper-V doit accéder à ces URL.
+
+**URL** | **Détails**
+--- | ---
+login.microsoftonline.com | Contrôle d’accès et gestion des identités avec Active Directory.
+backup.windowsazure.com | Transfert des données de réplication et coordination.
+*.hypervrecoverymanager.windowsazure.com | Utilisée pour la migration.
+*.blob.core.windows.net | Chargez des données dans des comptes de stockage. 
+dc.services.visualstudio.com | Chargez les journaux d’applications utilisés pour la supervision interne.
+time.windows.com | Vérifie la synchronisation horaire entre l’horloge système et l’heure globale.
+
+### <a name="url-access-azure-government"></a>Accès URL (Azure Government)
+
+Le logiciel du fournisseur de réplication sur les hôtes Hyper-V doit accéder à ces URL.
+
+**URL** | **Détails**
+--- | ---
+login.microsoftonline.us | Contrôle d’accès et gestion des identités avec Active Directory.
+backup.windowsazure.us | Transfert des données de réplication et coordination.
+*.hypervrecoverymanager.windowsazure.us | Utilisée pour la migration.
+*.blob.core.usgovcloudapi.net | Chargez des données dans des comptes de stockage.
+dc.services.visualstudio.com | Chargez les journaux d’applications utilisés pour la supervision interne.
+time.nist.gov | Vérifie la synchronisation horaire entre l’horloge système et l’heure globale.
+
 
 ## <a name="hyper-v-vms"></a>Machines virtuelles Hyper-V
 
 | **Support**                  | **Détails**               
 | :----------------------------- | :------------------- |
 | **Système d’exploitation** | Tous les systèmes d'exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) pris en charge par Azure. |
-| **Modifications nécessaires pour Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure. Vous devez effectuer les ajustements manuellement avant la migration. Les articles pertinents contiennent des instructions sur la façon de procéder. |
-| **Démarrage Linux**                 | Si /boot se trouve sur une partition dédiée, il doit être le disque du système d’exploitation et ne pas être réparti sur plusieurs disques.<br/> Si /boot fait partie de la partition racine (/), la partition « / » doit se trouver sur le disque du système d’exploitation et ne pas s’étendre sur d’autres disques. |
+| **Modifications nécessaires pour Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure. Effectuez les ajustements manuellement avant la migration. Les articles pertinents contiennent des instructions sur la façon de procéder. |
+| **Démarrage Linux**                 | Si /boot se trouve sur une partition dédiée, il doit être le disque du système d’exploitation et ne pas être réparti sur plusieurs disques.<br/> Si /boot fait partie de la partition racine (/), la partition « / » doit se trouver sur le disque du système d’exploitation et ne pas s’étendre sur d’autres disques. |
 | **Démarrage UEFI**                  | La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS. La machine virtuelle doit exécuter Windows Server 2012 ou une version ultérieure uniquement. Le disque du système d’exploitation ne doit pas comporter plus de cinq partitions et la taille du disque du système d’exploitation doit être inférieure à 300 Go.
   |
 | **Taille du disque**                  | 2 To pour le disque du système d’exploitation ; 4 To pour les disques de données.

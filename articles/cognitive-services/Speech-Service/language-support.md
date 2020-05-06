@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 2a876349af2bd53a46737dda82961afe442bae05
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0b6fea381bd6b4aa8ad3e7061e6f632176c41033
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81401080"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82113831"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -36,12 +36,12 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Paramètres régionaux  | Langage                          | Prise en charge | Personnalisations                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Arabe (Émirats arabes unis)                      | Oui       | Non                                                |
+| `ar-AE` | Arabe (Émirats arabes unis)                      | Oui       | Non                                                 |
 | `ar-BH` | Arabe (Bahreïn), standard moderne | Oui       | Modèle de langage                                    |
 | `ar-EG` | Arabe (Égypte)                    | Oui       | Modèle de langage                                    |
-| `ar-KW` | Arabe (Koweït)                   | Oui       | Non                                                |
-| `ar-QA` | Arabe (Qatar)                    | Oui       | Non                                                |
-| `ar-SA` | Arabe (Arabie saoudite)             | Oui       | Non                                                |
+| `ar-KW` | Arabe (Koweït)                   | Oui       | Non                                                 |
+| `ar-QA` | Arabe (Qatar)                    | Oui       | Non                                                 |
+| `ar-SA` | Arabe (Arabie saoudite)             | Oui       | Non                                                 |
 | `ar-SY` | Arabe (Syrie)                    | Oui       | Modèle de langage                                    |
 | `ca-ES` | Catalan                           | Oui       | Modèle de langage                                    |
 | `da-DK` | Danois (Danemark)                  | Oui       | Modèle de langage                                    |
@@ -71,9 +71,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ru-RU` | Russe (Russie)                  | Oui       | Modèle acoustique<br>Modèle de langage                  |
 | `sv-SE` | Suédois (Suède)                  | Oui       | Modèle de langage                                    |
 | `ta-IN` | Tamoul (Inde)                     | Oui       | Modèle de langage                                    |
-| `te-IN` | Télougou (Inde)                    | Oui       | Non                                                |
-| `th-TH` | Thaï (Thaïlande)                   | Oui       | Non                                                |
-| `tr-TR` | Turc (Turquie)                  | Oui       | Non                                                |
+| `te-IN` | Télougou (Inde)                    | Oui       | Non                                                 |
+| `th-TH` | Thaï (Thaïlande)                   | Oui       | Non                                                 |
+| `tr-TR` | Turc (Turquie)                  | Oui       | Non                                                 |
 | `zh-CN` | Chinois (mandarin, simplifié)    | Oui       | Modèle acoustique<br>Modèle de langage                  |
 | `zh-HK` | Chinois (cantonais, traditionnel)  | Oui       | Modèle de langage                                    |
 | `zh-TW` | Chinois (mandarin, taïwanais)      | Oui       | Modèle de langage                                    |
@@ -241,6 +241,7 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 | Français                  | `fr`          |
 | Allemand                  | `de`          |
 | Grec                   | `el`          |
+| Goudjrati                | `gu`          |
 | Créole haïtien          | `ht`          |
 | Hébreu                  | `he`          |
 | Hindi                   | `hi`          |
@@ -261,6 +262,8 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 | Malais                   | `ms`          |
 | Malayalam               | `ml`          |
 | Maltais                 | `mt`          |
+| Maori                   | `mi`          |
+| Marathi                 | `mr`          |
 | Norvégien               | `nb`          |
 | Persan                 | `fa`          |
 | Polonais                  | `pl`          |

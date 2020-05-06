@@ -4,12 +4,12 @@ description: Vue d’ensemble des alertes dans Azure. Alertes, alertes classique
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234333"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81769765"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -125,7 +125,10 @@ Pour afficher la page **Règles**, sélectionnez **Gérer les règles d’alerte
 
 
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
-Vous pouvez créer des alertes de manière cohérente, quel que soit le service d’analyse ou le type de signal. Toutes les alertes déclenchées et les détails connexes sont disponibles sur une seule page.
+Vous pouvez créer des règles d’alerte de manière cohérente, quel que soit le service d’analyse ou le type de signal.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+
  
 Voici comment créer une règle d’alerte :
 1. Choisissez la _cible_ de l’alerte.

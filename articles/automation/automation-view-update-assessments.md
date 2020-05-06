@@ -1,30 +1,30 @@
 ---
-title: Afficher les évaluations des mises à jour Azure Update Management
+title: Affichage des évaluations des mises à jour Azure Automation Update Management
 description: Cet article explique comment voir les évaluations des mises à jour pour Update Management.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235449"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617386"
 ---
-# <a name="view-azure-update-management-update-assessments"></a>Afficher les évaluations des mises à jour Azure Update Management
+# <a name="view-azure-automation-update-management-update-assessments"></a>Affichage des évaluations des mises à jour Azure Automation Update Management
 
 Dans votre compte Azure Automation, sélectionnez **Update Management** pour voir l’état de vos machines.
 
 Cet affichage fournit des informations sur vos ordinateurs, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés. Dans la colonne **CONFORMITÉ**, vous pouvez voir quand l’ordinateur a été évalué pour la dernière fois. Dans la colonne **METTRE À JOUR LA DISPONIBILITÉ DE L’AGENT**, vous pouvez voir l’intégrité de l’agent de mise à jour. En cas de problème, sélectionnez le lien pour accéder à la documentation de résolution des problèmes, qui peut vous aider à remédier au problème.
 
-Pour exécuter une recherche dans les journaux qui permet de retourner des informations sur l’ordinateur, la mise à jour ou le déploiement, sélectionnez l’élément correspondant dans la liste. Le volet **Recherche dans les journaux** s’ouvre avec une requête sur l’élément sélectionné :
+Pour exécuter une recherche dans les journaux qui permet de retourner des informations sur l’ordinateur, la mise à jour ou le déploiement, sélectionnez l’élément correspondant dans la liste. Le volet Recherche dans les journaux s’ouvre sur une requête portant sur l’élément sélectionné.
 
 ![Vue par défaut de Update Management](media/automation-update-management/update-management-view.png)
 
 ## <a name="view-missing-updates"></a>Afficher les mises à jour manquantes
 
-Sélectionnez **Mises à jour manquantes** pour afficher la liste des mises à jour qui manquent à vos ordinateurs. Chaque mise à jour est répertoriée et peut être sélectionnée. Les informations sur le nombre de machines qui nécessitent la mise à jour, les détails sur le système d’exploitation et un lien permettant d’obtenir plus d’informations sont tous affichés. Le volet **Recherche dans les journaux** affiche également plus d’informations sur les mises à jour.
+Sélectionnez **Mises à jour manquantes** pour afficher la liste des mises à jour qui manquent à vos ordinateurs. Chaque mise à jour est répertoriée et peut être sélectionnée. Les informations sur le nombre de machines qui nécessitent la mise à jour, les détails sur le système d’exploitation et un lien permettant d’obtenir plus d’informations sont tous affichés. Le volet Recherche dans les journaux présente également d’autres informations sur les mises à jour.
 
 ![Mises à jour manquantes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
@@ -32,18 +32,18 @@ Sélectionnez **Mises à jour manquantes** pour afficher la liste des mises à j
 
 Les tableaux suivants répertorient les classifications des mises à jour prises en charge dans Update Management, avec une définition de chaque classification.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 |classification ;  |Description  |
 |---------|---------|
-|Mises à jour critiques     | Mise à jour d’un problème spécifique qui concerne un bogue critique non lié à la sécurité.        |
-|Mises à jour de sécurité     | Mise à jour pour un problème de sécurité propre à un produit.        |
-|Correctifs cumulatifs     | Cumul de correctifs logiciels regroupés pour faciliter leur déploiement.        |
+|Mises à jour critiques     | Mises à jour relatives à des problèmes spécifiques concernant des bogues critiques non liés à la sécurité.        |
+|Mises à jour de sécurité     | Mises à jour relatives à des problèmes de sécurité propres à un produit.        |
+|Correctifs cumulatifs     | Ensembles de correctifs logiciels regroupés pour faciliter leur déploiement.        |
 |Packs de fonctionnalités     | Nouvelles fonctionnalités de produit distribuées en dehors d’une version de produit.        |
-|Service Packs     | Cumul de correctifs logiciels appliqués à une application.        |
-|Mises à jour de définitions     | Mise à jour de fichiers de virus ou d’autres définitions.        |
-|Outils     | Utilitaire ou fonctionnalité permettant d’effectuer une ou plusieurs tâches.        |
-|Mises à jour     | Mise à jour d’une application ou d’un fichier actuellement installé.        |
+|Service Packs     | Ensembles de correctifs logiciels appliqués à une application.        |
+|Mises à jour de définitions     | Mises à jour de fichiers de définition de virus ou autre.        |
+|Outils     | Utilitaires ou fonctionnalités permettant d’effectuer une ou plusieurs tâches.        |
+|Mises à jour     | Mises à jour d’applications ou de fichiers actuellement installés.        |
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
 

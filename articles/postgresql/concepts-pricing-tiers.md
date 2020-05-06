@@ -1,17 +1,17 @@
 ---
 title: Niveaux tarifaires - Azure Database pour PostgreSQL – Serveur unique
 description: Cet article décrit les options de calcul et de stockage dans Azure Database pour PostgreSQL – Serveur unique.
-author: jan-eng
-ms.author: janeng
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 2e5b01a271eb290229904fc98d1268760e01620d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95795f287a369edec84b68ac920874808966ff1e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224725"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82097079"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
 
